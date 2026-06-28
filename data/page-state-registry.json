@@ -35,24 +35,24 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1105,
+  "totalPages": 1110,
   "byState": {
-    "candidate": 310,
+    "candidate": 315,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 311,
+    "authored": 316,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 311,
+    "authored-page": 316,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate-needs-operator-review": 174,
+    "publication-candidate-needs-operator-review": 179,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -64,7 +64,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
-    "manifesto": 168,
+    "manifesto": 173,
     "product-reference": 50,
     "dashboard-reference": 17,
     "protocol-reference": 50,
@@ -96,6 +96,10 @@
       "candidate": 49,
       "source-companion": 172
     },
+    "volume-02-bootstrap-and-proof-of-value": {
+      "candidate": 46,
+      "source-companion": 238
+    },
     "volume-03-listing-power-and-orderbooks": {
       "candidate": 63,
       "source-companion": 155
@@ -103,10 +107,6 @@
     "volume-07-product-trading-and-risk": {
       "candidate": 46,
       "source-companion": 30
-    },
-    "volume-02-bootstrap-and-proof-of-value": {
-      "candidate": 41,
-      "source-companion": 238
     },
     "volume-08-dashboard-faq-and-living-docs": {
       "candidate": 15,
@@ -129,13 +129,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 310,
+  "publicCandidatePages": 315,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 310,
-  "retrievalEligiblePages": 1102,
-  "reviewRequiredPages": 969,
-  "exactQuestionRoutedPages": 289,
+  "publicNavigationPages": 315,
+  "retrievalEligiblePages": 1107,
+  "reviewRequiredPages": 974,
+  "exactQuestionRoutedPages": 294,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -173,6 +173,7 @@
   ],
   "publicCandidateSamplePageIds": [
     "authored-active-risk-management-vs-passive-physics",
+    "authored-adversarial-selection-pressure",
     "authored-agency-model-over-casino-model",
     "authored-ai-solver-verification-thesis",
     "authored-amfq-legacy-intent-naming",
@@ -195,8 +196,7 @@
     "authored-cross-market-risk-mutualization",
     "authored-crypto-market-access-disconnect",
     "authored-curated-venues-inherit-asymmetric-blame",
-    "authored-curation-cost-distorts-listings",
-    "authored-dashboard-faq"
+    "authored-curation-cost-distorts-listings"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -226,6 +226,30 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative",
         "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-adversarial-selection-pressure",
+      "title": "Adversarial Selection Pressure",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/adversarial-selection-pressure.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -2502,6 +2526,30 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-long-only-market-hype-filter",
+      "title": "Long-Only Markets Filter For Hype",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/long-only-market-hype-filter.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-long-tail-perp-model-map",
       "title": "The Long-Tail Perp Model Map",
       "section": "manifesto",
@@ -2981,6 +3029,30 @@
         "server/routes/me.js",
         "Linear SYN-200",
         "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-no-button-market-filter",
+      "title": "The NO Button As Market Filter",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/no-button-market-filter.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -3680,6 +3752,30 @@
       ],
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-profitable-fact-checking-loop",
+      "title": "Profitable Fact-Checking Loop",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/profitable-fact-checking-loop.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -4654,6 +4750,30 @@
         "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-3-truth-as-a-derivative",
         "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/04-the-missing-no-button#4-2-the-no-button-as-filter",
         "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/08-the-thumbs-down#8-5-the-philosophy"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-shorting-at-launch-immune-system",
+      "title": "Shorting At Launch As Market Immune System",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/shorting-at-launch-immune-system.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

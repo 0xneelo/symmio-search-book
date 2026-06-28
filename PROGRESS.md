@@ -604,6 +604,12 @@
 - Routed five new Ask questions so solver, LP, and project readers can inspect how the waterfall allocates flow, risk premium, inventory execution, and capacity compensation.
 - Kept live solver routing, quote policy, vault custody, execution venues, TWAP behavior, slippage allocation, LP rights, and exact fee-share claims under operator/product/implementation/accounting review.
 
+## 2026-06-29 — Missing NO Button Subclaim Pages
+
+- Added five authored manifesto pages from Neelo's Missing NO Button section: long-only market hype filter, shorting-at-launch immune system, NO button market filter, profitable fact-checking loop, and adversarial selection pressure.
+- Routed five new Ask questions so readers can inspect the negative-feedback mechanics beneath the broad short-side thesis.
+- Kept live shorting eligibility, leverage limits, launch timing, solver/vault availability, abuse controls, and user-facing risk language under operator/product/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

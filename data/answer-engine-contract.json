@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 292
+      "totalGoldenRoutes": 297
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 310,
-    "retrievalEligiblePages": 1102,
+    "publicNavigationPages": 315,
+    "retrievalEligiblePages": 1107,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 310,
+      "candidate": 315,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 292,
-    "exactRouteTestsPassing": 292,
+    "totalExactRouteTests": 297,
+    "exactRouteTestsPassing": 297,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 292
+      "candidate": 297
     },
     "exactRoutesByConfidence": {
-      "Medium": 132,
+      "Medium": 136,
       "High": 44,
-      "Low": 116
+      "Low": 117
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2680,6 +2680,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-does-vibe-need-a-short-side",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-long-only-markets-weak-truth-filters",
+        "query": "Why are long-only markets weak truth filters?",
+        "normalizedQuery": "why are long only markets weak truth filters",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-long-only-market-hype-filter",
+        "expectedPageTitle": "Long-Only Markets Filter For Hype",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-long-only-markets-weak-truth-filters",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-vibe-care-about-shorting-at-launch",
+        "query": "Why does Vibe care about shorting at launch?",
+        "normalizedQuery": "why does vibe care about shorting at launch",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-shorting-at-launch-immune-system",
+        "expectedPageTitle": "Shorting At Launch As Market Immune System",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-vibe-care-about-shorting-at-launch",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-no-button-filter-fake-narratives",
+        "query": "How does the NO button filter fake narratives?",
+        "normalizedQuery": "how does the no button filter fake narratives",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-no-button-market-filter",
+        "expectedPageTitle": "The NO Button As Market Filter",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-no-button-filter-fake-narratives",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-fact-checking-become-a-profitable-trade",
+        "query": "How can fact-checking become a profitable trade?",
+        "normalizedQuery": "how can fact checking become a profitable trade",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-profitable-fact-checking-loop",
+        "expectedPageTitle": "Profitable Fact-Checking Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-fact-checking-become-a-profitable-trade",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-adversarial-selection-pressure-mean-for-vibe",
+        "query": "What does adversarial selection pressure mean for Vibe?",
+        "normalizedQuery": "what does adversarial selection pressure mean for vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-adversarial-selection-pressure",
+        "expectedPageTitle": "Adversarial Selection Pressure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-adversarial-selection-pressure-mean-for-vibe",
         "passes": true
       },
       {
@@ -6758,7 +6863,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 292,
+      "exactRoutes": 297,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

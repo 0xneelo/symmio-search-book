@@ -799,3 +799,11 @@
 **Reason:** The existing hybrid-solver page explains the waterfall, but sophisticated readers will ask how the waterfall actually allocates flow, why fallback quotes are wider, what pass-through execution means, how inventory is rebalanced, and why LPs are paid for capacity. These pages answer those mechanism questions while keeping live routing, fee-share, vault, slippage, and accounting claims review-bound.
 
 **Status:** Accepted for the authored manifesto layer; external-solver routing, backstop quote policy, vault custody, execution venues, TWAP behavior, slippage allocation, LP rights, and exact fee shares remain operator/product/implementation/accounting review.
+
+## D-101: Split Missing NO Button Claims Into Exact Answers
+
+**Decision:** Add authored manifesto pages for long-only markets as hype filters, shorting at launch as an immune-system loop, the NO button as market filter, profitable fact-checking, and adversarial selection pressure.
+
+**Reason:** Existing NO-button pages explain the broad short-side thesis, but answer-engine readers need exact routes for why long-only markets are asymmetric, why launch timing matters, how fake narratives are filtered, why correction can be incentivized, and how to translate aggressive source metaphors into publication-safe market mechanics.
+
+**Status:** Accepted for the authored manifesto layer; live shorting eligibility, leverage, market-support timing, solver/vault availability, abuse controls, and user-facing risk language remain operator/product/implementation review.
