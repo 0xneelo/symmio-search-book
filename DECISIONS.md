@@ -743,3 +743,11 @@
 **Reason:** The broad official Vibe account, deposits, withdrawals, and My Account pages already exist in the authored layer, but common support questions need exact answers. Users ask which login path to choose, which chains can fund an account, what Allocated Balance means, why some withdrawals wait, and where account history can be exported. These pages keep official-source facts precise while avoiding unsupported thresholds or time-sensitive chain claims.
 
 **Status:** Accepted for the authored product-reference layer; chain support, withdrawal-size thresholds, custody wording, and publication-date product behavior remain under current-source review.
+
+## D-094: Split Vibe Trading Costs And Controls Into Exact Reference Answers
+
+**Decision:** Add authored Volume 07 product-reference pages for trade-panel cost breakdown, funding payment direction, TP/SL slippage threshold, stop-order trigger semantics, and available-liquidity capacity.
+
+**Reason:** The existing official Vibe trading pages explain fees, funding, order types, TP/SL, and OI/liquidity broadly, but answer-engine users will ask narrower operational questions: what to inspect before confirming a trade, who pays funding, why TP/SL may not fully execute, how stop-market differs from stop-limit, and why more size can be unavailable. Exact pages improve routing while keeping unsupported fee percentages, future order types, and live capacity claims out of public prose.
+
+**Status:** Accepted for the authored product-reference layer; fee percentages, Scale/TWAP live status, and publication-date-sensitive liquidity/capacity behavior remain under current-source review.

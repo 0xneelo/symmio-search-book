@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1070,
+  "readerPages": 1075,
   "totalVolumes": 8,
   "totalChapters": 97,
-  "pagesAssigned": 1070,
+  "pagesAssigned": 1075,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -7689,30 +7689,30 @@
       "title": "Product, Trading, And Risk Guides",
       "premise": "Collect user-facing Vibe guides for trading, fees, collateral, risk, security, and market operations.",
       "readerPromise": "Translate the vision into practical product behavior and reader-facing operational semantics.",
-      "totalPages": 56,
+      "totalPages": 61,
       "overviewPageId": "authored-volume-07-product-trading-and-risk",
       "overviewTitle": "Volume 07: Product, Trading, And Risk Guides",
-      "authoredPages": 26,
+      "authoredPages": 31,
       "generatedPages": 30,
       "statusCounts": {
-        "publication-candidate": 20,
+        "publication-candidate": 24,
         "publication-candidate-needs-operator-review": 4,
-        "publication-candidate-needs-publication-date-review": 2,
+        "publication-candidate-needs-publication-date-review": 3,
         "source-mapped": 30
       },
       "granularityCounts": {
-        "authored-page": 26,
+        "authored-page": 31,
         "companion-page": 30
       },
       "routeSourceCounts": {
-        "authored": 26,
+        "authored": 31,
         "generated": 30
       },
       "sectionCounts": {
         "compendium": 1,
         "fees": 6,
         "market-creation": 2,
-        "product-reference": 28,
+        "product-reference": 33,
         "risk-margin": 4,
         "security": 4,
         "trading-guides": 8,
@@ -7773,6 +7773,8 @@
         "authored-vibe-portfolio-and-account-data",
         "authored-vibe-security-and-audits",
         "authored-vibe-fees-and-funding",
+        "authored-vibe-funding-payment-direction",
+        "authored-vibe-trade-panel-cost-breakdown",
         "authored-vibe-project-listing-terms",
         "authored-vibe-system-visualization",
         "authored-vibe-account-health-and-liquidations",
@@ -7781,11 +7783,14 @@
         "authored-amfq-legacy-intent-naming",
         "authored-vibe-intent-architecture",
         "authored-vibe-trade-flow",
+        "authored-vibe-available-liquidity-capacity",
         "authored-vibe-hotkeys",
         "authored-vibe-oi-and-liquidity",
         "authored-vibe-order-types",
         "authored-vibe-simple-trade-flow",
+        "authored-vibe-stop-order-trigger-model",
         "authored-vibe-tpsl",
+        "authored-vibe-tpsl-slippage-threshold",
         "authored-vibe-tradingview-controls",
         "vibe-fees",
         "vibe-funding",
@@ -7996,22 +8001,27 @@
           "title": "Fees",
           "section": "product-reference",
           "track": "Fees",
-          "totalPages": 1,
-          "authoredPages": 1,
+          "totalPages": 3,
+          "authoredPages": 3,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate-needs-operator-review": 1
+            "publication-candidate": 1,
+            "publication-candidate-needs-operator-review": 1,
+            "publication-candidate-needs-publication-date-review": 1
           },
           "granularityCounts": {
-            "authored-page": 1
+            "authored-page": 3
           },
           "sourceKeys": [
             "vibe-fees",
-            "vibe-funding"
+            "vibe-funding",
+            "vibe-simple-trade"
           ],
           "firstPageId": "authored-vibe-fees-and-funding",
           "pageIds": [
-            "authored-vibe-fees-and-funding"
+            "authored-vibe-fees-and-funding",
+            "authored-vibe-funding-payment-direction",
+            "authored-vibe-trade-panel-cost-breakdown"
           ],
           "samplePages": [
             {
@@ -8025,6 +8035,35 @@
               "volumeId": "",
               "sourceKeys": [
                 "vibe-fees",
+                "vibe-funding"
+              ]
+            },
+            {
+              "id": "authored-vibe-funding-payment-direction",
+              "title": "Vibe Funding Payment Direction",
+              "section": "product-reference",
+              "track": "Fees",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-funding",
+                "vibe-fees"
+              ]
+            },
+            {
+              "id": "authored-vibe-trade-panel-cost-breakdown",
+              "title": "Vibe Trade Panel Cost Breakdown",
+              "section": "product-reference",
+              "track": "Fees",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-publication-date-review",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-fees",
+                "vibe-simple-trade",
                 "vibe-funding"
               ]
             }
@@ -8240,14 +8279,14 @@
           "title": "Trading Guides",
           "section": "product-reference",
           "track": "Trading Guides",
-          "totalPages": 6,
-          "authoredPages": 6,
+          "totalPages": 9,
+          "authoredPages": 9,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate": 6
+            "publication-candidate": 9
           },
           "granularityCounts": {
-            "authored-page": 6
+            "authored-page": 9
           },
           "sourceKeys": [
             "symmio-core",
@@ -8259,16 +8298,34 @@
             "vibe-tpsl",
             "vibe-tradingview-control"
           ],
-          "firstPageId": "authored-vibe-hotkeys",
+          "firstPageId": "authored-vibe-available-liquidity-capacity",
           "pageIds": [
+            "authored-vibe-available-liquidity-capacity",
             "authored-vibe-hotkeys",
             "authored-vibe-oi-and-liquidity",
             "authored-vibe-order-types",
             "authored-vibe-simple-trade-flow",
+            "authored-vibe-stop-order-trigger-model",
             "authored-vibe-tpsl",
+            "authored-vibe-tpsl-slippage-threshold",
             "authored-vibe-tradingview-controls"
           ],
           "samplePages": [
+            {
+              "id": "authored-vibe-available-liquidity-capacity",
+              "title": "Vibe Available Liquidity Capacity",
+              "section": "product-reference",
+              "track": "Trading Guides",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-oi-liquidity",
+                "vibe-architecture",
+                "symmio-core"
+              ]
+            },
             {
               "id": "authored-vibe-hotkeys",
               "title": "Vibe Hotkeys",
@@ -8331,31 +8388,17 @@
               ]
             },
             {
-              "id": "authored-vibe-tpsl",
-              "title": "Vibe Take Profit And Stop Loss",
+              "id": "authored-vibe-stop-order-trigger-model",
+              "title": "Vibe Stop Order Trigger Model",
               "section": "product-reference",
               "track": "Trading Guides",
               "granularity": "authored-page",
               "status": "publication-candidate",
               "routeSource": "authored",
-              "volumeId": "",
+              "volumeId": "volume-07-product-trading-and-risk",
               "sourceKeys": [
-                "vibe-tpsl",
                 "vibe-order-types",
-                "vibe-simple-trade"
-              ]
-            },
-            {
-              "id": "authored-vibe-tradingview-controls",
-              "title": "Vibe TradingView Controls",
-              "section": "product-reference",
-              "track": "Trading Guides",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-tradingview-control",
+                "vibe-tpsl",
                 "vibe-simple-trade"
               ]
             }
@@ -10622,6 +10665,8 @@
     "authored-vibe-portfolio-and-account-data": "volume-07-product-trading-and-risk",
     "authored-vibe-security-and-audits": "volume-07-product-trading-and-risk",
     "authored-vibe-fees-and-funding": "volume-07-product-trading-and-risk",
+    "authored-vibe-funding-payment-direction": "volume-07-product-trading-and-risk",
+    "authored-vibe-trade-panel-cost-breakdown": "volume-07-product-trading-and-risk",
     "authored-vibe-project-listing-terms": "volume-07-product-trading-and-risk",
     "authored-vibe-system-visualization": "volume-07-product-trading-and-risk",
     "authored-vibe-account-health-and-liquidations": "volume-07-product-trading-and-risk",
@@ -10630,11 +10675,14 @@
     "authored-amfq-legacy-intent-naming": "volume-07-product-trading-and-risk",
     "authored-vibe-intent-architecture": "volume-07-product-trading-and-risk",
     "authored-vibe-trade-flow": "volume-07-product-trading-and-risk",
+    "authored-vibe-available-liquidity-capacity": "volume-07-product-trading-and-risk",
     "authored-vibe-hotkeys": "volume-07-product-trading-and-risk",
     "authored-vibe-oi-and-liquidity": "volume-07-product-trading-and-risk",
     "authored-vibe-order-types": "volume-07-product-trading-and-risk",
     "authored-vibe-simple-trade-flow": "volume-07-product-trading-and-risk",
+    "authored-vibe-stop-order-trigger-model": "volume-07-product-trading-and-risk",
     "authored-vibe-tpsl": "volume-07-product-trading-and-risk",
+    "authored-vibe-tpsl-slippage-threshold": "volume-07-product-trading-and-risk",
     "authored-vibe-tradingview-controls": "volume-07-product-trading-and-risk",
     "vibe-fees": "volume-07-product-trading-and-risk",
     "vibe-funding": "volume-07-product-trading-and-risk",

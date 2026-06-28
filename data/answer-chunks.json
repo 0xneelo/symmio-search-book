@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1088,
-  "totalChunks": 1873,
-  "pagesWithChunks": 1088,
+  "totalPages": 1093,
+  "totalChunks": 1882,
+  "pagesWithChunks": 1093,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,18 +653,18 @@
     }
   },
   "byRouteSource": {
-    "authored": 276,
+    "authored": 281,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 532,
+    "authored": 541,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "manifesto": 292,
-    "product-reference": 56,
+    "product-reference": 65,
     "dashboard-reference": 24,
     "protocol-reference": 99,
     "competitive-context": 6,
@@ -11945,6 +11945,60 @@
       "text": "own value. If downstream listings increasingly use Vibe data as evidence, then Vibe owns a critical part of the discovery and verification path. Reader Implication Market creators should treat early perp demand as proof they can earn, not a badge they receive from relationships alone. Downstream venues should see Vibe data as a filter that can reduce listing guesswork. Sources vibe papers : Neelo, \"Section 7: The Game Theory of Listings\". Related Pages authored end of narrative based listings authored partnership over venue war authored z score graduation criteria"
     },
     {
+      "id": "authored-vibe-available-liquidity-capacity::001",
+      "pageId": "authored-vibe-available-liquidity-capacity",
+      "chunkIndex": 1,
+      "title": "Vibe Available Liquidity Capacity",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-available-liquidity-capacity.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Available Liquidity Capacity Available liquidity is the answer to a different question than open interest. The official Vibe OI and liquidity guide defines open interest as the total value of active perpetual contracts that remain open. It defines available liquidity as the amount of liquidity solvers are currently offering, and it says Vibe itself does not set those limits. Why New Size Can Be Restricted Open interest tells the reader how much exposure already exists. Available liquidity tells the reader how much additional capacity solvers are currently making available. A market can already have open interest while still having limited room for new trades. The guide says activity near the available liquidity limit can restrict new trades until existing positions close or solver capacity changes. That makes capacity a live solver side condition, not only a static product setting. Reader Guidance When a user asks why they cannot open more size, answer with the capacity model: current open interest is active exposure already in the market; available liquidity is incremental quotable capacity; solver capacity can change with market conditions and risk appetite; Vibe's docs should not imply Vibe centrally fixes every market's live limit. Sources vibe oi liquidity : official open interest definition, available liquidity definition, Vibe limit setting caveat, and new trade restriction behavior near capacity. vibe architecture"
+    },
+    {
+      "id": "authored-vibe-available-liquidity-capacity::002",
+      "pageId": "authored-vibe-available-liquidity-capacity",
+      "chunkIndex": 2,
+      "title": "Vibe Available Liquidity Capacity",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-available-liquidity-capacity.md",
+      "wordStart": 185,
+      "wordEnd": 252,
+      "wordCount": 67,
+      "text": "should not imply Vibe centrally fixes every market's live limit. Sources vibe oi liquidity : official open interest definition, available liquidity definition, Vibe limit setting caveat, and new trade restriction behavior near capacity. vibe architecture : solver quote and intent context. symmio core : PartyA/PartyB and collateral vocabulary behind bilateral derivatives positions. Related Pages authored vibe oi and liquidity authored vibe intent architecture authored solver event monitoring"
+    },
+    {
       "id": "authored-vibe-collateral-and-margining::001",
       "pageId": "authored-vibe-collateral-and-margining",
       "chunkIndex": 1,
@@ -12147,6 +12201,56 @@
       "wordEnd": 378,
       "wordCount": 193,
       "text": "explains why perpetuals have recurring payments. When perpetual prices are above spot, long traders pay short side solvers. When perpetual prices are below spot, short side solvers pay long traders. The point is to keep the perpetual price aligned with the underlying spot market. Funding affects holding cost and profitability, so it belongs in strategy and risk pages, not only in an advanced glossary. Minimum Payment Threshold The funding page says Vibe relies on solver quotes and real time trader/solver interaction for funding rate inputs. It also states that if the amount owed is lower than blockchain gas cost, the funding payment is not processed because each update requires an on chain interaction. Reader Implication When answering \"what will this trade cost?\", show both layers: fees around the trade and funding over time. Exact percentages require current product confirmation; funding direction depends on market conditions and position side. Sources vibe fees : official fee categories and trade panel cost breakdown caveat. vibe funding : official funding rate direction, solver pricing, and minimum payment threshold. Related Pages authored vibe simple trade flow authored vibe order types authored vibe oi and liquidity symmio funding rates"
+    },
+    {
+      "id": "authored-vibe-funding-payment-direction::001",
+      "pageId": "authored-vibe-funding-payment-direction",
+      "chunkIndex": 1,
+      "title": "Vibe Funding Payment Direction",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-funding",
+        "vibe-fees"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/funding.md",
+        "https://docs.vibe.trading/trading/fees.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-funding-payment-direction.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Funding Payment Direction Funding is the recurring holding cost layer for perpetuals. It is not the same thing as an entry or exit fee. The official funding guide explains the direction this way: when perpetual prices are above spot, long traders pay the short side solver; when perpetual prices are below spot, the short side solver pays long traders. The mechanism is meant to pull the perpetual price back toward the underlying spot market. Why Direction Can Change Funding direction depends on market state and position side. A trader cannot know the full cost of holding a position by reading only the open/close fee categories. The trade can have an upfront cost profile, then a funding profile that changes while the position remains open. The same source also says Vibe relies on solver quotes and real time trader/solver interaction for funding rate inputs. It states that if the amount owed is lower than the blockchain gas cost, the funding payment is not processed because each update requires an on chain interaction. Reader Guidance Answer funding questions in three parts: identify whether the question is about a one time trade fee or recurring funding; explain that funding direction depends on perp versus spot alignment and side; avoid promising a funding payment when the source's minimum payment threshold says tiny amounts"
+    },
+    {
+      "id": "authored-vibe-funding-payment-direction::002",
+      "pageId": "authored-vibe-funding-payment-direction",
+      "chunkIndex": 2,
+      "title": "Vibe Funding Payment Direction",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-funding",
+        "vibe-fees"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/funding.md",
+        "https://docs.vibe.trading/trading/fees.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-funding-payment-direction.md",
+      "wordStart": 185,
+      "wordEnd": 268,
+      "wordCount": 83,
+      "text": "about a one time trade fee or recurring funding; explain that funding direction depends on perp versus spot alignment and side; avoid promising a funding payment when the source's minimum payment threshold says tiny amounts may not be processed. Sources vibe funding : official funding direction, solver pricing context, and minimum payment threshold. vibe fees : official distinction between fee categories and trade cost disclosure. Related Pages authored vibe fees and funding authored vibe trade panel cost breakdown authored funding as market balancing"
     },
     {
       "id": "authored-vibe-hotkeys::001",
@@ -13091,6 +13195,33 @@
       "text": "loss thresholds are reached. Reader Implication When a new trader asks how to place a trade, the docs should answer in the language of the ticket: market, direction, amount, entry type, and optional exits. When a more technical reader asks what happens behind that ticket, route them to the intent architecture and Symmio lifecycle pages. Sources vibe simple trade : official simple trade sequence and keyboard control references. vibe order types : supported order categories and pending advanced types. vibe tpsl : TP/SL trigger and amendment behavior. vibe architecture : intent based solver quotation and execution context. Related Pages authored vibe trade flow authored vibe order types authored vibe tpsl authored vibe intent architecture"
     },
     {
+      "id": "authored-vibe-stop-order-trigger-model::001",
+      "pageId": "authored-vibe-stop-order-trigger-model",
+      "chunkIndex": 1,
+      "title": "Vibe Stop Order Trigger Model",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-stop-order-trigger-model.md",
+      "wordStart": 0,
+      "wordEnd": 215,
+      "wordCount": 215,
+      "text": "Vibe Stop Order Trigger Model Stop orders combine two ideas: a trigger and an execution type. The official order type guide distinguishes stop market from stop limit orders. A stop market order activates when price reaches a stop level and then behaves as a market order. A stop limit order also activates at the stop level, but its execution is constrained by a limit price. The Practical Difference The word \"stop\" describes when the order wakes up. The words \"market\" and \"limit\" describe how it tries to execute after waking up. That means: stop market prioritizes execution once triggered; stop limit keeps a price bound after the trigger; TP/SL is a related closing order workflow, but the trader should still understand whether the activated close behaves like market execution or bounded execution. Publication Boundary The current official order type guide marks Scale and TWAP as coming soon. This page should not describe those advanced types as live workflows unless current product review confirms their status. Sources vibe order types : official stop market, stop limit, Scale, and TWAP labels. vibe tpsl : official closing order context for TP/SL. vibe simple trade : official trade ticket context where order type selection matters. Related Pages authored vibe order types authored vibe tpsl authored vibe simple trade flow"
+    },
+    {
       "id": "authored-vibe-system-visualization::001",
       "pageId": "authored-vibe-system-visualization",
       "chunkIndex": 1,
@@ -13199,6 +13330,60 @@
       "text": "displayed price. Reader Implication A good TP/SL answer should say three things: what triggers the close, how the trader can set or amend the levels, and why the execution can still be constrained by market impact. For risk education, route the reader from TP/SL to margin, liquidation, and available liquidity. Sources vibe tpsl : official TP/SL trigger, input modes, amendment path, full position default, and slippage threshold. vibe order types : TP/SL category in the order type model. vibe simple trade : TP/SL option inside the simple trade ticket. Related Pages authored vibe order types authored vibe simple trade flow authored vibe oi and liquidity authored vibe collateral and margining"
     },
     {
+      "id": "authored-vibe-tpsl-slippage-threshold::001",
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "chunkIndex": 1,
+      "title": "Vibe TP/SL Slippage Threshold",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-tpsl-slippage-threshold.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe TP/SL Slippage Threshold A take profit or stop loss trigger is not a guarantee that the position closes at the exact displayed price. The official TP/SL guide says TP/SL market orders use a 10% slippage threshold and may not fully execute if price impact exceeds that threshold. That caveat belongs in direct answers to \"why did my TP/SL not fully close?\" or \"why did it execute differently than expected?\" Trigger Versus Execution TP/SL defines a closing condition. Once market price reaches the configured level, the closing order can activate. Execution still depends on market impact and available liquidity. The user should understand the difference between: the trigger level that activates the close; the market order that attempts to close after activation; the slippage threshold that can constrain full execution. Reader Guidance Route users here when they expect TP/SL to behave like an exact price guarantee. For broader setup instructions, route them to the TP/SL overview. For capacity questions, route them to open interest and available liquidity. Sources vibe tpsl : official TP/SL trigger behavior, input modes, amendment path, full position default, and 10% slippage threshold. vibe order types : official TP/SL category in the order type model. vibe oi liquidity : official available liquidity context for execution capacity. Related Pages authored vibe tpsl authored vibe order types authored vibe"
+    },
+    {
+      "id": "authored-vibe-tpsl-slippage-threshold::002",
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "chunkIndex": 2,
+      "title": "Vibe TP/SL Slippage Threshold",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-tpsl-slippage-threshold.md",
+      "wordStart": 185,
+      "wordEnd": 223,
+      "wordCount": 38,
+      "text": "threshold. vibe order types : official TP/SL category in the order type model. vibe oi liquidity : official available liquidity context for execution capacity. Related Pages authored vibe tpsl authored vibe order types authored vibe available liquidity capacity"
+    },
+    {
       "id": "authored-vibe-trade-flow::001",
       "pageId": "authored-vibe-trade-flow",
       "chunkIndex": 1,
@@ -13224,6 +13409,60 @@
       "wordEnd": 206,
       "wordCount": 206,
       "text": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent based quotation process. Symmio's protocol sources frame the settlement side with PartyA, PartyB, collateral, and lifecycle events. The compendium should connect those two layers on every trading page: Vibe makes the product legible; Symmio gives the trade its protocol structure. This also explains why solver quality matters to UX. A better solver path can quote faster, hedge better, handle more markets, and produce a tighter experience. A weak solver path creates delay, rejection, poor pricing, or brittle lifecycle handling. Reader Implication For a trader, \"trade flow\" should answer what happens after submitting an intent. For a solver, it should identify where quoting, risk checks, event monitoring, hedging, and settlement responsibility enter the system. Sources vibe architecture : Vibe architectural overview. symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring. Related Pages authored intents and solvers authored symmio party a party b vibe architecture amfq"
+    },
+    {
+      "id": "authored-vibe-trade-panel-cost-breakdown::001",
+      "pageId": "authored-vibe-trade-panel-cost-breakdown",
+      "chunkIndex": 1,
+      "title": "Vibe Trade Panel Cost Breakdown",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-simple-trade",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-trade-panel-cost-breakdown.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Trade Panel Cost Breakdown The practical answer to \"what will this trade cost?\" starts in the trade panel, not in a static fee table. The official fee guide says platform fees apply when opening and closing trades. It also says hedger or solver fees can vary by token pair and that the trade panel shows a cost breakdown before confirmation. That makes the trade panel the current source for the user's pre click cost view. What To Check Before Confirming The user should separate four ideas: platform fees on entry and exit; solver or hedger fees that can vary by market; funding effects that accrue while a perpetual position remains open; any future or placeholder fee numbers that require publication date review before being presented as live values. The current fee source is category useful but not sufficient for final exact percentages because it contains placeholder values. The docs should route users to the live ticket breakdown for current trade specific costs and keep final public percentage claims under review. Sources vibe fees : official fee categories, open/close platform fee framing, variable solver or hedger fee caveat, and trade panel cost breakdown instruction. vibe simple trade : official trade ticket flow. vibe funding : official funding cost context for open perpetual positions. Related Pages authored vibe fees and funding"
+    },
+    {
+      "id": "authored-vibe-trade-panel-cost-breakdown::002",
+      "pageId": "authored-vibe-trade-panel-cost-breakdown",
+      "chunkIndex": 2,
+      "title": "Vibe Trade Panel Cost Breakdown",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-simple-trade",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-trade-panel-cost-breakdown.md",
+      "wordStart": 185,
+      "wordEnd": 230,
+      "wordCount": 45,
+      "text": "hedger fee caveat, and trade panel cost breakdown instruction. vibe simple trade : official trade ticket flow. vibe funding : official funding cost context for open perpetual positions. Related Pages authored vibe fees and funding authored vibe simple trade flow authored vibe funding payment direction"
     },
     {
       "id": "authored-vibe-trading-program-points::001",

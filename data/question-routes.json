@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 257,
+  "totalRoutes": 262,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 117,
-    "High": 34,
+    "Medium": 118,
+    "High": 38,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 257
+    "authored": 262
   },
   "answerable": [
     {
@@ -256,6 +256,100 @@
       "sourceKeys": [
         "vibe-fees",
         "vibe-funding"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-cost-fields-should-i-check-before-confirming-a-vibe-trade",
+      "question": "Which cost fields should I check before confirming a Vibe trade?",
+      "normalizedQuestion": "which cost fields should i check before confirming a vibe trade",
+      "pageId": "authored-vibe-trade-panel-cost-breakdown",
+      "pageTitle": "Vibe Trade Panel Cost Breakdown",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official Vibe fee docs point users to the trade-panel breakdown and distinguish platform fees, solver/hedger fees, and funding context while avoiding placeholder percentages.",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-simple-trade",
+        "vibe-funding"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-pays-funding-on-vibe",
+      "question": "Who pays funding on Vibe?",
+      "normalizedQuestion": "who pays funding on vibe",
+      "pageId": "authored-vibe-funding-payment-direction",
+      "pageTitle": "Vibe Funding Payment Direction",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe funding docs explain perp-versus-spot direction, position-side impact, solver quote inputs, and the minimum-payment threshold.",
+      "sourceKeys": [
+        "vibe-funding",
+        "vibe-fees"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-might-a-vibe-tp-sl-not-fully-execute",
+      "question": "Why might a Vibe TP/SL not fully execute?",
+      "normalizedQuestion": "why might a vibe tp sl not fully execute",
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "pageTitle": "Vibe TP/SL Slippage Threshold",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe TP/SL docs describe the 10% slippage threshold and warn that price impact can prevent full execution.",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-difference-between-stop-market-and-stop-limit-orders-on-vibe",
+      "question": "What is the difference between stop-market and stop-limit orders on Vibe?",
+      "normalizedQuestion": "what is the difference between stop market and stop limit orders on vibe",
+      "pageId": "authored-vibe-stop-order-trigger-model",
+      "pageTitle": "Vibe Stop Order Trigger Model",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe order-type docs distinguish stop trigger conditions from market versus limit execution after activation.",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-t-i-open-more-size-on-vibe",
+      "question": "Why can't I open more size on Vibe?",
+      "normalizedQuestion": "why can t i open more size on vibe",
+      "pageId": "authored-vibe-available-liquidity-capacity",
+      "pageTitle": "Vibe Available Liquidity Capacity",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe OI/liquidity docs distinguish existing open interest from currently available solver liquidity and explain capacity restrictions near limits.",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
       ],
       "missing": false
     },

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 257
+      "totalGoldenRoutes": 262
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 275,
-    "retrievalEligiblePages": 1067,
+    "publicNavigationPages": 280,
+    "retrievalEligiblePages": 1072,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 275,
+      "candidate": 280,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,18 +160,18 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 257,
-    "exactRouteTestsPassing": 257,
+    "totalExactRouteTests": 262,
+    "exactRouteTestsPassing": 262,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 257
+      "candidate": 262
     },
     "exactRoutesByConfidence": {
-      "Medium": 117,
-      "High": 34,
+      "Medium": 118,
+      "High": 38,
       "Low": 106
     },
     "exactRoutesMissingChunks": [],
@@ -500,6 +500,129 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-fees-or-funding-should-i-understand-before-trading",
+        "passes": true
+      },
+      {
+        "id": "qr-which-cost-fields-should-i-check-before-confirming-a-vibe-trade",
+        "query": "Which cost fields should I check before confirming a Vibe trade?",
+        "normalizedQuery": "which cost fields should i check before confirming a vibe trade",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-trade-panel-cost-breakdown",
+        "expectedPageTitle": "Vibe Trade Panel Cost Breakdown",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-fees",
+          "vibe-simple-trade",
+          "vibe-funding"
+        ],
+        "linkedSourceKeys": [
+          "vibe-fees",
+          "vibe-simple-trade",
+          "vibe-funding"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-cost-fields-should-i-check-before-confirming-a-vibe-trade",
+        "passes": true
+      },
+      {
+        "id": "qr-who-pays-funding-on-vibe",
+        "query": "Who pays funding on Vibe?",
+        "normalizedQuery": "who pays funding on vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-funding-payment-direction",
+        "expectedPageTitle": "Vibe Funding Payment Direction",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-funding",
+          "vibe-fees"
+        ],
+        "linkedSourceKeys": [
+          "vibe-funding",
+          "vibe-fees"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-pays-funding-on-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-why-might-a-vibe-tp-sl-not-fully-execute",
+        "query": "Why might a Vibe TP/SL not fully execute?",
+        "normalizedQuery": "why might a vibe tp sl not fully execute",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-tpsl-slippage-threshold",
+        "expectedPageTitle": "Vibe TP/SL Slippage Threshold",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-tpsl",
+          "vibe-order-types",
+          "vibe-oi-liquidity"
+        ],
+        "linkedSourceKeys": [
+          "vibe-tpsl",
+          "vibe-order-types",
+          "vibe-oi-liquidity"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-might-a-vibe-tp-sl-not-fully-execute",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-difference-between-stop-market-and-stop-limit-orders-on-vibe",
+        "query": "What is the difference between stop-market and stop-limit orders on Vibe?",
+        "normalizedQuery": "what is the difference between stop market and stop limit orders on vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-stop-order-trigger-model",
+        "expectedPageTitle": "Vibe Stop Order Trigger Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-order-types",
+          "vibe-tpsl",
+          "vibe-simple-trade"
+        ],
+        "linkedSourceKeys": [
+          "vibe-order-types",
+          "vibe-tpsl",
+          "vibe-simple-trade"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-difference-between-stop-market-and-stop-limit-orders-on-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-t-i-open-more-size-on-vibe",
+        "query": "Why can't I open more size on Vibe?",
+        "normalizedQuery": "why can t i open more size on vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-available-liquidity-capacity",
+        "expectedPageTitle": "Vibe Available Liquidity Capacity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-oi-liquidity",
+          "vibe-architecture",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-oi-liquidity",
+          "vibe-architecture",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-t-i-open-more-size-on-vibe",
         "passes": true
       },
       {
@@ -5969,7 +6092,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 257,
+      "exactRoutes": 262,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -8,18 +8,18 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 264,
-  "totalAnswerable": 257,
+  "totalEntries": 269,
+  "totalAnswerable": 262,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 41,
+    "Getting Started": 44,
     "Trading Flow": 24,
     "Solvers And Settlement": 54,
     "Risk And Markets": 22,
-    "Revenue": 23,
+    "Revenue": 25,
     "Manifesto": 60,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 117,
-    "High": 34,
+    "Medium": 118,
+    "High": 38,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 257
+    "authored": 262
   },
   "byType": {
-    "answerable": 257,
+    "answerable": 262,
     "reconciliation": 7
   },
   "answerable": [
@@ -612,6 +612,223 @@
           "group": "Public Vibe Sources",
           "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
           "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-cost-fields-should-i-check-before-confirming-a-vibe-trade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which cost fields should I check before confirming a Vibe trade?",
+      "normalizedQuestion": "which cost fields should i check before confirming a vibe trade",
+      "shortAnswer": "Official Vibe fee docs point users to the trade-panel breakdown and distinguish platform fees, solver/hedger fees, and funding context while avoiding placeholder percentages.",
+      "answerSummary": "Vibe Trade Panel Cost Breakdown The practical answer to \"what will this trade cost?\" starts in the trade panel, not in a static fee table. The official fee guide says platform fees apply when opening and closing trades. It also says hedger or solver fees can vary by token pair and that the trade panel shows a cost breakdown before confirmation. That makes...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-trade-panel-cost-breakdown",
+      "pageTitle": "Vibe Trade Panel Cost Breakdown",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-simple-trade",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-pays-funding-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Who pays funding on Vibe?",
+      "normalizedQuestion": "who pays funding on vibe",
+      "shortAnswer": "Official Vibe funding docs explain perp-versus-spot direction, position-side impact, solver quote inputs, and the minimum-payment threshold.",
+      "answerSummary": "Vibe Funding Payment Direction Funding is the recurring holding cost layer for perpetuals. It is not the same thing as an entry or exit fee. The official funding guide explains the direction this way: when perpetual prices are above spot, long traders pay the short side solver; when perpetual prices are below spot, the short side solver pays long traders....",
+      "confidence": "High",
+      "pageId": "authored-vibe-funding-payment-direction",
+      "pageTitle": "Vibe Funding Payment Direction",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-funding",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-might-a-vibe-tp-sl-not-fully-execute",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why might a Vibe TP/SL not fully execute?",
+      "normalizedQuestion": "why might a vibe tp sl not fully execute",
+      "shortAnswer": "Official Vibe TP/SL docs describe the 10% slippage threshold and warn that price impact can prevent full execution.",
+      "answerSummary": "Vibe TP/SL Slippage Threshold A take profit or stop loss trigger is not a guarantee that the position closes at the exact displayed price. The official TP/SL guide says TP/SL market orders use a 10% slippage threshold and may not fully execute if price impact exceeds that threshold. That caveat belongs in direct answers to \"why did my TP/SL not fully clos...",
+      "confidence": "High",
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "pageTitle": "Vibe TP/SL Slippage Threshold",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ],
+      "sources": [
+        {
+          "key": "vibe-tpsl",
+          "group": "Public Vibe Sources",
+          "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
+          "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-oi-liquidity",
+          "group": "Public Vibe Sources",
+          "use": "Open interest, available liquidity, and solver capacity semantics.",
+          "href": "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-difference-between-stop-market-and-stop-limit-orders-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the difference between stop-market and stop-limit orders on Vibe?",
+      "normalizedQuestion": "what is the difference between stop market and stop limit orders on vibe",
+      "shortAnswer": "Official Vibe order-type docs distinguish stop trigger conditions from market versus limit execution after activation.",
+      "answerSummary": "Vibe Stop Order Trigger Model Stop orders combine two ideas: a trigger and an execution type. The official order type guide distinguishes stop market from stop limit orders. A stop market order activates when price reaches a stop level and then behaves as a market order. A stop limit order also activates at the stop level, but its execution is constrained...",
+      "confidence": "High",
+      "pageId": "authored-vibe-stop-order-trigger-model",
+      "pageTitle": "Vibe Stop Order Trigger Model",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "sources": [
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-tpsl",
+          "group": "Public Vibe Sources",
+          "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
+          "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-i-open-more-size-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can't I open more size on Vibe?",
+      "normalizedQuestion": "why can t i open more size on vibe",
+      "shortAnswer": "Official Vibe OI/liquidity docs distinguish existing open interest from currently available solver liquidity and explain capacity restrictions near limits.",
+      "answerSummary": "Vibe Available Liquidity Capacity Available liquidity is the answer to a different question than open interest. The official Vibe OI and liquidity guide defines open interest as the total value of active perpetual contracts that remain open. It defines available liquidity as the amount of liquidity solvers are currently offering, and it says Vibe itself d...",
+      "confidence": "High",
+      "pageId": "authored-vibe-available-liquidity-capacity",
+      "pageTitle": "Vibe Available Liquidity Capacity",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-oi-liquidity",
+          "group": "Public Vibe Sources",
+          "use": "Open interest, available liquidity, and solver capacity semantics.",
+          "href": "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
           "missing": false
         }
       ]
@@ -9693,6 +9910,223 @@
           "group": "Public Vibe Sources",
           "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
           "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-cost-fields-should-i-check-before-confirming-a-vibe-trade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which cost fields should I check before confirming a Vibe trade?",
+      "normalizedQuestion": "which cost fields should i check before confirming a vibe trade",
+      "shortAnswer": "Official Vibe fee docs point users to the trade-panel breakdown and distinguish platform fees, solver/hedger fees, and funding context while avoiding placeholder percentages.",
+      "answerSummary": "Vibe Trade Panel Cost Breakdown The practical answer to \"what will this trade cost?\" starts in the trade panel, not in a static fee table. The official fee guide says platform fees apply when opening and closing trades. It also says hedger or solver fees can vary by token pair and that the trade panel shows a cost breakdown before confirmation. That makes...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-trade-panel-cost-breakdown",
+      "pageTitle": "Vibe Trade Panel Cost Breakdown",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-simple-trade",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-pays-funding-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Who pays funding on Vibe?",
+      "normalizedQuestion": "who pays funding on vibe",
+      "shortAnswer": "Official Vibe funding docs explain perp-versus-spot direction, position-side impact, solver quote inputs, and the minimum-payment threshold.",
+      "answerSummary": "Vibe Funding Payment Direction Funding is the recurring holding cost layer for perpetuals. It is not the same thing as an entry or exit fee. The official funding guide explains the direction this way: when perpetual prices are above spot, long traders pay the short side solver; when perpetual prices are below spot, the short side solver pays long traders....",
+      "confidence": "High",
+      "pageId": "authored-vibe-funding-payment-direction",
+      "pageTitle": "Vibe Funding Payment Direction",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-funding",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-might-a-vibe-tp-sl-not-fully-execute",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why might a Vibe TP/SL not fully execute?",
+      "normalizedQuestion": "why might a vibe tp sl not fully execute",
+      "shortAnswer": "Official Vibe TP/SL docs describe the 10% slippage threshold and warn that price impact can prevent full execution.",
+      "answerSummary": "Vibe TP/SL Slippage Threshold A take profit or stop loss trigger is not a guarantee that the position closes at the exact displayed price. The official TP/SL guide says TP/SL market orders use a 10% slippage threshold and may not fully execute if price impact exceeds that threshold. That caveat belongs in direct answers to \"why did my TP/SL not fully clos...",
+      "confidence": "High",
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "pageTitle": "Vibe TP/SL Slippage Threshold",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ],
+      "sources": [
+        {
+          "key": "vibe-tpsl",
+          "group": "Public Vibe Sources",
+          "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
+          "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-oi-liquidity",
+          "group": "Public Vibe Sources",
+          "use": "Open interest, available liquidity, and solver capacity semantics.",
+          "href": "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-difference-between-stop-market-and-stop-limit-orders-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the difference between stop-market and stop-limit orders on Vibe?",
+      "normalizedQuestion": "what is the difference between stop market and stop limit orders on vibe",
+      "shortAnswer": "Official Vibe order-type docs distinguish stop trigger conditions from market versus limit execution after activation.",
+      "answerSummary": "Vibe Stop Order Trigger Model Stop orders combine two ideas: a trigger and an execution type. The official order type guide distinguishes stop market from stop limit orders. A stop market order activates when price reaches a stop level and then behaves as a market order. A stop limit order also activates at the stop level, but its execution is constrained...",
+      "confidence": "High",
+      "pageId": "authored-vibe-stop-order-trigger-model",
+      "pageTitle": "Vibe Stop Order Trigger Model",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "sources": [
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-tpsl",
+          "group": "Public Vibe Sources",
+          "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
+          "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-i-open-more-size-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can't I open more size on Vibe?",
+      "normalizedQuestion": "why can t i open more size on vibe",
+      "shortAnswer": "Official Vibe OI/liquidity docs distinguish existing open interest from currently available solver liquidity and explain capacity restrictions near limits.",
+      "answerSummary": "Vibe Available Liquidity Capacity Available liquidity is the answer to a different question than open interest. The official Vibe OI and liquidity guide defines open interest as the total value of active perpetual contracts that remain open. It defines available liquidity as the amount of liquidity solvers are currently offering, and it says Vibe itself d...",
+      "confidence": "High",
+      "pageId": "authored-vibe-available-liquidity-capacity",
+      "pageTitle": "Vibe Available Liquidity Capacity",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-oi-liquidity",
+          "group": "Public Vibe Sources",
+          "use": "Open interest, available liquidity, and solver capacity semantics.",
+          "href": "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
           "missing": false
         }
       ]

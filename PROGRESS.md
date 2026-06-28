@@ -562,6 +562,12 @@
 - Routed five new Ask questions so practical account and funding questions resolve to exact pages instead of broad account/deposit overviews.
 - Kept chain-support coverage, withdrawal-size thresholds, custody wording, and publication-date-sensitive product behavior under current-source review.
 
+## 2026-06-29 — Vibe Trading Cost And Control Reference Pages
+
+- Added five authored Volume 07 product-reference pages from official Vibe docs: trade-panel cost breakdown, funding payment direction, TP/SL slippage threshold, stop-order trigger semantics, and available-liquidity capacity.
+- Routed five new Ask questions so trading-cost and order-control support questions resolve to exact pages rather than broad fee, funding, TP/SL, order-type, or OI overviews.
+- Kept exact fee percentages, advanced order-type live status, and publication-date-sensitive market-capacity behavior under current-source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
