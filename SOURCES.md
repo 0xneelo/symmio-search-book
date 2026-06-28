@@ -67,6 +67,10 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-architecture` | https://docs.vibe.trading/architectural-overview.md | AMFQ, intent flow, solver offers, on-chain execution. |
 | `vibe-referral-program` | https://docs.vibe.trading/trading/referral-program.md | Referral commission tiers and daily referral points. |
 | `vibe-points` | https://docs.vibe.trading/trading/vibe-points.md | Trading, referring, and community points categories. |
+| `vibe-referral-codes` | https://docs.vibe.trading/getting-started/referral-codes.md | Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing. |
+| `vibe-rakeback` | https://docs.vibe.trading/trading/rakeback-trading-fees.md | Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code. |
+| `vibe-trading-program` | https://docs.vibe.trading/trading/trading-program.md | Pre-TGE trading leaderboard points, daily points pool, reset time, and rank bands. |
+| `vibe-platform` | https://docs.vibe.trading/about-vibe-trading/the-platform.md | Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims. |
 | `vibe-margin` | https://docs.vibe.trading/trading/managing-vibecaps-margin.md | VibeCaps margin behavior. |
 | `vibe-simple-trade` | https://docs.vibe.trading/getting-started/placing-a-simple-trade.md | Simple trade placement flow and trade ticket controls. |
 | `vibe-order-types` | https://docs.vibe.trading/trading/order-types.md | Market, limit, TP/SL, stop, scale, and TWAP order behavior. |

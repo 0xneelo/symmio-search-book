@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 163,
-  "totalAnswerable": 156,
+  "totalEntries": 168,
+  "totalAnswerable": 161,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 27,
+    "Getting Started": 28,
     "Trading Flow": 13,
     "Solvers And Settlement": 31,
     "Risk And Markets": 15,
-    "Revenue": 12,
+    "Revenue": 13,
     "Manifesto": 36,
-    "Rewards And Referrals": 17,
+    "Rewards And Referrals": 20,
     "Dashboard": 9,
     "Data And Volume": 2,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 74,
-    "High": 28,
+    "Medium": 78,
+    "High": 29,
     "Low": 54
   },
   "byRouteSource": {
-    "authored": 156
+    "authored": 161
   },
   "byType": {
-    "answerable": 156,
+    "answerable": 161,
     "reconciliation": 7
   },
   "answerable": [
@@ -953,6 +953,231 @@
           "group": "Public Vibe Sources",
           "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
           "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-referral-codes-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do Vibe referral codes work?",
+      "normalizedQuestion": "how do vibe referral codes work",
+      "shortAnswer": "Official Vibe referral-code docs support friend-code entry, account NFT/code minting, sharing paths, QR/link flow, and referee rakeback benefits; some paths remain coming soon.",
+      "answerSummary": "Vibe Referral Code Flow The referral code page is an onboarding flow, not just a rewards table. When a user creates a Vibe account, the public guide says the user is prompted to enter a friend's referral code, receives a unique referral code that matches the account name, and has an account NFT minted at the same time. Entering And Sharing Codes The curre...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-referral-code-flow",
+      "pageTitle": "Vibe Referral Code Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Guides",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-codes",
+        "vibe-rakeback",
+        "vibe-points"
+      ],
+      "sources": [
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-referral-commission-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How does Vibe referral commission work?",
+      "normalizedQuestion": "how does vibe referral commission work",
+      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked.",
+      "answerSummary": "Vibe Referral Commission Program The public referral program page says referrers are rewarded through two rails: referral commission and pre TGE points. The safest documentation shape is to keep those rails separate. Referral Commission The commission rail is based on the total aggregated volume of referred traders over the previous rolling 30 days. The p...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-referral-commission-program",
+      "pageTitle": "Vibe Referral Commission Program",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Guides",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-program",
+        "vibe-referral-codes",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-referral-program",
+          "group": "Public Vibe Sources",
+          "use": "Referral commission tiers and daily referral points.",
+          "href": "https://docs.vibe.trading/trading/referral-program.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-trading-fee-rakeback-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does Vibe trading-fee rakeback work?",
+      "normalizedQuestion": "how does vibe trading fee rakeback work",
+      "shortAnswer": "Official Vibe rakeback docs support progressive volume-based rakeback for users who sign up with a friend's referral code.",
+      "answerSummary": "Vibe Rakeback And Trading Fees The public rakeback page says signing up with a friend's referral code gives the user trading fee rakeback: part of the fees paid by the trader is returned to that trader. The mechanism is progressive, so higher trading volume maps to a higher rakeback percentage. Rakeback Tiers The official table starts below $25,000 of tra...",
+      "confidence": "High",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "pageTitle": "Vibe Rakeback And Trading Fees",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-vibe-trading-program-award-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How does the Vibe trading program award points?",
+      "normalizedQuestion": "how does the vibe trading program award points",
+      "shortAnswer": "Official Vibe trading-program docs support a daily pre-TGE leaderboard points pool and reset timing; final TGE settlement remains owner-review.",
+      "answerSummary": "Vibe Trading Program Points The official trading program page describes the pre TGE trading leaderboard point pool. It says early access trading earns points used to claim future rewards after TGE, with 100,000 points available daily and a reset at 00:00 UTC. Daily Leaderboard Bands The public table assigns points by final daily leaderboard position, from...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-trading-program-points",
+      "pageTitle": "Vibe Trading Program Points",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-trading-program",
+        "vibe-points",
+        "vibe-referral-program"
+      ],
+      "sources": [
+        {
+          "key": "vibe-trading-program",
+          "group": "Public Vibe Sources",
+          "use": "Pre-TGE trading leaderboard points, daily points pool, reset time, and rank bands.",
+          "href": "https://docs.vibe.trading/trading/trading-program.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-program",
+          "group": "Public Vibe Sources",
+          "use": "Referral commission tiers and daily referral points.",
+          "href": "https://docs.vibe.trading/trading/referral-program.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-vibe-platform-offer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does the Vibe platform offer?",
+      "normalizedQuestion": "what does the vibe platform offer",
+      "shortAnswer": "Official Vibe platform docs support accessible UX, cross-chain/account-abstraction/SYMMIO positioning, markets, deposits, points, revenue-share, and rakeback claims; exact counts need publication-date verification.",
+      "answerSummary": "Vibe Platform Overview The public platform page explains Vibe as an accessible on chain derivatives UI built for different trader profiles without removing advanced features. It connects that product posture to cross chain communication, embedded wallets, account abstraction, and SYMMIO. Product Claims The page says Vibe offers hundreds of markets, high l...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-platform-overview",
+      "pageTitle": "Vibe Platform Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-platform",
+        "vibe-what-is",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-what-is",
+          "group": "Public Vibe Sources",
+          "use": "Vibe product positioning and market claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
           "missing": false
         }
       ]
@@ -6809,6 +7034,231 @@
           "group": "Public Vibe Sources",
           "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
           "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-referral-codes-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do Vibe referral codes work?",
+      "normalizedQuestion": "how do vibe referral codes work",
+      "shortAnswer": "Official Vibe referral-code docs support friend-code entry, account NFT/code minting, sharing paths, QR/link flow, and referee rakeback benefits; some paths remain coming soon.",
+      "answerSummary": "Vibe Referral Code Flow The referral code page is an onboarding flow, not just a rewards table. When a user creates a Vibe account, the public guide says the user is prompted to enter a friend's referral code, receives a unique referral code that matches the account name, and has an account NFT minted at the same time. Entering And Sharing Codes The curre...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-referral-code-flow",
+      "pageTitle": "Vibe Referral Code Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Guides",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-codes",
+        "vibe-rakeback",
+        "vibe-points"
+      ],
+      "sources": [
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-referral-commission-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How does Vibe referral commission work?",
+      "normalizedQuestion": "how does vibe referral commission work",
+      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked.",
+      "answerSummary": "Vibe Referral Commission Program The public referral program page says referrers are rewarded through two rails: referral commission and pre TGE points. The safest documentation shape is to keep those rails separate. Referral Commission The commission rail is based on the total aggregated volume of referred traders over the previous rolling 30 days. The p...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-referral-commission-program",
+      "pageTitle": "Vibe Referral Commission Program",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Guides",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-program",
+        "vibe-referral-codes",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-referral-program",
+          "group": "Public Vibe Sources",
+          "use": "Referral commission tiers and daily referral points.",
+          "href": "https://docs.vibe.trading/trading/referral-program.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-trading-fee-rakeback-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does Vibe trading-fee rakeback work?",
+      "normalizedQuestion": "how does vibe trading fee rakeback work",
+      "shortAnswer": "Official Vibe rakeback docs support progressive volume-based rakeback for users who sign up with a friend's referral code.",
+      "answerSummary": "Vibe Rakeback And Trading Fees The public rakeback page says signing up with a friend's referral code gives the user trading fee rakeback: part of the fees paid by the trader is returned to that trader. The mechanism is progressive, so higher trading volume maps to a higher rakeback percentage. Rakeback Tiers The official table starts below $25,000 of tra...",
+      "confidence": "High",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "pageTitle": "Vibe Rakeback And Trading Fees",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-vibe-trading-program-award-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How does the Vibe trading program award points?",
+      "normalizedQuestion": "how does the vibe trading program award points",
+      "shortAnswer": "Official Vibe trading-program docs support a daily pre-TGE leaderboard points pool and reset timing; final TGE settlement remains owner-review.",
+      "answerSummary": "Vibe Trading Program Points The official trading program page describes the pre TGE trading leaderboard point pool. It says early access trading earns points used to claim future rewards after TGE, with 100,000 points available daily and a reset at 00:00 UTC. Daily Leaderboard Bands The public table assigns points by final daily leaderboard position, from...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-trading-program-points",
+      "pageTitle": "Vibe Trading Program Points",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-trading-program",
+        "vibe-points",
+        "vibe-referral-program"
+      ],
+      "sources": [
+        {
+          "key": "vibe-trading-program",
+          "group": "Public Vibe Sources",
+          "use": "Pre-TGE trading leaderboard points, daily points pool, reset time, and rank bands.",
+          "href": "https://docs.vibe.trading/trading/trading-program.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-program",
+          "group": "Public Vibe Sources",
+          "use": "Referral commission tiers and daily referral points.",
+          "href": "https://docs.vibe.trading/trading/referral-program.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-vibe-platform-offer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does the Vibe platform offer?",
+      "normalizedQuestion": "what does the vibe platform offer",
+      "shortAnswer": "Official Vibe platform docs support accessible UX, cross-chain/account-abstraction/SYMMIO positioning, markets, deposits, points, revenue-share, and rakeback claims; exact counts need publication-date verification.",
+      "answerSummary": "Vibe Platform Overview The public platform page explains Vibe as an accessible on chain derivatives UI built for different trader profiles without removing advanced features. It connects that product posture to cross chain communication, embedded wallets, account abstraction, and SYMMIO. Product Claims The page says Vibe offers hundreds of markets, high l...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-platform-overview",
+      "pageTitle": "Vibe Platform Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-platform",
+        "vibe-what-is",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-what-is",
+          "group": "Public Vibe Sources",
+          "use": "Vibe product positioning and market claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
           "missing": false
         }
       ]

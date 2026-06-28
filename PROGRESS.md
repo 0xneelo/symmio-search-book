@@ -389,6 +389,13 @@
 - Added five authored Volume 07 product-reference pages for keyboard operation, mobile installation and notifications, in-app chart controls, project-side system visualization, and project listing terms.
 - Routed five new utility/access/market-creation questions to authored pages while keeping supply-loan ranges, project distribution percentages, custody/security-fund language, profit split, and legal terms under operator/accounting/legal review.
 
+## 2026-06-28 — Official Vibe Rewards And Platform Authored Layer
+
+- Fetched current official Vibe markdown for referral codes, referral program, rakeback/trading fees, trading program, and platform overview.
+- Registered page-specific official Vibe source keys for referral-code flow, rakeback, trading-program points, and platform overview, while reusing the existing referral-program source key.
+- Added five authored pages for referral-code onboarding, referral commission/pre-TGE points, referee rakeback tiers, trading-program leaderboard points, and Vibe platform overview.
+- Routed five new rewards/platform questions to authored pages while keeping referral-depth accounting, TGE settlement, exact market counts, leverage ceilings, revenue-share language, and live deposit coverage under operator or publication-date review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

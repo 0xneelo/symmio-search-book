@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 987,
-  "totalChunks": 1676,
-  "pagesWithChunks": 987,
+  "totalPages": 992,
+  "totalChunks": 1686,
+  "pagesWithChunks": 992,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -91,13 +91,17 @@
     "vibe-oi-liquidity",
     "vibe-order-types",
     "vibe-papers",
+    "vibe-platform",
     "vibe-points",
     "vibe-project-listing-terms",
+    "vibe-rakeback",
+    "vibe-referral-codes",
     "vibe-referral-program",
     "vibe-security-audits",
     "vibe-simple-trade",
     "vibe-system-visualization",
     "vibe-tpsl",
+    "vibe-trading-program",
     "vibe-tradingview-control",
     "vibe-what-is"
   ],
@@ -534,6 +538,12 @@
       "use": "Research-paper corpus and long-form themes.",
       "href": "https://github.com/0xneelo/vibe_docs"
     },
+    "vibe-platform": {
+      "key": "vibe-platform",
+      "group": "Public Vibe Sources",
+      "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims.",
+      "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md"
+    },
     "vibe-points": {
       "key": "vibe-points",
       "group": "Public Vibe Sources",
@@ -545,6 +555,18 @@
       "group": "Public Vibe Sources",
       "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
       "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
+    },
+    "vibe-rakeback": {
+      "key": "vibe-rakeback",
+      "group": "Public Vibe Sources",
+      "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+      "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md"
+    },
+    "vibe-referral-codes": {
+      "key": "vibe-referral-codes",
+      "group": "Public Vibe Sources",
+      "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+      "href": "https://docs.vibe.trading/getting-started/referral-codes.md"
     },
     "vibe-referral-program": {
       "key": "vibe-referral-program",
@@ -576,6 +598,12 @@
       "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
       "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md"
     },
+    "vibe-trading-program": {
+      "key": "vibe-trading-program",
+      "group": "Public Vibe Sources",
+      "use": "Pre-TGE trading leaderboard points, daily points pool, reset time, and rank bands.",
+      "href": "https://docs.vibe.trading/trading/trading-program.md"
+    },
     "vibe-tradingview-control": {
       "key": "vibe-tradingview-control",
       "group": "Public Vibe Sources",
@@ -590,12 +618,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 175,
+    "authored": 180,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 335,
+    "authored": 345,
     "curated": 20,
     "generated": 1321
   },
@@ -605,10 +633,10 @@
     "protocol-reference": 50,
     "competitive-context": 6,
     "reference": 2,
-    "rewards-referrals": 32,
+    "rewards-referrals": 40,
     "answer-engine": 1,
     "solver-reference": 9,
-    "product-reference": 42,
+    "product-reference": 44,
     "compendium": 16,
     "Dashboard": 2,
     "Competitive": 1,
@@ -7986,6 +8014,60 @@
       "text": "The Three Vibe Pillars Neelo's \"Vibe Pillars\" paper compresses the architecture thesis into three linked design problems: bootstrap and counterparty formation, exploit resistance, and LP yield with capital efficiency. The first pillar is market birth. Thin long tail markets cannot assume continuous synchronous matching, so a system needs asynchronous matching and a reliable counterparty path when natural flow is one sided or intermittent. The second pillar is defense. Once protocol backed credit or solver inventory supports those markets, the system must resist manipulation, insolvency, liquidation failure, and tail risk leakage. The third pillar is economic durability. A solver, vault, or designated risk taker cannot act as counterparty for free. The architecture must create enough risk adjusted yield for capital to remain in the system. Reader Implication This page is the bridge between the manifesto and the reference. If one pillar is missing, the thesis weakens: a market can list but not survive, survive but not scale, or scale but fail to pay the capital securing it. Sources vibe papers : Neelo, \"Vibe Pillars\". Related Pages authored bootstrap trilemma authored lp profit and dynamic pricing neelo 10 vibe pillars 10 docs 00 abstract"
     },
     {
+      "id": "authored-vibe-platform-overview::001",
+      "pageId": "authored-vibe-platform-overview",
+      "chunkIndex": 1,
+      "title": "Vibe Platform Overview",
+      "section": "product-reference",
+      "track": "Vibe Basics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-platform",
+        "vibe-what-is",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+        "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-platform-overview.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Platform Overview The public platform page explains Vibe as an accessible on chain derivatives UI built for different trader profiles without removing advanced features. It connects that product posture to cross chain communication, embedded wallets, account abstraction, and SYMMIO. Product Claims The page says Vibe offers hundreds of markets, high leverage, permissionless lowcap perp listings, email or wallet account creation, deposits from EVM chains and Solana, a pre TGE points program, revenue share positioning for $VIBE holders, and trading fee rakeback. Several of those claims are time sensitive or owner controlled. Exact market counts, leverage ceilings, revenue share wording, and deposit coverage should be re verified on publication date and aligned with the current product and legal stance before final release. Role In The Compendium This page is the public product bridge between the manifesto and the operating guides. The manifesto explains why Vibe exists; the platform page explains what the user sees: markets, account creation, deposits, points, rakeback, and accessible trading workflows. Reader Implication When someone asks \"what does Vibe actually give me?\", route here for the product level answer. When the question becomes precise, route to the relevant page: account creation, deposits, points, rakeback, simple trading, intent architecture, or market creation. Sources vibe platform : official platform overview and feature list. vibe what is : product positioning"
+    },
+    {
+      "id": "authored-vibe-platform-overview::002",
+      "pageId": "authored-vibe-platform-overview",
+      "chunkIndex": 2,
+      "title": "Vibe Platform Overview",
+      "section": "product-reference",
+      "track": "Vibe Basics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-platform",
+        "vibe-what-is",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+        "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-platform-overview.md",
+      "wordStart": 185,
+      "wordEnd": 256,
+      "wordCount": 71,
+      "text": "becomes precise, route to the relevant page: account creation, deposits, points, rakeback, simple trading, intent architecture, or market creation. Sources vibe platform : official platform overview and feature list. vibe what is : product positioning and broad market access context. vibe architecture : protocol level architecture beneath the product surface. Related Pages authored vibe product overview authored vibe account creation and login authored vibe rakeback trading fees authored vibe intent architecture"
+    },
+    {
       "id": "authored-vibe-points-program::001",
       "pageId": "authored-vibe-points-program",
       "chunkIndex": 1,
@@ -8221,6 +8303,168 @@
       "wordEnd": 410,
       "wordCount": 40,
       "text": "project listing and market making terms. vibe system visualization : concise public workflow connecting project supply, solver operations, user trading, and project distributions. Related Pages authored vibe system visualization authored vibe as discovery layer authored symmio solver operations and hedging"
+    },
+    {
+      "id": "authored-vibe-rakeback-trading-fees::001",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "chunkIndex": 1,
+      "title": "Vibe Rakeback And Trading Fees",
+      "section": "rewards-referrals",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "https://docs.vibe.trading/trading/fees.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-rakeback-trading-fees.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Rakeback And Trading Fees The public rakeback page says signing up with a friend's referral code gives the user trading fee rakeback: part of the fees paid by the trader is returned to that trader. The mechanism is progressive, so higher trading volume maps to a higher rakeback percentage. Rakeback Tiers The official table starts below $25,000 of trading volume at 2.5% rakeback and rises through multiple bands up to 50% above $100,000,000 of trading volume. The referral code page summarizes this as \"up to 50% trading fee rakeback.\" The docs should avoid mixing rakeback with referrer commission. Rakeback is a referee side fee return after signing up with a friend's code; referral commission is a referrer side reward based on referred traders' aggregated volume. Fee Context The rakeback page is a rewards table, while the fees page explains that trade costs can include platform and solver/hedger fee categories. A production answer should say that rakeback changes the fee experience for eligible referred traders, but the trade ticket and fee page remain the right source for the cost breakdown before confirmation. Reader Implication When a trader asks \"why did I get money back from fees?\", route here. When a user asks \"what does this trade cost before I click?\", route to the fees and funding page. When a referrer"
+    },
+    {
+      "id": "authored-vibe-rakeback-trading-fees::002",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "chunkIndex": 2,
+      "title": "Vibe Rakeback And Trading Fees",
+      "section": "rewards-referrals",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "https://docs.vibe.trading/trading/fees.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-rakeback-trading-fees.md",
+      "wordStart": 185,
+      "wordEnd": 282,
+      "wordCount": 97,
+      "text": "a trader asks \"why did I get money back from fees?\", route here. When a user asks \"what does this trade cost before I click?\", route to the fees and funding page. When a referrer asks \"what do I earn from my network?\", route to referral commission and keep depth/accounting caveats visible. Sources vibe rakeback : official progressive rakeback table. vibe referral codes : referral code prerequisite and up to 50% summary. vibe fees : broader trade cost category context. Related Pages authored vibe fees and funding authored vibe referral code flow authored vibe referral commission program"
+    },
+    {
+      "id": "authored-vibe-referral-code-flow::001",
+      "pageId": "authored-vibe-referral-code-flow",
+      "chunkIndex": 1,
+      "title": "Vibe Referral Code Flow",
+      "section": "rewards-referrals",
+      "track": "Referral Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-codes",
+        "vibe-rakeback",
+        "vibe-points"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+        "https://docs.vibe.trading/trading/vibe-points.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-referral-code-flow.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Referral Code Flow The referral code page is an onboarding flow, not just a rewards table. When a user creates a Vibe account, the public guide says the user is prompted to enter a friend's referral code, receives a unique referral code that matches the account name, and has an account NFT minted at the same time. Entering And Sharing Codes The current public flow supports entering a friend's code during account creation. It also describes link, QR, and post account entry paths, with some of those paths marked as coming soon. Referral codes can be shared manually, from My Account as an image to X, and through PnL share cards that include the referral code and QR code. That mix matters for docs: current manual entry and visible sharing should be documented as product flow; coming soon link or post account paths should stay future facing until the product source says they are live. Benefits The official page separates referrer and referee benefits. Referrers earn Vibe Points for each active referral before TGE and $VIBE for each active referral after TGE. Referees can receive up to 50% trading fee rakeback, with the rakeback page holding the tier table. The page does not resolve the local dashboard's separate referral depth and historical accounting question. That remains parked behind the"
+    },
+    {
+      "id": "authored-vibe-referral-code-flow::002",
+      "pageId": "authored-vibe-referral-code-flow",
+      "chunkIndex": 2,
+      "title": "Vibe Referral Code Flow",
+      "section": "rewards-referrals",
+      "track": "Referral Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-codes",
+        "vibe-rakeback",
+        "vibe-points"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+        "https://docs.vibe.trading/trading/vibe-points.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-referral-code-flow.md",
+      "wordStart": 185,
+      "wordEnd": 324,
+      "wordCount": 139,
+      "text": "receive up to 50% trading fee rakeback, with the rakeback page holding the tier table. The page does not resolve the local dashboard's separate referral depth and historical accounting question. That remains parked behind the operator decision. Reader Implication When a new user asks how referral codes work, answer with the account creation flow first: enter a friend's code, receive your own code, and understand where codes can be shared. When the question becomes \"how much do I earn?\", route to referral commission, rakeback, points, and the unresolved referral depth caveat. Sources vibe referral codes : official referral code creation, account NFT, sharing, signup, and benefit flow. vibe rakeback : referee rakeback tier context. vibe points : public pre TGE points categories. Related Pages authored vibe rakeback trading fees authored vibe referral commission program authored referral depth open question"
+    },
+    {
+      "id": "authored-vibe-referral-commission-program::001",
+      "pageId": "authored-vibe-referral-commission-program",
+      "chunkIndex": 1,
+      "title": "Vibe Referral Commission Program",
+      "section": "rewards-referrals",
+      "track": "Referral Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-program",
+        "vibe-referral-codes",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/referral-program.md",
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-referral-commission-program.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Referral Commission Program The public referral program page says referrers are rewarded through two rails: referral commission and pre TGE points. The safest documentation shape is to keep those rails separate. Referral Commission The commission rail is based on the total aggregated volume of referred traders over the previous rolling 30 days. The public guide says aggregation happens each day at 00:00 UTC and that commission is paid instantly into the referrer's account. The same page publishes percentage tiers by aggregated 30 day volume: 10%, 15%, 20%, 25%, and 30% across increasing volume bands. Those percentages can be cited as public Vibe docs, but the final compendium should still preserve the separate unresolved question of how many referral levels count in the onboarding dashboard. Pre TGE Points The pre TGE rail is tied to daily active referred wallets and a daily leaderboard pool. The source says 100,000 points are available daily and reset at 00:00 UTC, then gives rank bands from first place through positions 501 1000. This overlaps with the trading program page's leaderboard table. That overlap should be treated as corroboration for daily point mechanics, not as proof that all local onboarding points settle the same way at TGE. Reader Implication When answering referral questions, first ask which rail the user means: commission from referred volume, pre"
+    },
+    {
+      "id": "authored-vibe-referral-commission-program::002",
+      "pageId": "authored-vibe-referral-commission-program",
+      "chunkIndex": 2,
+      "title": "Vibe Referral Commission Program",
+      "section": "rewards-referrals",
+      "track": "Referral Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-referral-program",
+        "vibe-referral-codes",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/referral-program.md",
+        "https://docs.vibe.trading/getting-started/referral-codes.md",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-referral-commission-program.md",
+      "wordStart": 185,
+      "wordEnd": 302,
+      "wordCount": 117,
+      "text": "daily point mechanics, not as proof that all local onboarding points settle the same way at TGE. Reader Implication When answering referral questions, first ask which rail the user means: commission from referred volume, pre TGE referral points, referee rakeback, or local dashboard/network accounting. Publishing one blended answer would recreate the existing product ambiguity. Sources vibe referral program : official referral commission tiers, 30 day aggregation, instant commission statement, and pre TGE leaderboard points table. vibe referral codes : referral code onboarding and benefit context. spec 03 : local grounding file that keeps referral depth and points terminology under review. Related Pages authored vibe referral code flow authored vibe trading program points authored referral depth open question"
     },
     {
       "id": "authored-vibe-security-and-audits::001",
@@ -8464,6 +8708,60 @@
       "wordEnd": 206,
       "wordCount": 206,
       "text": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent based quotation process. Symmio's protocol sources frame the settlement side with PartyA, PartyB, collateral, and lifecycle events. The compendium should connect those two layers on every trading page: Vibe makes the product legible; Symmio gives the trade its protocol structure. This also explains why solver quality matters to UX. A better solver path can quote faster, hedge better, handle more markets, and produce a tighter experience. A weak solver path creates delay, rejection, poor pricing, or brittle lifecycle handling. Reader Implication For a trader, \"trade flow\" should answer what happens after submitting an intent. For a solver, it should identify where quoting, risk checks, event monitoring, hedging, and settlement responsibility enter the system. Sources vibe architecture : Vibe architectural overview. symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring. Related Pages authored intents and solvers authored symmio party a party b vibe architecture amfq"
+    },
+    {
+      "id": "authored-vibe-trading-program-points::001",
+      "pageId": "authored-vibe-trading-program-points",
+      "chunkIndex": 1,
+      "title": "Vibe Trading Program Points",
+      "section": "rewards-referrals",
+      "track": "Points",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-trading-program",
+        "vibe-points",
+        "vibe-referral-program"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/trading-program.md",
+        "https://docs.vibe.trading/trading/vibe-points.md",
+        "https://docs.vibe.trading/trading/referral-program.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-trading-program-points.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Trading Program Points The official trading program page describes the pre TGE trading leaderboard point pool. It says early access trading earns points used to claim future rewards after TGE, with 100,000 points available daily and a reset at 00:00 UTC. Daily Leaderboard Bands The public table assigns points by final daily leaderboard position, from 10,000 points for first place through smaller awards down to positions 501 1000. The referral program page repeats the same leaderboard structure for pre TGE points, while the broader points page says Vibe Points can be earned through trading, referring, and community participation. Those pages should be read together: the trading program page gives the rank table; the points page gives the top level category taxonomy; the referral page shows that similar daily mechanics may also appear in referral contexts. Boundary With Dashboard Points This page should not be used to finalize the onboarding app's internal point rails. The local dashboard distinguishes onboarding, referral, network/trading, and Vibe points, and final TGE settlement language remains owner controlled. Reader Implication When a trader asks how the trading leaderboard pays points, route here. When a user asks how all points become token claims, route to the TGE settlement and points taxonomy pages until the operator confirms final public wording. Sources vibe trading program : official pre TGE"
+    },
+    {
+      "id": "authored-vibe-trading-program-points::002",
+      "pageId": "authored-vibe-trading-program-points",
+      "chunkIndex": 2,
+      "title": "Vibe Trading Program Points",
+      "section": "rewards-referrals",
+      "track": "Points",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-trading-program",
+        "vibe-points",
+        "vibe-referral-program"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/trading-program.md",
+        "https://docs.vibe.trading/trading/vibe-points.md",
+        "https://docs.vibe.trading/trading/referral-program.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-trading-program-points.md",
+      "wordStart": 185,
+      "wordEnd": 259,
+      "wordCount": 74,
+      "text": "here. When a user asks how all points become token claims, route to the TGE settlement and points taxonomy pages until the operator confirms final public wording. Sources vibe trading program : official pre TGE daily trading leaderboard points. vibe points : public points categories and reset timing. vibe referral program : corroborating pre TGE daily points table in referral context. Related Pages authored vibe points program authored points taxonomy authored tge settlement multiplier"
     },
     {
       "id": "authored-vibe-tradingview-controls::001",

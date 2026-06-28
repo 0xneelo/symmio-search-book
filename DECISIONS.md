@@ -511,3 +511,11 @@
 **Reason:** The compendium should answer practical product-usage questions and project-side market-creation questions, but those answer types need different publication posture. Hotkeys, mobile, and chart controls can be straightforward user guides. System visualization and project listing terms touch token supply loans, solver profit channels, project distributions, custody, audit rights, conduct restrictions, termination, and legal terms, so they must remain source-limited and review-marked.
 
 **Status:** Accepted for the authored product-reference layer.
+
+## D-065: Split Public Rewards Rails Instead Of Collapsing Them
+
+**Decision:** Add authored pages from official Vibe docs for referral-code onboarding, referral commission/pre-TGE points, rakeback tiers, trading-program points, and the platform overview. Keep referral commission, referee rakeback, trading leaderboard points, Vibe points, local onboarding points, and final TGE settlement as distinct rails.
+
+**Reason:** The public Vibe docs contain useful reward tables, but the local product and grounding docs already show unresolved referral-depth and points-accounting questions. The compendium should publish the directly sourced user flows and tables while avoiding one blended rewards answer that would overstate final economics or erase the existing 5-vs-15-level ambiguity.
+
+**Status:** Accepted for the authored rewards/platform reference layer.
