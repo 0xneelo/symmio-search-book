@@ -471,3 +471,11 @@
 **Reason:** The annex is valuable because it shows why every current long-tail perp approach solves only part of the bootstrap problem. Exact third-party parameters can change, so the compendium should preserve the durable model comparison while marking venue-specific numbers and product-state claims for current-source verification before publication.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-060: Treat Rewards As Auditable Economic State
+
+**Decision:** Add authored Volume 06 pages from Neelo's referral rewards corpus that explain points as economic state, off-chain-to-on-chain claim bridging, packs/artifacts as future-facing reward wrappers, tokenized-points perps as an explicitly hypothetical composability scenario, and governance for unresolved referral/reward policies.
+
+**Reason:** The final compendium must explain revenue, rewards, referrals, Vibe points, and pre-TGE accounting without overstating unresolved economics. This layer lets the docs teach the architecture and integrity model now while keeping final TGE weighting, transferability, pack/artifact policy, referral depth, and third-party derivative scenarios under owner review.
+
+**Status:** Accepted for the authored rewards/referrals layer.

@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 137,
-  "totalAnswerable": 131,
+  "totalEntries": 142,
+  "totalAnswerable": 136,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,22 +20,22 @@
     "Solvers And Settlement": 28,
     "Risk And Markets": 13,
     "Revenue": 10,
-    "Rewards And Referrals": 12,
+    "Rewards And Referrals": 17,
     "Dashboard": 9,
     "Manifesto": 34,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 66,
+    "Medium": 68,
     "High": 18,
-    "Low": 47
+    "Low": 50
   },
   "byRouteSource": {
-    "authored": 131
+    "authored": 136
   },
   "byType": {
-    "answerable": 131,
+    "answerable": 136,
     "reconciliation": 6
   },
   "answerable": [
@@ -1309,6 +1309,183 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-referral-points-economic-state",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why are referral points economic state?",
+      "normalizedQuestion": "why are referral points economic state",
+      "shortAnswer": "Neelo's referral rewards source says points need balance-like controls once they affect tradable outcomes, TGE weighting, or on-chain claims.",
+      "answerSummary": "Referral Points As Economic State The referral program source makes a strong distinction: points stop being harmless marketing metadata once they can influence tradable outcomes, TGE weighting, transferable claims, or reward linked assets. That means points have to be documented as economic state. The source separates fee linked points from engagement poi...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-points-economic-state",
+      "pageTitle": "Referral Points As Economic State",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-points-move-from-off-chain-balances-to-on-chain-claims",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should points move from off-chain balances to on-chain claims?",
+      "normalizedQuestion": "how should points move from off chain balances to on chain claims",
+      "shortAnswer": "Neelo's points and rewards-pack sources support finalization, claim authorization, cooldown or vesting, and anomaly checks before economic activity.",
+      "answerSummary": "Points Claim Bridge And Vesting The source proposes a phased bridge from off chain point balances into on chain representation. The reason is simple: real time point displays are useful for motivation, but final economic claims should not be considered settled until the inputs have been finalized. A safe bridge has several parts: daily or epoch based sour...",
+      "confidence": "Low",
+      "pageId": "authored-points-claim-bridge-and-vesting",
+      "pageTitle": "Points Claim Bridge And Vesting",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-rewards-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are rewards packs and artifacts?",
+      "normalizedQuestion": "what are rewards packs and artifacts",
+      "shortAnswer": "Neelo's rewards-pack source treats packs and artifacts as future-facing gamified reward objects with explicit supply, EV, and TGE accounting guardrails.",
+      "answerSummary": "Rewards Packs And Artifacts The rewards pack source is explicitly future facing. It should be documented as a design model, not as current product policy. The core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected value containers. Artifacts...",
+      "confidence": "Low",
+      "pageId": "authored-rewards-packs-and-artifacts",
+      "pageTitle": "Rewards Packs And Artifacts",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-could-point-linked-assets-become-perp-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Could point-linked assets become perp markets?",
+      "normalizedQuestion": "could point linked assets become perp markets",
+      "shortAnswer": "Neelo's tokenized-points-perps section is explicitly hypothetical and must be labeled as a third-party composability scenario, not current product policy.",
+      "answerSummary": "Tokenized Points Perps Are A Hypothetical Scenario The tokenized points perps section is not a product announcement. It is a thought experiment about what could become possible if reward linked assets become on chain economic objects and third party builders compose around them. The hypothetical flow is: users earn and claim points, points can be held or...",
+      "confidence": "Low",
+      "pageId": "authored-tokenized-points-perps-hypothetical",
+      "pageTitle": "Tokenized Points Perps Are A Hypothetical Scenario",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-rewards-decisions-remain-open",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral rewards decisions remain open?",
+      "normalizedQuestion": "which referral rewards decisions remain open",
+      "shortAnswer": "Neelo's open-decisions section names policy, economics, settlement/security, and rollout decisions that need owner-approved public statements.",
+      "answerSummary": "Referral Policy Governance The referral source is clear that several policy questions remain open. That does not make the architecture unusable. It means the docs need a governance layer that records the owner, milestone, public policy statement, and acceptance criteria for every unresolved economic decision. The open decisions fall into four groups: refe...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-policy-governance",
+      "pageTitle": "Referral Policy Governance",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -6232,6 +6409,183 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-referral-points-economic-state",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why are referral points economic state?",
+      "normalizedQuestion": "why are referral points economic state",
+      "shortAnswer": "Neelo's referral rewards source says points need balance-like controls once they affect tradable outcomes, TGE weighting, or on-chain claims.",
+      "answerSummary": "Referral Points As Economic State The referral program source makes a strong distinction: points stop being harmless marketing metadata once they can influence tradable outcomes, TGE weighting, transferable claims, or reward linked assets. That means points have to be documented as economic state. The source separates fee linked points from engagement poi...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-points-economic-state",
+      "pageTitle": "Referral Points As Economic State",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-points-move-from-off-chain-balances-to-on-chain-claims",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should points move from off-chain balances to on-chain claims?",
+      "normalizedQuestion": "how should points move from off chain balances to on chain claims",
+      "shortAnswer": "Neelo's points and rewards-pack sources support finalization, claim authorization, cooldown or vesting, and anomaly checks before economic activity.",
+      "answerSummary": "Points Claim Bridge And Vesting The source proposes a phased bridge from off chain point balances into on chain representation. The reason is simple: real time point displays are useful for motivation, but final economic claims should not be considered settled until the inputs have been finalized. A safe bridge has several parts: daily or epoch based sour...",
+      "confidence": "Low",
+      "pageId": "authored-points-claim-bridge-and-vesting",
+      "pageTitle": "Points Claim Bridge And Vesting",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-rewards-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are rewards packs and artifacts?",
+      "normalizedQuestion": "what are rewards packs and artifacts",
+      "shortAnswer": "Neelo's rewards-pack source treats packs and artifacts as future-facing gamified reward objects with explicit supply, EV, and TGE accounting guardrails.",
+      "answerSummary": "Rewards Packs And Artifacts The rewards pack source is explicitly future facing. It should be documented as a design model, not as current product policy. The core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected value containers. Artifacts...",
+      "confidence": "Low",
+      "pageId": "authored-rewards-packs-and-artifacts",
+      "pageTitle": "Rewards Packs And Artifacts",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-could-point-linked-assets-become-perp-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Could point-linked assets become perp markets?",
+      "normalizedQuestion": "could point linked assets become perp markets",
+      "shortAnswer": "Neelo's tokenized-points-perps section is explicitly hypothetical and must be labeled as a third-party composability scenario, not current product policy.",
+      "answerSummary": "Tokenized Points Perps Are A Hypothetical Scenario The tokenized points perps section is not a product announcement. It is a thought experiment about what could become possible if reward linked assets become on chain economic objects and third party builders compose around them. The hypothetical flow is: users earn and claim points, points can be held or...",
+      "confidence": "Low",
+      "pageId": "authored-tokenized-points-perps-hypothetical",
+      "pageTitle": "Tokenized Points Perps Are A Hypothetical Scenario",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-rewards-decisions-remain-open",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral rewards decisions remain open?",
+      "normalizedQuestion": "which referral rewards decisions remain open",
+      "shortAnswer": "Neelo's open-decisions section names policy, economics, settlement/security, and rollout decisions that need owner-approved public statements.",
+      "answerSummary": "Referral Policy Governance The referral source is clear that several policy questions remain open. That does not make the architecture unusable. It means the docs need a governance layer that records the owner, milestone, public policy statement, and acceptance criteria for every unresolved economic decision. The open decisions fall into four groups: refe...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-policy-governance",
+      "pageTitle": "Referral Policy Governance",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]

@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 962,
-  "totalChunks": 1631,
-  "pagesWithChunks": 962,
+  "totalPages": 967,
+  "totalChunks": 1636,
+  "pagesWithChunks": 967,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -443,12 +443,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 150,
+    "authored": 155,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 290,
+    "authored": 295,
     "curated": 20,
     "generated": 1321
   },
@@ -458,7 +458,7 @@
     "protocol-reference": 42,
     "competitive-context": 6,
     "reference": 2,
-    "rewards-referrals": 27,
+    "rewards-referrals": 32,
     "answer-engine": 1,
     "product-reference": 22,
     "compendium": 16,
@@ -4204,6 +4204,32 @@
       "text": "settlement status for that rail only. Sources dashboard app : Local dashboard distinction between point categories. vibe points : Public Vibe points documentation. spec 03 : Required point category separation. Related Pages authored referral depth open question vibe points overview local dashboard points distinction"
     },
     {
+      "id": "authored-points-claim-bridge-and-vesting::001",
+      "pageId": "authored-points-claim-bridge-and-vesting",
+      "chunkIndex": 1,
+      "title": "Points Claim Bridge And Vesting",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/points-claim-bridge-and-vesting.md",
+      "wordStart": 0,
+      "wordEnd": 218,
+      "wordCount": 218,
+      "text": "Points Claim Bridge And Vesting The source proposes a phased bridge from off chain point balances into on chain representation. The reason is simple: real time point displays are useful for motivation, but final economic claims should not be considered settled until the inputs have been finalized. A safe bridge has several parts: daily or epoch based source finalization; explicit buckets for trading, LP, referral, and program activity; claim authorization after eligibility checks; cooldown or vesting before full transferability; anomaly checks before economically active release. The rewards pack source gives an example flow: users earn points off chain, claim them on chain after finalization, pass through a vesting window, and then choose whether to hold direct points or convert into additional reward objects. The details remain future facing, but the integrity model is durable. Reader Implication When a user asks whether points are \"final,\" the docs should answer by state. Provisional points are not the same as finalized claimable points, and claimable points are not automatically the same as transferable economic exposure. Sources vibe papers : Neelo, \"Section 4: Points and Rewards\". vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". spec 03 : Final TGE mechanics remain owner review. Related Pages authored referral points economic state authored tge settlement multiplier authored referral metrics and integrity"
+    },
+    {
       "id": "authored-points-taxonomy::001",
       "pageId": "authored-points-taxonomy",
       "chunkIndex": 1,
@@ -4749,6 +4775,57 @@
       "text": "is simple: incentive systems should fail closed on settlement. Growth can recover after verification. Credibility cannot recover easily after silent reward inflation. Reader Implication The docs should report referral growth with phase labels, formula versions, and organic versus campaign separation. They should also expose the integrity frame so users understand that anti gaming controls are part of the product, not friction added after the fact. Sources vibe papers : Neelo, \"Section 8: Security Controls\". vibe papers : Neelo, \"Section 9: Metrics Framework\". vibe papers : Neelo, \"Product Metrics Framework\". spec 03 : Current product metrics and points caveats. Related Pages authored referral issuance and anti gaming authored points taxonomy neelo 17 referral program 17 docs 09 metrics framework"
     },
     {
+      "id": "authored-referral-points-economic-state::001",
+      "pageId": "authored-referral-points-economic-state",
+      "chunkIndex": 1,
+      "title": "Referral Points As Economic State",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-points-economic-state.md",
+      "wordStart": 0,
+      "wordEnd": 194,
+      "wordCount": 194,
+      "text": "Referral Points As Economic State The referral program source makes a strong distinction: points stop being harmless marketing metadata once they can influence tradable outcomes, TGE weighting, transferable claims, or reward linked assets. That means points have to be documented as economic state. The source separates fee linked points from engagement points because the abuse profile is different. Fee linked points can inherit integrity from real activity if volume, fees, referrals, and LP participation are finalized through verifiable source buckets. Engagement points are easier to farm if they become liquid without controls. The docs should therefore explain points in three states: provisional off chain accounting, finalized claimable accounting, and economically active on chain representation. Each state needs source buckets, eligibility rules, and finalization timing. Publication Note This page does not finalize TGE conversion, transferability, pack eligibility, or reward weighting. It establishes the accounting principle: if points can affect economic outcomes, they need the same seriousness as balances, claims, and attribution. Sources vibe papers : Neelo, \"Section 4: Points and Rewards\". spec 03 : Required points taxonomy and TGE settlement caveats. Related Pages authored points taxonomy authored tge settlement multiplier authored referral metrics and integrity"
+    },
+    {
+      "id": "authored-referral-policy-governance::001",
+      "pageId": "authored-referral-policy-governance",
+      "chunkIndex": 1,
+      "title": "Referral Policy Governance",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/10-open-decisions",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-policy-governance.md",
+      "wordStart": 0,
+      "wordEnd": 201,
+      "wordCount": 201,
+      "text": "Referral Policy Governance The referral source is clear that several policy questions remain open. That does not make the architecture unusable. It means the docs need a governance layer that records the owner, milestone, public policy statement, and acceptance criteria for every unresolved economic decision. The open decisions fall into four groups: referral policy: depth, referee benefit variants, and whether referral attachment can change after signup; economic policy: private tiers, transferability, TGE weighting, and reward caps; settlement and security: claim based versus in flow rebates, signer controls, freezes, and rollback scope; rollout and capacity: launch throughput, phase sequencing, and partner commitments. The conclusion of the source gives the north star: referrals should connect user acquisition, market creation, and fee distribution while preserving trust under adversarial conditions. Reader Implication Final docs should not hide unresolved policies inside confident marketing copy. They should publish the stable architecture, label the open decisions, and update the answer engine when operator approved policy resolves. Sources vibe papers : Neelo, \"Section 10: Open Decisions\". vibe papers : Neelo, \"Section 11: Conclusion\". spec 03 : Referral depth and public economics caveats. Related Pages authored referral depth open question authored referral rakeback policy model authored referral metrics and integrity"
+    },
+    {
       "id": "authored-referral-rakeback-policy-model::001",
       "pageId": "authored-referral-rakeback-policy-model",
       "chunkIndex": 1,
@@ -4903,6 +4980,32 @@
       "wordEnd": 297,
       "wordCount": 112,
       "text": "always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market level controls can tighten. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\". vibe architecture : Vibe intent quotation context. symmio intent lifecycle : solver event monitoring, risk checks, locking, and collateral allocation. Related Pages authored solver owned market maker authored solver event monitoring authored vibe oi and liquidity neelo 08 due diligence questionnaire 08 docs solver as residual counterparty solver as residual counterparty"
+    },
+    {
+      "id": "authored-rewards-packs-and-artifacts::001",
+      "pageId": "authored-rewards-packs-and-artifacts",
+      "chunkIndex": 1,
+      "title": "Rewards Packs And Artifacts",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/rewards-packs-and-artifacts.md",
+      "wordStart": 0,
+      "wordEnd": 213,
+      "wordCount": 213,
+      "text": "Rewards Packs And Artifacts The rewards pack source is explicitly future facing. It should be documented as a design model, not as current product policy. The core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected value containers. Artifacts can create persistent assets with embedded point value, rarity, and optional boost fields. That structure can improve retention only if the economic rules are public enough to audit. The source names the needed guardrails: bounded supply, disclosed rarity or probability rules, clear expected value policy, vesting delay, anomaly monitoring, and explicit TGE accounting across direct points, unopened packs, and artifacts. TGE Accounting Principle The source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". vibe papers : Neelo, \"Section 4: Points and Rewards\". spec 03 : TGE settlement needs product owner approval. Related Pages authored points claim bridge and vesting authored tge settlement multiplier authored referral points economic state"
     },
     {
       "id": "authored-rfq-before-order-book::001",
@@ -6261,6 +6364,30 @@
       "wordEnd": 234,
       "wordCount": 49,
       "text": "explicit risk compensation. Sources vibe papers : Neelo, \"USDC vs Token Margined Perpetuals\". vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\". vibe papers : Neelo, \"Figure1\". Related Pages authored vibe pillars authored lp profit and dynamic pricing neelo 06 usdc token perps 06 docs riskpremiumcalcs"
+    },
+    {
+      "id": "authored-tokenized-points-perps-hypothetical::001",
+      "pageId": "authored-tokenized-points-perps-hypothetical",
+      "chunkIndex": 1,
+      "title": "Tokenized Points Perps Are A Hypothetical Scenario",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-perps-hypothetical.md",
+      "wordStart": 0,
+      "wordEnd": 201,
+      "wordCount": 201,
+      "text": "Tokenized Points Perps Are A Hypothetical Scenario The tokenized points perps section is not a product announcement. It is a thought experiment about what could become possible if reward linked assets become on chain economic objects and third party builders compose around them. The hypothetical flow is: users earn and claim points, points can be held or converted into packs and artifacts, an independent contract could fractionalize pack exposure, the resulting token could receive spot liquidity, and a permissionless perp venue could list that token if it met market requirements. That scenario is useful because it shows why Vibe's reward architecture cannot be documented casually. Once points become transferable or wrapped, they can become financial primitives. Financial primitives can become markets. Markets can then amplify both legitimate hedging and manipulation risk. Required Labeling Any final docs that mention this scenario must preserve three labels: hypothetical; third party or community built unless explicitly endorsed; not the default intended user flow. Sources vibe papers : Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\". vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". Related Pages authored rewards packs and artifacts authored referral points economic state authored financialized rejection thumbs down"
     },
     {
       "id": "authored-tokens-as-information-objects::001",

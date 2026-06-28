@@ -308,6 +308,12 @@
 - Routed five new referral architecture questions to authored pages while preserving the parked public referral-depth and historical-accounting decision.
 - Framed referrals as market-formation infrastructure tied to listings, attribution, fee flow, and integrity controls rather than only a campaign-growth surface.
 
+## 2026-06-28 — Referral Rewards Authored Layer
+
+- Added five authored Volume 06 reference pages from Neelo's referral rewards corpus: referral points as economic state, points claim bridge and vesting, rewards packs and artifacts, tokenized-points-perps as a hypothetical composability scenario, and referral policy governance.
+- Routed five new rewards/referral questions to authored pages while preserving unresolved referral depth, final TGE weighting, transferability, and pack/artifact policy under operator review.
+- Kept tokenized points perps explicitly labeled as hypothetical and not current product policy.
+
 ## 2026-06-28 — Bootstrap And Z-Score Thesis Pages
 
 - Added five authored Volume 02 manifesto pages from Neelo's perps categories, bootstrap trilemma, Vibe architecture, and Proof of Value corpus: perp design axes, static design failures, temporal separation of concerns, Z-score graduation criteria, and market price as verification.
