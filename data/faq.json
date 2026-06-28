@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 72,
-  "totalAnswerable": 66,
+  "totalEntries": 77,
+  "totalAnswerable": 71,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 7,
     "Trading Flow": 8,
-    "Solvers And Settlement": 15,
+    "Solvers And Settlement": 20,
     "Risk And Markets": 6,
     "Revenue": 5,
     "Rewards And Referrals": 7,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 37,
     "High": 18,
-    "Low": 11
+    "Low": 16
   },
   "byRouteSource": {
-    "authored": 66
+    "authored": 71
   },
   "byType": {
-    "answerable": 66,
+    "answerable": 71,
     "reconciliation": 6
   },
   "answerable": [
@@ -1757,6 +1757,151 @@
       "pageTitle": "Funding Defense Hierarchy",
       "pageSection": "manifesto",
       "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-symm-lp-case-study-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the SYMM LP case study show?",
+      "normalizedQuestion": "what does the symm lp case study show",
+      "shortAnswer": "Neelo's SYMM LP case supports the mechanism and setup; it remains one favorable-period case, not a generalized return promise.",
+      "answerSummary": "SYMM LP Case Setup Neelo's SYMM LP case study tracks one liquidity provider deployment on Vibe: three SYMM deposits by LafaChief totaling 2,271,131 tokens. The source frames the test as a way to evaluate whether a project aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposu...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-case-setup",
+      "pageTitle": "SYMM LP Case Setup",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-symm-lp-unit-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should I read SYMM LP unit economics?",
+      "normalizedQuestion": "how should i read symm lp unit economics",
+      "shortAnswer": "The case-study data supports realized/unrealized and token/cash distinctions; audited attribution and drawdowns are still needed for final performance claims.",
+      "answerSummary": "SYMM LP Unit Economics The SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was 2,271,131 SYMM at an average input price of $0.01280 , or $29,070.4768 of deposit time notional. At the data cut, the LP token balance had increased to 2,501,328.4 SYMM, a gain of 230,197.4...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-unit-economics",
+      "pageTitle": "SYMM LP Unit Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-risks-could-make-an-lp-case-study-reverse",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What risks could make an LP case study reverse?",
+      "normalizedQuestion": "what risks could make an lp case study reverse",
+      "shortAnswer": "Neelo's risk section names regime, leverage, liquidity, concentration, and unrealized-PnL risks; exact production controls need operator review.",
+      "answerSummary": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes....",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-risk-and-edge-cases",
+      "pageTitle": "SYMM LP Risk And Edge Cases",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-the-symm-lp-model-be-replicated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Can the SYMM LP model be replicated?",
+      "normalizedQuestion": "can the symm lp model be replicated",
+      "shortAnswer": "The scaling paper supports phased pilots, validation, tranche scaling, and KPI reporting rather than one-step generalized deployment.",
+      "answerSummary": "SYMM LP Replication Framework The SYMM case suggests a go to market template for other token communities, but the source is explicit that replication should be phased. A community should not jump from one favorable case study into large scale LP deployment without testing trader demand, skew behavior, liquidation quality, and reporting discipline. The min...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-replication-framework",
+      "pageTitle": "SYMM LP Replication Framework",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-metrics-need-guardrails-in-the-symm-lp-case-study",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Which metrics need guardrails in the SYMM LP case study?",
+      "normalizedQuestion": "which metrics need guardrails in the symm lp case study",
+      "shortAnswer": "The data snapshot defines sign conventions and reproducibility notes; public yield wording still needs careful accounting review.",
+      "answerSummary": "SYMM LP Data Guardrails The SYMM LP case study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge. T...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-data-guardrails",
+      "pageTitle": "SYMM LP Data Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -4755,6 +4900,151 @@
       "pageTitle": "Funding Defense Hierarchy",
       "pageSection": "manifesto",
       "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-symm-lp-case-study-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the SYMM LP case study show?",
+      "normalizedQuestion": "what does the symm lp case study show",
+      "shortAnswer": "Neelo's SYMM LP case supports the mechanism and setup; it remains one favorable-period case, not a generalized return promise.",
+      "answerSummary": "SYMM LP Case Setup Neelo's SYMM LP case study tracks one liquidity provider deployment on Vibe: three SYMM deposits by LafaChief totaling 2,271,131 tokens. The source frames the test as a way to evaluate whether a project aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposu...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-case-setup",
+      "pageTitle": "SYMM LP Case Setup",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-symm-lp-unit-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should I read SYMM LP unit economics?",
+      "normalizedQuestion": "how should i read symm lp unit economics",
+      "shortAnswer": "The case-study data supports realized/unrealized and token/cash distinctions; audited attribution and drawdowns are still needed for final performance claims.",
+      "answerSummary": "SYMM LP Unit Economics The SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was 2,271,131 SYMM at an average input price of $0.01280 , or $29,070.4768 of deposit time notional. At the data cut, the LP token balance had increased to 2,501,328.4 SYMM, a gain of 230,197.4...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-unit-economics",
+      "pageTitle": "SYMM LP Unit Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-risks-could-make-an-lp-case-study-reverse",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What risks could make an LP case study reverse?",
+      "normalizedQuestion": "what risks could make an lp case study reverse",
+      "shortAnswer": "Neelo's risk section names regime, leverage, liquidity, concentration, and unrealized-PnL risks; exact production controls need operator review.",
+      "answerSummary": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes....",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-risk-and-edge-cases",
+      "pageTitle": "SYMM LP Risk And Edge Cases",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-the-symm-lp-model-be-replicated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Can the SYMM LP model be replicated?",
+      "normalizedQuestion": "can the symm lp model be replicated",
+      "shortAnswer": "The scaling paper supports phased pilots, validation, tranche scaling, and KPI reporting rather than one-step generalized deployment.",
+      "answerSummary": "SYMM LP Replication Framework The SYMM case suggests a go to market template for other token communities, but the source is explicit that replication should be phased. A community should not jump from one favorable case study into large scale LP deployment without testing trader demand, skew behavior, liquidation quality, and reporting discipline. The min...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-replication-framework",
+      "pageTitle": "SYMM LP Replication Framework",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-metrics-need-guardrails-in-the-symm-lp-case-study",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Which metrics need guardrails in the SYMM LP case study?",
+      "normalizedQuestion": "which metrics need guardrails in the symm lp case study",
+      "shortAnswer": "The data snapshot defines sign conventions and reproducibility notes; public yield wording still needs careful accounting review.",
+      "answerSummary": "SYMM LP Data Guardrails The SYMM LP case study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge. T...",
+      "confidence": "Low",
+      "pageId": "authored-symm-lp-data-guardrails",
+      "pageTitle": "SYMM LP Data Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

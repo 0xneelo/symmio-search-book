@@ -367,3 +367,11 @@
 **Reason:** The reference layer needs to answer practical user questions without overstating unresolved product decisions. Splitting current source behavior from target-source migration, and splitting point rails from TGE settlement, lets the docs be useful now while keeping referral depth, Barometer endpoint mapping, and final settlement formula under operator review.
 
 **Status:** Accepted for the product-reference layer.
+
+## D-047: Treat The SYMM LP Case As Proof Of Mechanism
+
+**Decision:** Promote Neelo's SYMM LP case study into authored pages for setup, unit economics, risk, replication, and data guardrails, but label every performance-sensitive page for operator/accounting review.
+
+**Reason:** The case study is strong evidence for Vibe's LP mechanism because it ties inventory, long skew, realized debt, unrealized PnL, benchmark comparison, and low-volume market activity into one concrete deployment. It is still one favorable-period data cut, so the compendium must preserve sign conventions, realized/unrealized separation, drawdown gaps, and regime-risk caveats before turning it into public yield language.
+
+**Status:** Accepted for the authored protocol-reference layer.

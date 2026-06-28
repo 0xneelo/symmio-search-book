@@ -275,6 +275,12 @@
 - Routed four new practical questions to those pages so Ask can answer snapshot lag, Barometer status, points rails, and TGE settlement without falling back to generated local-code stubs.
 - Preserved operator-review caveats around referral depth, final public revenue/source disclosure, exact Barometer endpoint mapping, and the final TGE settlement formula.
 
+## 2026-06-28 — SYMM LP Case Study Authored Layer
+
+- Added five authored Volume 05 reference pages from Neelo's SYMM LP case-study corpus: setup, unit economics, risk and edge cases, replication framework, and data guardrails.
+- Routed five new LP/treasury questions to authored pages so Ask can answer the case-study mechanism without treating raw generated source imports as final copy.
+- Kept the case framed as a proof of mechanism from one favorable-period data cut, with realized/unrealized PnL, sign conventions, drawdown gaps, and replication conditions explicit.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
