@@ -35,6 +35,7 @@ Questions are grouped by whether the current source set can answer them.
 | Explain the whole Vibe x Symmio thesis. | `authored-bootstrap-trilemma` | Medium | The generated new-reader journey starts here, then routes through Proof of Value, listing power, intents, solvers, trade flow, and dashboard overview. |
 | What should I read first as a solver or LP? | `authored-intents-and-solvers` | Medium | The generated solver/LP journey starts with mechanism, then PartyB responsibilities, Symmio solver role, pillars, economics, and token-vault risk. |
 | What should I read first as a dashboard user? | `authored-dashboard-overview` | High | The generated dashboard-user journey walks Overview, invites, network, volume, tasks, FAQ, and settings. |
+| What should Vibe x Symmio borrow from the best docs? | `authored-competitive-docs-benchmark` | Medium | Competitive synthesis from the verified official-docs batch; Opyn remains an access gap. |
 
 ## Prototype Event Log
 

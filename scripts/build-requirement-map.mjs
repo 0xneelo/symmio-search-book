@@ -116,6 +116,9 @@ const manifestWithinTarget = (manifest.pages || []).length >= 500 && (manifest.p
 const sourceIngestionOpenBlocks = [
   ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
   ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
+  ...(inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : []),
+  ...(inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : []),
+  ...(inboxHas(openInboxItems, 8) ? ["OPERATOR-INBOX #8"] : []),
 ];
 const sourceIngestionIncomplete =
   !sourceIngestion.sourceCompletionReady ||
@@ -252,13 +255,19 @@ const requirements = [
         ? "complete"
         : (competitiveSweep.targetDocs || 0) >= 50 &&
             (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
+            (competitiveSweep.completedExplorerBatches || 0) >= 5 &&
+            inboxHas(openInboxItems, 8)
+          ? "parked"
+        : (competitiveSweep.targetDocs || 0) >= 50 &&
+            (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
             (competitiveSweep.completedExplorerBatches || 0) >= 5
           ? "partial"
           : "missing",
     category: "sourcing",
     sourceSpecs: ["07"],
     evidence: `${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} official docs verified, ${competitiveSweep.targetDocsUnverified || 0} unverified, ${competitiveSweep.completedExplorerBatches || 0} explorer batches, ${competitiveSweep.completedLaneReviews || 0}/${competitiveSweep.plannedAgentLanes || 0} lanes`,
-    nextAction: "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target.",
+    blocks: inboxHas(openInboxItems, 8) && !competitiveSweep.completionReady ? ["OPERATOR-INBOX #8"] : [],
+    nextAction: "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
   }),
   req({
     id: "phase-zero-platform",

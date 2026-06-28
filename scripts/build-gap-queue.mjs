@@ -32,8 +32,8 @@ const gapMeta = {
   "G-002": {
     category: "Research Sweep",
     priority: "P2",
-    sourceKeys: ["spec-07"],
-    relatedPageIds: ["authored-search-insights-loop"],
+    sourceKeys: ["spec-07", "competitive-sweep-batch-01", "competitive-sweep-synthesis"],
+    relatedPageIds: ["authored-competitive-docs-benchmark", "authored-search-insights-loop"],
   },
   "G-002A": {
     category: "Editorial Production",
@@ -103,6 +103,7 @@ const operatorGapMap = {
   2: "G-001",
   3: "G-003",
   4: "G-010",
+  8: "G-002",
 };
 
 const priorityScores = {

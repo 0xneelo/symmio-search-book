@@ -553,7 +553,8 @@ const payload = {
   targetDocsReviewed: reviewedTargetIds.size,
   targetDocsUnverified: unverifiedTargetIds.size,
   completionReady: false,
-  completionStatusReason: "The official-docs batch has returned, but Opyn was not crawlable from the official URL and the full final competitive synthesis has not been written into the compendium.",
+  completionStatusReason: "The official-docs batch has an authored synthesis page, but Opyn remains unresolved because the official URL was not crawlable and no operator exclusion/replacement decision has been recorded.",
+  authoredSynthesisPageId: "authored-competitive-docs-benchmark",
   completionCriteria: {
     requiredAgentLanes: 25,
     requiredTargetDocs: 50,

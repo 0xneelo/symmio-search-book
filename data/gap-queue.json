@@ -10,7 +10,7 @@
   "status": "prototype-gap-queue",
   "totalItems": 12,
   "totalQuestionSignals": 7,
-  "totalOperatorSignals": 7,
+  "totalOperatorSignals": 8,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
   "missingOperatorGapIds": [],
@@ -36,8 +36,8 @@
     "General": 1
   },
   "byStatus": {
-    "operator-parked": 4,
-    "open": 8
+    "operator-parked": 5,
+    "open": 7
   },
   "topItems": [
     "queue-g-003",
@@ -557,7 +557,7 @@
         {
           "id": "gap-how-do-vibe-options-use-symmio-settlement",
           "question": "How do Vibe options use Symmio settlement?",
-          "notes": "Needs deeper Symmio options source mining."
+          "notes": "Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review."
         },
         {
           "id": "gap-can-a-vault-lp-see-exact-covered-call-exposure",
@@ -661,7 +661,7 @@
         {
           "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
           "question": "Is network volume sourced from backend REST or subgraphs?",
-          "notes": "Current code uses backend REST; Linear research recommends subgraphs."
+          "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
         }
       ],
       "linkedOperatorItems": [],
@@ -882,14 +882,16 @@
       "gapId": "G-002",
       "title": "25-Agent Competitive Sweep Is Not Complete",
       "type": "documented-gap",
-      "status": "open",
+      "status": "operator-parked",
       "priority": "P2",
-      "priorityScore": 40,
+      "priorityScore": 52,
       "category": "Research Sweep",
-      "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It is still not complete: the official Opyn docs URL was not crawlable in the returned batch, and the final sourced synthesis has not yet been promoted into authored compendium pages.",
-      "needed": "Final sourced synthesis, publication-page integration, and resolution of the Opyn official-doc access gap without relying on mirrors or third-party snippets.",
+      "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. It is still not complete because the official Opyn docs URL was not crawlable in the returned batch or the follow-up web check.",
+      "needed": "Operator-provided official Opyn source access, replacement target, or exclusion decision without relying on mirrors or third-party snippets.",
       "sourceKeys": [
-        "spec-07"
+        "spec-07",
+        "competitive-sweep-batch-01",
+        "competitive-sweep-synthesis"
       ],
       "sources": [
         {
@@ -898,12 +900,35 @@
           "use": "Session 1 research gate.",
           "href": "../../_specs/app-docs/07-research-session.md",
           "missing": false
+        },
+        {
+          "key": "competitive-sweep-batch-01",
+          "group": "Competitive Context",
+          "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, and the unresolved Opyn access gap.",
+          "href": "../../src/search-book/data/competitive-sweep.json",
+          "missing": false
+        },
+        {
+          "key": "competitive-sweep-synthesis",
+          "group": "Competitive Context",
+          "use": "Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid.",
+          "href": "../../src/search-book/content/authored/manifesto/competitive-docs-benchmark.md",
+          "missing": false
         }
       ],
       "relatedPageIds": [
+        "authored-competitive-docs-benchmark",
         "authored-search-insights-loop"
       ],
       "relatedPages": [
+        {
+          "id": "authored-competitive-docs-benchmark",
+          "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+          "section": "competitive-context",
+          "track": "Competitive Benchmark",
+          "status": "publication-candidate-needs-operator-review",
+          "routeSource": "authored"
+        },
         {
           "id": "authored-search-insights-loop",
           "title": "The Living Docs Loop",
@@ -914,7 +939,14 @@
         }
       ],
       "linkedQuestions": [],
-      "linkedOperatorItems": [],
+      "linkedOperatorItems": [
+        {
+          "id": 8,
+          "title": "Opyn official docs access or exclusion decision",
+          "need": "Provide an accessible official Opyn docs source for the competitive documentation sweep, or confirm Opyn should be excluded/replaced in the final benchmark set.",
+          "blocks": "Final competitive-sweep completeness claim and the `opyn-docs-official-review` source-ingestion item."
+        }
+      ],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []

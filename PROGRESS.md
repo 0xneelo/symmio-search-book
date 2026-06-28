@@ -182,12 +182,19 @@
 - Integrated the five returned official-docs explorer batches: 50 target docs across 25 lanes, 49 verified official docs, 1 unverified access gap for Opyn, 5 completed explorer batches, and 25 lane reviews.
 - Registered `competitive-sweep-batch-01` in `SOURCES.md`, wired it into source ingestion, and added quality-audit coverage so the benchmark is tracked without claiming the full sweep/final synthesis is complete.
 
+## 2026-06-28 — Competitive Docs Synthesis Page
+
+- Logged `OPERATOR-INBOX #8` for the Opyn official docs access/exclusion decision after the official source remained unavailable through the available web path.
+- Added the authored page `authored-competitive-docs-benchmark`, synthesizing the returned official-docs benchmark into concrete Vibe x Symmio documentation requirements: job-first routing, AI-readable source trust, risk architecture, data lineage, and visible living-docs loops.
+- Registered `competitive-sweep-synthesis` in `SOURCES.md` and added a direct question route for "What should Vibe x Symmio borrow from the best docs?"
+- Narrowed `G-002` so the remaining competitive gap is the Opyn official-source decision, not the synthesis page itself.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
-- Final competitive-sweep synthesis and Opyn official-doc access gap.
+- Opyn official-doc access, replacement, or exclusion decision for the competitive sweep.
 - Revenue disclosure boundary.
 - Referral-depth public stance.
 - Production docs platform/repository decision.

@@ -5,8 +5,8 @@
   "totalRequirements": 17,
   "byStatus": {
     "complete": 5,
-    "partial": 5,
-    "parked": 6,
+    "partial": 4,
+    "parked": 7,
     "missing": 1
   },
   "byCategory": {
@@ -20,6 +20,10 @@
     "delivery": 2
   },
   "openOperatorItems": [
+    {
+      "id": 8,
+      "title": "Opyn official docs access or exclusion decision"
+    },
     {
       "id": 7,
       "title": "SuperFlow / SSHE source identification"
@@ -77,7 +81,7 @@
         "03",
         "05"
       ],
-      "evidence": "43 authored pages across 8 sections; 8 volumes and 66 chapters",
+      "evidence": "44 authored pages across 9 sections; 8 volumes and 67 chapters",
       "blocks": [],
       "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages."
     },
@@ -90,7 +94,7 @@
         "05",
         "08"
       ],
-      "evidence": "8 volumes, 66 chapters, 8 authored overviews, 837/837 reader pages assigned",
+      "evidence": "8 volumes, 67 chapters, 8 authored overviews, 838/838 reader pages assigned",
       "blocks": [],
       "nextAction": "Use the volume map as production IA input once the platform decision is resolved."
     },
@@ -105,7 +109,7 @@
         "05",
         "09"
       ],
-      "evidence": "9 authored dashboard-reference pages; statuses {\"publication-candidate\":28,\"publication-candidate-needs-operator-review\":14,\"needs-reconciliation\":1}",
+      "evidence": "9 authored dashboard-reference pages; statuses {\"publication-candidate\":28,\"publication-candidate-needs-operator-review\":15,\"needs-reconciliation\":1}",
       "blocks": [],
       "nextAction": "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication."
     },
@@ -153,7 +157,7 @@
         "06",
         "09"
       ],
-      "evidence": "29 seeded routes, 1414 retrieval chunks, static Ask UI routes to exact pages",
+      "evidence": "30 seeded routes, 1419 retrieval chunks, static Ask UI routes to exact pages",
       "blocks": [],
       "nextAction": "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision."
     },
@@ -183,7 +187,7 @@
         "07",
         "08"
       ],
-      "evidence": "36 local FAQ entries exist, but Discord/Lafa corpus is not imported.",
+      "evidence": "37 local FAQ entries exist, but Discord/Lafa corpus is not imported.",
       "blocks": [
         "OPERATOR-INBOX #2"
       ],
@@ -212,7 +216,7 @@
         "05",
         "08"
       ],
-      "evidence": "837 crosslinked reader pages, 32 glossary terms",
+      "evidence": "838 crosslinked reader pages, 32 glossary terms",
       "blocks": [],
       "nextAction": "Port generated navigation/crosslink data into the final platform."
     },
@@ -227,24 +231,29 @@
         "07",
         "08"
       ],
-      "evidence": "72 registered sources; 41 source keys used in retrieval chunks; source-ingestion coverage 11/16 complete, 1 partial, 4 parked, 0 missing",
+      "evidence": "73 registered sources; 43 source keys used in retrieval chunks; source-ingestion coverage 11/16 complete, 0 partial, 5 parked, 0 missing",
       "blocks": [
         "OPERATOR-INBOX #2",
-        "OPERATOR-INBOX #5"
+        "OPERATOR-INBOX #5",
+        "OPERATOR-INBOX #6",
+        "OPERATOR-INBOX #7",
+        "OPERATOR-INBOX #8"
       ],
       "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
     },
     {
       "id": "competitive-docs-sweep",
       "label": "25-lane competitive docs sweep synthesized",
-      "status": "partial",
+      "status": "parked",
       "category": "sourcing",
       "sourceSpecs": [
         "07"
       ],
       "evidence": "49/50 official docs verified, 1 unverified, 5 explorer batches, 25/25 lanes",
-      "blocks": [],
-      "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target."
+      "blocks": [
+        "OPERATOR-INBOX #8"
+      ],
+      "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete."
     },
     {
       "id": "phase-zero-platform",
@@ -360,14 +369,19 @@
       "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
       "blocks": [
         "OPERATOR-INBOX #2",
-        "OPERATOR-INBOX #5"
+        "OPERATOR-INBOX #5",
+        "OPERATOR-INBOX #6",
+        "OPERATOR-INBOX #7",
+        "OPERATOR-INBOX #8"
       ]
     },
     {
       "id": "competitive-docs-sweep",
-      "status": "partial",
-      "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target.",
-      "blocks": []
+      "status": "parked",
+      "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
+      "blocks": [
+        "OPERATOR-INBOX #8"
+      ]
     },
     {
       "id": "phase-zero-platform",

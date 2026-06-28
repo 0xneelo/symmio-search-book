@@ -5,8 +5,7 @@
   "totalSourceRequirements": 16,
   "byStatus": {
     "complete": 11,
-    "parked": 4,
-    "partial": 1
+    "parked": 5
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -19,6 +18,10 @@
     "reference": 1
   },
   "openOperatorItems": [
+    {
+      "id": 8,
+      "title": "Opyn official docs access or exclusion decision"
+    },
     {
       "id": 7,
       "title": "SuperFlow / SSHE source identification"
@@ -367,21 +370,23 @@
     {
       "id": "competitive-sweep",
       "label": "25-sub-agent competitive documentation sweep",
-      "status": "partial",
+      "status": "parked",
       "category": "competitive-reference",
       "sourceSpecs": [
         "07"
       ],
       "presentKeys": [
-        "competitive-sweep-batch-01"
+        "competitive-sweep-batch-01",
+        "competitive-sweep-synthesis"
       ],
       "missingKeys": [
-        "25-agent-competitive-sweep-final-synthesis",
         "opyn-docs-official-review"
       ],
       "evidence": "50 target docs across 25 lanes; 5 explorer batches returned; 49/50 docs verified, 1 unverified.",
-      "blocks": [],
-      "nextAction": "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete."
+      "blocks": [
+        "OPERATOR-INBOX #8"
+      ],
+      "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
     },
     {
       "id": "authored-derived-pages",
@@ -397,7 +402,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "43 authored pages generated from registered sources across 8 sections.",
+      "evidence": "44 authored pages generated from registered sources across 9 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -415,6 +420,7 @@
         "authored-index",
         "authored-pages",
         "competitive-sweep-batch-01",
+        "competitive-sweep-synthesis",
         "dashboard-app",
         "dashboard-codes",
         "dashboard-data",
@@ -486,7 +492,7 @@
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "72 registered source keys; 0 duplicate keys.",
+      "evidence": "73 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
@@ -538,13 +544,14 @@
     },
     {
       "id": "competitive-sweep",
-      "status": "partial",
+      "status": "parked",
       "missingKeys": [
-        "25-agent-competitive-sweep-final-synthesis",
         "opyn-docs-official-review"
       ],
-      "blocks": [],
-      "nextAction": "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete."
+      "blocks": [
+        "OPERATOR-INBOX #8"
+      ],
+      "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
     }
   ]
 }

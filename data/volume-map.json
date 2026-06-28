@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 837,
+  "readerPages": 838,
   "totalVolumes": 8,
-  "totalChapters": 66,
-  "pagesAssigned": 837,
+  "totalChapters": 67,
+  "pagesAssigned": 838,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -78,38 +78,41 @@
       "title": "Orientation And Core Thesis",
       "premise": "Start with Vibe's category thesis, authored manifesto pages, product context, and competitive framing.",
       "readerPromise": "Understand why the compendium exists and how Vibe positions itself before entering the long-form research spine.",
-      "totalPages": 30,
+      "totalPages": 31,
       "overviewPageId": "authored-volume-01-orientation-and-thesis",
       "overviewTitle": "Volume 01: Orientation And Core Thesis",
-      "authoredPages": 19,
+      "authoredPages": 20,
       "generatedPages": 11,
       "statusCounts": {
         "needs-reconciliation": 1,
         "publication-candidate": 18,
-        "publication-candidate-needs-operator-review": 1,
+        "publication-candidate-needs-operator-review": 2,
         "source-mapped": 10
       },
       "granularityCounts": {
-        "authored-page": 19,
+        "authored-page": 20,
         "companion-page": 11
       },
       "routeSourceCounts": {
-        "authored": 19,
+        "authored": 20,
         "generated": 11
       },
       "sectionCounts": {
         "architecture": 2,
         "compendium": 1,
-        "competitive-context": 1,
+        "competitive-context": 2,
         "manifesto": 17,
         "product-reference": 4,
         "product-research": 5
       },
       "sourceKeys": [
+        "competitive-sweep-batch-01",
         "hyperliquid-hip3",
         "spec-01",
         "spec-02",
         "spec-05",
+        "spec-06",
+        "spec-07",
         "symmio-core",
         "symmio-intent-lifecycle",
         "syn-118",
@@ -124,15 +127,16 @@
       ],
       "openingPageIds": [
         "authored-volume-01-orientation-and-thesis",
+        "authored-competitive-docs-benchmark",
         "authored-bootstrap-trilemma",
         "authored-intents-complete-order-books",
         "authored-vibe-as-discovery-layer",
         "authored-intents-and-solvers",
         "authored-proof-of-value",
-        "authored-truth-markets-no-button",
-        "authored-game-theory-of-listings"
+        "authored-truth-markets-no-button"
       ],
       "pageIds": [
+        "authored-competitive-docs-benchmark",
         "authored-volume-01-orientation-and-thesis",
         "authored-bootstrap-trilemma",
         "authored-intents-complete-order-books",
@@ -165,6 +169,49 @@
         "linear-usd-counter"
       ],
       "chapters": [
+        {
+          "id": "competitive-benchmark",
+          "title": "Competitive Benchmark",
+          "section": "competitive-context",
+          "track": "Competitive Benchmark",
+          "totalPages": 1,
+          "authoredPages": 1,
+          "generatedPages": 0,
+          "statusCounts": {
+            "publication-candidate-needs-operator-review": 1
+          },
+          "granularityCounts": {
+            "authored-page": 1
+          },
+          "sourceKeys": [
+            "competitive-sweep-batch-01",
+            "spec-05",
+            "spec-06",
+            "spec-07"
+          ],
+          "firstPageId": "authored-competitive-docs-benchmark",
+          "pageIds": [
+            "authored-competitive-docs-benchmark"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-competitive-docs-benchmark",
+              "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+              "section": "competitive-context",
+              "track": "Competitive Benchmark",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "competitive-sweep-batch-01",
+                "spec-05",
+                "spec-06",
+                "spec-07"
+              ]
+            }
+          ]
+        },
         {
           "id": "volume-01",
           "title": "Volume 01",
@@ -6616,6 +6663,7 @@
     }
   ],
   "pageToVolume": {
+    "authored-competitive-docs-benchmark": "volume-01-orientation-and-thesis",
     "authored-volume-01-orientation-and-thesis": "volume-01-orientation-and-thesis",
     "authored-bootstrap-trilemma": "volume-01-orientation-and-thesis",
     "authored-intents-complete-order-books": "volume-01-orientation-and-thesis",

@@ -169,7 +169,7 @@ const symmioPublicKeys = [
 const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
 const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
-const competitiveSweepKeys = ["competitive-sweep-batch-01"];
+const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
 
 const localSpecStatus = requiredKeysStatus(keys, localSpecKeys);
 const localCodeStatus = requiredKeysStatus(keys, localCodeKeys);
@@ -189,8 +189,9 @@ const competitiveSweepHasBatch =
 const competitiveSweepMissingKeys = [
   ...competitiveSweepSourceStatus.missing,
   ...((competitiveSweep.targetDocsReviewed || 0) < (competitiveSweep.targetDocs || 0) ? ["opyn-docs-official-review"] : []),
-  ...(competitiveSweep.completionReady ? [] : ["25-agent-competitive-sweep-final-synthesis"]),
 ];
+const competitiveSweepBlockedByOperator =
+  competitiveSweepMissingKeys.includes("opyn-docs-official-review") && inboxHas(openInboxItems, 8);
 
 const requirements = [
   sourceReq({
@@ -343,7 +344,14 @@ const requirements = [
   sourceReq({
     id: "competitive-sweep",
     label: "25-sub-agent competitive documentation sweep",
-    status: competitiveSweep.completionReady && competitiveSweepSourceStatus.complete ? "complete" : competitiveSweepHasBatch ? "partial" : "missing",
+    status:
+      competitiveSweep.completionReady && competitiveSweepSourceStatus.complete
+        ? "complete"
+        : competitiveSweepHasBatch && competitiveSweepSourceStatus.complete && competitiveSweepBlockedByOperator
+          ? "parked"
+          : competitiveSweepHasBatch
+            ? "partial"
+            : "missing",
     category: "competitive-reference",
     sourceSpecs: ["07"],
     presentKeys: competitiveSweepSourceStatus.present,
@@ -353,7 +361,8 @@ const requirements = [
       : hasGap(gapMarkdown, "G-002")
         ? "G-002 records that the competitive sweep is not complete."
         : "No competitive-sweep gap is registered.",
-    nextAction: "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete.",
+    blocks: competitiveSweepBlockedByOperator ? ["OPERATOR-INBOX #8"] : [],
+    nextAction: "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete.",
   }),
   sourceReq({
     id: "authored-derived-pages",

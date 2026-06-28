@@ -12,13 +12,14 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 855,
-  "totalChunks": 1414,
-  "pagesWithChunks": 855,
+  "totalPages": 856,
+  "totalChunks": 1419,
+  "pagesWithChunks": 856,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
   "usedSourceKeys": [
+    "competitive-sweep-batch-01",
     "dashboard-app",
     "dashboard-codes",
     "dashboard-data",
@@ -41,6 +42,7 @@
     "spec-03",
     "spec-05",
     "spec-06",
+    "spec-07",
     "spec-09",
     "styleguide",
     "symmio-core",
@@ -62,6 +64,12 @@
     "vibe-what-is"
   ],
   "sourceRefs": {
+    "competitive-sweep-batch-01": {
+      "key": "competitive-sweep-batch-01",
+      "group": "Competitive Context",
+      "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, and the unresolved Opyn access gap.",
+      "href": "../../src/search-book/data/competitive-sweep.json"
+    },
     "dashboard-app": {
       "key": "dashboard-app",
       "group": "Local Product And Code",
@@ -185,7 +193,7 @@
     "spec-05": {
       "key": "spec-05",
       "group": "Local Specs",
-      "use": "Ask-first IA and original 100+ page shape, superseded by operator's 500-800 page instruction.",
+      "use": "Ask-first IA, 500-800 page shape, and guided journey structure.",
       "href": "../../_specs/app-docs/05-architecture.md"
     },
     "spec-06": {
@@ -193,6 +201,12 @@
       "group": "Local Specs",
       "use": "Ask/rate/ask-again loop.",
       "href": "../../_specs/app-docs/06-answer-engine.md"
+    },
+    "spec-07": {
+      "key": "spec-07",
+      "group": "Local Specs",
+      "use": "Session 1 research gate.",
+      "href": "../../_specs/app-docs/07-research-session.md"
     },
     "spec-09": {
       "key": "spec-09",
@@ -310,17 +324,18 @@
     }
   },
   "byRouteSource": {
-    "authored": 43,
+    "authored": 44,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 73,
+    "authored": 78,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "manifesto": 30,
+    "competitive-context": 6,
     "dashboard-reference": 18,
     "reference": 2,
     "protocol-reference": 7,
@@ -338,7 +353,6 @@
     "Rewards": 2,
     "Product": 1,
     "Risk": 1,
-    "competitive-context": 1,
     "product-research": 5,
     "faq": 1,
     "vision-papers": 634,
@@ -426,6 +440,151 @@
       "wordEnd": 266,
       "wordCount": 81,
       "text": "I persuade a venue to list me?\" to \"can I create enough credible trading demand that the market earns its next layer of liquidity?\" For a solver or LP, the question becomes whether the market's risk is priced well enough to justify carrying inventory or taking the other side. Sources vibe papers : Neelo, \"Section 4: The Bootstrap Trilemma\". Related Pages authored intents complete order books authored vibe as discovery layer neelo 01 perp classes zscore 01 docs 04 bootstrap trilemma"
+    },
+    {
+      "id": "authored-competitive-docs-benchmark::001",
+      "pageId": "authored-competitive-docs-benchmark",
+      "chunkIndex": 1,
+      "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "section": "competitive-context",
+      "track": "Competitive Benchmark",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/competitive-sweep.json",
+        "_specs/app-docs/05-architecture.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/competitive-docs-benchmark.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn remains an official source access gap; mirrors and third party copies were not used. The result is not \"copy a docs platform.\" It is a sharper product requirement: Vibe x Symmio should behave like a source cited answer engine wrapped around a serious derivatives reference. The Front Door Should Be A Job Router The strongest docs did not make readers guess the taxonomy before getting help. They started with the reader's job, then revealed reference depth. For Vibe x Symmio, the front door should route five jobs without ceremony: sign or understand a PartyA intent; quote or operate as a solver/MM; deposit or manage vault backed inventory; settle, monitor, or debug Symmio lifecycle states; fix a wallet, account, chain, quote, or dashboard state. This matters because the product crosses several mental models at once. A project treasury, a solver, a vault LP, and an options buyer should not begin in the same generic tree. The tree can exist, but the first interaction should route the user to the exact page and the next action."
+    },
+    {
+      "id": "authored-competitive-docs-benchmark::002",
+      "pageId": "authored-competitive-docs-benchmark",
+      "chunkIndex": 2,
+      "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "section": "competitive-context",
+      "track": "Competitive Benchmark",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/competitive-sweep.json",
+        "_specs/app-docs/05-architecture.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/competitive-docs-benchmark.md",
+      "wordStart": 185,
+      "wordEnd": 405,
+      "wordCount": 220,
+      "text": "a vault LP, and an options buyer should not begin in the same generic tree. The tree can exist, but the first interaction should route the user to the exact page and the next action. AI Readable Docs Are A Trust Surface The benchmark repeatedly surfaced the same pattern: best in class docs now serve both humans and answer engines. The compendium should publish llms.txt , full markdown, raw page markdown, copy page affordances, source/edit links, last updated metadata, and exact citations. That is not a novelty feature. Vibe x Symmio makes claims about intents, collateral, premiums, solvers, settlement, and dashboard economics. Those claims must be inspectable by a reader, by an internal support agent, and by an external AI assistant. If an answer cannot cite the exact page and source block, it should not pretend to be authoritative. Risk Needs Its Own Architecture Derivative docs become weak when risk appears as a warning banner instead of an information architecture. The compendium should make risk navigable: margin, collateral, haircuts, and liquidation; funding, premiums, and fee assumptions; solver exposure, hedging, and quote expiry; vault exhaustion, stale oracle data, and indexer lag; settlement failure, rejected settlement, stuck settlement, and incident paths. Each risk page should show who owns the risk, which state changes reveal it, which source proves it, and what the"
+    },
+    {
+      "id": "authored-competitive-docs-benchmark::003",
+      "pageId": "authored-competitive-docs-benchmark",
+      "chunkIndex": 3,
+      "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "section": "competitive-context",
+      "track": "Competitive Benchmark",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/competitive-sweep.json",
+        "_specs/app-docs/05-architecture.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/competitive-docs-benchmark.md",
+      "wordStart": 370,
+      "wordEnd": 590,
+      "wordCount": 220,
+      "text": "oracle data, and indexer lag; settlement failure, rejected settlement, stuck settlement, and incident paths. Each risk page should show who owns the risk, which state changes reveal it, which source proves it, and what the reader can do next. That is the difference between a product FAQ and infrastructure documentation. Data Lineage Is Part Of The Product The data and devtool docs were clearest when they separated raw chain state, indexed data, oracle data, derived analytics, and operational dashboards. Vibe x Symmio needs the same discipline. A dashboard metric is not just a number; it has an owner, source, freshness window, fallback behavior, and failure mode. For the compendium, that means every oracle, quote, vault metric, settlement state, revenue estimate, volume number, and derived analytic should state: source system; update cadence; finality or reorg assumption; stale data behavior; user facing implication; page or issue that tracks unresolved implementation work. This is especially important for the current backend vs subgraph volume gap and for any future revenue or settlement dashboards. Living Docs Should Be Visible Most docs hide their improvement loop. Vibe x Symmio should expose it. Page ratings, unanswered questions, gap queues, edit links, changelog entries, and source ingestion state should be visible enough that users trust the system is maintained. The existing Search insights prototype is the right direction."
+    },
+    {
+      "id": "authored-competitive-docs-benchmark::004",
+      "pageId": "authored-competitive-docs-benchmark",
+      "chunkIndex": 4,
+      "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "section": "competitive-context",
+      "track": "Competitive Benchmark",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/competitive-sweep.json",
+        "_specs/app-docs/05-architecture.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/competitive-docs-benchmark.md",
+      "wordStart": 555,
+      "wordEnd": 775,
+      "wordCount": 220,
+      "text": "it. Page ratings, unanswered questions, gap queues, edit links, changelog entries, and source ingestion state should be visible enough that users trust the system is maintained. The existing Search insights prototype is the right direction. It should not become an internal only admin panel. If a user asks a question the docs cannot answer, that fact should become a first class gap with sources, owner, and status. That is how a living compendium remains credible at 500 800 pages. Borrow This, Avoid This Borrow job first routing, AI readable source packages, page level citations, source/edit links, role specific journeys, risk taxonomies, data lineage tables, and visible feedback loops. Avoid broad product sprawl, stale archived pages with unclear version boundaries, API dense first contact, AI answers without citations, and docs that require the reader to already know whether they are in product, protocol, solver, or wallet account territory. Implication For The Book The compendium should not merely be bigger than a normal docs site. It should be more inspectable. The 500 800 page scale is justified only if each page participates in one of four jobs: explain the thesis; resolve an operational question; define a source backed term or state; route an unanswered question into the improvement loop. If a page does none of those things, it is filler. If it"
+    },
+    {
+      "id": "authored-competitive-docs-benchmark::005",
+      "pageId": "authored-competitive-docs-benchmark",
+      "chunkIndex": 5,
+      "title": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "section": "competitive-context",
+      "track": "Competitive Benchmark",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/competitive-sweep.json",
+        "_specs/app-docs/05-architecture.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/competitive-docs-benchmark.md",
+      "wordStart": 740,
+      "wordEnd": 863,
+      "wordCount": 123,
+      "text": "explain the thesis; resolve an operational question; define a source backed term or state; route an unanswered question into the improvement loop. If a page does none of those things, it is filler. If it does one of them with exact citations and cross links, it belongs. Sources competitive sweep batch 01 : generated official docs benchmark over 50 targets, 25 lanes, five explorer batches, 49 verified official docs, and one Opyn access gap. spec 05 : answer first IA and guided journey requirements. spec 06 : answer engine, citations, rating, and living docs loop requirements. spec 07 : research session competitive sweep requirement. Related Pages authored volume 01 orientation and thesis authored search insights loop authored vibe as discovery layer hyperliquid hip3"
     },
     {
       "id": "authored-dashboard-faq::001",
