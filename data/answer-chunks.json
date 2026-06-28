@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 947,
-  "totalChunks": 1605,
-  "pagesWithChunks": 947,
+  "totalPages": 952,
+  "totalChunks": 1611,
+  "pagesWithChunks": 952,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -443,17 +443,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 135,
+    "authored": 140,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 264,
+    "authored": 270,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 140,
+    "manifesto": 146,
     "dashboard-reference": 24,
     "protocol-reference": 42,
     "competitive-context": 6,
@@ -2231,6 +2231,30 @@
       "text": "loss assumptions. Publish the incentive framework, but keep concrete thresholds and live exploitability claims under implementation/security review. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\". vibe papers : Neelo, \"Figure1\". Related Pages authored oracle circuit breaker paradox authored token margined reflexivity risk authored solver hedging failure modes"
     },
     {
+      "id": "authored-information-systems-need-market-validation::001",
+      "pageId": "authored-information-systems-need-market-validation",
+      "chunkIndex": 1,
+      "title": "Information Systems Need Market Validation",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/00-abstract"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/information-systems-need-market-validation.md",
+      "wordStart": 0,
+      "wordEnd": 176,
+      "wordCount": 176,
+      "text": "Information Systems Need Market Validation Neelo's one primitive corpus starts from information, not trading. Speech, writing, print, computers, the internet, and AI each made information easier to preserve, distribute, process, or generate. That history creates the current bottleneck. When generation is cheap, access is no longer the scarce resource. Validation is. The market needs mechanisms that make claims carry cost, not only attention. This is why the Vibe x Symmio thesis should be framed as infrastructure for information validation. A spot market can express belief by buying. A derivatives market can also express disbelief, hedging demand, and stress. That makes the market a stronger verification surface for tokens, claims, narratives, and economic activity. Reader Implication Do not reduce Vibe to \"more leverage.\" The deeper thesis is that derivatives help information become market tested. When creation becomes abundant, validation becomes the primitive. Sources vibe papers : Neelo, \"Section 2: Information as Civilization\". vibe papers : Neelo, \"Fix the Industry with One Primitive\". Related Pages authored information validation crisis authored proof of value authored market price as verification"
+    },
+    {
       "id": "authored-information-validation-crisis::001",
       "pageId": "authored-information-validation-crisis",
       "chunkIndex": 1,
@@ -2421,6 +2445,30 @@
       "wordEnd": 240,
       "wordCount": 55,
       "text": "and Symmio as infrastructure that handles the pre book and solver mediated parts of the derivatives lifecycle, then links back to order books where order books are strongest. Sources vibe papers : Neelo, \"Ode to OrderBooks\". Related Pages authored bootstrap trilemma authored vibe as discovery layer neelo 04 ode to the orderbook 04 docs overview"
+    },
+    {
+      "id": "authored-issuance-abundance-creates-validation-debt::001",
+      "pageId": "authored-issuance-abundance-creates-validation-debt",
+      "chunkIndex": 1,
+      "title": "Issuance Abundance Creates Validation Debt",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/issuance-abundance-creates-validation-debt.md",
+      "wordStart": 0,
+      "wordEnd": 208,
+      "wordCount": 208,
+      "text": "Issuance Abundance Creates Validation Debt Crypto made issuance universal in stages: Bitcoin proved digital scarcity, Ethereum made assets programmable, Uniswap made spot trading permissionless, and launchpads made creation cheap. That sequence is powerful, but it creates validation debt. Almost anything can become a token before the market has a serious way to decide what the token means. Projects, communities, claims, events, outcomes, and productive capacity can all be wrapped into assets faster than mature markets can evaluate them. The source's diagnosis is that issuance is solved ahead of market completeness. The industry can produce assets at internet speed, but most assets still cannot access the tools that make a market self correcting: shorting, hedging, stress testing, leverage limits, and downstream maturity evidence. Why This Matters For Vibe Vibe's role is not to slow issuance down. It is to give issuance a missing market layer. If a token can move from creation to spot to permissionless derivatives, the market has a better chance to distinguish durable demand from temporary attention. Sources vibe papers : Neelo, \"Section 3: The Issuance Revolution\". vibe papers : Neelo, \"Section 4: Why the Industry Is Still Broken\". Related Pages authored universal issuance needs derivatives authored market creation gap authored lifecycle gates as market power"
     },
     {
       "id": "authored-last-primitive::001",
@@ -4596,6 +4644,56 @@
       "text": "The Living Docs Loop The answer engine is not only a search box. It is the intake system for documentation demand. The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop. In this prototype, the loop is local and browser based. It stores questions, ratings, and gaps in localStorage and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine. Reader Implication The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next. Sources spec 06 : Answer engine and living docs requirements. spec 09 : Design reference for Search insights. Related Pages authored estimated network revenue authored referral depth open question"
     },
     {
+      "id": "authored-self-correcting-token-market-stack::001",
+      "pageId": "authored-self-correcting-token-market-stack",
+      "chunkIndex": 1,
+      "title": "The Self-Correcting Token Market Stack",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/07-fixing-the-industry",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/08-conclusion"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/self-correcting-token-market-stack.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Self Correcting Token Market Stack The final stack in Neelo's corpus is simple: programmable issuance, permissionless spot trading, and permissionless derivatives. The third layer is what makes the stack self correcting. Issuance lets assets appear. Spot trading lets buyers form a market. Derivatives let the market express both belief and skepticism, hedge risk, and mature through pressure rather than only narrative momentum. This is where Vibe and Symmio are paired in the source. Symmio supplies derivatives infrastructure and settlement machinery. Vibe supplies the product and permissionless market layer that can bring perps to the long tail of tokens. What This Does Not Mean It does not mean every token deserves reckless leverage or permanent support. It means every meaningful token should have a path to being tested. Some markets will prove themselves and graduate. Others will fail earlier because the negative side can finally act. Publication Note The source supports the strategic division between Vibe and Symmio. Final production docs still need platform, product, and operator review before making promises about exact market creation workflow, graduation policy, solver responsibilities, or vault exposure. Sources vibe papers : Neelo, \"Section 6: The Last Primitive\". vibe papers : Neelo, \"Section 7: Fixing the Industry\". vibe papers : Neelo, \"Section 8: Conclusion\". Related Pages authored last primitive authored market assembly line authored programmatic"
+    },
+    {
+      "id": "authored-self-correcting-token-market-stack::002",
+      "pageId": "authored-self-correcting-token-market-stack",
+      "chunkIndex": 2,
+      "title": "The Self-Correcting Token Market Stack",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/07-fixing-the-industry",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/08-conclusion"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/self-correcting-token-market-stack.md",
+      "wordStart": 185,
+      "wordEnd": 222,
+      "wordCount": 37,
+      "text": "papers : Neelo, \"Section 6: The Last Primitive\". vibe papers : Neelo, \"Section 7: Fixing the Industry\". vibe papers : Neelo, \"Section 8: Conclusion\". Related Pages authored last primitive authored market assembly line authored programmatic market graduation"
+    },
+    {
       "id": "authored-slab-isolation-capital-inefficiency::001",
       "pageId": "authored-slab-isolation-capital-inefficiency",
       "chunkIndex": 1,
@@ -4919,6 +5017,30 @@
       "wordEnd": 229,
       "wordCount": 44,
       "text": "Neelo, \"Section 5: Vibe Trading Architecture: 5.3 The Solver: Protocol Owned Market Maker\". vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\". Related Pages authored intents and solvers authored symmio party a party b authored hybrid settlement solver stack"
+    },
+    {
+      "id": "authored-spot-only-markets-are-one-sided::001",
+      "pageId": "authored-spot-only-markets-are-one-sided",
+      "chunkIndex": 1,
+      "title": "Spot-Only Markets Are One-Sided",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/spot-only-markets-are-one-sided.md",
+      "wordStart": 0,
+      "wordEnd": 190,
+      "wordCount": 190,
+      "text": "Spot Only Markets Are One Sided Spot markets are necessary, but they do not give a token complete market expression. They mostly let participants buy, sell existing holdings, or leave. That one sidedness explains many familiar crypto symptoms: narratives can outrun fundamentals, attention can substitute for conviction, and token markets can look active before they have been shorted, hedged, or stress tested. The market has a yes button, but the no side is weak. Derivatives add the missing market language. They let participants short, hedge, basis trade, and express risk without requiring them to hold or sell the underlying token directly. That does not guarantee truth, but it makes overstatement more expensive and skepticism more useful. Reader Implication The docs should not present perps as a casino layer pasted onto tokens. The better explanation is that derivatives complete the market grammar. A token market that can only express enthusiasm is not done. Sources vibe papers : Neelo, \"Section 4: Why the Industry Is Still Broken\". vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". Related Pages authored why derivatives matter authored truth markets no button authored financialized rejection thumbs down"
     },
     {
       "id": "authored-static-perp-design-failures::001",
@@ -5707,6 +5829,30 @@
       "wordEnd": 234,
       "wordCount": 49,
       "text": "explicit risk compensation. Sources vibe papers : Neelo, \"USDC vs Token Margined Perpetuals\". vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\". vibe papers : Neelo, \"Figure1\". Related Pages authored vibe pillars authored lp profit and dynamic pricing neelo 06 usdc token perps 06 docs riskpremiumcalcs"
+    },
+    {
+      "id": "authored-tokens-as-information-objects::001",
+      "pageId": "authored-tokens-as-information-objects",
+      "chunkIndex": 1,
+      "title": "Tokens Are Information Objects",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/tokens-as-information-objects.md",
+      "wordStart": 0,
+      "wordEnd": 173,
+      "wordCount": 173,
+      "text": "Tokens Are Information Objects The one primitive corpus treats tokens as more than ownership wrappers. A token can contain information about a project, community, claim, event, outcome, or productive capacity. That is why token issuance matters. Crypto did not only make financial assets easier to create; it made information easier to financialize. Once something can become a token, it can attract capital, attention, speculation, and coordination. But an information object needs a validation path. Spot trading tells the market who wants exposure. Derivatives tell the market how much conviction survives pressure, hedge demand, short interest, and maturity. A token without that second layer remains partially legible. Reader Implication Readers should understand why Vibe's market surface matters even for nontraditional assets. If tokens are information objects, then permissionless derivatives are one way to test the information with capital. Sources vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". vibe papers : Neelo, \"Section 3: The Issuance Revolution\". Related Pages authored information validation crisis authored beyond polymarket continuous truth markets authored market price as verification"
     },
     {
       "id": "authored-trader-project-value-loop::001",

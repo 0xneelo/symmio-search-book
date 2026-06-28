@@ -447,3 +447,11 @@
 **Reason:** The collateral comparison is central to Vibe's long-tail perp thesis. The strongest claim is not that one asset is always superior; it is that the capital source, settlement unit, risk premium, and loss path must match the market phase. Publishing this layer makes the token-margin and funding-system volume more precise while keeping model numbers, vault rights, and live loss-ordering under review.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-057: Treat Permissionless Derivatives As The Missing Validation Primitive
+
+**Decision:** Add authored Volume 03 pages from Neelo's Fix Industry One Primitive corpus that explain information validation, issuance abundance, spot-only market one-sidedness, tokens as information objects, and the self-correcting stack of issuance, spot, and permissionless derivatives.
+
+**Reason:** The source gives the compendium its broadest category frame. Vibe x Symmio should not read as only a perp venue with more tickers; it should read as infrastructure for validating abundant tokenized information through two-sided markets. Publishing this layer strengthens the manifesto while keeping exact product workflow and production guarantees under review.
+
+**Status:** Accepted for the authored manifesto layer.

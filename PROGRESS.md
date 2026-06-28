@@ -338,6 +338,12 @@
 - Routed five new collateral/risk questions to authored pages so Ask can explain why low-cap perp capital efficiency depends on who supplies capital, what unit settles claims, and who absorbs failure paths.
 - Kept APR ranges, risk-premium ratios, efficiency multipliers, vault terms, and loss ordering under operator/accounting/implementation review.
 
+## 2026-06-28 — Last Primitive Authored Layer
+
+- Added five authored Volume 03 manifesto pages from Neelo's Fix Industry One Primitive corpus: information systems as validation infrastructure, issuance abundance as validation debt, spot-only market one-sidedness, tokens as information objects, and the self-correcting token market stack.
+- Routed five new primitive-thesis questions to authored pages so Ask can explain why Vibe x Symmio is framed as missing market infrastructure rather than only a trading venue.
+- Kept exact market-creation workflow, graduation policy, solver responsibilities, and vault exposure under operator/product review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
