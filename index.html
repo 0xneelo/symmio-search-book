@@ -288,6 +288,7 @@
       .page-card,
       .answer,
       .ledger,
+      .reader-panel,
       .journey,
       .gap-row,
       .track-card,
@@ -463,6 +464,107 @@
         color: var(--muted);
       }
 
+      .reader-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .reader-panel {
+        padding: 22px;
+      }
+
+      .reader-kicker {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .reader-panel h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(36px, 5vw, 68px);
+        line-height: 0.98;
+        font-weight: 500;
+      }
+
+      .reader-lead {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.58;
+      }
+
+      .reader-body {
+        margin-top: 26px;
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      .reader-body h2,
+      .reader-body h3 {
+        margin: 28px 0 10px;
+        color: var(--text);
+      }
+
+      .reader-body p,
+      .reader-body li {
+        color: var(--muted);
+      }
+
+      .reader-body ul {
+        padding-left: 21px;
+      }
+
+      .reader-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 18px 0;
+        color: var(--muted);
+      }
+
+      .reader-body th,
+      .reader-body td {
+        border: 1px solid var(--line);
+        padding: 9px 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .reader-body th {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .reader-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        color: var(--cyan);
+      }
+
+      .reader-sidebar {
+        position: sticky;
+        top: 20px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .reader-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .reader-actions button {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--text);
+        padding: 8px 10px;
+      }
+
       .journeys {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -575,6 +677,7 @@
         .cards,
         .collections,
         .split,
+        .reader-layout,
         .journeys,
         .console-layout,
         .insight-metrics {
@@ -693,6 +796,10 @@
             </div>
           </section>
 
+          <section data-view="reader" class="is-hidden">
+            <div id="pageReader"></div>
+          </section>
+
           <section data-view="insights" class="is-hidden">
             <div class="grid insight-metrics" id="insightMetrics"></div>
             <div class="console-layout">
@@ -784,6 +891,7 @@
       function setVariant(next) {
         const url = new URL(window.location.href);
         url.searchParams.set("variant", next);
+        url.searchParams.delete("page");
         window.history.replaceState({}, "", url);
         renderVariant();
       }
@@ -856,8 +964,116 @@
           .join("");
       }
 
+      function pageHref(page) {
+        return page && page.id ? `?page=${encodeURIComponent(page.id)}` : "?variant=classic";
+      }
+
       function routeFor(page) {
-        return page.route || page.file || "#";
+        return pageHref(page);
+      }
+
+      function directRouteFor(page) {
+        return page.route || page.file || (page.sourceUrls || [])[0] || "#";
+      }
+
+      function sourceUrlChips(page) {
+        return (page.sourceUrls || [])
+          .slice(0, 6)
+          .map((sourceUrl) => `<a class="source-chip" href="${escapeHtml(sourceUrl)}">${escapeHtml(sourceUrl)}</a>`)
+          .join("");
+      }
+
+      function inlineMarkdown(text) {
+        return escapeHtml(text)
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="source-chip" href="$2">$1</a>')
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      }
+
+      function markdownToHtml(markdown) {
+        const lines = String(markdown || "")
+          .replace(/^# .*\n+/, "")
+          .split("\n");
+        const blocks = [];
+        let paragraph = [];
+        let list = [];
+        let table = [];
+
+        const flushParagraph = () => {
+          if (!paragraph.length) return;
+          blocks.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+          paragraph = [];
+        };
+        const flushList = () => {
+          if (!list.length) return;
+          blocks.push(`<ul>${list.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("")}</ul>`);
+          list = [];
+        };
+        const flushTable = () => {
+          if (!table.length) return;
+          const rows = table
+            .filter((row) => !/^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(row))
+            .map((row, index) => {
+              const cells = row
+                .replace(/^\|/, "")
+                .replace(/\|$/, "")
+                .split("|")
+                .map((cell) => cell.trim());
+              const tag = index === 0 ? "th" : "td";
+              return `<tr>${cells.map((cell) => `<${tag}>${inlineMarkdown(cell)}</${tag}>`).join("")}</tr>`;
+            })
+            .join("");
+          blocks.push(`<table>${rows}</table>`);
+          table = [];
+        };
+        const flushAll = () => {
+          flushParagraph();
+          flushList();
+          flushTable();
+        };
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed) {
+            flushAll();
+            continue;
+          }
+          if (trimmed.startsWith("|") && trimmed.includes("|")) {
+            flushParagraph();
+            flushList();
+            table.push(trimmed);
+            continue;
+          }
+          if (/^- /.test(trimmed)) {
+            flushParagraph();
+            flushTable();
+            list.push(trimmed.replace(/^- /, ""));
+            continue;
+          }
+          if (/^###\s+/.test(trimmed)) {
+            flushAll();
+            blocks.push(`<h3>${inlineMarkdown(trimmed.replace(/^###\s+/, ""))}</h3>`);
+            continue;
+          }
+          if (/^##\s+/.test(trimmed)) {
+            flushAll();
+            blocks.push(`<h2>${inlineMarkdown(trimmed.replace(/^##\s+/, ""))}</h2>`);
+            continue;
+          }
+          paragraph.push(trimmed);
+        }
+        flushAll();
+        return blocks.join("");
+      }
+
+      function relatedPagesFor(page) {
+        const explicit = [...(page.relatedGeneratedPages || []), ...(page.relatedPages || [])]
+          .map((id) => pageById.get(id))
+          .filter(Boolean);
+        if (explicit.length) return explicit.slice(0, 8);
+        return searchablePages
+          .filter((candidate) => candidate.id !== page.id && candidate.section === page.section && candidate.track === page.track)
+          .slice(0, 8);
       }
 
       function renderAnswer(result, query, eventId) {
@@ -888,7 +1104,7 @@
           <div class="rating">
             <button type="button" data-rate="yes" data-event="${escapeHtml(eventId)}">Useful</button>
             <button type="button" data-rate="no" data-event="${escapeHtml(eventId)}">Needs work</button>
-            <a class="source-chip" href="${escapeHtml(routeFor(page))}">Open route</a>
+            <a class="source-chip" href="${escapeHtml(routeFor(page))}" data-open-page="${escapeHtml(page.id)}">Open exact page</a>
           </div>
         `;
       }
@@ -942,6 +1158,7 @@
                 <p>${escapeHtml(page.summary)}</p>
                 <div class="source-row">
                   ${page.sources.slice(0, 3).map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`).join("")}
+                  <a class="source-chip" href="${escapeHtml(routeFor(page))}" data-open-page="${escapeHtml(page.id)}">Open page</a>
                 </div>
               </article>
             `,
@@ -961,7 +1178,7 @@
                 <p>${escapeHtml(page.summary || "")}</p>
                 <div class="source-row">
                   ${page.sources.slice(0, 4).map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`).join("")}
-                  <a class="source-chip" href="${escapeHtml(routeFor(page))}">Open page</a>
+                  <a class="source-chip" href="${escapeHtml(routeFor(page))}" data-open-page="${escapeHtml(page.id)}">Open page</a>
                 </div>
               </article>
             `,
@@ -1042,7 +1259,7 @@
                                 ${escapeHtml(page.title)}
                                 <span class="meta">${escapeHtml(page.granularity)} / ${escapeHtml(page.status)}</span>
                               </button>
-                              <a href="${escapeHtml(page.file)}">Open</a>
+                              <a href="${escapeHtml(pageHref(page))}" data-open-page="${escapeHtml(page.id)}">Open</a>
                             </div>
                           `,
                         )
@@ -1185,7 +1402,135 @@
         renderInsights();
       }
 
+      function getActivePageId() {
+        return new URLSearchParams(window.location.search).get("page");
+      }
+
+      function setActivePage(pageId, source = "page") {
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", pageId);
+        url.searchParams.delete("variant");
+        window.history.replaceState({}, "", url);
+        renderVariant();
+        if (source !== "initial-load") {
+          document.getElementById("pageReader")?.scrollIntoView({ block: "start" });
+        }
+      }
+
+      function clearActivePage(nextVariant = "classic") {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("page");
+        url.searchParams.set("variant", nextVariant);
+        window.history.replaceState({}, "", url);
+        renderVariant();
+      }
+
+      function recordPageRating(button) {
+        const page = pageById.get(button.dataset.pageRateId);
+        if (!page) return;
+        const rating = {
+          rating: button.dataset.pageRate,
+          query: `Page feedback: ${page.title}`,
+          page: page.title,
+          pageId: page.id,
+          eventId: `page-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
+          time: new Date().toISOString(),
+        };
+        const ratings = loadList(storageKeys.ratings);
+        saveList(storageKeys.ratings, [rating, ...ratings]);
+        if (rating.rating === "no") {
+          recordGap({
+            id: rating.eventId,
+            query: rating.query,
+            reason: "page-feedback-needs-work",
+            page: rating.page,
+            time: rating.time,
+          });
+        }
+        renderInsights();
+      }
+
+      function renderPageReader(pageId) {
+        const root = document.getElementById("pageReader");
+        const page = pageById.get(pageId);
+        if (!page) {
+          root.innerHTML = `
+            <div class="reader-panel">
+              <div class="meta">No grounded page</div>
+              <h1>Page not found</h1>
+              <p class="reader-lead">The local index has no page with id <code>${escapeHtml(pageId)}</code>.</p>
+              <div class="reader-actions">
+                <button type="button" data-return-variant="classic">Back to Ask</button>
+                <button type="button" data-return-variant="browse">Browse docs</button>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        const body = page.bodyMarkdown
+          ? markdownToHtml(page.bodyMarkdown)
+          : `<p>${escapeHtml(page.summary || page.excerpt || "")}</p><p>This is a generated corpus preview. The underlying draft file is indexed and source-mapped, but still needs editorial restructuring before final publication.</p>`;
+        const related = relatedPagesFor(page);
+        const status = page.status || (page.curated ? "curated-route" : "indexed-page");
+        root.innerHTML = `
+          <div class="reader-layout">
+            <article class="reader-panel">
+              <div class="reader-kicker">
+                <span class="source-chip">${escapeHtml(page.section || "docs")}</span>
+                <span class="source-chip">${escapeHtml(page.track || page.granularity || "route")}</span>
+                <span class="source-chip">${escapeHtml(status)}</span>
+              </div>
+              <h1>${escapeHtml(page.title)}</h1>
+              <p class="reader-lead">${escapeHtml(page.summary || page.excerpt || "")}</p>
+              <div class="reader-actions">
+                <button type="button" data-return-variant="classic">Back to Ask</button>
+                <button type="button" data-return-variant="browse">Browse docs</button>
+                <a class="source-chip" href="${escapeHtml(directRouteFor(page))}">Indexed route</a>
+              </div>
+              <div class="reader-body">${body}</div>
+            </article>
+            <aside class="reader-sidebar">
+              <section class="ledger">
+                <h3>Sources</h3>
+                <div class="source-row">${sourceChips(page) || '<span class="source-chip">source pending</span>'}</div>
+                <div class="source-row">${sourceUrlChips(page)}</div>
+              </section>
+              <section class="ledger">
+                <h3>Related Pages</h3>
+                <div class="compact-list">
+                  ${
+                    related.length
+                      ? related
+                          .map((relatedPage) => `<button type="button" class="chip" data-open-page="${escapeHtml(relatedPage.id)}">${escapeHtml(relatedPage.title)}</button>`)
+                          .join("")
+                      : '<p class="meta">No related pages indexed yet.</p>'
+                  }
+                </div>
+              </section>
+              <section class="ledger">
+                <h3>Rate This Page</h3>
+                <div class="rating">
+                  <button type="button" data-page-rate="yes" data-page-rate-id="${escapeHtml(page.id)}">Useful</button>
+                  <button type="button" data-page-rate="no" data-page-rate-id="${escapeHtml(page.id)}">Needs work</button>
+                </div>
+                <p class="meta">Stored locally in the prototype gaps loop.</p>
+              </section>
+            </aside>
+          </div>
+        `;
+      }
+
       function renderVariant() {
+        const activePageId = getActivePageId();
+        if (activePageId) {
+          document.querySelectorAll("[data-view]").forEach((node) => node.classList.toggle("is-hidden", node.dataset.view !== "reader"));
+          document.querySelectorAll("[data-nav]").forEach((node) => node.setAttribute("aria-current", "false"));
+          document.getElementById("switcherLabel").textContent = "Page Reader";
+          document.getElementById("variantMeta").textContent = "page";
+          renderPageReader(activePageId);
+          return;
+        }
         const current = getVariant();
         document.querySelectorAll("[data-view]").forEach((node) => node.classList.toggle("is-hidden", node.dataset.view !== current));
         document.querySelectorAll("[data-nav]").forEach((node) => node.setAttribute("aria-current", String(node.dataset.nav === current)));
@@ -1201,6 +1546,7 @@
         if (!page) return;
         const event = recordQuestion(page.title, { page, score: "direct" }, source);
         renderAnswer({ page, score: "direct" }, page.title, event.id);
+        setActivePage(page.id, source);
         renderInsights();
       }
 
@@ -1241,6 +1587,18 @@
           return;
         }
 
+        const pageRate = event.target.closest("[data-page-rate]");
+        if (pageRate) {
+          recordPageRating(pageRate);
+          return;
+        }
+
+        const returnVariant = event.target.closest("[data-return-variant]");
+        if (returnVariant) {
+          clearActivePage(returnVariant.dataset.returnVariant);
+          return;
+        }
+
         const jump = event.target.closest("[data-jump]");
         if (jump) {
           openPageFromCorpus(jump.dataset.jump, "journey");
@@ -1249,6 +1607,7 @@
 
         const openPage = event.target.closest("[data-open-page]");
         if (openPage) {
+          event.preventDefault();
           openPageFromCorpus(openPage.dataset.openPage, "browse");
           return;
         }

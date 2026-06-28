@@ -20,9 +20,11 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Authored page index: `data/authored-pages.js`
 - Compact prototype search index: `data/search-index.js`
 - Generated browse/navigation tree: `data/navigation-tree.js`
-- Throwaway static prototype: `index.html`
+- Throwaway static prototype with exact-page reader: `index.html`
 
 Open `index.html` directly in a browser. It uses local data and `localStorage`; no backend, secrets, or live APIs are required.
+
+Open an exact local page with `index.html?page=authored-intents-complete-order-books` or any page id from `data/search-index.json`.
 
 ## Prototype Question
 
@@ -59,6 +61,7 @@ node --check src/search-book/scripts/build-authored-index.mjs
 node --check src/search-book/data/authored-pages.js
 node --check src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/data/navigation-tree.js
+node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md

@@ -103,6 +103,7 @@ function toPage(filePath, args) {
     sourceUrls: data.sourceUrls || [],
     relatedGeneratedPages: data.relatedGeneratedPages || [],
     file: relativePath,
+    bodyMarkdown: body,
     excerpt: stripMarkdown(body).slice(0, 1200),
   };
 }

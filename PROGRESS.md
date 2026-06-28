@@ -39,6 +39,14 @@
 - Wired the prototype to search authored pages before curated routes and generated draft pages.
 - Covered initial manifesto/reference spine: bootstrap trilemma, intents/order books, Vibe discovery layer, intents/solvers, PartyA/PartyB, Vibe trade flow, revenue, volume, points, referral-depth gap, living-docs loop, and core glossary.
 
+## 2026-06-28 — Exact Page Reader
+
+- Added addressable page rendering with `index.html?page=<page-id>`.
+- Extended `scripts/build-authored-index.mjs` so authored pages carry full Markdown bodies into `data/authored-pages.{json,js}`.
+- Search answers, authored cards, high-signal routes, Browse docs rows, Journey chips, and related-page chips now open the local reader instead of raw file paths.
+- The reader renders authored Markdown, generated-page previews, source keys, source URLs, related pages, indexed routes, and page-level feedback.
+- Page feedback writes into the same local ratings and gaps queues used by Search insights.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
