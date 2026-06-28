@@ -526,6 +526,12 @@
 - Routed five new Ask questions so the front door can explain practical long-tail perp failure modes without relying only on broad landscape pages.
 - Kept live third-party venue parameters, minimums, lockups, auction cadence, and product-state claims under current-source review before final publication.
 
+## 2026-06-28 — Proof Of Value Verification Pages
+
+- Added five authored manifesto pages from Neelo's Proof of Value source: Proof of Authority to Proof of Value, truth as an asset class, the Market's Eye View, short sellers as fact-checkers, and Verified on Vibe as a stress-test badge.
+- Routed five new Ask questions so the front door can answer the verification thesis directly without overstating markets as perfect truth.
+- Kept badge policy, graduation thresholds, downstream listing guarantees, reputation metrics, and public truth-claim language under operator/product/editorial review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

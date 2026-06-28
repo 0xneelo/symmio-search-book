@@ -695,3 +695,11 @@
 **Reason:** The annex is strongest when it converts protocol landscape observations into user-facing diagnostics. The compendium should help readers distinguish symbol count from liquidity, TVL from payout reliability, index exposure from venue-internal settlement risk, and asynchronous entry from economically complete settlement.
 
 **Status:** Accepted for the authored manifesto layer; live dYdX, Hyperliquid, GMX, Percolator-family, Perk.fund, and derp.fun parameters remain current-source-review items before final publication.
+
+## D-088: Make Proof Of Value Verification Subclaims Directly Askable
+
+**Decision:** Add authored Volume 02/03 pages from Neelo's Proof of Value source for Proof of Authority to Proof of Value, truth as an asset class, the Market's Eye View, short sellers as fact-checkers, and Verified on Vibe as a stress-test badge.
+
+**Reason:** The compendium already has broad Proof of Value and Information/Trade pages, but the answer engine still needs direct routes for the source's strongest verification primitives. These pages preserve the ambition while keeping the public framing precise: market price is costly evidence, not perfect truth; shorting is adversarial validation, not moral certainty; Verified on Vibe is a review-bound thesis, not a launched badge or listing guarantee.
+
+**Status:** Accepted for the authored manifesto layer; exact badge policy, graduation thresholds, downstream listing paths, reputation metrics, and public truth-claim language remain under operator/product/editorial review.

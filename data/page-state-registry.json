@@ -35,26 +35,27 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1040,
+  "totalPages": 1045,
   "byState": {
-    "candidate": 245,
+    "candidate": 250,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 246,
+    "authored": 251,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 246,
+    "authored-page": 251,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate-needs-operator-review": 139,
-    "publication-candidate": 104,
+    "publication-candidate-needs-operator-review": 140,
+    "publication-candidate": 106,
     "publication-candidate-needs-current-source-review": 2,
+    "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 3,
     "source-mapped": 63,
     "draft-imported-from-primary-source": 187,
@@ -62,7 +63,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
-    "manifesto": 138,
+    "manifesto": 143,
     "product-reference": 25,
     "dashboard-reference": 17,
     "protocol-reference": 40,
@@ -99,7 +100,7 @@
       "source-companion": 30
     },
     "volume-02-bootstrap-and-proof-of-value": {
-      "candidate": 32,
+      "candidate": 36,
       "source-companion": 238
     },
     "volume-08-dashboard-faq-and-living-docs": {
@@ -112,7 +113,7 @@
       "source-companion": 75
     },
     "volume-03-listing-power-and-orderbooks": {
-      "candidate": 55,
+      "candidate": 56,
       "source-companion": 155
     },
     "volume-01-orientation-and-thesis": {
@@ -127,13 +128,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 245,
+  "publicCandidatePages": 250,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 245,
-  "retrievalEligiblePages": 1037,
-  "reviewRequiredPages": 934,
-  "exactQuestionRoutedPages": 224,
+  "publicNavigationPages": 250,
+  "retrievalEligiblePages": 1042,
+  "reviewRequiredPages": 935,
+  "exactQuestionRoutedPages": 229,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -2404,6 +2405,31 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-market-eye-view",
+      "title": "The Market's Eye View",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-editorial-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/market-eye-view.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/03-beyond-polymarket#3-4-consensus-reality-vs-objective-reality",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/03-beyond-polymarket#3-2-the-shift-betting-vs-owning"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-market-formation-continuous-system",
       "title": "Market Formation As A Continuous System",
       "section": "manifesto",
@@ -3263,6 +3289,32 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-proof-authority-to-proof-value",
+      "title": "From Proof Of Authority To Proof Of Value",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/proof-authority-to-proof-value.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/01-introduction#1-3-the-breaking-point",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-1-the-death-of-free-truth",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-4-the-new-verification-layer"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-proof-of-value",
       "title": "Proof Of Value",
       "section": "manifesto",
@@ -4033,6 +4085,32 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain",
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-7-security-model"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-short-sellers-as-fact-checkers",
+      "title": "Short Sellers As Fact-Checkers",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/short-sellers-as-fact-checkers.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-3-truth-as-a-derivative",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/04-the-missing-no-button#4-2-the-no-button-as-filter",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/08-the-thumbs-down#8-5-the-philosophy"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -5315,6 +5393,32 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-truth-as-asset-class",
+      "title": "Truth As An Asset Class",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-editorial-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/truth-as-asset-class.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-3-truth-as-a-derivative",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-4-the-new-verification-layer",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/09-conclusion#9-1-full-thesis-summary"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-truth-markets-no-button",
       "title": "The Missing No Button",
       "section": "manifesto",
@@ -5462,6 +5566,32 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction",
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-verified-on-vibe-stress-test",
+      "title": "Verified On Vibe As A Stress-Test Badge",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/verified-on-vibe-stress-test.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings#7-3-vibe-as-source-of-truth",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings#7-5-the-strait-gate-matthew-7-1314",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/09-conclusion#9-1-full-thesis-summary"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

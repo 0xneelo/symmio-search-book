@@ -233,6 +233,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is pooled backstop mismatch? | `authored-pooled-backstop-mismatch` | Low | Neelo's GMX-style pool notes distinguish the asset a trader thinks they are trading from the generalized collateral that may absorb PnL. |
 | Why am I trading the venue as well as the underlying in perps? | `authored-derivatives-venue-term` | Medium | Neelo's liquidity-as-UX section says a derivatives position includes both the index and the venue's settlement graph. |
 | What is exchange deviation? | `authored-exchange-deviation-diagnostic` | Medium | Neelo uses exchange deviation as an informal diagnostic for when realized economics track venue imbalance more than the underlying story. |
+| What does Proof of Authority to Proof of Value mean? | `authored-proof-authority-to-proof-value` | Medium | Neelo's Proof of Value source frames costly market commitment as the replacement filter when authority and content are cheap to fake. |
+| What does it mean to call truth an asset class? | `authored-truth-as-asset-class` | Medium | Neelo uses the phrase as a thesis about capitalized belief under pressure, not as an infallible truth oracle. |
+| What is the Market's Eye View? | `authored-market-eye-view` | Medium | Neelo's Beyond Polymarket section contrasts external resolution with continuous market judgment through price, liquidity, and survival. |
+| How do short sellers act as fact-checkers? | `authored-short-sellers-as-fact-checkers` | Medium | Neelo's missing-NO-button and Thumbs Down sections frame shorting as an economically motivated adversary for false or overhyped claims. |
+| What would Verified on Vibe mean? | `authored-verified-on-vibe-stress-test` | Low | Neelo's game-theory section frames Vibe as a stress-test layer; exact badge, threshold, and listing policies remain operator-review. |
 
 ## Prototype Event Log
 
