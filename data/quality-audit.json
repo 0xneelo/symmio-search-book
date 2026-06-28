@@ -59,6 +59,13 @@
     "compendiumVolumeOverviews": 8,
     "compendiumVolumeReaderPages": 984,
     "compendiumVolumeAssignedPages": 984,
+    "pageStatePages": 984,
+    "pageStatePublishedPages": 0,
+    "pageStatePublicCandidatePages": 189,
+    "pageStateSourceCompanionPages": 792,
+    "pageStateInternalDraftPages": 3,
+    "pageStatePublicNavigationPages": 189,
+    "pageStateRetrievalEligiblePages": 981,
     "completionRequirements": 17,
     "completionRequirementsComplete": 5,
     "completionRequirementsPartial": 4,
@@ -193,6 +200,12 @@
       "label": "Authored pages are spread across volumes",
       "passed": true,
       "detail": "8/8 volumes have authored pages; max authored pages in one volume is 37/190"
+    },
+    {
+      "id": "page-state-registry",
+      "label": "Reader pages have launch states",
+      "passed": true,
+      "detail": "984/984 reader pages classified; 189 public candidates, 792 source companions, 3 internal drafts"
     },
     {
       "id": "requirement-map",
@@ -1189,6 +1202,55 @@
     "volumeMapIdsMissingReader": [],
     "volumeOverviewIdsMissingReader": []
   },
+  "pageStateCoverage": {
+    "status": "prototype-page-state-registry",
+    "totalPages": 984,
+    "byState": {
+      "candidate": 189,
+      "internal-draft": 3,
+      "source-companion": 792
+    },
+    "byRouteSource": {
+      "authored": 190,
+      "generated": 794
+    },
+    "byGranularity": {
+      "authored-page": 190,
+      "companion-page": 65,
+      "source-page": 188,
+      "section-page": 541
+    },
+    "byStatus": {
+      "publication-candidate": 91,
+      "publication-candidate-needs-operator-review": 98,
+      "needs-reconciliation": 3,
+      "source-mapped": 63,
+      "draft-imported-from-primary-source": 187,
+      "draft-imported-from-generated-html": 1,
+      "draft-extracted-from-primary-source": 541
+    },
+    "publicCandidatePages": 189,
+    "sourceCompanionPages": 792,
+    "internalDraftPages": 3,
+    "publicNavigationPages": 189,
+    "retrievalEligiblePages": 981,
+    "exactQuestionRoutedPages": 168,
+    "duplicatePageIds": [],
+    "unclassifiedPageIds": [],
+    "missingVolumeIds": [],
+    "readerIdsMissingPageState": [],
+    "pageStateIdsMissingReader": [],
+    "internalDraftPageIds": [
+      "authored-referral-depth-open-question",
+      "linear-referral-depth-rollout",
+      "local-network-depth"
+    ],
+    "warnings": [
+      "No page is marked published yet; current authored pages remain candidates.",
+      "3 internal draft pages must stay hidden until reconciled.",
+      "792 source companion pages should support retrieval/authoring but not final public navigation."
+    ]
+  },
   "requirementCoverage": {
     "status": "completion-coverage-map",
     "completionReady": false,
@@ -1523,6 +1585,11 @@
     "readerIdsMissingVolumeMap": [],
     "volumeMapIdsMissingReader": [],
     "volumeOverviewIdsMissingReader": [],
+    "pageStateDuplicateIds": [],
+    "pageStateUnclassifiedIds": [],
+    "pageStateMissingVolumeIds": [],
+    "readerIdsMissingPageState": [],
+    "pageStateIdsMissingReader": [],
     "requirementDuplicateIds": [],
     "invalidParkedRequirementIds": [],
     "incompleteRequirements": [
@@ -1660,6 +1727,7 @@
     "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
+    "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

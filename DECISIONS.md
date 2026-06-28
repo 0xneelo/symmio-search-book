@@ -543,3 +543,11 @@
 **Reason:** The source corpus still contains AMFQ/aMFQ language, especially in Vibe architecture and Symmio frontend-builder text, but readers should understand it as the earlier name for intents rather than a separate protocol concept.
 
 **Status:** Accepted for terminology normalization.
+
+## D-069: Separate Published, Candidate, Source-Companion, And Internal Draft States
+
+**Decision:** Add a deterministic page-state registry that classifies every reader-routable page as `published`, `candidate`, `source-companion`, or `internal-draft`. Current authored pages remain candidates until final review, generated source material remains source-companion retrieval/authoring input, and unresolved contradiction pages remain internal drafts.
+
+**Reason:** The LLM and launch pipeline need an explicit boundary between reviewable public prose and raw source scaffolding. Without that boundary, generated companion material could accidentally appear as final documentation or unresolved referral/revenue contradictions could leak into answer synthesis.
+
+**Status:** Accepted for production readiness and quality-audit enforcement.

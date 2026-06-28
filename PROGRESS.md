@@ -409,6 +409,12 @@
 - Added five authored protocol-reference pages for Symmio's protocol contract surface, SubAccounts and Virtual Accounts, contract-level quote lifecycle, withdrawal/provider system, and frontend-builder/audit posture.
 - Routed five new protocol/builder/security questions to authored pages while keeping deployed contract versions, Vibe-specific surface support, withdrawal-provider coverage, cooldowns, fees, and audit inventory under publication-date review.
 
+## 2026-06-28 — Page-State Registry For Production Readiness
+
+- Added a generated page-state registry that classifies every reader-routable page as `published`, `candidate`, `source-companion`, or `internal-draft`.
+- Wired the registry into the quality audit so launch work can prove source companions stay out of public navigation and internal drafts stay out of answer synthesis.
+- Kept all current authored pages in candidate/review state; no page is marked published until final editorial, source, and operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

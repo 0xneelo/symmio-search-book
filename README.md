@@ -28,6 +28,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated living-docs gap queue: `data/gap-queue.js`
 - Generated answer retrieval chunks: `data/answer-chunks.js`
 - Generated compendium volume map: `data/volume-map.js`
+- Generated page-state registry: `data/page-state-registry.js`
 - Generated routed glossary: `data/glossary.js`
 - Generated source catalog: `data/source-catalog.js`
 - Generated required-source ingestion map: `data/source-ingestion.js`
@@ -75,6 +76,7 @@ node src/search-book/scripts/build-faq-map.mjs
 node src/search-book/scripts/build-gap-queue.mjs
 node src/search-book/scripts/build-answer-chunks.mjs
 node src/search-book/scripts/build-volume-map.mjs
+node src/search-book/scripts/build-page-state-registry.mjs
 node src/search-book/scripts/build-glossary.mjs
 node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
@@ -93,6 +95,7 @@ node --check src/search-book/scripts/build-faq-map.mjs
 node --check src/search-book/scripts/build-gap-queue.mjs
 node --check src/search-book/scripts/build-answer-chunks.mjs
 node --check src/search-book/scripts/build-volume-map.mjs
+node --check src/search-book/scripts/build-page-state-registry.mjs
 node --check src/search-book/scripts/build-glossary.mjs
 node --check src/search-book/scripts/build-source-catalog.mjs
 node --check src/search-book/scripts/build-competitive-sweep.mjs
@@ -109,6 +112,7 @@ node --check src/search-book/data/faq.js
 node --check src/search-book/data/gap-queue.js
 node --check src/search-book/data/answer-chunks.js
 node --check src/search-book/data/volume-map.js
+node --check src/search-book/data/page-state-registry.js
 node --check src/search-book/data/glossary.js
 node --check src/search-book/data/source-catalog.js
 node --check src/search-book/data/competitive-sweep.js
@@ -122,6 +126,7 @@ node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageId
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 7) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"
 node -e "const v=require('./src/search-book/data/volume-map.json'); if (v.unassignedPageIds.length || v.duplicatePageIds.length || v.volumeIdsMissingPages.length || v.readerPages !== v.pagesAssigned || !v.manifestWithinTarget) process.exit(1); console.log(v.totalVolumes + '/' + v.totalChapters)"
+node -e "const ps=require('./src/search-book/data/page-state-registry.json'); if (ps.duplicatePageIds.length || ps.unclassifiedPageIds.length || ps.missingVolumeIds.length || ps.totalPages < 900 || !ps.byState.candidate || !ps.byState['source-companion']) process.exit(1); console.log(ps.totalPages + '/' + Object.keys(ps.byState).length)"
 node -e "const g=require('./src/search-book/data/glossary.json'); if (g.missingPageIds.length || g.missingSourceKeys.length || g.totalTerms < 25) process.exit(1); console.log(g.totalTerms + '/' + Object.keys(g.byCategory).length)"
 node -e "const s=require('./src/search-book/data/source-catalog.json'); if (s.duplicateKeys.length || s.totalSources < 1) process.exit(1); console.log(s.totalSources + '/' + Object.keys(s.byGroup).length)"
 node -e "const cs=require('./src/search-book/data/competitive-sweep.json'); if (cs.targetDocs !== 50 || cs.plannedAgentLanes !== 25 || cs.completedExplorerBatches !== 5 || cs.targetDocsReviewed !== 49) process.exit(1); console.log(cs.targetDocsReviewed + '/' + cs.targetDocs)"

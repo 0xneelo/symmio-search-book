@@ -24,6 +24,7 @@ const defaults = {
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
+  pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
   requirementMap: path.join(searchBookRoot, "data", "requirement-map.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
@@ -186,6 +187,9 @@ const answerChunks = fs.existsSync(args.answerChunks)
 const volumeMap = fs.existsSync(args.volumeMap)
   ? readJson(args.volumeMap)
   : { totalVolumes: 0, totalChapters: 0, manifestPages: 0, readerPages: 0, pagesAssigned: 0, manifestWithinTarget: false, duplicatePageIds: [], unassignedPageIds: [], volumeIdsMissingPages: [], unknownSourceKeys: [], volumes: [], pageToVolume: {} };
+const pageStateRegistry = fs.existsSync(args.pageStateRegistry)
+  ? readJson(args.pageStateRegistry)
+  : { totalPages: 0, byState: {}, pages: [], duplicatePageIds: [], unclassifiedPageIds: [], missingVolumeIds: [], internalDraftPageIds: [], warnings: [] };
 const requirementMap = fs.existsSync(args.requirementMap)
   ? readJson(args.requirementMap)
   : { totalRequirements: 0, byStatus: {}, byCategory: {}, completionReady: false, duplicateRequirementIds: [], invalidParkedRequirements: [], requirements: [], nextFocus: [] };
@@ -276,6 +280,20 @@ const readerIdsMissingVolumeMap = [...readerPageIds].filter((pageId) => !volumeM
 const volumeMapIdsMissingReader = [...volumeMapPageIds].filter((pageId) => !readerPageIds.has(pageId));
 const volumeOverviewPageIds = (volumeMap.volumes || []).map((volume) => volume.overviewPageId).filter(Boolean);
 const volumeOverviewIdsMissingReader = volumeOverviewPageIds.filter((pageId) => !readerPageIds.has(pageId));
+const pageStatePageIds = new Set((pageStateRegistry.pages || []).map((page) => page.id));
+const pageStateDuplicateIds = pageStateRegistry.duplicatePageIds || [];
+const pageStateUnclassifiedIds = pageStateRegistry.unclassifiedPageIds || [];
+const pageStateMissingVolumeIds = pageStateRegistry.missingVolumeIds || [];
+const readerIdsMissingPageState = [...readerPageIds].filter((pageId) => !pageStatePageIds.has(pageId));
+const pageStateIdsMissingReader = [...pageStatePageIds].filter((pageId) => !readerPageIds.has(pageId));
+const pageStateRegistryReady =
+  (pageStateRegistry.totalPages || 0) === readerPageIds.size &&
+  pageStateDuplicateIds.length === 0 &&
+  pageStateUnclassifiedIds.length === 0 &&
+  pageStateMissingVolumeIds.length === 0 &&
+  readerIdsMissingPageState.length === 0 &&
+  pageStateIdsMissingReader.length === 0 &&
+  Object.keys(pageStateRegistry.byState || {}).length > 0;
 const authoredVolumeCounts = (volumeMap.volumes || []).map((volume) => ({
   id: volume.id,
   title: volume.title,
@@ -494,6 +512,12 @@ const gates = [
     detail: `${authoredVolumeCounts.filter((volume) => volume.authoredPages > 0).length}/${authoredVolumeCounts.length} volumes have authored pages; max authored pages in one volume is ${maxAuthoredPagesInSingleVolume}/${authoredPages.length}`,
   },
   {
+    id: "page-state-registry",
+    label: "Reader pages have launch states",
+    passed: pageStateRegistryReady,
+    detail: `${pageStateRegistry.totalPages || 0}/${readerPageIds.size} reader pages classified; ${pageStateRegistry.publicCandidatePages || 0} public candidates, ${pageStateRegistry.sourceCompanionPages || 0} source companions, ${pageStateRegistry.internalDraftPages || 0} internal drafts`,
+  },
+  {
     id: "requirement-map",
     label: "Definition-of-done requirements are tracked",
     passed:
@@ -578,6 +602,13 @@ const payload = {
     compendiumVolumeOverviews: volumeOverviewPageIds.length,
     compendiumVolumeReaderPages: volumeMap.readerPages || 0,
     compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
+    pageStatePages: pageStateRegistry.totalPages || 0,
+    pageStatePublishedPages: pageStateRegistry.publishedPages || 0,
+    pageStatePublicCandidatePages: pageStateRegistry.publicCandidatePages || 0,
+    pageStateSourceCompanionPages: pageStateRegistry.sourceCompanionPages || 0,
+    pageStateInternalDraftPages: pageStateRegistry.internalDraftPages || 0,
+    pageStatePublicNavigationPages: pageStateRegistry.publicNavigationPages || 0,
+    pageStateRetrievalEligiblePages: pageStateRegistry.retrievalEligiblePages || 0,
     completionRequirements: requirementMap.totalRequirements || 0,
     completionRequirementsComplete: requirementMap.byStatus?.complete || 0,
     completionRequirementsPartial: requirementMap.byStatus?.partial || 0,
@@ -756,6 +787,27 @@ const payload = {
     volumeMapIdsMissingReader,
     volumeOverviewIdsMissingReader,
   },
+  pageStateCoverage: {
+    status: pageStateRegistry.status || "missing",
+    totalPages: pageStateRegistry.totalPages || 0,
+    byState: pageStateRegistry.byState || {},
+    byRouteSource: pageStateRegistry.byRouteSource || {},
+    byGranularity: pageStateRegistry.byGranularity || {},
+    byStatus: pageStateRegistry.byStatus || {},
+    publicCandidatePages: pageStateRegistry.publicCandidatePages || 0,
+    sourceCompanionPages: pageStateRegistry.sourceCompanionPages || 0,
+    internalDraftPages: pageStateRegistry.internalDraftPages || 0,
+    publicNavigationPages: pageStateRegistry.publicNavigationPages || 0,
+    retrievalEligiblePages: pageStateRegistry.retrievalEligiblePages || 0,
+    exactQuestionRoutedPages: pageStateRegistry.exactQuestionRoutedPages || 0,
+    duplicatePageIds: pageStateDuplicateIds,
+    unclassifiedPageIds: pageStateUnclassifiedIds,
+    missingVolumeIds: pageStateMissingVolumeIds,
+    readerIdsMissingPageState,
+    pageStateIdsMissingReader,
+    internalDraftPageIds: pageStateRegistry.internalDraftPageIds || [],
+    warnings: pageStateRegistry.warnings || [],
+  },
   requirementCoverage: {
     status: requirementMap.status || "missing",
     completionReady: requirementMap.completionReady || false,
@@ -801,6 +853,11 @@ const payload = {
     readerIdsMissingVolumeMap,
     volumeMapIdsMissingReader,
     volumeOverviewIdsMissingReader,
+    pageStateDuplicateIds,
+    pageStateUnclassifiedIds,
+    pageStateMissingVolumeIds,
+    readerIdsMissingPageState,
+    pageStateIdsMissingReader,
     requirementDuplicateIds,
     invalidParkedRequirementIds,
     incompleteRequirements: (requirementMap.requirements || [])
@@ -817,6 +874,7 @@ const payload = {
     "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
+    "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
