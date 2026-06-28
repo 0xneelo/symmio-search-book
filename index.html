@@ -1751,18 +1751,19 @@
 
       @media (max-width: 860px) {
         .rail {
-          width: 74px;
-          height: 74px;
-          overflow: visible;
-          border-right: 0;
-          border-bottom: 0;
-          background: transparent;
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
           box-shadow: none;
         }
 
         .rail.is-open,
-        .rail:hover,
         .rail:focus-within {
+          left: 0;
           width: 280px;
           height: 100vh;
           overflow-y: auto;
@@ -1776,9 +1777,13 @@
           appearance: none;
           align-items: center;
           justify-content: center;
+          position: fixed;
+          top: 16px;
+          left: 16px;
+          z-index: 50;
           width: 42px;
           height: 42px;
-          margin: 16px;
+          margin: 0;
           border: 1px solid var(--line);
           border-radius: 11px;
           background: var(--card);
@@ -1837,12 +1842,13 @@
         }
 
         .rail:hover:not(:focus-within):not(.is-open) {
-          width: 74px;
-          height: 74px;
-          overflow: visible;
-          border-right: 0;
-          border-bottom: 0;
-          background: transparent;
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
           box-shadow: none;
         }
 
