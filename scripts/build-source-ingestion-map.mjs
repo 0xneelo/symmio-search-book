@@ -146,8 +146,20 @@ const linearExpectedKeys = [
 const revenueKeys = ["local-revenue-doc", "dashboard-revenue-doc", "server-pulse", "server-volume", "server-volume-snapshots", "server-me"];
 const neeloKeys = ["vibe-papers", "vibe-papers-site", "vibe-papers-data"];
 const vibePublicKeys = ["vibe-llms", "vibe-what-is", "vibe-architecture", "vibe-referral-program", "vibe-points", "vibe-margin"];
-const symmioPublicKeys = ["symmio-llms", "symmio-what-is", "symmio-core", "symmio-intent-lifecycle", "symmio-whitepaper"];
-const hyperliquidKeys = ["hyperliquid-llms", "hyperliquid-hip3"];
+const symmioPublicKeys = [
+  "symmio-foundation-docs",
+  "symmio-token-foundation",
+  "symmio-llms",
+  "symmio-what-is",
+  "symmio-core",
+  "symmio-intent-lifecycle",
+  "symmio-whitepaper",
+  "symmio-options-docs",
+  "symmio-options-technical-architecture",
+];
+const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
+const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];
+const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 
 const localSpecStatus = requiredKeysStatus(keys, localSpecKeys);
 const localCodeStatus = requiredKeysStatus(keys, localCodeKeys);
@@ -156,7 +168,9 @@ const revenueStatus = requiredKeysStatus(keys, revenueKeys);
 const neeloStatus = requiredKeysStatus(keys, neeloKeys);
 const vibeStatus = requiredKeysStatus(keys, vibePublicKeys);
 const symmioStatus = requiredKeysStatus(keys, symmioPublicKeys);
-const hyperliquidStatus = requiredKeysStatus(keys, hyperliquidKeys);
+const symmioWhitepaperHistoryStatus = requiredKeysStatus(keys, symmioWhitepaperHistoryKeys);
+const symmioGithubStatus = requiredKeysStatus(keys, symmioGithubKeys);
+const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
 
 const requirements = [
   sourceReq({
@@ -240,57 +254,59 @@ const requirements = [
   sourceReq({
     id: "public-symmio-docs",
     label: "Public Symmio docs and current whitepaper",
-    status: symmioStatus.complete ? "partial" : "missing",
+    status: symmioStatus.complete ? "complete" : "partial",
     category: "protocol-reference",
     sourceSpecs: ["02", "04", "07"],
     presentKeys: symmioStatus.present,
-    missingKeys: [...symmioStatus.missing, "docs.symmio.foundation", "symmio-options-docs"],
-    evidence: `${symmioStatus.present.length}/${symmioPublicKeys.length} core Symmio source keys registered; docs foundation/options pages still need deep mining.`,
-    nextAction: "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication.",
+    missingKeys: symmioStatus.missing,
+    evidence: `${symmioStatus.present.length}/${symmioPublicKeys.length} public Symmio source keys registered, including Foundation and options docs.`,
+    nextAction: "Keep mining deeper options examples before final protocol-reference publication.",
   }),
   sourceReq({
     id: "symmio-whitepaper-history",
     label: "Original/oldest Symmio whitepaper and earliest docs",
-    status: keys.has("symmio-whitepaper") ? "partial" : "missing",
+    status: symmioWhitepaperHistoryStatus.complete ? "complete" : inboxHas(openInboxItems, 6) ? "parked" : "partial",
     category: "protocol-reference",
     sourceSpecs: ["02", "04", "07"],
-    presentKeys: keys.has("symmio-whitepaper") ? ["symmio-whitepaper"] : [],
-    missingKeys: ["symmio-original-whitepaper", "symmio-earliest-docs"],
-    evidence: "Current Symmio whitepaper pointer is registered, but oldest whitepaper/version-history evidence is not.",
+    presentKeys: symmioWhitepaperHistoryStatus.present,
+    missingKeys: symmioWhitepaperHistoryStatus.missing,
+    evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} whitepaper/history source keys registered; original whitepaper/version comparison remains open until the exact original artifact is located.`,
+    blocks: !symmioWhitepaperHistoryStatus.complete && inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : [],
     nextAction: "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story.",
   }),
   sourceReq({
     id: "symm-io-github",
     label: "github.com/symm-io repositories",
-    status: /github\.com\/symm-io/i.test(registryMarkdown) ? "partial" : "missing",
+    status: symmioGithubStatus.complete ? "complete" : "partial",
     category: "protocol-reference",
     sourceSpecs: ["04", "07"],
-    presentKeys: [],
-    missingKeys: ["symm-io-github"],
-    evidence: "No dedicated symm-io GitHub repository source key is registered.",
-    nextAction: "Register relevant symm-io repositories and link them to protocol/developer reference pages.",
+    presentKeys: symmioGithubStatus.present,
+    missingKeys: symmioGithubStatus.missing,
+    evidence: `${symmioGithubStatus.present.length}/${symmioGithubKeys.length} SYMM-IO GitHub source keys registered.`,
+    nextAction: "Link implementation-specific repositories to authored protocol/developer pages as they are written.",
   }),
   sourceReq({
     id: "superflow-sshe",
     label: "SuperFlow / SSHE docs",
-    status: /SuperFlow|SSHE/i.test(registryMarkdown) ? "partial" : "missing",
+    status: /SuperFlow|SSHE/i.test(registryMarkdown) ? "partial" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
     category: "protocol-reference",
     sourceSpecs: ["04", "07"],
     presentKeys: [],
     missingKeys: ["superflow-sshe"],
     evidence: "No SuperFlow or SSHE source key is registered.",
+    blocks: inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : [],
     nextAction: "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims.",
   }),
   sourceReq({
     id: "hyperliquid-goldsky",
     label: "Hyperliquid HIP-3 and Goldsky analytics",
-    status: keys.has("goldsky") || /Goldsky/i.test(registryMarkdown) ? "complete" : "partial",
+    status: hyperliquidGoldskyStatus.complete ? "complete" : "partial",
     category: "competitive-reference",
     sourceSpecs: ["02", "03", "04", "07"],
-    presentKeys: hyperliquidStatus.present,
-    missingKeys: [...hyperliquidStatus.missing, "goldsky-analytics-subgraphs"],
-    evidence: `${hyperliquidStatus.present.length}/${hyperliquidKeys.length} Hyperliquid source keys registered; Goldsky source remains unregistered.`,
-    nextAction: "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument.",
+    presentKeys: hyperliquidGoldskyStatus.present,
+    missingKeys: hyperliquidGoldskyStatus.missing,
+    evidence: `${hyperliquidGoldskyStatus.present.length}/${hyperliquidGoldskyKeys.length} Hyperliquid/Goldsky source keys registered.`,
+    nextAction: "Use the registered Goldsky docs as the public citation layer for the Barometer and HIP-3 data-source argument.",
   }),
   sourceReq({
     id: "discord-lafa-corpus",

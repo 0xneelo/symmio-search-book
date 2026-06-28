@@ -4,10 +4,9 @@
   "sourceCompletionReady": false,
   "totalSourceRequirements": 16,
   "byStatus": {
-    "complete": 8,
-    "missing": 2,
-    "parked": 2,
-    "partial": 4
+    "complete": 11,
+    "parked": 4,
+    "partial": 1
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -20,6 +19,14 @@
     "reference": 1
   },
   "openOperatorItems": [
+    {
+      "id": 7,
+      "title": "SuperFlow / SSHE source identification"
+    },
+    {
+      "id": 6,
+      "title": "Original/oldest Symmio whitepaper artifact"
+    },
     {
       "id": 5,
       "title": "Vibe Trading Notion export or read access"
@@ -227,7 +234,7 @@
     {
       "id": "public-symmio-docs",
       "label": "Public Symmio docs and current whitepaper",
-      "status": "partial",
+      "status": "complete",
       "category": "protocol-reference",
       "sourceSpecs": [
         "02",
@@ -236,23 +243,24 @@
       ],
       "presentKeys": [
         "symmio-core",
+        "symmio-foundation-docs",
         "symmio-intent-lifecycle",
         "symmio-llms",
+        "symmio-options-docs",
+        "symmio-options-technical-architecture",
+        "symmio-token-foundation",
         "symmio-what-is",
         "symmio-whitepaper"
       ],
-      "missingKeys": [
-        "docs.symmio.foundation",
-        "symmio-options-docs"
-      ],
-      "evidence": "5/5 core Symmio source keys registered; docs foundation/options pages still need deep mining.",
+      "missingKeys": [],
+      "evidence": "9/9 public Symmio source keys registered, including Foundation and options docs.",
       "blocks": [],
-      "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
+      "nextAction": "Keep mining deeper options examples before final protocol-reference publication."
     },
     {
       "id": "symmio-whitepaper-history",
       "label": "Original/oldest Symmio whitepaper and earliest docs",
-      "status": "partial",
+      "status": "parked",
       "category": "protocol-reference",
       "sourceSpecs": [
         "02",
@@ -260,37 +268,43 @@
         "07"
       ],
       "presentKeys": [
+        "symmio-earliest-docs",
         "symmio-whitepaper"
       ],
       "missingKeys": [
-        "symmio-earliest-docs",
         "symmio-original-whitepaper"
       ],
-      "evidence": "Current Symmio whitepaper pointer is registered, but oldest whitepaper/version-history evidence is not.",
-      "blocks": [],
+      "evidence": "2/3 whitepaper/history source keys registered; original whitepaper/version comparison remains open until the exact original artifact is located.",
+      "blocks": [
+        "OPERATOR-INBOX #6"
+      ],
       "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
     },
     {
       "id": "symm-io-github",
       "label": "github.com/symm-io repositories",
-      "status": "missing",
+      "status": "complete",
       "category": "protocol-reference",
       "sourceSpecs": [
         "04",
         "07"
       ],
-      "presentKeys": [],
-      "missingKeys": [
-        "symm-io-github"
+      "presentKeys": [
+        "symm-io-analytics",
+        "symm-io-github",
+        "symm-io-options-core",
+        "symm-io-protocol-core",
+        "symm-io-subgraphs"
       ],
-      "evidence": "No dedicated symm-io GitHub repository source key is registered.",
+      "missingKeys": [],
+      "evidence": "5/5 SYMM-IO GitHub source keys registered.",
       "blocks": [],
-      "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
+      "nextAction": "Link implementation-specific repositories to authored protocol/developer pages as they are written."
     },
     {
       "id": "superflow-sshe",
       "label": "SuperFlow / SSHE docs",
-      "status": "missing",
+      "status": "parked",
       "category": "protocol-reference",
       "sourceSpecs": [
         "04",
@@ -301,13 +315,15 @@
         "superflow-sshe"
       ],
       "evidence": "No SuperFlow or SSHE source key is registered.",
-      "blocks": [],
+      "blocks": [
+        "OPERATOR-INBOX #7"
+      ],
       "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
     },
     {
       "id": "hyperliquid-goldsky",
       "label": "Hyperliquid HIP-3 and Goldsky analytics",
-      "status": "partial",
+      "status": "complete",
       "category": "competitive-reference",
       "sourceSpecs": [
         "02",
@@ -316,15 +332,15 @@
         "07"
       ],
       "presentKeys": [
+        "goldsky-graphql-endpoints",
+        "goldsky-subgraphs",
         "hyperliquid-hip3",
         "hyperliquid-llms"
       ],
-      "missingKeys": [
-        "goldsky-analytics-subgraphs"
-      ],
-      "evidence": "2/2 Hyperliquid source keys registered; Goldsky source remains unregistered.",
+      "missingKeys": [],
+      "evidence": "4/4 Hyperliquid/Goldsky source keys registered.",
       "blocks": [],
-      "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+      "nextAction": "Use the registered Goldsky docs as the public citation layer for the Barometer and HIP-3 data-source argument."
     },
     {
       "id": "discord-lafa-corpus",
@@ -405,6 +421,8 @@
         "dashboard-settings",
         "dashboard-tasks",
         "dashboard-volume",
+        "goldsky-graphql-endpoints",
+        "goldsky-subgraphs",
         "hyperliquid-hip3",
         "hyperliquid-llms",
         "local-revenue-doc",
@@ -425,9 +443,19 @@
         "spec-09",
         "spec-prompt",
         "styleguide",
+        "symm-io-analytics",
+        "symm-io-github",
+        "symm-io-options-core",
+        "symm-io-protocol-core",
+        "symm-io-subgraphs",
         "symmio-core",
+        "symmio-earliest-docs",
+        "symmio-foundation-docs",
         "symmio-intent-lifecycle",
         "symmio-llms",
+        "symmio-options-docs",
+        "symmio-options-technical-architecture",
+        "symmio-token-foundation",
         "symmio-what-is",
         "symmio-whitepaper",
         "syn-118",
@@ -454,7 +482,7 @@
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "59 registered source keys; 0 duplicate keys.",
+      "evidence": "71 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
@@ -472,51 +500,26 @@
       "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
     },
     {
-      "id": "public-symmio-docs",
-      "status": "partial",
-      "missingKeys": [
-        "docs.symmio.foundation",
-        "symmio-options-docs"
-      ],
-      "blocks": [],
-      "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
-    },
-    {
       "id": "symmio-whitepaper-history",
-      "status": "partial",
+      "status": "parked",
       "missingKeys": [
-        "symmio-earliest-docs",
         "symmio-original-whitepaper"
       ],
-      "blocks": [],
+      "blocks": [
+        "OPERATOR-INBOX #6"
+      ],
       "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
     },
     {
-      "id": "symm-io-github",
-      "status": "missing",
-      "missingKeys": [
-        "symm-io-github"
-      ],
-      "blocks": [],
-      "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
-    },
-    {
       "id": "superflow-sshe",
-      "status": "missing",
+      "status": "parked",
       "missingKeys": [
         "superflow-sshe"
       ],
-      "blocks": [],
-      "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
-    },
-    {
-      "id": "hyperliquid-goldsky",
-      "status": "partial",
-      "missingKeys": [
-        "goldsky-analytics-subgraphs"
+      "blocks": [
+        "OPERATOR-INBOX #7"
       ],
-      "blocks": [],
-      "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+      "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
     },
     {
       "id": "discord-lafa-corpus",

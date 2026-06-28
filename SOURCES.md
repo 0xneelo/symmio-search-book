@@ -76,11 +76,21 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 
 | Key | Source | Use |
 | --- | --- | --- |
+| `symmio-foundation-docs` | https://docs.symmio.foundation/ | SYMMIO Foundation docs, token/economy context, and ecosystem-level governance/foundation material. |
+| `symmio-token-foundation` | https://docs.symmio.foundation/symm-token/overview | SYMM token, veSYMM, staking, buybacks, utility, and tokenomics context from the Foundation docs. |
 | `symmio-llms` | https://docs.symm.io/llms.txt | Symmio docs index and required deep links. |
 | `symmio-what-is` | https://docs.symm.io/getting-started/what-is-symmio.md | Symmio clearing-house model, DaaS framing, no order book/pools. |
 | `symmio-core` | https://docs.symm.io/getting-started/core-concepts.md | PartyA, PartyB, solvers, intents, collateral, margin, CVA. |
 | `symmio-intent-lifecycle` | https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md | Solver event monitoring and quote lifecycle. |
 | `symmio-whitepaper` | https://docs.symm.io/security-and-architecture/symmio-whitepaper.md | Whitepaper pointer and protocol status note. |
+| `symmio-options-docs` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/overview.md | Symmio options protocol overview and contract documentation entry point. |
+| `symmio-options-technical-architecture` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/technical-architecture.md | Symmio options contract architecture, roles, storage, oracle integration, and protocol modules. |
+| `symmio-earliest-docs` | https://github.com/SYMM-IO/docs | SYMM-IO docs repository and Whitepaper folder; starting point for earliest-docs and version-history review. |
+| `symm-io-github` | https://github.com/SYMM-IO | Official SYMM-IO GitHub organization and repository index. |
+| `symm-io-protocol-core` | https://github.com/SYMM-IO/protocol-core | Protocol core repository for on-chain settlement and contract implementation evidence. |
+| `symm-io-options-core` | https://github.com/SYMM-IO/options-core | Options protocol repository for implementation-level options references. |
+| `symm-io-subgraphs` | https://github.com/SYMM-IO/subgraphs | Subgraph repository for Symmio indexing/reference data context. |
+| `symm-io-analytics` | https://github.com/SYMM-IO/analytics | Analytics repository for Symmio/Vibe data pipeline context. |
 
 ## Competitive Context
 
@@ -88,6 +98,8 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | --- | --- | --- |
 | `hyperliquid-llms` | https://hyperliquid.gitbook.io/hyperliquid-docs/llms.txt | Hyperliquid docs index. |
 | `hyperliquid-hip3` | https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md | Builder-deployed perps, staking, deployer duties, independent margin/order books. |
+| `goldsky-subgraphs` | https://docs.goldsky.com/subgraphs/introduction | Goldsky subgraph product docs for indexing and subgraph-backed data access. |
+| `goldsky-graphql-endpoints` | https://docs.goldsky.com/subgraphs/graph-endpoints | Goldsky GraphQL endpoint documentation for querying indexed subgraph data. |
 
 ## Authored Publication Candidates
 

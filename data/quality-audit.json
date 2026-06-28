@@ -17,20 +17,20 @@
     "localFaqAnswerable": 29,
     "localFaqUnresolved": 7,
     "localFaqCategories": 10,
-    "gapQueueItems": 11,
+    "gapQueueItems": 12,
     "gapQueueQuestionSignals": 7,
-    "gapQueueOperatorSignals": 4,
+    "gapQueueOperatorSignals": 7,
     "gapQueueParkedPageSignals": 2,
-    "gapQueueCategories": 11,
+    "gapQueueCategories": 12,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
-    "sourceCatalogEntries": 59,
-    "linkedSourceCatalogEntries": 45,
+    "sourceCatalogEntries": 71,
+    "linkedSourceCatalogEntries": 57,
     "sourceIngestionRequirements": 16,
-    "sourceIngestionComplete": 8,
-    "sourceIngestionPartial": 4,
-    "sourceIngestionParked": 2,
-    "sourceIngestionMissing": 2,
+    "sourceIngestionComplete": 11,
+    "sourceIngestionPartial": 1,
+    "sourceIngestionParked": 4,
+    "sourceIngestionMissing": 0,
     "sourceIngestionReady": false,
     "crosslinkedReaderPages": 837,
     "readerPagesWithPrevious": 836,
@@ -50,9 +50,9 @@
     "completionRequirementsParked": 6,
     "completionRequirementsMissing": 1,
     "completionReady": false,
-    "sourceRegistryKeys": 59,
+    "sourceRegistryKeys": 71,
     "usedSourceKeys": 41,
-    "openOperatorItems": 5,
+    "openOperatorItems": 7,
     "resolvedOperatorItems": 0,
     "trackedGaps": 12,
     "answerablePrototypeQuestions": 29,
@@ -81,19 +81,19 @@
       "id": "source-keys",
       "label": "Registered source-key coverage",
       "passed": true,
-      "detail": "41 used keys, 59 registered keys, 0 unknown used keys"
+      "detail": "41 used keys, 71 registered keys, 0 unknown used keys"
     },
     {
       "id": "source-catalog",
       "label": "Source catalog matches registry",
       "passed": true,
-      "detail": "59 catalog sources, 59 registry keys, 0 used keys missing catalog"
+      "detail": "71 catalog sources, 71 registry keys, 0 used keys missing catalog"
     },
     {
       "id": "source-ingestion",
       "label": "Required source families are ingested",
       "passed": false,
-      "detail": "8/16 complete, 4 partial, 2 parked, 2 missing"
+      "detail": "11/16 complete, 1 partial, 4 parked, 0 missing"
     },
     {
       "id": "source-urls",
@@ -134,8 +134,8 @@
     {
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
-      "passed": false,
-      "detail": "11 queue items, 7 question signals, 4 operator signals, 2 parked pages"
+      "passed": true,
+      "detail": "12 queue items, 7 question signals, 7 operator signals, 2 parked pages"
     },
     {
       "id": "glossary-routes",
@@ -171,7 +171,7 @@
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "5 open operator items, 0 resolved"
+      "detail": "7 open operator items, 0 resolved"
     },
     {
       "id": "discord",
@@ -317,12 +317,24 @@
     "unusedRegisteredSourceKeys": [
       "authored-index",
       "authored-pages",
+      "goldsky-graphql-endpoints",
+      "goldsky-subgraphs",
       "hyperliquid-llms",
       "spec-00",
       "spec-04",
       "spec-07",
       "spec-08",
       "spec-prompt",
+      "symm-io-analytics",
+      "symm-io-github",
+      "symm-io-options-core",
+      "symm-io-protocol-core",
+      "symm-io-subgraphs",
+      "symmio-earliest-docs",
+      "symmio-foundation-docs",
+      "symmio-options-docs",
+      "symmio-options-technical-architecture",
+      "symmio-token-foundation",
       "syn-163",
       "syn-192",
       "syn-201",
@@ -336,21 +348,21 @@
     ]
   },
   "sourceCatalogCoverage": {
-    "totalSources": 59,
-    "linkedSources": 45,
+    "totalSources": 71,
+    "linkedSources": 57,
     "byGroup": {
       "Authored Publication Candidates": 2,
       "Local Product And Code": 16,
-      "Competitive Context": 2,
+      "Competitive Context": 4,
       "Local Specs": 12,
-      "Public Symmio Sources": 5,
+      "Public Symmio Sources": 15,
       "Linear Research": 13,
       "Public Vibe Sources": 9
     },
     "byKind": {
       "repo-local": 28,
       "repo-pattern": 1,
-      "public-url": 15,
+      "public-url": 27,
       "absolute-local": 2,
       "linear": 13
     },
@@ -363,10 +375,9 @@
     "sourceCompletionReady": false,
     "totalSourceRequirements": 16,
     "byStatus": {
-      "complete": 8,
-      "missing": 2,
-      "parked": 2,
-      "partial": 4
+      "complete": 11,
+      "parked": 4,
+      "partial": 1
     },
     "byCategory": {
       "competitive-reference": 2,
@@ -379,6 +390,14 @@
       "reference": 1
     },
     "openOperatorItems": [
+      {
+        "id": 7,
+        "title": "SuperFlow / SSHE source identification"
+      },
+      {
+        "id": 6,
+        "title": "Original/oldest Symmio whitepaper artifact"
+      },
       {
         "id": 5,
         "title": "Vibe Trading Notion export or read access"
@@ -413,51 +432,26 @@
         "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
       },
       {
-        "id": "public-symmio-docs",
-        "status": "partial",
-        "missingKeys": [
-          "docs.symmio.foundation",
-          "symmio-options-docs"
-        ],
-        "blocks": [],
-        "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
-      },
-      {
         "id": "symmio-whitepaper-history",
-        "status": "partial",
+        "status": "parked",
         "missingKeys": [
-          "symmio-earliest-docs",
           "symmio-original-whitepaper"
         ],
-        "blocks": [],
+        "blocks": [
+          "OPERATOR-INBOX #6"
+        ],
         "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
       },
       {
-        "id": "symm-io-github",
-        "status": "missing",
-        "missingKeys": [
-          "symm-io-github"
-        ],
-        "blocks": [],
-        "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
-      },
-      {
         "id": "superflow-sshe",
-        "status": "missing",
+        "status": "parked",
         "missingKeys": [
           "superflow-sshe"
         ],
-        "blocks": [],
-        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
-      },
-      {
-        "id": "hyperliquid-goldsky",
-        "status": "partial",
-        "missingKeys": [
-          "goldsky-analytics-subgraphs"
+        "blocks": [
+          "OPERATOR-INBOX #7"
         ],
-        "blocks": [],
-        "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
       },
       {
         "id": "discord-lafa-corpus",
@@ -545,14 +539,14 @@
   },
   "gapQueueCoverage": {
     "status": "prototype-gap-queue",
-    "totalItems": 11,
+    "totalItems": 12,
     "totalQuestionSignals": 7,
-    "totalOperatorSignals": 4,
+    "totalOperatorSignals": 7,
     "totalParkedPageSignals": 2,
     "byPriority": {
       "P0": 4,
       "P1": 5,
-      "P2": 2
+      "P2": 3
     },
     "byCategory": {
       "Rewards And Referrals": 1,
@@ -565,11 +559,12 @@
       "Editorial Production": 1,
       "Origin And Whitepapers": 1,
       "Research Sweep": 1,
-      "Publication Freshness": 1
+      "Publication Freshness": 1,
+      "General": 1
     },
     "byStatus": {
       "operator-parked": 4,
-      "open": 7
+      "open": 8
     },
     "topItems": [
       "queue-g-003",
@@ -583,7 +578,7 @@
     "missingOperatorGapIds": [],
     "missingRelatedPageIds": [],
     "missingSourceKeys": [],
-    "matchesInputs": false
+    "matchesInputs": true
   },
   "glossaryCoverage": {
     "totalTerms": 32,
@@ -937,6 +932,14 @@
     },
     "openOperatorItems": [
       {
+        "id": 7,
+        "title": "SuperFlow / SSHE source identification"
+      },
+      {
+        "id": 6,
+        "title": "Original/oldest Symmio whitepaper artifact"
+      },
+      {
         "id": 5,
         "title": "Vibe Trading Notion export or read access"
       },
@@ -1045,6 +1048,14 @@
   "unresolved": {
     "operatorInbox": [
       {
+        "id": 7,
+        "title": "SuperFlow / SSHE source identification"
+      },
+      {
+        "id": 6,
+        "title": "Original/oldest Symmio whitepaper artifact"
+      },
+      {
         "id": 5,
         "title": "Vibe Trading Notion export or read access"
       },
@@ -1143,51 +1154,26 @@
         "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
       },
       {
-        "id": "public-symmio-docs",
-        "status": "partial",
-        "missingKeys": [
-          "docs.symmio.foundation",
-          "symmio-options-docs"
-        ],
-        "blocks": [],
-        "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
-      },
-      {
         "id": "symmio-whitepaper-history",
-        "status": "partial",
+        "status": "parked",
         "missingKeys": [
-          "symmio-earliest-docs",
           "symmio-original-whitepaper"
         ],
-        "blocks": [],
+        "blocks": [
+          "OPERATOR-INBOX #6"
+        ],
         "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
       },
       {
-        "id": "symm-io-github",
-        "status": "missing",
-        "missingKeys": [
-          "symm-io-github"
-        ],
-        "blocks": [],
-        "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
-      },
-      {
         "id": "superflow-sshe",
-        "status": "missing",
+        "status": "parked",
         "missingKeys": [
           "superflow-sshe"
         ],
-        "blocks": [],
-        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
-      },
-      {
-        "id": "hyperliquid-goldsky",
-        "status": "partial",
-        "missingKeys": [
-          "goldsky-analytics-subgraphs"
+        "blocks": [
+          "OPERATOR-INBOX #7"
         ],
-        "blocks": [],
-        "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
       },
       {
         "id": "discord-lafa-corpus",
@@ -1328,12 +1314,12 @@
       {
         "question": "Is network volume sourced from backend REST or subgraphs?",
         "gap": "`G-005`",
-        "notes": "Current code uses backend REST; Linear research recommends subgraphs."
+        "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
       },
       {
         "question": "How do Vibe options use Symmio settlement?",
         "gap": "`G-008`",
-        "notes": "Needs deeper Symmio options source mining."
+        "notes": "Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review."
       },
       {
         "question": "Can a vault LP see exact covered-call exposure?",

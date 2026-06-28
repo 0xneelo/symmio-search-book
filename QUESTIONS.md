@@ -47,8 +47,8 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 | Does referral depth count 5 or 15 levels? | `G-003` | Do not publish a single final answer until production state and copy are aligned. |
 | Are onboarding points the same as Vibe trading points? | `G-009` | Local dashboard distinguishes them; public docs need canonical naming. |
 | Which revenue sources are live today? | `G-004` | Phase A versus Phase B needs public wording. |
-| Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs. |
-| How do Vibe options use Symmio settlement? | `G-008` | Needs deeper Symmio options source mining. |
+| Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
+| How do Vibe options use Symmio settlement? | `G-008` | Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |
 

@@ -169,6 +169,12 @@
 - Updated the source-ingestion expected set to include `syn-172`, so the already-cited 15-level rollout issue is counted in the Linear source family.
 - The 794-page Neelo-backed manifest remains the scale baseline; this pass improves source defensibility rather than changing page count.
 
+## 2026-06-28 — Public Source Family Expansion
+
+- Verified official public source URLs for Symmio Foundation docs, Symmio options docs, SYMM-IO GitHub repositories, and Goldsky subgraph/GraphQL docs.
+- Registered the new public source keys in `SOURCES.md` and narrowed `G-005`, `G-007`, and `G-008` so the remaining gaps describe what is still unsourced or unauthored.
+- Kept SuperFlow/SSHE and the exact original Symmio whitepaper open because this pass did not find strong primary-source evidence for those source families.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

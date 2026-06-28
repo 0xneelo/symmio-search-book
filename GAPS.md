@@ -40,7 +40,9 @@ Phase A is implemented as estimated revenue from network volume, configurable pl
 
 Linear research says Goldsky subgraphs should become the more accurate network-volume source than the current Vibe backend wallet-volume endpoint. Current local code still uses the backend REST source and daily snapshots.
 
-**Needed:** Implementation status, exact public query docs, and whether docs should describe the future subgraph source or the current production source.
+Goldsky subgraph and GraphQL endpoint docs are now registered as public citation sources, but this repo still has not implemented the Barometer migration.
+
+**Needed:** Implementation status, exact Vibe subgraph endpoint/venue mapping suitable for publication, and whether docs should describe the future subgraph source or the current production source.
 
 ## G-006: Exact Vibe Market Counts Need Fresh Verification Before Publication
 
@@ -50,15 +52,15 @@ Vibe docs claim Binance perp market coverage and 390+ markets. Since market coun
 
 ## G-007: Symmio Whitepaper History Is Not Fully Mined
 
-The public GitBook page points to the whitepaper and protocol docs, but a full oldest-to-current whitepaper comparison was not completed in this pass.
+The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is now registered as a history/source-control starting point. A full oldest-to-current whitepaper comparison was not completed in this pass.
 
-**Needed:** Whitepaper PDF, version history, GitHub commits, and any archived docs.
+**Needed:** Exact original whitepaper artifact, version-history comparison, relevant GitHub commits, and any archived docs.
 
 ## G-008: Options And Vault-Backed Inventory Need More Primary Sources
 
-The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. Current Symmio docs include options contract documentation links, but this pass did not deeply mine each options page.
+The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. Symmio options overview and technical-architecture docs are now registered, but this pass did not deeply mine each options page into authored lifecycle material.
 
-**Needed:** Symmio options pages, contract docs, product owner confirmation, and example lifecycle.
+**Needed:** Full options-page mining, product owner confirmation, Vibe-specific example lifecycle, and exact mapping from options docs to the Vibe vault-backed inventory story.
 
 ## G-009: Public Versus Internal Terminology Needs Owner Review
 
