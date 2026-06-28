@@ -679,3 +679,11 @@
 **Reason:** The DDQ is strongest when it explains how low-cap markets become safer before they become looser. These pages let partners, solvers, LPs, and traders understand why an early market may have tighter terms, why global insurance is not automatic, why emergency caps exist, and how the RFQ/intent model lets a solver tune risk before accepting exposure.
 
 **Status:** Accepted for the authored protocol-reference layer; exact collateral ratios, insurance formulas, cap triggers, solver quote policy, leverage bands, and market-classification thresholds remain under implementation/operator review.
+
+## D-086: Extend The Order-Book Thesis Into Strategy Subclaims
+
+**Decision:** Add authored Volume 03 pages from Neelo's CLOB-upgrade and House of All Finance sections for improve-before-replacing, upstream trust, cooperation-created optionality, protocol-defined lifecycle, and continuous market formation.
+
+**Reason:** The compendium already explains that order books are the mature layer and Vibe is the upstream discovery layer. These subclaims make the strategy more explicit: Vibe should first improve order-book ecosystems, earn trust upstream through repeated graduation outcomes, preserve optional execution paths, and frame open finance as connected market-formation infrastructure rather than one venue listing everything.
+
+**Status:** Accepted for the authored manifesto layer; exact SSHE behavior, destination venue integrations, graduation automation, and beyond-crypto asset expansion remain under operator/product/source review.

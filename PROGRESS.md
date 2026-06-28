@@ -514,6 +514,12 @@
 - Routed five new partner/operator risk questions to authored pages so Ask can explain how launch safety, insurance budgets, emergency caps, quote tuning, and maturation fit together.
 - Kept exact collateral ratios, insurance allocation formulas, profit-cap triggers, quote policies, and live market-classification thresholds under operator and implementation review.
 
+## 2026-06-28 — Order-Book Strategy Subclaim Pages
+
+- Added five authored Volume 03 manifesto pages from Neelo's CLOB-upgrade and House of All Finance material: improve-before-replacing, trust flowing upstream, cooperation-created optionality, protocol-defined lifecycle, and market formation as a continuous system.
+- Routed five new Ask questions so the front door can explain why Vibe should complement order books first, how upstream trust compounds, and why connected market-formation layers are stronger than disconnected venue listings.
+- Kept SSHE specifics, destination venue integrations, exact graduation automation, and beyond-crypto asset expansion under operator/product/source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -223,6 +223,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why would a tail event cap trader profit? | `authored-tail-event-profit-cap-emergency-brake` | Low | Neelo's DDQ treats profit caps as rare emergency brakes for catastrophic gaps or manipulation, not normal settlement behavior. |
 | How does RFQ let the solver tune risk per quote? | `authored-rfq-risk-tuning` | Low | Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance. |
 | How does risk posture change as a market matures? | `authored-market-maturation-risk-posture` | Low | Neelo's DDQ supports a progression from conservative launch limits toward better UX as liquidity, history, and price integrity improve. |
+| Why should Vibe improve order books before replacing them? | `authored-improve-before-replacing` | Medium | Neelo's CLOB-upgrade source says Vibe should first become an upstream enhancer for order-book ecosystems instead of competing on their strongest terrain. |
+| What does upstream trust mean for Vibe? | `authored-trust-flows-upstream` | Medium | Neelo's source explains how repeated downstream improvement can move trust toward the layer where market discovery starts. |
+| Why does cooperation with order-book venues create optionality? | `authored-cooperation-creates-optionality` | Low | Neelo frames cooperation as a way to earn distribution, credibility, and future execution choices; SSHE specifics remain source-review bound. |
+| What is a protocol-defined market lifecycle? | `authored-protocol-defined-market-lifecycle` | Low | Neelo's assembly-line section provides the staged market lifecycle model while exact integrations and graduation rules remain review-bound. |
+| What does market formation as a continuous system mean? | `authored-market-formation-continuous-system` | Medium | Neelo's House of All Finance section frames Vibe, flexible execution infrastructure, and order books as connected layers rather than disconnected venues. |
 
 ## Prototype Event Log
 
