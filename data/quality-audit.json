@@ -33,6 +33,10 @@
     "answerChunkPages": 839,
     "answerChunks": 1384,
     "answerChunkSourceKeys": 38,
+    "compendiumVolumes": 8,
+    "compendiumChapters": 55,
+    "compendiumVolumeReaderPages": 821,
+    "compendiumVolumeAssignedPages": 821,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
@@ -131,6 +135,12 @@
       "label": "Answer retrieval chunks resolve",
       "passed": true,
       "detail": "839 pages, 1384 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+    },
+    {
+      "id": "volume-map",
+      "label": "Compendium volume map resolves",
+      "passed": true,
+      "detail": "8 volumes, 55 chapters, 821/821 reader pages assigned, manifest target met"
     },
     {
       "id": "operator-inbox",
@@ -641,6 +651,96 @@
     "unknownSourceKeys": [],
     "readerIdsMissingAnswerChunks": []
   },
+  "volumeMapCoverage": {
+    "status": "prototype-compendium-volume-map",
+    "targetRange": "500-800 pages",
+    "manifestPages": 794,
+    "readerPages": 821,
+    "totalVolumes": 8,
+    "totalChapters": 55,
+    "pagesAssigned": 821,
+    "manifestWithinTarget": true,
+    "volumes": [
+      {
+        "id": "volume-01-orientation-and-thesis",
+        "number": 1,
+        "title": "Orientation And Core Thesis",
+        "totalPages": 21,
+        "chapters": 12,
+        "authoredPages": 10,
+        "generatedPages": 11
+      },
+      {
+        "id": "volume-02-bootstrap-and-proof-of-value",
+        "number": 2,
+        "title": "Bootstrap Trilemma And Proof Of Value",
+        "totalPages": 238,
+        "chapters": 3,
+        "authoredPages": 0,
+        "generatedPages": 238
+      },
+      {
+        "id": "volume-03-listing-power-and-orderbooks",
+        "number": 3,
+        "title": "Listing Power And Orderbook Alternatives",
+        "totalPages": 155,
+        "chapters": 6,
+        "authoredPages": 0,
+        "generatedPages": 155
+      },
+      {
+        "id": "volume-04-token-margin-and-funding-systems",
+        "number": 4,
+        "title": "Token Margin, Pillars, And Funding Systems",
+        "totalPages": 172,
+        "chapters": 5,
+        "authoredPages": 0,
+        "generatedPages": 172
+      },
+      {
+        "id": "volume-05-solver-lp-and-protocol-operations",
+        "number": 5,
+        "title": "Solver, LP, And Protocol Operations",
+        "totalPages": 78,
+        "chapters": 10,
+        "authoredPages": 3,
+        "generatedPages": 75
+      },
+      {
+        "id": "volume-06-referrals-and-market-formation",
+        "number": 6,
+        "title": "Referrals And Market Formation",
+        "totalPages": 112,
+        "chapters": 5,
+        "authoredPages": 3,
+        "generatedPages": 109
+      },
+      {
+        "id": "volume-07-product-trading-and-risk",
+        "number": 7,
+        "title": "Product, Trading, And Risk Guides",
+        "totalPages": 27,
+        "chapters": 6,
+        "authoredPages": 0,
+        "generatedPages": 27
+      },
+      {
+        "id": "volume-08-dashboard-faq-and-living-docs",
+        "number": 8,
+        "title": "Dashboard, FAQ, And Living Docs",
+        "totalPages": 18,
+        "chapters": 8,
+        "authoredPages": 11,
+        "generatedPages": 7
+      }
+    ],
+    "duplicatePageIds": [],
+    "unassignedPageIds": [],
+    "volumeIdsMissingPages": [],
+    "unknownSourceKeys": [],
+    "readerIdsMissingVolumeMap": [],
+    "volumeMapIdsMissingReader": []
+  },
   "unresolved": {
     "operatorInbox": [
       {
@@ -726,6 +826,12 @@
     "answerChunkDuplicateIds": [],
     "answerChunkUnknownSourceKeys": [],
     "readerIdsMissingAnswerChunks": [],
+    "volumeMapDuplicateIds": [],
+    "volumeMapUnassignedIds": [],
+    "volumeMapEmptyIds": [],
+    "volumeMapUnknownSourceKeys": [],
+    "readerIdsMissingVolumeMap": [],
+    "volumeMapIdsMissingReader": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",
@@ -765,6 +871,7 @@
     ]
   },
   "nextAuditFocus": [
+    "Use the volume map to drive the production IA when the docs platform is selected.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

@@ -191,3 +191,11 @@
 **Reason:** The production answer engine still needs a platform/backend decision, embeddings, analytics, and update workflow. Deterministic local chunks let the team validate exact-page routing, source coverage, and chunk-level answer behavior now without pretending the static prototype is the final vector or Claude-backed system.
 
 **Status:** Accepted for prototype iteration; production retrieval remains pending D-003/operator decision.
+
+## D-025: Map The 500-800 Page Corpus Into Volumes
+
+**Decision:** Generate `data/volume-map.*` as an audited compendium table of contents over authored and indexed pages, using eight volumes and exact page assignments.
+
+**Reason:** A 794-page manifest is not enough on its own. The docs need book-scale structure so readers, editors, and later platform work can reason about the corpus as volumes and chapters while keeping every page assigned exactly once.
+
+**Status:** Accepted for prototype iteration; final production IA can adapt this map after D-003 is resolved.

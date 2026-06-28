@@ -13,6 +13,7 @@
     <script src="./data/faq.js"></script>
     <script src="./data/gap-queue.js"></script>
     <script src="./data/answer-chunks.js"></script>
+    <script src="./data/volume-map.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
     <script src="./data/crosslinks.js"></script>
@@ -891,6 +892,7 @@
               <div class="stat-card"><span class="stat-label">Neelo sections</span><strong id="sectionPages">541</strong></div>
               <div class="stat-card"><span class="stat-label">Companions</span><strong id="companionPages">65</strong></div>
               <div class="stat-card"><span class="stat-label">Authored</span><strong id="authoredPages">12</strong></div>
+              <div class="stat-card"><span class="stat-label">Volumes</span><strong id="volumeCount">8</strong></div>
               <div class="stat-card"><span class="stat-label">Glossary terms</span><strong id="glossaryTerms">32</strong></div>
               <div class="stat-card"><span class="stat-label">FAQ routes</span><strong id="faqEntries">36</strong></div>
             </div>
@@ -905,6 +907,8 @@
               <input id="browseFilter" autocomplete="off" placeholder="Filter the 794-page corpus..." />
               <div class="meta" id="browseCount">794 pages</div>
             </div>
+            <h3 class="section-title">Compendium Volumes</h3>
+            <div class="grid collections" id="volumeGrid"></div>
             <h3 class="section-title">Neelo Collections</h3>
             <div class="grid collections" id="collectionGrid"></div>
             <h3 class="section-title">Corpus Sections</h3>
@@ -1002,6 +1006,7 @@
       const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
       const gapQueue = window.SearchBookGapQueue || { items: [], totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, byPriority: {}, byCategory: {} };
       const answerChunkMap = window.SearchBookAnswerChunks || { chunks: [], totalPages: 0, totalChunks: 0, usedSourceKeys: [] };
+      const volumeMap = window.SearchBookVolumeMap || { volumes: [], totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
@@ -1582,6 +1587,33 @@
           .join("");
       }
 
+      function renderVolumes() {
+        document.getElementById("volumeGrid").innerHTML = (volumeMap.volumes || [])
+          .map((volume) => {
+            const openingPages = (volume.openingPageIds || [])
+              .map((pageId) => pageById.get(pageId))
+              .filter(Boolean)
+              .slice(0, 4);
+            const pageLinks = openingPages
+              .map((page) => `<button type="button" class="chip" data-open-page="${escapeHtml(page.id)}">${escapeHtml(page.title)}</button>`)
+              .join("");
+            const chapterChips = (volume.chapters || [])
+              .slice(0, 4)
+              .map((chapter) => `<span class="source-chip">${escapeHtml(chapter.title)} / ${escapeHtml(chapter.totalPages)}</span>`)
+              .join("");
+            return `
+              <article class="collection-card">
+                <div class="meta">Volume ${escapeHtml(volume.number)} / ${escapeHtml(volume.totalPages)} pages / ${escapeHtml((volume.chapters || []).length)} chapters</div>
+                <h3>${escapeHtml(volume.title)}</h3>
+                <p>${escapeHtml(volume.readerPromise || volume.premise || "")}</p>
+                <div class="source-row">${chapterChips}</div>
+                <div class="source-row">${pageLinks}</div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
       function renderBrowse() {
         const filter = document.getElementById("browseFilter").value.trim();
         let visibleCount = 0;
@@ -1832,6 +1864,7 @@
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
+          <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>
@@ -2063,11 +2096,13 @@
         document.getElementById("sectionPages").textContent = navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages;
         document.getElementById("companionPages").textContent = stats.companionPages;
         document.getElementById("authoredPages").textContent = authored.totalPages || authoredPages.length;
+        document.getElementById("volumeCount").textContent = volumeMap.totalVolumes || (volumeMap.volumes || []).length;
         document.getElementById("glossaryTerms").textContent = glossary.totalTerms || glossaryTerms.length;
         document.getElementById("faqEntries").textContent = faqMap.totalEntries || faqEntries.length;
         renderExampleQuestions();
         renderAuthoredCards();
         renderCards();
+        renderVolumes();
         renderCollections();
         renderJourneys();
         renderBrowse();

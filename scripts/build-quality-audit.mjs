@@ -17,6 +17,7 @@ const defaults = {
   faq: path.join(searchBookRoot, "data", "faq.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
+  volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
@@ -173,6 +174,9 @@ const gapQueue = fs.existsSync(args.gapQueue)
 const answerChunks = fs.existsSync(args.answerChunks)
   ? readJson(args.answerChunks)
   : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
+const volumeMap = fs.existsSync(args.volumeMap)
+  ? readJson(args.volumeMap)
+  : { totalVolumes: 0, totalChapters: 0, manifestPages: 0, readerPages: 0, pagesAssigned: 0, manifestWithinTarget: false, duplicatePageIds: [], unassignedPageIds: [], volumeIdsMissingPages: [], unknownSourceKeys: [], volumes: [], pageToVolume: {} };
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
@@ -234,6 +238,13 @@ const answerChunkPagesMissingChunks = answerChunks.pagesMissingChunks || [];
 const answerChunkDuplicateIds = answerChunks.duplicateChunkIds || [];
 const answerChunkUnknownSourceKeys = answerChunks.unknownSourceKeys || [];
 const readerIdsMissingAnswerChunks = [...readerPageIds].filter((pageId) => !answerChunkPageIds.has(pageId));
+const volumeMapPageIds = new Set(Object.keys(volumeMap.pageToVolume || {}));
+const volumeMapDuplicateIds = volumeMap.duplicatePageIds || [];
+const volumeMapUnassignedIds = volumeMap.unassignedPageIds || [];
+const volumeMapEmptyIds = volumeMap.volumeIdsMissingPages || [];
+const volumeMapUnknownSourceKeys = volumeMap.unknownSourceKeys || [];
+const readerIdsMissingVolumeMap = [...readerPageIds].filter((pageId) => !volumeMapPageIds.has(pageId));
+const volumeMapIdsMissingReader = [...volumeMapPageIds].filter((pageId) => !readerPageIds.has(pageId));
 const crosslinkPageIds = Object.keys(crosslinks.pageById || {});
 const readerIdsMissingCrosslinks = [...readerPageIds].filter((pageId) => !crosslinkPageIds.includes(pageId));
 const crosslinkIdsMissingReader = crosslinkPageIds.filter((pageId) => !readerPageIds.has(pageId));
@@ -378,6 +389,24 @@ const gates = [
     detail: `${answerChunks.totalPages || 0} pages, ${answerChunks.totalChunks || 0} chunks, ${answerChunkUnknownSourceKeys.length} unknown source keys, ${readerIdsMissingAnswerChunks.length} reader ids missing chunks`,
   },
   {
+    id: "volume-map",
+    label: "Compendium volume map resolves",
+    passed:
+      (volumeMap.totalVolumes || 0) >= 6 &&
+      (volumeMap.totalChapters || 0) >= 40 &&
+      (volumeMap.manifestPages || 0) === manifestPages.length &&
+      volumeMap.manifestWithinTarget === withinTargetRange &&
+      (volumeMap.readerPages || 0) === readerPageIds.size &&
+      (volumeMap.pagesAssigned || 0) === readerPageIds.size &&
+      volumeMapDuplicateIds.length === 0 &&
+      volumeMapUnassignedIds.length === 0 &&
+      volumeMapEmptyIds.length === 0 &&
+      volumeMapUnknownSourceKeys.length === 0 &&
+      readerIdsMissingVolumeMap.length === 0 &&
+      volumeMapIdsMissingReader.length === 0,
+    detail: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeMap.pagesAssigned || 0}/${readerPageIds.size} reader pages assigned, manifest target ${volumeMap.manifestWithinTarget ? "met" : "open"}`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -426,6 +455,10 @@ const payload = {
     answerChunkPages: answerChunks.totalPages || 0,
     answerChunks: answerChunks.totalChunks || 0,
     answerChunkSourceKeys: (answerChunks.usedSourceKeys || []).length,
+    compendiumVolumes: volumeMap.totalVolumes || 0,
+    compendiumChapters: volumeMap.totalChapters || 0,
+    compendiumVolumeReaderPages: volumeMap.readerPages || 0,
+    compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -539,6 +572,31 @@ const payload = {
     unknownSourceKeys: answerChunkUnknownSourceKeys,
     readerIdsMissingAnswerChunks,
   },
+  volumeMapCoverage: {
+    status: volumeMap.status || "missing",
+    targetRange: volumeMap.targetRange || manifestTarget,
+    manifestPages: volumeMap.manifestPages || 0,
+    readerPages: volumeMap.readerPages || 0,
+    totalVolumes: volumeMap.totalVolumes || 0,
+    totalChapters: volumeMap.totalChapters || 0,
+    pagesAssigned: volumeMap.pagesAssigned || 0,
+    manifestWithinTarget: volumeMap.manifestWithinTarget || false,
+    volumes: (volumeMap.volumes || []).map((volume) => ({
+      id: volume.id,
+      number: volume.number,
+      title: volume.title,
+      totalPages: volume.totalPages,
+      chapters: (volume.chapters || []).length,
+      authoredPages: volume.authoredPages,
+      generatedPages: volume.generatedPages,
+    })),
+    duplicatePageIds: volumeMapDuplicateIds,
+    unassignedPageIds: volumeMapUnassignedIds,
+    volumeIdsMissingPages: volumeMapEmptyIds,
+    unknownSourceKeys: volumeMapUnknownSourceKeys,
+    readerIdsMissingVolumeMap,
+    volumeMapIdsMissingReader,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
@@ -562,9 +620,16 @@ const payload = {
     answerChunkDuplicateIds,
     answerChunkUnknownSourceKeys,
     readerIdsMissingAnswerChunks,
+    volumeMapDuplicateIds,
+    volumeMapUnassignedIds,
+    volumeMapEmptyIds,
+    volumeMapUnknownSourceKeys,
+    readerIdsMissingVolumeMap,
+    volumeMapIdsMissingReader,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [
+    "Use the volume map to drive the production IA when the docs platform is selected.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

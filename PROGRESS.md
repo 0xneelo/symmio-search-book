@@ -126,6 +126,13 @@
 - Updated the Ask flow so seeded question routes and glossary definitions still win, then chunk-level matching routes into exact pages before broad page scoring.
 - Extended Search insights and the quality audit with answer-chunk coverage; current result is 15 of 17 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Compendium Volume Map
+
+- Added `scripts/build-volume-map.mjs` and generated `data/volume-map.json` plus `data/volume-map.js` over the current reader-routable corpus.
+- Validated 8 volumes, 55 chapters, 794 generated manifest pages inside the 500-800 target, and 821 reader pages assigned exactly once.
+- Added Compendium Volumes to Browse so the corpus has book-scale structure before final platform selection.
+- Extended Search insights and the quality audit with volume-map coverage; current result is 16 of 18 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
