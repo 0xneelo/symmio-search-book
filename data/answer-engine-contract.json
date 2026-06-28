@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 262
+      "totalGoldenRoutes": 267
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 280,
-    "retrievalEligiblePages": 1072,
+    "publicNavigationPages": 285,
+    "retrievalEligiblePages": 1077,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 280,
+      "candidate": 285,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,18 +160,18 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 262,
-    "exactRouteTestsPassing": 262,
+    "totalExactRouteTests": 267,
+    "exactRouteTestsPassing": 267,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 262
+      "candidate": 267
     },
     "exactRoutesByConfidence": {
       "Medium": 118,
-      "High": 38,
+      "High": 43,
       "Low": 106
     },
     "exactRoutesMissingChunks": [],
@@ -928,6 +928,125 @@
         "unknownSourceKeys": [],
         "chunkCount": 1,
         "faqEntryId": "faq-what-can-vibe-tradingview-controls-do",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-i-install-the-vibe-pwa-on-ios",
+        "query": "How do I install the Vibe PWA on iOS?",
+        "normalizedQuery": "how do i install the vibe pwa on ios",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-ios-pwa-install",
+        "expectedPageTitle": "Installing The Vibe PWA On iOS",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-creation"
+        ],
+        "linkedSourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-creation"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-do-i-install-the-vibe-pwa-on-ios",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-i-install-the-vibe-pwa-on-android",
+        "query": "How do I install the Vibe PWA on Android?",
+        "normalizedQuery": "how do i install the vibe pwa on android",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-android-pwa-install",
+        "expectedPageTitle": "Installing The Vibe PWA On Android",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-creation"
+        ],
+        "linkedSourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-creation"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-do-i-install-the-vibe-pwa-on-android",
+        "passes": true
+      },
+      {
+        "id": "qr-which-vibe-mobile-notifications-can-i-configure",
+        "query": "Which Vibe mobile notifications can I configure?",
+        "normalizedQuery": "which vibe mobile notifications can i configure",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-pwa-notification-categories",
+        "expectedPageTitle": "Vibe PWA Notification Categories",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-health-liquidations",
+          "vibe-account-portfolio"
+        ],
+        "linkedSourceKeys": [
+          "vibe-mobile-pwa",
+          "vibe-account-health-liquidations",
+          "vibe-account-portfolio"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-vibe-mobile-notifications-can-i-configure",
+        "passes": true
+      },
+      {
+        "id": "qr-do-vibe-hotkeys-change-how-orders-execute",
+        "query": "Do Vibe hotkeys change how orders execute?",
+        "normalizedQuery": "do vibe hotkeys change how orders execute",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-hotkey-execution-guardrails",
+        "expectedPageTitle": "Vibe Hotkey Execution Guardrails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-hotkeys",
+          "vibe-simple-trade",
+          "vibe-order-types"
+        ],
+        "linkedSourceKeys": [
+          "vibe-hotkeys",
+          "vibe-simple-trade",
+          "vibe-order-types"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-do-vibe-hotkeys-change-how-orders-execute",
+        "passes": true
+      },
+      {
+        "id": "qr-can-vibe-save-tradingview-layouts-and-watchlists",
+        "query": "Can Vibe save TradingView layouts and watchlists?",
+        "normalizedQuery": "can vibe save tradingview layouts and watchlists",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-tradingview-layouts-and-watchlists",
+        "expectedPageTitle": "Vibe TradingView Layouts And Watchlists",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-tradingview-control",
+          "vibe-simple-trade"
+        ],
+        "linkedSourceKeys": [
+          "vibe-tradingview-control",
+          "vibe-simple-trade"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-can-vibe-save-tradingview-layouts-and-watchlists",
         "passes": true
       },
       {
@@ -6092,7 +6211,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 262,
+      "exactRoutes": 267,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

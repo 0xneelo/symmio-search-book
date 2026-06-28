@@ -568,6 +568,12 @@
 - Routed five new Ask questions so trading-cost and order-control support questions resolve to exact pages rather than broad fee, funding, TP/SL, order-type, or OI overviews.
 - Kept exact fee percentages, advanced order-type live status, and publication-date-sensitive market-capacity behavior under current-source review.
 
+## 2026-06-29 — Vibe Mobile And Interface Control Reference Pages
+
+- Added five authored Volume 07 product-reference pages from official Vibe docs: iOS PWA install, Android PWA install, PWA notification categories, hotkey execution guardrails, and TradingView layouts/watchlists.
+- Routed five new Ask questions so mobile install, notification, shortcut, and chart-layout questions resolve to exact pages instead of broad mobile or trading-control overviews.
+- Kept native-app assumptions, notification reliability, and unsupported TradingView feature-matrix details out of public claims unless current sources provide them.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

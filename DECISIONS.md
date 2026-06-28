@@ -751,3 +751,11 @@
 **Reason:** The existing official Vibe trading pages explain fees, funding, order types, TP/SL, and OI/liquidity broadly, but answer-engine users will ask narrower operational questions: what to inspect before confirming a trade, who pays funding, why TP/SL may not fully execute, how stop-market differs from stop-limit, and why more size can be unavailable. Exact pages improve routing while keeping unsupported fee percentages, future order types, and live capacity claims out of public prose.
 
 **Status:** Accepted for the authored product-reference layer; fee percentages, Scale/TWAP live status, and publication-date-sensitive liquidity/capacity behavior remain under current-source review.
+
+## D-095: Split Vibe Mobile And Interface Controls Into Exact Reference Answers
+
+**Decision:** Add authored Volume 07 product-reference pages for iOS PWA install, Android PWA install, PWA notification categories, hotkey execution guardrails, and TradingView layouts/watchlists.
+
+**Reason:** The existing mobile, hotkeys, and TradingView pages explain the broad interfaces, but support and answer-engine traffic will likely ask platform-specific and behavior-specific questions. Exact pages let the front door answer how iOS and Android installs differ, which notification categories exist, whether keyboard shortcuts change trade semantics, and what chart state can persist, without inventing native-app, notification-delivery, or full TradingView feature-matrix claims.
+
+**Status:** Accepted for the authored product-reference layer; native-app assumptions, notification reliability language, and unlisted TradingView capabilities remain outside publication unless current official sources support them.

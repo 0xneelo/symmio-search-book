@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 281,
+  "totalPages": 286,
   "byStatus": {
     "publication-candidate-needs-operator-review": 157,
-    "publication-candidate": 116,
+    "publication-candidate": 121,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 1,
@@ -11,7 +11,7 @@
   },
   "bySection": {
     "manifesto": 153,
-    "product-reference": 32,
+    "product-reference": 37,
     "dashboard-reference": 12,
     "protocol-reference": 47,
     "competitive-context": 1,
@@ -5781,6 +5781,31 @@
       "excerpt": "Vibe Allocated Balance Allocated Balance is the account side balance users should distinguish from wallet funds, pending withdrawals, and position level margin. The official deposit guide says that after a deposit transaction is confirmed on chain, the USDC amount appears in Allocated Balance. That makes Allocated Balance the visible funded amount inside the Vibe account rather than merely a wallet balance. The account health guide then uses Allocated Balance in risk math. It defines equity as Allocated Balance plus unrealized PnL, and it uses equity, locked margin, maintenance margin, and CVA to explain available order capacity and liquidation risk. Why The Term Matters Support answers should be precise about which balance bucket moved: wallet or smart wallet funds before deposit; Allocated Balance after confirmed deposit credit; locked margin once a position or quote uses collateral; equity after unrealized PnL is included; pending withdrawal during the withdrawal flow. That vocabulary prevents a common user confusion: seeing funds in one place and expecting them to be immediately available for every action. A confirmed deposit, an allocated account balance, free trading capacity"
     },
     {
+      "id": "authored-vibe-android-pwa-install",
+      "title": "Installing The Vibe PWA On Android",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation",
+        "authored-vibe-mobile-pwa"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-android-pwa-install.md",
+      "bodyMarkdown": "# Installing The Vibe PWA On Android\n\nThe official Android path is also a PWA install flow.\n\nThe mobile guide says Android users should open Chrome or another browser, visit `app.vibe.trading`, choose Install PWA App, use the browser menu, and add the app to the home screen.\n\n## Browser Install Flow\n\nThe public source does not require a native store listing for this path. It describes adding the browser-based PWA to the home screen. That matters for support language: users should be told to install the PWA from the Vibe web app flow, not to search for an unrelated mobile package.\n\nThe PWA is a convenience and monitoring surface. The same account, funding, margin, order, and liquidation rules still apply after installation.\n\n## Sources\n\n- `vibe-mobile-pwa`: official Android PWA setup flow.\n- `vibe-account-creation`: account setup context for mobile users.\n\n## Related Pages\n\n- `authored-vibe-mobile-pwa`\n- `authored-vibe-ios-pwa-install`\n- `authored-vibe-pwa-notification-categories`",
+      "excerpt": "Installing The Vibe PWA On Android The official Android path is also a PWA install flow. The mobile guide says Android users should open Chrome or another browser, visit app.vibe.trading , choose Install PWA App, use the browser menu, and add the app to the home screen. Browser Install Flow The public source does not require a native store listing for this path. It describes adding the browser based PWA to the home screen. That matters for support language: users should be told to install the PWA from the Vibe web app flow, not to search for an unrelated mobile package. The PWA is a convenience and monitoring surface. The same account, funding, margin, order, and liquidation rules still apply after installation. Sources vibe mobile pwa : official Android PWA setup flow. vibe account creation : account setup context for mobile users. Related Pages authored vibe mobile pwa authored vibe ios pwa install authored vibe pwa notification categories"
+    },
+    {
       "id": "authored-vibe-as-discovery-layer",
       "title": "Vibe As The Discovery Layer",
       "section": "manifesto",
@@ -5985,6 +6010,34 @@
       "excerpt": "Vibe Funding Payment Direction Funding is the recurring holding cost layer for perpetuals. It is not the same thing as an entry or exit fee. The official funding guide explains the direction this way: when perpetual prices are above spot, long traders pay the short side solver; when perpetual prices are below spot, the short side solver pays long traders. The mechanism is meant to pull the perpetual price back toward the underlying spot market. Why Direction Can Change Funding direction depends on market state and position side. A trader cannot know the full cost of holding a position by reading only the open/close fee categories. The trade can have an upfront cost profile, then a funding profile that changes while the position remains open. The same source also says Vibe relies on solver quotes and real time trader/solver interaction for funding rate inputs. It states that if the amount owed is lower than the blockchain gas cost, the funding payment is not processed because each update requires an on chain interaction. Reader Guidance Answer funding questions in three parts: identify whether the question is about a one time trade fee or recurring funding; explain that funding dire"
     },
     {
+      "id": "authored-vibe-hotkey-execution-guardrails",
+      "title": "Vibe Hotkey Execution Guardrails",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/hot-keys.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/order-types.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types",
+        "authored-vibe-hotkeys"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-hotkey-execution-guardrails.md",
+      "bodyMarkdown": "# Vibe Hotkey Execution Guardrails\n\nHotkeys accelerate the Vibe interface. They do not create a separate execution model.\n\nThe official hotkey page lists shortcuts for order-type selection, amount and price focus, token picker opening, long and short direction, trade placement, leverage modal opening, orderbook visibility, deposit flow, and TP/SL controls.\n\n## Shortcut Does Not Change Semantics\n\nA keyboard shortcut can move the user faster through the same ticket. The resulting trade still follows the selected order type, amount, direction, leverage, margin, fee, funding, liquidity, and TP/SL rules.\n\nThat distinction matters for support. If a user asks why a hotkey-selected order behaved a certain way, the answer should identify the shortcut as the UI input and then route to the relevant execution page.\n\n## Sources\n\n- `vibe-hotkeys`: official shortcut categories.\n- `vibe-simple-trade`: official trade-ticket sequence.\n- `vibe-order-types`: official execution semantics for order modes.\n\n## Related Pages\n\n- `authored-vibe-hotkeys`\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-order-types`",
+      "excerpt": "Vibe Hotkey Execution Guardrails Hotkeys accelerate the Vibe interface. They do not create a separate execution model. The official hotkey page lists shortcuts for order type selection, amount and price focus, token picker opening, long and short direction, trade placement, leverage modal opening, orderbook visibility, deposit flow, and TP/SL controls. Shortcut Does Not Change Semantics A keyboard shortcut can move the user faster through the same ticket. The resulting trade still follows the selected order type, amount, direction, leverage, margin, fee, funding, liquidity, and TP/SL rules. That distinction matters for support. If a user asks why a hotkey selected order behaved a certain way, the answer should identify the shortcut as the UI input and then route to the relevant execution page. Sources vibe hotkeys : official shortcut categories. vibe simple trade : official trade ticket sequence. vibe order types : official execution semantics for order modes. Related Pages authored vibe hotkeys authored vibe simple trade flow authored vibe order types"
+    },
+    {
       "id": "authored-vibe-hotkeys",
       "title": "Vibe Hotkeys",
       "section": "product-reference",
@@ -6038,6 +6091,31 @@
       "file": "content/authored/reference/vibe-intent-architecture.md",
       "bodyMarkdown": "# Vibe Intent Architecture\n\nVibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent-based trading model: the user defines a trade intention, solvers stream real-time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process.\n\nThat is the product-language version of intent-based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms.\n\n## Quote First, Collateral After Acceptance\n\nThe architecture page makes an important distinction. During the quote stage, solvers can present real-time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established.\n\nThat prevents two bad explanations:\n\n- Do not say solvers must pre-fund every streamed quote before a trader accepts it.\n- Do not say collateral never matters until after execution.\n\nThe accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring.\n\n## Bilateral Agreement\n\nVibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state.\n\nThis is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar.\n\n## Reader Implication\n\nFor traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations.\n\n## Sources\n\n- `vibe-architecture`: AMFQ/legacy intent naming, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off-chain hedging.\n- `symmio-core`: PartyA/PartyB and collateral vocabulary.\n- `symmio-intent-lifecycle`: quote-event monitoring and lifecycle state.\n\n## Related Pages\n\n- `authored-vibe-trade-flow`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`\n- `vibe-architecture-amfq`",
       "excerpt": "Vibe Intent Architecture Vibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent based trading model: the user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of intent based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms. Quote First, Collateral After Acceptance The architecture page makes an important distinction. During the quote stage, solvers can present real time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established. That prevents two bad explanations: Do not say solvers must pre fund every streamed quote before a trader accepts it. Do not say collateral never matters until"
+    },
+    {
+      "id": "authored-vibe-ios-pwa-install",
+      "title": "Installing The Vibe PWA On iOS",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation",
+        "authored-vibe-mobile-pwa"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-ios-pwa-install.md",
+      "bodyMarkdown": "# Installing The Vibe PWA On iOS\n\nThe precise iOS answer is that Vibe is installed as a mobile PWA, not as a separate native App Store application in the current public source.\n\nThe official mobile guide says iOS users should open Safari, visit `app.vibe.trading`, select the Install PWA App option from Vibe's navigation menu, use the iOS share sheet, and add the app to the home screen.\n\n## Why Safari Matters\n\nThe installation path is platform-specific. On iOS, the source names Safari and the share sheet. The docs should not collapse iOS and Android into one generic \"install the app\" instruction because the menus are different.\n\nAfter installation, the PWA gives the user a home-screen entry point for monitoring trades, alerts, and account state. It does not change custody, margin, liquidation, or order-execution semantics.\n\n## Sources\n\n- `vibe-mobile-pwa`: official iOS PWA setup flow.\n- `vibe-account-creation`: email/social account context where mobile setup is especially relevant.\n\n## Related Pages\n\n- `authored-vibe-mobile-pwa`\n- `authored-vibe-android-pwa-install`\n- `authored-vibe-pwa-notification-categories`",
+      "excerpt": "Installing The Vibe PWA On iOS The precise iOS answer is that Vibe is installed as a mobile PWA, not as a separate native App Store application in the current public source. The official mobile guide says iOS users should open Safari, visit app.vibe.trading , select the Install PWA App option from Vibe's navigation menu, use the iOS share sheet, and add the app to the home screen. Why Safari Matters The installation path is platform specific. On iOS, the source names Safari and the share sheet. The docs should not collapse iOS and Android into one generic \"install the app\" instruction because the menus are different. After installation, the PWA gives the user a home screen entry point for monitoring trades, alerts, and account state. It does not change custody, margin, liquidation, or order execution semantics. Sources vibe mobile pwa : official iOS PWA setup flow. vibe account creation : email/social account context where mobile setup is especially relevant. Related Pages authored vibe mobile pwa authored vibe android pwa install authored vibe pwa notification categories"
     },
     {
       "id": "authored-vibe-large-withdrawal-window",
@@ -6320,6 +6398,34 @@
       "file": "content/authored/reference/vibe-project-listing-terms.md",
       "bodyMarkdown": "# Vibe Project Listing Terms\n\nThe project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice.\n\n## Service Model\n\nThe terms frame the relationship as a market-making and liquidity service for a token issuer or project. The service can include creating a perpetual market on Vibe/Symmio, supporting liquidity, price stabilization, and orderly trading activity, with KPIs specified in the relevant statement of work.\n\nThe source also gives the client an audit path: the client can request access to trading records and PnL statements with prior written notice, using a mutually agreed third-party auditor under confidentiality obligations, with audit costs borne by the client.\n\n## Custody And Risk\n\nThe terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. They also include a custody-risk disclaimer: no custody method or smart-contract arrangement is entirely risk-free.\n\nThe page describes a discretionary security fund concept, but also states that it is not a legally segregated or guaranteed reserve. That distinction is important for publication: the docs can explain the control, but should not imply guaranteed insurance coverage.\n\n## Profit, Conduct, And Exit Mechanics\n\nThe terms distinguish operational profits, such as spreads, fees, funding, borrowing costs, and liquidation fees, from opportunistic revenues related to maintenance margin, trading results, and rebalancing. Profit split and distribution mechanics are agreement-specific, and the source says no profit, return, volume, liquidity, price performance, or market outcome is guaranteed.\n\nThe terms also include conduct restrictions against market manipulation, client information obligations, termination rights, community notice and wind-down language around delisting, final reporting, and Swiss-law arbitration terms.\n\n## Reader Implication\n\nProjects should read this page before treating Vibe listing as a simple self-serve ticker request. Traders should read it as background for how project-side inventory and market-making services can support a Vibe perp, not as a guarantee of any specific market's terms, liquidity, or profit split.\n\n## Sources\n\n- `vibe-project-listing-terms`: official project listing and market-making terms.\n- `vibe-system-visualization`: concise public workflow connecting project supply, solver operations, user trading, and project distributions.\n\n## Related Pages\n\n- `authored-vibe-system-visualization`\n- `authored-vibe-as-discovery-layer`\n- `authored-symmio-solver-operations-and-hedging`",
       "excerpt": "Vibe Project Listing Terms The project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice. Service Model The terms frame the relationship as a market making and liquidity service for a token issuer or project. The service can include creating a perpetual market on Vibe/Symmio, supporting liquidity, price stabilization, and orderly trading activity, with KPIs specified in the relevant statement of work. The source also gives the client an audit path: the client can request access to trading records and PnL statements with prior written notice, using a mutually agreed third party auditor under confidentiality obligations, with audit costs borne by the client. Custody And Risk The terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. They also include a custody risk disclaimer: no custody method or smart contract arrangement is entirely risk free. The "
+    },
+    {
+      "id": "authored-vibe-pwa-notification-categories",
+      "title": "Vibe PWA Notification Categories",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+        "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-mobile-pwa",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio",
+        "authored-vibe-mobile-pwa"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-pwa-notification-categories.md",
+      "bodyMarkdown": "# Vibe PWA Notification Categories\n\nThe Vibe PWA notification list is a product-surface map, not a replacement for account monitoring.\n\nThe official mobile guide lists push notifications for opened trades, closed trades, referral updates, liquidations, new features, rewards, and newly added trading pairs. It also says users can configure which notifications they receive in app settings.\n\n## What Notifications Do And Do Not Prove\n\nNotifications tell the user which event categories the app is designed to surface. They do not prove that a trader can ignore account health, margin, liquidation distance, funding, or open-position review.\n\nFor liquidation-sensitive questions, the answer should route from this page to account health and portfolio pages. For referral or reward notifications, final public economics still need the relevant referral and points caveats.\n\n## Sources\n\n- `vibe-mobile-pwa`: official notification categories and configurable settings.\n- `vibe-account-health-liquidations`: account-health and liquidation context.\n- `vibe-account-portfolio`: My Account and position-review context.\n\n## Related Pages\n\n- `authored-vibe-mobile-pwa`\n- `authored-vibe-account-health-and-liquidations`\n- `authored-vibe-portfolio-and-account-data`",
+      "excerpt": "Vibe PWA Notification Categories The Vibe PWA notification list is a product surface map, not a replacement for account monitoring. The official mobile guide lists push notifications for opened trades, closed trades, referral updates, liquidations, new features, rewards, and newly added trading pairs. It also says users can configure which notifications they receive in app settings. What Notifications Do And Do Not Prove Notifications tell the user which event categories the app is designed to surface. They do not prove that a trader can ignore account health, margin, liquidation distance, funding, or open position review. For liquidation sensitive questions, the answer should route from this page to account health and portfolio pages. For referral or reward notifications, final public economics still need the relevant referral and points caveats. Sources vibe mobile pwa : official notification categories and configurable settings. vibe account health liquidations : account health and liquidation context. vibe account portfolio : My Account and position review context. Related Pages authored vibe mobile pwa authored vibe account health and liquidations authored vibe portfolio and a"
     },
     {
       "id": "authored-vibe-rakeback-trading-fees",
@@ -6674,6 +6780,31 @@
       "file": "content/authored/reference/vibe-tradingview-controls.md",
       "bodyMarkdown": "# Vibe TradingView Controls\n\nVibe's TradingView controls keep chart analysis inside the trading product. The point is not only prettier charts; it is reducing context switching while a trader studies a market and prepares a trade.\n\n## Charting Controls\n\nThe official TradingView page names five practical capabilities: adding indicators, customizing chart appearance, saving multiple layouts, switching tickers while preserving drawn lines and indicators, and creating custom watchlists.\n\nThose controls support repeated market review. Saved layouts and persistent drawings matter because a trader can compare markets without reconstructing the chart state every time they move between tickers.\n\n## Source Boundary\n\nThe public source does not enumerate every supported indicator, data vendor, chart interval, or watchlist constraint. The compendium should document the control categories and avoid pretending the source is a complete TradingView feature matrix.\n\n## Reader Implication\n\nWhen a user asks where to perform technical analysis, route them here. When they ask how analysis becomes an order, route them to the simple trade flow, order-type, liquidity, and TP/SL pages.\n\n## Sources\n\n- `vibe-tradingview-control`: official charting-control capabilities.\n- `vibe-simple-trade`: trade flow that chart analysis informs.\n\n## Related Pages\n\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-order-types`\n- `authored-vibe-oi-and-liquidity`",
       "excerpt": "Vibe TradingView Controls Vibe's TradingView controls keep chart analysis inside the trading product. The point is not only prettier charts; it is reducing context switching while a trader studies a market and prepares a trade. Charting Controls The official TradingView page names five practical capabilities: adding indicators, customizing chart appearance, saving multiple layouts, switching tickers while preserving drawn lines and indicators, and creating custom watchlists. Those controls support repeated market review. Saved layouts and persistent drawings matter because a trader can compare markets without reconstructing the chart state every time they move between tickers. Source Boundary The public source does not enumerate every supported indicator, data vendor, chart interval, or watchlist constraint. The compendium should document the control categories and avoid pretending the source is a complete TradingView feature matrix. Reader Implication When a user asks where to perform technical analysis, route them here. When they ask how analysis becomes an order, route them to the simple trade flow, order type, liquidity, and TP/SL pages. Sources vibe tradingview control : offic"
+    },
+    {
+      "id": "authored-vibe-tradingview-layouts-and-watchlists",
+      "title": "Vibe TradingView Layouts And Watchlists",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/tradingview-control.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade",
+        "authored-vibe-tradingview-controls"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-tradingview-layouts-and-watchlists.md",
+      "bodyMarkdown": "# Vibe TradingView Layouts And Watchlists\n\nVibe's TradingView controls are meant to make repeated market review less fragile.\n\nThe official charting page says users can add indicators, customize chart appearance, save multiple layouts, switch tickers while preserving drawn lines and indicators, and create custom watchlists.\n\n## Why Layout Persistence Matters\n\nThe product point is continuity. A trader can study several markets without reconstructing the same chart setup each time. Saved layouts and ticker switching with preserved drawings help users compare markets with less context loss.\n\nThe public source does not list every supported indicator, interval, data source, or watchlist limit. Do not turn this page into a full TradingView feature matrix unless a current official source provides that detail.\n\n## Sources\n\n- `vibe-tradingview-control`: official chart controls, saved layouts, ticker switching, and watchlist support.\n- `vibe-simple-trade`: trade flow that chart analysis informs.\n\n## Related Pages\n\n- `authored-vibe-tradingview-controls`\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-order-types`",
+      "excerpt": "Vibe TradingView Layouts And Watchlists Vibe's TradingView controls are meant to make repeated market review less fragile. The official charting page says users can add indicators, customize chart appearance, save multiple layouts, switch tickers while preserving drawn lines and indicators, and create custom watchlists. Why Layout Persistence Matters The product point is continuity. A trader can study several markets without reconstructing the same chart setup each time. Saved layouts and ticker switching with preserved drawings help users compare markets with less context loss. The public source does not list every supported indicator, interval, data source, or watchlist limit. Do not turn this page into a full TradingView feature matrix unless a current official source provides that detail. Sources vibe tradingview control : official chart controls, saved layouts, ticker switching, and watchlist support. vibe simple trade : trade flow that chart analysis informs. Related Pages authored vibe tradingview controls authored vibe simple trade flow authored vibe order types"
     },
     {
       "id": "authored-vibecaps-margin-management",
