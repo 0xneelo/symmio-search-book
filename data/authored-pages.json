@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 145,
+  "totalPages": 150,
   "byStatus": {
-    "publication-candidate": 77,
-    "publication-candidate-needs-operator-review": 67,
+    "publication-candidate": 79,
+    "publication-candidate-needs-operator-review": 70,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 83,
+    "manifesto": 88,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -165,6 +165,30 @@
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
     },
     {
+      "id": "authored-clob-vault-rails-long-tail-limits",
+      "title": "CLOB And Vault Rails Still Hit Long-Tail Limits",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "neelo-16-listing-additional-16-docs-00-abstract",
+        "authored-order-book-bootstrap-limit"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/clob-vault-rails-long-tail-limits.md",
+      "bodyMarkdown": "# CLOB And Vault Rails Still Hit Long-Tail Limits\n\nThe practical listing notes extend the order-book thesis into venue landscape analysis. CLOB perps are excellent when both sides of a market already want to trade and makers are present. For major assets, that combination creates tight spreads, continuous depth, and trader expectations that match the product.\n\nThe long tail breaks a different way. A market can have a symbol, an API row, or a listing path, but still lack the maker attention and two-sided flow that make an order book useful. Makers do not quote size without expected flow. Traders do not arrive without usable quotes. LPs do not commit if the earning path is unclear.\n\nThe source uses dYdX-style vault rails and Hyperliquid-style disciplined listings as contrasting examples. One direction tries to add pooled liquidity support next to order-book markets. The other throttles listings so the venue does not pretend every asset can sustain mature depth. Both are coherent responses. Neither creates generalized day-one liquidity for thousands of thin perps.\n\n## Publication Note\n\nThe source includes field observations about venue-specific parameters. Final docs should verify live third-party venue docs before publishing exact minimums, lockups, auction cadence, or routing behavior.\n\n## Reader Implication\n\nVibe should be explained as solving the bootstrap gap before CLOB maturity, not as denying the value of mature order books. The issue is not whether order books work. The issue is when they work.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Order Books - Bootstrap Economics, dYdX, Hyperliquid\".\n- `vibe-papers`: Neelo, \"Permissionless Perps in Practice - Abstract\".\n\n## Related Pages\n\n- `authored-order-book-bootstrap-limit`\n- `authored-order-books-as-mature-end-state`\n- `authored-order-books-as-graduation-layer`",
+      "excerpt": "CLOB And Vault Rails Still Hit Long Tail Limits The practical listing notes extend the order book thesis into venue landscape analysis. CLOB perps are excellent when both sides of a market already want to trade and makers are present. For major assets, that combination creates tight spreads, continuous depth, and trader expectations that match the product. The long tail breaks a different way. A market can have a symbol, an API row, or a listing path, but still lack the maker attention and two sided flow that make an order book useful. Makers do not quote size without expected flow. Traders do not arrive without usable quotes. LPs do not commit if the earning path is unclear. The source uses dYdX style vault rails and Hyperliquid style disciplined listings as contrasting examples. One direction tries to add pooled liquidity support next to order book markets. The other throttles listings so the venue does not pretend every asset can sustain mature depth. Both are coherent responses. Neither creates generalized day one liquidity for thousands of thin perps. Publication Note The source includes field observations about venue specific parameters. Final docs should verify live third pa"
+    },
+    {
       "id": "authored-collateral-margin-cva",
       "title": "Collateral, Margin, And CVA",
       "section": "protocol-reference",
@@ -189,6 +213,30 @@
       "file": "content/authored/reference/collateral-margin-cva.md",
       "bodyMarkdown": "# Collateral, Margin, And CVA\n\nThe Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA.\n\nCollateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used to protect against counterparty default.\n\nThe current core formula is:\n\n```text\nCollateral = Locked Margin + CVA + Available Balance\n```\n\nThat formula is simple, but it is one of the most important reference anchors in the compendium. It tells a reader that not every deposited dollar is free balance, and not every locked dollar is identical risk.\n\n## How It Enters The Lifecycle\n\nCollateral is not an afterthought once the solver accepts a quote. The lifecycle source says that when a solver locks an intent, collateral is allocated and the position can open immediately or after hedging. This makes collateral allocation part of the transition from intent to enforceable position.\n\nThe same vocabulary matters during close, cancellation, and liquidation flows. If a page talks about available balance, locked margin, CVA, or liquidation without naming which bucket changed, it is likely too vague for serious users.\n\n## What This Page Does Not Claim\n\nThis page does not publish a final isolation-versus-cross-margin comparison for Vibe products. The registered official sources in this slice support the base collateral/margin/CVA vocabulary and the lifecycle relationship between collateral allocation and quote locking. More specific public claims about isolated margin modes, cross-margin behavior, capital efficiency, or Vibe vault accounting need a dedicated primary source or product-owner confirmation before publication.\n\nThat restraint is not a docs weakness. It is the standard the whole compendium should hold: publish the protocol vocabulary now, park product-specific margin semantics until the source set proves them.\n\n## Reader Implication\n\nFor traders, the key question is \"which balance bucket changed?\" For solvers, it is \"what collateral is committed when I lock and open this quote?\" For support, it is \"are we explaining a deposit, locked margin, CVA, available balance, or liquidation buffer?\"\n\n## Sources\n\n- `symmio-core`: definitions of collateral, margin, CVA, and the collateral formula.\n- `symmio-intent-lifecycle`: solver locking and collateral allocation during the quote lifecycle.\n\n## Related Pages\n\n- `authored-bilateral-intent-lifecycle`\n- `authored-symmio-party-a-party-b`\n- `authored-token-margined-reflexivity-risk`\n- `symmio-core-concepts`",
       "excerpt": "Collateral, Margin, And CVA The Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA. Collateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used to protect against counterparty default. The current core formula is: That formula is simple, but it is one of the most important reference anchors in the compendium. It tells a reader that not every deposited dollar is free balance, and not every locked dollar is identical risk. How It Enters The Lifecycle Collateral is not an afterthought once the solver accepts a quote. The lifecycle source says that when a solver locks an intent, collateral is allocated and the position can open immediately or after hedging. This makes collateral allocation part of the transition from intent to enforceable position. The same vocabulary matters during close, cancellation, and liquidation flows. If a page talks about available balance, locked margin, CVA, or liquidation without naming which bucket changed, it is likely too vague for serious users."
+    },
+    {
+      "id": "authored-collateralized-pools-finite-long-tail",
+      "title": "Collateralized Pools Have A Finite Long Tail",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-02-collateralized-pools-gmx",
+        "neelo-16-listing-additional-16-docs-06-summary",
+        "authored-token-vault-perps-versus-usdc-pools"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/collateralized-pools-finite-long-tail.md",
+      "bodyMarkdown": "# Collateralized Pools Have A Finite Long Tail\n\nPool-style perp venues solve one part of the long-tail problem by making liquidity a protocol object. A trader does not need to wait for a fully populated order book if a pool can quote against oracle prices and absorb the other side.\n\nThat helps bootstrap some markets. It does not create an unlimited long tail. The same pooled collateral that gives a market a counterparty also creates risk concentration, oracle exposure, backstop mismatch, and TVL fragmentation. As the market list grows, capital either concentrates in majors or becomes too thin across tail assets to feel reliable.\n\nThe source frames this as \"listing outruns liquidity\" in another form. A pool can make a market appear earlier than a CLOB could, but the user still has to ask what backs PnL, how much tail TVL exists, what asset supplies the backstop, and whether the pool's collateral matches the token narrative being traded.\n\n## Why This Matters For Vibe\n\nVibe's token-inventory and solver-risk thesis should be read against this pool limitation. The goal is not merely to create a pool for every token. It is to match market-specific inventory, stable settlement, solver pricing, and risk controls to the phase of the market.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Collateralized Pools (GMX-style) and Finite Long Tails\".\n- `vibe-papers`: Neelo, \"Section 6: Summary - Model Map and Where the Gap Remains\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-hybrid-perps-comparative-advantage`",
+      "excerpt": "Collateralized Pools Have A Finite Long Tail Pool style perp venues solve one part of the long tail problem by making liquidity a protocol object. A trader does not need to wait for a fully populated order book if a pool can quote against oracle prices and absorb the other side. That helps bootstrap some markets. It does not create an unlimited long tail. The same pooled collateral that gives a market a counterparty also creates risk concentration, oracle exposure, backstop mismatch, and TVL fragmentation. As the market list grows, capital either concentrates in majors or becomes too thin across tail assets to feel reliable. The source frames this as \"listing outruns liquidity\" in another form. A pool can make a market appear earlier than a CLOB could, but the user still has to ask what backs PnL, how much tail TVL exists, what asset supplies the backstop, and whether the pool's collateral matches the token narrative being traded. Why This Matters For Vibe Vibe's token inventory and solver risk thesis should be read against this pool limitation. The goal is not merely to create a pool for every token. It is to match market specific inventory, stable settlement, solver pricing, and "
     },
     {
       "id": "authored-competitive-docs-benchmark",
@@ -1263,6 +1311,30 @@
       "excerpt": "Listing Plus Liquidity Is The Real Thesis \"Permissionless listing\" is too weak if it means only that a new symbol appears in a UI. A market is not real because it has a row, a ticker, or a contract address. A market is real when a trader can enter, exit, and settle at tolerable cost with some expectation of continuity. Neelo's Section 4Z sharpens the listing monopoly thesis into a liquidity thesis. The scarce capability is not opening arbitrary markets. Many systems can create market objects. The scarce capability is turning those objects into tradeable markets before organic two sided flow already exists. Spot AMMs solved this in one domain. A project did not need to hire a professional desk for every new pair; LP capital plus software quoting created a default path to tradeability. Perps need the analogous answer under harder conditions: leverage, funding, liquidation, adverse flow, oracle risk, and residual counterparty risk. That is why the compendium should explain Vibe as a bootstrap layer, not a listing form. If a new perp has no generalized liquidity path, it can become an empty book. If the protocol can provide a robust default counterparty or liquidity mechanism until the"
     },
     {
+      "id": "authored-long-tail-perp-model-map",
+      "title": "The Long-Tail Perp Model Map",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs-overview"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-06-summary",
+        "neelo-16-listing-additional-16-docs-overview",
+        "authored-technically-async-economically-sync"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/long-tail-perp-model-map.md",
+      "bodyMarkdown": "# The Long-Tail Perp Model Map\n\nThe practical landscape can be reduced to a model map.\n\nCLOBs are best when a market is mature enough for continuous two-sided flow. Vault or LP rails can support some order-book liquidity, but they do not remove maker economics. Strict listing policy protects microstructure at the cost of breadth.\n\nCollateralized pools can quote earlier than a CLOB, but they face finite universe size, tail TVL fragmentation, oracle risk, and mismatch between the pool's backstop and the token narrative being traded.\n\nPercolator-family systems can open markets quickly and keep more logic on-chain, but fast listing does not answer settlement reliability when the book is one-sided, USDC settlement lacks inventory, or token-margined collateral becomes reflexive.\n\nVibe's thesis sits in the gap between those rows. The system needs the openness of permissionless listing, the trader legibility of stable settlement, the market specificity of token inventory, and the operational judgment of a solver/risk layer that can change behavior as the market matures.\n\n## Reader Implication\n\nThis page should orient readers before they enter the deeper architecture sections. Every design is a tradeoff. The question is not \"which primitive is universally best?\" The question is which primitive fits the market phase and who absorbs the residual risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Summary - Model Map and Where the Gap Remains\".\n- `vibe-papers`: Neelo, \"Permissionless Perps in Practice: Order Books, Pools, and the Percolator Wave\".\n\n## Related Pages\n\n- `authored-clob-vault-rails-long-tail-limits`\n- `authored-collateralized-pools-finite-long-tail`\n- `authored-percolator-wave-settlement-reality`",
+      "excerpt": "The Long Tail Perp Model Map The practical landscape can be reduced to a model map. CLOBs are best when a market is mature enough for continuous two sided flow. Vault or LP rails can support some order book liquidity, but they do not remove maker economics. Strict listing policy protects microstructure at the cost of breadth. Collateralized pools can quote earlier than a CLOB, but they face finite universe size, tail TVL fragmentation, oracle risk, and mismatch between the pool's backstop and the token narrative being traded. Percolator family systems can open markets quickly and keep more logic on chain, but fast listing does not answer settlement reliability when the book is one sided, USDC settlement lacks inventory, or token margined collateral becomes reflexive. Vibe's thesis sits in the gap between those rows. The system needs the openness of permissionless listing, the trader legibility of stable settlement, the market specificity of token inventory, and the operational judgment of a solver/risk layer that can change behavior as the market matures. Reader Implication This page should orient readers before they enter the deeper architecture sections. Every design is a tradeof"
+    },
+    {
       "id": "authored-loss-waterfall-and-profit-caps",
       "title": "Loss Waterfall And Tail-Event Profit Caps",
       "section": "protocol-reference",
@@ -1720,6 +1792,30 @@
       "file": "content/authored/manifesto/percolator-engineering-vs-economics.md",
       "bodyMarkdown": "# Percolator: Engineering Strength, Economic Limit\n\nThe Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance-sheet safety, full on-chain execution, and a minimal state machine.\n\nThat distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token-denominated insurance, passive oracle execution, and slab-level capital lockup are not implementation bugs. They follow from the design constraints.\n\nAuto-deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on-chain and dead economically.\n\nThe compendium should use Percolator as a serious comparison point. It proves that fully on-chain derivatives engines can be elegant and verifiable. It also proves that permissionless perps need economic architecture, not only correct settlement code.\n\n## Reader Implication\n\nEngineers should separate software correctness from market solvency. LPs and traders should ask whether the economic model pays winners during stress, not only whether the smart contract conserves balances.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\".\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-economic-clarity-for-permissionless-perps`",
       "excerpt": "Percolator: Engineering Strength, Economic Limit The Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance sheet safety, full on chain execution, and a minimal state machine. That distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token denominated insurance, passive oracle execution, and slab level capital lockup are not implementation bugs. They follow from the design constraints. Auto deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on chain and dead economically. The compendium should use Percolator as a serious comparison point. It proves that fully on chain derivatives engines can be elegant and verifiable. It also proves that permissio"
+    },
+    {
+      "id": "authored-percolator-wave-settlement-reality",
+      "title": "The Percolator Wave Meets Settlement Reality",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/03-percolator-wave-perc-fund",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-03-percolator-wave-perc-fund",
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-percolator-engineering-vs-economics"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/percolator-wave-settlement-reality.md",
+      "bodyMarkdown": "# The Percolator Wave Meets Settlement Reality\n\nThe listing notes treat the Percolator wave as a serious attempt to reopen permissionless perp listing. The interesting part is not whether the contracts can create markets quickly. It is whether the markets have an economic path to pay winners when flow is one-sided.\n\nPercolator-style systems can make entry asynchronous: a trader can open exposure before a deep book exists. But settlement still requires an economic counterparty. If many traders are long and there are no shorts, no deep LP layer, and no inventory path sized for the risk, then open interest can exist while payout reliability remains fragile.\n\nThat is the settlement reality. The UI may show a market. The contract may accept positions. The trader may think they bought exposure to the underlying. The economic object can still be a claim on future contra-flow or a thin internal balance sheet.\n\n## Reader Implication\n\nThe docs should separate permissionless market creation from permissionless market solvency. Fast listing is valuable only if the design also explains who pays, what collateral backs the payout, how imbalance is priced, and what happens when the other side never arrives.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Percolator Wave, Perk.fund, and Settlement Reality\".\n- `vibe-papers`: Neelo, \"Vibe vs Percolator\".\n\n## Related Pages\n\n- `authored-percolator-engineering-vs-economics`\n- `authored-token-margined-reflexivity-risk`\n- `authored-usdc-settlement-inventory-separation`",
+      "excerpt": "The Percolator Wave Meets Settlement Reality The listing notes treat the Percolator wave as a serious attempt to reopen permissionless perp listing. The interesting part is not whether the contracts can create markets quickly. It is whether the markets have an economic path to pay winners when flow is one sided. Percolator style systems can make entry asynchronous: a trader can open exposure before a deep book exists. But settlement still requires an economic counterparty. If many traders are long and there are no shorts, no deep LP layer, and no inventory path sized for the risk, then open interest can exist while payout reliability remains fragile. That is the settlement reality. The UI may show a market. The contract may accept positions. The trader may think they bought exposure to the underlying. The economic object can still be a claim on future contra flow or a thin internal balance sheet. Reader Implication The docs should separate permissionless market creation from permissionless market solvency. Fast listing is valuable only if the design also explains who pays, what collateral backs the payout, how imbalance is priced, and what happens when the other side never arrives."
     },
     {
       "id": "authored-perp-protocol-framework",
@@ -2636,6 +2732,30 @@
       "file": "content/authored/reference/symmio-party-a-party-b.md",
       "bodyMarkdown": "# PartyA And PartyB\n\nSymmio names the two sides of an intent-based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position.\n\nThat vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state.\n\nFor Vibe, the PartyA/PartyB model explains why solvers are central. The user-facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance.\n\n## Reader Implication\n\nWhen a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained.\n\n## Sources\n\n- `symmio-core`: Symmio core concepts.\n- `symmio-intent-lifecycle`: Symmio intent lifecycle and event monitoring.\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-vibe-trade-flow`\n- `symmio-core-concepts`",
       "excerpt": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state. For Vibe, the PartyA/PartyB model explains why solvers are central. The user facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance. Reader Implication When a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained. Sources symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring."
+    },
+    {
+      "id": "authored-technically-async-economically-sync",
+      "title": "Technically Async, Economically Sync",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/04-async-tech-sync-economics",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-04-async-tech-sync-economics",
+        "neelo-16-listing-additional-16-docs-05-liquidity-as-trader-experience",
+        "authored-liquidity-as-trader-experience"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/technically-async-economically-sync.md",
+      "bodyMarkdown": "# Technically Async, Economically Sync\n\nThe annex gives the compendium a useful vocabulary distinction: a system can be technically asynchronous while still economically synchronous.\n\nTechnically asynchronous means users can enter, exit, and update state at different times. The protocol can use oracle marks, queues, funding, accounting, or vault state to bridge those timing gaps. That is an engineering property.\n\nEconomically synchronous means PnL eventually has to clear. A winning long is paid by a losing short, an LP, token inventory, an insurance budget, a mint/burn mechanism, or a socialized loss path. If no credible payment path exists, the position is not economically complete even if the protocol accepted the trade.\n\nThis distinction explains why many long-tail perp designs look more permissionless than they feel. They solve the timing of market entry, but not necessarily the counterparty economics of market exit.\n\n## Why Vibe Needs A Solver Layer\n\nThe source points toward dynamic mode switching: net internally when flow is balanced, use inventory when one side dominates, hedge externally when possible, widen or skew pricing when risk worsens, and isolate or graduate markets based on behavior. That is not a single curve. It is a risk-management layer.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Async Tech vs Sync Economics\".\n- `vibe-papers`: Neelo, \"Section 5: Liquidity as Trader Experience\".\n\n## Related Pages\n\n- `authored-liquidity-as-trader-experience`\n- `authored-hybrid-settlement-solver-stack`\n- `authored-dynamic-pricing-controls`",
+      "excerpt": "Technically Async, Economically Sync The annex gives the compendium a useful vocabulary distinction: a system can be technically asynchronous while still economically synchronous. Technically asynchronous means users can enter, exit, and update state at different times. The protocol can use oracle marks, queues, funding, accounting, or vault state to bridge those timing gaps. That is an engineering property. Economically synchronous means PnL eventually has to clear. A winning long is paid by a losing short, an LP, token inventory, an insurance budget, a mint/burn mechanism, or a socialized loss path. If no credible payment path exists, the position is not economically complete even if the protocol accepted the trade. This distinction explains why many long tail perp designs look more permissionless than they feel. They solve the timing of market entry, but not necessarily the counterparty economics of market exit. Why Vibe Needs A Solver Layer The source points toward dynamic mode switching: net internally when flow is balanced, use inventory when one side dominates, hedge externally when possible, widen or skew pricing when risk worsens, and isolate or graduate markets based on b"
     },
     {
       "id": "authored-temporal-separation-of-concerns",

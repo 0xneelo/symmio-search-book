@@ -463,3 +463,11 @@
 **Reason:** The listing-power thesis is strongest when readers see why curated venues do not merely choose badly; they are forced to predict demand before actual demand is observable, while bearing downside for wrong calls. Publishing this layer makes Vibe's anti-bottleneck claim precise without turning the source thesis into final production eligibility rules.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-059: Use Practical Venue Comparisons As Model Maps
+
+**Decision:** Add authored Volume 03 pages from Neelo's Listing Additional Notes annex that compare CLOB/vault rails, collateralized pools, Percolator-family systems, async technical entry, and economically complete settlement as market-structure models rather than live third-party venue documentation.
+
+**Reason:** The annex is valuable because it shows why every current long-tail perp approach solves only part of the bootstrap problem. Exact third-party parameters can change, so the compendium should preserve the durable model comparison while marking venue-specific numbers and product-state claims for current-source verification before publication.
+
+**Status:** Accepted for the authored manifesto layer.

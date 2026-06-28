@@ -350,6 +350,12 @@
 - Routed five new listing-theory questions to authored pages so Ask can explain why curated venues optimize for perceived interest and why Vibe is positioned as an anti-bottleneck layer for derivative discovery.
 - Kept exact token eligibility, listing workflow, solver support, vault exposure, and graduation policy under operator/product review.
 
+## 2026-06-28 — Practical Listing Landscape Authored Layer
+
+- Added five authored Volume 03 manifesto pages from Neelo's Listing Additional Notes annex: CLOB/vault long-tail limits, collateralized pool finite-tail limits, Percolator-wave settlement reality, technically-async versus economically-sync systems, and the long-tail perp model map.
+- Routed five new model-comparison questions to authored pages so Ask can explain why CLOBs, pools, and Percolator-family systems each solve only part of permissionless long-tail liquidity.
+- Kept exact third-party venue parameters and live market-state claims out of final guarantees pending current venue-source verification.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
