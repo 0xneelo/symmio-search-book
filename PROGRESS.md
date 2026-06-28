@@ -62,6 +62,13 @@
 - Extended the question ledger with dashboard operational questions so Ask can route directly to the authored view pages.
 - These pages satisfy the "every dashboard view" reference-scope requirement except for final revenue, Discord/Lafa FAQ, and referral-depth wording that remain parked in the operator inbox.
 
+## 2026-06-28 — Neelo Vision Authored Pages
+
+- Added 8 authored pages from Neelo's GitHub corpus: Proof of Value, Missing No Button, Listing Monopoly, Game Theory of Listings, Three Vibe Pillars, LP Profit and Dynamic Pricing, Token-Vault Perps Versus USDC Pools, and Referral Architecture as Market Formation.
+- Expanded the authored layer from dashboard/reference coverage into the stronger 500-800 page compendium spine.
+- Extended the question ledger with direct routes for Neelo-backed vision questions.
+- Kept speculative/economic pages labeled for operator or editorial review where they intersect public revenue, referral, or product-claim boundaries.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

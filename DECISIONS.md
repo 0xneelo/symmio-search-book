@@ -119,3 +119,11 @@
 **Reason:** The final compendium must onboard users into the product, not only the protocol thesis. The dashboard is where revenue, volume, points, referral status, invite safety, and settings semantics become observable, so each view needs a directly routable page.
 
 **Status:** Accepted for the authored layer.
+
+## D-016: Promote Neelo Vision Pages Into The Authored Spine
+
+**Decision:** Convert high-leverage Neelo GitHub draft material into hand-authored manifesto and reference pages before attempting a full editorial rewrite of all 794 mapped pages.
+
+**Reason:** Neelo's corpus is the strongest vision source and already supplies the category thesis. Authored synthesis pages make that thesis searchable and routable now while generated section pages preserve the full 500-800 page map for later expansion.
+
+**Status:** Accepted for the authored layer.

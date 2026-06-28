@@ -24,6 +24,14 @@ Questions are grouped by whether the current source set can answer them.
 | Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local FAQ is a seed until Discord/Lafa import is provided. |
 | What is HIP-3 and why compare it? | `authored-vibe-as-discovery-layer` | Medium | Hyperliquid docs support builder-deployed perps context; Neelo docs frame Vibe as a discovery layer. |
 | Why do intents matter if order books already exist? | `authored-intents-complete-order-books` | Medium | Neelo docs frame Vibe as a complement to order books, not a denial of them. |
+| What does Proof of Value mean? | `authored-proof-of-value` | Medium | Neelo's paper provides the vision; treat as thesis rather than implemented dashboard behavior. |
+| Why does Vibe need a short side? | `authored-truth-markets-no-button` | Medium | Neelo's information/trade paper frames shorting as the missing negative market signal. |
+| What is the listing monopoly? | `authored-listing-monopoly` | Medium | Neelo's lifecycle framework explains why derivatives access is a power center. |
+| Why are curated listings gameable? | `authored-game-theory-of-listings` | Medium | Neelo's game-theory paper separates perceived interest from actual market interest. |
+| What are the three Vibe pillars? | `authored-vibe-pillars` | Medium | Neelo's pillars paper links bootstrap, defense, and LP economics. |
+| How do LP profit and dynamic pricing work? | `authored-lp-profit-and-dynamic-pricing` | Low | Neelo's funding model supports the architecture, but public economics wording depends on operator review. |
+| Why compare token-vault perps with USDC pools? | `authored-token-vault-perps-versus-usdc-pools` | Low | Neelo's risk-premium material supports the distinction; final product claims need editorial review. |
+| Why are referrals part of market formation? | `authored-referral-architecture-as-market-formation` | Medium | Neelo's referral architecture frames incentives as listing-quality infrastructure; depth claims remain parked. |
 
 ## Prototype Event Log
 
