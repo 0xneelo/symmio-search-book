@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 267
+      "totalGoldenRoutes": 272
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 285,
-    "retrievalEligiblePages": 1077,
+    "publicNavigationPages": 290,
+    "retrievalEligiblePages": 1082,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 285,
+      "candidate": 290,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,18 +160,18 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 267,
-    "exactRouteTestsPassing": 267,
+    "totalExactRouteTests": 272,
+    "exactRouteTestsPassing": 272,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 267
+      "candidate": 272
     },
     "exactRoutesByConfidence": {
-      "Medium": 118,
-      "High": 43,
+      "Medium": 122,
+      "High": 44,
       "Low": 106
     },
     "exactRoutesMissingChunks": [],
@@ -857,6 +857,123 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-security-and-audit-status-does-vibe-publish",
+        "passes": true
+      },
+      {
+        "id": "qr-which-vibe-contracts-does-the-public-audit-claim-cover",
+        "query": "Which Vibe contracts does the public audit claim cover?",
+        "normalizedQuery": "which vibe contracts does the public audit claim cover",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-settlement-contract-audit-scope",
+        "expectedPageTitle": "Vibe Settlement Contract Audit Scope",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest"
+        ],
+        "linkedSourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-vibe-contracts-does-the-public-audit-claim-cover",
+        "passes": true
+      },
+      {
+        "id": "qr-are-vibe-token-and-staking-contracts-audited",
+        "query": "Are Vibe token and staking contracts audited?",
+        "normalizedQuery": "are vibe token and staking contracts audited",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-token-staking-audit-caveat",
+        "expectedPageTitle": "Vibe Token And Staking Audit Caveat",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-security-audits"
+        ],
+        "linkedSourceKeys": [
+          "vibe-security-audits"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-are-vibe-token-and-staking-contracts-audited",
+        "passes": true
+      },
+      {
+        "id": "qr-where-is-vibe-s-sherlock-audit-evidence",
+        "query": "Where is Vibe's Sherlock audit evidence?",
+        "normalizedQuery": "where is vibe s sherlock audit evidence",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-sherlock-audit-contest-reference",
+        "expectedPageTitle": "Vibe Sherlock Audit Contest Reference",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest"
+        ],
+        "linkedSourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-where-is-vibe-s-sherlock-audit-evidence",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-vibe-security-claims-be-versioned",
+        "query": "How should Vibe security claims be versioned?",
+        "normalizedQuery": "how should vibe security claims be versioned",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-security-claim-versioning",
+        "expectedPageTitle": "Versioning Vibe Security Claims",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest",
+          "symmio-audit-reports"
+        ],
+        "linkedSourceKeys": [
+          "vibe-security-audits",
+          "sherlock-symmetrical-contest",
+          "symmio-audit-reports"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-vibe-security-claims-be-versioned",
+        "passes": true
+      },
+      {
+        "id": "qr-does-the-vibe-login-path-change-custody-security",
+        "query": "Does the Vibe login path change custody security?",
+        "normalizedQuery": "does the vibe login path change custody security",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-custody-path-security-boundary",
+        "expectedPageTitle": "Vibe Custody Path Security Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-account-creation",
+          "vibe-security-audits",
+          "vibe-deposits-withdrawals"
+        ],
+        "linkedSourceKeys": [
+          "vibe-account-creation",
+          "vibe-security-audits",
+          "vibe-deposits-withdrawals"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-does-the-vibe-login-path-change-custody-security",
         "passes": true
       },
       {
@@ -6211,7 +6328,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 267,
+      "exactRoutes": 272,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

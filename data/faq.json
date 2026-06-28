@@ -8,14 +8,14 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 274,
-  "totalAnswerable": 267,
+  "totalEntries": 279,
+  "totalAnswerable": 272,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 49,
+    "Getting Started": 54,
     "Trading Flow": 24,
     "Solvers And Settlement": 54,
     "Risk And Markets": 22,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 118,
-    "High": 43,
+    "Medium": 122,
+    "High": 44,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 267
+    "authored": 272
   },
   "byType": {
-    "answerable": 267,
+    "answerable": 272,
     "reconciliation": 7
   },
   "answerable": [
@@ -1215,6 +1215,199 @@
           "group": "Public Vibe Sources",
           "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
           "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-vibe-contracts-does-the-public-audit-claim-cover",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which Vibe contracts does the public audit claim cover?",
+      "normalizedQuestion": "which vibe contracts does the public audit claim cover",
+      "shortAnswer": "Official Vibe security docs name SYMMIO-Core v0.8.4 settlement contracts and Sherlock audit context, not every future module or frontend surface.",
+      "answerSummary": "Vibe Settlement Contract Audit Scope The safest way to answer \"is Vibe audited?\" is to name the exact contract surface the public source covers. Vibe's official security page says the trade settlement layer uses SYMMIO Core v0.8.4 smart contracts and says that contract set was audited by Sherlock. The linked evidence is the Sherlock Symmetrical contest pa...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-settlement-contract-audit-scope",
+      "pageTitle": "Vibe Settlement Contract Audit Scope",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-vibe-token-and-staking-contracts-audited",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Are Vibe token and staking contracts audited?",
+      "normalizedQuestion": "are vibe token and staking contracts audited",
+      "shortAnswer": "Official Vibe security docs mark token and staking contract details as coming soon, so the docs should preserve that caveat.",
+      "answerSummary": "Vibe Token And Staking Audit Caveat The Vibe security page separates current settlement contract audit context from future token and staking details. That distinction matters. The same source that names SYMMIO Core v0.8.4 settlement contracts and Sherlock audit context marks token and staking contract information as coming soon. The docs should preserve t...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-token-staking-audit-caveat",
+      "pageTitle": "Vibe Token And Staking Audit Caveat",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-is-vibe-s-sherlock-audit-evidence",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Where is Vibe's Sherlock audit evidence?",
+      "normalizedQuestion": "where is vibe s sherlock audit evidence",
+      "shortAnswer": "The official Vibe security page links the Sherlock Symmetrical contest as public audit-context evidence for the settlement-contract claim.",
+      "answerSummary": "Vibe Sherlock Audit Contest Reference The Sherlock link in the Vibe security page is evidence, not decorative copy. It gives readers a public place to verify the audit context behind the settlement contract claim. The Vibe source says SYMMIO Core v0.8.4 settlement contracts were audited by Sherlock and links to the Symmetrical contest. The compendium shou...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-sherlock-audit-contest-reference",
+      "pageTitle": "Vibe Sherlock Audit Contest Reference",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-vibe-security-claims-be-versioned",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How should Vibe security claims be versioned?",
+      "normalizedQuestion": "how should vibe security claims be versioned",
+      "shortAnswer": "Vibe and Symmio security sources support contract-family, version, product-surface, and source-specific audit wording.",
+      "answerSummary": "Versioning Vibe Security Claims Security documentation should be written as versioned evidence, not as a static adjective. Vibe's public security page names a specific settlement contract version, SYMMIO Core v0.8.4, and links Sherlock audit context. Symmio's own audit report page is also versioned by contract families and protocol modules. Together they...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-security-claim-versioning",
+      "pageTitle": "Versioning Vibe Security Claims",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest",
+        "symmio-audit-reports"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-the-vibe-login-path-change-custody-security",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Does the Vibe login path change custody security?",
+      "normalizedQuestion": "does the vibe login path change custody security",
+      "shortAnswer": "Official Vibe account docs distinguish direct EOA wallet control from the convenience-oriented email/social smart-wallet path.",
+      "answerSummary": "Vibe Custody Path Security Boundary Vibe account security has two different layers: account custody path and contract/audit posture. They should not be collapsed into one answer. The account creation source says the EOA path is the more secure path because the user keeps direct wallet control. The email or social path is more convenient, but the same sour...",
+      "confidence": "High",
+      "pageId": "authored-vibe-custody-path-security-boundary",
+      "pageTitle": "Vibe Custody Path Security Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation",
+        "vibe-security-audits",
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
           "missing": false
         }
       ]
@@ -10714,6 +10907,199 @@
           "group": "Public Vibe Sources",
           "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
           "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-vibe-contracts-does-the-public-audit-claim-cover",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which Vibe contracts does the public audit claim cover?",
+      "normalizedQuestion": "which vibe contracts does the public audit claim cover",
+      "shortAnswer": "Official Vibe security docs name SYMMIO-Core v0.8.4 settlement contracts and Sherlock audit context, not every future module or frontend surface.",
+      "answerSummary": "Vibe Settlement Contract Audit Scope The safest way to answer \"is Vibe audited?\" is to name the exact contract surface the public source covers. Vibe's official security page says the trade settlement layer uses SYMMIO Core v0.8.4 smart contracts and says that contract set was audited by Sherlock. The linked evidence is the Sherlock Symmetrical contest pa...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-settlement-contract-audit-scope",
+      "pageTitle": "Vibe Settlement Contract Audit Scope",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-vibe-token-and-staking-contracts-audited",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Are Vibe token and staking contracts audited?",
+      "normalizedQuestion": "are vibe token and staking contracts audited",
+      "shortAnswer": "Official Vibe security docs mark token and staking contract details as coming soon, so the docs should preserve that caveat.",
+      "answerSummary": "Vibe Token And Staking Audit Caveat The Vibe security page separates current settlement contract audit context from future token and staking details. That distinction matters. The same source that names SYMMIO Core v0.8.4 settlement contracts and Sherlock audit context marks token and staking contract information as coming soon. The docs should preserve t...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-token-staking-audit-caveat",
+      "pageTitle": "Vibe Token And Staking Audit Caveat",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-is-vibe-s-sherlock-audit-evidence",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Where is Vibe's Sherlock audit evidence?",
+      "normalizedQuestion": "where is vibe s sherlock audit evidence",
+      "shortAnswer": "The official Vibe security page links the Sherlock Symmetrical contest as public audit-context evidence for the settlement-contract claim.",
+      "answerSummary": "Vibe Sherlock Audit Contest Reference The Sherlock link in the Vibe security page is evidence, not decorative copy. It gives readers a public place to verify the audit context behind the settlement contract claim. The Vibe source says SYMMIO Core v0.8.4 settlement contracts were audited by Sherlock and links to the Symmetrical contest. The compendium shou...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-sherlock-audit-contest-reference",
+      "pageTitle": "Vibe Sherlock Audit Contest Reference",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-vibe-security-claims-be-versioned",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How should Vibe security claims be versioned?",
+      "normalizedQuestion": "how should vibe security claims be versioned",
+      "shortAnswer": "Vibe and Symmio security sources support contract-family, version, product-surface, and source-specific audit wording.",
+      "answerSummary": "Versioning Vibe Security Claims Security documentation should be written as versioned evidence, not as a static adjective. Vibe's public security page names a specific settlement contract version, SYMMIO Core v0.8.4, and links Sherlock audit context. Symmio's own audit report page is also versioned by contract families and protocol modules. Together they...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-security-claim-versioning",
+      "pageTitle": "Versioning Vibe Security Claims",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest",
+        "symmio-audit-reports"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-the-vibe-login-path-change-custody-security",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Does the Vibe login path change custody security?",
+      "normalizedQuestion": "does the vibe login path change custody security",
+      "shortAnswer": "Official Vibe account docs distinguish direct EOA wallet control from the convenience-oriented email/social smart-wallet path.",
+      "answerSummary": "Vibe Custody Path Security Boundary Vibe account security has two different layers: account custody path and contract/audit posture. They should not be collapsed into one answer. The account creation source says the EOA path is the more secure path because the user keeps direct wallet control. The email or social path is more convenient, but the same sour...",
+      "confidence": "High",
+      "pageId": "authored-vibe-custody-path-security-boundary",
+      "pageTitle": "Vibe Custody Path Security Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation",
+        "vibe-security-audits",
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
           "missing": false
         }
       ]

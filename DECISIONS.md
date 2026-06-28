@@ -759,3 +759,11 @@
 **Reason:** The existing mobile, hotkeys, and TradingView pages explain the broad interfaces, but support and answer-engine traffic will likely ask platform-specific and behavior-specific questions. Exact pages let the front door answer how iOS and Android installs differ, which notification categories exist, whether keyboard shortcuts change trade semantics, and what chart state can persist, without inventing native-app, notification-delivery, or full TradingView feature-matrix claims.
 
 **Status:** Accepted for the authored product-reference layer; native-app assumptions, notification reliability language, and unlisted TradingView capabilities remain outside publication unless current official sources support them.
+
+## D-096: Split Vibe Security And Audit Claims Into Versioned Exact Answers
+
+**Decision:** Add authored Volume 07 product-reference pages for settlement-contract audit scope, token/staking audit caveats, the Sherlock contest reference, versioned security-claim wording, and custody-path security boundaries.
+
+**Reason:** The broad Vibe security page is enough to answer whether Vibe publishes audit context, but production docs need exact routes for security-sensitive follow-ups. Readers need to know which contract family and version the public audit claim covers, where the linked Sherlock evidence lives, which token/staking details remain coming soon, and why login-path custody assumptions are separate from contract audit posture.
+
+**Status:** Accepted for the authored product-reference layer; publication-date contract inventory, token/staking audit details, future module coverage, and custody wording remain current-source-review items.

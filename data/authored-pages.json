@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 286,
+  "totalPages": 291,
   "byStatus": {
     "publication-candidate-needs-operator-review": 157,
     "publication-candidate": 121,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 1,
-    "publication-candidate-needs-publication-date-review": 3
+    "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
     "manifesto": 153,
-    "product-reference": 37,
+    "product-reference": 42,
     "dashboard-reference": 12,
     "protocol-reference": 47,
     "competitive-context": 1,
@@ -5909,6 +5909,34 @@
       "excerpt": "Vibe Collateral And Margining Vibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non liquidated party. The docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about. Cross Margin Accounts The official page says Vibe uses cross margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated. This is the capital efficiency tradeoff. Cross margin can reduce idle collateral, but the reader must understand that risk is shared across the account. Isolated Margin And VibeCaps The same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings. That means a l"
     },
     {
+      "id": "authored-vibe-custody-path-security-boundary",
+      "title": "Vibe Custody Path Security Boundary",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-account-creation",
+        "vibe-security-audits",
+        "vibe-deposits-withdrawals"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/account-creation.md",
+        "https://docs.vibe.trading/more-info/security-and-audits.md",
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-creation",
+        "vibe-security-audits",
+        "vibe-deposits-withdrawals",
+        "authored-vibe-login-path-choice"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-custody-path-security-boundary.md",
+      "bodyMarkdown": "# Vibe Custody Path Security Boundary\n\nVibe account security has two different layers: account custody path and contract/audit posture. They should not be collapsed into one answer.\n\nThe account-creation source says the EOA path is the more secure path because the user keeps direct wallet control. The email or social path is more convenient, but the same source warns that funds are not stored in the user's own wallet and compares that posture to a centralized exchange. Separately, the security page describes Vibe's settlement-contract audit context.\n\n## Why The Boundary Matters\n\nA user choosing a login path is making a custody tradeoff. A user asking about audits is asking about contract assurance. Both are security questions, but they are not the same question.\n\nThe docs should answer them separately:\n\n- custody path: who controls the wallet or smart-wallet flow, how deposits move, and what assumptions change;\n- contract assurance: which settlement contracts are named, which audit source is linked, and which future modules still lack public detail;\n- withdrawal safety: large-withdrawal controls add a fraud-proof window but do not erase the custody-path distinction.\n\n## Reader Guidance\n\nWhen a user asks \"which login is safer?\", route to the login-path and custody-boundary pages. When they ask \"is Vibe audited?\", route to the settlement-contract audit page. Mixing those answers can make the docs sound comforting while failing to answer the user's actual risk question.\n\n## Sources\n\n- `vibe-account-creation`: official EOA versus email/social account paths and custody caveat.\n- `vibe-security-audits`: official settlement-contract security/audit posture.\n- `vibe-deposits-withdrawals`: deposit and withdrawal flow context for funded accounts.\n\n## Related Pages\n\n- `authored-vibe-login-path-choice`\n- `authored-vibe-account-creation-and-login`\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-security-and-audits`",
+      "excerpt": "Vibe Custody Path Security Boundary Vibe account security has two different layers: account custody path and contract/audit posture. They should not be collapsed into one answer. The account creation source says the EOA path is the more secure path because the user keeps direct wallet control. The email or social path is more convenient, but the same source warns that funds are not stored in the user's own wallet and compares that posture to a centralized exchange. Separately, the security page describes Vibe's settlement contract audit context. Why The Boundary Matters A user choosing a login path is making a custody tradeoff. A user asking about audits is asking about contract assurance. Both are security questions, but they are not the same question. The docs should answer them separately: custody path: who controls the wallet or smart wallet flow, how deposits move, and what assumptions change; contract assurance: which settlement contracts are named, which audit source is linked, and which future modules still lack public detail; withdrawal safety: large withdrawal controls add a fraud proof window but do not erase the custody path distinction. Reader Guidance When a user asks"
+    },
+    {
       "id": "authored-vibe-deposit-chain-support",
       "title": "Vibe Deposit Chain Support",
       "section": "product-reference",
@@ -6534,6 +6562,83 @@
       "excerpt": "Vibe Security And Audits The security page should be precise about what is currently published, what is linked as evidence, and what is still future facing. Security copy gets weaker when it becomes broad reassurance without versioned facts. Published Security Posture The official Vibe security guide says the project treats security as central, commits to audited and rigorously tested contracts across products, and uses public audit processes plus peer review by experienced blockchain developers. That is a posture statement. It should be paired with exact contract families and audit links whenever the docs make a concrete claim. Trade Settlement Contracts The current Vibe guide says Vibe uses SYMMIO Core v0.8.4 smart contracts for trade settlement and that those contracts were audited by Sherlock. The linked Sherlock page is the Symmetrical contest page, with public metadata for the audit venue and contest. The compendium should state that as the current public source claim, not as a perpetual guarantee that every deployed contract, future product, or token/staking module has the same audit status. Token And Staking Contracts The same Vibe source marks token and staking contract de"
     },
     {
+      "id": "authored-vibe-security-claim-versioning",
+      "title": "Versioning Vibe Security Claims",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest",
+        "symmio-audit-reports"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/security-and-audits.md",
+        "https://audits.sherlock.xyz/contests/85",
+        "https://docs.symm.io/security-and-architecture/audit-reports.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-security-audits",
+        "symmio-audits",
+        "authored-vibe-security-and-audits",
+        "authored-symmio-frontend-builder-audit-posture"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-security-claim-versioning.md",
+      "bodyMarkdown": "# Versioning Vibe Security Claims\n\nSecurity documentation should be written as versioned evidence, not as a static adjective.\n\nVibe's public security page names a specific settlement-contract version, SYMMIO-Core v0.8.4, and links Sherlock audit context. Symmio's own audit-report page is also versioned by contract families and protocol modules. Together they imply the right editorial rule: every audit claim should say which contract family, which version, which product surface, and which source supports it.\n\n## The Rule\n\nAvoid broad statements like \"Vibe is audited\" unless the next sentence scopes the claim.\n\nBetter publication pattern:\n\n- name the product surface;\n- name the contract family;\n- name the version if the source gives one;\n- name the audit venue or report index;\n- state any modules where public details are still pending.\n\nThat structure prevents three common overclaims: treating settlement-contract audits as token-module audits, treating one version as all future versions, and treating protocol infrastructure audits as every frontend's operational security.\n\n## Reader Guidance\n\nWhen the answer engine handles a security question, it should route to exact pages rather than compressing all security into one broad paragraph. \"Is trade settlement audited?\" should route to the settlement-contract audit page. \"What about token or staking contracts?\" should route to the coming-soon caveat. \"Where is the evidence?\" should route to the Sherlock reference.\n\n## Sources\n\n- `vibe-security-audits`: official Vibe security/audit page and versioned settlement-contract claim.\n- `sherlock-symmetrical-contest`: public Sherlock contest reference linked from Vibe's security guide.\n- `symmio-audit-reports`: official Symmio audit-report index for versioned audit-report publication pattern.\n\n## Related Pages\n\n- `authored-vibe-security-and-audits`\n- `authored-vibe-settlement-contract-audit-scope`\n- `authored-vibe-token-staking-audit-caveat`\n- `authored-vibe-sherlock-audit-contest-reference`\n- `authored-symmio-frontend-builder-audit-posture`",
+      "excerpt": "Versioning Vibe Security Claims Security documentation should be written as versioned evidence, not as a static adjective. Vibe's public security page names a specific settlement contract version, SYMMIO Core v0.8.4, and links Sherlock audit context. Symmio's own audit report page is also versioned by contract families and protocol modules. Together they imply the right editorial rule: every audit claim should say which contract family, which version, which product surface, and which source supports it. The Rule Avoid broad statements like \"Vibe is audited\" unless the next sentence scopes the claim. Better publication pattern: name the product surface; name the contract family; name the version if the source gives one; name the audit venue or report index; state any modules where public details are still pending. That structure prevents three common overclaims: treating settlement contract audits as token module audits, treating one version as all future versions, and treating protocol infrastructure audits as every frontend's operational security. Reader Guidance When the answer engine handles a security question, it should route to exact pages rather than compressing all security"
+    },
+    {
+      "id": "authored-vibe-settlement-contract-audit-scope",
+      "title": "Vibe Settlement Contract Audit Scope",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/security-and-audits.md",
+        "https://audits.sherlock.xyz/contests/85"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-security-audits",
+        "authored-vibe-security-and-audits",
+        "authored-symmio-frontend-builder-audit-posture"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-settlement-contract-audit-scope.md",
+      "bodyMarkdown": "# Vibe Settlement Contract Audit Scope\n\nThe safest way to answer \"is Vibe audited?\" is to name the exact contract surface the public source covers.\n\nVibe's official security page says the trade-settlement layer uses SYMMIO-Core v0.8.4 smart contracts and says that contract set was audited by Sherlock. The linked evidence is the Sherlock Symmetrical contest page. That supports a settlement-contract audit answer; it does not automatically prove audit coverage for every future Vibe product, every frontend integration, every token module, or every staking module.\n\n## What The Claim Covers\n\nThe source-backed claim is narrow:\n\n- contract family: SYMMIO-Core settlement contracts;\n- version named by the public Vibe page: v0.8.4;\n- audit venue named by the public Vibe page: Sherlock;\n- linked public audit context: the Symmetrical contest page.\n\nThat is enough for a precise security answer, but it should remain versioned. If Vibe changes settlement contracts, adds product modules, or publishes new audit reports, this page needs a source refresh before final publication.\n\n## Reader Guidance\n\nFor traders, the practical takeaway is that the public security claim is about the settlement-contract layer that supports trade settlement. For builders and auditors, the practical takeaway is to ask which contract version and which product surface a claim refers to before treating \"audited\" as universal.\n\n## Sources\n\n- `vibe-security-audits`: official Vibe security/audit page naming SYMMIO-Core v0.8.4 settlement contracts and Sherlock audit coverage.\n- `sherlock-symmetrical-contest`: public Sherlock contest page linked from the Vibe security guide.\n\n## Related Pages\n\n- `authored-vibe-security-and-audits`\n- `authored-vibe-sherlock-audit-contest-reference`\n- `authored-symmio-frontend-builder-audit-posture`",
+      "excerpt": "Vibe Settlement Contract Audit Scope The safest way to answer \"is Vibe audited?\" is to name the exact contract surface the public source covers. Vibe's official security page says the trade settlement layer uses SYMMIO Core v0.8.4 smart contracts and says that contract set was audited by Sherlock. The linked evidence is the Sherlock Symmetrical contest page. That supports a settlement contract audit answer; it does not automatically prove audit coverage for every future Vibe product, every frontend integration, every token module, or every staking module. What The Claim Covers The source backed claim is narrow: contract family: SYMMIO Core settlement contracts; version named by the public Vibe page: v0.8.4; audit venue named by the public Vibe page: Sherlock; linked public audit context: the Symmetrical contest page. That is enough for a precise security answer, but it should remain versioned. If Vibe changes settlement contracts, adds product modules, or publishes new audit reports, this page needs a source refresh before final publication. Reader Guidance For traders, the practical takeaway is that the public security claim is about the settlement contract layer that supports tra"
+    },
+    {
+      "id": "authored-vibe-sherlock-audit-contest-reference",
+      "title": "Vibe Sherlock Audit Contest Reference",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/security-and-audits.md",
+        "https://audits.sherlock.xyz/contests/85"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-security-audits",
+        "authored-vibe-security-and-audits"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-sherlock-audit-contest-reference.md",
+      "bodyMarkdown": "# Vibe Sherlock Audit Contest Reference\n\nThe Sherlock link in the Vibe security page is evidence, not decorative copy. It gives readers a public place to verify the audit context behind the settlement-contract claim.\n\nThe Vibe source says SYMMIO-Core v0.8.4 settlement contracts were audited by Sherlock and links to the Symmetrical contest. The compendium should keep that link attached to the claim so readers can distinguish a named audit venue from an unsourced reassurance.\n\n## How To Cite It\n\nUse the Sherlock reference when answering three kinds of questions:\n\n- \"Where is the audit evidence?\"\n- \"Which audit venue is named?\"\n- \"What public source backs the SYMMIO-Core v0.8.4 settlement-contract statement?\"\n\nDo not use it as a blanket source for unrelated modules. It is linked from the Vibe security guide for the settlement-contract audit context. Other contract families need their own primary sources.\n\n## Reader Guidance\n\nFor serious users, an audit answer should include a chain of evidence: Vibe's security page names the contract family and version, then the Sherlock contest page gives the public audit-context reference. If either side changes, this page should be refreshed before publication.\n\n## Sources\n\n- `vibe-security-audits`: official Vibe page linking the Sherlock audit context.\n- `sherlock-symmetrical-contest`: public Sherlock Symmetrical contest reference linked from Vibe's security guide.\n\n## Related Pages\n\n- `authored-vibe-security-and-audits`\n- `authored-vibe-settlement-contract-audit-scope`\n- `authored-symmio-frontend-builder-audit-posture`",
+      "excerpt": "Vibe Sherlock Audit Contest Reference The Sherlock link in the Vibe security page is evidence, not decorative copy. It gives readers a public place to verify the audit context behind the settlement contract claim. The Vibe source says SYMMIO Core v0.8.4 settlement contracts were audited by Sherlock and links to the Symmetrical contest. The compendium should keep that link attached to the claim so readers can distinguish a named audit venue from an unsourced reassurance. How To Cite It Use the Sherlock reference when answering three kinds of questions: \"Where is the audit evidence?\" \"Which audit venue is named?\" \"What public source backs the SYMMIO Core v0.8.4 settlement contract statement?\" Do not use it as a blanket source for unrelated modules. It is linked from the Vibe security guide for the settlement contract audit context. Other contract families need their own primary sources. Reader Guidance For serious users, an audit answer should include a chain of evidence: Vibe's security page names the contract family and version, then the Sherlock contest page gives the public audit context reference. If either side changes, this page should be refreshed before publication. Sources "
+    },
+    {
       "id": "authored-vibe-simple-trade-flow",
       "title": "Vibe Simple Trade Flow",
       "section": "product-reference",
@@ -6617,6 +6722,28 @@
       "file": "content/authored/reference/vibe-system-visualization.md",
       "bodyMarkdown": "# Vibe System Visualization\n\nThe public system-visualization page is the shortest official explanation of how a project-side perp listing can work on Vibe: a project wants a perp, discusses supply and revenue projections, agrees terms, loans token supply to the solver, gets listed, users trade, and the solver manages trading and hedging.\n\n## Listing Loop\n\nThe source presents the listing loop as a project inventory and solver operation workflow. The project contributes supply, the solver facilitates trading, and the market creates activity around the token as a perpetual.\n\nThe source also gives example commercial ranges: a project loan is usually described as 1%-5% of supply, and 75%-85% of solver profits are periodically returned to the project depending on volume. Those figures should stay marked for operator/accounting review before final publication, because commercial terms can vary and the project-listing terms say material commercial terms belong in the applicable agreement or statement of work.\n\n## Solver Profit Sources\n\nThe same page lists spread, funding rates, liquidations, and losing trades as solver profit sources. That phrasing is useful because it connects the project-facing story to trading mechanics: solver economics are not a single fee line; they come from multiple market-making and risk-management channels.\n\n## Reader Implication\n\nWhen a project asks \"how does listing a perp with Vibe work?\", route them here for the high-level loop, then to project listing terms for service, custody, profit, audit, and termination mechanics. When a trader asks what happens behind their trade, route them to the intent architecture and solver operations pages.\n\n## Sources\n\n- `vibe-system-visualization`: official project-to-perp workflow, supply-loan range, solver profit-source list, and project profit-share range.\n- `vibe-project-listing-terms`: terms source that keeps commercial terms agreement-specific.\n- `vibe-architecture`: AMFQ/legacy intent naming and solver execution context.\n\n## Related Pages\n\n- `authored-vibe-project-listing-terms`\n- `authored-vibe-intent-architecture`\n- `authored-symmio-solver-operations-and-hedging`",
       "excerpt": "Vibe System Visualization The public system visualization page is the shortest official explanation of how a project side perp listing can work on Vibe: a project wants a perp, discusses supply and revenue projections, agrees terms, loans token supply to the solver, gets listed, users trade, and the solver manages trading and hedging. Listing Loop The source presents the listing loop as a project inventory and solver operation workflow. The project contributes supply, the solver facilitates trading, and the market creates activity around the token as a perpetual. The source also gives example commercial ranges: a project loan is usually described as 1% 5% of supply, and 75% 85% of solver profits are periodically returned to the project depending on volume. Those figures should stay marked for operator/accounting review before final publication, because commercial terms can vary and the project listing terms say material commercial terms belong in the applicable agreement or statement of work. Solver Profit Sources The same page lists spread, funding rates, liquidations, and losing trades as solver profit sources. That phrasing is useful because it connects the project facing story "
+    },
+    {
+      "id": "authored-vibe-token-staking-audit-caveat",
+      "title": "Vibe Token And Staking Audit Caveat",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-security-audits"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/security-and-audits.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-security-audits",
+        "authored-vibe-security-and-audits"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-token-staking-audit-caveat.md",
+      "bodyMarkdown": "# Vibe Token And Staking Audit Caveat\n\nThe Vibe security page separates current settlement-contract audit context from future token and staking details.\n\nThat distinction matters. The same source that names SYMMIO-Core v0.8.4 settlement contracts and Sherlock audit context marks token and staking contract information as coming soon. The docs should preserve that caveat instead of smoothing it into a broad \"all Vibe contracts are audited\" statement.\n\n## Publication Boundary\n\nUntil a primary source publishes token or staking contract details, the compendium should not claim final public audit coverage for those modules. It can say that Vibe's public security page treats those details as future-facing. It can also route readers to the current settlement-contract audit page for what is actually sourced today.\n\nThis is not a negative security finding. It is a source boundary. Public docs are stronger when they say exactly what is known and exactly what is not yet published.\n\n## Reader Guidance\n\nWhen a user asks whether token or staking contracts are audited, answer with the caveat first:\n\n- the public Vibe page currently gives settlement-contract audit context;\n- token and staking contract details are marked as coming soon;\n- publication copy should be refreshed when Vibe publishes primary-source details for those modules.\n\n## Sources\n\n- `vibe-security-audits`: official Vibe security/audit page and token/staking coming-soon caveat.\n\n## Related Pages\n\n- `authored-vibe-security-and-audits`\n- `authored-vibe-settlement-contract-audit-scope`\n- `authored-symmio-frontend-builder-audit-posture`",
+      "excerpt": "Vibe Token And Staking Audit Caveat The Vibe security page separates current settlement contract audit context from future token and staking details. That distinction matters. The same source that names SYMMIO Core v0.8.4 settlement contracts and Sherlock audit context marks token and staking contract information as coming soon. The docs should preserve that caveat instead of smoothing it into a broad \"all Vibe contracts are audited\" statement. Publication Boundary Until a primary source publishes token or staking contract details, the compendium should not claim final public audit coverage for those modules. It can say that Vibe's public security page treats those details as future facing. It can also route readers to the current settlement contract audit page for what is actually sourced today. This is not a negative security finding. It is a source boundary. Public docs are stronger when they say exactly what is known and exactly what is not yet published. Reader Guidance When a user asks whether token or staking contracts are audited, answer with the caveat first: the public Vibe page currently gives settlement contract audit context; token and staking contract details are mark"
     },
     {
       "id": "authored-vibe-tpsl",

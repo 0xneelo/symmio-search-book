@@ -574,6 +574,12 @@
 - Routed five new Ask questions so mobile install, notification, shortcut, and chart-layout questions resolve to exact pages instead of broad mobile or trading-control overviews.
 - Kept native-app assumptions, notification reliability, and unsupported TradingView feature-matrix details out of public claims unless current sources provide them.
 
+## 2026-06-29 — Vibe Security And Audit Exact Reference Pages
+
+- Added five authored Volume 07 product-reference pages from official Vibe account/security docs and the linked Sherlock contest: settlement-contract audit scope, token/staking audit caveat, Sherlock audit-contest evidence, versioned security-claim wording, and custody-path security boundaries.
+- Routed five new Ask questions so security-sensitive support questions resolve to exact pages rather than one broad audit overview.
+- Kept publication-date contract inventory, token/staking audit details, future module coverage, and custody wording under current-source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

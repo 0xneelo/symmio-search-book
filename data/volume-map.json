@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1080,
+  "readerPages": 1085,
   "totalVolumes": 8,
   "totalChapters": 97,
-  "pagesAssigned": 1080,
+  "pagesAssigned": 1085,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -7689,30 +7689,30 @@
       "title": "Product, Trading, And Risk Guides",
       "premise": "Collect user-facing Vibe guides for trading, fees, collateral, risk, security, and market operations.",
       "readerPromise": "Translate the vision into practical product behavior and reader-facing operational semantics.",
-      "totalPages": 66,
+      "totalPages": 71,
       "overviewPageId": "authored-volume-07-product-trading-and-risk",
       "overviewTitle": "Volume 07: Product, Trading, And Risk Guides",
-      "authoredPages": 36,
+      "authoredPages": 41,
       "generatedPages": 30,
       "statusCounts": {
         "publication-candidate": 29,
         "publication-candidate-needs-operator-review": 4,
-        "publication-candidate-needs-publication-date-review": 3,
+        "publication-candidate-needs-publication-date-review": 8,
         "source-mapped": 30
       },
       "granularityCounts": {
-        "authored-page": 36,
+        "authored-page": 41,
         "companion-page": 30
       },
       "routeSourceCounts": {
-        "authored": 36,
+        "authored": 41,
         "generated": 30
       },
       "sectionCounts": {
         "compendium": 1,
         "fees": 6,
         "market-creation": 2,
-        "product-reference": 38,
+        "product-reference": 43,
         "risk-margin": 4,
         "security": 4,
         "trading-guides": 8,
@@ -7722,6 +7722,7 @@
         "sherlock-symmetrical-contest",
         "spec-03",
         "styleguide",
+        "symmio-audit-reports",
         "symmio-core",
         "symmio-intent-lifecycle",
         "symmio-liquidations",
@@ -7755,19 +7756,21 @@
         "authored-vibe-login-path-choice",
         "authored-vibe-android-pwa-install",
         "authored-vibe-ios-pwa-install",
+        "authored-vibe-security-claim-versioning",
         "authored-vibe-account-creation-and-login",
         "authored-vibe-account-history-and-csv-export",
-        "authored-vibe-allocated-balance",
-        "authored-vibe-deposit-chain-support"
+        "authored-vibe-allocated-balance"
       ],
       "pageIds": [
         "authored-volume-07-product-trading-and-risk",
         "authored-vibe-login-path-choice",
         "authored-vibe-android-pwa-install",
         "authored-vibe-ios-pwa-install",
+        "authored-vibe-security-claim-versioning",
         "authored-vibe-account-creation-and-login",
         "authored-vibe-account-history-and-csv-export",
         "authored-vibe-allocated-balance",
+        "authored-vibe-custody-path-security-boundary",
         "authored-vibe-deposit-chain-support",
         "authored-vibe-deposits-and-withdrawals",
         "authored-vibe-large-withdrawal-window",
@@ -7775,6 +7778,9 @@
         "authored-vibe-portfolio-and-account-data",
         "authored-vibe-pwa-notification-categories",
         "authored-vibe-security-and-audits",
+        "authored-vibe-settlement-contract-audit-scope",
+        "authored-vibe-sherlock-audit-contest-reference",
+        "authored-vibe-token-staking-audit-caveat",
         "authored-vibe-fees-and-funding",
         "authored-vibe-funding-payment-direction",
         "authored-vibe-trade-panel-cost-breakdown",
@@ -7877,19 +7883,20 @@
           "title": "Account And Safety",
           "section": "product-reference",
           "track": "Account And Safety",
-          "totalPages": 13,
-          "authoredPages": 13,
+          "totalPages": 18,
+          "authoredPages": 18,
           "generatedPages": 0,
           "statusCounts": {
             "publication-candidate": 10,
             "publication-candidate-needs-operator-review": 1,
-            "publication-candidate-needs-publication-date-review": 2
+            "publication-candidate-needs-publication-date-review": 7
           },
           "granularityCounts": {
-            "authored-page": 13
+            "authored-page": 18
           },
           "sourceKeys": [
             "sherlock-symmetrical-contest",
+            "symmio-audit-reports",
             "vibe-account-creation",
             "vibe-account-health-liquidations",
             "vibe-account-portfolio",
@@ -7905,16 +7912,21 @@
             "authored-vibe-login-path-choice",
             "authored-vibe-android-pwa-install",
             "authored-vibe-ios-pwa-install",
+            "authored-vibe-security-claim-versioning",
             "authored-vibe-account-creation-and-login",
             "authored-vibe-account-history-and-csv-export",
             "authored-vibe-allocated-balance",
+            "authored-vibe-custody-path-security-boundary",
             "authored-vibe-deposit-chain-support",
             "authored-vibe-deposits-and-withdrawals",
             "authored-vibe-large-withdrawal-window",
             "authored-vibe-mobile-pwa",
             "authored-vibe-portfolio-and-account-data",
             "authored-vibe-pwa-notification-categories",
-            "authored-vibe-security-and-audits"
+            "authored-vibe-security-and-audits",
+            "authored-vibe-settlement-contract-audit-scope",
+            "authored-vibe-sherlock-audit-contest-reference",
+            "authored-vibe-token-staking-audit-caveat"
           ],
           "samplePages": [
             {
@@ -7959,6 +7971,21 @@
               ]
             },
             {
+              "id": "authored-vibe-security-claim-versioning",
+              "title": "Versioning Vibe Security Claims",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-publication-date-review",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-security-audits",
+                "sherlock-symmetrical-contest",
+                "symmio-audit-reports"
+              ]
+            },
+            {
               "id": "authored-vibe-account-creation-and-login",
               "title": "Vibe Account Creation And Login",
               "section": "product-reference",
@@ -7985,21 +8012,6 @@
                 "vibe-deposits-withdrawals",
                 "vibe-fees",
                 "vibe-funding"
-              ]
-            },
-            {
-              "id": "authored-vibe-allocated-balance",
-              "title": "Vibe Allocated Balance",
-              "section": "product-reference",
-              "track": "Account And Safety",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "volume-07-product-trading-and-risk",
-              "sourceKeys": [
-                "vibe-deposits-withdrawals",
-                "vibe-account-health-liquidations",
-                "vibe-account-portfolio"
               ]
             }
           ]
@@ -10667,9 +10679,11 @@
     "authored-vibe-login-path-choice": "volume-07-product-trading-and-risk",
     "authored-vibe-android-pwa-install": "volume-07-product-trading-and-risk",
     "authored-vibe-ios-pwa-install": "volume-07-product-trading-and-risk",
+    "authored-vibe-security-claim-versioning": "volume-07-product-trading-and-risk",
     "authored-vibe-account-creation-and-login": "volume-07-product-trading-and-risk",
     "authored-vibe-account-history-and-csv-export": "volume-07-product-trading-and-risk",
     "authored-vibe-allocated-balance": "volume-07-product-trading-and-risk",
+    "authored-vibe-custody-path-security-boundary": "volume-07-product-trading-and-risk",
     "authored-vibe-deposit-chain-support": "volume-07-product-trading-and-risk",
     "authored-vibe-deposits-and-withdrawals": "volume-07-product-trading-and-risk",
     "authored-vibe-large-withdrawal-window": "volume-07-product-trading-and-risk",
@@ -10677,6 +10691,9 @@
     "authored-vibe-portfolio-and-account-data": "volume-07-product-trading-and-risk",
     "authored-vibe-pwa-notification-categories": "volume-07-product-trading-and-risk",
     "authored-vibe-security-and-audits": "volume-07-product-trading-and-risk",
+    "authored-vibe-settlement-contract-audit-scope": "volume-07-product-trading-and-risk",
+    "authored-vibe-sherlock-audit-contest-reference": "volume-07-product-trading-and-risk",
+    "authored-vibe-token-staking-audit-caveat": "volume-07-product-trading-and-risk",
     "authored-vibe-fees-and-funding": "volume-07-product-trading-and-risk",
     "authored-vibe-funding-payment-direction": "volume-07-product-trading-and-risk",
     "authored-vibe-trade-panel-cost-breakdown": "volume-07-product-trading-and-risk",
