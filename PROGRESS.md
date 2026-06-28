@@ -532,6 +532,12 @@
 - Routed five new Ask questions so the front door can answer the verification thesis directly without overstating markets as perfect truth.
 - Kept badge policy, graduation thresholds, downstream listing guarantees, reputation metrics, and public truth-claim language under operator/product/editorial review.
 
+## 2026-06-28 — SYMM LP Measurement Reference Pages
+
+- Added five authored Volume 05 reference pages from Neelo's SYMM LP case-study measurement material: Current Debt and UPnL, benchmark reading, low-volume driver analysis, regime dependence, and beta-report KPIs.
+- Routed five new Ask questions so solvers, LPs, treasuries, and operators can distinguish realized debt from marked UPnL, read the benchmark table, and understand why the case is proof-of-mechanism rather than a general yield promise.
+- Kept public yield language, audited attribution, vault-level time series, drawdown reporting, capacity stress, and dashboard-field semantics under operator/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

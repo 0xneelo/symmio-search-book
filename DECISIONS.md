@@ -703,3 +703,11 @@
 **Reason:** The compendium already has broad Proof of Value and Information/Trade pages, but the answer engine still needs direct routes for the source's strongest verification primitives. These pages preserve the ambition while keeping the public framing precise: market price is costly evidence, not perfect truth; shorting is adversarial validation, not moral certainty; Verified on Vibe is a review-bound thesis, not a launched badge or listing guarantee.
 
 **Status:** Accepted for the authored manifesto layer; exact badge policy, graduation thresholds, downstream listing paths, reputation metrics, and public truth-claim language remain under operator/product/editorial review.
+
+## D-089: Split SYMM LP Measurement Questions Into Practical Reference Pages
+
+**Decision:** Add authored Volume 05 reference pages for SYMM LP Current Debt and UPnL, benchmark interpretation, low-volume driver analysis, regime dependence, and beta-report KPIs.
+
+**Reason:** The existing SYMM LP pages explain the broad setup, unit economics, risk, replication, and data guardrails, but the answer engine needs direct routes for the practical measurement questions an LP, treasury, solver, or operator will ask before treating the case study as evidence. These pages keep realized and unrealized accounting separate, read the benchmark table as a regime-specific wealth comparison, and convert the beta-report checklist into a public reporting standard.
+
+**Status:** Accepted for the authored protocol-reference layer; audited attribution, vault-level time series, public yield language, capacity stress, and dashboard-field semantics remain under operator/accounting review.

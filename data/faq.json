@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 239,
-  "totalAnswerable": 232,
+  "totalEntries": 244,
+  "totalAnswerable": 237,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 36,
     "Trading Flow": 24,
-    "Solvers And Settlement": 47,
+    "Solvers And Settlement": 51,
     "Risk And Markets": 21,
     "Revenue": 19,
     "Manifesto": 53,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
-    "Data And Volume": 4,
+    "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 108,
+    "Medium": 113,
     "High": 30,
     "Low": 94
   },
   "byRouteSource": {
-    "authored": 232
+    "authored": 237
   },
   "byType": {
-    "answerable": 232,
+    "answerable": 237,
     "reconciliation": 7
   },
   "answerable": [
@@ -5149,6 +5149,167 @@
       "confidence": "Low",
       "pageId": "authored-symm-lp-data-guardrails",
       "pageTitle": "SYMM LP Data Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-current-debt-and-current-upnl-mean-in-the-symm-lp-case",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What do Current Debt and Current UPnL mean in the SYMM LP case?",
+      "normalizedQuestion": "what do current debt and current upnl mean in the symm lp case",
+      "shortAnswer": "Neelo's metric definitions map negative user-side debt and UPnL to LP-favorable realized and marked components; realized and unrealized treatment must stay separate.",
+      "answerSummary": "SYMM LP Current Debt And UPnL The SYMM LP case study uses user side accounting fields to describe LP side economics. Current Debt is users' already realized debt to the LP. Current UPnL is users' current unrealized profit and loss at the mark. In the case study sign convention, a negative user side value is favorable to the LP. That makes the reported dat...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-current-debt-and-upnl",
+      "pageTitle": "SYMM LP Current Debt And UPnL",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-settlement",
+          "group": "Public Symmio Sources",
+          "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-profit-realization",
+          "group": "Public Symmio Sources",
+          "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-the-symm-lp-benchmark-comparison",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should I read the SYMM LP benchmark comparison?",
+      "normalizedQuestion": "how should i read the symm lp benchmark comparison",
+      "shortAnswer": "The benchmark table compares full hold, Vibe deposit, and full sell baselines; the favorable spread is one regime-specific wealth comparison, not a universal APR.",
+      "answerSummary": "Reading The SYMM LP Benchmarks The SYMM LP benchmark table compares three uses of the same starting notional: hold the deposited SYMM, deposit the SYMM into Vibe LP, or sell the original position into USDC at the start. The comparison is useful because it separates token mark to market from cash earned. The source reports: Full Hold ending funds: $16,806....",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-benchmark-reading",
+      "pageTitle": "Reading The SYMM LP Benchmarks",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-did-the-symm-lp-case-work-despite-low-volume",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Why did the SYMM LP case work despite low volume?",
+      "normalizedQuestion": "why did the symm lp case work despite low volume",
+      "shortAnswer": "The source says roughly $100k total volume and $1k average daily volume were enough because directional imbalance and user-side losses, not turnover alone, drove the case.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-symm-lp-returns-regime-dependent",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Are SYMM LP returns regime-dependent?",
+      "normalizedQuestion": "are symm lp returns regime dependent",
+      "shortAnswer": "The case worked in a long-skew down market; uptrend, chop, gap, and activity-decay regimes still need stress testing before scaling claims.",
+      "answerSummary": "SYMM LP Returns Are Regime Dependent The central risk in the SYMM LP case is the mirror image of its success. The measured window was favorable because trader positioning was strongly long biased while token price moved down. If traders had been right instead of wrong, the LP outcome could have compressed or turned negative. The risk source names several...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-regime-dependence",
+      "pageTitle": "SYMM LP Returns Are Regime-Dependent",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-kpis-should-a-symm-lp-beta-report-publish",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Which KPIs should a SYMM LP beta report publish?",
+      "normalizedQuestion": "which kpis should a symm lp beta report publish",
+      "shortAnswer": "The scaling source names net ROI, realized versus marked ROI, drawdown, attribution, concentration, leverage distribution, and capacity stress as beta-report requirements.",
+      "answerSummary": "SYMM LP Beta Report KPI Stack The SYMM LP source gives enough evidence for a proof of mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale. Minimum beta report metrics should include: net ROI versus a token hold benchmark; realized ROI versus tot...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-beta-report-kpis",
+      "pageTitle": "SYMM LP Beta Report KPI Stack",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -13441,6 +13602,167 @@
       "confidence": "Low",
       "pageId": "authored-symm-lp-data-guardrails",
       "pageTitle": "SYMM LP Data Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-current-debt-and-current-upnl-mean-in-the-symm-lp-case",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What do Current Debt and Current UPnL mean in the SYMM LP case?",
+      "normalizedQuestion": "what do current debt and current upnl mean in the symm lp case",
+      "shortAnswer": "Neelo's metric definitions map negative user-side debt and UPnL to LP-favorable realized and marked components; realized and unrealized treatment must stay separate.",
+      "answerSummary": "SYMM LP Current Debt And UPnL The SYMM LP case study uses user side accounting fields to describe LP side economics. Current Debt is users' already realized debt to the LP. Current UPnL is users' current unrealized profit and loss at the mark. In the case study sign convention, a negative user side value is favorable to the LP. That makes the reported dat...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-current-debt-and-upnl",
+      "pageTitle": "SYMM LP Current Debt And UPnL",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-settlement",
+          "group": "Public Symmio Sources",
+          "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-profit-realization",
+          "group": "Public Symmio Sources",
+          "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-the-symm-lp-benchmark-comparison",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should I read the SYMM LP benchmark comparison?",
+      "normalizedQuestion": "how should i read the symm lp benchmark comparison",
+      "shortAnswer": "The benchmark table compares full hold, Vibe deposit, and full sell baselines; the favorable spread is one regime-specific wealth comparison, not a universal APR.",
+      "answerSummary": "Reading The SYMM LP Benchmarks The SYMM LP benchmark table compares three uses of the same starting notional: hold the deposited SYMM, deposit the SYMM into Vibe LP, or sell the original position into USDC at the start. The comparison is useful because it separates token mark to market from cash earned. The source reports: Full Hold ending funds: $16,806....",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-benchmark-reading",
+      "pageTitle": "Reading The SYMM LP Benchmarks",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-did-the-symm-lp-case-work-despite-low-volume",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Why did the SYMM LP case work despite low volume?",
+      "normalizedQuestion": "why did the symm lp case work despite low volume",
+      "shortAnswer": "The source says roughly $100k total volume and $1k average daily volume were enough because directional imbalance and user-side losses, not turnover alone, drove the case.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-symm-lp-returns-regime-dependent",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Are SYMM LP returns regime-dependent?",
+      "normalizedQuestion": "are symm lp returns regime dependent",
+      "shortAnswer": "The case worked in a long-skew down market; uptrend, chop, gap, and activity-decay regimes still need stress testing before scaling claims.",
+      "answerSummary": "SYMM LP Returns Are Regime Dependent The central risk in the SYMM LP case is the mirror image of its success. The measured window was favorable because trader positioning was strongly long biased while token price moved down. If traders had been right instead of wrong, the LP outcome could have compressed or turned negative. The risk source names several...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-regime-dependence",
+      "pageTitle": "SYMM LP Returns Are Regime-Dependent",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-kpis-should-a-symm-lp-beta-report-publish",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Which KPIs should a SYMM LP beta report publish?",
+      "normalizedQuestion": "which kpis should a symm lp beta report publish",
+      "shortAnswer": "The scaling source names net ROI, realized versus marked ROI, drawdown, attribution, concentration, leverage distribution, and capacity stress as beta-report requirements.",
+      "answerSummary": "SYMM LP Beta Report KPI Stack The SYMM LP source gives enough evidence for a proof of mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale. Minimum beta report metrics should include: net ROI versus a token hold benchmark; realized ROI versus tot...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-beta-report-kpis",
+      "pageTitle": "SYMM LP Beta Report KPI Stack",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",

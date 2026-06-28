@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1045,
+  "readerPages": 1050,
   "totalVolumes": 8,
   "totalChapters": 97,
-  "pagesAssigned": 1045,
+  "pagesAssigned": 1050,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -5050,26 +5050,26 @@
       "title": "Solver, LP, And Protocol Operations",
       "premise": "Bind due diligence, the SYMM LP case study, solver references, Symmio protocol pages, and builder/developer material.",
       "readerPromise": "Move from thesis to operational workflows for LPs, solvers, market creators, and protocol integrators.",
-      "totalPages": 120,
+      "totalPages": 125,
       "overviewPageId": "authored-volume-05-solver-lp-and-protocol-operations",
       "overviewTitle": "Volume 05: Solver, LP, And Protocol Operations",
-      "authoredPages": 45,
+      "authoredPages": 50,
       "generatedPages": 75,
       "statusCounts": {
         "draft-extracted-from-primary-source": 37,
         "draft-imported-from-primary-source": 24,
         "publication-candidate": 14,
-        "publication-candidate-needs-operator-review": 31,
+        "publication-candidate-needs-operator-review": 36,
         "source-mapped": 14
       },
       "granularityCounts": {
-        "authored-page": 45,
+        "authored-page": 50,
         "companion-page": 14,
         "section-page": 37,
         "source-page": 24
       },
       "routeSourceCounts": {
-        "authored": 45,
+        "authored": 50,
         "generated": 75
       },
       "sectionCounts": {
@@ -5078,7 +5078,7 @@
         "developer-reference": 1,
         "manifesto": 7,
         "options-reference": 1,
-        "protocol-reference": 39,
+        "protocol-reference": 44,
         "settlement": 1,
         "solver-reference": 8,
         "vision-papers": 24,
@@ -5138,10 +5138,15 @@
         "authored-position-lifecycle-state-machine",
         "authored-settlement-state-boundary",
         "authored-solver-engine-operating-loop",
+        "authored-symm-lp-low-volume-driver",
         "authored-lp-profit-and-dynamic-pricing",
+        "authored-symm-lp-benchmark-reading",
+        "authored-symm-lp-beta-report-kpis",
         "authored-symm-lp-case-setup",
+        "authored-symm-lp-current-debt-and-upnl",
         "authored-symm-lp-data-guardrails",
         "authored-symm-lp-replication-framework",
+        "authored-symm-lp-regime-dependence",
         "authored-symm-lp-risk-and-edge-cases",
         "authored-symm-lp-unit-economics",
         "authored-token-lp-attractiveness-model",
@@ -5582,30 +5587,50 @@
           "title": "Solver And LP Economics",
           "section": "protocol-reference",
           "track": "Solver And LP Economics",
-          "totalPages": 7,
-          "authoredPages": 7,
+          "totalPages": 12,
+          "authoredPages": 12,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate-needs-operator-review": 7
+            "publication-candidate-needs-operator-review": 12
           },
           "granularityCounts": {
-            "authored-page": 7
+            "authored-page": 12
           },
           "sourceKeys": [
             "spec-03",
+            "symmio-profit-realization",
+            "symmio-settlement",
             "vibe-papers"
           ],
-          "firstPageId": "authored-lp-profit-and-dynamic-pricing",
+          "firstPageId": "authored-symm-lp-low-volume-driver",
           "pageIds": [
+            "authored-symm-lp-low-volume-driver",
             "authored-lp-profit-and-dynamic-pricing",
+            "authored-symm-lp-benchmark-reading",
+            "authored-symm-lp-beta-report-kpis",
             "authored-symm-lp-case-setup",
+            "authored-symm-lp-current-debt-and-upnl",
             "authored-symm-lp-data-guardrails",
             "authored-symm-lp-replication-framework",
+            "authored-symm-lp-regime-dependence",
             "authored-symm-lp-risk-and-edge-cases",
             "authored-symm-lp-unit-economics",
             "authored-token-lp-attractiveness-model"
           ],
           "samplePages": [
+            {
+              "id": "authored-symm-lp-low-volume-driver",
+              "title": "Low Volume Did Not Mean Weak LP Economics",
+              "section": "protocol-reference",
+              "track": "Solver And LP Economics",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-05-solver-lp-and-protocol-operations",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
             {
               "id": "authored-lp-profit-and-dynamic-pricing",
               "title": "LP Profit And Dynamic Pricing",
@@ -5618,6 +5643,32 @@
               "sourceKeys": [
                 "vibe-papers",
                 "spec-03"
+              ]
+            },
+            {
+              "id": "authored-symm-lp-benchmark-reading",
+              "title": "Reading The SYMM LP Benchmarks",
+              "section": "protocol-reference",
+              "track": "Solver And LP Economics",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-05-solver-lp-and-protocol-operations",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-symm-lp-beta-report-kpis",
+              "title": "SYMM LP Beta Report KPI Stack",
+              "section": "protocol-reference",
+              "track": "Solver And LP Economics",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-05-solver-lp-and-protocol-operations",
+              "sourceKeys": [
+                "vibe-papers"
               ]
             },
             {
@@ -5634,55 +5685,18 @@
               ]
             },
             {
-              "id": "authored-symm-lp-data-guardrails",
-              "title": "SYMM LP Data Guardrails",
+              "id": "authored-symm-lp-current-debt-and-upnl",
+              "title": "SYMM LP Current Debt And UPnL",
               "section": "protocol-reference",
               "track": "Solver And LP Economics",
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
-              "volumeId": "",
+              "volumeId": "volume-05-solver-lp-and-protocol-operations",
               "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-symm-lp-replication-framework",
-              "title": "SYMM LP Replication Framework",
-              "section": "protocol-reference",
-              "track": "Solver And LP Economics",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-symm-lp-risk-and-edge-cases",
-              "title": "SYMM LP Risk And Edge Cases",
-              "section": "protocol-reference",
-              "track": "Solver And LP Economics",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-symm-lp-unit-economics",
-              "title": "SYMM LP Unit Economics",
-              "section": "protocol-reference",
-              "track": "Solver And LP Economics",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
+                "vibe-papers",
+                "symmio-settlement",
+                "symmio-profit-realization"
               ]
             }
           ]
@@ -10270,10 +10284,15 @@
     "authored-position-lifecycle-state-machine": "volume-05-solver-lp-and-protocol-operations",
     "authored-settlement-state-boundary": "volume-05-solver-lp-and-protocol-operations",
     "authored-solver-engine-operating-loop": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symm-lp-low-volume-driver": "volume-05-solver-lp-and-protocol-operations",
     "authored-lp-profit-and-dynamic-pricing": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symm-lp-benchmark-reading": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symm-lp-beta-report-kpis": "volume-05-solver-lp-and-protocol-operations",
     "authored-symm-lp-case-setup": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symm-lp-current-debt-and-upnl": "volume-05-solver-lp-and-protocol-operations",
     "authored-symm-lp-data-guardrails": "volume-05-solver-lp-and-protocol-operations",
     "authored-symm-lp-replication-framework": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symm-lp-regime-dependence": "volume-05-solver-lp-and-protocol-operations",
     "authored-symm-lp-risk-and-edge-cases": "volume-05-solver-lp-and-protocol-operations",
     "authored-symm-lp-unit-economics": "volume-05-solver-lp-and-protocol-operations",
     "authored-token-lp-attractiveness-model": "volume-05-solver-lp-and-protocol-operations",

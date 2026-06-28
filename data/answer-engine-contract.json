@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 232
+      "totalGoldenRoutes": 237
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 250,
-    "retrievalEligiblePages": 1042,
+    "publicNavigationPages": 255,
+    "retrievalEligiblePages": 1047,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 250,
+      "candidate": 255,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 232,
-    "exactRouteTestsPassing": 232,
+    "totalExactRouteTests": 237,
+    "exactRouteTestsPassing": 237,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 232
+      "candidate": 237
     },
     "exactRoutesByConfidence": {
-      "Medium": 108,
+      "Medium": 113,
       "High": 30,
       "Low": 94
     },
@@ -3482,6 +3482,115 @@
         "passes": true
       },
       {
+        "id": "qr-what-do-current-debt-and-current-upnl-mean-in-the-symm-lp-case",
+        "query": "What do Current Debt and Current UPnL mean in the SYMM LP case?",
+        "normalizedQuery": "what do current debt and current upnl mean in the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-current-debt-and-upnl",
+        "expectedPageTitle": "SYMM LP Current Debt And UPnL",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-settlement",
+          "symmio-profit-realization"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-settlement",
+          "symmio-profit-realization"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-do-current-debt-and-current-upnl-mean-in-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-symm-lp-benchmark-comparison",
+        "query": "How should I read the SYMM LP benchmark comparison?",
+        "normalizedQuery": "how should i read the symm lp benchmark comparison",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-benchmark-reading",
+        "expectedPageTitle": "Reading The SYMM LP Benchmarks",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-symm-lp-benchmark-comparison",
+        "passes": true
+      },
+      {
+        "id": "qr-why-did-the-symm-lp-case-work-despite-low-volume",
+        "query": "Why did the SYMM LP case work despite low volume?",
+        "normalizedQuery": "why did the symm lp case work despite low volume",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-low-volume-driver",
+        "expectedPageTitle": "Low Volume Did Not Mean Weak LP Economics",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-did-the-symm-lp-case-work-despite-low-volume",
+        "passes": true
+      },
+      {
+        "id": "qr-are-symm-lp-returns-regime-dependent",
+        "query": "Are SYMM LP returns regime-dependent?",
+        "normalizedQuery": "are symm lp returns regime dependent",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-regime-dependence",
+        "expectedPageTitle": "SYMM LP Returns Are Regime-Dependent",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-are-symm-lp-returns-regime-dependent",
+        "passes": true
+      },
+      {
+        "id": "qr-which-kpis-should-a-symm-lp-beta-report-publish",
+        "query": "Which KPIs should a SYMM LP beta report publish?",
+        "normalizedQuery": "which kpis should a symm lp beta report publish",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-beta-report-kpis",
+        "expectedPageTitle": "SYMM LP Beta Report KPI Stack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-kpis-should-a-symm-lp-beta-report-publish",
+        "passes": true
+      },
+      {
         "id": "qr-explain-the-whole-vibe-x-symmio-thesis",
         "query": "Explain the whole Vibe x Symmio thesis.",
         "normalizedQuery": "explain the whole vibe x symmio thesis",
@@ -5428,7 +5537,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 232,
+      "exactRoutes": 237,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
