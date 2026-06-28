@@ -544,6 +544,12 @@
 - Routed five new Ask questions so the front door can explain the defense budget before ADL without flattening it into generic insurance or a fee table.
 - Kept live percentages, eligibility rules, allocation caps, safe-exposure formulas, ADL thresholds, and position-ranking rules under operator and implementation review.
 
+## 2026-06-29 — Proof Of Value Subclaim Pages
+
+- Added five authored Volume 02 manifesto pages from Neelo's permissionless-perps value framework: the risk alignment matrix, project alternative cost stack, pre-revenue commitment signal, solver sustainability condition, and value-capture durability scorecard.
+- Routed five new Ask questions so the front door can answer practical Proof of Value follow-ups without collapsing them into broad value-creation language.
+- Kept vault terms, insurance rules, partner metrics, solver profitability, fee routing, protocol share, and revenue-share claims under operator/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

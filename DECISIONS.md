@@ -719,3 +719,11 @@
 **Reason:** The existing manifesto pages explain funding as a regime-control system and defense hierarchy, but operational readers need direct reference answers for where insurance comes from, when shared insurance applies, what residual stress means, how winner-market surplus can support stressed markets, and when ADL becomes the final exposure-reduction step. These pages preserve the formulas as source-model mechanics while keeping live thresholds and parameters review-bound.
 
 **Status:** Accepted for the authored protocol-reference layer; live insurance percentages, eligibility policy, allocation caps, safe-exposure formulas, ADL thresholds, and position-ranking behavior remain under implementation/operator review.
+
+## D-091: Split Proof Of Value Strategy Into Due-Diligence Subclaims
+
+**Decision:** Add authored Volume 02 manifesto pages for the risk alignment matrix, project alternative cost stack, pre-revenue commitment signal, solver sustainability condition, and value-capture durability scorecard.
+
+**Reason:** The existing Proof of Value pages explain the broad thesis, but sophisticated readers will ask narrower diligence questions: who bears each risk, what project alternatives Vibe displaces, what early commitment actually proves, whether solver economics can stay durable, and how capture avoids becoming extraction. These pages turn those follow-ups into routed answers while keeping economic and partner metrics review-bound.
+
+**Status:** Accepted for the authored manifesto layer; vault terms, insurance policy, live partner figures, solver profitability, fee routing, protocol share, and revenue-share claims remain under operator/accounting review.

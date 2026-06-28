@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 242
+      "totalGoldenRoutes": 247
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 260,
-    "retrievalEligiblePages": 1052,
+    "publicNavigationPages": 265,
+    "retrievalEligiblePages": 1057,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 260,
+      "candidate": 265,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 242,
-    "exactRouteTestsPassing": 242,
+    "totalExactRouteTests": 247,
+    "exactRouteTestsPassing": 247,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 242
+      "candidate": 247
     },
     "exactRoutesByConfidence": {
       "Medium": 113,
       "High": 30,
-      "Low": 99
+      "Low": 104
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4595,6 +4595,111 @@
         "passes": true
       },
       {
+        "id": "qr-how-should-vibe-assign-each-major-risk",
+        "query": "How should Vibe assign each major risk?",
+        "normalizedQuery": "how should vibe assign each major risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-risk-alignment-matrix",
+        "expectedPageTitle": "The Risk Alignment Matrix",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-vibe-assign-each-major-risk",
+        "passes": true
+      },
+      {
+        "id": "qr-what-costs-does-vibe-remove-for-projects",
+        "query": "What costs does Vibe remove for projects?",
+        "normalizedQuery": "what costs does vibe remove for projects",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-project-alternative-cost-stack",
+        "expectedPageTitle": "The Project Alternative Cost Stack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-costs-does-vibe-remove-for-projects",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-pre-revenue-partner-commitment-prove",
+        "query": "What does pre-revenue partner commitment prove?",
+        "normalizedQuery": "what does pre revenue partner commitment prove",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-pre-revenue-commitment-signal",
+        "expectedPageTitle": "Pre-Revenue Commitment Is A Signal, Not Proof",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-pre-revenue-partner-commitment-prove",
+        "passes": true
+      },
+      {
+        "id": "qr-what-has-to-be-true-for-the-solver-to-stay-sustainable",
+        "query": "What has to be true for the solver to stay sustainable?",
+        "normalizedQuery": "what has to be true for the solver to stay sustainable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-sustainability-condition",
+        "expectedPageTitle": "The Solver Sustainability Condition",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-has-to-be-true-for-the-solver-to-stay-sustainable",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-value-capture-need-durability-not-just-growth",
+        "query": "Why does value capture need durability, not just growth?",
+        "normalizedQuery": "why does value capture need durability not just growth",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-value-capture-durability-scorecard",
+        "expectedPageTitle": "Value Capture Needs Durability",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-value-capture-need-durability-not-just-growth",
+        "passes": true
+      },
+      {
         "id": "qr-what-is-symmio-s-clearing-house-model",
         "query": "What is Symmio's clearing-house model?",
         "normalizedQuery": "what is symmio s clearing house model",
@@ -5642,7 +5747,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 242,
+      "exactRoutes": 247,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
