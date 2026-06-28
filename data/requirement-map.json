@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 6,
-    "partial": 4,
+    "complete": 5,
+    "partial": 5,
     "parked": 7,
     "missing": 1
   },
@@ -20,6 +20,10 @@
     "delivery": 2
   },
   "openOperatorItems": [
+    {
+      "id": 11,
+      "title": "Production LLM provider, model, and API credentials for answer synthesis"
+    },
     {
       "id": 10,
       "title": "Linear issue creation approval for private repo handoffs"
@@ -172,7 +176,7 @@
     {
       "id": "answer-engine-contracts-and-evals",
       "label": "Answer-engine contracts, adversarial evals, and response validator",
-      "status": "complete",
+      "status": "partial",
       "category": "answer-engine",
       "sourceSpecs": [
         "06",
@@ -193,7 +197,7 @@
         "06",
         "09"
       ],
-      "evidence": "13 generated gap items, 10 operator signals, 7 reconciliation questions, localStorage prototype for live questions/ratings",
+      "evidence": "13 generated gap items, 11 operator signals, 7 reconciliation questions, localStorage prototype for live questions/ratings",
       "blocks": [],
       "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection."
     },
@@ -370,6 +374,12 @@
       "id": "answer-engine-front-door",
       "status": "partial",
       "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
+      "blocks": []
+    },
+    {
+      "id": "answer-engine-contracts-and-evals",
+      "status": "partial",
+      "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists.",
       "blocks": []
     },
     {

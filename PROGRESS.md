@@ -459,6 +459,13 @@
 - Kept HIP-3 handoff, destination venues, listing workflow, graduation thresholds, Z-score formulas, and automation claims under product/operator review.
 - Regenerated dependent maps: 205 authored pages, 186 exact answer routes, 193 FAQ entries with 186 answerable, 999 reader-routable pages, 1,734 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
 
+## 2026-06-28 — Answer Runtime Harness
+
+- Added a provider-neutral CLI runtime that scans `data/answer-chunks.json`, applies exact-route and gap/refusal preflight, excludes internal drafts, assembles LLM-ready context, validates citations, and returns grounded cited extractive answers.
+- Added OPERATOR-INBOX item #11 for the production LLM provider/model/API key and external-context approval needed before live model calls are enabled.
+- Kept model-backed `--mode llm` fail-closed until the approved runtime env exists; `llmProductionReady` remains false while the runtime harness can now be tested locally.
+- Regenerated gap queue, LLM RAG contract, answer-validation report, requirement map, and quality audit: 11 operator signals, runtime implemented, 14/14 adversarial cases, 26/26 validation fixtures, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

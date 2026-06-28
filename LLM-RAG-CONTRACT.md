@@ -47,6 +47,26 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract and 14 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until runtime model calls, live citation validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, and 14 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should run those checks against actual model responses before production launch.
+
+## Runtime Harness
+
+Run a grounded local answer without a model call:
+
+```sh
+node src/search-book/scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --json
+```
+
+Run model-backed synthesis only after OPERATOR-INBOX item #11 is resolved and these environment variables are set:
+
+```sh
+SEARCH_BOOK_LLM_API_STYLE=openai-compatible
+SEARCH_BOOK_LLM_ENDPOINT=<approved endpoint>
+SEARCH_BOOK_LLM_MODEL=<approved model>
+SEARCH_BOOK_LLM_API_KEY=<approved key>
+SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
+```
+
+Without that approved runtime configuration, `--mode llm` fails closed instead of sending private source context to an unapproved provider.

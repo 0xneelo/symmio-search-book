@@ -292,7 +292,7 @@ const llmRagUnknownContextSourceKeys = llmRagContract.coverage?.unknownContextSo
 const llmRagContractReady =
   llmRagContract.apiContractReady === true &&
   llmRagContract.evalHarnessReady === true &&
-  llmRagContract.runtimeImplemented === false &&
+  llmRagContract.runtimeImplemented === true &&
   llmRagContract.llmProductionReady === false &&
   (llmRagAdversarial.totalCases || 0) >= (llmRagAdversarial.minimumRequiredBeforeProduction || 12) &&
   (llmRagAdversarial.passingCases || 0) === (llmRagAdversarial.totalCases || 0) &&

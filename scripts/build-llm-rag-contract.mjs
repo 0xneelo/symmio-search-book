@@ -16,6 +16,7 @@ const defaults = {
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
+  runtimeScript: path.join(searchBookRoot, "scripts", "run-llm-rag-answer.mjs"),
   outJson: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   outJs: path.join(searchBookRoot, "data", "llm-rag-contract.js"),
 };
@@ -85,6 +86,7 @@ const sourceCatalog = readJson(args.sourceCatalog);
 const gapQueue = readJson(args.gapQueue);
 const questionRoutes = readJson(args.questionRoutes);
 const openInboxItems = parseOpenInboxItems(readText(args.operatorInbox));
+const runtimeImplemented = fs.existsSync(args.runtimeScript);
 const openInboxIds = new Set(openInboxItems.map((item) => item.id));
 const gapIds = new Set((gapQueue.items || []).map((item) => item.gapId));
 const sourceKeys = new Set(Object.keys(sourceCatalog.sourceByKey || {}));
@@ -293,14 +295,24 @@ const payload = {
   contractVersion: "2026-06-28.v1",
   apiContractReady,
   evalHarnessReady,
-  runtimeImplemented: false,
+  runtimeImplemented,
   llmProductionReady: false,
-  reasonLlmProductionReadyIsFalse: "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, operator source decisions, and Discord/Lafa import are not complete.",
+  reasonLlmProductionReadyIsFalse: runtimeImplemented
+    ? "Runtime harness is implemented, but approved provider credentials, live model response validation, server persistence, operator source decisions, and Discord/Lafa import are not complete."
+    : "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, operator source decisions, and Discord/Lafa import are not complete.",
   provider: {
     policy: "provider-neutral",
     runtimeSelection: "Choose the production model/provider at implementation time. The contract only defines inputs, outputs, validation, and refusal semantics.",
+    approvedRuntimeConfigOperatorItemId: 11,
     modelIdentifierRequiredFromEnv: true,
     apiKeyRequiredFromEnv: true,
+    env: {
+      apiStyle: "SEARCH_BOOK_LLM_API_STYLE",
+      endpoint: "SEARCH_BOOK_LLM_ENDPOINT",
+      model: "SEARCH_BOOK_LLM_MODEL",
+      apiKey: "SEARCH_BOOK_LLM_API_KEY",
+      externalContextApproval: "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT",
+    },
   },
   requestSchema: contractObject(
     "SearchBookAnswerRequest",
@@ -402,6 +414,8 @@ const payload = {
   },
   coverage: {
     deterministicReady: answerEngineContract.deterministicReady || false,
+    runtimeScript: path.relative(searchBookRoot, args.runtimeScript),
+    runtimeImplemented,
     exactRouteTests,
     refusalTests,
     answerChunkPages: answerChunks.totalPages || 0,

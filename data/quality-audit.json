@@ -25,7 +25,7 @@
     "localFaqCategories": 10,
     "gapQueueItems": 13,
     "gapQueueQuestionSignals": 7,
-    "gapQueueOperatorSignals": 10,
+    "gapQueueOperatorSignals": 11,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
     "answerEngineExactRouteTests": 186,
@@ -36,7 +36,7 @@
     "answerEngineLlmProductionReady": false,
     "llmRagApiContractReady": true,
     "llmRagEvalHarnessReady": true,
-    "llmRagRuntimeImplemented": false,
+    "llmRagRuntimeImplemented": true,
     "llmRagProductionReady": false,
     "llmRagAdversarialCases": 14,
     "llmRagAdversarialCasesPassing": 14,
@@ -84,14 +84,14 @@
     "pageStatePublicNavigationPages": 204,
     "pageStateRetrievalEligiblePages": 996,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 6,
-    "completionRequirementsPartial": 4,
+    "completionRequirementsComplete": 5,
+    "completionRequirementsPartial": 5,
     "completionRequirementsParked": 7,
     "completionRequirementsMissing": 1,
     "completionReady": false,
     "sourceRegistryKeys": 116,
     "usedSourceKeys": 90,
-    "openOperatorItems": 10,
+    "openOperatorItems": 11,
     "resolvedOperatorItems": 0,
     "trackedGaps": 13,
     "answerablePrototypeQuestions": 186,
@@ -186,7 +186,7 @@
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
       "passed": true,
-      "detail": "13 queue items, 7 question signals, 10 operator signals, 2 parked pages"
+      "detail": "13 queue items, 7 question signals, 11 operator signals, 2 parked pages"
     },
     {
       "id": "deterministic-answer-engine",
@@ -198,7 +198,7 @@
       "id": "llm-rag-contract",
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
-      "detail": "14/14 adversarial cases, contract ready yes, runtime implemented no, production ready no"
+      "detail": "14/14 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
     },
     {
       "id": "answer-validation-harness",
@@ -246,13 +246,13 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "6/18 complete, 4 partial, 7 parked, 1 missing"
+      "detail": "5/18 complete, 5 partial, 7 parked, 1 missing"
     },
     {
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "10 open operator items, 0 resolved"
+      "detail": "11 open operator items, 0 resolved"
     },
     {
       "id": "discord",
@@ -794,7 +794,7 @@
     "status": "prototype-gap-queue",
     "totalItems": 13,
     "totalQuestionSignals": 7,
-    "totalOperatorSignals": 10,
+    "totalOperatorSignals": 11,
     "totalParkedPageSignals": 2,
     "byPriority": {
       "P0": 4,
@@ -1010,14 +1010,22 @@
     "contractVersion": "2026-06-28.v1",
     "apiContractReady": true,
     "evalHarnessReady": true,
-    "runtimeImplemented": false,
+    "runtimeImplemented": true,
     "llmProductionReady": false,
-    "reasonLlmProductionReadyIsFalse": "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, operator source decisions, and Discord/Lafa import are not complete.",
+    "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, but approved provider credentials, live model response validation, server persistence, operator source decisions, and Discord/Lafa import are not complete.",
     "provider": {
       "policy": "provider-neutral",
       "runtimeSelection": "Choose the production model/provider at implementation time. The contract only defines inputs, outputs, validation, and refusal semantics.",
+      "approvedRuntimeConfigOperatorItemId": 11,
       "modelIdentifierRequiredFromEnv": true,
-      "apiKeyRequiredFromEnv": true
+      "apiKeyRequiredFromEnv": true,
+      "env": {
+        "apiStyle": "SEARCH_BOOK_LLM_API_STYLE",
+        "endpoint": "SEARCH_BOOK_LLM_ENDPOINT",
+        "model": "SEARCH_BOOK_LLM_MODEL",
+        "apiKey": "SEARCH_BOOK_LLM_API_KEY",
+        "externalContextApproval": "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT"
+      }
     },
     "requestSchema": {
       "name": "SearchBookAnswerRequest",
@@ -1262,6 +1270,8 @@
     },
     "coverage": {
       "deterministicReady": true,
+      "runtimeScript": "scripts/run-llm-rag-answer.mjs",
+      "runtimeImplemented": true,
       "exactRouteTests": 186,
       "refusalTests": 7,
       "answerChunkPages": 1017,
@@ -1270,7 +1280,7 @@
       "internalDraftPages": 3,
       "sourceCatalogEntries": 116,
       "linkedSourceCatalogEntries": 102,
-      "openOperatorItems": 10,
+      "openOperatorItems": 11,
       "gapQueueItems": 13,
       "unknownContextSourceKeys": []
     },
@@ -1336,7 +1346,7 @@
       "answerChunks": 1734,
       "sourceCatalogEntries": 116,
       "pageStatePages": 999,
-      "openOperatorItems": 10,
+      "openOperatorItems": 11,
       "gapQueueItems": 13
     },
     "failureSummary": {
@@ -1821,8 +1831,8 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 6,
-      "partial": 4,
+      "complete": 5,
+      "partial": 5,
       "parked": 7,
       "missing": 1
     },
@@ -1837,6 +1847,10 @@
       "delivery": 2
     },
     "openOperatorItems": [
+      {
+        "id": 11,
+        "title": "Production LLM provider, model, and API credentials for answer synthesis"
+      },
       {
         "id": 10,
         "title": "Linear issue creation approval for private repo handoffs"
@@ -1914,6 +1928,12 @@
         "blocks": []
       },
       {
+        "id": "answer-engine-contracts-and-evals",
+        "status": "partial",
+        "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists.",
+        "blocks": []
+      },
+      {
         "id": "living-docs-loop",
         "status": "partial",
         "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection.",
@@ -1977,6 +1997,10 @@
   },
   "unresolved": {
     "operatorInbox": [
+      {
+        "id": 11,
+        "title": "Production LLM provider, model, and API credentials for answer synthesis"
+      },
       {
         "id": 10,
         "title": "Linear issue creation approval for private repo handoffs"
@@ -2220,6 +2244,12 @@
         "status": "partial",
         "blocks": [],
         "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection."
+      },
+      {
+        "id": "answer-engine-contracts-and-evals",
+        "status": "partial",
+        "blocks": [],
+        "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists."
       },
       {
         "id": "living-docs-loop",

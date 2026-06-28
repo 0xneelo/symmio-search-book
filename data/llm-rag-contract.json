@@ -4,14 +4,22 @@
   "contractVersion": "2026-06-28.v1",
   "apiContractReady": true,
   "evalHarnessReady": true,
-  "runtimeImplemented": false,
+  "runtimeImplemented": true,
   "llmProductionReady": false,
-  "reasonLlmProductionReadyIsFalse": "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, operator source decisions, and Discord/Lafa import are not complete.",
+  "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, but approved provider credentials, live model response validation, server persistence, operator source decisions, and Discord/Lafa import are not complete.",
   "provider": {
     "policy": "provider-neutral",
     "runtimeSelection": "Choose the production model/provider at implementation time. The contract only defines inputs, outputs, validation, and refusal semantics.",
+    "approvedRuntimeConfigOperatorItemId": 11,
     "modelIdentifierRequiredFromEnv": true,
-    "apiKeyRequiredFromEnv": true
+    "apiKeyRequiredFromEnv": true,
+    "env": {
+      "apiStyle": "SEARCH_BOOK_LLM_API_STYLE",
+      "endpoint": "SEARCH_BOOK_LLM_ENDPOINT",
+      "model": "SEARCH_BOOK_LLM_MODEL",
+      "apiKey": "SEARCH_BOOK_LLM_API_KEY",
+      "externalContextApproval": "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT"
+    }
   },
   "requestSchema": {
     "name": "SearchBookAnswerRequest",
@@ -277,6 +285,8 @@
   },
   "coverage": {
     "deterministicReady": true,
+    "runtimeScript": "scripts/run-llm-rag-answer.mjs",
+    "runtimeImplemented": true,
     "exactRouteTests": 186,
     "refusalTests": 7,
     "answerChunkPages": 1017,
@@ -285,7 +295,7 @@
     "internalDraftPages": 3,
     "sourceCatalogEntries": 116,
     "linkedSourceCatalogEntries": 102,
-    "openOperatorItems": 10,
+    "openOperatorItems": 11,
     "gapQueueItems": 13,
     "unknownContextSourceKeys": []
   },

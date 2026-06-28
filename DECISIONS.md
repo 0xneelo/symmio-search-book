@@ -607,3 +607,11 @@
 **Reason:** The compendium should praise mature order books while explaining why admission remains the bottleneck. These pages make Vibe's role precise: a lower discovery layer that produces real derivatives demand and maturity data before an order-book venue must spend scarce listing capacity.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-077: Implement Retrieval Runtime Before Live LLM Calls
+
+**Decision:** Add a provider-neutral runtime harness for search-book answering before choosing or calling a production LLM provider. The runtime performs deterministic preflight, scans real answer chunks, enforces page-state boundaries, returns cited extractive answers locally, and fails closed in LLM mode unless approved provider configuration is present.
+
+**Reason:** The answer engine needs actual corpus scanning and citation validation now, but live LLM synthesis requires operator approval for provider/model/API key and external-context handling. Splitting retrieval/runtime from provider selection lets the product advance without sending private documentation context to an unapproved model endpoint.
+
+**Status:** Accepted for production-readiness work; live LLM provider remains parked under OPERATOR-INBOX #11.
