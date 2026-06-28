@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 909,
+  "readerPages": 914,
   "totalVolumes": 8,
   "totalChapters": 82,
-  "pagesAssigned": 909,
+  "pagesAssigned": 914,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -3050,29 +3050,29 @@
       "title": "Token Margin, Pillars, And Funding Systems",
       "premise": "Collect token-margined perps, Vibe pillars, information/trade convergence, and funding model architecture.",
       "readerPromise": "Understand the infrastructure mechanics that make inventory-backed markets economically legible.",
-      "totalPages": 193,
+      "totalPages": 198,
       "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
       "overviewTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-      "authoredPages": 21,
+      "authoredPages": 26,
       "generatedPages": 172,
       "statusCounts": {
         "draft-extracted-from-primary-source": 118,
         "draft-imported-from-primary-source": 54,
         "publication-candidate": 12,
-        "publication-candidate-needs-operator-review": 9
+        "publication-candidate-needs-operator-review": 14
       },
       "granularityCounts": {
-        "authored-page": 21,
+        "authored-page": 26,
         "section-page": 118,
         "source-page": 54
       },
       "routeSourceCounts": {
-        "authored": 21,
+        "authored": 26,
         "generated": 172
       },
       "sectionCounts": {
         "compendium": 1,
-        "manifesto": 19,
+        "manifesto": 24,
         "protocol-reference": 1,
         "vision-papers": 54,
         "vision-sections": 118
@@ -3114,6 +3114,11 @@
         "authored-intent-otc-long-tail-verification",
         "authored-hybrid-solver-liquidity-waterfall",
         "authored-vibe-as-listing-source-of-truth",
+        "authored-cross-market-risk-mutualization",
+        "authored-dynamic-pricing-controls",
+        "authored-gradient-flow-market-balancing",
+        "authored-funding-model-control-problem",
+        "authored-utilization-modes-inventory-insurance",
         "authored-token-vault-perps-versus-usdc-pools",
         "neelo-06-usdc-token-perps-06-docs-overview",
         "neelo-06-usdc-token-perps-06-docs-figure1",
@@ -3868,6 +3873,170 @@
           ]
         },
         {
+          "id": "15-funding-rate-model",
+          "title": "15 - Funding Rate Model",
+          "section": "manifesto",
+          "track": "15 - Funding Rate Model",
+          "totalPages": 59,
+          "authoredPages": 5,
+          "generatedPages": 54,
+          "statusCounts": {
+            "draft-extracted-from-primary-source": 40,
+            "draft-imported-from-primary-source": 14,
+            "publication-candidate-needs-operator-review": 5
+          },
+          "granularityCounts": {
+            "authored-page": 5,
+            "section-page": 40,
+            "source-page": 14
+          },
+          "sourceKeys": [
+            "vibe-papers"
+          ],
+          "firstPageId": "authored-cross-market-risk-mutualization",
+          "pageIds": [
+            "authored-cross-market-risk-mutualization",
+            "authored-dynamic-pricing-controls",
+            "authored-gradient-flow-market-balancing",
+            "authored-funding-model-control-problem",
+            "authored-utilization-modes-inventory-insurance",
+            "neelo-15-funding-model-15-docs-03-core-concepts",
+            "neelo-15-funding-model-15-docs-04-variable-definitions",
+            "neelo-15-funding-model-15-docs-05-utilization-modes",
+            "neelo-15-funding-model-15-docs-06-lp-profit",
+            "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+            "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+            "neelo-15-funding-model-15-docs-09-insurance-adl",
+            "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+            "neelo-15-funding-model-15-docs-11-full-objective",
+            "neelo-15-funding-model-15-docs-12-worked-examples",
+            "neelo-15-funding-model-15-docs-01-abstract",
+            "neelo-15-funding-model-15-docs-funding-rate-model",
+            "neelo-15-funding-model-15-docs-00-informal-intro",
+            "neelo-15-funding-model-15-docs-02-index",
+            "section-15-funding-model-15-docs-03-core-concepts-how-systems-avoid-bad-local-optima",
+            "section-15-funding-model-15-docs-03-core-concepts-key-insight-inversion-of-traditional-risk",
+            "section-15-funding-model-15-docs-03-core-concepts-mathematical-foundation-gradient-flow",
+            "section-15-funding-model-15-docs-03-core-concepts-the-core-invariant-why-vibe-is-different",
+            "section-15-funding-model-15-docs-03-core-concepts-the-fundamental-analogy",
+            "section-15-funding-model-15-docs-03-core-concepts-the-unified-objective-preview",
+            "section-15-funding-model-15-docs-03-core-concepts-why-this-analogy-matters",
+            "section-15-funding-model-15-docs-04-variable-definitions-aenigma-the-adl-exposure-threshold",
+            "section-15-funding-model-15-docs-04-variable-definitions-computed-risk-signals-inputs-to-risk-function",
+            "section-15-funding-model-15-docs-04-variable-definitions-control-variables-what-the-system-chooses",
+            "section-15-funding-model-15-docs-04-variable-definitions-dynamic-pricing-variables",
+            "section-15-funding-model-15-docs-04-variable-definitions-insurance-safety-variables",
+            "section-15-funding-model-15-docs-04-variable-definitions-per-market-state-variables",
+            "section-15-funding-model-15-docs-04-variable-definitions-phase-parameter",
+            "section-15-funding-model-15-docs-04-variable-definitions-revenue-cost-variables",
+            "section-15-funding-model-15-docs-04-variable-definitions-risk-volatility-variables",
+            "section-15-funding-model-15-docs-05-utilization-modes-comparison-two-mode-system",
+            "section-15-funding-model-15-docs-05-utilization-modes-mode-1-token-inventory-utilization",
+            "section-15-funding-model-15-docs-05-utilization-modes-mode-2-insurance-fund-utilization",
+            "section-15-funding-model-15-docs-05-utilization-modes-mode-switching-logic",
+            "section-15-funding-model-15-docs-05-utilization-modes-mode-transition-diagram",
+            "section-15-funding-model-15-docs-05-utilization-modes-overview",
+            "section-15-funding-model-15-docs-05-utilization-modes-why-two-modes",
+            "section-15-funding-model-15-docs-01-abstract-a-accounting",
+            "section-15-funding-model-15-docs-01-abstract-b-risk",
+            "section-15-funding-model-15-docs-01-abstract-c-controls",
+            "section-15-funding-model-15-docs-01-abstract-d-safety-adl",
+            "section-15-funding-model-15-docs-01-abstract-e-monitoring",
+            "section-15-funding-model-15-docs-01-abstract-document-cross-reference",
+            "section-15-funding-model-15-docs-01-abstract-master-formula",
+            "section-15-funding-model-15-docs-00-informal-intro-how-to-read-the-rest-of-15-docs",
+            "section-15-funding-model-15-docs-00-informal-intro-information-and-traversal",
+            "section-15-funding-model-15-docs-00-informal-intro-the-open-problem-is-not-solvable-by-math-alone",
+            "section-15-funding-model-15-docs-00-informal-intro-the-operational-idea-separate-from-the-formula",
+            "section-15-funding-model-15-docs-00-informal-intro-trader-ux-vs-lp-efficiency-the-deliberate-tradeoff",
+            "section-15-funding-model-15-docs-00-informal-intro-what-the-math-is-for-sharpening-the-problem",
+            "section-15-funding-model-15-docs-02-index-document-index",
+            "section-15-funding-model-15-docs-02-index-key-innovations",
+            "section-15-funding-model-15-docs-02-index-notation-convention",
+            "section-15-funding-model-15-docs-02-index-quick-reference-the-one-line-summary"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-cross-market-risk-mutualization",
+              "title": "Cross-Market Risk Mutualization",
+              "section": "manifesto",
+              "track": "15 - Funding Rate Model",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-dynamic-pricing-controls",
+              "title": "Dynamic Pricing Controls",
+              "section": "manifesto",
+              "track": "15 - Funding Rate Model",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-gradient-flow-market-balancing",
+              "title": "Gradient Flow Market Balancing",
+              "section": "manifesto",
+              "track": "15 - Funding Rate Model",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-funding-model-control-problem",
+              "title": "The Funding Model Is A Control Problem",
+              "section": "manifesto",
+              "track": "15 - Funding Rate Model",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-utilization-modes-inventory-insurance",
+              "title": "Utilization Modes: Inventory And Insurance",
+              "section": "manifesto",
+              "track": "15 - Funding Rate Model",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "neelo-15-funding-model-15-docs-03-core-concepts",
+              "title": "03. Core Concepts: Gradient Flow & Attractor-Repeller Dynamics",
+              "section": "vision-papers",
+              "track": "15 - Funding Rate Model",
+              "granularity": "source-page",
+              "status": "draft-imported-from-primary-source",
+              "routeSource": "generated",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            }
+          ]
+        },
+        {
           "id": "solver-and-lp-economics",
           "title": "Solver And LP Economics",
           "section": "protocol-reference",
@@ -4122,163 +4291,6 @@
               "title": "The Coupled Design Problem",
               "section": "vision-papers",
               "track": "10 - Vibe Pillars",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "15-funding-rate-model",
-          "title": "15 - Funding Rate Model",
-          "section": "vision-papers",
-          "track": "15 - Funding Rate Model",
-          "totalPages": 54,
-          "authoredPages": 0,
-          "generatedPages": 54,
-          "statusCounts": {
-            "draft-extracted-from-primary-source": 40,
-            "draft-imported-from-primary-source": 14
-          },
-          "granularityCounts": {
-            "section-page": 40,
-            "source-page": 14
-          },
-          "sourceKeys": [
-            "vibe-papers"
-          ],
-          "firstPageId": "neelo-15-funding-model-15-docs-03-core-concepts",
-          "pageIds": [
-            "neelo-15-funding-model-15-docs-03-core-concepts",
-            "neelo-15-funding-model-15-docs-04-variable-definitions",
-            "neelo-15-funding-model-15-docs-05-utilization-modes",
-            "neelo-15-funding-model-15-docs-06-lp-profit",
-            "neelo-15-funding-model-15-docs-07-dynamic-pricing",
-            "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
-            "neelo-15-funding-model-15-docs-09-insurance-adl",
-            "neelo-15-funding-model-15-docs-10-defense-hierarchy",
-            "neelo-15-funding-model-15-docs-11-full-objective",
-            "neelo-15-funding-model-15-docs-12-worked-examples",
-            "neelo-15-funding-model-15-docs-01-abstract",
-            "neelo-15-funding-model-15-docs-funding-rate-model",
-            "neelo-15-funding-model-15-docs-00-informal-intro",
-            "neelo-15-funding-model-15-docs-02-index",
-            "section-15-funding-model-15-docs-03-core-concepts-how-systems-avoid-bad-local-optima",
-            "section-15-funding-model-15-docs-03-core-concepts-key-insight-inversion-of-traditional-risk",
-            "section-15-funding-model-15-docs-03-core-concepts-mathematical-foundation-gradient-flow",
-            "section-15-funding-model-15-docs-03-core-concepts-the-core-invariant-why-vibe-is-different",
-            "section-15-funding-model-15-docs-03-core-concepts-the-fundamental-analogy",
-            "section-15-funding-model-15-docs-03-core-concepts-the-unified-objective-preview",
-            "section-15-funding-model-15-docs-03-core-concepts-why-this-analogy-matters",
-            "section-15-funding-model-15-docs-04-variable-definitions-aenigma-the-adl-exposure-threshold",
-            "section-15-funding-model-15-docs-04-variable-definitions-computed-risk-signals-inputs-to-risk-function",
-            "section-15-funding-model-15-docs-04-variable-definitions-control-variables-what-the-system-chooses",
-            "section-15-funding-model-15-docs-04-variable-definitions-dynamic-pricing-variables",
-            "section-15-funding-model-15-docs-04-variable-definitions-insurance-safety-variables",
-            "section-15-funding-model-15-docs-04-variable-definitions-per-market-state-variables",
-            "section-15-funding-model-15-docs-04-variable-definitions-phase-parameter",
-            "section-15-funding-model-15-docs-04-variable-definitions-revenue-cost-variables",
-            "section-15-funding-model-15-docs-04-variable-definitions-risk-volatility-variables",
-            "section-15-funding-model-15-docs-05-utilization-modes-comparison-two-mode-system",
-            "section-15-funding-model-15-docs-05-utilization-modes-mode-1-token-inventory-utilization",
-            "section-15-funding-model-15-docs-05-utilization-modes-mode-2-insurance-fund-utilization",
-            "section-15-funding-model-15-docs-05-utilization-modes-mode-switching-logic",
-            "section-15-funding-model-15-docs-05-utilization-modes-mode-transition-diagram",
-            "section-15-funding-model-15-docs-05-utilization-modes-overview",
-            "section-15-funding-model-15-docs-05-utilization-modes-why-two-modes",
-            "section-15-funding-model-15-docs-01-abstract-a-accounting",
-            "section-15-funding-model-15-docs-01-abstract-b-risk",
-            "section-15-funding-model-15-docs-01-abstract-c-controls",
-            "section-15-funding-model-15-docs-01-abstract-d-safety-adl",
-            "section-15-funding-model-15-docs-01-abstract-e-monitoring",
-            "section-15-funding-model-15-docs-01-abstract-document-cross-reference",
-            "section-15-funding-model-15-docs-01-abstract-master-formula",
-            "section-15-funding-model-15-docs-00-informal-intro-how-to-read-the-rest-of-15-docs",
-            "section-15-funding-model-15-docs-00-informal-intro-information-and-traversal",
-            "section-15-funding-model-15-docs-00-informal-intro-the-open-problem-is-not-solvable-by-math-alone",
-            "section-15-funding-model-15-docs-00-informal-intro-the-operational-idea-separate-from-the-formula",
-            "section-15-funding-model-15-docs-00-informal-intro-trader-ux-vs-lp-efficiency-the-deliberate-tradeoff",
-            "section-15-funding-model-15-docs-00-informal-intro-what-the-math-is-for-sharpening-the-problem",
-            "section-15-funding-model-15-docs-02-index-document-index",
-            "section-15-funding-model-15-docs-02-index-key-innovations",
-            "section-15-funding-model-15-docs-02-index-notation-convention",
-            "section-15-funding-model-15-docs-02-index-quick-reference-the-one-line-summary"
-          ],
-          "samplePages": [
-            {
-              "id": "neelo-15-funding-model-15-docs-03-core-concepts",
-              "title": "03. Core Concepts: Gradient Flow & Attractor-Repeller Dynamics",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-15-funding-model-15-docs-04-variable-definitions",
-              "title": "04. Variable Definitions",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-15-funding-model-15-docs-05-utilization-modes",
-              "title": "05. Utilization Modes: Token Inventory vs Insurance Fund",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-15-funding-model-15-docs-06-lp-profit",
-              "title": "06. LP Profit Decomposition",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-15-funding-model-15-docs-07-dynamic-pricing",
-              "title": "07. Dynamic Pricing: Funding, Spread, and Borrow Rates",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
-              "title": "08. Bell Curve Flattening: Cross-Market Risk Mutualization",
-              "section": "vision-papers",
-              "track": "15 - Funding Rate Model",
               "granularity": "source-page",
               "status": "draft-imported-from-primary-source",
               "routeSource": "generated",
@@ -8491,6 +8503,11 @@
     "authored-intent-otc-long-tail-verification": "volume-04-token-margin-and-funding-systems",
     "authored-hybrid-solver-liquidity-waterfall": "volume-04-token-margin-and-funding-systems",
     "authored-vibe-as-listing-source-of-truth": "volume-04-token-margin-and-funding-systems",
+    "authored-cross-market-risk-mutualization": "volume-04-token-margin-and-funding-systems",
+    "authored-dynamic-pricing-controls": "volume-04-token-margin-and-funding-systems",
+    "authored-gradient-flow-market-balancing": "volume-04-token-margin-and-funding-systems",
+    "authored-funding-model-control-problem": "volume-04-token-margin-and-funding-systems",
+    "authored-utilization-modes-inventory-insurance": "volume-04-token-margin-and-funding-systems",
     "authored-token-vault-perps-versus-usdc-pools": "volume-04-token-margin-and-funding-systems",
     "neelo-06-usdc-token-perps-06-docs-overview": "volume-04-token-margin-and-funding-systems",
     "neelo-06-usdc-token-perps-06-docs-figure1": "volume-04-token-margin-and-funding-systems",

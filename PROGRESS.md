@@ -314,6 +314,12 @@
 - Routed five new thesis questions to authored pages so Ask can explain the mechanics beneath the broader bootstrap and Proof of Value pages.
 - Kept Z-score graduation thresholds and live-dashboard status labeled for product confirmation rather than presenting source-model ranges as implemented product rules.
 
+## 2026-06-28 — Funding Model Control Authored Layer
+
+- Added five authored Volume 04 manifesto pages from Neelo's funding-model corpus: the funding model as a control problem, gradient-flow market balancing, utilization modes, dynamic pricing controls, and cross-market risk mutualization.
+- Routed five new funding-system questions to authored pages so Ask can explain why funding, utilization, spreads, borrow, insurance, and ADL are one risk-control stack.
+- Kept thresholds, rates, rebates, insurance eligibility, allocation caps, and live production status under operator and implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

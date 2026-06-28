@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 102,
-  "totalAnswerable": 96,
+  "totalEntries": 107,
+  "totalAnswerable": 101,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 11,
     "Solvers And Settlement": 24,
     "Risk And Markets": 9,
-    "Revenue": 5,
+    "Revenue": 10,
     "Rewards And Referrals": 12,
     "Dashboard": 9,
     "Manifesto": 19,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 52,
     "High": 18,
-    "Low": 26
+    "Low": 31
   },
   "byRouteSource": {
-    "authored": 96
+    "authored": 101
   },
   "byType": {
-    "answerable": 96,
+    "answerable": 101,
     "reconciliation": 6
   },
   "answerable": [
@@ -2177,6 +2177,151 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-funding-model-trying-to-control",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the funding model trying to control?",
+      "normalizedQuestion": "what is the funding model trying to control",
+      "shortAnswer": "Neelo's funding-model intro and abstract support the control-surface framing; exact production policies need operator review.",
+      "answerSummary": "The Funding Model Is A Control Problem Neelo's funding model corpus starts with a useful warning: the math is not a claim that one formula can solve long tail leverage. That distinction matters for Vibe. The open problem is not only \"calculate a funding rate.\" It is how to run leveraged markets when flow is thin, information is incomplete, trader demand i...",
+      "confidence": "Low",
+      "pageId": "authored-funding-model-control-problem",
+      "pageTitle": "The Funding Model Is A Control Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-gradient-flow-mean-for-vibe-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does gradient flow mean for Vibe markets?",
+      "normalizedQuestion": "what does gradient flow mean for vibe markets",
+      "shortAnswer": "Neelo's core-concepts source explains local risk as repellers and global profit/OI as an attractor; implementation mapping remains review-bound.",
+      "answerSummary": "Gradient Flow Market Balancing The funding model source uses gradient flow as a way to explain how a market can be pushed away from dangerous local states while still being pulled toward global sustainability. In plain English: risk should repel capital before the system breaks. High utilization, extreme skew, volatility, underperformance, insurance stres...",
+      "confidence": "Low",
+      "pageId": "authored-gradient-flow-market-balancing",
+      "pageTitle": "Gradient Flow Market Balancing",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-token-inventory-and-insurance-fund-utilization-modes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are token-inventory and insurance-fund utilization modes?",
+      "normalizedQuestion": "what are token inventory and insurance fund utilization modes",
+      "shortAnswer": "Neelo's utilization-mode source separates ordinary inventory pressure from insurance-capacity stress; source thresholds are not final product values.",
+      "answerSummary": "Utilization Modes: Inventory And Insurance Neelo's funding model separates utilization into two modes because a long tail perp market can be constrained by two different things: token inventory and insurance capacity. Token inventory utilization asks whether the solver or market has enough token inventory to cover net exposure. In the source model, this i...",
+      "confidence": "Low",
+      "pageId": "authored-utilization-modes-inventory-insurance",
+      "pageTitle": "Utilization Modes: Inventory And Insurance",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-dynamic-pricing-controls-balance-a-vibe-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which dynamic pricing controls balance a Vibe market?",
+      "normalizedQuestion": "which dynamic pricing controls balance a vibe market",
+      "shortAnswer": "Neelo's dynamic-pricing source covers funding, borrow, spreads, directionality, and rebates; live rates and caps need implementation review.",
+      "answerSummary": "Dynamic Pricing Controls The funding model source treats dynamic pricing as the first defense layer. Before insurance is spent and before ADL is considered, the market should change prices so traders have incentives to rebalance the state. The source names three instruments: funding, borrow, and spread. Funding is periodic pressure on the dominant side of...",
+      "confidence": "Low",
+      "pageId": "authored-dynamic-pricing-controls",
+      "pageTitle": "Dynamic Pricing Controls",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-bell-curve-flattening-in-vibe-risk-management",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is bell-curve flattening in Vibe risk management?",
+      "normalizedQuestion": "what is bell curve flattening in vibe risk management",
+      "shortAnswer": "Neelo's bell-curve and insurance sources support cross-market risk mutualization, with eligibility and allocation policy still operator-controlled.",
+      "answerSummary": "Cross Market Risk Mutualization The bell curve flattening section of Neelo's funding model introduces a cross market insurance idea: extreme winner markets can contribute part of their surplus to stressed markets. That does not change the aggregate goal of profitable markets. It changes the distribution of tail outcomes. If one market is unusually profita...",
+      "confidence": "Low",
+      "pageId": "authored-cross-market-risk-mutualization",
+      "pageTitle": "Cross-Market Risk Mutualization",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -6085,6 +6230,151 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-funding-model-trying-to-control",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the funding model trying to control?",
+      "normalizedQuestion": "what is the funding model trying to control",
+      "shortAnswer": "Neelo's funding-model intro and abstract support the control-surface framing; exact production policies need operator review.",
+      "answerSummary": "The Funding Model Is A Control Problem Neelo's funding model corpus starts with a useful warning: the math is not a claim that one formula can solve long tail leverage. That distinction matters for Vibe. The open problem is not only \"calculate a funding rate.\" It is how to run leveraged markets when flow is thin, information is incomplete, trader demand i...",
+      "confidence": "Low",
+      "pageId": "authored-funding-model-control-problem",
+      "pageTitle": "The Funding Model Is A Control Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-gradient-flow-mean-for-vibe-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does gradient flow mean for Vibe markets?",
+      "normalizedQuestion": "what does gradient flow mean for vibe markets",
+      "shortAnswer": "Neelo's core-concepts source explains local risk as repellers and global profit/OI as an attractor; implementation mapping remains review-bound.",
+      "answerSummary": "Gradient Flow Market Balancing The funding model source uses gradient flow as a way to explain how a market can be pushed away from dangerous local states while still being pulled toward global sustainability. In plain English: risk should repel capital before the system breaks. High utilization, extreme skew, volatility, underperformance, insurance stres...",
+      "confidence": "Low",
+      "pageId": "authored-gradient-flow-market-balancing",
+      "pageTitle": "Gradient Flow Market Balancing",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-token-inventory-and-insurance-fund-utilization-modes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are token-inventory and insurance-fund utilization modes?",
+      "normalizedQuestion": "what are token inventory and insurance fund utilization modes",
+      "shortAnswer": "Neelo's utilization-mode source separates ordinary inventory pressure from insurance-capacity stress; source thresholds are not final product values.",
+      "answerSummary": "Utilization Modes: Inventory And Insurance Neelo's funding model separates utilization into two modes because a long tail perp market can be constrained by two different things: token inventory and insurance capacity. Token inventory utilization asks whether the solver or market has enough token inventory to cover net exposure. In the source model, this i...",
+      "confidence": "Low",
+      "pageId": "authored-utilization-modes-inventory-insurance",
+      "pageTitle": "Utilization Modes: Inventory And Insurance",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-dynamic-pricing-controls-balance-a-vibe-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which dynamic pricing controls balance a Vibe market?",
+      "normalizedQuestion": "which dynamic pricing controls balance a vibe market",
+      "shortAnswer": "Neelo's dynamic-pricing source covers funding, borrow, spreads, directionality, and rebates; live rates and caps need implementation review.",
+      "answerSummary": "Dynamic Pricing Controls The funding model source treats dynamic pricing as the first defense layer. Before insurance is spent and before ADL is considered, the market should change prices so traders have incentives to rebalance the state. The source names three instruments: funding, borrow, and spread. Funding is periodic pressure on the dominant side of...",
+      "confidence": "Low",
+      "pageId": "authored-dynamic-pricing-controls",
+      "pageTitle": "Dynamic Pricing Controls",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-bell-curve-flattening-in-vibe-risk-management",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is bell-curve flattening in Vibe risk management?",
+      "normalizedQuestion": "what is bell curve flattening in vibe risk management",
+      "shortAnswer": "Neelo's bell-curve and insurance sources support cross-market risk mutualization, with eligibility and allocation policy still operator-controlled.",
+      "answerSummary": "Cross Market Risk Mutualization The bell curve flattening section of Neelo's funding model introduces a cross market insurance idea: extreme winner markets can contribute part of their surplus to stressed markets. That does not change the aggregate goal of profitable markets. It changes the distribution of tail outcomes. If one market is unusually profita...",
+      "confidence": "Low",
+      "pageId": "authored-cross-market-risk-mutualization",
+      "pageTitle": "Cross-Market Risk Mutualization",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

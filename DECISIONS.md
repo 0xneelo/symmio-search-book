@@ -415,3 +415,11 @@
 **Reason:** The compendium should not treat "token-margined perps are risky" as a slogan. The Percolator corpus gives concrete mechanisms and a fair comparison point: formally verified on-chain engineering can still instantiate same-asset collateral, inverse payoff, and LP/settlement failure modes that matter directly to Vibe's architecture.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-053: Present Funding As Market Control, Not A Fee Table
+
+**Decision:** Add authored Volume 04 pages from Neelo's funding-model corpus that explain the control problem, gradient-flow analogy, utilization-mode switching, dynamic pricing controls, and cross-market risk mutualization while keeping exact rates, thresholds, rebates, and insurance policies under review.
+
+**Reason:** The funding corpus is one of the strongest vision sources because it connects trader UX, LP efficiency, solver exposure, insurance, and ADL into one control framework. Publishing that architecture helps sophisticated readers understand Vibe's long-tail market thesis without pretending the source formulas are final production parameters.
+
+**Status:** Accepted for the authored manifesto layer.
