@@ -47,6 +47,14 @@
 - The reader renders authored Markdown, generated-page previews, source keys, source URLs, related pages, indexed routes, and page-level feedback.
 - Page feedback writes into the same local ratings and gaps queues used by Search insights.
 
+## 2026-06-28 — Publication Quality Audit
+
+- Added `scripts/build-quality-audit.mjs`.
+- Generated `data/quality-audit.json` and `data/quality-audit.js`.
+- The audit checks manifest target size, generated-file parity, search-index parity, registered source-key coverage, source URL coverage, authored bodies, duplicate ids, open operator blockers, and Discord/Lafa import status.
+- Current audit result: 7 of 9 gates pass. The two open gates are expected parked requirements: operator inbox resolution and Discord/Lafa corpus import.
+- Search insights now renders a Publication Audit panel with gate rows, source coverage, reader-routable page count, open operator items, and tracked gaps.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

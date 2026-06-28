@@ -8,6 +8,7 @@
     <script src="./data/authored-pages.js"></script>
     <script src="./data/search-index.js"></script>
     <script src="./data/navigation-tree.js"></script>
+    <script src="./data/quality-audit.js"></script>
     <style>
       :root {
         color-scheme: dark;
@@ -602,6 +603,14 @@
         border-color: rgba(255, 127, 158, 0.4);
       }
 
+      .gap-row.is-pass {
+        border-color: rgba(127, 240, 179, 0.42);
+      }
+
+      .gap-row.is-blocked {
+        border-color: rgba(255, 200, 115, 0.44);
+      }
+
       .insight-metrics {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         margin-bottom: 18px;
@@ -804,6 +813,16 @@
             <div class="grid insight-metrics" id="insightMetrics"></div>
             <div class="console-layout">
               <div>
+                <h3 class="section-title">Publication Audit</h3>
+                <div id="qualityGates"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Coverage</h3>
+                <ul class="compact-list" id="qualityCoverage"></ul>
+              </aside>
+            </div>
+            <div class="console-layout">
+              <div>
                 <h3 class="section-title">Where Docs Fall Short</h3>
                 <div id="gapList"></div>
               </div>
@@ -841,6 +860,7 @@
       const corpus = window.SearchBookCorpus;
       const authored = window.SearchBookAuthored || { pages: [], totalPages: 0 };
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
+      const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -1340,8 +1360,36 @@
         `;
       }
 
+      function renderQualityAudit() {
+        const gates = qualityAudit.gates || [];
+        const passed = gates.filter((gate) => gate.passed).length;
+        const totals = qualityAudit.totals || {};
+        document.getElementById("qualityGates").innerHTML = gates.length
+          ? gates
+              .map(
+                (gate) => `
+                  <div class="gap-row ${gate.passed ? "is-pass" : "is-blocked"}">
+                    <div class="meta">${gate.passed ? "passed" : "open"} / ${escapeHtml(gate.id)}</div>
+                    <p>${escapeHtml(gate.label)}</p>
+                    <div class="meta">${escapeHtml(gate.detail)}</div>
+                  </div>
+                `,
+              )
+              .join("")
+          : '<div class="gap-row"><p>No audit generated yet.</p></div>';
+        const unresolved = qualityAudit.unresolved || {};
+        document.getElementById("qualityCoverage").innerHTML = `
+          <li><span class="meta">Gates</span><br>${passed} of ${gates.length} passing.</li>
+          <li><span class="meta">Reader-routable pages</span><br>${escapeHtml(totals.readerRoutablePages || 0)} routes: ${escapeHtml(totals.manifestPages || 0)} generated/indexed + ${escapeHtml(totals.authoredPublicationCandidates || 0)} authored.</li>
+          <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
+          <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
+          <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>
+        `;
+      }
+
       function renderInsights() {
         renderMetrics();
+        renderQualityAudit();
         renderGaps();
         renderRecent();
         renderRatings();
