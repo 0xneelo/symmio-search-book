@@ -427,6 +427,12 @@
 - Added 14 adversarial evaluation cases covering prompt injection, unsupported economics, secrets, referral-depth ambiguity, security overclaims, missing source families, internal-draft exclusion, financial advice, and fabricated citations.
 - Kept `runtimeImplemented` and `llmProductionReady` false until the production model route, persistence, live citation validator, and executed eval harness exist.
 
+## 2026-06-28 — Answer Validation Harness
+
+- Added an executable answer-validation harness that checks cited answers against page state, source catalog, source links, retrieved chunks, and paragraph citation ids.
+- Added refusal fixture validation for every LLM adversarial case, including gap events, operator item ids, and gap ids where applicable.
+- Proved 26/26 validation fixtures pass: 12 cited-answer samples from the deterministic route golden set and 14 refusal samples from the adversarial eval contract.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

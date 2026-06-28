@@ -24,6 +24,7 @@ const defaults = {
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
   llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
+  answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
@@ -189,6 +190,9 @@ const answerEngineContract = fs.existsSync(args.answerEngineContract)
 const llmRagContract = fs.existsSync(args.llmRagContract)
   ? readJson(args.llmRagContract)
   : { apiContractReady: false, evalHarnessReady: false, runtimeImplemented: false, llmProductionReady: false, adversarialEvaluation: { totalCases: 0, passingCases: 0, minimumRequiredBeforeProduction: 12, missingRequiredCategories: [], failingCaseIds: [] }, coverage: { unknownContextSourceKeys: [] } };
+const answerValidationReport = fs.existsSync(args.answerValidationReport)
+  ? readJson(args.answerValidationReport)
+  : { reportReady: false, coverage: { totalFixtures: 0, passingFixtures: 0, citedAnswerFixtures: 0, refusalFixtures: 0, failingFixtures: 0 }, failureSummary: { failingFixtureIds: [], failuresByKind: {} } };
 const answerChunks = fs.existsSync(args.answerChunks)
   ? readJson(args.answerChunks)
   : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
@@ -295,6 +299,16 @@ const llmRagContractReady =
   llmRagMissingRequiredCategories.length === 0 &&
   llmRagFailingCaseIds.length === 0 &&
   llmRagUnknownContextSourceKeys.length === 0;
+const answerValidationCoverage = answerValidationReport.coverage || {};
+const answerValidationFailingFixtureIds = answerValidationReport.failureSummary?.failingFixtureIds || [];
+const answerValidationReportReady =
+  answerValidationReport.reportReady === true &&
+  (answerValidationCoverage.totalFixtures || 0) >= 20 &&
+  (answerValidationCoverage.passingFixtures || 0) === (answerValidationCoverage.totalFixtures || 0) &&
+  (answerValidationCoverage.citedAnswerFixtures || 0) >= 12 &&
+  (answerValidationCoverage.refusalFixtures || 0) === (llmRagAdversarial.totalCases || 0) &&
+  (answerValidationCoverage.failingFixtures || 0) === 0 &&
+  answerValidationFailingFixtureIds.length === 0;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -502,6 +516,12 @@ const gates = [
     detail: `${llmRagAdversarial.passingCases || 0}/${llmRagAdversarial.totalCases || 0} adversarial cases, contract ready ${llmRagContract.apiContractReady ? "yes" : "no"}, runtime implemented ${llmRagContract.runtimeImplemented ? "yes" : "no"}, production ready ${llmRagContract.llmProductionReady ? "yes" : "no"}`,
   },
   {
+    id: "answer-validation-harness",
+    label: "Answer validation harness resolves cited and refusal fixtures",
+    passed: answerValidationReportReady,
+    detail: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0} fixtures, ${answerValidationCoverage.citedAnswerFixtures || 0} cited answers, ${answerValidationCoverage.refusalFixtures || 0} refusals, ${answerValidationCoverage.failingFixtures || 0} failing`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -632,6 +652,11 @@ const payload = {
     llmRagProductionReady: llmRagContract.llmProductionReady || false,
     llmRagAdversarialCases: llmRagAdversarial.totalCases || 0,
     llmRagAdversarialCasesPassing: llmRagAdversarial.passingCases || 0,
+    answerValidationFixtures: answerValidationCoverage.totalFixtures || 0,
+    answerValidationFixturesPassing: answerValidationCoverage.passingFixtures || 0,
+    answerValidationCitedAnswerFixtures: answerValidationCoverage.citedAnswerFixtures || 0,
+    answerValidationRefusalFixtures: answerValidationCoverage.refusalFixtures || 0,
+    answerValidationReportReady: answerValidationReport.reportReady || false,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -834,6 +859,14 @@ const payload = {
     },
     warnings: llmRagContract.warnings || [],
   },
+  answerValidationCoverage: {
+    status: answerValidationReport.status || "missing",
+    reportVersion: answerValidationReport.reportVersion || "",
+    reportReady: answerValidationReport.reportReady || false,
+    validationPolicy: answerValidationReport.validationPolicy || {},
+    coverage: answerValidationCoverage,
+    failureSummary: answerValidationReport.failureSummary || {},
+  },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,
     byCategory: glossary.byCategory || {},
@@ -949,6 +982,8 @@ const payload = {
     llmRagMissingRequiredCategories,
     llmRagFailingCaseIds,
     llmRagUnknownContextSourceKeys,
+    answerValidationFailingFixtureIds,
+    answerValidationFailuresByKind: answerValidationReport.failureSummary?.failuresByKind || {},
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
     usedKeysMissingCatalog,
@@ -996,6 +1031,7 @@ const payload = {
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Implement the LLM RAG runtime behind the API contract, then execute citation validation and adversarial evals against live answers.",
+    "Run answer validation fixtures against live runtime answers before production launch.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

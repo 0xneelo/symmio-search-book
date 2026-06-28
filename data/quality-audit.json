@@ -40,6 +40,11 @@
     "llmRagProductionReady": false,
     "llmRagAdversarialCases": 14,
     "llmRagAdversarialCasesPassing": 14,
+    "answerValidationFixtures": 26,
+    "answerValidationFixturesPassing": 26,
+    "answerValidationCitedAnswerFixtures": 12,
+    "answerValidationRefusalFixtures": 14,
+    "answerValidationReportReady": true,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
     "sourceCatalogEntries": 116,
@@ -194,6 +199,12 @@
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
       "detail": "14/14 adversarial cases, contract ready yes, runtime implemented no, production ready no"
+    },
+    {
+      "id": "answer-validation-harness",
+      "label": "Answer validation harness resolves cited and refusal fixtures",
+      "passed": true,
+      "detail": "26/26 fixtures, 12 cited answers, 14 refusals, 0 failing"
     },
     {
       "id": "glossary-routes",
@@ -1274,6 +1285,46 @@
       "LLM production readiness is intentionally false until the runtime implementation and live validation harness exist."
     ]
   },
+  "answerValidationCoverage": {
+    "status": "prototype-answer-validation-report",
+    "reportVersion": "2026-06-28.v1",
+    "reportReady": true,
+    "validationPolicy": {
+      "answeredStatus": "answered",
+      "allowedAnswerPageStates": [
+        "candidate",
+        "published"
+      ],
+      "allowedContextPageStates": [
+        "candidate",
+        "published",
+        "source-companion"
+      ],
+      "citationsRequired": true,
+      "paragraphCitationIdsRequired": true,
+      "sourceHrefRequired": true,
+      "gapEventRequiredForRefusals": true
+    },
+    "coverage": {
+      "citedAnswerFixtures": 12,
+      "refusalFixtures": 14,
+      "totalFixtures": 26,
+      "passingFixtures": 26,
+      "failingFixtures": 0,
+      "exactRouteGoldenSet": 171,
+      "adversarialGoldenSet": 14,
+      "answerChunkPages": 1002,
+      "answerChunks": 1706,
+      "sourceCatalogEntries": 116,
+      "pageStatePages": 984,
+      "openOperatorItems": 10,
+      "gapQueueItems": 13
+    },
+    "failureSummary": {
+      "failingFixtureIds": [],
+      "failuresByKind": {}
+    }
+  },
   "glossaryCoverage": {
     "totalTerms": 32,
     "byCategory": {
@@ -2012,6 +2063,8 @@
     "llmRagMissingRequiredCategories": [],
     "llmRagFailingCaseIds": [],
     "llmRagUnknownContextSourceKeys": [],
+    "answerValidationFailingFixtureIds": [],
+    "answerValidationFailuresByKind": {},
     "glossaryMissingPageIds": [],
     "glossaryMissingSourceKeys": [],
     "usedKeysMissingCatalog": [],
@@ -2236,6 +2289,7 @@
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Implement the LLM RAG runtime behind the API contract, then execute citation validation and adversarial evals against live answers.",
+    "Run answer validation fixtures against live runtime answers before production launch.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

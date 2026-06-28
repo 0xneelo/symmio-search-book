@@ -567,3 +567,11 @@
 **Reason:** The model layer must inherit the deterministic route fallback, page-state boundaries, source-key validation, and operator-inbox refusal rules. A contract-first slice lets implementation, QA, and design work proceed without binding the docs to a provider or allowing uncited synthesis into production.
 
 **Status:** Accepted for production answer-engine implementation readiness.
+
+## D-072: Validate Answer Shapes Before Live Model Calls
+
+**Decision:** Add an executable answer-validation report that checks cited-answer fixtures and refusal fixtures against current chunks, page states, source catalog entries, gap ids, and operator inbox ids before any live LLM runtime is trusted.
+
+**Reason:** The LLM contract defines the shape, but production needs a validator that can fail concrete responses. Validating synthetic fixtures first gives the runtime implementation a testable target for citation integrity, internal-draft exclusion, and gap/refusal persistence.
+
+**Status:** Accepted for answer-engine QA readiness.
