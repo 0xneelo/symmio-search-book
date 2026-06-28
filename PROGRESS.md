@@ -326,6 +326,12 @@
 - Routed five new value-framework questions to authored pages so Ask can explain why Proof of Value has to serve LPs, traders, projects, and ecosystem participants rather than only proving that a market can be listed.
 - Kept revenue-share examples, launch-partner metrics, capital-efficiency estimates, and current vault economics under operator/accounting review.
 
+## 2026-06-28 — Ode To OrderBooks Authored Layer
+
+- Added five authored Volume 03 manifesto pages from Neelo's Ode to OrderBooks corpus: order books as the mature end state, order-book bootstrap limits, RFQ before order book, lifecycle hardening before listing, and programmatic market graduation.
+- Routed five new order-book lifecycle questions to authored pages so Ask can explain why Vibe complements order-book venues instead of flattening the thesis into a venue war.
+- Kept exact graduation formulas, venue routing, and SSHE-specific mechanics under operator/source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

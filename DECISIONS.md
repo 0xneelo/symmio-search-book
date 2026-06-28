@@ -431,3 +431,11 @@
 **Reason:** The broad Proof of Value page explains the vision, but the framework corpus gives the compendium a stronger due-diligence structure. It shows that Vibe's thesis is not only permissionless market creation; it is durable value creation, risk allocation, and proof through operating evidence. Numeric examples remain source-model claims until operator/accounting review confirms what can be published.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-055: Treat Order Books As The Endpoint, Not The Enemy
+
+**Decision:** Add authored Volume 03 pages from Neelo's Ode to OrderBooks corpus that explain order books as the mature execution layer, Vibe as the upstream RFQ/intent bootstrap layer, and programmatic graduation as the bridge between them.
+
+**Reason:** The order-book corpus is central to the compendium's positioning because it avoids a weak "Vibe versus CLOBs" story. Vibe's stronger category claim is that early markets need discovery, shorting, and risk-managed liquidity before order books can scale them. Publishing this layer makes the listing-power thesis more precise while keeping exact graduation rules and SSHE mechanics under review.
+
+**Status:** Accepted for the authored manifesto layer.

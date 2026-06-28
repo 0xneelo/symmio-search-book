@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 112,
-  "totalAnswerable": 106,
+  "totalEntries": 117,
+  "totalAnswerable": 111,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 11,
+    "Getting Started": 12,
     "Trading Flow": 12,
     "Solvers And Settlement": 25,
     "Risk And Markets": 9,
     "Revenue": 10,
     "Rewards And Referrals": 12,
     "Dashboard": 9,
-    "Manifesto": 22,
+    "Manifesto": 26,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 52,
+    "Medium": 55,
     "High": 18,
-    "Low": 36
+    "Low": 38
   },
   "byRouteSource": {
-    "authored": 106
+    "authored": 111
   },
   "byType": {
-    "answerable": 106,
+    "answerable": 111,
     "reconciliation": 6
   },
   "answerable": [
@@ -3275,6 +3275,151 @@
       "pageTitle": "The Market Assembly Line",
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-praise-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does Vibe praise order books?",
+      "normalizedQuestion": "why does vibe praise order books",
+      "shortAnswer": "Neelo's Ode to OrderBooks source frames order books as the mature endpoint and Vibe as the upstream discovery layer.",
+      "answerSummary": "Order Books Are The Mature End State Neelo's Ode to OrderBooks source is deliberately not anti order book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough. The mistake is treating the best endpoint as t...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-as-mature-end-state",
+      "pageTitle": "Order Books Are The Mature End State",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-order-books-bootstrap-every-long-tail-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can't order books bootstrap every long-tail market?",
+      "normalizedQuestion": "why can t order books bootstrap every long tail market",
+      "shortAnswer": "Neelo's order-book limit and listings chapters explain selectivity, infrastructure cost, and perceived-interest gatekeeping.",
+      "answerSummary": "The Bootstrap Limit Of Order Books Order books are selective because they have to be. A full order book market requires infrastructure, market making, operational support, liquidity attention, and enough continuous interest to justify the surface. That creates the long tail gap. Crypto can create assets permissionlessly, but mature derivative listings rem...",
+      "confidence": "Medium",
+      "pageId": "authored-order-book-bootstrap-limit",
+      "pageTitle": "The Bootstrap Limit Of Order Books",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-rfq-before-order-book-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What does RFQ before order book mean?",
+      "normalizedQuestion": "what does rfq before order book mean",
+      "shortAnswer": "Neelo's source supports RFQ/intents as the bootstrap stage before order-book graduation; venue routing and SSHE mechanics remain review-bound.",
+      "answerSummary": "RFQ Before Order Book The conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book. That sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk aware pricing, and a way to discover whether derivatives dema...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-before-order-book",
+      "pageTitle": "RFQ Before Order Book",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-harden-a-token-before-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does Vibe harden a token before listing?",
+      "normalizedQuestion": "how does vibe harden a token before listing",
+      "shortAnswer": "Neelo's lifecycle-hardening source ties shorting and two-sided price discovery to better downstream listing evidence.",
+      "answerSummary": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limi...",
+      "confidence": "Medium",
+      "pageId": "authored-lifecycle-hardening-before-listing",
+      "pageTitle": "Lifecycle Hardening Before Listing",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-programmatic-market-graduation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is programmatic market graduation?",
+      "normalizedQuestion": "what is programmatic market graduation",
+      "shortAnswer": "Neelo's Part II source names graduation criteria categories; exact thresholds and automation need product confirmation.",
+      "answerSummary": "Programmatic Market Graduation Part II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story. Once Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source name...",
+      "confidence": "Low",
+      "pageId": "authored-programmatic-market-graduation",
+      "pageTitle": "Programmatic Market Graduation",
+      "pageSection": "manifesto",
+      "pageTrack": "05 - Ode to OrderBooks, Part II",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -7473,6 +7618,151 @@
       "pageTitle": "The Market Assembly Line",
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-praise-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does Vibe praise order books?",
+      "normalizedQuestion": "why does vibe praise order books",
+      "shortAnswer": "Neelo's Ode to OrderBooks source frames order books as the mature endpoint and Vibe as the upstream discovery layer.",
+      "answerSummary": "Order Books Are The Mature End State Neelo's Ode to OrderBooks source is deliberately not anti order book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough. The mistake is treating the best endpoint as t...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-as-mature-end-state",
+      "pageTitle": "Order Books Are The Mature End State",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-order-books-bootstrap-every-long-tail-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can't order books bootstrap every long-tail market?",
+      "normalizedQuestion": "why can t order books bootstrap every long tail market",
+      "shortAnswer": "Neelo's order-book limit and listings chapters explain selectivity, infrastructure cost, and perceived-interest gatekeeping.",
+      "answerSummary": "The Bootstrap Limit Of Order Books Order books are selective because they have to be. A full order book market requires infrastructure, market making, operational support, liquidity attention, and enough continuous interest to justify the surface. That creates the long tail gap. Crypto can create assets permissionlessly, but mature derivative listings rem...",
+      "confidence": "Medium",
+      "pageId": "authored-order-book-bootstrap-limit",
+      "pageTitle": "The Bootstrap Limit Of Order Books",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-rfq-before-order-book-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What does RFQ before order book mean?",
+      "normalizedQuestion": "what does rfq before order book mean",
+      "shortAnswer": "Neelo's source supports RFQ/intents as the bootstrap stage before order-book graduation; venue routing and SSHE mechanics remain review-bound.",
+      "answerSummary": "RFQ Before Order Book The conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book. That sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk aware pricing, and a way to discover whether derivatives dema...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-before-order-book",
+      "pageTitle": "RFQ Before Order Book",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-harden-a-token-before-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does Vibe harden a token before listing?",
+      "normalizedQuestion": "how does vibe harden a token before listing",
+      "shortAnswer": "Neelo's lifecycle-hardening source ties shorting and two-sided price discovery to better downstream listing evidence.",
+      "answerSummary": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limi...",
+      "confidence": "Medium",
+      "pageId": "authored-lifecycle-hardening-before-listing",
+      "pageTitle": "Lifecycle Hardening Before Listing",
+      "pageSection": "manifesto",
+      "pageTrack": "04 — Ode to OrderBooks",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-programmatic-market-graduation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is programmatic market graduation?",
+      "normalizedQuestion": "what is programmatic market graduation",
+      "shortAnswer": "Neelo's Part II source names graduation criteria categories; exact thresholds and automation need product confirmation.",
+      "answerSummary": "Programmatic Market Graduation Part II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story. Once Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source name...",
+      "confidence": "Low",
+      "pageId": "authored-programmatic-market-graduation",
+      "pageTitle": "Programmatic Market Graduation",
+      "pageSection": "manifesto",
+      "pageTrack": "05 - Ode to OrderBooks, Part II",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

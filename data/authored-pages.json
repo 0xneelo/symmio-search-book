@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 125,
+  "totalPages": 130,
   "byStatus": {
-    "publication-candidate": 66,
-    "publication-candidate-needs-operator-review": 58,
+    "publication-candidate": 69,
+    "publication-candidate-needs-operator-review": 60,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 63,
+    "manifesto": 68,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -1049,6 +1049,30 @@
       "excerpt": "Lifecycle Gates As Market Power The listing monopoly argument starts with a simple observation: a token becomes economically relevant only when it can move through market gates. Launch, graduation, spot liquidity, centralized exchange access, perp access, and institutional eligibility are not just milestones. They are control points. Neelo's lifecycle framework makes those control points visible. PumpFun controls the early creation and graduation moment. DEXs control permissionless spot access. Binance, Hyperliquid, and other mature venues control much of late stage perp availability. Each layer owns a different kind of gate, and each gate changes what the token can become. The power comes from dependency. Communities follow their token to whichever venue creates the next useful market surface. Projects optimize for the gate they need next. Traders and LPs route to the place where liquidity is real enough to act. That turns listings into user acquisition, fee capture, data capture, and ecosystem influence. The compendium should therefore avoid treating \"listing\" as an admin action. A lifecycle gate is a market formation event. It changes who can trade, who can hedge, who can short,"
     },
     {
+      "id": "authored-lifecycle-hardening-before-listing",
+      "title": "Lifecycle Hardening Before Listing",
+      "section": "manifesto",
+      "track": "04 — Ode to OrderBooks",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/05-hardening-the-lifecycle",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/03-the-end-of-narrative-based-listings"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-04-ode-to-the-orderbook-04-docs-05-hardening-the-lifecycle",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-03-the-end-of-narrative-based-listings",
+        "authored-truth-markets-no-button"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/lifecycle-hardening-before-listing.md",
+      "bodyMarkdown": "# Lifecycle Hardening Before Listing\n\nVibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer.\n\nLong-only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limited ways to act beyond posting. A shortable derivatives market changes that. Negative information can become an economic position. Critics can risk capital. Hype faces resistance earlier.\n\nThat is the hardening mechanism: two-sided price discovery tests a market before downstream venues must decide whether to list it.\n\n## Why It Helps Order Books\n\nBy the time a market graduates, it has not only shown narrative strength. It has survived leverage, short interest, volatility, solver pricing, liquidation behavior, and trader demand. That makes the later order-book listing less dependent on appearances.\n\nThe source therefore connects shorting to listing quality. A market that survives the \"NO button\" is more informative than one that only survived a marketing campaign.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Hardening the Lifecycle\".\n- `vibe-papers`: Neelo, \"Section 3: The End of Vibes-Based Listings\".\n\n## Related Pages\n\n- `authored-truth-markets-no-button`\n- `authored-market-price-as-verification`\n- `authored-end-of-narrative-based-listings`",
+      "excerpt": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limited ways to act beyond posting. A shortable derivatives market changes that. Negative information can become an economic position. Critics can risk capital. Hype faces resistance earlier. That is the hardening mechanism: two sided price discovery tests a market before downstream venues must decide whether to list it. Why It Helps Order Books By the time a market graduates, it has not only shown narrative strength. It has survived leverage, short interest, volatility, solver pricing, liquidation behavior, and trader demand. That makes the later order book listing less dependent on appearances. The source therefore connects shorting to listing quality. A market that survives the \"NO button\" is more informative than one that only survived a marketing campaign. Sources vibe papers : Neelo, \"Section 5: Hardening the Lifecycle\". vibe pap"
+    },
+    {
       "id": "authored-liquidity-as-trader-experience",
       "title": "Liquidity As Trader Experience",
       "section": "manifesto",
@@ -1434,6 +1458,30 @@
       "excerpt": "The Oracle Circuit Breaker Paradox The oracle problem in low cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety. Neelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off chain but before the capped oracle has arrived. The passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long tail tokens and memecoins violate that assumption constantly. The source backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a determinis"
     },
     {
+      "id": "authored-order-book-bootstrap-limit",
+      "title": "The Bootstrap Limit Of Order Books",
+      "section": "manifesto",
+      "track": "04 — Ode to OrderBooks",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/02-the-limit-of-order-books",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/02-the-problem-with-listings"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-04-ode-to-the-orderbook-04-docs-02-the-limit-of-order-books",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-02-the-problem-with-listings",
+        "authored-listing-plus-liquidity-thesis"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/order-book-bootstrap-limit.md",
+      "bodyMarkdown": "# The Bootstrap Limit Of Order Books\n\nOrder books are selective because they have to be. A full order-book market requires infrastructure, market making, operational support, liquidity attention, and enough continuous interest to justify the surface.\n\nThat creates the long-tail gap. Crypto can create assets permissionlessly, but mature derivative listings remain scarce. A venue must decide which markets are worth supporting before the market has fully expressed whether traders actually want the perp.\n\nThe result is a prediction problem. Venues use proxies: spot volume, community pressure, relationships, auction outcomes, narrative strength, prior listings, or other signals of perceived demand. Projects then optimize for those proxies because the proxy controls market access.\n\nThe source's claim is structural, not moral. Even a well-intentioned order-book venue becomes a gatekeeper when it cannot cheaply test every market.\n\n## Reader Implication\n\nThe docs should explain that Vibe is solving the information gap before mature listing. It lets demand become observable before the order-book layer has to commit scarce listing and liquidity resources.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: The Limit of Order Books\".\n- `vibe-papers`: Neelo, \"Section 2: The Problem with Listings\".\n\n## Related Pages\n\n- `authored-listing-plus-liquidity-thesis`\n- `authored-game-theory-of-listings`\n- `authored-end-of-narrative-based-listings`",
+      "excerpt": "The Bootstrap Limit Of Order Books Order books are selective because they have to be. A full order book market requires infrastructure, market making, operational support, liquidity attention, and enough continuous interest to justify the surface. That creates the long tail gap. Crypto can create assets permissionlessly, but mature derivative listings remain scarce. A venue must decide which markets are worth supporting before the market has fully expressed whether traders actually want the perp. The result is a prediction problem. Venues use proxies: spot volume, community pressure, relationships, auction outcomes, narrative strength, prior listings, or other signals of perceived demand. Projects then optimize for those proxies because the proxy controls market access. The source's claim is structural, not moral. Even a well intentioned order book venue becomes a gatekeeper when it cannot cheaply test every market. Reader Implication The docs should explain that Vibe is solving the information gap before mature listing. It lets demand become observable before the order book layer has to commit scarce listing and liquidity resources. Sources vibe papers : Neelo, \"Section 2: The Lim"
+    },
+    {
       "id": "authored-order-books-as-graduation-layer",
       "title": "Order Books As The Graduation Layer",
       "section": "manifesto",
@@ -1456,6 +1504,30 @@
       "file": "content/authored/manifesto/order-books-as-graduation-layer.md",
       "bodyMarkdown": "# Order Books As The Graduation Layer\n\nThe stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order-book ecosystems better by becoming the upstream discovery layer that finds which long-tail markets deserve deeper execution.\n\nThat changes the competitive frame. A new market does not need to pretend it already has the continuity, two-sided flow, and depth of a mature central limit order book. It needs a credible place to begin. If Vibe can produce real perp history before a CLOB listing, then downstream venues receive better information: actual demand, short interest, flow quality, pricing behavior, and market-maker economics.\n\nThis is why the compendium should avoid the lazy \"Vibe versus order books\" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate.\n\nThe source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order-book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity.\n\n## Reader Implication\n\nFor a project, the question becomes whether its market can earn graduation. For a CLOB ecosystem, Vibe should read as an upstream feeder and verification layer, not only as a competitor. For Vibe, the strategic bar is repeated proof that early markets can arrive downstream with better evidence than narrative alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: The CLOB Upgrade\".\n\n## Related Pages\n\n- `authored-vibe-as-discovery-layer`\n- `authored-market-assembly-line`\n- `authored-hybrid-settlement-solver-stack`",
       "excerpt": "Order Books As The Graduation Layer The stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order book ecosystems better by becoming the upstream discovery layer that finds which long tail markets deserve deeper execution. That changes the competitive frame. A new market does not need to pretend it already has the continuity, two sided flow, and depth of a mature central limit order book. It needs a credible place to begin. If Vibe can produce real perp history before a CLOB listing, then downstream venues receive better information: actual demand, short interest, flow quality, pricing behavior, and market maker economics. This is why the compendium should avoid the lazy \"Vibe versus order books\" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate. The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order book graduation. That claim needs f"
+    },
+    {
+      "id": "authored-order-books-as-mature-end-state",
+      "title": "Order Books Are The Mature End State",
+      "section": "manifesto",
+      "track": "04 — Ode to OrderBooks",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/00-abstract",
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/06-ode-to-orderbooks"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-04-ode-to-the-orderbook-04-docs-00-abstract",
+        "neelo-04-ode-to-the-orderbook-04-docs-06-ode-to-orderbooks",
+        "authored-order-books-as-graduation-layer"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/order-books-as-mature-end-state.md",
+      "bodyMarkdown": "# Order Books Are The Mature End State\n\nNeelo's Ode to OrderBooks source is deliberately not anti-order-book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough.\n\nThe mistake is treating the best endpoint as the best beginning.\n\nA mature BTC, SOL, or major-perp market has continuous flow and enough market makers to make an order book useful. A newborn long-tail asset does not. Its demand is sparse, inventory is concentrated, volatility is high, and the market may not yet have a credible set of professional counterparties.\n\nThat is why Vibe should be framed as complementary. Vibe handles market discovery and early derivatives access before the book is ready. Order books absorb the markets that prove they deserve deeper execution.\n\n## Reader Implication\n\nDo not describe Vibe as \"order books are bad.\" The stronger claim is that order books should not be forced to solve every market phase. Vibe discovers demand; order books scale efficiency.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Ode to OrderBooks\".\n- `vibe-papers`: Neelo, \"Section 6: Ode to OrderBooks\".\n\n## Related Pages\n\n- `authored-order-books-as-graduation-layer`\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`",
+      "excerpt": "Order Books Are The Mature End State Neelo's Ode to OrderBooks source is deliberately not anti order book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough. The mistake is treating the best endpoint as the best beginning. A mature BTC, SOL, or major perp market has continuous flow and enough market makers to make an order book useful. A newborn long tail asset does not. Its demand is sparse, inventory is concentrated, volatility is high, and the market may not yet have a credible set of professional counterparties. That is why Vibe should be framed as complementary. Vibe handles market discovery and early derivatives access before the book is ready. Order books absorb the markets that prove they deserve deeper execution. Reader Implication Do not describe Vibe as \"order books are bad.\" The stronger claim is that order books should not be forced to solve every market phase. Vibe discovers demand; order books scale efficiency. Sources vibe papers : Neelo, \"Ode to OrderBooks\". vibe papers : Neelo, \"Section 6: Ode to OrderBooks\". Rela"
     },
     {
       "id": "authored-partnership-over-venue-war",
@@ -1613,6 +1685,30 @@
       "file": "content/authored/reference/points-taxonomy.md",
       "bodyMarkdown": "# Points Taxonomy\n\nThe docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings:\n\n1. **Onboarding points** are campaign/accounting points inside this onboarding app. They come from registration, verification-adjacent tasks, content actions, and referral-chain awards.\n2. **Referral points** are the onboarding-app entries awarded through the referral chain when a referred user qualifies.\n3. **Network/trading points** are aggregated from wallet trading data alongside network volume, where the backend returns `total_points` for wallets in the user's network.\n4. **Vibe points** are the public Vibe trading-program points described by Vibe's docs, covering trading, referring, and community categories.\n\nThose rails can be related, but they are not interchangeable.\n\n## Onboarding Points\n\n`server/points.js` is the local points ledger for the onboarding app. It is append-only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral-level amounts, code-grant counts, grant pool, and referral-depth config. Admin config now treats percentages and totals as canonical inputs, derives absolute reward amounts, and restricts unknown config keys.\n\nThe Overview page displays this ledger as user-facing points history. It shows the type, amount, referred user/level when present, and time.\n\n## Network And Trading Points\n\n`server/volume.js` accepts `total_points` from the same wallet-total payload that provides `total_trade_volume`. `server/routes/me.js` aggregates that value across snapshot rows and returns it to both the Volume and Pulse surfaces. That makes network/trading points part of the same measurement stack as network volume.\n\nBecause this is tied to the volume source, it inherits the same source caveats: caching, daily snapshots, and the future Barometer/subgraph upgrade.\n\n## Vibe Points\n\nThe public Vibe points docs describe Vibe's own points program. Those docs are the source for trading-program categories. The onboarding app should cite them when it talks about Vibe points, but it should not collapse Vibe points into onboarding campaign points.\n\n## Publication Rule\n\nEvery page should name the rail before explaining the number. \"Your points\" is too vague. Use \"onboarding points,\" \"referral points,\" \"network/trading points,\" or \"Vibe points\" depending on the source and behavior being explained.\n\n## Sources\n\n- `server-points`: Local points ledger, config, referral chain, and award semantics.\n- `server-me`: Points ledger payload and aggregated network points.\n- `dashboard-app`: Footer distinction between onboarding points and trading points.\n- `dashboard-overview`: Points ledger UI.\n- `vibe-points`: Public Vibe points categories.\n- `spec-03`: Required separation of onboarding, network/trading, referral, and Vibe points.\n\n## Related Pages\n\n- `authored-points-and-vibe-points`\n- `authored-vibe-points-program`\n- `authored-tge-settlement-multiplier`",
       "excerpt": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the onboarding app entries awarded through the referral chain when a referred user qualifies. 3. Network/trading points are aggregated from wallet trading data alongside network volume, where the backend returns total points for wallets in the user's network. 4. Vibe points are the public Vibe trading program points described by Vibe's docs, covering trading, referring, and community categories. Those rails can be related, but they are not interchangeable. Onboarding Points server/points.js is the local points ledger for the onboarding app. It is append only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral level amounts, code grant counts, grant pool, and referral depth config. Admin config now treats percentages and totals as canonical inputs, der"
+    },
+    {
+      "id": "authored-programmatic-market-graduation",
+      "title": "Programmatic Market Graduation",
+      "section": "manifesto",
+      "track": "05 - Ode to OrderBooks, Part II",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/06-programmatic-graduation",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-06-programmatic-graduation",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-00-abstract",
+        "authored-z-score-graduation-criteria"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/programmatic-market-graduation.md",
+      "bodyMarkdown": "# Programmatic Market Graduation\n\nPart II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story.\n\nOnce Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source names the relevant categories: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two-sided participation, and declining need for solver support.\n\nThat is programmatic graduation. The market earns its next execution layer by showing that it can handle more efficient structure.\n\n## Why It Matters\n\nProgrammatic graduation reduces the listing committee's guessing burden. The order-book venue no longer has to infer demand from narrative alone. It can read a market history: who traded, how often, with what spread, under what volatility, and with what risk profile.\n\nThis gives Vibe's answer engine a clean way to explain market maturity: early markets are not failed order books; they are markets being tested for whether an order book should exist.\n\n## Publication Note\n\nThe source gives categories of graduation criteria, not confirmed live Vibe thresholds. Final docs need product confirmation for formulas, cadence, qualifying venues, and whether any graduation process is automated.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Programmatic Graduation\".\n- `vibe-papers`: Neelo, \"Ode to OrderBooks, Part II\".\n\n## Related Pages\n\n- `authored-z-score-graduation-criteria`\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-proof-value-validation-sustainability`",
+      "excerpt": "Programmatic Market Graduation Part II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story. Once Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source names the relevant categories: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining need for solver support. That is programmatic graduation. The market earns its next execution layer by showing that it can handle more efficient structure. Why It Matters Programmatic graduation reduces the listing committee's guessing burden. The order book venue no longer has to infer demand from narrative alone. It can read a market history: who traded, how often, with what spread, under what volatility, and with what risk profile. This gives Vibe's answer engine a clean way to explain market maturity: early markets are not failed order books; they are markets being tested for whether an order book should exist. Publication Note The source gives categories of graduation criteria, n"
     },
     {
       "id": "authored-proof-of-value",
@@ -1879,6 +1975,30 @@
       "file": "content/authored/reference/residual-counterparty-hedge-first.md",
       "bodyMarkdown": "# Residual Counterparty And Hedge-First Execution\n\nNeelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance.\n\nThat makes \"hedge first\" a core design idea for permissionless low-cap perps. The solver should establish backing inventory, a hedge, or a risk-adjusted quote before it becomes responsible for the residual exposure.\n\n## Internal And External Hedge Sources\n\nFor low-cap markets, the DDQ source emphasizes internal inventory or vault-controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP-style routing to reduce price impact.\n\nOpposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity.\n\n## Reader Implication\n\nThe important support answer is not \"the solver always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market-level controls can tighten.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\".\n- `vibe-architecture`: Vibe intent quotation context.\n- `symmio-intent-lifecycle`: solver event monitoring, risk checks, locking, and collateral allocation.\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-solver-event-monitoring`\n- `authored-vibe-oi-and-liquidity`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty`",
       "excerpt": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance. That makes \"hedge first\" a core design idea for permissionless low cap perps. The solver should establish backing inventory, a hedge, or a risk adjusted quote before it becomes responsible for the residual exposure. Internal And External Hedge Sources For low cap markets, the DDQ source emphasizes internal inventory or vault controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP style routing to reduce price impact. Opposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity. Reader Implication The "
+    },
+    {
+      "id": "authored-rfq-before-order-book",
+      "title": "RFQ Before Order Book",
+      "section": "manifesto",
+      "track": "04 — Ode to OrderBooks",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/03-vibe-as-bootstrap-layer",
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/09-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-04-ode-to-the-orderbook-04-docs-03-vibe-as-bootstrap-layer",
+        "neelo-04-ode-to-the-orderbook-04-docs-09-conclusion",
+        "authored-intents-complete-order-books"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/rfq-before-order-book.md",
+      "bodyMarkdown": "# RFQ Before Order Book\n\nThe conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book.\n\nThat sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk-aware pricing, and a way to discover whether derivatives demand exists. A solver-based intent or RFQ layer can answer that earlier than a full central limit order book.\n\nVibe's bootstrap layer changes the first question from \"can this market support a full book today?\" to \"can this market start trading and prove itself?\" If the market attracts sustained demand, healthier two-sided flow, and lower residual solver dependency, then the order-book question becomes easier and more evidence-based.\n\n## What To Avoid\n\nDo not present RFQ as a permanent replacement for mature execution. The source is sharper than that. RFQ is the early-market mechanism that gives the market time to become worthy of a book.\n\n## Publication Note\n\nSpecific routing through internal, external, or intermediate venues needs implementation and operator review. The publishable thesis is the sequence: bootstrap first, graduate later.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Vibe as Bootstrap Layer\".\n- `vibe-papers`: Neelo, \"Section 9: Conclusion\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-z-score-graduation-criteria`",
+      "excerpt": "RFQ Before Order Book The conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book. That sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk aware pricing, and a way to discover whether derivatives demand exists. A solver based intent or RFQ layer can answer that earlier than a full central limit order book. Vibe's bootstrap layer changes the first question from \"can this market support a full book today?\" to \"can this market start trading and prove itself?\" If the market attracts sustained demand, healthier two sided flow, and lower residual solver dependency, then the order book question becomes easier and more evidence based. What To Avoid Do not present RFQ as a permanent replacement for mature execution. The source is sharper than that. RFQ is the early market mechanism that gives the market time to become worthy of a book. Publication Note Specific routing through internal, external, or intermediate venues needs implementation and operator review. The publishable thesis is the sequence: bootstrap first, graduate later. Sour"
     },
     {
       "id": "authored-search-insights-loop",
