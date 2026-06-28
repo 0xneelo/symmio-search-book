@@ -218,6 +218,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why would token holders LP instead of USDC LPs? | `authored-token-lp-attractiveness-model` | Low | Neelo's DDQ LP section supports token-holder inventory alignment and solver-funded stablecoin operations; revenue-share and traction claims need operator review. |
 | How is Force Close different from a general escape hatch? | `authored-force-close-versus-escape-mode` | Low | Neelo's DDQ comparison frames Force Close as position-level recovery, while exact timers, proof network details, and production UI need implementation review. |
 | How are traders compensated if a solver defaults? | `authored-trader-compensation-continuity-model` | Low | Neelo's DDQ trader-compensation page favors continuity and buyout paths over simple credit-default payout claims; exact solver-default mechanics need review. |
+| Why do new Vibe markets start with conservative collateralization? | `authored-conservative-launch-collateralization` | Low | Neelo's DDQ risk-control model frames new markets as safety-first until market evidence supports looser terms; exact ratios and thresholds need review. |
+| When does global insurance support a new market? | `authored-conditional-global-insurance-allocation` | Low | Neelo's DDQ says global insurance allocation is conditional, so suspicious or immature markets may receive little or none until they earn trust. |
+| Why would a tail event cap trader profit? | `authored-tail-event-profit-cap-emergency-brake` | Low | Neelo's DDQ treats profit caps as rare emergency brakes for catastrophic gaps or manipulation, not normal settlement behavior. |
+| How does RFQ let the solver tune risk per quote? | `authored-rfq-risk-tuning` | Low | Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance. |
+| How does risk posture change as a market matures? | `authored-market-maturation-risk-posture` | Low | Neelo's DDQ supports a progression from conservative launch limits toward better UX as liquidity, history, and price integrity improve. |
 
 ## Prototype Event Log
 

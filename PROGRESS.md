@@ -508,6 +508,12 @@
 - Routed five new Ask questions so the front door can answer mechanism-level token-margin risks without collapsing them into generic "oracle risk" or "LP risk" language.
 - Kept exact production Vibe parameters, solver controls, insurance allocations, leverage bands, and ADL behavior under implementation/operator review.
 
+## 2026-06-28 — DDQ Risk-Control Reference Pages
+
+- Added five authored Volume 05 reference pages from Neelo's DDQ risk-control material: conservative launch collateralization, conditional global insurance allocation, tail-event profit caps, per-quote RFQ risk tuning, and market maturation risk posture.
+- Routed five new partner/operator risk questions to authored pages so Ask can explain how launch safety, insurance budgets, emergency caps, quote tuning, and maturation fit together.
+- Kept exact collateral ratios, insurance allocation formulas, profit-cap triggers, quote policies, and live market-classification thresholds under operator and implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 212
+      "totalGoldenRoutes": 217
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 230,
-    "retrievalEligiblePages": 1022,
+    "publicNavigationPages": 235,
+    "retrievalEligiblePages": 1027,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 230,
+      "candidate": 235,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 212,
-    "exactRouteTestsPassing": 212,
+    "totalExactRouteTests": 217,
+    "exactRouteTestsPassing": 217,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 212
+      "candidate": 217
     },
     "exactRoutesByConfidence": {
       "Medium": 98,
       "High": 30,
-      "Low": 84
+      "Low": 89
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4929,6 +4929,115 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-are-traders-compensated-if-a-solver-defaults",
         "passes": true
+      },
+      {
+        "id": "qr-why-do-new-vibe-markets-start-with-conservative-collateralization",
+        "query": "Why do new Vibe markets start with conservative collateralization?",
+        "normalizedQuery": "why do new vibe markets start with conservative collateralization",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-conservative-launch-collateralization",
+        "expectedPageTitle": "Conservative Launch Collateralization",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-new-vibe-markets-start-with-conservative-collateralization",
+        "passes": true
+      },
+      {
+        "id": "qr-when-does-global-insurance-support-a-new-market",
+        "query": "When does global insurance support a new market?",
+        "normalizedQuery": "when does global insurance support a new market",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-conditional-global-insurance-allocation",
+        "expectedPageTitle": "Conditional Global Insurance Allocation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-does-global-insurance-support-a-new-market",
+        "passes": true
+      },
+      {
+        "id": "qr-why-would-a-tail-event-cap-trader-profit",
+        "query": "Why would a tail event cap trader profit?",
+        "normalizedQuery": "why would a tail event cap trader profit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tail-event-profit-cap-emergency-brake",
+        "expectedPageTitle": "Tail-Event Profit Caps As Emergency Brakes",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-would-a-tail-event-cap-trader-profit",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-rfq-let-the-solver-tune-risk-per-quote",
+        "query": "How does RFQ let the solver tune risk per quote?",
+        "normalizedQuery": "how does rfq let the solver tune risk per quote",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-rfq-risk-tuning",
+        "expectedPageTitle": "RFQ Risk Tuning Per Quote",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-rfq-let-the-solver-tune-risk-per-quote",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-risk-posture-change-as-a-market-matures",
+        "query": "How does risk posture change as a market matures?",
+        "normalizedQuery": "how does risk posture change as a market matures",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-maturation-risk-posture",
+        "expectedPageTitle": "Market Maturation Risk Posture",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-risk-posture-change-as-a-market-matures",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -5004,7 +5113,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 212,
+      "exactRoutes": 217,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -671,3 +671,11 @@
 **Reason:** The token-margined/Percolator critique is most useful when it shows how specific mechanisms fail, not merely that same-asset collateral is risky. These pages let the compendium explain why settlement unit, matcher design, leverage capacity, payout denomination, and solver agency are core architecture choices for long-tail perps.
 
 **Status:** Accepted for the authored manifesto layer; exact production Vibe parameters, solver controls, insurance allocations, leverage bands, and ADL behavior remain under implementation/operator review.
+
+## D-085: Treat DDQ Risk Controls As Stage-Based Policy Models
+
+**Decision:** Add authored reference pages for the DDQ's stage-based risk-control mechanics: conservative launch collateralization, conditional global insurance allocation, tail-event profit caps, RFQ per-quote risk tuning, and maturation-driven risk posture changes.
+
+**Reason:** The DDQ is strongest when it explains how low-cap markets become safer before they become looser. These pages let partners, solvers, LPs, and traders understand why an early market may have tighter terms, why global insurance is not automatic, why emergency caps exist, and how the RFQ/intent model lets a solver tune risk before accepting exposure.
+
+**Status:** Accepted for the authored protocol-reference layer; exact collateral ratios, insurance formulas, cap triggers, solver quote policy, leverage bands, and market-classification thresholds remain under implementation/operator review.

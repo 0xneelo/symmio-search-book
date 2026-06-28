@@ -35,24 +35,24 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1025,
+  "totalPages": 1030,
   "byState": {
-    "candidate": 230,
+    "candidate": 235,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 231,
+    "authored": 236,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 231,
+    "authored-page": 236,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate-needs-operator-review": 131,
+    "publication-candidate-needs-operator-review": 136,
     "publication-candidate": 99,
     "needs-reconciliation": 3,
     "source-mapped": 63,
@@ -64,7 +64,7 @@
     "manifesto": 128,
     "product-reference": 25,
     "dashboard-reference": 17,
-    "protocol-reference": 35,
+    "protocol-reference": 40,
     "competitive-context": 2,
     "reference": 1,
     "rewards-referrals": 31,
@@ -107,7 +107,7 @@
       "internal-draft": 1
     },
     "volume-05-solver-lp-and-protocol-operations": {
-      "candidate": 40,
+      "candidate": 45,
       "source-companion": 75
     },
     "volume-03-listing-power-and-orderbooks": {
@@ -126,13 +126,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 230,
+  "publicCandidatePages": 235,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 230,
-  "retrievalEligiblePages": 1022,
-  "reviewRequiredPages": 926,
-  "exactQuestionRoutedPages": 209,
+  "publicNavigationPages": 235,
+  "retrievalEligiblePages": 1027,
+  "reviewRequiredPages": 931,
+  "exactQuestionRoutedPages": 214,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -182,6 +182,8 @@
     "authored-collateral-margin-cva",
     "authored-collateralized-pools-finite-long-tail",
     "authored-competitive-docs-benchmark",
+    "authored-conditional-global-insurance-allocation",
+    "authored-conservative-launch-collateralization",
     "authored-coupled-design-problem",
     "authored-cross-market-risk-mutualization",
     "authored-crypto-market-access-disconnect",
@@ -191,9 +193,7 @@
     "authored-dashboard-network",
     "authored-dashboard-overview",
     "authored-dashboard-revenue-pulse",
-    "authored-dashboard-settings",
-    "authored-dashboard-tasks",
-    "authored-dashboard-volume"
+    "authored-dashboard-settings"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -539,6 +539,55 @@
         "_specs/app-docs/05-architecture.md",
         "_specs/app-docs/06-answer-engine.md",
         "_specs/app-docs/07-research-session.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-conditional-global-insurance-allocation",
+      "title": "Conditional Global Insurance Allocation",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/conditional-global-insurance-allocation.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-conservative-launch-collateralization",
+      "title": "Conservative Launch Collateralization",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/conservative-launch-collateralization.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -2233,6 +2282,31 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-market-maturation-risk-posture",
+      "title": "Market Maturation Risk Posture",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/market-maturation-risk-posture.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-market-maturation-state-map",
       "title": "The Market Maturation State Map",
       "section": "manifesto",
@@ -3612,6 +3686,34 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-rfq-risk-tuning",
+      "title": "RFQ Risk Tuning Per Quote",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/rfq-risk-tuning.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-risk-adjusted-capital-efficiency",
       "title": "Capital Efficiency Must Be Risk-Adjusted",
       "section": "manifesto",
@@ -4538,6 +4640,31 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/02-crisis-of-verification",
         "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/01-introduction"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-tail-event-profit-cap-emergency-brake",
+      "title": "Tail-Event Profit Caps As Emergency Brakes",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/tail-event-profit-cap-emergency-brake.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

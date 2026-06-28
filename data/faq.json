@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 219,
-  "totalAnswerable": 212,
+  "totalEntries": 224,
+  "totalAnswerable": 217,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,9 +17,9 @@
   "byCategory": {
     "Getting Started": 34,
     "Trading Flow": 24,
-    "Solvers And Settlement": 41,
+    "Solvers And Settlement": 45,
     "Risk And Markets": 20,
-    "Revenue": 18,
+    "Revenue": 19,
     "Manifesto": 43,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 98,
     "High": 30,
-    "Low": 84
+    "Low": 89
   },
   "byRouteSource": {
-    "authored": 212
+    "authored": 217
   },
   "byType": {
-    "answerable": 212,
+    "answerable": 217,
     "reconciliation": 7
   },
   "answerable": [
@@ -7370,6 +7370,167 @@
       "confidence": "Low",
       "pageId": "authored-trader-compensation-continuity-model",
       "pageTitle": "Trader Compensation And Continuity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-new-vibe-markets-start-with-conservative-collateralization",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do new Vibe markets start with conservative collateralization?",
+      "normalizedQuestion": "why do new vibe markets start with conservative collateralization",
+      "shortAnswer": "Neelo's DDQ risk-control model frames new markets as safety-first until market evidence supports looser terms; exact ratios and thresholds need review.",
+      "answerSummary": "Conservative Launch Collateralization The DDQ's risk control model starts new markets from a conservative mental model: treat net solver exposure as close to fully backed until the market earns looser conditions. In the source, a newly launched market can be understood as beginning near 100% protocol side collateralization. If the solver is warehousing re...",
+      "confidence": "Low",
+      "pageId": "authored-conservative-launch-collateralization",
+      "pageTitle": "Conservative Launch Collateralization",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-global-insurance-support-a-new-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When does global insurance support a new market?",
+      "normalizedQuestion": "when does global insurance support a new market",
+      "shortAnswer": "Neelo's DDQ says global insurance allocation is conditional, so suspicious or immature markets may receive little or none until they earn trust.",
+      "answerSummary": "Conditional Global Insurance Allocation The DDQ separates local market protection from global insurance. That distinction matters because permissionless markets should not automatically receive a claim on shared system capital. In the source model, a market can have local liquidity, local insurance, and a possible pro rata share of global insurance. But t...",
+      "confidence": "Low",
+      "pageId": "authored-conditional-global-insurance-allocation",
+      "pageTitle": "Conditional Global Insurance Allocation",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-a-tail-event-cap-trader-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why would a tail event cap trader profit?",
+      "normalizedQuestion": "why would a tail event cap trader profit",
+      "shortAnswer": "Neelo's DDQ treats profit caps as rare emergency brakes for catastrophic gaps or manipulation, not normal settlement behavior.",
+      "answerSummary": "Tail Event Profit Caps As Emergency Brakes The DDQ treats profit caps as emergency brakes, not ordinary product behavior. The source introduces a tail event cap for catastrophic gaps, clear manipulation, discontinuous pricing, or states where normal liquidation and hedging cannot safely clear. In that state, the maximum realizable payout is bounded by the...",
+      "confidence": "Low",
+      "pageId": "authored-tail-event-profit-cap-emergency-brake",
+      "pageTitle": "Tail-Event Profit Caps As Emergency Brakes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-rfq-let-the-solver-tune-risk-per-quote",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does RFQ let the solver tune risk per quote?",
+      "normalizedQuestion": "how does rfq let the solver tune risk per quote",
+      "shortAnswer": "Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance.",
+      "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-risk-tuning",
+      "pageTitle": "RFQ Risk Tuning Per Quote",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-risk-posture-change-as-a-market-matures",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does risk posture change as a market matures?",
+      "normalizedQuestion": "how does risk posture change as a market matures",
+      "shortAnswer": "Neelo's DDQ supports a progression from conservative launch limits toward better UX as liquidity, history, and price integrity improve.",
+      "answerSummary": "Market Maturation Risk Posture The DDQ risk posture is not static. A new market should begin conservatively, then become more capital efficient only if its behavior supports that change. The source describes a progression: early markets start with hard boundaries, conservative long and short limits, low or zero global insurance allocation, and local insur...",
+      "confidence": "Low",
+      "pageId": "authored-market-maturation-risk-posture",
+      "pageTitle": "Market Maturation Risk Posture",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -15066,6 +15227,167 @@
       "confidence": "Low",
       "pageId": "authored-trader-compensation-continuity-model",
       "pageTitle": "Trader Compensation And Continuity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-new-vibe-markets-start-with-conservative-collateralization",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do new Vibe markets start with conservative collateralization?",
+      "normalizedQuestion": "why do new vibe markets start with conservative collateralization",
+      "shortAnswer": "Neelo's DDQ risk-control model frames new markets as safety-first until market evidence supports looser terms; exact ratios and thresholds need review.",
+      "answerSummary": "Conservative Launch Collateralization The DDQ's risk control model starts new markets from a conservative mental model: treat net solver exposure as close to fully backed until the market earns looser conditions. In the source, a newly launched market can be understood as beginning near 100% protocol side collateralization. If the solver is warehousing re...",
+      "confidence": "Low",
+      "pageId": "authored-conservative-launch-collateralization",
+      "pageTitle": "Conservative Launch Collateralization",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-global-insurance-support-a-new-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When does global insurance support a new market?",
+      "normalizedQuestion": "when does global insurance support a new market",
+      "shortAnswer": "Neelo's DDQ says global insurance allocation is conditional, so suspicious or immature markets may receive little or none until they earn trust.",
+      "answerSummary": "Conditional Global Insurance Allocation The DDQ separates local market protection from global insurance. That distinction matters because permissionless markets should not automatically receive a claim on shared system capital. In the source model, a market can have local liquidity, local insurance, and a possible pro rata share of global insurance. But t...",
+      "confidence": "Low",
+      "pageId": "authored-conditional-global-insurance-allocation",
+      "pageTitle": "Conditional Global Insurance Allocation",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-a-tail-event-cap-trader-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why would a tail event cap trader profit?",
+      "normalizedQuestion": "why would a tail event cap trader profit",
+      "shortAnswer": "Neelo's DDQ treats profit caps as rare emergency brakes for catastrophic gaps or manipulation, not normal settlement behavior.",
+      "answerSummary": "Tail Event Profit Caps As Emergency Brakes The DDQ treats profit caps as emergency brakes, not ordinary product behavior. The source introduces a tail event cap for catastrophic gaps, clear manipulation, discontinuous pricing, or states where normal liquidation and hedging cannot safely clear. In that state, the maximum realizable payout is bounded by the...",
+      "confidence": "Low",
+      "pageId": "authored-tail-event-profit-cap-emergency-brake",
+      "pageTitle": "Tail-Event Profit Caps As Emergency Brakes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-rfq-let-the-solver-tune-risk-per-quote",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does RFQ let the solver tune risk per quote?",
+      "normalizedQuestion": "how does rfq let the solver tune risk per quote",
+      "shortAnswer": "Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance.",
+      "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-risk-tuning",
+      "pageTitle": "RFQ Risk Tuning Per Quote",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-risk-posture-change-as-a-market-matures",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does risk posture change as a market matures?",
+      "normalizedQuestion": "how does risk posture change as a market matures",
+      "shortAnswer": "Neelo's DDQ supports a progression from conservative launch limits toward better UX as liquidity, history, and price integrity improve.",
+      "answerSummary": "Market Maturation Risk Posture The DDQ risk posture is not static. A new market should begin conservatively, then become more capital efficient only if its behavior supports that change. The source describes a progression: early markets start with hard boundaries, conservative long and short limits, low or zero global insurance allocation, and local insur...",
+      "confidence": "Low",
+      "pageId": "authored-market-maturation-risk-posture",
+      "pageTitle": "Market Maturation Risk Posture",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
