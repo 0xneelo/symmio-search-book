@@ -622,6 +622,12 @@
 - Routed five new Ask questions so trader, solver, and LP diligence readers can inspect hedge sourcing, quote widening, netting, closeout economics, and liquidity-collapse controls beneath the broad residual-counterparty answer.
 - Kept inventory custody, vault rights, spread formulas, execution venues, closeout rules, slippage allocation, protective thresholds, ADL rules, market-closing authority, and production solver policy under operator/implementation/legal review.
 
+## 2026-06-29 — DDQ Force Close Exact Mechanics Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ operational-failure source: Force Close failure detection, Force Close protocol timer, Force Close price proof, Force Close proof network, and Force Close latency risk.
+- Routed five new Ask questions so trader and risk-review readers can inspect how the recovery path starts, why it waits, what evidence finalizes the close, why proof does not depend on the offline solver, and what market-movement risk remains.
+- Kept exact timeout values, timer duration, proof format, proof sources, freshness windows, node counts, supported markets, chain-specific finalization, UI behavior, and production availability under operator/implementation/security review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

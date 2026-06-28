@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1138,
-  "totalChunks": 1964,
-  "pagesWithChunks": 1138,
+  "totalPages": 1143,
+  "totalChunks": 1974,
+  "pagesWithChunks": 1143,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 326,
+    "authored": 331,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 623,
+    "authored": 633,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 118,
+    "protocol-reference": 128,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2902,6 +2902,244 @@
       "wordEnd": 282,
       "wordCount": 97,
       "text": "prose should translate that into mechanism: financialized rejection, short side expression, and market discipline. The point is not vandalism. The point is falsification with economic consequence. Reader Implication New readers should understand the \"Thumbs Down\" as the simplest way to describe Vibe's cultural wedge: a market should let capital reject bad narratives as directly as it supports good ones. Sources vibe papers : Neelo, \"Section 8: The Thumbs Down\". vibe papers : Neelo, \"Section 4: The Missing NO Button\". Related Pages authored truth markets no button authored beyond polymarket continuous truth markets authored market price as verification"
+    },
+    {
+      "id": "authored-force-close-failure-detection::001",
+      "pageId": "authored-force-close-failure-detection",
+      "chunkIndex": 1,
+      "title": "Force Close Failure Detection",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-failure-detection.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Failure Detection The DDQ operational failure source begins with a simple condition: the solver stops responding to normal open or close requests in the off chain intent/RFQ pathway. Under normal operation, the user requests an open or close through the solver path and receives a quote or acceptance. Failure detection starts when that response does not arrive within the configured frontend and protocol assumptions. The source describes a short UI defined timeout before the user is prompted toward the emergency on chain route. Why Detection Is Separate From Closure Detection is not the close itself. It is the moment the interface and protocol flow decide that the normal solver path is not dependable enough for the user to wait passively. That distinction matters for support. A user asking \"is the solver offline?\" should not immediately receive a broad insolvency answer. Operational failure means unresponsiveness. The next step is Force Close initiation, not a claim that the solver has defaulted. Publication Boundary Exact timeout values, frontend prompts, supported markets, retry behavior, and monitoring signals are implementation specific. The source backed mechanism is that solver non response can route the user from off chain intent execution to an on chain Force Close path. Sources vibe papers : Neelo DDQ, \"Operational Failure\". Related Pages authored solver operational failure force close authored"
+    },
+    {
+      "id": "authored-force-close-failure-detection::002",
+      "pageId": "authored-force-close-failure-detection",
+      "chunkIndex": 2,
+      "title": "Force Close Failure Detection",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-failure-detection.md",
+      "wordStart": 185,
+      "wordEnd": 229,
+      "wordCount": 44,
+      "text": "non response can route the user from off chain intent execution to an on chain Force Close path. Sources vibe papers : Neelo DDQ, \"Operational Failure\". Related Pages authored solver operational failure force close authored force close versus escape mode authored solver event monitoring"
+    },
+    {
+      "id": "authored-force-close-latency-risk::001",
+      "pageId": "authored-force-close-latency-risk",
+      "chunkIndex": 1,
+      "title": "Force Close Latency Risk",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-latency-risk.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Latency Risk The DDQ aftermath source is careful about the user's financial exposure. It does not say solver downtime is free. It says the main financial cost is the market movement risk during the forced close latency window. In plain terms: the user is not meant to be stuck until the solver recovers, but the position remains exposed while the user detects the failure, posts the on chain Force Close request, waits through the timer, obtains proof, and submits the finalization transaction. What The User Is Actually Risking Latency risk is incremental price risk during recovery. The market can move between the user's original intent to close and the final on chain close. For leveraged positions, that window matters. This is the honest answer to \"what do I lose if the solver is offline?\" The source says the risk is not a default haircut simply because the solver is unresponsive. The risk is that the market can move while the Force Close path completes. Publication Boundary The source includes example timelines and an expectation that delays can compress as infrastructure hardens. Production docs should not promise a specific seconds level or minutes level outcome unless current timers, chain conditions, proof flow, UI behavior, and supported markets are verified. Sources vibe papers : Neelo DDQ, \"Operation failure aftermath\" and"
+    },
+    {
+      "id": "authored-force-close-latency-risk::002",
+      "pageId": "authored-force-close-latency-risk",
+      "chunkIndex": 2,
+      "title": "Force Close Latency Risk",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-latency-risk.md",
+      "wordStart": 185,
+      "wordEnd": 240,
+      "wordCount": 55,
+      "text": "should not promise a specific seconds level or minutes level outcome unless current timers, chain conditions, proof flow, UI behavior, and supported markets are verified. Sources vibe papers : Neelo DDQ, \"Operation failure aftermath\" and \"Operational Failure\". Related Pages authored force close protocol timer authored force close price proof authored force close versus escape mode"
+    },
+    {
+      "id": "authored-force-close-price-proof::001",
+      "pageId": "authored-force-close-price-proof",
+      "chunkIndex": 1,
+      "title": "Force Close Price Proof",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-price-proof.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Price Proof The DDQ source says Force Close finalization depends on a price proof. After the user posts the Force Close request and the timer completes, the user supplies proof that the market traded at or through the requested close price after the request timestamp. The source describes the proof in terms of recent candle data and freshness constraints. The important documentation point is not the exact candle parameter. It is that Force Close is not an arbitrary user selected close. It requires a verifiable market price condition. Why The Proof Matters The proof is what lets the on chain path close a position without trusting the offline solver. It connects the emergency close to market evidence after the user initiated the on chain request. That keeps the mechanism trader grade without turning it into a blank check. The user gets a route around solver non response, but the close still has to satisfy proof rules. Publication Boundary Exact proof format, oracle or candle source, freshness window, accepted price condition, supported symbols, proof verifier, and chain specific submission rules require implementation review. This page documents the source backed proof requirement, not final production parameters. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Operation failure aftermath\". Related Pages authored force close proof network authored force close protocol timer"
+    },
+    {
+      "id": "authored-force-close-price-proof::002",
+      "pageId": "authored-force-close-price-proof",
+      "chunkIndex": 2,
+      "title": "Force Close Price Proof",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-price-proof.md",
+      "wordStart": 185,
+      "wordEnd": 226,
+      "wordCount": 41,
+      "text": "page documents the source backed proof requirement, not final production parameters. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Operation failure aftermath\". Related Pages authored force close proof network authored force close protocol timer authored force close versus escape mode"
+    },
+    {
+      "id": "authored-force-close-proof-network::001",
+      "pageId": "authored-force-close-proof-network",
+      "chunkIndex": 1,
+      "title": "Force Close Proof Network",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/ii-comparsion-to-other-protocols"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-proof-network.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Proof Network The DDQ source describes the Force Close proof as coming from a decentralized node or endpoint network rather than from the unresponsive solver. That is the trust minimization claim: the user can obtain proof for the close path without solver cooperation. The proof network uses account or position data together with market price data to generate a verifiable proof. The user can then submit that proof on chain to finalize the close if the Force Close conditions are satisfied. Why It Is Different From Solver Recovery If the same solver had to provide the proof, Force Close would not solve the operational failure problem. The recovery path needs an independent proof source so the user is not waiting for the failed component to become healthy again. This is also why the DDQ contrasts Force Close with broader escape mode systems. Both can be trust minimized, but Force Close is aimed at active position continuity: prove this position can close now, not only recover funds after a prolonged outage. Publication Boundary The source mentions a large decentralized network, but production docs should not publish node counts, vendor names, proof availability guarantees, endpoint topology, or trust assumptions until current implementation and security review confirms them. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Comparsion to other Protocols\"."
+    },
+    {
+      "id": "authored-force-close-proof-network::002",
+      "pageId": "authored-force-close-proof-network",
+      "chunkIndex": 2,
+      "title": "Force Close Proof Network",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/ii-comparsion-to-other-protocols"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-proof-network.md",
+      "wordStart": 185,
+      "wordEnd": 239,
+      "wordCount": 54,
+      "text": "not publish node counts, vendor names, proof availability guarantees, endpoint topology, or trust assumptions until current implementation and security review confirms them. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Comparsion to other Protocols\". Related Pages authored force close price proof authored force close versus escape mode authored solver operational failure force close"
+    },
+    {
+      "id": "authored-force-close-protocol-timer::001",
+      "pageId": "authored-force-close-protocol-timer",
+      "chunkIndex": 1,
+      "title": "Force Close Protocol Timer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-protocol-timer.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Protocol Timer The DDQ Force Close flow includes an on chain timer after the user posts a Force Close request. The timer gives the protocol a defined waiting window before the user can finalize a close without solver cooperation. The source gives illustrative minutes level timing. It describes a path where the user posts the request on chain, the request is confirmed, the timer runs, and the user then supplies a valid proof to close the position. What The Timer Is For The timer is the handoff from \"the solver did not respond\" to \"the user can use a proof based on chain close.\" It prevents the recovery path from being only a frontend action while still avoiding the long delay of whole account escape systems. For leveraged trading, this is the practical difference. A timer measured in minutes is designed for position risk management; a recovery path measured in days is designed for catastrophic account recovery. Publication Boundary Do not publish the source's example timing as final production behavior unless implementation review confirms it. Exact timer duration, block confirmation assumptions, proof generation timing, chain support, and UI copy remain operator and engineering review items. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Operation failure aftermath\". Related Pages authored solver operational failure force close authored force close"
+    },
+    {
+      "id": "authored-force-close-protocol-timer::002",
+      "pageId": "authored-force-close-protocol-timer",
+      "chunkIndex": 2,
+      "title": "Force Close Protocol Timer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-protocol-timer.md",
+      "wordStart": 185,
+      "wordEnd": 228,
+      "wordCount": 43,
+      "text": "timing, chain support, and UI copy remain operator and engineering review items. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Operation failure aftermath\". Related Pages authored solver operational failure force close authored force close latency risk authored force close versus escape mode"
     },
     {
       "id": "authored-force-close-versus-escape-mode::001",

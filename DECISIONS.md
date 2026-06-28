@@ -823,3 +823,11 @@
 **Reason:** The broad residual-counterparty page explains hedge-first solver behavior, but solver/LP and trader diligence readers need exact routes for where the hedge comes from, why quotes widen, how netting reduces external execution, why exits reflect executable liquidity, and what controls tighten when liquidity disappears. Splitting these answers improves answer-engine routing while preserving the source boundary.
 
 **Status:** Accepted for the authored protocol-reference layer; inventory custody, vault rights, spread formulas, execution venues, closeout rules, slippage allocation, protective thresholds, ADL rules, market-closing authority, and production solver policy remain operator/implementation/legal review.
+
+## D-104: Split Force Close Recovery Into Exact Diligence Answers
+
+**Decision:** Add authored protocol-reference pages for Force Close failure detection, the Force Close protocol timer, Force Close price proofs, the Force Close proof network, and Force Close latency risk.
+
+**Reason:** The broad operational-failure and escape-mode pages explain Force Close as a position-level recovery path, but support and diligence readers need exact answers for how the path starts, why a timer exists, what evidence finalizes the close, why proof is independent of the solver, and what financial risk remains while recovery completes.
+
+**Status:** Accepted for the authored protocol-reference layer; exact timeout values, timer duration, proof format, proof sources, freshness windows, node counts, supported markets, chain-specific finalization, UI behavior, and production availability remain operator/implementation/security review.

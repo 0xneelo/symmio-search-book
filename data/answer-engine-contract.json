@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 307
+      "totalGoldenRoutes": 312
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 325,
-    "retrievalEligiblePages": 1117,
+    "publicNavigationPages": 330,
+    "retrievalEligiblePages": 1122,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 325,
+      "candidate": 330,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 307,
-    "exactRouteTestsPassing": 307,
+    "totalExactRouteTests": 312,
+    "exactRouteTestsPassing": 312,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 307
+      "candidate": 312
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 126
+      "Low": 131
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6217,6 +6217,111 @@
         "passes": true
       },
       {
+        "id": "qr-how-does-vibe-detect-that-force-close-is-needed",
+        "query": "How does Vibe detect that Force Close is needed?",
+        "normalizedQuery": "how does vibe detect that force close is needed",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-failure-detection",
+        "expectedPageTitle": "Force Close Failure Detection",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-vibe-detect-that-force-close-is-needed",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-force-close-timer-do",
+        "query": "What does the Force Close timer do?",
+        "normalizedQuery": "what does the force close timer do",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-protocol-timer",
+        "expectedPageTitle": "Force Close Protocol Timer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-force-close-timer-do",
+        "passes": true
+      },
+      {
+        "id": "qr-what-proof-is-needed-to-finalize-force-close",
+        "query": "What proof is needed to finalize Force Close?",
+        "normalizedQuery": "what proof is needed to finalize force close",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-price-proof",
+        "expectedPageTitle": "Force Close Price Proof",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-proof-is-needed-to-finalize-force-close",
+        "passes": true
+      },
+      {
+        "id": "qr-who-provides-force-close-proofs-if-the-solver-is-offline",
+        "query": "Who provides Force Close proofs if the solver is offline?",
+        "normalizedQuery": "who provides force close proofs if the solver is offline",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-proof-network",
+        "expectedPageTitle": "Force Close Proof Network",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-provides-force-close-proofs-if-the-solver-is-offline",
+        "passes": true
+      },
+      {
+        "id": "qr-what-risk-remains-during-force-close",
+        "query": "What risk remains during Force Close?",
+        "normalizedQuery": "what risk remains during force close",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-latency-risk",
+        "expectedPageTitle": "Force Close Latency Risk",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-risk-remains-during-force-close",
+        "passes": true
+      },
+      {
         "id": "qr-what-happens-if-a-solver-defaults",
         "query": "What happens if a solver defaults?",
         "normalizedQuery": "what happens if a solver defaults",
@@ -7077,7 +7182,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 307,
+      "exactRoutes": 312,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

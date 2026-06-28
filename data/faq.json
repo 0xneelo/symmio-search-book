@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 314,
-  "totalAnswerable": 307,
+  "totalEntries": 319,
+  "totalAnswerable": 312,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 70,
+    "Solvers And Settlement": 75,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 126
+    "Low": 131
   },
   "byRouteSource": {
-    "authored": 307
+    "authored": 312
   },
   "byType": {
-    "answerable": 307,
+    "answerable": 312,
     "reconciliation": 7
   },
   "answerable": [
@@ -9324,6 +9324,151 @@
       "confidence": "Low",
       "pageId": "authored-solver-operational-failure-force-close",
       "pageTitle": "Solver Operational Failure And Force Close",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-detect-that-force-close-is-needed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does Vibe detect that Force Close is needed?",
+      "normalizedQuestion": "how does vibe detect that force close is needed",
+      "shortAnswer": "Neelo's DDQ starts the Force Close path from solver non-response to normal off-chain open or close requests; exact timeouts and UI prompts need review.",
+      "answerSummary": "Force Close Failure Detection The DDQ operational failure source begins with a simple condition: the solver stops responding to normal open or close requests in the off chain intent/RFQ pathway. Under normal operation, the user requests an open or close through the solver path and receives a quote or acceptance. Failure detection starts when that response...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-failure-detection",
+      "pageTitle": "Force Close Failure Detection",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-force-close-timer-do",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the Force Close timer do?",
+      "normalizedQuestion": "what does the force close timer do",
+      "shortAnswer": "Neelo's DDQ describes an on-chain waiting window between Force Close initiation and proof-based finalization; exact timer values need production confirmation.",
+      "answerSummary": "Force Close Protocol Timer The DDQ Force Close flow includes an on chain timer after the user posts a Force Close request. The timer gives the protocol a defined waiting window before the user can finalize a close without solver cooperation. The source gives illustrative minutes level timing. It describes a path where the user posts the request on chain,...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-protocol-timer",
+      "pageTitle": "Force Close Protocol Timer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-proof-is-needed-to-finalize-force-close",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What proof is needed to finalize Force Close?",
+      "normalizedQuestion": "what proof is needed to finalize force close",
+      "shortAnswer": "Neelo's DDQ says the user supplies a price proof showing the market traded at or through the requested close price after the request timestamp.",
+      "answerSummary": "Force Close Price Proof The DDQ source says Force Close finalization depends on a price proof. After the user posts the Force Close request and the timer completes, the user supplies proof that the market traded at or through the requested close price after the request timestamp. The source describes the proof in terms of recent candle data and freshness...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-price-proof",
+      "pageTitle": "Force Close Price Proof",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-provides-force-close-proofs-if-the-solver-is-offline",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who provides Force Close proofs if the solver is offline?",
+      "normalizedQuestion": "who provides force close proofs if the solver is offline",
+      "shortAnswer": "Neelo's DDQ describes a decentralized proof source so Force Close does not depend on the unresponsive solver.",
+      "answerSummary": "Force Close Proof Network The DDQ source describes the Force Close proof as coming from a decentralized node or endpoint network rather than from the unresponsive solver. That is the trust minimization claim: the user can obtain proof for the close path without solver cooperation. The proof network uses account or position data together with market price...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-proof-network",
+      "pageTitle": "Force Close Proof Network",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-risk-remains-during-force-close",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What risk remains during Force Close?",
+      "normalizedQuestion": "what risk remains during force close",
+      "shortAnswer": "Neelo's DDQ aftermath source identifies market movement during the recovery window as the user's main financial exposure.",
+      "answerSummary": "Force Close Latency Risk The DDQ aftermath source is careful about the user's financial exposure. It does not say solver downtime is free. It says the main financial cost is the market movement risk during the forced close latency window. In plain terms: the user is not meant to be stuck until the solver recovers, but the position remains exposed while th...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-latency-risk",
+      "pageTitle": "Force Close Latency Risk",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -20087,6 +20232,151 @@
       "confidence": "Low",
       "pageId": "authored-solver-operational-failure-force-close",
       "pageTitle": "Solver Operational Failure And Force Close",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-detect-that-force-close-is-needed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does Vibe detect that Force Close is needed?",
+      "normalizedQuestion": "how does vibe detect that force close is needed",
+      "shortAnswer": "Neelo's DDQ starts the Force Close path from solver non-response to normal off-chain open or close requests; exact timeouts and UI prompts need review.",
+      "answerSummary": "Force Close Failure Detection The DDQ operational failure source begins with a simple condition: the solver stops responding to normal open or close requests in the off chain intent/RFQ pathway. Under normal operation, the user requests an open or close through the solver path and receives a quote or acceptance. Failure detection starts when that response...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-failure-detection",
+      "pageTitle": "Force Close Failure Detection",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-force-close-timer-do",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the Force Close timer do?",
+      "normalizedQuestion": "what does the force close timer do",
+      "shortAnswer": "Neelo's DDQ describes an on-chain waiting window between Force Close initiation and proof-based finalization; exact timer values need production confirmation.",
+      "answerSummary": "Force Close Protocol Timer The DDQ Force Close flow includes an on chain timer after the user posts a Force Close request. The timer gives the protocol a defined waiting window before the user can finalize a close without solver cooperation. The source gives illustrative minutes level timing. It describes a path where the user posts the request on chain,...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-protocol-timer",
+      "pageTitle": "Force Close Protocol Timer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-proof-is-needed-to-finalize-force-close",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What proof is needed to finalize Force Close?",
+      "normalizedQuestion": "what proof is needed to finalize force close",
+      "shortAnswer": "Neelo's DDQ says the user supplies a price proof showing the market traded at or through the requested close price after the request timestamp.",
+      "answerSummary": "Force Close Price Proof The DDQ source says Force Close finalization depends on a price proof. After the user posts the Force Close request and the timer completes, the user supplies proof that the market traded at or through the requested close price after the request timestamp. The source describes the proof in terms of recent candle data and freshness...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-price-proof",
+      "pageTitle": "Force Close Price Proof",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-provides-force-close-proofs-if-the-solver-is-offline",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who provides Force Close proofs if the solver is offline?",
+      "normalizedQuestion": "who provides force close proofs if the solver is offline",
+      "shortAnswer": "Neelo's DDQ describes a decentralized proof source so Force Close does not depend on the unresponsive solver.",
+      "answerSummary": "Force Close Proof Network The DDQ source describes the Force Close proof as coming from a decentralized node or endpoint network rather than from the unresponsive solver. That is the trust minimization claim: the user can obtain proof for the close path without solver cooperation. The proof network uses account or position data together with market price...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-proof-network",
+      "pageTitle": "Force Close Proof Network",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-risk-remains-during-force-close",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What risk remains during Force Close?",
+      "normalizedQuestion": "what risk remains during force close",
+      "shortAnswer": "Neelo's DDQ aftermath source identifies market movement during the recovery window as the user's main financial exposure.",
+      "answerSummary": "Force Close Latency Risk The DDQ aftermath source is careful about the user's financial exposure. It does not say solver downtime is free. It says the main financial cost is the market movement risk during the forced close latency window. In plain terms: the user is not meant to be stuck until the solver recovers, but the position remains exposed while th...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-latency-risk",
+      "pageTitle": "Force Close Latency Risk",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

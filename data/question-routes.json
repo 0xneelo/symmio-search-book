@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 307,
+  "totalRoutes": 312,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 126
+    "Low": 131
   },
   "byRouteSource": {
-    "authored": 307
+    "authored": 312
   },
   "answerable": [
     {
@@ -4782,6 +4782,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-vibe-detect-that-force-close-is-needed",
+      "question": "How does Vibe detect that Force Close is needed?",
+      "normalizedQuestion": "how does vibe detect that force close is needed",
+      "pageId": "authored-force-close-failure-detection",
+      "pageTitle": "Force Close Failure Detection",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ starts the Force Close path from solver non-response to normal off-chain open or close requests; exact timeouts and UI prompts need review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-force-close-timer-do",
+      "question": "What does the Force Close timer do?",
+      "normalizedQuestion": "what does the force close timer do",
+      "pageId": "authored-force-close-protocol-timer",
+      "pageTitle": "Force Close Protocol Timer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ describes an on-chain waiting window between Force Close initiation and proof-based finalization; exact timer values need production confirmation.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-proof-is-needed-to-finalize-force-close",
+      "question": "What proof is needed to finalize Force Close?",
+      "normalizedQuestion": "what proof is needed to finalize force close",
+      "pageId": "authored-force-close-price-proof",
+      "pageTitle": "Force Close Price Proof",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says the user supplies a price proof showing the market traded at or through the requested close price after the request timestamp.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-provides-force-close-proofs-if-the-solver-is-offline",
+      "question": "Who provides Force Close proofs if the solver is offline?",
+      "normalizedQuestion": "who provides force close proofs if the solver is offline",
+      "pageId": "authored-force-close-proof-network",
+      "pageTitle": "Force Close Proof Network",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ describes a decentralized proof source so Force Close does not depend on the unresponsive solver.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-risk-remains-during-force-close",
+      "question": "What risk remains during Force Close?",
+      "normalizedQuestion": "what risk remains during force close",
+      "pageId": "authored-force-close-latency-risk",
+      "pageTitle": "Force Close Latency Risk",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ aftermath source identifies market movement during the recovery window as the user's main financial exposure.",
       "sourceKeys": [
         "vibe-papers"
       ],
