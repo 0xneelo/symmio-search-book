@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 181
+      "totalGoldenRoutes": 186
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 199,
-    "retrievalEligiblePages": 991,
+    "publicNavigationPages": 204,
+    "retrievalEligiblePages": 996,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 199,
+      "candidate": 204,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 181,
-    "exactRouteTestsPassing": 181,
+    "totalExactRouteTests": 186,
+    "exactRouteTestsPassing": 186,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 181
+      "candidate": 186
     },
     "exactRoutesByConfidence": {
-      "Medium": 85,
+      "Medium": 88,
       "High": 29,
-      "Low": 67
+      "Low": 69
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3334,6 +3334,113 @@
         "passes": true
       },
       {
+        "id": "qr-why-is-order-book-admission-the-bottleneck",
+        "query": "Why is order-book admission the bottleneck?",
+        "normalizedQuery": "why is order book admission the bottleneck",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-order-book-admission-bottleneck",
+        "expectedPageTitle": "Order Book Admission Bottleneck",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-order-book-admission-the-bottleneck",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-hyperliquid-gap",
+        "query": "What is the Hyperliquid gap?",
+        "normalizedQuery": "what is the hyperliquid gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-hyperliquid-gap-lower-layer",
+        "expectedPageTitle": "The Hyperliquid Gap Needs A Lower Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "hyperliquid-hip3"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "hyperliquid-hip3"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-hyperliquid-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-launchpad-to-order-book-path",
+        "query": "What is the launchpad to order-book path?",
+        "normalizedQuery": "what is the launchpad to order book path",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-launchpad-dex-vibe-orderbook-path",
+        "expectedPageTitle": "Launchpad To DEX To Vibe To Order Book",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-launchpad-to-order-book-path",
+        "passes": true
+      },
+      {
+        "id": "qr-which-data-should-prove-a-market-can-graduate",
+        "query": "Which data should prove a market can graduate?",
+        "normalizedQuery": "which data should prove a market can graduate",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-graduation-data-checklist",
+        "expectedPageTitle": "Graduation Data Checklist",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-data-should-prove-a-market-can-graduate",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-house-of-all-finance-need-vibe-beneath-it",
+        "query": "Why does the house of all finance need Vibe beneath it?",
+        "normalizedQuery": "why does the house of all finance need vibe beneath it",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-house-of-all-finance-proving-ground",
+        "expectedPageTitle": "The House Of All Finance Needs A Proving Ground",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-house-of-all-finance-need-vibe-beneath-it",
+        "passes": true
+      },
+      {
         "id": "qr-what-does-liquidity-mean-for-traders",
         "query": "What does liquidity mean for traders?",
         "normalizedQuery": "what does liquidity mean for traders",
@@ -4335,7 +4442,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 181,
+      "exactRoutes": 186,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

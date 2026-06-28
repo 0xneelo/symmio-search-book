@@ -42,6 +42,6 @@ Run:
 node src/search-book/scripts/build-answer-engine-contract.mjs
 ```
 
-The generated artifact is `data/answer-engine-contract.json`. It currently proves 181 seeded exact-route tests and 7 refusal tests. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
+The generated artifact is `data/answer-engine-contract.json`. It currently proves 186 seeded exact-route tests and 7 refusal tests. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
 
 The LLM synthesis layer is specified separately in `LLM-RAG-CONTRACT.md`. It must preserve this deterministic contract as its fallback and golden set.

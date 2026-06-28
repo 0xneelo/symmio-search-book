@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 200,
+  "totalPages": 205,
   "byStatus": {
-    "publication-candidate": 92,
-    "publication-candidate-needs-operator-review": 107,
+    "publication-candidate": 94,
+    "publication-candidate-needs-operator-review": 110,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 103,
+    "manifesto": 108,
     "dashboard-reference": 12,
     "protocol-reference": 32,
     "competitive-context": 1,
@@ -1122,6 +1122,53 @@
       "excerpt": "Gradient Flow Market Balancing The funding model source uses gradient flow as a way to explain how a market can be pushed away from dangerous local states while still being pulled toward global sustainability. In plain English: risk should repel capital before the system breaks. High utilization, extreme skew, volatility, underperformance, insurance stress, and uncovered residual exposure should make the wrong side more expensive. At the same time, the system should reward states where market profit, usable open interest, and solvency are more stable. That is the \"field\" model behind the source. Profit and durable OI are the attractor. Local risk is the repeller. Dynamic prices, insurance rules, and ADL constraints define the paths capital can take through the field. What The Analogy Clarifies The analogy helps readers avoid a common mistake. A funding model is not just a number paid every interval. It is a signal routing system. If a market has too much one sided exposure, the dominant side should feel more cost. If inventory is scarce, additional same direction flow should get worse pricing. If insurance capacity is becoming the binding constraint, the system should stop acting l"
     },
     {
+      "id": "authored-graduation-data-checklist",
+      "title": "Graduation Data Checklist",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/06-programmatic-graduation"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-06-programmatic-graduation",
+        "authored-programmatic-market-graduation",
+        "authored-z-score-graduation-criteria"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/graduation-data-checklist.md",
+      "bodyMarkdown": "# Graduation Data Checklist\n\nProgrammatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two-sided participation, and declining dependence on solver support.\n\nThat list is more important than any one threshold. It says a market should graduate because it has become operationally healthier, not because a committee likes the story.\n\n## How The Checklist Should Be Read\n\nThe checklist has three jobs.\n\nFirst, it tests demand. Volume and trader count show whether the market is repeatedly used by more than one motivated group.\n\nSecond, it tests market quality. Liquidity depth, spread behavior, and liquidation outcomes show whether the market can withstand normal stress without becoming an artificial one-sided casino.\n\nThird, it tests maturity. Declining solver dependence and more two-sided participation show that the market can move toward tighter execution and more order-book-like structure.\n\n## Publication Boundary\n\nThe source gives categories, not final live formulas. This page should not publish production thresholds, weighting, cadence, graduation automation, eligible destination venues, or Z-score formulas until the product layer confirms them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Programmatic Graduation\".\n\n## Related Pages\n\n- `authored-programmatic-market-graduation`\n- `authored-z-score-graduation-criteria`\n- `authored-vibe-as-listing-source-of-truth`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-06-programmatic-graduation`",
+      "excerpt": "Graduation Data Checklist Programmatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining dependence on solver support. That list is more important than any one threshold. It says a market should graduate because it has become operationally healthier, not because a committee likes the story. How The Checklist Should Be Read The checklist has three jobs. First, it tests demand. Volume and trader count show whether the market is repeatedly used by more than one motivated group. Second, it tests market quality. Liquidity depth, spread behavior, and liquidation outcomes show whether the market can withstand normal stress without becoming an artificial one sided casino. Third, it tests maturity. Declining solver dependence and more two sided participation show that the market can move toward tighter execution and more order book like structure. Publication Boundary The source gives categories, not final live formulas. This page should not publish producti"
+    },
+    {
+      "id": "authored-house-of-all-finance-proving-ground",
+      "title": "The House Of All Finance Needs A Proving Ground",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/07-conclusion",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/04-the-hyperliquid-gap"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-07-conclusion",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap",
+        "authored-hyperliquid-gap-lower-layer"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/house-of-all-finance-proving-ground.md",
+      "bodyMarkdown": "# The House Of All Finance Needs A Proving Ground\n\nThe Part II conclusion turns the order-book praise into a systems claim: order books are the final layer, but they should not be forced to guess which markets deserve final-layer infrastructure.\n\nIf a venue wants to become the house of all finance, it needs more than a powerful top layer. It needs a proving ground beneath that top layer where early markets can reveal demand, survive risk, and produce evidence before admission.\n\n## From Political Listing To Market Question\n\nThe source's strongest sentence is conceptual: Vibe turns listing from a political question into a market question.\n\nThat is the whole compendium thesis in market-structure form. Instead of asking whether a token has enough narrative force to win a listing, the system can ask whether the market has shown enough real trading behavior to move upward.\n\nThis is why Vibe's docs should not position the product as a terminal replacement for mature markets. The stronger stance is contrarian but cooperative: Vibe gives immature markets a place to prove themselves, then the mature execution layer can do what it does best.\n\n## Reader Implication\n\nFor readers coming from Hyperliquid, Binance, dYdX, or any order-book venue, this page should make Vibe legible as upstream infrastructure. Vibe's job is not to deny order books. It is to make the eventual order-book decision less vibes-based.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Conclusion\" in OrderBooks Part II.\n- `vibe-papers`: Neelo, \"The Hyperliquid Gap\".\n\n## Related Pages\n\n- `authored-hyperliquid-gap-lower-layer`\n- `authored-launchpad-dex-vibe-orderbook-path`\n- `authored-order-book-admission-bottleneck`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-07-conclusion`",
+      "excerpt": "The House Of All Finance Needs A Proving Ground The Part II conclusion turns the order book praise into a systems claim: order books are the final layer, but they should not be forced to guess which markets deserve final layer infrastructure. If a venue wants to become the house of all finance, it needs more than a powerful top layer. It needs a proving ground beneath that top layer where early markets can reveal demand, survive risk, and produce evidence before admission. From Political Listing To Market Question The source's strongest sentence is conceptual: Vibe turns listing from a political question into a market question. That is the whole compendium thesis in market structure form. Instead of asking whether a token has enough narrative force to win a listing, the system can ask whether the market has shown enough real trading behavior to move upward. This is why Vibe's docs should not position the product as a terminal replacement for mature markets. The stronger stance is contrarian but cooperative: Vibe gives immature markets a place to prove themselves, then the mature execution layer can do what it does best. Reader Implication For readers coming from Hyperliquid, Binanc"
+    },
+    {
       "id": "authored-hybrid-perps-comparative-advantage",
       "title": "Hybrid Perps Comparative Advantage",
       "section": "manifesto",
@@ -1194,6 +1241,31 @@
       "file": "content/authored/manifesto/hybrid-solver-liquidity-waterfall.md",
       "bodyMarkdown": "# The Hybrid Solver Liquidity Waterfall\n\nThe hybrid solver model answers the cold-start question for intent markets: who quotes when a market is too new, too volatile, or too niche for external solvers to want the trade?\n\nNeelo's source proposes a waterfall. External solvers see flow first and can fill when they have the appetite or hedge path. If they can quote tighter than the backstop, the user benefits and the protocol does not need to warehouse that risk. When external solvers pass, a protocol-owned or protocol-operated solver can provide the fallback quote with wider pricing that reflects the risk of being last resort.\n\nThe strategic reason is simple. Pure intent systems can fail if no one answers the intent. Pure protocol backstops can absorb too much toxic flow if they quote blindly. A waterfall can combine both: market competition where external solvers are willing, and a controlled bootstrap path where the protocol wants a market to exist.\n\nThe same source discusses inventory vaults, risk tranching, cross-market mutualization, pass-through execution, and LP revenue-sharing concepts. Those details are important for the economic model, but they should stay under operator and implementation review until public vault semantics, fee splits, and loss allocation are confirmed. The publishable architectural point is the waterfall itself: external price discovery first, backstop liquidity second, explicit risk premium throughout.\n\n## Reader Implication\n\nSolvers should read this as a market-access stack rather than a single counterparty. Traders should understand why early markets may receive wider quotes: the fallback quote is doing the work that a mature market's organic liquidity has not yet earned.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-residual-counterparty-hedge-first`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "The Hybrid Solver Liquidity Waterfall The hybrid solver model answers the cold start question for intent markets: who quotes when a market is too new, too volatile, or too niche for external solvers to want the trade? Neelo's source proposes a waterfall. External solvers see flow first and can fill when they have the appetite or hedge path. If they can quote tighter than the backstop, the user benefits and the protocol does not need to warehouse that risk. When external solvers pass, a protocol owned or protocol operated solver can provide the fallback quote with wider pricing that reflects the risk of being last resort. The strategic reason is simple. Pure intent systems can fail if no one answers the intent. Pure protocol backstops can absorb too much toxic flow if they quote blindly. A waterfall can combine both: market competition where external solvers are willing, and a controlled bootstrap path where the protocol wants a market to exist. The same source discusses inventory vaults, risk tranching, cross market mutualization, pass through execution, and LP revenue sharing concepts. Those details are important for the economic model, but they should stay under operator and impl"
+    },
+    {
+      "id": "authored-hyperliquid-gap-lower-layer",
+      "title": "The Hyperliquid Gap Needs A Lower Layer",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/04-the-hyperliquid-gap",
+        "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap",
+        "authored-vibe-as-discovery-layer",
+        "authored-order-books-as-graduation-layer"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/hyperliquid-gap-lower-layer.md",
+      "bodyMarkdown": "# The Hyperliquid Gap Needs A Lower Layer\n\nThe Part II source treats Hyperliquid as progress, not as the villain. HIP-3-style builder-deployed perps push listing infrastructure toward more transparent, programmable market creation. That matters.\n\nThe remaining gap is that a top-layer order-book mechanism still cannot bootstrap the whole long tail by itself. Listing throughput is finite. Some assets are too early. Some markets have not yet proven trader demand, liquidation quality, or maker economics. Gatekeeping can become more decentralized and still remain gatekeeping.\n\n## Scaling Layer Versus Discovery Layer\n\nThe distinction is useful for the Vibe x Symmio compendium:\n\n- Hyperliquid-style order books are strong as scaling layers once a market deserves mature execution.\n- Vibe is positioned as a discovery layer that lets a token create derivatives history before it asks for a scarce order-book slot.\n\nThis framing avoids an unnecessary venue war. If Vibe can produce credible demand data, order-book systems receive better candidates. If order books can absorb mature markets, Vibe's early market discovery becomes more valuable.\n\n## Publication Boundary\n\nThis page should not claim a confirmed integration, routing agreement, or automatic handoff into Hyperliquid. The source supports the architectural relationship: lower-layer market discovery can make top-layer order-book listing more evidence-based.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Hyperliquid Gap\".\n- `hyperliquid-hip3`: Hyperliquid HIP-3 builder-deployed perpetuals context.\n\n## Related Pages\n\n- `authored-vibe-as-discovery-layer`\n- `authored-order-books-as-graduation-layer`\n- `authored-programmatic-market-graduation`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap`",
+      "excerpt": "The Hyperliquid Gap Needs A Lower Layer The Part II source treats Hyperliquid as progress, not as the villain. HIP 3 style builder deployed perps push listing infrastructure toward more transparent, programmable market creation. That matters. The remaining gap is that a top layer order book mechanism still cannot bootstrap the whole long tail by itself. Listing throughput is finite. Some assets are too early. Some markets have not yet proven trader demand, liquidation quality, or maker economics. Gatekeeping can become more decentralized and still remain gatekeeping. Scaling Layer Versus Discovery Layer The distinction is useful for the Vibe x Symmio compendium: Hyperliquid style order books are strong as scaling layers once a market deserves mature execution. Vibe is positioned as a discovery layer that lets a token create derivatives history before it asks for a scarce order book slot. This framing avoids an unnecessary venue war. If Vibe can produce credible demand data, order book systems receive better candidates. If order books can absorb mature markets, Vibe's early market discovery becomes more valuable. Publication Boundary This page should not claim a confirmed integratio"
     },
     {
       "id": "authored-incentive-based-attack-risk",
@@ -1385,6 +1457,30 @@
       "file": "content/authored/manifesto/last-primitive.md",
       "bodyMarkdown": "# The Last Primitive\n\nThe \"last primitive\" thesis is simple: crypto has permissionless issuance and permissionless spot trading, but it does not yet have permissionless derivatives for any token at comparable quality.\n\nThat missing third layer explains much of the market-formation gap. A token can be created, bought, sold, and routed through spot liquidity long before it can be hedged, shorted, or tested through leveraged demand. Without that derivatives layer, price discovery is incomplete. The market can expand, but it does not fully correct itself because negative views, hedging demand, and structured risk transfer are delayed.\n\nThe source places Vibe and Symmio together at this point in the stack. Symmio supplies derivatives infrastructure and settlement vocabulary; Vibe supplies the permissionless market layer and product logic for the long tail. The public compendium should keep that division clear. Vibe is not valuable merely because it adds more listings. It is valuable if it lets markets become self-testing earlier.\n\nThis is the deepest version of the vision: the industry becomes more complete when any token can be issued, traded spot, and then measured through a derivatives market without waiting for centralized approval.\n\n## Reader Implication\n\nNew readers should understand why Vibe x Symmio is framed as infrastructure rather than only as a trading product. The product surface is perps and intents, but the category claim is a missing market primitive.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Last Primitive\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-proof-of-value`\n- `authored-intents-and-solvers`",
       "excerpt": "The Last Primitive The \"last primitive\" thesis is simple: crypto has permissionless issuance and permissionless spot trading, but it does not yet have permissionless derivatives for any token at comparable quality. That missing third layer explains much of the market formation gap. A token can be created, bought, sold, and routed through spot liquidity long before it can be hedged, shorted, or tested through leveraged demand. Without that derivatives layer, price discovery is incomplete. The market can expand, but it does not fully correct itself because negative views, hedging demand, and structured risk transfer are delayed. The source places Vibe and Symmio together at this point in the stack. Symmio supplies derivatives infrastructure and settlement vocabulary; Vibe supplies the permissionless market layer and product logic for the long tail. The public compendium should keep that division clear. Vibe is not valuable merely because it adds more listings. It is valuable if it lets markets become self testing earlier. This is the deepest version of the vision: the industry becomes more complete when any token can be issued, traded spot, and then measured through a derivatives mar"
+    },
+    {
+      "id": "authored-launchpad-dex-vibe-orderbook-path",
+      "title": "Launchpad To DEX To Vibe To Order Book",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/05-the-vibe-assembly-line",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-05-the-vibe-assembly-line",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-00-abstract",
+        "authored-market-assembly-line"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/launchpad-dex-vibe-orderbook-path.md",
+      "bodyMarkdown": "# Launchpad To DEX To Vibe To Order Book\n\nPart II gives the market assembly line its cleanest form:\n\n```text\nLAUNCHPAD -> DEX -> VIBE PERP -> ORDER BOOK\n```\n\nThe path matters because crypto already solved the first two steps more completely than the third. Launchpads and permissionless issuance make token creation easy. DEXs make early spot access possible. The missing stage is early derivatives: a place where holders, traders, shorts, solvers, and LP inventory can reveal whether the asset has real market demand.\n\n## What Vibe Adds\n\nIn this sequence, Vibe is not just another listing endpoint. It is the testing ground between spot existence and mature order-book execution.\n\nOn Vibe, holders can contribute inventory, traders can express long and short views, solver pricing can react to actual order flow, and market history can accumulate. Weak assets can fail earlier. Strong assets can show sustained demand before they ask a downstream venue for deeper infrastructure.\n\n## Reader Implication\n\nFor market creators, this page turns Vibe from \"where do I list a perp?\" into \"how does my market earn the next layer?\" For traders, it explains why early Vibe markets may feel different from mature CLOB markets. For order-book venues, it frames Vibe as a pre-qualification layer rather than a replacement claim.\n\n## Publication Note\n\nThe source supports the lifecycle model. Final docs still need product-owner review before publishing exact listing workflow, eligibility, market-creation steps, graduation venues, or automation guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Vibe Assembly Line\".\n- `vibe-papers`: Neelo, \"Ode to OrderBooks, Part II: Abstract\".\n\n## Related Pages\n\n- `authored-market-assembly-line`\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-programmatic-market-graduation`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-05-the-vibe-assembly-line`",
+      "excerpt": "Launchpad To DEX To Vibe To Order Book Part II gives the market assembly line its cleanest form: The path matters because crypto already solved the first two steps more completely than the third. Launchpads and permissionless issuance make token creation easy. DEXs make early spot access possible. The missing stage is early derivatives: a place where holders, traders, shorts, solvers, and LP inventory can reveal whether the asset has real market demand. What Vibe Adds In this sequence, Vibe is not just another listing endpoint. It is the testing ground between spot existence and mature order book execution. On Vibe, holders can contribute inventory, traders can express long and short views, solver pricing can react to actual order flow, and market history can accumulate. Weak assets can fail earlier. Strong assets can show sustained demand before they ask a downstream venue for deeper infrastructure. Reader Implication For market creators, this page turns Vibe from \"where do I list a perp?\" into \"how does my market earn the next layer?\" For traders, it explains why early Vibe markets may feel different from mature CLOB markets. For order book venues, it frames Vibe as a pre qualifi"
     },
     {
       "id": "authored-leverage-as-truth-amplifier",
@@ -1889,6 +1985,30 @@
       "file": "content/authored/manifesto/oracle-circuit-breaker-paradox.md",
       "bodyMarkdown": "# The Oracle Circuit-Breaker Paradox\n\nThe oracle problem in low-cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety.\n\nNeelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on-chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off-chain but before the capped oracle has arrived.\n\nThe passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long-tail tokens and memecoins violate that assumption constantly.\n\nThe source-backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a deterministic oracle rule can solve every adversarial market state.\n\n## Reader Implication\n\nTraders should understand why early-market quotes may widen or disappear during stress. LPs should understand that an oracle rule that looks conservative can still create a predictable arbitrage path.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\".\n\n## Related Pages\n\n- `authored-exploit-resistance-pillar`\n- `authored-hybrid-settlement-solver-stack`\n- `authored-hybrid-solver-liquidity-waterfall`",
       "excerpt": "The Oracle Circuit Breaker Paradox The oracle problem in low cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety. Neelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off chain but before the capped oracle has arrived. The passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long tail tokens and memecoins violate that assumption constantly. The source backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a determinis"
+    },
+    {
+      "id": "authored-order-book-admission-bottleneck",
+      "title": "Order Book Admission Bottleneck",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/02-the-problem-with-listings"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-01-introduction",
+        "neelo-05-ode-to-the-orderbook-part2-05-docs-02-the-problem-with-listings",
+        "authored-order-book-bootstrap-limit"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/order-book-admission-bottleneck.md",
+      "bodyMarkdown": "# Order Book Admission Bottleneck\n\nNeelo's OrderBook Part II source makes the sequel thesis sharper: the problem with order books is not execution quality. It is admission.\n\nA mature order-book venue has to be selective. It cannot give every new token full infrastructure, maker attention, risk monitoring, and liquidity support before the venue knows whether the market deserves it. Once selection is necessary, listing becomes a forecasting problem.\n\nThat is the bottleneck Vibe is designed to attack. The venue wants to know whether traders will trade the perp, whether two-sided flow can appear, whether liquidations can clear, and whether the asset can mature without constant subsidy. Before a perp market exists, those facts are mostly unavailable.\n\n## Why Selection Distorts Projects\n\nThe source's important move is to treat listing games as structural rather than purely corrupt. Even if a venue is honest, it still has to infer demand from proxies. Projects then optimize for those proxies: narrative strength, optics, spot metrics, community pressure, relationships, and auction performance.\n\nThat is how listings become vibes-based without any one actor needing to be malicious. The market has no direct measurement surface, so the industry substitutes appearances for observed derivatives demand.\n\n## Reader Implication\n\nThis page should be used to explain why Vibe is not merely asking order books to list more assets. It is proposing a missing measurement layer before admission. The strongest claim is: mature order-book execution should remain selective, but selection should be informed by actual market behavior rather than pre-market narrative.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Ode to OrderBooks, Part II: Introduction\".\n- `vibe-papers`: Neelo, \"The Problem with Listings\".\n\n## Related Pages\n\n- `authored-order-book-bootstrap-limit`\n- `authored-end-of-narrative-based-listings`\n- `authored-listing-monopoly`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-01-introduction`",
+      "excerpt": "Order Book Admission Bottleneck Neelo's OrderBook Part II source makes the sequel thesis sharper: the problem with order books is not execution quality. It is admission. A mature order book venue has to be selective. It cannot give every new token full infrastructure, maker attention, risk monitoring, and liquidity support before the venue knows whether the market deserves it. Once selection is necessary, listing becomes a forecasting problem. That is the bottleneck Vibe is designed to attack. The venue wants to know whether traders will trade the perp, whether two sided flow can appear, whether liquidations can clear, and whether the asset can mature without constant subsidy. Before a perp market exists, those facts are mostly unavailable. Why Selection Distorts Projects The source's important move is to treat listing games as structural rather than purely corrupt. Even if a venue is honest, it still has to infer demand from proxies. Projects then optimize for those proxies: narrative strength, optics, spot metrics, community pressure, relationships, and auction performance. That is how listings become vibes based without any one actor needing to be malicious. The market has no di"
     },
     {
       "id": "authored-order-book-bootstrap-limit",

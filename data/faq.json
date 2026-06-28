@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 188,
-  "totalAnswerable": 181,
+  "totalEntries": 193,
+  "totalAnswerable": 186,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 28,
+    "Getting Started": 30,
     "Trading Flow": 18,
     "Solvers And Settlement": 39,
     "Risk And Markets": 15,
     "Revenue": 18,
-    "Manifesto": 38,
+    "Manifesto": 40,
     "Rewards And Referrals": 20,
     "Dashboard": 9,
-    "Data And Volume": 2,
+    "Data And Volume": 3,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 85,
+    "Medium": 88,
     "High": 29,
-    "Low": 67
+    "Low": 69
   },
   "byRouteSource": {
-    "authored": 181
+    "authored": 186
   },
   "byType": {
-    "answerable": 181,
+    "answerable": 186,
     "reconciliation": 7
   },
   "answerable": [
@@ -4997,6 +4997,159 @@
       "confidence": "Medium",
       "pageId": "authored-end-of-narrative-based-listings",
       "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-order-book-admission-the-bottleneck",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is order-book admission the bottleneck?",
+      "normalizedQuestion": "why is order book admission the bottleneck",
+      "shortAnswer": "Neelo's Part II source says mature order books execute well but must forecast admission before actual perp demand is visible.",
+      "answerSummary": "Order Book Admission Bottleneck Neelo's OrderBook Part II source makes the sequel thesis sharper: the problem with order books is not execution quality. It is admission. A mature order book venue has to be selective. It cannot give every new token full infrastructure, maker attention, risk monitoring, and liquidity support before the venue knows whether t...",
+      "confidence": "Medium",
+      "pageId": "authored-order-book-admission-bottleneck",
+      "pageTitle": "Order Book Admission Bottleneck",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-hyperliquid-gap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the Hyperliquid gap?",
+      "normalizedQuestion": "what is the hyperliquid gap",
+      "shortAnswer": "Neelo's Part II source treats Hyperliquid/HIP-3 as progress while arguing that a lower discovery layer is still needed for the long tail.",
+      "answerSummary": "The Hyperliquid Gap Needs A Lower Layer The Part II source treats Hyperliquid as progress, not as the villain. HIP 3 style builder deployed perps push listing infrastructure toward more transparent, programmable market creation. That matters. The remaining gap is that a top layer order book mechanism still cannot bootstrap the whole long tail by itself. L...",
+      "confidence": "Medium",
+      "pageId": "authored-hyperliquid-gap-lower-layer",
+      "pageTitle": "The Hyperliquid Gap Needs A Lower Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "hyperliquid-hip3",
+          "group": "Competitive Context",
+          "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
+          "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-launchpad-to-order-book-path",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the launchpad to order-book path?",
+      "normalizedQuestion": "what is the launchpad to order book path",
+      "shortAnswer": "Neelo's Vibe assembly-line source frames launchpad -> DEX -> Vibe perp -> order book as a lifecycle model, not a confirmed integration promise.",
+      "answerSummary": "Launchpad To DEX To Vibe To Order Book Part II gives the market assembly line its cleanest form: The path matters because crypto already solved the first two steps more completely than the third. Launchpads and permissionless issuance make token creation easy. DEXs make early spot access possible. The missing stage is early derivatives: a place where hold...",
+      "confidence": "Low",
+      "pageId": "authored-launchpad-dex-vibe-orderbook-path",
+      "pageTitle": "Launchpad To DEX To Vibe To Order Book",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-data-should-prove-a-market-can-graduate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Which data should prove a market can graduate?",
+      "normalizedQuestion": "which data should prove a market can graduate",
+      "shortAnswer": "Neelo's programmatic-graduation source names volume, trader count, liquidity depth, liquidation behavior, two-sided flow, and solver-dependence categories.",
+      "answerSummary": "Graduation Data Checklist Programmatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining dependence on solver support. T...",
+      "confidence": "Low",
+      "pageId": "authored-graduation-data-checklist",
+      "pageTitle": "Graduation Data Checklist",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-house-of-all-finance-need-vibe-beneath-it",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why does the house of all finance need Vibe beneath it?",
+      "normalizedQuestion": "why does the house of all finance need vibe beneath it",
+      "shortAnswer": "Neelo's Part II conclusion frames Vibe as the proving ground that turns listing from a political question into a market question.",
+      "answerSummary": "The House Of All Finance Needs A Proving Ground The Part II conclusion turns the order book praise into a systems claim: order books are the final layer, but they should not be forced to guess which markets deserve final layer infrastructure. If a venue wants to become the house of all finance, it needs more than a powerful top layer. It needs a proving g...",
+      "confidence": "Medium",
+      "pageId": "authored-house-of-all-finance-proving-ground",
+      "pageTitle": "The House Of All Finance Needs A Proving Ground",
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
       "pageStatus": "publication-candidate",
@@ -11722,6 +11875,159 @@
       "confidence": "Medium",
       "pageId": "authored-end-of-narrative-based-listings",
       "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-order-book-admission-the-bottleneck",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is order-book admission the bottleneck?",
+      "normalizedQuestion": "why is order book admission the bottleneck",
+      "shortAnswer": "Neelo's Part II source says mature order books execute well but must forecast admission before actual perp demand is visible.",
+      "answerSummary": "Order Book Admission Bottleneck Neelo's OrderBook Part II source makes the sequel thesis sharper: the problem with order books is not execution quality. It is admission. A mature order book venue has to be selective. It cannot give every new token full infrastructure, maker attention, risk monitoring, and liquidity support before the venue knows whether t...",
+      "confidence": "Medium",
+      "pageId": "authored-order-book-admission-bottleneck",
+      "pageTitle": "Order Book Admission Bottleneck",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-hyperliquid-gap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the Hyperliquid gap?",
+      "normalizedQuestion": "what is the hyperliquid gap",
+      "shortAnswer": "Neelo's Part II source treats Hyperliquid/HIP-3 as progress while arguing that a lower discovery layer is still needed for the long tail.",
+      "answerSummary": "The Hyperliquid Gap Needs A Lower Layer The Part II source treats Hyperliquid as progress, not as the villain. HIP 3 style builder deployed perps push listing infrastructure toward more transparent, programmable market creation. That matters. The remaining gap is that a top layer order book mechanism still cannot bootstrap the whole long tail by itself. L...",
+      "confidence": "Medium",
+      "pageId": "authored-hyperliquid-gap-lower-layer",
+      "pageTitle": "The Hyperliquid Gap Needs A Lower Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "hyperliquid-hip3",
+          "group": "Competitive Context",
+          "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
+          "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-launchpad-to-order-book-path",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the launchpad to order-book path?",
+      "normalizedQuestion": "what is the launchpad to order book path",
+      "shortAnswer": "Neelo's Vibe assembly-line source frames launchpad -> DEX -> Vibe perp -> order book as a lifecycle model, not a confirmed integration promise.",
+      "answerSummary": "Launchpad To DEX To Vibe To Order Book Part II gives the market assembly line its cleanest form: The path matters because crypto already solved the first two steps more completely than the third. Launchpads and permissionless issuance make token creation easy. DEXs make early spot access possible. The missing stage is early derivatives: a place where hold...",
+      "confidence": "Low",
+      "pageId": "authored-launchpad-dex-vibe-orderbook-path",
+      "pageTitle": "Launchpad To DEX To Vibe To Order Book",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-data-should-prove-a-market-can-graduate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Which data should prove a market can graduate?",
+      "normalizedQuestion": "which data should prove a market can graduate",
+      "shortAnswer": "Neelo's programmatic-graduation source names volume, trader count, liquidity depth, liquidation behavior, two-sided flow, and solver-dependence categories.",
+      "answerSummary": "Graduation Data Checklist Programmatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining dependence on solver support. T...",
+      "confidence": "Low",
+      "pageId": "authored-graduation-data-checklist",
+      "pageTitle": "Graduation Data Checklist",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-house-of-all-finance-need-vibe-beneath-it",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why does the house of all finance need Vibe beneath it?",
+      "normalizedQuestion": "why does the house of all finance need vibe beneath it",
+      "shortAnswer": "Neelo's Part II conclusion frames Vibe as the proving ground that turns listing from a political question into a market question.",
+      "answerSummary": "The House Of All Finance Needs A Proving Ground The Part II conclusion turns the order book praise into a systems claim: order books are the final layer, but they should not be forced to guess which markets deserve final layer infrastructure. If a venue wants to become the house of all finance, it needs more than a powerful top layer. It needs a proving g...",
+      "confidence": "Medium",
+      "pageId": "authored-house-of-all-finance-proving-ground",
+      "pageTitle": "The House Of All Finance Needs A Proving Ground",
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
       "pageStatus": "publication-candidate",

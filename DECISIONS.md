@@ -599,3 +599,11 @@
 **Reason:** The DDQ material is where Vibe's thesis becomes diligence language. These pages let the compendium answer allocator, partner, solver, and risk-review questions directly while keeping exact Force Close parameters, proof-network details, revenue share, partner traction, CVA percentages, insurance rules, buyout mechanics, and live vault terms under operator and implementation review.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-076: Frame Vibe As The Pre-Order-Book Proving Ground
+
+**Decision:** Add authored Volume 03 pages from Neelo's Ode to OrderBooks Part II corpus for the order-book admission bottleneck, Hyperliquid gap, launchpad-to-order-book assembly line, graduation-data checklist, and house-of-all-finance proving ground.
+
+**Reason:** The compendium should praise mature order books while explaining why admission remains the bottleneck. These pages make Vibe's role precise: a lower discovery layer that produces real derivatives demand and maturity data before an order-book venue must spend scarce listing capacity.
+
+**Status:** Accepted for the authored manifesto layer.

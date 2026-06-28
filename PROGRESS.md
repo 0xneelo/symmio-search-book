@@ -452,6 +452,13 @@
 - Kept solver policy, Force Close timing/proofs, revenue share, partner traction, CVA percentages, buyout rules, insurance allocation, and live vault/LP terms under operator and implementation review.
 - Regenerated dependent maps: 200 authored pages, 181 exact answer routes, 188 FAQ entries with 181 answerable, 994 reader-routable pages, 1,724 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
 
+## 2026-06-28 — Neelo OrderBook Part II Authored Layer
+
+- Added five authored Volume 03 manifesto pages from Neelo's Ode to OrderBooks Part II corpus: order-book admission bottleneck, Hyperliquid gap/lower-layer need, launchpad-to-order-book path, graduation data checklist, and house-of-all-finance proving ground.
+- Routed five new market-structure questions to authored pages so Ask can distinguish mature order-book execution from pre-order-book market discovery.
+- Kept HIP-3 handoff, destination venues, listing workflow, graduation thresholds, Z-score formulas, and automation claims under product/operator review.
+- Regenerated dependent maps: 205 authored pages, 186 exact answer routes, 193 FAQ entries with 186 answerable, 999 reader-routable pages, 1,734 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
