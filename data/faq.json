@@ -8,18 +8,18 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 294,
-  "totalAnswerable": 287,
+  "totalEntries": 299,
+  "totalAnswerable": 292,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 54,
-    "Trading Flow": 27,
-    "Solvers And Settlement": 58,
+    "Trading Flow": 29,
+    "Solvers And Settlement": 60,
     "Risk And Markets": 22,
-    "Revenue": 27,
+    "Revenue": 28,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 132,
     "High": 44,
-    "Low": 111
+    "Low": 116
   },
   "byRouteSource": {
-    "authored": 287
+    "authored": 292
   },
   "byType": {
-    "answerable": 287,
+    "answerable": 292,
     "reconciliation": 7
   },
   "answerable": [
@@ -4498,6 +4498,151 @@
       "confidence": "Low",
       "pageId": "authored-hybrid-solver-liquidity-waterfall",
       "pageTitle": "The Hybrid Solver Liquidity Waterfall",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-external-solvers-get-first-look",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do external solvers get first look?",
+      "normalizedQuestion": "why do external solvers get first look",
+      "shortAnswer": "Neelo's hybrid solver model routes attractive flow to external solvers first so competitive pricing can improve execution before the backstop takes residual risk.",
+      "answerSummary": "External Solver First Look The hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow. That ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure....",
+      "confidence": "Low",
+      "pageId": "authored-external-solver-first-look",
+      "pageTitle": "External Solver First Look",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-backstop-quotes-include-a-safety-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why should backstop quotes include a safety premium?",
+      "normalizedQuestion": "why should backstop quotes include a safety premium",
+      "shortAnswer": "The hybrid solver source frames protocol backstop quotes as wider risk-priced liquidity for markets external solvers decline, not guaranteed best-price execution.",
+      "answerSummary": "Safety Premium Backstop Quotes The protocol owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk priced quote. That safety premium is the honest cost of cold start market access. When a market is niche, volatile,...",
+      "confidence": "Low",
+      "pageId": "authored-safety-premium-backstop-quotes",
+      "pageTitle": "Safety Premium Backstop Quotes",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-pass-through-execution-in-the-hybrid-solver-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is pass-through execution in the hybrid solver model?",
+      "normalizedQuestion": "what is pass through execution in the hybrid solver model",
+      "shortAnswer": "Neelo's pass-through section sketches inventory-based settlement and rebalancing boundaries while exact custody, slippage, and accounting remain review-bound.",
+      "answerSummary": "Pass Through Execution Boundary The pass through execution section sketches how a vault backed market can separate trader payout, token inventory, and protocol price exposure. In the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary s...",
+      "confidence": "Low",
+      "pageId": "authored-pass-through-execution-boundary",
+      "pageTitle": "Pass-Through Execution Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-model-use-twap-for-inventory-rebalancing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why does the model use TWAP for inventory rebalancing?",
+      "normalizedQuestion": "why does the model use twap for inventory rebalancing",
+      "shortAnswer": "Neelo's pass-through execution section uses time-sliced rebalancing to reduce self-inflicted price impact when inventory is sold or bought back.",
+      "answerSummary": "TWAP Inventory Rebalancing The pass through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact. That matters in long tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of th...",
+      "confidence": "Low",
+      "pageId": "authored-twap-inventory-rebalancing",
+      "pageTitle": "TWAP Inventory Rebalancing",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-neelo-call-lp-fees-capacity-rent",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why does Neelo call LP fees capacity rent?",
+      "normalizedQuestion": "why does neelo call lp fees capacity rent",
+      "shortAnswer": "Neelo's source treats LPs and inventory providers as supplying standing market capacity; exact fee-share claims remain under revenue and LP disclosure review.",
+      "answerSummary": "LP Capacity Rent Model The Hybrid Solver source uses a landlord style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time. The useful publication version is the capacity rent model. A long tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and r...",
+      "confidence": "Low",
+      "pageId": "authored-lp-capacity-rent-model",
+      "pageTitle": "LP Capacity Rent Model",
       "pageSection": "manifesto",
       "pageTrack": "14 - Information and Trade Convergence",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -14665,6 +14810,151 @@
       "confidence": "Low",
       "pageId": "authored-hybrid-solver-liquidity-waterfall",
       "pageTitle": "The Hybrid Solver Liquidity Waterfall",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-external-solvers-get-first-look",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do external solvers get first look?",
+      "normalizedQuestion": "why do external solvers get first look",
+      "shortAnswer": "Neelo's hybrid solver model routes attractive flow to external solvers first so competitive pricing can improve execution before the backstop takes residual risk.",
+      "answerSummary": "External Solver First Look The hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow. That ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure....",
+      "confidence": "Low",
+      "pageId": "authored-external-solver-first-look",
+      "pageTitle": "External Solver First Look",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-backstop-quotes-include-a-safety-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why should backstop quotes include a safety premium?",
+      "normalizedQuestion": "why should backstop quotes include a safety premium",
+      "shortAnswer": "The hybrid solver source frames protocol backstop quotes as wider risk-priced liquidity for markets external solvers decline, not guaranteed best-price execution.",
+      "answerSummary": "Safety Premium Backstop Quotes The protocol owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk priced quote. That safety premium is the honest cost of cold start market access. When a market is niche, volatile,...",
+      "confidence": "Low",
+      "pageId": "authored-safety-premium-backstop-quotes",
+      "pageTitle": "Safety Premium Backstop Quotes",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-pass-through-execution-in-the-hybrid-solver-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is pass-through execution in the hybrid solver model?",
+      "normalizedQuestion": "what is pass through execution in the hybrid solver model",
+      "shortAnswer": "Neelo's pass-through section sketches inventory-based settlement and rebalancing boundaries while exact custody, slippage, and accounting remain review-bound.",
+      "answerSummary": "Pass Through Execution Boundary The pass through execution section sketches how a vault backed market can separate trader payout, token inventory, and protocol price exposure. In the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary s...",
+      "confidence": "Low",
+      "pageId": "authored-pass-through-execution-boundary",
+      "pageTitle": "Pass-Through Execution Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-model-use-twap-for-inventory-rebalancing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why does the model use TWAP for inventory rebalancing?",
+      "normalizedQuestion": "why does the model use twap for inventory rebalancing",
+      "shortAnswer": "Neelo's pass-through execution section uses time-sliced rebalancing to reduce self-inflicted price impact when inventory is sold or bought back.",
+      "answerSummary": "TWAP Inventory Rebalancing The pass through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact. That matters in long tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of th...",
+      "confidence": "Low",
+      "pageId": "authored-twap-inventory-rebalancing",
+      "pageTitle": "TWAP Inventory Rebalancing",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-neelo-call-lp-fees-capacity-rent",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why does Neelo call LP fees capacity rent?",
+      "normalizedQuestion": "why does neelo call lp fees capacity rent",
+      "shortAnswer": "Neelo's source treats LPs and inventory providers as supplying standing market capacity; exact fee-share claims remain under revenue and LP disclosure review.",
+      "answerSummary": "LP Capacity Rent Model The Hybrid Solver source uses a landlord style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time. The useful publication version is the capacity rent model. A long tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and r...",
+      "confidence": "Low",
+      "pageId": "authored-lp-capacity-rent-model",
+      "pageTitle": "LP Capacity Rent Model",
       "pageSection": "manifesto",
       "pageTrack": "14 - Information and Trade Convergence",
       "pageStatus": "publication-candidate-needs-operator-review",

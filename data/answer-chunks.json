@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1118,
-  "totalChunks": 1925,
-  "pagesWithChunks": 1118,
+  "totalPages": 1123,
+  "totalChunks": 1935,
+  "pagesWithChunks": 1123,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,17 +653,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 306,
+    "authored": 311,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 584,
+    "authored": 594,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 311,
+    "manifesto": 321,
     "product-reference": 89,
     "dashboard-reference": 24,
     "protocol-reference": 99,
@@ -2668,6 +2668,52 @@
       "wordEnd": 239,
       "wordCount": 54,
       "text": "false signal. Product docs should route leverage, liquidation, oracle, and margin questions back to this pillar before promising market breadth. Sources vibe papers : Neelo, \"Pillar One: Exploit Resistance\". Related Pages authored vibe pillars authored collateral margin cva authored vibe collateral and margining neelo 10 vibe pillars 10 docs 02 pillar one exploit resistance"
+    },
+    {
+      "id": "authored-external-solver-first-look::001",
+      "pageId": "authored-external-solver-first-look",
+      "chunkIndex": 1,
+      "title": "External Solver First Look",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/external-solver-first-look.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "External Solver First Look The hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow. That ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure. The protocol owned or protocol operated solver remains important, but it should not crowd out competitive quoting when external counterparties are willing to take the risk. This is the market design reason for the first tier of the waterfall. Mature or hedgeable flow should attract external solvers. Niche, volatile, or unattractive flow may fall through to the safety tier. The architecture can therefore combine competition and availability without pretending that every trade deserves the same quote path. Production docs should not claim a specific routing priority, latency rule, solver admission standard, or quote auction mechanism until the live solver stack is confirmed. The source backed principle is narrower: let outside solvers compete where they can improve execution, and reserve the backstop for flow the market will not naturally absorb. Reader Implication Traders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first look tier as an invitation to price"
+    },
+    {
+      "id": "authored-external-solver-first-look::002",
+      "pageId": "authored-external-solver-first-look",
+      "chunkIndex": 2,
+      "title": "External Solver First Look",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/external-solver-first-look.md",
+      "wordStart": 185,
+      "wordEnd": 262,
+      "wordCount": 77,
+      "text": "naturally absorb. Reader Implication Traders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first look tier as an invitation to price real flow before the fallback layer takes risk. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\". Related Pages authored hybrid solver liquidity waterfall authored protocol owned solver public option authored symmio solver operations and hedging"
     },
     {
       "id": "authored-financialized-rejection-thumbs-down::001",
@@ -4950,6 +4996,52 @@
       "text": "model. New markets can begin close to fully backed protocol side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior, not assumed at launch. Publication Note This page should not publish exact production caps, percentages, global insurance allocation rules, or market tier policy without operator review. It documents the source model and the reader facing risk vocabulary. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\" and \"Balancing UX vs Risk\". vibe papers : Neelo funding model, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored solver hedging failure modes authored economic clarity for permissionless perps neelo 08 due diligence questionnaire 08 docs risk walkthrough a bearer of losses i bearer of losses"
     },
     {
+      "id": "authored-lp-capacity-rent-model::001",
+      "pageId": "authored-lp-capacity-rent-model",
+      "chunkIndex": 1,
+      "title": "LP Capacity Rent Model",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/lp-capacity-rent-model.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "LP Capacity Rent Model The Hybrid Solver source uses a landlord style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time. The useful publication version is the capacity rent model. A long tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and risk bearing capacity before organic two sided flow is mature. LPs or inventory providers are not only chasing generic yield; they are supplying the scarce resource that makes the market possible. That framing also explains why LP compensation should not disappear the moment flow becomes more balanced. If the market depends on standing capacity, then the system has to decide how that capacity is paid, how much risk it bears, and when compensation changes as the market matures. The source includes an explicit fee share claim, but public docs should not publish exact percentages as current policy until the revenue and LP disclosure boundary is operator approved. The safe claim is the model: LPs are paid for capacity, not merely for momentary trade matching. Reader Implication LPs should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early market access has a cost because someone is providing the market's"
+    },
+    {
+      "id": "authored-lp-capacity-rent-model::002",
+      "pageId": "authored-lp-capacity-rent-model",
+      "chunkIndex": 2,
+      "title": "LP Capacity Rent Model",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/lp-capacity-rent-model.md",
+      "wordStart": 185,
+      "wordEnd": 255,
+      "wordCount": 70,
+      "text": "should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early market access has a cost because someone is providing the market's carrying capacity. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages authored token holder inventory alignment authored proof value four constituencies authored vibe project profit share boundary"
+    },
+    {
       "id": "authored-lp-profit-and-dynamic-pricing::001",
       "pageId": "authored-lp-profit-and-dynamic-pricing",
       "chunkIndex": 1,
@@ -6361,6 +6453,52 @@
       "wordEnd": 278,
       "wordCount": 93,
       "text": "bridge can be more valuable than trapping markets inside one execution model. Reader Implication Readers should understand Vibe as a lifecycle connector. For CLOB ecosystems, it can be an upstream discovery and graduation layer. For launchpads, it can extend the value of graduation. For traders and LPs, it defines a different risk regime before mature liquidity arrives. Sources vibe papers : Neelo, \"Section 6: Strategic Implications\". vibe papers : Neelo, \"Section 5.4: Relationship to Existing Venues\". Related Pages authored vibe as discovery layer authored market assembly line authored order books as graduation layer"
+    },
+    {
+      "id": "authored-pass-through-execution-boundary::001",
+      "pageId": "authored-pass-through-execution-boundary",
+      "chunkIndex": 1,
+      "title": "Pass-Through Execution Boundary",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/pass-through-execution-boundary.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Pass Through Execution Boundary The pass through execution section sketches how a vault backed market can separate trader payout, token inventory, and protocol price exposure. In the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary spot speculator. It uses inventory and execution rules to settle the liability created by the perp position. The reverse case matters too. When the protocol side position wins, the model uses controlled buyback into the vault rather than an immediate price insensitive market action. The point is to rebalance inventory without making the protocol's own execution push the market against itself. This is an architecture boundary, not final public accounting. Exact inventory custody, execution venue, slippage assignment, cashflow ordering, solver responsibility, and legal terms require operator and implementation review. The source backed idea is that execution should pass market risk through a defined inventory pathway rather than hiding it inside a generic pool. Reader Implication Pass through execution is the answer to \"who ultimately pays or rebalances?\" It points readers toward inventory, execution, and settlement boundaries instead of a vague promise that the protocol absorbs everything. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages"
+    },
+    {
+      "id": "authored-pass-through-execution-boundary::002",
+      "pageId": "authored-pass-through-execution-boundary",
+      "chunkIndex": 2,
+      "title": "Pass-Through Execution Boundary",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/pass-through-execution-boundary.md",
+      "wordStart": 185,
+      "wordEnd": 235,
+      "wordCount": 50,
+      "text": "points readers toward inventory, execution, and settlement boundaries instead of a vague promise that the protocol absorbs everything. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages authored whale vault risk tranching authored usdc settlement inventory separation authored token inventory risk localization"
     },
     {
       "id": "authored-passive-matcher-vulnerability::001",
@@ -8639,6 +8777,52 @@
       "wordEnd": 387,
       "wordCount": 202,
       "text": "yield seeking stablecoin LPs. Why The Matrix Matters This matrix is the answer to a due diligence question: who pays when the market moves? If a long and a short are netted, the answer is trader to trader. If the market is imbalanced, the answer is temporarily trader to solver, backed by hedging and disclosed liquidity resources. If the move becomes a tail event, the answer should route through the published defense stack. None of those cases should be described with the same vague phrase. The docs should therefore distinguish inventory risk, settlement risk, hedge execution risk, trader PnL risk, and emergency loss allocation. Vibe's thesis is stronger when these are named separately. The system is not risk free; it is trying to assign each risk to a more natural bearer. Publication Note Exact vault terms, solver funding policy, insurance eligibility, revenue share, and ADL allocation remain operator review items. This page documents the source backed risk allocation framework, not final production parameters. Sources vibe papers : Neelo, \"Section 2: A Framework for Value Dimensions\". vibe papers : Neelo, \"Section 5: Economic Clarity\". Related Pages authored economic clarity for permissionless perps authored netting state risk transfer authored loss waterfall and profit caps"
+    },
+    {
+      "id": "authored-safety-premium-backstop-quotes::001",
+      "pageId": "authored-safety-premium-backstop-quotes",
+      "chunkIndex": 1,
+      "title": "Safety Premium Backstop Quotes",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/safety-premium-backstop-quotes.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Safety Premium Backstop Quotes The protocol owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk priced quote. That safety premium is the honest cost of cold start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it. This page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability. Exact spread formulas, quote floors, solver profitability, and user facing pricing promises remain implementation sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback risk. Reader Implication If an early market quote is wider, that can be a market structure signal rather than a UI defect. The system is pricing the fact"
+    },
+    {
+      "id": "authored-safety-premium-backstop-quotes::002",
+      "pageId": "authored-safety-premium-backstop-quotes",
+      "chunkIndex": 2,
+      "title": "Safety Premium Backstop Quotes",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/safety-premium-backstop-quotes.md",
+      "wordStart": 185,
+      "wordEnd": 273,
+      "wordCount": 88,
+      "text": "safety premium: fallback liquidity should reflect fallback risk. Reader Implication If an early market quote is wider, that can be a market structure signal rather than a UI defect. The system is pricing the fact that the trade needed a backstop. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.1 Protocol Owned Solver (POS)\". vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\". Related Pages authored protocol owned solver public option authored hybrid solver liquidity waterfall authored solver sustainability condition"
     },
     {
       "id": "authored-search-insights-loop::001",
@@ -11650,6 +11834,52 @@
       "wordEnd": 222,
       "wordCount": 37,
       "text": "Verification Layer for the Tokenized Economy\". vibe papers : Neelo, \"Section 4: The Missing NO Button\". Related Pages authored proof of value authored listing monopoly neelo 14 information trade convergence 14 docs 04 the missing no button"
+    },
+    {
+      "id": "authored-twap-inventory-rebalancing::001",
+      "pageId": "authored-twap-inventory-rebalancing",
+      "chunkIndex": 1,
+      "title": "TWAP Inventory Rebalancing",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/twap-inventory-rebalancing.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "TWAP Inventory Rebalancing The pass through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact. That matters in long tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of the loss if it is too blunt. A time sliced rebalance is one way to reduce that self inflicted impact. The model uses this idea in both directions. If inventory must be sold to settle trader wins, execution should avoid dumping into the thinnest possible moment. If tokens must be bought back into the vault after protocol side wins, execution should avoid pushing the price up against itself. Production docs should distinguish this source model principle from live order type support. The official Vibe order type guide currently treats user facing TWAP as a product state sensitive feature. This page is about protocol inventory execution logic in the source model, not a promise that all users have TWAP controls for every market. Reader Implication TWAP rebalancing belongs in the risk model because execution quality affects solvency. Long tail perps need not only collateral and quotes, but also controlled inventory unwinds. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through"
+    },
+    {
+      "id": "authored-twap-inventory-rebalancing::002",
+      "pageId": "authored-twap-inventory-rebalancing",
+      "chunkIndex": 2,
+      "title": "TWAP Inventory Rebalancing",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/twap-inventory-rebalancing.md",
+      "wordStart": 185,
+      "wordEnd": 239,
+      "wordCount": 54,
+      "text": "risk model because execution quality affects solvency. Long tail perps need not only collateral and quotes, but also controlled inventory unwinds. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages authored pass through execution boundary authored residual counterparty hedge first authored vibe stop order trigger model"
     },
     {
       "id": "authored-universal-issuance-needs-derivatives::001",

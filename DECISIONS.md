@@ -791,3 +791,11 @@
 **Reason:** Existing Information/Trade pages cover the broad convergence, verification, solver-waterfall, and Thumbs Down theses, but answer-engine users need exact routes for how intents, solvers, long-tail perps, and short-side rejection map into the mechanism. These pages preserve Neelo's vision while translating aggressive source language into publication-safe architecture and product boundaries.
 
 **Status:** Accepted for the authored manifesto layer; AI-solver behavior, exact product categories, token eligibility, market-cap/liquidity limits, vault/solver mechanics, and any "truth market" wording remain operator/product/implementation review.
+
+## D-100: Split Hybrid Solver Execution Claims Into Exact Answers
+
+**Decision:** Add authored manifesto pages for external-solver first look, safety-premium backstop quotes, pass-through execution boundaries, TWAP inventory rebalancing, and the LP capacity-rent model.
+
+**Reason:** The existing hybrid-solver page explains the waterfall, but sophisticated readers will ask how the waterfall actually allocates flow, why fallback quotes are wider, what pass-through execution means, how inventory is rebalanced, and why LPs are paid for capacity. These pages answer those mechanism questions while keeping live routing, fee-share, vault, slippage, and accounting claims review-bound.
+
+**Status:** Accepted for the authored manifesto layer; external-solver routing, backstop quote policy, vault custody, execution venues, TWAP behavior, slippage allocation, LP rights, and exact fee shares remain operator/product/implementation/accounting review.

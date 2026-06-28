@@ -598,6 +598,12 @@
 - Routed five new Ask questions so readers can move from the broad Information/Trade thesis into the concrete intent, solver, inventory, and short-side mechanism.
 - Kept AI-solver behavior, exact product categories, token eligibility, market-cap/liquidity limits, vault/solver mechanics, and truth-market wording under operator/product/implementation review.
 
+## 2026-06-29 — Hybrid Solver Execution Subclaim Pages
+
+- Added five authored manifesto pages from Neelo's Hybrid Solver Model: external-solver first look, safety-premium backstop quotes, pass-through execution boundary, TWAP inventory rebalancing, and LP capacity rent model.
+- Routed five new Ask questions so solver, LP, and project readers can inspect how the waterfall allocates flow, risk premium, inventory execution, and capacity compensation.
+- Kept live solver routing, quote policy, vault custody, execution venues, TWAP behavior, slippage allocation, LP rights, and exact fee-share claims under operator/product/implementation/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

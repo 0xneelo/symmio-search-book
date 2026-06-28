@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 287
+      "totalGoldenRoutes": 292
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 305,
-    "retrievalEligiblePages": 1097,
+    "publicNavigationPages": 310,
+    "retrievalEligiblePages": 1102,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 305,
+      "candidate": 310,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 287,
-    "exactRouteTestsPassing": 287,
+    "totalExactRouteTests": 292,
+    "exactRouteTestsPassing": 292,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 287
+      "candidate": 292
     },
     "exactRoutesByConfidence": {
       "Medium": 132,
       "High": 44,
-      "Low": 111
+      "Low": 116
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2890,6 +2890,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-hybrid-solver-liquidity-waterfall",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-external-solvers-get-first-look",
+        "query": "Why do external solvers get first look?",
+        "normalizedQuery": "why do external solvers get first look",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-external-solver-first-look",
+        "expectedPageTitle": "External Solver First Look",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-external-solvers-get-first-look",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-backstop-quotes-include-a-safety-premium",
+        "query": "Why should backstop quotes include a safety premium?",
+        "normalizedQuery": "why should backstop quotes include a safety premium",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-safety-premium-backstop-quotes",
+        "expectedPageTitle": "Safety Premium Backstop Quotes",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-should-backstop-quotes-include-a-safety-premium",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-pass-through-execution-in-the-hybrid-solver-model",
+        "query": "What is pass-through execution in the hybrid solver model?",
+        "normalizedQuery": "what is pass through execution in the hybrid solver model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-pass-through-execution-boundary",
+        "expectedPageTitle": "Pass-Through Execution Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-pass-through-execution-in-the-hybrid-solver-model",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-model-use-twap-for-inventory-rebalancing",
+        "query": "Why does the model use TWAP for inventory rebalancing?",
+        "normalizedQuery": "why does the model use twap for inventory rebalancing",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-twap-inventory-rebalancing",
+        "expectedPageTitle": "TWAP Inventory Rebalancing",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-model-use-twap-for-inventory-rebalancing",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-neelo-call-lp-fees-capacity-rent",
+        "query": "Why does Neelo call LP fees capacity rent?",
+        "normalizedQuery": "why does neelo call lp fees capacity rent",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lp-capacity-rent-model",
+        "expectedPageTitle": "LP Capacity Rent Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-neelo-call-lp-fees-capacity-rent",
         "passes": true
       },
       {
@@ -6653,7 +6758,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 287,
+      "exactRoutes": 292,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

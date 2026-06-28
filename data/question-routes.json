@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 287,
+  "totalRoutes": 292,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 132,
     "High": 44,
-    "Low": 111
+    "Low": 116
   },
   "byRouteSource": {
-    "authored": 287
+    "authored": 292
   },
   "answerable": [
     {
@@ -2119,6 +2119,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's source describes external solvers first, then a protocol-operated backstop; exact production solver/vault economics need implementation review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-external-solvers-get-first-look",
+      "question": "Why do external solvers get first look?",
+      "normalizedQuestion": "why do external solvers get first look",
+      "pageId": "authored-external-solver-first-look",
+      "pageTitle": "External Solver First Look",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's hybrid solver model routes attractive flow to external solvers first so competitive pricing can improve execution before the backstop takes residual risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-should-backstop-quotes-include-a-safety-premium",
+      "question": "Why should backstop quotes include a safety premium?",
+      "normalizedQuestion": "why should backstop quotes include a safety premium",
+      "pageId": "authored-safety-premium-backstop-quotes",
+      "pageTitle": "Safety Premium Backstop Quotes",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "The hybrid solver source frames protocol backstop quotes as wider risk-priced liquidity for markets external solvers decline, not guaranteed best-price execution.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-pass-through-execution-in-the-hybrid-solver-model",
+      "question": "What is pass-through execution in the hybrid solver model?",
+      "normalizedQuestion": "what is pass through execution in the hybrid solver model",
+      "pageId": "authored-pass-through-execution-boundary",
+      "pageTitle": "Pass-Through Execution Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's pass-through section sketches inventory-based settlement and rebalancing boundaries while exact custody, slippage, and accounting remain review-bound.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-the-model-use-twap-for-inventory-rebalancing",
+      "question": "Why does the model use TWAP for inventory rebalancing?",
+      "normalizedQuestion": "why does the model use twap for inventory rebalancing",
+      "pageId": "authored-twap-inventory-rebalancing",
+      "pageTitle": "TWAP Inventory Rebalancing",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's pass-through execution section uses time-sliced rebalancing to reduce self-inflicted price impact when inventory is sold or bought back.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-neelo-call-lp-fees-capacity-rent",
+      "question": "Why does Neelo call LP fees capacity rent?",
+      "normalizedQuestion": "why does neelo call lp fees capacity rent",
+      "pageId": "authored-lp-capacity-rent-model",
+      "pageTitle": "LP Capacity Rent Model",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's source treats LPs and inventory providers as supplying standing market capacity; exact fee-share claims remain under revenue and LP disclosure review.",
       "sourceKeys": [
         "vibe-papers"
       ],
