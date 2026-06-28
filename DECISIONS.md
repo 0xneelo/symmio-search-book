@@ -831,3 +831,11 @@
 **Reason:** The broad operational-failure and escape-mode pages explain Force Close as a position-level recovery path, but support and diligence readers need exact answers for how the path starts, why a timer exists, what evidence finalizes the close, why proof is independent of the solver, and what financial risk remains while recovery completes.
 
 **Status:** Accepted for the authored protocol-reference layer; exact timeout values, timer duration, proof format, proof sources, freshness windows, node counts, supported markets, chain-specific finalization, UI behavior, and production availability remain operator/implementation/security review.
+
+## D-105: Split DDQ Loss-Bearer Waterfall Into Exact Risk Answers
+
+**Decision:** Add authored protocol-reference pages for losing traders as first loss, solver hedging resources before insurance, LP vault capacity exposure boundaries, local insurance as a tail buffer, and market-tier loss limits.
+
+**Reason:** The broad loss-waterfall page answers who bears losses overall, but diligence readers need exact routes for each layer of the waterfall. Splitting these claims makes it clearer that ordinary directional loss starts with trader margin, residual exposure then reaches solver hedging resources, LP capacity is conditional on actual vault use and terms, local insurance is market-specific protection before global allocation, and market tiers can bound losses after extreme events.
+
+**Status:** Accepted for the authored protocol-reference layer; live margin thresholds, solver capital and hedge policy, LP vault rights, insurance inflows and allocations, tier limits, ADL triggers, delisting authority, and user-compensation semantics remain operator/implementation/legal review.

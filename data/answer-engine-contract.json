@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 312
+      "totalGoldenRoutes": 317
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 330,
-    "retrievalEligiblePages": 1122,
+    "publicNavigationPages": 335,
+    "retrievalEligiblePages": 1127,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 330,
+      "candidate": 335,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 312,
-    "exactRouteTestsPassing": 312,
+    "totalExactRouteTests": 317,
+    "exactRouteTestsPassing": 317,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 312
+      "candidate": 317
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 131
+      "Low": 136
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6580,6 +6580,111 @@
         "passes": true
       },
       {
+        "id": "qr-why-do-losing-traders-absorb-first-losses",
+        "query": "Why do losing traders absorb first losses?",
+        "normalizedQuery": "why do losing traders absorb first losses",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-losing-trader-first-loss",
+        "expectedPageTitle": "Losing Traders As First Loss",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-losing-traders-absorb-first-losses",
+        "passes": true
+      },
+      {
+        "id": "qr-what-resources-sit-before-insurance-in-the-loss-waterfall",
+        "query": "What resources sit before insurance in the loss waterfall?",
+        "normalizedQuery": "what resources sit before insurance in the loss waterfall",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-hedging-resource-buffer",
+        "expectedPageTitle": "Solver Hedging Resources Before Insurance",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-resources-sit-before-insurance-in-the-loss-waterfall",
+        "passes": true
+      },
+      {
+        "id": "qr-when-can-lp-vault-capacity-be-exposed",
+        "query": "When can LP vault capacity be exposed?",
+        "normalizedQuery": "when can lp vault capacity be exposed",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lp-vault-capacity-exposure-boundary",
+        "expectedPageTitle": "LP Vault Capacity Exposure Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-can-lp-vault-capacity-be-exposed",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-local-insurance-sit-before-global-insurance",
+        "query": "Why does local insurance sit before global insurance?",
+        "normalizedQuery": "why does local insurance sit before global insurance",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-local-insurance-tail-buffer",
+        "expectedPageTitle": "DDQ Local Insurance Tail Buffer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-local-insurance-sit-before-global-insurance",
+        "passes": true
+      },
+      {
+        "id": "qr-what-happens-if-a-market-breaches-its-loss-tier",
+        "query": "What happens if a market breaches its loss tier?",
+        "normalizedQuery": "what happens if a market breaches its loss tier",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-tier-loss-limits",
+        "expectedPageTitle": "Market Tier Loss Limits",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-happens-if-a-market-breaches-its-loss-tier",
+        "passes": true
+      },
+      {
         "id": "qr-what-is-the-ddq-architecture-stack",
         "query": "What is the DDQ architecture stack?",
         "normalizedQuery": "what is the ddq architecture stack",
@@ -7182,7 +7287,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 312,
+      "exactRoutes": 317,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

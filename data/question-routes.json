@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 312,
+  "totalRoutes": 317,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 131
+    "Low": 136
   },
   "byRouteSource": {
-    "authored": 312
+    "authored": 317
   },
   "answerable": [
     {
@@ -5074,6 +5074,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-losing-traders-absorb-first-losses",
+      "question": "Why do losing traders absorb first losses?",
+      "normalizedQuestion": "why do losing traders absorb first losses",
+      "pageId": "authored-losing-trader-first-loss",
+      "pageTitle": "Losing Traders As First Loss",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ waterfall starts with losing-side margin and balances before solver, LP, local insurance, or global insurance resources are touched.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-resources-sit-before-insurance-in-the-loss-waterfall",
+      "question": "What resources sit before insurance in the loss waterfall?",
+      "normalizedQuestion": "what resources sit before insurance in the loss waterfall",
+      "pageId": "authored-solver-hedging-resource-buffer",
+      "pageTitle": "Solver Hedging Resources Before Insurance",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ puts solver hedging PnL, inventory, stablecoin resources, and associated liquidity before local or global insurance.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-can-lp-vault-capacity-be-exposed",
+      "question": "When can LP vault capacity be exposed?",
+      "normalizedQuestion": "when can lp vault capacity be exposed",
+      "pageId": "authored-lp-vault-capacity-exposure-boundary",
+      "pageTitle": "LP Vault Capacity Exposure Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ ties LP vault exposure to vault capacity used by the solver for residual hedging, not to every ordinary trader loss.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-local-insurance-sit-before-global-insurance",
+      "question": "Why does local insurance sit before global insurance?",
+      "normalizedQuestion": "why does local insurance sit before global insurance",
+      "pageId": "authored-ddq-local-insurance-tail-buffer",
+      "pageTitle": "DDQ Local Insurance Tail Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ treats local insurance as market-specific tail protection before a market draws on any eligible shared global allocation.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-if-a-market-breaches-its-loss-tier",
+      "question": "What happens if a market breaches its loss tier?",
+      "normalizedQuestion": "what happens if a market breaches its loss tier",
+      "pageId": "authored-market-tier-loss-limits",
+      "pageTitle": "Market Tier Loss Limits",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says markets can be tiered with explicit loss limits, after which positions may be reduced, closed, or delisted under risk policy.",
       "sourceKeys": [
         "vibe-papers"
       ],

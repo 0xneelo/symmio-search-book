@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 319,
-  "totalAnswerable": 312,
+  "totalEntries": 324,
+  "totalAnswerable": 317,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 75,
+    "Solvers And Settlement": 80,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 131
+    "Low": 136
   },
   "byRouteSource": {
-    "authored": 312
+    "authored": 317
   },
   "byType": {
-    "answerable": 312,
+    "answerable": 317,
     "reconciliation": 7
   },
   "answerable": [
@@ -9841,6 +9841,151 @@
       "confidence": "Low",
       "pageId": "authored-loss-waterfall-and-profit-caps",
       "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-losing-traders-absorb-first-losses",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do losing traders absorb first losses?",
+      "normalizedQuestion": "why do losing traders absorb first losses",
+      "shortAnswer": "Neelo's DDQ waterfall starts with losing-side margin and balances before solver, LP, local insurance, or global insurance resources are touched.",
+      "answerSummary": "Losing Traders As First Loss The DDQ waterfall starts with the simplest rule in a derivatives market: the losing side pays first. When long and short flow is netted, PnL transfers between traders. If the price rises, shorts pay longs. If the price falls, longs pay shorts. The first buffer is therefore not an insurance fund or a protocol subsidy. It is the...",
+      "confidence": "Low",
+      "pageId": "authored-losing-trader-first-loss",
+      "pageTitle": "Losing Traders As First Loss",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-resources-sit-before-insurance-in-the-loss-waterfall",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What resources sit before insurance in the loss waterfall?",
+      "normalizedQuestion": "what resources sit before insurance in the loss waterfall",
+      "shortAnswer": "Neelo's DDQ puts solver hedging PnL, inventory, stablecoin resources, and associated liquidity before local or global insurance.",
+      "answerSummary": "Solver Hedging Resources Before Insurance The DDQ loss waterfall puts solver hedging resources before insurance. That is a precise statement about where residual counterparty risk sits. If a trade is un netted, the trader's PnL on that residual portion is effectively against the solver until the solver hedges, rebalances, or attracts offsetting flow. If t...",
+      "confidence": "Low",
+      "pageId": "authored-solver-hedging-resource-buffer",
+      "pageTitle": "Solver Hedging Resources Before Insurance",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-lp-vault-capacity-be-exposed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can LP vault capacity be exposed?",
+      "normalizedQuestion": "when can lp vault capacity be exposed",
+      "shortAnswer": "Neelo's DDQ ties LP vault exposure to vault capacity used by the solver for residual hedging, not to every ordinary trader loss.",
+      "answerSummary": "LP Vault Capacity Exposure Boundary The DDQ does not make LP vault capacity an abstract yield source. It can be part of the economic backing for residual exposure when the solver uses vault liquidity under the system's risk rules. That boundary should be stated carefully. LP vault capacity is not the first loss layer. Losing traders pay first through marg...",
+      "confidence": "Low",
+      "pageId": "authored-lp-vault-capacity-exposure-boundary",
+      "pageTitle": "LP Vault Capacity Exposure Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-local-insurance-sit-before-global-insurance",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does local insurance sit before global insurance?",
+      "normalizedQuestion": "why does local insurance sit before global insurance",
+      "shortAnswer": "Neelo's DDQ treats local insurance as market-specific tail protection before a market draws on any eligible shared global allocation.",
+      "answerSummary": "DDQ Local Insurance Tail Buffer The DDQ places local insurance after trader margin and solver hedging resources, but before global insurance. That position is the key idea. Local insurance is market specific protection. The source describes it as a fund primarily formed from liquidation flows in the same market. In a severe dislocation, if losing side tra...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-local-insurance-tail-buffer",
+      "pageTitle": "DDQ Local Insurance Tail Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-market-breaches-its-loss-tier",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a market breaches its loss tier?",
+      "normalizedQuestion": "what happens if a market breaches its loss tier",
+      "shortAnswer": "Neelo's DDQ says markets can be tiered with explicit loss limits, after which positions may be reduced, closed, or delisted under risk policy.",
+      "answerSummary": "Market Tier Loss Limits The DDQ describes markets as tiered by how much loss the solver and system buffers can absorb. That is the operational follow through of the loss waterfall. In an extreme event, a market may hit risk limits or triggers. The solver can respond by widening spreads, changing funding aggressively, forcing de risking, applying ADL style...",
+      "confidence": "Low",
+      "pageId": "authored-market-tier-loss-limits",
+      "pageTitle": "Market Tier Loss Limits",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -20749,6 +20894,151 @@
       "confidence": "Low",
       "pageId": "authored-loss-waterfall-and-profit-caps",
       "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-losing-traders-absorb-first-losses",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do losing traders absorb first losses?",
+      "normalizedQuestion": "why do losing traders absorb first losses",
+      "shortAnswer": "Neelo's DDQ waterfall starts with losing-side margin and balances before solver, LP, local insurance, or global insurance resources are touched.",
+      "answerSummary": "Losing Traders As First Loss The DDQ waterfall starts with the simplest rule in a derivatives market: the losing side pays first. When long and short flow is netted, PnL transfers between traders. If the price rises, shorts pay longs. If the price falls, longs pay shorts. The first buffer is therefore not an insurance fund or a protocol subsidy. It is the...",
+      "confidence": "Low",
+      "pageId": "authored-losing-trader-first-loss",
+      "pageTitle": "Losing Traders As First Loss",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-resources-sit-before-insurance-in-the-loss-waterfall",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What resources sit before insurance in the loss waterfall?",
+      "normalizedQuestion": "what resources sit before insurance in the loss waterfall",
+      "shortAnswer": "Neelo's DDQ puts solver hedging PnL, inventory, stablecoin resources, and associated liquidity before local or global insurance.",
+      "answerSummary": "Solver Hedging Resources Before Insurance The DDQ loss waterfall puts solver hedging resources before insurance. That is a precise statement about where residual counterparty risk sits. If a trade is un netted, the trader's PnL on that residual portion is effectively against the solver until the solver hedges, rebalances, or attracts offsetting flow. If t...",
+      "confidence": "Low",
+      "pageId": "authored-solver-hedging-resource-buffer",
+      "pageTitle": "Solver Hedging Resources Before Insurance",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-lp-vault-capacity-be-exposed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can LP vault capacity be exposed?",
+      "normalizedQuestion": "when can lp vault capacity be exposed",
+      "shortAnswer": "Neelo's DDQ ties LP vault exposure to vault capacity used by the solver for residual hedging, not to every ordinary trader loss.",
+      "answerSummary": "LP Vault Capacity Exposure Boundary The DDQ does not make LP vault capacity an abstract yield source. It can be part of the economic backing for residual exposure when the solver uses vault liquidity under the system's risk rules. That boundary should be stated carefully. LP vault capacity is not the first loss layer. Losing traders pay first through marg...",
+      "confidence": "Low",
+      "pageId": "authored-lp-vault-capacity-exposure-boundary",
+      "pageTitle": "LP Vault Capacity Exposure Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-local-insurance-sit-before-global-insurance",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does local insurance sit before global insurance?",
+      "normalizedQuestion": "why does local insurance sit before global insurance",
+      "shortAnswer": "Neelo's DDQ treats local insurance as market-specific tail protection before a market draws on any eligible shared global allocation.",
+      "answerSummary": "DDQ Local Insurance Tail Buffer The DDQ places local insurance after trader margin and solver hedging resources, but before global insurance. That position is the key idea. Local insurance is market specific protection. The source describes it as a fund primarily formed from liquidation flows in the same market. In a severe dislocation, if losing side tra...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-local-insurance-tail-buffer",
+      "pageTitle": "DDQ Local Insurance Tail Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-market-breaches-its-loss-tier",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a market breaches its loss tier?",
+      "normalizedQuestion": "what happens if a market breaches its loss tier",
+      "shortAnswer": "Neelo's DDQ says markets can be tiered with explicit loss limits, after which positions may be reduced, closed, or delisted under risk policy.",
+      "answerSummary": "Market Tier Loss Limits The DDQ describes markets as tiered by how much loss the solver and system buffers can absorb. That is the operational follow through of the loss waterfall. In an extreme event, a market may hit risk limits or triggers. The solver can respond by widening spreads, changing funding aggressively, forcing de risking, applying ADL style...",
+      "confidence": "Low",
+      "pageId": "authored-market-tier-loss-limits",
+      "pageTitle": "Market Tier Loss Limits",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

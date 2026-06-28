@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1143,
-  "totalChunks": 1974,
-  "pagesWithChunks": 1143,
+  "totalPages": 1148,
+  "totalChunks": 1984,
+  "pagesWithChunks": 1148,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 331,
+    "authored": 336,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 633,
+    "authored": 643,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 128,
+    "protocol-reference": 138,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2326,6 +2326,54 @@
       "wordEnd": 359,
       "wordCount": 174,
       "text": "exposure, opens leverage, then stresses the backing pool through spot selling. Vibe's proposed answer is a hybrid liquidity model: token inventory, solver funded stablecoin operations, quote by quote risk checks, and market controls that tighten when the market is immature or stressed. Reader Implication This page should be the first DDQ route for partners. It explains why Vibe is not simply \"a perp UI\" or \"a vault.\" The product claim is an integrated market creation stack: intents, solvers, LP inventory, and settlement are designed to make long tail leveraged markets possible before a normal order book can support them. Publication Note The DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored residual counterparty hedge first authored token lp attractiveness model authored solver default and continuity neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-local-insurance-tail-buffer::001",
+      "pageId": "authored-ddq-local-insurance-tail-buffer",
+      "chunkIndex": 1,
+      "title": "DDQ Local Insurance Tail Buffer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-local-insurance-tail-buffer.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Local Insurance Tail Buffer The DDQ places local insurance after trader margin and solver hedging resources, but before global insurance. That position is the key idea. Local insurance is market specific protection. The source describes it as a fund primarily formed from liquidation flows in the same market. In a severe dislocation, if losing side trader balances and solver hedging resources are depleted, the local insurance fund can absorb losses before the market asks for any shared global protection. Why Local Comes Before Global Local insurance keeps responsibility near the market that generated the risk. A permissionless market should build its own buffer from its own trading, liquidation, and risk activity before drawing on shared system reserves. That ordering also reduces contagion. If a low quality or manipulated market reaches a tail event, local insurance limits the first explicit insurance spend to that market. Global insurance can remain conditional and capped rather than acting as an automatic subsidy. How To Explain It To Readers For traders, local insurance is not a guarantee that every profitable position will be paid in full under every gap event. It is a tail buffer in a waterfall whose earlier layers are trader margin and solver resources. For LPs and project teams, it is evidence that the market is developing its own risk budget."
+    },
+    {
+      "id": "authored-ddq-local-insurance-tail-buffer::002",
+      "pageId": "authored-ddq-local-insurance-tail-buffer",
+      "chunkIndex": 2,
+      "title": "DDQ Local Insurance Tail Buffer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-local-insurance-tail-buffer.md",
+      "wordStart": 185,
+      "wordEnd": 331,
+      "wordCount": 146,
+      "text": "event. It is a tail buffer in a waterfall whose earlier layers are trader margin and solver resources. For LPs and project teams, it is evidence that the market is developing its own risk budget. A healthier local fund can support better terms over time, while a new or suspicious market may remain tighter because it has not built enough local protection. Publication Boundary Do not publish live local insurance inflows, liquidation routing percentages, spend caps, withdrawal effects, governance controls, or per market fund balances without implementation and operator review. The source backed claim is that local insurance is market specific and comes before global insurance in the DDQ waterfall. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"Balancing UX vs Risk\". Related Pages authored funding local insurance fund authored conditional global insurance allocation authored loss waterfall and profit caps"
     },
     {
       "id": "authored-derivatives-venue-term::001",
@@ -5508,6 +5556,56 @@
       "text": "design is a tradeoff. The question is not \"which primitive is universally best?\" The question is which primitive fits the market phase and who absorbs the residual risk. Sources vibe papers : Neelo, \"Section 6: Summary Model Map and Where the Gap Remains\". vibe papers : Neelo, \"Permissionless Perps in Practice: Order Books, Pools, and the Percolator Wave\". Related Pages authored clob vault rails long tail limits authored collateralized pools finite long tail authored percolator wave settlement reality"
     },
     {
+      "id": "authored-losing-trader-first-loss::001",
+      "pageId": "authored-losing-trader-first-loss",
+      "chunkIndex": 1,
+      "title": "Losing Traders As First Loss",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/losing-trader-first-loss.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Losing Traders As First Loss The DDQ waterfall starts with the simplest rule in a derivatives market: the losing side pays first. When long and short flow is netted, PnL transfers between traders. If the price rises, shorts pay longs. If the price falls, longs pay shorts. The first buffer is therefore not an insurance fund or a protocol subsidy. It is the margin and balances of the participants who took directional risk and lost. That ordering matters because it prevents the docs from making the system sound like an unlimited backstop. A trader who chooses direction and leverage is the first economic bearer of that directional outcome. Insurance, solver resources, and LP resources exist for residual or tail conditions, not to replace ordinary trader margin. Why This Is The Preferred State The preferred state is trader to trader settlement. It means the market has enough opposing flow for winners to be paid by losers without pulling on the solver balance sheet. The DDQ's netting examples make this explicit. With a 100% netted long against a short, both price up and price down outcomes clear between traders. The solver still coordinates quotes, risk checks, lifecycle actions, and settlement operations, but the directional PnL path is not primarily solver funded. Where The Waterfall Moves Next The first loss rule does not"
+    },
+    {
+      "id": "authored-losing-trader-first-loss::002",
+      "pageId": "authored-losing-trader-first-loss",
+      "chunkIndex": 2,
+      "title": "Losing Traders As First Loss",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/losing-trader-first-loss.md",
+      "wordStart": 185,
+      "wordEnd": 395,
+      "wordCount": 210,
+      "text": "between traders. The solver still coordinates quotes, risk checks, lifecycle actions, and settlement operations, but the directional PnL path is not primarily solver funded. Where The Waterfall Moves Next The first loss rule does not mean trader margin covers every possible event. In a fast dislocation, losing side margin may be exhausted before all winning side claims are economically cleared. Only then does the waterfall move into solver hedging resources, LP vault capacity where documented terms permit it, local insurance, and eligible global insurance. For production docs, the important distinction is between normal loss absorption and tail loss absorption. Normal loss absorption is trader margin. Tail loss absorption is the bounded escalation path that starts after trader balances cannot cover the imbalance. Publication Boundary This page should not publish live maintenance margin thresholds, liquidation timing, margin call behavior, closeout pricing, or user compensation semantics without implementation and operator review. It documents the source backed ordering: losing traders are first loss before solver, LP, or insurance resources are touched. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". vibe papers : Neelo DDQ, \"Risk Walkthrough\". Related Pages authored netting state risk transfer authored loss waterfall and profit caps authored symmio cross margin liquidations"
+    },
+    {
       "id": "authored-loss-waterfall-and-profit-caps::001",
       "pageId": "authored-loss-waterfall-and-profit-caps",
       "chunkIndex": 1,
@@ -5654,6 +5752,56 @@
       "wordEnd": 224,
       "wordCount": 39,
       "text": "papers : Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\". spec 03 : Phase B economics and revenue disclosure boundary. Related Pages authored vibe pillars authored estimated network revenue neelo 15 funding model 15 docs 06 lp profit"
+    },
+    {
+      "id": "authored-lp-vault-capacity-exposure-boundary::001",
+      "pageId": "authored-lp-vault-capacity-exposure-boundary",
+      "chunkIndex": 1,
+      "title": "LP Vault Capacity Exposure Boundary",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/lp-vault-capacity-exposure-boundary.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "LP Vault Capacity Exposure Boundary The DDQ does not make LP vault capacity an abstract yield source. It can be part of the economic backing for residual exposure when the solver uses vault liquidity under the system's risk rules. That boundary should be stated carefully. LP vault capacity is not the first loss layer. Losing traders pay first through margin and balance. The solver's hedging resources come next. LP capacity becomes relevant to the extent the solver has borrowed, used, or relied on vault liquidity for hedging operations. It is therefore tied to documented vault terms and protocol risk limits, not an unlimited claim on LP assets. Why The Boundary Matters For LPs, the central diligence question is not only \"what yield do I earn?\" It is \"when can my capacity be economically exposed?\" The source model answers that exposure comes from the residual, un netted part of the market. If trader flow is naturally netted, PnL transfers between traders. If the solver must warehouse an imbalance, it may use inventory and vault capacity to back or hedge the position. In a sharp adverse move, any vault capacity used in that hedge stack can be part of the buffer before insurance is touched. Not The Same As A Generic USDC Pool This boundary also supports the broader Vibe LP thesis."
+    },
+    {
+      "id": "authored-lp-vault-capacity-exposure-boundary::002",
+      "pageId": "authored-lp-vault-capacity-exposure-boundary",
+      "chunkIndex": 2,
+      "title": "LP Vault Capacity Exposure Boundary",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/lp-vault-capacity-exposure-boundary.md",
+      "wordStart": 185,
+      "wordEnd": 367,
+      "wordCount": 182,
+      "text": "any vault capacity used in that hedge stack can be part of the buffer before insurance is touched. Not The Same As A Generic USDC Pool This boundary also supports the broader Vibe LP thesis. The DDQ LP material distinguishes solver funded stablecoin operations from token side vault participation. The public docs should avoid collapsing those into one generic \"LP pays losses\" story. The safer answer is conditional: LP vault capacity can be exposed when it is actually used to support the solver's residual exposure, and only according to the risk rules and vault terms that govern that market. Publication Boundary Exact vault borrowing rights, withdrawal rules, covered call exposure, liquidation rights, collateral priority, insurance offsets, and LP loss ordering remain operator and implementation review items. This page documents the DDQ boundary, not final vault legal or production terms. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored token lp attractiveness model authored solver hedging resource buffer authored loss waterfall and profit caps"
     },
     {
       "id": "authored-lp-yield-capital-efficiency-pillar::001",
@@ -6228,6 +6376,54 @@
       "wordEnd": 249,
       "wordCount": 64,
       "text": "as live universal policy until the owner confirms current partner, category, and payout semantics. Sources vibe papers : Neelo, \"Section 7: LP and Category Layer\". vibe papers : Neelo, \"Section 9: Metrics Framework\". spec 03 : Public economics and referral depth caveats. Related Pages authored referral architecture as market formation authored network volume neelo 17 referral program 17 docs 07 lp and category layer"
+    },
+    {
+      "id": "authored-market-tier-loss-limits::001",
+      "pageId": "authored-market-tier-loss-limits",
+      "chunkIndex": 1,
+      "title": "Market Tier Loss Limits",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/market-tier-loss-limits.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Market Tier Loss Limits The DDQ describes markets as tiered by how much loss the solver and system buffers can absorb. That is the operational follow through of the loss waterfall. In an extreme event, a market may hit risk limits or triggers. The solver can respond by widening spreads, changing funding aggressively, forcing de risking, applying ADL style controls where enabled, or reducing and closing positions. If the relevant limits are breached, the source says the market may be forcibly reduced, closed, or delisted depending on governance and risk policy. Why Tiers Exist Permissionless markets are not equally trustworthy on day one. A mature market with deeper liquidity, cleaner liquidation history, and healthier local buffers can justify a different risk posture from a newly created or suspicious market. Tiering gives the system a bounded answer to \"how much can this market cost the solver, LPs, and insurance?\" The answer should not be infinite. It should depend on the market's maturity, inventory, local insurance, eligible global insurance, open interest, manipulation signals, and the solver's confidence in price formation. Reader Implication For traders, a tier is part of the market terms. It can affect leverage, open interest limits, quote availability, tail event caps, and emergency de risking. For LPs and project teams, a tier is the risk budget that protects the"
+    },
+    {
+      "id": "authored-market-tier-loss-limits::002",
+      "pageId": "authored-market-tier-loss-limits",
+      "chunkIndex": 2,
+      "title": "Market Tier Loss Limits",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/market-tier-loss-limits.md",
+      "wordStart": 185,
+      "wordEnd": 327,
+      "wordCount": 142,
+      "text": "part of the market terms. It can affect leverage, open interest limits, quote availability, tail event caps, and emergency de risking. For LPs and project teams, a tier is the risk budget that protects the rest of the system from one market's failure. Better market behavior can support a higher tier and better UX; worse behavior can force tighter terms or removal. Publication Boundary Do not publish live tier names, loss limits, ADL triggers, delisting authority, governance process, user notice workflow, or per market classifications without operator and implementation review. This page documents the DDQ concept that markets need explicit loss limits and escalation paths. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"Balancing UX vs Risk\". Related Pages authored market maturation risk posture authored liquidity disappearance protective posture authored tail event profit cap emergency brake"
     },
     {
       "id": "authored-metrics-become-targets-in-listing-games::001",
@@ -10305,6 +10501,56 @@
       "wordEnd": 276,
       "wordCount": 91,
       "text": "That is not the baseline for newly launched low cap markets. Publication Note This page summarizes the DDQ model. Final public docs should not publish exact liquidity collapse triggers, freeze thresholds, or production market shutdown behavior until implementation and operator review confirm them. Sources vibe papers : Neelo DDQ, \"Solver Hedging Risk Considerations\" and \"Balancing UX vs Risk\". Related Pages authored residual counterparty hedge first authored funding defense hierarchy authored liquidity as trader experience neelo 08 due diligence questionnaire 08 docs solver worst case scenarios b hedging risks hedging risk considerations"
+    },
+    {
+      "id": "authored-solver-hedging-resource-buffer::001",
+      "pageId": "authored-solver-hedging-resource-buffer",
+      "chunkIndex": 1,
+      "title": "Solver Hedging Resources Before Insurance",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/solver-hedging-resource-buffer.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Solver Hedging Resources Before Insurance The DDQ loss waterfall puts solver hedging resources before insurance. That is a precise statement about where residual counterparty risk sits. If a trade is un netted, the trader's PnL on that residual portion is effectively against the solver until the solver hedges, rebalances, or attracts offsetting flow. If the trader wins and losing side trader margin is not enough to clear the imbalance, the next economic buffer is the solver's hedging PnL and liquidity resources connected to that residual exposure. Those resources can include stablecoin reserves, token inventory, hedging positions, and other liquidity the solver has established to support the trade. The source language also allows LP vault capacity to enter where the solver has borrowed or used vault liquidity under the venue's risk rules. Why Insurance Is Later Insurance is not the first tool for ordinary residual exposure. The solver is the party that quoted the trade, assessed hedge feasibility, and temporarily warehoused the imbalance. The first post margin defense is therefore the set of resources the solver used to back or hedge that exposure. That ordering is important for LP and project diligence. The model is not \"all bad outcomes go straight to an insurance fund.\" It is: losing traders pay first; then the solver's own hedge stack and associated liquidity resources"
+    },
+    {
+      "id": "authored-solver-hedging-resource-buffer::002",
+      "pageId": "authored-solver-hedging-resource-buffer",
+      "chunkIndex": 2,
+      "title": "Solver Hedging Resources Before Insurance",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/solver-hedging-resource-buffer.md",
+      "wordStart": 185,
+      "wordEnd": 383,
+      "wordCount": 198,
+      "text": "important for LP and project diligence. The model is not \"all bad outcomes go straight to an insurance fund.\" It is: losing traders pay first; then the solver's own hedge stack and associated liquidity resources absorb the residual; only then do local and eligible global insurance become tail event buffers. What This Does Not Promise The page should not imply that solver hedges are always perfect. The DDQ elsewhere describes basis, liquidity, execution, and disappearance risks. A hedge can slip, become expensive to unwind, or fail to track in a fast market. That is why the waterfall includes local insurance, conditional global insurance, and emergency controls behind the solver resource layer. Publication Boundary Do not publish final solver capital requirements, hedge venues, inventory custody, stablecoin reserve sizing, vault borrowing rights, or hedge effectiveness guarantees without operator and implementation review. The source backed claim is the ordering and purpose of the solver hedging resource buffer. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored residual counterparty hedge first authored internal inventory primary hedge authored loss waterfall and profit caps"
     },
     {
       "id": "authored-solver-operational-failure-force-close::001",

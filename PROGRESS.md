@@ -628,6 +628,12 @@
 - Routed five new Ask questions so trader and risk-review readers can inspect how the recovery path starts, why it waits, what evidence finalizes the close, why proof does not depend on the offline solver, and what market-movement risk remains.
 - Kept exact timeout values, timer duration, proof format, proof sources, freshness windows, node counts, supported markets, chain-specific finalization, UI behavior, and production availability under operator/implementation/security review.
 
+## 2026-06-29 — DDQ Loss-Bearer Exact Risk Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ Bearer of Losses source: losing traders as first loss, solver hedging resources before insurance, LP vault capacity exposure boundaries, local insurance as a tail buffer, and market-tier loss limits.
+- Routed five new Ask questions so trader, LP, and risk-review readers can inspect each layer beneath the broad loss-waterfall answer.
+- Kept live margin thresholds, hedge policy, vault rights, insurance inflows, allocation formulas, tier limits, ADL triggers, delisting authority, and user-compensation semantics under operator/implementation/legal review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
