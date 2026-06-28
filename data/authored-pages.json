@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 165,
+  "totalPages": 170,
   "byStatus": {
-    "publication-candidate": 84,
-    "publication-candidate-needs-operator-review": 80,
+    "publication-candidate": 88,
+    "publication-candidate-needs-operator-review": 81,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -15,7 +15,7 @@
     "rewards-referrals": 16,
     "answer-engine": 1,
     "solver-reference": 1,
-    "product-reference": 10,
+    "product-reference": 15,
     "compendium": 8
   },
   "pages": [
@@ -3502,6 +3502,57 @@
       "excerpt": "Utilization Modes: Inventory And Insurance Neelo's funding model separates utilization into two modes because a long tail perp market can be constrained by two different things: token inventory and insurance capacity. Token inventory utilization asks whether the solver or market has enough token inventory to cover net exposure. In the source model, this is the normal and stress mode measurement. It is the first sign that the market is running out of inventory coverage. Insurance fund utilization asks a different question: if exposure exceeds token inventory, how much loss could the remaining unhedged exposure create relative to local and allocated global insurance? That mode is activated when the binding constraint is no longer simply \"do we have tokens?\" but \"can the defense stack absorb the tail risk?\" Why Two Modes Exist A single utilization number hides the state transition. A market can be near the edge of token coverage while insurance is still healthy. It can also have enough nominal token coverage while volatility or exposure loss estimates make insurance stress the real constraint. The source model uses the binding constraint to shape pricing. When exposure is inside inven"
     },
     {
+      "id": "authored-vibe-account-creation-and-login",
+      "title": "Vibe Account Creation And Login",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-creation",
+        "vibe-deposits-withdrawals",
+        "authored-vibe-simple-trade-flow"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-account-creation-and-login.md",
+      "bodyMarkdown": "# Vibe Account Creation And Login\n\nVibe account creation has two public onboarding paths: an EOA wallet path and an email or social login path. The account page should explain them as a custody and convenience choice, not merely as two buttons.\n\n## EOA Wallet Path\n\nThe official account guide frames an EOA wallet connection as the more secure path because the user keeps direct control of funds. The flow is: choose a supported chain, prepare a compatible wallet with USDC collateral and gas on that chain, connect the wallet to Vibe, create the account, deposit USDC, and then trade through Vibe's one-click gas-free flow.\n\nThis path is the better default explanation for readers who care about self-custody. The docs should still avoid implying that users never need chain assets at all: the setup step requires collateral and gas on the chosen chain before the Vibe account can be funded.\n\n## Email Or Social Login Path\n\nThe email/social path optimizes for convenience and device portability. The official guide says the user can enter an email, confirm a 6-digit code, deposit USDC into the provided smart-wallet address, wait for the deposit to appear, create the account, then move funds from the smart wallet into the Vibe account.\n\nThe same page carries the key security caveat: funds are not stored in the user's own wallet, making this path comparable in security posture to a centralized exchange. That sentence belongs near the login choice, not buried later in a risk section.\n\n## Reader Implication\n\nWhen a new user asks \"how do I create an account?\", answer with the path decision first. EOA wallet login is the self-custody-oriented path; email/social login is the convenience path with a different custody model. After that, route the user to deposit mechanics and simple trade flow.\n\n## Sources\n\n- `vibe-account-creation`: official Vibe account-creation paths, wallet preparation, email-code flow, smart-wallet deposit flow, one-click gas-free trading claim, and custody caveat.\n\n## Related Pages\n\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-security-and-audits`",
+      "excerpt": "Vibe Account Creation And Login Vibe account creation has two public onboarding paths: an EOA wallet path and an email or social login path. The account page should explain them as a custody and convenience choice, not merely as two buttons. EOA Wallet Path The official account guide frames an EOA wallet connection as the more secure path because the user keeps direct control of funds. The flow is: choose a supported chain, prepare a compatible wallet with USDC collateral and gas on that chain, connect the wallet to Vibe, create the account, deposit USDC, and then trade through Vibe's one click gas free flow. This path is the better default explanation for readers who care about self custody. The docs should still avoid implying that users never need chain assets at all: the setup step requires collateral and gas on the chosen chain before the Vibe account can be funded. Email Or Social Login Path The email/social path optimizes for convenience and device portability. The official guide says the user can enter an email, confirm a 6 digit code, deposit USDC into the provided smart wallet address, wait for the deposit to appear, create the account, then move funds from the smart wall"
+    },
+    {
+      "id": "authored-vibe-account-health-and-liquidations",
+      "title": "Vibe Account Health And Liquidations",
+      "section": "product-reference",
+      "track": "Risk And Margin",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-account-health-liquidations",
+        "vibe-collateral-margining",
+        "symmio-liquidations"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+        "https://docs.vibe.trading/trading/collateral-and-margining.md",
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-health-liquidations",
+        "vibe-collateral-margining",
+        "symmio-liquidations",
+        "authored-symmio-cross-margin-liquidations"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-account-health-and-liquidations.md",
+      "bodyMarkdown": "# Vibe Account Health And Liquidations\n\nAccount health is the user-facing risk gauge for liquidation proximity. The official guide ties it to equity relative to maintenance margin/CVA, then shows the user that risk through the Account Overview tab and visual health indicator.\n\n## Liquidation Trigger And Scope\n\nThe official Vibe account-health page says liquidation occurs when Equity Balance falls below Maintenance Margin (CVA). If liquidation happens, the CVA locked in the affected trades is forfeited to the counterparty.\n\nLiquidation scope depends on margin mode. Cross-margin accounts can have multiple positions closed because account balance backs the shared account. VibeCaps uses isolated virtual accounts, so liquidation is scoped to the affected virtual account rather than other VibeCaps virtual accounts.\n\n## Balance Terms\n\nThe product page gives three terms the docs should keep separate:\n\n- Allocated Balance: the full amount designated to the account, including equity.\n- Locked Margin: the portion of equity locked in open trades.\n- Available for Orders: funds remaining for new positions after margin and maintenance requirements.\n\nThe public formula for equity is:\n\n```text\nEquity Balance = Allocated Balance + uPNL\n```\n\nThe public formula for available order capacity is:\n\n```text\nAvailable for Orders = Equity Balance - Locked Margin - Maintenance Margin\n```\n\n## Reader Implication\n\nWhen answering \"am I close to liquidation?\", do not only say \"watch account health.\" Explain the components: equity, unrealized PnL, locked margin, maintenance margin/CVA, and margin mode. The same account-health percentage has different practical consequences under cross-margin and isolated VibeCaps virtual-account settings.\n\n## Sources\n\n- `vibe-account-health-liquidations`: official account-health, liquidation trigger, CVA forfeiture, equity, locked-margin, and available-for-orders formulas.\n- `vibe-collateral-margining`: Vibe cross-margin, isolated margin, and virtual-account context.\n- `symmio-liquidations`: protocol-level liquidation context for cross-margin PartyA accounts.\n\n## Related Pages\n\n- `authored-vibe-collateral-and-margining`\n- `authored-vibecaps-margin-management`\n- `authored-symmio-cross-margin-liquidations`\n- `authored-collateral-margin-cva`",
+      "excerpt": "Vibe Account Health And Liquidations Account health is the user facing risk gauge for liquidation proximity. The official guide ties it to equity relative to maintenance margin/CVA, then shows the user that risk through the Account Overview tab and visual health indicator. Liquidation Trigger And Scope The official Vibe account health page says liquidation occurs when Equity Balance falls below Maintenance Margin (CVA). If liquidation happens, the CVA locked in the affected trades is forfeited to the counterparty. Liquidation scope depends on margin mode. Cross margin accounts can have multiple positions closed because account balance backs the shared account. VibeCaps uses isolated virtual accounts, so liquidation is scoped to the affected virtual account rather than other VibeCaps virtual accounts. Balance Terms The product page gives three terms the docs should keep separate: Allocated Balance: the full amount designated to the account, including equity. Locked Margin: the portion of equity locked in open trades. Available for Orders: funds remaining for new positions after margin and maintenance requirements. The public formula for equity is: The public formula for available or"
+    },
+    {
       "id": "authored-vibe-as-discovery-layer",
       "title": "Vibe As The Discovery Layer",
       "section": "manifesto",
@@ -3575,6 +3626,31 @@
       "file": "content/authored/reference/vibe-collateral-and-margining.md",
       "bodyMarkdown": "# Vibe Collateral And Margining\n\nVibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non-liquidated party.\n\nThe docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about.\n\n## Cross-Margin Accounts\n\nThe official page says Vibe uses cross-margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated.\n\nThis is the capital-efficiency tradeoff. Cross-margin can reduce idle collateral, but the reader must understand that risk is shared across the account.\n\n## Isolated Margin And VibeCaps\n\nThe same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings.\n\nThat means a liquidation in one isolated virtual account should not drain margin from another isolated virtual account. The companion VibeCaps margin page explains how adding margin increases the collateral buffer and moves liquidation farther away, while removing margin frees balance and moves liquidation closer.\n\n## Reader Implication\n\nWhen explaining margin, start with the mode: cross-margin shares account equity across positions; isolated margin confines risk to a virtual account or bucket. Then explain the action: adding margin increases cushion; removing margin releases balance but increases liquidation risk.\n\n## Sources\n\n- `vibe-collateral-margining`: official Vibe collateral, CVA, cross-margin, isolated-margin, and virtual-account descriptions.\n- `vibe-margin`: VibeCaps add/remove margin behavior.\n- `symmio-core`: protocol vocabulary for collateral, locked margin, CVA, and balance.\n\n## Related Pages\n\n- `authored-vibecaps-margin-management`\n- `authored-collateral-margin-cva`\n- `authored-vibe-tpsl`\n- `vibe-collateral-margining`",
       "excerpt": "Vibe Collateral And Margining Vibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non liquidated party. The docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about. Cross Margin Accounts The official page says Vibe uses cross margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated. This is the capital efficiency tradeoff. Cross margin can reduce idle collateral, but the reader must understand that risk is shared across the account. Isolated Margin And VibeCaps The same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings. That means a l"
+    },
+    {
+      "id": "authored-vibe-deposits-and-withdrawals",
+      "title": "Vibe Deposits And Withdrawals",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation",
+        "vibe-account-portfolio"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-deposits-and-withdrawals.md",
+      "bodyMarkdown": "# Vibe Deposits And Withdrawals\n\nVibe's funding guide separates deposits from withdrawal safety. Deposits are framed as straightforward balance movement into an allocated trading balance; withdrawals add controls for large requests.\n\n## Deposits\n\nThe official deposit guide says users can start a deposit from the trade panel, account dropdown, or My Account screens. Once the transaction is confirmed on-chain, the USDC amount appears in Allocated Balance.\n\nThe account path changes chain support. The current public guide says EOA-created accounts can deposit directly from Base only. Email-created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. The docs should preserve that distinction instead of giving a generic \"deposit from anywhere\" answer.\n\n## Withdrawals\n\nThe official withdrawal guide says small withdrawals are basically instantaneous. For large withdrawals, Vibe uses a fraud-proof window to protect the system from exploits and double-spend attempts.\n\nThe large-withdrawal flow has five user-visible states:\n\n- Initiate the withdrawal request from the trade panel, account dropdown, or My Account screens.\n- Wait through a 12-hour fraud-proof window.\n- Cancel during the window if the user wants the funds returned to Allocated Balance.\n- Understand that a second request groups with the existing request and resets the window to 12 hours.\n- Approve the withdrawal after the window elapses, assuming the request is valid.\n\nThe public source does not define the \"large withdrawal\" threshold, so publication copy should not invent one.\n\n## Reader Implication\n\nWhen answering funding questions, distinguish where the funds are in the lifecycle: wallet or smart wallet, Vibe account, Allocated Balance, pending withdrawal, or approved withdrawal. That vocabulary prevents confusion between a confirmed chain deposit, a visible trading balance, and a withdrawal request waiting through the safety window.\n\n## Sources\n\n- `vibe-deposits-withdrawals`: official deposit entry points, Allocated Balance crediting, account-path chain support, and 12-hour large-withdrawal fraud-proof flow.\n- `vibe-account-creation`: account path context for EOA versus email/social onboarding.\n\n## Related Pages\n\n- `authored-vibe-account-creation-and-login`\n- `authored-vibe-portfolio-and-account-data`\n- `authored-vibe-account-health-and-liquidations`",
+      "excerpt": "Vibe Deposits And Withdrawals Vibe's funding guide separates deposits from withdrawal safety. Deposits are framed as straightforward balance movement into an allocated trading balance; withdrawals add controls for large requests. Deposits The official deposit guide says users can start a deposit from the trade panel, account dropdown, or My Account screens. Once the transaction is confirmed on chain, the USDC amount appears in Allocated Balance. The account path changes chain support. The current public guide says EOA created accounts can deposit directly from Base only. Email created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. The docs should preserve that distinction instead of giving a generic \"deposit from anywhere\" answer. Withdrawals The official withdrawal guide says small withdrawals are basically instantaneous. For large withdrawals, Vibe uses a fraud proof window to protect the system from exploits and double spend attempts. The large withdrawal flow has five user visible states: Initiate the withdrawal request from the trade panel, account dropdown, or My Account screens. Wait through a 12 hour fraud proof window. Cancel during the window "
     },
     {
       "id": "authored-vibe-fees-and-funding",
@@ -3735,6 +3811,33 @@
       "excerpt": "Vibe Points Program The official Vibe points page gives the public top level answer: before the $VIBE TGE, Vibe Points can be earned through trading, referring, and community participation. It also says each points program rewards users daily and resets at 00:00 UTC. That is enough to answer the basic user question \"how are Vibe points earned?\" It is not enough to collapse every points or rewards surface in this onboarding app into the same number. Public Categories The source backed public categories are: Trading. Referring. Community participation. Users can participate in all three if they choose. The public page does not, by itself, resolve dashboard specific onboarding points, network volume multipliers, referral depth accounting, or historical backfill language. Separation From Onboarding Points The existing authored points distinction remains important. The onboarding app has its own campaign/accounting language, while Vibe public docs describe Vibe points categories. A production FAQ should first identify which rail the user means, then answer only that rail. Referral depth and TGE settlement wording still need operator confirmation before the final public docs make stronge"
     },
     {
+      "id": "authored-vibe-portfolio-and-account-data",
+      "title": "Vibe Portfolio And Account Data",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-points",
+        "vibe-deposits-withdrawals"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+        "https://docs.vibe.trading/trading/vibe-points.md",
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-portfolio",
+        "authored-vibe-points-program",
+        "vibe-deposits-withdrawals"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-portfolio-and-account-data.md",
+      "bodyMarkdown": "# Vibe Portfolio And Account Data\n\nThe My Account page is the product's practical operating ledger. It is where a trader checks current exposure, recent performance, transaction history, account health, and reward context without leaving the trading product.\n\n## Account Overview\n\nThe official portfolio guide says My Account includes open-position summaries, PnL overviews for 24-hour, 7-day, and 30-day windows, deposit and withdrawal history, balance and account-health data, collateral usage, referral-code activity and earnings, and a Vibe Points summary.\n\nThat makes the page a bridge between trading, funding, risk, referrals, and points. The compendium should not document those as separate silos: each one becomes useful when the user can see how it changed their account state.\n\n## Performance Analytics\n\nThe same source describes detailed PnL stats, daily and cumulative PnL charts, funding charts, trading-fee charts, rakeback tracking, transaction history, and CSV export for tax or accounting workflows.\n\nThose features should be documented as analytics and recordkeeping surfaces, not as a guarantee that every tax or accounting treatment is solved by the product. CSV export gives the user data; jurisdiction-specific interpretation remains outside this source set.\n\n## Reader Implication\n\nWhen a user asks where to understand their account, route them to My Account first. When they ask why a number moved, route to the specific source of movement: positions and PnL, funding, fees, deposits/withdrawals, referral activity, points, or account-health changes.\n\n## Sources\n\n- `vibe-account-portfolio`: official My Account contents, PnL windows, funding/fee charts, transaction history, referral-code overview, points summary, and CSV export.\n- `vibe-points`: public point categories that help interpret the points summary.\n- `vibe-deposits-withdrawals`: deposit and withdrawal history context.\n\n## Related Pages\n\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-account-health-and-liquidations`\n- `authored-vibe-fees-and-funding`\n- `authored-vibe-points-program`",
+      "excerpt": "Vibe Portfolio And Account Data The My Account page is the product's practical operating ledger. It is where a trader checks current exposure, recent performance, transaction history, account health, and reward context without leaving the trading product. Account Overview The official portfolio guide says My Account includes open position summaries, PnL overviews for 24 hour, 7 day, and 30 day windows, deposit and withdrawal history, balance and account health data, collateral usage, referral code activity and earnings, and a Vibe Points summary. That makes the page a bridge between trading, funding, risk, referrals, and points. The compendium should not document those as separate silos: each one becomes useful when the user can see how it changed their account state. Performance Analytics The same source describes detailed PnL stats, daily and cumulative PnL charts, funding charts, trading fee charts, rakeback tracking, transaction history, and CSV export for tax or accounting workflows. Those features should be documented as analytics and recordkeeping surfaces, not as a guarantee that every tax or accounting treatment is solved by the product. CSV export gives the user data; jur"
+    },
+    {
       "id": "authored-vibe-product-overview",
       "title": "Vibe Product Overview",
       "section": "product-reference",
@@ -3761,6 +3864,31 @@
       "file": "content/authored/reference/vibe-product-overview.md",
       "bodyMarkdown": "# Vibe Product Overview\n\nVibe is the product layer for a specific market-structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools.\n\nThe current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major-market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and \"390+ markets.\" Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication.\n\n## What Vibe Adds\n\nVibe combines two ideas that are usually documented separately:\n\n- A trader-facing perpetuals product where users can trade established markets.\n- A market-creation surface where projects or inventory owners can support isolated lowcap perp markets using their own supply.\n\nNeelo's vision corpus explains why that matters. The point is not simply \"more markets.\" The point is to move market creation upstream: from opaque venue listing committees and mature order books toward permissionless demand discovery, solver quotation, and eventual market graduation.\n\n## Risk Framing\n\nThe public Vibe overview says its bespoke lowcap solver isolates each lowcap perp market and frames that isolation as protection against platform-wide risk if a token fails. The docs can report that product claim, but they should also route users to risk, margin, and solver pages before turning it into a guarantee.\n\nFor publication, the safer formulation is: Vibe's public product story is isolated lowcap perp listing; the exact operational guarantees, solver exposure, vault inventory treatment, and LP risk visibility must be explained on the dedicated risk pages where the relevant sources are cited.\n\n## Reader Implication\n\nIf a reader asks \"what is Vibe?\", the answer should not be only a DEX category label. Vibe is a perpetuals product, a permissionless market-creation path, and a demand-discovery layer in the broader Vibe x Symmio thesis.\n\n## Sources\n\n- `vibe-what-is`: official product positioning, major-market and lowcap-listing claims.\n- `vibe-architecture`: intent-based quotation and execution model.\n- `vibe-papers`: Neelo's market-creation and discovery-layer thesis.\n\n## Related Pages\n\n- `authored-vibe-intent-architecture`\n- `authored-vibe-as-discovery-layer`\n- `authored-market-assembly-line`\n- `vibe-product-what-is`",
       "excerpt": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and \"390+ markets.\" Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication. What Vibe Adds Vibe combines two ideas that are usually documented separately: A trader facing perpetuals product where users can trade established markets. A market creation surface where projects or inventory owners can support isolated lowcap perp markets using their own supply. Neelo's vision corpus explains why that matters. The point is not simply \"more markets.\" The point is to move market creation upstream: from opaque venue listing committees and mature order books toward permissionless demand discovery, solver quotation, and eventual market graduation. Risk "
+    },
+    {
+      "id": "authored-vibe-security-and-audits",
+      "title": "Vibe Security And Audits",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/security-and-audits.md",
+        "https://audits.sherlock.xyz/contests/85"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-security-audits",
+        "authored-vibe-account-creation-and-login",
+        "authored-vibe-deposits-and-withdrawals"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-security-and-audits.md",
+      "bodyMarkdown": "# Vibe Security And Audits\n\nThe security page should be precise about what is currently published, what is linked as evidence, and what is still future-facing. Security copy gets weaker when it becomes broad reassurance without versioned facts.\n\n## Published Security Posture\n\nThe official Vibe security guide says the project treats security as central, commits to audited and rigorously tested contracts across products, and uses public audit processes plus peer review by experienced blockchain developers.\n\nThat is a posture statement. It should be paired with exact contract families and audit links whenever the docs make a concrete claim.\n\n## Trade Settlement Contracts\n\nThe current Vibe guide says Vibe uses SYMMIO-Core v0.8.4 smart contracts for trade settlement and that those contracts were audited by Sherlock. The linked Sherlock page is the Symmetrical contest page, with public metadata for the audit venue and contest.\n\nThe compendium should state that as the current public source claim, not as a perpetual guarantee that every deployed contract, future product, or token/staking module has the same audit status.\n\n## Token And Staking Contracts\n\nThe same Vibe source marks token and staking contract details as coming soon. That caveat should remain visible. Until a primary source publishes those audit details, the security page should avoid implying that token and staking contracts have final public audit coverage.\n\n## Reader Implication\n\nFor traders and treasuries, the useful security answer is versioned: which contract family, which version, which audit venue, which product surface, and which areas are not yet covered by public detail. The answer engine should route broad \"is Vibe audited?\" questions here, then preserve the source caveat around future token and staking contracts.\n\n## Sources\n\n- `vibe-security-audits`: official Vibe security/audit page, SYMMIO-Core v0.8.4 settlement-contract statement, Sherlock link, and token/staking coming-soon caveat.\n- `sherlock-symmetrical-contest`: public Sherlock contest metadata linked from the Vibe security page.\n\n## Related Pages\n\n- `authored-vibe-account-creation-and-login`\n- `authored-vibe-account-health-and-liquidations`\n- `authored-symmio-clearing-house-layer`",
+      "excerpt": "Vibe Security And Audits The security page should be precise about what is currently published, what is linked as evidence, and what is still future facing. Security copy gets weaker when it becomes broad reassurance without versioned facts. Published Security Posture The official Vibe security guide says the project treats security as central, commits to audited and rigorously tested contracts across products, and uses public audit processes plus peer review by experienced blockchain developers. That is a posture statement. It should be paired with exact contract families and audit links whenever the docs make a concrete claim. Trade Settlement Contracts The current Vibe guide says Vibe uses SYMMIO Core v0.8.4 smart contracts for trade settlement and that those contracts were audited by Sherlock. The linked Sherlock page is the Symmetrical contest page, with public metadata for the audit venue and contest. The compendium should state that as the current public source claim, not as a perpetual guarantee that every deployed contract, future product, or token/staking module has the same audit status. Token And Staking Contracts The same Vibe source marks token and staking contract de"
     },
     {
       "id": "authored-vibe-simple-trade-flow",

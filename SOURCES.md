@@ -75,6 +75,12 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-collateral-margining` | https://docs.vibe.trading/trading/collateral-and-margining.md | Collateral, CVA, cross-margin, isolated margin, and virtual-account behavior. |
 | `vibe-fees` | https://docs.vibe.trading/trading/fees.md | User-facing fee categories and trade-panel fee breakdown caveat. |
 | `vibe-funding` | https://docs.vibe.trading/trading/funding.md | Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold. |
+| `vibe-account-creation` | https://docs.vibe.trading/getting-started/account-creation.md | EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs. |
+| `vibe-deposits-withdrawals` | https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md | Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window. |
+| `vibe-account-portfolio` | https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md | My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views. |
+| `vibe-account-health-liquidations` | https://docs.vibe.trading/trading/account-health-and-liquidations.md | Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas. |
+| `vibe-security-audits` | https://docs.vibe.trading/more-info/security-and-audits.md | Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat. |
+| `sherlock-symmetrical-contest` | https://audits.sherlock.xyz/contests/85 | Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context. |
 | `vibe-papers` | https://github.com/0xneelo/vibe_docs | Research-paper corpus and long-form themes. |
 | `vibe-papers-site` | https://0xneelo.github.io/vibe_docs/ | Reader-first published version of Neelo's papers. |
 | `vibe-papers-data` | `/tmp/vibe_docs/Website/public/generated/docs-data.json` | Session 1 local clone data used to derive the 794-page manifest. |

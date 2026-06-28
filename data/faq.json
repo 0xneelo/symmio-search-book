@@ -8,17 +8,17 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 152,
-  "totalAnswerable": 146,
+  "totalEntries": 157,
+  "totalAnswerable": 151,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 20,
+    "Getting Started": 24,
     "Trading Flow": 13,
     "Solvers And Settlement": 31,
-    "Risk And Markets": 14,
+    "Risk And Markets": 15,
     "Revenue": 12,
     "Rewards And Referrals": 17,
     "Dashboard": 9,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 71,
-    "High": 21,
+    "Medium": 72,
+    "High": 25,
     "Low": 54
   },
   "byRouteSource": {
-    "authored": 146
+    "authored": 151
   },
   "byType": {
-    "answerable": 146,
+    "answerable": 151,
     "reconciliation": 6
   },
   "answerable": [
@@ -559,6 +559,199 @@
           "group": "Public Vibe Sources",
           "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
           "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-i-create-a-vibe-account",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do I create a Vibe account?",
+      "normalizedQuestion": "how do i create a vibe account",
+      "shortAnswer": "Official Vibe account-creation docs support EOA and email/social onboarding paths, including custody/security tradeoffs and funding sequence.",
+      "answerSummary": "Vibe Account Creation And Login Vibe account creation has two public onboarding paths: an EOA wallet path and an email or social login path. The account page should explain them as a custody and convenience choice, not merely as two buttons. EOA Wallet Path The official account guide frames an EOA wallet connection as the more secure path because the user...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-creation-and-login",
+      "pageTitle": "Vibe Account Creation And Login",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-deposits-and-withdrawals-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do Vibe deposits and withdrawals work?",
+      "normalizedQuestion": "how do vibe deposits and withdrawals work",
+      "shortAnswer": "Official Vibe docs support deposit entry points, allocated-balance crediting, Base-only EOA deposit note, multi-chain email deposits, and 12-hour fraud-proof window for large withdrawals.",
+      "answerSummary": "Vibe Deposits And Withdrawals Vibe's funding guide separates deposits from withdrawal safety. Deposits are framed as straightforward balance movement into an allocated trading balance; withdrawals add controls for large requests. Deposits The official deposit guide says users can start a deposit from the trade panel, account dropdown, or My Account screen...",
+      "confidence": "High",
+      "pageId": "authored-vibe-deposits-and-withdrawals",
+      "pageTitle": "Vibe Deposits And Withdrawals",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-my-account-show-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does My Account show on Vibe?",
+      "normalizedQuestion": "what does my account show on vibe",
+      "shortAnswer": "Official Vibe portfolio docs support open positions, PnL windows, transaction history, balance/account health, referral code overview, points, fees/funding charts, and CSV export.",
+      "answerSummary": "Vibe Portfolio And Account Data The My Account page is the product's practical operating ledger. It is where a trader checks current exposure, recent performance, transaction history, account health, and reward context without leaving the trading product. Account Overview The official portfolio guide says My Account includes open position summaries, PnL o...",
+      "confidence": "High",
+      "pageId": "authored-vibe-portfolio-and-account-data",
+      "pageTitle": "Vibe Portfolio And Account Data",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-points",
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-account-health-affect-liquidation-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does Vibe account health affect liquidation risk?",
+      "normalizedQuestion": "how does vibe account health affect liquidation risk",
+      "shortAnswer": "Official Vibe account-health docs define equity, maintenance margin/CVA, locked margin, available-for-orders math, CVA forfeiture, and cross-margin versus isolated VibeCaps scope.",
+      "answerSummary": "Vibe Account Health And Liquidations Account health is the user facing risk gauge for liquidation proximity. The official guide ties it to equity relative to maintenance margin/CVA, then shows the user that risk through the Account Overview tab and visual health indicator. Liquidation Trigger And Scope The official Vibe account health page says liquidatio...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-health-and-liquidations",
+      "pageTitle": "Vibe Account Health And Liquidations",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-health-liquidations",
+        "vibe-collateral-margining",
+        "symmio-liquidations"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-health-liquidations",
+          "group": "Public Vibe Sources",
+          "use": "Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas.",
+          "href": "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-collateral-margining",
+          "group": "Public Vibe Sources",
+          "use": "Collateral, CVA, cross-margin, isolated margin, and virtual-account behavior.",
+          "href": "https://docs.vibe.trading/trading/collateral-and-margining.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-liquidations",
+          "group": "Public Symmio Sources",
+          "use": "Cross-margin liquidation, pending/locked/free balance treatment, PartyA account-wide liquidation, Muon data, and liquidator role.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-security-and-audit-status-does-vibe-publish",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What security and audit status does Vibe publish?",
+      "normalizedQuestion": "what security and audit status does vibe publish",
+      "shortAnswer": "Official Vibe docs and the linked Sherlock contest support SYMMIO-Core v0.8.4 settlement-contract audit context; token/staking audit details remain coming soon.",
+      "answerSummary": "Vibe Security And Audits The security page should be precise about what is currently published, what is linked as evidence, and what is still future facing. Security copy gets weaker when it becomes broad reassurance without versioned facts. Published Security Posture The official Vibe security guide says the project treats security as central, commits to...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-security-and-audits",
+      "pageTitle": "Vibe Security And Audits",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
           "missing": false
         }
       ]
@@ -5997,6 +6190,199 @@
           "group": "Public Vibe Sources",
           "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
           "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-i-create-a-vibe-account",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do I create a Vibe account?",
+      "normalizedQuestion": "how do i create a vibe account",
+      "shortAnswer": "Official Vibe account-creation docs support EOA and email/social onboarding paths, including custody/security tradeoffs and funding sequence.",
+      "answerSummary": "Vibe Account Creation And Login Vibe account creation has two public onboarding paths: an EOA wallet path and an email or social login path. The account page should explain them as a custody and convenience choice, not merely as two buttons. EOA Wallet Path The official account guide frames an EOA wallet connection as the more secure path because the user...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-creation-and-login",
+      "pageTitle": "Vibe Account Creation And Login",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-deposits-and-withdrawals-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do Vibe deposits and withdrawals work?",
+      "normalizedQuestion": "how do vibe deposits and withdrawals work",
+      "shortAnswer": "Official Vibe docs support deposit entry points, allocated-balance crediting, Base-only EOA deposit note, multi-chain email deposits, and 12-hour fraud-proof window for large withdrawals.",
+      "answerSummary": "Vibe Deposits And Withdrawals Vibe's funding guide separates deposits from withdrawal safety. Deposits are framed as straightforward balance movement into an allocated trading balance; withdrawals add controls for large requests. Deposits The official deposit guide says users can start a deposit from the trade panel, account dropdown, or My Account screen...",
+      "confidence": "High",
+      "pageId": "authored-vibe-deposits-and-withdrawals",
+      "pageTitle": "Vibe Deposits And Withdrawals",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-my-account-show-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does My Account show on Vibe?",
+      "normalizedQuestion": "what does my account show on vibe",
+      "shortAnswer": "Official Vibe portfolio docs support open positions, PnL windows, transaction history, balance/account health, referral code overview, points, fees/funding charts, and CSV export.",
+      "answerSummary": "Vibe Portfolio And Account Data The My Account page is the product's practical operating ledger. It is where a trader checks current exposure, recent performance, transaction history, account health, and reward context without leaving the trading product. Account Overview The official portfolio guide says My Account includes open position summaries, PnL o...",
+      "confidence": "High",
+      "pageId": "authored-vibe-portfolio-and-account-data",
+      "pageTitle": "Vibe Portfolio And Account Data",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-points",
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-account-health-affect-liquidation-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does Vibe account health affect liquidation risk?",
+      "normalizedQuestion": "how does vibe account health affect liquidation risk",
+      "shortAnswer": "Official Vibe account-health docs define equity, maintenance margin/CVA, locked margin, available-for-orders math, CVA forfeiture, and cross-margin versus isolated VibeCaps scope.",
+      "answerSummary": "Vibe Account Health And Liquidations Account health is the user facing risk gauge for liquidation proximity. The official guide ties it to equity relative to maintenance margin/CVA, then shows the user that risk through the Account Overview tab and visual health indicator. Liquidation Trigger And Scope The official Vibe account health page says liquidatio...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-health-and-liquidations",
+      "pageTitle": "Vibe Account Health And Liquidations",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-health-liquidations",
+        "vibe-collateral-margining",
+        "symmio-liquidations"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-health-liquidations",
+          "group": "Public Vibe Sources",
+          "use": "Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas.",
+          "href": "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-collateral-margining",
+          "group": "Public Vibe Sources",
+          "use": "Collateral, CVA, cross-margin, isolated margin, and virtual-account behavior.",
+          "href": "https://docs.vibe.trading/trading/collateral-and-margining.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-liquidations",
+          "group": "Public Symmio Sources",
+          "use": "Cross-margin liquidation, pending/locked/free balance treatment, PartyA account-wide liquidation, Muon data, and liquidator role.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-security-and-audit-status-does-vibe-publish",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What security and audit status does Vibe publish?",
+      "normalizedQuestion": "what security and audit status does vibe publish",
+      "shortAnswer": "Official Vibe docs and the linked Sherlock contest support SYMMIO-Core v0.8.4 settlement-contract audit context; token/staking audit details remain coming soon.",
+      "answerSummary": "Vibe Security And Audits The security page should be precise about what is currently published, what is linked as evidence, and what is still future facing. Security copy gets weaker when it becomes broad reassurance without versioned facts. Published Security Posture The official Vibe security guide says the project treats security as central, commits to...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-security-and-audits",
+      "pageTitle": "Vibe Security And Audits",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
+      ],
+      "sources": [
+        {
+          "key": "vibe-security-audits",
+          "group": "Public Vibe Sources",
+          "use": "Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat.",
+          "href": "https://docs.vibe.trading/more-info/security-and-audits.md",
+          "missing": false
+        },
+        {
+          "key": "sherlock-symmetrical-contest",
+          "group": "Public Vibe Sources",
+          "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
+          "href": "https://audits.sherlock.xyz/contests/85",
           "missing": false
         }
       ]

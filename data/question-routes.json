@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 146,
+  "totalRoutes": 151,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 71,
-    "High": 21,
+    "Medium": 72,
+    "High": 25,
     "Low": 54
   },
   "byRouteSource": {
-    "authored": 146
+    "authored": 151
   },
   "answerable": [
     {
@@ -236,6 +236,97 @@
       "sourceKeys": [
         "vibe-fees",
         "vibe-funding"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-i-create-a-vibe-account",
+      "question": "How do I create a Vibe account?",
+      "normalizedQuestion": "how do i create a vibe account",
+      "pageId": "authored-vibe-account-creation-and-login",
+      "pageTitle": "Vibe Account Creation And Login",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe account-creation docs support EOA and email/social onboarding paths, including custody/security tradeoffs and funding sequence.",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-vibe-deposits-and-withdrawals-work",
+      "question": "How do Vibe deposits and withdrawals work?",
+      "normalizedQuestion": "how do vibe deposits and withdrawals work",
+      "pageId": "authored-vibe-deposits-and-withdrawals",
+      "pageTitle": "Vibe Deposits And Withdrawals",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe docs support deposit entry points, allocated-balance crediting, Base-only EOA deposit note, multi-chain email deposits, and 12-hour fraud-proof window for large withdrawals.",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-my-account-show-on-vibe",
+      "question": "What does My Account show on Vibe?",
+      "normalizedQuestion": "what does my account show on vibe",
+      "pageId": "authored-vibe-portfolio-and-account-data",
+      "pageTitle": "Vibe Portfolio And Account Data",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe portfolio docs support open positions, PnL windows, transaction history, balance/account health, referral code overview, points, fees/funding charts, and CSV export.",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-points",
+        "vibe-deposits-withdrawals"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-vibe-account-health-affect-liquidation-risk",
+      "question": "How does Vibe account health affect liquidation risk?",
+      "normalizedQuestion": "how does vibe account health affect liquidation risk",
+      "pageId": "authored-vibe-account-health-and-liquidations",
+      "pageTitle": "Vibe Account Health And Liquidations",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe account-health docs define equity, maintenance margin/CVA, locked margin, available-for-orders math, CVA forfeiture, and cross-margin versus isolated VibeCaps scope.",
+      "sourceKeys": [
+        "vibe-account-health-liquidations",
+        "vibe-collateral-margining",
+        "symmio-liquidations"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-security-and-audit-status-does-vibe-publish",
+      "question": "What security and audit status does Vibe publish?",
+      "normalizedQuestion": "what security and audit status does vibe publish",
+      "pageId": "authored-vibe-security-and-audits",
+      "pageTitle": "Vibe Security And Audits",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official Vibe docs and the linked Sherlock contest support SYMMIO-Core v0.8.4 settlement-contract audit context; token/staking audit details remain coming soon.",
+      "sourceKeys": [
+        "vibe-security-audits",
+        "sherlock-symmetrical-contest"
       ],
       "missing": false
     },

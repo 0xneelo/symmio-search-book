@@ -375,6 +375,13 @@
 - Added five authored Volume 05 reference pages for Symmio funding epochs, cross-margin liquidations, settlement/profit realization, settlement costs and affiliate credits, and solver operations/hedging.
 - Routed five new Symmio operations questions to authored pages while keeping fee percentages, live epoch values, liquidation thresholds, solver APR/history, and product-specific Vibe semantics under source or operator review.
 
+## 2026-06-28 — Official Vibe Account And Safety Authored Layer
+
+- Fetched current official Vibe markdown for account creation, deposits/withdrawals, My Account portfolio charts/data, account health/liquidations, and security/audits, plus the Sherlock audit-contest page linked by the security guide.
+- Registered page-specific official Vibe source keys for account creation, deposits/withdrawals, portfolio/account data, account health/liquidations, security/audits, and the linked Sherlock contest instead of relying only on the broad Vibe docs index.
+- Added five authored Volume 07 reference pages for account creation/login, deposits and withdrawals, portfolio/account data, account-health liquidations, and security/audits.
+- Routed five new Vibe onboarding/account/risk/security questions to authored pages while keeping large-withdrawal thresholds, exact live contract inventory, token/staking audit details, and future security-roadmap claims source-limited or under operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

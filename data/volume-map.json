@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 959,
+  "readerPages": 964,
   "totalVolumes": 8,
-  "totalChapters": 85,
-  "pagesAssigned": 959,
+  "totalChapters": 86,
+  "pagesAssigned": 964,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -6799,65 +6799,78 @@
       "title": "Product, Trading, And Risk Guides",
       "premise": "Collect user-facing Vibe guides for trading, fees, collateral, risk, security, and market operations.",
       "readerPromise": "Translate the vision into practical product behavior and reader-facing operational semantics.",
-      "totalPages": 40,
+      "totalPages": 45,
       "overviewPageId": "authored-volume-07-product-trading-and-risk",
       "overviewTitle": "Volume 07: Product, Trading, And Risk Guides",
-      "authoredPages": 10,
+      "authoredPages": 15,
       "generatedPages": 30,
       "statusCounts": {
-        "publication-candidate": 9,
-        "publication-candidate-needs-operator-review": 1,
+        "publication-candidate": 13,
+        "publication-candidate-needs-operator-review": 2,
         "source-mapped": 30
       },
       "granularityCounts": {
-        "authored-page": 10,
+        "authored-page": 15,
         "companion-page": 30
       },
       "routeSourceCounts": {
-        "authored": 10,
+        "authored": 15,
         "generated": 30
       },
       "sectionCounts": {
         "compendium": 1,
         "fees": 6,
         "market-creation": 2,
-        "product-reference": 12,
+        "product-reference": 17,
         "risk-margin": 4,
         "security": 4,
         "trading-guides": 8,
         "user-guides": 3
       },
       "sourceKeys": [
+        "sherlock-symmetrical-contest",
         "spec-03",
         "symmio-core",
         "symmio-intent-lifecycle",
+        "symmio-liquidations",
         "symmio-llms",
         "symmio-whitepaper",
+        "vibe-account-creation",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio",
         "vibe-architecture",
         "vibe-collateral-margining",
+        "vibe-deposits-withdrawals",
         "vibe-fees",
         "vibe-funding",
         "vibe-llms",
         "vibe-margin",
         "vibe-oi-liquidity",
         "vibe-order-types",
+        "vibe-points",
+        "vibe-security-audits",
         "vibe-simple-trade",
         "vibe-tpsl",
         "vibe-what-is"
       ],
       "openingPageIds": [
         "authored-volume-07-product-trading-and-risk",
+        "authored-vibe-account-creation-and-login",
+        "authored-vibe-deposits-and-withdrawals",
+        "authored-vibe-portfolio-and-account-data",
+        "authored-vibe-security-and-audits",
         "authored-vibe-fees-and-funding",
-        "authored-vibe-collateral-and-margining",
-        "authored-vibecaps-margin-management",
-        "authored-vibe-intent-architecture",
-        "authored-vibe-trade-flow",
-        "authored-vibe-oi-and-liquidity",
-        "authored-vibe-order-types"
+        "authored-vibe-account-health-and-liquidations",
+        "authored-vibe-collateral-and-margining"
       ],
       "pageIds": [
         "authored-volume-07-product-trading-and-risk",
+        "authored-vibe-account-creation-and-login",
+        "authored-vibe-deposits-and-withdrawals",
+        "authored-vibe-portfolio-and-account-data",
+        "authored-vibe-security-and-audits",
         "authored-vibe-fees-and-funding",
+        "authored-vibe-account-health-and-liquidations",
         "authored-vibe-collateral-and-margining",
         "authored-vibecaps-margin-management",
         "authored-vibe-intent-architecture",
@@ -6942,6 +6955,95 @@
           ]
         },
         {
+          "id": "account-and-safety",
+          "title": "Account And Safety",
+          "section": "product-reference",
+          "track": "Account And Safety",
+          "totalPages": 4,
+          "authoredPages": 4,
+          "generatedPages": 0,
+          "statusCounts": {
+            "publication-candidate": 3,
+            "publication-candidate-needs-operator-review": 1
+          },
+          "granularityCounts": {
+            "authored-page": 4
+          },
+          "sourceKeys": [
+            "sherlock-symmetrical-contest",
+            "vibe-account-creation",
+            "vibe-account-portfolio",
+            "vibe-deposits-withdrawals",
+            "vibe-points",
+            "vibe-security-audits"
+          ],
+          "firstPageId": "authored-vibe-account-creation-and-login",
+          "pageIds": [
+            "authored-vibe-account-creation-and-login",
+            "authored-vibe-deposits-and-withdrawals",
+            "authored-vibe-portfolio-and-account-data",
+            "authored-vibe-security-and-audits"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-vibe-account-creation-and-login",
+              "title": "Vibe Account Creation And Login",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-account-creation"
+              ]
+            },
+            {
+              "id": "authored-vibe-deposits-and-withdrawals",
+              "title": "Vibe Deposits And Withdrawals",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-deposits-withdrawals",
+                "vibe-account-creation"
+              ]
+            },
+            {
+              "id": "authored-vibe-portfolio-and-account-data",
+              "title": "Vibe Portfolio And Account Data",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-account-portfolio",
+                "vibe-points",
+                "vibe-deposits-withdrawals"
+              ]
+            },
+            {
+              "id": "authored-vibe-security-and-audits",
+              "title": "Vibe Security And Audits",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-security-audits",
+                "sherlock-symmetrical-contest"
+              ]
+            }
+          ]
+        },
+        {
           "id": "fees",
           "title": "Fees",
           "section": "product-reference",
@@ -6985,26 +7087,44 @@
           "title": "Risk And Margin",
           "section": "product-reference",
           "track": "Risk And Margin",
-          "totalPages": 2,
-          "authoredPages": 2,
+          "totalPages": 3,
+          "authoredPages": 3,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate": 2
+            "publication-candidate": 3
           },
           "granularityCounts": {
-            "authored-page": 2
+            "authored-page": 3
           },
           "sourceKeys": [
             "symmio-core",
+            "symmio-liquidations",
+            "vibe-account-health-liquidations",
             "vibe-collateral-margining",
             "vibe-margin"
           ],
-          "firstPageId": "authored-vibe-collateral-and-margining",
+          "firstPageId": "authored-vibe-account-health-and-liquidations",
           "pageIds": [
+            "authored-vibe-account-health-and-liquidations",
             "authored-vibe-collateral-and-margining",
             "authored-vibecaps-margin-management"
           ],
           "samplePages": [
+            {
+              "id": "authored-vibe-account-health-and-liquidations",
+              "title": "Vibe Account Health And Liquidations",
+              "section": "product-reference",
+              "track": "Risk And Margin",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-account-health-liquidations",
+                "vibe-collateral-margining",
+                "symmio-liquidations"
+              ]
+            },
             {
               "id": "authored-vibe-collateral-and-margining",
               "title": "Vibe Collateral And Margining",
@@ -9341,7 +9461,12 @@
     "section-17-referral-program-17-docs-09-metrics-framework-9-3-reporting-rules": "volume-06-referrals-and-market-formation",
     "section-17-referral-program-17-docs-09-metrics-framework-9-4-decision-use": "volume-06-referrals-and-market-formation",
     "authored-volume-07-product-trading-and-risk": "volume-07-product-trading-and-risk",
+    "authored-vibe-account-creation-and-login": "volume-07-product-trading-and-risk",
+    "authored-vibe-deposits-and-withdrawals": "volume-07-product-trading-and-risk",
+    "authored-vibe-portfolio-and-account-data": "volume-07-product-trading-and-risk",
+    "authored-vibe-security-and-audits": "volume-07-product-trading-and-risk",
     "authored-vibe-fees-and-funding": "volume-07-product-trading-and-risk",
+    "authored-vibe-account-health-and-liquidations": "volume-07-product-trading-and-risk",
     "authored-vibe-collateral-and-margining": "volume-07-product-trading-and-risk",
     "authored-vibecaps-margin-management": "volume-07-product-trading-and-risk",
     "authored-vibe-intent-architecture": "volume-07-product-trading-and-risk",

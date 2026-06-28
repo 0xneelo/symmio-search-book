@@ -495,3 +495,11 @@
 **Reason:** The compendium needs a deeper Symmio operations layer to support sophisticated traders, solvers, LPs, and frontend builders. These pages explain protocol mechanics from primary sources while avoiding overclaims about Vibe-specific fee schedules, live funding values, liquidation thresholds, solver economics, and vault/product semantics that remain under operator or implementation review.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-063: Treat Account Safety As Product Infrastructure
+
+**Decision:** Add authored reference pages from current official Vibe docs for account creation/login, deposits and withdrawals, My Account portfolio data, account health/liquidations, and security/audits. Register page-specific Vibe source keys and the linked Sherlock audit-contest source so Ask can route account, funding, liquidation, and audit questions to edited Volume 07 pages.
+
+**Reason:** The larger 500-800 page compendium should not only publish the high-conviction thesis. It also has to onboard users into the product with precise custody, funding, balance, risk, and audit semantics. These pages convert practical Vibe account guides into source-backed answers while keeping large-withdrawal thresholds, exact live contract inventory, token/staking audit status, and future security-roadmap details source-limited.
+
+**Status:** Accepted for the authored product-reference layer.
