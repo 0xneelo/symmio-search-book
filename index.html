@@ -1326,7 +1326,7 @@
       }
 
       body[data-view="classic"] .ask {
-        display: grid;
+        display: block;
       }
 
       .hero {
@@ -1365,55 +1365,47 @@
       }
 
       .ask {
-        position: relative;
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: center;
         width: min(620px, calc(100vw - 128px));
         margin: 0 auto;
-        border: 1px solid rgba(148, 168, 205, 0.26);
-        border-radius: 999px;
-        background: #111b31;
-        box-shadow:
-          0 28px 72px rgba(0, 0, 0, 0.34),
-          inset 0 1px 0 rgba(255, 255, 255, 0.03);
-        padding: 7px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        gap: normal;
+        padding: 0;
+      }
+
+      .ask-bar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        gap: 12px;
+        padding: 0 8px 0 20px;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        background: var(--card);
+        box-shadow: 0 10px 40px rgba(2, 6, 14, 0.5);
+      }
+
+      .ask .s-ic {
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 auto;
+        color: #5d6b85;
       }
 
       .ask input {
+        flex: 1 1 auto;
         min-width: 0;
+        height: 21px;
         border: 0;
         outline: 0;
         background: transparent;
         color: var(--ink);
-        padding: 0 8px 0 46px;
+        padding: 0;
         font-size: 16.5px;
-      }
-
-      .ask::before {
-        content: "";
-        position: absolute;
-        left: 24px;
-        top: 50%;
-        width: 13px;
-        height: 13px;
-        border: 2px solid rgba(147, 160, 184, 0.7);
-        border-radius: 999px;
-        transform: translateY(-50%);
-        pointer-events: none;
-      }
-
-      .ask::after {
-        content: "";
-        position: absolute;
-        left: 37px;
-        top: calc(50% + 8px);
-        width: 7px;
-        height: 2px;
-        border-radius: 999px;
-        background: rgba(147, 160, 184, 0.7);
-        transform: rotate(45deg);
-        transform-origin: left center;
-        pointer-events: none;
       }
 
       .ask button,
@@ -1423,8 +1415,9 @@
         width: 44px;
         min-width: 44px;
         height: 44px;
+        flex: 0 0 auto;
         border: 0;
-        border-radius: 999px;
+        border-radius: 50%;
         background: linear-gradient(135deg, var(--magenta), #ff5ec7);
         box-shadow: 0 6px 18px rgba(255, 45, 168, 0.34);
         color: #fff;
@@ -1437,9 +1430,9 @@
       }
 
       .ask .ask-arrow {
-        font-size: 19px;
-        line-height: 1;
-        white-space: nowrap;
+        display: block;
+        width: 19px;
+        height: 19px;
       }
 
       #exampleQuestions {
@@ -1909,13 +1902,8 @@
           width: 100%;
         }
 
-        .ask {
-          grid-template-columns: minmax(0, 1fr) 44px;
-        }
-
         .ask input {
-          padding-left: 46px;
-          font-size: 15px;
+          font-size: 16.5px;
         }
 
         .ask button {
@@ -2041,8 +2029,19 @@
           </section>
 
           <form class="ask" id="askForm">
-            <input id="queryInput" name="query" autocomplete="off" placeholder="Ask anything — points, invites, revenue, payouts…" />
-            <button type="submit" aria-label="Ask the docs"><span class="ask-label">Ask the docs</span><span class="ask-arrow">→</span></button>
+            <div class="ask-bar">
+              <svg class="s-ic" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.7"></circle>
+                <path d="m13.6 13.6 3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+              </svg>
+              <input id="queryInput" name="query" autocomplete="off" placeholder="Ask anything — points, invites, revenue, payouts…" />
+              <button type="submit" aria-label="Ask the docs">
+                <span class="ask-label">Ask the docs</span>
+                <svg class="ask-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
           </form>
           <div class="source-row" id="exampleQuestions"></div>
           <div class="home-actions">
