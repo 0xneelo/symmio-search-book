@@ -327,3 +327,11 @@
 **Reason:** The compendium can pass generic route and volume-map checks while still relying on generated drafts for first-contact questions or hiding authored work in one book part. These two states directly affect answer quality and editorial readiness, so the audit should protect them explicitly.
 
 **Status:** Accepted for publication-readiness tracking.
+
+## D-042: Promote Vibe Trading Guides Into Authored Product Reference
+
+**Decision:** Add authored Volume 07 pages for simple trade flow, order types, TP/SL, OI/liquidity, collateral/margining, and fees/funding using current official Vibe markdown sources.
+
+**Reason:** The compendium target is 500-800 pages, but first-contact product questions still need concise authored answers. Official Vibe docs now support the practical guide layer strongly enough to route common trading questions to publication-candidate pages while keeping placeholder fee percentages and revenue disclosures under review.
+
+**Status:** Accepted for the authored product-reference layer.

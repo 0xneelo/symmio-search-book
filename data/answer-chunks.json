@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 877,
-  "totalChunks": 1466,
-  "pagesWithChunks": 877,
+  "totalPages": 883,
+  "totalChunks": 1478,
+  "pagesWithChunks": 883,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -64,11 +64,18 @@
     "syn-200",
     "syn-203",
     "vibe-architecture",
+    "vibe-collateral-margining",
+    "vibe-fees",
+    "vibe-funding",
     "vibe-llms",
     "vibe-margin",
+    "vibe-oi-liquidity",
+    "vibe-order-types",
     "vibe-papers",
     "vibe-points",
     "vibe-referral-program",
+    "vibe-simple-trade",
+    "vibe-tpsl",
     "vibe-what-is"
   ],
   "sourceRefs": {
@@ -342,6 +349,24 @@
       "use": "AMFQ, intent flow, solver offers, on-chain execution.",
       "href": "https://docs.vibe.trading/architectural-overview.md"
     },
+    "vibe-collateral-margining": {
+      "key": "vibe-collateral-margining",
+      "group": "Public Vibe Sources",
+      "use": "Collateral, CVA, cross-margin, isolated margin, and virtual-account behavior.",
+      "href": "https://docs.vibe.trading/trading/collateral-and-margining.md"
+    },
+    "vibe-fees": {
+      "key": "vibe-fees",
+      "group": "Public Vibe Sources",
+      "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+      "href": "https://docs.vibe.trading/trading/fees.md"
+    },
+    "vibe-funding": {
+      "key": "vibe-funding",
+      "group": "Public Vibe Sources",
+      "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+      "href": "https://docs.vibe.trading/trading/funding.md"
+    },
     "vibe-llms": {
       "key": "vibe-llms",
       "group": "Public Vibe Sources",
@@ -353,6 +378,18 @@
       "group": "Public Vibe Sources",
       "use": "VibeCaps margin behavior.",
       "href": "https://docs.vibe.trading/trading/managing-vibecaps-margin.md"
+    },
+    "vibe-oi-liquidity": {
+      "key": "vibe-oi-liquidity",
+      "group": "Public Vibe Sources",
+      "use": "Open interest, available liquidity, and solver capacity semantics.",
+      "href": "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md"
+    },
+    "vibe-order-types": {
+      "key": "vibe-order-types",
+      "group": "Public Vibe Sources",
+      "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+      "href": "https://docs.vibe.trading/trading/order-types.md"
     },
     "vibe-papers": {
       "key": "vibe-papers",
@@ -372,6 +409,18 @@
       "use": "Referral commission tiers and daily referral points.",
       "href": "https://docs.vibe.trading/trading/referral-program.md"
     },
+    "vibe-simple-trade": {
+      "key": "vibe-simple-trade",
+      "group": "Public Vibe Sources",
+      "use": "Simple trade placement flow and trade ticket controls.",
+      "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+    },
+    "vibe-tpsl": {
+      "key": "vibe-tpsl",
+      "group": "Public Vibe Sources",
+      "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
+      "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md"
+    },
     "vibe-what-is": {
       "key": "vibe-what-is",
       "group": "Public Vibe Sources",
@@ -380,12 +429,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 65,
+    "authored": 71,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 125,
+    "authored": 137,
     "curated": 20,
     "generated": 1321
   },
@@ -397,7 +446,7 @@
     "reference": 2,
     "rewards-referrals": 12,
     "answer-engine": 1,
-    "product-reference": 10,
+    "product-reference": 22,
     "compendium": 16,
     "Dashboard": 2,
     "Competitive": 1,
@@ -3005,6 +3054,110 @@
       "text": "and which layer the market should graduate toward next. Sources vibe papers : Neelo, \"Ode to OrderBooks\". hyperliquid hip3 : Hyperliquid HIP 3 builder deployed perpetuals documentation. Related Pages authored intents complete order books hyperliquid hip3 neelo 04 ode to the orderbook 04 docs overview"
     },
     {
+      "id": "authored-vibe-collateral-and-margining::001",
+      "pageId": "authored-vibe-collateral-and-margining",
+      "chunkIndex": 1,
+      "title": "Vibe Collateral And Margining",
+      "section": "product-reference",
+      "track": "Risk And Margin",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-collateral-margining",
+        "vibe-margin",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/collateral-and-margining.md",
+        "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-collateral-and-margining.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Collateral And Margining Vibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non liquidated party. The docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about. Cross Margin Accounts The official page says Vibe uses cross margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated. This is the capital efficiency tradeoff. Cross margin can reduce idle collateral, but the reader must understand that risk is shared across the account. Isolated Margin And VibeCaps The same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings. That means a liquidation in one isolated virtual account should not drain margin from another isolated virtual account. The companion VibeCaps margin page explains how adding margin increases the collateral buffer and moves liquidation farther away, while removing margin"
+    },
+    {
+      "id": "authored-vibe-collateral-and-margining::002",
+      "pageId": "authored-vibe-collateral-and-margining",
+      "chunkIndex": 2,
+      "title": "Vibe Collateral And Margining",
+      "section": "product-reference",
+      "track": "Risk And Margin",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-collateral-margining",
+        "vibe-margin",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/collateral-and-margining.md",
+        "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-collateral-and-margining.md",
+      "wordStart": 185,
+      "wordEnd": 320,
+      "wordCount": 135,
+      "text": "in one isolated virtual account should not drain margin from another isolated virtual account. The companion VibeCaps margin page explains how adding margin increases the collateral buffer and moves liquidation farther away, while removing margin frees balance and moves liquidation closer. Reader Implication When explaining margin, start with the mode: cross margin shares account equity across positions; isolated margin confines risk to a virtual account or bucket. Then explain the action: adding margin increases cushion; removing margin releases balance but increases liquidation risk. Sources vibe collateral margining : official Vibe collateral, CVA, cross margin, isolated margin, and virtual account descriptions. vibe margin : VibeCaps add/remove margin behavior. symmio core : protocol vocabulary for collateral, locked margin, CVA, and balance. Related Pages authored vibecaps margin management authored collateral margin cva authored vibe tpsl vibe collateral margining"
+    },
+    {
+      "id": "authored-vibe-fees-and-funding::001",
+      "pageId": "authored-vibe-fees-and-funding",
+      "chunkIndex": 1,
+      "title": "Vibe Fees And Funding",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-fees-and-funding.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Fees And Funding Vibe trading costs have two distinct layers: explicit fees around opening or closing trades, and funding payments that affect the cost of holding a perpetual position over time. The current official fee guide is useful for categories but not final numeric publication. It states that platform fees apply on opening and closing trades, that hedger or solver fees vary by token pair, and that the trade panel shows a cost breakdown before confirmation. It also contains placeholder percentage values, so final docs must not invent fee numbers from that page. Fee Categories The fee page separates majors trading from lowcaps trading. In both cases it describes a Vibe platform fee on open and close. For majors, it says hedger or solver fees vary by token pair and are typically competitive with centralized exchange structures. For lowcaps, it describes a solver fee on each lowcap trade but leaves the exact percentage as a placeholder. For publication, the safe answer is: check the trade panel breakdown before confirming, and verify the current public fee schedule before publishing exact percentages. Funding The funding guide explains why perpetuals have recurring payments. When perpetual prices are above spot, long traders pay short side solvers. When perpetual prices are below spot, short side solvers pay long traders. The point is to keep"
+    },
+    {
+      "id": "authored-vibe-fees-and-funding::002",
+      "pageId": "authored-vibe-fees-and-funding",
+      "chunkIndex": 2,
+      "title": "Vibe Fees And Funding",
+      "section": "product-reference",
+      "track": "Fees",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-fees-and-funding.md",
+      "wordStart": 185,
+      "wordEnd": 378,
+      "wordCount": 193,
+      "text": "explains why perpetuals have recurring payments. When perpetual prices are above spot, long traders pay short side solvers. When perpetual prices are below spot, short side solvers pay long traders. The point is to keep the perpetual price aligned with the underlying spot market. Funding affects holding cost and profitability, so it belongs in strategy and risk pages, not only in an advanced glossary. Minimum Payment Threshold The funding page says Vibe relies on solver quotes and real time trader/solver interaction for funding rate inputs. It also states that if the amount owed is lower than blockchain gas cost, the funding payment is not processed because each update requires an on chain interaction. Reader Implication When answering \"what will this trade cost?\", show both layers: fees around the trade and funding over time. Exact percentages require current product confirmation; funding direction depends on market conditions and position side. Sources vibe fees : official fee categories and trade panel cost breakdown caveat. vibe funding : official funding rate direction, solver pricing, and minimum payment threshold. Related Pages authored vibe simple trade flow authored vibe order types authored vibe oi and liquidity symmio funding rates"
+    },
+    {
       "id": "authored-vibe-intent-architecture::001",
       "pageId": "authored-vibe-intent-architecture",
       "chunkIndex": 1,
@@ -3057,6 +3210,114 @@
       "wordEnd": 365,
       "wordCount": 180,
       "text": "acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state. This is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar. Reader Implication For traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations. Sources vibe architecture : AMFQ, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off chain hedging. symmio core : PartyA/PartyB and collateral vocabulary. symmio intent lifecycle : quote event monitoring and lifecycle state. Related Pages authored vibe trade flow authored bilateral intent lifecycle authored solver event monitoring vibe architecture amfq"
+    },
+    {
+      "id": "authored-vibe-oi-and-liquidity::001",
+      "pageId": "authored-vibe-oi-and-liquidity",
+      "chunkIndex": 1,
+      "title": "Vibe Open Interest And Available Liquidity",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-oi-and-liquidity.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Open Interest And Available Liquidity Open interest and available liquidity are the practical capacity signals a trader sees before or during trading. The official Vibe guide defines open interest as the total value of active perpetual contracts that remain open. It defines available liquidity as the amount of liquidity solvers are currently offering, and it notes that Vibe itself does not set those limits. Why The Two Numbers Differ Open interest describes active exposure already in the market. Available liquidity describes how much additional capacity solvers are currently making available. A market can have meaningful open interest while still having limited incremental capacity if solver availability contracts. That is why the guide says activity near the available liquidity limit can restrict new trades until existing positions close or solver capacity changes. Solver Context Vibe's architecture docs make this a solver quality issue, not just a dashboard metric. Solver deposits, risk appetite, market conditions, and trading capacity influence what is quotable. Symmio's PartyA/PartyB model gives the protocol vocabulary for why the counterparty side must be able to accept, collateralize, and manage the resulting position. Reader Implication When a trader asks whether a market is liquid enough, the answer should not only show a number. The docs should explain whether current solver capacity can support new exposure and whether high open"
+    },
+    {
+      "id": "authored-vibe-oi-and-liquidity::002",
+      "pageId": "authored-vibe-oi-and-liquidity",
+      "chunkIndex": 2,
+      "title": "Vibe Open Interest And Available Liquidity",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-oi-and-liquidity.md",
+      "wordStart": 185,
+      "wordEnd": 272,
+      "wordCount": 87,
+      "text": "Implication When a trader asks whether a market is liquid enough, the answer should not only show a number. The docs should explain whether current solver capacity can support new exposure and whether high open interest is approaching the available liquidity boundary. Sources vibe oi liquidity : official OI and available liquidity definitions and capacity caveat. vibe architecture : solver quotation context. symmio core : PartyA/PartyB and collateral vocabulary. Related Pages authored vibe intent architecture authored solver event monitoring authored vibe simple trade flow vibe oi liquidity"
+    },
+    {
+      "id": "authored-vibe-order-types::001",
+      "pageId": "authored-vibe-order-types",
+      "chunkIndex": 1,
+      "title": "Vibe Order Types",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-order-types.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Order Types Vibe's current order type guide separates execution timing from exit automation. Market orders are for immediate execution at the current market price. Limit orders are for execution at the selected limit price or better. TP/SL orders are closing instructions that activate when a specified profit or loss condition is reached. Triggered Orders The same guide also documents stop market and stop limit behavior. A stop market order activates when price reaches a stop level and then behaves as a market order. A stop limit order activates at the stop level but constrains execution to a preset limit price. Those distinctions matter because \"stop\" describes the trigger, while \"market\" or \"limit\" describes how the order executes after the trigger. Pending Advanced Types Scale and TWAP are marked as coming soon in the current official guide. Scale is described as multiple limit orders across a range, with possible even or skewed distribution. TWAP is described as a larger order split into smaller time based suborders with a stated maximum slippage rule. Until those types are live and confirmed, final docs should label them as planned or coming soon rather than presenting them as active workflows. Reader Implication Order type docs should help traders choose the execution primitive: Use Market when immediacy matters most. Use Limit when the entry or"
+    },
+    {
+      "id": "authored-vibe-order-types::002",
+      "pageId": "authored-vibe-order-types",
+      "chunkIndex": 2,
+      "title": "Vibe Order Types",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-order-types.md",
+      "wordStart": 185,
+      "wordEnd": 319,
+      "wordCount": 134,
+      "text": "planned or coming soon rather than presenting them as active workflows. Reader Implication Order type docs should help traders choose the execution primitive: Use Market when immediacy matters most. Use Limit when the entry or exit price matters most. Use Stop Market when the trigger level matters and execution certainty matters more than price control. Use Stop Limit when both trigger level and price bounds matter. Treat Scale and TWAP as planned advanced workflows unless current product state confirms they are live. Sources vibe order types : official order type list and coming soon labels. vibe tpsl : TP/SL closing order behavior. vibe simple trade : where Market and Limit appear in the simple trade flow. Related Pages authored vibe simple trade flow authored vibe tpsl authored vibe trade flow symmio market limit orders"
     },
     {
       "id": "authored-vibe-pillars::001",
@@ -3188,6 +3449,118 @@
       "wordEnd": 371,
       "wordCount": 186,
       "text": "Vibe overview says its bespoke lowcap solver isolates each lowcap perp market and frames that isolation as protection against platform wide risk if a token fails. The docs can report that product claim, but they should also route users to risk, margin, and solver pages before turning it into a guarantee. For publication, the safer formulation is: Vibe's public product story is isolated lowcap perp listing; the exact operational guarantees, solver exposure, vault inventory treatment, and LP risk visibility must be explained on the dedicated risk pages where the relevant sources are cited. Reader Implication If a reader asks \"what is Vibe?\", the answer should not be only a DEX category label. Vibe is a perpetuals product, a permissionless market creation path, and a demand discovery layer in the broader Vibe x Symmio thesis. Sources vibe what is : official product positioning, major market and lowcap listing claims. vibe architecture : intent based quotation and execution model. vibe papers : Neelo's market creation and discovery layer thesis. Related Pages authored vibe intent architecture authored vibe as discovery layer authored market assembly line vibe product what is"
+    },
+    {
+      "id": "authored-vibe-simple-trade-flow::001",
+      "pageId": "authored-vibe-simple-trade-flow",
+      "chunkIndex": 1,
+      "title": "Vibe Simple Trade Flow",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-simple-trade",
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-simple-trade-flow.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Simple Trade Flow The practical trade flow starts after account setup and funding. A trader chooses a market, decides whether the position is long or short, chooses immediate execution or a future entry price, allocates USDC to the trade, and optionally attaches take profit or stop loss instructions before submitting. The official simple trade guide describes the visible sequence: pick the asset from the token list, perform any chart analysis, choose an entry and exit plan, select Market for immediate execution or Limit for a specified price, enter the USDC amount, optionally enable TP/SL, then choose Long or Short. Product Semantics The UI flow should be documented as a controlled expression of intent, not as a traditional order book ticket. The user declares the desired market, direction, size, entry style, and exit guardrails. Vibe's architecture layer then routes that intent through solver quotation and execution paths. Market and limit choices belong in the core trade ticket because they decide when the trader wants the position opened. TP/SL belongs beside the ticket because it defines how the trader wants the position closed if profit or loss thresholds are reached. Reader Implication When a new trader asks how to place a trade, the docs should answer in the language of the ticket: market, direction, amount, entry type, and optional exits. When"
+    },
+    {
+      "id": "authored-vibe-simple-trade-flow::002",
+      "pageId": "authored-vibe-simple-trade-flow",
+      "chunkIndex": 2,
+      "title": "Vibe Simple Trade Flow",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-simple-trade",
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-simple-trade-flow.md",
+      "wordStart": 185,
+      "wordEnd": 299,
+      "wordCount": 114,
+      "text": "loss thresholds are reached. Reader Implication When a new trader asks how to place a trade, the docs should answer in the language of the ticket: market, direction, amount, entry type, and optional exits. When a more technical reader asks what happens behind that ticket, route them to the intent architecture and Symmio lifecycle pages. Sources vibe simple trade : official simple trade sequence and keyboard control references. vibe order types : supported order categories and pending advanced types. vibe tpsl : TP/SL trigger and amendment behavior. vibe architecture : intent based solver quotation and execution context. Related Pages authored vibe trade flow authored vibe order types authored vibe tpsl authored vibe intent architecture"
+    },
+    {
+      "id": "authored-vibe-tpsl::001",
+      "pageId": "authored-vibe-tpsl",
+      "chunkIndex": 1,
+      "title": "Vibe Take Profit And Stop Loss",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-tpsl.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Take Profit And Stop Loss TP/SL is the trader's automated exit layer. The official guide describes TP/SL orders as closing instructions that trigger from market price when a predefined profit or loss level is reached. The key distinction is that TP/SL does not describe why the position was opened. It describes the condition under which the position should be closed. Setting TP/SL The guide supports several input modes: exact price, dollar profit or loss, percentage movement from entry, or chart interaction through the TradingView chart. A trader can also adjust TP/SL on open positions or pending orders by opening the TP/SL modal from the panel below the chart. By default, TP/SL orders are described as aiming to close the full position when triggered. The docs should make that default explicit before introducing any future partial position behavior. Slippage Caveat The official TP/SL page states that TP/SL market orders have a 10% slippage threshold and may not fully execute if price impact exceeds that threshold. That belongs near every TP/SL explanation because it prevents readers from treating TP/SL as a guaranteed fill at an exact displayed price. Reader Implication A good TP/SL answer should say three things: what triggers the close, how the trader can set or amend the levels, and why the execution can still be constrained by market"
+    },
+    {
+      "id": "authored-vibe-tpsl::002",
+      "pageId": "authored-vibe-tpsl",
+      "chunkIndex": 2,
+      "title": "Vibe Take Profit And Stop Loss",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
+        "https://docs.vibe.trading/trading/order-types.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-tpsl.md",
+      "wordStart": 185,
+      "wordEnd": 295,
+      "wordCount": 110,
+      "text": "displayed price. Reader Implication A good TP/SL answer should say three things: what triggers the close, how the trader can set or amend the levels, and why the execution can still be constrained by market impact. For risk education, route the reader from TP/SL to margin, liquidation, and available liquidity. Sources vibe tpsl : official TP/SL trigger, input modes, amendment path, full position default, and slippage threshold. vibe order types : TP/SL category in the order type model. vibe simple trade : TP/SL option inside the simple trade ticket. Related Pages authored vibe order types authored vibe simple trade flow authored vibe oi and liquidity authored vibe collateral and margining"
     },
     {
       "id": "authored-vibe-trade-flow::001",

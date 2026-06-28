@@ -243,6 +243,13 @@
 - The audit now fails if answerable seed questions fall back to generated/curated pages or if any compendium volume has no authored pages.
 - Current audit gate count is 20 of 23 passing, with failures still limited to parked source-ingestion, operator-inbox, and Discord requirements.
 
+## 2026-06-28 — Vibe Trading Guide Authored Pages
+
+- Registered seven official Vibe guide sources for simple trading, order types, TP/SL, OI/liquidity, collateral/margining, fees, and funding.
+- Added six authored Volume 07 pages so user-facing trading, risk, liquidity, and fee questions resolve to publication-candidate pages instead of generated stubs.
+- Added six direct question routes for practical trading questions while preserving the fee-page limitation: current official docs expose fee categories but not final numeric percentages.
+- Kept fee percentages and broader public revenue disclosure under operator review through the existing revenue boundary blocker.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

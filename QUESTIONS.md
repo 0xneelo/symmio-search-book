@@ -12,6 +12,12 @@ Questions are grouped by whether the current source set can answer them.
 | Who are PartyA and PartyB? | `authored-symmio-party-a-party-b` | High | Symmio core docs support the role distinction. |
 | What does a solver do? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities. |
 | How does VibeCaps margin work? | `authored-vibecaps-margin-management` | High | Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints. |
+| How do I place a simple Vibe trade? | `authored-vibe-simple-trade-flow` | High | Public Vibe simple-trade docs support the ticket sequence, with architecture docs covering the intent layer. |
+| Which order types does Vibe support? | `authored-vibe-order-types` | High | Public Vibe order-type docs support market, limit, TP/SL, stop-market, stop-limit, and coming-soon advanced types. |
+| How do TP/SL orders work on Vibe? | `authored-vibe-tpsl` | High | Public Vibe TP/SL docs support trigger behavior, input methods, amendment flow, full-position default, and slippage caveat. |
+| What do open interest and available liquidity mean? | `authored-vibe-oi-and-liquidity` | High | Public Vibe docs define OI, available liquidity, and solver-capacity caveats. |
+| What is the difference between collateral and margin? | `authored-vibe-collateral-and-margining` | High | Public Vibe docs and Symmio core docs support collateral, margin, CVA, cross-margin, isolated margin, and virtual-account language. |
+| What fees or funding should I understand before trading? | `authored-vibe-fees-and-funding` | Medium | Public Vibe fee docs identify cost categories but contain placeholder percentages; funding docs support funding-direction and minimum-payment behavior. |
 | How are Vibe points earned? | `authored-vibe-points-program` | Medium | Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic. |
 | How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
 | Why does the dashboard revenue number move? | `authored-dashboard-revenue-pulse` | Medium | Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout. |

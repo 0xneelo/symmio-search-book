@@ -6,16 +6,16 @@
     "manifestPages": 794,
     "generatedFiles": 794,
     "searchIndexEntries": 794,
-    "authoredPublicationCandidates": 65,
-    "authoredFiles": 65,
-    "readerRoutablePages": 859,
+    "authoredPublicationCandidates": 71,
+    "authoredFiles": 71,
+    "readerRoutablePages": 865,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 46,
-    "seededAuthoredQuestionRoutes": 46,
+    "seededQuestionRoutes": 52,
+    "seededAuthoredQuestionRoutes": 52,
     "seededReconciliationQuestions": 6,
-    "localFaqEntries": 52,
-    "localFaqAnswerable": 46,
+    "localFaqEntries": 58,
+    "localFaqAnswerable": 52,
     "localFaqUnresolved": 6,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -25,8 +25,8 @@
     "gapQueueCategories": 12,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
-    "sourceCatalogEntries": 79,
-    "linkedSourceCatalogEntries": 65,
+    "sourceCatalogEntries": 86,
+    "linkedSourceCatalogEntries": 72,
     "sourceIngestionRequirements": 16,
     "sourceIngestionComplete": 11,
     "sourceIngestionPartial": 0,
@@ -40,32 +40,32 @@
     "competitiveSweepCompletedLanes": 25,
     "competitiveSweepCompletedBatches": 5,
     "competitiveSweepReady": false,
-    "crosslinkedReaderPages": 859,
-    "readerPagesWithPrevious": 858,
-    "readerPagesWithNext": 858,
-    "readerPagesWithRelated": 859,
-    "answerChunkPages": 877,
-    "answerChunks": 1466,
-    "answerChunkSourceKeys": 51,
+    "crosslinkedReaderPages": 865,
+    "readerPagesWithPrevious": 864,
+    "readerPagesWithNext": 864,
+    "readerPagesWithRelated": 865,
+    "answerChunkPages": 883,
+    "answerChunks": 1478,
+    "answerChunkSourceKeys": 58,
     "compendiumVolumes": 8,
-    "compendiumChapters": 78,
+    "compendiumChapters": 80,
     "compendiumVolumesWithAuthoredPages": 8,
     "compendiumMaxAuthoredPagesInSingleVolume": 13,
     "compendiumVolumeOverviews": 8,
-    "compendiumVolumeReaderPages": 859,
-    "compendiumVolumeAssignedPages": 859,
+    "compendiumVolumeReaderPages": 865,
+    "compendiumVolumeAssignedPages": 865,
     "completionRequirements": 17,
     "completionRequirementsComplete": 5,
     "completionRequirementsPartial": 4,
     "completionRequirementsParked": 7,
     "completionRequirementsMissing": 1,
     "completionReady": false,
-    "sourceRegistryKeys": 79,
-    "usedSourceKeys": 51,
+    "sourceRegistryKeys": 86,
+    "usedSourceKeys": 58,
     "openOperatorItems": 8,
     "resolvedOperatorItems": 0,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 46,
+    "answerablePrototypeQuestions": 52,
     "reconciliationQuestions": 6
   },
   "gates": [
@@ -91,13 +91,13 @@
       "id": "source-keys",
       "label": "Registered source-key coverage",
       "passed": true,
-      "detail": "51 used keys, 79 registered keys, 0 unknown used keys"
+      "detail": "58 used keys, 86 registered keys, 0 unknown used keys"
     },
     {
       "id": "source-catalog",
       "label": "Source catalog matches registry",
       "passed": true,
-      "detail": "79 catalog sources, 79 registry keys, 0 used keys missing catalog"
+      "detail": "86 catalog sources, 86 registry keys, 0 used keys missing catalog"
     },
     {
       "id": "source-ingestion",
@@ -121,7 +121,7 @@
       "id": "authored-bodies",
       "label": "Authored pages carry bodies",
       "passed": true,
-      "detail": "65 authored index pages, 65 authored markdown files"
+      "detail": "71 authored index pages, 71 authored markdown files"
     },
     {
       "id": "duplicate-manifest-ids",
@@ -139,19 +139,19 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "46 generated routes, 46 answerable ledger rows, 0 missing page ids"
+      "detail": "52 generated routes, 52 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "authored-question-routes",
       "label": "Answerable seed questions use authored pages",
       "passed": true,
-      "detail": "46/46 seed routes use authored pages, 0 generated/curated fallbacks"
+      "detail": "52/52 seed routes use authored pages, 0 generated/curated fallbacks"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "46 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "52 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -169,25 +169,25 @@
       "id": "reader-crosslinks",
       "label": "Reader crosslinks resolve",
       "passed": true,
-      "detail": "859 crosslinked pages, 859 reader routes, 0 broken explicit related routes"
+      "detail": "865 crosslinked pages, 865 reader routes, 0 broken explicit related routes"
     },
     {
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "877 pages, 1466 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "883 pages, 1478 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
       "label": "Compendium volume map resolves",
       "passed": true,
-      "detail": "8 volumes, 78 chapters, 8 overview pages, 859/859 reader pages assigned, manifest target met"
+      "detail": "8 volumes, 80 chapters, 8 overview pages, 865/865 reader pages assigned, manifest target met"
     },
     {
       "id": "authored-volume-spread",
       "label": "Authored pages are spread across volumes",
       "passed": true,
-      "detail": "8/8 volumes have authored pages; max authored pages in one volume is 13/65"
+      "detail": "8/8 volumes have authored pages; max authored pages in one volume is 13/71"
     },
     {
       "id": "requirement-map",
@@ -217,8 +217,8 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "publication-candidate": 43,
-      "publication-candidate-needs-operator-review": 21,
+      "publication-candidate": 48,
+      "publication-candidate-needs-operator-review": 22,
       "needs-reconciliation": 1
     },
     "rows": [
@@ -249,12 +249,12 @@
       },
       {
         "status": "publication-candidate",
-        "count": 43,
+        "count": 48,
         "severity": "candidate"
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 21,
+        "count": 22,
         "severity": "blocked"
       }
     ]
@@ -270,7 +270,7 @@
       "reference": 1,
       "rewards-referrals": 4,
       "answer-engine": 1,
-      "product-reference": 4,
+      "product-reference": 10,
       "compendium": 8
     }
   },
@@ -292,9 +292,9 @@
       "unknownSourceKeys": []
     },
     "authored": {
-      "total": 65,
-      "withSourceKeys": 65,
-      "withSourceUrls": 65,
+      "total": 71,
+      "withSourceKeys": 71,
+      "withSourceUrls": 71,
       "missingSourceKeys": [],
       "missingSourceUrls": [],
       "unknownSourceKeys": []
@@ -345,11 +345,18 @@
       "syn-200",
       "syn-203",
       "vibe-architecture",
+      "vibe-collateral-margining",
+      "vibe-fees",
+      "vibe-funding",
       "vibe-llms",
       "vibe-margin",
+      "vibe-oi-liquidity",
+      "vibe-order-types",
       "vibe-papers",
       "vibe-points",
       "vibe-referral-program",
+      "vibe-simple-trade",
+      "vibe-tpsl",
       "vibe-what-is"
     ],
     "unknownUsedSourceKeys": [],
@@ -385,8 +392,8 @@
     ]
   },
   "sourceCatalogCoverage": {
-    "totalSources": 79,
-    "linkedSources": 65,
+    "totalSources": 86,
+    "linkedSources": 72,
     "byGroup": {
       "Authored Publication Candidates": 2,
       "Competitive Context": 6,
@@ -394,12 +401,12 @@
       "Local Specs": 12,
       "Public Symmio Sources": 21,
       "Linear Research": 13,
-      "Public Vibe Sources": 9
+      "Public Vibe Sources": 16
     },
     "byKind": {
       "repo-local": 30,
       "repo-pattern": 1,
-      "public-url": 33,
+      "public-url": 40,
       "absolute-local": 2,
       "linear": 13
     },
@@ -636,15 +643,15 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 46,
+    "totalRoutes": 52,
     "totalReconciliationQuestions": 6,
     "byConfidence": {
-      "Medium": 30,
-      "High": 13,
+      "Medium": 31,
+      "High": 18,
       "Low": 3
     },
     "byRouteSource": {
-      "authored": 46
+      "authored": 52
     },
     "missingRouteIds": [],
     "nonAuthoredQuestionRoutes": []
@@ -652,29 +659,29 @@
   "faqCoverage": {
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
-    "totalEntries": 52,
-    "totalAnswerable": 46,
+    "totalEntries": 58,
+    "totalAnswerable": 52,
     "totalUnresolved": 6,
     "totalCategories": 10,
     "byCategory": {
-      "Getting Started": 4,
-      "Trading Flow": 7,
-      "Solvers And Settlement": 8,
-      "Risk And Markets": 5,
+      "Getting Started": 6,
+      "Trading Flow": 8,
+      "Solvers And Settlement": 9,
+      "Risk And Markets": 6,
+      "Revenue": 5,
       "Rewards And Referrals": 5,
-      "Revenue": 4,
       "Dashboard": 7,
       "Manifesto": 10,
       "Data And Volume": 1,
       "Discord Import": 1
     },
     "byConfidence": {
-      "Medium": 30,
-      "High": 13,
+      "Medium": 31,
+      "High": 18,
       "Low": 3
     },
     "byRouteSource": {
-      "authored": 46
+      "authored": 52
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -807,16 +814,16 @@
     "missingSourceKeys": []
   },
   "crosslinkCoverage": {
-    "totalPages": 859,
-    "pagesWithPrevious": 858,
-    "pagesWithNext": 858,
-    "pagesWithRelated": 859,
+    "totalPages": 865,
+    "pagesWithPrevious": 864,
+    "pagesWithNext": 864,
+    "pagesWithRelated": 865,
     "bySection": {
       "competitive-context": 2,
       "compendium": 8,
       "manifesto": 28,
       "protocol-reference": 11,
-      "product-reference": 7,
+      "product-reference": 13,
       "dashboard-reference": 15,
       "rewards-referrals": 10,
       "reference": 1,
@@ -840,7 +847,7 @@
       "vision-sections": 541
     },
     "byRouteSource": {
-      "authored": 65,
+      "authored": 71,
       "generated": 794
     },
     "missingExplicitRelatedPageIds": [],
@@ -854,16 +861,16 @@
       "maxWords": 220,
       "overlapWords": 35
     },
-    "totalPages": 877,
-    "totalChunks": 1466,
-    "pagesWithChunks": 877,
+    "totalPages": 883,
+    "totalChunks": 1478,
+    "pagesWithChunks": 883,
     "byRouteSource": {
-      "authored": 65,
+      "authored": 71,
       "curated": 20,
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 125,
+      "authored": 137,
       "curated": 20,
       "generated": 1321
     },
@@ -875,7 +882,7 @@
       "reference": 2,
       "rewards-referrals": 12,
       "answer-engine": 1,
-      "product-reference": 10,
+      "product-reference": 22,
       "compendium": 16,
       "Dashboard": 2,
       "Competitive": 1,
@@ -951,11 +958,18 @@
       "syn-200",
       "syn-203",
       "vibe-architecture",
+      "vibe-collateral-margining",
+      "vibe-fees",
+      "vibe-funding",
       "vibe-llms",
       "vibe-margin",
+      "vibe-oi-liquidity",
+      "vibe-order-types",
       "vibe-papers",
       "vibe-points",
       "vibe-referral-program",
+      "vibe-simple-trade",
+      "vibe-tpsl",
       "vibe-what-is"
     ],
     "pagesMissingChunks": [],
@@ -967,10 +981,10 @@
     "status": "prototype-compendium-volume-map",
     "targetRange": "500-800 pages",
     "manifestPages": 794,
-    "readerPages": 859,
+    "readerPages": 865,
     "totalVolumes": 8,
-    "totalChapters": 78,
-    "pagesAssigned": 859,
+    "totalChapters": 80,
+    "pagesAssigned": 865,
     "manifestWithinTarget": true,
     "authoredVolumeCounts": [
       {
@@ -1006,7 +1020,7 @@
       {
         "id": "volume-07-product-trading-and-risk",
         "title": "Product, Trading, And Risk Guides",
-        "authoredPages": 4
+        "authoredPages": 10
       },
       {
         "id": "volume-08-dashboard-faq-and-living-docs",
@@ -1082,9 +1096,9 @@
         "number": 7,
         "title": "Product, Trading, And Risk Guides",
         "overviewPageId": "authored-volume-07-product-trading-and-risk",
-        "totalPages": 34,
-        "chapters": 10,
-        "authoredPages": 4,
+        "totalPages": 40,
+        "chapters": 12,
+        "authoredPages": 10,
         "generatedPages": 30
       },
       {

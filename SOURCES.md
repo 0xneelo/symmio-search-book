@@ -68,6 +68,13 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-referral-program` | https://docs.vibe.trading/trading/referral-program.md | Referral commission tiers and daily referral points. |
 | `vibe-points` | https://docs.vibe.trading/trading/vibe-points.md | Trading, referring, and community points categories. |
 | `vibe-margin` | https://docs.vibe.trading/trading/managing-vibecaps-margin.md | VibeCaps margin behavior. |
+| `vibe-simple-trade` | https://docs.vibe.trading/getting-started/placing-a-simple-trade.md | Simple trade placement flow and trade ticket controls. |
+| `vibe-order-types` | https://docs.vibe.trading/trading/order-types.md | Market, limit, TP/SL, stop, scale, and TWAP order behavior. |
+| `vibe-tpsl` | https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md | Take-profit and stop-loss setup, amendment, and execution caveats. |
+| `vibe-oi-liquidity` | https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md | Open interest, available liquidity, and solver capacity semantics. |
+| `vibe-collateral-margining` | https://docs.vibe.trading/trading/collateral-and-margining.md | Collateral, CVA, cross-margin, isolated margin, and virtual-account behavior. |
+| `vibe-fees` | https://docs.vibe.trading/trading/fees.md | User-facing fee categories and trade-panel fee breakdown caveat. |
+| `vibe-funding` | https://docs.vibe.trading/trading/funding.md | Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold. |
 | `vibe-papers` | https://github.com/0xneelo/vibe_docs | Research-paper corpus and long-form themes. |
 | `vibe-papers-site` | https://0xneelo.github.io/vibe_docs/ | Reader-first published version of Neelo's papers. |
 | `vibe-papers-data` | `/tmp/vibe_docs/Website/public/generated/docs-data.json` | Session 1 local clone data used to derive the 794-page manifest. |

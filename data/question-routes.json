@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 46,
+  "totalRoutes": 52,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 30,
-    "High": 13,
+    "Medium": 31,
+    "High": 18,
     "Low": 3
   },
   "byRouteSource": {
-    "authored": 46
+    "authored": 52
   },
   "answerable": [
     {
@@ -122,6 +122,120 @@
       "sourceKeys": [
         "vibe-margin",
         "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-i-place-a-simple-vibe-trade",
+      "question": "How do I place a simple Vibe trade?",
+      "normalizedQuestion": "how do i place a simple vibe trade",
+      "pageId": "authored-vibe-simple-trade-flow",
+      "pageTitle": "Vibe Simple Trade Flow",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe simple-trade docs support the ticket sequence, with architecture docs covering the intent layer.",
+      "sourceKeys": [
+        "vibe-simple-trade",
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-architecture"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-order-types-does-vibe-support",
+      "question": "Which order types does Vibe support?",
+      "normalizedQuestion": "which order types does vibe support",
+      "pageId": "authored-vibe-order-types",
+      "pageTitle": "Vibe Order Types",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe order-type docs support market, limit, TP/SL, stop-market, stop-limit, and coming-soon advanced types.",
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-tp-sl-orders-work-on-vibe",
+      "question": "How do TP/SL orders work on Vibe?",
+      "normalizedQuestion": "how do tp sl orders work on vibe",
+      "pageId": "authored-vibe-tpsl",
+      "pageTitle": "Vibe Take Profit And Stop Loss",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe TP/SL docs support trigger behavior, input methods, amendment flow, full-position default, and slippage caveat.",
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-simple-trade"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-do-open-interest-and-available-liquidity-mean",
+      "question": "What do open interest and available liquidity mean?",
+      "normalizedQuestion": "what do open interest and available liquidity mean",
+      "pageId": "authored-vibe-oi-and-liquidity",
+      "pageTitle": "Vibe Open Interest And Available Liquidity",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe docs define OI, available liquidity, and solver-capacity caveats.",
+      "sourceKeys": [
+        "vibe-oi-liquidity",
+        "vibe-architecture",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-difference-between-collateral-and-margin",
+      "question": "What is the difference between collateral and margin?",
+      "normalizedQuestion": "what is the difference between collateral and margin",
+      "pageId": "authored-vibe-collateral-and-margining",
+      "pageTitle": "Vibe Collateral And Margining",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe docs and Symmio core docs support collateral, margin, CVA, cross-margin, isolated margin, and virtual-account language.",
+      "sourceKeys": [
+        "vibe-collateral-margining",
+        "vibe-margin",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-fees-or-funding-should-i-understand-before-trading",
+      "question": "What fees or funding should I understand before trading?",
+      "normalizedQuestion": "what fees or funding should i understand before trading",
+      "pageId": "authored-vibe-fees-and-funding",
+      "pageTitle": "Vibe Fees And Funding",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Public Vibe fee docs identify cost categories but contain placeholder percentages; funding docs support funding-direction and minimum-payment behavior.",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-funding"
       ],
       "missing": false
     },
