@@ -335,3 +335,11 @@
 **Reason:** The compendium target is 500-800 pages, but first-contact product questions still need concise authored answers. Official Vibe docs now support the practical guide layer strongly enough to route common trading questions to publication-candidate pages while keeping placeholder fee percentages and revenue disclosures under review.
 
 **Status:** Accepted for the authored product-reference layer.
+
+## D-043: Treat Vibe Pillars As Architecture Spine, Not Footnotes
+
+**Decision:** Promote the Vibe Pillars paper and funding defense hierarchy into authored manifesto pages, and explicitly place them in Volume 04 alongside token-margin and funding-system material.
+
+**Reason:** The operator identified Neelo's GitHub docs as the strongest vision source. The pillar material explains the architecture tradeoff behind Vibe better than generic product copy: exploit resistance, asynchronous counterparty formation, LP yield, and defense layering have to be read together for the long-tail market thesis to make sense.
+
+**Status:** Accepted for the authored manifesto layer.

@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 883,
-  "totalChunks": 1478,
-  "pagesWithChunks": 883,
+  "totalPages": 888,
+  "totalChunks": 1488,
+  "pagesWithChunks": 888,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -429,17 +429,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 71,
+    "authored": 76,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 137,
+    "authored": 147,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 52,
+    "manifesto": 62,
     "protocol-reference": 22,
     "competitive-context": 6,
     "dashboard-reference": 20,
@@ -549,6 +549,52 @@
       "wordEnd": 399,
       "wordCount": 214,
       "text": "the remaining amount can be reposted as a new quote. Close requests, close cancel requests, cancellations, force close paths, and liquidations become distinct lifecycle events that solvers and frontends must reconcile. The important docs move is to name the state. A pending intent, locked quote, opened position, close pending position, cancelled request, and liquidated position are not interchangeable user support cases. Why This Is Bilateral Symmio's core docs deliberately name PartyA and PartyB because responsibility is split. PartyA requests. PartyB accepts and manages the other side. Liquidators monitor collateral. The protocol does not need a central order book to decide whether the trade exists; it needs a counterparty willing to lock collateral and accept the quote under the rules. Reader Implication For traders, the lifecycle answers \"what happens after I submit?\" For solvers, it answers \"which event should I react to next?\" For support, it prevents vague answers like \"the trade is processing\" when the precise state is pending, locked, close pending, cancelled, or liquidated. Sources symmio core : PartyA/PartyB bilateral model and high level trade path. symmio intent lifecycle : quote submission, solver monitoring, locking, collateral allocation, partial fills, and lifecycle status changes. Related Pages authored symmio clearing house layer authored solver event monitoring authored symmio party a party b symmio intent lifecycle"
+    },
+    {
+      "id": "authored-bootstrap-counterparty-pillar::001",
+      "pageId": "authored-bootstrap-counterparty-pillar",
+      "chunkIndex": 1,
+      "title": "Bootstrap And Counterparty Formation",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/bootstrap-counterparty-pillar.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Bootstrap And Counterparty Formation The second Vibe pillar asks how a market can exist before it already has deep, synchronous liquidity. In a mature order book, a long and a short can meet at the same moment. In a low cap market, interest is sparse and path dependent. There may be real demand over time, but not enough simultaneous two sided flow to make continuous matching the default answer. The Asynchronous Counterparty Problem Neelo's pillar paper says this is where Vibe's bootstrap logic matters. If natural counterparties do not arrive together, a solver or designated risk taker may need to intermediate the market. That creates continuity where a pure order book would stall. The payoff is earlier market launch, less dependency on deep organic liquidity, and exposure access without requiring perfect timing from the opposite side. The cost is that the problem changes. Once a solver becomes the effective counterparty, the venue is no longer only matching orders. It is managing a balance sheet and risk warehouse problem. Reader Implication Bootstrap and counterparty formation explain why \"just use an order book\" is not enough for the long tail. They also explain why solver design cannot be hand waved: the counterparty path that makes a market possible must still survive leverage, stress, thin liquidity, and adverse selection. Sources vibe papers :"
+    },
+    {
+      "id": "authored-bootstrap-counterparty-pillar::002",
+      "pageId": "authored-bootstrap-counterparty-pillar",
+      "chunkIndex": 2,
+      "title": "Bootstrap And Counterparty Formation",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/bootstrap-counterparty-pillar.md",
+      "wordStart": 185,
+      "wordEnd": 252,
+      "wordCount": 67,
+      "text": "the long tail. They also explain why solver design cannot be hand waved: the counterparty path that makes a market possible must still survive leverage, stress, thin liquidity, and adverse selection. Sources vibe papers : Neelo, \"Pillar Two: Bootstrap and Counterparty\". Related Pages authored vibe pillars authored solver owned market maker authored bilateral intent lifecycle neelo 10 vibe pillars 10 docs 03 pillar two bootstrap and counterparty"
     },
     {
       "id": "authored-bootstrap-trilemma::001",
@@ -790,6 +836,52 @@
       "wordEnd": 863,
       "wordCount": 123,
       "text": "explain the thesis; resolve an operational question; define a source backed term or state; route an unanswered question into the improvement loop. If a page does none of those things, it is filler. If it does one of them with exact citations and cross links, it belongs. Sources competitive sweep batch 01 : generated official docs benchmark over 50 targets, 25 lanes, five explorer batches, 49 verified official docs, and one Opyn access gap. spec 05 : answer first IA and guided journey requirements. spec 06 : answer engine, citations, rating, and living docs loop requirements. spec 07 : research session competitive sweep requirement. Related Pages authored volume 01 orientation and thesis authored search insights loop authored vibe as discovery layer hyperliquid hip3"
+    },
+    {
+      "id": "authored-coupled-design-problem::001",
+      "pageId": "authored-coupled-design-problem",
+      "chunkIndex": 1,
+      "title": "The Coupled Design Problem",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/05-the-coupled-design-problem"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/coupled-design-problem.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Coupled Design Problem The Vibe pillars are not independent checkboxes. They are a coupled design problem. If a system optimizes only for exploit resistance, it can become too restrictive for long tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only for LP yield, it can push risk onto capital in ways that fail during tail events. Why Order Books Do Not Solve The Early Stage Mature order books collapse many of these concerns into synchronous matching: a buyer and seller arrive together, the venue avoids warehousing much exposure, and the market clears. That works for assets that already have deep liquidity. Low cap markets sit earlier on the maturity curve. They need defense against leveraged abuse, tradability when two sided flow is intermittent, and a reason for residual risk takers to keep capital in the system. Reader Implication This page is the bridge from \"Vibe has three pillars\" to \"Vibe needs a different market structure.\" The pillars are hard because solving one can weaken another. The product thesis is credible only if the architecture can satisfy all three at once. Sources vibe papers : Neelo, \"The Coupled Design Problem\". Related Pages authored vibe pillars authored exploit resistance pillar authored bootstrap counterparty pillar authored"
+    },
+    {
+      "id": "authored-coupled-design-problem::002",
+      "pageId": "authored-coupled-design-problem",
+      "chunkIndex": 2,
+      "title": "The Coupled Design Problem",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/05-the-coupled-design-problem"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/coupled-design-problem.md",
+      "wordStart": 185,
+      "wordEnd": 236,
+      "wordCount": 51,
+      "text": "is credible only if the architecture can satisfy all three at once. Sources vibe papers : Neelo, \"The Coupled Design Problem\". Related Pages authored vibe pillars authored exploit resistance pillar authored bootstrap counterparty pillar authored lp yield capital efficiency pillar neelo 10 vibe pillars 10 docs 05 the coupled design problem"
     },
     {
       "id": "authored-dashboard-faq::001",
@@ -1261,6 +1353,52 @@
       "text": "Gap Operator inbox item 1 must resolve the public revenue disclosure boundary before this page becomes final. Sources local revenue doc : Local network revenue document. dashboard revenue doc : In app dashboard revenue page. server pulse : Current pulse/revenue implementation. spec 03 : Grounding matrix and revenue status guidance. Related Pages authored network volume local network revenue local revenue pulse"
     },
     {
+      "id": "authored-exploit-resistance-pillar::001",
+      "pageId": "authored-exploit-resistance-pillar",
+      "chunkIndex": 1,
+      "title": "Exploit Resistance As A Vibe Pillar",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/02-pillar-one-exploit-resistance"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/exploit-resistance-pillar.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Exploit Resistance As A Vibe Pillar Neelo's first Vibe pillar is exploit resistance: a leveraged market must stop users from extracting value faster than the system can defend itself. That makes exploit resistance broader than smart contract security. The paper frames the real threat surface as market structure abuse: bad debt, delayed liquidation, oracle manipulation, execution manipulation, and tail events that can push losses into the venue or its residual risk takers. Why It Comes First Perpetuals extend credit. A trader posts collateral and receives larger directional exposure. If the collateral, liquidation, oracle, and execution systems cannot contain that exposure, the market can be technically live but economically unsafe. This is especially important for thin assets. Deep order books reduce some residual exposure by matching natural counterparties at execution time. Long tail assets often do not have that continuous two sided liquidity, so the venue needs another way to preserve defense without refusing to bootstrap the market. Reader Implication Exploit resistance is the floor under the rest of the thesis. If the venue can be gamed, bootstrap does not matter and LP yield becomes a false signal. Product docs should route leverage, liquidation, oracle, and margin questions back to this pillar before promising market breadth. Sources vibe papers : Neelo, \"Pillar One: Exploit Resistance\". Related Pages authored vibe pillars authored"
+    },
+    {
+      "id": "authored-exploit-resistance-pillar::002",
+      "pageId": "authored-exploit-resistance-pillar",
+      "chunkIndex": 2,
+      "title": "Exploit Resistance As A Vibe Pillar",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/02-pillar-one-exploit-resistance"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/exploit-resistance-pillar.md",
+      "wordStart": 185,
+      "wordEnd": 239,
+      "wordCount": 54,
+      "text": "false signal. Product docs should route leverage, liquidation, oracle, and margin questions back to this pillar before promising market breadth. Sources vibe papers : Neelo, \"Pillar One: Exploit Resistance\". Related Pages authored vibe pillars authored collateral margin cva authored vibe collateral and margining neelo 10 vibe pillars 10 docs 02 pillar one exploit resistance"
+    },
+    {
       "id": "authored-four-transitions::001",
       "pageId": "authored-four-transitions",
       "chunkIndex": 1,
@@ -1328,6 +1466,52 @@
       "wordEnd": 205,
       "wordCount": 205,
       "text": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\". Related Pages authored hybrid settlement solver stack authored market maturation z score authored estimated network revenue"
+    },
+    {
+      "id": "authored-funding-defense-hierarchy::001",
+      "pageId": "authored-funding-defense-hierarchy",
+      "chunkIndex": 1,
+      "title": "Funding Defense Hierarchy",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/funding-defense-hierarchy.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The Stack User position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market specific USDC protection from liquidation proceeds, solver profits, and CVA style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system. ADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model. Why This Belongs In The Vision Spine The hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long tail venue, the docs need to show readers where losses are absorbed before they ask who gets deleveraged. Publication Note This page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation"
+    },
+    {
+      "id": "authored-funding-defense-hierarchy::002",
+      "pageId": "authored-funding-defense-hierarchy",
+      "chunkIndex": 2,
+      "title": "Funding Defense Hierarchy",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/funding-defense-hierarchy.md",
+      "wordStart": 185,
+      "wordEnd": 266,
+      "wordCount": 81,
+      "text": "need to show readers where losses are absorbed before they ask who gets deleveraged. Publication Note This page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior. Sources vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored economic clarity for permissionless perps authored token margined reflexivity risk neelo 15 funding model 15 docs 10 defense hierarchy"
     },
     {
       "id": "authored-game-theory-of-listings::001",
@@ -1803,6 +1987,52 @@
       "wordEnd": 224,
       "wordCount": 39,
       "text": "papers : Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\". spec 03 : Phase B economics and revenue disclosure boundary. Related Pages authored vibe pillars authored estimated network revenue neelo 15 funding model 15 docs 06 lp profit"
+    },
+    {
+      "id": "authored-lp-yield-capital-efficiency-pillar::001",
+      "pageId": "authored-lp-yield-capital-efficiency-pillar",
+      "chunkIndex": 1,
+      "title": "LP Yield And Capital Efficiency",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/lp-yield-capital-efficiency-pillar.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "LP Yield And Capital Efficiency The third Vibe pillar asks why the capital supporting an early market should stay. If a solver, maker, vault, or designated residual counterparty helps bootstrap a market, that capital is doing real work. It may warehouse inventory, absorb directional exposure, fund stable collateral, or support quotes while natural flow is one sided. Yield As Survival Test Neelo's pillar paper makes the economic point directly: low cap perps cannot rely on large amounts of idle capital earning weak or inconsistent yield. The long tail breaks if every market requires too much passive balance sheet. So the question is not whether LPs can earn yield in a generic sense. The question is whether they can earn enough risk adjusted return to justify thin market volatility, adverse selection, and residual counterparty exposure. Capital Efficiency Capital efficiency links the third pillar back to the first two. A highly safe system that cannot pay its makers will not scale. A highly bootstrappable system that burns too much capital per market will not persist. This is why the compendium should treat LP economics as architecture, not as a reward table. The yield layer is proof that the system can keep real risk bearing capital engaged. Publication Note This page needs operator review before final publication because the exact public Vibe economics,"
+    },
+    {
+      "id": "authored-lp-yield-capital-efficiency-pillar::002",
+      "pageId": "authored-lp-yield-capital-efficiency-pillar",
+      "chunkIndex": 2,
+      "title": "LP Yield And Capital Efficiency",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/lp-yield-capital-efficiency-pillar.md",
+      "wordStart": 185,
+      "wordEnd": 276,
+      "wordCount": 91,
+      "text": "as a reward table. The yield layer is proof that the system can keep real risk bearing capital engaged. Publication Note This page needs operator review before final publication because the exact public Vibe economics, LP profit share, fee routing, and Phase B revenue disclosures remain parked. Sources vibe papers : Neelo, \"Pillar Three: LP Yield and Capital Efficiency\". Related Pages authored vibe pillars authored lp profit and dynamic pricing authored token vault perps versus usdc pools neelo 10 vibe pillars 10 docs 04 pillar three lp yield and capital efficiency"
     },
     {
       "id": "authored-market-assembly-line::001",

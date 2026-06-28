@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 58,
-  "totalAnswerable": 52,
+  "totalEntries": 63,
+  "totalAnswerable": 57,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 6,
+    "Getting Started": 7,
     "Trading Flow": 8,
-    "Solvers And Settlement": 9,
+    "Solvers And Settlement": 10,
     "Risk And Markets": 6,
     "Revenue": 5,
     "Rewards And Referrals": 5,
     "Dashboard": 7,
-    "Manifesto": 10,
+    "Manifesto": 13,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 31,
+    "Medium": 34,
     "High": 18,
-    "Low": 3
+    "Low": 5
   },
   "byRouteSource": {
-    "authored": 52
+    "authored": 57
   },
   "byType": {
-    "answerable": 52,
+    "answerable": 57,
     "reconciliation": 6
   },
   "answerable": [
@@ -1379,6 +1379,151 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-exploit-resistance-a-vibe-pillar",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is exploit resistance a Vibe pillar?",
+      "normalizedQuestion": "why is exploit resistance a vibe pillar",
+      "shortAnswer": "Neelo's Vibe Pillars paper frames leveraged-market defense as the first architecture constraint.",
+      "answerSummary": "Exploit Resistance As A Vibe Pillar Neelo's first Vibe pillar is exploit resistance: a leveraged market must stop users from extracting value faster than the system can defend itself. That makes exploit resistance broader than smart contract security. The paper frames the real threat surface as market structure abuse: bad debt, delayed liquidation, oracle...",
+      "confidence": "Medium",
+      "pageId": "authored-exploit-resistance-pillar",
+      "pageTitle": "Exploit Resistance As A Vibe Pillar",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-need-asynchronous-counterparty-formation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does Vibe need asynchronous counterparty formation?",
+      "normalizedQuestion": "why does vibe need asynchronous counterparty formation",
+      "shortAnswer": "Neelo's second pillar explains why thin markets cannot rely on continuous synchronous matching.",
+      "answerSummary": "Bootstrap And Counterparty Formation The second Vibe pillar asks how a market can exist before it already has deep, synchronous liquidity. In a mature order book, a long and a short can meet at the same moment. In a low cap market, interest is sparse and path dependent. There may be real demand over time, but not enough simultaneous two sided flow to make...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-counterparty-pillar",
+      "pageTitle": "Bootstrap And Counterparty Formation",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-lp-yield-part-of-market-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is LP yield part of market design?",
+      "normalizedQuestion": "why is lp yield part of market design",
+      "shortAnswer": "Neelo's third pillar supports the capital-efficiency argument; exact public economics still require operator review.",
+      "answerSummary": "LP Yield And Capital Efficiency The third Vibe pillar asks why the capital supporting an early market should stay. If a solver, maker, vault, or designated residual counterparty helps bootstrap a market, that capital is doing real work. It may warehouse inventory, absorb directional exposure, fund stable collateral, or support quotes while natural flow is...",
+      "confidence": "Low",
+      "pageId": "authored-lp-yield-capital-efficiency-pillar",
+      "pageTitle": "LP Yield And Capital Efficiency",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-the-vibe-pillars-coupled",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why are the Vibe pillars coupled?",
+      "normalizedQuestion": "why are the vibe pillars coupled",
+      "shortAnswer": "Neelo's coupled design section explains why optimizing only defense, bootstrap, or yield breaks the model.",
+      "answerSummary": "The Coupled Design Problem The Vibe pillars are not independent checkboxes. They are a coupled design problem. If a system optimizes only for exploit resistance, it can become too restrictive for long tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only...",
+      "confidence": "Medium",
+      "pageId": "authored-coupled-design-problem",
+      "pageTitle": "The Coupled Design Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-defense-hierarchy-before-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the defense hierarchy before ADL?",
+      "normalizedQuestion": "what is the defense hierarchy before adl",
+      "shortAnswer": "Neelo's funding model supports the layered defense framework; production percentages and ADL behavior still need implementation review.",
+      "answerSummary": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The S...",
+      "confidence": "Low",
+      "pageId": "authored-funding-defense-hierarchy",
+      "pageTitle": "Funding Defense Hierarchy",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -3819,6 +3964,151 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-exploit-resistance-a-vibe-pillar",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is exploit resistance a Vibe pillar?",
+      "normalizedQuestion": "why is exploit resistance a vibe pillar",
+      "shortAnswer": "Neelo's Vibe Pillars paper frames leveraged-market defense as the first architecture constraint.",
+      "answerSummary": "Exploit Resistance As A Vibe Pillar Neelo's first Vibe pillar is exploit resistance: a leveraged market must stop users from extracting value faster than the system can defend itself. That makes exploit resistance broader than smart contract security. The paper frames the real threat surface as market structure abuse: bad debt, delayed liquidation, oracle...",
+      "confidence": "Medium",
+      "pageId": "authored-exploit-resistance-pillar",
+      "pageTitle": "Exploit Resistance As A Vibe Pillar",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-need-asynchronous-counterparty-formation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does Vibe need asynchronous counterparty formation?",
+      "normalizedQuestion": "why does vibe need asynchronous counterparty formation",
+      "shortAnswer": "Neelo's second pillar explains why thin markets cannot rely on continuous synchronous matching.",
+      "answerSummary": "Bootstrap And Counterparty Formation The second Vibe pillar asks how a market can exist before it already has deep, synchronous liquidity. In a mature order book, a long and a short can meet at the same moment. In a low cap market, interest is sparse and path dependent. There may be real demand over time, but not enough simultaneous two sided flow to make...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-counterparty-pillar",
+      "pageTitle": "Bootstrap And Counterparty Formation",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-lp-yield-part-of-market-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is LP yield part of market design?",
+      "normalizedQuestion": "why is lp yield part of market design",
+      "shortAnswer": "Neelo's third pillar supports the capital-efficiency argument; exact public economics still require operator review.",
+      "answerSummary": "LP Yield And Capital Efficiency The third Vibe pillar asks why the capital supporting an early market should stay. If a solver, maker, vault, or designated residual counterparty helps bootstrap a market, that capital is doing real work. It may warehouse inventory, absorb directional exposure, fund stable collateral, or support quotes while natural flow is...",
+      "confidence": "Low",
+      "pageId": "authored-lp-yield-capital-efficiency-pillar",
+      "pageTitle": "LP Yield And Capital Efficiency",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-the-vibe-pillars-coupled",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why are the Vibe pillars coupled?",
+      "normalizedQuestion": "why are the vibe pillars coupled",
+      "shortAnswer": "Neelo's coupled design section explains why optimizing only defense, bootstrap, or yield breaks the model.",
+      "answerSummary": "The Coupled Design Problem The Vibe pillars are not independent checkboxes. They are a coupled design problem. If a system optimizes only for exploit resistance, it can become too restrictive for long tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only...",
+      "confidence": "Medium",
+      "pageId": "authored-coupled-design-problem",
+      "pageTitle": "The Coupled Design Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-defense-hierarchy-before-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the defense hierarchy before ADL?",
+      "normalizedQuestion": "what is the defense hierarchy before adl",
+      "shortAnswer": "Neelo's funding model supports the layered defense framework; production percentages and ADL behavior still need implementation review.",
+      "answerSummary": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The S...",
+      "confidence": "Low",
+      "pageId": "authored-funding-defense-hierarchy",
+      "pageTitle": "Funding Defense Hierarchy",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

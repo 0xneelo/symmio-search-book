@@ -250,6 +250,13 @@
 - Added six direct question routes for practical trading questions while preserving the fee-page limitation: current official docs expose fee categories but not final numeric percentages.
 - Kept fee percentages and broader public revenue disclosure under operator review through the existing revenue boundary blocker.
 
+## 2026-06-28 — Neelo Vibe Pillars Authored Pages
+
+- Verified the local Neelo docs clone against the public GitHub remote head `c6a6a78`.
+- Added five authored manifesto pages from the Vibe Pillars and funding-model corpus: exploit resistance, bootstrap/counterparty formation, LP yield/capital efficiency, coupled design, and the funding defense hierarchy.
+- Added five direct question routes so the Ask surface can explain the pillars and pre-ADL defense stack from authored pages.
+- Placed the new pillar/funding pages in Volume 04 through explicit volume overrides instead of letting manifesto defaults send them to Volume 01.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
