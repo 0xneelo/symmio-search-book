@@ -519,3 +519,11 @@
 **Reason:** The public Vibe docs contain useful reward tables, but the local product and grounding docs already show unresolved referral-depth and points-accounting questions. The compendium should publish the directly sourced user flows and tables while avoiding one blended rewards answer that would overstate final economics or erase the existing 5-vs-15-level ambiguity.
 
 **Status:** Accepted for the authored rewards/platform reference layer.
+
+## D-066: Teach Funding As A Regime Control System
+
+**Decision:** Add authored Volume 04 pages from Neelo's funding-rate model for the liquidation/inventory invariant, state-variable map, funding-regime ladder, full objective, and worked-example reading guide.
+
+**Reason:** The funding model is one of the clearest places where the Vibe thesis becomes an operating system. The docs should explain how inventory, exposure, utilization, insurance, dynamic pricing, cross-market support, and ADL connect, while keeping example thresholds, APRs, rebates, insurance allocations, and live policy under implementation/operator review.
+
+**Status:** Accepted for the authored manifesto layer.

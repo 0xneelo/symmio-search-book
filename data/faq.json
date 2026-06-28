@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 168,
-  "totalAnswerable": 161,
+  "totalEntries": 173,
+  "totalAnswerable": 166,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 13,
     "Solvers And Settlement": 31,
     "Risk And Markets": 15,
-    "Revenue": 13,
+    "Revenue": 18,
     "Manifesto": 36,
     "Rewards And Referrals": 20,
     "Dashboard": 9,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 78,
+    "Medium": 79,
     "High": 29,
-    "Low": 54
+    "Low": 58
   },
   "byRouteSource": {
-    "authored": 161
+    "authored": 166
   },
   "byType": {
-    "answerable": 161,
+    "answerable": 166,
     "reconciliation": 7
   },
   "answerable": [
@@ -3424,6 +3424,151 @@
       "confidence": "Low",
       "pageId": "authored-funding-model-control-problem",
       "pageTitle": "The Funding Model Is A Control Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-liquidations-inventory-reallocations-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why are liquidations inventory reallocations in the funding model?",
+      "normalizedQuestion": "why are liquidations inventory reallocations in the funding model",
+      "shortAnswer": "Neelo's funding model frames liquidations as inventory reallocations rather than automatic bad-debt events; live liquidation and loss policy remain review-bound.",
+      "answerSummary": "The Funding Model Core Invariant Neelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad debt events. That does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leav...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-core-invariant",
+      "pageTitle": "The Funding Model Core Invariant",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-state-variables-does-the-funding-model-track",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which state variables does the funding model track?",
+      "normalizedQuestion": "which state variables does the funding model track",
+      "shortAnswer": "Neelo's variable map separates inventory, OI, exposure, utilization, insurance, volatility, economics, and control variables.",
+      "answerSummary": "Funding State Variable Map The funding model is easier to understand if readers see the state map before the equations. Neelo's variable definitions split a market into inventories, open interest, exposure, utilization, skew, insurance capacity, volatility, revenue, cost, and control variables. Market State The first state group is inventory and exposure....",
+      "confidence": "Low",
+      "pageId": "authored-funding-state-variable-map",
+      "pageTitle": "Funding State Variable Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-normal-stress-emergency-insurance-and-adl-regimes-connect",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do normal, stress, emergency, insurance, and ADL regimes connect?",
+      "normalizedQuestion": "how do normal stress emergency insurance and adl regimes connect",
+      "shortAnswer": "Neelo's funding-rate model shows a regime ladder from base funding through stress, emergency, insurance mode, and last-resort ADL; live thresholds need review.",
+      "answerSummary": "Funding Rate Regime Model The funding rate model is not one static APR. It is a regime system that changes behavior as a market moves from ordinary inventory use toward stress, emergency, insurance mode, and finally ADL. The Regime Ladder In normal operation, utilization is below the model's kink point and funding can stay near a base rate. In stress, uti...",
+      "confidence": "Low",
+      "pageId": "authored-funding-rate-regime-model",
+      "pageTitle": "Funding Rate Regime Model",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-full-funding-model-objective",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the full funding-model objective?",
+      "normalizedQuestion": "what is the full funding model objective",
+      "shortAnswer": "Neelo's full objective combines flattened profit, local risk penalties, insurance cost, and ADL cost into one control problem.",
+      "answerSummary": "The Full Funding Objective The full funding objective in Neelo's model combines four ideas: maximize flattened market profit, penalize local risk, account for insurance cost, and make ADL expensive enough to remain a last resort. In plain English, the system wants profitable markets, but not by ignoring unstable local states. It wants to compress extreme...",
+      "confidence": "Low",
+      "pageId": "authored-funding-full-objective",
+      "pageTitle": "The Full Funding Objective",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-the-funding-model-worked-examples",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should I read the funding model worked examples?",
+      "normalizedQuestion": "how should i read the funding model worked examples",
+      "shortAnswer": "Neelo's examples teach reasoning order across netting, exposure, utilization, insurance, bell-curve support, and ADL without making production parameter promises.",
+      "answerSummary": "Funding Worked Examples Reading Guide The worked examples should be read as model walkthroughs, not as a production parameter sheet. Their value is that they show how the same market can move through normal operation, stress, emergency, insurance mode, bell curve support, and ADL trigger analysis. What The Examples Teach The normal and stress examples sho...",
+      "confidence": "Low",
+      "pageId": "authored-funding-worked-examples-reading-guide",
+      "pageTitle": "Funding Worked Examples Reading Guide",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -9505,6 +9650,151 @@
       "confidence": "Low",
       "pageId": "authored-funding-model-control-problem",
       "pageTitle": "The Funding Model Is A Control Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-liquidations-inventory-reallocations-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why are liquidations inventory reallocations in the funding model?",
+      "normalizedQuestion": "why are liquidations inventory reallocations in the funding model",
+      "shortAnswer": "Neelo's funding model frames liquidations as inventory reallocations rather than automatic bad-debt events; live liquidation and loss policy remain review-bound.",
+      "answerSummary": "The Funding Model Core Invariant Neelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad debt events. That does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leav...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-core-invariant",
+      "pageTitle": "The Funding Model Core Invariant",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-state-variables-does-the-funding-model-track",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which state variables does the funding model track?",
+      "normalizedQuestion": "which state variables does the funding model track",
+      "shortAnswer": "Neelo's variable map separates inventory, OI, exposure, utilization, insurance, volatility, economics, and control variables.",
+      "answerSummary": "Funding State Variable Map The funding model is easier to understand if readers see the state map before the equations. Neelo's variable definitions split a market into inventories, open interest, exposure, utilization, skew, insurance capacity, volatility, revenue, cost, and control variables. Market State The first state group is inventory and exposure....",
+      "confidence": "Low",
+      "pageId": "authored-funding-state-variable-map",
+      "pageTitle": "Funding State Variable Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-normal-stress-emergency-insurance-and-adl-regimes-connect",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do normal, stress, emergency, insurance, and ADL regimes connect?",
+      "normalizedQuestion": "how do normal stress emergency insurance and adl regimes connect",
+      "shortAnswer": "Neelo's funding-rate model shows a regime ladder from base funding through stress, emergency, insurance mode, and last-resort ADL; live thresholds need review.",
+      "answerSummary": "Funding Rate Regime Model The funding rate model is not one static APR. It is a regime system that changes behavior as a market moves from ordinary inventory use toward stress, emergency, insurance mode, and finally ADL. The Regime Ladder In normal operation, utilization is below the model's kink point and funding can stay near a base rate. In stress, uti...",
+      "confidence": "Low",
+      "pageId": "authored-funding-rate-regime-model",
+      "pageTitle": "Funding Rate Regime Model",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-full-funding-model-objective",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the full funding-model objective?",
+      "normalizedQuestion": "what is the full funding model objective",
+      "shortAnswer": "Neelo's full objective combines flattened profit, local risk penalties, insurance cost, and ADL cost into one control problem.",
+      "answerSummary": "The Full Funding Objective The full funding objective in Neelo's model combines four ideas: maximize flattened market profit, penalize local risk, account for insurance cost, and make ADL expensive enough to remain a last resort. In plain English, the system wants profitable markets, but not by ignoring unstable local states. It wants to compress extreme...",
+      "confidence": "Low",
+      "pageId": "authored-funding-full-objective",
+      "pageTitle": "The Full Funding Objective",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-the-funding-model-worked-examples",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should I read the funding model worked examples?",
+      "normalizedQuestion": "how should i read the funding model worked examples",
+      "shortAnswer": "Neelo's examples teach reasoning order across netting, exposure, utilization, insurance, bell-curve support, and ADL without making production parameter promises.",
+      "answerSummary": "Funding Worked Examples Reading Guide The worked examples should be read as model walkthroughs, not as a production parameter sheet. Their value is that they show how the same market can move through normal operation, stress, emergency, insurance mode, bell curve support, and ADL trigger analysis. What The Examples Teach The normal and stress examples sho...",
+      "confidence": "Low",
+      "pageId": "authored-funding-worked-examples-reading-guide",
+      "pageTitle": "Funding Worked Examples Reading Guide",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",

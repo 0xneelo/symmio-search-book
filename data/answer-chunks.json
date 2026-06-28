@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 992,
-  "totalChunks": 1686,
-  "pagesWithChunks": 992,
+  "totalPages": 997,
+  "totalChunks": 1696,
+  "pagesWithChunks": 997,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -618,17 +618,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 180,
+    "authored": 185,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 345,
+    "authored": 355,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 176,
+    "manifesto": 186,
     "dashboard-reference": 24,
     "protocol-reference": 50,
     "competitive-context": 6,
@@ -2153,6 +2153,54 @@
       "text": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\". Related Pages authored hybrid settlement solver stack authored market maturation z score authored estimated network revenue"
     },
     {
+      "id": "authored-funding-core-invariant::001",
+      "pageId": "authored-funding-core-invariant",
+      "chunkIndex": 1,
+      "title": "The Funding Model Core Invariant",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-core-invariant.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Funding Model Core Invariant Neelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad debt events. That does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leave system debt behind. In the source framing, a solver or LP stack can receive collateral, rebalance token inventory, earn fees and funding, and still manage exposure through dynamic prices before the system reaches insurance or ADL. Why The Invariant Matters Traditional AMM and lending analogies can mislead readers. If the docs say only \"volatility is risk,\" users miss the difference between selling spot inventory, lending against collateral, and running a perp market where trader PnL, liquidation revenue, funding, spread, borrow, hedge cost, and shortfall risk all enter the same control loop. The invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic pricing can route flow away from danger before hard unwind paths activate. Boundary This page is conceptual architecture. It should not be read as a promise that every liquidation is profitable, every LP outcome"
+    },
+    {
+      "id": "authored-funding-core-invariant::002",
+      "pageId": "authored-funding-core-invariant",
+      "chunkIndex": 2,
+      "title": "The Funding Model Core Invariant",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-core-invariant.md",
+      "wordStart": 185,
+      "wordEnd": 289,
+      "wordCount": 104,
+      "text": "dynamic pricing can route flow away from danger before hard unwind paths activate. Boundary This page is conceptual architecture. It should not be read as a promise that every liquidation is profitable, every LP outcome is positive, or every production market has the same defense stack. Live liquidation thresholds, fee splits, insurance usage, and ADL behavior remain implementation and operator review items. Sources vibe papers : Neelo, \"Core Concepts: Gradient Flow & Attractor Repeller Dynamics\". vibe papers : Neelo, \"Funding Rate Model for Low Cap Perpetual Contracts\". Related Pages authored funding model control problem authored lp profit and dynamic pricing authored funding defense hierarchy"
+    },
+    {
       "id": "authored-funding-defense-hierarchy::001",
       "pageId": "authored-funding-defense-hierarchy",
       "chunkIndex": 1,
@@ -2197,6 +2245,56 @@
       "wordEnd": 266,
       "wordCount": 81,
       "text": "need to show readers where losses are absorbed before they ask who gets deleveraged. Publication Note This page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior. Sources vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored economic clarity for permissionless perps authored token margined reflexivity risk neelo 15 funding model 15 docs 10 defense hierarchy"
+    },
+    {
+      "id": "authored-funding-full-objective::001",
+      "pageId": "authored-funding-full-objective",
+      "chunkIndex": 1,
+      "title": "The Full Funding Objective",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-full-objective.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Full Funding Objective The full funding objective in Neelo's model combines four ideas: maximize flattened market profit, penalize local risk, account for insurance cost, and make ADL expensive enough to remain a last resort. In plain English, the system wants profitable markets, but not by ignoring unstable local states. It wants to compress extreme outcomes across markets, but not by allowing every weak market to drain shared insurance. It wants to spend insurance when it protects solvency, but not so freely that insurance becomes the ordinary counterparty. Components Flattened profit is the cross market piece. Winner markets can contribute from excess profit above a cutoff, stressed markets can receive support below a cutoff, and the aggregate distribution becomes less extreme. Local risk is the market specific piece. Utilization, insurance stress, skew, volatility, profit deviation, and residual stress create penalties that push the system away from danger zones. Insurance cost and ADL cost are the hard defense pieces. Insurance spend consumes scarce budget. ADL protects solvency but damages user experience and trust, so the model treats it as a costly action rather than a normal operating tool. Reader Implication This page is the bridge between the manifesto and risk controls. The objective explains why Vibe's funding model is not only \"charge the crowded side.\" It is trying to route capital,"
+    },
+    {
+      "id": "authored-funding-full-objective::002",
+      "pageId": "authored-funding-full-objective",
+      "chunkIndex": 2,
+      "title": "The Full Funding Objective",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-full-objective.md",
+      "wordStart": 185,
+      "wordEnd": 277,
+      "wordCount": 92,
+      "text": "operating tool. Reader Implication This page is the bridge between the manifesto and risk controls. The objective explains why Vibe's funding model is not only \"charge the crowded side.\" It is trying to route capital, risk, insurance, and forced unwind decisions through one coherent system. Sources vibe papers : Neelo, \"Full Combined Objective: The Complete Optimization Problem\". vibe papers : Neelo, \"Bell Curve Flattening: Cross Market Risk Mutualization\". vibe papers : Neelo, \"Insurance & ADL Logic\". Related Pages authored cross market risk mutualization authored utilization modes inventory insurance authored funding defense hierarchy"
     },
     {
       "id": "authored-funding-model-control-problem::001",
@@ -2269,6 +2367,152 @@
       "wordEnd": 412,
       "wordCount": 42,
       "text": "intro: what the derivation is for (and what it is not)\". vibe papers : Neelo, \"Abstract\" for the funding model objective and control surface. Related Pages authored funding as market balancing authored lp profit and dynamic pricing authored z score graduation criteria"
+    },
+    {
+      "id": "authored-funding-rate-regime-model::001",
+      "pageId": "authored-funding-rate-regime-model",
+      "chunkIndex": 1,
+      "title": "Funding Rate Regime Model",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-rate-regime-model.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Rate Regime Model The funding rate model is not one static APR. It is a regime system that changes behavior as a market moves from ordinary inventory use toward stress, emergency, insurance mode, and finally ADL. The Regime Ladder In normal operation, utilization is below the model's kink point and funding can stay near a base rate. In stress, utilization has crossed the kink and a convex curve makes worsening imbalance more expensive. In emergency, high utilization has persisted long enough that time becomes part of the penalty, so the system pushes harder as the condition lasts. When exposure exceeds token inventory, the model switches from token inventory utilization to insurance fund utilization. At that point spreads and rates can become more directional: trades that worsen exposure become expensive, while trades that reduce exposure can receive better pricing or even rebates in the source model. ADL is the final regime. It appears only after the defense stack cannot keep exposure inside safe limits or insurance spend has been exhausted while residual stress remains. Why It Matters This ladder is the practical version of the manifesto's market balancing claim. Vibe does not need every long tail market to start with perfect two sided liquidity. It needs a way to make imbalance progressively more visible and costly before user facing forced"
+    },
+    {
+      "id": "authored-funding-rate-regime-model::002",
+      "pageId": "authored-funding-rate-regime-model",
+      "chunkIndex": 2,
+      "title": "Funding Rate Regime Model",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-rate-regime-model.md",
+      "wordStart": 185,
+      "wordEnd": 308,
+      "wordCount": 123,
+      "text": "manifesto's market balancing claim. Vibe does not need every long tail market to start with perfect two sided liquidity. It needs a way to make imbalance progressively more visible and costly before user facing forced unwinds become necessary. Publication Note The source contains example thresholds and APRs. Those are model values, not public production guarantees. Final docs should publish live rates, thresholds, grace periods, rebates, and ADL policy only after implementation and operator review. Sources vibe papers : Neelo, \"Funding Rate Model for Low Cap Perpetual Contracts\". vibe papers : Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\". vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored dynamic pricing controls authored funding defense hierarchy"
+    },
+    {
+      "id": "authored-funding-state-variable-map::001",
+      "pageId": "authored-funding-state-variable-map",
+      "chunkIndex": 1,
+      "title": "Funding State Variable Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-state-variable-map.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding State Variable Map The funding model is easier to understand if readers see the state map before the equations. Neelo's variable definitions split a market into inventories, open interest, exposure, utilization, skew, insurance capacity, volatility, revenue, cost, and control variables. Market State The first state group is inventory and exposure. Token deposits, remaining tokens, token price, covered notional, long open interest, short open interest, netted amount, and solver exposure define whether the market is mostly self offsetting or whether the solver is carrying directional risk. The second state group is utilization and imbalance. Token utilization asks how much net exposure is covered by token inventory. Insurance utilization asks how much unhedged loss could stress available local and global insurance. Skew explains which side of the market is dominant. The third state group is risk and economics. Volatility, profit deviation, exposure loss estimates, revenue categories, hedge cost, borrow cost, trader PnL, shortfall, and insurance budget determine whether ordinary pricing is enough or whether the market is moving toward defense layers. Control Surface The source also separates state from controls. The system can change funding, borrow, spread, insurance spend, hedging, and ADL fraction. That distinction matters: a docs answer should not say \"utilization caused ADL\" without showing the intervening control choices and budgets. Reader Implication When a solver, LP, or project"
+    },
+    {
+      "id": "authored-funding-state-variable-map::002",
+      "pageId": "authored-funding-state-variable-map",
+      "chunkIndex": 2,
+      "title": "Funding State Variable Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-state-variable-map.md",
+      "wordStart": 185,
+      "wordEnd": 285,
+      "wordCount": 100,
+      "text": "spread, insurance spend, hedging, and ADL fraction. That distinction matters: a docs answer should not say \"utilization caused ADL\" without showing the intervening control choices and budgets. Reader Implication When a solver, LP, or project asks why a market's terms changed, the right answer is rarely one metric. The funding model reads the binding constraint: token inventory, insurance capacity, skew, volatility, profit deviation, or residual stress. Sources vibe papers : Neelo, \"Variable Definitions\". vibe papers : Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\". Related Pages authored utilization modes inventory insurance authored dynamic pricing controls authored cross market risk mutualization"
+    },
+    {
+      "id": "authored-funding-worked-examples-reading-guide::001",
+      "pageId": "authored-funding-worked-examples-reading-guide",
+      "chunkIndex": 1,
+      "title": "Funding Worked Examples Reading Guide",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-worked-examples-reading-guide.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Worked Examples Reading Guide The worked examples should be read as model walkthroughs, not as a production parameter sheet. Their value is that they show how the same market can move through normal operation, stress, emergency, insurance mode, bell curve support, and ADL trigger analysis. What The Examples Teach The normal and stress examples show the first calculation path: net longs and shorts, compute solver exposure, compare exposure with token capacity, then apply the appropriate utilization regime. The emergency example adds duration and loss intensity. A market that briefly touches a high utilization state should not be treated the same as one that remains there while losses accumulate. The insurance example shows the second utilization mode. Once exposure exceeds token inventory, the question becomes whether insurance budget can cover estimated unhedged loss and whether pricing should push flow back toward safety. The bell curve and ADL examples show system level consequences. Cross market support can compress extreme outcomes, while ADL appears when insurance and safe exposure limits are no longer enough. Reader Implication Use these examples to teach reasoning order: net first, identify exposure, determine the binding constraint, apply pricing pressure, spend insurance only when needed, and treat ADL as a final solvency tool. Publication Note The example numbers are illustrative model values. Production docs should not expose them"
+    },
+    {
+      "id": "authored-funding-worked-examples-reading-guide::002",
+      "pageId": "authored-funding-worked-examples-reading-guide",
+      "chunkIndex": 2,
+      "title": "Funding Worked Examples Reading Guide",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-worked-examples-reading-guide.md",
+      "wordStart": 185,
+      "wordEnd": 267,
+      "wordCount": 82,
+      "text": "determine the binding constraint, apply pricing pressure, spend insurance only when needed, and treat ADL as a final solvency tool. Publication Note The example numbers are illustrative model values. Production docs should not expose them as live market parameters unless the operator confirms they match deployed policy. Sources vibe papers : Neelo, \"Worked Examples\". vibe papers : Neelo, \"Funding Rate Model for Low Cap Perpetual Contracts\". Related Pages authored funding rate regime model authored funding state variable map authored funding full objective"
     },
     {
       "id": "authored-game-theory-of-listings::001",

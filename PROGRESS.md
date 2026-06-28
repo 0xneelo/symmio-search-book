@@ -396,6 +396,12 @@
 - Added five authored pages for referral-code onboarding, referral commission/pre-TGE points, referee rakeback tiers, trading-program leaderboard points, and Vibe platform overview.
 - Routed five new rewards/platform questions to authored pages while keeping referral-depth accounting, TGE settlement, exact market counts, leverage ceilings, revenue-share language, and live deposit coverage under operator or publication-date review.
 
+## 2026-06-28 — Neelo Funding Model Regime Authored Layer
+
+- Promoted five under-authored pages from Neelo's funding-rate model into Volume 04: core liquidation/inventory invariant, state-variable map, regime ladder, full objective, and worked-example reading guide.
+- Routed five new funding-model questions to authored pages so Ask can explain how netting, exposure, utilization, insurance, dynamic pricing, cross-market support, and ADL fit together.
+- Kept example thresholds, APRs, rebates, insurance allocations, rate caps, ADL behavior, and live liquidation/loss policy under operator and implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

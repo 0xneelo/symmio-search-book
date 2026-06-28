@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 161,
+  "totalRoutes": 166,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 78,
+    "Medium": 79,
     "High": 29,
-    "Low": 54
+    "Low": 58
   },
   "byRouteSource": {
-    "authored": 161
+    "authored": 166
   },
   "answerable": [
     {
@@ -1637,6 +1637,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's funding-model intro and abstract support the control-surface framing; exact production policies need operator review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-liquidations-inventory-reallocations-in-the-funding-model",
+      "question": "Why are liquidations inventory reallocations in the funding model?",
+      "normalizedQuestion": "why are liquidations inventory reallocations in the funding model",
+      "pageId": "authored-funding-core-invariant",
+      "pageTitle": "The Funding Model Core Invariant",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's funding model frames liquidations as inventory reallocations rather than automatic bad-debt events; live liquidation and loss policy remain review-bound.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-state-variables-does-the-funding-model-track",
+      "question": "Which state variables does the funding model track?",
+      "normalizedQuestion": "which state variables does the funding model track",
+      "pageId": "authored-funding-state-variable-map",
+      "pageTitle": "Funding State Variable Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's variable map separates inventory, OI, exposure, utilization, insurance, volatility, economics, and control variables.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-normal-stress-emergency-insurance-and-adl-regimes-connect",
+      "question": "How do normal, stress, emergency, insurance, and ADL regimes connect?",
+      "normalizedQuestion": "how do normal stress emergency insurance and adl regimes connect",
+      "pageId": "authored-funding-rate-regime-model",
+      "pageTitle": "Funding Rate Regime Model",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's funding-rate model shows a regime ladder from base funding through stress, emergency, insurance mode, and last-resort ADL; live thresholds need review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-full-funding-model-objective",
+      "question": "What is the full funding-model objective?",
+      "normalizedQuestion": "what is the full funding model objective",
+      "pageId": "authored-funding-full-objective",
+      "pageTitle": "The Full Funding Objective",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's full objective combines flattened profit, local risk penalties, insurance cost, and ADL cost into one control problem.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-should-i-read-the-funding-model-worked-examples",
+      "question": "How should I read the funding model worked examples?",
+      "normalizedQuestion": "how should i read the funding model worked examples",
+      "pageId": "authored-funding-worked-examples-reading-guide",
+      "pageTitle": "Funding Worked Examples Reading Guide",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's examples teach reasoning order across netting, exposure, utilization, insurance, bell-curve support, and ADL without making production parameter promises.",
       "sourceKeys": [
         "vibe-papers"
       ],
