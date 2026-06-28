@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 5,
-    "partial": 5,
+    "complete": 6,
+    "partial": 4,
     "parked": 7,
     "missing": 1
   },
@@ -176,7 +176,7 @@
     {
       "id": "answer-engine-contracts-and-evals",
       "label": "Answer-engine contracts, adversarial evals, and response validator",
-      "status": "partial",
+      "status": "complete",
       "category": "answer-engine",
       "sourceSpecs": [
         "06",
@@ -197,7 +197,7 @@
         "06",
         "09"
       ],
-      "evidence": "13 generated gap items, 11 operator signals, 7 reconciliation questions, localStorage prototype for live questions/ratings",
+      "evidence": "13 generated gap items, 11 operator signals, 7 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, localStorage prototype for live questions/ratings",
       "blocks": [],
       "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection."
     },
@@ -374,12 +374,6 @@
       "id": "answer-engine-front-door",
       "status": "partial",
       "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
-      "blocks": []
-    },
-    {
-      "id": "answer-engine-contracts-and-evals",
-      "status": "partial",
-      "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists.",
       "blocks": []
     },
     {

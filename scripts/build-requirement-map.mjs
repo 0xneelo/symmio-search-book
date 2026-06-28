@@ -21,6 +21,7 @@ const defaults = {
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
   llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
+  livingDocsEvents: path.join(searchBookRoot, "data", "living-docs-events.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
@@ -113,6 +114,12 @@ const answerValidationReport = readJson(args.answerValidationReport, {
   reportReady: false,
   coverage: { totalFixtures: 0, passingFixtures: 0, failingFixtures: 0 },
 });
+const livingDocsEvents = readJson(args.livingDocsEvents, {
+  eventContractReady: false,
+  datastoreImplemented: false,
+  livingDocsProductionReady: false,
+  coverage: { totalFixtures: 0, passingFixtures: 0, failingFixtures: 0 },
+});
 const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0, pagesMissingChunks: [], unknownSourceKeys: [] });
 const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
 const sourceCatalog = readJson(args.sourceCatalog, { totalSources: 0, duplicateKeys: [], sources: [] });
@@ -145,7 +152,7 @@ const deterministicAnswerEngineReady =
 const llmContractReady =
   llmRagContract.apiContractReady === true &&
   llmRagContract.evalHarnessReady === true &&
-  llmRagContract.runtimeImplemented === false &&
+  llmRagContract.runtimeImplemented === true &&
   llmRagContract.llmProductionReady === false &&
   (llmRagAdversarial.totalCases || 0) >= 12 &&
   (llmRagAdversarial.passingCases || 0) === (llmRagAdversarial.totalCases || 0);
@@ -154,6 +161,14 @@ const answerValidationReady =
   (answerValidationCoverage.totalFixtures || 0) >= 20 &&
   (answerValidationCoverage.passingFixtures || 0) === (answerValidationCoverage.totalFixtures || 0) &&
   (answerValidationCoverage.failingFixtures || 0) === 0;
+const livingDocsCoverage = livingDocsEvents.coverage || {};
+const livingDocsEventContractReady =
+  livingDocsEvents.eventContractReady === true &&
+  livingDocsEvents.datastoreImplemented === false &&
+  livingDocsEvents.livingDocsProductionReady === false &&
+  (livingDocsCoverage.totalFixtures || 0) >= 8 &&
+  (livingDocsCoverage.passingFixtures || 0) === (livingDocsCoverage.totalFixtures || 0) &&
+  (livingDocsCoverage.failingFixtures || 0) === 0;
 const sourceIngestionOpenBlocks = [
   ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
   ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
@@ -246,10 +261,13 @@ const requirements = [
   req({
     id: "living-docs-loop",
     label: "Question tracking, ratings, and gaps loop",
-    status: gapQueue.totalItems >= 1 && questionRoutes.totalReconciliationQuestions >= 1 ? "partial" : "missing",
+    status:
+      livingDocsEventContractReady && gapQueue.totalItems >= 1 && questionRoutes.totalReconciliationQuestions >= 1
+        ? "partial"
+        : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "06", "09"],
-    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, localStorage prototype for live questions/ratings`,
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, localStorage prototype for live questions/ratings`,
     nextAction: "Replace browser-local event storage with a production datastore after platform/backend selection.",
   }),
   req({

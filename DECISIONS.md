@@ -615,3 +615,11 @@
 **Reason:** The answer engine needs actual corpus scanning and citation validation now, but live LLM synthesis requires operator approval for provider/model/API key and external-context handling. Splitting retrieval/runtime from provider selection lets the product advance without sending private documentation context to an unapproved model endpoint.
 
 **Status:** Accepted for production-readiness work; live LLM provider remains parked under OPERATOR-INBOX #11.
+
+## D-078: Make Living Docs Events Executable Before Production Persistence
+
+**Decision:** Add a generated living-docs event contract for Search Insights question, rating, and gap events before choosing the production datastore. The contract validates local prototype event shapes, linked gap ids, linked operator inbox ids, low-rated-answer gaps, page-feedback gaps, no-grounded-page gaps, and operator-blocked refusals.
+
+**Reason:** The docs vision depends on every question being tracked, every answer being rated, and gaps driving improvement. The prototype already stores events locally, but production readiness needs machine-checkable event semantics that can move into a backend without guessing at field names or refusal behavior.
+
+**Status:** Accepted for living-docs implementation readiness; production persistence remains parked under OPERATOR-INBOX #4 and Discord import remains parked under OPERATOR-INBOX #2.

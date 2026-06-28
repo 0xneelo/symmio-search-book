@@ -34,14 +34,21 @@ Prototype storage keys:
 
 Production must persist equivalent event shapes behind Search Insights. A low rating creates a `low-rated-answer` gap event. No grounded route creates a `no-grounded-page` gap event.
 
+## Living-Docs Event Contract
+
+`data/living-docs-events.json` turns the feedback rules into executable fixtures for question, rating, and gap events. It validates answered questions, no-grounded-page refusals, operator-blocked refusals, low ratings, linked gap ids, and linked operator inbox ids.
+
+This proves the prototype event contract is ready while keeping `datastoreImplemented` and `livingDocsProductionReady` false until the production docs platform/backend and Discord import are resolved.
+
 ## Generated Proof
 
 Run:
 
 ```sh
 node src/search-book/scripts/build-answer-engine-contract.mjs
+node src/search-book/scripts/build-living-docs-events.mjs
 ```
 
-The generated artifact is `data/answer-engine-contract.json`. It currently proves 186 seeded exact-route tests and 7 refusal tests. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
+The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 186 seeded exact-route tests and 7 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
 
 The LLM synthesis layer is specified separately in `LLM-RAG-CONTRACT.md`. It must preserve this deterministic contract as its fallback and golden set.

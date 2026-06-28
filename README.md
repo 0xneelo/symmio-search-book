@@ -30,6 +30,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated local FAQ seed map: `data/faq.js`
 - Generated living-docs gap queue: `data/gap-queue.js`
 - Generated deterministic answer-engine contract: `data/answer-engine-contract.js`
+- Generated living-docs event contract: `data/living-docs-events.js`
 - Generated LLM RAG API contract: `data/llm-rag-contract.js`
 - Generated answer validation report: `data/answer-validation-report.js`
 - Generated answer retrieval chunks: `data/answer-chunks.js`
@@ -87,6 +88,7 @@ node src/search-book/scripts/build-page-state-registry.mjs
 node src/search-book/scripts/build-glossary.mjs
 node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-answer-engine-contract.mjs
+node src/search-book/scripts/build-living-docs-events.mjs
 node src/search-book/scripts/build-llm-rag-contract.mjs
 node src/search-book/scripts/build-answer-validation-report.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
@@ -114,6 +116,7 @@ node --check src/search-book/scripts/build-source-catalog.mjs
 node --check src/search-book/scripts/build-competitive-sweep.mjs
 node --check src/search-book/scripts/build-source-ingestion-map.mjs
 node --check src/search-book/scripts/build-crosslink-map.mjs
+node --check src/search-book/scripts/build-living-docs-events.mjs
 node --check src/search-book/scripts/build-requirement-map.mjs
 node --check src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/data/authored-pages.js
@@ -124,6 +127,7 @@ node --check src/search-book/data/question-routes.js
 node --check src/search-book/data/faq.js
 node --check src/search-book/data/gap-queue.js
 node --check src/search-book/data/answer-engine-contract.js
+node --check src/search-book/data/living-docs-events.js
 node --check src/search-book/data/llm-rag-contract.js
 node --check src/search-book/data/answer-validation-report.js
 node --check src/search-book/data/answer-chunks.js
@@ -141,6 +145,7 @@ node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.m
 node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 186) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 7) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 186) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
+node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || l.datastoreImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
 node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || !lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
 node -e "const av=require('./src/search-book/data/answer-validation-report.json'); if (!av.reportReady || av.coverage.totalFixtures < 20 || av.coverage.passingFixtures !== av.coverage.totalFixtures || av.failureSummary.failingFixtureIds.length) process.exit(1); console.log(av.coverage.passingFixtures + '/' + av.coverage.totalFixtures)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"

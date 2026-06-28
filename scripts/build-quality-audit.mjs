@@ -25,6 +25,7 @@ const defaults = {
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
   llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
+  livingDocsEvents: path.join(searchBookRoot, "data", "living-docs-events.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
@@ -193,6 +194,15 @@ const llmRagContract = fs.existsSync(args.llmRagContract)
 const answerValidationReport = fs.existsSync(args.answerValidationReport)
   ? readJson(args.answerValidationReport)
   : { reportReady: false, coverage: { totalFixtures: 0, passingFixtures: 0, citedAnswerFixtures: 0, refusalFixtures: 0, failingFixtures: 0 }, failureSummary: { failingFixtureIds: [], failuresByKind: {} } };
+const livingDocsEvents = fs.existsSync(args.livingDocsEvents)
+  ? readJson(args.livingDocsEvents)
+  : {
+      eventContractReady: false,
+      datastoreImplemented: false,
+      livingDocsProductionReady: false,
+      coverage: { totalFixtures: 0, passingFixtures: 0, failingFixtures: 0 },
+      failureSummary: { failingEventIds: [], failuresByKind: {} },
+    };
 const answerChunks = fs.existsSync(args.answerChunks)
   ? readJson(args.answerChunks)
   : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
@@ -309,6 +319,16 @@ const answerValidationReportReady =
   (answerValidationCoverage.refusalFixtures || 0) === (llmRagAdversarial.totalCases || 0) &&
   (answerValidationCoverage.failingFixtures || 0) === 0 &&
   answerValidationFailingFixtureIds.length === 0;
+const livingDocsEventCoverage = livingDocsEvents.coverage || {};
+const livingDocsFailingEventIds = livingDocsEvents.failureSummary?.failingEventIds || [];
+const livingDocsEventsReady =
+  livingDocsEvents.eventContractReady === true &&
+  livingDocsEvents.datastoreImplemented === false &&
+  livingDocsEvents.livingDocsProductionReady === false &&
+  (livingDocsEventCoverage.totalFixtures || 0) >= 8 &&
+  (livingDocsEventCoverage.passingFixtures || 0) === (livingDocsEventCoverage.totalFixtures || 0) &&
+  (livingDocsEventCoverage.failingFixtures || 0) === 0 &&
+  livingDocsFailingEventIds.length === 0;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -522,6 +542,12 @@ const gates = [
     detail: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0} fixtures, ${answerValidationCoverage.citedAnswerFixtures || 0} cited answers, ${answerValidationCoverage.refusalFixtures || 0} refusals, ${answerValidationCoverage.failingFixtures || 0} failing`,
   },
   {
+    id: "living-docs-events",
+    label: "Living-docs question, rating, and gap events validate",
+    passed: livingDocsEventsReady,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -657,6 +683,12 @@ const payload = {
     answerValidationCitedAnswerFixtures: answerValidationCoverage.citedAnswerFixtures || 0,
     answerValidationRefusalFixtures: answerValidationCoverage.refusalFixtures || 0,
     answerValidationReportReady: answerValidationReport.reportReady || false,
+    livingDocsEventContractReady: livingDocsEvents.eventContractReady || false,
+    livingDocsDatastoreImplemented: livingDocsEvents.datastoreImplemented || false,
+    livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
+    livingDocsEventFixtures: livingDocsEventCoverage.totalFixtures || 0,
+    livingDocsEventFixturesPassing: livingDocsEventCoverage.passingFixtures || 0,
+    livingDocsEventFixturesFailing: livingDocsEventCoverage.failingFixtures || 0,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -866,6 +898,20 @@ const payload = {
     validationPolicy: answerValidationReport.validationPolicy || {},
     coverage: answerValidationCoverage,
     failureSummary: answerValidationReport.failureSummary || {},
+  },
+  livingDocsEventCoverage: {
+    status: livingDocsEvents.status || "missing",
+    contractVersion: livingDocsEvents.contractVersion || "",
+    eventContractReady: livingDocsEvents.eventContractReady || false,
+    datastoreImplemented: livingDocsEvents.datastoreImplemented || false,
+    livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
+    reasonLivingDocsProductionReadyIsFalse: livingDocsEvents.reasonLivingDocsProductionReadyIsFalse || "",
+    storage: livingDocsEvents.storage || {},
+    schemas: livingDocsEvents.schemas || {},
+    requiredRuntimeBehaviors: livingDocsEvents.requiredRuntimeBehaviors || [],
+    coverage: livingDocsEventCoverage,
+    failureSummary: livingDocsEvents.failureSummary || {},
+    productionBoundary: livingDocsEvents.productionBoundary || {},
   },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,

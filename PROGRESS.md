@@ -466,6 +466,12 @@
 - Kept model-backed `--mode llm` fail-closed until the approved runtime env exists; `llmProductionReady` remains false while the runtime harness can now be tested locally.
 - Regenerated gap queue, LLM RAG contract, answer-validation report, requirement map, and quality audit: 11 operator signals, runtime implemented, 14/14 adversarial cases, 26/26 validation fixtures, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
 
+## 2026-06-28 — Living Docs Event Contract
+
+- Added a generated living-docs event contract for question, rating, and gap events behind Search Insights.
+- Validated 12/12 fixtures covering answered questions, useful and not-useful ratings, low-rated-answer gaps, page-feedback gaps, no-grounded-page gaps, operator-blocked revenue/referral-depth refusals, gap ids, and linked operator inbox ids.
+- Wired the event contract into the requirement map and quality audit while keeping `datastoreImplemented` and `livingDocsProductionReady` false until the production platform/backend and Discord import are resolved.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
