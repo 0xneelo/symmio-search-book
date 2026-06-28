@@ -421,6 +421,12 @@
 - Proved 171 seeded exact-route tests and 7 refusal tests against the current question ledger, FAQ map, answer chunks, page-state registry, source catalog, and gap queue.
 - Kept `llmProductionReady` false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
 
+## 2026-06-28 — LLM RAG Contract And Adversarial Evals
+
+- Added a provider-neutral LLM RAG API contract for request, retrieval context, chunk, response, citation, refusal, validation, and gap-creation semantics.
+- Added 14 adversarial evaluation cases covering prompt injection, unsupported economics, secrets, referral-depth ambiguity, security overclaims, missing source families, internal-draft exclusion, financial advice, and fabricated citations.
+- Kept `runtimeImplemented` and `llmProductionReady` false until the production model route, persistence, live citation validator, and executed eval harness exist.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

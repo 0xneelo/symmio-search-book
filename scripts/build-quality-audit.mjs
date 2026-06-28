@@ -23,6 +23,7 @@ const defaults = {
   faq: path.join(searchBookRoot, "data", "faq.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
+  llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
@@ -185,6 +186,9 @@ const gapQueue = fs.existsSync(args.gapQueue)
 const answerEngineContract = fs.existsSync(args.answerEngineContract)
   ? readJson(args.answerEngineContract)
   : { deterministicReady: false, llmProductionReady: false, evaluation: { totalExactRouteTests: 0, exactRouteTestsPassing: 0, totalRefusalTests: 0, refusalTestsPassing: 0, failingExactRouteIds: [], failingRefusalIds: [] } };
+const llmRagContract = fs.existsSync(args.llmRagContract)
+  ? readJson(args.llmRagContract)
+  : { apiContractReady: false, evalHarnessReady: false, runtimeImplemented: false, llmProductionReady: false, adversarialEvaluation: { totalCases: 0, passingCases: 0, minimumRequiredBeforeProduction: 12, missingRequiredCategories: [], failingCaseIds: [] }, coverage: { unknownContextSourceKeys: [] } };
 const answerChunks = fs.existsSync(args.answerChunks)
   ? readJson(args.answerChunks)
   : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
@@ -277,6 +281,20 @@ const answerEngineReady =
   answerEngineFailingRefusalIds.length === 0 &&
   answerEngineCitationUnknownRoutes.length === 0 &&
   answerEngineRoutesWithoutLinkedSources.length === 0;
+const llmRagAdversarial = llmRagContract.adversarialEvaluation || {};
+const llmRagMissingRequiredCategories = llmRagAdversarial.missingRequiredCategories || [];
+const llmRagFailingCaseIds = llmRagAdversarial.failingCaseIds || [];
+const llmRagUnknownContextSourceKeys = llmRagContract.coverage?.unknownContextSourceKeys || [];
+const llmRagContractReady =
+  llmRagContract.apiContractReady === true &&
+  llmRagContract.evalHarnessReady === true &&
+  llmRagContract.runtimeImplemented === false &&
+  llmRagContract.llmProductionReady === false &&
+  (llmRagAdversarial.totalCases || 0) >= (llmRagAdversarial.minimumRequiredBeforeProduction || 12) &&
+  (llmRagAdversarial.passingCases || 0) === (llmRagAdversarial.totalCases || 0) &&
+  llmRagMissingRequiredCategories.length === 0 &&
+  llmRagFailingCaseIds.length === 0 &&
+  llmRagUnknownContextSourceKeys.length === 0;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -478,6 +496,12 @@ const gates = [
     detail: `${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact routes, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, LLM production ready ${answerEngineContract.llmProductionReady ? "yes" : "no"}`,
   },
   {
+    id: "llm-rag-contract",
+    label: "LLM RAG API contract and adversarial evals are specified",
+    passed: llmRagContractReady,
+    detail: `${llmRagAdversarial.passingCases || 0}/${llmRagAdversarial.totalCases || 0} adversarial cases, contract ready ${llmRagContract.apiContractReady ? "yes" : "no"}, runtime implemented ${llmRagContract.runtimeImplemented ? "yes" : "no"}, production ready ${llmRagContract.llmProductionReady ? "yes" : "no"}`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -602,6 +626,12 @@ const payload = {
     answerEngineRefusalTestsPassing: answerEngineEvaluation.refusalTestsPassing || 0,
     answerEngineDeterministicReady: answerEngineContract.deterministicReady || false,
     answerEngineLlmProductionReady: answerEngineContract.llmProductionReady || false,
+    llmRagApiContractReady: llmRagContract.apiContractReady || false,
+    llmRagEvalHarnessReady: llmRagContract.evalHarnessReady || false,
+    llmRagRuntimeImplemented: llmRagContract.runtimeImplemented || false,
+    llmRagProductionReady: llmRagContract.llmProductionReady || false,
+    llmRagAdversarialCases: llmRagAdversarial.totalCases || 0,
+    llmRagAdversarialCasesPassing: llmRagAdversarial.passingCases || 0,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -775,6 +805,35 @@ const payload = {
     llmReadinessContract: answerEngineContract.llmReadinessContract || {},
     warnings: answerEngineContract.warnings || [],
   },
+  llmRagCoverage: {
+    status: llmRagContract.status || "missing",
+    contractVersion: llmRagContract.contractVersion || "",
+    apiContractReady: llmRagContract.apiContractReady || false,
+    evalHarnessReady: llmRagContract.evalHarnessReady || false,
+    runtimeImplemented: llmRagContract.runtimeImplemented || false,
+    llmProductionReady: llmRagContract.llmProductionReady || false,
+    reasonLlmProductionReadyIsFalse: llmRagContract.reasonLlmProductionReadyIsFalse || "",
+    provider: llmRagContract.provider || {},
+    requestSchema: llmRagContract.requestSchema || {},
+    retrievalContextSchema: llmRagContract.retrievalContextSchema || {},
+    responseSchema: llmRagContract.responseSchema || {},
+    citationSchema: llmRagContract.citationSchema || {},
+    refusalSchema: llmRagContract.refusalSchema || {},
+    pipeline: llmRagContract.pipeline || [],
+    validationPolicy: llmRagContract.validationPolicy || {},
+    gapCreationPolicy: llmRagContract.gapCreationPolicy || {},
+    coverage: llmRagContract.coverage || {},
+    adversarialEvaluation: {
+      minimumRequiredBeforeProduction: llmRagAdversarial.minimumRequiredBeforeProduction || 12,
+      requiredCategories: llmRagAdversarial.requiredCategories || [],
+      missingRequiredCategories: llmRagMissingRequiredCategories,
+      totalCases: llmRagAdversarial.totalCases || 0,
+      passingCases: llmRagAdversarial.passingCases || 0,
+      failingCaseIds: llmRagFailingCaseIds,
+      byCategory: llmRagAdversarial.byCategory || {},
+    },
+    warnings: llmRagContract.warnings || [],
+  },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,
     byCategory: glossary.byCategory || {},
@@ -887,6 +946,9 @@ const payload = {
     answerEngineFailingRefusalIds,
     answerEngineCitationUnknownRoutes,
     answerEngineRoutesWithoutLinkedSources,
+    llmRagMissingRequiredCategories,
+    llmRagFailingCaseIds,
+    llmRagUnknownContextSourceKeys,
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
     usedKeysMissingCatalog,
@@ -933,6 +995,7 @@ const payload = {
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
+    "Implement the LLM RAG runtime behind the API contract, then execute citation validation and adversarial evals against live answers.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

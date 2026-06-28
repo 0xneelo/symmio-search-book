@@ -13,6 +13,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Gaps and contradictions: `GAPS.md`
 - Tracked reader questions: `QUESTIONS.md`
 - Deterministic answer-engine contract: `ANSWER-ENGINE-CONTRACT.md`
+- LLM RAG API contract: `LLM-RAG-CONTRACT.md`
 - Seed question dataset: `data/seed-questions.json`
 - Editorial and UI style guide: `STYLEGUIDE.md`
 - 500-800 page manifest: `page-manifest.json`
@@ -28,6 +29,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated local FAQ seed map: `data/faq.js`
 - Generated living-docs gap queue: `data/gap-queue.js`
 - Generated deterministic answer-engine contract: `data/answer-engine-contract.js`
+- Generated LLM RAG API contract: `data/llm-rag-contract.js`
 - Generated answer retrieval chunks: `data/answer-chunks.js`
 - Generated compendium volume map: `data/volume-map.js`
 - Generated page-state registry: `data/page-state-registry.js`
@@ -82,6 +84,7 @@ node src/search-book/scripts/build-page-state-registry.mjs
 node src/search-book/scripts/build-glossary.mjs
 node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-answer-engine-contract.mjs
+node src/search-book/scripts/build-llm-rag-contract.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
 node src/search-book/scripts/build-source-ingestion-map.mjs
 node src/search-book/scripts/build-crosslink-map.mjs
@@ -97,6 +100,7 @@ node --check src/search-book/scripts/build-question-routes.mjs
 node --check src/search-book/scripts/build-faq-map.mjs
 node --check src/search-book/scripts/build-gap-queue.mjs
 node --check src/search-book/scripts/build-answer-engine-contract.mjs
+node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/build-answer-chunks.mjs
 node --check src/search-book/scripts/build-volume-map.mjs
 node --check src/search-book/scripts/build-page-state-registry.mjs
@@ -115,6 +119,7 @@ node --check src/search-book/data/question-routes.js
 node --check src/search-book/data/faq.js
 node --check src/search-book/data/gap-queue.js
 node --check src/search-book/data/answer-engine-contract.js
+node --check src/search-book/data/llm-rag-contract.js
 node --check src/search-book/data/answer-chunks.js
 node --check src/search-book/data/volume-map.js
 node --check src/search-book/data/page-state-registry.js
@@ -130,6 +135,7 @@ node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.m
 node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 171) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 7) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 171) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
+node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"
 node -e "const v=require('./src/search-book/data/volume-map.json'); if (v.unassignedPageIds.length || v.duplicatePageIds.length || v.volumeIdsMissingPages.length || v.readerPages !== v.pagesAssigned || !v.manifestWithinTarget) process.exit(1); console.log(v.totalVolumes + '/' + v.totalChapters)"
 node -e "const ps=require('./src/search-book/data/page-state-registry.json'); if (ps.duplicatePageIds.length || ps.unclassifiedPageIds.length || ps.missingVolumeIds.length || ps.totalPages < 900 || !ps.byState.candidate || !ps.byState['source-companion']) process.exit(1); console.log(ps.totalPages + '/' + Object.keys(ps.byState).length)"

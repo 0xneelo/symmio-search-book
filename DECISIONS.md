@@ -559,3 +559,11 @@
 **Reason:** The production LLM should not become the only way to answer. The docs need a measurable fallback: exact page routing when the corpus already knows the question, retrieval over eligible chunks for broader questions, and refusal/gap creation when evidence is missing. This protects primary-source discipline and gives the LLM layer a golden set.
 
 **Status:** Accepted for answer-engine implementation readiness.
+
+## D-071: Specify LLM RAG Before Runtime Integration
+
+**Decision:** Add a provider-neutral LLM RAG API contract and adversarial evaluation set before implementing model calls. The contract defines request, retrieval context, response, citation, refusal, validation, and gap-creation semantics while keeping `llmProductionReady` false.
+
+**Reason:** The model layer must inherit the deterministic route fallback, page-state boundaries, source-key validation, and operator-inbox refusal rules. A contract-first slice lets implementation, QA, and design work proceed without binding the docs to a provider or allowing uncited synthesis into production.
+
+**Status:** Accepted for production answer-engine implementation readiness.
