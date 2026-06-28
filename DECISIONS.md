@@ -623,3 +623,11 @@
 **Reason:** The docs vision depends on every question being tracked, every answer being rated, and gaps driving improvement. The prototype already stores events locally, but production readiness needs machine-checkable event semantics that can move into a backend without guessing at field names or refusal behavior.
 
 **Status:** Accepted for living-docs implementation readiness; production persistence remains parked under OPERATOR-INBOX #4 and Discord import remains parked under OPERATOR-INBOX #2.
+
+## D-079: Treat Proof Of Value Economics As A Review-Bound Framework
+
+**Decision:** Expand Neelo's Proof of Value framework into authored pages for solver-funded USDC, trader payout certainty, project token utility, no-ponzi sustainability, and value creation versus capture, while marking the pages for operator review.
+
+**Reason:** This source is central to the vision, but it contains strong economics claims such as revenue share, capital-efficiency estimates, partner traction, solver-funding assumptions, and protocol capture mechanisms. The compendium should preserve the framework because it explains why the architecture matters, but it must not turn model claims or strategy analysis into final public guarantees before accounting/operator review.
+
+**Status:** Accepted for the authored manifesto layer; exact economics remain parked under OPERATOR-INBOX #1 and platform/deploy choices remain parked under OPERATOR-INBOX #4.

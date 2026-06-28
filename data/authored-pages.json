@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 205,
+  "totalPages": 210,
   "byStatus": {
     "publication-candidate": 94,
-    "publication-candidate-needs-operator-review": 110,
+    "publication-candidate-needs-operator-review": 115,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 108,
+    "manifesto": 113,
     "dashboard-reference": 12,
     "protocol-reference": 32,
     "competitive-context": 1,
@@ -1921,6 +1921,30 @@
       "excerpt": "Network Volume Network volume is the trading volume attributed to wallets in a user's referral network, excluding the user's own wallet. In the current local implementation, wallet volume is sourced from the Vibe backend wallet volume API, normalized, cached, and supported by daily snapshots. The product roadmap separates this current source from the planned Barometer/Goldsky subgraph direction. The docs should describe the current implementation as current, then describe subgraph based volume as the intended accuracy upgrade only where that status is supported by product research. Depth remains the unresolved part of this page. The same source set contains evidence for 5 level language, 15 level rollout work, and configurable depth behavior. Until the operator resolves the public stance, this authored page should avoid a final numeric depth claim and route readers to the referral depth gap. Reader Implication If a user's revenue or points depend on volume, they need to know three separate things: which wallets are included, which trading source supplies the numbers, and which depth policy is currently public. Only the first two are safe to explain now. Open Gap Operator inbox item"
     },
     {
+      "id": "authored-no-ponzi-market-revenue-test",
+      "title": "The No-Ponzi Market Revenue Test",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/08-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-07-validation-and-sustainability-7-2-sustainability-the-bootstrap-to-mature-path",
+        "section-13-framework-value-permissionless-perps-13-docs-07-validation-and-sustainability-7-4-conditions-for-long-term-sustainability",
+        "section-13-framework-value-permissionless-perps-13-docs-08-conclusion-8-4-future-directions"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/no-ponzi-market-revenue-test.md",
+      "bodyMarkdown": "# The No-Ponzi Market Revenue Test\n\nNeelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits?\n\nThat question matters for any LP-facing market, but it matters even more for long-tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts can signal demand before revenue exists. A market can show large inventory and still fail the economic test if fees, spread, funding, and liquidation economics never materialize into durable revenue.\n\nThe source's answer is lifecycle-based. In bootstrap, LP deposits ignite the market and the solver carries more residual responsibility. In maturity, more two-sided flow can net trader-to-trader, spreads can tighten, solver exposure can decline, and the market can become a better graduation candidate. The healthier path is not endless deposit growth. It is declining dependence on subsidy and increasing evidence of real flow.\n\n## What To Measure\n\nThe no-ponzi test should become part of the living-docs measurement agenda:\n\n- Is revenue coming from trading activity rather than new LP deposits?\n- Are spreads and funding compensating actual risk?\n- Is solver residual exposure declining as markets mature?\n- Are LPs paid from repeatable market economics?\n- Do stressed markets use the disclosed defense stack before ADL?\n\nIf the docs track those questions, Proof of Value becomes falsifiable rather than purely rhetorical.\n\n## Publication Note\n\nCurrent live market revenue, LP payouts, solver profitability, and stress outcomes need operator-approved source data before final publication. This page documents the test the compendium should apply.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Validation and Sustainability\".\n- `vibe-papers`: Neelo, \"Section 8: Conclusion\".\n\n## Related Pages\n\n- `authored-proof-value-validation-sustainability`\n- `authored-search-insights-loop`\n- `authored-graduation-data-checklist`",
+      "excerpt": "The No Ponzi Market Revenue Test Neelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits? That question matters for any LP facing market, but it matters even more for long tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts can signal demand before revenue exists. A market can show large inventory and still fail the economic test if fees, spread, funding, and liquidation economics never materialize into durable revenue. The source's answer is lifecycle based. In bootstrap, LP deposits ignite the market and the solver carries more residual responsibility. In maturity, more two sided flow can net trader to trader, spreads can tighten, solver exposure can decline, and the market can become a better graduation candidate. The healthier path is not endless deposit growth. It is declining dependence on subsidy and increasing evidence of real flow. What To Measure The no ponzi test should become part of the living docs measurement agenda: Is revenue coming from trading activity rather than new LP deposits? Are spreads and funding compensating actual risk? Is s"
+    },
+    {
       "id": "authored-options-intent-lifecycle",
       "title": "Options Intent Lifecycle",
       "section": "protocol-reference",
@@ -2384,6 +2408,30 @@
       "file": "content/authored/manifesto/programmatic-market-graduation.md",
       "bodyMarkdown": "# Programmatic Market Graduation\n\nPart II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story.\n\nOnce Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source names the relevant categories: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two-sided participation, and declining need for solver support.\n\nThat is programmatic graduation. The market earns its next execution layer by showing that it can handle more efficient structure.\n\n## Why It Matters\n\nProgrammatic graduation reduces the listing committee's guessing burden. The order-book venue no longer has to infer demand from narrative alone. It can read a market history: who traded, how often, with what spread, under what volatility, and with what risk profile.\n\nThis gives Vibe's answer engine a clean way to explain market maturity: early markets are not failed order books; they are markets being tested for whether an order book should exist.\n\n## Publication Note\n\nThe source gives categories of graduation criteria, not confirmed live Vibe thresholds. Final docs need product confirmation for formulas, cadence, qualifying venues, and whether any graduation process is automated.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Programmatic Graduation\".\n- `vibe-papers`: Neelo, \"Ode to OrderBooks, Part II\".\n\n## Related Pages\n\n- `authored-z-score-graduation-criteria`\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-proof-value-validation-sustainability`",
       "excerpt": "Programmatic Market Graduation Part II of Ode to OrderBooks turns the complementarity thesis into a listing thesis: markets should move upward because they have matured, not because someone liked their story. Once Vibe exists as a discovery layer, a downstream listing can be based on observed market evidence rather than perceived interest. The source names the relevant categories: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining need for solver support. That is programmatic graduation. The market earns its next execution layer by showing that it can handle more efficient structure. Why It Matters Programmatic graduation reduces the listing committee's guessing burden. The order book venue no longer has to infer demand from narrative alone. It can read a market history: who traded, how often, with what spread, under what volatility, and with what risk profile. This gives Vibe's answer engine a clean way to explain market maturity: early markets are not failed order books; they are markets being tested for whether an order book should exist. Publication Note The source gives categories of graduation criteria, n"
+    },
+    {
+      "id": "authored-project-token-utility-without-stablecoin",
+      "title": "Projects Need Token Utility Without Stablecoin Drag",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-2-project-value",
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-4-value-reciprocity",
+        "section-13-framework-value-permissionless-perps-13-docs-07-validation-and-sustainability-7-1-early-validation-launch-partner-traction"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/project-token-utility-without-stablecoin.md",
+      "bodyMarkdown": "# Projects Need Token Utility Without Stablecoin Drag\n\nThe project side of the Proof of Value framework is not just \"projects want more volume.\" It is more specific: many projects have token inventory but do not have an efficient way to turn that inventory into a useful derivatives market.\n\nThe source lists the usual alternatives. Centralized listings can require applications, fees, compliance, and market-making commitments. Professional market makers can require stablecoin allocations and operational negotiation. Single-sided spot liquidity can create sell-pressure tradeoffs. Doing nothing leaves treasury inventory idle and leaves the community without hedging or short-side expression.\n\nVibe's proposed inversion is that a project can support a market using the asset it already holds. That can add token utility, create a perp venue, signal commitment to the community, and potentially earn revenue from actual market activity. The important economic move is avoiding a forced stablecoin commitment at the moment a young project may be least able or least willing to spend scarce stable assets.\n\n## The Value Loop\n\nThis is why project value and trader value have to be documented together. More project inventory can make more markets possible. More markets can create more trader demand. More trader demand can produce fees, stress data, and listing evidence. That evidence can attract more projects and downstream venues.\n\nThe loop only works if it is real. If token deposits do not lead to useful execution, projects have only locked inventory. If trader demand does not produce real fees, revenue-share claims are cosmetic. If risk terms are vague, sophisticated projects will discount the entire offer.\n\n## Publication Note\n\nThe source includes example revenue-share and partner-traction claims. Keep those as source-model context until the operator confirms current public revenue terms, partner-count language, and what can be disclosed.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 7: Validation and Sustainability\".\n\n## Related Pages\n\n- `authored-trader-project-value-loop`\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-proof-value-validation-sustainability`",
+      "excerpt": "Projects Need Token Utility Without Stablecoin Drag The project side of the Proof of Value framework is not just \"projects want more volume.\" It is more specific: many projects have token inventory but do not have an efficient way to turn that inventory into a useful derivatives market. The source lists the usual alternatives. Centralized listings can require applications, fees, compliance, and market making commitments. Professional market makers can require stablecoin allocations and operational negotiation. Single sided spot liquidity can create sell pressure tradeoffs. Doing nothing leaves treasury inventory idle and leaves the community without hedging or short side expression. Vibe's proposed inversion is that a project can support a market using the asset it already holds. That can add token utility, create a perp venue, signal commitment to the community, and potentially earn revenue from actual market activity. The important economic move is avoiding a forced stablecoin commitment at the moment a young project may be least able or least willing to spend scarce stable assets. The Value Loop This is why project value and trader value have to be documented together. More proj"
     },
     {
       "id": "authored-proof-of-value",
@@ -3047,6 +3095,30 @@
       "excerpt": "Solver Event Monitoring A solver in Symmio is not only a price source. It is an event driven counterparty operation. The solver watches on chain quote events, filters for intents it is allowed to fill, runs risk and pricing logic, locks acceptable quotes, allocates collateral, manages hedging, and keeps reconciling lifecycle events after the position opens. That is why the compendium should avoid treating \"solver\" as a cosmetic synonym for \"market maker.\" A market maker can describe the economic role, but the operational role is narrower and more concrete: listen, evaluate, lock, hedge, open, monitor, and reconcile. What The Solver Watches The official lifecycle source identifies quote events as the entry point. A PartyA quote can include symbol id, position type, order type, price, quantity, and a PartyB whitelist. A solver event listener watches for events where its PartyB address is eligible. After seeing an eligible quote, the solver's own logic decides whether to act. The source names symbol settings, notional limits, spread, hedging inventory, and risk scores as examples of checks before locking an intent. What Changes After Locking Locking changes the quote from pending to l"
     },
     {
+      "id": "authored-solver-funded-usdc-capital-loop",
+      "title": "Solver-Funded USDC Is A Capital Loop",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-2-the-usdc-side-solver-funded-not-lp-funded",
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-3-why-usdc-vault-protocols-face-100x-capital-efficiency-disadvantage",
+        "authored-token-holder-inventory-alignment"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/solver-funded-usdc-capital-loop.md",
+      "bodyMarkdown": "# Solver-Funded USDC Is A Capital Loop\n\nThe Proof of Value framework separates stablecoin liquidity from token inventory. That distinction is easy to miss, but it is one of the strongest economic claims in the source.\n\nThe source argues that Vibe should not ask external USDC LPs to underwrite low-cap perp markets. Stablecoin LPs would be lending into volatile, thin, manipulable markets that they do not naturally want exposure to. They would demand a high risk premium, and that premium would have to be paid through fees, spreads, or subsidies.\n\nThe alternative is a solver-funded USDC loop. The solver uses stablecoin capital operationally: to settle, hedge, bridge, and support the filled trade path. The point is not to park a giant external USDC vault behind every long-tail market. The point is to recycle stable settlement capital through short operational cycles while market-specific token inventory handles the inventory side of the market.\n\n## Why This Matters\n\nFor readers, the key lesson is that \"liquidity\" is not one bucket.\n\nToken inventory helps a market exist. Stablecoin settlement capital helps the trade settle. Solver risk infrastructure decides whether a residual exposure can be quoted, hedged, or refused. If those jobs are collapsed into one external USDC vault, the protocol can look simple while hiding a mispriced risk transfer.\n\nThe compendium should teach this as capital structure, not marketing. Solver-funded USDC is credible only if readers can see what the solver funds, what it hedges, when token inventory is used, and where tail risk goes.\n\n## Publication Note\n\nThe source includes strong comparative claims about capital efficiency and USDC LP yield demand. Use them as source-model evidence until operator-approved public economics, vault terms, and accounting language are finalized.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\".\n- `vibe-papers`: Neelo, \"Section 6: Comparative Advantage\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-hybrid-perps-comparative-advantage`",
+      "excerpt": "Solver Funded USDC Is A Capital Loop The Proof of Value framework separates stablecoin liquidity from token inventory. That distinction is easy to miss, but it is one of the strongest economic claims in the source. The source argues that Vibe should not ask external USDC LPs to underwrite low cap perp markets. Stablecoin LPs would be lending into volatile, thin, manipulable markets that they do not naturally want exposure to. They would demand a high risk premium, and that premium would have to be paid through fees, spreads, or subsidies. The alternative is a solver funded USDC loop. The solver uses stablecoin capital operationally: to settle, hedge, bridge, and support the filled trade path. The point is not to park a giant external USDC vault behind every long tail market. The point is to recycle stable settlement capital through short operational cycles while market specific token inventory handles the inventory side of the market. Why This Matters For readers, the key lesson is that \"liquidity\" is not one bucket. Token inventory helps a market exist. Stablecoin settlement capital helps the trade settle. Solver risk infrastructure decides whether a residual exposure can be quote"
+    },
+    {
       "id": "authored-solver-hedging-failure-modes",
       "title": "Solver Hedging Failure Modes",
       "section": "protocol-reference",
@@ -3702,6 +3774,29 @@
       "excerpt": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier a public facing concept, but it still needs careful documentation because the exact formula is not implemented as a final public settlement calculator in this search book source set. What The Current Sources Prove The current sources prove three things: The onboarding app keeps an off chain points ledger. The dashboard user interface tells users the onboarding points will interact with network Vibecaps trading volume at TGE. The docs spec requires this distinction to be documented separately from Vibe protocol/trading points. They do not prove the final settlement formula, the exact multiplier schedule, claim mechanics, TGE timing, eligibility cutoff, anti sybil adjustments, or whether historical backfill changes the final public explanation. How To Explain It Safely Use this wording until a product owner approves the final formul"
     },
     {
+      "id": "authored-thiel-value-creation-capture",
+      "title": "Value Creation And Capture Must Both Be Real",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/09-thiel-value-analysis"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-13-framework-value-permissionless-perps-13-docs-09-thiel-value-analysis",
+        "section-13-framework-value-permissionless-perps-13-docs-09-thiel-value-analysis-part-1-value-creation-x",
+        "section-13-framework-value-permissionless-perps-13-docs-09-thiel-value-analysis-part-2-value-capture-y"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-value-creation-capture.md",
+      "bodyMarkdown": "# Value Creation And Capture Must Both Be Real\n\nThe Thiel-style value analysis is useful because it prevents the docs from confusing usefulness with business durability.\n\nThe source separates value creation from value capture. Vibe can create value by enabling long-tail perp markets, giving projects token utility, giving traders hedging and short-side expression, making token inventory productive, and producing listing data. That is the X side of the argument.\n\nThe Y side is different. The protocol has to capture enough value to keep the system operating: fees, spreads, protocol share, solver economics, data products, integrations, or graduation paths. A system that creates value but cannot capture any of it may be socially useful but operationally fragile. A system that captures value without creating it is extractive and eventually loses trust.\n\n## Independence Is The Test\n\nThe best version of the Vibe thesis is not \"the protocol takes value from LPs or traders.\" It is that value creation and capture can reinforce each other. More useful markets produce more flow. More flow produces fees, better data, and stronger market proof. Better market proof attracts projects, solvers, and downstream venues. Protocol capture comes from the architecture and usage, not from quietly worsening participant outcomes.\n\nThis is where the compendium should be rigorous. The docs should show what value each group receives, what the protocol captures, and why those two facts do not secretly contradict each other.\n\n## Publication Note\n\nThe source's scorecard is a strategy analysis, not an audited proof. Keep capture mechanisms, protocol share, partner traction, and durability claims under operator/accounting review until public numbers are approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Proof of Value: A Thielian Analysis\".\n\n## Related Pages\n\n- `authored-proof-value-four-constituencies`\n- `authored-thielian-listing-monopoly`\n- `authored-no-ponzi-market-revenue-test`",
+      "excerpt": "Value Creation And Capture Must Both Be Real The Thiel style value analysis is useful because it prevents the docs from confusing usefulness with business durability. The source separates value creation from value capture. Vibe can create value by enabling long tail perp markets, giving projects token utility, giving traders hedging and short side expression, making token inventory productive, and producing listing data. That is the X side of the argument. The Y side is different. The protocol has to capture enough value to keep the system operating: fees, spreads, protocol share, solver economics, data products, integrations, or graduation paths. A system that creates value but cannot capture any of it may be socially useful but operationally fragile. A system that captures value without creating it is extractive and eventually loses trust. Independence Is The Test The best version of the Vibe thesis is not \"the protocol takes value from LPs or traders.\" It is that value creation and capture can reinforce each other. More useful markets produce more flow. More flow produces fees, better data, and stronger market proof. Better market proof attracts projects, solvers, and downstream"
+    },
+    {
       "id": "authored-thielian-listing-monopoly",
       "title": "The Thielian Listing Monopoly",
       "section": "manifesto",
@@ -3939,6 +4034,30 @@
       "file": "content/authored/reference/trader-compensation-continuity-model.md",
       "bodyMarkdown": "# Trader Compensation And Continuity Model\n\nThe DDQ's trader-compensation answer is intentionally not a simple \"default payout\" story. It separates protocol-owned solver depletion from third-party solver default, then makes trade continuity the design objective.\n\nFor a protocol-owned solver in the bootstrapping configuration, the source says conventional account-level default is not the intended frame. A catastrophic depletion event would require the layered protections to be exhausted: token-side LP deposits, solver inventory, global insurance, local insurance, parameter tightening, and ADL-style exposure reduction. If every layer failed, positions would settle under system-level rules rather than through ordinary third-party liquidation.\n\nFor third-party solvers, the source uses a more conventional counterparty-risk model. Solvers post CVA and maintenance margin. If a solver is liquidated, those buffers can compensate counterparties. The preferred path, however, is not merely to pay a buffer and force users out. A healthy solver, including the protocol-owned solver as last resort in the model, can buy out distressed positions and become the new counterparty.\n\n## Why Continuity Matters\n\nTraders care about position lifecycle, not only compensation tokens after failure. If a solver default forces every trader to close and re-open manually, users inherit slippage, timing, and market-access risk during the disruption.\n\nThe DDQ's continuity model tries to keep margin, funding, PnL, and position state intact where possible by moving counterparty responsibility from the distressed solver to a healthy one.\n\n## Publication Boundary\n\nThis page should not publish exact CVA percentages, buyout probability, auction rules, solver reputation tiers, protocol-owned solver liquidation flags, or \"practically unreachable\" depletion claims as current guarantees. It is a source-backed design model awaiting operator and implementation confirmation.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Trader Compensation - Solver default\".\n- `vibe-papers`: Neelo DDQ, \"Solver default\".\n\n## Related Pages\n\n- `authored-solver-default-and-continuity`\n- `authored-collateral-margin-cva`\n- `authored-funding-defense-hierarchy`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-ii-trader-compensation`",
       "excerpt": "Trader Compensation And Continuity Model The DDQ's trader compensation answer is intentionally not a simple \"default payout\" story. It separates protocol owned solver depletion from third party solver default, then makes trade continuity the design objective. For a protocol owned solver in the bootstrapping configuration, the source says conventional account level default is not the intended frame. A catastrophic depletion event would require the layered protections to be exhausted: token side LP deposits, solver inventory, global insurance, local insurance, parameter tightening, and ADL style exposure reduction. If every layer failed, positions would settle under system level rules rather than through ordinary third party liquidation. For third party solvers, the source uses a more conventional counterparty risk model. Solvers post CVA and maintenance margin. If a solver is liquidated, those buffers can compensate counterparties. The preferred path, however, is not merely to pay a buffer and force users out. A healthy solver, including the protocol owned solver as last resort in the model, can buy out distressed positions and become the new counterparty. Why Continuity Matters Tra"
+    },
+    {
+      "id": "authored-trader-payout-certainty",
+      "title": "Trader Payout Certainty Is A Design Requirement",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/05-economic-clarity"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-1-trader-value",
+        "section-13-framework-value-permissionless-perps-13-docs-05-economic-clarity-5-2-decomposition-of-perp-fills",
+        "section-13-framework-value-permissionless-perps-13-docs-05-economic-clarity-5-7-defense-hierarchy-summary"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/trader-payout-certainty.md",
+      "bodyMarkdown": "# Trader Payout Certainty Is A Design Requirement\n\nA trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid.\n\nNeelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long-tail perp market, one-sided flow, thin hedging venues, oracle risk, and fast moves can turn a quote into a liability. If the docs cannot explain who backs the trade and how stress is handled, serious traders will treat the market as promotional rather than executable.\n\nThe economic-clarity source gives the right vocabulary. When flow is netted, traders effectively pay each other. When flow is un-netted, the solver warehouses residual exposure and manages it with hedging, token inventory, dynamic pricing, insurance, and last-resort ADL boundaries. The exact implementation needs operator-approved wording, but the public docs should never blur those cases.\n\n## What The Docs Should Promise\n\nThe docs should promise clarity before they promise perfection.\n\nThey should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They should describe the defense stack in plain language. They should avoid implying that payout certainty means no tail risk. The stronger claim is narrower: a credible market names the counterparty path and the escalation path before a trader relies on it.\n\n## Publication Note\n\nExact payout, insurance, ADL, solver, and LP-vault mechanics remain product and operator review topics. This page captures the source-backed requirement that those mechanics be legible.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 5: Economic Clarity\".\n\n## Related Pages\n\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "Trader Payout Certainty Is A Design Requirement A trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid. Neelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long tail perp market, one sided flow, thin hedging venues, oracle risk, and fast moves can turn a quote into a liability. If the docs cannot explain who backs the trade and how stress is handled, serious traders will treat the market as promotional rather than executable. The economic clarity source gives the right vocabulary. When flow is netted, traders effectively pay each other. When flow is un netted, the solver warehouses residual exposure and manages it with hedging, token inventory, dynamic pricing, insurance, and last resort ADL boundaries. The exact implementation needs operator approved wording, but the public docs should never blur those cases. What The Docs Should Promise The docs should promise clarity before they promise perfection. They should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They "
     },
     {
       "id": "authored-trader-project-value-loop",

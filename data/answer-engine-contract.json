@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 186
+      "totalGoldenRoutes": 191
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 204,
-    "retrievalEligiblePages": 996,
+    "publicNavigationPages": 209,
+    "retrievalEligiblePages": 1001,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 204,
+      "candidate": 209,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 186,
-    "exactRouteTestsPassing": 186,
+    "totalExactRouteTests": 191,
+    "exactRouteTestsPassing": 191,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 186
+      "candidate": 191
     },
     "exactRoutesByConfidence": {
       "Medium": 88,
       "High": 29,
-      "Low": 69
+      "Low": 74
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3819,6 +3819,111 @@
         "passes": true
       },
       {
+        "id": "qr-why-is-solver-funded-usdc-different-from-an-external-usdc-vault",
+        "query": "Why is solver-funded USDC different from an external USDC vault?",
+        "normalizedQuery": "why is solver funded usdc different from an external usdc vault",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-funded-usdc-capital-loop",
+        "expectedPageTitle": "Solver-Funded USDC Is A Capital Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-solver-funded-usdc-different-from-an-external-usdc-vault",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-payout-certainty-mean-for-a-trader",
+        "query": "What does payout certainty mean for a trader?",
+        "normalizedQuery": "what does payout certainty mean for a trader",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-trader-payout-certainty",
+        "expectedPageTitle": "Trader Payout Certainty Is A Design Requirement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-payout-certainty-mean-for-a-trader",
+        "passes": true
+      },
+      {
+        "id": "qr-why-would-a-project-use-token-inventory-instead-of-stablecoins",
+        "query": "Why would a project use token inventory instead of stablecoins?",
+        "normalizedQuery": "why would a project use token inventory instead of stablecoins",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-project-token-utility-without-stablecoin",
+        "expectedPageTitle": "Projects Need Token Utility Without Stablecoin Drag",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-would-a-project-use-token-inventory-instead-of-stablecoins",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-we-know-lp-yield-is-not-just-paid-by-new-deposits",
+        "query": "How do we know LP yield is not just paid by new deposits?",
+        "normalizedQuery": "how do we know lp yield is not just paid by new deposits",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-no-ponzi-market-revenue-test",
+        "expectedPageTitle": "The No-Ponzi Market Revenue Test",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-we-know-lp-yield-is-not-just-paid-by-new-deposits",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-vibe-create-and-capture-value",
+        "query": "How does Vibe create and capture value?",
+        "normalizedQuery": "how does vibe create and capture value",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-value-creation-capture",
+        "expectedPageTitle": "Value Creation And Capture Must Both Be Real",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-vibe-create-and-capture-value",
+        "passes": true
+      },
+      {
         "id": "qr-what-is-symmio-s-clearing-house-model",
         "query": "What is Symmio's clearing-house model?",
         "normalizedQuery": "what is symmio s clearing house model",
@@ -4442,7 +4547,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 186,
+      "exactRoutes": 191,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

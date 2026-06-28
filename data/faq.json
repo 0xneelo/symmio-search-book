@@ -8,19 +8,19 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 193,
-  "totalAnswerable": 186,
+  "totalEntries": 198,
+  "totalAnswerable": 191,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 30,
-    "Trading Flow": 18,
-    "Solvers And Settlement": 39,
+    "Trading Flow": 19,
+    "Solvers And Settlement": 41,
     "Risk And Markets": 15,
     "Revenue": 18,
-    "Manifesto": 40,
+    "Manifesto": 42,
     "Rewards And Referrals": 20,
     "Dashboard": 9,
     "Data And Volume": 3,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 88,
     "High": 29,
-    "Low": 69
+    "Low": 74
   },
   "byRouteSource": {
-    "authored": 186
+    "authored": 191
   },
   "byType": {
-    "answerable": 186,
+    "answerable": 191,
     "reconciliation": 7
   },
   "answerable": [
@@ -5674,6 +5674,151 @@
       "pageTitle": "Economic Clarity For Permissionless Perps",
       "pageSection": "manifesto",
       "pageTrack": "05 — Proof Of Value",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-solver-funded-usdc-different-from-an-external-usdc-vault",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is solver-funded USDC different from an external USDC vault?",
+      "normalizedQuestion": "why is solver funded usdc different from an external usdc vault",
+      "shortAnswer": "Neelo's Proof of Value framework separates stablecoin settlement capital from token inventory; exact solver funding and accounting remain owner-review.",
+      "answerSummary": "Solver Funded USDC Is A Capital Loop The Proof of Value framework separates stablecoin liquidity from token inventory. That distinction is easy to miss, but it is one of the strongest economic claims in the source. The source argues that Vibe should not ask external USDC LPs to underwrite low cap perp markets. Stablecoin LPs would be lending into volatile...",
+      "confidence": "Low",
+      "pageId": "authored-solver-funded-usdc-capital-loop",
+      "pageTitle": "Solver-Funded USDC Is A Capital Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-payout-certainty-mean-for-a-trader",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What does payout certainty mean for a trader?",
+      "normalizedQuestion": "what does payout certainty mean for a trader",
+      "shortAnswer": "Neelo's trader-value and economic-clarity sections frame payout certainty as a documented counterparty and defense-stack requirement, not a no-risk promise.",
+      "answerSummary": "Trader Payout Certainty Is A Design Requirement A trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid. Neelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long tail perp market, one sided flow, thin hedging venues,...",
+      "confidence": "Low",
+      "pageId": "authored-trader-payout-certainty",
+      "pageTitle": "Trader Payout Certainty Is A Design Requirement",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-a-project-use-token-inventory-instead-of-stablecoins",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why would a project use token inventory instead of stablecoins?",
+      "normalizedQuestion": "why would a project use token inventory instead of stablecoins",
+      "shortAnswer": "Neelo's project-value section explains token utility without scarce stablecoin commitments; revenue share and partner claims remain operator-review.",
+      "answerSummary": "Projects Need Token Utility Without Stablecoin Drag The project side of the Proof of Value framework is not just \"projects want more volume.\" It is more specific: many projects have token inventory but do not have an efficient way to turn that inventory into a useful derivatives market. The source lists the usual alternatives. Centralized listings can req...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-utility-without-stablecoin",
+      "pageTitle": "Projects Need Token Utility Without Stablecoin Drag",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-we-know-lp-yield-is-not-just-paid-by-new-deposits",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do we know LP yield is not just paid by new deposits?",
+      "normalizedQuestion": "how do we know lp yield is not just paid by new deposits",
+      "shortAnswer": "Neelo's sustainability section distinguishes real trading revenue from deposit-driven optics and gives the docs a measurement agenda.",
+      "answerSummary": "The No Ponzi Market Revenue Test Neelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits? That question matters for any LP facing market, but it matters even more for long tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts c...",
+      "confidence": "Low",
+      "pageId": "authored-no-ponzi-market-revenue-test",
+      "pageTitle": "The No-Ponzi Market Revenue Test",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-create-and-capture-value",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does Vibe create and capture value?",
+      "normalizedQuestion": "how does vibe create and capture value",
+      "shortAnswer": "Neelo's Thiel value analysis separates value creation from value capture; protocol share, capture mechanisms, and durability claims remain owner-review.",
+      "answerSummary": "Value Creation And Capture Must Both Be Real The Thiel style value analysis is useful because it prevents the docs from confusing usefulness with business durability. The source separates value creation from value capture. Vibe can create value by enabling long tail perp markets, giving projects token utility, giving traders hedging and short side express...",
+      "confidence": "Low",
+      "pageId": "authored-thiel-value-creation-capture",
+      "pageTitle": "Value Creation And Capture Must Both Be Real",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -12552,6 +12697,151 @@
       "pageTitle": "Economic Clarity For Permissionless Perps",
       "pageSection": "manifesto",
       "pageTrack": "05 — Proof Of Value",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-solver-funded-usdc-different-from-an-external-usdc-vault",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is solver-funded USDC different from an external USDC vault?",
+      "normalizedQuestion": "why is solver funded usdc different from an external usdc vault",
+      "shortAnswer": "Neelo's Proof of Value framework separates stablecoin settlement capital from token inventory; exact solver funding and accounting remain owner-review.",
+      "answerSummary": "Solver Funded USDC Is A Capital Loop The Proof of Value framework separates stablecoin liquidity from token inventory. That distinction is easy to miss, but it is one of the strongest economic claims in the source. The source argues that Vibe should not ask external USDC LPs to underwrite low cap perp markets. Stablecoin LPs would be lending into volatile...",
+      "confidence": "Low",
+      "pageId": "authored-solver-funded-usdc-capital-loop",
+      "pageTitle": "Solver-Funded USDC Is A Capital Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-payout-certainty-mean-for-a-trader",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What does payout certainty mean for a trader?",
+      "normalizedQuestion": "what does payout certainty mean for a trader",
+      "shortAnswer": "Neelo's trader-value and economic-clarity sections frame payout certainty as a documented counterparty and defense-stack requirement, not a no-risk promise.",
+      "answerSummary": "Trader Payout Certainty Is A Design Requirement A trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid. Neelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long tail perp market, one sided flow, thin hedging venues,...",
+      "confidence": "Low",
+      "pageId": "authored-trader-payout-certainty",
+      "pageTitle": "Trader Payout Certainty Is A Design Requirement",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-a-project-use-token-inventory-instead-of-stablecoins",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why would a project use token inventory instead of stablecoins?",
+      "normalizedQuestion": "why would a project use token inventory instead of stablecoins",
+      "shortAnswer": "Neelo's project-value section explains token utility without scarce stablecoin commitments; revenue share and partner claims remain operator-review.",
+      "answerSummary": "Projects Need Token Utility Without Stablecoin Drag The project side of the Proof of Value framework is not just \"projects want more volume.\" It is more specific: many projects have token inventory but do not have an efficient way to turn that inventory into a useful derivatives market. The source lists the usual alternatives. Centralized listings can req...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-utility-without-stablecoin",
+      "pageTitle": "Projects Need Token Utility Without Stablecoin Drag",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-we-know-lp-yield-is-not-just-paid-by-new-deposits",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do we know LP yield is not just paid by new deposits?",
+      "normalizedQuestion": "how do we know lp yield is not just paid by new deposits",
+      "shortAnswer": "Neelo's sustainability section distinguishes real trading revenue from deposit-driven optics and gives the docs a measurement agenda.",
+      "answerSummary": "The No Ponzi Market Revenue Test Neelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits? That question matters for any LP facing market, but it matters even more for long tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts c...",
+      "confidence": "Low",
+      "pageId": "authored-no-ponzi-market-revenue-test",
+      "pageTitle": "The No-Ponzi Market Revenue Test",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-create-and-capture-value",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does Vibe create and capture value?",
+      "normalizedQuestion": "how does vibe create and capture value",
+      "shortAnswer": "Neelo's Thiel value analysis separates value creation from value capture; protocol share, capture mechanisms, and durability claims remain owner-review.",
+      "answerSummary": "Value Creation And Capture Must Both Be Real The Thiel style value analysis is useful because it prevents the docs from confusing usefulness with business durability. The source separates value creation from value capture. Vibe can create value by enabling long tail perp markets, giving projects token utility, giving traders hedging and short side express...",
+      "confidence": "Low",
+      "pageId": "authored-thiel-value-creation-capture",
+      "pageTitle": "Value Creation And Capture Must Both Be Real",
+      "pageSection": "manifesto",
+      "pageTrack": "13 — Proof of Value Framework",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

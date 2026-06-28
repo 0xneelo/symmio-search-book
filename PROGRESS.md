@@ -472,6 +472,12 @@
 - Validated 12/12 fixtures covering answered questions, useful and not-useful ratings, low-rated-answer gaps, page-feedback gaps, no-grounded-page gaps, operator-blocked revenue/referral-depth refusals, gap ids, and linked operator inbox ids.
 - Wired the event contract into the requirement map and quality audit while keeping `datastoreImplemented` and `livingDocsProductionReady` false until the production platform/backend and Discord import are resolved.
 
+## 2026-06-28 — Permissionless Perps Value Framework Layer
+
+- Added five authored Volume 02 manifesto pages from Neelo's Proof of Value framework for solver-funded USDC, trader payout certainty, project token utility without stablecoin drag, the no-ponzi market-revenue test, and Thiel-style value creation versus capture.
+- Routed five new Ask questions so the front door can explain the capital-structure and business-quality parts of the Vibe thesis without collapsing them into final economics promises.
+- Kept capital-efficiency, revenue-share, partner-traction, solver-funding, and protocol-capture claims under operator/accounting review until current public disclosure boundaries are confirmed.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
