@@ -22,6 +22,15 @@
   - 63 companion pages source-mapped for later authoring.
   - 2 companion pages intentionally marked `needs-reconciliation`.
 
+## 2026-06-28 — Navigation And Living-Docs Prototype
+
+- Added `scripts/build-navigation-tree.mjs`.
+- Generated `data/navigation-tree.json` and `data/navigation-tree.js` from the manifest plus search index.
+- Expanded `index.html` from three prototype variants into Ask & search, Browse docs, Journeys, and Search insights.
+- Browse docs now renders the full 794-page corpus grouped across 22 sections and 49 tracks.
+- Search insights now reads local question, rating, and gap events; low-rated or unanswered answers become local gap rows.
+- Improved static routing so high-signal curated pages stay in the search set alongside generated pages.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

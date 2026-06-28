@@ -79,3 +79,11 @@
 **Reason:** The compendium needs hundreds of cited pages. The safest next step is to surface every mapped page as a concrete draft with status frontmatter, source URLs, and extracted primary-source content where available. This gives future agents and editors real material to restructure without pretending companion pages or unresolved contradictions are complete.
 
 **Status:** Accepted for the build pipeline.
+
+## D-011: Keep The Prototype Platform-Neutral But Exercise The Living-Docs Loop
+
+**Decision:** Add generated navigation data and local question/rating/gap persistence to the static prototype before choosing the final docs platform.
+
+**Reason:** The platform/repo/backend decision is parked with the operator, but the final product still needs an ask-first front door, browseable IA, ratings, question tracking, and a gaps queue. A deterministic static loop lets the team test those mechanics against the full 794-page corpus without pretending it is the final vector/Claude-backed production engine.
+
+**Status:** Accepted for prototype iteration.

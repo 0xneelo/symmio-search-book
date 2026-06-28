@@ -6,6 +6,7 @@
     <title>Vibe x Symmio Search Book Prototype</title>
     <script src="./answer-corpus.js"></script>
     <script src="./data/search-index.js"></script>
+    <script src="./data/navigation-tree.js"></script>
     <style>
       :root {
         color-scheme: dark;
@@ -253,6 +254,25 @@
         font-weight: 800;
       }
 
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 0 0 18px;
+      }
+
+      .toolbar input {
+        width: min(100%, 520px);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        padding: 12px 14px;
+        outline: 0;
+      }
+
       .grid {
         display: grid;
         gap: 16px;
@@ -268,7 +288,9 @@
       .answer,
       .ledger,
       .journey,
-      .gap-row {
+      .gap-row,
+      .track-card,
+      .collection-card {
         border: 1px solid var(--line);
         background: rgba(13, 21, 38, 0.78);
         border-radius: 8px;
@@ -299,7 +321,9 @@
       .answer h3,
       .section-title,
       .page-card h3,
-      .journey h3 {
+      .journey h3,
+      .track-card h3,
+      .collection-card h3 {
         margin: 0;
         font-size: 18px;
       }
@@ -307,7 +331,8 @@
       .answer p,
       .page-card p,
       .journey p,
-      .gap-row p {
+      .gap-row p,
+      .collection-card p {
         color: var(--muted);
         line-height: 1.5;
       }
@@ -333,6 +358,7 @@
         border: 1px solid rgba(125, 216, 255, 0.35);
         color: var(--cyan);
         background: rgba(125, 216, 255, 0.08);
+        text-decoration: none;
       }
 
       .rating {
@@ -350,6 +376,11 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
+      .collections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 26px;
+      }
+
       .page-card {
         padding: 16px;
         min-height: 220px;
@@ -362,6 +393,56 @@
 
       .page-card .meta {
         margin-bottom: 10px;
+      }
+
+      .browse-sections {
+        display: grid;
+        gap: 16px;
+      }
+
+      .track-card,
+      .collection-card {
+        padding: 16px;
+      }
+
+      .track-card {
+        display: grid;
+        gap: 12px;
+      }
+
+      .page-links {
+        display: grid;
+        gap: 8px;
+      }
+
+      .page-link {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+      }
+
+      .page-link button {
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        padding: 0;
+        text-align: left;
+      }
+
+      .page-link a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+
+      .page-link .meta {
+        display: block;
+        margin-top: 4px;
       }
 
       .split {
@@ -402,12 +483,35 @@
         gap: 18px;
       }
 
+      .console-layout + .console-layout {
+        margin-top: 18px;
+      }
+
       .gap-row {
         padding: 14px;
       }
 
       .gap-row + .gap-row {
         margin-top: 10px;
+      }
+
+      .gap-row.is-local {
+        border-color: rgba(255, 127, 158, 0.4);
+      }
+
+      .insight-metrics {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-bottom: 18px;
+      }
+
+      .compact-list {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 0;
+      }
+
+      .compact-list li {
+        line-height: 1.45;
       }
 
       .switcher {
@@ -468,16 +572,20 @@
 
         .stats,
         .cards,
+        .collections,
         .split,
         .journeys,
-        .console-layout {
+        .console-layout,
+        .insight-metrics {
           grid-template-columns: 1fr;
         }
       }
 
       @media (max-width: 560px) {
         .topline,
-        .ask {
+        .ask,
+        .toolbar,
+        .page-link {
           grid-template-columns: 1fr;
         }
 
@@ -504,9 +612,10 @@
           <p>Vibe x Symmio docs map</p>
         </div>
         <nav class="nav" aria-label="Prototype variants">
-          <button data-nav="classic">Ask</button>
+          <button data-nav="classic">Ask & search</button>
+          <button data-nav="browse">Browse docs</button>
           <button data-nav="journey">Journeys</button>
-          <button data-nav="console">Console</button>
+          <button data-nav="insights">Search insights</button>
         </nav>
         <div class="rail-footer">
           <div class="mini-stat">
@@ -541,6 +650,7 @@
             <input id="queryInput" name="query" autocomplete="off" placeholder="Ask about referrals, solvers, VibeCaps margin, revenue, HIP-3..." />
             <button type="submit">Ask</button>
           </form>
+          <div class="source-row" id="exampleQuestions"></div>
 
           <section class="answer" id="answerBox" aria-live="polite"></section>
 
@@ -555,6 +665,17 @@
             <div class="grid cards" id="pageCards"></div>
           </section>
 
+          <section data-view="browse" class="is-hidden">
+            <div class="toolbar">
+              <input id="browseFilter" autocomplete="off" placeholder="Filter the 794-page corpus..." />
+              <div class="meta" id="browseCount">794 pages</div>
+            </div>
+            <h3 class="section-title">Neelo Collections</h3>
+            <div class="grid collections" id="collectionGrid"></div>
+            <h3 class="section-title">Corpus Sections</h3>
+            <div class="browse-sections" id="browseSections"></div>
+          </section>
+
           <section data-view="journey" class="is-hidden">
             <div class="split">
               <div>
@@ -563,20 +684,35 @@
               </div>
               <aside class="ledger">
                 <h3>Recent Questions</h3>
-                <ul id="recentQuestions"></ul>
+                <ul id="journeyRecentQuestions"></ul>
               </aside>
             </div>
           </section>
 
-          <section data-view="console" class="is-hidden">
+          <section data-view="insights" class="is-hidden">
+            <div class="grid insight-metrics" id="insightMetrics"></div>
             <div class="console-layout">
               <div>
-                <h3 class="section-title">Open Threads</h3>
+                <h3 class="section-title">Where Docs Fall Short</h3>
                 <div id="gapList"></div>
               </div>
               <aside class="ledger">
-                <h3>Ratings</h3>
+                <h3>Recent Questions</h3>
+                <ul class="compact-list" id="recentQuestions"></ul>
+              </aside>
+            </div>
+            <div class="console-layout">
+              <aside class="ledger">
+                <h3>Answer Ratings</h3>
                 <ul id="ratingsList"></ul>
+              </aside>
+              <aside class="ledger">
+                <h3>Event Log</h3>
+                <div class="rating">
+                  <button type="button" id="copyEventLog">Copy JSON</button>
+                  <button type="button" id="clearEventLog">Clear local</button>
+                </div>
+                <p class="meta" id="eventLogStatus">Stored in this browser for the prototype.</p>
               </aside>
             </div>
           </section>
@@ -592,6 +728,7 @@
 
     <script>
       const corpus = window.SearchBookCorpus;
+      const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
       const fullIndex = (window.SearchBookIndex || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -599,16 +736,31 @@
         route: page.file,
         keywords: [page.title, page.section, page.track, page.excerpt, (page.sourceKeys || []).join(" ")].join(" ").split(/\s+/),
       }));
-      const searchablePages = fullIndex.length ? fullIndex : corpus.pages;
+      const curatedIds = new Set(corpus.pages.map((page) => page.id));
+      const searchablePages = fullIndex.length ? [...corpus.pages.map((page) => ({ ...page, curated: true })), ...fullIndex.filter((page) => !curatedIds.has(page.id))] : corpus.pages;
+      const pageById = new Map(searchablePages.map((page) => [page.id, page]));
+      corpus.pages.forEach((page) => {
+        if (!pageById.has(page.id)) pageById.set(page.id, page);
+      });
       const variants = [
         { key: "classic", label: "A - Ask" },
-        { key: "journey", label: "B - Journeys" },
-        { key: "console", label: "C - Console" },
+        { key: "browse", label: "B - Browse" },
+        { key: "journey", label: "C - Journeys" },
+        { key: "insights", label: "D - Insights" },
       ];
       const storageKeys = {
         questions: "searchBookPrototype.questions",
         ratings: "searchBookPrototype.ratings",
+        gaps: "searchBookPrototype.gaps",
       };
+      const exampleQuestions = [
+        "When do referral points credit?",
+        "How is my revenue calculated?",
+        "Why is my live counter not moving?",
+        "How do solvers work?",
+        "Why does Vibe matter for HIP-3?",
+      ];
+      const stopWords = new Set(["a", "about", "an", "and", "are", "as", "at", "be", "do", "does", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "the", "to", "what", "when", "where", "why"]);
 
       function getVariant() {
         const query = new URLSearchParams(window.location.search);
@@ -637,40 +789,131 @@
         }
       }
 
-      function saveList(key, value) {
-        localStorage.setItem(key, JSON.stringify(value.slice(0, 30)));
+      function saveList(key, value, limit = 200) {
+        localStorage.setItem(key, JSON.stringify(value.slice(0, limit)));
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function wordsFor(query) {
+        return [
+          ...new Set(
+            String(query || "")
+              .toLowerCase()
+              .split(/[^a-z0-9]+/)
+              .filter((word) => word.length > 1 && !stopWords.has(word))
+              .map((word) => word.replace(/(ations|ation|ions|ion|ing|ed|ers|er|s)$/u, ""))
+              .filter((word) => word.length > 1 && !stopWords.has(word)),
+          ),
+        ];
       }
 
       function scorePage(page, query) {
-        const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-        const haystack = [page.title, page.section, page.summary || page.excerpt, (page.keywords || []).join(" ")].join(" ").toLowerCase();
-        return words.reduce((score, word) => score + (haystack.includes(word) ? 1 : 0), 0);
+        const words = wordsFor(query);
+        if (!words.length) return 0;
+        const title = String(page.title || "").toLowerCase();
+        const section = [page.section, page.track, (page.sources || page.sourceKeys || []).join(" ")].join(" ").toLowerCase();
+        const body = [page.summary || page.excerpt, (page.keywords || []).join(" ")].join(" ").toLowerCase();
+        const scoreText = (text, weight) => words.reduce((score, word) => score + (text.includes(word) ? weight : 0), 0);
+        const base = scoreText(title, 5) + scoreText(section, 3) + scoreText(body, 1);
+        const exact = body.includes(String(query || "").toLowerCase()) || title.includes(String(query || "").toLowerCase()) ? 5 : 0;
+        return base > 0 && page.curated ? base + exact + 3 : base + exact;
       }
 
       function findAnswer(query) {
         const ranked = searchablePages
           .map((page) => ({ page, score: scorePage(page, query) }))
           .sort((a, b) => b.score - a.score);
-        return ranked[0] && ranked[0].score > 0 ? ranked[0].page : corpus.pages[0];
+        const best = ranked[0];
+        return best && best.score > 0 ? best : { page: null, score: 0 };
       }
 
-      function renderAnswer(page, query) {
+      function sourceChips(page) {
+        return (page.sources || page.sourceKeys || [])
+          .slice(0, 5)
+          .map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`)
+          .join("");
+      }
+
+      function routeFor(page) {
+        return page.route || page.file || "#";
+      }
+
+      function renderAnswer(result, query, eventId) {
         const box = document.getElementById("answerBox");
         box.classList.add("is-visible");
+        if (!result.page) {
+          box.innerHTML = `
+            <div class="meta">No grounded route / recorded gap</div>
+            <h3>No exact page found yet</h3>
+            <p>The current corpus did not produce a grounded match for "${escapeHtml(query)}". This question is now in the local gaps queue.</p>
+            <div class="source-row"><span class="source-chip">questions</span><span class="source-chip">gaps</span></div>
+            <div class="rating">
+              <button type="button" data-rate="no" data-event="${escapeHtml(eventId)}">Needs work</button>
+            </div>
+          `;
+          return;
+        }
+
+        const page = result.page;
         box.innerHTML = `
-          <div class="meta">${page.section} / routed answer</div>
-          <h3>${page.title}</h3>
-          <p>${page.summary || page.excerpt || ""}</p>
-          ${page.gap ? `<p><strong>Gap:</strong> ${page.gap}</p>` : ""}
+          <div class="meta">${escapeHtml(page.section)} / routed answer / score ${escapeHtml(result.score)}</div>
+          <h3>${escapeHtml(page.title)}</h3>
+          <p>${escapeHtml(page.summary || page.excerpt || "")}</p>
+          ${page.gap ? `<p><strong>Gap:</strong> ${escapeHtml(page.gap)}</p>` : ""}
           <div class="source-row">
-            ${(page.sources || page.sourceKeys || []).map((source) => `<span class="source-chip">${source}</span>`).join("")}
+            ${sourceChips(page)}
           </div>
           <div class="rating">
-            <button type="button" data-rate="yes" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Useful</button>
-            <button type="button" data-rate="no" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Needs work</button>
-            <a class="source-chip" href="${page.route || page.file || "#"}">Open route</a>
+            <button type="button" data-rate="yes" data-event="${escapeHtml(eventId)}">Useful</button>
+            <button type="button" data-rate="no" data-event="${escapeHtml(eventId)}">Needs work</button>
+            <a class="source-chip" href="${escapeHtml(routeFor(page))}">Open route</a>
           </div>
         `;
+      }
+
+      function recordGap(gap) {
+        const gaps = loadList(storageKeys.gaps);
+        saveList(storageKeys.gaps, [gap, ...gaps]);
+      }
+
+      function recordQuestion(query, result, source = "ask") {
+        const event = {
+          id: `q-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
+          query,
+          source,
+          pageId: result.page ? result.page.id : null,
+          page: result.page ? result.page.title : "No grounded page",
+          score: result.score,
+          status: result.page ? "answered" : "gap",
+          time: new Date().toISOString(),
+        };
+        const recent = loadList(storageKeys.questions);
+        saveList(storageKeys.questions, [event, ...recent]);
+        if (!result.page) {
+          recordGap({
+            id: event.id,
+            query,
+            reason: "no-grounded-page",
+            page: event.page,
+            time: event.time,
+          });
+        }
+        return event;
+      }
+
+      function handleAsk(query, source = "ask") {
+        const result = findAnswer(query);
+        const event = recordQuestion(query, result, source);
+        renderAnswer(result, query, event.id);
+        renderInsights();
       }
 
       function renderCards() {
@@ -680,11 +923,11 @@
           .map(
             (page) => `
               <article class="page-card">
-                <div class="meta">${page.section}</div>
-                <h3>${page.title}</h3>
-                <p>${page.summary}</p>
+                <div class="meta">${escapeHtml(page.section)}</div>
+                <h3>${escapeHtml(page.title)}</h3>
+                <p>${escapeHtml(page.summary)}</p>
                 <div class="source-row">
-                  ${page.sources.slice(0, 3).map((source) => `<span class="source-chip">${source}</span>`).join("")}
+                  ${page.sources.slice(0, 3).map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`).join("")}
                 </div>
               </article>
             `,
@@ -697,14 +940,14 @@
         root.innerHTML = corpus.journeys
           .map((journey) => {
             const chips = journey.pages
-              .map((id) => corpus.pages.find((page) => page.id === id))
+              .map((id) => pageById.get(id))
               .filter(Boolean)
-              .map((page) => `<button type="button" class="chip" data-jump="${page.id}">${page.title}</button>`)
+              .map((page) => `<button type="button" class="chip" data-jump="${escapeHtml(page.id)}">${escapeHtml(page.title)}</button>`)
               .join("");
             return `
               <article class="journey">
-                <h3>${journey.title}</h3>
-                <p>${journey.focus}</p>
+                <h3>${escapeHtml(journey.title)}</h3>
+                <p>${escapeHtml(journey.focus)}</p>
                 <div class="journey-pages">${chips}</div>
               </article>
             `;
@@ -712,24 +955,200 @@
           .join("");
       }
 
-      function renderGaps() {
-        document.getElementById("gapList").innerHTML = corpus.gaps
-          .map((gap) => `<div class="gap-row"><div class="meta">parked thread</div><p>${gap}</p></div>`)
+      function renderExampleQuestions() {
+        document.getElementById("exampleQuestions").innerHTML = exampleQuestions
+          .map((query) => `<button type="button" class="chip" data-example-query="${escapeHtml(query)}">${escapeHtml(query)}</button>`)
           .join("");
+      }
+
+      function pageMatchesFilter(page, filter) {
+        const words = wordsFor(filter);
+        if (!words.length) return true;
+        const haystack = [page.title, page.section, page.track, page.granularity, page.status, page.sourcePriority, (page.sourceKeys || []).join(" ")].join(" ").toLowerCase();
+        return words.every((word) => haystack.includes(word));
+      }
+
+      function renderCollections() {
+        document.getElementById("collectionGrid").innerHTML = (navigation.collections || [])
+          .map(
+            (collection) => `
+              <article class="collection-card">
+                <div class="meta">${escapeHtml(collection.pageCount)} source pages</div>
+                <h3>${escapeHtml(collection.title)}</h3>
+                <p>${escapeHtml(collection.summary || "")}</p>
+                <div class="source-row"><a class="source-chip" href="${escapeHtml(collection.sourceUrl || "#")}">Source collection</a></div>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderBrowse() {
+        const filter = document.getElementById("browseFilter").value.trim();
+        let visibleCount = 0;
+        const sections = (navigation.sections || [])
+          .map((section) =>
+            section.tracks
+              .map((track) => {
+                const pages = track.pages.filter((page) => pageMatchesFilter(page, filter));
+                visibleCount += pages.length;
+                if (!pages.length) return "";
+                const shown = pages.slice(0, 10);
+                const overflow = pages.length > shown.length ? `<div class="meta">Showing ${shown.length} of ${pages.length} matching pages</div>` : "";
+                return `
+                  <article class="track-card">
+                    <div class="meta">${escapeHtml(section.label)} / ${escapeHtml(track.totalPages)} pages</div>
+                    <h3>${escapeHtml(track.label)}</h3>
+                    <div class="page-links">
+                      ${shown
+                        .map(
+                          (page) => `
+                            <div class="page-link">
+                              <button type="button" data-open-page="${escapeHtml(page.id)}">
+                                ${escapeHtml(page.title)}
+                                <span class="meta">${escapeHtml(page.granularity)} / ${escapeHtml(page.status)}</span>
+                              </button>
+                              <a href="${escapeHtml(page.file)}">Open</a>
+                            </div>
+                          `,
+                        )
+                        .join("")}
+                    </div>
+                    ${overflow}
+                  </article>
+                `;
+              })
+              .join(""),
+          )
+          .join("");
+        document.getElementById("browseCount").textContent = `${visibleCount} matching pages`;
+        document.getElementById("browseSections").innerHTML = sections || '<div class="gap-row"><p>No matching pages.</p></div>';
+      }
+
+      function renderGaps() {
+        const localGaps = loadList(storageKeys.gaps);
+        const parkedPages = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation");
+        const parked = corpus.gaps.map((gap) => ({ reason: "operator-inbox", query: gap, page: "Parked thread", local: false }));
+        const reconciliation = parkedPages.map((page) => ({
+          reason: "needs-reconciliation",
+          query: page.title,
+          page: page.file,
+          local: false,
+        }));
+        const rows = [...localGaps, ...reconciliation, ...parked];
+        document.getElementById("gapList").innerHTML = rows.length
+          ? rows
+              .slice(0, 24)
+              .map(
+                (gap) => `
+                  <div class="gap-row ${gap.local === false ? "" : "is-local"}">
+                    <div class="meta">${escapeHtml(gap.reason || "local-gap")}</div>
+                    <p>${escapeHtml(gap.query)}</p>
+                    <div class="meta">${escapeHtml(gap.page || "")}</div>
+                  </div>
+                `,
+              )
+              .join("")
+          : '<div class="gap-row"><p>No local gaps recorded yet.</p></div>';
+      }
+
+      function formatQuestion(item) {
+        return `<li><span class="meta">${escapeHtml(item.status)} / score ${escapeHtml(item.score)}</span><br>${escapeHtml(item.query)} -> ${escapeHtml(item.page)}</li>`;
       }
 
       function renderRecent() {
         const recent = loadList(storageKeys.questions);
-        document.getElementById("recentQuestions").innerHTML = recent.length
-          ? recent.map((item) => `<li>${item.query} -> ${item.page}</li>`).join("")
-          : "<li>No questions recorded yet.</li>";
+        const html = recent.length ? recent.slice(0, 12).map(formatQuestion).join("") : "<li>No questions recorded yet.</li>";
+        const insights = document.getElementById("recentQuestions");
+        const journeys = document.getElementById("journeyRecentQuestions");
+        if (insights) insights.innerHTML = html;
+        if (journeys) journeys.innerHTML = html;
       }
 
       function renderRatings() {
         const ratings = loadList(storageKeys.ratings);
         document.getElementById("ratingsList").innerHTML = ratings.length
-          ? ratings.map((item) => `<li>${item.rating}: ${item.query} -> ${item.page}</li>`).join("")
+          ? ratings
+              .slice(0, 12)
+              .map((item) => `<li><span class="meta">${escapeHtml(item.rating)}</span><br>${escapeHtml(item.query)} -> ${escapeHtml(item.page)}</li>`)
+              .join("")
           : "<li>No ratings recorded yet.</li>";
+      }
+
+      function renderMetrics() {
+        const questions = loadList(storageKeys.questions);
+        const ratings = loadList(storageKeys.ratings);
+        const gaps = loadList(storageKeys.gaps);
+        const answered = questions.filter((item) => item.status === "answered").length;
+        const needsReconciliation = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation").length;
+        document.getElementById("insightMetrics").innerHTML = `
+          <div class="stat-card"><span class="stat-label">Questions</span><strong>${questions.length}</strong></div>
+          <div class="stat-card"><span class="stat-label">Answered</span><strong>${answered}</strong></div>
+          <div class="stat-card"><span class="stat-label">Gaps</span><strong>${gaps.length + needsReconciliation}</strong></div>
+          <div class="stat-card"><span class="stat-label">Ratings</span><strong>${ratings.length}</strong></div>
+        `;
+      }
+
+      function renderInsights() {
+        renderMetrics();
+        renderGaps();
+        renderRecent();
+        renderRatings();
+      }
+
+      function recordRating(rate) {
+        const questions = loadList(storageKeys.questions);
+        const event = questions.find((item) => item.id === rate.dataset.event);
+        const rating = {
+          rating: rate.dataset.rate,
+          query: event ? event.query : "Unknown query",
+          page: event ? event.page : "Unknown page",
+          pageId: event ? event.pageId : null,
+          eventId: rate.dataset.event,
+          time: new Date().toISOString(),
+        };
+        const ratings = loadList(storageKeys.ratings);
+        saveList(storageKeys.ratings, [rating, ...ratings]);
+        if (rating.rating === "no") {
+          recordGap({
+            id: rating.eventId,
+            query: rating.query,
+            reason: "low-rated-answer",
+            page: rating.page,
+            time: rating.time,
+          });
+        }
+        renderInsights();
+      }
+
+      function exportEventLog() {
+        const payload = {
+          questions: loadList(storageKeys.questions),
+          ratings: loadList(storageKeys.ratings),
+          gaps: loadList(storageKeys.gaps),
+        };
+        const text = JSON.stringify(payload, null, 2);
+        const status = document.getElementById("eventLogStatus");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(
+            () => {
+              status.textContent = "Copied.";
+            },
+            () => {
+              status.textContent = text;
+            },
+          );
+        } else {
+          status.textContent = text;
+        }
+      }
+
+      function clearEventLog() {
+        localStorage.removeItem(storageKeys.questions);
+        localStorage.removeItem(storageKeys.ratings);
+        localStorage.removeItem(storageKeys.gaps);
+        document.getElementById("eventLogStatus").textContent = "Cleared.";
+        renderInsights();
       }
 
       function renderVariant() {
@@ -739,20 +1158,32 @@
         const item = variants.find((variant) => variant.key === current);
         document.getElementById("switcherLabel").textContent = item.label;
         document.getElementById("variantMeta").textContent = current;
+        if (current === "browse") renderBrowse();
+        if (current === "insights" || current === "journey") renderInsights();
+      }
+
+      function openPageFromCorpus(pageId, source = "browse") {
+        const page = pageById.get(pageId);
+        if (!page) return;
+        const event = recordQuestion(page.title, { page, score: "direct" }, source);
+        renderAnswer({ page, score: "direct" }, page.title, event.id);
+        renderInsights();
       }
 
       function init() {
-        document.getElementById("railTotal").textContent = corpus.manifestStats.totalPages;
-        document.getElementById("railNeelo").textContent = corpus.manifestStats.neeloVisionPages + corpus.manifestStats.neeloSectionPages;
-        document.getElementById("totalPages").textContent = corpus.manifestStats.totalPages;
-        document.getElementById("neeloPages").textContent = corpus.manifestStats.neeloVisionPages;
-        document.getElementById("sectionPages").textContent = corpus.manifestStats.neeloSectionPages;
-        document.getElementById("companionPages").textContent = corpus.manifestStats.companionPages;
+        const stats = corpus.manifestStats;
+        document.getElementById("railTotal").textContent = navigation.totalPages || stats.totalPages;
+        document.getElementById("railNeelo").textContent = (navigation.counts.bySourcePriority?.neeloVision || stats.neeloVisionPages) + (navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages);
+        document.getElementById("totalPages").textContent = navigation.totalPages || stats.totalPages;
+        document.getElementById("neeloPages").textContent = navigation.counts.bySourcePriority?.neeloVision || stats.neeloVisionPages;
+        document.getElementById("sectionPages").textContent = navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages;
+        document.getElementById("companionPages").textContent = stats.companionPages;
+        renderExampleQuestions();
         renderCards();
+        renderCollections();
         renderJourneys();
-        renderGaps();
-        renderRecent();
-        renderRatings();
+        renderBrowse();
+        renderInsights();
         renderVariant();
       }
 
@@ -760,33 +1191,37 @@
         event.preventDefault();
         const query = document.getElementById("queryInput").value.trim();
         if (!query) return;
-        const page = findAnswer(query);
-        renderAnswer(page, query);
-        const recent = loadList(storageKeys.questions);
-        saveList(storageKeys.questions, [{ query, page: page.title, time: Date.now() }, ...recent]);
-        renderRecent();
+        handleAsk(query);
       });
+
+      document.getElementById("browseFilter").addEventListener("input", renderBrowse);
+      document.getElementById("copyEventLog").addEventListener("click", exportEventLog);
+      document.getElementById("clearEventLog").addEventListener("click", clearEventLog);
 
       document.addEventListener("click", (event) => {
         const rate = event.target.closest("[data-rate]");
         if (rate) {
-          const ratings = loadList(storageKeys.ratings);
-          saveList(storageKeys.ratings, [
-            {
-              rating: rate.dataset.rate,
-              query: decodeURIComponent(rate.dataset.query),
-              page: rate.dataset.page,
-              time: Date.now(),
-            },
-            ...ratings,
-          ]);
-          renderRatings();
+          recordRating(rate);
+          return;
         }
 
         const jump = event.target.closest("[data-jump]");
         if (jump) {
-          const page = corpus.pages.find((item) => item.id === jump.dataset.jump);
-          if (page) renderAnswer(page, page.title);
+          openPageFromCorpus(jump.dataset.jump, "journey");
+          return;
+        }
+
+        const openPage = event.target.closest("[data-open-page]");
+        if (openPage) {
+          openPageFromCorpus(openPage.dataset.openPage, "browse");
+          return;
+        }
+
+        const example = event.target.closest("[data-example-query]");
+        if (example) {
+          const query = example.dataset.exampleQuery;
+          document.getElementById("queryInput").value = query;
+          handleAsk(query, "example");
         }
       });
 

@@ -6,8 +6,8 @@ Questions are grouped by whether the current source set can answer them.
 
 | Question | Routed page | Confidence | Notes |
 | --- | --- | --- | --- |
-| What is Vibe Trading? | `what-is-vibe` | Medium | Public Vibe docs answer; exact market counts need fresh verification. |
-| What is Symmio? | `what-is-symmio` | High | Public Symmio docs answer. |
+| What is Vibe Trading? | `vibe-what-is` | Medium | Public Vibe docs answer; exact market counts need fresh verification. |
+| What is Symmio? | `symmio-what-is` | High | Public Symmio docs answer. |
 | What is an intent? | `intent-lifecycle` | High | Symmio core and lifecycle docs. |
 | Who are PartyA and PartyB? | `party-a-party-b` | High | Symmio core docs. |
 | What does a solver do? | `solver-role` | High | Symmio and Vibe architecture docs. |
@@ -16,6 +16,10 @@ Questions are grouped by whether the current source set can answer them.
 | How is estimated network revenue calculated? | `estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate. |
 | Why does the dashboard revenue number move? | `revenue-pulse` | Medium | Local code/docs describe pulse from volume history. |
 | What is HIP-3 and why compare it? | `hip3-context` | Medium | Hyperliquid docs support builder-deployed perps context. |
+
+## Prototype Event Log
+
+The static prototype records asked questions, routed pages, answer ratings, and low-rated or unanswered gaps in browser `localStorage`. The Search insights view can export that JSON for later ingestion into the production datastore once the platform/backend decision is resolved.
 
 ## Needs Reconciliation
 
@@ -41,4 +45,3 @@ Questions are grouped by whether the current source set can answer them.
 - "Who takes the other side of my trade?"
 - "What does isolated margin mean for VibeCaps?"
 - "What does a solver hedge against?"
-

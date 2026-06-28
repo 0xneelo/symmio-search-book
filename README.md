@@ -17,6 +17,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - 500-800 page manifest: `page-manifest.json`
 - Generated draft content corpus: `content/generated/`
 - Compact prototype search index: `data/search-index.js`
+- Generated browse/navigation tree: `data/navigation-tree.js`
 - Throwaway static prototype: `index.html`
 
 Open `index.html` directly in a browser. It uses local data and `localStorage`; no backend, secrets, or live APIs are required.
@@ -47,9 +48,12 @@ Focused checks for this package:
 ```sh
 node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
 node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
+node src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/answer-corpus.js
 node --check src/search-book/scripts/build-page-manifest.mjs
 node --check src/search-book/scripts/build-content-corpus.mjs
+node --check src/search-book/scripts/build-navigation-tree.mjs
+node --check src/search-book/data/navigation-tree.js
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md
