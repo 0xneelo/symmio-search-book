@@ -16,6 +16,7 @@ const defaults = {
 };
 
 const authoredSectionOrder = [
+  "compendium",
   "manifesto",
   "protocol-reference",
   "product-reference",
@@ -57,6 +58,7 @@ function pageSummary(page, routeSource) {
     track: page.track,
     status: page.status,
     sourceKeys: page.sourceKeys || [],
+    volumeId: page.volumeId || "",
     routeSource,
     explicitRelatedPageIds: [...(page.relatedGeneratedPages || []), ...(page.relatedPages || [])],
   };

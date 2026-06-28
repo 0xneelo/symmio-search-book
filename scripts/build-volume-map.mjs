@@ -146,6 +146,7 @@ function pageUniverse({ authoredIndex, searchIndex, crosslinks }) {
       status: page.status,
       sourceKeys: page.sourceKeys || [],
       sourceUrls: page.sourceUrls || [],
+      volumeId: page.volumeId || "",
       routeSource: "authored",
     });
   }
@@ -160,6 +161,7 @@ function pageUniverse({ authoredIndex, searchIndex, crosslinks }) {
       status: page.status,
       sourceKeys: page.sourceKeys || [],
       sourceUrls: page.sourceUrls || [],
+      volumeId: page.volumeId || "",
       routeSource: "generated",
     });
   }
@@ -174,6 +176,7 @@ function pageUniverse({ authoredIndex, searchIndex, crosslinks }) {
 }
 
 function volumeForPage(page) {
+  if (page.volumeId) return page.volumeId;
   const section = page.section || "";
   const number = trackNumber(page.track);
   if (section === "manifesto" || section === "product-reference" || section === "product-research" || section === "competitive-context" || section === "architecture") {
@@ -208,6 +211,7 @@ function pageSummary(page) {
     granularity: page.granularity,
     status: page.status,
     routeSource: page.routeSource,
+    volumeId: page.volumeId || "",
     sourceKeys: page.sourceKeys || [],
   };
 }
@@ -232,6 +236,7 @@ function buildChapter(chapterId, pages) {
 }
 
 function buildVolume(definition, pages) {
+  const overview = pages.find((page) => page.volumeId === definition.id && page.section === "compendium");
   const chapterMap = new Map();
   for (const page of pages) {
     const chapterKey = chapterKeyForPage(page);
@@ -242,6 +247,8 @@ function buildVolume(definition, pages) {
   return {
     ...definition,
     totalPages: pages.length,
+    overviewPageId: overview?.id || "",
+    overviewTitle: overview?.title || "",
     authoredPages: pages.filter((page) => page.routeSource === "authored").length,
     generatedPages: pages.filter((page) => page.routeSource === "generated").length,
     statusCounts: countBy(pages, (page) => page.status),
@@ -249,7 +256,7 @@ function buildVolume(definition, pages) {
     routeSourceCounts: countBy(pages, (page) => page.routeSource),
     sectionCounts: countBy(pages, (page) => page.section),
     sourceKeys: unique(pages.flatMap((page) => page.sourceKeys || [])),
-    openingPageIds: pages.slice(0, 8).map((page) => page.id),
+    openingPageIds: [overview, ...pages.filter((page) => page.id !== overview?.id)].filter(Boolean).slice(0, 8).map((page) => page.id),
     pageIds: pages.map((page) => page.id),
     chapters,
   };
@@ -280,6 +287,7 @@ const pageToVolume = Object.fromEntries(volumes.flatMap((volume) => volume.pageI
 const assignedPageIds = Object.keys(pageToVolume);
 const duplicatePageIds = assignedPageIds.filter((pageId, index, ids) => ids.indexOf(pageId) !== index);
 const volumeIdsMissingPages = volumes.filter((volume) => !volume.totalPages).map((volume) => volume.id);
+const volumeIdsMissingOverview = volumes.filter((volume) => !volume.overviewPageId).map((volume) => volume.id);
 const unknownSourceKeys = unique(pages.flatMap((page) => (page.sourceKeys || []).filter((sourceKey) => !sourceByKey[sourceKey])));
 const manifestWithinTarget = manifest.pages.length >= 500 && manifest.pages.length <= 800;
 
@@ -287,6 +295,7 @@ if (unassignedPageIds.length) throw new Error(`Unassigned volume pages: ${unassi
 if (duplicatePageIds.length) throw new Error(`Duplicate volume page assignments: ${unique(duplicatePageIds).join(", ")}`);
 if (assignedPageIds.length !== pages.length) throw new Error(`Volume map assigned ${assignedPageIds.length} pages for ${pages.length} reader pages`);
 if (volumeIdsMissingPages.length) throw new Error(`Empty compendium volumes: ${volumeIdsMissingPages.join(", ")}`);
+if (volumeIdsMissingOverview.length) throw new Error(`Compendium volumes missing overview pages: ${volumeIdsMissingOverview.join(", ")}`);
 if (unknownSourceKeys.length) throw new Error(`Volume map uses unknown source keys: ${unknownSourceKeys.join(", ")}`);
 
 const payload = {
@@ -302,6 +311,7 @@ const payload = {
   duplicatePageIds: [],
   unassignedPageIds,
   volumeIdsMissingPages,
+  volumeIdsMissingOverview,
   unknownSourceKeys,
   volumeDefinitions: volumeDefinitions.map(({ id, number, title, premise, readerPromise }) => ({ id, number, title, premise, readerPromise })),
   volumes,

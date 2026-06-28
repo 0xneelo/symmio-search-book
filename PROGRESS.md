@@ -133,6 +133,13 @@
 - Added Compendium Volumes to Browse so the corpus has book-scale structure before final platform selection.
 - Extended Search insights and the quality audit with volume-map coverage; current result is 16 of 18 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Authored Volume Overviews
+
+- Added 8 source-cited authored overview pages under `content/authored/compendium/`, one for each compendium volume.
+- Extended authored page metadata with `volumeId` so generated maps can attach each overview to the right book part.
+- Regenerated authored index, crosslinks, answer chunks, volume map, and quality audit: 35 authored pages, 829 reader-routable pages, 1,400 answer chunks, and 8 audited volume overview routes.
+- Updated Browse volume cards to expose an exact-page "Open overview" action; current audit result remains 16 of 18 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

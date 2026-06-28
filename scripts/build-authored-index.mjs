@@ -102,6 +102,7 @@ function toPage(filePath, args) {
     sourceKeys: data.sourceKeys || [],
     sourceUrls: data.sourceUrls || [],
     relatedGeneratedPages: data.relatedGeneratedPages || [],
+    volumeId: data.volumeId || "",
     file: relativePath,
     bodyMarkdown: body,
     excerpt: stripMarkdown(body).slice(0, 1200),

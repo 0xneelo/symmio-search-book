@@ -17,6 +17,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - 500-800 page manifest: `page-manifest.json`
 - Generated draft content corpus: `content/generated/`
 - Authored publication-candidate pages: `content/authored/`
+- Authored compendium volume overviews: `content/authored/compendium/`
 - Authored page index: `data/authored-pages.js`
 - Compact prototype search index: `data/search-index.js`
 - Generated browse/navigation tree: `data/navigation-tree.js`
@@ -111,6 +112,7 @@ node -e "const g=require('./src/search-book/data/glossary.json'); if (g.missingP
 node -e "const s=require('./src/search-book/data/source-catalog.json'); if (s.duplicateKeys.length || s.totalSources < 1) process.exit(1); console.log(s.totalSources + '/' + Object.keys(s.byGroup).length)"
 node -e "const c=require('./src/search-book/data/crosslinks.json'); if (c.missingExplicitRelatedPageIds.length || c.totalPages < 800) process.exit(1); console.log(c.totalPages + '/' + c.pagesWithRelated)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
+node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book

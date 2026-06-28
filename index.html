@@ -1590,9 +1590,11 @@
       function renderVolumes() {
         document.getElementById("volumeGrid").innerHTML = (volumeMap.volumes || [])
           .map((volume) => {
+            const overviewPage = volume.overviewPageId ? pageById.get(volume.overviewPageId) : null;
             const openingPages = (volume.openingPageIds || [])
               .map((pageId) => pageById.get(pageId))
               .filter(Boolean)
+              .filter((page) => page.id !== overviewPage?.id)
               .slice(0, 4);
             const pageLinks = openingPages
               .map((page) => `<button type="button" class="chip" data-open-page="${escapeHtml(page.id)}">${escapeHtml(page.title)}</button>`)
@@ -1606,6 +1608,13 @@
                 <div class="meta">Volume ${escapeHtml(volume.number)} / ${escapeHtml(volume.totalPages)} pages / ${escapeHtml((volume.chapters || []).length)} chapters</div>
                 <h3>${escapeHtml(volume.title)}</h3>
                 <p>${escapeHtml(volume.readerPromise || volume.premise || "")}</p>
+                <div class="source-row">
+                  ${
+                    overviewPage
+                      ? `<button type="button" class="chip" data-open-page="${escapeHtml(overviewPage.id)}">Open overview</button>`
+                      : '<span class="source-chip">overview pending</span>'
+                  }
+                </div>
                 <div class="source-row">${chapterChips}</div>
                 <div class="source-row">${pageLinks}</div>
               </article>
@@ -1864,7 +1873,7 @@
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
-          <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
+          <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeOverviews || 0)} overviews, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>

@@ -199,3 +199,11 @@
 **Reason:** A 794-page manifest is not enough on its own. The docs need book-scale structure so readers, editors, and later platform work can reason about the corpus as volumes and chapters while keeping every page assigned exactly once.
 
 **Status:** Accepted for prototype iteration; final production IA can adapt this map after D-003 is resolved.
+
+## D-026: Treat Volume Overviews As Authored Pages
+
+**Decision:** Add one authored overview page per compendium volume and attach it to `data/volume-map.*` with a stable `volumeId`.
+
+**Reason:** The 500-800 page corpus needs editorial entry points, not just generated section listings. Volume overviews give readers and editors a human-written orientation page for each book part while keeping exact-page routing, source keys, and audit coverage deterministic.
+
+**Status:** Accepted for the authored layer.

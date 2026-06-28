@@ -242,9 +242,12 @@ const volumeMapPageIds = new Set(Object.keys(volumeMap.pageToVolume || {}));
 const volumeMapDuplicateIds = volumeMap.duplicatePageIds || [];
 const volumeMapUnassignedIds = volumeMap.unassignedPageIds || [];
 const volumeMapEmptyIds = volumeMap.volumeIdsMissingPages || [];
+const volumeMapMissingOverviewIds = volumeMap.volumeIdsMissingOverview || [];
 const volumeMapUnknownSourceKeys = volumeMap.unknownSourceKeys || [];
 const readerIdsMissingVolumeMap = [...readerPageIds].filter((pageId) => !volumeMapPageIds.has(pageId));
 const volumeMapIdsMissingReader = [...volumeMapPageIds].filter((pageId) => !readerPageIds.has(pageId));
+const volumeOverviewPageIds = (volumeMap.volumes || []).map((volume) => volume.overviewPageId).filter(Boolean);
+const volumeOverviewIdsMissingReader = volumeOverviewPageIds.filter((pageId) => !readerPageIds.has(pageId));
 const crosslinkPageIds = Object.keys(crosslinks.pageById || {});
 const readerIdsMissingCrosslinks = [...readerPageIds].filter((pageId) => !crosslinkPageIds.includes(pageId));
 const crosslinkIdsMissingReader = crosslinkPageIds.filter((pageId) => !readerPageIds.has(pageId));
@@ -401,10 +404,13 @@ const gates = [
       volumeMapDuplicateIds.length === 0 &&
       volumeMapUnassignedIds.length === 0 &&
       volumeMapEmptyIds.length === 0 &&
+      volumeMapMissingOverviewIds.length === 0 &&
       volumeMapUnknownSourceKeys.length === 0 &&
       readerIdsMissingVolumeMap.length === 0 &&
-      volumeMapIdsMissingReader.length === 0,
-    detail: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeMap.pagesAssigned || 0}/${readerPageIds.size} reader pages assigned, manifest target ${volumeMap.manifestWithinTarget ? "met" : "open"}`,
+      volumeMapIdsMissingReader.length === 0 &&
+      volumeOverviewPageIds.length === (volumeMap.totalVolumes || 0) &&
+      volumeOverviewIdsMissingReader.length === 0,
+    detail: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeOverviewPageIds.length} overview pages, ${volumeMap.pagesAssigned || 0}/${readerPageIds.size} reader pages assigned, manifest target ${volumeMap.manifestWithinTarget ? "met" : "open"}`,
   },
   {
     id: "operator-inbox",
@@ -457,6 +463,7 @@ const payload = {
     answerChunkSourceKeys: (answerChunks.usedSourceKeys || []).length,
     compendiumVolumes: volumeMap.totalVolumes || 0,
     compendiumChapters: volumeMap.totalChapters || 0,
+    compendiumVolumeOverviews: volumeOverviewPageIds.length,
     compendiumVolumeReaderPages: volumeMap.readerPages || 0,
     compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
     sourceRegistryKeys: knownSourceKeys.size,
@@ -585,6 +592,7 @@ const payload = {
       id: volume.id,
       number: volume.number,
       title: volume.title,
+      overviewPageId: volume.overviewPageId || "",
       totalPages: volume.totalPages,
       chapters: (volume.chapters || []).length,
       authoredPages: volume.authoredPages,
@@ -593,9 +601,11 @@ const payload = {
     duplicatePageIds: volumeMapDuplicateIds,
     unassignedPageIds: volumeMapUnassignedIds,
     volumeIdsMissingPages: volumeMapEmptyIds,
+    volumeIdsMissingOverview: volumeMapMissingOverviewIds,
     unknownSourceKeys: volumeMapUnknownSourceKeys,
     readerIdsMissingVolumeMap,
     volumeMapIdsMissingReader,
+    volumeOverviewIdsMissingReader,
   },
   unresolved: {
     operatorInbox: openInboxItems,
@@ -623,9 +633,11 @@ const payload = {
     volumeMapDuplicateIds,
     volumeMapUnassignedIds,
     volumeMapEmptyIds,
+    volumeMapMissingOverviewIds,
     volumeMapUnknownSourceKeys,
     readerIdsMissingVolumeMap,
     volumeMapIdsMissingReader,
+    volumeOverviewIdsMissingReader,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

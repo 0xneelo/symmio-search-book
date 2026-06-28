@@ -6,9 +6,9 @@
     "manifestPages": 794,
     "generatedFiles": 794,
     "searchIndexEntries": 794,
-    "authoredPublicationCandidates": 27,
-    "authoredFiles": 27,
-    "readerRoutablePages": 821,
+    "authoredPublicationCandidates": 35,
+    "authoredFiles": 35,
+    "readerRoutablePages": 829,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
     "seededQuestionRoutes": 29,
@@ -26,19 +26,20 @@
     "glossaryCategories": 10,
     "sourceCatalogEntries": 51,
     "linkedSourceCatalogEntries": 45,
-    "crosslinkedReaderPages": 821,
-    "readerPagesWithPrevious": 820,
-    "readerPagesWithNext": 820,
-    "readerPagesWithRelated": 820,
-    "answerChunkPages": 839,
-    "answerChunks": 1384,
-    "answerChunkSourceKeys": 38,
+    "crosslinkedReaderPages": 829,
+    "readerPagesWithPrevious": 828,
+    "readerPagesWithNext": 828,
+    "readerPagesWithRelated": 829,
+    "answerChunkPages": 847,
+    "answerChunks": 1400,
+    "answerChunkSourceKeys": 41,
     "compendiumVolumes": 8,
-    "compendiumChapters": 55,
-    "compendiumVolumeReaderPages": 821,
-    "compendiumVolumeAssignedPages": 821,
+    "compendiumChapters": 63,
+    "compendiumVolumeOverviews": 8,
+    "compendiumVolumeReaderPages": 829,
+    "compendiumVolumeAssignedPages": 829,
     "sourceRegistryKeys": 51,
-    "usedSourceKeys": 38,
+    "usedSourceKeys": 41,
     "openOperatorItems": 4,
     "resolvedOperatorItems": 0,
     "trackedGaps": 11,
@@ -68,7 +69,7 @@
       "id": "source-keys",
       "label": "Registered source-key coverage",
       "passed": true,
-      "detail": "38 used keys, 51 registered keys, 0 unknown used keys"
+      "detail": "41 used keys, 51 registered keys, 0 unknown used keys"
     },
     {
       "id": "source-catalog",
@@ -86,7 +87,7 @@
       "id": "authored-bodies",
       "label": "Authored pages carry bodies",
       "passed": true,
-      "detail": "27 authored index pages, 27 authored markdown files"
+      "detail": "35 authored index pages, 35 authored markdown files"
     },
     {
       "id": "duplicate-manifest-ids",
@@ -128,19 +129,19 @@
       "id": "reader-crosslinks",
       "label": "Reader crosslinks resolve",
       "passed": true,
-      "detail": "821 crosslinked pages, 821 reader routes, 0 broken explicit related routes"
+      "detail": "829 crosslinked pages, 829 reader routes, 0 broken explicit related routes"
     },
     {
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "839 pages, 1384 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "847 pages, 1400 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
       "label": "Compendium volume map resolves",
       "passed": true,
-      "detail": "8 volumes, 55 chapters, 821/821 reader pages assigned, manifest target met"
+      "detail": "8 volumes, 63 chapters, 8 overview pages, 829/829 reader pages assigned, manifest target met"
     },
     {
       "id": "operator-inbox",
@@ -164,8 +165,8 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "publication-candidate": 15,
-      "publication-candidate-needs-operator-review": 11,
+      "publication-candidate": 21,
+      "publication-candidate-needs-operator-review": 13,
       "needs-reconciliation": 1
     },
     "rows": [
@@ -196,12 +197,12 @@
       },
       {
         "status": "publication-candidate",
-        "count": 15,
+        "count": 21,
         "severity": "candidate"
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 11,
+        "count": 13,
         "severity": "blocked"
       }
     ]
@@ -216,7 +217,8 @@
       "protocol-reference": 3,
       "rewards-referrals": 3,
       "answer-engine": 1,
-      "product-reference": 1
+      "product-reference": 1,
+      "compendium": 8
     }
   },
   "sourceCoverage": {
@@ -237,9 +239,9 @@
       "unknownSourceKeys": []
     },
     "authored": {
-      "total": 27,
-      "withSourceKeys": 27,
-      "withSourceUrls": 27,
+      "total": 35,
+      "withSourceKeys": 35,
+      "withSourceUrls": 35,
       "missingSourceKeys": [],
       "missingSourceUrls": [],
       "unknownSourceKeys": []
@@ -262,7 +264,10 @@
       "server-pulse",
       "server-volume",
       "server-volume-snapshots",
+      "spec-01",
+      "spec-02",
       "spec-03",
+      "spec-05",
       "spec-06",
       "spec-09",
       "styleguide",
@@ -290,10 +295,7 @@
       "authored-pages",
       "hyperliquid-llms",
       "spec-00",
-      "spec-01",
-      "spec-02",
       "spec-04",
-      "spec-05",
       "spec-07",
       "spec-08",
       "spec-prompt",
@@ -510,11 +512,12 @@
     "missingSourceKeys": []
   },
   "crosslinkCoverage": {
-    "totalPages": 821,
-    "pagesWithPrevious": 820,
-    "pagesWithNext": 820,
-    "pagesWithRelated": 820,
+    "totalPages": 829,
+    "pagesWithPrevious": 828,
+    "pagesWithNext": 828,
+    "pagesWithRelated": 829,
     "bySection": {
+      "compendium": 8,
       "manifesto": 9,
       "protocol-reference": 6,
       "product-reference": 4,
@@ -542,7 +545,7 @@
       "vision-sections": 541
     },
     "byRouteSource": {
-      "authored": 27,
+      "authored": 35,
       "generated": 794
     },
     "missingExplicitRelatedPageIds": [],
@@ -556,16 +559,16 @@
       "maxWords": 220,
       "overlapWords": 35
     },
-    "totalPages": 839,
-    "totalChunks": 1384,
-    "pagesWithChunks": 839,
+    "totalPages": 847,
+    "totalChunks": 1400,
+    "pagesWithChunks": 847,
     "byRouteSource": {
-      "authored": 27,
+      "authored": 35,
       "curated": 20,
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 43,
+      "authored": 59,
       "curated": 20,
       "generated": 1321
     },
@@ -577,6 +580,7 @@
       "rewards-referrals": 10,
       "answer-engine": 1,
       "product-reference": 4,
+      "compendium": 16,
       "Dashboard": 2,
       "Competitive": 1,
       "Protocol": 4,
@@ -624,7 +628,10 @@
       "server-pulse",
       "server-volume",
       "server-volume-snapshots",
+      "spec-01",
+      "spec-02",
       "spec-03",
+      "spec-05",
       "spec-06",
       "spec-09",
       "styleguide",
@@ -655,91 +662,101 @@
     "status": "prototype-compendium-volume-map",
     "targetRange": "500-800 pages",
     "manifestPages": 794,
-    "readerPages": 821,
+    "readerPages": 829,
     "totalVolumes": 8,
-    "totalChapters": 55,
-    "pagesAssigned": 821,
+    "totalChapters": 63,
+    "pagesAssigned": 829,
     "manifestWithinTarget": true,
     "volumes": [
       {
         "id": "volume-01-orientation-and-thesis",
         "number": 1,
         "title": "Orientation And Core Thesis",
-        "totalPages": 21,
-        "chapters": 12,
-        "authoredPages": 10,
+        "overviewPageId": "authored-volume-01-orientation-and-thesis",
+        "totalPages": 22,
+        "chapters": 13,
+        "authoredPages": 11,
         "generatedPages": 11
       },
       {
         "id": "volume-02-bootstrap-and-proof-of-value",
         "number": 2,
         "title": "Bootstrap Trilemma And Proof Of Value",
-        "totalPages": 238,
-        "chapters": 3,
-        "authoredPages": 0,
+        "overviewPageId": "authored-volume-02-bootstrap-and-proof-of-value",
+        "totalPages": 239,
+        "chapters": 4,
+        "authoredPages": 1,
         "generatedPages": 238
       },
       {
         "id": "volume-03-listing-power-and-orderbooks",
         "number": 3,
         "title": "Listing Power And Orderbook Alternatives",
-        "totalPages": 155,
-        "chapters": 6,
-        "authoredPages": 0,
+        "overviewPageId": "authored-volume-03-listing-power-and-orderbooks",
+        "totalPages": 156,
+        "chapters": 7,
+        "authoredPages": 1,
         "generatedPages": 155
       },
       {
         "id": "volume-04-token-margin-and-funding-systems",
         "number": 4,
         "title": "Token Margin, Pillars, And Funding Systems",
-        "totalPages": 172,
-        "chapters": 5,
-        "authoredPages": 0,
+        "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
+        "totalPages": 173,
+        "chapters": 6,
+        "authoredPages": 1,
         "generatedPages": 172
       },
       {
         "id": "volume-05-solver-lp-and-protocol-operations",
         "number": 5,
         "title": "Solver, LP, And Protocol Operations",
-        "totalPages": 78,
-        "chapters": 10,
-        "authoredPages": 3,
+        "overviewPageId": "authored-volume-05-solver-lp-and-protocol-operations",
+        "totalPages": 79,
+        "chapters": 11,
+        "authoredPages": 4,
         "generatedPages": 75
       },
       {
         "id": "volume-06-referrals-and-market-formation",
         "number": 6,
         "title": "Referrals And Market Formation",
-        "totalPages": 112,
-        "chapters": 5,
-        "authoredPages": 3,
+        "overviewPageId": "authored-volume-06-referrals-and-market-formation",
+        "totalPages": 113,
+        "chapters": 6,
+        "authoredPages": 4,
         "generatedPages": 109
       },
       {
         "id": "volume-07-product-trading-and-risk",
         "number": 7,
         "title": "Product, Trading, And Risk Guides",
-        "totalPages": 27,
-        "chapters": 6,
-        "authoredPages": 0,
+        "overviewPageId": "authored-volume-07-product-trading-and-risk",
+        "totalPages": 28,
+        "chapters": 7,
+        "authoredPages": 1,
         "generatedPages": 27
       },
       {
         "id": "volume-08-dashboard-faq-and-living-docs",
         "number": 8,
         "title": "Dashboard, FAQ, And Living Docs",
-        "totalPages": 18,
-        "chapters": 8,
-        "authoredPages": 11,
+        "overviewPageId": "authored-volume-08-dashboard-faq-and-living-docs",
+        "totalPages": 19,
+        "chapters": 9,
+        "authoredPages": 12,
         "generatedPages": 7
       }
     ],
     "duplicatePageIds": [],
     "unassignedPageIds": [],
     "volumeIdsMissingPages": [],
+    "volumeIdsMissingOverview": [],
     "unknownSourceKeys": [],
     "readerIdsMissingVolumeMap": [],
-    "volumeMapIdsMissingReader": []
+    "volumeMapIdsMissingReader": [],
+    "volumeOverviewIdsMissingReader": []
   },
   "unresolved": {
     "operatorInbox": [
@@ -829,9 +846,11 @@
     "volumeMapDuplicateIds": [],
     "volumeMapUnassignedIds": [],
     "volumeMapEmptyIds": [],
+    "volumeMapMissingOverviewIds": [],
     "volumeMapUnknownSourceKeys": [],
     "readerIdsMissingVolumeMap": [],
     "volumeMapIdsMissingReader": [],
+    "volumeOverviewIdsMissingReader": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",
