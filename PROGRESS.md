@@ -484,6 +484,12 @@
 - Added an Ask route for `What was AMFQ?` and locked the terminology in the style guide.
 - Recorded the decision that current docs should use `Intent`, while AMFQ remains a legacy/source-translation term.
 
+## 2026-06-28 — Information And Trade Convergence Thesis Layer
+
+- Added five authored manifesto pages from Neelo's Information/Trade Convergence corpus: the convergence crossroads, synthetic-abundance verification crisis, market cap as costly signal, the Strait Gate market filter, and the global reputation protocol thesis.
+- Routed five new Ask questions so the front door can explain the source's strongest vision layer without sending readers only to raw generated excerpts.
+- Preserved the publication guardrails: market cap is evidence rather than perfect truth, Strait Gate thresholds are not live rules, and global reputation language is an endgame thesis rather than a current dominance claim.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

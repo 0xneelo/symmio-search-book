@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 192
+      "totalGoldenRoutes": 197
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 210,
-    "retrievalEligiblePages": 1002,
+    "publicNavigationPages": 215,
+    "retrievalEligiblePages": 1007,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 210,
+      "candidate": 215,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 192,
-    "exactRouteTestsPassing": 192,
+    "totalExactRouteTests": 197,
+    "exactRouteTestsPassing": 197,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 192
+      "candidate": 197
     },
     "exactRoutesByConfidence": {
-      "Medium": 88,
+      "Medium": 91,
       "High": 30,
-      "Low": 74
+      "Low": 76
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1893,6 +1893,69 @@
         "passes": true
       },
       {
+        "id": "qr-what-is-the-information-and-trade-convergence",
+        "query": "What is the Information and Trade convergence?",
+        "normalizedQuery": "what is the information and trade convergence",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-information-trade-convergence-crossroads",
+        "expectedPageTitle": "Information And Trade Are Converging",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-information-and-trade-convergence",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-synthetic-abundance-create-a-verification-crisis",
+        "query": "Why does synthetic abundance create a verification crisis?",
+        "normalizedQuery": "why does synthetic abundance create a verification crisis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-synthetic-abundance-verification-crisis",
+        "expectedPageTitle": "Synthetic Abundance Creates A Verification Crisis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-synthetic-abundance-create-a-verification-crisis",
+        "passes": true
+      },
+      {
+        "id": "qr-does-market-cap-prove-truth",
+        "query": "Does market cap prove truth?",
+        "normalizedQuery": "does market cap prove truth",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-cap-as-costly-signal",
+        "expectedPageTitle": "Market Cap Is A Costly Signal, Not Perfect Truth",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-does-market-cap-prove-truth",
+        "passes": true
+      },
+      {
         "id": "qr-how-do-intents-help-verify-long-tail-information",
         "query": "How do intents help verify long-tail information?",
         "normalizedQuery": "how do intents help verify long tail information",
@@ -1932,6 +1995,48 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-hybrid-solver-liquidity-waterfall",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-strait-gate-thesis",
+        "query": "What is the Strait Gate thesis?",
+        "normalizedQuery": "what is the strait gate thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strait-gate-market-filter",
+        "expectedPageTitle": "The Strait Gate Is A Market Filter",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-strait-gate-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-why-call-vibe-a-global-reputation-protocol",
+        "query": "Why call Vibe a global reputation protocol?",
+        "normalizedQuery": "why call vibe a global reputation protocol",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-global-reputation-protocol-thesis",
+        "expectedPageTitle": "The Global Reputation Protocol Thesis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-call-vibe-a-global-reputation-protocol",
         "passes": true
       },
       {
@@ -4574,7 +4679,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 192,
+      "exactRoutes": 197,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

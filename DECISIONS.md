@@ -639,3 +639,11 @@
 **Reason:** The source corpus and older Vibe architecture language use AMFQ/aMFQ, while the operator clarified that AMFQ was the old name for Intents. Without a terminology lock, the compendium could accidentally imply two separate systems.
 
 **Status:** Accepted for all current docs. Use AMFQ only when translating older source material, search queries, or archived diagrams into the current Intents vocabulary.
+
+## D-081: Translate Information/Trade Vision Into Review-Bound Mechanism
+
+**Decision:** Add authored pages for Neelo's Information/Trade convergence thesis that preserve the ambition of the source while translating it into mechanism-first, review-bound prose: convergence, synthetic abundance, market-cap signaling, the Strait Gate, and the global reputation protocol endgame.
+
+**Reason:** The raw source is one of the strongest vision documents in the corpus, but several claims need careful publication framing. Market cap should be documented as costly evidence rather than perfect truth. Strait Gate graduation paths and thresholds should remain examples until confirmed. Global reputation protocol language should be framed as a category thesis that depends on adoption, solver participation, data quality, and downstream integrations.
+
+**Status:** Accepted for the authored manifesto layer; exact graduation rules, reputation metrics, and live venue adoption claims remain under operator/product review.
