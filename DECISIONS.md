@@ -391,3 +391,11 @@
 **Reason:** The 794-page Neelo corpus already maps the broad thesis, but first-contact readers need a concise path from "perps for any token" to the actual mechanism. These pages show why Vibe's argument depends on markets changing architecture over time instead of forcing every market into one static protocol design.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-050: Treat Listing Power As Bootstrap Plus Graduation
+
+**Decision:** Add authored Volume 03 pages from Neelo's Listing Monopoly corpus that distinguish lifecycle gates, symbolic listing, tradeable liquidity, bootstrap/maturation/graduation, partnership posture, and monopoly durability.
+
+**Reason:** The operator called Neelo's GitHub docs the strongest vision source, and the listing-monopoly corpus is one of the clearest sources for Vibe's category ambition. It prevents the compendium from flattening the thesis into "more tickers" by showing that durable power sits in the path from early market creation to real liquidity and eventual order-book readiness.
+
+**Status:** Accepted for the authored manifesto layer.

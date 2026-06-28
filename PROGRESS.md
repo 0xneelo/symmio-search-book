@@ -217,6 +217,13 @@
 - Kept isolation, cross-margin, capital-efficiency, and Vibe-specific vault accounting claims out of final prose unless the registered primary sources support them.
 - Used official Symmio docs for the clearing-house model, PartyA/PartyB lifecycle, solver quote monitoring, collateral allocation, and current collateral formula.
 
+## 2026-06-28 — Listing Monopoly Authored Pages
+
+- Added five authored Volume 03 manifesto pages from Neelo's Listing Monopoly corpus: lifecycle gates as market power, listing-plus-liquidity, the gap-filling perps protocol, partnership over venue war, and the Thielian listing-monopoly strategy.
+- Added five direct question routes so Ask can answer listing-power strategy questions from authored pages before falling back to generated source chapters.
+- Kept the distinction between source-backed strategic model and live product commitments: graduation thresholds, venue handoffs, and exact liquidity mechanics still need implementation/product review before becoming public promises.
+- Strengthened the 500-800 page compendium's book spine without changing the 794-page manifest target.
+
 ## 2026-06-28 — Vibe Product Reference Authored Pages
 
 - Added four authored Vibe product-reference pages: product overview, intent architecture, VibeCaps margin management, and Vibe points program.

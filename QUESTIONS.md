@@ -47,6 +47,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does Proof of Value mean? | `authored-proof-of-value` | Medium | Neelo's paper provides the vision; treat as thesis rather than implemented dashboard behavior. |
 | Why does Vibe need a short side? | `authored-truth-markets-no-button` | Medium | Neelo's information/trade paper frames shorting as the missing negative market signal. |
 | What is the listing monopoly? | `authored-listing-monopoly` | Medium | Neelo's lifecycle framework explains why derivatives access is a power center. |
+| Why do lifecycle gates create market power? | `authored-lifecycle-gates-as-market-power` | Medium | Neelo's listing-monopoly framework treats creation, graduation, spot, and perp availability as control points that capture users, fees, data, and influence. |
+| Why is permissionless listing not enough? | `authored-listing-plus-liquidity-thesis` | Medium | Neelo's Section 4Z distinguishes symbolic market creation from tradeable markets with scalable liquidity generation. |
+| What would a gap-filling perp protocol look like? | `authored-gap-filling-perps-protocol` | Medium | Neelo's hypothetical permissionless perps model uses bootstrap, maturation, and graduation rather than treating every listing as a mature market. |
+| Why is Vibe complementary to launchpads and order books? | `authored-partnership-over-venue-war` | Medium | Neelo's strategic implications frame the gap-filling layer as upstream evidence and market maturation infrastructure for existing lifecycle controllers. |
+| Why is the listing-monopoly thesis a monopoly strategy? | `authored-thielian-listing-monopoly` | Medium | Neelo's Thielian analysis defines the small initial market, value capture, network effects, and durability claims behind lifecycle control. |
 | Why are curated listings gameable? | `authored-game-theory-of-listings` | Medium | Neelo's game-theory paper separates perceived interest from actual market interest. |
 | What are the three Vibe pillars? | `authored-vibe-pillars` | Medium | Neelo's pillars paper links bootstrap, defense, and LP economics. |
 | How do LP profit and dynamic pricing work? | `authored-lp-profit-and-dynamic-pricing` | Low | Neelo's funding model supports the architecture, but public economics wording depends on operator review. |
