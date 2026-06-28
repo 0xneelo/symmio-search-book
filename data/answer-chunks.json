@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 863,
-  "totalChunks": 1436,
-  "pagesWithChunks": 863,
+  "totalPages": 868,
+  "totalChunks": 1446,
+  "pagesWithChunks": 868,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -380,17 +380,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 51,
+    "authored": 56,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 95,
+    "authored": 105,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 42,
+    "manifesto": 52,
     "competitive-context": 6,
     "dashboard-reference": 18,
     "reference": 2,
@@ -910,6 +910,54 @@
       "text": "Dashboard Volume The Volume view explains the network volume input behind revenue and points. It is routed as volume , fetches /api/me/volume , and shows total network trade volume, a per level summary, and wallet level snapshot rows. The current UI labels volume as local wallet snapshots that refresh daily. Rows show level, account, wallet, snapshot date, trade volume, and stale state markers. The underlying grounding spec says today's source is the Vibe backend wallet volume API with caching, normalization, and daily snapshots, while the planned Barometer upgrade would move to Goldsky analytics subgraphs. Reader Implication Volume should be documented as a measured input with lag and source status. It is not a live per trade feed in the current implementation, and the exact network depth remains tied to the referral depth reconciliation. Open Gaps Operator inbox item 3 controls final depth language. G 005 tracks the current REST source versus the planned subgraph migration. Sources dashboard app : dashboard route registration. dashboard volume : Volume tab UI and table shape. server volume : current backend wallet volume source and cache behavior. server volume snapshots : daily snapshot behavior. server me : /api/me/volume route behavior. spec 03 : current source and Barometer migration guidance. Related Pages authored network volume authored dashboard network linear subgraph volume"
     },
     {
+      "id": "authored-economic-clarity-for-permissionless-perps::001",
+      "pageId": "authored-economic-clarity-for-permissionless-perps",
+      "chunkIndex": 1,
+      "title": "Economic Clarity For Permissionless Perps",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/05-economic-clarity"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/economic-clarity-for-permissionless-perps.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Economic Clarity For Permissionless Perps Permissionless derivatives only work if the docs can answer a hard question clearly: who bears risk, when, and how? Neelo's value framework names four constituencies: LPs, traders, projects, and the broader ecosystem. The design is only durable if value and risk are aligned across them. Traders need execution, payout certainty, hedging, and market access. Projects need a way to turn inventory into useful market structure. LPs need yield that fits the risk they already hold. Solvers need enough edge to warehouse and hedge residual exposure. The economic clarity source decomposes a perp fill into netted and un netted exposure. When flow is balanced, value transfers between traders. When flow is imbalanced, the solver temporarily warehouses residual exposure and hedges or uses liquidity resources according to the venue's disclosed risk terms. That distinction is central to trust. Readers should know whether a position is trader to trader, trader to solver, or partly both. This page should stay under operator review because exact Vibe economics, revenue shares, vault terms, and risk waterfall wording must be reconciled with current product decisions before publication. The source backed principle is already usable: a credible permissionless perp market has to document risk allocation before asking sophisticated users to trust the market. Reader Implication The docs should make every market legible in"
+    },
+    {
+      "id": "authored-economic-clarity-for-permissionless-perps::002",
+      "pageId": "authored-economic-clarity-for-permissionless-perps",
+      "chunkIndex": 2,
+      "title": "Economic Clarity For Permissionless Perps",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/05-economic-clarity"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/economic-clarity-for-permissionless-perps.md",
+      "wordStart": 185,
+      "wordEnd": 293,
+      "wordCount": 108,
+      "text": "The source backed principle is already usable: a credible permissionless perp market has to document risk allocation before asking sophisticated users to trust the market. Reader Implication The docs should make every market legible in due diligence terms: who backs the fill, how imbalance is hedged, where losses go, and when ADL or insurance enters the picture. If those answers are unclear, the market is not self serve for serious participants. Sources vibe papers : Neelo, \"Section 2: A Framework for Value Dimensions\". vibe papers : Neelo, \"Section 5: Economic Clarity\". Related Pages authored liquidity as trader experience authored solver owned market maker authored token margined reflexivity risk"
+    },
+    {
       "id": "authored-end-of-narrative-based-listings::001",
       "pageId": "authored-end-of-narrative-based-listings",
       "chunkIndex": 1,
@@ -1218,6 +1266,52 @@
       "wordEnd": 234,
       "wordCount": 49,
       "text": "Deep Dive: 6.2 Settlement Layer\". vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.3 Solver Layer\". vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.4 Oracle Layer\". Related Pages authored solver owned market maker authored symmio party a party b authored token vault perps versus usdc pools"
+    },
+    {
+      "id": "authored-information-validation-crisis::001",
+      "pageId": "authored-information-validation-crisis",
+      "chunkIndex": 1,
+      "title": "The Information Validation Crisis",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/information-validation-crisis.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Information Validation Crisis The Part II thesis starts before derivatives. Neelo's source frames civilization as a sequence of better information systems: speech, writing, printing, computers, the internet, and now AI. Each step lowers the cost of producing, preserving, moving, and recombining information. The current break is that generation has become cheap enough to overwhelm validation. AI pushes markets into a world where convincing content can be produced faster than communities can verify it. The bottleneck is no longer expression. The bottleneck is deciding what deserves belief, capital, attention, and risk. That is why the compendium should treat markets as information infrastructure. A market is not only a place to speculate. It is a mechanism for forcing claims to carry cost. Spot buying expresses belief, but it is asymmetric: it mostly rewards enthusiasm. Derivatives add the missing side of information by letting participants hedge, short, and pressure test claims. This is the bridge from Proof of Value to Vibe. If the world can create infinite claims and infinite tokens, the serious infrastructure question becomes: which systems can validate them without central gatekeepers? Reader Implication New readers should understand that Vibe's thesis is not \"more trading\" for its own sake. It is a validation thesis: markets become more useful when they can express both belief and skepticism around any asset that"
+    },
+    {
+      "id": "authored-information-validation-crisis::002",
+      "pageId": "authored-information-validation-crisis",
+      "chunkIndex": 2,
+      "title": "The Information Validation Crisis",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/information-validation-crisis.md",
+      "wordStart": 185,
+      "wordEnd": 246,
+      "wordCount": 61,
+      "text": "readers should understand that Vibe's thesis is not \"more trading\" for its own sake. It is a validation thesis: markets become more useful when they can express both belief and skepticism around any asset that earns attention. Sources vibe papers : Neelo, \"Section 2: Information as Civilization\". Related Pages authored proof of value authored truth markets no button authored last primitive"
     },
     {
       "id": "authored-intents-and-solvers::001",
@@ -2015,6 +2109,52 @@
       "text": "order book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity. Reader Implication For a project, the question becomes whether its market can earn graduation. For a CLOB ecosystem, Vibe should read as an upstream feeder and verification layer, not only as a competitor. For Vibe, the strategic bar is repeated proof that early markets can arrive downstream with better evidence than narrative alone. Sources vibe papers : Neelo, \"Section 7: The CLOB Upgrade\". Related Pages authored vibe as discovery layer authored market assembly line authored hybrid settlement solver stack"
     },
     {
+      "id": "authored-perpetual-protocol-design-space::001",
+      "pageId": "authored-perpetual-protocol-design-space",
+      "chunkIndex": 1,
+      "title": "The Perpetual Protocol Design Space",
+      "section": "manifesto",
+      "track": "03 — Market Argument",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/perpetual-protocol-design-space.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Perpetual Protocol Design Space The compendium should not describe perpetual protocols as if they differ only by branding. Neelo's framework gives readers the vocabulary needed to compare designs: matching engine, collateralization, and insurance topology. The matching engine asks how trades execute. Synchronous systems, such as order books, need counterparties present at the same time. They are capital efficient and familiar when two sided flow exists, but they struggle to bootstrap thin markets. Asynchronous systems let a trader execute against a persistent counterparty such as a solver or vault. They can serve one sided demand, but the counterparty must price and manage the risk. Collateralization asks who pays winning traders. Netted systems are efficient because longs and shorts pay each other, but they require balanced flow. Fully collateralized systems can handle one sided flow because an LP or vault backs payouts, but they demand much more capital. Insurance topology asks whether risk is isolated per market or shared across markets. Isolation is safer for new markets; cross margin becomes attractive after maturity. The resulting thesis is a lifecycle thesis. Early markets need bootstrap reliability more than maximum efficiency. Mature markets can move toward tighter spreads, better netting, and deeper order book behavior. Vibe's argument sits in that transition: start where a market can exist, then graduate as the market proves"
+    },
+    {
+      "id": "authored-perpetual-protocol-design-space::002",
+      "pageId": "authored-perpetual-protocol-design-space",
+      "chunkIndex": 2,
+      "title": "The Perpetual Protocol Design Space",
+      "section": "manifesto",
+      "track": "03 — Market Argument",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/perpetual-protocol-design-space.md",
+      "wordStart": 185,
+      "wordEnd": 284,
+      "wordCount": 99,
+      "text": "than maximum efficiency. Mature markets can move toward tighter spreads, better netting, and deeper order book behavior. Vibe's argument sits in that transition: start where a market can exist, then graduate as the market proves itself. Reader Implication Readers should leave this page able to ask the right architecture questions: is the market synchronous or asynchronous, netted or collateralized, isolated or cross margin, and is that choice appropriate for the market's maturity? Sources vibe papers : Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols\". Related Pages authored bootstrap trilemma authored four transitions authored order books as graduation layer"
+    },
+    {
       "id": "authored-points-and-vibe-points::001",
       "pageId": "authored-points-and-vibe-points",
       "chunkIndex": 1,
@@ -2453,6 +2593,54 @@
       "wordEnd": 222,
       "wordCount": 37,
       "text": "Verification Layer for the Tokenized Economy\". vibe papers : Neelo, \"Section 4: The Missing NO Button\". Related Pages authored proof of value authored listing monopoly neelo 14 information trade convergence 14 docs 04 the missing no button"
+    },
+    {
+      "id": "authored-universal-issuance-needs-derivatives::001",
+      "pageId": "authored-universal-issuance-needs-derivatives",
+      "chunkIndex": 1,
+      "title": "Universal Issuance Needs Derivatives",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/universal-issuance-needs-derivatives.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress tested, or matured into credible market structure. This is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying. Derivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail instead of waiting for a permissioned venue to decide which assets are worthy. Reader Implication The compendium should make the sequence clear: issuance created abundance; spot created access; derivatives create two sided market discipline. Permissionless derivatives matter because they make the"
+    },
+    {
+      "id": "authored-universal-issuance-needs-derivatives::002",
+      "pageId": "authored-universal-issuance-needs-derivatives",
+      "chunkIndex": 2,
+      "title": "Universal Issuance Needs Derivatives",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/universal-issuance-needs-derivatives.md",
+      "wordStart": 185,
+      "wordEnd": 262,
+      "wordCount": 77,
+      "text": "venue to decide which assets are worthy. Reader Implication The compendium should make the sequence clear: issuance created abundance; spot created access; derivatives create two sided market discipline. Permissionless derivatives matter because they make the token lifecycle harder to fake. Sources vibe papers : Neelo, \"Section 3: The Issuance Revolution\". vibe papers : Neelo, \"Section 4: Why the Industry Is Still Broken\". Related Pages authored market creation gap authored last primitive authored end of narrative based listings"
     },
     {
       "id": "authored-vibe-as-discovery-layer::001",
@@ -3037,6 +3225,54 @@
       "wordEnd": 247,
       "wordCount": 62,
       "text": "spec 03 : Dashboard and economics grounding. spec 06 : Answer engine and living docs loop. spec 09 : Mockup and visual IA target. dashboard app : Current dashboard shell. local revenue doc : Local network revenue explanation. dashboard revenue doc : In app revenue documentation. Related Pages authored dashboard overview authored estimated network revenue authored search insights loop authored dashboard faq"
+    },
+    {
+      "id": "authored-why-derivatives-matter::001",
+      "pageId": "authored-why-derivatives-matter",
+      "chunkIndex": 1,
+      "title": "Why Derivatives Matter",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/why-derivatives-matter.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Why Derivatives Matter Spot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value. That second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure. Neelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path. The key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is not finished. Reader Implication When a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two sided, stress"
+    },
+    {
+      "id": "authored-why-derivatives-matter::002",
+      "pageId": "authored-why-derivatives-matter",
+      "chunkIndex": 2,
+      "title": "Why Derivatives Matter",
+      "section": "manifesto",
+      "track": "02 — Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/why-derivatives-matter.md",
+      "wordStart": 185,
+      "wordEnd": 259,
+      "wordCount": 74,
+      "text": "finished. Reader Implication When a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two sided, stress tested market information. Sources vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". vibe papers : Neelo, \"Section 4: Trader and Project Value\". Related Pages authored truth markets no button authored liquidity as trader experience authored proof of value"
     },
     {
       "id": "estimated-network-revenue::001",

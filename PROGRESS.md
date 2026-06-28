@@ -203,6 +203,13 @@
 - Narrowed `G-002A` to reflect that the Neelo authored spine has grown, while most of the 794-page corpus still needs Session 2 editing before publication.
 - Kept SSHE-specific mechanics under owner/source review because `OPERATOR-INBOX #7` remains open.
 
+## 2026-06-28 — Part II Thesis Authored Pages
+
+- Added five authored pages for the `02` Part II thesis: information validation crisis, universal issuance needing derivatives, why derivatives matter, perpetual protocol design space, and economic clarity for permissionless perps.
+- Added five direct question routes so Ask can answer core thesis questions before falling back to fuzzy generated-page retrieval.
+- Kept exact Vibe economics/risk-waterfall claims under owner review where the Neelo value-framework source intersects unresolved revenue and product decisions.
+- Narrowed `G-002A` again to show the authored spine now covers more of the thesis, while the full 794-page corpus still needs publication editing.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

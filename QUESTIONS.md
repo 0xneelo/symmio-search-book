@@ -43,6 +43,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does liquidity mean for traders? | `authored-liquidity-as-trader-experience` | Medium | Neelo's listing notes define liquidity as enter/exit/settle reliability, not only TVL or open interest. |
 | What is the last primitive? | `authored-last-primitive` | Medium | Neelo's one-primitive paper frames permissionless derivatives as the missing layer after token issuance and spot trading. |
 | Why is token-margined risk reflexive? | `authored-token-margined-reflexivity-risk` | Medium | Neelo's Percolator critique explains same-asset collateral/exposure reflexivity and inverse payoff risk. |
+| Why does information validation matter to Vibe? | `authored-information-validation-crisis` | Medium | Neelo's one-primitive paper frames markets as validation infrastructure in an era of cheap information generation. |
+| Why does universal token issuance need derivatives? | `authored-universal-issuance-needs-derivatives` | Medium | Neelo's issuance-revolution argument explains why spot access alone leaves token markets one-sided. |
+| Why do derivatives matter? | `authored-why-derivatives-matter` | Medium | Neelo's thesis frames derivatives as the missing layer for two-sided price discovery, hedging, and market discipline. |
+| How should I compare perpetual protocol designs? | `authored-perpetual-protocol-design-space` | Medium | Neelo's framework compares matching, collateralization, and insurance topology across perp architectures. |
+| Who bears risk in permissionless perps? | `authored-economic-clarity-for-permissionless-perps` | Low | Neelo's economic-clarity source supports the risk-allocation framework; exact Vibe economics still need owner review. |
 
 ## Prototype Event Log
 

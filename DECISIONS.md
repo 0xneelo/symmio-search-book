@@ -279,3 +279,11 @@
 **Reason:** The 500-800 page target is already mapped at corpus scale, but the strongest near-term quality gain is converting high-leverage Neelo source material into compact authored pages that the answer engine can route to directly.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-036: Fill The Part II Thesis Before More Long-Tail Draft Expansion
+
+**Decision:** Add authored pages for information validation, universal issuance, derivatives as market discipline, perpetual protocol design dimensions, and economic clarity before broadening further into lower-priority generated drafts.
+
+**Reason:** The spec's Part II thesis is the conceptual bridge from "why tokenization" to "why permissionless derivatives for any token." These topics need authored, directly routed pages so the answer engine can explain the core argument without relying on raw generated imports.
+
+**Status:** Accepted for the authored manifesto layer.
