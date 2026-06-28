@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 82,
-  "totalAnswerable": 76,
+  "totalEntries": 87,
+  "totalAnswerable": 81,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 7,
+    "Getting Started": 11,
     "Trading Flow": 8,
     "Solvers And Settlement": 20,
     "Risk And Markets": 6,
     "Revenue": 5,
     "Rewards And Referrals": 12,
     "Dashboard": 9,
-    "Manifesto": 13,
+    "Manifesto": 14,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 37,
+    "Medium": 41,
     "High": 18,
-    "Low": 21
+    "Low": 22
   },
   "byRouteSource": {
-    "authored": 76
+    "authored": 81
   },
   "byType": {
-    "answerable": 76,
+    "answerable": 81,
     "reconciliation": 6
   },
   "answerable": [
@@ -1531,6 +1531,151 @@
           "group": "Competitive Context",
           "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
           "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-three-axes-of-perp-protocol-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What are the three axes of perp protocol design?",
+      "normalizedQuestion": "what are the three axes of perp protocol design",
+      "shortAnswer": "Neelo's framework defines matching architecture, collateralization architecture, and insurance topology.",
+      "answerSummary": "The Three Axes Of Perp Protocol Design Neelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology. The first axis is matching architecture. Synchro...",
+      "confidence": "Medium",
+      "pageId": "authored-perp-protocol-framework",
+      "pageTitle": "The Three Axes Of Perp Protocol Design",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-static-perp-designs-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why do static perp designs fail at bootstrap?",
+      "normalizedQuestion": "why do static perp designs fail at bootstrap",
+      "shortAnswer": "Neelo's landscape and trilemma sections explain why order books, vaults, and async-netted systems each break in a different market state.",
+      "answerSummary": "Why Static Perp Designs Fail At Bootstrap The perp landscape section is useful because it shows that each static architecture fails for a different reason at market birth. Order books are efficient once both sides exist, but they cannot create the missing side. A new market can have traders who want to long or short, but without resting liquidity, market...",
+      "confidence": "Medium",
+      "pageId": "authored-static-perp-design-failures",
+      "pageTitle": "Why Static Perp Designs Fail At Bootstrap",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-temporal-separation-of-concerns",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is temporal separation of concerns?",
+      "normalizedQuestion": "what is temporal separation of concerns",
+      "shortAnswer": "Neelo's trilemma escape frames bootstrap, growth, and maturity as different architecture phases rather than one static configuration.",
+      "answerSummary": "Temporal Separation Of Concerns Temporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages. At bootstrap, the market needs a defined counterpar...",
+      "confidence": "Medium",
+      "pageId": "authored-temporal-separation-of-concerns",
+      "pageTitle": "Temporal Separation Of Concerns",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-z-score-guide-market-graduation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Z-score guide market graduation?",
+      "normalizedQuestion": "how does z score guide market graduation",
+      "shortAnswer": "Neelo's Z-score model supports graduation logic; exact live thresholds and dashboard status require product confirmation.",
+      "answerSummary": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing...",
+      "confidence": "Low",
+      "pageId": "authored-z-score-graduation-criteria",
+      "pageTitle": "Z-Score Graduation Criteria",
+      "pageSection": "manifesto",
+      "pageTrack": "06 — Market Creation Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-market-price-a-verification-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is market price a verification layer?",
+      "normalizedQuestion": "why is market price a verification layer",
+      "shortAnswer": "Neelo's Proof of Value source frames market price and short-side expression as verification mechanisms for cheap information.",
+      "answerSummary": "Market Price As Verification Layer Proof of Value starts from a verification crisis: information is cheap to generate, so the cost of producing a claim no longer proves anything. Neelo's answer is that commitment becomes the filter. A claim exposed to market price has a different status from a claim that only circulates as content. The source contrasts th...",
+      "confidence": "Medium",
+      "pageId": "authored-market-price-as-verification",
+      "pageTitle": "Market Price As Verification Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "05 — Proof Of Value",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -4859,6 +5004,151 @@
           "group": "Competitive Context",
           "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
           "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-three-axes-of-perp-protocol-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What are the three axes of perp protocol design?",
+      "normalizedQuestion": "what are the three axes of perp protocol design",
+      "shortAnswer": "Neelo's framework defines matching architecture, collateralization architecture, and insurance topology.",
+      "answerSummary": "The Three Axes Of Perp Protocol Design Neelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology. The first axis is matching architecture. Synchro...",
+      "confidence": "Medium",
+      "pageId": "authored-perp-protocol-framework",
+      "pageTitle": "The Three Axes Of Perp Protocol Design",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-static-perp-designs-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why do static perp designs fail at bootstrap?",
+      "normalizedQuestion": "why do static perp designs fail at bootstrap",
+      "shortAnswer": "Neelo's landscape and trilemma sections explain why order books, vaults, and async-netted systems each break in a different market state.",
+      "answerSummary": "Why Static Perp Designs Fail At Bootstrap The perp landscape section is useful because it shows that each static architecture fails for a different reason at market birth. Order books are efficient once both sides exist, but they cannot create the missing side. A new market can have traders who want to long or short, but without resting liquidity, market...",
+      "confidence": "Medium",
+      "pageId": "authored-static-perp-design-failures",
+      "pageTitle": "Why Static Perp Designs Fail At Bootstrap",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-temporal-separation-of-concerns",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is temporal separation of concerns?",
+      "normalizedQuestion": "what is temporal separation of concerns",
+      "shortAnswer": "Neelo's trilemma escape frames bootstrap, growth, and maturity as different architecture phases rather than one static configuration.",
+      "answerSummary": "Temporal Separation Of Concerns Temporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages. At bootstrap, the market needs a defined counterpar...",
+      "confidence": "Medium",
+      "pageId": "authored-temporal-separation-of-concerns",
+      "pageTitle": "Temporal Separation Of Concerns",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-z-score-guide-market-graduation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Z-score guide market graduation?",
+      "normalizedQuestion": "how does z score guide market graduation",
+      "shortAnswer": "Neelo's Z-score model supports graduation logic; exact live thresholds and dashboard status require product confirmation.",
+      "answerSummary": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing...",
+      "confidence": "Low",
+      "pageId": "authored-z-score-graduation-criteria",
+      "pageTitle": "Z-Score Graduation Criteria",
+      "pageSection": "manifesto",
+      "pageTrack": "06 — Market Creation Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-market-price-a-verification-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is market price a verification layer?",
+      "normalizedQuestion": "why is market price a verification layer",
+      "shortAnswer": "Neelo's Proof of Value source frames market price and short-side expression as verification mechanisms for cheap information.",
+      "answerSummary": "Market Price As Verification Layer Proof of Value starts from a verification crisis: information is cheap to generate, so the cost of producing a claim no longer proves anything. Neelo's answer is that commitment becomes the filter. A claim exposed to market price has a different status from a claim that only circulates as content. The source contrasts th...",
+      "confidence": "Medium",
+      "pageId": "authored-market-price-as-verification",
+      "pageTitle": "Market Price As Verification Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "05 — Proof Of Value",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

@@ -287,6 +287,12 @@
 - Routed five new referral architecture questions to authored pages while preserving the parked public referral-depth and historical-accounting decision.
 - Framed referrals as market-formation infrastructure tied to listings, attribution, fee flow, and integrity controls rather than only a campaign-growth surface.
 
+## 2026-06-28 — Bootstrap And Z-Score Thesis Pages
+
+- Added five authored Volume 02 manifesto pages from Neelo's perps categories, bootstrap trilemma, Vibe architecture, and Proof of Value corpus: perp design axes, static design failures, temporal separation of concerns, Z-score graduation criteria, and market price as verification.
+- Routed five new thesis questions to authored pages so Ask can explain the mechanics beneath the broader bootstrap and Proof of Value pages.
+- Kept Z-score graduation thresholds and live-dashboard status labeled for product confirmation rather than presenting source-model ranges as implemented product rules.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

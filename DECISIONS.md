@@ -383,3 +383,11 @@
 **Reason:** The referral corpus is strong enough to explain referrals as market-formation infrastructure: identity anchors, fee-linked activity, tier windows, qualified code issuance, partner overlays, high-quality listing metrics, and anti-gaming controls. Those mechanisms should be documented now, but final public depth and economic promises still depend on unresolved product policy.
 
 **Status:** Accepted for the authored rewards/referrals layer.
+
+## D-049: Use Temporal Architecture As The Volume 02 Mechanism
+
+**Decision:** Add authored Volume 02 pages that expose the mechanics beneath the bootstrap thesis: perp design axes, static-architecture failure modes, temporal separation of concerns, Z-score graduation, and market price as a verification layer.
+
+**Reason:** The 794-page Neelo corpus already maps the broad thesis, but first-contact readers need a concise path from "perps for any token" to the actual mechanism. These pages show why Vibe's argument depends on markets changing architecture over time instead of forcing every market into one static protocol design.
+
+**Status:** Accepted for the authored manifesto layer.

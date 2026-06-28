@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 95,
+  "totalPages": 100,
   "byStatus": {
-    "publication-candidate": 51,
-    "publication-candidate-needs-operator-review": 43,
+    "publication-candidate": 55,
+    "publication-candidate-needs-operator-review": 44,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 33,
+    "manifesto": 38,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -1000,6 +1000,31 @@
       "excerpt": "Market Maturation And The Z Score The Z score gives the market creation thesis a measurable axis. Instead of treating launch and listing as binary events, Neelo's model tracks how much a market still depends on the solver as residual counterparty. In the source model, the Z score compares net solver exposure to total open interest. A high score means the market is one sided and solver dependent. A low score means trader flow is naturally balancing and the solver's residual role is shrinking. That metric supports a maturation story: bootstrap markets are functional but heavily solver dependent; early growth markets start to show natural flow; growth markets have enough offsetting interest to tighten spreads; mature markets become candidates for order book activation; fully netted markets can behave more like conventional high efficiency venues. Publication Note This is a vision metric unless the operator confirms where, if anywhere, it appears in the live product. The current compendium should explain Z score as Neelo's market maturity model, not as a live dashboard number. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture: 5.4 The Market Maturation Process\". vibe p"
     },
     {
+      "id": "authored-market-price-as-verification",
+      "title": "Market Price As Verification Layer",
+      "section": "manifesto",
+      "track": "05 — Proof Of Value",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/03-beyond-polymarket",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-02-proof-of-value-02-docs-02-crisis-of-verification",
+        "neelo-02-proof-of-value-02-docs-03-beyond-polymarket",
+        "neelo-02-proof-of-value-02-docs-05-intent-based-architecture"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/market-price-as-verification.md",
+      "bodyMarkdown": "# Market Price As Verification Layer\n\nProof of Value starts from a verification crisis: information is cheap to generate, so the cost of producing a claim no longer proves anything. Neelo's answer is that commitment becomes the filter. A claim exposed to market price has a different status from a claim that only circulates as content.\n\nThe source contrasts this with prediction-market resolution. A binary market needs a resolver and therefore works best for bounded public questions. The long tail of tokenized claims, memes, projects, and synthetic realities needs a continuous signal. In that framing, price action is not a final court judgment, but it is an always-on measure of capitalized belief.\n\nVibe enters because a long-tail verification layer needs both sides. Spot markets let supporters buy. Perps and intents let skeptics express the negative side, hedge, or quote a counterview without requiring a full AMM liquidity pool for every niche claim.\n\n## Reader Implication\n\nThis is the philosophical reason the compendium spends so much space on shorting, solvers, and market creation. Without a negative side, markets become attention amplifiers. With a negative side and capital at risk, they become a harsher verification mechanism.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: The Crisis of Verification\".\n- `vibe-papers`: Neelo, \"Section 3: Beyond Polymarket\".\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture\".\n\n## Related Pages\n\n- `authored-proof-of-value`\n- `authored-truth-markets-no-button`\n- `neelo-02-proof-of-value-02-docs-02-crisis-of-verification`",
+      "excerpt": "Market Price As Verification Layer Proof of Value starts from a verification crisis: information is cheap to generate, so the cost of producing a claim no longer proves anything. Neelo's answer is that commitment becomes the filter. A claim exposed to market price has a different status from a claim that only circulates as content. The source contrasts this with prediction market resolution. A binary market needs a resolver and therefore works best for bounded public questions. The long tail of tokenized claims, memes, projects, and synthetic realities needs a continuous signal. In that framing, price action is not a final court judgment, but it is an always on measure of capitalized belief. Vibe enters because a long tail verification layer needs both sides. Spot markets let supporters buy. Perps and intents let skeptics express the negative side, hedge, or quote a counterview without requiring a full AMM liquidity pool for every niche claim. Reader Implication This is the philosophical reason the compendium spends so much space on shorting, solvers, and market creation. Without a negative side, markets become attention amplifiers. With a negative side and capital at risk, they be"
+    },
+    {
       "id": "authored-market-scoped-referrals",
       "title": "Market-Scoped Referrals",
       "section": "rewards-referrals",
@@ -1122,6 +1147,30 @@
       "file": "content/authored/manifesto/order-books-as-graduation-layer.md",
       "bodyMarkdown": "# Order Books As The Graduation Layer\n\nThe stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order-book ecosystems better by becoming the upstream discovery layer that finds which long-tail markets deserve deeper execution.\n\nThat changes the competitive frame. A new market does not need to pretend it already has the continuity, two-sided flow, and depth of a mature central limit order book. It needs a credible place to begin. If Vibe can produce real perp history before a CLOB listing, then downstream venues receive better information: actual demand, short interest, flow quality, pricing behavior, and market-maker economics.\n\nThis is why the compendium should avoid the lazy \"Vibe versus order books\" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate.\n\nThe source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order-book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity.\n\n## Reader Implication\n\nFor a project, the question becomes whether its market can earn graduation. For a CLOB ecosystem, Vibe should read as an upstream feeder and verification layer, not only as a competitor. For Vibe, the strategic bar is repeated proof that early markets can arrive downstream with better evidence than narrative alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: The CLOB Upgrade\".\n\n## Related Pages\n\n- `authored-vibe-as-discovery-layer`\n- `authored-market-assembly-line`\n- `authored-hybrid-settlement-solver-stack`",
       "excerpt": "Order Books As The Graduation Layer The stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order book ecosystems better by becoming the upstream discovery layer that finds which long tail markets deserve deeper execution. That changes the competitive frame. A new market does not need to pretend it already has the continuity, two sided flow, and depth of a mature central limit order book. It needs a credible place to begin. If Vibe can produce real perp history before a CLOB listing, then downstream venues receive better information: actual demand, short interest, flow quality, pricing behavior, and market maker economics. This is why the compendium should avoid the lazy \"Vibe versus order books\" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate. The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order book graduation. That claim needs f"
+    },
+    {
+      "id": "authored-perp-protocol-framework",
+      "title": "The Three Axes Of Perp Protocol Design",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-02-framework",
+        "section-01-perp-classes-zscore-01-docs-02-framework-2-2-dimension-1-matching-engine-architecture",
+        "section-01-perp-classes-zscore-01-docs-02-framework-2-3-dimension-2-collateralization-architecture"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-protocol-framework.md",
+      "bodyMarkdown": "# The Three Axes Of Perp Protocol Design\n\nNeelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology.\n\nThe first axis is matching architecture. Synchronous systems require both sides to be present at execution time; order books are the canonical example. Asynchronous systems let a trader execute against a persistent counterparty such as a vault, AMM, or solver.\n\nThe second axis is collateralization. Fully netted systems let longs and shorts pay each other. Fully collateralized systems rely on a vault or LP side to pay winning traders. The source's core point is that netted systems are efficient only when flow is balanced, while collateralized systems can serve one-sided flow only by tying up capital.\n\nThe third axis is insurance topology. Cross-market insurance and cross-margining improve capital efficiency for proven markets, but they couple risk across markets. Isolated markets are less efficient, but a bad new listing cannot drain established markets.\n\n## Reader Implication\n\nThis framework should appear early in the compendium because it explains why Vibe is not merely another perp venue. Vibe is positioned as a system that can move across these axes as a market matures, rather than choosing one static point forever.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols\".\n- `vibe-papers`: Neelo, \"Section 9: Conclusion\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-perpetual-protocol-design-space`\n- `neelo-01-perp-classes-zscore-01-docs-02-framework`",
+      "excerpt": "The Three Axes Of Perp Protocol Design Neelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology. The first axis is matching architecture. Synchronous systems require both sides to be present at execution time; order books are the canonical example. Asynchronous systems let a trader execute against a persistent counterparty such as a vault, AMM, or solver. The second axis is collateralization. Fully netted systems let longs and shorts pay each other. Fully collateralized systems rely on a vault or LP side to pay winning traders. The source's core point is that netted systems are efficient only when flow is balanced, while collateralized systems can serve one sided flow only by tying up capital. The third axis is insurance topology. Cross market insurance and cross margining improve capital efficiency for proven markets, but they couple risk across markets. Isolated markets are less efficient, but a bad new listing cannot drain established markets. Reader Implication This fra"
     },
     {
       "id": "authored-perpetual-protocol-design-space",
@@ -1576,6 +1625,30 @@
       "excerpt": "The Solver As Protocol Owned Market Maker The solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time sensitive, or state heavy to run purely on chain. In the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol owned market maker during bootstrap rather than a passive matching engine. The strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path dependent calculations, risk decisions, and execution quality are managed. Liquidity Waterfall Neelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Arch"
     },
     {
+      "id": "authored-static-perp-design-failures",
+      "title": "Why Static Perp Designs Fail At Bootstrap",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-03-landscape",
+        "neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma",
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-7-the-gap-in-the-market"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/static-perp-design-failures.md",
+      "bodyMarkdown": "# Why Static Perp Designs Fail At Bootstrap\n\nThe perp landscape section is useful because it shows that each static architecture fails for a different reason at market birth.\n\nOrder books are efficient once both sides exist, but they cannot create the missing side. A new market can have traders who want to long or short, but without resting liquidity, market makers, and enough two-sided flow, the book does not produce execution.\n\nVault protocols solve the availability problem by letting traders execute against a collateral pool. That works for one-sided flow, but it moves the risk and capital burden to LPs. Fees, spreads, leverage limits, and open-interest caps reflect that burden.\n\nAsynchronous netted systems appear attractive because they promise permissionless listing and capital efficiency at the same time. The source's critique is direct: if a trader wins and there is no opposing side, there is no defined payer. Funding incentives cannot force a rational counterparty to appear during an adverse bootstrap regime.\n\n## Reader Implication\n\nDo not explain Vibe by saying \"order books are bad\" or \"vaults are bad.\" The sharper point is stage fit. Static designs optimize for one market state. Vibe's thesis is that a protocol has to change shape as the market moves from empty to balanced.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols\".\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-perp-protocol-framework`\n- `authored-bootstrap-trilemma`\n- `neelo-01-perp-classes-zscore-01-docs-03-landscape`",
+      "excerpt": "Why Static Perp Designs Fail At Bootstrap The perp landscape section is useful because it shows that each static architecture fails for a different reason at market birth. Order books are efficient once both sides exist, but they cannot create the missing side. A new market can have traders who want to long or short, but without resting liquidity, market makers, and enough two sided flow, the book does not produce execution. Vault protocols solve the availability problem by letting traders execute against a collateral pool. That works for one sided flow, but it moves the risk and capital burden to LPs. Fees, spreads, leverage limits, and open interest caps reflect that burden. Asynchronous netted systems appear attractive because they promise permissionless listing and capital efficiency at the same time. The source's critique is direct: if a trader wins and there is no opposing side, there is no defined payer. Funding incentives cannot force a rational counterparty to appear during an adverse bootstrap regime. Reader Implication Do not explain Vibe by saying \"order books are bad\" or \"vaults are bad.\" The sharper point is stage fit. Static designs optimize for one market state. Vib"
+    },
+    {
       "id": "authored-symm-lp-case-setup",
       "title": "SYMM LP Case Setup",
       "section": "protocol-reference",
@@ -1748,6 +1821,30 @@
       "file": "content/authored/reference/symmio-party-a-party-b.md",
       "bodyMarkdown": "# PartyA And PartyB\n\nSymmio names the two sides of an intent-based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position.\n\nThat vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state.\n\nFor Vibe, the PartyA/PartyB model explains why solvers are central. The user-facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance.\n\n## Reader Implication\n\nWhen a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained.\n\n## Sources\n\n- `symmio-core`: Symmio core concepts.\n- `symmio-intent-lifecycle`: Symmio intent lifecycle and event monitoring.\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-vibe-trade-flow`\n- `symmio-core-concepts`",
       "excerpt": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state. For Vibe, the PartyA/PartyB model explains why solvers are central. The user facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance. Reader Implication When a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained. Sources symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring."
+    },
+    {
+      "id": "authored-temporal-separation-of-concerns",
+      "title": "Temporal Separation Of Concerns",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-7-escape-from-the-trilemma",
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-1-design-philosophy",
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-2-the-four-transitions"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/temporal-separation-of-concerns.md",
+      "bodyMarkdown": "# Temporal Separation Of Concerns\n\nTemporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages.\n\nAt bootstrap, the market needs a defined counterparty more than it needs order-book efficiency. Capital is expensive, spreads are wider, leverage is conservative, and risk stays isolated. That is the cost of making a market work before both sides exist.\n\nDuring growth, natural trader flow starts to net some exposure. The solver handles the residual imbalance, but less of the market is purely solver-backed. Spreads can tighten, leverage can improve, and the market can begin to look more like a conventional trading venue.\n\nAt maturity, if the market has sustained balance, depth, and demand, it becomes a candidate for order-book or cross-margin integration. The solver shifts from primary counterparty toward backstop and market-maker roles.\n\n## Reader Implication\n\nThis page is the bridge between thesis and architecture. It lets readers understand why early-market costs are not a permanent defect if the system has a credible path toward lower-cost, more netted execution later.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture\".\n\n## Related Pages\n\n- `authored-four-transitions`\n- `authored-market-maturation-z-score`\n- `neelo-01-perp-classes-zscore-01-docs-05-vibe-architecture`",
+      "excerpt": "Temporal Separation Of Concerns Temporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages. At bootstrap, the market needs a defined counterparty more than it needs order book efficiency. Capital is expensive, spreads are wider, leverage is conservative, and risk stays isolated. That is the cost of making a market work before both sides exist. During growth, natural trader flow starts to net some exposure. The solver handles the residual imbalance, but less of the market is purely solver backed. Spreads can tighten, leverage can improve, and the market can begin to look more like a conventional trading venue. At maturity, if the market has sustained balance, depth, and demand, it becomes a candidate for order book or cross margin integration. The solver shifts from primary counterparty toward backstop and market maker roles. Reader Implication This page is the bridge between thesis and architecture. It lets readers understand why early market costs are not a permanent def"
     },
     {
       "id": "authored-tge-settlement-multiplier",
@@ -2528,6 +2625,30 @@
       "file": "content/authored/manifesto/why-derivatives-matter.md",
       "bodyMarkdown": "# Why Derivatives Matter\n\nSpot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value.\n\nThat second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure.\n\nNeelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path.\n\nThe key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is not finished.\n\n## Reader Implication\n\nWhen a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two-sided, stress-tested market information.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Why Derivatives Matter\".\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n\n## Related Pages\n\n- `authored-truth-markets-no-button`\n- `authored-liquidity-as-trader-experience`\n- `authored-proof-of-value`",
       "excerpt": "Why Derivatives Matter Spot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value. That second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure. Neelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path. The key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is n"
+    },
+    {
+      "id": "authored-z-score-graduation-criteria",
+      "title": "Z-Score Graduation Criteria",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-5-the-z-score-measuring-market-maturity",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity",
+        "section-01-perp-classes-zscore-01-docs-07-industry-implications-7-2-transforming-the-listing-process",
+        "authored-market-maturation-z-score"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/z-score-graduation-criteria.md",
+      "bodyMarkdown": "# Z-Score Graduation Criteria\n\nThe Z-score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one-sided and solver-dependent. A low score means natural trader flow is doing more of the balancing work.\n\nThat makes the Z-score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order-book readiness.\n\n## What It Should Not Do\n\nThe Z-score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets.\n\nThe docs should therefore explain two layers:\n\n- the thesis layer: solver dependency should fall as markets mature;\n- the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status.\n\n## Reader Implication\n\nThis page gives market creators and exchanges a concrete question to ask: is demand balanced enough that the market has earned its next execution layer? That is stronger than asking whether a listing committee feels confident.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.5 The Z-Score\".\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications\".\n\n## Related Pages\n\n- `authored-market-maturation-z-score`\n- `authored-vibe-as-discovery-layer`\n- `section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity`",
+      "excerpt": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing work. That makes the Z score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order book readiness. What It Should Not Do The Z score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets. The docs should therefore explain two layers: the thesis layer: solver dependency should fall as markets mature; the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status. Reader Impli"
     }
   ]
 }
