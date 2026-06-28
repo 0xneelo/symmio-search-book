@@ -196,6 +196,13 @@
 - Moved "How do Vibe options use Symmio settlement?" from reconciliation to an answerable route while keeping exact Vibe vault-backed inventory exposure semantics parked under `G-008`.
 - Narrowed `G-008` so the remaining gap is product-owner confirmation for Vibe-specific vault source, coverage rules, and LP exposure visibility.
 
+## 2026-06-28 — Neelo Vision Authoring Batch
+
+- Added six authored Neelo-backed manifesto pages: the market assembly line, order books as the graduation layer, the end of narrative-based listings, liquidity as trader experience, the last primitive, and token-margined reflexivity risk.
+- Added six direct question routes so Ask can answer market-structure and risk-theory questions from authored pages instead of only fuzzy matching generated drafts.
+- Narrowed `G-002A` to reflect that the Neelo authored spine has grown, while most of the 794-page corpus still needs Session 2 editing before publication.
+- Kept SSHE-specific mechanics under owner/source review because `OPERATOR-INBOX #7` remains open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

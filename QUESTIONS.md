@@ -37,6 +37,12 @@ Questions are grouped by whether the current source set can answer them.
 | What should I read first as a dashboard user? | `authored-dashboard-overview` | High | The generated dashboard-user journey walks Overview, invites, network, volume, tasks, FAQ, and settings. |
 | What should Vibe x Symmio borrow from the best docs? | `authored-competitive-docs-benchmark` | Medium | Competitive synthesis from the verified official-docs batch; Opyn remains an access gap. |
 | How do Vibe options use Symmio settlement? | `authored-options-intent-lifecycle` | Medium | Official Symmio options docs support the open/close intent lifecycle; Vibe-specific vault/inventory examples still need owner review. |
+| What is the market assembly line? | `authored-market-assembly-line` | Medium | Neelo's order-book paper frames Vibe as a lifecycle stage between spot liquidity and deeper execution; SSHE details remain owner-review. |
+| Does Vibe compete with order books? | `authored-order-books-as-graduation-layer` | Medium | Neelo's CLOB-upgrade thesis frames Vibe as an upstream discovery layer for order-book ecosystems, not a replacement claim. |
+| Why are narrative-based listings weak? | `authored-end-of-narrative-based-listings` | Medium | Neelo's order-book Part II notes separate actual interest from perceived interest and explain Vibe's demand-discovery role. |
+| What does liquidity mean for traders? | `authored-liquidity-as-trader-experience` | Medium | Neelo's listing notes define liquidity as enter/exit/settle reliability, not only TVL or open interest. |
+| What is the last primitive? | `authored-last-primitive` | Medium | Neelo's one-primitive paper frames permissionless derivatives as the missing layer after token issuance and spot trading. |
+| Why is token-margined risk reflexive? | `authored-token-margined-reflexivity-risk` | Medium | Neelo's Percolator critique explains same-asset collateral/exposure reflexivity and inverse payoff risk. |
 
 ## Prototype Event Log
 

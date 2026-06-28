@@ -12,9 +12,9 @@ The prompt requests a 25-sub-agent competitive sweep. The package now has a gene
 
 **Needed:** Operator-provided official Opyn source access, replacement target, or exclusion decision without relying on mirrors or third-party snippets.
 
-## G-002A: 500-800 Page Manifest Is Mapped, Not Authored
+## G-002A: 500-800 Page Manifest Is Mapped, Not Fully Authored
 
-The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. These are planned compendium pages, not fully written pages.
+The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is growing around the strongest Neelo thesis material, including market formation, Proof of Value, listing power, solver architecture, options lifecycle, market assembly-line, CLOB graduation, liquidity-as-experience, the last primitive, and token-margined risk. Most of the 794-page corpus is still generated draft material rather than fully edited publication prose.
 
 **Needed:** Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.
 

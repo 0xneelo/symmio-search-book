@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 857,
-  "totalChunks": 1424,
-  "pagesWithChunks": 857,
+  "totalPages": 863,
+  "totalChunks": 1436,
+  "pagesWithChunks": 863,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -380,17 +380,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 45,
+    "authored": 51,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 83,
+    "authored": 95,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 30,
+    "manifesto": 42,
     "competitive-context": 6,
     "dashboard-reference": 18,
     "reference": 2,
@@ -910,6 +910,52 @@
       "text": "Dashboard Volume The Volume view explains the network volume input behind revenue and points. It is routed as volume , fetches /api/me/volume , and shows total network trade volume, a per level summary, and wallet level snapshot rows. The current UI labels volume as local wallet snapshots that refresh daily. Rows show level, account, wallet, snapshot date, trade volume, and stale state markers. The underlying grounding spec says today's source is the Vibe backend wallet volume API with caching, normalization, and daily snapshots, while the planned Barometer upgrade would move to Goldsky analytics subgraphs. Reader Implication Volume should be documented as a measured input with lag and source status. It is not a live per trade feed in the current implementation, and the exact network depth remains tied to the referral depth reconciliation. Open Gaps Operator inbox item 3 controls final depth language. G 005 tracks the current REST source versus the planned subgraph migration. Sources dashboard app : dashboard route registration. dashboard volume : Volume tab UI and table shape. server volume : current backend wallet volume source and cache behavior. server volume snapshots : daily snapshot behavior. server me : /api/me/volume route behavior. spec 03 : current source and Barometer migration guidance. Related Pages authored network volume authored dashboard network linear subgraph volume"
     },
     {
+      "id": "authored-end-of-narrative-based-listings::001",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "chunkIndex": 1,
+      "title": "The End Of Narrative-Based Listings",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/03-the-end-of-narrative-based-listings"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/end-of-narrative-based-listings.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains why listings become political. A venue evaluates spot volume, community pressure, narrative strength, relationships, auctions, and prior exchange listings. Those signals can be directionally useful, but they are proxies. They do not answer the question the venue really cares about: whether traders will use the perp market enough for it to function. Vibe's vision is to produce the missing signal directly. Let the market exist early in a constrained environment. Let traders express demand. Let solvers quote, hedge, and learn the market. Let the resulting history become evidence for whether the asset deserves deeper execution. This is why \"vibes based listings\" is not just a meme about bad curation. It is a symptom of missing infrastructure. When early derivatives cannot exist, every later venue has to guess. When early derivatives can exist, listing decisions can be pulled toward observed market behavior. Reader Implication The compendium should teach market creators that Vibe changes the listing argument. Instead of asking for belief, a project can point to"
+    },
+    {
+      "id": "authored-end-of-narrative-based-listings::002",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "chunkIndex": 2,
+      "title": "The End Of Narrative-Based Listings",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/03-the-end-of-narrative-based-listings"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/end-of-narrative-based-listings.md",
+      "wordStart": 185,
+      "wordEnd": 264,
+      "wordCount": 79,
+      "text": "can exist, listing decisions can be pulled toward observed market behavior. Reader Implication The compendium should teach market creators that Vibe changes the listing argument. Instead of asking for belief, a project can point to actual perp demand. Instead of competing on narrative alone, the market can compete on revealed trading behavior. Sources vibe papers : Neelo, \"Section 3: The End of Vibes Based Listings\". Related Pages authored game theory of listings authored listing monopoly authored proof of value"
+    },
+    {
       "id": "authored-estimated-network-revenue::001",
       "pageId": "authored-estimated-network-revenue",
       "chunkIndex": 1,
@@ -1274,6 +1320,98 @@
       "text": "and Symmio as infrastructure that handles the pre book and solver mediated parts of the derivatives lifecycle, then links back to order books where order books are strongest. Sources vibe papers : Neelo, \"Ode to OrderBooks\". Related Pages authored bootstrap trilemma authored vibe as discovery layer neelo 04 ode to the orderbook 04 docs overview"
     },
     {
+      "id": "authored-last-primitive::001",
+      "pageId": "authored-last-primitive",
+      "chunkIndex": 1,
+      "title": "The Last Primitive",
+      "section": "manifesto",
+      "track": "09 — Industry Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/last-primitive.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Last Primitive The \"last primitive\" thesis is simple: crypto has permissionless issuance and permissionless spot trading, but it does not yet have permissionless derivatives for any token at comparable quality. That missing third layer explains much of the market formation gap. A token can be created, bought, sold, and routed through spot liquidity long before it can be hedged, shorted, or tested through leveraged demand. Without that derivatives layer, price discovery is incomplete. The market can expand, but it does not fully correct itself because negative views, hedging demand, and structured risk transfer are delayed. The source places Vibe and Symmio together at this point in the stack. Symmio supplies derivatives infrastructure and settlement vocabulary; Vibe supplies the permissionless market layer and product logic for the long tail. The public compendium should keep that division clear. Vibe is not valuable merely because it adds more listings. It is valuable if it lets markets become self testing earlier. This is the deepest version of the vision: the industry becomes more complete when any token can be issued, traded spot, and then measured through a derivatives market without waiting for centralized approval. Reader Implication New readers should understand why Vibe x Symmio is framed as infrastructure rather than only as a trading product. The product surface is perps and intents, but"
+    },
+    {
+      "id": "authored-last-primitive::002",
+      "pageId": "authored-last-primitive",
+      "chunkIndex": 2,
+      "title": "The Last Primitive",
+      "section": "manifesto",
+      "track": "09 — Industry Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/last-primitive.md",
+      "wordStart": 185,
+      "wordEnd": 252,
+      "wordCount": 67,
+      "text": "market without waiting for centralized approval. Reader Implication New readers should understand why Vibe x Symmio is framed as infrastructure rather than only as a trading product. The product surface is perps and intents, but the category claim is a missing market primitive. Sources vibe papers : Neelo, \"Section 6: The Last Primitive\". Related Pages authored market creation gap authored proof of value authored intents and solvers"
+    },
+    {
+      "id": "authored-liquidity-as-trader-experience::001",
+      "pageId": "authored-liquidity-as-trader-experience",
+      "chunkIndex": 1,
+      "title": "Liquidity As Trader Experience",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/liquidity-as-trader-experience.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Liquidity As Trader Experience Liquidity is not only TVL, open interest, or a number in a venue dashboard. Neelo's listing notes frame liquidity as the user's ability to enter, exit, settle, and reason about the economic object they are trading. That distinction matters for long tail perps. A clean chart and a fast interface can hide a fragile settlement graph. A trader may think they are simply long or short the underlying asset, but in a derivatives venue they are also exposed to the venue's clearing rules, oracle behavior, funding cadence, insurance and ADL design, and the chance that another participant will be available when they need to exit. The source compresses this into the idea of exchange deviation: how much the realized economics track the underlying asset versus the venue's internal imbalance. The compendium does not need to turn that into a formal protocol parameter. It should use the idea as a reader diagnostic. A market \"feels real\" when the venue term stays small enough that the trader can reason about the underlying. A market feels broken when the venue term dominates the trade. This is also why order books become attractive after maturity. Deep two sided flow keeps execution and marks close enough to the underlying story. Before that flow exists, Vibe has to make the bootstrap state"
+    },
+    {
+      "id": "authored-liquidity-as-trader-experience::002",
+      "pageId": "authored-liquidity-as-trader-experience",
+      "chunkIndex": 2,
+      "title": "Liquidity As Trader Experience",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/liquidity-as-trader-experience.md",
+      "wordStart": 185,
+      "wordEnd": 296,
+      "wordCount": 111,
+      "text": "This is also why order books become attractive after maturity. Deep two sided flow keeps execution and marks close enough to the underlying story. Before that flow exists, Vibe has to make the bootstrap state explicit instead of pretending the market already has mature liquidity. Reader Implication When docs describe liquidity, they should answer the trader's practical questions: can I enter, exit, settle, and price my risk? If the answer depends on venue internal imbalance, the docs should say that clearly. Sources vibe papers : Neelo, \"Section 5: Liquidity as Trader Experience\". Related Pages authored token vault perps versus usdc pools authored market lifecycle gap authored order books as graduation layer"
+    },
+    {
       "id": "authored-listing-monopoly::001",
       "pageId": "authored-listing-monopoly",
       "chunkIndex": 1,
@@ -1372,6 +1510,52 @@
       "wordEnd": 224,
       "wordCount": 39,
       "text": "papers : Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\". spec 03 : Phase B economics and revenue disclosure boundary. Related Pages authored vibe pillars authored estimated network revenue neelo 15 funding model 15 docs 06 lp profit"
+    },
+    {
+      "id": "authored-market-assembly-line::001",
+      "pageId": "authored-market-assembly-line",
+      "chunkIndex": 1,
+      "title": "The Market Assembly Line",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/04-the-assembly-line"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/market-assembly-line.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Market Assembly Line The assembly line thesis is the cleanest way to explain the compendium's 500 800 page shape. Vibe is not just another venue in a list of venues. It is a proposed missing stage in the token lifecycle. Neelo's source path runs from launchpad to spot market to Vibe perp to deeper execution venues. The important point is not the exact brand name of every stage. The important point is that a market should be able to move through stages as evidence appears. Tokens already have permissionless issuance and permissionless spot liquidity; the weak stage is early derivatives. A token can have real demand before it is legible enough for a major order book venue. That gives Vibe a specific role: create the first credible derivatives market after spot liquidity appears, then let the market earn its next layer. This makes market formation legible. Launchpads create the asset, DEXs create spot access, Vibe creates early perp demand and short side expression, and deeper execution venues absorb markets that have proven enough volume, diversity, and liquidity. The source also names SSHE as a possible intermediate layer when a market is not ready for full external order book graduation. Because the canonical SSHE source family is still open in OPERATOR INBOX 7 , the final public page should keep"
+    },
+    {
+      "id": "authored-market-assembly-line::002",
+      "pageId": "authored-market-assembly-line",
+      "chunkIndex": 2,
+      "title": "The Market Assembly Line",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/04-the-assembly-line"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/market-assembly-line.md",
+      "wordStart": 185,
+      "wordEnd": 335,
+      "wordCount": 150,
+      "text": "possible intermediate layer when a market is not ready for full external order book graduation. Because the canonical SSHE source family is still open in OPERATOR INBOX 7 , the final public page should keep that detail under owner review. The source backed principle is still strong without pretending the implementation path is already fully documented: mature markets need staged progression, not a single listing cliff. Reader Implication Market creators should see Vibe as a path from first demand to deeper market structure. Solvers and LPs should see each stage as a different risk regime. Traders should understand that early Vibe markets can be useful before they feel like mature order books, because the point is to create the missing evidence that a mature venue needs. Sources vibe papers : Neelo, \"Section 4: The Assembly Line\". Related Pages authored market creation gap authored market maturation z score authored four transitions"
     },
     {
       "id": "authored-market-creation-gap::001",
@@ -1785,6 +1969,52 @@
       "text": "state exists. Sources vibe architecture : Vibe intent, solver offer, execution, and hedging flow. symmio core : PartyA, PartyB, intent, collateral, margin, and lifecycle vocabulary. symmio options docs : current Symmio options documentation index. symmio options technical architecture : Diamond architecture and shared storage/facet model. symmio options facets : facet boundary model. symmio options partya open : PartyA open intent lifecycle and parameters. symmio options partyb open : PartyB lock/fill/partial fill behavior. symmio options partya close : PartyA close intent lifecycle. symmio options partyb close : PartyB close fill/cancellation behavior. symmio options instant layer : signed operation and instant mode execution surface. Related Pages authored vibe trade flow authored intents and solvers authored symmio party a party b symmio options contracts"
     },
     {
+      "id": "authored-order-books-as-graduation-layer::001",
+      "pageId": "authored-order-books-as-graduation-layer",
+      "chunkIndex": 1,
+      "title": "Order Books As The Graduation Layer",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/order-books-as-graduation-layer.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Order Books As The Graduation Layer The stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order book ecosystems better by becoming the upstream discovery layer that finds which long tail markets deserve deeper execution. That changes the competitive frame. A new market does not need to pretend it already has the continuity, two sided flow, and depth of a mature central limit order book. It needs a credible place to begin. If Vibe can produce real perp history before a CLOB listing, then downstream venues receive better information: actual demand, short interest, flow quality, pricing behavior, and market maker economics. This is why the compendium should avoid the lazy \"Vibe versus order books\" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate. The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and"
+    },
+    {
+      "id": "authored-order-books-as-graduation-layer::002",
+      "pageId": "authored-order-books-as-graduation-layer",
+      "chunkIndex": 2,
+      "title": "Order Books As The Graduation Layer",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/order-books-as-graduation-layer.md",
+      "wordStart": 185,
+      "wordEnd": 302,
+      "wordCount": 117,
+      "text": "order book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity. Reader Implication For a project, the question becomes whether its market can earn graduation. For a CLOB ecosystem, Vibe should read as an upstream feeder and verification layer, not only as a competitor. For Vibe, the strategic bar is repeated proof that early markets can arrive downstream with better evidence than narrative alone. Sources vibe papers : Neelo, \"Section 7: The CLOB Upgrade\". Related Pages authored vibe as discovery layer authored market assembly line authored hybrid settlement solver stack"
+    },
+    {
       "id": "authored-points-and-vibe-points::001",
       "pageId": "authored-points-and-vibe-points",
       "chunkIndex": 1,
@@ -2079,6 +2309,52 @@
       "wordEnd": 192,
       "wordCount": 192,
       "text": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state. For Vibe, the PartyA/PartyB model explains why solvers are central. The user facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance. Reader Implication When a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained. Sources symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring. Related Pages authored intents and solvers authored vibe trade flow symmio core concepts"
+    },
+    {
+      "id": "authored-token-margined-reflexivity-risk::001",
+      "pageId": "authored-token-margined-reflexivity-risk",
+      "chunkIndex": 1,
+      "title": "Token-Margined Reflexivity Risk",
+      "section": "manifesto",
+      "track": "10 — Risk Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/token-margined-reflexivity-risk.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Token Margined Reflexivity Risk The token margined risk argument is about correlation between collateral and exposure. If the position and the collateral are both tied to the same asset, a price move can damage the trade and the margin base at the same time. That creates reflexivity. A falling token price can reduce position value, reduce collateral value, accelerate liquidations, and create more sell pressure. In a thin or newly listed market, the venue can become part of the volatility engine rather than only a place where volatility is observed. Neelo's source also highlights the inverse payoff problem. Token denominated liabilities can expand in token terms as price falls. A short that looks bounded in dollars can require more and more tokens to settle if the token approaches zero. The important compendium point is not a single formula; it is the risk category. When collateral, payout, and underlying are all the same unstable asset, the market can contain endogenous risk that USDC margined linear systems avoid. This page should sit next to the token vault and liquidity experience pages. It explains why \"permissionless derivatives\" cannot mean \"list anything with any collateral and hope the market works.\" The architecture needs to make collateral, payout, liquidation, insurance, and settlement assumptions legible. Reader Implication LPs and solvers should ask whether the collateral base"
+    },
+    {
+      "id": "authored-token-margined-reflexivity-risk::002",
+      "pageId": "authored-token-margined-reflexivity-risk",
+      "chunkIndex": 2,
+      "title": "Token-Margined Reflexivity Risk",
+      "section": "manifesto",
+      "track": "10 — Risk Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/token-margined-reflexivity-risk.md",
+      "wordStart": 185,
+      "wordEnd": 287,
+      "wordCount": 102,
+      "text": "mean \"list anything with any collateral and hope the market works.\" The architecture needs to make collateral, payout, liquidation, insurance, and settlement assumptions legible. Reader Implication LPs and solvers should ask whether the collateral base degrades exactly when the market needs it. Traders should ask whether the venue can settle gains without relying on a collapsing asset. Documentation should state the settlement unit and collateral risk before presenting a market as liquid. Sources vibe papers : Neelo, \"Section 3: Reflexivity and Negative Convexity\". Related Pages authored token vault perps versus usdc pools authored liquidity as trader experience authored funding as market balancing"
     },
     {
       "id": "authored-token-vault-perps-versus-usdc-pools::001",

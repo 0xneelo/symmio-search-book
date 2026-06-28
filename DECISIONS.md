@@ -271,3 +271,11 @@
 **Reason:** The Symmio options pages prove the protocol lifecycle: PartyA open intents, PartyB lock/fill behavior, partial fills, close intents, Diamond/facet boundaries, and Instant Layer execution. They do not by themselves prove the exact public Vibe vault inventory product semantics.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-035: Keep Deepening The Neelo Vision Spine While Blockers Are Parked
+
+**Decision:** Add another authored Neelo-backed batch covering market assembly-line, CLOB graduation, anti-narrative listings, liquidity as trader experience, the last primitive, and token-margined reflexivity risk. Mark SSHE-specific mechanics for owner/source review where the source mentions them but the canonical SSHE source family remains unresolved.
+
+**Reason:** The 500-800 page target is already mapped at corpus scale, but the strongest near-term quality gain is converting high-leverage Neelo source material into compact authored pages that the answer engine can route to directly.
+
+**Status:** Accepted for the authored manifesto layer.

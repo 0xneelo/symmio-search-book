@@ -8,35 +8,35 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 37,
-  "totalAnswerable": 31,
+  "totalEntries": 43,
+  "totalAnswerable": 37,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 1,
+    "Getting Started": 3,
     "Trading Flow": 5,
-    "Solvers And Settlement": 6,
-    "Risk And Markets": 2,
+    "Solvers And Settlement": 7,
+    "Risk And Markets": 3,
     "Rewards And Referrals": 5,
     "Revenue": 4,
     "Dashboard": 7,
-    "Manifesto": 5,
+    "Manifesto": 7,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 21,
+    "Medium": 27,
     "High": 8,
     "Low": 2
   },
   "byRouteSource": {
     "curated": 8,
-    "authored": 23
+    "authored": 29
   },
   "byType": {
-    "answerable": 31,
+    "answerable": 37,
     "reconciliation": 6
   },
   "answerable": [
@@ -1303,6 +1303,180 @@
           "group": "Public Symmio Sources",
           "use": "Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration.",
           "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-market-assembly-line",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the market assembly line?",
+      "normalizedQuestion": "what is the market assembly line",
+      "shortAnswer": "Neelo's order-book paper frames Vibe as a lifecycle stage between spot liquidity and deeper execution; SSHE details remain owner-review.",
+      "answerSummary": "The Market Assembly Line The assembly line thesis is the cleanest way to explain the compendium's 500 800 page shape. Vibe is not just another venue in a list of venues. It is a proposed missing stage in the token lifecycle. Neelo's source path runs from launchpad to spot market to Vibe perp to deeper execution venues. The important point is not the exact...",
+      "confidence": "Medium",
+      "pageId": "authored-market-assembly-line",
+      "pageTitle": "The Market Assembly Line",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-vibe-compete-with-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Does Vibe compete with order books?",
+      "normalizedQuestion": "does vibe compete with order books",
+      "shortAnswer": "Neelo's CLOB-upgrade thesis frames Vibe as an upstream discovery layer for order-book ecosystems, not a replacement claim.",
+      "answerSummary": "Order Books As The Graduation Layer The stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order book ecosystems better by becoming the upstream discovery layer that finds which long tail markets deserve deeper execution. That changes the competitive frame. A new market d...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-as-graduation-layer",
+      "pageTitle": "Order Books As The Graduation Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-narrative-based-listings-weak",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why are narrative-based listings weak?",
+      "normalizedQuestion": "why are narrative based listings weak",
+      "shortAnswer": "Neelo's order-book Part II notes separate actual interest from perceived interest and explain Vibe's demand-discovery role.",
+      "answerSummary": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains w...",
+      "confidence": "Medium",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-liquidity-mean-for-traders",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does liquidity mean for traders?",
+      "normalizedQuestion": "what does liquidity mean for traders",
+      "shortAnswer": "Neelo's listing notes define liquidity as enter/exit/settle reliability, not only TVL or open interest.",
+      "answerSummary": "Liquidity As Trader Experience Liquidity is not only TVL, open interest, or a number in a venue dashboard. Neelo's listing notes frame liquidity as the user's ability to enter, exit, settle, and reason about the economic object they are trading. That distinction matters for long tail perps. A clean chart and a fast interface can hide a fragile settlement...",
+      "confidence": "Medium",
+      "pageId": "authored-liquidity-as-trader-experience",
+      "pageTitle": "Liquidity As Trader Experience",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-last-primitive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the last primitive?",
+      "normalizedQuestion": "what is the last primitive",
+      "shortAnswer": "Neelo's one-primitive paper frames permissionless derivatives as the missing layer after token issuance and spot trading.",
+      "answerSummary": "The Last Primitive The \"last primitive\" thesis is simple: crypto has permissionless issuance and permissionless spot trading, but it does not yet have permissionless derivatives for any token at comparable quality. That missing third layer explains much of the market formation gap. A token can be created, bought, sold, and routed through spot liquidity lo...",
+      "confidence": "Medium",
+      "pageId": "authored-last-primitive",
+      "pageTitle": "The Last Primitive",
+      "pageSection": "manifesto",
+      "pageTrack": "09 — Industry Primitive",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-token-margined-risk-reflexive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is token-margined risk reflexive?",
+      "normalizedQuestion": "why is token margined risk reflexive",
+      "shortAnswer": "Neelo's Percolator critique explains same-asset collateral/exposure reflexivity and inverse payoff risk.",
+      "answerSummary": "Token Margined Reflexivity Risk The token margined risk argument is about correlation between collateral and exposure. If the position and the collateral are both tied to the same asset, a price move can damage the trade and the margin base at the same time. That creates reflexivity. A falling token price can reduce position value, reduce collateral value...",
+      "confidence": "Medium",
+      "pageId": "authored-token-margined-reflexivity-risk",
+      "pageTitle": "Token-Margined Reflexivity Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "10 — Risk Architecture",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -2894,6 +3068,180 @@
           "group": "Public Symmio Sources",
           "use": "Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration.",
           "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-market-assembly-line",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the market assembly line?",
+      "normalizedQuestion": "what is the market assembly line",
+      "shortAnswer": "Neelo's order-book paper frames Vibe as a lifecycle stage between spot liquidity and deeper execution; SSHE details remain owner-review.",
+      "answerSummary": "The Market Assembly Line The assembly line thesis is the cleanest way to explain the compendium's 500 800 page shape. Vibe is not just another venue in a list of venues. It is a proposed missing stage in the token lifecycle. Neelo's source path runs from launchpad to spot market to Vibe perp to deeper execution venues. The important point is not the exact...",
+      "confidence": "Medium",
+      "pageId": "authored-market-assembly-line",
+      "pageTitle": "The Market Assembly Line",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-vibe-compete-with-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Does Vibe compete with order books?",
+      "normalizedQuestion": "does vibe compete with order books",
+      "shortAnswer": "Neelo's CLOB-upgrade thesis frames Vibe as an upstream discovery layer for order-book ecosystems, not a replacement claim.",
+      "answerSummary": "Order Books As The Graduation Layer The stronger Vibe thesis does not require treating order books as the enemy. Neelo's \"CLOB upgrade\" argument is more precise: Vibe can make order book ecosystems better by becoming the upstream discovery layer that finds which long tail markets deserve deeper execution. That changes the competitive frame. A new market d...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-as-graduation-layer",
+      "pageTitle": "Order Books As The Graduation Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-narrative-based-listings-weak",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why are narrative-based listings weak?",
+      "normalizedQuestion": "why are narrative based listings weak",
+      "shortAnswer": "Neelo's order-book Part II notes separate actual interest from perceived interest and explain Vibe's demand-discovery role.",
+      "answerSummary": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains w...",
+      "confidence": "Medium",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-liquidity-mean-for-traders",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does liquidity mean for traders?",
+      "normalizedQuestion": "what does liquidity mean for traders",
+      "shortAnswer": "Neelo's listing notes define liquidity as enter/exit/settle reliability, not only TVL or open interest.",
+      "answerSummary": "Liquidity As Trader Experience Liquidity is not only TVL, open interest, or a number in a venue dashboard. Neelo's listing notes frame liquidity as the user's ability to enter, exit, settle, and reason about the economic object they are trading. That distinction matters for long tail perps. A clean chart and a fast interface can hide a fragile settlement...",
+      "confidence": "Medium",
+      "pageId": "authored-liquidity-as-trader-experience",
+      "pageTitle": "Liquidity As Trader Experience",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-last-primitive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the last primitive?",
+      "normalizedQuestion": "what is the last primitive",
+      "shortAnswer": "Neelo's one-primitive paper frames permissionless derivatives as the missing layer after token issuance and spot trading.",
+      "answerSummary": "The Last Primitive The \"last primitive\" thesis is simple: crypto has permissionless issuance and permissionless spot trading, but it does not yet have permissionless derivatives for any token at comparable quality. That missing third layer explains much of the market formation gap. A token can be created, bought, sold, and routed through spot liquidity lo...",
+      "confidence": "Medium",
+      "pageId": "authored-last-primitive",
+      "pageTitle": "The Last Primitive",
+      "pageSection": "manifesto",
+      "pageTrack": "09 — Industry Primitive",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-token-margined-risk-reflexive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is token-margined risk reflexive?",
+      "normalizedQuestion": "why is token margined risk reflexive",
+      "shortAnswer": "Neelo's Percolator critique explains same-asset collateral/exposure reflexivity and inverse payoff risk.",
+      "answerSummary": "Token Margined Reflexivity Risk The token margined risk argument is about correlation between collateral and exposure. If the position and the collateral are both tied to the same asset, a price move can damage the trade and the margin base at the same time. That creates reflexivity. A falling token price can reduce position value, reduce collateral value...",
+      "confidence": "Medium",
+      "pageId": "authored-token-margined-reflexivity-risk",
+      "pageTitle": "Token-Margined Reflexivity Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "10 — Risk Architecture",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

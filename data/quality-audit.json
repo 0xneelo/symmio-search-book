@@ -6,15 +6,15 @@
     "manifestPages": 794,
     "generatedFiles": 794,
     "searchIndexEntries": 794,
-    "authoredPublicationCandidates": 45,
-    "authoredFiles": 45,
-    "readerRoutablePages": 839,
+    "authoredPublicationCandidates": 51,
+    "authoredFiles": 51,
+    "readerRoutablePages": 845,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 31,
+    "seededQuestionRoutes": 37,
     "seededReconciliationQuestions": 6,
-    "localFaqEntries": 37,
-    "localFaqAnswerable": 31,
+    "localFaqEntries": 43,
+    "localFaqAnswerable": 37,
     "localFaqUnresolved": 6,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -39,18 +39,18 @@
     "competitiveSweepCompletedLanes": 25,
     "competitiveSweepCompletedBatches": 5,
     "competitiveSweepReady": false,
-    "crosslinkedReaderPages": 839,
-    "readerPagesWithPrevious": 838,
-    "readerPagesWithNext": 838,
-    "readerPagesWithRelated": 839,
-    "answerChunkPages": 857,
-    "answerChunks": 1424,
+    "crosslinkedReaderPages": 845,
+    "readerPagesWithPrevious": 844,
+    "readerPagesWithNext": 844,
+    "readerPagesWithRelated": 845,
+    "answerChunkPages": 863,
+    "answerChunks": 1436,
     "answerChunkSourceKeys": 51,
     "compendiumVolumes": 8,
-    "compendiumChapters": 68,
+    "compendiumChapters": 70,
     "compendiumVolumeOverviews": 8,
-    "compendiumVolumeReaderPages": 839,
-    "compendiumVolumeAssignedPages": 839,
+    "compendiumVolumeReaderPages": 845,
+    "compendiumVolumeAssignedPages": 845,
     "completionRequirements": 17,
     "completionRequirementsComplete": 5,
     "completionRequirementsPartial": 4,
@@ -62,7 +62,7 @@
     "openOperatorItems": 8,
     "resolvedOperatorItems": 0,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 31,
+    "answerablePrototypeQuestions": 37,
     "reconciliationQuestions": 6
   },
   "gates": [
@@ -118,7 +118,7 @@
       "id": "authored-bodies",
       "label": "Authored pages carry bodies",
       "passed": true,
-      "detail": "45 authored index pages, 45 authored markdown files"
+      "detail": "51 authored index pages, 51 authored markdown files"
     },
     {
       "id": "duplicate-manifest-ids",
@@ -136,13 +136,13 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "31 generated routes, 31 answerable ledger rows, 0 missing page ids"
+      "detail": "37 generated routes, 37 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "31 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "37 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -160,19 +160,19 @@
       "id": "reader-crosslinks",
       "label": "Reader crosslinks resolve",
       "passed": true,
-      "detail": "839 crosslinked pages, 839 reader routes, 0 broken explicit related routes"
+      "detail": "845 crosslinked pages, 845 reader routes, 0 broken explicit related routes"
     },
     {
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "857 pages, 1424 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "863 pages, 1436 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
       "label": "Compendium volume map resolves",
       "passed": true,
-      "detail": "8 volumes, 68 chapters, 8 overview pages, 839/839 reader pages assigned, manifest target met"
+      "detail": "8 volumes, 70 chapters, 8 overview pages, 845/845 reader pages assigned, manifest target met"
     },
     {
       "id": "requirement-map",
@@ -202,8 +202,8 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "publication-candidate": 28,
-      "publication-candidate-needs-operator-review": 16,
+      "publication-candidate": 32,
+      "publication-candidate-needs-operator-review": 18,
       "needs-reconciliation": 1
     },
     "rows": [
@@ -234,12 +234,12 @@
       },
       {
         "status": "publication-candidate",
-        "count": 28,
+        "count": 32,
         "severity": "candidate"
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 16,
+        "count": 18,
         "severity": "blocked"
       }
     ]
@@ -248,7 +248,7 @@
     "navigationSections": 22,
     "navigationTracks": 49,
     "authored": {
-      "manifesto": 17,
+      "manifesto": 23,
       "competitive-context": 1,
       "dashboard-reference": 9,
       "reference": 1,
@@ -277,9 +277,9 @@
       "unknownSourceKeys": []
     },
     "authored": {
-      "total": 45,
-      "withSourceKeys": 45,
-      "withSourceUrls": 45,
+      "total": 51,
+      "withSourceKeys": 51,
+      "withSourceUrls": 51,
       "missingSourceKeys": [],
       "missingSourceUrls": [],
       "unknownSourceKeys": []
@@ -621,47 +621,47 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 31,
+    "totalRoutes": 37,
     "totalReconciliationQuestions": 6,
     "byConfidence": {
-      "Medium": 21,
+      "Medium": 27,
       "High": 8,
       "Low": 2
     },
     "byRouteSource": {
       "curated": 7,
       "generated": 1,
-      "authored": 23
+      "authored": 29
     },
     "missingRouteIds": []
   },
   "faqCoverage": {
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
-    "totalEntries": 37,
-    "totalAnswerable": 31,
+    "totalEntries": 43,
+    "totalAnswerable": 37,
     "totalUnresolved": 6,
     "totalCategories": 10,
     "byCategory": {
-      "Getting Started": 1,
+      "Getting Started": 3,
       "Trading Flow": 5,
-      "Solvers And Settlement": 6,
-      "Risk And Markets": 2,
+      "Solvers And Settlement": 7,
+      "Risk And Markets": 3,
       "Rewards And Referrals": 5,
       "Revenue": 4,
       "Dashboard": 7,
-      "Manifesto": 5,
+      "Manifesto": 7,
       "Data And Volume": 1,
       "Discord Import": 1
     },
     "byConfidence": {
-      "Medium": 21,
+      "Medium": 27,
       "High": 8,
       "Low": 2
     },
     "byRouteSource": {
       "curated": 8,
-      "authored": 23
+      "authored": 29
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -794,14 +794,14 @@
     "missingSourceKeys": []
   },
   "crosslinkCoverage": {
-    "totalPages": 839,
-    "pagesWithPrevious": 838,
-    "pagesWithNext": 838,
-    "pagesWithRelated": 839,
+    "totalPages": 845,
+    "pagesWithPrevious": 844,
+    "pagesWithNext": 844,
+    "pagesWithRelated": 845,
     "bySection": {
       "competitive-context": 2,
       "compendium": 8,
-      "manifesto": 17,
+      "manifesto": 23,
       "protocol-reference": 7,
       "product-reference": 4,
       "dashboard-reference": 14,
@@ -827,7 +827,7 @@
       "vision-sections": 541
     },
     "byRouteSource": {
-      "authored": 45,
+      "authored": 51,
       "generated": 794
     },
     "missingExplicitRelatedPageIds": [],
@@ -841,21 +841,21 @@
       "maxWords": 220,
       "overlapWords": 35
     },
-    "totalPages": 857,
-    "totalChunks": 1424,
-    "pagesWithChunks": 857,
+    "totalPages": 863,
+    "totalChunks": 1436,
+    "pagesWithChunks": 863,
     "byRouteSource": {
-      "authored": 45,
+      "authored": 51,
       "curated": 20,
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 83,
+      "authored": 95,
       "curated": 20,
       "generated": 1321
     },
     "chunksBySection": {
-      "manifesto": 30,
+      "manifesto": 42,
       "competitive-context": 6,
       "dashboard-reference": 18,
       "reference": 2,
@@ -954,10 +954,10 @@
     "status": "prototype-compendium-volume-map",
     "targetRange": "500-800 pages",
     "manifestPages": 794,
-    "readerPages": 839,
+    "readerPages": 845,
     "totalVolumes": 8,
-    "totalChapters": 68,
-    "pagesAssigned": 839,
+    "totalChapters": 70,
+    "pagesAssigned": 845,
     "manifestWithinTarget": true,
     "volumes": [
       {
@@ -965,9 +965,9 @@
         "number": 1,
         "title": "Orientation And Core Thesis",
         "overviewPageId": "authored-volume-01-orientation-and-thesis",
-        "totalPages": 31,
-        "chapters": 17,
-        "authoredPages": 20,
+        "totalPages": 37,
+        "chapters": 19,
+        "authoredPages": 26,
         "generatedPages": 11
       },
       {
@@ -1246,7 +1246,7 @@
       },
       {
         "id": "G-002A",
-        "title": "500-800 Page Manifest Is Mapped, Not Authored"
+        "title": "500-800 Page Manifest Is Mapped, Not Fully Authored"
       },
       {
         "id": "G-003",
