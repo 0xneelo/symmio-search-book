@@ -44,11 +44,19 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 
 | Key | Source | Use |
 | --- | --- | --- |
-| `syn-166` | Linear issue SYN-166, "timo wants to add a USD counter in your dashboard" | User demand for USD counter, calculator, and network scenarios. |
-| `syn-200` | Linear issue SYN-200, "Barometer: switch network-volume source from Vibe backend to subgraphs" | Subgraph migration research and more accurate volume path. |
-| `syn-203` | Linear issue SYN-203, "Phase B revenue/points farmed scope" | Future revenue components and data dependencies. |
-| `syn-172` | Linear issue SYN-172, "15-level rollout" | Referral-depth rollout and percentage schedule. |
+| `syn-56` | Linear issue SYN-56, "Dashboard FAQ / Help surface" | Shared dashboard FAQ/help scope, feeder issues, and current FAQ source-of-truth relationship. |
+| `syn-73` | Linear issue SYN-73, "Upgrade the Vibe cut calculator based on this HTML implementation" | In-funnel cut-calculator walkthrough, proof CTA behavior, and calculator QA notes. |
+| `syn-98` | Linear issue SYN-98, "Upgrade standalone Revenue Calculator walkthrough" | Standalone revenue calculator flow, solver-economics defaults, and browser verification notes. |
 | `syn-118` | Linear issue SYN-118, "network volume level question" | Historical product question about aggregation depth. |
+| `syn-163` | Linear issue SYN-163, "Implement daily volume snapshots and 5-level network aggregation" | Daily per-wallet snapshots, 5-level network-volume aggregation, refresh cadence, and verification comments. |
+| `syn-166` | Linear issue SYN-166, "timo wants to add a USD counter in your dashboard" | User demand for USD counter, calculator, and network scenarios. |
+| `syn-172` | Linear issue SYN-172, "15-level rollout" | Referral-depth rollout and percentage schedule. |
+| `syn-192` | Linear issue SYN-192, "let users adjust the volume 25%, 50%, 100%" | Volume-adjustment demand signal for calculator/scenario controls. |
+| `syn-200` | Linear issue SYN-200, "Barometer: switch network-volume source from Vibe backend to subgraphs" | Subgraph migration research and more accurate volume path. |
+| `syn-201` | Linear issue SYN-201, "Dashboard network-revenue Phase B — in-dashboard revenue calculator + economics" | Deferred Phase B revenue calculator and economics surface beyond the live odometer. |
+| `syn-203` | Linear issue SYN-203, "Phase B revenue/points farmed scope" | Future revenue components and data dependencies. |
+| `syn-204` | Linear issue SYN-204, "Revenue odometer polish — flat-volume rate fix + accumulator finalize" | Odometer fallback-rate, accumulator, cache-bust, and uncommitted-polish handoff evidence. |
+| `syn-205` | Linear issue SYN-205, "Deploy v1.1.0 to production (Track A — feature deploy)" | Production deploy gate, JSON-runtime boundary, 15-level rollout dependency, and verification sequence. |
 
 ## Public Vibe Sources
 

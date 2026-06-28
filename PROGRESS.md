@@ -162,6 +162,13 @@
 - Updated Search insights with a Source Ingestion console and tightened requirement coverage so source traceability is not marked complete while required source families are still unmined.
 - Extended the quality audit with a required-source ingestion gate; current result is 16 of 20 gates passing, with source ingestion, operator inbox, and Discord/Lafa gates still open.
 
+## 2026-06-28 — Linear Source Coverage Pass
+
+- Verified the spec-named Synchronicity issues through the Linear MCP, including comments where present, for FAQ, calculators, volume aggregation, revenue odometer, Phase B economics, referral rollout, and deploy readiness.
+- Registered the missing Linear source keys in `SOURCES.md`: `syn-56`, `syn-73`, `syn-98`, `syn-163`, `syn-192`, `syn-201`, `syn-204`, and `syn-205`.
+- Updated the source-ingestion expected set to include `syn-172`, so the already-cited 15-level rollout issue is counted in the Linear source family.
+- The 794-page Neelo-backed manifest remains the scale baseline; this pass improves source defensibility rather than changing page count.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

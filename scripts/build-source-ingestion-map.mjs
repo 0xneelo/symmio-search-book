@@ -128,7 +128,21 @@ const localCodeKeys = [
   "dashboard-faq",
   "dashboard-settings",
 ];
-const linearExpectedKeys = ["syn-166", "syn-200", "syn-201", "syn-203", "syn-204", "syn-163", "syn-56", "syn-118", "syn-192", "syn-98", "syn-73", "syn-205"];
+const linearExpectedKeys = [
+  "syn-56",
+  "syn-73",
+  "syn-98",
+  "syn-118",
+  "syn-163",
+  "syn-166",
+  "syn-172",
+  "syn-192",
+  "syn-200",
+  "syn-201",
+  "syn-203",
+  "syn-204",
+  "syn-205",
+];
 const revenueKeys = ["local-revenue-doc", "dashboard-revenue-doc", "server-pulse", "server-volume", "server-volume-snapshots", "server-me"];
 const neeloKeys = ["vibe-papers", "vibe-papers-site", "vibe-papers-data"];
 const vibePublicKeys = ["vibe-llms", "vibe-what-is", "vibe-architecture", "vibe-referral-program", "vibe-points", "vibe-margin"];

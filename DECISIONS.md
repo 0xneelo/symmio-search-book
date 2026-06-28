@@ -231,3 +231,11 @@
 **Reason:** A claim can be properly cited to registered sources while the overall research mandate still has unmined source families. The compendium needs both citation integrity and ingestion completeness, especially for parked sources such as Discord and the Vibe Trading Notion.
 
 **Status:** Accepted for research completeness tracking.
+
+## D-030: Treat Linear MCP Records As The Linear Source Authority
+
+**Decision:** Register the required Synchronicity issue keys in `SOURCES.md` only after checking their current Linear issue records, and comments where available, through the Linear MCP.
+
+**Reason:** The docs spec requires Linear descriptions and comments for revenue, volume, FAQ, calculators, referral depth, and deploy context. Local deployment notes are useful corroboration, but direct Linear records are the safer source authority for the issue titles, status, relationships, and implementation notes.
+
+**Status:** Accepted for the Linear research source family.

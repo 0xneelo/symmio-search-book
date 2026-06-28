@@ -24,11 +24,11 @@
     "gapQueueCategories": 11,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
-    "sourceCatalogEntries": 51,
+    "sourceCatalogEntries": 59,
     "linkedSourceCatalogEntries": 45,
     "sourceIngestionRequirements": 16,
-    "sourceIngestionComplete": 7,
-    "sourceIngestionPartial": 5,
+    "sourceIngestionComplete": 8,
+    "sourceIngestionPartial": 4,
     "sourceIngestionParked": 2,
     "sourceIngestionMissing": 2,
     "sourceIngestionReady": false,
@@ -50,7 +50,7 @@
     "completionRequirementsParked": 6,
     "completionRequirementsMissing": 1,
     "completionReady": false,
-    "sourceRegistryKeys": 51,
+    "sourceRegistryKeys": 59,
     "usedSourceKeys": 41,
     "openOperatorItems": 5,
     "resolvedOperatorItems": 0,
@@ -81,19 +81,19 @@
       "id": "source-keys",
       "label": "Registered source-key coverage",
       "passed": true,
-      "detail": "41 used keys, 51 registered keys, 0 unknown used keys"
+      "detail": "41 used keys, 59 registered keys, 0 unknown used keys"
     },
     {
       "id": "source-catalog",
       "label": "Source catalog matches registry",
       "passed": true,
-      "detail": "51 catalog sources, 51 registry keys, 0 used keys missing catalog"
+      "detail": "59 catalog sources, 59 registry keys, 0 used keys missing catalog"
     },
     {
       "id": "source-ingestion",
       "label": "Required source families are ingested",
       "passed": false,
-      "detail": "7/16 complete, 5 partial, 2 parked, 2 missing"
+      "detail": "8/16 complete, 4 partial, 2 parked, 2 missing"
     },
     {
       "id": "source-urls",
@@ -323,12 +323,20 @@
       "spec-07",
       "spec-08",
       "spec-prompt",
+      "syn-163",
+      "syn-192",
+      "syn-201",
+      "syn-204",
+      "syn-205",
+      "syn-56",
+      "syn-73",
+      "syn-98",
       "vibe-papers-data",
       "vibe-papers-site"
     ]
   },
   "sourceCatalogCoverage": {
-    "totalSources": 51,
+    "totalSources": 59,
     "linkedSources": 45,
     "byGroup": {
       "Authored Publication Candidates": 2,
@@ -336,7 +344,7 @@
       "Competitive Context": 2,
       "Local Specs": 12,
       "Public Symmio Sources": 5,
-      "Linear Research": 5,
+      "Linear Research": 13,
       "Public Vibe Sources": 9
     },
     "byKind": {
@@ -344,7 +352,7 @@
       "repo-pattern": 1,
       "public-url": 15,
       "absolute-local": 2,
-      "linear": 5
+      "linear": 13
     },
     "usedKeysMissingCatalog": [],
     "registryKeysMissingCatalog": [],
@@ -355,10 +363,10 @@
     "sourceCompletionReady": false,
     "totalSourceRequirements": 16,
     "byStatus": {
-      "complete": 7,
+      "complete": 8,
       "missing": 2,
       "parked": 2,
-      "partial": 5
+      "partial": 4
     },
     "byCategory": {
       "competitive-reference": 2,
@@ -393,22 +401,6 @@
       }
     ],
     "missingSourceFamilies": [
-      {
-        "id": "linear-synchronicity-research",
-        "status": "partial",
-        "missingKeys": [
-          "syn-163",
-          "syn-192",
-          "syn-201",
-          "syn-204",
-          "syn-205",
-          "syn-56",
-          "syn-73",
-          "syn-98"
-        ],
-        "blocks": [],
-        "nextAction": "Register remaining Linear sources or mark unavailable with evidence before final publication."
-      },
       {
         "id": "vibe-notion",
         "status": "parked",
@@ -1139,22 +1131,6 @@
     "sourceIngestionDuplicateIds": [],
     "sourceIngestionInvalidParkedIds": [],
     "sourceIngestionMissingFamilies": [
-      {
-        "id": "linear-synchronicity-research",
-        "status": "partial",
-        "missingKeys": [
-          "syn-163",
-          "syn-192",
-          "syn-201",
-          "syn-204",
-          "syn-205",
-          "syn-56",
-          "syn-73",
-          "syn-98"
-        ],
-        "blocks": [],
-        "nextAction": "Register remaining Linear sources or mark unavailable with evidence before final publication."
-      },
       {
         "id": "vibe-notion",
         "status": "parked",
