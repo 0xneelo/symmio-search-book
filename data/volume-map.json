@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1020,
+  "readerPages": 1025,
   "totalVolumes": 8,
   "totalChapters": 96,
-  "pagesAssigned": 1020,
+  "pagesAssigned": 1025,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -3637,29 +3637,29 @@
       "title": "Token Margin, Pillars, And Funding Systems",
       "premise": "Collect token-margined perps, Vibe pillars, information/trade convergence, and funding model architecture.",
       "readerPromise": "Understand the infrastructure mechanics that make inventory-backed markets economically legible.",
-      "totalPages": 208,
+      "totalPages": 213,
       "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
       "overviewTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-      "authoredPages": 36,
+      "authoredPages": 41,
       "generatedPages": 172,
       "statusCounts": {
         "draft-extracted-from-primary-source": 118,
         "draft-imported-from-primary-source": 54,
         "publication-candidate": 12,
-        "publication-candidate-needs-operator-review": 24
+        "publication-candidate-needs-operator-review": 29
       },
       "granularityCounts": {
-        "authored-page": 36,
+        "authored-page": 41,
         "section-page": 118,
         "source-page": 54
       },
       "routeSourceCounts": {
-        "authored": 36,
+        "authored": 41,
         "generated": 172
       },
       "sectionCounts": {
         "compendium": 1,
-        "manifesto": 34,
+        "manifesto": 39,
         "protocol-reference": 1,
         "vision-papers": 54,
         "vision-sections": 118
@@ -3678,7 +3678,7 @@
         "authored-required-risk-premium-for-usdc-lps",
         "authored-usdc-lp-backstop-cascade",
         "authored-token-inventory-risk-localization",
-        "authored-percolator-engineering-vs-economics"
+        "authored-active-risk-management-vs-passive-physics"
       ],
       "pageIds": [
         "authored-volume-04-token-margin-and-funding-systems",
@@ -3688,8 +3688,13 @@
         "authored-required-risk-premium-for-usdc-lps",
         "authored-usdc-lp-backstop-cascade",
         "authored-token-inventory-risk-localization",
+        "authored-active-risk-management-vs-passive-physics",
+        "authored-passive-matcher-vulnerability",
         "authored-percolator-engineering-vs-economics",
+        "authored-shorting-death-spiral",
         "authored-slab-isolation-capital-inefficiency",
+        "authored-one-x-leverage-ceiling",
+        "authored-inverse-payoff-trap",
         "authored-oracle-circuit-breaker-paradox",
         "authored-token-margined-lp-lose-lose",
         "authored-usdc-settlement-inventory-separation",
@@ -4102,27 +4107,32 @@
           "title": "07 - Token-Margined Issues (Percolator)",
           "section": "manifesto",
           "track": "07 - Token-Margined Issues (Percolator)",
-          "totalPages": 39,
-          "authoredPages": 5,
+          "totalPages": 44,
+          "authoredPages": 10,
           "generatedPages": 34,
           "statusCounts": {
             "draft-extracted-from-primary-source": 20,
             "draft-imported-from-primary-source": 14,
             "publication-candidate": 4,
-            "publication-candidate-needs-operator-review": 1
+            "publication-candidate-needs-operator-review": 6
           },
           "granularityCounts": {
-            "authored-page": 5,
+            "authored-page": 10,
             "section-page": 20,
             "source-page": 14
           },
           "sourceKeys": [
             "vibe-papers"
           ],
-          "firstPageId": "authored-percolator-engineering-vs-economics",
+          "firstPageId": "authored-active-risk-management-vs-passive-physics",
           "pageIds": [
+            "authored-active-risk-management-vs-passive-physics",
+            "authored-passive-matcher-vulnerability",
             "authored-percolator-engineering-vs-economics",
+            "authored-shorting-death-spiral",
             "authored-slab-isolation-capital-inefficiency",
+            "authored-one-x-leverage-ceiling",
+            "authored-inverse-payoff-trap",
             "authored-oracle-circuit-breaker-paradox",
             "authored-token-margined-lp-lose-lose",
             "authored-usdc-settlement-inventory-separation",
@@ -4163,12 +4173,51 @@
           ],
           "samplePages": [
             {
+              "id": "authored-active-risk-management-vs-passive-physics",
+              "title": "Active Risk Management Versus Passive Physics",
+              "section": "manifesto",
+              "track": "07 - Token-Margined Issues (Percolator)",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-passive-matcher-vulnerability",
+              "title": "Passive Matcher Vulnerability",
+              "section": "manifesto",
+              "track": "07 - Token-Margined Issues (Percolator)",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
               "id": "authored-percolator-engineering-vs-economics",
               "title": "Percolator: Engineering Strength, Economic Limit",
               "section": "manifesto",
               "track": "07 - Token-Margined Issues (Percolator)",
               "granularity": "authored-page",
               "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-shorting-death-spiral",
+              "title": "Shorting Death Spiral",
+              "section": "manifesto",
+              "track": "07 - Token-Margined Issues (Percolator)",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
               "volumeId": "volume-04-token-margin-and-funding-systems",
               "sourceKeys": [
@@ -4189,53 +4238,14 @@
               ]
             },
             {
-              "id": "authored-oracle-circuit-breaker-paradox",
-              "title": "The Oracle Circuit-Breaker Paradox",
-              "section": "manifesto",
-              "track": "07 - Token-Margined Issues (Percolator)",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-token-margined-lp-lose-lose",
-              "title": "The Token-Margined LP Lose-Lose",
-              "section": "manifesto",
-              "track": "07 - Token-Margined Issues (Percolator)",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-usdc-settlement-inventory-separation",
-              "title": "USDC Settlement Separates Inventory From Solvency",
+              "id": "authored-one-x-leverage-ceiling",
+              "title": "The 1x Leverage Ceiling",
               "section": "manifesto",
               "track": "07 - Token-Margined Issues (Percolator)",
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
               "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-07-token-margined-issues-perculator-07-docs-01-introduction",
-              "title": "Section 1: Introduction",
-              "section": "vision-papers",
-              "track": "07 - Token-Margined Issues (Percolator)",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
               "sourceKeys": [
                 "vibe-papers"
               ]
@@ -9901,8 +9911,13 @@
     "authored-required-risk-premium-for-usdc-lps": "volume-04-token-margin-and-funding-systems",
     "authored-usdc-lp-backstop-cascade": "volume-04-token-margin-and-funding-systems",
     "authored-token-inventory-risk-localization": "volume-04-token-margin-and-funding-systems",
+    "authored-active-risk-management-vs-passive-physics": "volume-04-token-margin-and-funding-systems",
+    "authored-passive-matcher-vulnerability": "volume-04-token-margin-and-funding-systems",
     "authored-percolator-engineering-vs-economics": "volume-04-token-margin-and-funding-systems",
+    "authored-shorting-death-spiral": "volume-04-token-margin-and-funding-systems",
     "authored-slab-isolation-capital-inefficiency": "volume-04-token-margin-and-funding-systems",
+    "authored-one-x-leverage-ceiling": "volume-04-token-margin-and-funding-systems",
+    "authored-inverse-payoff-trap": "volume-04-token-margin-and-funding-systems",
     "authored-oracle-circuit-breaker-paradox": "volume-04-token-margin-and-funding-systems",
     "authored-token-margined-lp-lose-lose": "volume-04-token-margin-and-funding-systems",
     "authored-usdc-settlement-inventory-separation": "volume-04-token-margin-and-funding-systems",

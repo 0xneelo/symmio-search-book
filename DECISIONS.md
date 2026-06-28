@@ -663,3 +663,11 @@
 **Reason:** Neelo's referral corpus is not only a rewards pitch. It defines phased launch control, claim-security surfaces, KPI governance, public dashboard standards, and decision ownership. The compendium should preserve that operational discipline so referral growth is documented as market-formation infrastructure rather than a generic acquisition funnel.
 
 **Status:** Accepted for the authored reference layer; referral depth, code activation thresholds, transferability, signer models, partner tiers, reward caps, and public dashboard publication policy remain under operator/product/security review.
+
+## D-084: Document Token-Margin Failure Modes As Mechanisms
+
+**Decision:** Add authored mechanism pages for inverse payoff convexity, 1x leverage ceilings, passive matcher vulnerability, shorting death spirals, and active risk management versus passive physics.
+
+**Reason:** The token-margined/Percolator critique is most useful when it shows how specific mechanisms fail, not merely that same-asset collateral is risky. These pages let the compendium explain why settlement unit, matcher design, leverage capacity, payout denomination, and solver agency are core architecture choices for long-tail perps.
+
+**Status:** Accepted for the authored manifesto layer; exact production Vibe parameters, solver controls, insurance allocations, leverage bands, and ADL behavior remain under implementation/operator review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 207
+      "totalGoldenRoutes": 212
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 225,
-    "retrievalEligiblePages": 1017,
+    "publicNavigationPages": 230,
+    "retrievalEligiblePages": 1022,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 225,
+      "candidate": 230,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 207,
-    "exactRouteTestsPassing": 207,
+    "totalExactRouteTests": 212,
+    "exactRouteTestsPassing": 212,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 207
+      "candidate": 212
     },
     "exactRoutesByConfidence": {
-      "Medium": 94,
+      "Medium": 98,
       "High": 30,
-      "Low": 83
+      "Low": 84
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3272,6 +3272,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-is-the-inverse-payoff-trap",
+        "query": "What is the inverse payoff trap?",
+        "normalizedQuery": "what is the inverse payoff trap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-inverse-payoff-trap",
+        "expectedPageTitle": "The Inverse Payoff Trap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-inverse-payoff-trap",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-token-margined-perps-hit-a-1x-leverage-ceiling",
+        "query": "Why can token-margined perps hit a 1x leverage ceiling?",
+        "normalizedQuery": "why can token margined perps hit a 1x leverage ceiling",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-one-x-leverage-ceiling",
+        "expectedPageTitle": "The 1x Leverage Ceiling",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-token-margined-perps-hit-a-1x-leverage-ceiling",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-passive-matchers-vulnerable-in-volatile-markets",
+        "query": "Why are passive matchers vulnerable in volatile markets?",
+        "normalizedQuery": "why are passive matchers vulnerable in volatile markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-passive-matcher-vulnerability",
+        "expectedPageTitle": "Passive Matcher Vulnerability",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-passive-matchers-vulnerable-in-volatile-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-a-shorting-death-spiral",
+        "query": "What is a shorting death spiral?",
+        "normalizedQuery": "what is a shorting death spiral",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-shorting-death-spiral",
+        "expectedPageTitle": "Shorting Death Spiral",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-a-shorting-death-spiral",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-vibe-use-active-risk-management-instead-of-passive-physics",
+        "query": "Why does Vibe use active risk management instead of passive physics?",
+        "normalizedQuery": "why does vibe use active risk management instead of passive physics",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-active-risk-management-vs-passive-physics",
+        "expectedPageTitle": "Active Risk Management Versus Passive Physics",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-vibe-use-active-risk-management-instead-of-passive-physics",
+        "passes": true
+      },
+      {
         "id": "qr-what-does-the-symm-lp-case-study-show",
         "query": "What does the SYMM LP case study show?",
         "normalizedQuery": "what does the symm lp case study show",
@@ -4899,7 +5004,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 207,
+      "exactRoutes": 212,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

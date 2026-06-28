@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1038,
-  "totalChunks": 1776,
-  "pagesWithChunks": 1038,
+  "totalPages": 1043,
+  "totalChunks": 1786,
+  "pagesWithChunks": 1043,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,18 +653,18 @@
     }
   },
   "byRouteSource": {
-    "authored": 226,
+    "authored": 231,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 435,
+    "authored": 445,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
+    "manifesto": 244,
     "product-reference": 46,
-    "manifesto": 234,
     "dashboard-reference": 24,
     "protocol-reference": 70,
     "competitive-context": 6,
@@ -701,6 +701,54 @@
     "architecture": 2
   },
   "chunks": [
+    {
+      "id": "authored-active-risk-management-vs-passive-physics::001",
+      "pageId": "authored-active-risk-management-vs-passive-physics",
+      "chunkIndex": 1,
+      "title": "Active Risk Management Versus Passive Physics",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/active-risk-management-vs-passive-physics.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Active Risk Management Versus Passive Physics Neelo's Vibe versus Percolator comparison describes two risk philosophies. Percolator is framed as passive physics: parameters are set, invariants are checked, and the state machine liquidates or applies ADL when constraints fail. Vibe is framed as active optimization: the solver adjusts spreads, funding, borrow rates, insurance deployment, and defensive escalation in response to market state. What The Active Layer Buys Active risk management can use several control surfaces: widen spreads when volatility or utilization rises; adjust funding to discourage dominant side skew; deploy local or global insurance before forced deleveraging; offer pricing incentives for rebalancing flow; reduce exposure when oracle or manipulation risk rises. The point is not that an active solver can eliminate risk. It is that a solver can respond before the only remaining action is liquidation or haircut. What It Costs The active approach costs simplicity. It needs risk models, monitoring, operator policy, source backed parameters, and public documentation of failure modes. It also creates UX tradeoffs: quotes can widen, capacity can tighten, and some trades can be refused. That cost is still part of the Vibe thesis. Long tail markets are not mature CLOB markets. They need an adaptive counterparty layer until the market has enough two sided flow to clear more naturally. Reader Implication The docs should present active"
+    },
+    {
+      "id": "authored-active-risk-management-vs-passive-physics::002",
+      "pageId": "authored-active-risk-management-vs-passive-physics",
+      "chunkIndex": 2,
+      "title": "Active Risk Management Versus Passive Physics",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/active-risk-management-vs-passive-physics.md",
+      "wordStart": 185,
+      "wordEnd": 297,
+      "wordCount": 112,
+      "text": "Vibe thesis. Long tail markets are not mature CLOB markets. They need an adaptive counterparty layer until the market has enough two sided flow to clear more naturally. Reader Implication The docs should present active solver discretion as a risk control mechanism, not as magic. It is more complex than passive invariant checking, but the complexity is the price of making thin, volatile markets tradeable without pretending every asset has mature liquidity from day one. Sources vibe papers : Neelo, \"The Structurally Superior Alternative\". vibe papers : Neelo, \"Vibe Trading's OTC Solver Model vs. Percolator's Inverted Perps\". Related Pages authored dynamic pricing controls authored funding defense hierarchy authored solver engine operating loop"
+    },
     {
       "id": "authored-amfq-legacy-intent-naming::001",
       "pageId": "authored-amfq-legacy-intent-naming",
@@ -3533,6 +3581,52 @@
       "text": "and Symmio as infrastructure that handles the pre book and solver mediated parts of the derivatives lifecycle, then links back to order books where order books are strongest. Sources vibe papers : Neelo, \"Ode to OrderBooks\". Related Pages authored bootstrap trilemma authored vibe as discovery layer neelo 04 ode to the orderbook 04 docs overview"
     },
     {
+      "id": "authored-inverse-payoff-trap::001",
+      "pageId": "authored-inverse-payoff-trap",
+      "chunkIndex": 1,
+      "title": "The Inverse Payoff Trap",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/inverse-payoff-trap.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Inverse Payoff Trap Neelo's Percolator critique separates token margined reflexivity from a sharper payoff problem: inverse settlement can make token liabilities grow non linearly as price falls. In an inverse perpetual, the trader's token denominated PnL depends on the difference between inverse prices. That means a short that is profitable in dollar terms can require more and more tokens to settle as the token approaches zero. Why The Payout Curve Matters The source's example is intentionally simple. A short entered near $1.00 earns almost the same dollar profit whether the token falls to $0.10 , $0.01 , or $0.001 , but the token payout required by the protocol expands dramatically in token terms. That is the inverse payoff trap. The vault is asked to pay the asset that is collapsing. When price falls, each remaining dollar of trader profit consumes more units of the weakening token. The liability curve gets steeper exactly when the vault is least able to absorb it. Linear Settlement Contrast The source contrasts this with USDC margined linear settlement. If a trader shorts $1,000 of notional and the token falls by 99% , the payout is fixed in USDC terms. The liability can still be large, but it does not become a hyperbolic token obligation. That distinction is one reason Vibe's source corpus treats settlement"
+    },
+    {
+      "id": "authored-inverse-payoff-trap::002",
+      "pageId": "authored-inverse-payoff-trap",
+      "chunkIndex": 2,
+      "title": "The Inverse Payoff Trap",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/inverse-payoff-trap.md",
+      "wordStart": 185,
+      "wordEnd": 348,
+      "wordCount": 163,
+      "text": "by 99% , the payout is fixed in USDC terms. The liability can still be large, but it does not become a hyperbolic token obligation. That distinction is one reason Vibe's source corpus treats settlement unit as architecture, not accounting detail. If the settlement unit is the same unstable token as the underlying, the protocol inherits token denominated convexity. If settlement is stable and linear, insurance, margin, and solver capital can reason about bounded dollar liabilities. Reader Implication The compendium should not describe token margined risk only as \"same asset collateral.\" The deeper problem is that token liabilities can expand in the unit that is failing. That is why linear settlement matters for payout credibility in long tail markets. Sources vibe papers : Neelo, \"Section 3: Reflexivity and Negative Convexity\". Related Pages authored token margined reflexivity risk authored usdc settlement inventory separation section 07 token margined issues perculator 07 docs 03 reflexivity and convexity 3 2 negative convexity and the inverse payoff trap"
+    },
+    {
       "id": "authored-issuance-abundance-creates-validation-debt::001",
       "pageId": "authored-issuance-abundance-creates-validation-debt",
       "chunkIndex": 1,
@@ -4695,6 +4789,52 @@
       "text": "and funding compensating actual risk? Is solver residual exposure declining as markets mature? Are LPs paid from repeatable market economics? Do stressed markets use the disclosed defense stack before ADL? If the docs track those questions, Proof of Value becomes falsifiable rather than purely rhetorical. Publication Note Current live market revenue, LP payouts, solver profitability, and stress outcomes need operator approved source data before final publication. This page documents the test the compendium should apply. Sources vibe papers : Neelo, \"Section 7: Validation and Sustainability\". vibe papers : Neelo, \"Section 8: Conclusion\". Related Pages authored proof value validation sustainability authored search insights loop authored graduation data checklist"
     },
     {
+      "id": "authored-one-x-leverage-ceiling::001",
+      "pageId": "authored-one-x-leverage-ceiling",
+      "chunkIndex": 1,
+      "title": "The 1x Leverage Ceiling",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/one-x-leverage-ceiling.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The 1x Leverage Ceiling The Percolator LP economics source argues that token margined perps face a leverage ceiling that attacks the point of perpetuals. The example is stark: if an LP has 1,000,000 tokens and traders open 10,000,000 tokens of long exposure, a relatively small price increase can make the LP owe its whole collateral in token terms. To survive that kind of move, the LP must keep collateral close to open interest. Why This Breaks Capital Efficiency Perpetuals are useful because they let traders express leveraged exposure while the system manages margin, liquidation, and counterparty risk. If a token margined LP must maintain roughly one to one collateral against open interest, the system has lost much of that capital efficiency advantage. The source's practical point is not that a single utilization ratio is universal. It is that same asset collateral plus inverse payout risk force conservative utilization. Higher open interest may look like growth, but it can move the market closer to LP insolvency if the token pumps and longs win. Why Fees Do Not Solve It Fees and funding do not remove the leverage ceiling if they are also token denominated. The LP is still paid in the same volatile object that creates the liability. If the token appreciates, LPing can underperform holding. If the token depreciates, fee"
+    },
+    {
+      "id": "authored-one-x-leverage-ceiling::002",
+      "pageId": "authored-one-x-leverage-ceiling",
+      "chunkIndex": 2,
+      "title": "The 1x Leverage Ceiling",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/one-x-leverage-ceiling.md",
+      "wordStart": 185,
+      "wordEnd": 310,
+      "wordCount": 125,
+      "text": "leverage ceiling if they are also token denominated. The LP is still paid in the same volatile object that creates the liability. If the token appreciates, LPing can underperform holding. If the token depreciates, fee income falls with collateral value. Reader Implication When a reader asks whether token margined systems can scale long tail leverage, the answer should focus on collateral to OI safety, not only headline listing count. A market that must stay near 1x collateralization is closer to spot with extra liquidation and oracle risk than to a robust leveraged venue. Sources vibe papers : Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\". Related Pages authored token margined lp lose lose authored risk adjusted capital efficiency authored slab isolation capital inefficiency"
+    },
+    {
       "id": "authored-options-intent-lifecycle::001",
       "pageId": "authored-options-intent-lifecycle",
       "chunkIndex": 1,
@@ -5182,6 +5322,54 @@
       "wordEnd": 278,
       "wordCount": 93,
       "text": "bridge can be more valuable than trapping markets inside one execution model. Reader Implication Readers should understand Vibe as a lifecycle connector. For CLOB ecosystems, it can be an upstream discovery and graduation layer. For launchpads, it can extend the value of graduation. For traders and LPs, it defines a different risk regime before mature liquidity arrives. Sources vibe papers : Neelo, \"Section 6: Strategic Implications\". vibe papers : Neelo, \"Section 5.4: Relationship to Existing Venues\". Related Pages authored vibe as discovery layer authored market assembly line authored order books as graduation layer"
+    },
+    {
+      "id": "authored-passive-matcher-vulnerability::001",
+      "pageId": "authored-passive-matcher-vulnerability",
+      "chunkIndex": 1,
+      "title": "Passive Matcher Vulnerability",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/passive-matcher-vulnerability.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Passive Matcher Vulnerability The Percolator oracle section names a narrow but important failure mode: a passive matcher can quote around a stale or capped oracle without knowing that the real market has already moved. The source describes a fixed spread matcher that posts bid and ask prices around the oracle. That can be clean and deterministic, but it assumes real price does not move farther than the spread before the oracle catches up. Why Long Tail Assets Break The Assumption For volatile memecoins and thin long tail tokens, price can move more than a fixed spread constantly. If the matcher continues to sell near a capped or stale reference price, informed traders can buy against the matcher after the external market has already moved. This is not only \"oracle latency.\" It is a mismatch between passive execution and adversarial market information. The protocol can either keep guaranteeing execution at a mechanical price or protect the LP. It cannot guarantee fair pricing, guaranteed execution, and LP safety at once. Why Active Quoting Changes The Problem The source says a production fix usually requires an off chain signer or RFQ style intelligence. That does not make active quoting free. It adds operational burden, trust boundaries, and UX complexity. But it lets the quote path refuse, widen, or reprice instead of blindly matching"
+    },
+    {
+      "id": "authored-passive-matcher-vulnerability::002",
+      "pageId": "authored-passive-matcher-vulnerability",
+      "chunkIndex": 2,
+      "title": "Passive Matcher Vulnerability",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/passive-matcher-vulnerability.md",
+      "wordStart": 185,
+      "wordEnd": 338,
+      "wordCount": 153,
+      "text": "signer or RFQ style intelligence. That does not make active quoting free. It adds operational burden, trust boundaries, and UX complexity. But it lets the quote path refuse, widen, or reprice instead of blindly matching at a deterministic oracle band. This is why the Vibe thesis treats solver discretion as a defense layer. A solver can use the oracle as an input rather than a command. Reader Implication The docs should explain why early market quotes may widen or disappear under stress. That behavior can feel worse than a guaranteed on chain match, but it may be the thing that prevents predictable extraction from becoming the market's dominant strategy. Sources vibe papers : Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\". vibe papers : Neelo, \"Vibe Trading's OTC Solver Model vs. Percolator's Inverted Perps\". Related Pages authored oracle circuit breaker paradox authored solver refusal as oracle defense authored bootstrap oracle risk tiers"
     },
     {
       "id": "authored-perceived-vs-actual-listing-interest::001",
@@ -7051,6 +7239,52 @@
       "wordEnd": 302,
       "wordCount": 117,
       "text": "prices, prevent withdrawals, or rewrite past settlements. Those are the right security semantics to teach before discussing any particular implementation. Publication Boundary The source includes illustrative function signatures and TODO notes for final contract architecture, access controls, and upgrade mechanisms. Until those are confirmed by production contracts or product owners, the docs should present the settlement boundary as a model: durable financial state on chain, operational calculations off chain, and solver powers bounded by verifiable constraints. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.2 Settlement Layer\". vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.7 Security Model\". Related Pages authored hybrid settlement solver stack authored symmio clearing house layer authored collateral margin cva"
+    },
+    {
+      "id": "authored-shorting-death-spiral::001",
+      "pageId": "authored-shorting-death-spiral",
+      "chunkIndex": 1,
+      "title": "Shorting Death Spiral",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/shorting-death-spiral.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Shorting Death Spiral The shorting death spiral is the inverse payoff trap under market stress. In the source model, traders open large shorts, price falls, and the protocol must pay winning shorts in tokens. As price drops, each dollar of profit requires more token units. The vault drains faster, remaining LPs face pressure, liquidation can add selling, and the feedback loop deepens. Why ADL Is Not A Full Answer Percolator's source level defense is auto deleveraging through a haircut model. That can prevent a purely technical insolvency by reducing winning traders' payouts. But the source is clear about the credibility cost. If winning traders cannot receive full profit when the trade worked, the market has admitted that payout certainty is conditional on vault health. That may be acceptable as a last resort emergency control, but it cannot be the normal economic answer for serious long tail derivatives. Why This Matters For Vibe The Vibe comparison source argues for a defense stack before ADL: netting, token inventory, local insurance, global insurance, dynamic pricing, and solver managed risk controls. The important distinction is not that Vibe can promise no stress. It is that the architecture tries to make ADL a final resort rather than the first meaningful response after margin breaks. Reader Implication When docs discuss low cap shorting, they should not"
+    },
+    {
+      "id": "authored-shorting-death-spiral::002",
+      "pageId": "authored-shorting-death-spiral",
+      "chunkIndex": 2,
+      "title": "Shorting Death Spiral",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/shorting-death-spiral.md",
+      "wordStart": 185,
+      "wordEnd": 273,
+      "wordCount": 88,
+      "text": "promise no stress. It is that the architecture tries to make ADL a final resort rather than the first meaningful response after margin breaks. Reader Implication When docs discuss low cap shorting, they should not only describe trader opportunity. They should explain who pays a winning short and what happens if the token collapses. Payout certainty is part of market quality. Sources vibe papers : Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\". Related Pages authored inverse payoff trap authored trader payout certainty authored funding defense hierarchy"
     },
     {
       "id": "authored-slab-isolation-capital-inefficiency::001",

@@ -502,6 +502,12 @@
 - Routed five new Ask questions so the front door can answer referral rollout, settlement, KPI, dashboard, and governance questions without relying only on raw source sections.
 - Kept referral depth, code activation thresholds, transferability, signer models, partner tiers, reward caps, and live dashboard publication policy under operator/product/security review.
 
+## 2026-06-28 — Token-Margined Mechanism Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Percolator critique: inverse payoff trap, 1x leverage ceiling, passive matcher vulnerability, shorting death spiral, and active risk management versus passive physics.
+- Routed five new Ask questions so the front door can answer mechanism-level token-margin risks without collapsing them into generic "oracle risk" or "LP risk" language.
+- Kept exact production Vibe parameters, solver controls, insurance allocations, leverage bands, and ADL behavior under implementation/operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

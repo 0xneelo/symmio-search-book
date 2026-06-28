@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 207,
+  "totalRoutes": 212,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 94,
+    "Medium": 98,
     "High": 30,
-    "Low": 83
+    "Low": 84
   },
   "byRouteSource": {
-    "authored": 207
+    "authored": 212
   },
   "answerable": [
     {
@@ -2445,6 +2445,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's Percolator comparison frames Vibe's alternative as separating inventory risk from stable settlement; production parameters still need owner review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-inverse-payoff-trap",
+      "question": "What is the inverse payoff trap?",
+      "normalizedQuestion": "what is the inverse payoff trap",
+      "pageId": "authored-inverse-payoff-trap",
+      "pageTitle": "The Inverse Payoff Trap",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's negative-convexity source explains why token-denominated inverse payouts can expand hyperbolically as token price approaches zero.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-token-margined-perps-hit-a-1x-leverage-ceiling",
+      "question": "Why can token-margined perps hit a 1x leverage ceiling?",
+      "normalizedQuestion": "why can token margined perps hit a 1x leverage ceiling",
+      "pageId": "authored-one-x-leverage-ceiling",
+      "pageTitle": "The 1x Leverage Ceiling",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's LP-economics source argues same-asset collateral can force collateral close to open interest to avoid LP insolvency.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-passive-matchers-vulnerable-in-volatile-markets",
+      "question": "Why are passive matchers vulnerable in volatile markets?",
+      "normalizedQuestion": "why are passive matchers vulnerable in volatile markets",
+      "pageId": "authored-passive-matcher-vulnerability",
+      "pageTitle": "Passive Matcher Vulnerability",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's oracle/manipulation source shows fixed-spread oracle matchers can sell stale prices when real markets move faster than the oracle.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-a-shorting-death-spiral",
+      "question": "What is a shorting death spiral?",
+      "normalizedQuestion": "what is a shorting death spiral",
+      "pageId": "authored-shorting-death-spiral",
+      "pageTitle": "Shorting Death Spiral",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's death-spiral source connects winning shorts, token-denominated payouts, vault depletion, LP liquidation, and ADL credibility loss.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-vibe-use-active-risk-management-instead-of-passive-physics",
+      "question": "Why does Vibe use active risk management instead of passive physics?",
+      "normalizedQuestion": "why does vibe use active risk management instead of passive physics",
+      "pageId": "authored-active-risk-management-vs-passive-physics",
+      "pageTitle": "Active Risk Management Versus Passive Physics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's Vibe-versus-Percolator comparison frames solver control surfaces as adaptive defenses before liquidation or ADL.",
       "sourceKeys": [
         "vibe-papers"
       ],

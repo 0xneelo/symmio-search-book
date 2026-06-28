@@ -35,25 +35,25 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1020,
+  "totalPages": 1025,
   "byState": {
-    "candidate": 225,
+    "candidate": 230,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 226,
+    "authored": 231,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 226,
+    "authored-page": 231,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
+    "publication-candidate-needs-operator-review": 131,
     "publication-candidate": 99,
-    "publication-candidate-needs-operator-review": 126,
     "needs-reconciliation": 3,
     "source-mapped": 63,
     "draft-imported-from-primary-source": 187,
@@ -61,8 +61,8 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
+    "manifesto": 128,
     "product-reference": 25,
-    "manifesto": 123,
     "dashboard-reference": 17,
     "protocol-reference": 35,
     "competitive-context": 2,
@@ -89,6 +89,10 @@
     "architecture": 2
   },
   "statesByVolume": {
+    "volume-04-token-margin-and-funding-systems": {
+      "candidate": 41,
+      "source-companion": 172
+    },
     "volume-07-product-trading-and-risk": {
       "candidate": 21,
       "source-companion": 30
@@ -101,10 +105,6 @@
       "candidate": 15,
       "source-companion": 6,
       "internal-draft": 1
-    },
-    "volume-04-token-margin-and-funding-systems": {
-      "candidate": 36,
-      "source-companion": 172
     },
     "volume-05-solver-lp-and-protocol-operations": {
       "candidate": 40,
@@ -126,13 +126,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 225,
+  "publicCandidatePages": 230,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 225,
-  "retrievalEligiblePages": 1017,
-  "reviewRequiredPages": 921,
-  "exactQuestionRoutedPages": 204,
+  "publicNavigationPages": 230,
+  "retrievalEligiblePages": 1022,
+  "reviewRequiredPages": 926,
+  "exactQuestionRoutedPages": 209,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -169,6 +169,7 @@
     "neelo-02-proof-of-value-02-docs-00-abstract"
   ],
   "publicCandidateSamplePageIds": [
+    "authored-active-risk-management-vs-passive-physics",
     "authored-amfq-legacy-intent-naming",
     "authored-autonomous-market-creation",
     "authored-barometer-subgraph-upgrade",
@@ -192,8 +193,7 @@
     "authored-dashboard-revenue-pulse",
     "authored-dashboard-settings",
     "authored-dashboard-tasks",
-    "authored-dashboard-volume",
-    "authored-ddq-architecture-stack"
+    "authored-dashboard-volume"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -201,6 +201,31 @@
     "792 source companion pages should support retrieval/authoring but not final public navigation."
   ],
   "pages": [
+    {
+      "id": "authored-active-risk-management-vs-passive-physics",
+      "title": "Active Risk Management Versus Passive Physics",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/active-risk-management-vs-passive-physics.md",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
     {
       "id": "authored-amfq-legacy-intent-naming",
       "title": "AMFQ Is Legacy Naming For Intents",
@@ -1738,6 +1763,30 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-inverse-payoff-trap",
+      "title": "The Inverse Payoff Trap",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/inverse-payoff-trap.md",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-issuance-abundance-creates-validation-debt",
       "title": "Issuance Abundance Creates Validation Debt",
       "section": "manifesto",
@@ -2368,6 +2417,30 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-one-x-leverage-ceiling",
+      "title": "The 1x Leverage Ceiling",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/one-x-leverage-ceiling.md",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-options-intent-lifecycle",
       "title": "Options Intent Lifecycle",
       "section": "protocol-reference",
@@ -2579,6 +2652,31 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/06-strategic-implications",
         "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis#5-4-relationship-to-existing-venues"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-passive-matcher-vulnerability",
+      "title": "Passive Matcher Vulnerability",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/passive-matcher-vulnerability.md",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/comparison"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -3613,6 +3711,30 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain",
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-7-security-model"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-shorting-death-spiral",
+      "title": "Shorting Death Spiral",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/shorting-death-spiral.md",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
