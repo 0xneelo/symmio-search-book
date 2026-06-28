@@ -18,6 +18,9 @@ const defaults = {
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   faq: path.join(searchBookRoot, "data", "faq.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
+  llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
+  answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
@@ -94,6 +97,22 @@ const journeys = readJson(args.journeys, { totalJourneys: 0, totalSteps: 0, miss
 const questionRoutes = readJson(args.questionRoutes, { totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] });
 const faq = readJson(args.faq, { totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0 });
 const gapQueue = readJson(args.gapQueue, { totalItems: 0, totalOperatorSignals: 0, totalQuestionSignals: 0 });
+const answerEngineContract = readJson(args.answerEngineContract, {
+  deterministicReady: false,
+  llmProductionReady: false,
+  evaluation: { totalExactRouteTests: 0, exactRouteTestsPassing: 0, totalRefusalTests: 0, refusalTestsPassing: 0 },
+});
+const llmRagContract = readJson(args.llmRagContract, {
+  apiContractReady: false,
+  evalHarnessReady: false,
+  runtimeImplemented: false,
+  llmProductionReady: false,
+  adversarialEvaluation: { totalCases: 0, passingCases: 0 },
+});
+const answerValidationReport = readJson(args.answerValidationReport, {
+  reportReady: false,
+  coverage: { totalFixtures: 0, passingFixtures: 0, failingFixtures: 0 },
+});
 const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0, pagesMissingChunks: [], unknownSourceKeys: [] });
 const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
 const sourceCatalog = readJson(args.sourceCatalog, { totalSources: 0, duplicateKeys: [], sources: [] });
@@ -114,12 +133,34 @@ const authoredSections = authored.bySection || countBy(authored.pages || [], (pa
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
+const answerEngineEvaluation = answerEngineContract.evaluation || {};
+const llmRagAdversarial = llmRagContract.adversarialEvaluation || {};
+const answerValidationCoverage = answerValidationReport.coverage || {};
+const deterministicAnswerEngineReady =
+  answerEngineContract.deterministicReady === true &&
+  (answerEngineEvaluation.totalExactRouteTests || 0) === (questionRoutes.totalRoutes || 0) &&
+  (answerEngineEvaluation.exactRouteTestsPassing || 0) === (questionRoutes.totalRoutes || 0) &&
+  (answerEngineEvaluation.totalRefusalTests || 0) === (questionRoutes.totalReconciliationQuestions || 0) &&
+  (answerEngineEvaluation.refusalTestsPassing || 0) === (questionRoutes.totalReconciliationQuestions || 0);
+const llmContractReady =
+  llmRagContract.apiContractReady === true &&
+  llmRagContract.evalHarnessReady === true &&
+  llmRagContract.runtimeImplemented === false &&
+  llmRagContract.llmProductionReady === false &&
+  (llmRagAdversarial.totalCases || 0) >= 12 &&
+  (llmRagAdversarial.passingCases || 0) === (llmRagAdversarial.totalCases || 0);
+const answerValidationReady =
+  answerValidationReport.reportReady === true &&
+  (answerValidationCoverage.totalFixtures || 0) >= 20 &&
+  (answerValidationCoverage.passingFixtures || 0) === (answerValidationCoverage.totalFixtures || 0) &&
+  (answerValidationCoverage.failingFixtures || 0) === 0;
 const sourceIngestionOpenBlocks = [
   ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
   ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
   ...(inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : []),
   ...(inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : []),
   ...(inboxHas(openInboxItems, 8) ? ["OPERATOR-INBOX #8"] : []),
+  ...(inboxHas(openInboxItems, 9) ? ["OPERATOR-INBOX #9"] : []),
 ];
 const sourceIngestionIncomplete =
   !sourceIngestion.sourceCompletionReady ||
@@ -187,11 +228,20 @@ const requirements = [
   req({
     id: "answer-engine-front-door",
     label: "Ask-first answer-engine front door",
-    status: answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
+    status: deterministicAnswerEngineReady && answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "05", "06", "09"],
-    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, static Ask UI routes to exact pages`,
-    nextAction: "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision.",
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages`,
+    nextAction: "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
+  }),
+  req({
+    id: "answer-engine-contracts-and-evals",
+    label: "Answer-engine contracts, adversarial evals, and response validator",
+    status: deterministicAnswerEngineReady && llmContractReady && answerValidationReady ? "complete" : "partial",
+    category: "answer-engine",
+    sourceSpecs: ["06", "08", "11"],
+    evidence: `deterministicReady=${answerEngineContract.deterministicReady === true}; LLM API contract ${llmRagContract.apiContractReady === true ? "ready" : "not-ready"}; adversarial cases ${llmRagAdversarial.passingCases || 0}/${llmRagAdversarial.totalCases || 0}; answer-validation fixtures ${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0}`,
+    nextAction: "Run the validation harness against actual model responses once the runtime endpoint exists.",
   }),
   req({
     id: "living-docs-loop",
@@ -199,7 +249,7 @@ const requirements = [
     status: gapQueue.totalItems >= 1 && questionRoutes.totalReconciliationQuestions >= 1 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "06", "09"],
-    evidence: `${gapQueue.totalItems || 0} generated gap items, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, localStorage prototype for live questions/ratings`,
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, localStorage prototype for live questions/ratings`,
     nextAction: "Replace browser-local event storage with a production datastore after platform/backend selection.",
   }),
   req({

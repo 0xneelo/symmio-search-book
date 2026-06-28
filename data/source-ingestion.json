@@ -2,10 +2,10 @@
   "generatedAt": "deterministic-build",
   "status": "source-ingestion-coverage-map",
   "sourceCompletionReady": false,
-  "totalSourceRequirements": 16,
+  "totalSourceRequirements": 17,
   "byStatus": {
     "complete": 11,
-    "parked": 5
+    "parked": 6
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -13,11 +13,19 @@
     "demand-signal": 1,
     "local-truth": 3,
     "manifesto": 1,
-    "product-reference": 2,
+    "product-reference": 3,
     "protocol-reference": 4,
     "reference": 1
   },
   "openOperatorItems": [
+    {
+      "id": 10,
+      "title": "Linear issue creation approval for private repo handoffs"
+    },
+    {
+      "id": 9,
+      "title": "Vibe add-token-info source fetch approval/access"
+    },
     {
       "id": 8,
       "title": "Opyn official docs access or exclusion decision"
@@ -216,6 +224,25 @@
       "nextAction": "Verify exact market counts and time-sensitive product claims at publication time."
     },
     {
+      "id": "vibe-add-token-info",
+      "label": "Vibe Add Token Info docs",
+      "status": "parked",
+      "category": "product-reference",
+      "sourceSpecs": [
+        "04",
+        "08"
+      ],
+      "presentKeys": [],
+      "missingKeys": [
+        "vibe-add-token-info"
+      ],
+      "evidence": "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
+      "blocks": [
+        "OPERATOR-INBOX #9"
+      ],
+      "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
+    },
+    {
       "id": "vibe-notion",
       "label": "Vibe Trading Notion workspace",
       "status": "parked",
@@ -408,7 +435,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "45 authored pages generated from registered sources across 9 sections.",
+      "evidence": "190 authored pages generated from registered sources across 10 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -447,6 +474,7 @@
         "server-pulse",
         "server-volume",
         "server-volume-snapshots",
+        "sherlock-symmetrical-contest",
         "spec-00",
         "spec-01",
         "spec-02",
@@ -464,11 +492,20 @@
         "symm-io-options-core",
         "symm-io-protocol-core",
         "symm-io-subgraphs",
+        "symmio-audit-reports",
+        "symmio-build-solver",
+        "symmio-contract-architecture",
+        "symmio-contract-interactions",
         "symmio-core",
         "symmio-earliest-docs",
         "symmio-foundation-docs",
+        "symmio-frontend-builder",
+        "symmio-funding-rates",
+        "symmio-hedging-strategies",
         "symmio-intent-lifecycle",
+        "symmio-liquidations",
         "symmio-llms",
+        "symmio-market-limit-orders",
         "symmio-options-docs",
         "symmio-options-facets",
         "symmio-options-instant-layer",
@@ -477,7 +514,13 @@
         "symmio-options-partyb-close",
         "symmio-options-partyb-open",
         "symmio-options-technical-architecture",
+        "symmio-profit-realization",
+        "symmio-settlement",
+        "symmio-settlement-costs",
+        "symmio-solver-role",
+        "symmio-solving",
         "symmio-token-foundation",
+        "symmio-trading-fees",
         "symmio-what-is",
         "symmio-whitepaper",
         "syn-118",
@@ -493,23 +536,55 @@
         "syn-56",
         "syn-73",
         "syn-98",
+        "vibe-account-creation",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio",
         "vibe-architecture",
+        "vibe-collateral-margining",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding",
+        "vibe-hotkeys",
         "vibe-llms",
         "vibe-margin",
+        "vibe-mobile-pwa",
+        "vibe-oi-liquidity",
+        "vibe-order-types",
         "vibe-papers",
         "vibe-papers-data",
         "vibe-papers-site",
+        "vibe-platform",
         "vibe-points",
+        "vibe-project-listing-terms",
+        "vibe-rakeback",
+        "vibe-referral-codes",
         "vibe-referral-program",
+        "vibe-security-audits",
+        "vibe-simple-trade",
+        "vibe-system-visualization",
+        "vibe-tpsl",
+        "vibe-trading-program",
+        "vibe-tradingview-control",
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "79 registered source keys; 0 duplicate keys.",
+      "evidence": "116 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
   ],
   "missingSourceFamilies": [
+    {
+      "id": "vibe-add-token-info",
+      "status": "parked",
+      "missingKeys": [
+        "vibe-add-token-info"
+      ],
+      "blocks": [
+        "OPERATOR-INBOX #9"
+      ],
+      "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
+    },
     {
       "id": "vibe-notion",
       "status": "parked",

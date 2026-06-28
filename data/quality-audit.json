@@ -49,10 +49,10 @@
     "glossaryCategories": 10,
     "sourceCatalogEntries": 116,
     "linkedSourceCatalogEntries": 102,
-    "sourceIngestionRequirements": 16,
+    "sourceIngestionRequirements": 17,
     "sourceIngestionComplete": 11,
     "sourceIngestionPartial": 0,
-    "sourceIngestionParked": 5,
+    "sourceIngestionParked": 6,
     "sourceIngestionMissing": 0,
     "sourceIngestionReady": false,
     "competitiveSweepTargetDocs": 50,
@@ -83,8 +83,8 @@
     "pageStateInternalDraftPages": 3,
     "pageStatePublicNavigationPages": 189,
     "pageStateRetrievalEligiblePages": 981,
-    "completionRequirements": 17,
-    "completionRequirementsComplete": 5,
+    "completionRequirements": 18,
+    "completionRequirementsComplete": 6,
     "completionRequirementsPartial": 4,
     "completionRequirementsParked": 7,
     "completionRequirementsMissing": 1,
@@ -132,7 +132,7 @@
       "id": "source-ingestion",
       "label": "Required source families are ingested",
       "passed": false,
-      "detail": "11/16 complete, 0 partial, 5 parked, 0 missing"
+      "detail": "11/17 complete, 0 partial, 6 parked, 0 missing"
     },
     {
       "id": "competitive-sweep",
@@ -246,7 +246,7 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "5/17 complete, 4 partial, 7 parked, 1 missing"
+      "detail": "6/18 complete, 4 partial, 7 parked, 1 missing"
     },
     {
       "id": "operator-inbox",
@@ -501,10 +501,10 @@
   "sourceIngestionCoverage": {
     "status": "source-ingestion-coverage-map",
     "sourceCompletionReady": false,
-    "totalSourceRequirements": 16,
+    "totalSourceRequirements": 17,
     "byStatus": {
       "complete": 11,
-      "parked": 5
+      "parked": 6
     },
     "byCategory": {
       "competitive-reference": 2,
@@ -512,11 +512,19 @@
       "demand-signal": 1,
       "local-truth": 3,
       "manifesto": 1,
-      "product-reference": 2,
+      "product-reference": 3,
       "protocol-reference": 4,
       "reference": 1
     },
     "openOperatorItems": [
+      {
+        "id": 10,
+        "title": "Linear issue creation approval for private repo handoffs"
+      },
+      {
+        "id": 9,
+        "title": "Vibe add-token-info source fetch approval/access"
+      },
       {
         "id": 8,
         "title": "Opyn official docs access or exclusion decision"
@@ -551,6 +559,17 @@
       }
     ],
     "missingSourceFamilies": [
+      {
+        "id": "vibe-add-token-info",
+        "status": "parked",
+        "missingKeys": [
+          "vibe-add-token-info"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #9"
+        ],
+        "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
+      },
       {
         "id": "vibe-notion",
         "status": "parked",
@@ -1800,9 +1819,9 @@
   "requirementCoverage": {
     "status": "completion-coverage-map",
     "completionReady": false,
-    "totalRequirements": 17,
+    "totalRequirements": 18,
     "byStatus": {
-      "complete": 5,
+      "complete": 6,
       "partial": 4,
       "parked": 7,
       "missing": 1
@@ -1810,7 +1829,7 @@
     "byCategory": {
       "content": 3,
       "reference": 3,
-      "answer-engine": 2,
+      "answer-engine": 3,
       "demand-signal": 1,
       "navigation": 2,
       "sourcing": 2,
@@ -1818,6 +1837,10 @@
       "delivery": 2
     },
     "openOperatorItems": [
+      {
+        "id": 10,
+        "title": "Linear issue creation approval for private repo handoffs"
+      },
       {
         "id": 9,
         "title": "Vibe add-token-info source fetch approval/access"
@@ -1887,7 +1910,7 @@
       {
         "id": "answer-engine-front-door",
         "status": "partial",
-        "nextAction": "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision.",
+        "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
         "blocks": []
       },
       {
@@ -1913,7 +1936,8 @@
           "OPERATOR-INBOX #5",
           "OPERATOR-INBOX #6",
           "OPERATOR-INBOX #7",
-          "OPERATOR-INBOX #8"
+          "OPERATOR-INBOX #8",
+          "OPERATOR-INBOX #9"
         ]
       },
       {
@@ -2074,6 +2098,17 @@
     "sourceIngestionInvalidParkedIds": [],
     "sourceIngestionMissingFamilies": [
       {
+        "id": "vibe-add-token-info",
+        "status": "parked",
+        "missingKeys": [
+          "vibe-add-token-info"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #9"
+        ],
+        "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
+      },
+      {
         "id": "vibe-notion",
         "status": "parked",
         "missingKeys": [
@@ -2184,7 +2219,7 @@
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision."
+        "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection."
       },
       {
         "id": "living-docs-loop",
@@ -2208,7 +2243,8 @@
           "OPERATOR-INBOX #5",
           "OPERATOR-INBOX #6",
           "OPERATOR-INBOX #7",
-          "OPERATOR-INBOX #8"
+          "OPERATOR-INBOX #8",
+          "OPERATOR-INBOX #9"
         ],
         "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
       },

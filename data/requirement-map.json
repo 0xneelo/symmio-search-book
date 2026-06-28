@@ -2,9 +2,9 @@
   "generatedAt": "deterministic-build",
   "status": "completion-coverage-map",
   "completionReady": false,
-  "totalRequirements": 17,
+  "totalRequirements": 18,
   "byStatus": {
-    "complete": 5,
+    "complete": 6,
     "partial": 4,
     "parked": 7,
     "missing": 1
@@ -12,7 +12,7 @@
   "byCategory": {
     "content": 3,
     "reference": 3,
-    "answer-engine": 2,
+    "answer-engine": 3,
     "demand-signal": 1,
     "navigation": 2,
     "sourcing": 2,
@@ -20,6 +20,10 @@
     "delivery": 2
   },
   "openOperatorItems": [
+    {
+      "id": 10,
+      "title": "Linear issue creation approval for private repo handoffs"
+    },
     {
       "id": 9,
       "title": "Vibe add-token-info source fetch approval/access"
@@ -161,9 +165,23 @@
         "06",
         "09"
       ],
-      "evidence": "171 seeded routes, 1706 retrieval chunks, static Ask UI routes to exact pages",
+      "evidence": "171 seeded routes, 1706 retrieval chunks, 171/171 exact-route tests, 7/7 refusal tests, static Ask UI routes to exact pages",
       "blocks": [],
-      "nextAction": "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision."
+      "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection."
+    },
+    {
+      "id": "answer-engine-contracts-and-evals",
+      "label": "Answer-engine contracts, adversarial evals, and response validator",
+      "status": "complete",
+      "category": "answer-engine",
+      "sourceSpecs": [
+        "06",
+        "08",
+        "11"
+      ],
+      "evidence": "deterministicReady=true; LLM API contract ready; adversarial cases 14/14; answer-validation fixtures 26/26",
+      "blocks": [],
+      "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists."
     },
     {
       "id": "living-docs-loop",
@@ -175,7 +193,7 @@
         "06",
         "09"
       ],
-      "evidence": "13 generated gap items, 7 reconciliation questions, localStorage prototype for live questions/ratings",
+      "evidence": "13 generated gap items, 10 operator signals, 7 reconciliation questions, localStorage prototype for live questions/ratings",
       "blocks": [],
       "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection."
     },
@@ -235,13 +253,14 @@
         "07",
         "08"
       ],
-      "evidence": "116 registered sources; 90 source keys used in retrieval chunks; source-ingestion coverage 11/16 complete, 0 partial, 5 parked, 0 missing",
+      "evidence": "116 registered sources; 90 source keys used in retrieval chunks; source-ingestion coverage 11/17 complete, 0 partial, 6 parked, 0 missing",
       "blocks": [
         "OPERATOR-INBOX #2",
         "OPERATOR-INBOX #5",
         "OPERATOR-INBOX #6",
         "OPERATOR-INBOX #7",
-        "OPERATOR-INBOX #8"
+        "OPERATOR-INBOX #8",
+        "OPERATOR-INBOX #9"
       ],
       "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
     },
@@ -350,7 +369,7 @@
     {
       "id": "answer-engine-front-door",
       "status": "partial",
-      "nextAction": "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision.",
+      "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
       "blocks": []
     },
     {
@@ -376,7 +395,8 @@
         "OPERATOR-INBOX #5",
         "OPERATOR-INBOX #6",
         "OPERATOR-INBOX #7",
-        "OPERATOR-INBOX #8"
+        "OPERATOR-INBOX #8",
+        "OPERATOR-INBOX #9"
       ]
     },
     {

@@ -575,3 +575,11 @@
 **Reason:** The LLM contract defines the shape, but production needs a validator that can fail concrete responses. Validating synthetic fixtures first gives the runtime implementation a testable target for citation integrity, internal-draft exclusion, and gap/refusal persistence.
 
 **Status:** Accepted for answer-engine QA readiness.
+
+## D-073: Track Answer-Engine Readiness Separately From Runtime Launch
+
+**Decision:** Promote deterministic routing, LLM RAG contract coverage, adversarial evals, and answer-validation fixtures into a dedicated completion requirement while keeping the answer-engine front door itself partial until the production runtime endpoint and datastore exist.
+
+**Reason:** The compendium now has strong pre-runtime proof: exact-route and refusal golden tests pass, the LLM API contract is specified, adversarial cases pass, and response-shape validation is executable. That should count as implementation readiness, but it must not imply that live model answering, persistent ratings, or deployed answer storage are production-ready.
+
+**Status:** Accepted for requirement-map and quality-audit readiness tracking.

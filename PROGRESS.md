@@ -433,6 +433,12 @@
 - Added refusal fixture validation for every LLM adversarial case, including gap events, operator item ids, and gap ids where applicable.
 - Proved 26/26 validation fixtures pass: 12 cited-answer samples from the deterministic route golden set and 14 refusal samples from the adversarial eval contract.
 
+## 2026-06-28 — Requirement Readiness Map Refresh
+
+- Updated the source-ingestion map to track the Vibe Add Token Info source family as a parked requirement behind operator inbox item #9 rather than leaving it only in `GAPS.md`.
+- Updated the definition-of-done map so deterministic answer routing, LLM RAG contract coverage, adversarial evals, and answer-validation fixtures are a dedicated complete requirement.
+- Regenerated source-ingestion, requirement-map, and quality-audit data: 17 source-ingestion requirements with 6 parked, 18 completion requirements with 6 complete, and quality audit still 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

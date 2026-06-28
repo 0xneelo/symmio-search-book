@@ -267,6 +267,18 @@ const requirements = [
     nextAction: "Verify exact market counts and time-sensitive product claims at publication time.",
   }),
   sourceReq({
+    id: "vibe-add-token-info",
+    label: "Vibe Add Token Info docs",
+    status: inboxHas(openInboxItems, 9) ? "parked" : keys.has("vibe-add-token-info") ? "complete" : "missing",
+    category: "product-reference",
+    sourceSpecs: ["04", "08"],
+    presentKeys: keys.has("vibe-add-token-info") ? ["vibe-add-token-info"] : [],
+    missingKeys: keys.has("vibe-add-token-info") ? [] : ["vibe-add-token-info"],
+    evidence: "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
+    blocks: inboxHas(openInboxItems, 9) ? ["OPERATOR-INBOX #9"] : [],
+    nextAction: "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement.",
+  }),
+  sourceReq({
     id: "vibe-notion",
     label: "Vibe Trading Notion workspace",
     status: inboxHas(openInboxItems, 5) ? "parked" : "missing",
