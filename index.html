@@ -1320,29 +1320,33 @@
         align-items: center;
         justify-content: flex-end;
         flex-direction: column;
+        gap: 0;
         margin: 0 auto 22px;
-        padding-top: clamp(90px, 20vh, 220px);
+        padding-top: calc(clamp(90px, 20vh, 220px) + 5px);
+        padding-bottom: 18px;
         text-align: center;
       }
 
       .hero h2 {
         max-width: none;
-        color: #e9effc;
+        color: var(--ink);
         font-family: var(--font);
         font-size: clamp(64px, 7vw, 92px);
         font-weight: 800;
         letter-spacing: -0.05em;
         line-height: 1;
+        transform: scaleX(0.925);
+        transform-origin: center;
       }
 
       .hero p {
-        margin-top: 18px;
+        margin-top: 14px;
         color: var(--faint);
         font-family: var(--mono);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.42em;
-        line-height: 1.4;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.26em;
+        line-height: normal;
         text-transform: uppercase;
       }
 
@@ -1368,7 +1372,7 @@
         background: transparent;
         color: var(--ink);
         padding: 0 8px 0 46px;
-        font-size: 16px;
+        font-size: 16.5px;
       }
 
       .ask::before {
@@ -1427,16 +1431,20 @@
       #exampleQuestions {
         justify-content: center;
         width: min(620px, calc(100vw - 128px));
-        margin: 22px auto 0;
+        margin: 24px auto 0;
+        gap: 9px;
       }
 
       #exampleQuestions .chip {
-        border-color: rgba(148, 168, 205, 0.2);
-        background: rgba(16, 26, 48, 0.78);
+        min-height: 33px;
+        border-color: var(--line);
+        background: var(--card);
         color: var(--muted);
-        font-weight: 700;
-        min-height: 32px;
-        padding: 6px 14px;
+        display: block;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 15px;
       }
 
       .home-actions {
@@ -1444,20 +1452,26 @@
         max-width: 100%;
         justify-content: center;
         gap: 12px;
-        margin: 24px auto 0;
+        margin: 22px auto 0;
       }
 
       .home-actions button {
-        min-height: 40px;
-        border: 1px solid rgba(148, 168, 205, 0.22);
+        width: 146px;
+        min-height: 39px;
+        height: 39px;
+        border: 1px solid var(--line);
         border-radius: 9px;
-        background: rgba(16, 26, 48, 0.82);
+        background: var(--card);
         color: var(--muted);
         font-size: 13.5px;
-        padding: 0 18px;
+        padding: 0 12px;
         font-weight: 600;
-        line-height: 1;
+        line-height: normal;
         white-space: nowrap;
+      }
+
+      .home-actions button:nth-child(2) {
+        width: 136px;
       }
 
       .home-actions button:hover {
@@ -1737,6 +1751,7 @@
           box-shadow: none;
         }
 
+        .rail.is-open,
         .rail:hover,
         .rail:focus-within {
           width: 280px;
@@ -1749,6 +1764,7 @@
 
         .mobile-menu-glyph {
           display: grid;
+          appearance: none;
           place-items: center;
           width: 42px;
           height: 42px;
@@ -1759,6 +1775,7 @@
           color: var(--ink);
           font-size: 22px;
           font-weight: 700;
+          padding: 0;
         }
 
         .mobile-menu-glyph svg {
@@ -1773,6 +1790,10 @@
           display: none;
         }
 
+        .rail.is-open .side-brand,
+        .rail.is-open .side-search,
+        .rail.is-open .side-nav,
+        .rail.is-open .rail-footer,
         .rail:hover .side-brand,
         .rail:hover .side-search,
         .rail:hover .side-nav,
@@ -1784,14 +1805,57 @@
           display: flex;
         }
 
+        .rail.is-open .rail-footer,
         .rail:hover .rail-footer,
         .rail:focus-within .rail-footer {
           display: grid;
         }
 
-        .rail:hover .mobile-menu-glyph,
-        .rail:focus-within .mobile-menu-glyph {
+        .rail.is-open .mobile-menu-glyph {
           display: none;
+        }
+
+        .rail.is-open .nav-group.is-compendium {
+          display: flex;
+        }
+
+        .rail.is-open .g-label,
+        .rail.is-open .nav-link .lbl,
+        .rail.is-open .nav-link .pill,
+        .rail.is-open .mini-stat {
+          opacity: 1;
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) {
+          width: 74px;
+          height: 74px;
+          overflow: visible;
+          border-right: 0;
+          border-bottom: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) .side-brand,
+        .rail:hover:not(:focus-within):not(.is-open) .side-search,
+        .rail:hover:not(:focus-within):not(.is-open) .side-nav,
+        .rail:hover:not(:focus-within):not(.is-open) .rail-footer {
+          display: none;
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) .mobile-menu-glyph {
+          display: grid;
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) .nav-group.is-compendium {
+          display: none;
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) .g-label,
+        .rail:hover:not(:focus-within):not(.is-open) .nav-link .lbl,
+        .rail:hover:not(:focus-within):not(.is-open) .nav-link .pill,
+        .rail:hover:not(:focus-within):not(.is-open) .mini-stat {
+          opacity: 0;
         }
 
         main {
@@ -1808,9 +1872,10 @@
         }
 
         .hero {
-          min-height: 310px;
+          min-height: 295px;
           padding-top: 112px;
-          margin-bottom: 26px;
+          padding-bottom: 0;
+          margin-bottom: 40px;
         }
 
         .hero h2 {
@@ -1818,8 +1883,8 @@
         }
 
         .hero p {
-          font-size: 10px;
-          letter-spacing: 0.36em;
+          font-size: 12px;
+          letter-spacing: 0.26em;
         }
 
         .ask,
@@ -1854,7 +1919,7 @@
 
         .home-actions button {
           flex: 0 0 auto;
-          padding: 0 10px;
+          padding: 0 12px;
         }
 
         .section-title {
@@ -1866,7 +1931,7 @@
   <body>
     <div class="shell">
       <aside class="rail" aria-label="Vibe Docs navigation">
-        <div class="mobile-menu-glyph" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></div>
+        <button class="mobile-menu-glyph" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></button>
         <div class="side-brand">
           <div class="wm-mini">V<span class="dot">.</span></div>
           <div class="wm">Vibe<span class="dot">.</span></div>
@@ -3370,7 +3435,26 @@
       document.getElementById("copyEventLog").addEventListener("click", exportEventLog);
       document.getElementById("clearEventLog").addEventListener("click", clearEventLog);
 
+      const rail = document.querySelector(".rail");
+      const mobileMenuButton = document.querySelector(".mobile-menu-glyph");
+
+      function setMobileRailOpen(open) {
+        if (!rail || !mobileMenuButton) return;
+        rail.classList.toggle("is-open", open);
+        mobileMenuButton.setAttribute("aria-expanded", String(open));
+        if (!open && rail.contains(document.activeElement)) document.activeElement.blur();
+      }
+
+      mobileMenuButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setMobileRailOpen(!rail.classList.contains("is-open"));
+      });
+
       document.addEventListener("click", (event) => {
+        if (rail?.classList.contains("is-open") && !event.target.closest(".rail")) {
+          setMobileRailOpen(false);
+        }
+
         const rate = event.target.closest("[data-rate]");
         if (rate) {
           recordRating(rate);
@@ -3399,6 +3483,7 @@
         if (openPage) {
           event.preventDefault();
           openPageFromCorpus(openPage.dataset.openPage, openPage.dataset.openSource || "browse");
+          setMobileRailOpen(false);
           return;
         }
 
@@ -3426,8 +3511,14 @@
 
       document.getElementById("prevVariant").addEventListener("click", () => cycleVariant(-1));
       document.getElementById("nextVariant").addEventListener("click", () => cycleVariant(1));
-      document.querySelectorAll("[data-nav]").forEach((node) => node.addEventListener("click", () => setVariant(node.dataset.nav)));
+      document.querySelectorAll("[data-nav]").forEach((node) =>
+        node.addEventListener("click", () => {
+          setVariant(node.dataset.nav);
+          setMobileRailOpen(false);
+        }),
+      );
       document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setMobileRailOpen(false);
         const tag = document.activeElement && document.activeElement.tagName;
         if (tag === "INPUT" || tag === "TEXTAREA") return;
         if (event.key === "ArrowLeft") cycleVariant(-1);
