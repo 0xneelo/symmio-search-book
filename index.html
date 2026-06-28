@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vibe x Symmio Search Book Prototype</title>
+    <title>Vibe Docs Search Book Prototype</title>
     <script src="./answer-corpus.js"></script>
     <script src="./data/authored-pages.js"></script>
     <script src="./data/search-index.js"></script>
@@ -13,6 +13,9 @@
     <script src="./data/faq.js"></script>
     <script src="./data/gap-queue.js"></script>
     <script src="./data/answer-chunks.js"></script>
+    <script src="./data/answer-engine-contract.js"></script>
+    <script src="./data/llm-rag-contract.js"></script>
+    <script src="./data/answer-validation-report.js"></script>
     <script src="./data/volume-map.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
@@ -832,23 +835,1080 @@
           min-width: 128px;
         }
       }
+
+      /* Reference mockup parity layer */
+      :root {
+        --bg: #070d1a;
+        --bg-2: #0b1326;
+        --sidebar: #090f1e;
+        --card: #101a30;
+        --card-2: #15203a;
+        --ink: #f4f7fd;
+        --text: #f4f7fd;
+        --muted: #93a0b8;
+        --soft: #5d6b85;
+        --faint: #5d6b85;
+        --line: rgba(148, 168, 205, 0.16);
+        --line-2: rgba(148, 168, 205, 0.1);
+        --line-strong: rgba(245, 132, 238, 0.34);
+        --pink: #f584ee;
+        --magenta: #ff2da8;
+        --cyan: #26c9f2;
+        --blue: #2b5bff;
+        --green: #6fe3a5;
+        --amber: #f5c574;
+        --danger: #ff7f9e;
+        --violet: #9a5cff;
+        --font: "Plus Jakarta Sans", "Helvetica Neue", Inter, ui-sans-serif, system-ui, sans-serif;
+        --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+        --shadow: 0 24px 80px rgba(2, 6, 14, 0.46);
+        font-family: var(--font);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        font-variant-numeric: tabular-nums;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        scrollbar-color: rgba(148, 168, 205, 0.34) transparent;
+      }
+
+      body::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        border: 3px solid var(--bg);
+        border-radius: 999px;
+        background: rgba(148, 168, 205, 0.34);
+      }
+
+      body[data-view="classic"] {
+        scrollbar-width: none;
+      }
+
+      html[data-view="classic"] {
+        scrollbar-width: none;
+      }
+
+      body[data-view="classic"]::-webkit-scrollbar {
+        display: none;
+      }
+
+      html[data-view="classic"]::-webkit-scrollbar {
+        display: none;
+      }
+
+      body::selection {
+        background: rgba(245, 132, 238, 0.28);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        display: block;
+        min-height: 100vh;
+      }
+
+      .rail {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 40;
+        display: flex;
+        width: 74px;
+        height: 100vh;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-right: 1px solid var(--line);
+        background: var(--sidebar);
+        padding: 0;
+        transition:
+          width 0.24s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.24s;
+      }
+
+      .rail:hover,
+      .rail:focus-within {
+        width: 274px;
+        box-shadow: 36px 0 80px rgba(2, 6, 14, 0.55);
+      }
+
+      .rail::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .rail::-webkit-scrollbar-thumb {
+        border-radius: 99px;
+        background: rgba(148, 168, 205, 0.14);
+      }
+
+      .mobile-menu-glyph {
+        display: none;
+      }
+
+      .side-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 60px;
+        padding-left: 22px;
+        flex: 0 0 auto;
+      }
+
+      .wm-mini,
+      .wm {
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .wm-mini {
+        width: 30px;
+        font-size: 22px;
+      }
+
+      .wm {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 21px;
+        opacity: 0;
+        transition: opacity 0.18s;
+      }
+
+      .dot,
+      .pink-dot {
+        color: var(--pink);
+      }
+
+      .side-brand .tag {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 3px 7px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        opacity: 0;
+        text-transform: uppercase;
+        transition: opacity 0.18s;
+        white-space: nowrap;
+      }
+
+      .rail:hover .wm-mini,
+      .rail:focus-within .wm-mini {
+        display: none;
+      }
+
+      .rail:hover .wm,
+      .rail:hover .side-brand .tag,
+      .rail:focus-within .wm,
+      .rail:focus-within .side-brand .tag {
+        width: auto;
+        opacity: 1;
+      }
+
+      .side-search {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 40px;
+        margin: 16px 17px 6px;
+        padding: 0 11px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: var(--card);
+        color: var(--faint);
+        transition: border-color 0.14s;
+      }
+
+      .side-search:hover,
+      .side-search[aria-current="true"] {
+        border-color: rgba(245, 132, 238, 0.34);
+        color: var(--pink);
+      }
+
+      .side-search svg,
+      .ic svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+      }
+
+      .side-search .ph,
+      .side-search .kbd {
+        opacity: 0;
+        transition: opacity 0.18s;
+        white-space: nowrap;
+      }
+
+      .side-search .ph {
+        flex: 1 1 auto;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .side-search .kbd {
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 2px 5px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .rail:hover .side-search .ph,
+      .rail:hover .side-search .kbd,
+      .rail:focus-within .side-search .ph,
+      .rail:focus-within .side-search .kbd {
+        opacity: 1;
+      }
+
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .side-nav {
+        padding: 12px 14px 28px;
+      }
+
+      .nav-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .g-label {
+        height: 14px;
+        padding: 4px 12px 8px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        opacity: 0;
+        text-transform: uppercase;
+        transition: opacity 0.18s;
+        white-space: nowrap;
+      }
+
+      .rail:hover .g-label,
+      .rail:focus-within .g-label {
+        opacity: 1;
+      }
+
+      .nav button.nav-link,
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        min-height: 40px;
+        border: 1px solid transparent;
+        border-radius: 9px;
+        background: transparent;
+        color: var(--muted);
+        padding: 10px 12px 10px 13px;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-align: left;
+        text-decoration: none;
+        transition:
+          background 0.14s,
+          color 0.14s,
+          border-color 0.14s;
+        white-space: nowrap;
+      }
+
+      .nav-link .ic {
+        display: grid;
+        place-items: center;
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: currentColor;
+        opacity: 0.82;
+      }
+
+      .nav-link .lbl,
+      .nav-link .pill {
+        opacity: 0;
+        transition: opacity 0.18s;
+      }
+
+      .rail:hover .nav-link .lbl,
+      .rail:hover .nav-link .pill,
+      .rail:focus-within .nav-link .lbl,
+      .rail:focus-within .nav-link .pill {
+        opacity: 1;
+      }
+
+      .nav-link:hover {
+        background: rgba(148, 168, 205, 0.06);
+        color: var(--ink);
+      }
+
+      .nav-link[aria-current="true"],
+      .nav-link.active {
+        border-color: rgba(245, 132, 238, 0.28);
+        background: rgba(245, 132, 238, 0.1);
+        color: var(--ink);
+      }
+
+      .nav-link[aria-current="true"] .ic,
+      .nav-link.active .ic {
+        color: var(--pink);
+        opacity: 1;
+      }
+
+      .nav-link .pill {
+        margin-left: auto;
+        border: 1px solid rgba(38, 201, 242, 0.3);
+        border-radius: 99px;
+        padding: 2px 7px;
+        color: var(--cyan);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .rail-footer {
+        position: static;
+        display: grid;
+        gap: 10px;
+        margin-top: auto;
+        padding: 16px 22px 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .mini-stat {
+        min-width: 220px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: rgba(16, 26, 48, 0.72);
+        padding: 10px 12px;
+        opacity: 0;
+        transition: opacity 0.18s;
+      }
+
+      .rail:hover .mini-stat,
+      .rail:focus-within .mini-stat {
+        opacity: 1;
+      }
+
+      .stat-label,
+      .eyebrow,
+      .meta,
+      .source-chip {
+        font-family: var(--mono);
+      }
+
+      .stat-label {
+        color: var(--faint);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        display: block;
+        margin-top: 4px;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      main {
+        min-width: 0;
+        min-height: 100vh;
+        margin-left: 74px;
+        background:
+          radial-gradient(1100px 600px at 100% -10%, rgba(43, 91, 255, 0.1), transparent 60%),
+          radial-gradient(820px 520px at -5% 110%, rgba(245, 132, 238, 0.06), transparent 60%),
+          var(--bg);
+      }
+
+      .viewport {
+        width: min(100%, 1180px);
+        max-width: 1180px;
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 46px 40px 120px;
+      }
+
+      body[data-view="classic"] .viewport {
+        padding-top: 70px;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      body[data-view="classic"] .topline {
+        display: none;
+      }
+
+      .eyebrow {
+        color: var(--cyan);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        color: var(--faint);
+        font-size: 11.5px;
+      }
+
+      .hero,
+      .ask,
+      #exampleQuestions,
+      .home-actions {
+        display: none;
+      }
+
+      body[data-view="classic"] .hero,
+      body[data-view="classic"] #exampleQuestions,
+      body[data-view="classic"] .home-actions {
+        display: flex;
+      }
+
+      body[data-view="classic"] .ask {
+        display: grid;
+      }
+
+      .hero {
+        min-height: 314px;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        margin: 0 auto 34px;
+        padding-top: clamp(90px, 20vh, 220px);
+        text-align: center;
+      }
+
+      .hero h2 {
+        max-width: none;
+        color: #e9effc;
+        font-family: var(--font);
+        font-size: clamp(64px, 7vw, 96px);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 0.9;
+      }
+
+      .hero p {
+        margin-top: 18px;
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+
+      .ask {
+        position: relative;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        width: min(620px, calc(100vw - 128px));
+        margin: 0 auto;
+        border: 1px solid rgba(148, 168, 205, 0.26);
+        border-radius: 999px;
+        background: #111b31;
+        box-shadow:
+          0 28px 72px rgba(0, 0, 0, 0.34),
+          inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        padding: 7px;
+      }
+
+      .ask input {
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--ink);
+        padding: 0 8px 0 46px;
+        font-size: 16px;
+      }
+
+      .ask::before {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        width: 13px;
+        height: 13px;
+        border: 2px solid rgba(147, 160, 184, 0.7);
+        border-radius: 999px;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .ask::after {
+        content: "";
+        position: absolute;
+        left: 37px;
+        top: calc(50% + 8px);
+        width: 7px;
+        height: 2px;
+        border-radius: 999px;
+        background: rgba(147, 160, 184, 0.7);
+        transform: rotate(45deg);
+        transform-origin: left center;
+        pointer-events: none;
+      }
+
+      .ask button,
+      .primary-button {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--pink);
+        box-shadow: 0 0 28px rgba(245, 132, 238, 0.44);
+        color: #fff;
+        font-weight: 800;
+        padding: 0;
+      }
+
+      .ask .ask-label {
+        display: none;
+      }
+
+      .ask .ask-arrow {
+        font-size: 22px;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      #exampleQuestions {
+        justify-content: center;
+        width: min(620px, calc(100vw - 128px));
+        margin: 22px auto 0;
+      }
+
+      #exampleQuestions .chip {
+        border-color: rgba(148, 168, 205, 0.2);
+        background: rgba(16, 26, 48, 0.78);
+        color: var(--muted);
+        font-weight: 700;
+        min-height: 32px;
+        padding: 6px 14px;
+      }
+
+      .home-actions {
+        justify-content: center;
+        gap: 12px;
+        margin: 24px auto 0;
+      }
+
+      .home-actions button {
+        min-height: 40px;
+        border: 1px solid rgba(148, 168, 205, 0.22);
+        border-radius: 9px;
+        background: rgba(16, 26, 48, 0.82);
+        color: var(--muted);
+        font-size: 15px;
+        padding: 0 18px;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .home-actions button:hover {
+        border-color: rgba(245, 132, 238, 0.34);
+        color: var(--ink);
+      }
+
+      body[data-view="classic"] [data-view="classic"] {
+        margin-top: clamp(320px, 36vh, 430px);
+      }
+
+      .toolbar {
+        align-items: center;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line-2);
+      }
+
+      .toolbar input {
+        border-color: var(--line);
+        border-radius: 11px;
+        background: var(--card);
+        color: var(--ink);
+        padding: 12px 14px;
+      }
+
+      .section-title {
+        margin: 44px 0 16px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line-2);
+        color: var(--ink);
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .stat-card,
+      .page-card,
+      .answer,
+      .ledger,
+      .reader-panel,
+      .journey,
+      .gap-row,
+      .track-card,
+      .collection-card,
+      .term-card,
+      .faq-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(16, 26, 48, 0.72);
+      }
+
+      .stat-card strong {
+        color: var(--ink);
+        font-size: 28px;
+      }
+
+      .answer {
+        width: min(760px, 100%);
+        margin: 24px auto 34px;
+        border-color: rgba(38, 201, 242, 0.24);
+        background: rgba(16, 26, 48, 0.88);
+        box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
+      }
+
+      .answer h3,
+      .page-card h3,
+      .journey h3,
+      .track-card h3,
+      .collection-card h3,
+      .faq-card h3,
+      .term-card h3,
+      .ledger h3 {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .answer p,
+      .page-card p,
+      .journey p,
+      .gap-row p,
+      .collection-card p,
+      .faq-card p,
+      .term-card p,
+      .reader-body p,
+      .reader-body li {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .source-chip,
+      .chip {
+        border: 1px solid rgba(38, 201, 242, 0.25);
+        border-radius: 999px;
+        background: rgba(38, 201, 242, 0.07);
+        color: var(--cyan);
+        text-decoration: none;
+      }
+
+      .rating button,
+      .reader-actions button,
+      .switcher button {
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: rgba(16, 26, 48, 0.72);
+        color: var(--ink);
+      }
+
+      .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .collections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .page-card,
+      .collection-card,
+      .track-card,
+      .term-card,
+      .faq-card,
+      .journey,
+      .ledger {
+        padding: 18px 20px;
+      }
+
+      .page-card {
+        min-height: 230px;
+      }
+
+      .reader-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 232px;
+        gap: 56px;
+        align-items: start;
+      }
+
+      .reader-panel {
+        border: 0;
+        background: transparent;
+        padding: 0 0 80px;
+      }
+
+      .reader-panel h1 {
+        margin-top: 14px;
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: clamp(38px, 4vw, 56px);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.04;
+      }
+
+      .reader-lead {
+        max-width: 64ch;
+        color: var(--muted);
+        font-size: 16.5px;
+        line-height: 1.62;
+      }
+
+      .reader-body {
+        max-width: 72ch;
+      }
+
+      .reader-body h2 {
+        margin-top: 56px;
+        padding-top: 26px;
+        border-top: 1px solid var(--line-2);
+        color: var(--ink);
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0;
+        scroll-margin-top: 28px;
+      }
+
+      .reader-body h3 {
+        margin-top: 34px;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0;
+        scroll-margin-top: 28px;
+      }
+
+      .reader-body table {
+        border-color: var(--line);
+      }
+
+      .reader-body th,
+      .reader-body td {
+        border-color: var(--line);
+      }
+
+      .reader-sidebar {
+        position: sticky;
+        top: 46px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .reader-sidebar .ledger {
+        border-radius: 12px;
+        background: rgba(16, 26, 48, 0.48);
+      }
+
+      .reader-toc-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .reader-toc-list a {
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.35;
+        text-decoration: none;
+      }
+
+      .reader-toc-list a:hover {
+        color: var(--cyan);
+      }
+
+      .reader-toc-list a.is-sub {
+        padding-left: 12px;
+        color: var(--faint);
+      }
+
+      .console-layout {
+        grid-template-columns: minmax(0, 1fr) 300px;
+      }
+
+      .insight-metrics {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .switcher {
+        display: none;
+      }
+
+      body[data-view="classic"] .switcher {
+        display: none;
+      }
+
+      @media (min-width: 1280px) {
+        .viewport {
+          padding-left: 56px;
+          padding-right: 56px;
+        }
+      }
+
+      @media (max-width: 1040px) {
+        .cards,
+        .collections,
+        .reader-layout,
+        .split,
+        .journeys,
+        .console-layout,
+        .insight-metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .reader-sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .rail {
+          width: 74px;
+          height: 74px;
+          overflow: visible;
+          border-right: 0;
+          border-bottom: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .rail:hover,
+        .rail:focus-within {
+          width: 280px;
+          height: 100vh;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
+          box-shadow: 36px 0 80px rgba(2, 6, 14, 0.55);
+        }
+
+        .mobile-menu-glyph {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          margin: 16px;
+          border: 1px solid rgba(148, 168, 205, 0.26);
+          border-radius: 11px;
+          background: rgba(16, 26, 48, 0.86);
+          color: var(--ink);
+          font-size: 22px;
+          font-weight: 700;
+        }
+
+        .mobile-menu-glyph svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        .rail .side-brand,
+        .rail .side-search,
+        .rail .side-nav,
+        .rail .rail-footer {
+          display: none;
+        }
+
+        .rail:hover .side-brand,
+        .rail:hover .side-search,
+        .rail:hover .side-nav,
+        .rail:hover .rail-footer,
+        .rail:focus-within .side-brand,
+        .rail:focus-within .side-search,
+        .rail:focus-within .side-nav,
+        .rail:focus-within .rail-footer {
+          display: flex;
+        }
+
+        .rail:hover .rail-footer,
+        .rail:focus-within .rail-footer {
+          display: grid;
+        }
+
+        .rail:hover .mobile-menu-glyph,
+        .rail:focus-within .mobile-menu-glyph {
+          display: none;
+        }
+
+        main {
+          margin-left: 0;
+        }
+
+        .viewport {
+          width: 100%;
+          padding: 32px 16px 88px;
+        }
+
+        body[data-view="classic"] .viewport {
+          padding-top: 32px;
+        }
+
+        .hero {
+          min-height: 282px;
+          padding-top: 112px;
+          margin-bottom: 26px;
+        }
+
+        .hero h2 {
+          font-size: clamp(52px, 17vw, 68px);
+        }
+
+        .hero p {
+          font-size: 10px;
+          letter-spacing: 0.36em;
+        }
+
+        .ask,
+        #exampleQuestions {
+          width: 100%;
+        }
+
+        .ask {
+          grid-template-columns: minmax(0, 1fr) 44px;
+        }
+
+        .ask input {
+          padding-left: 46px;
+          font-size: 15px;
+        }
+
+        .ask button {
+          width: 44px;
+          min-width: 44px;
+        }
+
+        #exampleQuestions {
+          gap: 9px;
+        }
+
+        .home-actions {
+          gap: 12px;
+          margin-top: 22px;
+        }
+
+        .home-actions button {
+          flex: 1 1 0;
+          padding: 0 10px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="shell">
-      <aside class="rail">
-        <div class="brand">
-          <div class="brand-mark">VX</div>
-          <h1>Search Book</h1>
-          <p>Vibe x Symmio docs map</p>
+      <aside class="rail" aria-label="Vibe Docs navigation">
+        <div class="mobile-menu-glyph" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></div>
+        <div class="side-brand">
+          <div class="wm-mini">V<span class="dot">.</span></div>
+          <div class="wm">Vibe<span class="dot">.</span></div>
+          <div class="tag">Docs</div>
         </div>
-        <nav class="nav" aria-label="Prototype variants">
-          <button data-nav="classic">Ask & search</button>
-          <button data-nav="browse">Browse docs</button>
-          <button data-nav="glossary">Glossary</button>
-          <button data-nav="faq">FAQ</button>
-          <button data-nav="journey">Journeys</button>
-          <button data-nav="insights">Search insights</button>
+        <button class="side-search" type="button" data-nav="classic" aria-label="Ask and search docs">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m14.2 14.2 3.1 3.1M8.7 15.1a6.4 6.4 0 1 1 0-12.8 6.4 6.4 0 0 1 0 12.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg>
+          <span class="ph">Ask anything...</span>
+          <span class="kbd">/</span>
+        </button>
+        <nav class="nav side-nav" aria-label="Docs sections">
+          <div class="nav-group">
+            <div class="g-label">Getting started</div>
+            <button class="nav-link" type="button" data-nav="classic">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m14.2 14.2 3.1 3.1M8.7 15.1a6.4 6.4 0 1 1 0-12.8 6.4 6.4 0 0 1 0 12.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+              <span class="lbl">Ask & search</span>
+            </button>
+          </div>
+          <div class="nav-group">
+            <div class="g-label">Dashboard reference</div>
+            <button class="nav-link" type="button" data-open-page="authored-dashboard-faq" data-open-source="nav">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 4.5h10M5 9.5h10M5 14.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+              <span class="lbl">Rewards, invites & referrals</span>
+            </button>
+            <button class="nav-link" type="button" data-open-page="authored-estimated-network-revenue" data-open-source="nav">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 15.5V5m4 10.5V8m4 7.5V3.5m4 12V6.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+              <span class="lbl">How revenue is calculated</span>
+            </button>
+          </div>
+          <div class="nav-group">
+            <div class="g-label">Reference</div>
+            <button class="nav-link" type="button" data-nav="glossary">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 4.5h7.5A2.5 2.5 0 0 1 15 7v9H6.5A2.5 2.5 0 0 1 4 13.5V5.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg></span>
+              <span class="lbl">Glossary</span>
+            </button>
+            <button class="nav-link" type="button" data-nav="insights">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 14.5 8 10l3 2.5 5-7M4 16.5h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <span class="lbl">Search insights</span>
+            </button>
+          </div>
+          <div class="nav-group">
+            <div class="g-label">Compendium</div>
+            <button class="nav-link" type="button" data-nav="browse">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 5.5h12M4 10h12M4 14.5h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+              <span class="lbl">Browse docs</span>
+              <span class="pill">794</span>
+            </button>
+            <button class="nav-link" type="button" data-nav="faq">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 7.2a3.6 3.6 0 1 1 5.4 3.1c-1 .6-1.4 1-1.4 2.1M10.5 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <span class="lbl">FAQ routes</span>
+            </button>
+            <button class="nav-link" type="button" data-nav="journey">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5.5h3.5v3.5H5zM11.5 11H15v3.5h-3.5zM8.5 7.2c2.5.2 3.7 1.4 4.1 3.8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg></span>
+              <span class="lbl">Journeys</span>
+            </button>
+          </div>
         </nav>
         <div class="rail-footer">
           <div class="mini-stat">
@@ -859,6 +1919,10 @@
             <span class="stat-label">Neelo spine</span>
             <span class="stat-value" id="railNeelo">729</span>
           </div>
+          <a class="nav-link back-app" href="../dashboard.html">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M12 5 7 10l5 5M7 10h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            <span class="lbl">Back to dashboard</span>
+          </a>
         </div>
       </aside>
 
@@ -873,17 +1937,19 @@
           </div>
 
           <section class="hero">
-            <h2>Ask first. Then route into the book.</h2>
-            <p>
-              A 794-page compendium map led by Neelo's vision docs, grounded by Vibe product docs, Symmio protocol docs, local implementation, and live research gaps.
-            </p>
+            <h2>Vibe<span class="pink-dot">.</span></h2>
+            <p>Docs & answers</p>
           </section>
 
           <form class="ask" id="askForm">
-            <input id="queryInput" name="query" autocomplete="off" placeholder="Ask about referrals, solvers, VibeCaps margin, revenue, HIP-3..." />
-            <button type="submit">Ask</button>
+            <input id="queryInput" name="query" autocomplete="off" placeholder="Ask anything — points, invites, revenue, payouts…" />
+            <button type="submit" aria-label="Ask the docs"><span class="ask-label">Ask the docs</span><span class="ask-arrow">-&gt;</span></button>
           </form>
           <div class="source-row" id="exampleQuestions"></div>
+          <div class="home-actions">
+            <button type="button" data-nav="browse">Browse the docs</button>
+            <button type="button" data-nav="insights">Search insights</button>
+          </div>
 
           <section class="answer" id="answerBox" aria-live="polite"></section>
 
@@ -1035,6 +2101,9 @@
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
       const requirementMap = window.SearchBookRequirementMap || { requirements: [], byStatus: {}, byCategory: {}, nextFocus: [], completionReady: false };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
+      const answerEngineContract = window.SearchBookAnswerEngineContract || {};
+      const llmRagContract = window.SearchBookLlmRagContract || {};
+      const answerValidationReport = window.SearchBookAnswerValidationReport || {};
       const sourceByKey = sourceCatalog.sourceByKey || {};
       const crosslinkByPageId = crosslinks.pageById || {};
       const authoredPages = (authored.pages || []).map((page) => ({
@@ -1091,20 +2160,18 @@
         "When do referral points credit?",
         "How is my revenue calculated?",
         "Why is my live counter not moving?",
-        "How do solvers work?",
-        "Why does Vibe matter for HIP-3?",
+        "How do I get more invites?",
       ];
       const preferredExamples = [
-        "Where do I see my invite statuses?",
-        "How is estimated network revenue calculated?",
-        "What does Proof of Value mean?",
-        "What should I read first as a solver or LP?",
-        "What should I read first as a dashboard user?",
+        "When do referral points credit?",
+        "How is my revenue calculated?",
+        "Why is my live counter not moving?",
+        "How do I get more invites?",
       ];
       const seededExamples = preferredExamples
         .map((question) => seededQuestionRoutes.find((route) => route.question === question)?.question || question)
         .filter(Boolean)
-        .slice(0, 5);
+        .slice(0, 4);
       const exampleQuestions = seededExamples.length ? seededExamples : fallbackExampleQuestions;
       const stopWords = new Set(["a", "about", "an", "and", "are", "as", "at", "be", "do", "does", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "the", "to", "what", "when", "where", "why"]);
 
@@ -1322,6 +2389,19 @@
           .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
       }
 
+      function slugifyHeading(value) {
+        return String(value || "")
+          .toLowerCase()
+          .replace(/<[^>]+>/g, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "")
+          .slice(0, 80) || "section";
+      }
+
+      function stripHtml(value) {
+        return String(value || "").replace(/<[^>]+>/g, "");
+      }
+
       function markdownToHtml(markdown) {
         const lines = String(markdown || "")
           .replace(/^# .*\n+/, "")
@@ -1330,6 +2410,12 @@
         let paragraph = [];
         let list = [];
         let table = [];
+        const headingCounts = {};
+        const headingId = (label) => {
+          const base = slugifyHeading(label);
+          headingCounts[base] = (headingCounts[base] || 0) + 1;
+          return headingCounts[base] === 1 ? base : `${base}-${headingCounts[base]}`;
+        };
 
         const flushParagraph = () => {
           if (!paragraph.length) return;
@@ -1384,12 +2470,14 @@
           }
           if (/^###\s+/.test(trimmed)) {
             flushAll();
-            blocks.push(`<h3>${inlineMarkdown(trimmed.replace(/^###\s+/, ""))}</h3>`);
+            const label = trimmed.replace(/^###\s+/, "");
+            blocks.push(`<h3 id="${escapeHtml(headingId(label))}">${inlineMarkdown(label)}</h3>`);
             continue;
           }
           if (/^##\s+/.test(trimmed)) {
             flushAll();
-            blocks.push(`<h2>${inlineMarkdown(trimmed.replace(/^##\s+/, ""))}</h2>`);
+            const label = trimmed.replace(/^##\s+/, "");
+            blocks.push(`<h2 id="${escapeHtml(headingId(label))}">${inlineMarkdown(label)}</h2>`);
             continue;
           }
           paragraph.push(trimmed);
@@ -1872,6 +2960,9 @@
         const gates = qualityAudit.gates || [];
         const passed = gates.filter((gate) => gate.passed).length;
         const totals = qualityAudit.totals || {};
+        const answerEngineEval = answerEngineContract.evaluation || {};
+        const llmAdversarial = llmRagContract.adversarialEvaluation || {};
+        const validationCoverage = answerValidationReport.coverage || {};
         document.getElementById("qualityGates").innerHTML = gates.length
           ? gates
               .map(
@@ -1898,6 +2989,9 @@
           <li><span class="meta">Source ingestion</span><br>${escapeHtml(totals.sourceIngestionComplete || 0)} of ${escapeHtml(totals.sourceIngestionRequirements || 0)} families complete; ${escapeHtml(totals.sourceIngestionPartial || 0)} partial, ${escapeHtml(totals.sourceIngestionParked || 0)} parked, ${escapeHtml(totals.sourceIngestionMissing || 0)} missing.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
+          <li><span class="meta">Deterministic answer engine</span><br>${answerEngineContract.deterministicReady ? "ready" : "not ready"}; ${escapeHtml(answerEngineEval.exactRouteTestsPassing || 0)} of ${escapeHtml(answerEngineEval.totalExactRouteTests || 0)} exact routes and ${escapeHtml(answerEngineEval.refusalTestsPassing || 0)} of ${escapeHtml(answerEngineEval.totalRefusalTests || 0)} refusals passing.</li>
+          <li><span class="meta">LLM RAG contract</span><br>API ${llmRagContract.apiContractReady ? "ready" : "pending"}; eval ${llmRagContract.evalHarnessReady ? "ready" : "pending"}; runtime ${llmRagContract.runtimeImplemented ? "implemented" : "not implemented"}; ${escapeHtml(llmAdversarial.passingCases || 0)} of ${escapeHtml(llmAdversarial.totalCases || 0)} adversarial cases passing.</li>
+          <li><span class="meta">Answer validation harness</span><br>${answerValidationReport.reportReady ? "ready" : "not ready"}; ${escapeHtml(validationCoverage.passingFixtures || 0)} of ${escapeHtml(validationCoverage.totalFixtures || 0)} fixtures passing, ${escapeHtml(validationCoverage.failingFixtures || 0)} failing.</li>
           <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeOverviews || 0)} overviews, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
           <li><span class="meta">Completion requirements</span><br>${escapeHtml(totals.completionRequirementsComplete || 0)} of ${escapeHtml(totals.completionRequirements || 0)} complete; ${escapeHtml(totals.completionRequirementsPartial || 0)} partial, ${escapeHtml(totals.completionRequirementsParked || 0)} parked, ${escapeHtml(totals.completionRequirementsMissing || 0)} missing.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
@@ -2113,6 +3207,21 @@
         const body = page.bodyMarkdown
           ? markdownToHtml(page.bodyMarkdown)
           : `<p>${escapeHtml(page.summary || page.excerpt || "")}</p><p>This is a generated corpus preview. The underlying draft file is indexed and source-mapped, but still needs editorial restructuring before final publication.</p>`;
+        const tocItems = [...body.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)].map((match) => ({
+          level: match[1],
+          id: match[2],
+          label: stripHtml(match[3]),
+        }));
+        const tocHtml = tocItems.length
+          ? `
+              <section class="ledger">
+                <h3>On this page</h3>
+                <div class="reader-toc-list">
+                  ${tocItems.map((item) => `<a class="${item.level === "3" ? "is-sub" : ""}" href="#${escapeHtml(item.id)}">${escapeHtml(item.label)}</a>`).join("")}
+                </div>
+              </section>
+            `
+          : "";
         const related = relatedPagesFor(page);
         const sequenceLinks = readerSequenceLinks(page);
         const status = page.status || (page.curated ? "curated-route" : "indexed-page");
@@ -2136,6 +3245,7 @@
               <div class="reader-body">${body}</div>
             </article>
             <aside class="reader-sidebar">
+              ${tocHtml}
               <section class="ledger">
                 <h3>Sources</h3>
                 <div class="source-row">${sourceChips(page) || '<span class="source-chip">source pending</span>'}</div>
@@ -2169,16 +3279,23 @@
       function renderVariant() {
         const activePageId = getActivePageId();
         if (activePageId) {
+          document.documentElement.dataset.view = "reader";
+          document.body.dataset.view = "reader";
           document.querySelectorAll("[data-view]").forEach((node) => node.classList.toggle("is-hidden", node.dataset.view !== "reader"));
           document.querySelectorAll("[data-nav]").forEach((node) => node.setAttribute("aria-current", "false"));
+          document.querySelectorAll(".nav-link[data-open-page]").forEach((node) => node.setAttribute("aria-current", String(node.dataset.openPage === activePageId)));
+          document.getElementById("answerBox").classList.remove("is-visible");
           document.getElementById("switcherLabel").textContent = "Page Reader";
           document.getElementById("variantMeta").textContent = "page";
           renderPageReader(activePageId);
           return;
         }
         const current = getVariant();
+        document.documentElement.dataset.view = current;
+        document.body.dataset.view = current;
         document.querySelectorAll("[data-view]").forEach((node) => node.classList.toggle("is-hidden", node.dataset.view !== current));
         document.querySelectorAll("[data-nav]").forEach((node) => node.setAttribute("aria-current", String(node.dataset.nav === current)));
+        document.querySelectorAll(".nav-link[data-open-page]").forEach((node) => node.setAttribute("aria-current", "false"));
         const item = variants.find((variant) => variant.key === current);
         document.getElementById("switcherLabel").textContent = item.label;
         document.getElementById("variantMeta").textContent = current;
@@ -2192,7 +3309,11 @@
         const page = pageById.get(pageId);
         if (!page) return;
         const event = recordQuestion(page.title, { page, score: "direct" }, source);
-        renderAnswer({ page, score: "direct" }, page.title, event.id);
+        if (source === "nav") {
+          document.getElementById("answerBox").classList.remove("is-visible");
+        } else {
+          renderAnswer({ page, score: "direct" }, page.title, event.id);
+        }
         setActivePage(page.id, source);
         renderInsights();
       }
@@ -2263,7 +3384,7 @@
         const openPage = event.target.closest("[data-open-page]");
         if (openPage) {
           event.preventDefault();
-          openPageFromCorpus(openPage.dataset.openPage, "browse");
+          openPageFromCorpus(openPage.dataset.openPage, openPage.dataset.openSource || "browse");
           return;
         }
 
