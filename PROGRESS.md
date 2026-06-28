@@ -147,6 +147,13 @@
 - Updated Search insights with a Completion Requirements console showing status, evidence, source spec references, blockers, and next actions for every requirement.
 - Extended the quality audit with a requirement-map gate; current result is 17 of 19 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Neelo Market-Architecture Thesis Pages
+
+- Added 8 authored Neelo-backed thesis pages covering the market-creation gap, autonomous market creation, four market transitions, solver-owned market making, Z-score maturation, hybrid settlement/solver architecture, funding as balancing, and the lifecycle gap as product surface.
+- Expanded the authored manifesto layer from 9 to 17 pages and the total authored layer from 35 to 43 pages.
+- Regenerated authored pages, reader crosslinks, answer chunks, volume map, requirement map, and quality audit: 837 reader-routable pages, 1,414 answer chunks, 66 chapters, and audit 17 of 19 gates passing.
+- Kept funding and other implementation-sensitive claims labeled for operator review where they need current Vibe/Symmio reconciliation before publication.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

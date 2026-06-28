@@ -101,11 +101,12 @@ function ensureDir(dirPath) {
 }
 
 function countBy(items, getKey) {
-  return items.reduce((acc, item) => {
+  const counts = items.reduce((acc, item) => {
     const key = getKey(item) || "unknown";
     acc[key] = (acc[key] || 0) + 1;
     return acc;
   }, {});
+  return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)));
 }
 
 function unique(values) {

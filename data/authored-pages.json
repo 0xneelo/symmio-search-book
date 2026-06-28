@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 35,
+  "totalPages": 43,
   "byStatus": {
-    "publication-candidate": 21,
-    "publication-candidate-needs-operator-review": 13,
+    "publication-candidate": 28,
+    "publication-candidate-needs-operator-review": 14,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 9,
+    "manifesto": 17,
     "dashboard-reference": 9,
     "reference": 1,
     "protocol-reference": 3,
@@ -17,6 +17,27 @@
     "compendium": 8
   },
   "pages": [
+    {
+      "id": "authored-autonomous-market-creation",
+      "title": "Autonomous Market Creation",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-6-the-vision-autonomous-market-creation"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-6-the-vision-autonomous-market-creation"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/autonomous-market-creation.md",
+      "bodyMarkdown": "# Autonomous Market Creation\n\nAutonomous market creation is the positive version of the market-creation gap. Instead of asking which markets deserve to exist, the system lets markets begin in a constrained form and then become more efficient if real demand appears.\n\nThe source thesis has six moving parts: any token can begin with a market, the first state can be inefficient but functional, traders make the market deeper over time, objective maturity metrics track progress, graduation can happen by transparent criteria, and no human listing desk has to decide in advance which assets deserve a derivatives venue.\n\nThat matters because it changes what \"permissionless\" means. It is not just permissionless contract deployment. It is permissionless market testing with an economic path from first trade to mature venue.\n\n## Reader Implication\n\nThis page should orient founders, treasuries, and traders around Vibe as a market-lifecycle machine. A market starts because someone wants exposure; it matures because enough flow, balance, and liquidity show up.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.6 The Vision: Autonomous Market Creation\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-four-transitions`\n- `authored-market-maturation-z-score`",
+      "excerpt": "Autonomous Market Creation Autonomous market creation is the positive version of the market creation gap. Instead of asking which markets deserve to exist, the system lets markets begin in a constrained form and then become more efficient if real demand appears. The source thesis has six moving parts: any token can begin with a market, the first state can be inefficient but functional, traders make the market deeper over time, objective maturity metrics track progress, graduation can happen by transparent criteria, and no human listing desk has to decide in advance which assets deserve a derivatives venue. That matters because it changes what \"permissionless\" means. It is not just permissionless contract deployment. It is permissionless market testing with an economic path from first trade to mature venue. Reader Implication This page should orient founders, treasuries, and traders around Vibe as a market lifecycle machine. A market starts because someone wants exposure; it matures because enough flow, balance, and liquidity show up. Sources vibe papers : Neelo, \"Section 1: Introduction: 1.6 The Vision: Autonomous Market Creation\". Related Pages authored market creation gap authore"
+    },
     {
       "id": "authored-bootstrap-trilemma",
       "title": "The Bootstrap Trilemma",
@@ -266,6 +287,48 @@
       "excerpt": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, a configurable platform fee input, and a configurable referrer share input. The reference formula is: This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every future revenue stream is live, final, or publicly discloseable. Phase B items such as spread, liquidations, funding, solver/LP splits, venue specific accounting, and points farmed are tracked as roadmap or designed economics until the operator resolves the public disclosure boundary. The live counter should also be documented as a display model, not as a settlement guarantee. The dashboard pulse uses volume history and monotonic display behavior to make earning motion legible. That helps users understand direction and participation, but final accounting still depends on the revenue model and data sources the product owner approves for publication. Reader Implication Users should read the counter as an estimate of current network economics, not as an immutable protocol balance. Builders and operators should keep formula inputs, venue c"
     },
     {
+      "id": "authored-four-transitions",
+      "title": "The Four Transitions",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-2-the-four-transitions"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-2-the-four-transitions"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/four-transitions.md",
+      "bodyMarkdown": "# The Four Transitions\n\nNeelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself.\n\nThe first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another.\n\nThe second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order-book behavior become more plausible.\n\nThe third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market-maker around naturally matched trader flow.\n\nThe fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross-margin and insurance treatment after their behavior is known.\n\n## Reader Implication\n\nThe compendium should use the four transitions to explain why a Vibe market can be worse than an order book at launch but still be the right primitive. The point is not to freeze the bootstrap state; the point is to give markets a path out of it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.2 The Four Transitions\".\n\n## Related Pages\n\n- `authored-autonomous-market-creation`\n- `authored-market-maturation-z-score`\n- `authored-solver-owned-market-maker`",
+      "excerpt": "The Four Transitions Neelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself. The first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another. The second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order book behavior become more plausible. The third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market maker around naturally matched trader flow. The fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross margin and insurance treatment after their behavior is known. Reader Implication The compend"
+    },
+    {
+      "id": "authored-funding-as-market-balancing",
+      "title": "Funding As Market Balancing",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-5-funding-rate-mechanism"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-5-funding-rate-mechanism"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/funding-as-market-balancing.md",
+      "bodyMarkdown": "# Funding As Market Balancing\n\nFunding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium.\n\nNeelo's market-creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden.\n\nThis matters for the compendium because funding is not just a fee line. It is a market-shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps.\n\n## Publication Note\n\nThis page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue-specific mechanics, and current disclosure policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\".\n\n## Related Pages\n\n- `authored-hybrid-settlement-solver-stack`\n- `authored-market-maturation-z-score`\n- `authored-estimated-network-revenue`",
+      "excerpt": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mec"
+    },
+    {
       "id": "authored-game-theory-of-listings",
       "title": "The Game Theory Of Listings",
       "section": "manifesto",
@@ -316,6 +379,33 @@
       "file": "content/authored/reference/glossary-core-terms.md",
       "bodyMarkdown": "# Core Glossary\n\nThis glossary is a terminology lock for the first publication pass. It should be reviewed by the operator before final docs ship.\n\n| Term | Working Definition |\n| --- | --- |\n| Intent | A user's expressed desired trade or action before a final counterparty has accepted it. |\n| Solver | A professional counterparty or routing actor that prices, accepts, hedges, monitors, and settles intent flow. |\n| PartyA | Symmio's trader/requester side. |\n| PartyB | Symmio's solver/counterparty side. |\n| VibeCaps | Vibe's lowcap perpetuals surface; use with margin and isolated-market context. |\n| Network volume | Descendant wallet trading volume used by the onboarding dashboard; exact depth remains open until resolved. |\n| Estimated revenue | Dashboard estimate from network volume, configurable fee inputs, and referrer share; not final realized protocol accounting. |\n| Onboarding points | Campaign/accounting points in this onboarding app. |\n| Vibe points | Public Vibe trading-program points; keep separate from onboarding points. |\n| Referral depth | Number of referral levels included in a calculation; currently an unresolved public-docs decision. |\n\n## Reader Implication\n\nMost confusion comes from overloaded words. The docs should define the rail before explaining the number: trading point or onboarding point, solver or PartyB, estimate or realized accounting, current source or planned source.\n\n## Sources\n\n- `symmio-core`: Symmio protocol vocabulary.\n- `vibe-architecture`: Vibe intent/solver architecture.\n- `vibe-points`: Vibe points categories.\n- `spec-03`: Product grounding and terminology constraints.\n- `styleguide`: Local terminology lock.\n\n## Related Pages\n\n- `authored-symmio-party-a-party-b`\n- `authored-points-and-vibe-points`\n- `authored-referral-depth-open-question`",
       "excerpt": "Core Glossary This glossary is a terminology lock for the first publication pass. It should be reviewed by the operator before final docs ship. Term Working Definition Intent A user's expressed desired trade or action before a final counterparty has accepted it. Solver A professional counterparty or routing actor that prices, accepts, hedges, monitors, and settles intent flow. PartyA Symmio's trader/requester side. PartyB Symmio's solver/counterparty side. VibeCaps Vibe's lowcap perpetuals surface; use with margin and isolated market context. Network volume Descendant wallet trading volume used by the onboarding dashboard; exact depth remains open until resolved. Estimated revenue Dashboard estimate from network volume, configurable fee inputs, and referrer share; not final realized protocol accounting. Onboarding points Campaign/accounting points in this onboarding app. Vibe points Public Vibe trading program points; keep separate from onboarding points. Referral depth Number of referral levels included in a calculation; currently an unresolved public docs decision. Reader Implication Most confusion comes from overloaded words. The docs should define the rail before explaining the"
+    },
+    {
+      "id": "authored-hybrid-settlement-solver-stack",
+      "title": "Hybrid Settlement And Solver Stack",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-1-system-architecture-overview",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-solver-layer-off-chain",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-4-oracle-layer"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-1-system-architecture-overview",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-2-settlement-layer-on-chain",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-3-solver-layer-off-chain",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-4-oracle-layer"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/hybrid-settlement-solver-stack.md",
+      "bodyMarkdown": "# Hybrid Settlement And Solver Stack\n\nThe technical architecture in Neelo's corpus is hybrid by design. The settlement layer anchors enforceable state, while off-chain solver infrastructure performs the computations required for complex derivatives markets.\n\nThat split is central to the compendium. A purely on-chain market-maker is too limited for path-dependent risk, utilization curves, funding logic, hedging decisions, liquidations, and market graduation. A purely off-chain venue would lose the settlement guarantees that make on-chain markets credible. The architecture therefore separates durable settlement from fast risk operation.\n\n## Layer Roles\n\nThe user interface and integrations collect intent. The solver layer quotes, evaluates risk, matches where possible, hedges, and handles graduation logic. The settlement layer records vault state, positions, and enforceable outcomes. The oracle layer supplies external prices and market data.\n\nThe point is not that every implementation detail is already final. The point is that the compendium should teach the boundary: state and settlement are not the same thing as risk computation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.1 System Architecture Overview\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.2 Settlement Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.3 Solver Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.4 Oracle Layer\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-symmio-party-a-party-b`\n- `authored-token-vault-perps-versus-usdc-pools`",
+      "excerpt": "Hybrid Settlement And Solver Stack The technical architecture in Neelo's corpus is hybrid by design. The settlement layer anchors enforceable state, while off chain solver infrastructure performs the computations required for complex derivatives markets. That split is central to the compendium. A purely on chain market maker is too limited for path dependent risk, utilization curves, funding logic, hedging decisions, liquidations, and market graduation. A purely off chain venue would lose the settlement guarantees that make on chain markets credible. The architecture therefore separates durable settlement from fast risk operation. Layer Roles The user interface and integrations collect intent. The solver layer quotes, evaluates risk, matches where possible, hedges, and handles graduation logic. The settlement layer records vault state, positions, and enforceable outcomes. The oracle layer supplies external prices and market data. The point is not that every implementation detail is already final. The point is that the compendium should teach the boundary: state and settlement are not the same thing as risk computation. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6"
     },
     {
       "id": "authored-intents-and-solvers",
@@ -412,6 +502,75 @@
       "file": "content/authored/reference/lp-profit-and-dynamic-pricing.md",
       "bodyMarkdown": "# LP Profit And Dynamic Pricing\n\nThe funding-model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed.\n\nThe LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance-margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure.\n\nDynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes.\n\n## Reader Implication\n\nThis page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item `#1` still controls which current and planned revenue inputs can be published as product promises.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n- `vibe-papers`: Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\".\n- `spec-03`: Phase B economics and revenue disclosure boundary.\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-estimated-network-revenue`\n- `neelo-15-funding-model-15-docs-06-lp-profit`",
       "excerpt": "LP Profit And Dynamic Pricing The funding model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed. The LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure. Dynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes. Reader Implication This page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item 1 still controls which current and planned revenue inputs can be published as product promises. Sources vibe papers : Neelo, \"06. LP Profit Decomposition\". vibe "
+    },
+    {
+      "id": "authored-market-creation-gap",
+      "title": "The Market Creation Gap",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-2-the-market-creation-gap",
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-1-defining-the-gap"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-2-the-market-creation-gap",
+        "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-1-defining-the-gap"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/market-creation-gap.md",
+      "bodyMarkdown": "# The Market Creation Gap\n\nNeelo's market-creation argument starts with a discontinuity in the token lifecycle. A token can launch quickly, graduate into spot liquidity, and attract speculative demand, but perpetual markets usually appear only after a much later listing process. Between early spot trading and centralized perpetual availability sits the gap the compendium needs to make visible.\n\nThe gap is not only a missing product surface. It is a market-structure problem: leveraged exposure, hedging demand, and directional conviction exist before incumbent exchanges are willing to list the market. The result is delayed price discovery, opaque gatekeeping, and a long period where traders rely on substitutes instead of the market they actually want.\n\nThis is why Vibe's docs should not frame permissionless perps as \"more markets\" in a generic way. The stronger claim is lifecycle continuity. If derivatives can begin when demand appears, the market does not wait for a listing committee to decide that it is real enough.\n\n## Reader Implication\n\nThe gap page should anchor the compendium's opening logic. Readers should understand that Vibe is aimed at the stage where tokens have real demand but not enough institutional permission to receive a conventional perp market.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.2 The Market Creation Gap\".\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.1 Defining the Gap\".\n\n## Related Pages\n\n- `authored-autonomous-market-creation`\n- `authored-listing-monopoly`\n- `authored-volume-02-bootstrap-and-proof-of-value`",
+      "excerpt": "The Market Creation Gap Neelo's market creation argument starts with a discontinuity in the token lifecycle. A token can launch quickly, graduate into spot liquidity, and attract speculative demand, but perpetual markets usually appear only after a much later listing process. Between early spot trading and centralized perpetual availability sits the gap the compendium needs to make visible. The gap is not only a missing product surface. It is a market structure problem: leveraged exposure, hedging demand, and directional conviction exist before incumbent exchanges are willing to list the market. The result is delayed price discovery, opaque gatekeeping, and a long period where traders rely on substitutes instead of the market they actually want. This is why Vibe's docs should not frame permissionless perps as \"more markets\" in a generic way. The stronger claim is lifecycle continuity. If derivatives can begin when demand appears, the market does not wait for a listing committee to decide that it is real enough. Reader Implication The gap page should anchor the compendium's opening logic. Readers should understand that Vibe is aimed at the stage where tokens have real demand but not"
+    },
+    {
+      "id": "authored-market-lifecycle-gap",
+      "title": "The Lifecycle Gap As Product Surface",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications#7-1-filling-the-market-lifecycle-gap",
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-1-defining-the-gap"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-07-industry-implications-7-1-filling-the-market-lifecycle-gap",
+        "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-1-defining-the-gap"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/market-lifecycle-gap.md",
+      "bodyMarkdown": "# The Lifecycle Gap As Product Surface\n\nThe lifecycle gap is the product opening for Vibe. Neelo's papers describe a token path where spot markets can appear quickly, but derivative markets arrive late, manually, and only for a narrow set of assets. Vibe's opportunity is to turn that missing interval into a product surface.\n\nThe conventional lifecycle has a blank space between DEX liquidity and major-venue derivatives. Vibe's lifecycle fills that space with a market that can begin early, survive only if real flow appears, and graduate toward more efficient structure when the evidence supports it.\n\nThis is a sharper product story than \"permissionless listings.\" Permissionless listing sounds like a supply-side action: create a market. Lifecycle coverage is demand-side: let traders, hedgers, solvers, and LPs reveal whether the market deserves to mature.\n\n## Reader Implication\n\nThis page should sit near the bridge between manifesto and product docs. It gives the user a reason to care about dashboard data, volume, solver economics, referrals, and source-linked questions: all of those surfaces are evidence that a market is moving through its lifecycle.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications: 7.1 Filling the Market Lifecycle Gap\".\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.1 Defining the Gap\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-autonomous-market-creation`\n- `authored-volume-03-listing-power-and-orderbooks`",
+      "excerpt": "The Lifecycle Gap As Product Surface The lifecycle gap is the product opening for Vibe. Neelo's papers describe a token path where spot markets can appear quickly, but derivative markets arrive late, manually, and only for a narrow set of assets. Vibe's opportunity is to turn that missing interval into a product surface. The conventional lifecycle has a blank space between DEX liquidity and major venue derivatives. Vibe's lifecycle fills that space with a market that can begin early, survive only if real flow appears, and graduate toward more efficient structure when the evidence supports it. This is a sharper product story than \"permissionless listings.\" Permissionless listing sounds like a supply side action: create a market. Lifecycle coverage is demand side: let traders, hedgers, solvers, and LPs reveal whether the market deserves to mature. Reader Implication This page should sit near the bridge between manifesto and product docs. It gives the user a reason to care about dashboard data, volume, solver economics, referrals, and source linked questions: all of those surfaces are evidence that a market is moving through its lifecycle. Sources vibe papers : Neelo, \"Section 7: Indu"
+    },
+    {
+      "id": "authored-market-maturation-z-score",
+      "title": "Market Maturation And The Z-Score",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-4-the-market-maturation-process",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-5-the-z-score-measuring-market-maturity"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-4-the-market-maturation-process",
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/market-maturation-z-score.md",
+      "bodyMarkdown": "# Market Maturation And The Z-Score\n\nThe Z-score gives the market-creation thesis a measurable axis. Instead of treating launch and listing as binary events, Neelo's model tracks how much a market still depends on the solver as residual counterparty.\n\nIn the source model, the Z-score compares net solver exposure to total open interest. A high score means the market is one-sided and solver-dependent. A low score means trader flow is naturally balancing and the solver's residual role is shrinking.\n\nThat metric supports a maturation story:\n\n- bootstrap markets are functional but heavily solver-dependent;\n- early growth markets start to show natural flow;\n- growth markets have enough offsetting interest to tighten spreads;\n- mature markets become candidates for order-book activation;\n- fully netted markets can behave more like conventional high-efficiency venues.\n\n## Publication Note\n\nThis is a vision metric unless the operator confirms where, if anywhere, it appears in the live product. The current compendium should explain Z-score as Neelo's market-maturity model, not as a live dashboard number.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.4 The Market Maturation Process\".\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.5 The Z-Score: Measuring Market Maturity\".\n\n## Related Pages\n\n- `authored-four-transitions`\n- `authored-solver-owned-market-maker`\n- `authored-volume-02-bootstrap-and-proof-of-value`",
+      "excerpt": "Market Maturation And The Z Score The Z score gives the market creation thesis a measurable axis. Instead of treating launch and listing as binary events, Neelo's model tracks how much a market still depends on the solver as residual counterparty. In the source model, the Z score compares net solver exposure to total open interest. A high score means the market is one sided and solver dependent. A low score means trader flow is naturally balancing and the solver's residual role is shrinking. That metric supports a maturation story: bootstrap markets are functional but heavily solver dependent; early growth markets start to show natural flow; growth markets have enough offsetting interest to tighten spreads; mature markets become candidates for order book activation; fully netted markets can behave more like conventional high efficiency venues. Publication Note This is a vision metric unless the operator confirms where, if anywhere, it appears in the live product. The current compendium should explain Z score as Neelo's market maturity model, not as a live dashboard number. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture: 5.4 The Market Maturation Process\". vibe p"
     },
     {
       "id": "authored-network-volume",
@@ -575,6 +734,29 @@
       "file": "content/authored/reference/search-insights-loop.md",
       "bodyMarkdown": "# The Living Docs Loop\n\nThe answer engine is not only a search box. It is the intake system for documentation demand.\n\nThe loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop.\n\nIn this prototype, the loop is local and browser-based. It stores questions, ratings, and gaps in `localStorage` and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine.\n\n## Reader Implication\n\nThe docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next.\n\n## Sources\n\n- `spec-06`: Answer-engine and living-docs requirements.\n- `spec-09`: Design reference for Search insights.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-referral-depth-open-question`",
       "excerpt": "The Living Docs Loop The answer engine is not only a search box. It is the intake system for documentation demand. The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop. In this prototype, the loop is local and browser based. It stores questions, ratings, and gaps in localStorage and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine. Reader Implication The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next. Sources spec 06 : Answer engine and living docs requirements. spec 09 : Design reference for Search insights. Related Pages authored estimated network revenue authored referral depth open question"
+    },
+    {
+      "id": "authored-solver-owned-market-maker",
+      "title": "The Solver As Protocol-Owned Market Maker",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-3-the-solver-protocol-owned-market-maker",
+        "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/06-hybrid-solver-model#6-2-the-liquidity-waterfall"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-3-the-solver-protocol-owned-market-maker",
+        "section-02-proof-of-value-02-docs-06-hybrid-solver-model-6-2-the-liquidity-waterfall"
+      ],
+      "volumeId": "",
+      "file": "content/authored/manifesto/solver-owned-market-maker.md",
+      "bodyMarkdown": "# The Solver As Protocol-Owned Market Maker\n\nThe solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time-sensitive, or state-heavy to run purely on-chain.\n\nIn the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol-owned market maker during bootstrap rather than a passive matching engine.\n\nThe strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path-dependent calculations, risk decisions, and execution quality are managed.\n\n## Liquidity Waterfall\n\nNeelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol-owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.3 The Solver: Protocol-Owned Market Maker\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-symmio-party-a-party-b`\n- `authored-hybrid-settlement-solver-stack`",
+      "excerpt": "The Solver As Protocol Owned Market Maker The solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time sensitive, or state heavy to run purely on chain. In the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol owned market maker during bootstrap rather than a passive matching engine. The strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path dependent calculations, risk decisions, and execution quality are managed. Liquidity Waterfall Neelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Arch"
     },
     {
       "id": "authored-symmio-party-a-party-b",

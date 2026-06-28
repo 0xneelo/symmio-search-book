@@ -215,3 +215,11 @@
 **Reason:** The operator raised the target to a 500-800 page compendium, but page count alone cannot prove the goal is done. A requirement map keeps deploy, Discord, final report, authored content, answer-engine, source, and operator-decision requirements visible without blocking parallel work.
 
 **Status:** Accepted for completion tracking until the final report and production docs site supersede the prototype.
+
+## D-028: Deepen The Neelo Market-Architecture Spine First
+
+**Decision:** Convert more of Neelo's market-creation, solver, Z-score, transition, funding, and lifecycle-gap sections into authored manifesto pages before broadening into lower-level generated pages.
+
+**Reason:** The operator identified Neelo's GitHub docs as the strongest vision source. The 794-page manifest already preserves breadth; the next quality gain is authored synthesis around the core market-architecture thesis so the compendium reads like a book rather than a generated source dump.
+
+**Status:** Accepted for the authored layer.
