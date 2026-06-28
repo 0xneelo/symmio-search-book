@@ -1207,11 +1207,36 @@
 
       .rail-footer {
         position: static;
-        display: grid;
-        gap: 10px;
+        display: block;
         margin-top: auto;
         padding: 16px 22px 22px;
         border-top: 1px solid var(--line);
+      }
+
+      .rail-footer .back-app {
+        width: 100%;
+        min-height: 0;
+        height: 18px;
+        gap: 12px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        padding: 0;
+        color: var(--muted);
+        font-size: 13px;
+        transition: color 0.14s;
+      }
+
+      .rail-footer .back-app:hover {
+        border-color: transparent;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .rail-footer .back-app .ic {
+        width: 18px;
+        height: 18px;
+        opacity: 1;
       }
 
       .mini-stat {
@@ -1797,7 +1822,7 @@
         .rail.is-open .rail-footer,
         .rail:hover .rail-footer,
         .rail:focus-within .rail-footer {
-          display: grid;
+          display: block;
         }
 
         .rail.is-open .mobile-menu-glyph {
