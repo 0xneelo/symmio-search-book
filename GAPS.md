@@ -48,6 +48,8 @@ Goldsky subgraph and GraphQL endpoint docs are now registered as public citation
 
 Vibe docs claim Binance perp market coverage and 390+ markets. Since market counts change, exact counts should be verified on the intended publication date.
 
+The current official product overview was re-fetched during the authored Vibe product-reference pass, but the count remains a publication-date verification item rather than a static compendium fact.
+
 **Needed:** Current Vibe product source or live market index snapshot.
 
 ## G-007: Symmio Whitepaper History Is Not Fully Mined

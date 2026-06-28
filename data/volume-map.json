@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 854,
+  "readerPages": 858,
   "totalVolumes": 8,
-  "totalChapters": 72,
-  "pagesAssigned": 854,
+  "totalChapters": 74,
+  "pagesAssigned": 858,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -78,23 +78,23 @@
       "title": "Orientation And Core Thesis",
       "premise": "Start with Vibe's category thesis, authored manifesto pages, product context, and competitive framing.",
       "readerPromise": "Understand why the compendium exists and how Vibe positions itself before entering the long-form research spine.",
-      "totalPages": 42,
+      "totalPages": 45,
       "overviewPageId": "authored-volume-01-orientation-and-thesis",
       "overviewTitle": "Volume 01: Orientation And Core Thesis",
-      "authoredPages": 31,
+      "authoredPages": 34,
       "generatedPages": 11,
       "statusCounts": {
         "needs-reconciliation": 1,
-        "publication-candidate": 26,
+        "publication-candidate": 29,
         "publication-candidate-needs-operator-review": 5,
         "source-mapped": 10
       },
       "granularityCounts": {
-        "authored-page": 31,
+        "authored-page": 34,
         "companion-page": 11
       },
       "routeSourceCounts": {
-        "authored": 31,
+        "authored": 34,
         "generated": 11
       },
       "sectionCounts": {
@@ -102,7 +102,7 @@
         "compendium": 1,
         "competitive-context": 2,
         "manifesto": 28,
-        "product-reference": 4,
+        "product-reference": 7,
         "product-research": 5
       },
       "sourceKeys": [
@@ -122,6 +122,7 @@
         "syn-203",
         "vibe-architecture",
         "vibe-llms",
+        "vibe-margin",
         "vibe-papers",
         "vibe-what-is"
       ],
@@ -166,7 +167,10 @@
         "authored-market-assembly-line",
         "authored-last-primitive",
         "authored-token-margined-reflexivity-risk",
+        "authored-vibecaps-margin-management",
+        "authored-vibe-intent-architecture",
         "authored-vibe-trade-flow",
+        "authored-vibe-product-overview",
         "vibe-system-visualization",
         "vibe-architecture-amfq",
         "hyperliquid-hip3",
@@ -992,10 +996,10 @@
           ]
         },
         {
-          "id": "trading-flow",
-          "title": "Trading Flow",
+          "id": "risk-and-margin",
+          "title": "Risk And Margin",
           "section": "product-reference",
-          "track": "Trading Flow",
+          "track": "Risk And Margin",
           "totalPages": 1,
           "authoredPages": 1,
           "generatedPages": 0,
@@ -1007,14 +1011,69 @@
           },
           "sourceKeys": [
             "symmio-core",
+            "vibe-margin"
+          ],
+          "firstPageId": "authored-vibecaps-margin-management",
+          "pageIds": [
+            "authored-vibecaps-margin-management"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-vibecaps-margin-management",
+              "title": "VibeCaps Margin Management",
+              "section": "product-reference",
+              "track": "Risk And Margin",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-margin",
+                "symmio-core"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trading-flow",
+          "title": "Trading Flow",
+          "section": "product-reference",
+          "track": "Trading Flow",
+          "totalPages": 2,
+          "authoredPages": 2,
+          "generatedPages": 0,
+          "statusCounts": {
+            "publication-candidate": 2
+          },
+          "granularityCounts": {
+            "authored-page": 2
+          },
+          "sourceKeys": [
+            "symmio-core",
             "symmio-intent-lifecycle",
             "vibe-architecture"
           ],
-          "firstPageId": "authored-vibe-trade-flow",
+          "firstPageId": "authored-vibe-intent-architecture",
           "pageIds": [
+            "authored-vibe-intent-architecture",
             "authored-vibe-trade-flow"
           ],
           "samplePages": [
+            {
+              "id": "authored-vibe-intent-architecture",
+              "title": "Vibe Intent Architecture",
+              "section": "product-reference",
+              "track": "Trading Flow",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-architecture",
+                "symmio-core",
+                "symmio-intent-lifecycle"
+              ]
+            },
             {
               "id": "authored-vibe-trade-flow",
               "title": "Vibe Trade Flow",
@@ -1028,6 +1087,47 @@
                 "vibe-architecture",
                 "symmio-core",
                 "symmio-intent-lifecycle"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vibe-basics",
+          "title": "Vibe Basics",
+          "section": "product-reference",
+          "track": "Vibe Basics",
+          "totalPages": 1,
+          "authoredPages": 1,
+          "generatedPages": 0,
+          "statusCounts": {
+            "publication-candidate": 1
+          },
+          "granularityCounts": {
+            "authored-page": 1
+          },
+          "sourceKeys": [
+            "vibe-architecture",
+            "vibe-papers",
+            "vibe-what-is"
+          ],
+          "firstPageId": "authored-vibe-product-overview",
+          "pageIds": [
+            "authored-vibe-product-overview"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-vibe-product-overview",
+              "title": "Vibe Product Overview",
+              "section": "product-reference",
+              "track": "Vibe Basics",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-what-is",
+                "vibe-architecture",
+                "vibe-papers"
               ]
             }
           ]
@@ -5137,31 +5237,31 @@
       "title": "Referrals And Market Formation",
       "premise": "Separate referral architecture, rewards, points, and unresolved public-depth questions into their own book part.",
       "readerPromise": "Read referrals as a market-formation mechanism while seeing exactly where operator reconciliation remains open.",
-      "totalPages": 113,
+      "totalPages": 114,
       "overviewPageId": "authored-volume-06-referrals-and-market-formation",
       "overviewTitle": "Volume 06: Referrals And Market Formation",
-      "authoredPages": 4,
+      "authoredPages": 5,
       "generatedPages": 109,
       "statusCounts": {
         "draft-extracted-from-primary-source": 86,
         "draft-imported-from-primary-source": 17,
         "needs-reconciliation": 1,
-        "publication-candidate-needs-operator-review": 3,
+        "publication-candidate-needs-operator-review": 4,
         "source-mapped": 6
       },
       "granularityCounts": {
-        "authored-page": 4,
+        "authored-page": 5,
         "companion-page": 6,
         "section-page": 86,
         "source-page": 17
       },
       "routeSourceCounts": {
-        "authored": 4,
+        "authored": 5,
         "generated": 109
       },
       "sectionCounts": {
         "compendium": 1,
-        "rewards-referrals": 9,
+        "rewards-referrals": 10,
         "vision-papers": 17,
         "vision-sections": 86
       },
@@ -5182,16 +5282,17 @@
       "openingPageIds": [
         "authored-volume-06-referrals-and-market-formation",
         "authored-points-and-vibe-points",
+        "authored-vibe-points-program",
         "authored-referral-architecture-as-market-formation",
         "authored-referral-depth-open-question",
         "local-points-engine",
         "local-dashboard-points-distinction",
-        "vibe-referral-codes",
-        "vibe-referral-program"
+        "vibe-referral-codes"
       ],
       "pageIds": [
         "authored-volume-06-referrals-and-market-formation",
         "authored-points-and-vibe-points",
+        "authored-vibe-points-program",
         "authored-referral-architecture-as-market-formation",
         "authored-referral-depth-open-question",
         "local-points-engine",
@@ -5357,14 +5458,14 @@
           "title": "Points",
           "section": "rewards-referrals",
           "track": "Points",
-          "totalPages": 1,
-          "authoredPages": 1,
+          "totalPages": 2,
+          "authoredPages": 2,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate-needs-operator-review": 1
+            "publication-candidate-needs-operator-review": 2
           },
           "granularityCounts": {
-            "authored-page": 1
+            "authored-page": 2
           },
           "sourceKeys": [
             "dashboard-app",
@@ -5373,7 +5474,8 @@
           ],
           "firstPageId": "authored-points-and-vibe-points",
           "pageIds": [
-            "authored-points-and-vibe-points"
+            "authored-points-and-vibe-points",
+            "authored-vibe-points-program"
           ],
           "samplePages": [
             {
@@ -5388,6 +5490,21 @@
               "sourceKeys": [
                 "dashboard-app",
                 "vibe-points",
+                "spec-03"
+              ]
+            },
+            {
+              "id": "authored-vibe-points-program",
+              "title": "Vibe Points Program",
+              "section": "rewards-referrals",
+              "track": "Points",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-points",
+                "dashboard-app",
                 "spec-03"
               ]
             }
@@ -7086,7 +7203,10 @@
     "authored-market-assembly-line": "volume-01-orientation-and-thesis",
     "authored-last-primitive": "volume-01-orientation-and-thesis",
     "authored-token-margined-reflexivity-risk": "volume-01-orientation-and-thesis",
+    "authored-vibecaps-margin-management": "volume-01-orientation-and-thesis",
+    "authored-vibe-intent-architecture": "volume-01-orientation-and-thesis",
     "authored-vibe-trade-flow": "volume-01-orientation-and-thesis",
+    "authored-vibe-product-overview": "volume-01-orientation-and-thesis",
     "vibe-system-visualization": "volume-01-orientation-and-thesis",
     "vibe-architecture-amfq": "volume-01-orientation-and-thesis",
     "hyperliquid-hip3": "volume-01-orientation-and-thesis",
@@ -7752,6 +7872,7 @@
     "section-12-case-study-symm-lp-12-docs-overview-scope-note": "volume-05-solver-lp-and-protocol-operations",
     "authored-volume-06-referrals-and-market-formation": "volume-06-referrals-and-market-formation",
     "authored-points-and-vibe-points": "volume-06-referrals-and-market-formation",
+    "authored-vibe-points-program": "volume-06-referrals-and-market-formation",
     "authored-referral-architecture-as-market-formation": "volume-06-referrals-and-market-formation",
     "authored-referral-depth-open-question": "volume-06-referrals-and-market-formation",
     "local-points-engine": "volume-06-referrals-and-market-formation",

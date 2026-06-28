@@ -5,30 +5,32 @@
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 31,
-    "High": 12,
+    "Medium": 30,
+    "High": 13,
     "Low": 3
   },
   "byRouteSource": {
-    "curated": 7,
+    "authored": 44,
     "generated": 1,
-    "authored": 38
+    "curated": 1
   },
   "answerable": [
     {
       "id": "qr-what-is-vibe-trading",
       "question": "What is Vibe Trading?",
       "normalizedQuestion": "what is vibe trading",
-      "pageId": "vibe-what-is",
-      "pageTitle": "What Is Vibe Trading?",
-      "pageSection": "Product",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-product-overview",
+      "pageTitle": "Vibe Product Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Public Vibe docs answer; exact market counts need fresh verification.",
+      "notes": "Public Vibe docs answer; exact market counts need fresh verification before final publication.",
       "sourceKeys": [
-        "vibe-what-is"
+        "vibe-what-is",
+        "vibe-architecture",
+        "vibe-papers"
       ],
       "missing": false
     },
@@ -53,15 +55,17 @@
       "id": "qr-what-is-an-intent",
       "question": "What is an intent?",
       "normalizedQuestion": "what is an intent",
-      "pageId": "intent-lifecycle",
-      "pageTitle": "Intent Lifecycle",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "confidence": "High",
-      "notes": "Symmio core and lifecycle docs.",
+      "notes": "Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state.",
       "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
         "symmio-intent-lifecycle"
       ],
       "missing": false
@@ -70,16 +74,17 @@
       "id": "qr-who-are-partya-and-partyb",
       "question": "Who are PartyA and PartyB?",
       "normalizedQuestion": "who are partya and partyb",
-      "pageId": "party-a-party-b",
+      "pageId": "authored-symmio-party-a-party-b",
       "pageTitle": "PartyA And PartyB",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "confidence": "High",
-      "notes": "Symmio core docs.",
+      "notes": "Symmio core docs support the role distinction.",
       "sourceKeys": [
-        "symmio-core"
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "missing": false
     },
@@ -87,17 +92,18 @@
       "id": "qr-what-does-a-solver-do",
       "question": "What does a solver do?",
       "normalizedQuestion": "what does a solver do",
-      "pageId": "solver-role",
-      "pageTitle": "Solver Role",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "confidence": "High",
-      "notes": "Symmio and Vibe architecture docs.",
+      "notes": "Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities.",
       "sourceKeys": [
-        "symmio-llms",
-        "vibe-architecture"
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "missing": false
     },
@@ -105,16 +111,17 @@
       "id": "qr-how-does-vibecaps-margin-work",
       "question": "How does VibeCaps margin work?",
       "normalizedQuestion": "how does vibecaps margin work",
-      "pageId": "vibecaps-margin",
-      "pageTitle": "VibeCaps Margin",
-      "pageSection": "Risk",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
-      "confidence": "Medium",
-      "notes": "Public Vibe margin page.",
+      "pageId": "authored-vibecaps-margin-management",
+      "pageTitle": "VibeCaps Margin Management",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints.",
       "sourceKeys": [
-        "vibe-margin"
+        "vibe-margin",
+        "symmio-core"
       ],
       "missing": false
     },
@@ -122,16 +129,18 @@
       "id": "qr-how-are-vibe-points-earned",
       "question": "How are Vibe points earned?",
       "normalizedQuestion": "how are vibe points earned",
-      "pageId": "vibe-points",
-      "pageTitle": "Vibe Points",
-      "pageSection": "Rewards",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-points-program",
+      "pageTitle": "Vibe Points Program",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Public docs cover categories; onboarding dashboard has separate campaign logic.",
+      "notes": "Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic.",
       "sourceKeys": [
-        "vibe-points"
+        "vibe-points",
+        "dashboard-app",
+        "spec-03"
       ],
       "missing": false
     },

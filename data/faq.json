@@ -27,13 +27,13 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 31,
-    "High": 12,
+    "Medium": 30,
+    "High": 13,
     "Low": 3
   },
   "byRouteSource": {
-    "curated": 8,
-    "authored": 38
+    "authored": 44,
+    "curated": 2
   },
   "byType": {
     "answerable": 46,
@@ -47,17 +47,19 @@
       "category": "Getting Started",
       "question": "What is Vibe Trading?",
       "normalizedQuestion": "what is vibe trading",
-      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification.",
-      "answerSummary": "Vibe public docs position Vibe as a perpetuals DEX with broad market coverage and permissionless lowcap perp listings.",
+      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification before final publication.",
+      "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
       "confidence": "Medium",
-      "pageId": "vibe-what-is",
-      "pageTitle": "What Is Vibe Trading?",
-      "pageSection": "Product",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-product-overview",
+      "pageTitle": "Vibe Product Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-what-is"
+        "vibe-what-is",
+        "vibe-architecture",
+        "vibe-papers"
       ],
       "sources": [
         {
@@ -65,6 +67,20 @@
           "group": "Public Vibe Sources",
           "use": "Vibe product positioning and market claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -105,19 +121,35 @@
       "category": "Trading Flow",
       "question": "What is an intent?",
       "normalizedQuestion": "what is an intent",
-      "shortAnswer": "Symmio core and lifecycle docs.",
-      "answerSummary": "A trade begins as an on-chain intent containing symbol, side, order type, requested price, quantity, and eligible PartyB addresses; solvers watch, evaluate, lock, open, and reconcile lifecycle events.",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state.",
+      "answerSummary": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of inte...",
       "confidence": "High",
-      "pageId": "intent-lifecycle",
-      "pageTitle": "Intent Lifecycle",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
         "symmio-intent-lifecycle"
       ],
       "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
         {
           "key": "symmio-intent-lifecycle",
           "group": "Public Symmio Sources",
@@ -134,17 +166,18 @@
       "category": "Solvers And Settlement",
       "question": "Who are PartyA and PartyB?",
       "normalizedQuestion": "who are partya and partyb",
-      "shortAnswer": "Symmio core docs.",
-      "answerSummary": "In Symmio terms, PartyA is the trader creating the intent; PartyB is the solver or hedger that accepts the other side.",
+      "shortAnswer": "Symmio core docs support the role distinction.",
+      "answerSummary": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus e...",
       "confidence": "High",
-      "pageId": "party-a-party-b",
+      "pageId": "authored-symmio-party-a-party-b",
       "pageTitle": "PartyA And PartyB",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-core"
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "sources": [
         {
@@ -152,6 +185,13 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -163,32 +203,40 @@
       "category": "Solvers And Settlement",
       "question": "What does a solver do?",
       "normalizedQuestion": "what does a solver do",
-      "shortAnswer": "Symmio and Vibe architecture docs.",
-      "answerSummary": "A solver is the professional counterparty that prices, accepts, hedges, monitors, and settles positions against user intent flow.",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities.",
+      "answerSummary": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of inte...",
       "confidence": "High",
-      "pageId": "solver-role",
-      "pageTitle": "Solver Role",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-llms",
-        "vibe-architecture"
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "sources": [
-        {
-          "key": "symmio-llms",
-          "group": "Public Symmio Sources",
-          "use": "Symmio docs index and required deep links.",
-          "href": "https://docs.symm.io/llms.txt",
-          "missing": false
-        },
         {
           "key": "vibe-architecture",
           "group": "Public Vibe Sources",
           "use": "AMFQ, intent flow, solver offers, on-chain execution.",
           "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -200,17 +248,18 @@
       "category": "Risk And Markets",
       "question": "How does VibeCaps margin work?",
       "normalizedQuestion": "how does vibecaps margin work",
-      "shortAnswer": "Public Vibe margin page.",
-      "answerSummary": "Adding margin increases the collateral cushion and moves liquidation farther away; removing margin frees balance but reduces the safety buffer.",
-      "confidence": "Medium",
-      "pageId": "vibecaps-margin",
-      "pageTitle": "VibeCaps Margin",
-      "pageSection": "Risk",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "shortAnswer": "Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints.",
+      "answerSummary": "VibeCaps Margin Management VibeCaps margin management is a risk adjustment on an existing position, not a new trade. The official Vibe margin page says Manage Margin lets a user add or remove collateral from an existing VibeCaps position without changing position size. That is the core support answer: margin changes the cushion, not the exposure size. Add...",
+      "confidence": "High",
+      "pageId": "authored-vibecaps-margin-management",
+      "pageTitle": "VibeCaps Margin Management",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-margin"
+        "vibe-margin",
+        "symmio-core"
       ],
       "sources": [
         {
@@ -218,6 +267,13 @@
           "group": "Public Vibe Sources",
           "use": "VibeCaps margin behavior.",
           "href": "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
           "missing": false
         }
       ]
@@ -229,17 +285,19 @@
       "category": "Rewards And Referrals",
       "question": "How are Vibe points earned?",
       "normalizedQuestion": "how are vibe points earned",
-      "shortAnswer": "Public docs cover categories; onboarding dashboard has separate campaign logic.",
-      "answerSummary": "Public Vibe docs describe three point categories before TGE: trading, referring, and community participation.",
+      "shortAnswer": "Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic.",
+      "answerSummary": "Vibe Points Program The official Vibe points page gives the public top level answer: before the $VIBE TGE, Vibe Points can be earned through trading, referring, and community participation. It also says each points program rewards users daily and resets at 00:00 UTC. That is enough to answer the basic user question \"how are Vibe points earned?\" It is not...",
       "confidence": "Medium",
-      "pageId": "vibe-points",
-      "pageTitle": "Vibe Points",
-      "pageSection": "Rewards",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-points-program",
+      "pageTitle": "Vibe Points Program",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-points"
+        "vibe-points",
+        "dashboard-app",
+        "spec-03"
       ],
       "sources": [
         {
@@ -247,6 +305,20 @@
           "group": "Public Vibe Sources",
           "use": "Trading, referring, and community points categories.",
           "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -2121,17 +2193,19 @@
       "category": "Getting Started",
       "question": "What is Vibe Trading?",
       "normalizedQuestion": "what is vibe trading",
-      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification.",
-      "answerSummary": "Vibe public docs position Vibe as a perpetuals DEX with broad market coverage and permissionless lowcap perp listings.",
+      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification before final publication.",
+      "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
       "confidence": "Medium",
-      "pageId": "vibe-what-is",
-      "pageTitle": "What Is Vibe Trading?",
-      "pageSection": "Product",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-product-overview",
+      "pageTitle": "Vibe Product Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-what-is"
+        "vibe-what-is",
+        "vibe-architecture",
+        "vibe-papers"
       ],
       "sources": [
         {
@@ -2139,6 +2213,20 @@
           "group": "Public Vibe Sources",
           "use": "Vibe product positioning and market claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -2179,19 +2267,35 @@
       "category": "Trading Flow",
       "question": "What is an intent?",
       "normalizedQuestion": "what is an intent",
-      "shortAnswer": "Symmio core and lifecycle docs.",
-      "answerSummary": "A trade begins as an on-chain intent containing symbol, side, order type, requested price, quantity, and eligible PartyB addresses; solvers watch, evaluate, lock, open, and reconcile lifecycle events.",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state.",
+      "answerSummary": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of inte...",
       "confidence": "High",
-      "pageId": "intent-lifecycle",
-      "pageTitle": "Intent Lifecycle",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
         "symmio-intent-lifecycle"
       ],
       "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
         {
           "key": "symmio-intent-lifecycle",
           "group": "Public Symmio Sources",
@@ -2208,17 +2312,18 @@
       "category": "Solvers And Settlement",
       "question": "Who are PartyA and PartyB?",
       "normalizedQuestion": "who are partya and partyb",
-      "shortAnswer": "Symmio core docs.",
-      "answerSummary": "In Symmio terms, PartyA is the trader creating the intent; PartyB is the solver or hedger that accepts the other side.",
+      "shortAnswer": "Symmio core docs support the role distinction.",
+      "answerSummary": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus e...",
       "confidence": "High",
-      "pageId": "party-a-party-b",
+      "pageId": "authored-symmio-party-a-party-b",
       "pageTitle": "PartyA And PartyB",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-core"
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "sources": [
         {
@@ -2226,6 +2331,13 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -2237,32 +2349,40 @@
       "category": "Solvers And Settlement",
       "question": "What does a solver do?",
       "normalizedQuestion": "what does a solver do",
-      "shortAnswer": "Symmio and Vibe architecture docs.",
-      "answerSummary": "A solver is the professional counterparty that prices, accepts, hedges, monitors, and settles positions against user intent flow.",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities.",
+      "answerSummary": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of inte...",
       "confidence": "High",
-      "pageId": "solver-role",
-      "pageTitle": "Solver Role",
-      "pageSection": "Protocol",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-intent-architecture",
+      "pageTitle": "Vibe Intent Architecture",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-llms",
-        "vibe-architecture"
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "sources": [
-        {
-          "key": "symmio-llms",
-          "group": "Public Symmio Sources",
-          "use": "Symmio docs index and required deep links.",
-          "href": "https://docs.symm.io/llms.txt",
-          "missing": false
-        },
         {
           "key": "vibe-architecture",
           "group": "Public Vibe Sources",
           "use": "AMFQ, intent flow, solver offers, on-chain execution.",
           "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -2274,17 +2394,18 @@
       "category": "Risk And Markets",
       "question": "How does VibeCaps margin work?",
       "normalizedQuestion": "how does vibecaps margin work",
-      "shortAnswer": "Public Vibe margin page.",
-      "answerSummary": "Adding margin increases the collateral cushion and moves liquidation farther away; removing margin frees balance but reduces the safety buffer.",
-      "confidence": "Medium",
-      "pageId": "vibecaps-margin",
-      "pageTitle": "VibeCaps Margin",
-      "pageSection": "Risk",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "shortAnswer": "Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints.",
+      "answerSummary": "VibeCaps Margin Management VibeCaps margin management is a risk adjustment on an existing position, not a new trade. The official Vibe margin page says Manage Margin lets a user add or remove collateral from an existing VibeCaps position without changing position size. That is the core support answer: margin changes the cushion, not the exposure size. Add...",
+      "confidence": "High",
+      "pageId": "authored-vibecaps-margin-management",
+      "pageTitle": "VibeCaps Margin Management",
+      "pageSection": "product-reference",
+      "pageTrack": "Risk And Margin",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-margin"
+        "vibe-margin",
+        "symmio-core"
       ],
       "sources": [
         {
@@ -2292,6 +2413,13 @@
           "group": "Public Vibe Sources",
           "use": "VibeCaps margin behavior.",
           "href": "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
           "missing": false
         }
       ]
@@ -2303,17 +2431,19 @@
       "category": "Rewards And Referrals",
       "question": "How are Vibe points earned?",
       "normalizedQuestion": "how are vibe points earned",
-      "shortAnswer": "Public docs cover categories; onboarding dashboard has separate campaign logic.",
-      "answerSummary": "Public Vibe docs describe three point categories before TGE: trading, referring, and community participation.",
+      "shortAnswer": "Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic.",
+      "answerSummary": "Vibe Points Program The official Vibe points page gives the public top level answer: before the $VIBE TGE, Vibe Points can be earned through trading, referring, and community participation. It also says each points program rewards users daily and resets at 00:00 UTC. That is enough to answer the basic user question \"how are Vibe points earned?\" It is not...",
       "confidence": "Medium",
-      "pageId": "vibe-points",
-      "pageTitle": "Vibe Points",
-      "pageSection": "Rewards",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-vibe-points-program",
+      "pageTitle": "Vibe Points Program",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "vibe-points"
+        "vibe-points",
+        "dashboard-app",
+        "spec-03"
       ],
       "sources": [
         {
@@ -2321,6 +2451,20 @@
           "group": "Public Vibe Sources",
           "use": "Trading, referring, and community points categories.",
           "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]

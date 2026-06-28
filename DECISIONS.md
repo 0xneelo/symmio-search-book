@@ -295,3 +295,11 @@
 **Reason:** The spec calls for an "inside Symmio" explanation, but these topics mix protocol vocabulary with product-specific margin and inventory claims. The current registered sources strongly support the clearing-house, PartyA/PartyB, solver-event, and collateral vocabulary; they do not by themselves close Vibe-specific margin-mode or vault-exposure questions.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-038: Promote Basic Vibe Product Routes To Authored Pages
+
+**Decision:** Add authored pages for Vibe product overview, intent architecture, VibeCaps margin management, and Vibe points program, then route the corresponding seed questions to authored pages instead of generated companion drafts.
+
+**Reason:** The answer engine's first responses should not rely on source-mapped stubs for basic onboarding questions. Official Vibe docs are sufficient for these product basics, while the pages can still preserve caveats around live market counts, local onboarding points, referral depth, and exact risk guarantees.
+
+**Status:** Accepted for the authored product-reference layer.

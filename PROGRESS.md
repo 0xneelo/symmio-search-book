@@ -217,6 +217,13 @@
 - Kept isolation, cross-margin, capital-efficiency, and Vibe-specific vault accounting claims out of final prose unless the registered primary sources support them.
 - Used official Symmio docs for the clearing-house model, PartyA/PartyB lifecycle, solver quote monitoring, collateral allocation, and current collateral formula.
 
+## 2026-06-28 — Vibe Product Reference Authored Pages
+
+- Added four authored Vibe product-reference pages: product overview, intent architecture, VibeCaps margin management, and Vibe points program.
+- Re-routed the first high-traffic product questions from generated companion pages into authored pages.
+- Preserved caveats around current market counts, onboarding-versus-Vibe points, referral-depth accounting, and product-specific risk guarantees.
+- Captured the AMFQ nuance that solvers stream offers before capital commitment, but accepted requests still move into collateral lock, solver review, solver collateral deposit, and bilateral agreement.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

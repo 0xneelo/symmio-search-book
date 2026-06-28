@@ -6,13 +6,13 @@ Questions are grouped by whether the current source set can answer them.
 
 | Question | Routed page | Confidence | Notes |
 | --- | --- | --- | --- |
-| What is Vibe Trading? | `vibe-what-is` | Medium | Public Vibe docs answer; exact market counts need fresh verification. |
+| What is Vibe Trading? | `authored-vibe-product-overview` | Medium | Public Vibe docs answer; exact market counts need fresh verification before final publication. |
 | What is Symmio? | `symmio-what-is` | High | Public Symmio docs answer. |
-| What is an intent? | `intent-lifecycle` | High | Symmio core and lifecycle docs. |
-| Who are PartyA and PartyB? | `party-a-party-b` | High | Symmio core docs. |
-| What does a solver do? | `solver-role` | High | Symmio and Vibe architecture docs. |
-| How does VibeCaps margin work? | `vibecaps-margin` | Medium | Public Vibe margin page. |
-| How are Vibe points earned? | `vibe-points` | Medium | Public docs cover categories; onboarding dashboard has separate campaign logic. |
+| What is an intent? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state. |
+| Who are PartyA and PartyB? | `authored-symmio-party-a-party-b` | High | Symmio core docs support the role distinction. |
+| What does a solver do? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities. |
+| How does VibeCaps margin work? | `authored-vibecaps-margin-management` | High | Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints. |
+| How are Vibe points earned? | `authored-vibe-points-program` | Medium | Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic. |
 | How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
 | Why does the dashboard revenue number move? | `revenue-pulse` | Medium | Local code/docs describe pulse from volume history. |
 | What does the Dashboard Overview show? | `authored-dashboard-overview` | Medium | Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats. |

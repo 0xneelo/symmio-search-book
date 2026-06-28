@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 60,
+  "totalPages": 64,
   "byStatus": {
-    "publication-candidate": 40,
-    "publication-candidate-needs-operator-review": 19,
+    "publication-candidate": 43,
+    "publication-candidate-needs-operator-review": 20,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -12,9 +12,9 @@
     "competitive-context": 1,
     "dashboard-reference": 9,
     "reference": 1,
-    "rewards-referrals": 3,
+    "rewards-referrals": 4,
     "answer-engine": 1,
-    "product-reference": 1,
+    "product-reference": 4,
     "compendium": 8
   },
   "pages": [
@@ -1279,6 +1279,34 @@
       "excerpt": "Vibe As The Discovery Layer Hyperliquid style infrastructure matters because it shows how far order book execution can go when a market is already active enough to deserve the machinery. HIP 3 extends that logic by letting builders deploy perpetual markets with their own responsibilities and risk constraints. The discovery problem remains upstream. A builder deployed market still needs to prove demand, attract makers, manage risk, and avoid launching into a silent book. Vibe's role in the thesis is to sit before that moment: expose demand, let solvers quote the long tail, and produce the evidence that a market deserves a more mature venue. That makes Vibe complementary to HIP 3 rather than merely competitive with it. If Vibe helps a token prove sustained two sided derivative demand, then Hyperliquid style order book infrastructure becomes more useful, not less. The assembly line is launchpad or DEX attention, then Vibe discovery, then deeper market infrastructure when the asset earns it. Reader Implication A market creator should not treat the first listing as the final venue decision. The important question is which layer answers today's liquidity problem and which layer the marke"
     },
     {
+      "id": "authored-vibe-intent-architecture",
+      "title": "Vibe Intent Architecture",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-architecture-amfq",
+        "symmio-core-concepts",
+        "symmio-intent-lifecycle",
+        "authored-vibe-trade-flow"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-intent-architecture.md",
+      "bodyMarkdown": "# Vibe Intent Architecture\n\nVibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real-time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process.\n\nThat is the product-language version of intent-based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms.\n\n## Quote First, Collateral After Acceptance\n\nThe architecture page makes an important distinction. During the quote stage, solvers can present real-time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established.\n\nThat prevents two bad explanations:\n\n- Do not say solvers must pre-fund every streamed quote before a trader accepts it.\n- Do not say collateral never matters until after execution.\n\nThe accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring.\n\n## Bilateral Agreement\n\nVibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state.\n\nThis is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar.\n\n## Reader Implication\n\nFor traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations.\n\n## Sources\n\n- `vibe-architecture`: AMFQ, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off-chain hedging.\n- `symmio-core`: PartyA/PartyB and collateral vocabulary.\n- `symmio-intent-lifecycle`: quote-event monitoring and lifecycle state.\n\n## Related Pages\n\n- `authored-vibe-trade-flow`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`\n- `vibe-architecture-amfq`",
+      "excerpt": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of intent based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms. Quote First, Collateral After Acceptance The architecture page makes an important distinction. During the quote stage, solvers can present real time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established. That prevents two bad explanations: Do not say solvers must pre fund every streamed quote before a trader accepts it. Do not say collateral never matters until after execution. The accurate sequence is quote, accept/request, collate"
+    },
+    {
       "id": "authored-vibe-pillars",
       "title": "The Three Vibe Pillars",
       "section": "manifesto",
@@ -1298,6 +1326,61 @@
       "file": "content/authored/manifesto/vibe-pillars.md",
       "bodyMarkdown": "# The Three Vibe Pillars\n\nNeelo's \"Vibe Pillars\" paper compresses the architecture thesis into three linked design problems: bootstrap and counterparty formation, exploit resistance, and LP yield with capital efficiency.\n\nThe first pillar is market birth. Thin long-tail markets cannot assume continuous synchronous matching, so a system needs asynchronous matching and a reliable counterparty path when natural flow is one-sided or intermittent.\n\nThe second pillar is defense. Once protocol-backed credit or solver inventory supports those markets, the system must resist manipulation, insolvency, liquidation failure, and tail-risk leakage.\n\nThe third pillar is economic durability. A solver, vault, or designated risk-taker cannot act as counterparty for free. The architecture must create enough risk-adjusted yield for capital to remain in the system.\n\n## Reader Implication\n\nThis page is the bridge between the manifesto and the reference. If one pillar is missing, the thesis weakens: a market can list but not survive, survive but not scale, or scale but fail to pay the capital securing it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Pillars\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-lp-profit-and-dynamic-pricing`\n- `neelo-10-vibe-pillars-10-docs-00-abstract`",
       "excerpt": "The Three Vibe Pillars Neelo's \"Vibe Pillars\" paper compresses the architecture thesis into three linked design problems: bootstrap and counterparty formation, exploit resistance, and LP yield with capital efficiency. The first pillar is market birth. Thin long tail markets cannot assume continuous synchronous matching, so a system needs asynchronous matching and a reliable counterparty path when natural flow is one sided or intermittent. The second pillar is defense. Once protocol backed credit or solver inventory supports those markets, the system must resist manipulation, insolvency, liquidation failure, and tail risk leakage. The third pillar is economic durability. A solver, vault, or designated risk taker cannot act as counterparty for free. The architecture must create enough risk adjusted yield for capital to remain in the system. Reader Implication This page is the bridge between the manifesto and the reference. If one pillar is missing, the thesis weakens: a market can list but not survive, survive but not scale, or scale but fail to pay the capital securing it. Sources vibe papers : Neelo, \"Vibe Pillars\". Related Pages authored bootstrap trilemma authored lp profit and d"
+    },
+    {
+      "id": "authored-vibe-points-program",
+      "title": "Vibe Points Program",
+      "section": "rewards-referrals",
+      "track": "Points",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-points",
+        "dashboard-app",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/vibe-points.md",
+        "src/dashboard/app.jsx",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-points-overview",
+        "authored-points-and-vibe-points",
+        "authored-referral-depth-open-question"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-points-program.md",
+      "bodyMarkdown": "# Vibe Points Program\n\nThe official Vibe points page gives the public top-level answer: before the `$VIBE` TGE, Vibe Points can be earned through trading, referring, and community participation. It also says each points program rewards users daily and resets at 00:00 UTC.\n\nThat is enough to answer the basic user question \"how are Vibe points earned?\" It is not enough to collapse every points or rewards surface in this onboarding app into the same number.\n\n## Public Categories\n\nThe source-backed public categories are:\n\n- Trading.\n- Referring.\n- Community participation.\n\nUsers can participate in all three if they choose. The public page does not, by itself, resolve dashboard-specific onboarding points, network-volume multipliers, referral-depth accounting, or historical backfill language.\n\n## Separation From Onboarding Points\n\nThe existing authored points distinction remains important. The onboarding app has its own campaign/accounting language, while Vibe public docs describe Vibe points categories. A production FAQ should first identify which rail the user means, then answer only that rail.\n\nReferral-depth and TGE-settlement wording still need operator confirmation before the final public docs make stronger claims about how every dashboard value maps to token outcomes.\n\n## Reader Implication\n\nFor the basic public answer, Vibe points come from trading, referring, and community participation, with daily rewards and reset timing. For a dashboard-support answer, route to the points-distinction page before promising how onboarding points, referral points, and Vibe points reconcile.\n\n## Sources\n\n- `vibe-points`: public Vibe Points categories and reset timing.\n- `dashboard-app`: local dashboard distinction between app-level point categories.\n- `spec-03`: required separation of public product facts and unresolved local points terminology.\n\n## Related Pages\n\n- `authored-points-and-vibe-points`\n- `authored-referral-depth-open-question`\n- `vibe-points-overview`",
+      "excerpt": "Vibe Points Program The official Vibe points page gives the public top level answer: before the $VIBE TGE, Vibe Points can be earned through trading, referring, and community participation. It also says each points program rewards users daily and resets at 00:00 UTC. That is enough to answer the basic user question \"how are Vibe points earned?\" It is not enough to collapse every points or rewards surface in this onboarding app into the same number. Public Categories The source backed public categories are: Trading. Referring. Community participation. Users can participate in all three if they choose. The public page does not, by itself, resolve dashboard specific onboarding points, network volume multipliers, referral depth accounting, or historical backfill language. Separation From Onboarding Points The existing authored points distinction remains important. The onboarding app has its own campaign/accounting language, while Vibe public docs describe Vibe points categories. A production FAQ should first identify which rail the user means, then answer only that rail. Referral depth and TGE settlement wording still need operator confirmation before the final public docs make stronge"
+    },
+    {
+      "id": "authored-vibe-product-overview",
+      "title": "Vibe Product Overview",
+      "section": "product-reference",
+      "track": "Vibe Basics",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-what-is",
+        "vibe-architecture",
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://github.com/0xneelo/vibe_docs"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-product-what-is",
+        "vibe-architecture-amfq",
+        "authored-vibe-as-discovery-layer",
+        "authored-market-assembly-line"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-product-overview.md",
+      "bodyMarkdown": "# Vibe Product Overview\n\nVibe is the product layer for a specific market-structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools.\n\nThe current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major-market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and \"390+ markets.\" Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication.\n\n## What Vibe Adds\n\nVibe combines two ideas that are usually documented separately:\n\n- A trader-facing perpetuals product where users can trade established markets.\n- A market-creation surface where projects or inventory owners can support isolated lowcap perp markets using their own supply.\n\nNeelo's vision corpus explains why that matters. The point is not simply \"more markets.\" The point is to move market creation upstream: from opaque venue listing committees and mature order books toward permissionless demand discovery, solver quotation, and eventual market graduation.\n\n## Risk Framing\n\nThe public Vibe overview says its bespoke lowcap solver isolates each lowcap perp market and frames that isolation as protection against platform-wide risk if a token fails. The docs can report that product claim, but they should also route users to risk, margin, and solver pages before turning it into a guarantee.\n\nFor publication, the safer formulation is: Vibe's public product story is isolated lowcap perp listing; the exact operational guarantees, solver exposure, vault inventory treatment, and LP risk visibility must be explained on the dedicated risk pages where the relevant sources are cited.\n\n## Reader Implication\n\nIf a reader asks \"what is Vibe?\", the answer should not be only a DEX category label. Vibe is a perpetuals product, a permissionless market-creation path, and a demand-discovery layer in the broader Vibe x Symmio thesis.\n\n## Sources\n\n- `vibe-what-is`: official product positioning, major-market and lowcap-listing claims.\n- `vibe-architecture`: intent-based quotation and execution model.\n- `vibe-papers`: Neelo's market-creation and discovery-layer thesis.\n\n## Related Pages\n\n- `authored-vibe-intent-architecture`\n- `authored-vibe-as-discovery-layer`\n- `authored-market-assembly-line`\n- `vibe-product-what-is`",
+      "excerpt": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and \"390+ markets.\" Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication. What Vibe Adds Vibe combines two ideas that are usually documented separately: A trader facing perpetuals product where users can trade established markets. A market creation surface where projects or inventory owners can support isolated lowcap perp markets using their own supply. Neelo's vision corpus explains why that matters. The point is not simply \"more markets.\" The point is to move market creation upstream: from opaque venue listing committees and mature order books toward permissionless demand discovery, solver quotation, and eventual market graduation. Risk "
     },
     {
       "id": "authored-vibe-trade-flow",
@@ -1325,6 +1408,31 @@
       "file": "content/authored/reference/vibe-trade-flow.md",
       "bodyMarkdown": "# Vibe Trade Flow\n\nThe user-facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor.\n\nVibe's public architecture source frames the front half as an intent-based quotation process. Symmio's protocol sources frame the settlement side with PartyA, PartyB, collateral, and lifecycle events. The compendium should connect those two layers on every trading page: Vibe makes the product legible; Symmio gives the trade its protocol structure.\n\nThis also explains why solver quality matters to UX. A better solver path can quote faster, hedge better, handle more markets, and produce a tighter experience. A weak solver path creates delay, rejection, poor pricing, or brittle lifecycle handling.\n\n## Reader Implication\n\nFor a trader, \"trade flow\" should answer what happens after submitting an intent. For a solver, it should identify where quoting, risk checks, event monitoring, hedging, and settlement responsibility enter the system.\n\n## Sources\n\n- `vibe-architecture`: Vibe architectural overview.\n- `symmio-core`: Symmio core concepts.\n- `symmio-intent-lifecycle`: Symmio intent lifecycle and event monitoring.\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-symmio-party-a-party-b`\n- `vibe-architecture-amfq`",
       "excerpt": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent based quotation process. Symmio's protocol sources frame the settlement side with PartyA, PartyB, collateral, and lifecycle events. The compendium should connect those two layers on every trading page: Vibe makes the product legible; Symmio gives the trade its protocol structure. This also explains why solver quality matters to UX. A better solver path can quote faster, hedge better, handle more markets, and produce a tighter experience. A weak solver path creates delay, rejection, poor pricing, or brittle lifecycle handling. Reader Implication For a trader, \"trade flow\" should answer what happens after submitting an intent. For a solver, it should identify where quoting, risk checks, event monitoring, hedging, and settlement responsibility enter the system. Sources vibe architecture : Vibe architectural overview. symmio core : Symm"
+    },
+    {
+      "id": "authored-vibecaps-margin-management",
+      "title": "VibeCaps Margin Management",
+      "section": "product-reference",
+      "track": "Risk And Margin",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-margin",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-vibecaps-margin",
+        "authored-collateral-margin-cva",
+        "authored-token-vault-perps-versus-usdc-pools"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibecaps-margin-management.md",
+      "bodyMarkdown": "# VibeCaps Margin Management\n\nVibeCaps margin management is a risk adjustment on an existing position, not a new trade.\n\nThe official Vibe margin page says Manage Margin lets a user add or remove collateral from an existing VibeCaps position without changing position size. That is the core support answer: margin changes the cushion, not the exposure size.\n\n## Adding Margin\n\nAdding margin moves more USDC from the VibeCaps account balance into the position's virtual account. The page states that this gives the position more collateral to absorb unrealized losses and moves the liquidation price farther away from the current market price.\n\nFor a long position, the liquidation price moves lower. For a short position, it moves higher. Adding margin does not increase position size, change entry price, or open a new trade.\n\n## Removing Margin\n\nRemoving margin moves available collateral from the position's virtual account back to account balance. That frees funds, but reduces the safety buffer and moves the liquidation price closer to the current market price.\n\nThe current public docs say Vibe only allows margin removal if the position remains sufficiently collateralized after current unrealized PnL, locked margin, and pending locked margin are considered.\n\n## Protocol Vocabulary\n\nSymmio's core docs help explain why the buckets matter: collateral is deposited money; margin is collateral locked for a position; CVA is an additional default-protection buffer. VibeCaps pages should preserve those distinctions instead of using \"funds\", \"balance\", \"margin\", and \"collateral\" interchangeably.\n\n## Reader Implication\n\nWhen a trader asks how VibeCaps margin works, answer in terms of liquidation distance and balance buckets. More margin means more cushion and less free balance. Less margin means more free balance and less cushion. Neither action changes the position size by itself.\n\n## Sources\n\n- `vibe-margin`: official VibeCaps add/remove margin behavior, liquidation-distance effects, and removal constraints.\n- `symmio-core`: collateral, margin, CVA, and available-balance vocabulary.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-vibe-intent-architecture`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `vibe-vibecaps-margin`",
+      "excerpt": "VibeCaps Margin Management VibeCaps margin management is a risk adjustment on an existing position, not a new trade. The official Vibe margin page says Manage Margin lets a user add or remove collateral from an existing VibeCaps position without changing position size. That is the core support answer: margin changes the cushion, not the exposure size. Adding Margin Adding margin moves more USDC from the VibeCaps account balance into the position's virtual account. The page states that this gives the position more collateral to absorb unrealized losses and moves the liquidation price farther away from the current market price. For a long position, the liquidation price moves lower. For a short position, it moves higher. Adding margin does not increase position size, change entry price, or open a new trade. Removing Margin Removing margin moves available collateral from the position's virtual account back to account balance. That frees funds, but reduces the safety buffer and moves the liquidation price closer to the current market price. The current public docs say Vibe only allows margin removal if the position remains sufficiently collateralized after current unrealized PnL, locke"
     },
     {
       "id": "authored-volume-01-orientation-and-thesis",
