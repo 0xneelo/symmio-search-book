@@ -48,6 +48,10 @@ Questions are grouped by whether the current source set can answer them.
 | Why do derivatives matter? | `authored-why-derivatives-matter` | Medium | Neelo's thesis frames derivatives as the missing layer for two-sided price discovery, hedging, and market discipline. |
 | How should I compare perpetual protocol designs? | `authored-perpetual-protocol-design-space` | Medium | Neelo's framework compares matching, collateralization, and insurance topology across perp architectures. |
 | Who bears risk in permissionless perps? | `authored-economic-clarity-for-permissionless-perps` | Low | Neelo's economic-clarity source supports the risk-allocation framework; exact Vibe economics still need owner review. |
+| What is Symmio's clearing-house model? | `authored-symmio-clearing-house-layer` | High | Official Symmio docs frame the protocol as a hybrid clearing-house layer with off-chain pricing and on-chain collateral, position, and settlement state. |
+| How does a Symmio intent become a position? | `authored-bilateral-intent-lifecycle` | High | Official Symmio core and lifecycle docs support the PartyA submit, solver observe, lock, collateral allocation, open, close, and reconciliation path. |
+| What does a Symmio solver monitor? | `authored-solver-event-monitoring` | High | Official lifecycle docs describe quote events, PartyB whitelists, risk checks, locking, collateral allocation, partial fills, and status reconciliation. |
+| What are collateral, margin, and CVA? | `authored-collateral-margin-cva` | High | Official Symmio core docs define collateral, locked margin, CVA, available balance, and the current collateral formula. |
 
 ## Prototype Event Log
 

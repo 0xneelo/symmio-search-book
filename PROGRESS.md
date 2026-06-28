@@ -210,6 +210,13 @@
 - Kept exact Vibe economics/risk-waterfall claims under owner review where the Neelo value-framework source intersects unresolved revenue and product decisions.
 - Narrowed `G-002A` again to show the authored spine now covers more of the thesis, while the full 794-page corpus still needs publication editing.
 
+## 2026-06-28 — Inside Symmio Protocol Authored Pages
+
+- Added four authored protocol-reference pages: Symmio clearing-house layer, bilateral intent lifecycle, solver event monitoring, and collateral/margin/CVA.
+- Added four direct question routes so Ask can answer core Symmio mechanics from publication-candidate pages instead of generated companion drafts.
+- Kept isolation, cross-margin, capital-efficiency, and Vibe-specific vault accounting claims out of final prose unless the registered primary sources support them.
+- Used official Symmio docs for the clearing-house model, PartyA/PartyB lifecycle, solver quote monitoring, collateral allocation, and current collateral formula.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

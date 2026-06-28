@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 850,
+  "readerPages": 854,
   "totalVolumes": 8,
   "totalChapters": 72,
-  "pagesAssigned": 850,
+  "pagesAssigned": 854,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -4135,26 +4135,26 @@
       "title": "Solver, LP, And Protocol Operations",
       "premise": "Bind due diligence, the SYMM LP case study, solver references, Symmio protocol pages, and builder/developer material.",
       "readerPromise": "Move from thesis to operational workflows for LPs, solvers, market creators, and protocol integrators.",
-      "totalPages": 80,
+      "totalPages": 84,
       "overviewPageId": "authored-volume-05-solver-lp-and-protocol-operations",
       "overviewTitle": "Volume 05: Solver, LP, And Protocol Operations",
-      "authoredPages": 5,
+      "authoredPages": 9,
       "generatedPages": 75,
       "statusCounts": {
         "draft-extracted-from-primary-source": 37,
         "draft-imported-from-primary-source": 24,
-        "publication-candidate": 2,
+        "publication-candidate": 6,
         "publication-candidate-needs-operator-review": 3,
         "source-mapped": 14
       },
       "granularityCounts": {
-        "authored-page": 5,
+        "authored-page": 9,
         "companion-page": 14,
         "section-page": 37,
         "source-page": 24
       },
       "routeSourceCounts": {
-        "authored": 5,
+        "authored": 9,
         "generated": 75
       },
       "sectionCounts": {
@@ -4162,7 +4162,7 @@
         "compendium": 1,
         "developer-reference": 1,
         "options-reference": 1,
-        "protocol-reference": 7,
+        "protocol-reference": 11,
         "settlement": 1,
         "solver-reference": 7,
         "vision-papers": 24,
@@ -4183,6 +4183,7 @@
         "symmio-options-partyb-open",
         "symmio-options-technical-architecture",
         "symmio-what-is",
+        "symmio-whitepaper",
         "vibe-architecture",
         "vibe-papers"
       ],
@@ -4190,17 +4191,21 @@
         "authored-volume-05-solver-lp-and-protocol-operations",
         "authored-lp-profit-and-dynamic-pricing",
         "authored-token-vault-perps-versus-usdc-pools",
+        "authored-bilateral-intent-lifecycle",
+        "authored-collateral-margin-cva",
         "authored-symmio-party-a-party-b",
-        "authored-options-intent-lifecycle",
-        "symmio-frontend-builder",
-        "symmio-contracts",
-        "symmio-options-contracts"
+        "authored-solver-event-monitoring",
+        "authored-symmio-clearing-house-layer"
       ],
       "pageIds": [
         "authored-volume-05-solver-lp-and-protocol-operations",
         "authored-lp-profit-and-dynamic-pricing",
         "authored-token-vault-perps-versus-usdc-pools",
+        "authored-bilateral-intent-lifecycle",
+        "authored-collateral-margin-cva",
         "authored-symmio-party-a-party-b",
+        "authored-solver-event-monitoring",
+        "authored-symmio-clearing-house-layer",
         "authored-options-intent-lifecycle",
         "symmio-frontend-builder",
         "symmio-contracts",
@@ -4382,24 +4387,58 @@
           "title": "Symmio Core",
           "section": "protocol-reference",
           "track": "Symmio Core",
-          "totalPages": 1,
-          "authoredPages": 1,
+          "totalPages": 5,
+          "authoredPages": 5,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate": 1
+            "publication-candidate": 5
           },
           "granularityCounts": {
-            "authored-page": 1
+            "authored-page": 5
           },
           "sourceKeys": [
             "symmio-core",
-            "symmio-intent-lifecycle"
+            "symmio-intent-lifecycle",
+            "symmio-what-is",
+            "symmio-whitepaper"
           ],
-          "firstPageId": "authored-symmio-party-a-party-b",
+          "firstPageId": "authored-bilateral-intent-lifecycle",
           "pageIds": [
-            "authored-symmio-party-a-party-b"
+            "authored-bilateral-intent-lifecycle",
+            "authored-collateral-margin-cva",
+            "authored-symmio-party-a-party-b",
+            "authored-solver-event-monitoring",
+            "authored-symmio-clearing-house-layer"
           ],
           "samplePages": [
+            {
+              "id": "authored-bilateral-intent-lifecycle",
+              "title": "Bilateral Intent Lifecycle",
+              "section": "protocol-reference",
+              "track": "Symmio Core",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-core",
+                "symmio-intent-lifecycle"
+              ]
+            },
+            {
+              "id": "authored-collateral-margin-cva",
+              "title": "Collateral, Margin, And CVA",
+              "section": "protocol-reference",
+              "track": "Symmio Core",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-core",
+                "symmio-intent-lifecycle"
+              ]
+            },
             {
               "id": "authored-symmio-party-a-party-b",
               "title": "PartyA And PartyB",
@@ -4412,6 +4451,36 @@
               "sourceKeys": [
                 "symmio-core",
                 "symmio-intent-lifecycle"
+              ]
+            },
+            {
+              "id": "authored-solver-event-monitoring",
+              "title": "Solver Event Monitoring",
+              "section": "protocol-reference",
+              "track": "Symmio Core",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-what-is",
+                "symmio-core",
+                "symmio-intent-lifecycle"
+              ]
+            },
+            {
+              "id": "authored-symmio-clearing-house-layer",
+              "title": "Symmio Clearing-House Layer",
+              "section": "protocol-reference",
+              "track": "Symmio Core",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-what-is",
+                "symmio-core",
+                "symmio-whitepaper"
               ]
             }
           ]
@@ -7600,7 +7669,11 @@
     "authored-volume-05-solver-lp-and-protocol-operations": "volume-05-solver-lp-and-protocol-operations",
     "authored-lp-profit-and-dynamic-pricing": "volume-05-solver-lp-and-protocol-operations",
     "authored-token-vault-perps-versus-usdc-pools": "volume-05-solver-lp-and-protocol-operations",
+    "authored-bilateral-intent-lifecycle": "volume-05-solver-lp-and-protocol-operations",
+    "authored-collateral-margin-cva": "volume-05-solver-lp-and-protocol-operations",
     "authored-symmio-party-a-party-b": "volume-05-solver-lp-and-protocol-operations",
+    "authored-solver-event-monitoring": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symmio-clearing-house-layer": "volume-05-solver-lp-and-protocol-operations",
     "authored-options-intent-lifecycle": "volume-05-solver-lp-and-protocol-operations",
     "symmio-frontend-builder": "volume-05-solver-lp-and-protocol-operations",
     "symmio-contracts": "volume-05-solver-lp-and-protocol-operations",

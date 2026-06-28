@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 56,
+  "totalPages": 60,
   "byStatus": {
-    "publication-candidate": 36,
+    "publication-candidate": 40,
     "publication-candidate-needs-operator-review": 19,
     "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 28,
+    "protocol-reference": 8,
     "competitive-context": 1,
     "dashboard-reference": 9,
     "reference": 1,
-    "protocol-reference": 4,
     "rewards-referrals": 3,
     "answer-engine": 1,
     "product-reference": 1,
@@ -40,6 +40,32 @@
       "excerpt": "Autonomous Market Creation Autonomous market creation is the positive version of the market creation gap. Instead of asking which markets deserve to exist, the system lets markets begin in a constrained form and then become more efficient if real demand appears. The source thesis has six moving parts: any token can begin with a market, the first state can be inefficient but functional, traders make the market deeper over time, objective maturity metrics track progress, graduation can happen by transparent criteria, and no human listing desk has to decide in advance which assets deserve a derivatives venue. That matters because it changes what \"permissionless\" means. It is not just permissionless contract deployment. It is permissionless market testing with an economic path from first trade to mature venue. Reader Implication This page should orient founders, treasuries, and traders around Vibe as a market lifecycle machine. A market starts because someone wants exposure; it matures because enough flow, balance, and liquidity show up. Sources vibe papers : Neelo, \"Section 1: Introduction: 1.6 The Vision: Autonomous Market Creation\". Related Pages authored market creation gap authore"
     },
     {
+      "id": "authored-bilateral-intent-lifecycle",
+      "title": "Bilateral Intent Lifecycle",
+      "section": "protocol-reference",
+      "track": "Symmio Core",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-core-concepts",
+        "symmio-intent-lifecycle",
+        "authored-symmio-clearing-house-layer",
+        "authored-symmio-party-a-party-b"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/bilateral-intent-lifecycle.md",
+      "bodyMarkdown": "# Bilateral Intent Lifecycle\n\nThe Symmio trade lifecycle begins with a bilateral request, not with a global matching engine. PartyA expresses a trade intent: market, side, size, price, collateral terms, and allowed counterparties. PartyB watches for acceptable intents, evaluates whether the trade fits its pricing and risk constraints, then locks and accepts it if the terms work.\n\nThat lifecycle is the operating shape behind the Vibe front door. A product can make the action feel like \"submit a trade,\" but the protocol-level sequence is more precise: submit intent, observe event, evaluate, lock, allocate collateral, open position, monitor lifecycle, request close, settle or liquidate.\n\n## State Path\n\nThe source-backed state path is:\n\n- PartyA submits an intent on-chain.\n- The intent is visible to solvers, especially the PartyB addresses whitelisted for that quote.\n- A solver evaluates symbol settings, notional limits, spread, hedging inventory, and risk before acting.\n- If the solver accepts, it locks the quote; the lifecycle moves from pending to locked.\n- Collateral is allocated and the position can open immediately or after the solver completes its hedging path.\n- If only part of the quantity is accepted, the remaining amount can be reposted as a new quote.\n- Close requests, close-cancel requests, cancellations, force-close paths, and liquidations become distinct lifecycle events that solvers and frontends must reconcile.\n\nThe important docs move is to name the state. A pending intent, locked quote, opened position, close-pending position, cancelled request, and liquidated position are not interchangeable user-support cases.\n\n## Why This Is Bilateral\n\nSymmio's core docs deliberately name PartyA and PartyB because responsibility is split. PartyA requests. PartyB accepts and manages the other side. Liquidators monitor collateral. The protocol does not need a central order book to decide whether the trade exists; it needs a counterparty willing to lock collateral and accept the quote under the rules.\n\n## Reader Implication\n\nFor traders, the lifecycle answers \"what happens after I submit?\" For solvers, it answers \"which event should I react to next?\" For support, it prevents vague answers like \"the trade is processing\" when the precise state is pending, locked, close-pending, cancelled, or liquidated.\n\n## Sources\n\n- `symmio-core`: PartyA/PartyB bilateral model and high-level trade path.\n- `symmio-intent-lifecycle`: quote submission, solver monitoring, locking, collateral allocation, partial fills, and lifecycle status changes.\n\n## Related Pages\n\n- `authored-symmio-clearing-house-layer`\n- `authored-solver-event-monitoring`\n- `authored-symmio-party-a-party-b`\n- `symmio-intent-lifecycle`",
+      "excerpt": "Bilateral Intent Lifecycle The Symmio trade lifecycle begins with a bilateral request, not with a global matching engine. PartyA expresses a trade intent: market, side, size, price, collateral terms, and allowed counterparties. PartyB watches for acceptable intents, evaluates whether the trade fits its pricing and risk constraints, then locks and accepts it if the terms work. That lifecycle is the operating shape behind the Vibe front door. A product can make the action feel like \"submit a trade,\" but the protocol level sequence is more precise: submit intent, observe event, evaluate, lock, allocate collateral, open position, monitor lifecycle, request close, settle or liquidate. State Path The source backed state path is: PartyA submits an intent on chain. The intent is visible to solvers, especially the PartyB addresses whitelisted for that quote. A solver evaluates symbol settings, notional limits, spread, hedging inventory, and risk before acting. If the solver accepts, it locks the quote; the lifecycle moves from pending to locked. Collateral is allocated and the position can open immediately or after the solver completes its hedging path. If only part of the quantity is accep"
+    },
+    {
       "id": "authored-bootstrap-trilemma",
       "title": "The Bootstrap Trilemma",
       "section": "manifesto",
@@ -59,6 +85,32 @@
       "file": "content/authored/manifesto/bootstrap-trilemma.md",
       "bodyMarkdown": "# The Bootstrap Trilemma\n\nThe central market-formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order-book conditions are present.\n\nNeelo's Vibe papers frame this as a three-way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it.\n\nVibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order-book-like liquidity once real flow proves itself.\n\n## Reader Implication\n\nFor a project, the question changes from \"can I persuade a venue to list me?\" to \"can I create enough credible trading demand that the market earns its next layer of liquidity?\" For a solver or LP, the question becomes whether the market's risk is priced well enough to justify carrying inventory or taking the other side.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`\n- `neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma`",
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
+    },
+    {
+      "id": "authored-collateral-margin-cva",
+      "title": "Collateral, Margin, And CVA",
+      "section": "protocol-reference",
+      "track": "Symmio Core",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-core-concepts",
+        "symmio-intent-lifecycle",
+        "symmio-liquidations",
+        "authored-symmio-party-a-party-b"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/collateral-margin-cva.md",
+      "bodyMarkdown": "# Collateral, Margin, And CVA\n\nThe Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA.\n\nCollateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used to protect against counterparty default.\n\nThe current core formula is:\n\n```text\nCollateral = Locked Margin + CVA + Available Balance\n```\n\nThat formula is simple, but it is one of the most important reference anchors in the compendium. It tells a reader that not every deposited dollar is free balance, and not every locked dollar is identical risk.\n\n## How It Enters The Lifecycle\n\nCollateral is not an afterthought once the solver accepts a quote. The lifecycle source says that when a solver locks an intent, collateral is allocated and the position can open immediately or after hedging. This makes collateral allocation part of the transition from intent to enforceable position.\n\nThe same vocabulary matters during close, cancellation, and liquidation flows. If a page talks about available balance, locked margin, CVA, or liquidation without naming which bucket changed, it is likely too vague for serious users.\n\n## What This Page Does Not Claim\n\nThis page does not publish a final isolation-versus-cross-margin comparison for Vibe products. The registered official sources in this slice support the base collateral/margin/CVA vocabulary and the lifecycle relationship between collateral allocation and quote locking. More specific public claims about isolated margin modes, cross-margin behavior, capital efficiency, or Vibe vault accounting need a dedicated primary source or product-owner confirmation before publication.\n\nThat restraint is not a docs weakness. It is the standard the whole compendium should hold: publish the protocol vocabulary now, park product-specific margin semantics until the source set proves them.\n\n## Reader Implication\n\nFor traders, the key question is \"which balance bucket changed?\" For solvers, it is \"what collateral is committed when I lock and open this quote?\" For support, it is \"are we explaining a deposit, locked margin, CVA, available balance, or liquidation buffer?\"\n\n## Sources\n\n- `symmio-core`: definitions of collateral, margin, CVA, and the collateral formula.\n- `symmio-intent-lifecycle`: solver locking and collateral allocation during the quote lifecycle.\n\n## Related Pages\n\n- `authored-bilateral-intent-lifecycle`\n- `authored-symmio-party-a-party-b`\n- `authored-token-margined-reflexivity-risk`\n- `symmio-core-concepts`",
+      "excerpt": "Collateral, Margin, And CVA The Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA. Collateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used to protect against counterparty default. The current core formula is: That formula is simple, but it is one of the most important reference anchors in the compendium. It tells a reader that not every deposited dollar is free balance, and not every locked dollar is identical risk. How It Enters The Lifecycle Collateral is not an afterthought once the solver accepts a quote. The lifecycle source says that when a solver locks an intent, collateral is allocated and the position can open immediately or after hedging. This makes collateral allocation part of the transition from intent to enforceable position. The same vocabulary matters during close, cancellation, and liquidation flows. If a page talks about available balance, locked margin, CVA, or liquidation without naming which bucket changed, it is likely too vague for serious users."
     },
     {
       "id": "authored-competitive-docs-benchmark",
@@ -1003,6 +1055,34 @@
       "excerpt": "The Living Docs Loop The answer engine is not only a search box. It is the intake system for documentation demand. The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop. In this prototype, the loop is local and browser based. It stores questions, ratings, and gaps in localStorage and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine. Reader Implication The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next. Sources spec 06 : Answer engine and living docs requirements. spec 09 : Design reference for Search insights. Related Pages authored estimated network revenue authored referral depth open question"
     },
     {
+      "id": "authored-solver-event-monitoring",
+      "title": "Solver Event Monitoring",
+      "section": "protocol-reference",
+      "track": "Symmio Core",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/getting-started/what-is-symmio.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-solver-role",
+        "symmio-intent-lifecycle",
+        "symmio-solving",
+        "authored-bilateral-intent-lifecycle"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-event-monitoring.md",
+      "bodyMarkdown": "# Solver Event Monitoring\n\nA solver in Symmio is not only a price source. It is an event-driven counterparty operation. The solver watches on-chain quote events, filters for intents it is allowed to fill, runs risk and pricing logic, locks acceptable quotes, allocates collateral, manages hedging, and keeps reconciling lifecycle events after the position opens.\n\nThat is why the compendium should avoid treating \"solver\" as a cosmetic synonym for \"market maker.\" A market maker can describe the economic role, but the operational role is narrower and more concrete: listen, evaluate, lock, hedge, open, monitor, and reconcile.\n\n## What The Solver Watches\n\nThe official lifecycle source identifies quote events as the entry point. A PartyA quote can include symbol id, position type, order type, price, quantity, and a PartyB whitelist. A solver event listener watches for events where its PartyB address is eligible.\n\nAfter seeing an eligible quote, the solver's own logic decides whether to act. The source names symbol settings, notional limits, spread, hedging inventory, and risk scores as examples of checks before locking an intent.\n\n## What Changes After Locking\n\nLocking changes the quote from pending to locked. That is a protocol state transition, not merely a UI spinner. The solver has committed to processing that intent path and must allocate collateral. Depending on the strategy, the position can open immediately or after the solver completes an off-chain hedge.\n\nThe monitoring work continues after the open. The solver should track cancellations, close requests, cancel-close requests, opened positions, close-pending positions, cancelled positions, liquidations, failed transactions, force-close paths, and unexpected states. The operational quality of this monitoring affects trader UX because stale or missed state becomes confusing product behavior.\n\n## Why This Matters For Vibe Docs\n\nVibe can present an ask-first, trade-first interface, but the docs should make clear that solver quality is part of the product. Better solver infrastructure can produce tighter quotes, faster acceptance, better hedging, and cleaner lifecycle reconciliation. We should still keep exact Vibe solver-performance or venue-specific guarantees out of the public pages unless there is a current product source for them.\n\n## Reader Implication\n\nWhen a trader asks why an intent did not become a position, the answer should route through solver eligibility, risk acceptance, lock state, collateral allocation, and lifecycle events. When a solver asks what to build, the answer starts with event listeners and reconciliation, not a static pricing page.\n\n## Sources\n\n- `symmio-what-is`: solvers as professional market-maker counterparties who lock collateral.\n- `symmio-core`: bilateral PartyA/PartyB model and solver role.\n- `symmio-intent-lifecycle`: event listener, quote fields, risk checks, locking, collateral allocation, partial fills, and lifecycle monitoring.\n\n## Related Pages\n\n- `authored-bilateral-intent-lifecycle`\n- `authored-intents-and-solvers`\n- `authored-vibe-trade-flow`\n- `symmio-solver-role`",
+      "excerpt": "Solver Event Monitoring A solver in Symmio is not only a price source. It is an event driven counterparty operation. The solver watches on chain quote events, filters for intents it is allowed to fill, runs risk and pricing logic, locks acceptable quotes, allocates collateral, manages hedging, and keeps reconciling lifecycle events after the position opens. That is why the compendium should avoid treating \"solver\" as a cosmetic synonym for \"market maker.\" A market maker can describe the economic role, but the operational role is narrower and more concrete: listen, evaluate, lock, hedge, open, monitor, and reconcile. What The Solver Watches The official lifecycle source identifies quote events as the entry point. A PartyA quote can include symbol id, position type, order type, price, quantity, and a PartyB whitelist. A solver event listener watches for events where its PartyB address is eligible. After seeing an eligible quote, the solver's own logic decides whether to act. The source names symbol settings, notional limits, spread, hedging inventory, and risk scores as examples of checks before locking an intent. What Changes After Locking Locking changes the quote from pending to l"
+    },
+    {
       "id": "authored-solver-owned-market-maker",
       "title": "The Solver As Protocol-Owned Market Maker",
       "section": "manifesto",
@@ -1024,6 +1104,34 @@
       "file": "content/authored/manifesto/solver-owned-market-maker.md",
       "bodyMarkdown": "# The Solver As Protocol-Owned Market Maker\n\nThe solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time-sensitive, or state-heavy to run purely on-chain.\n\nIn the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol-owned market maker during bootstrap rather than a passive matching engine.\n\nThe strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path-dependent calculations, risk decisions, and execution quality are managed.\n\n## Liquidity Waterfall\n\nNeelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol-owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.3 The Solver: Protocol-Owned Market Maker\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-symmio-party-a-party-b`\n- `authored-hybrid-settlement-solver-stack`",
       "excerpt": "The Solver As Protocol Owned Market Maker The solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time sensitive, or state heavy to run purely on chain. In the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol owned market maker during bootstrap rather than a passive matching engine. The strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path dependent calculations, risk decisions, and execution quality are managed. Liquidity Waterfall Neelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Arch"
+    },
+    {
+      "id": "authored-symmio-clearing-house-layer",
+      "title": "Symmio Clearing-House Layer",
+      "section": "protocol-reference",
+      "track": "Symmio Core",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/getting-started/what-is-symmio.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-what-is",
+        "symmio-core-concepts",
+        "symmio-whitepaper",
+        "authored-symmio-party-a-party-b"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-clearing-house-layer.md",
+      "bodyMarkdown": "# Symmio Clearing-House Layer\n\nSymmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on-chain and off-chain clearing house for permissionless derivatives: pricing and quoting can happen off-chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on-chain.\n\nThat distinction is the protocol core of the Vibe x Symmio story. Vibe can make intent-based markets feel usable at the product layer, while Symmio supplies the shared settlement grammar underneath: PartyA, PartyB, intent, collateral, margin, CVA, lock, open, close, and liquidation.\n\n## What It Is Not\n\nThe strongest reader correction is negative. Symmio's own overview says the protocol does not rely on a central limit order book or pooled liquidity as the core matching model. A trader does not wait for an order book to match them against anonymous resting flow. A trader expresses an intent, and a professional counterparty can choose to take the other side under protocol-enforced collateral and lifecycle rules.\n\nThat is why \"clearing house\" is the better phrase than \"venue.\" Frontends can differ. Solvers can differ. Products can differ. The shared layer is the bilateral agreement, collateral, and settlement path.\n\n## Hybrid Boundary\n\nThe hybrid boundary should be visible in every technical page:\n\n- Off-chain systems handle quotation, risk checks, solver decisioning, and hedging strategy.\n- On-chain systems track submitted intents, locks, collateral allocation, opened positions, close requests, settlement, and liquidation state.\n- Frontends translate the lifecycle into a product experience without becoming the protocol's source of truth.\n\nThis boundary also keeps capital-efficiency claims honest. The docs can say Symmio avoids requiring every market to bootstrap a passive pool or order book before trading can exist. The docs should not turn that into a final public efficiency claim for every Vibe market, margin mode, or vault product until the specific product source says so.\n\n## Protocol Status\n\nThe current whitepaper page is useful as a present-day protocol pointer, but it also says the system is still a work in progress and points to the full whitepaper artifact. The exact original whitepaper/version-history comparison remains parked under `G-007` and `OPERATOR-INBOX #6`.\n\n## Reader Implication\n\nWhen a reader asks \"what is Symmio?\", the answer should start with role and settlement semantics, not exchange analogy. Symmio is the layer that lets different frontends and solvers create enforceable bilateral derivatives positions without making the order book or liquidity pool the primitive.\n\n## Sources\n\n- `symmio-what-is`: Symmio overview, clearing-house framing, no order book/pool model, off-chain quotation, and on-chain settlement.\n- `symmio-core`: PartyA/PartyB, intent, collateral, margin, CVA, and lifecycle vocabulary.\n- `symmio-whitepaper`: current whitepaper pointer and protocol status note.\n\n## Related Pages\n\n- `authored-bilateral-intent-lifecycle`\n- `authored-symmio-party-a-party-b`\n- `authored-vibe-trade-flow`\n- `symmio-what-is`",
+      "excerpt": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction is the protocol core of the Vibe x Symmio story. Vibe can make intent based markets feel usable at the product layer, while Symmio supplies the shared settlement grammar underneath: PartyA, PartyB, intent, collateral, margin, CVA, lock, open, close, and liquidation. What It Is Not The strongest reader correction is negative. Symmio's own overview says the protocol does not rely on a central limit order book or pooled liquidity as the core matching model. A trader does not wait for an order book to match them against anonymous resting flow. A trader expresses an intent, and a professional counterparty can choose to take the other side under protocol enforced collateral and lifecycle rules. That is why \"clearing house\" is the better phrase than \"venue.\" Frontends can differ. Solvers can differ. Products can differ. The shared layer is"
     },
     {
       "id": "authored-symmio-party-a-party-b",

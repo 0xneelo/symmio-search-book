@@ -8,17 +8,17 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 48,
-  "totalAnswerable": 42,
+  "totalEntries": 52,
+  "totalAnswerable": 46,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 4,
-    "Trading Flow": 5,
-    "Solvers And Settlement": 7,
-    "Risk And Markets": 4,
+    "Trading Flow": 7,
+    "Solvers And Settlement": 8,
+    "Risk And Markets": 5,
     "Rewards And Referrals": 5,
     "Revenue": 4,
     "Dashboard": 7,
@@ -28,15 +28,15 @@
   },
   "byConfidence": {
     "Medium": 31,
-    "High": 8,
+    "High": 12,
     "Low": 3
   },
   "byRouteSource": {
     "curated": 8,
-    "authored": 34
+    "authored": 38
   },
   "byType": {
-    "answerable": 42,
+    "answerable": 46,
     "reconciliation": 6
   },
   "answerable": [
@@ -1622,6 +1622,170 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-symmio-s-clearing-house-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is Symmio's clearing-house model?",
+      "normalizedQuestion": "what is symmio s clearing house model",
+      "shortAnswer": "Official Symmio docs frame the protocol as a hybrid clearing-house layer with off-chain pricing and on-chain collateral, position, and settlement state.",
+      "answerSummary": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction i...",
+      "confidence": "High",
+      "pageId": "authored-symmio-clearing-house-layer",
+      "pageTitle": "Symmio Clearing-House Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
+      ],
+      "sources": [
+        {
+          "key": "symmio-what-is",
+          "group": "Public Symmio Sources",
+          "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
+          "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Whitepaper pointer and protocol status note.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-symmio-intent-become-a-position",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How does a Symmio intent become a position?",
+      "normalizedQuestion": "how does a symmio intent become a position",
+      "shortAnswer": "Official Symmio core and lifecycle docs support the PartyA submit, solver observe, lock, collateral allocation, open, close, and reconciliation path.",
+      "answerSummary": "Bilateral Intent Lifecycle The Symmio trade lifecycle begins with a bilateral request, not with a global matching engine. PartyA expresses a trade intent: market, side, size, price, collateral terms, and allowed counterparties. PartyB watches for acceptable intents, evaluates whether the trade fits its pricing and risk constraints, then locks and accepts...",
+      "confidence": "High",
+      "pageId": "authored-bilateral-intent-lifecycle",
+      "pageTitle": "Bilateral Intent Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-a-symmio-solver-monitor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does a Symmio solver monitor?",
+      "normalizedQuestion": "what does a symmio solver monitor",
+      "shortAnswer": "Official lifecycle docs describe quote events, PartyB whitelists, risk checks, locking, collateral allocation, partial fills, and status reconciliation.",
+      "answerSummary": "Solver Event Monitoring A solver in Symmio is not only a price source. It is an event driven counterparty operation. The solver watches on chain quote events, filters for intents it is allowed to fill, runs risk and pricing logic, locks acceptable quotes, allocates collateral, manages hedging, and keeps reconciling lifecycle events after the position open...",
+      "confidence": "High",
+      "pageId": "authored-solver-event-monitoring",
+      "pageTitle": "Solver Event Monitoring",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-what-is",
+          "group": "Public Symmio Sources",
+          "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
+          "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-collateral-margin-and-cva",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What are collateral, margin, and CVA?",
+      "normalizedQuestion": "what are collateral margin and cva",
+      "shortAnswer": "Official Symmio core docs define collateral, locked margin, CVA, available balance, and the current collateral formula.",
+      "answerSummary": "Collateral, Margin, And CVA The Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA. Collateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used t...",
+      "confidence": "High",
+      "pageId": "authored-collateral-margin-cva",
+      "pageTitle": "Collateral, Margin, And CVA",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -3532,6 +3696,170 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-symmio-s-clearing-house-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is Symmio's clearing-house model?",
+      "normalizedQuestion": "what is symmio s clearing house model",
+      "shortAnswer": "Official Symmio docs frame the protocol as a hybrid clearing-house layer with off-chain pricing and on-chain collateral, position, and settlement state.",
+      "answerSummary": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction i...",
+      "confidence": "High",
+      "pageId": "authored-symmio-clearing-house-layer",
+      "pageTitle": "Symmio Clearing-House Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
+      ],
+      "sources": [
+        {
+          "key": "symmio-what-is",
+          "group": "Public Symmio Sources",
+          "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
+          "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Whitepaper pointer and protocol status note.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-symmio-intent-become-a-position",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How does a Symmio intent become a position?",
+      "normalizedQuestion": "how does a symmio intent become a position",
+      "shortAnswer": "Official Symmio core and lifecycle docs support the PartyA submit, solver observe, lock, collateral allocation, open, close, and reconciliation path.",
+      "answerSummary": "Bilateral Intent Lifecycle The Symmio trade lifecycle begins with a bilateral request, not with a global matching engine. PartyA expresses a trade intent: market, side, size, price, collateral terms, and allowed counterparties. PartyB watches for acceptable intents, evaluates whether the trade fits its pricing and risk constraints, then locks and accepts...",
+      "confidence": "High",
+      "pageId": "authored-bilateral-intent-lifecycle",
+      "pageTitle": "Bilateral Intent Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-a-symmio-solver-monitor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does a Symmio solver monitor?",
+      "normalizedQuestion": "what does a symmio solver monitor",
+      "shortAnswer": "Official lifecycle docs describe quote events, PartyB whitelists, risk checks, locking, collateral allocation, partial fills, and status reconciliation.",
+      "answerSummary": "Solver Event Monitoring A solver in Symmio is not only a price source. It is an event driven counterparty operation. The solver watches on chain quote events, filters for intents it is allowed to fill, runs risk and pricing logic, locks acceptable quotes, allocates collateral, manages hedging, and keeps reconciling lifecycle events after the position open...",
+      "confidence": "High",
+      "pageId": "authored-solver-event-monitoring",
+      "pageTitle": "Solver Event Monitoring",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-what-is",
+          "group": "Public Symmio Sources",
+          "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
+          "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-collateral-margin-and-cva",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What are collateral, margin, and CVA?",
+      "normalizedQuestion": "what are collateral margin and cva",
+      "shortAnswer": "Official Symmio core docs define collateral, locked margin, CVA, available balance, and the current collateral formula.",
+      "answerSummary": "Collateral, Margin, And CVA The Symmio docs separate three words that are easy to collapse in product copy: collateral, margin, and CVA. Collateral is the money deposited into the system, usually described in the current docs as USDC. Margin is the portion of collateral locked to back a specific position. CVA is the extra buffer or security deposit used t...",
+      "confidence": "High",
+      "pageId": "authored-collateral-margin-cva",
+      "pageTitle": "Collateral, Margin, And CVA",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]

@@ -1,18 +1,18 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 42,
+  "totalRoutes": 46,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 31,
-    "High": 8,
+    "High": 12,
     "Low": 3
   },
   "byRouteSource": {
     "curated": 7,
     "generated": 1,
-    "authored": 34
+    "authored": 38
   },
   "answerable": [
     {
@@ -772,6 +772,80 @@
       "notes": "Neelo's economic-clarity source supports the risk-allocation framework; exact Vibe economics still need owner review.",
       "sourceKeys": [
         "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-symmio-s-clearing-house-model",
+      "question": "What is Symmio's clearing-house model?",
+      "normalizedQuestion": "what is symmio s clearing house model",
+      "pageId": "authored-symmio-clearing-house-layer",
+      "pageTitle": "Symmio Clearing-House Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Symmio docs frame the protocol as a hybrid clearing-house layer with off-chain pricing and on-chain collateral, position, and settlement state.",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-a-symmio-intent-become-a-position",
+      "question": "How does a Symmio intent become a position?",
+      "normalizedQuestion": "how does a symmio intent become a position",
+      "pageId": "authored-bilateral-intent-lifecycle",
+      "pageTitle": "Bilateral Intent Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Symmio core and lifecycle docs support the PartyA submit, solver observe, lock, collateral allocation, open, close, and reconciliation path.",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-a-symmio-solver-monitor",
+      "question": "What does a Symmio solver monitor?",
+      "normalizedQuestion": "what does a symmio solver monitor",
+      "pageId": "authored-solver-event-monitoring",
+      "pageTitle": "Solver Event Monitoring",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official lifecycle docs describe quote events, PartyB whitelists, risk checks, locking, collateral allocation, partial fills, and status reconciliation.",
+      "sourceKeys": [
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-are-collateral-margin-and-cva",
+      "question": "What are collateral, margin, and CVA?",
+      "normalizedQuestion": "what are collateral margin and cva",
+      "pageId": "authored-collateral-margin-cva",
+      "pageTitle": "Collateral, Margin, And CVA",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Symmio core docs define collateral, locked margin, CVA, available balance, and the current collateral formula.",
+      "sourceKeys": [
+        "symmio-core",
+        "symmio-intent-lifecycle"
       ],
       "missing": false
     }

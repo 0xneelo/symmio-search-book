@@ -6,15 +6,15 @@
     "manifestPages": 794,
     "generatedFiles": 794,
     "searchIndexEntries": 794,
-    "authoredPublicationCandidates": 56,
-    "authoredFiles": 56,
-    "readerRoutablePages": 850,
+    "authoredPublicationCandidates": 60,
+    "authoredFiles": 60,
+    "readerRoutablePages": 854,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 42,
+    "seededQuestionRoutes": 46,
     "seededReconciliationQuestions": 6,
-    "localFaqEntries": 48,
-    "localFaqAnswerable": 42,
+    "localFaqEntries": 52,
+    "localFaqAnswerable": 46,
     "localFaqUnresolved": 6,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -39,18 +39,18 @@
     "competitiveSweepCompletedLanes": 25,
     "competitiveSweepCompletedBatches": 5,
     "competitiveSweepReady": false,
-    "crosslinkedReaderPages": 850,
-    "readerPagesWithPrevious": 849,
-    "readerPagesWithNext": 849,
-    "readerPagesWithRelated": 850,
-    "answerChunkPages": 868,
-    "answerChunks": 1446,
+    "crosslinkedReaderPages": 854,
+    "readerPagesWithPrevious": 853,
+    "readerPagesWithNext": 853,
+    "readerPagesWithRelated": 854,
+    "answerChunkPages": 872,
+    "answerChunks": 1456,
     "answerChunkSourceKeys": 51,
     "compendiumVolumes": 8,
     "compendiumChapters": 72,
     "compendiumVolumeOverviews": 8,
-    "compendiumVolumeReaderPages": 850,
-    "compendiumVolumeAssignedPages": 850,
+    "compendiumVolumeReaderPages": 854,
+    "compendiumVolumeAssignedPages": 854,
     "completionRequirements": 17,
     "completionRequirementsComplete": 5,
     "completionRequirementsPartial": 4,
@@ -62,7 +62,7 @@
     "openOperatorItems": 8,
     "resolvedOperatorItems": 0,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 42,
+    "answerablePrototypeQuestions": 46,
     "reconciliationQuestions": 6
   },
   "gates": [
@@ -118,7 +118,7 @@
       "id": "authored-bodies",
       "label": "Authored pages carry bodies",
       "passed": true,
-      "detail": "56 authored index pages, 56 authored markdown files"
+      "detail": "60 authored index pages, 60 authored markdown files"
     },
     {
       "id": "duplicate-manifest-ids",
@@ -136,13 +136,13 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "42 generated routes, 42 answerable ledger rows, 0 missing page ids"
+      "detail": "46 generated routes, 46 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "42 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "46 answerable FAQs, 6 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -160,19 +160,19 @@
       "id": "reader-crosslinks",
       "label": "Reader crosslinks resolve",
       "passed": true,
-      "detail": "850 crosslinked pages, 850 reader routes, 0 broken explicit related routes"
+      "detail": "854 crosslinked pages, 854 reader routes, 0 broken explicit related routes"
     },
     {
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "868 pages, 1446 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "872 pages, 1456 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
       "label": "Compendium volume map resolves",
       "passed": true,
-      "detail": "8 volumes, 72 chapters, 8 overview pages, 850/850 reader pages assigned, manifest target met"
+      "detail": "8 volumes, 72 chapters, 8 overview pages, 854/854 reader pages assigned, manifest target met"
     },
     {
       "id": "requirement-map",
@@ -202,7 +202,7 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "publication-candidate": 36,
+      "publication-candidate": 40,
       "publication-candidate-needs-operator-review": 19,
       "needs-reconciliation": 1
     },
@@ -234,7 +234,7 @@
       },
       {
         "status": "publication-candidate",
-        "count": 36,
+        "count": 40,
         "severity": "candidate"
       },
       {
@@ -249,10 +249,10 @@
     "navigationTracks": 49,
     "authored": {
       "manifesto": 28,
+      "protocol-reference": 8,
       "competitive-context": 1,
       "dashboard-reference": 9,
       "reference": 1,
-      "protocol-reference": 4,
       "rewards-referrals": 3,
       "answer-engine": 1,
       "product-reference": 1,
@@ -277,9 +277,9 @@
       "unknownSourceKeys": []
     },
     "authored": {
-      "total": 56,
-      "withSourceKeys": 56,
-      "withSourceUrls": 56,
+      "total": 60,
+      "withSourceKeys": 60,
+      "withSourceUrls": 60,
       "missingSourceKeys": [],
       "missingSourceUrls": [],
       "unknownSourceKeys": []
@@ -621,32 +621,32 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 42,
+    "totalRoutes": 46,
     "totalReconciliationQuestions": 6,
     "byConfidence": {
       "Medium": 31,
-      "High": 8,
+      "High": 12,
       "Low": 3
     },
     "byRouteSource": {
       "curated": 7,
       "generated": 1,
-      "authored": 34
+      "authored": 38
     },
     "missingRouteIds": []
   },
   "faqCoverage": {
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
-    "totalEntries": 48,
-    "totalAnswerable": 42,
+    "totalEntries": 52,
+    "totalAnswerable": 46,
     "totalUnresolved": 6,
     "totalCategories": 10,
     "byCategory": {
       "Getting Started": 4,
-      "Trading Flow": 5,
-      "Solvers And Settlement": 7,
-      "Risk And Markets": 4,
+      "Trading Flow": 7,
+      "Solvers And Settlement": 8,
+      "Risk And Markets": 5,
       "Rewards And Referrals": 5,
       "Revenue": 4,
       "Dashboard": 7,
@@ -656,12 +656,12 @@
     },
     "byConfidence": {
       "Medium": 31,
-      "High": 8,
+      "High": 12,
       "Low": 3
     },
     "byRouteSource": {
       "curated": 8,
-      "authored": 34
+      "authored": 38
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -794,15 +794,15 @@
     "missingSourceKeys": []
   },
   "crosslinkCoverage": {
-    "totalPages": 850,
-    "pagesWithPrevious": 849,
-    "pagesWithNext": 849,
-    "pagesWithRelated": 850,
+    "totalPages": 854,
+    "pagesWithPrevious": 853,
+    "pagesWithNext": 853,
+    "pagesWithRelated": 854,
     "bySection": {
       "competitive-context": 2,
       "compendium": 8,
       "manifesto": 28,
-      "protocol-reference": 7,
+      "protocol-reference": 11,
       "product-reference": 4,
       "dashboard-reference": 14,
       "rewards-referrals": 9,
@@ -827,7 +827,7 @@
       "vision-sections": 541
     },
     "byRouteSource": {
-      "authored": 56,
+      "authored": 60,
       "generated": 794
     },
     "missingExplicitRelatedPageIds": [],
@@ -841,25 +841,25 @@
       "maxWords": 220,
       "overlapWords": 35
     },
-    "totalPages": 868,
-    "totalChunks": 1446,
-    "pagesWithChunks": 868,
+    "totalPages": 872,
+    "totalChunks": 1456,
+    "pagesWithChunks": 872,
     "byRouteSource": {
-      "authored": 56,
+      "authored": 60,
       "curated": 20,
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 105,
+      "authored": 115,
       "curated": 20,
       "generated": 1321
     },
     "chunksBySection": {
       "manifesto": 52,
+      "protocol-reference": 22,
       "competitive-context": 6,
       "dashboard-reference": 18,
       "reference": 2,
-      "protocol-reference": 12,
       "rewards-referrals": 10,
       "answer-engine": 1,
       "product-reference": 4,
@@ -954,10 +954,10 @@
     "status": "prototype-compendium-volume-map",
     "targetRange": "500-800 pages",
     "manifestPages": 794,
-    "readerPages": 850,
+    "readerPages": 854,
     "totalVolumes": 8,
     "totalChapters": 72,
-    "pagesAssigned": 850,
+    "pagesAssigned": 854,
     "manifestWithinTarget": true,
     "volumes": [
       {
@@ -1005,9 +1005,9 @@
         "number": 5,
         "title": "Solver, LP, And Protocol Operations",
         "overviewPageId": "authored-volume-05-solver-lp-and-protocol-operations",
-        "totalPages": 80,
+        "totalPages": 84,
         "chapters": 12,
-        "authoredPages": 5,
+        "authoredPages": 9,
         "generatedPages": 75
       },
       {

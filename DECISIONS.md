@@ -287,3 +287,11 @@
 **Reason:** The spec's Part II thesis is the conceptual bridge from "why tokenization" to "why permissionless derivatives for any token." These topics need authored, directly routed pages so the answer engine can explain the core argument without relying on raw generated imports.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-037: Keep Inside Symmio Pages Source-Limited
+
+**Decision:** Add protocol-reference pages for Symmio's clearing-house model, bilateral intent lifecycle, solver event monitoring, and collateral/margin/CVA from official Symmio docs. Do not publish broader isolation, cross-margin, capital-efficiency, or Vibe vault-accounting claims unless a primary source supports the exact product semantics.
+
+**Reason:** The spec calls for an "inside Symmio" explanation, but these topics mix protocol vocabulary with product-specific margin and inventory claims. The current registered sources strongly support the clearing-house, PartyA/PartyB, solver-event, and collateral vocabulary; they do not by themselves close Vibe-specific margin-mode or vault-exposure questions.
+
+**Status:** Accepted for the authored protocol-reference layer.
