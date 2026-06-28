@@ -538,6 +538,12 @@
 - Routed five new Ask questions so solvers, LPs, treasuries, and operators can distinguish realized debt from marked UPnL, read the benchmark table, and understand why the case is proof-of-mechanism rather than a general yield promise.
 - Kept public yield language, audited attribution, vault-level time series, drawdown reporting, capacity stress, and dashboard-field semantics under operator/accounting review.
 
+## 2026-06-28 — Funding Insurance And ADL Reference Pages
+
+- Added five authored Volume 05 reference pages from Neelo's funding model: local insurance fund sources, global insurance eligibility, stress demand and insurance spend, bell-curve transfer pools, and ADL trigger/target mechanics.
+- Routed five new Ask questions so the front door can explain the defense budget before ADL without flattening it into generic insurance or a fee table.
+- Kept live percentages, eligibility rules, allocation caps, safe-exposure formulas, ADL thresholds, and position-ranking rules under operator and implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

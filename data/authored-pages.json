@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 256,
+  "totalPages": 261,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 145,
+    "publication-candidate-needs-operator-review": 150,
     "publication-candidate": 106,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,7 +12,7 @@
     "manifesto": 143,
     "product-reference": 22,
     "dashboard-reference": 12,
-    "protocol-reference": 42,
+    "protocol-reference": 47,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 25,
@@ -1029,6 +1029,30 @@
       "excerpt": "The Four Transitions Neelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself. The first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another. The second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order book behavior become more plausible. The third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market maker around naturally matched trader flow. The fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross margin and insurance treatment after their behavior is known. Reader Implication The compend"
     },
     {
+      "id": "authored-funding-adl-trigger-and-target",
+      "title": "Funding ADL Trigger And Target",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "section-15-funding-model-15-docs-01-abstract-d-safety-adl"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-adl-trigger-and-target.md",
+      "bodyMarkdown": "# Funding ADL Trigger And Target\n\nADL is the last resort in Neelo's funding model. It appears after dynamic pricing, token inventory, local insurance, and capped global insurance cannot keep exposure inside the safe zone.\n\nThe source gives two trigger conditions:\n\n```\nx_m = B_m_def AND D_m_res > 0\n```\n\nor:\n\n```\nE_usd > E_safe\n```\n\nIn plain English: ADL can trigger when all available defense budget is spent and uncovered stress remains, or when exposure exceeds the safe level the model can cover in a worst-case unwind.\n\n## ADL To Safer Levels\n\nThe model does not require a full zeroing of exposure. It chooses the minimum ADL fraction that brings exposure back to a safer target:\n\n```\na_m = 1 - (E_target / E_current)\n```\n\nThe source example reduces `$60,000` of exposure toward a `$40,000` target with a `33%` ADL fraction.\n\nWhen positions must be selected, the source prioritizes largest winners first, then oldest positions as a tie-breaker, then proportional treatment if needed.\n\n## Publication Boundary\n\nThis page should not publish final production ADL thresholds, safe exposure multipliers, position-ranking rules, or supported emergency paths without operator and implementation review. The source-backed claim is narrower: ADL is a final exposure-reduction mechanism after cheaper defenses are exhausted or safety limits are breached.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-funding-stress-demand-and-insurance-spend`\n- `authored-tail-event-profit-cap-emergency-brake`",
+      "excerpt": "Funding ADL Trigger And Target ADL is the last resort in Neelo's funding model. It appears after dynamic pricing, token inventory, local insurance, and capped global insurance cannot keep exposure inside the safe zone. The source gives two trigger conditions: or: In plain English: ADL can trigger when all available defense budget is spent and uncovered stress remains, or when exposure exceeds the safe level the model can cover in a worst case unwind. ADL To Safer Levels The model does not require a full zeroing of exposure. It chooses the minimum ADL fraction that brings exposure back to a safer target: The source example reduces $60,000 of exposure toward a $40,000 target with a 33% ADL fraction. When positions must be selected, the source prioritizes largest winners first, then oldest positions as a tie breaker, then proportional treatment if needed. Publication Boundary This page should not publish final production ADL thresholds, safe exposure multipliers, position ranking rules, or supported emergency paths without operator and implementation review. The source backed claim is narrower: ADL is a final exposure reduction mechanism after cheaper defenses are exhausted or safety "
+    },
+    {
       "id": "authored-funding-as-market-balancing",
       "title": "Funding As Market Balancing",
       "section": "manifesto",
@@ -1048,6 +1072,30 @@
       "file": "content/authored/manifesto/funding-as-market-balancing.md",
       "bodyMarkdown": "# Funding As Market Balancing\n\nFunding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium.\n\nNeelo's market-creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden.\n\nThis matters for the compendium because funding is not just a fee line. It is a market-shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps.\n\n## Publication Note\n\nThis page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue-specific mechanics, and current disclosure policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\".\n\n## Related Pages\n\n- `authored-hybrid-settlement-solver-stack`\n- `authored-market-maturation-z-score`\n- `authored-estimated-network-revenue`",
       "excerpt": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mec"
+    },
+    {
+      "id": "authored-funding-bell-curve-transfer-pool",
+      "title": "Funding Bell-Curve Transfer Pool",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "authored-cross-market-risk-mutualization"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-bell-curve-transfer-pool.md",
+      "bodyMarkdown": "# Funding Bell-Curve Transfer Pool\n\nBell-curve flattening is the funding model's cross-market mutualization layer. The source phrase is blunt: give part of the profits of big winner markets to big loser or stressed markets.\n\nThe practical allocation version identifies:\n\n- winner surplus: markets with profit above the upper cutoff;\n- stress demand: markets with uncovered exposure stress;\n- transfer pool: a fraction of the smaller side of those two totals;\n- proportional global allocation: stressed markets receive support in proportion to stress demand, subject to their global cap.\n\n## What It Does And Does Not Do\n\nThe transfer pool compresses tail outcomes. It can reduce the chance that one stressed market reaches ADL while another market has surplus. It does not mean every market shares one uncapped vault, and it does not erase local responsibility.\n\nThe same source model keeps global insurance eligibility and caps. That is the key safety property: mutualization should reduce tail volatility without letting one weak market drain all shared capital.\n\n## Publication Boundary\n\nTail thresholds, flattening intensity, protocol retention, and global allocation formulas are model parameters. Public docs should describe the principle and publish live values only after operator and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\".\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n\n## Related Pages\n\n- `authored-cross-market-risk-mutualization`\n- `authored-funding-global-insurance-eligibility`\n- `authored-funding-stress-demand-and-insurance-spend`",
+      "excerpt": "Funding Bell Curve Transfer Pool Bell curve flattening is the funding model's cross market mutualization layer. The source phrase is blunt: give part of the profits of big winner markets to big loser or stressed markets. The practical allocation version identifies: winner surplus: markets with profit above the upper cutoff; stress demand: markets with uncovered exposure stress; transfer pool: a fraction of the smaller side of those two totals; proportional global allocation: stressed markets receive support in proportion to stress demand, subject to their global cap. What It Does And Does Not Do The transfer pool compresses tail outcomes. It can reduce the chance that one stressed market reaches ADL while another market has surplus. It does not mean every market shares one uncapped vault, and it does not erase local responsibility. The same source model keeps global insurance eligibility and caps. That is the key safety property: mutualization should reduce tail volatility without letting one weak market drain all shared capital. Publication Boundary Tail thresholds, flattening intensity, protocol retention, and global allocation formulas are model parameters. Public docs should de"
     },
     {
       "id": "authored-funding-core-invariant",
@@ -1122,6 +1170,54 @@
       "excerpt": "The Full Funding Objective The full funding objective in Neelo's model combines four ideas: maximize flattened market profit, penalize local risk, account for insurance cost, and make ADL expensive enough to remain a last resort. In plain English, the system wants profitable markets, but not by ignoring unstable local states. It wants to compress extreme outcomes across markets, but not by allowing every weak market to drain shared insurance. It wants to spend insurance when it protects solvency, but not so freely that insurance becomes the ordinary counterparty. Components Flattened profit is the cross market piece. Winner markets can contribute from excess profit above a cutoff, stressed markets can receive support below a cutoff, and the aggregate distribution becomes less extreme. Local risk is the market specific piece. Utilization, insurance stress, skew, volatility, profit deviation, and residual stress create penalties that push the system away from danger zones. Insurance cost and ADL cost are the hard defense pieces. Insurance spend consumes scarce budget. ADL protects solvency but damages user experience and trust, so the model treats it as a costly action rather than a "
     },
     {
+      "id": "authored-funding-global-insurance-eligibility",
+      "title": "Funding Global Insurance Eligibility",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "section-15-funding-model-15-docs-01-abstract-d-safety-adl"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-global-insurance-eligibility.md",
+      "bodyMarkdown": "# Funding Global Insurance Eligibility\n\nGlobal insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non-eligible markets can only use local insurance.\n\nThat design is about contagion control. If every new token market could immediately drain shared insurance, a weak or manipulated market could externalize its losses to unrelated markets. The model therefore gives global insurance three constraints:\n\n- a market must be eligible;\n- the per-market allocation is capped;\n- the system should never risk the whole global fund in one market.\n\n## How To Explain It To Users\n\nGlobal insurance should be described as a capped risk budget, not a guarantee. A market may have zero allocation, a small allocation, or a larger allocation after it earns trust through cleaner price formation, better liquidity, and safer behavior.\n\nThis also explains why early markets can have stricter terms. A market that has not earned shared protection must rely more heavily on netting, token inventory, local insurance, dynamic pricing, and tighter limits.\n\n## Publication Boundary\n\nDo not publish final eligibility rules, allocation caps, governance paths, or per-token examples as live policy until operator review confirms them. The source-backed claim is the architecture principle: shared insurance is conditional and capped.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-conditional-global-insurance-allocation`\n- `authored-cross-market-risk-mutualization`\n- `authored-funding-local-insurance-fund`",
+      "excerpt": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a weak or manipulated market could externalize its losses to unrelated markets. The model therefore gives global insurance three constraints: a market must be eligible; the per market allocation is capped; the system should never risk the whole global fund in one market. How To Explain It To Users Global insurance should be described as a capped risk budget, not a guarantee. A market may have zero allocation, a small allocation, or a larger allocation after it earns trust through cleaner price formation, better liquidity, and safer behavior. This also explains why early markets can have stricter terms. A market that has not earned shared protection must rely more heavily on netting, token inventory, local insurance, dynamic pricing, and tighter limits. Publication Boundary Do not publish final eligibility rules, allocation caps, governa"
+    },
+    {
+      "id": "authored-funding-local-insurance-fund",
+      "title": "Funding Local Insurance Fund",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "section-15-funding-model-15-docs-04-variable-definitions-insurance-safety-variables"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-local-insurance-fund.md",
+      "bodyMarkdown": "# Funding Local Insurance Fund\n\nIn Neelo's funding model, local insurance is a per-market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL.\n\nThe source model gives three local-fund inflows:\n\n- `100%` of liquidation profits from the same market;\n- `30%` of positive solver profits from the same market;\n- CVA-style charges where applicable.\n\nThe important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted.\n\n## Why Local Comes Before Global\n\nLocal insurance keeps loss responsibility close to the market that generated the risk. A permissionless low-cap market should build its own runway from its own operations before it asks for shared protection.\n\nThat also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source-model inflows are being counted.\n\n## Publication Boundary\n\nThe source model uses example percentages and formulas. Public docs should not present `30%`, spend caps, CVA treatment, or liquidation-profit routing as live production policy until operator and implementation review confirm the deployed values.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-conditional-global-insurance-allocation`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same market; CVA style charges where applicable. The important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted. Why Local Comes Before Global Local insurance keeps loss responsibility close to the market that generated the risk. A permissionless low cap market should build its own runway from its own operations before it asks for shared protection. That also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source model inflows are being counted. Publication Boundary The source model uses example percentages and formulas. Public docs should not present 30% , spend caps"
+    },
+    {
       "id": "authored-funding-model-control-problem",
       "title": "The Funding Model Is A Control Problem",
       "section": "manifesto",
@@ -1193,6 +1289,30 @@
       "file": "content/authored/manifesto/funding-state-variable-map.md",
       "bodyMarkdown": "# Funding State Variable Map\n\nThe funding model is easier to understand if readers see the state map before the equations. Neelo's variable definitions split a market into inventories, open interest, exposure, utilization, skew, insurance capacity, volatility, revenue, cost, and control variables.\n\n## Market State\n\nThe first state group is inventory and exposure. Token deposits, remaining tokens, token price, covered notional, long open interest, short open interest, netted amount, and solver exposure define whether the market is mostly self-offsetting or whether the solver is carrying directional risk.\n\nThe second state group is utilization and imbalance. Token utilization asks how much net exposure is covered by token inventory. Insurance utilization asks how much unhedged loss could stress available local and global insurance. Skew explains which side of the market is dominant.\n\nThe third state group is risk and economics. Volatility, profit deviation, exposure loss estimates, revenue categories, hedge cost, borrow cost, trader PnL, shortfall, and insurance budget determine whether ordinary pricing is enough or whether the market is moving toward defense layers.\n\n## Control Surface\n\nThe source also separates state from controls. The system can change funding, borrow, spread, insurance spend, hedging, and ADL fraction. That distinction matters: a docs answer should not say \"utilization caused ADL\" without showing the intervening control choices and budgets.\n\n## Reader Implication\n\nWhen a solver, LP, or project asks why a market's terms changed, the right answer is rarely one metric. The funding model reads the binding constraint: token inventory, insurance capacity, skew, volatility, profit deviation, or residual stress.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Variable Definitions\".\n- `vibe-papers`: Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\".\n\n## Related Pages\n\n- `authored-utilization-modes-inventory-insurance`\n- `authored-dynamic-pricing-controls`\n- `authored-cross-market-risk-mutualization`",
       "excerpt": "Funding State Variable Map The funding model is easier to understand if readers see the state map before the equations. Neelo's variable definitions split a market into inventories, open interest, exposure, utilization, skew, insurance capacity, volatility, revenue, cost, and control variables. Market State The first state group is inventory and exposure. Token deposits, remaining tokens, token price, covered notional, long open interest, short open interest, netted amount, and solver exposure define whether the market is mostly self offsetting or whether the solver is carrying directional risk. The second state group is utilization and imbalance. Token utilization asks how much net exposure is covered by token inventory. Insurance utilization asks how much unhedged loss could stress available local and global insurance. Skew explains which side of the market is dominant. The third state group is risk and economics. Volatility, profit deviation, exposure loss estimates, revenue categories, hedge cost, borrow cost, trader PnL, shortfall, and insurance budget determine whether ordinary pricing is enough or whether the market is moving toward defense layers. Control Surface The source"
+    },
+    {
+      "id": "authored-funding-stress-demand-and-insurance-spend",
+      "title": "Funding Stress Demand And Insurance Spend",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "section-15-funding-model-15-docs-04-variable-definitions-control-variables-what-the-system-chooses",
+        "section-15-funding-model-15-docs-01-abstract-b-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-stress-demand-and-insurance-spend.md",
+      "bodyMarkdown": "# Funding Stress Demand And Insurance Spend\n\nThe funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue.\n\nIn the source model, stress demand is:\n\n```\nD_m = max(0, L(E_usd) - (F_spread + F_fund + F_borrow))\n```\n\nThat says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover.\n\nAfter insurance spend, the remaining residual is:\n\n```\nD_m_res = max(0, D_m - x_m)\n```\n\nwhere `x_m` is combined local plus global insurance spend.\n\n## Why This Matters\n\nThis ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL.\n\nFor docs, the reader-facing question is simple: what is still uncovered after ordinary market revenue and insurance spend?\n\n## Publication Boundary\n\nThe formulas are source-model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Variable Definitions\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-rate-regime-model`\n- `authored-funding-adl-trigger-and-target`",
+      "excerpt": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover. After insurance spend, the remaining residual is: where x m is combined local plus global insurance spend. Why This Matters This ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL. For docs, the reader facing question is simple: what is still uncovered after ordinary market revenue and insurance spend? Publication Boundary The formulas are source model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review. Sources vibe pap"
     },
     {
       "id": "authored-funding-worked-examples-reading-guide",

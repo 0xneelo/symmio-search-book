@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 244,
-  "totalAnswerable": 237,
+  "totalEntries": 249,
+  "totalAnswerable": 242,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,9 +17,9 @@
   "byCategory": {
     "Getting Started": 36,
     "Trading Flow": 24,
-    "Solvers And Settlement": 51,
+    "Solvers And Settlement": 53,
     "Risk And Markets": 21,
-    "Revenue": 19,
+    "Revenue": 22,
     "Manifesto": 53,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 113,
     "High": 30,
-    "Low": 94
+    "Low": 99
   },
   "byRouteSource": {
-    "authored": 237
+    "authored": 242
   },
   "byType": {
-    "answerable": 237,
+    "answerable": 242,
     "reconciliation": 7
   },
   "answerable": [
@@ -4360,6 +4360,151 @@
       "pageTitle": "Cross-Market Risk Mutualization",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-funds-a-local-insurance-fund-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What funds a local insurance fund in the funding model?",
+      "normalizedQuestion": "what funds a local insurance fund in the funding model",
+      "shortAnswer": "Neelo's insurance model lists liquidation profits, a share of solver profits, and CVA-style charges as local fund sources; live percentages remain review-bound.",
+      "answerSummary": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same ma...",
+      "confidence": "Low",
+      "pageId": "authored-funding-local-insurance-fund",
+      "pageTitle": "Funding Local Insurance Fund",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-a-market-use-global-insurance",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can a market use global insurance?",
+      "normalizedQuestion": "when can a market use global insurance",
+      "shortAnswer": "Neelo's funding model makes global insurance conditional, capped, and manually allocated to prevent one weak market from draining shared protection.",
+      "answerSummary": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a wea...",
+      "confidence": "Low",
+      "pageId": "authored-funding-global-insurance-eligibility",
+      "pageTitle": "Funding Global Insurance Eligibility",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-insurance-need-to-cover-after-dynamic-pricing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does insurance need to cover after dynamic pricing?",
+      "normalizedQuestion": "what does insurance need to cover after dynamic pricing",
+      "shortAnswer": "The source defines stress demand as exposure loss left after spread, funding, and borrow revenue; remaining residual after insurance is what can push toward ADL.",
+      "answerSummary": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is...",
+      "confidence": "Low",
+      "pageId": "authored-funding-stress-demand-and-insurance-spend",
+      "pageTitle": "Funding Stress Demand And Insurance Spend",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the funding model transfer surplus from winner markets?",
+      "normalizedQuestion": "how does the funding model transfer surplus from winner markets",
+      "shortAnswer": "Bell-curve flattening creates a capped transfer pool from winner surplus to stressed markets, subject to global insurance eligibility and allocation caps.",
+      "answerSummary": "Funding Bell Curve Transfer Pool Bell curve flattening is the funding model's cross market mutualization layer. The source phrase is blunt: give part of the profits of big winner markets to big loser or stressed markets. The practical allocation version identifies: winner surplus: markets with profit above the upper cutoff; stress demand: markets with unc...",
+      "confidence": "Low",
+      "pageId": "authored-funding-bell-curve-transfer-pool",
+      "pageTitle": "Funding Bell-Curve Transfer Pool",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-adl-trigger-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "When does ADL trigger in the funding model?",
+      "normalizedQuestion": "when does adl trigger in the funding model",
+      "shortAnswer": "Neelo's model triggers ADL when defense spend is exhausted with residual stress or exposure exceeds a safe limit; final thresholds need implementation review.",
+      "answerSummary": "Funding ADL Trigger And Target ADL is the last resort in Neelo's funding model. It appears after dynamic pricing, token inventory, local insurance, and capped global insurance cannot keep exposure inside the safe zone. The source gives two trigger conditions: or: In plain English: ADL can trigger when all available defense budget is spent and uncovered st...",
+      "confidence": "Low",
+      "pageId": "authored-funding-adl-trigger-and-target",
+      "pageTitle": "Funding ADL Trigger And Target",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -12813,6 +12958,151 @@
       "pageTitle": "Cross-Market Risk Mutualization",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-funds-a-local-insurance-fund-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What funds a local insurance fund in the funding model?",
+      "normalizedQuestion": "what funds a local insurance fund in the funding model",
+      "shortAnswer": "Neelo's insurance model lists liquidation profits, a share of solver profits, and CVA-style charges as local fund sources; live percentages remain review-bound.",
+      "answerSummary": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same ma...",
+      "confidence": "Low",
+      "pageId": "authored-funding-local-insurance-fund",
+      "pageTitle": "Funding Local Insurance Fund",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-a-market-use-global-insurance",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can a market use global insurance?",
+      "normalizedQuestion": "when can a market use global insurance",
+      "shortAnswer": "Neelo's funding model makes global insurance conditional, capped, and manually allocated to prevent one weak market from draining shared protection.",
+      "answerSummary": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a wea...",
+      "confidence": "Low",
+      "pageId": "authored-funding-global-insurance-eligibility",
+      "pageTitle": "Funding Global Insurance Eligibility",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-insurance-need-to-cover-after-dynamic-pricing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does insurance need to cover after dynamic pricing?",
+      "normalizedQuestion": "what does insurance need to cover after dynamic pricing",
+      "shortAnswer": "The source defines stress demand as exposure loss left after spread, funding, and borrow revenue; remaining residual after insurance is what can push toward ADL.",
+      "answerSummary": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is...",
+      "confidence": "Low",
+      "pageId": "authored-funding-stress-demand-and-insurance-spend",
+      "pageTitle": "Funding Stress Demand And Insurance Spend",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the funding model transfer surplus from winner markets?",
+      "normalizedQuestion": "how does the funding model transfer surplus from winner markets",
+      "shortAnswer": "Bell-curve flattening creates a capped transfer pool from winner surplus to stressed markets, subject to global insurance eligibility and allocation caps.",
+      "answerSummary": "Funding Bell Curve Transfer Pool Bell curve flattening is the funding model's cross market mutualization layer. The source phrase is blunt: give part of the profits of big winner markets to big loser or stressed markets. The practical allocation version identifies: winner surplus: markets with profit above the upper cutoff; stress demand: markets with unc...",
+      "confidence": "Low",
+      "pageId": "authored-funding-bell-curve-transfer-pool",
+      "pageTitle": "Funding Bell-Curve Transfer Pool",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-adl-trigger-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "When does ADL trigger in the funding model?",
+      "normalizedQuestion": "when does adl trigger in the funding model",
+      "shortAnswer": "Neelo's model triggers ADL when defense spend is exhausted with residual stress or exposure exceeds a safe limit; final thresholds need implementation review.",
+      "answerSummary": "Funding ADL Trigger And Target ADL is the last resort in Neelo's funding model. It appears after dynamic pricing, token inventory, local insurance, and capped global insurance cannot keep exposure inside the safe zone. The source gives two trigger conditions: or: In plain English: ADL can trigger when all available defense budget is spent and uncovered st...",
+      "confidence": "Low",
+      "pageId": "authored-funding-adl-trigger-and-target",
+      "pageTitle": "Funding ADL Trigger And Target",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

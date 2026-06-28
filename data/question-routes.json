@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 237,
+  "totalRoutes": 242,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 113,
     "High": 30,
-    "Low": 94
+    "Low": 99
   },
   "byRouteSource": {
-    "authored": 237
+    "authored": 242
   },
   "answerable": [
     {
@@ -2155,6 +2155,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's bell-curve and insurance sources support cross-market risk mutualization, with eligibility and allocation policy still operator-controlled.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-funds-a-local-insurance-fund-in-the-funding-model",
+      "question": "What funds a local insurance fund in the funding model?",
+      "normalizedQuestion": "what funds a local insurance fund in the funding model",
+      "pageId": "authored-funding-local-insurance-fund",
+      "pageTitle": "Funding Local Insurance Fund",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's insurance model lists liquidation profits, a share of solver profits, and CVA-style charges as local fund sources; live percentages remain review-bound.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-can-a-market-use-global-insurance",
+      "question": "When can a market use global insurance?",
+      "normalizedQuestion": "when can a market use global insurance",
+      "pageId": "authored-funding-global-insurance-eligibility",
+      "pageTitle": "Funding Global Insurance Eligibility",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's funding model makes global insurance conditional, capped, and manually allocated to prevent one weak market from draining shared protection.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-insurance-need-to-cover-after-dynamic-pricing",
+      "question": "What does insurance need to cover after dynamic pricing?",
+      "normalizedQuestion": "what does insurance need to cover after dynamic pricing",
+      "pageId": "authored-funding-stress-demand-and-insurance-spend",
+      "pageTitle": "Funding Stress Demand And Insurance Spend",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "The source defines stress demand as exposure loss left after spread, funding, and borrow revenue; remaining residual after insurance is what can push toward ADL.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+      "question": "How does the funding model transfer surplus from winner markets?",
+      "normalizedQuestion": "how does the funding model transfer surplus from winner markets",
+      "pageId": "authored-funding-bell-curve-transfer-pool",
+      "pageTitle": "Funding Bell-Curve Transfer Pool",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Bell-curve flattening creates a capped transfer pool from winner surplus to stressed markets, subject to global insurance eligibility and allocation caps.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-does-adl-trigger-in-the-funding-model",
+      "question": "When does ADL trigger in the funding model?",
+      "normalizedQuestion": "when does adl trigger in the funding model",
+      "pageId": "authored-funding-adl-trigger-and-target",
+      "pageTitle": "Funding ADL Trigger And Target",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's model triggers ADL when defense spend is exhausted with residual stress or exposure exceeds a safe limit; final thresholds need implementation review.",
       "sourceKeys": [
         "vibe-papers"
       ],

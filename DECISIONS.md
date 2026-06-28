@@ -711,3 +711,11 @@
 **Reason:** The existing SYMM LP pages explain the broad setup, unit economics, risk, replication, and data guardrails, but the answer engine needs direct routes for the practical measurement questions an LP, treasury, solver, or operator will ask before treating the case study as evidence. These pages keep realized and unrealized accounting separate, read the benchmark table as a regime-specific wealth comparison, and convert the beta-report checklist into a public reporting standard.
 
 **Status:** Accepted for the authored protocol-reference layer; audited attribution, vault-level time series, public yield language, capacity stress, and dashboard-field semantics remain under operator/accounting review.
+
+## D-090: Promote Funding Insurance Mechanics Into Reference Pages
+
+**Decision:** Add authored Volume 05 reference pages for the funding model's local insurance fund, global insurance eligibility, stress demand and insurance spend, bell-curve transfer pool, and ADL trigger/target mechanics.
+
+**Reason:** The existing manifesto pages explain funding as a regime-control system and defense hierarchy, but operational readers need direct reference answers for where insurance comes from, when shared insurance applies, what residual stress means, how winner-market surplus can support stressed markets, and when ADL becomes the final exposure-reduction step. These pages preserve the formulas as source-model mechanics while keeping live thresholds and parameters review-bound.
+
+**Status:** Accepted for the authored protocol-reference layer; live insurance percentages, eligibility policy, allocation caps, safe-exposure formulas, ADL thresholds, and position-ranking behavior remain under implementation/operator review.

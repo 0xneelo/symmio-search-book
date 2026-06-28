@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1068,
-  "totalChunks": 1834,
-  "pagesWithChunks": 1068,
+  "totalPages": 1073,
+  "totalChunks": 1843,
+  "pagesWithChunks": 1073,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 256,
+    "authored": 261,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 493,
+    "authored": 502,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 272,
     "product-reference": 46,
     "dashboard-reference": 24,
-    "protocol-reference": 90,
+    "protocol-reference": 99,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2624,6 +2624,54 @@
       "text": "Vibe market can be worse than an order book at launch but still be the right primitive. The point is not to freeze the bootstrap state; the point is to give markets a path out of it. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture: 5.2 The Four Transitions\". Related Pages authored autonomous market creation authored market maturation z score authored solver owned market maker"
     },
     {
+      "id": "authored-funding-adl-trigger-and-target::001",
+      "pageId": "authored-funding-adl-trigger-and-target",
+      "chunkIndex": 1,
+      "title": "Funding ADL Trigger And Target",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-adl-trigger-and-target.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding ADL Trigger And Target ADL is the last resort in Neelo's funding model. It appears after dynamic pricing, token inventory, local insurance, and capped global insurance cannot keep exposure inside the safe zone. The source gives two trigger conditions: or: In plain English: ADL can trigger when all available defense budget is spent and uncovered stress remains, or when exposure exceeds the safe level the model can cover in a worst case unwind. ADL To Safer Levels The model does not require a full zeroing of exposure. It chooses the minimum ADL fraction that brings exposure back to a safer target: The source example reduces $60,000 of exposure toward a $40,000 target with a 33% ADL fraction. When positions must be selected, the source prioritizes largest winners first, then oldest positions as a tie breaker, then proportional treatment if needed. Publication Boundary This page should not publish final production ADL thresholds, safe exposure multipliers, position ranking rules, or supported emergency paths without operator and implementation review. The source backed claim is narrower: ADL is a final exposure reduction mechanism after cheaper defenses are exhausted or safety limits are breached. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored funding stress demand and insurance spend authored tail"
+    },
+    {
+      "id": "authored-funding-adl-trigger-and-target::002",
+      "pageId": "authored-funding-adl-trigger-and-target",
+      "chunkIndex": 2,
+      "title": "Funding ADL Trigger And Target",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-adl-trigger-and-target.md",
+      "wordStart": 185,
+      "wordEnd": 225,
+      "wordCount": 40,
+      "text": "or safety limits are breached. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored funding stress demand and insurance spend authored tail event profit cap emergency brake"
+    },
+    {
       "id": "authored-funding-as-market-balancing::001",
       "pageId": "authored-funding-as-market-balancing",
       "chunkIndex": 1,
@@ -2645,6 +2693,54 @@
       "wordEnd": 205,
       "wordCount": 205,
       "text": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\". Related Pages authored hybrid settlement solver stack authored market maturation z score authored estimated network revenue"
+    },
+    {
+      "id": "authored-funding-bell-curve-transfer-pool::001",
+      "pageId": "authored-funding-bell-curve-transfer-pool",
+      "chunkIndex": 1,
+      "title": "Funding Bell-Curve Transfer Pool",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-bell-curve-transfer-pool.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Bell Curve Transfer Pool Bell curve flattening is the funding model's cross market mutualization layer. The source phrase is blunt: give part of the profits of big winner markets to big loser or stressed markets. The practical allocation version identifies: winner surplus: markets with profit above the upper cutoff; stress demand: markets with uncovered exposure stress; transfer pool: a fraction of the smaller side of those two totals; proportional global allocation: stressed markets receive support in proportion to stress demand, subject to their global cap. What It Does And Does Not Do The transfer pool compresses tail outcomes. It can reduce the chance that one stressed market reaches ADL while another market has surplus. It does not mean every market shares one uncapped vault, and it does not erase local responsibility. The same source model keeps global insurance eligibility and caps. That is the key safety property: mutualization should reduce tail volatility without letting one weak market drain all shared capital. Publication Boundary Tail thresholds, flattening intensity, protocol retention, and global allocation formulas are model parameters. Public docs should describe the principle and publish live values only after operator and implementation review. Sources vibe papers : Neelo, \"Bell Curve Flattening\". vibe papers : Neelo, \"Insurance & ADL Logic\". Related Pages authored cross market risk mutualization authored funding global insurance"
+    },
+    {
+      "id": "authored-funding-bell-curve-transfer-pool::002",
+      "pageId": "authored-funding-bell-curve-transfer-pool",
+      "chunkIndex": 2,
+      "title": "Funding Bell-Curve Transfer Pool",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-bell-curve-transfer-pool.md",
+      "wordStart": 185,
+      "wordEnd": 228,
+      "wordCount": 43,
+      "text": "live values only after operator and implementation review. Sources vibe papers : Neelo, \"Bell Curve Flattening\". vibe papers : Neelo, \"Insurance & ADL Logic\". Related Pages authored cross market risk mutualization authored funding global insurance eligibility authored funding stress demand and insurance spend"
     },
     {
       "id": "authored-funding-core-invariant::001",
@@ -2789,6 +2885,102 @@
       "wordEnd": 277,
       "wordCount": 92,
       "text": "operating tool. Reader Implication This page is the bridge between the manifesto and risk controls. The objective explains why Vibe's funding model is not only \"charge the crowded side.\" It is trying to route capital, risk, insurance, and forced unwind decisions through one coherent system. Sources vibe papers : Neelo, \"Full Combined Objective: The Complete Optimization Problem\". vibe papers : Neelo, \"Bell Curve Flattening: Cross Market Risk Mutualization\". vibe papers : Neelo, \"Insurance & ADL Logic\". Related Pages authored cross market risk mutualization authored utilization modes inventory insurance authored funding defense hierarchy"
+    },
+    {
+      "id": "authored-funding-global-insurance-eligibility::001",
+      "pageId": "authored-funding-global-insurance-eligibility",
+      "chunkIndex": 1,
+      "title": "Funding Global Insurance Eligibility",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-global-insurance-eligibility.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a weak or manipulated market could externalize its losses to unrelated markets. The model therefore gives global insurance three constraints: a market must be eligible; the per market allocation is capped; the system should never risk the whole global fund in one market. How To Explain It To Users Global insurance should be described as a capped risk budget, not a guarantee. A market may have zero allocation, a small allocation, or a larger allocation after it earns trust through cleaner price formation, better liquidity, and safer behavior. This also explains why early markets can have stricter terms. A market that has not earned shared protection must rely more heavily on netting, token inventory, local insurance, dynamic pricing, and tighter limits. Publication Boundary Do not publish final eligibility rules, allocation caps, governance paths, or per token examples as live policy until operator review confirms them. The source backed claim is the architecture principle: shared insurance is conditional and capped. Sources vibe papers : Neelo, \"Insurance & ADL Logic\"."
+    },
+    {
+      "id": "authored-funding-global-insurance-eligibility::002",
+      "pageId": "authored-funding-global-insurance-eligibility",
+      "chunkIndex": 2,
+      "title": "Funding Global Insurance Eligibility",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-global-insurance-eligibility.md",
+      "wordStart": 185,
+      "wordEnd": 243,
+      "wordCount": 58,
+      "text": "or per token examples as live policy until operator review confirms them. The source backed claim is the architecture principle: shared insurance is conditional and capped. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored conditional global insurance allocation authored cross market risk mutualization authored funding local insurance fund"
+    },
+    {
+      "id": "authored-funding-local-insurance-fund::001",
+      "pageId": "authored-funding-local-insurance-fund",
+      "chunkIndex": 1,
+      "title": "Funding Local Insurance Fund",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-local-insurance-fund.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same market; CVA style charges where applicable. The important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted. Why Local Comes Before Global Local insurance keeps loss responsibility close to the market that generated the risk. A permissionless low cap market should build its own runway from its own operations before it asks for shared protection. That also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source model inflows are being counted. Publication Boundary The source model uses example percentages and formulas. Public docs should not present 30% , spend caps, CVA treatment, or liquidation profit routing as live production policy until operator and implementation review confirm the deployed values. Sources vibe papers : Neelo, \"Insurance"
+    },
+    {
+      "id": "authored-funding-local-insurance-fund::002",
+      "pageId": "authored-funding-local-insurance-fund",
+      "chunkIndex": 2,
+      "title": "Funding Local Insurance Fund",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-local-insurance-fund.md",
+      "wordStart": 185,
+      "wordEnd": 246,
+      "wordCount": 61,
+      "text": "formulas. Public docs should not present 30% , spend caps, CVA treatment, or liquidation profit routing as live production policy until operator and implementation review confirm the deployed values. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored conditional global insurance allocation authored loss waterfall and profit caps"
     },
     {
       "id": "authored-funding-model-control-problem::001",
@@ -2959,6 +3151,30 @@
       "wordEnd": 285,
       "wordCount": 100,
       "text": "spread, insurance spend, hedging, and ADL fraction. That distinction matters: a docs answer should not say \"utilization caused ADL\" without showing the intervening control choices and budgets. Reader Implication When a solver, LP, or project asks why a market's terms changed, the right answer is rarely one metric. The funding model reads the binding constraint: token inventory, insurance capacity, skew, volatility, profit deviation, or residual stress. Sources vibe papers : Neelo, \"Variable Definitions\". vibe papers : Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\". Related Pages authored utilization modes inventory insurance authored dynamic pricing controls authored cross market risk mutualization"
+    },
+    {
+      "id": "authored-funding-stress-demand-and-insurance-spend::001",
+      "pageId": "authored-funding-stress-demand-and-insurance-spend",
+      "chunkIndex": 1,
+      "title": "Funding Stress Demand And Insurance Spend",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-stress-demand-and-insurance-spend.md",
+      "wordStart": 0,
+      "wordEnd": 211,
+      "wordCount": 211,
+      "text": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover. After insurance spend, the remaining residual is: where x m is combined local plus global insurance spend. Why This Matters This ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL. For docs, the reader facing question is simple: what is still uncovered after ordinary market revenue and insurance spend? Publication Boundary The formulas are source model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Variable Definitions\". Related Pages authored dynamic pricing controls authored funding rate regime model authored funding adl trigger and target"
     },
     {
       "id": "authored-funding-worked-examples-reading-guide::001",

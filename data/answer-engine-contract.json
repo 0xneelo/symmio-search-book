@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 237
+      "totalGoldenRoutes": 242
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 255,
-    "retrievalEligiblePages": 1047,
+    "publicNavigationPages": 260,
+    "retrievalEligiblePages": 1052,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 255,
+      "candidate": 260,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 237,
-    "exactRouteTestsPassing": 237,
+    "totalExactRouteTests": 242,
+    "exactRouteTestsPassing": 242,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 237
+      "candidate": 242
     },
     "exactRoutesByConfidence": {
       "Medium": 113,
       "High": 30,
-      "Low": 94
+      "Low": 99
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2913,6 +2913,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-funds-a-local-insurance-fund-in-the-funding-model",
+        "query": "What funds a local insurance fund in the funding model?",
+        "normalizedQuery": "what funds a local insurance fund in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-local-insurance-fund",
+        "expectedPageTitle": "Funding Local Insurance Fund",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-funds-a-local-insurance-fund-in-the-funding-model",
+        "passes": true
+      },
+      {
+        "id": "qr-when-can-a-market-use-global-insurance",
+        "query": "When can a market use global insurance?",
+        "normalizedQuery": "when can a market use global insurance",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-global-insurance-eligibility",
+        "expectedPageTitle": "Funding Global Insurance Eligibility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-can-a-market-use-global-insurance",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-insurance-need-to-cover-after-dynamic-pricing",
+        "query": "What does insurance need to cover after dynamic pricing?",
+        "normalizedQuery": "what does insurance need to cover after dynamic pricing",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-stress-demand-and-insurance-spend",
+        "expectedPageTitle": "Funding Stress Demand And Insurance Spend",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-does-insurance-need-to-cover-after-dynamic-pricing",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+        "query": "How does the funding model transfer surplus from winner markets?",
+        "normalizedQuery": "how does the funding model transfer surplus from winner markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-bell-curve-transfer-pool",
+        "expectedPageTitle": "Funding Bell-Curve Transfer Pool",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-when-does-adl-trigger-in-the-funding-model",
+        "query": "When does ADL trigger in the funding model?",
+        "normalizedQuery": "when does adl trigger in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-adl-trigger-and-target",
+        "expectedPageTitle": "Funding ADL Trigger And Target",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-does-adl-trigger-in-the-funding-model",
+        "passes": true
+      },
+      {
         "id": "qr-why-compare-token-vault-perps-with-usdc-pools",
         "query": "Why compare token-vault perps with USDC pools?",
         "normalizedQuery": "why compare token vault perps with usdc pools",
@@ -5537,7 +5642,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 237,
+      "exactRoutes": 242,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
