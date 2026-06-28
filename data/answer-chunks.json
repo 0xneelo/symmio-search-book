@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 932,
-  "totalChunks": 1578,
-  "pagesWithChunks": 932,
+  "totalPages": 937,
+  "totalChunks": 1588,
+  "pagesWithChunks": 937,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -443,17 +443,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 120,
+    "authored": 125,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 237,
+    "authored": 247,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 113,
+    "manifesto": 123,
     "dashboard-reference": 24,
     "protocol-reference": 42,
     "competitive-context": 6,
@@ -2035,6 +2035,54 @@
       "wordEnd": 383,
       "wordCount": 198,
       "text": "the system should stop acting like normal utilization is the only relevant state. In that framing, the objective is not \"maximize volume at any cost.\" It is closer to maximize risk adjusted market activity while avoiding local states that can force insurance exhaustion or ADL. Why It Matters For Vibe Long tail derivatives cannot depend on the same liquidity assumptions as mature BTC or ETH markets. Many markets will start with uneven information, uneven demand, and a small set of risk bearing counterparties. Gradient flow language gives Vibe a way to describe how those markets should mature without pretending they are already mature. The reader implication is practical: when a Vibe market becomes more expensive, wider, or more constrained, that should be explained as a market state response, not as arbitrary fee drift. Publication Note This is a conceptual page from Neelo's model. The final docs should map any published gradient flow language to the actual Vibe/Symmio controls implemented at launch. Sources vibe papers : Neelo, \"03. Core Concepts: Gradient Flow & Attractor Repeller Dynamics\". vibe papers : Neelo, \"11. Full Combined Objective\". Related Pages authored funding model control problem authored dynamic pricing controls authored funding defense hierarchy"
+    },
+    {
+      "id": "authored-hybrid-perps-comparative-advantage::001",
+      "pageId": "authored-hybrid-perps-comparative-advantage",
+      "chunkIndex": 1,
+      "title": "Hybrid Perps Comparative Advantage",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/08-conclusion"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/hybrid-perps-comparative-advantage.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Hybrid Perps Comparative Advantage Neelo's comparative advantage section tests Vibe against two alternative low cap perp designs: external USDC vaults and token margined inverse markets. The USDC vault problem is risk pricing. If stablecoin LPs must back volatile, thin, manipulable assets, they will demand compensation for counterparty risk, oracle risk, imbalance risk, liquidation risk, and operational risk. The source argues that this can make low cap markets economically unattractive before they ever find durable flow. The token margined problem is reflexivity. If collateral, PnL, and the traded asset are the same volatile token, a falling price can weaken collateral at the same time liabilities become harder to satisfy. That is the same economic failure mode the token margin pages explain in more detail. The Hybrid Claim The hybrid claim is that Vibe separates the roles. Traders post and settle in USDC. Token holders or projects provide token inventory. The solver operates the risk layer, quotes according to market state, pre hedges when needed, and uses dynamic pricing plus insurance and ADL rules to control residual exposure. The design is meant to avoid both external USDC yield pressure and same asset collateral reflexivity. That does not make the system free of risk. It makes the risk easier to name. The compendium should present the comparison as a capital structure argument: what"
+    },
+    {
+      "id": "authored-hybrid-perps-comparative-advantage::002",
+      "pageId": "authored-hybrid-perps-comparative-advantage",
+      "chunkIndex": 2,
+      "title": "Hybrid Perps Comparative Advantage",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/08-conclusion"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/hybrid-perps-comparative-advantage.md",
+      "wordStart": 185,
+      "wordEnd": 301,
+      "wordCount": 116,
+      "text": "yield pressure and same asset collateral reflexivity. That does not make the system free of risk. It makes the risk easier to name. The compendium should present the comparison as a capital structure argument: what capital backs the market, what unit settles trader claims, who manages residual exposure, and what happens in stress. Publication Note The source includes capital efficiency estimates and example yield demand claims. Treat them as source model evidence pending operator/accounting review, not as final public performance guarantees. Sources vibe papers : Neelo, \"Section 6: Comparative Advantage\". vibe papers : Neelo, \"Section 8: Conclusion\". Related Pages authored token vault perps versus usdc pools authored token margined reflexivity risk authored usdc settlement inventory separation"
     },
     {
       "id": "authored-hybrid-settlement-solver-stack::001",
@@ -3751,6 +3799,102 @@
       "text": "beyond leverage: they can turn demand, skepticism, and conviction into a measurable market signal. Sources vibe papers : Neelo, \"Proof of Value: Information, Trade, and the Verification Layer\". vibe papers : Neelo, \"Section 5: Intent Based Architecture\". Related Pages authored truth markets no button authored intents and solvers neelo 02 proof of value 02 docs 00 abstract"
     },
     {
+      "id": "authored-proof-value-four-constituencies::001",
+      "pageId": "authored-proof-value-four-constituencies",
+      "chunkIndex": 1,
+      "title": "Proof Of Value Needs Four Constituencies",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/00-abstract",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-four-constituencies.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Proof Of Value Needs Four Constituencies Neelo's Proof of Value framework makes the thesis harder to hand wave. A permissionless perp market is not valuable just because it can create a new trading symbol. It has to create value for four constituencies at once: LPs or token depositors, traders, projects, and the broader ecosystem. Each group wants a different thing. LPs want risk adjusted yield on capital they are willing to deploy. Traders want market access, execution, leverage, hedging, and confidence that winning positions can settle. Projects want utility, visibility, treasury productivity, and a market path that does not begin with expensive centralized gatekeeping. The ecosystem wants better capital efficiency, price discovery, and lifecycle continuity. The source's important claim is alignment. If one participant class benefits only because another is being quietly mispriced, the market is brittle. If more traders create more fees, more LP revenue, deeper markets, stronger project incentives, and better downstream listing evidence, the design becomes positive sum. Risk Alignment Value alignment also requires risk alignment. Token inventory risk should sit with parties that already hold or support the token. Execution and hedge risk should sit with the solver that is built to manage it. Trader directional PnL should sit with traders when flow is netted. Tail outcomes need a documented waterfall rather than hidden socialization. That"
+    },
+    {
+      "id": "authored-proof-value-four-constituencies::002",
+      "pageId": "authored-proof-value-four-constituencies",
+      "chunkIndex": 2,
+      "title": "Proof Of Value Needs Four Constituencies",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/00-abstract",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-four-constituencies.md",
+      "wordStart": 185,
+      "wordEnd": 317,
+      "wordCount": 132,
+      "text": "hedge risk should sit with the solver that is built to manage it. Trader directional PnL should sit with traders when flow is netted. Tail outcomes need a documented waterfall rather than hidden socialization. That is why this framework belongs early in Volume 02. Proof of Value is not only \"demand exists.\" It is \"demand, risk, and reward are arranged so the market can keep existing.\" Publication Note This page uses the source's value framework structure. Exact economics, revenue shares, eligibility policy, and launch partner metrics still require operator review before final public release. Sources vibe papers : Neelo, \"Vibe Trading: Proof of Value\". vibe papers : Neelo, \"Section 2: A Framework for Value Dimensions\". Related Pages authored proof of value authored economic clarity for permissionless perps authored market price as verification"
+    },
+    {
+      "id": "authored-proof-value-validation-sustainability::001",
+      "pageId": "authored-proof-value-validation-sustainability",
+      "chunkIndex": 1,
+      "title": "Proof Of Value Requires Validation And Sustainability",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/09-thiel-value-analysis"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-validation-sustainability.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Proof Of Value Requires Validation And Sustainability Proof of Value is not a slogan. It has to survive contact with data. Neelo's validation section separates early commitment from long term proof. Early partner interest can show that projects understand the value proposition, but sustainable proof requires operating evidence: trading volume, retention, LP yield, solver performance, stress behavior, and whether markets mature toward more natural netting over time. That is the right standard for the compendium. The docs should not stop at \"markets can launch.\" They should show what would prove that a market is becoming healthier. Sustainability Criteria The source's sustainability path is lifecycle based. In bootstrap, the solver is more important because natural two sided flow may not exist. In maturity, more flow can net trader to trader, spreads can tighten, solver residual risk can decline, and the market can become a candidate for deeper venue integration. The source also distinguishes real trading revenue from deposit driven optics. A sustainable model should not depend on new LP deposits to pay existing participants. It should earn from real market activity, manage stress through a disclosed defense stack, and expose risks rather than burying them in promotional claims. What The Docs Should Track The living docs loop should turn this into a measurement agenda: which markets show real flow, which markets"
+    },
+    {
+      "id": "authored-proof-value-validation-sustainability::002",
+      "pageId": "authored-proof-value-validation-sustainability",
+      "chunkIndex": 2,
+      "title": "Proof Of Value Requires Validation And Sustainability",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/09-thiel-value-analysis"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-validation-sustainability.md",
+      "wordStart": 185,
+      "wordEnd": 306,
+      "wordCount": 121,
+      "text": "defense stack, and expose risks rather than burying them in promotional claims. What The Docs Should Track The living docs loop should turn this into a measurement agenda: which markets show real flow, which markets remain solver dependent, which ones stress insurance or ADL thresholds, and which graduate toward better execution. That is how a manifesto becomes accountable. Publication Note The source includes launch partner and committed token metrics. Those figures should be verified against current operator approved sources before final publication. Sources vibe papers : Neelo, \"Section 7: Validation and Sustainability\". vibe papers : Neelo, \"Proof of Value: A Thielian Analysis\". Related Pages authored z score graduation criteria authored market price as verification authored vibe as listing source of truth"
+    },
+    {
       "id": "authored-referral-architecture-as-market-formation::001",
       "pageId": "authored-referral-architecture-as-market-formation",
       "chunkIndex": 1,
@@ -5013,6 +5157,54 @@
       "text": "meaningful flow. The bootstrap layer is a moat only if it resists adverse flow and survives thin market regimes. Still, the strategic category is coherent: own the small market first, expand outward, and become the standard route before incumbents treat the segment as obvious. Reader Implication The compendium should present Vibe's ambition as category creation. The goal is not to be another perp exchange with more tickers. The goal is to own the route by which long tail tokens become credible derivatives markets. Sources vibe papers : Neelo, \"The Listing Monopoly: A Thielian Analysis\". Related Pages authored listing monopoly authored gap filling perps protocol authored listing plus liquidity thesis"
     },
     {
+      "id": "authored-token-holder-inventory-alignment::001",
+      "pageId": "authored-token-holder-inventory-alignment",
+      "chunkIndex": 1,
+      "title": "Token Holders Are Natural Inventory Providers",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/token-holder-inventory-alignment.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Token Holders Are Natural Inventory Providers The Proof of Value framework separates two jobs that are often collapsed: stable settlement liquidity and token inventory. The source argues that Vibe should not ask generic external USDC LPs to back every long tail market. Stablecoin LPs are being asked to underwrite low cap token risk they may not understand, do not already hold, and would price very expensively. That can force a bad loop: high perceived risk, high yield demand, higher fees, lower trader activity, and weaker market sustainability. Token holders are different. A project treasury, founder, whale, or committed holder already has directional exposure to the asset. If that holder contributes a bounded portion of inventory to help a perp market exist, the incremental risk is closer to risk they already accepted. The deposit can add utility, signal support, and potentially earn yield from real market activity. The Architecture Claim The architecture claim is not that token inventory is risk free. It is that token inventory and USDC settlement should not be confused. Token side inventory can help a solver manage residual exposure in the market being created. Stable settlement and trader margin remain separate. That separation lets the system use market specific capital without turning the trader's settlement unit into the same volatile asset that is being traded. This is"
+    },
+    {
+      "id": "authored-token-holder-inventory-alignment::002",
+      "pageId": "authored-token-holder-inventory-alignment",
+      "chunkIndex": 2,
+      "title": "Token Holders Are Natural Inventory Providers",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/token-holder-inventory-alignment.md",
+      "wordStart": 185,
+      "wordEnd": 328,
+      "wordCount": 143,
+      "text": "being created. Stable settlement and trader margin remain separate. That separation lets the system use market specific capital without turning the trader's settlement unit into the same volatile asset that is being traded. This is why the source frames token inventory as capital efficiency. The system is not trying to make every early market look like a mature USDC vault. It is matching the capital source to the risk it is best positioned to bear. Publication Note The source includes example revenue share and capital efficiency claims. Those examples should stay under operator review until current public economics, vault terms, and disclosure boundaries are confirmed. Sources vibe papers : Neelo, \"Section 3: LP Value Proposition\". vibe papers : Neelo, \"Section 6: Comparative Advantage\". Related Pages authored token vault perps versus usdc pools authored usdc settlement inventory separation authored lp yield capital efficiency pillar"
+    },
+    {
       "id": "authored-token-margined-lp-lose-lose::001",
       "pageId": "authored-token-margined-lp-lose-lose",
       "chunkIndex": 1,
@@ -5153,6 +5345,54 @@
       "wordEnd": 234,
       "wordCount": 49,
       "text": "explicit risk compensation. Sources vibe papers : Neelo, \"USDC vs Token Margined Perpetuals\". vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\". vibe papers : Neelo, \"Figure1\". Related Pages authored vibe pillars authored lp profit and dynamic pricing neelo 06 usdc token perps 06 docs riskpremiumcalcs"
+    },
+    {
+      "id": "authored-trader-project-value-loop::001",
+      "pageId": "authored-trader-project-value-loop",
+      "chunkIndex": 1,
+      "title": "The Trader And Project Value Loop",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/trader-project-value-loop.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Trader And Project Value Loop The Proof of Value framework explains Vibe's product value as a loop between traders and projects. For traders, the first value is access. Long tail tokens often have spot markets before they have serious derivative markets. A Vibe market can let traders speculate, hedge, arbitrage, or express a bearish view before the asset earns a mature order book listing. The source also ties execution quality to the lifecycle: early markets may begin with wider solver quotes and improve as flow becomes more balanced. For projects, the value is different. A project may have token inventory but limited productive uses for it. Centralized listings, professional market makers, or single sided spot liquidity can require stablecoin commitments, retainers, operational overhead, or sell pressure tradeoffs. A perp market gives the token more utility and visibility while letting the project support the market with the asset it already holds. The Loop The loop works only if both sides reinforce each other. More project inventory can create more markets. More markets can attract more traders. More trading can create more fees and stronger market evidence. Stronger evidence can attract more projects, solvers, LPs, and downstream venues. That is the difference between a listing form and a market formation system. A listing form creates supply of symbols. A value loop"
+    },
+    {
+      "id": "authored-trader-project-value-loop::002",
+      "pageId": "authored-trader-project-value-loop",
+      "chunkIndex": 2,
+      "title": "The Trader And Project Value Loop",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/trader-project-value-loop.md",
+      "wordStart": 185,
+      "wordEnd": 294,
+      "wordCount": 109,
+      "text": "evidence. Stronger evidence can attract more projects, solvers, LPs, and downstream venues. That is the difference between a listing form and a market formation system. A listing form creates supply of symbols. A value loop creates repeated reasons for participants to keep the market alive. Publication Note The source describes example revenue shares and project motivations. Final public docs should distinguish source model economics from confirmed current Vibe terms. Sources vibe papers : Neelo, \"Section 4: Trader and Project Value\". vibe papers : Neelo, \"Section 2: A Framework for Value Dimensions\". Related Pages authored why derivatives matter authored listing plus liquidity thesis authored vibe as listing source of truth"
     },
     {
       "id": "authored-truth-markets-no-button::001",

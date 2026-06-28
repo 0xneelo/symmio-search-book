@@ -423,3 +423,11 @@
 **Reason:** The funding corpus is one of the strongest vision sources because it connects trader UX, LP efficiency, solver exposure, insurance, and ADL into one control framework. Publishing that architecture helps sophisticated readers understand Vibe's long-tail market thesis without pretending the source formulas are final production parameters.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-054: Expand Proof Of Value Into A Multi-Constituency Framework
+
+**Decision:** Add authored Volume 02 pages from Neelo's Proof of Value framework that explain value alignment across LPs, traders, projects, and the ecosystem; token-holder inventory alignment; trader/project value loops; hybrid comparative advantage; and sustainability validation.
+
+**Reason:** The broad Proof of Value page explains the vision, but the framework corpus gives the compendium a stronger due-diligence structure. It shows that Vibe's thesis is not only permissionless market creation; it is durable value creation, risk allocation, and proof through operating evidence. Numeric examples remain source-model claims until operator/accounting review confirms what can be published.
+
+**Status:** Accepted for the authored manifesto layer.

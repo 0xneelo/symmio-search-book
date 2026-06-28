@@ -320,6 +320,12 @@
 - Routed five new funding-system questions to authored pages so Ask can explain why funding, utilization, spreads, borrow, insurance, and ADL are one risk-control stack.
 - Kept thresholds, rates, rebates, insurance eligibility, allocation caps, and live production status under operator and implementation review.
 
+## 2026-06-28 — Proof Of Value Framework Authored Layer
+
+- Added five authored Volume 02 manifesto pages from Neelo's Proof of Value framework: four-constituency value alignment, token-holder inventory alignment, trader/project value loop, hybrid-perps comparative advantage, and validation/sustainability.
+- Routed five new value-framework questions to authored pages so Ask can explain why Proof of Value has to serve LPs, traders, projects, and ecosystem participants rather than only proving that a market can be listed.
+- Kept revenue-share examples, launch-partner metrics, capital-efficiency estimates, and current vault economics under operator/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
