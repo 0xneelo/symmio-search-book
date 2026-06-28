@@ -303,3 +303,11 @@
 **Reason:** The answer engine's first responses should not rely on source-mapped stubs for basic onboarding questions. Official Vibe docs are sufficient for these product basics, while the pages can still preserve caveats around live market counts, local onboarding points, referral depth, and exact risk guarantees.
 
 **Status:** Accepted for the authored product-reference layer.
+
+## D-039: Keep Seed Questions On Authored Routes Where Possible
+
+**Decision:** Route all answerable seed questions to authored pages once a source-backed authored target exists. For the remaining legacy revenue-pulse route, add a narrow authored page from `server/pulse.js` rather than letting the ask-first front door depend on the old curated prototype corpus.
+
+**Reason:** The generated and curated corpora remain useful fallback layers, but known user questions should prove exact-page editorial coverage. This makes answer quality easier to audit and makes the living-docs loop less dependent on fuzzy retrieval for first-contact questions.
+
+**Status:** Accepted for the answer-engine prototype.

@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 876,
-  "totalChunks": 1464,
-  "pagesWithChunks": 876,
+  "totalPages": 877,
+  "totalChunks": 1466,
+  "pagesWithChunks": 877,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -380,12 +380,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 64,
+    "authored": 65,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 123,
+    "authored": 125,
     "curated": 20,
     "generated": 1321
   },
@@ -393,7 +393,7 @@
     "manifesto": 52,
     "protocol-reference": 22,
     "competitive-context": 6,
-    "dashboard-reference": 18,
+    "dashboard-reference": 20,
     "reference": 2,
     "rewards-referrals": 12,
     "answer-engine": 1,
@@ -921,6 +921,56 @@
       "wordEnd": 241,
       "wordCount": 56,
       "text": "Overview cards for revenue, tasks, referral link, invites, and points ledger. dashboard revenue doc : hidden revenue route and revenue copy. server pulse : current revenue pulse implementation. spec 03 : reference layer grounding for revenue, volume, points, and dashboard views. Related Pages authored estimated network revenue authored dashboard tasks authored dashboard invites local network revenue"
+    },
+    {
+      "id": "authored-dashboard-revenue-pulse::001",
+      "pageId": "authored-dashboard-revenue-pulse",
+      "chunkIndex": 1,
+      "title": "Dashboard Revenue Pulse",
+      "section": "dashboard-reference",
+      "track": "Revenue",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-pulse",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "server/pulse.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/dashboard-revenue-pulse.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Dashboard Revenue Pulse The dashboard revenue pulse is a display model for motion in the \"estimated network revenue\" surface. It is not a settlement ledger and not a new revenue source. The tracked implementation keeps the v1 revenue derivation deliberately local: The pulse module reads platform fee and referrer share inputs from server configuration at call time, with code defaults if those values are absent. It intentionally excludes Phase B solver/LP terms. Why The Number Moves The moving counter is driven by per user pulse history. The server records samples containing timestamp, volume, revenue, and points. It throttles appends so samples are at least 30 minutes apart and keeps a bounded history. When it needs a rate, the implementation looks at recent entries inside a seven day window. If it has at least two entries, it uses the slope between the oldest and newest recent readings: revenue change divided by elapsed seconds. If there is not enough history yet, it falls back to total revenue divided by account age. The rate is clamped to non negative. That means the counter can move for two reasons: the user's network volume/revenue history has increased over time; a new account has enough total estimated revenue to derive a cold start rate. What It Does Not Mean The pulse does not prove a final"
+    },
+    {
+      "id": "authored-dashboard-revenue-pulse::002",
+      "pageId": "authored-dashboard-revenue-pulse",
+      "chunkIndex": 2,
+      "title": "Dashboard Revenue Pulse",
+      "section": "dashboard-reference",
+      "track": "Revenue",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-pulse",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "server/pulse.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/dashboard-revenue-pulse.md",
+      "wordStart": 185,
+      "wordEnd": 365,
+      "wordCount": 180,
+      "text": "the user's network volume/revenue history has increased over time; a new account has enough total estimated revenue to derive a cold start rate. What It Does Not Mean The pulse does not prove a final payout, per trade fee attribution, liquidation revenue, funding revenue, or LP profit share. The code comment is explicit that pro rata solver/LP terms are Phase B and intentionally absent. This is why the page should stay paired with the broader estimated revenue page and the operator revenue disclosure gap. The pulse explains display behavior; it does not settle the public economics boundary. Reader Implication If a user asks why the counter moves, answer from history and rate calculation. If they ask whether the number is payable, final, or complete, route to the estimated revenue page and keep the Phase A/Phase B distinction visible. Sources server pulse : current network pulse implementation, revenue formula, sample history, rate window, and Phase B exclusion. spec 03 : revenue status boundary and need for public disclosure review. Related Pages authored estimated network revenue authored dashboard overview local revenue pulse"
     },
     {
       "id": "authored-dashboard-settings::001",

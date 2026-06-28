@@ -32,8 +32,7 @@
     "Low": 3
   },
   "byRouteSource": {
-    "authored": 44,
-    "curated": 2
+    "authored": 46
   },
   "byType": {
     "answerable": 46,
@@ -92,17 +91,19 @@
       "category": "Trading Flow",
       "question": "What is Symmio?",
       "normalizedQuestion": "what is symmio",
-      "shortAnswer": "Public Symmio docs answer.",
-      "answerSummary": "Symmio is a hybrid clearing-house and settlement layer for permissionless derivatives, using off-chain pricing with on-chain collateral, positions, and settlement.",
+      "shortAnswer": "Public Symmio docs answer; authored page explains the clearing-house and hybrid settlement model.",
+      "answerSummary": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction i...",
       "confidence": "High",
-      "pageId": "symmio-what-is",
-      "pageTitle": "What Is Symmio?",
-      "pageSection": "Protocol",
-      "pageTrack": "protocol-reference",
-      "pageStatus": "source-mapped",
-      "routeSource": "curated",
+      "pageId": "authored-symmio-clearing-house-layer",
+      "pageTitle": "Symmio Clearing-House Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-what-is"
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
       ],
       "sources": [
         {
@@ -110,6 +111,20 @@
           "group": "Public Symmio Sources",
           "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
           "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Whitepaper pointer and protocol status note.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
           "missing": false
         }
       ]
@@ -383,17 +398,18 @@
       "category": "Revenue",
       "question": "Why does the dashboard revenue number move?",
       "normalizedQuestion": "why does the dashboard revenue number move",
-      "shortAnswer": "Local code/docs describe pulse from volume history.",
-      "answerSummary": "The local pulse uses recent network-volume history to derive an estimated live counter rate while keeping the display monotonic.",
+      "shortAnswer": "Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout.",
+      "answerSummary": "Dashboard Revenue Pulse The dashboard revenue pulse is a display model for motion in the \"estimated network revenue\" surface. It is not a settlement ledger and not a new revenue source. The tracked implementation keeps the v1 revenue derivation deliberately local: The pulse module reads platform fee and referrer share inputs from server configuration at c...",
       "confidence": "Medium",
-      "pageId": "revenue-pulse",
-      "pageTitle": "Revenue Pulse",
-      "pageSection": "Dashboard",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-dashboard-revenue-pulse",
+      "pageTitle": "Dashboard Revenue Pulse",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "server-pulse"
+        "server-pulse",
+        "spec-03"
       ],
       "sources": [
         {
@@ -401,6 +417,13 @@
           "group": "Local Product And Code",
           "use": "Current estimated revenue formula and defaults.",
           "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -2238,17 +2261,19 @@
       "category": "Trading Flow",
       "question": "What is Symmio?",
       "normalizedQuestion": "what is symmio",
-      "shortAnswer": "Public Symmio docs answer.",
-      "answerSummary": "Symmio is a hybrid clearing-house and settlement layer for permissionless derivatives, using off-chain pricing with on-chain collateral, positions, and settlement.",
+      "shortAnswer": "Public Symmio docs answer; authored page explains the clearing-house and hybrid settlement model.",
+      "answerSummary": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction i...",
       "confidence": "High",
-      "pageId": "symmio-what-is",
-      "pageTitle": "What Is Symmio?",
-      "pageSection": "Protocol",
-      "pageTrack": "protocol-reference",
-      "pageStatus": "source-mapped",
-      "routeSource": "curated",
+      "pageId": "authored-symmio-clearing-house-layer",
+      "pageTitle": "Symmio Clearing-House Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Core",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
       "sourceKeys": [
-        "symmio-what-is"
+        "symmio-what-is",
+        "symmio-core",
+        "symmio-whitepaper"
       ],
       "sources": [
         {
@@ -2256,6 +2281,20 @@
           "group": "Public Symmio Sources",
           "use": "Symmio clearing-house model, DaaS framing, no order book/pools.",
           "href": "https://docs.symm.io/getting-started/what-is-symmio.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Whitepaper pointer and protocol status note.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
           "missing": false
         }
       ]
@@ -2529,17 +2568,18 @@
       "category": "Revenue",
       "question": "Why does the dashboard revenue number move?",
       "normalizedQuestion": "why does the dashboard revenue number move",
-      "shortAnswer": "Local code/docs describe pulse from volume history.",
-      "answerSummary": "The local pulse uses recent network-volume history to derive an estimated live counter rate while keeping the display monotonic.",
+      "shortAnswer": "Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout.",
+      "answerSummary": "Dashboard Revenue Pulse The dashboard revenue pulse is a display model for motion in the \"estimated network revenue\" surface. It is not a settlement ledger and not a new revenue source. The tracked implementation keeps the v1 revenue derivation deliberately local: The pulse module reads platform fee and referrer share inputs from server configuration at c...",
       "confidence": "Medium",
-      "pageId": "revenue-pulse",
-      "pageTitle": "Revenue Pulse",
-      "pageSection": "Dashboard",
-      "pageTrack": "missing",
-      "pageStatus": "missing",
-      "routeSource": "curated",
+      "pageId": "authored-dashboard-revenue-pulse",
+      "pageTitle": "Dashboard Revenue Pulse",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "server-pulse"
+        "server-pulse",
+        "spec-03"
       ],
       "sources": [
         {
@@ -2547,6 +2587,13 @@
           "group": "Local Product And Code",
           "use": "Current estimated revenue formula and defaults.",
           "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]

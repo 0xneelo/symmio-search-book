@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 64,
+  "totalPages": 65,
   "byStatus": {
     "publication-candidate": 43,
-    "publication-candidate-needs-operator-review": 20,
+    "publication-candidate-needs-operator-review": 21,
     "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 28,
     "protocol-reference": 8,
     "competitive-context": 1,
-    "dashboard-reference": 9,
+    "dashboard-reference": 10,
     "reference": 1,
     "rewards-referrals": 4,
     "answer-engine": 1,
@@ -254,6 +254,31 @@
       "file": "content/authored/reference/dashboard-overview.md",
       "bodyMarkdown": "# Dashboard Overview\n\nThe Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab.\n\nThe shell routes `#overview` to `DashOverview`. That view loads `/api/me`, renders the revenue hero, shows the core task checklist, exposes the user's referral link through a copyable field, summarizes invite states, and lists the points ledger. The revenue hero and hidden `#revenue` reference page explain that the USD number is an estimate derived from network volume and configurable fee/share inputs, not a final settlement balance.\n\n## Reader Implication\n\nUsers should treat Overview as a status console, not an accounting source of truth. It answers \"what is happening in my network right now?\" and then routes deeper: revenue to the hidden revenue page, invites to My invites, network growth to My network, and unfinished onboarding to Tasks.\n\n## Open Gaps\n\nRevenue wording depends on operator inbox item `#1`. Referral depth and historical accounting depend on operator inbox item `#3`.\n\n## Sources\n\n- `dashboard-app`: dashboard shell and route list.\n- `dashboard-overview`: Overview cards for revenue, tasks, referral link, invites, and points ledger.\n- `dashboard-revenue-doc`: hidden revenue route and revenue copy.\n- `server-pulse`: current revenue pulse implementation.\n- `spec-03`: reference-layer grounding for revenue, volume, points, and dashboard views.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-dashboard-tasks`\n- `authored-dashboard-invites`\n- `local-network-revenue`",
       "excerpt": "Dashboard Overview The Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab. The shell routes overview to DashOverview . That view loads /api/me , renders the revenue hero, shows the core task checklist, exposes the user's referral link through a copyable field, summarizes invite states, and lists the points ledger. The revenue hero and hidden revenue reference page explain that the USD number is an estimate derived from network volume and configurable fee/share inputs, not a final settlement balance. Reader Implication Users should treat Overview as a status console, not an accounting source of truth. It answers \"what is happening in my network right now?\" and then routes deeper: revenue to the hidden revenue page, invites to My invites, network growth to My network, and unfinished onboarding to Tasks. Open Gaps Revenue wording depends on operator inbox item 1 . Referral depth and historical accounting depend on operator inbox item 3 . Sources dashboard app : dashboard shell and route list. dashboard overview : Overview ca"
+    },
+    {
+      "id": "authored-dashboard-revenue-pulse",
+      "title": "Dashboard Revenue Pulse",
+      "section": "dashboard-reference",
+      "track": "Revenue",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "server-pulse",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "server/pulse.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "local-revenue-pulse",
+        "authored-estimated-network-revenue",
+        "authored-dashboard-overview"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/dashboard-revenue-pulse.md",
+      "bodyMarkdown": "# Dashboard Revenue Pulse\n\nThe dashboard revenue pulse is a display model for motion in the \"estimated network revenue\" surface. It is not a settlement ledger and not a new revenue source.\n\nThe tracked implementation keeps the v1 revenue derivation deliberately local:\n\n```text\nreferrer revenue = network volume x platform fee rate x referrer platform share\n```\n\nThe pulse module reads platform fee and referrer-share inputs from server configuration at call time, with code defaults if those values are absent. It intentionally excludes Phase B solver/LP terms.\n\n## Why The Number Moves\n\nThe moving counter is driven by per-user pulse history. The server records samples containing timestamp, volume, revenue, and points. It throttles appends so samples are at least 30 minutes apart and keeps a bounded history.\n\nWhen it needs a rate, the implementation looks at recent entries inside a seven-day window. If it has at least two entries, it uses the slope between the oldest and newest recent readings: revenue change divided by elapsed seconds. If there is not enough history yet, it falls back to total revenue divided by account age. The rate is clamped to non-negative.\n\nThat means the counter can move for two reasons:\n\n- the user's network volume/revenue history has increased over time;\n- a new account has enough total estimated revenue to derive a cold-start rate.\n\n## What It Does Not Mean\n\nThe pulse does not prove a final payout, per-trade fee attribution, liquidation revenue, funding revenue, or LP profit share. The code comment is explicit that pro-rata solver/LP terms are Phase B and intentionally absent.\n\nThis is why the page should stay paired with the broader estimated-revenue page and the operator revenue-disclosure gap. The pulse explains display behavior; it does not settle the public economics boundary.\n\n## Reader Implication\n\nIf a user asks why the counter moves, answer from history and rate calculation. If they ask whether the number is payable, final, or complete, route to the estimated-revenue page and keep the Phase A/Phase B distinction visible.\n\n## Sources\n\n- `server-pulse`: current network pulse implementation, revenue formula, sample history, rate window, and Phase B exclusion.\n- `spec-03`: revenue status boundary and need for public disclosure review.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-dashboard-overview`\n- `local-revenue-pulse`",
+      "excerpt": "Dashboard Revenue Pulse The dashboard revenue pulse is a display model for motion in the \"estimated network revenue\" surface. It is not a settlement ledger and not a new revenue source. The tracked implementation keeps the v1 revenue derivation deliberately local: The pulse module reads platform fee and referrer share inputs from server configuration at call time, with code defaults if those values are absent. It intentionally excludes Phase B solver/LP terms. Why The Number Moves The moving counter is driven by per user pulse history. The server records samples containing timestamp, volume, revenue, and points. It throttles appends so samples are at least 30 minutes apart and keeps a bounded history. When it needs a rate, the implementation looks at recent entries inside a seven day window. If it has at least two entries, it uses the slope between the oldest and newest recent readings: revenue change divided by elapsed seconds. If there is not enough history yet, it falls back to total revenue divided by account age. The rate is clamped to non negative. That means the counter can move for two reasons: the user's network volume/revenue history has increased over time; a new account"
     },
     {
       "id": "authored-dashboard-settings",

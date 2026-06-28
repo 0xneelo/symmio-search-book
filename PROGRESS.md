@@ -224,6 +224,13 @@
 - Preserved caveats around current market counts, onboarding-versus-Vibe points, referral-depth accounting, and product-specific risk guarantees.
 - Captured the AMFQ nuance that solvers stream offers before capital commitment, but accepted requests still move into collateral lock, solver review, solver collateral deposit, and bilateral agreement.
 
+## 2026-06-28 — Seed Route Quality Pass
+
+- Routed the basic Symmio seed question to `authored-symmio-clearing-house-layer` instead of the generated companion page.
+- Added `authored-dashboard-revenue-pulse` so the revenue-counter motion question no longer depends on the legacy curated corpus.
+- Kept the pulse page source-limited to tracked local implementation behavior and the existing revenue disclosure caveat.
+- Current seed route map now resolves all 46 answerable questions to authored pages.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
