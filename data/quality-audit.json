@@ -9,12 +9,14 @@
     "authoredPublicationCandidates": 27,
     "authoredFiles": 27,
     "readerRoutablePages": 821,
+    "guidedJourneys": 6,
+    "guidedJourneySteps": 38,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
     "resolvedOperatorItems": 0,
     "trackedGaps": 11,
-    "answerablePrototypeQuestions": 26,
+    "answerablePrototypeQuestions": 29,
     "reconciliationQuestions": 7
   },
   "gates": [
@@ -59,6 +61,12 @@
       "label": "Manifest IDs are unique",
       "passed": true,
       "detail": "0 duplicate ids"
+    },
+    {
+      "id": "journey-routes",
+      "label": "Guided journey page IDs resolve",
+      "passed": true,
+      "detail": "6 journeys, 38 steps, 0 missing page ids"
     },
     {
       "id": "operator-inbox",
@@ -219,6 +227,19 @@
       "vibe-papers-site"
     ]
   },
+  "journeyCoverage": {
+    "totalJourneys": 6,
+    "totalSteps": 38,
+    "missingPageIds": [],
+    "journeyIds": [
+      "new-reader",
+      "trader",
+      "market-creator",
+      "solver-lp",
+      "researcher",
+      "dashboard-user"
+    ]
+  },
   "unresolved": {
     "operatorInbox": [
       {
@@ -284,6 +305,7 @@
         "title": "Production Answer Engine Needs A Build/Buy Decision"
       }
     ],
+    "journeyMissingPageIds": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",

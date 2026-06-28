@@ -20,6 +20,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Authored page index: `data/authored-pages.js`
 - Compact prototype search index: `data/search-index.js`
 - Generated browse/navigation tree: `data/navigation-tree.js`
+- Generated guided journey map: `data/journeys.js`
 - Generated publication-quality audit: `data/quality-audit.js`
 - Throwaway static prototype with exact-page reader: `index.html`
 
@@ -55,16 +56,20 @@ node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Webs
 node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
 node src/search-book/scripts/build-authored-index.mjs
 node src/search-book/scripts/build-navigation-tree.mjs
+node src/search-book/scripts/build-journey-map.mjs
 node src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/answer-corpus.js
 node --check src/search-book/scripts/build-page-manifest.mjs
 node --check src/search-book/scripts/build-content-corpus.mjs
 node --check src/search-book/scripts/build-authored-index.mjs
+node --check src/search-book/scripts/build-journey-map.mjs
 node --check src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/data/authored-pages.js
 node --check src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/data/navigation-tree.js
+node --check src/search-book/data/journeys.js
 node --check src/search-book/data/quality-audit.js
+node -e "const j=require('./src/search-book/data/journeys.json'); if (j.missingPageIds.length || j.totalJourneys < 5) process.exit(1); console.log(j.totalJourneys + '/' + j.totalSteps)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"

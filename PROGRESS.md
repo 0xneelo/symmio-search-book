@@ -69,6 +69,13 @@
 - Extended the question ledger with direct routes for Neelo-backed vision questions.
 - Kept speculative/economic pages labeled for operator or editorial review where they intersect public revenue, referral, or product-claim boundaries.
 
+## 2026-06-28 — Guided Journey Map
+
+- Added `scripts/build-journey-map.mjs` and generated `data/journeys.json` plus `data/journeys.js`.
+- Added 6 role-based journeys with 38 exact-page steps: new reader, trader, market creator, solver/LP, researcher, and dashboard user.
+- Updated the prototype Journeys tab to render the generated map instead of the legacy small `answer-corpus.js` journey list.
+- Extended the quality audit with a journey-route gate; current result is 8 of 10 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

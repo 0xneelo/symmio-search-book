@@ -8,6 +8,7 @@
     <script src="./data/authored-pages.js"></script>
     <script src="./data/search-index.js"></script>
     <script src="./data/navigation-tree.js"></script>
+    <script src="./data/journeys.js"></script>
     <script src="./data/quality-audit.js"></script>
     <style>
       :root {
@@ -574,11 +575,60 @@
         padding: 18px;
       }
 
+      .journey-head {
+        display: grid;
+        gap: 8px;
+      }
+
       .journey-pages {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         gap: 8px;
         margin-top: 16px;
+      }
+
+      .journey-step {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        padding: 10px;
+        text-align: left;
+      }
+
+      .journey-step-index {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border: 1px solid rgba(245, 132, 238, 0.34);
+        border-radius: 50%;
+        color: var(--pink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 11px;
+      }
+
+      .journey-step-copy {
+        display: block;
+      }
+
+      .journey-step strong {
+        display: block;
+      }
+
+      .journey-step-copy span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .journey-ask {
+        margin-top: 14px;
       }
 
       .console-layout {
@@ -860,6 +910,7 @@
       const corpus = window.SearchBookCorpus;
       const authored = window.SearchBookAuthored || { pages: [], totalPages: 0 };
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
+      const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
@@ -1208,18 +1259,43 @@
 
       function renderJourneys() {
         const root = document.getElementById("journeys");
-        root.innerHTML = corpus.journeys
+        const journeys = (journeyMap.journeys && journeyMap.journeys.length)
+          ? journeyMap.journeys
+          : corpus.journeys.map((journey) => ({
+              ...journey,
+              promise: journey.focus,
+              entryQuestion: journey.focus,
+              steps: journey.pages
+                .map((id, index) => {
+                  const page = pageById.get(id);
+                  return page ? { index: index + 1, pageId: page.id, title: page.title, why: page.summary || "" } : null;
+                })
+                .filter(Boolean),
+            }));
+        root.innerHTML = journeys
           .map((journey) => {
-            const chips = journey.pages
-              .map((id) => pageById.get(id))
-              .filter(Boolean)
-              .map((page) => `<button type="button" class="chip" data-jump="${escapeHtml(page.id)}">${escapeHtml(page.title)}</button>`)
+            const steps = (journey.steps || [])
+              .map(
+                (step) => `
+                  <button type="button" class="journey-step" data-jump="${escapeHtml(step.pageId)}">
+                    <span class="journey-step-index">${escapeHtml(step.index)}</span>
+                    <span class="journey-step-copy">
+                      <strong>${escapeHtml(step.title)}</strong>
+                      <span>${escapeHtml(step.why)}</span>
+                    </span>
+                  </button>
+                `,
+              )
               .join("");
             return `
               <article class="journey">
-                <h3>${escapeHtml(journey.title)}</h3>
-                <p>${escapeHtml(journey.focus)}</p>
-                <div class="journey-pages">${chips}</div>
+                <div class="journey-head">
+                  <div class="meta">${escapeHtml(journey.audience || "guided path")}</div>
+                  <h3>${escapeHtml(journey.title)}</h3>
+                  <p>${escapeHtml(journey.promise || journey.focus || "")}</p>
+                </div>
+                <button type="button" class="chip journey-ask" data-example-query="${escapeHtml(journey.entryQuestion || journey.title)}">${escapeHtml(journey.entryQuestion || journey.title)}</button>
+                <div class="journey-pages">${steps}</div>
               </article>
             `;
           })
@@ -1381,6 +1457,7 @@
         document.getElementById("qualityCoverage").innerHTML = `
           <li><span class="meta">Gates</span><br>${passed} of ${gates.length} passing.</li>
           <li><span class="meta">Reader-routable pages</span><br>${escapeHtml(totals.readerRoutablePages || 0)} routes: ${escapeHtml(totals.manifestPages || 0)} generated/indexed + ${escapeHtml(totals.authoredPublicationCandidates || 0)} authored.</li>
+          <li><span class="meta">Guided journeys</span><br>${escapeHtml(totals.guidedJourneys || 0)} journeys, ${escapeHtml(totals.guidedJourneySteps || 0)} routed steps.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>

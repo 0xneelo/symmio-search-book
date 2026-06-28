@@ -12,6 +12,7 @@ const defaults = {
   manifest: path.join(searchBookRoot, "page-manifest.json"),
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
+  journeys: path.join(searchBookRoot, "data", "journeys.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
@@ -152,6 +153,7 @@ const args = parseArgs(process.argv.slice(2));
 const manifest = readJson(args.manifest);
 const searchIndex = readJson(args.searchIndex);
 const authored = readJson(args.authoredIndex);
+const journeys = fs.existsSync(args.journeys) ? readJson(args.journeys) : { journeys: [], totalJourneys: 0, totalSteps: 0, missingPageIds: [] };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
@@ -176,6 +178,12 @@ const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
 const searchCoverage = coverageFor(searchIndex, knownSourceKeys);
 const authoredCoverage = coverageFor(authoredPages, knownSourceKeys);
 const authoredMissingBodies = authoredPages.filter((page) => !page.bodyMarkdown).map((page) => page.id);
+const readerPageIds = new Set([...searchIndex.map((page) => page.id), ...authoredPages.map((page) => page.id)]);
+const journeyMissingPageIds = (journeys.journeys || []).flatMap((journey) =>
+  (journey.steps || [])
+    .filter((step) => !readerPageIds.has(step.pageId))
+    .map((step) => ({ journeyId: journey.id, pageId: step.pageId })),
+);
 const manifestTarget = manifest.compendiumTarget?.requestedRange || "500-800 pages";
 const withinTargetRange = manifestPages.length >= 500 && manifestPages.length <= 800;
 const duplicateIds = manifestPages
@@ -234,6 +242,12 @@ const gates = [
     detail: `${[...new Set(duplicateIds)].length} duplicate ids`,
   },
   {
+    id: "journey-routes",
+    label: "Guided journey page IDs resolve",
+    passed: journeyMissingPageIds.length === 0 && (journeys.totalJourneys || 0) >= 5,
+    detail: `${journeys.totalJourneys || 0} journeys, ${journeys.totalSteps || 0} steps, ${journeyMissingPageIds.length} missing page ids`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -258,6 +272,8 @@ const payload = {
     authoredPublicationCandidates: authoredPages.length,
     authoredFiles,
     readerRoutablePages: searchIndex.length + authoredPages.length,
+    guidedJourneys: journeys.totalJourneys || 0,
+    guidedJourneySteps: journeys.totalSteps || 0,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -285,9 +301,16 @@ const payload = {
     unknownUsedSourceKeys,
     unusedRegisteredSourceKeys,
   },
+  journeyCoverage: {
+    totalJourneys: journeys.totalJourneys || 0,
+    totalSteps: journeys.totalSteps || 0,
+    missingPageIds: journeyMissingPageIds,
+    journeyIds: (journeys.journeys || []).map((journey) => journey.id),
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
+    journeyMissingPageIds,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

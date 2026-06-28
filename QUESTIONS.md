@@ -32,6 +32,9 @@ Questions are grouped by whether the current source set can answer them.
 | How do LP profit and dynamic pricing work? | `authored-lp-profit-and-dynamic-pricing` | Low | Neelo's funding model supports the architecture, but public economics wording depends on operator review. |
 | Why compare token-vault perps with USDC pools? | `authored-token-vault-perps-versus-usdc-pools` | Low | Neelo's risk-premium material supports the distinction; final product claims need editorial review. |
 | Why are referrals part of market formation? | `authored-referral-architecture-as-market-formation` | Medium | Neelo's referral architecture frames incentives as listing-quality infrastructure; depth claims remain parked. |
+| Explain the whole Vibe x Symmio thesis. | `authored-bootstrap-trilemma` | Medium | The generated new-reader journey starts here, then routes through Proof of Value, listing power, intents, solvers, trade flow, and dashboard overview. |
+| What should I read first as a solver or LP? | `authored-intents-and-solvers` | Medium | The generated solver/LP journey starts with mechanism, then PartyB responsibilities, Symmio solver role, pillars, economics, and token-vault risk. |
+| What should I read first as a dashboard user? | `authored-dashboard-overview` | High | The generated dashboard-user journey walks Overview, invites, network, volume, tasks, FAQ, and settings. |
 
 ## Prototype Event Log
 

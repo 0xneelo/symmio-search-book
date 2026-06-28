@@ -127,3 +127,11 @@
 **Reason:** Neelo's corpus is the strongest vision source and already supplies the category thesis. Authored synthesis pages make that thesis searchable and routable now while generated section pages preserve the full 500-800 page map for later expansion.
 
 **Status:** Accepted for the authored layer.
+
+## D-017: Generate Guided Journeys From Exact Page IDs
+
+**Decision:** Store role-based journeys as generated data with validated page ids, then render them in the static prototype.
+
+**Reason:** The spec requires the docs to onboard readers into the system. Hardcoded journey copy in the prototype can drift from the authored/indexed corpus; a generated map lets the audit catch broken routes while keeping the final platform decision open.
+
+**Status:** Accepted for prototype iteration.
