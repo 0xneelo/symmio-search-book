@@ -263,3 +263,11 @@
 **Reason:** The compendium needs the benchmark to change the IA and answer-engine requirements, not just sit as raw research data. The authored page turns the sweep into concrete guidance while preserving source honesty around the one inaccessible official target.
 
 **Status:** Accepted for the authored layer and research completeness tracking.
+
+## D-034: Separate Options Lifecycle Mechanics From Vibe Vault Claims
+
+**Decision:** Treat the current official Symmio Options v0.2.1 docs as sufficient to author `authored-options-intent-lifecycle`, but keep Vibe-specific vault-backed inventory, covered-call exposure, and LP visibility claims under `G-008` until confirmed by a product owner or stronger primary Vibe source.
+
+**Reason:** The Symmio options pages prove the protocol lifecycle: PartyA open intents, PartyB lock/fill behavior, partial fills, close intents, Diamond/facet boundaries, and Instant Layer execution. They do not by themselves prove the exact public Vibe vault inventory product semantics.
+
+**Status:** Accepted for the authored protocol-reference layer.

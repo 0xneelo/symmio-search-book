@@ -83,8 +83,14 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `symmio-core` | https://docs.symm.io/getting-started/core-concepts.md | PartyA, PartyB, solvers, intents, collateral, margin, CVA. |
 | `symmio-intent-lifecycle` | https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md | Solver event monitoring and quote lifecycle. |
 | `symmio-whitepaper` | https://docs.symm.io/security-and-architecture/symmio-whitepaper.md | Whitepaper pointer and protocol status note. |
-| `symmio-options-docs` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/overview.md | Symmio options protocol overview and contract documentation entry point. |
-| `symmio-options-technical-architecture` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/technical-architecture.md | Symmio options contract architecture, roles, storage, oracle integration, and protocol modules. |
+| `symmio-options-docs` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md | Symmio options protocol documentation index and current entry point. |
+| `symmio-options-technical-architecture` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md | Symmio options Diamond architecture, shared storage, facets, libraries, and upgrade model. |
+| `symmio-options-facets` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md | Facet model and modular function boundaries for the options protocol. |
+| `symmio-options-partya-open` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md | PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary. |
+| `symmio-options-partyb-open` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md | PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement. |
+| `symmio-options-partya-close` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md | PartyA close-intent creation, partial close, deadline, cancellation, and expiry behavior. |
+| `symmio-options-partyb-close` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md | PartyB close-intent fills, partial fills, favorable-price checks, and cancellation acknowledgement. |
+| `symmio-options-instant-layer` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md | Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration. |
 | `symmio-earliest-docs` | https://github.com/SYMM-IO/docs | SYMM-IO docs repository and Whitepaper folder; starting point for earliest-docs and version-history review. |
 | `symm-io-github` | https://github.com/SYMM-IO | Official SYMM-IO GitHub organization and repository index. |
 | `symm-io-protocol-core` | https://github.com/SYMM-IO/protocol-core | Protocol core repository for on-chain settlement and contract implementation evidence. |

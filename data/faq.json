@@ -9,8 +9,8 @@
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
   "totalEntries": 37,
-  "totalAnswerable": 30,
-  "totalUnresolved": 7,
+  "totalAnswerable": 31,
+  "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
@@ -27,17 +27,17 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 20,
+    "Medium": 21,
     "High": 8,
     "Low": 2
   },
   "byRouteSource": {
     "curated": 8,
-    "authored": 22
+    "authored": 23
   },
   "byType": {
-    "answerable": 30,
-    "reconciliation": 7
+    "answerable": 31,
+    "reconciliation": 6
   },
   "answerable": [
     {
@@ -1205,6 +1205,107 @@
           "missing": false
         }
       ]
+    },
+    {
+      "id": "faq-how-do-vibe-options-use-symmio-settlement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe options use Symmio settlement?",
+      "normalizedQuestion": "how do vibe options use symmio settlement",
+      "shortAnswer": "Official Symmio options docs support the open/close intent lifecycle; Vibe-specific vault/inventory examples still need owner review.",
+      "answerSummary": "Options Intent Lifecycle The options lifecycle should be documented as a sequence of explicit states, not as a generic \"place trade\" action. Vibe's public architecture explains the product side pattern: a trader expresses a trade intention, solvers show executable offers, the trader accepts, and the accepted request proceeds into on chain execution. Symmi...",
+      "confidence": "Medium",
+      "pageId": "authored-options-intent-lifecycle",
+      "pageTitle": "Options Intent Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Options",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-options-docs",
+        "symmio-options-technical-architecture",
+        "symmio-options-facets",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open",
+        "symmio-options-partya-close",
+        "symmio-options-partyb-close",
+        "symmio-options-instant-layer"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-docs",
+          "group": "Public Symmio Sources",
+          "use": "Symmio options protocol documentation index and current entry point.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-technical-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Symmio options Diamond architecture, shared storage, facets, libraries, and upgrade model.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-facets",
+          "group": "Public Symmio Sources",
+          "use": "Facet model and modular function boundaries for the options protocol.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyA close-intent creation, partial close, deadline, cancellation, and expiry behavior.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyB close-intent fills, partial fills, favorable-price checks, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-instant-layer",
+          "group": "Public Symmio Sources",
+          "use": "Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md",
+          "missing": false
+        }
+      ]
     }
   ],
   "unresolved": [
@@ -1433,54 +1534,6 @@
       ]
     },
     {
-      "id": "faq-gap-how-do-vibe-options-use-symmio-settlement",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Solvers And Settlement",
-      "question": "How do Vibe options use Symmio settlement?",
-      "gapId": "G-008",
-      "gapTitle": "Options And Vault-Backed Inventory Need More Primary Sources",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-02",
-        "spec-04",
-        "symmio-core",
-        "symmio-whitepaper"
-      ],
-      "sources": [
-        {
-          "key": "spec-02",
-          "group": "Local Specs",
-          "use": "Narrative thesis and required topics.",
-          "href": "../../_specs/app-docs/02-narrative-thesis.md",
-          "missing": false
-        },
-        {
-          "key": "spec-04",
-          "group": "Local Specs",
-          "use": "Required source families.",
-          "href": "../../_specs/app-docs/04-sources.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-core",
-          "group": "Public Symmio Sources",
-          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
-          "href": "https://docs.symm.io/getting-started/core-concepts.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-whitepaper",
-          "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
-          "missing": false
-        }
-      ]
-    },
-    {
       "id": "faq-gap-can-a-vault-lp-see-exact-covered-call-exposure",
       "type": "reconciliation",
       "seedSource": "local-question-ledger",
@@ -1495,7 +1548,9 @@
         "spec-02",
         "spec-04",
         "symmio-core",
-        "symmio-whitepaper"
+        "symmio-options-docs",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open"
       ],
       "sources": [
         {
@@ -1520,10 +1575,24 @@
           "missing": false
         },
         {
-          "key": "symmio-whitepaper",
+          "key": "symmio-options-docs",
           "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "use": "Symmio options protocol documentation index and current entry point.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
           "missing": false
         }
       ]
@@ -2729,6 +2798,107 @@
       ]
     },
     {
+      "id": "faq-how-do-vibe-options-use-symmio-settlement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe options use Symmio settlement?",
+      "normalizedQuestion": "how do vibe options use symmio settlement",
+      "shortAnswer": "Official Symmio options docs support the open/close intent lifecycle; Vibe-specific vault/inventory examples still need owner review.",
+      "answerSummary": "Options Intent Lifecycle The options lifecycle should be documented as a sequence of explicit states, not as a generic \"place trade\" action. Vibe's public architecture explains the product side pattern: a trader expresses a trade intention, solvers show executable offers, the trader accepts, and the accepted request proceeds into on chain execution. Symmi...",
+      "confidence": "Medium",
+      "pageId": "authored-options-intent-lifecycle",
+      "pageTitle": "Options Intent Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Options",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-options-docs",
+        "symmio-options-technical-architecture",
+        "symmio-options-facets",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open",
+        "symmio-options-partya-close",
+        "symmio-options-partyb-close",
+        "symmio-options-instant-layer"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-docs",
+          "group": "Public Symmio Sources",
+          "use": "Symmio options protocol documentation index and current entry point.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-technical-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Symmio options Diamond architecture, shared storage, facets, libraries, and upgrade model.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-facets",
+          "group": "Public Symmio Sources",
+          "use": "Facet model and modular function boundaries for the options protocol.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyA close-intent creation, partial close, deadline, cancellation, and expiry behavior.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyB close-intent fills, partial fills, favorable-price checks, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-instant-layer",
+          "group": "Public Symmio Sources",
+          "use": "Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-gap-does-referral-depth-count-5-or-15-levels",
       "type": "reconciliation",
       "seedSource": "local-question-ledger",
@@ -2953,54 +3123,6 @@
       ]
     },
     {
-      "id": "faq-gap-how-do-vibe-options-use-symmio-settlement",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Solvers And Settlement",
-      "question": "How do Vibe options use Symmio settlement?",
-      "gapId": "G-008",
-      "gapTitle": "Options And Vault-Backed Inventory Need More Primary Sources",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-02",
-        "spec-04",
-        "symmio-core",
-        "symmio-whitepaper"
-      ],
-      "sources": [
-        {
-          "key": "spec-02",
-          "group": "Local Specs",
-          "use": "Narrative thesis and required topics.",
-          "href": "../../_specs/app-docs/02-narrative-thesis.md",
-          "missing": false
-        },
-        {
-          "key": "spec-04",
-          "group": "Local Specs",
-          "use": "Required source families.",
-          "href": "../../_specs/app-docs/04-sources.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-core",
-          "group": "Public Symmio Sources",
-          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
-          "href": "https://docs.symm.io/getting-started/core-concepts.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-whitepaper",
-          "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
-          "missing": false
-        }
-      ]
-    },
-    {
       "id": "faq-gap-can-a-vault-lp-see-exact-covered-call-exposure",
       "type": "reconciliation",
       "seedSource": "local-question-ledger",
@@ -3015,7 +3137,9 @@
         "spec-02",
         "spec-04",
         "symmio-core",
-        "symmio-whitepaper"
+        "symmio-options-docs",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open"
       ],
       "sources": [
         {
@@ -3040,10 +3164,24 @@
           "missing": false
         },
         {
-          "key": "symmio-whitepaper",
+          "key": "symmio-options-docs",
           "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "use": "Symmio options protocol documentation index and current entry point.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
           "missing": false
         }
       ]

@@ -25,7 +25,7 @@ const gapSourceKeys = {
   "G-003": ["spec-03", "server-points", "server-me", "dashboard-faq", "dashboard-volume", "syn-172", "syn-118"],
   "G-004": ["spec-03", "local-revenue-doc", "dashboard-revenue-doc", "server-pulse", "syn-203"],
   "G-005": ["spec-03", "server-volume", "server-volume-snapshots", "syn-200"],
-  "G-008": ["spec-02", "spec-04", "symmio-core", "symmio-whitepaper"],
+  "G-008": ["spec-02", "spec-04", "symmio-core", "symmio-options-docs", "symmio-options-partya-open", "symmio-options-partyb-open"],
   "G-009": ["spec-03", "dashboard-app", "vibe-points", "server-points"],
 };
 

@@ -81,8 +81,8 @@ const gapMeta = {
   "G-008": {
     category: "Options And Settlement",
     priority: "P1",
-    sourceKeys: ["spec-02", "spec-04", "symmio-core", "symmio-whitepaper"],
-    relatedPageIds: ["symmio-options-contracts", "symmio-settlement", "authored-vibe-trade-flow", "authored-intents-and-solvers"],
+    sourceKeys: ["spec-02", "spec-04", "symmio-core", "symmio-options-docs", "symmio-options-partya-open", "symmio-options-partyb-open", "symmio-options-partya-close", "symmio-options-partyb-close", "symmio-options-instant-layer"],
+    relatedPageIds: ["authored-options-intent-lifecycle", "symmio-options-contracts", "symmio-settlement", "authored-vibe-trade-flow", "authored-intents-and-solvers"],
   },
   "G-009": {
     category: "Terminology",

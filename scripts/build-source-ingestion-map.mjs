@@ -165,6 +165,12 @@ const symmioPublicKeys = [
   "symmio-whitepaper",
   "symmio-options-docs",
   "symmio-options-technical-architecture",
+  "symmio-options-facets",
+  "symmio-options-partya-open",
+  "symmio-options-partyb-open",
+  "symmio-options-partya-close",
+  "symmio-options-partyb-close",
+  "symmio-options-instant-layer",
 ];
 const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
 const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];

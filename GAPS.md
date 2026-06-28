@@ -58,9 +58,9 @@ The public GitBook page points to the whitepaper and protocol docs, and the SYMM
 
 ## G-008: Options And Vault-Backed Inventory Need More Primary Sources
 
-The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. Symmio options overview and technical-architecture docs are now registered, but this pass did not deeply mine each options page into authored lifecycle material.
+The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. The current Symmio Options v0.2.1 docs, Diamond architecture, PartyA/PartyB open-close facets, and Instant Layer docs are now registered and synthesized into `authored-options-intent-lifecycle`. The remaining gap is the Vibe-specific covered-call/vault-backed inventory example and exact public exposure semantics.
 
-**Needed:** Full options-page mining, product owner confirmation, Vibe-specific example lifecycle, and exact mapping from options docs to the Vibe vault-backed inventory story.
+**Needed:** Product owner confirmation, Vibe-specific example lifecycle, vault source/coverage rules, and whether vault LPs can see exact covered-call exposure before publishing product-specific claims.
 
 ## G-009: Public Versus Internal Terminology Needs Owner Review
 

@@ -36,6 +36,7 @@ Questions are grouped by whether the current source set can answer them.
 | What should I read first as a solver or LP? | `authored-intents-and-solvers` | Medium | The generated solver/LP journey starts with mechanism, then PartyB responsibilities, Symmio solver role, pillars, economics, and token-vault risk. |
 | What should I read first as a dashboard user? | `authored-dashboard-overview` | High | The generated dashboard-user journey walks Overview, invites, network, volume, tasks, FAQ, and settings. |
 | What should Vibe x Symmio borrow from the best docs? | `authored-competitive-docs-benchmark` | Medium | Competitive synthesis from the verified official-docs batch; Opyn remains an access gap. |
+| How do Vibe options use Symmio settlement? | `authored-options-intent-lifecycle` | Medium | Official Symmio options docs support the open/close intent lifecycle; Vibe-specific vault/inventory examples still need owner review. |
 
 ## Prototype Event Log
 
@@ -49,7 +50,6 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 | Are onboarding points the same as Vibe trading points? | `G-009` | Local dashboard distinguishes them; public docs need canonical naming. |
 | Which revenue sources are live today? | `G-004` | Phase A versus Phase B needs public wording. |
 | Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
-| How do Vibe options use Symmio settlement? | `G-008` | Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |
 

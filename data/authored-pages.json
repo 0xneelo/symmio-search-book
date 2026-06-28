@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 44,
+  "totalPages": 45,
   "byStatus": {
     "publication-candidate": 28,
-    "publication-candidate-needs-operator-review": 15,
+    "publication-candidate-needs-operator-review": 16,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -11,7 +11,7 @@
     "competitive-context": 1,
     "dashboard-reference": 9,
     "reference": 1,
-    "protocol-reference": 3,
+    "protocol-reference": 4,
     "rewards-referrals": 3,
     "answer-engine": 1,
     "product-reference": 1,
@@ -633,6 +633,49 @@
       "file": "content/authored/reference/network-volume.md",
       "bodyMarkdown": "# Network Volume\n\nNetwork volume is the trading volume attributed to wallets in a user's referral network, excluding the user's own wallet. In the current local implementation, wallet volume is sourced from the Vibe backend wallet-volume API, normalized, cached, and supported by daily snapshots.\n\nThe product roadmap separates this current source from the planned Barometer/Goldsky subgraph direction. The docs should describe the current implementation as current, then describe subgraph-based volume as the intended accuracy upgrade only where that status is supported by product research.\n\nDepth remains the unresolved part of this page. The same source set contains evidence for 5-level language, 15-level rollout work, and configurable depth behavior. Until the operator resolves the public stance, this authored page should avoid a final numeric depth claim and route readers to the referral-depth gap.\n\n## Reader Implication\n\nIf a user's revenue or points depend on volume, they need to know three separate things: which wallets are included, which trading source supplies the numbers, and which depth policy is currently public. Only the first two are safe to explain now.\n\n## Open Gap\n\nOperator inbox item `#3` must resolve referral-depth language before this page becomes final.\n\n## Sources\n\n- `server-volume`: Current volume source, cache, and normalization.\n- `server-volume-snapshots`: Daily snapshot behavior.\n- `server-me`: Network and volume aggregation route behavior.\n- `syn-200`: Subgraph migration research.\n- `spec-03`: Current/future volume guidance.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-referral-depth-open-question`\n- `local-volume-source`",
       "excerpt": "Network Volume Network volume is the trading volume attributed to wallets in a user's referral network, excluding the user's own wallet. In the current local implementation, wallet volume is sourced from the Vibe backend wallet volume API, normalized, cached, and supported by daily snapshots. The product roadmap separates this current source from the planned Barometer/Goldsky subgraph direction. The docs should describe the current implementation as current, then describe subgraph based volume as the intended accuracy upgrade only where that status is supported by product research. Depth remains the unresolved part of this page. The same source set contains evidence for 5 level language, 15 level rollout work, and configurable depth behavior. Until the operator resolves the public stance, this authored page should avoid a final numeric depth claim and route readers to the referral depth gap. Reader Implication If a user's revenue or points depend on volume, they need to know three separate things: which wallets are included, which trading source supplies the numbers, and which depth policy is currently public. Only the first two are safe to explain now. Open Gap Operator inbox item"
+    },
+    {
+      "id": "authored-options-intent-lifecycle",
+      "title": "Options Intent Lifecycle",
+      "section": "protocol-reference",
+      "track": "Symmio Options",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-options-docs",
+        "symmio-options-technical-architecture",
+        "symmio-options-facets",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open",
+        "symmio-options-partya-close",
+        "symmio-options-partyb-close",
+        "symmio-options-instant-layer"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md"
+      ],
+      "relatedGeneratedPages": [
+        "authored-vibe-trade-flow",
+        "authored-intents-and-solvers",
+        "authored-symmio-party-a-party-b",
+        "symmio-options-contracts",
+        "symmio-settlement"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/options-intent-lifecycle.md",
+      "bodyMarkdown": "# Options Intent Lifecycle\n\nThe options lifecycle should be documented as a sequence of explicit states, not as a generic \"place trade\" action. Vibe's public architecture explains the product-side pattern: a trader expresses a trade intention, solvers show executable offers, the trader accepts, and the accepted request proceeds into on-chain execution. Symmio's core docs explain the protocol vocabulary behind that pattern: PartyA creates the intent; PartyB is the solver/counterparty; collateral, margin, and lifecycle state are tracked by the protocol.\n\nThe Symmio options docs make this concrete. Opening an options position starts when PartyA submits an open intent. The intent stays pending until a PartyB locks and fills it. Only then does a live trade exist. Closing follows the same philosophy: PartyA creates a close intent against an open trade, and PartyB fills all or part of it at a price that must be favorable to PartyA's requested terms.\n\n## Open Path\n\nThe open path has four user-visible states:\n\n- PartyA submits an open intent with trade-agreement terms: symbol, quantity, strike price, expiration, margin type, side, exercise fee, solver fees, deadline, fee token, affiliate, and optional metadata.\n- The intent is pending. It can expire if the deadline passes, or PartyA can request cancellation before fill.\n- A registered PartyB locks the intent. Locking reserves the intent so another PartyB cannot act on it during the processing window.\n- PartyB fills the intent, fully or partially. A full fill creates a trade. A partial fill creates a trade for the filled quantity and a residual intent for the unfilled quantity.\n\nThis is the options-specific form of the broader Symmio intent model. The key reader point is that an open intent is not yet a position. It is a source-backed, on-chain request for a PartyB to accept under bounded terms.\n\n## Close Path\n\nThe close path mirrors the open path but starts from an existing trade:\n\n- PartyA submits a close intent with trade id, quantity, price, and deadline.\n- The close intent sits pending until PartyB fills it or the deadline passes.\n- PartyB can fill the full quantity or a partial quantity.\n- If PartyA cancels a live close intent, the cancellation can move through a pending acknowledgement path before final cancellation.\n\nThis matters for documentation because \"close\" is not a single button-level outcome. A page should tell the reader whether a close is pending, partially filled, expired, cancelled, or fully reflected in trade state.\n\n## Diamond And Facets\n\nThe options implementation is organized through a Diamond architecture. The Diamond acts as the facade contract; facets hold function boundaries and use shared storage libraries. That structure is not reader decoration. It tells integrators where behavior lives:\n\n- PartyA Open Facet: creation, cancellation, and expiry of open intents.\n- PartyB Open Facet: locking, unlocking, filling, partial filling, and cancellation acknowledgement for open intents.\n- PartyA Close Facet: creation, cancellation, and expiry of close intents.\n- PartyB Close Facet: full or partial close fills and close-cancellation acknowledgement.\n- Instant Layer: signed operation execution, replay protection, PartyB and MultiAccount registration, and template/batch execution paths.\n\nThe compendium should use these names whenever it explains options state. Vague lifecycle copy will not be precise enough for solvers, integrators, or support.\n\n## What Vibe Can Say Today\n\nThe source-backed connection is this: Vibe exposes an intent-and-solver user experience, and Symmio options exposes open/close intent mechanics for options contracts. That is enough to document the conceptual lifecycle from product intention to protocol state.\n\nThe source-backed connection is not enough to publish a final Vibe-specific covered-call or vault-backed-inventory example without owner review. The page can say where such an example belongs: PartyA expresses demand, solver/PartyB evaluates and fills, inventory and collateral assumptions must be disclosed, and the live trade then follows the Symmio options open/close lifecycle. The exact Vibe product terms, vault source, coverage rules, and inventory accounting remain part of `G-008` until confirmed.\n\n## Reader Implication\n\nFor a trader, the important question is \"which state am I in?\" Pending, locked, filled, partially filled, expired, cancelled, open, partially closed, and closed should be visible as distinct states.\n\nFor a solver, the important question is \"what action am I responsible for now?\" Locking, filling, unlocking, acknowledging cancellation, and handling partial fills are separate operational responsibilities.\n\nFor an integrator, the important question is \"which contract surface owns this behavior?\" The answer should point to the exact facet or helper contract, then to the higher-level product page that explains why the state exists.\n\n## Sources\n\n- `vibe-architecture`: Vibe intent, solver offer, execution, and hedging flow.\n- `symmio-core`: PartyA, PartyB, intent, collateral, margin, and lifecycle vocabulary.\n- `symmio-options-docs`: current Symmio options documentation index.\n- `symmio-options-technical-architecture`: Diamond architecture and shared storage/facet model.\n- `symmio-options-facets`: facet boundary model.\n- `symmio-options-partya-open`: PartyA open intent lifecycle and parameters.\n- `symmio-options-partyb-open`: PartyB lock/fill/partial-fill behavior.\n- `symmio-options-partya-close`: PartyA close intent lifecycle.\n- `symmio-options-partyb-close`: PartyB close fill/cancellation behavior.\n- `symmio-options-instant-layer`: signed operation and instant-mode execution surface.\n\n## Related Pages\n\n- `authored-vibe-trade-flow`\n- `authored-intents-and-solvers`\n- `authored-symmio-party-a-party-b`\n- `symmio-options-contracts`",
+      "excerpt": "Options Intent Lifecycle The options lifecycle should be documented as a sequence of explicit states, not as a generic \"place trade\" action. Vibe's public architecture explains the product side pattern: a trader expresses a trade intention, solvers show executable offers, the trader accepts, and the accepted request proceeds into on chain execution. Symmio's core docs explain the protocol vocabulary behind that pattern: PartyA creates the intent; PartyB is the solver/counterparty; collateral, margin, and lifecycle state are tracked by the protocol. The Symmio options docs make this concrete. Opening an options position starts when PartyA submits an open intent. The intent stays pending until a PartyB locks and fills it. Only then does a live trade exist. Closing follows the same philosophy: PartyA creates a close intent against an open trade, and PartyB fills all or part of it at a price that must be favorable to PartyA's requested terms. Open Path The open path has four user visible states: PartyA submits an open intent with trade agreement terms: symbol, quantity, strike price, expiration, margin type, side, exercise fee, solver fees, deadline, fee token, affiliate, and optional "
     },
     {
       "id": "authored-points-and-vibe-points",

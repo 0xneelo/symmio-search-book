@@ -9,7 +9,7 @@
   ],
   "status": "prototype-gap-queue",
   "totalItems": 12,
-  "totalQuestionSignals": 7,
+  "totalQuestionSignals": 6,
   "totalOperatorSignals": 8,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
@@ -26,8 +26,8 @@
     "Discord Import": 1,
     "Revenue": 1,
     "Production Answer Engine": 1,
-    "Options And Settlement": 1,
     "Data And Volume": 1,
+    "Options And Settlement": 1,
     "Terminology": 1,
     "Editorial Production": 1,
     "Origin And Whitepapers": 1,
@@ -44,8 +44,8 @@
     "queue-g-001",
     "queue-g-004",
     "queue-g-010",
-    "queue-g-008",
-    "queue-g-005"
+    "queue-g-005",
+    "queue-g-008"
   ],
   "items": [
     {
@@ -467,110 +467,6 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-008",
-      "gapId": "G-008",
-      "title": "Options And Vault-Backed Inventory Need More Primary Sources",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P1",
-      "priorityScore": 80,
-      "category": "Options And Settlement",
-      "summary": "The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. Symmio options overview and technical-architecture docs are now registered, but this pass did not deeply mine each options page into authored lifecycle material.",
-      "needed": "Full options-page mining, product owner confirmation, Vibe-specific example lifecycle, and exact mapping from options docs to the Vibe vault-backed inventory story.",
-      "sourceKeys": [
-        "spec-02",
-        "spec-04",
-        "symmio-core",
-        "symmio-whitepaper"
-      ],
-      "sources": [
-        {
-          "key": "spec-02",
-          "group": "Local Specs",
-          "use": "Narrative thesis and required topics.",
-          "href": "../../_specs/app-docs/02-narrative-thesis.md",
-          "missing": false
-        },
-        {
-          "key": "spec-04",
-          "group": "Local Specs",
-          "use": "Required source families.",
-          "href": "../../_specs/app-docs/04-sources.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-core",
-          "group": "Public Symmio Sources",
-          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
-          "href": "https://docs.symm.io/getting-started/core-concepts.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-whitepaper",
-          "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "symmio-options-contracts",
-        "symmio-settlement",
-        "authored-vibe-trade-flow",
-        "authored-intents-and-solvers"
-      ],
-      "relatedPages": [
-        {
-          "id": "symmio-options-contracts",
-          "title": "Symmio Options Contracts",
-          "section": "options-reference",
-          "track": "options-reference",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        },
-        {
-          "id": "symmio-settlement",
-          "title": "Settlement",
-          "section": "settlement",
-          "track": "settlement",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        },
-        {
-          "id": "authored-vibe-trade-flow",
-          "title": "Vibe Trade Flow",
-          "section": "product-reference",
-          "track": "Trading Flow",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        },
-        {
-          "id": "authored-intents-and-solvers",
-          "title": "Intents And Solvers",
-          "section": "manifesto",
-          "track": "04 — Mechanism",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [
-        {
-          "id": "gap-how-do-vibe-options-use-symmio-settlement",
-          "question": "How do Vibe options use Symmio settlement?",
-          "notes": "Symmio options docs are now registered; Vibe-specific lifecycle synthesis still needs authoring and owner review."
-        },
-        {
-          "id": "gap-can-a-vault-lp-see-exact-covered-call-exposure",
-          "question": "Can a vault LP see exact covered-call exposure?",
-          "notes": "Not sourced in this pass."
-        }
-      ],
-      "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
       "id": "queue-g-005",
       "gapId": "G-005",
       "title": "Subgraph Migration Is Not Implemented In This Repo",
@@ -662,6 +558,154 @@
           "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
           "question": "Is network volume sourced from backend REST or subgraphs?",
           "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
+        }
+      ],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
+      "id": "queue-g-008",
+      "gapId": "G-008",
+      "title": "Options And Vault-Backed Inventory Need More Primary Sources",
+      "type": "documented-gap",
+      "status": "open",
+      "priority": "P1",
+      "priorityScore": 75,
+      "category": "Options And Settlement",
+      "summary": "The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. The current Symmio Options v0.2.1 docs, Diamond architecture, PartyA/PartyB open-close facets, and Instant Layer docs are now registered and synthesized into authored-options-intent-lifecycle. The remaining gap is the Vibe-specific covered-call/vault-backed inventory example and exact public exposure semantics.",
+      "needed": "Product owner confirmation, Vibe-specific example lifecycle, vault source/coverage rules, and whether vault LPs can see exact covered-call exposure before publishing product-specific claims.",
+      "sourceKeys": [
+        "spec-02",
+        "spec-04",
+        "symmio-core",
+        "symmio-options-docs",
+        "symmio-options-partya-open",
+        "symmio-options-partyb-open",
+        "symmio-options-partya-close",
+        "symmio-options-partyb-close",
+        "symmio-options-instant-layer"
+      ],
+      "sources": [
+        {
+          "key": "spec-02",
+          "group": "Local Specs",
+          "use": "Narrative thesis and required topics.",
+          "href": "../../_specs/app-docs/02-narrative-thesis.md",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-docs",
+          "group": "Public Symmio Sources",
+          "use": "Symmio options protocol documentation index and current entry point.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyA open-intent creation, trade-agreement terms, cancellation, expiry, and instant-mode boundary.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-open",
+          "group": "Public Symmio Sources",
+          "use": "PartyB open-intent locking, unlocking, filling, partial fills, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partya-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyA close-intent creation, partial close, deadline, cancellation, and expiry behavior.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-partyb-close",
+          "group": "Public Symmio Sources",
+          "use": "PartyB close-intent fills, partial fills, favorable-price checks, and cancellation acknowledgement.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-options-instant-layer",
+          "group": "Public Symmio Sources",
+          "use": "Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration.",
+          "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-options-intent-lifecycle",
+        "symmio-options-contracts",
+        "symmio-settlement",
+        "authored-vibe-trade-flow",
+        "authored-intents-and-solvers"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-options-intent-lifecycle",
+          "title": "Options Intent Lifecycle",
+          "section": "protocol-reference",
+          "track": "Symmio Options",
+          "status": "publication-candidate-needs-operator-review",
+          "routeSource": "authored"
+        },
+        {
+          "id": "symmio-options-contracts",
+          "title": "Symmio Options Contracts",
+          "section": "options-reference",
+          "track": "options-reference",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        },
+        {
+          "id": "symmio-settlement",
+          "title": "Settlement",
+          "section": "settlement",
+          "track": "settlement",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        },
+        {
+          "id": "authored-vibe-trade-flow",
+          "title": "Vibe Trade Flow",
+          "section": "product-reference",
+          "track": "Trading Flow",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        },
+        {
+          "id": "authored-intents-and-solvers",
+          "title": "Intents And Solvers",
+          "section": "manifesto",
+          "track": "04 — Mechanism",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [
+        {
+          "id": "gap-can-a-vault-lp-see-exact-covered-call-exposure",
+          "question": "Can a vault LP see exact covered-call exposure?",
+          "notes": "Not sourced in this pass."
         }
       ],
       "linkedOperatorItems": [],

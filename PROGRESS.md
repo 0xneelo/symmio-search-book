@@ -189,12 +189,20 @@
 - Registered `competitive-sweep-synthesis` in `SOURCES.md` and added a direct question route for "What should Vibe x Symmio borrow from the best docs?"
 - Narrowed `G-002` so the remaining competitive gap is the Opyn official-source decision, not the synthesis page itself.
 
+## 2026-06-28 — Options Intent Lifecycle Page
+
+- Verified that the registered Symmio options overview/technical URLs had moved, then updated `SOURCES.md` to the current official Symmio Options v0.2.1 index, Diamond, facet, PartyA/PartyB open-close, and Instant Layer pages.
+- Added `authored-options-intent-lifecycle`, documenting PartyA open intents, PartyB lock/fill/partial-fill behavior, close intents, Diamond/facet boundaries, and instant-mode execution surfaces.
+- Moved "How do Vibe options use Symmio settlement?" from reconciliation to an answerable route while keeping exact Vibe vault-backed inventory exposure semantics parked under `G-008`.
+- Narrowed `G-008` so the remaining gap is product-owner confirmation for Vibe-specific vault source, coverage rules, and LP exposure visibility.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
 - Opyn official-doc access, replacement, or exclusion decision for the competitive sweep.
+- Vibe-specific covered-call/vault inventory example and LP exposure semantics.
 - Revenue disclosure boundary.
 - Referral-depth public stance.
 - Production docs platform/repository decision.
