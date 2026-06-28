@@ -18,6 +18,7 @@ const defaults = {
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
+  requirementMap: path.join(searchBookRoot, "data", "requirement-map.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
@@ -177,6 +178,9 @@ const answerChunks = fs.existsSync(args.answerChunks)
 const volumeMap = fs.existsSync(args.volumeMap)
   ? readJson(args.volumeMap)
   : { totalVolumes: 0, totalChapters: 0, manifestPages: 0, readerPages: 0, pagesAssigned: 0, manifestWithinTarget: false, duplicatePageIds: [], unassignedPageIds: [], volumeIdsMissingPages: [], unknownSourceKeys: [], volumes: [], pageToVolume: {} };
+const requirementMap = fs.existsSync(args.requirementMap)
+  ? readJson(args.requirementMap)
+  : { totalRequirements: 0, byStatus: {}, byCategory: {}, completionReady: false, duplicateRequirementIds: [], invalidParkedRequirements: [], requirements: [], nextFocus: [] };
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
@@ -248,6 +252,9 @@ const readerIdsMissingVolumeMap = [...readerPageIds].filter((pageId) => !volumeM
 const volumeMapIdsMissingReader = [...volumeMapPageIds].filter((pageId) => !readerPageIds.has(pageId));
 const volumeOverviewPageIds = (volumeMap.volumes || []).map((volume) => volume.overviewPageId).filter(Boolean);
 const volumeOverviewIdsMissingReader = volumeOverviewPageIds.filter((pageId) => !readerPageIds.has(pageId));
+const requirementDuplicateIds = requirementMap.duplicateRequirementIds || [];
+const invalidParkedRequirementIds = requirementMap.invalidParkedRequirements || [];
+const requirementIds = new Set((requirementMap.requirements || []).map((requirement) => requirement.id));
 const crosslinkPageIds = Object.keys(crosslinks.pageById || {});
 const readerIdsMissingCrosslinks = [...readerPageIds].filter((pageId) => !crosslinkPageIds.includes(pageId));
 const crosslinkIdsMissingReader = crosslinkPageIds.filter((pageId) => !readerPageIds.has(pageId));
@@ -413,6 +420,16 @@ const gates = [
     detail: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeOverviewPageIds.length} overview pages, ${volumeMap.pagesAssigned || 0}/${readerPageIds.size} reader pages assigned, manifest target ${volumeMap.manifestWithinTarget ? "met" : "open"}`,
   },
   {
+    id: "requirement-map",
+    label: "Definition-of-done requirements are tracked",
+    passed:
+      (requirementMap.totalRequirements || 0) >= 12 &&
+      requirementDuplicateIds.length === 0 &&
+      invalidParkedRequirementIds.length === 0 &&
+      requirementIds.size === (requirementMap.totalRequirements || 0),
+    detail: `${requirementMap.byStatus?.complete || 0}/${requirementMap.totalRequirements || 0} complete, ${requirementMap.byStatus?.partial || 0} partial, ${requirementMap.byStatus?.parked || 0} parked, ${requirementMap.byStatus?.missing || 0} missing`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -466,6 +483,12 @@ const payload = {
     compendiumVolumeOverviews: volumeOverviewPageIds.length,
     compendiumVolumeReaderPages: volumeMap.readerPages || 0,
     compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
+    completionRequirements: requirementMap.totalRequirements || 0,
+    completionRequirementsComplete: requirementMap.byStatus?.complete || 0,
+    completionRequirementsPartial: requirementMap.byStatus?.partial || 0,
+    completionRequirementsParked: requirementMap.byStatus?.parked || 0,
+    completionRequirementsMissing: requirementMap.byStatus?.missing || 0,
+    completionReady: requirementMap.completionReady || false,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -607,6 +630,17 @@ const payload = {
     volumeMapIdsMissingReader,
     volumeOverviewIdsMissingReader,
   },
+  requirementCoverage: {
+    status: requirementMap.status || "missing",
+    completionReady: requirementMap.completionReady || false,
+    totalRequirements: requirementMap.totalRequirements || 0,
+    byStatus: requirementMap.byStatus || {},
+    byCategory: requirementMap.byCategory || {},
+    openOperatorItems: requirementMap.openOperatorItems || [],
+    nextFocus: requirementMap.nextFocus || [],
+    duplicateRequirementIds: requirementDuplicateIds,
+    invalidParkedRequirements: invalidParkedRequirementIds,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
@@ -638,9 +672,20 @@ const payload = {
     readerIdsMissingVolumeMap,
     volumeMapIdsMissingReader,
     volumeOverviewIdsMissingReader,
+    requirementDuplicateIds,
+    invalidParkedRequirementIds,
+    incompleteRequirements: (requirementMap.requirements || [])
+      .filter((requirement) => requirement.status !== "complete")
+      .map((requirement) => ({
+        id: requirement.id,
+        status: requirement.status,
+        blocks: requirement.blocks || [],
+        nextAction: requirement.nextAction,
+      })),
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [
+    "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",

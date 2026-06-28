@@ -207,3 +207,11 @@
 **Reason:** The 500-800 page corpus needs editorial entry points, not just generated section listings. Volume overviews give readers and editors a human-written orientation page for each book part while keeping exact-page routing, source keys, and audit coverage deterministic.
 
 **Status:** Accepted for the authored layer.
+
+## D-027: Track Definition-Of-Done Coverage As Data
+
+**Decision:** Generate `data/requirement-map.*` from the original docs-compendium requirements and current artifacts, then render complete, partial, parked, and missing states in Search insights.
+
+**Reason:** The operator raised the target to a 500-800 page compendium, but page count alone cannot prove the goal is done. A requirement map keeps deploy, Discord, final report, authored content, answer-engine, source, and operator-decision requirements visible without blocking parallel work.
+
+**Status:** Accepted for completion tracking until the final report and production docs site supersede the prototype.

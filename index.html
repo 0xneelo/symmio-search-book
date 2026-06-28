@@ -17,6 +17,7 @@
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
     <script src="./data/crosslinks.js"></script>
+    <script src="./data/requirement-map.js"></script>
     <script src="./data/quality-audit.js"></script>
     <style>
       :root {
@@ -964,6 +965,16 @@
             </div>
             <div class="console-layout">
               <div>
+                <h3 class="section-title">Completion Requirements</h3>
+                <div id="requirementList"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Completion Summary</h3>
+                <ul class="compact-list" id="requirementSummary"></ul>
+              </aside>
+            </div>
+            <div class="console-layout">
+              <div>
                 <h3 class="section-title">Where Docs Fall Short</h3>
                 <div id="gapList"></div>
               </div>
@@ -1010,6 +1021,7 @@
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
+      const requirementMap = window.SearchBookRequirementMap || { requirements: [], byStatus: {}, byCategory: {}, nextFocus: [], completionReady: false };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
       const sourceByKey = sourceCatalog.sourceByKey || {};
       const crosslinkByPageId = crosslinks.pageById || {};
@@ -1874,15 +1886,54 @@
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
           <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeOverviews || 0)} overviews, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
+          <li><span class="meta">Completion requirements</span><br>${escapeHtml(totals.completionRequirementsComplete || 0)} of ${escapeHtml(totals.completionRequirements || 0)} complete; ${escapeHtml(totals.completionRequirementsPartial || 0)} partial, ${escapeHtml(totals.completionRequirementsParked || 0)} parked, ${escapeHtml(totals.completionRequirementsMissing || 0)} missing.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>
         `;
       }
 
+      function requirementClass(status) {
+        if (status === "complete") return "is-pass";
+        if (status === "parked") return "is-blocked";
+        if (status === "missing") return "is-local";
+        return "is-priority";
+      }
+
+      function renderRequirements() {
+        const requirements = requirementMap.requirements || [];
+        document.getElementById("requirementList").innerHTML = requirements.length
+          ? requirements
+              .map(
+                (requirement) => `
+                  <div class="gap-row ${requirementClass(requirement.status)}">
+                    <div class="meta">${escapeHtml(requirement.status)} / ${escapeHtml(requirement.category)} / ${escapeHtml(requirement.id)}</div>
+                    <p>${escapeHtml(requirement.label)}</p>
+                    <div class="meta">${escapeHtml(requirement.evidence || "")}</div>
+                    <div class="source-row">
+                      ${(requirement.sourceSpecs || []).map((spec) => `<span class="source-chip">spec-${escapeHtml(spec)}</span>`).join("")}
+                      ${(requirement.blocks || []).map((block) => `<span class="source-chip">${escapeHtml(block)}</span>`).join("")}
+                    </div>
+                    <div class="meta">${escapeHtml(requirement.nextAction || "")}</div>
+                  </div>
+                `,
+              )
+              .join("")
+          : '<div class="gap-row"><p>No requirement map generated yet.</p></div>';
+        const byStatus = requirementMap.byStatus || {};
+        document.getElementById("requirementSummary").innerHTML = `
+          <li><span class="meta">Ready</span><br>${requirementMap.completionReady ? "yes" : "no"}</li>
+          <li><span class="meta">Complete</span><br>${escapeHtml(byStatus.complete || 0)} of ${escapeHtml(requirementMap.totalRequirements || 0)} requirements.</li>
+          <li><span class="meta">Partial</span><br>${escapeHtml(byStatus.partial || 0)} requirements still need production/editorial work.</li>
+          <li><span class="meta">Parked</span><br>${escapeHtml(byStatus.parked || 0)} requirements depend on operator inbox decisions.</li>
+          <li><span class="meta">Missing</span><br>${escapeHtml(byStatus.missing || 0)} requirements have no final artifact yet.</li>
+        `;
+      }
+
       function renderInsights() {
         renderMetrics();
         renderQualityAudit();
+        renderRequirements();
         renderGaps();
         renderRecent();
         renderRatings();

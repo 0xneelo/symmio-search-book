@@ -140,6 +140,13 @@
 - Regenerated authored index, crosslinks, answer chunks, volume map, and quality audit: 35 authored pages, 829 reader-routable pages, 1,400 answer chunks, and 8 audited volume overview routes.
 - Updated Browse volume cards to expose an exact-page "Open overview" action; current audit result remains 16 of 18 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Requirement Coverage Map
+
+- Added `scripts/build-requirement-map.mjs` and generated `data/requirement-map.json` plus `data/requirement-map.js` from the original definition-of-done requirements and current local artifacts.
+- Validated 16 completion requirements: 6 complete, 4 partial, 5 parked behind operator inbox decisions, and 1 missing final report/deploy artifact.
+- Updated Search insights with a Completion Requirements console showing status, evidence, source spec references, blockers, and next actions for every requirement.
+- Extended the quality audit with a requirement-map gate; current result is 17 of 19 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

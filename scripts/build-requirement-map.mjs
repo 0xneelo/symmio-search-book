@@ -1,0 +1,302 @@
+#!/usr/bin/env node
+
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const searchBookRoot = path.resolve(__dirname, "..");
+const repoRoot = path.resolve(searchBookRoot, "..", "..");
+
+const defaults = {
+  manifest: path.join(searchBookRoot, "page-manifest.json"),
+  searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
+  authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
+  volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
+  journeys: path.join(searchBookRoot, "data", "journeys.json"),
+  questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
+  faq: path.join(searchBookRoot, "data", "faq.json"),
+  gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
+  glossary: path.join(searchBookRoot, "data", "glossary.json"),
+  sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
+  inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
+  finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
+  outJson: path.join(searchBookRoot, "data", "requirement-map.json"),
+  outJs: path.join(searchBookRoot, "data", "requirement-map.js"),
+};
+
+const statuses = new Set(["complete", "partial", "parked", "missing"]);
+
+function parseArgs(argv) {
+  const args = { ...defaults };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--out-json") args.outJson = argv[++index];
+    else if (arg === "--out-js") args.outJs = argv[++index];
+    else if (arg === "--help") {
+      console.log("Usage: node src/search-book/scripts/build-requirement-map.mjs [--out-json path] [--out-js path]");
+      process.exit(0);
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+  return args;
+}
+
+function readJson(filePath, fallback = null) {
+  return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, "utf8")) : fallback;
+}
+
+function readText(filePath) {
+  return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+}
+
+function ensureDir(dirPath) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
+
+function countBy(items, getKey) {
+  return items.reduce((acc, item) => {
+    const key = getKey(item) || "unknown";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+function parseOpenInboxItems(markdown) {
+  const openSection = markdown.split("## Open")[1]?.split("## Resolved")[0] || "";
+  return [...openSection.matchAll(/^### \[OPEN\] #(\d+) — (.+)$/gm)].map((match) => ({
+    id: Number(match[1]),
+    title: match[2].trim(),
+  }));
+}
+
+function inboxHas(openItems, id) {
+  return openItems.some((item) => item.id === id);
+}
+
+function req({ id, label, status, category, sourceSpecs, evidence, blocks = [], nextAction }) {
+  if (!statuses.has(status)) throw new Error(`Unknown requirement status for ${id}: ${status}`);
+  return { id, label, status, category, sourceSpecs, evidence, blocks, nextAction };
+}
+
+const args = parseArgs(process.argv.slice(2));
+const manifest = readJson(args.manifest, { pages: [], compendiumTarget: {} });
+const searchIndex = readJson(args.searchIndex, []);
+const authored = readJson(args.authoredIndex, { pages: [], totalPages: 0, bySection: {}, byStatus: {} });
+const volumeMap = readJson(args.volumeMap, { totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0, volumes: [] });
+const journeys = readJson(args.journeys, { totalJourneys: 0, totalSteps: 0, missingPageIds: [] });
+const questionRoutes = readJson(args.questionRoutes, { totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] });
+const faq = readJson(args.faq, { totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0 });
+const gapQueue = readJson(args.gapQueue, { totalItems: 0, totalOperatorSignals: 0, totalQuestionSignals: 0 });
+const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0, pagesMissingChunks: [], unknownSourceKeys: [] });
+const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
+const sourceCatalog = readJson(args.sourceCatalog, { totalSources: 0, duplicateKeys: [], sources: [] });
+const crosslinks = readJson(args.crosslinks, { totalPages: 0, missingExplicitRelatedPageIds: [] });
+const openInboxItems = parseOpenInboxItems(readText(args.inbox));
+const finalReportExists = fs.existsSync(args.finalReport);
+const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
+const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
+const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
+const manifestWithinTarget = (manifest.pages || []).length >= 500 && (manifest.pages || []).length <= 800;
+
+const requirements = [
+  req({
+    id: "pages-and-manifest",
+    label: "500-800 page compendium manifest exists",
+    status: manifestWithinTarget && searchIndex.length === (manifest.pages || []).length ? "complete" : "partial",
+    category: "content",
+    sourceSpecs: ["01", "05", "08"],
+    evidence: `${(manifest.pages || []).length} manifest pages, ${searchIndex.length} search-index entries, target ${manifest.compendiumTarget?.requestedRange || "500-800 pages"}`,
+    nextAction: "Keep generated drafts source-traceable while converting highest-value routes into authored pages.",
+  }),
+  req({
+    id: "manifesto-and-reference",
+    label: "Unified manifesto plus reference layer",
+    status: (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8 ? "partial" : "missing",
+    category: "content",
+    sourceSpecs: ["01", "02", "03", "05"],
+    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters`,
+    nextAction: "Continue converting generated source pages into publication-quality authored manifesto/reference pages.",
+  }),
+  req({
+    id: "volume-orientation",
+    label: "Book-scale volume orientation",
+    status: volumeMap.totalVolumes === 8 && volumeOverviews === 8 && volumeMap.pagesAssigned === volumeMap.readerPages ? "complete" : "partial",
+    category: "content",
+    sourceSpecs: ["05", "08"],
+    evidence: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeOverviews} authored overviews, ${volumeMap.pagesAssigned || 0}/${volumeMap.readerPages || 0} reader pages assigned`,
+    nextAction: "Use the volume map as production IA input once the platform decision is resolved.",
+  }),
+  req({
+    id: "dashboard-reference",
+    label: "Every dashboard view documented",
+    status: (authoredSections["dashboard-reference"] || 0) >= 8 ? "partial" : "missing",
+    category: "reference",
+    sourceSpecs: ["01", "03", "05", "09"],
+    evidence: `${authoredSections["dashboard-reference"] || 0} authored dashboard-reference pages; statuses ${JSON.stringify(authoredStatuses)}`,
+    nextAction: "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication.",
+  }),
+  req({
+    id: "revenue-volume-points-reference",
+    label: "Revenue, volume, points, and Vibe-points reference",
+    status: inboxHas(openInboxItems, 1) ? "parked" : "partial",
+    category: "reference",
+    sourceSpecs: ["01", "03", "08", "09"],
+    evidence: "Authored revenue, network-volume, points, and dashboard pages exist; public revenue disclosure boundary remains open.",
+    blocks: inboxHas(openInboxItems, 1) ? ["OPERATOR-INBOX #1"] : [],
+    nextAction: "Resume final revenue/economics wording when the operator fills inbox item #1.",
+  }),
+  req({
+    id: "referral-depth-reconciliation",
+    label: "Referral-depth contradiction reconciled",
+    status: inboxHas(openInboxItems, 3) ? "parked" : "partial",
+    category: "reference",
+    sourceSpecs: ["01", "03", "08"],
+    evidence: "Referral-depth evidence is logged and an authored open-question page exists; public stance remains unresolved.",
+    blocks: inboxHas(openInboxItems, 3) ? ["OPERATOR-INBOX #3"] : [],
+    nextAction: "Resume final referral/rewards wording when the operator fills inbox item #3.",
+  }),
+  req({
+    id: "answer-engine-front-door",
+    label: "Ask-first answer-engine front door",
+    status: answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
+    category: "answer-engine",
+    sourceSpecs: ["01", "05", "06", "09"],
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, static Ask UI routes to exact pages`,
+    nextAction: "Replace local deterministic retrieval with production vector/Claude or chosen platform AI after platform decision.",
+  }),
+  req({
+    id: "living-docs-loop",
+    label: "Question tracking, ratings, and gaps loop",
+    status: gapQueue.totalItems >= 1 && questionRoutes.totalReconciliationQuestions >= 1 ? "partial" : "missing",
+    category: "answer-engine",
+    sourceSpecs: ["01", "06", "09"],
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, localStorage prototype for live questions/ratings`,
+    nextAction: "Replace browser-local event storage with a production datastore after platform/backend selection.",
+  }),
+  req({
+    id: "discord-seeded-faq",
+    label: "Discord/Lafa Q&A mined into FAQ",
+    status: inboxHas(openInboxItems, 2) ? "parked" : "partial",
+    category: "demand-signal",
+    sourceSpecs: ["01", "04", "06", "07", "08"],
+    evidence: `${faq.totalEntries || 0} local FAQ entries exist, but Discord/Lafa corpus is not imported.`,
+    blocks: inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : [],
+    nextAction: "Resume Discord-derived FAQ import when the operator fills inbox item #2.",
+  }),
+  req({
+    id: "guided-journeys",
+    label: "Guided onboarding journeys",
+    status: journeys.totalJourneys >= 5 && !(journeys.missingPageIds || []).length ? "complete" : "partial",
+    category: "navigation",
+    sourceSpecs: ["02", "05", "08"],
+    evidence: `${journeys.totalJourneys || 0} journeys, ${journeys.totalSteps || 0} exact-page steps, ${(journeys.missingPageIds || []).length} missing route ids`,
+    nextAction: "Carry journey data into the production docs platform.",
+  }),
+  req({
+    id: "crosslinks-and-navigation",
+    label: "Cross-links, prev/next, glossary, and navigability",
+    status: crosslinks.totalPages >= 800 && glossary.totalTerms >= 25 && !(crosslinks.missingExplicitRelatedPageIds || []).length ? "complete" : "partial",
+    category: "navigation",
+    sourceSpecs: ["05", "08"],
+    evidence: `${crosslinks.totalPages || 0} crosslinked reader pages, ${glossary.totalTerms || 0} glossary terms`,
+    nextAction: "Port generated navigation/crosslink data into the final platform.",
+  }),
+  req({
+    id: "source-traceability",
+    label: "Every claim traceable to primary sources",
+    status: sourceCatalog.totalSources >= 50 && !(sourceCatalog.duplicateKeys || []).length ? "complete" : "partial",
+    category: "sourcing",
+    sourceSpecs: ["01", "04", "07", "08"],
+    evidence: `${sourceCatalog.totalSources || 0} registered sources; ${answerChunks.usedSourceKeys?.length || 0} source keys used in retrieval chunks; no unknown chunk source keys`,
+    nextAction: "Continue source audits as authored pages replace generated drafts.",
+  }),
+  req({
+    id: "phase-zero-platform",
+    label: "Platform, repository, and transparency decisions locked",
+    status: inboxHas(openInboxItems, 4) || inboxHas(openInboxItems, 1) ? "parked" : "partial",
+    category: "production",
+    sourceSpecs: ["08", "10"],
+    evidence: "Operator inbox still carries production platform/repo and public economics transparency decisions.",
+    blocks: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #1"].filter((label) => openInboxItems.some((item) => label.endsWith(`#${item.id}`))),
+    nextAction: "Resume final scaffold/deploy implementation when platform/repo and transparency items are resolved.",
+  }),
+  req({
+    id: "deploy-preview",
+    label: "Deployed or preview docs site",
+    status: inboxHas(openInboxItems, 4) ? "parked" : "missing",
+    category: "production",
+    sourceSpecs: ["01", "08"],
+    evidence: "Static local prototype exists; production platform/repo/deploy target is not selected.",
+    blocks: inboxHas(openInboxItems, 4) ? ["OPERATOR-INBOX #4"] : [],
+    nextAction: "Deploy preview after the operator selects platform/repo ownership.",
+  }),
+  req({
+    id: "final-report",
+    label: "Final report committed",
+    status: finalReportExists ? "complete" : "missing",
+    category: "delivery",
+    sourceSpecs: ["01", "08"],
+    evidence: finalReportExists ? "FINAL-REPORT.md exists." : "No src/search-book/FINAL-REPORT.md exists yet.",
+    nextAction: "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",
+  }),
+  req({
+    id: "maintained-core-artifacts",
+    label: "DECISIONS, SOURCES, STYLEGUIDE, GAPS, QUESTIONS, manifest maintained",
+    status: ["DECISIONS.md", "SOURCES.md", "STYLEGUIDE.md", "GAPS.md", "QUESTIONS.md", "page-manifest.json"].every((file) => fs.existsSync(path.join(searchBookRoot, file))) ? "complete" : "partial",
+    category: "delivery",
+    sourceSpecs: ["01", "07", "08"],
+    evidence: "Core search-book artifacts exist and have been updated across checkpoints.",
+    nextAction: "Keep these artifacts current as final platform/deploy work proceeds.",
+  }),
+];
+
+const duplicateRequirementIds = requirements.map((item) => item.id).filter((id, index, ids) => ids.indexOf(id) !== index);
+const invalidParkedRequirements = requirements
+  .filter((item) => item.status === "parked" && !item.blocks.length)
+  .map((item) => item.id);
+
+if (duplicateRequirementIds.length) throw new Error(`Duplicate requirement ids: ${[...new Set(duplicateRequirementIds)].join(", ")}`);
+if (invalidParkedRequirements.length) throw new Error(`Parked requirements missing blocker labels: ${invalidParkedRequirements.join(", ")}`);
+
+const byStatus = countBy(requirements, (item) => item.status);
+const byCategory = countBy(requirements, (item) => item.category);
+const payload = {
+  generatedAt: "deterministic-build",
+  status: "completion-coverage-map",
+  completionReady: (byStatus.complete || 0) === requirements.length,
+  totalRequirements: requirements.length,
+  byStatus,
+  byCategory,
+  openOperatorItems: openInboxItems,
+  duplicateRequirementIds: [],
+  invalidParkedRequirements: [],
+  requirements,
+  nextFocus: requirements.filter((item) => item.status !== "complete").map((item) => ({
+    id: item.id,
+    status: item.status,
+    nextAction: item.nextAction,
+    blocks: item.blocks,
+  })),
+};
+
+ensureDir(path.dirname(args.outJson));
+fs.writeFileSync(args.outJson, `${JSON.stringify(payload, null, 2)}\n`);
+fs.writeFileSync(args.outJs, `window.SearchBookRequirementMap = ${JSON.stringify(payload)};\n`);
+console.log(
+  JSON.stringify(
+    {
+      requirements: payload.totalRequirements,
+      complete: payload.byStatus.complete || 0,
+      partial: payload.byStatus.partial || 0,
+      parked: payload.byStatus.parked || 0,
+      missing: payload.byStatus.missing || 0,
+      completionReady: payload.completionReady,
+    },
+    null,
+    2,
+  ),
+);

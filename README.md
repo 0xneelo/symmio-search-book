@@ -30,6 +30,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated routed glossary: `data/glossary.js`
 - Generated source catalog: `data/source-catalog.js`
 - Generated reader crosslink map: `data/crosslinks.js`
+- Generated definition-of-done requirement map: `data/requirement-map.js`
 - Generated publication-quality audit: `data/quality-audit.js`
 - Throwaway static prototype with exact-page reader: `index.html`
 
@@ -74,6 +75,7 @@ node src/search-book/scripts/build-volume-map.mjs
 node src/search-book/scripts/build-glossary.mjs
 node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-crosslink-map.mjs
+node src/search-book/scripts/build-requirement-map.mjs
 node src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/answer-corpus.js
 node --check src/search-book/scripts/build-page-manifest.mjs
@@ -88,6 +90,7 @@ node --check src/search-book/scripts/build-volume-map.mjs
 node --check src/search-book/scripts/build-glossary.mjs
 node --check src/search-book/scripts/build-source-catalog.mjs
 node --check src/search-book/scripts/build-crosslink-map.mjs
+node --check src/search-book/scripts/build-requirement-map.mjs
 node --check src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/data/authored-pages.js
 node --check src/search-book/scripts/build-navigation-tree.mjs
@@ -101,6 +104,7 @@ node --check src/search-book/data/volume-map.js
 node --check src/search-book/data/glossary.js
 node --check src/search-book/data/source-catalog.js
 node --check src/search-book/data/crosslinks.js
+node --check src/search-book/data/requirement-map.js
 node --check src/search-book/data/quality-audit.js
 node -e "const j=require('./src/search-book/data/journeys.json'); if (j.missingPageIds.length || j.totalJourneys < 5) process.exit(1); console.log(j.totalJourneys + '/' + j.totalSteps)"
 node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.missingRouteIds.length || q.totalRoutes < 1) process.exit(1); console.log(q.totalRoutes + '/' + q.totalReconciliationQuestions)"
@@ -111,6 +115,7 @@ node -e "const v=require('./src/search-book/data/volume-map.json'); if (v.unassi
 node -e "const g=require('./src/search-book/data/glossary.json'); if (g.missingPageIds.length || g.missingSourceKeys.length || g.totalTerms < 25) process.exit(1); console.log(g.totalTerms + '/' + Object.keys(g.byCategory).length)"
 node -e "const s=require('./src/search-book/data/source-catalog.json'); if (s.duplicateKeys.length || s.totalSources < 1) process.exit(1); console.log(s.totalSources + '/' + Object.keys(s.byGroup).length)"
 node -e "const c=require('./src/search-book/data/crosslinks.json'); if (c.missingExplicitRelatedPageIds.length || c.totalPages < 800) process.exit(1); console.log(c.totalPages + '/' + c.pagesWithRelated)"
+node -e "const r=require('./src/search-book/data/requirement-map.json'); if (r.duplicateRequirementIds.length || r.invalidParkedRequirements.length || r.totalRequirements < 12 || r.completionReady) process.exit(1); console.log((r.byStatus.complete || 0) + '/' + r.totalRequirements)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
