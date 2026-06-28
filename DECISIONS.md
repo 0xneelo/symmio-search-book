@@ -583,3 +583,11 @@
 **Reason:** The compendium now has strong pre-runtime proof: exact-route and refusal golden tests pass, the LLM API contract is specified, adversarial cases pass, and response-shape validation is executable. That should count as implementation readiness, but it must not imply that live model answering, persistent ratings, or deployed answer storage are production-ready.
 
 **Status:** Accepted for requirement-map and quality-audit readiness tracking.
+
+## D-074: Present Proof Of Value As Costly Evidence, Not Perfect Truth
+
+**Decision:** Expand the authored Proof of Value layer with pages that document the shadow side of market-cap verification, leverage as conviction amplification, solver quote refusal, protocol-owned solver fallback, and whale-vault risk tranching.
+
+**Reason:** Neelo's proof-of-value source is strongest when it is allowed to be ambitious and internally honest. The public compendium should preserve the thesis that markets can verify claims through capital at risk, while making clear that price is evidence rather than absolute truth and that live leverage, solver, vault, fee-share, and loss-allocation semantics need operator-approved implementation sources.
+
+**Status:** Accepted for the authored manifesto layer.

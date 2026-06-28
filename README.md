@@ -81,6 +81,7 @@ node src/search-book/scripts/build-question-routes.mjs
 node src/search-book/scripts/build-faq-map.mjs
 node src/search-book/scripts/build-gap-queue.mjs
 node src/search-book/scripts/build-answer-chunks.mjs
+node src/search-book/scripts/build-crosslink-map.mjs
 node src/search-book/scripts/build-volume-map.mjs
 node src/search-book/scripts/build-page-state-registry.mjs
 node src/search-book/scripts/build-glossary.mjs
@@ -90,7 +91,6 @@ node src/search-book/scripts/build-llm-rag-contract.mjs
 node src/search-book/scripts/build-answer-validation-report.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
 node src/search-book/scripts/build-source-ingestion-map.mjs
-node src/search-book/scripts/build-crosslink-map.mjs
 node src/search-book/scripts/build-requirement-map.mjs
 node src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/answer-corpus.js

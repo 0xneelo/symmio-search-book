@@ -439,6 +439,12 @@
 - Updated the definition-of-done map so deterministic answer routing, LLM RAG contract coverage, adversarial evals, and answer-validation fixtures are a dedicated complete requirement.
 - Regenerated source-ingestion, requirement-map, and quality-audit data: 17 source-ingestion requirements with 6 parked, 18 completion requirements with 6 complete, and quality audit still 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
 
+## 2026-06-28 — Neelo Proof Of Value Authored Layer
+
+- Added five authored Volume 02 manifesto pages from Neelo's Proof of Value corpus: the shadow side of market-cap verification, leverage as truth amplification, solver refusal as oracle defense, protocol-owned solver as public option, and whale-vault risk tranching.
+- Routed five new proof-of-value questions to authored pages so Ask can explain the cost-of-truth thesis without flattening market price into absolute truth or publishing unconfirmed solver/vault economics.
+- Regenerated dependent maps: 195 authored pages, 176 exact answer routes, 183 FAQ entries with 176 answerable, 989 reader-routable pages, 1,714 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

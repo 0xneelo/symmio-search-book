@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 171
+      "totalGoldenRoutes": 176
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 189,
-    "retrievalEligiblePages": 981,
+    "publicNavigationPages": 194,
+    "retrievalEligiblePages": 986,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 189,
+      "candidate": 194,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 171,
-    "exactRouteTestsPassing": 171,
+    "totalExactRouteTests": 176,
+    "exactRouteTestsPassing": 176,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 171
+      "candidate": 176
     },
     "exactRoutesByConfidence": {
-      "Medium": 84,
+      "Medium": 85,
       "High": 29,
-      "Low": 58
+      "Low": 62
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1905,6 +1905,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-hybrid-solver-liquidity-waterfall",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-shadow-side-of-market-cap-verification",
+        "query": "What is the shadow side of market-cap verification?",
+        "normalizedQuery": "what is the shadow side of market cap verification",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-shadow-side",
+        "expectedPageTitle": "The Shadow Side Of Proof Of Value",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-shadow-side-of-market-cap-verification",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-leverage-make-skeptical-truth-visible",
+        "query": "Why can leverage make skeptical truth visible?",
+        "normalizedQuery": "why can leverage make skeptical truth visible",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-leverage-as-truth-amplifier",
+        "expectedPageTitle": "Leverage As Truth Amplifier",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-leverage-make-skeptical-truth-visible",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-solver-refusal-defend-against-manipulated-prices",
+        "query": "How can solver refusal defend against manipulated prices?",
+        "normalizedQuery": "how can solver refusal defend against manipulated prices",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-refusal-as-oracle-defense",
+        "expectedPageTitle": "Solver Refusal As Oracle Defense",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-can-solver-refusal-defend-against-manipulated-prices",
+        "passes": true
+      },
+      {
+        "id": "qr-why-call-the-protocol-owned-solver-a-public-option",
+        "query": "Why call the protocol-owned solver a public option?",
+        "normalizedQuery": "why call the protocol owned solver a public option",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-protocol-owned-solver-public-option",
+        "expectedPageTitle": "Protocol-Owned Solver As Public Option",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-call-the-protocol-owned-solver-a-public-option",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-whale-vaults-tranche-risk",
+        "query": "How do whale vaults tranche risk?",
+        "normalizedQuery": "how do whale vaults tranche risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-whale-vault-risk-tranching",
+        "expectedPageTitle": "Whale Vaults And Risk Tranching",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-do-whale-vaults-tranche-risk",
         "passes": true
       },
       {
@@ -4125,7 +4230,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 171,
+      "exactRoutes": 176,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
@@ -4135,7 +4240,7 @@
   "gapSignals": {
     "totalGapQueueItems": 13,
     "questionSignals": 7,
-    "operatorSignals": 9,
+    "operatorSignals": 10,
     "parkedPageSignals": 2
   },
   "warnings": [
