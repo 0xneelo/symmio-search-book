@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 197
+      "totalGoldenRoutes": 202
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 215,
-    "retrievalEligiblePages": 1007,
+    "publicNavigationPages": 220,
+    "retrievalEligiblePages": 1012,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 215,
+      "candidate": 220,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 197,
-    "exactRouteTestsPassing": 197,
+    "totalExactRouteTests": 202,
+    "exactRouteTestsPassing": 202,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 197
+      "candidate": 202
     },
     "exactRoutesByConfidence": {
-      "Medium": 91,
+      "Medium": 93,
       "High": 30,
-      "Low": 76
+      "Low": 79
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1617,6 +1617,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-vibe-hard-for-competitors-to-copy",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-valley-of-death-in-token-market-creation",
+        "query": "What is the valley of death in token market creation?",
+        "normalizedQuery": "what is the valley of death in token market creation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-valley-of-death-lifecycle-gap",
+        "expectedPageTitle": "The Valley Of Death In Token Market Creation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-valley-of-death-in-token-market-creation",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-a-vibe-market-move-from-bootstrap-to-maturity",
+        "query": "How does a Vibe market move from bootstrap to maturity?",
+        "normalizedQuery": "how does a vibe market move from bootstrap to maturity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-maturation-state-map",
+        "expectedPageTitle": "The Market Maturation State Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-a-vibe-market-move-from-bootstrap-to-maturity",
+        "passes": true
+      },
+      {
+        "id": "qr-how-would-vibe-integrate-with-order-book-protocols",
+        "query": "How would Vibe integrate with order-book protocols?",
+        "normalizedQuery": "how would vibe integrate with order book protocols",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-order-book-integration-handshake",
+        "expectedPageTitle": "The Order-Book Integration Handshake",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-would-vibe-integrate-with-order-book-protocols",
+        "passes": true
+      },
+      {
+        "id": "qr-what-listing-data-can-vibe-produce-for-venues",
+        "query": "What listing data can Vibe produce for venues?",
+        "normalizedQuery": "what listing data can vibe produce for venues",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-data-product",
+        "expectedPageTitle": "Listing Data Is A Product",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-listing-data-can-vibe-produce-for-venues",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-vibe-s-initial-market-not-all-perpetuals",
+        "query": "Why is Vibe's initial market not all perpetuals?",
+        "normalizedQuery": "why is vibe s initial market not all perpetuals",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-small-market-wedge-strategy",
+        "expectedPageTitle": "The Small-Market Wedge Strategy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-vibe-s-initial-market-not-all-perpetuals",
         "passes": true
       },
       {
@@ -4679,7 +4784,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 197,
+      "exactRoutes": 202,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

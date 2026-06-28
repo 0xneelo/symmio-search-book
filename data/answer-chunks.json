@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1028,
-  "totalChunks": 1756,
-  "pagesWithChunks": 1028,
+  "totalPages": 1033,
+  "totalChunks": 1766,
+  "pagesWithChunks": 1033,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,18 +653,18 @@
     }
   },
   "byRouteSource": {
-    "authored": 216,
+    "authored": 221,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 415,
+    "authored": 425,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "product-reference": 46,
-    "manifesto": 224,
+    "manifesto": 234,
     "dashboard-reference": 24,
     "protocol-reference": 70,
     "competitive-context": 6,
@@ -3815,6 +3815,52 @@
       "text": "This is also why order books become attractive after maturity. Deep two sided flow keeps execution and marks close enough to the underlying story. Before that flow exists, Vibe has to make the bootstrap state explicit instead of pretending the market already has mature liquidity. Reader Implication When docs describe liquidity, they should answer the trader's practical questions: can I enter, exit, settle, and price my risk? If the answer depends on venue internal imbalance, the docs should say that clearly. Sources vibe papers : Neelo, \"Section 5: Liquidity as Trader Experience\". Related Pages authored token vault perps versus usdc pools authored market lifecycle gap authored order books as graduation layer"
     },
     {
+      "id": "authored-listing-data-product::001",
+      "pageId": "authored-listing-data-product",
+      "chunkIndex": 1,
+      "title": "Listing Data Is A Product",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/listing-data-product.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and internal judgment. Those signals can be useful, but they are proxies. They can be noisy, gameable, late, or biased toward connected projects. A Vibe market can produce a different kind of evidence: solver dependency, daily derivative volume, unique trader breadth, position duration, liquidation behavior, funding history, spread quality, and whether flow stays active after the first attention wave. That evidence can inform whether a market is ready for deeper execution. This turns data itself into a product. Exchanges can use it for listing decisions. Projects can use it to prove market quality. LPs and solvers can use it to price risk. Data providers can package it into demand indicators, quality scores, and research surfaces. Publication Boundary The source includes example threshold rules. Those should not become public product claims until metrics, cadence, formulas, manipulation controls, and destination venue use are confirmed. The publishable claim is that early derivatives data is valuable; exact listing rules remain review bound. Sources vibe papers : Neelo, \"Section 7: Industry Implications\". Related Pages"
+    },
+    {
+      "id": "authored-listing-data-product::002",
+      "pageId": "authored-listing-data-product",
+      "chunkIndex": 2,
+      "title": "Listing Data Is A Product",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/listing-data-product.md",
+      "wordStart": 185,
+      "wordEnd": 237,
+      "wordCount": 52,
+      "text": "manipulation controls, and destination venue use are confirmed. The publishable claim is that early derivatives data is valuable; exact listing rules remain review bound. Sources vibe papers : Neelo, \"Section 7: Industry Implications\". Related Pages authored graduation data checklist authored vibe as listing source of truth authored replication barriers and data moats"
+    },
+    {
       "id": "authored-listing-monopoly::001",
       "pageId": "authored-listing-monopoly",
       "chunkIndex": 1,
@@ -4293,6 +4339,52 @@
       "wordEnd": 226,
       "wordCount": 41,
       "text": "Neelo, \"Section 7: Industry Implications: 7.1 Filling the Market Lifecycle Gap\". vibe papers : Neelo, \"Section 4: The Lifecycle Gap: 4.1 Defining the Gap\". Related Pages authored market creation gap authored autonomous market creation authored volume 03 listing power and orderbooks"
+    },
+    {
+      "id": "authored-market-maturation-state-map::001",
+      "pageId": "authored-market-maturation-state-map",
+      "chunkIndex": 1,
+      "title": "The Market Maturation State Map",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/market-maturation-state-map.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Market Maturation State Map The market maturation state map turns Vibe's architecture into a sequence of states: launch, early growth, growth, maturation, and full integration. Each state has different requirements because the market's actual flow is different. At launch, the market needs a defined counterparty more than it needs perfect efficiency. The source models this state as solver backed, asynchronous, isolated, and conservatively parameterized. The market works because someone can take the first trade without waiting for the other side to appear. In early growth and growth, some trader flow begins to offset naturally. Solver exposure does not disappear, but it becomes more measurable. Spreads can tighten when residual risk falls. Leverage and open interest limits can become less conservative only if the market's behavior supports it. At maturation, the market can become a candidate for order book activation or deeper integration. The solver moves from primary residual counterparty toward market maker and backstop. Full integration is the state where the market has enough sustained activity, balance, and operational history to seek maximum capital efficiency. Publication Boundary The source includes sample Z score bands, example market sizes, and trigger language. The authored compendium should treat those as a model until product owners confirm live thresholds, measurement windows, venue handoff rules, and dashboard publication status. Sources vibe papers : Neelo,"
+    },
+    {
+      "id": "authored-market-maturation-state-map::002",
+      "pageId": "authored-market-maturation-state-map",
+      "chunkIndex": 2,
+      "title": "The Market Maturation State Map",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/market-maturation-state-map.md",
+      "wordStart": 185,
+      "wordEnd": 240,
+      "wordCount": 55,
+      "text": "example market sizes, and trigger language. The authored compendium should treat those as a model until product owners confirm live thresholds, measurement windows, venue handoff rules, and dashboard publication status. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture\". Related Pages authored four transitions authored z score graduation criteria authored temporal separation of concerns"
     },
     {
       "id": "authored-market-maturation-z-score::001",
@@ -4924,6 +5016,54 @@
       "wordEnd": 210,
       "wordCount": 210,
       "text": "The Bootstrap Limit Of Order Books Order books are selective because they have to be. A full order book market requires infrastructure, market making, operational support, liquidity attention, and enough continuous interest to justify the surface. That creates the long tail gap. Crypto can create assets permissionlessly, but mature derivative listings remain scarce. A venue must decide which markets are worth supporting before the market has fully expressed whether traders actually want the perp. The result is a prediction problem. Venues use proxies: spot volume, community pressure, relationships, auction outcomes, narrative strength, prior listings, or other signals of perceived demand. Projects then optimize for those proxies because the proxy controls market access. The source's claim is structural, not moral. Even a well intentioned order book venue becomes a gatekeeper when it cannot cheaply test every market. Reader Implication The docs should explain that Vibe is solving the information gap before mature listing. It lets demand become observable before the order book layer has to commit scarce listing and liquidity resources. Sources vibe papers : Neelo, \"Section 2: The Limit of Order Books\". vibe papers : Neelo, \"Section 2: The Problem with Listings\". Related Pages authored listing plus liquidity thesis authored game theory of listings authored end of narrative based listings"
+    },
+    {
+      "id": "authored-order-book-integration-handshake::001",
+      "pageId": "authored-order-book-integration-handshake",
+      "chunkIndex": 1,
+      "title": "The Order-Book Integration Handshake",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/order-book-integration-handshake.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Order Book Integration Handshake The order book integration handshake is the point where Vibe stops being only the bootstrap venue and becomes upstream infrastructure for deeper markets. In Neelo's source, a market earns this handoff by showing sustained maturity: lower solver dependency, meaningful volume, healthier balance between sides, and enough market maker interest to support a book. At that point, an order book can initialize, the solver can quote inside the book, external market makers can join, and liquidity can migrate gradually. The important word is \"handshake.\" Vibe does not need to claim that every market should stay inside one venue forever. The lifecycle is stronger if each layer does what it is best at: Vibe tests and matures early demand; order books scale efficient execution after the market has earned it. That makes order book protocols complements rather than enemies. A venue like Hyperliquid style infrastructure benefits from better pre listing evidence. Vibe benefits by focusing risk capital and solver effort on the markets still in bootstrap. Publication Boundary The source describes integration paths and graduation behavior as an architecture model. Final docs need product confirmation before naming live destination venues, handoff automation, fee arrangements, market maker participation, or exact eligibility rules. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture\". vibe papers : Neelo, \"Section 7:"
+    },
+    {
+      "id": "authored-order-book-integration-handshake::002",
+      "pageId": "authored-order-book-integration-handshake",
+      "chunkIndex": 2,
+      "title": "The Order-Book Integration Handshake",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/order-book-integration-handshake.md",
+      "wordStart": 185,
+      "wordEnd": 239,
+      "wordCount": 54,
+      "text": "need product confirmation before naming live destination venues, handoff automation, fee arrangements, market maker participation, or exact eligibility rules. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture\". vibe papers : Neelo, \"Section 7: Industry Implications\". Related Pages authored vibe as discovery layer authored order books as graduation layer authored programmatic market graduation"
     },
     {
       "id": "authored-order-books-as-graduation-layer::001",
@@ -6693,6 +6833,54 @@
       "wordEnd": 266,
       "wordCount": 81,
       "text": "one toxic market endanger the whole system. Reader Implication Builders should distinguish isolation for accounting from isolation as a capital model. Too much isolation makes the system legible but starves liquidity. Too little isolation makes losses contagious. The architecture has to pick the boundary deliberately. Sources vibe papers : Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\". vibe papers : Neelo, \"Section 2: Percolator Architecture\". Related Pages authored temporal separation of concerns authored funding defense hierarchy authored hybrid solver liquidity waterfall"
+    },
+    {
+      "id": "authored-small-market-wedge-strategy::001",
+      "pageId": "authored-small-market-wedge-strategy",
+      "chunkIndex": 1,
+      "title": "The Small-Market Wedge Strategy",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/small-market-wedge-strategy.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Small Market Wedge Strategy The small market wedge is the strategic answer to a common category mistake: Vibe is not trying to win all perpetual volume on day one. The source argues that the first category is narrower: tokens with spot attention and no serious perp market. That market is small enough to define and painful enough to matter. Incumbent order books focus on assets with proven demand. Vault protocols struggle to scale long tail risk efficiently. The wedge is the lifecycle gap where traders want exposure before conventional venues can justify the market. From there, the expansion path is concentric. Start with the long tail markets nobody else can serve well. Accumulate risk data, solver experience, LP behavior, and listing evidence. Expand across chains, asset classes, integrations, data products, and mature venue handoffs. This is a strategy page, not a monopoly guarantee. The source's Thiel framing is useful because it forces precise market definition and durability analysis. The docs should avoid unsupported claims that Vibe cannot be competed with. The safer and stronger claim is that solving bootstrap to maturity creates a category incumbents are not structurally built around. Reader Implication Readers should stop comparing Vibe only to mature perp venues. The initial question is whether Vibe can dominate the underserved market for early derivative creation. If it"
+    },
+    {
+      "id": "authored-small-market-wedge-strategy::002",
+      "pageId": "authored-small-market-wedge-strategy",
+      "chunkIndex": 2,
+      "title": "The Small-Market Wedge Strategy",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/small-market-wedge-strategy.md",
+      "wordStart": 185,
+      "wordEnd": 266,
+      "wordCount": 81,
+      "text": "incumbents are not structurally built around. Reader Implication Readers should stop comparing Vibe only to mature perp venues. The initial question is whether Vibe can dominate the underserved market for early derivative creation. If it can, the later integrations and data products become more plausible. Sources vibe papers : Neelo, \"Vibe Trading: A Thielian Monopoly Analysis\". vibe papers : Neelo, \"Section 8: Competitive Analysis\". Related Pages authored thielian listing monopoly authored thiel value creation capture authored replication barriers and data moats"
     },
     {
       "id": "authored-solver-default-and-continuity::001",
@@ -9089,6 +9277,54 @@
       "wordEnd": 369,
       "wordCount": 184,
       "text": "exposure is inside inventory, token utilization can drive normal and stress pricing. When exposure exceeds inventory, the model shifts toward insurance utilization and uses the more urgent signal for funding, spreads, borrow rates, and ADL proximity. That is not just mathematical neatness. It is an accounting discipline. The docs should teach readers that \"utilization\" means different things depending on which defense layer is active. Reader Implication For traders, utilization modes explain why cost can rise before liquidation or ADL is visible. For LPs and treasuries, they explain why inventory contribution and insurance contribution are different risk roles. For solvers, they clarify when a market has moved from ordinary inventory pressure into a tail risk management state. Publication Note The source includes example thresholds and formulas. Final public docs should not publish those as live Vibe parameters until operator and implementation review confirms the production values. Sources vibe papers : Neelo, \"05. Utilization Modes: Token Inventory vs Insurance Fund\". vibe papers : Neelo, \"09. Insurance & ADL Logic\". Related Pages authored funding defense hierarchy authored usdc settlement inventory separation authored loss waterfall and profit caps"
+    },
+    {
+      "id": "authored-valley-of-death-lifecycle-gap::001",
+      "pageId": "authored-valley-of-death-lifecycle-gap",
+      "chunkIndex": 1,
+      "title": "The Valley Of Death In Token Market Creation",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/valley-of-death-lifecycle-gap.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Valley Of Death In Token Market Creation The valley of death is the gap between early spot liquidity and mature perpetual availability. A token can launch, graduate to a DEX, and attract real speculative demand while still being too small, too volatile, or too unproven for conventional perp venues. Neelo's source maps the gap as a lifecycle discontinuity. Launchpads and DEXs make spot markets cheap to create, but perp listings usually arrive much later through manual review, committee judgment, auctions, or centralized venue discretion. Traders who want leverage either use substitutes, stay in spot, or leave the trade alone. Token holders who want hedges often have no clean instrument. This is why market creation is a structural problem, not only a UI problem. The question is not whether a mature market can trade efficiently once it exists. The question is how a market becomes credible enough to deserve mature execution. Vibe's role in this frame is to make the missing stage explicit: an early perp can be more expensive, more isolated, and more solver dependent while still being useful because it creates the first record of real derivative demand. Reader Implication Readers should understand the valley of death as the reason Vibe exists. The target is the lifecycle stage where demand is visible but the market has not yet"
+    },
+    {
+      "id": "authored-valley-of-death-lifecycle-gap::002",
+      "pageId": "authored-valley-of-death-lifecycle-gap",
+      "chunkIndex": 2,
+      "title": "The Valley Of Death In Token Market Creation",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/valley-of-death-lifecycle-gap.md",
+      "wordStart": 185,
+      "wordEnd": 259,
+      "wordCount": 74,
+      "text": "record of real derivative demand. Reader Implication Readers should understand the valley of death as the reason Vibe exists. The target is the lifecycle stage where demand is visible but the market has not yet earned conventional order book or centralized venue treatment. Sources vibe papers : Neelo, \"Section 1: Introduction\". vibe papers : Neelo, \"Section 7: Industry Implications\". Related Pages authored market creation gap authored autonomous market creation authored market maturation z score"
     },
     {
       "id": "authored-vibe-account-creation-and-login::001",

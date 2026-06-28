@@ -490,6 +490,12 @@
 - Routed five new Ask questions so the front door can explain the source's strongest vision layer without sending readers only to raw generated excerpts.
 - Preserved the publication guardrails: market cap is evidence rather than perfect truth, Strait Gate thresholds are not live rules, and global reputation language is an endgame thesis rather than a current dominance claim.
 
+## 2026-06-28 — Z-Score Market Infrastructure Strategy Layer
+
+- Added five authored manifesto pages from Neelo's Perp Classes / Z-score corpus: the token-market valley of death, market maturation state map, order-book integration handshake, listing data product, and small-market wedge strategy.
+- Routed five new Ask questions so the front door can answer market-infrastructure strategy questions from authored pages instead of raw extracted source sections.
+- Kept sample Z-score bands, graduation thresholds, venue handoff mechanics, listing rules, and monopoly/last-mover claims under product/operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

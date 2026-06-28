@@ -647,3 +647,11 @@
 **Reason:** The raw source is one of the strongest vision documents in the corpus, but several claims need careful publication framing. Market cap should be documented as costly evidence rather than perfect truth. Strait Gate graduation paths and thresholds should remain examples until confirmed. Global reputation protocol language should be framed as a category thesis that depends on adoption, solver participation, data quality, and downstream integrations.
 
 **Status:** Accepted for the authored manifesto layer; exact graduation rules, reputation metrics, and live venue adoption claims remain under operator/product review.
+
+## D-082: Treat Z-Score Strategy As Market-Infrastructure Evidence
+
+**Decision:** Add authored pages from the Perp Classes / Z-score source for lifecycle gap economics, market maturation states, order-book integration, listing data, and the small-market wedge strategy while keeping numeric thresholds and monopoly language review-bound.
+
+**Reason:** The source is foundational for explaining why Vibe is market-creation infrastructure rather than only another perp venue. It also contains sample metrics, market-cap ranges, Z-score bands, graduation triggers, and Thiel-style monopoly assessments that are useful as strategy but should not become live product guarantees without operator/product confirmation.
+
+**Status:** Accepted for the authored manifesto layer; exact Z-score thresholds, maturity formulas, destination venue integrations, listing-data products, and durability claims remain under product/operator review.

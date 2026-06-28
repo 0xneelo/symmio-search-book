@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 204,
-  "totalAnswerable": 197,
+  "totalEntries": 209,
+  "totalAnswerable": 202,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 31,
+    "Getting Started": 34,
     "Trading Flow": 24,
     "Solvers And Settlement": 41,
     "Risk And Markets": 15,
     "Revenue": 18,
-    "Manifesto": 42,
+    "Manifesto": 43,
     "Rewards And Referrals": 20,
     "Dashboard": 9,
-    "Data And Volume": 3,
+    "Data And Volume": 4,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 91,
+    "Medium": 93,
     "High": 30,
-    "Low": 76
+    "Low": 79
   },
   "byRouteSource": {
-    "authored": 197
+    "authored": 202
   },
   "byType": {
-    "answerable": 197,
+    "answerable": 202,
     "reconciliation": 7
   },
   "answerable": [
@@ -2543,6 +2543,151 @@
       "pageTitle": "Replication Barriers And Data Moats",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-valley-of-death-in-token-market-creation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the valley of death in token market creation?",
+      "normalizedQuestion": "what is the valley of death in token market creation",
+      "shortAnswer": "Neelo's Z-score paper maps the gap between early spot liquidity and mature perp availability as a lifecycle discontinuity.",
+      "answerSummary": "The Valley Of Death In Token Market Creation The valley of death is the gap between early spot liquidity and mature perpetual availability. A token can launch, graduate to a DEX, and attract real speculative demand while still being too small, too volatile, or too unproven for conventional perp venues. Neelo's source maps the gap as a lifecycle discontinu...",
+      "confidence": "Medium",
+      "pageId": "authored-valley-of-death-lifecycle-gap",
+      "pageTitle": "The Valley Of Death In Token Market Creation",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-vibe-market-move-from-bootstrap-to-maturity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does a Vibe market move from bootstrap to maturity?",
+      "normalizedQuestion": "how does a vibe market move from bootstrap to maturity",
+      "shortAnswer": "Neelo's architecture source describes launch, early growth, growth, maturation, and full integration as state transitions; live thresholds need product review.",
+      "answerSummary": "The Market Maturation State Map The market maturation state map turns Vibe's architecture into a sequence of states: launch, early growth, growth, maturation, and full integration. Each state has different requirements because the market's actual flow is different. At launch, the market needs a defined counterparty more than it needs perfect efficiency. T...",
+      "confidence": "Low",
+      "pageId": "authored-market-maturation-state-map",
+      "pageTitle": "The Market Maturation State Map",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-would-vibe-integrate-with-order-book-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How would Vibe integrate with order-book protocols?",
+      "normalizedQuestion": "how would vibe integrate with order book protocols",
+      "shortAnswer": "Neelo's architecture and industry sections frame Vibe as the bootstrap layer that hands mature markets toward order-book efficiency.",
+      "answerSummary": "The Order Book Integration Handshake The order book integration handshake is the point where Vibe stops being only the bootstrap venue and becomes upstream infrastructure for deeper markets. In Neelo's source, a market earns this handoff by showing sustained maturity: lower solver dependency, meaningful volume, healthier balance between sides, and enough...",
+      "confidence": "Low",
+      "pageId": "authored-order-book-integration-handshake",
+      "pageTitle": "The Order-Book Integration Handshake",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-listing-data-can-vibe-produce-for-venues",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "What listing data can Vibe produce for venues?",
+      "normalizedQuestion": "what listing data can vibe produce for venues",
+      "shortAnswer": "Neelo's industry section names Z-score, volume, trader breadth, position duration, liquidation rate, and funding history as potential listing evidence.",
+      "answerSummary": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and inter...",
+      "confidence": "Low",
+      "pageId": "authored-listing-data-product",
+      "pageTitle": "Listing Data Is A Product",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-s-initial-market-not-all-perpetuals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe's initial market not all perpetuals?",
+      "normalizedQuestion": "why is vibe s initial market not all perpetuals",
+      "shortAnswer": "Neelo's Thiel analysis defines the initial wedge as underserved early-token perp creation, not the whole mature perps market.",
+      "answerSummary": "The Small Market Wedge Strategy The small market wedge is the strategic answer to a common category mistake: Vibe is not trying to win all perpetual volume on day one. The source argues that the first category is narrower: tokens with spot attention and no serious perp market. That market is small enough to define and painful enough to matter. Incumbent o...",
+      "confidence": "Medium",
+      "pageId": "authored-small-market-wedge-strategy",
+      "pageTitle": "The Small-Market Wedge Strategy",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -9764,6 +9909,151 @@
       "pageTitle": "Replication Barriers And Data Moats",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-valley-of-death-in-token-market-creation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the valley of death in token market creation?",
+      "normalizedQuestion": "what is the valley of death in token market creation",
+      "shortAnswer": "Neelo's Z-score paper maps the gap between early spot liquidity and mature perp availability as a lifecycle discontinuity.",
+      "answerSummary": "The Valley Of Death In Token Market Creation The valley of death is the gap between early spot liquidity and mature perpetual availability. A token can launch, graduate to a DEX, and attract real speculative demand while still being too small, too volatile, or too unproven for conventional perp venues. Neelo's source maps the gap as a lifecycle discontinu...",
+      "confidence": "Medium",
+      "pageId": "authored-valley-of-death-lifecycle-gap",
+      "pageTitle": "The Valley Of Death In Token Market Creation",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-vibe-market-move-from-bootstrap-to-maturity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does a Vibe market move from bootstrap to maturity?",
+      "normalizedQuestion": "how does a vibe market move from bootstrap to maturity",
+      "shortAnswer": "Neelo's architecture source describes launch, early growth, growth, maturation, and full integration as state transitions; live thresholds need product review.",
+      "answerSummary": "The Market Maturation State Map The market maturation state map turns Vibe's architecture into a sequence of states: launch, early growth, growth, maturation, and full integration. Each state has different requirements because the market's actual flow is different. At launch, the market needs a defined counterparty more than it needs perfect efficiency. T...",
+      "confidence": "Low",
+      "pageId": "authored-market-maturation-state-map",
+      "pageTitle": "The Market Maturation State Map",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-would-vibe-integrate-with-order-book-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How would Vibe integrate with order-book protocols?",
+      "normalizedQuestion": "how would vibe integrate with order book protocols",
+      "shortAnswer": "Neelo's architecture and industry sections frame Vibe as the bootstrap layer that hands mature markets toward order-book efficiency.",
+      "answerSummary": "The Order Book Integration Handshake The order book integration handshake is the point where Vibe stops being only the bootstrap venue and becomes upstream infrastructure for deeper markets. In Neelo's source, a market earns this handoff by showing sustained maturity: lower solver dependency, meaningful volume, healthier balance between sides, and enough...",
+      "confidence": "Low",
+      "pageId": "authored-order-book-integration-handshake",
+      "pageTitle": "The Order-Book Integration Handshake",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-listing-data-can-vibe-produce-for-venues",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "What listing data can Vibe produce for venues?",
+      "normalizedQuestion": "what listing data can vibe produce for venues",
+      "shortAnswer": "Neelo's industry section names Z-score, volume, trader breadth, position duration, liquidation rate, and funding history as potential listing evidence.",
+      "answerSummary": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and inter...",
+      "confidence": "Low",
+      "pageId": "authored-listing-data-product",
+      "pageTitle": "Listing Data Is A Product",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-s-initial-market-not-all-perpetuals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe's initial market not all perpetuals?",
+      "normalizedQuestion": "why is vibe s initial market not all perpetuals",
+      "shortAnswer": "Neelo's Thiel analysis defines the initial wedge as underserved early-token perp creation, not the whole mature perps market.",
+      "answerSummary": "The Small Market Wedge Strategy The small market wedge is the strategic answer to a common category mistake: Vibe is not trying to win all perpetual volume on day one. The source argues that the first category is narrower: tokens with spot attention and no serious perp market. That market is small enough to define and painful enough to matter. Incumbent o...",
+      "confidence": "Medium",
+      "pageId": "authored-small-market-wedge-strategy",
+      "pageTitle": "The Small-Market Wedge Strategy",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
