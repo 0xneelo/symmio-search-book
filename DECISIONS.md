@@ -655,3 +655,11 @@
 **Reason:** The source is foundational for explaining why Vibe is market-creation infrastructure rather than only another perp venue. It also contains sample metrics, market-cap ranges, Z-score bands, graduation triggers, and Thiel-style monopoly assessments that are useful as strategy but should not become live product guarantees without operator/product confirmation.
 
 **Status:** Accepted for the authored manifesto layer; exact Z-score thresholds, maturity formulas, destination venue integrations, listing-data products, and durability claims remain under product/operator review.
+
+## D-083: Treat Referral Rollout As Operations Infrastructure
+
+**Decision:** Expand the authored referral layer with pages for access phasing, settlement security controls, market creation velocity, dashboard reporting standards, and rollout governance while keeping exact live policy review-bound.
+
+**Reason:** Neelo's referral corpus is not only a rewards pitch. It defines phased launch control, claim-security surfaces, KPI governance, public dashboard standards, and decision ownership. The compendium should preserve that operational discipline so referral growth is documented as market-formation infrastructure rather than a generic acquisition funnel.
+
+**Status:** Accepted for the authored reference layer; referral depth, code activation thresholds, transferability, signer models, partner tiers, reward caps, and public dashboard publication policy remain under operator/product/security review.

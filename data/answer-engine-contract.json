@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 202
+      "totalGoldenRoutes": 207
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 220,
-    "retrievalEligiblePages": 1012,
+    "publicNavigationPages": 225,
+    "retrievalEligiblePages": 1017,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 220,
+      "candidate": 225,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 202,
-    "exactRouteTestsPassing": 202,
+    "totalExactRouteTests": 207,
+    "exactRouteTestsPassing": 207,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 202
+      "candidate": 207
     },
     "exactRoutesByConfidence": {
-      "Medium": 93,
+      "Medium": 94,
       "High": 30,
-      "Low": 79
+      "Low": 83
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1468,6 +1468,121 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-which-referral-metrics-prove-quality",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-access-open-over-time",
+        "query": "How should referral access open over time?",
+        "normalizedQuery": "how should referral access open over time",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-access-phasing-operating-model",
+        "expectedPageTitle": "Referral Access Phasing Operating Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-access-open-over-time",
+        "passes": true
+      },
+      {
+        "id": "qr-what-security-controls-protect-referral-settlement",
+        "query": "What security controls protect referral settlement?",
+        "normalizedQuery": "what security controls protect referral settlement",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-settlement-security-controls",
+        "expectedPageTitle": "Referral Settlement Security Controls",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-security-controls-protect-referral-settlement",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-market-creation-velocity-the-referral-north-star",
+        "query": "Why is market creation velocity the referral north star?",
+        "normalizedQuery": "why is market creation velocity the referral north star",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-market-creation-velocity",
+        "expectedPageTitle": "Referral Market Creation Velocity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-market-creation-velocity-the-referral-north-star",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-dashboards-report-growth",
+        "query": "How should referral dashboards report growth?",
+        "normalizedQuery": "how should referral dashboards report growth",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-dashboard-reporting-standards",
+        "expectedPageTitle": "Referral Dashboard Reporting Standards",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-dashboards-report-growth",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-open-referral-decisions-be-governed",
+        "query": "How should open referral decisions be governed?",
+        "normalizedQuery": "how should open referral decisions be governed",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-rollout-governance-checklist",
+        "expectedPageTitle": "Referral Rollout Governance Checklist",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-open-referral-decisions-be-governed",
         "passes": true
       },
       {
@@ -4784,7 +4899,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 202,
+      "exactRoutes": 207,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

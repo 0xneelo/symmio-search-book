@@ -496,6 +496,12 @@
 - Routed five new Ask questions so the front door can answer market-infrastructure strategy questions from authored pages instead of raw extracted source sections.
 - Kept sample Z-score bands, graduation thresholds, venue handoff mechanics, listing rules, and monopoly/last-mover claims under product/operator review.
 
+## 2026-06-28 — Referral Operations And Measurement Reference Layer
+
+- Added five authored Volume 06 reference pages from Neelo's referral-program corpus: access phasing, settlement security controls, market creation velocity, dashboard reporting standards, and rollout governance.
+- Routed five new Ask questions so the front door can answer referral rollout, settlement, KPI, dashboard, and governance questions without relying only on raw source sections.
+- Kept referral depth, code activation thresholds, transferability, signer models, partner tiers, reward caps, and live dashboard publication policy under operator/product/security review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

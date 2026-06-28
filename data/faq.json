@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 209,
-  "totalAnswerable": 202,
+  "totalEntries": 214,
+  "totalAnswerable": 207,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 15,
     "Revenue": 18,
     "Manifesto": 43,
-    "Rewards And Referrals": 20,
+    "Rewards And Referrals": 25,
     "Dashboard": 9,
     "Data And Volume": 4,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 93,
+    "Medium": 94,
     "High": 30,
-    "Low": 79
+    "Low": 83
   },
   "byRouteSource": {
-    "authored": 202
+    "authored": 207
   },
   "byType": {
-    "answerable": 202,
+    "answerable": 207,
     "reconciliation": 7
   },
   "answerable": [
@@ -2322,6 +2322,191 @@
       "confidence": "Low",
       "pageId": "authored-referral-metrics-and-integrity",
       "pageTitle": "Referral Metrics And Integrity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-access-open-over-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral access open over time?",
+      "normalizedQuestion": "how should referral access open over time",
+      "shortAnswer": "Neelo's access-phasing source supports gated launch, unified access/referral identity, open participation, migration windows, and qualified issuance.",
+      "answerSummary": "Referral Access Phasing Operating Model Neelo's access phasing section treats access codes as launch control infrastructure. The early purpose is not permanent exclusivity. It is to bound high sensitivity actions while trading, listing, attribution, monitoring, and reward accounting harden. The operating model has three phases: access gated launch, where...",
+      "confidence": "Low",
+      "pageId": "authored-referral-access-phasing-operating-model",
+      "pageTitle": "Referral Access Phasing Operating Model",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-security-controls-protect-referral-settlement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What security controls protect referral settlement?",
+      "normalizedQuestion": "what security controls protect referral settlement",
+      "shortAnswer": "Neelo's security-controls and architecture sources support signer isolation, replay-safe claims, audit trails, anomaly monitoring, cooldowns, and fail-closed settlement.",
+      "answerSummary": "Referral Settlement Security Controls The referral security source names the critical risk surfaces plainly: points ledger tampering, signer compromise, claim replay, over issuance, and operational blind spots during launch volatility. That makes referral security a settlement problem, not only an anti spam problem. If rewards can become claims, claims ca...",
+      "confidence": "Low",
+      "pageId": "authored-referral-settlement-security-controls",
+      "pageTitle": "Referral Settlement Security Controls",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-market-creation-velocity-the-referral-north-star",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why is market creation velocity the referral north star?",
+      "normalizedQuestion": "why is market creation velocity the referral north star",
+      "shortAnswer": "Neelo's metrics sources define high-quality listings created and sustained over time as the referral program's core business metric.",
+      "answerSummary": "Referral Market Creation Velocity Neelo's metrics framework names high quality listings created and sustained over time as the referral program's core business metric. The product metrics chapter gives the public label: market creation velocity. That choice is important. Raw users, raw invites, or raw referral code activations can rise while the market la...",
+      "confidence": "Low",
+      "pageId": "authored-referral-market-creation-velocity",
+      "pageTitle": "Referral Market Creation Velocity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-dashboards-report-growth",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral dashboards report growth?",
+      "normalizedQuestion": "how should referral dashboards report growth",
+      "shortAnswer": "Neelo's product-metrics source supports acquisition, market supply, market demand, and integrity views with phase labels and formula versions.",
+      "answerSummary": "Referral Dashboard Reporting Standards The product metrics chapter defines minimum external dashboard views for a referral rollout: acquisition funnel, market supply, market demand, and integrity. That structure matters because a referral dashboard can otherwise over index on the easiest numbers to inflate. Code issued, signups, and first deposits are use...",
+      "confidence": "Low",
+      "pageId": "authored-referral-dashboard-reporting-standards",
+      "pageTitle": "Referral Dashboard Reporting Standards",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-open-referral-decisions-be-governed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should open referral decisions be governed?",
+      "normalizedQuestion": "how should open referral decisions be governed",
+      "shortAnswer": "Neelo's open-decisions source requires owner, milestone, policy statement, and measurable acceptance criteria for unresolved referral policy.",
+      "answerSummary": "Referral Rollout Governance Checklist The open decisions chapter does not treat unresolved referral policy as a reason to stop. It defines a governance requirement: each open decision needs an owner, target milestone, policy statement, and measurable acceptance criteria. That checklist is the difference between a living docs system and a pile of caveats....",
+      "confidence": "Medium",
+      "pageId": "authored-referral-rollout-governance-checklist",
+      "pageTitle": "Referral Rollout Governance Checklist",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -9688,6 +9873,191 @@
       "confidence": "Low",
       "pageId": "authored-referral-metrics-and-integrity",
       "pageTitle": "Referral Metrics And Integrity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-access-open-over-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral access open over time?",
+      "normalizedQuestion": "how should referral access open over time",
+      "shortAnswer": "Neelo's access-phasing source supports gated launch, unified access/referral identity, open participation, migration windows, and qualified issuance.",
+      "answerSummary": "Referral Access Phasing Operating Model Neelo's access phasing section treats access codes as launch control infrastructure. The early purpose is not permanent exclusivity. It is to bound high sensitivity actions while trading, listing, attribution, monitoring, and reward accounting harden. The operating model has three phases: access gated launch, where...",
+      "confidence": "Low",
+      "pageId": "authored-referral-access-phasing-operating-model",
+      "pageTitle": "Referral Access Phasing Operating Model",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-security-controls-protect-referral-settlement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What security controls protect referral settlement?",
+      "normalizedQuestion": "what security controls protect referral settlement",
+      "shortAnswer": "Neelo's security-controls and architecture sources support signer isolation, replay-safe claims, audit trails, anomaly monitoring, cooldowns, and fail-closed settlement.",
+      "answerSummary": "Referral Settlement Security Controls The referral security source names the critical risk surfaces plainly: points ledger tampering, signer compromise, claim replay, over issuance, and operational blind spots during launch volatility. That makes referral security a settlement problem, not only an anti spam problem. If rewards can become claims, claims ca...",
+      "confidence": "Low",
+      "pageId": "authored-referral-settlement-security-controls",
+      "pageTitle": "Referral Settlement Security Controls",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-market-creation-velocity-the-referral-north-star",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why is market creation velocity the referral north star?",
+      "normalizedQuestion": "why is market creation velocity the referral north star",
+      "shortAnswer": "Neelo's metrics sources define high-quality listings created and sustained over time as the referral program's core business metric.",
+      "answerSummary": "Referral Market Creation Velocity Neelo's metrics framework names high quality listings created and sustained over time as the referral program's core business metric. The product metrics chapter gives the public label: market creation velocity. That choice is important. Raw users, raw invites, or raw referral code activations can rise while the market la...",
+      "confidence": "Low",
+      "pageId": "authored-referral-market-creation-velocity",
+      "pageTitle": "Referral Market Creation Velocity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-dashboards-report-growth",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral dashboards report growth?",
+      "normalizedQuestion": "how should referral dashboards report growth",
+      "shortAnswer": "Neelo's product-metrics source supports acquisition, market supply, market demand, and integrity views with phase labels and formula versions.",
+      "answerSummary": "Referral Dashboard Reporting Standards The product metrics chapter defines minimum external dashboard views for a referral rollout: acquisition funnel, market supply, market demand, and integrity. That structure matters because a referral dashboard can otherwise over index on the easiest numbers to inflate. Code issued, signups, and first deposits are use...",
+      "confidence": "Low",
+      "pageId": "authored-referral-dashboard-reporting-standards",
+      "pageTitle": "Referral Dashboard Reporting Standards",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-open-referral-decisions-be-governed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should open referral decisions be governed?",
+      "normalizedQuestion": "how should open referral decisions be governed",
+      "shortAnswer": "Neelo's open-decisions source requires owner, milestone, policy statement, and measurable acceptance criteria for unresolved referral policy.",
+      "answerSummary": "Referral Rollout Governance Checklist The open decisions chapter does not treat unresolved referral policy as a reason to stop. It defines a governance requirement: each open decision needs an owner, target milestone, policy statement, and measurable acceptance criteria. That checklist is the difference between a living docs system and a pile of caveats....",
+      "confidence": "Medium",
+      "pageId": "authored-referral-rollout-governance-checklist",
+      "pageTitle": "Referral Rollout Governance Checklist",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

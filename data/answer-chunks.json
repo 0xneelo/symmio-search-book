@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1033,
-  "totalChunks": 1766,
-  "pagesWithChunks": 1033,
+  "totalPages": 1038,
+  "totalChunks": 1776,
+  "pagesWithChunks": 1038,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 221,
+    "authored": 226,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 425,
+    "authored": 435,
     "curated": 20,
     "generated": 1321
   },
@@ -669,7 +669,7 @@
     "protocol-reference": 70,
     "competitive-context": 6,
     "reference": 2,
-    "rewards-referrals": 40,
+    "rewards-referrals": 50,
     "answer-engine": 1,
     "solver-reference": 9,
     "compendium": 16,
@@ -6029,6 +6029,58 @@
       "text": "\"Section 6: The Hybrid Solver Model: 6.1 Protocol Owned Solver (POS)\". vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\". Related Pages authored solver owned market maker authored hybrid solver liquidity waterfall authored symmio solver operations and hedging"
     },
     {
+      "id": "authored-referral-access-phasing-operating-model::001",
+      "pageId": "authored-referral-access-phasing-operating-model",
+      "chunkIndex": 1,
+      "title": "Referral Access Phasing Operating Model",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-access-phasing-operating-model.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Referral Access Phasing Operating Model Neelo's access phasing section treats access codes as launch control infrastructure. The early purpose is not permanent exclusivity. It is to bound high sensitivity actions while trading, listing, attribution, monitoring, and reward accounting harden. The operating model has three phases: access gated launch, where codes are required for sensitive flows such as trading and listing; unified access and referral identity, where onboarding and attribution become one identity surface; open participation, where core use is broadly available and codes become optional accelerators. That sequence answers two opposite risks. Opening every incentive surface immediately can outrun abuse controls. Staying gated too long can throttle the network effects that make referrals useful. Transition Requirements The source names three migration requirements for every phase transition: backward compatibility windows, code format migration rules, and transparent communication to traders, listers, and partners. Those requirements matter because access state becomes economic state once referral, rakeback, points, and claims depend on it. A transition that changes code semantics without a compatibility window can break attribution. A transition that changes issuer eligibility without public communication can create disputes about who owns future rewards. Issuance Policy The same source favors qualified referral code issuance. Possible routes include performance thresholds, curated campaign grants, and progressive unlock criteria. That keeps referral codes tied to market contribution instead"
+    },
+    {
+      "id": "authored-referral-access-phasing-operating-model::002",
+      "pageId": "authored-referral-access-phasing-operating-model",
+      "chunkIndex": 2,
+      "title": "Referral Access Phasing Operating Model",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-access-phasing-operating-model.md",
+      "wordStart": 185,
+      "wordEnd": 312,
+      "wordCount": 127,
+      "text": "who owns future rewards. Issuance Policy The same source favors qualified referral code issuance. Possible routes include performance thresholds, curated campaign grants, and progressive unlock criteria. That keeps referral codes tied to market contribution instead of making every account immediately reward eligible. Reader Implication The public docs should describe the current phase, not imply a permanent gate. They should also separate base access, referral identity, and reward eligible code activation, because the architecture allows those states to diverge during pre beta and beta. Sources vibe papers : Neelo, \"Section 6: Access Phasing\". vibe papers : Neelo, \"Section 2: Architecture\". spec 03 : current referral depth and product state caveats. Related Pages authored referral issuance and anti gaming authored referral identity and claim flow authored referral policy governance"
+    },
+    {
       "id": "authored-referral-architecture-as-market-formation::001",
       "pageId": "authored-referral-architecture-as-market-formation",
       "chunkIndex": 1,
@@ -6053,6 +6105,60 @@
       "wordEnd": 198,
       "wordCount": 198,
       "text": "Referral Architecture As Market Formation Neelo's referral architecture paper treats referrals as market formation infrastructure, not just campaign growth copy. The design objective is to increase high quality market listings while preserving fee integrity and limiting abuse. That means the referral layer has to balance on chain identity, configurable partner economics, rakeback, points, reward abstractions, issuance policy, and operational safeguards. The referral economics section highlights why this is hard. Self referrals, code shopping, and attribution disputes can turn a growth program into extraction if benefits are unequal or issuance is unconstrained. A durable system needs clear issuer eligibility, uniform referee benefits where possible, and explicit ownership rules for referral rights. Reader Implication This page should link the dashboard referral mechanics back to the bigger market formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility, but operator inbox item 3 still controls final public depth and historical accounting language. Sources vibe papers : Neelo, \"Referral Program Architecture\". vibe papers : Neelo, \"Section 5: Referral Economics\". spec 03 : current onboarding dashboard points and referral depth caveats. Related Pages authored referral depth open question authored dashboard invites neelo 17 referral program 17 docs 05 referral economics"
+    },
+    {
+      "id": "authored-referral-dashboard-reporting-standards::001",
+      "pageId": "authored-referral-dashboard-reporting-standards",
+      "chunkIndex": 1,
+      "title": "Referral Dashboard Reporting Standards",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-dashboard-reporting-standards.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Referral Dashboard Reporting Standards The product metrics chapter defines minimum external dashboard views for a referral rollout: acquisition funnel, market supply, market demand, and integrity. That structure matters because a referral dashboard can otherwise over index on the easiest numbers to inflate. Code issued, signups, and first deposits are useful, but they do not prove market quality by themselves. Minimum Views The source's dashboard architecture separates: acquisition funnel: code issued, signup, first deposit, first trade, first listing; market supply: new listings, active markets, and repeat listers; market demand: trades per market decile, depth concentration, and turnover; integrity: anomaly flags, suspicious volume ratio, and false positive rates. The metrics framework adds reporting rules: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels such as pre beta, beta, and open. Traceability The design coverage map is a routing layer for referral documentation. It says concept details should live in their owning chapter, with the map updated when chapter scope changes. The same principle should apply to dashboards: if a number is public, the docs should route to its definition, owner, and phase. Reader Implication Referral dashboards should present metrics as versioned evidence, not free floating proof. A public chart needs phase labels, formula versions, organic versus campaign separation, and a link back to the rule that defines"
+    },
+    {
+      "id": "authored-referral-dashboard-reporting-standards::002",
+      "pageId": "authored-referral-dashboard-reporting-standards",
+      "chunkIndex": 2,
+      "title": "Referral Dashboard Reporting Standards",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-dashboard-reporting-standards.md",
+      "wordStart": 185,
+      "wordEnd": 264,
+      "wordCount": 79,
+      "text": "Reader Implication Referral dashboards should present metrics as versioned evidence, not free floating proof. A public chart needs phase labels, formula versions, organic versus campaign separation, and a link back to the rule that defines it. Sources vibe papers : Neelo, \"Product Metrics Framework\". vibe papers : Neelo, \"Section 9: Metrics Framework\". vibe papers : Neelo, \"Design Coverage Map\". spec 03 : current dashboard metrics caveats. Related Pages authored dashboard overview authored dashboard volume authored referral metrics and integrity"
     },
     {
       "id": "authored-referral-depth-open-question::001",
@@ -6229,6 +6335,60 @@
       "text": "incentive surfaces before monitoring is mature, while also avoiding permanent gating that throttles network effects. Reader Implication The docs should frame referral code scarcity as a quality control mechanism, not as artificial exclusivity. Any early cohort or master code model needs eligibility, duration, propagation limits, and sunset rules before it becomes public policy. Sources vibe papers : Neelo, \"Section 5: Referral Economics\". vibe papers : Neelo, \"Section 6: Access Phasing\". spec 03 : Referral public stance remains unresolved. Related Pages authored referral identity and claim flow authored referral depth open question neelo 17 referral program 17 docs 05 referral economics"
     },
     {
+      "id": "authored-referral-market-creation-velocity::001",
+      "pageId": "authored-referral-market-creation-velocity",
+      "chunkIndex": 1,
+      "title": "Referral Market Creation Velocity",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-market-creation-velocity.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Referral Market Creation Velocity Neelo's metrics framework names high quality listings created and sustained over time as the referral program's core business metric. The product metrics chapter gives the public label: market creation velocity. That choice is important. Raw users, raw invites, or raw referral code activations can rise while the market layer gets worse. The referral system only matters to Vibe if it helps create tradable opportunities that attract demand and generate fees. What The Metric Protects Market creation velocity protects the docs from treating referrals as a standalone marketing widget. The conclusion of the referral source says the program connects user acquisition, market creation, and fee distribution. If a referral loop increases acquisition but does not improve market supply, it is not proving the core thesis. Useful supporting signals include: new listings per week and active markets; time to first listing and weekly active listers; traders per active market and fee generating volume; repeat listers and market activation rates. Those signals distinguish creation from sustained quality. A market that is listed but never attracts two sided interest is weaker evidence than a market that produces repeated lister activity, trader participation, and fee flow. Guardrail The product metrics chapter warns against optimizing headline KPIs by lowering market quality thresholds. In this compendium, referral success should be described as quality"
+    },
+    {
+      "id": "authored-referral-market-creation-velocity::002",
+      "pageId": "authored-referral-market-creation-velocity",
+      "chunkIndex": 2,
+      "title": "Referral Market Creation Velocity",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-market-creation-velocity.md",
+      "wordStart": 185,
+      "wordEnd": 313,
+      "wordCount": 128,
+      "text": "that produces repeated lister activity, trader participation, and fee flow. Guardrail The product metrics chapter warns against optimizing headline KPIs by lowering market quality thresholds. In this compendium, referral success should be described as quality adjusted market formation, not maximum referral count. Reader Implication When users ask whether the referral system is working, the answer should route to market creation first. Invite growth is useful only when it compounds into listings, active markets, demand distribution, and credible fee generation. Sources vibe papers : Neelo, \"Section 9: Metrics Framework\". vibe papers : Neelo, \"Product Metrics Framework\". vibe papers : Neelo, \"Section 11: Conclusion\". spec 03 : current product state and dashboard caveats. Related Pages authored referral architecture as market formation authored market scoped referrals authored referral metrics and integrity"
+    },
+    {
       "id": "authored-referral-metrics-and-integrity::001",
       "pageId": "authored-referral-metrics-and-integrity",
       "chunkIndex": 1,
@@ -6384,6 +6544,112 @@
       "wordEnd": 312,
       "wordCount": 127,
       "text": "is easier to operate early because claims can be authorized and settled through a constrained path. A net fee or same flow rebate model is smoother for users, but it requires stronger real time determinism and tighter settlement controls. Reader Implication When the docs explain rakeback, they should name the channel, the calculation window, the applicable public policy version, and whether a private overlay exists. Until operator inbox item 3 is resolved, do not publish final depth, stacking, or backfill language. Sources vibe papers : Neelo, \"Section 3: Rakeback Design\". vibe papers : Neelo, \"Section 10: Open Decisions\". spec 03 : Referral depth contradiction and public disclosure caveats. Related Pages authored points taxonomy authored referral depth open question neelo 17 referral program 17 docs 03 rakeback design"
+    },
+    {
+      "id": "authored-referral-rollout-governance-checklist::001",
+      "pageId": "authored-referral-rollout-governance-checklist",
+      "chunkIndex": 1,
+      "title": "Referral Rollout Governance Checklist",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/10-open-decisions",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-rollout-governance-checklist.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Referral Rollout Governance Checklist The open decisions chapter does not treat unresolved referral policy as a reason to stop. It defines a governance requirement: each open decision needs an owner, target milestone, policy statement, and measurable acceptance criteria. That checklist is the difference between a living docs system and a pile of caveats. The compendium can publish the architecture while keeping unresolved policy clearly review bound. Decision Groups The source groups open decisions into four practical lanes: referral policy: depth, referee benefit variants, and attachment changes after signup; economic policy: private tiers, transferability, TGE weighting, and reward caps; settlement and security: in flow versus claim based rebates, signer models, freezes, and rollback scope; rollout and capacity: listing throughput, month one versus month three features, and partner sequencing. Each lane has a different owner profile. Product can decide wording and launch phases. Security and protocol owners need to sign off settlement controls. Commercial owners need to define partner tiers without obscuring public economics. Documentation Rule The design coverage map says chapter level details belong in their primary files, not duplicated across the docs. When chapter scope changes, update the relevant chapter first, then update the map. For the public compendium, that becomes a traceability rule: do not bury a policy change inside FAQ copy. Update the owning page, regenerate routes and"
+    },
+    {
+      "id": "authored-referral-rollout-governance-checklist::002",
+      "pageId": "authored-referral-rollout-governance-checklist",
+      "chunkIndex": 2,
+      "title": "Referral Rollout Governance Checklist",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/10-open-decisions",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-rollout-governance-checklist.md",
+      "wordStart": 185,
+      "wordEnd": 325,
+      "wordCount": 140,
+      "text": "changes, update the relevant chapter first, then update the map. For the public compendium, that becomes a traceability rule: do not bury a policy change inside FAQ copy. Update the owning page, regenerate routes and answer chunks, then let the answer engine point users to the new source of truth. Reader Implication The referral docs should be comfortable saying \"architecture decided, policy pending\" when that is the true state. That is more credible than publishing a final looking answer before referral depth, transferability, signer controls, and rollout capacity are operator approved. Sources vibe papers : Neelo, \"Section 10: Open Decisions\". vibe papers : Neelo, \"Section 11: Conclusion\". vibe papers : Neelo, \"Design Coverage Map\". spec 03 : current referral depth and public economics caveats. Related Pages authored referral policy governance authored referral depth open question authored referral settlement security controls"
+    },
+    {
+      "id": "authored-referral-settlement-security-controls::001",
+      "pageId": "authored-referral-settlement-security-controls",
+      "chunkIndex": 1,
+      "title": "Referral Settlement Security Controls",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-settlement-security-controls.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Referral Settlement Security Controls The referral security source names the critical risk surfaces plainly: points ledger tampering, signer compromise, claim replay, over issuance, and operational blind spots during launch volatility. That makes referral security a settlement problem, not only an anti spam problem. If rewards can become claims, claims can become economic value, and economic value can move, the system needs controls before the growth loop expands. Minimum Control Set The source's minimum control set includes: signer isolation with key rotation and approval controls; replay safe claims using nonces and expiry; audit trails for tier changes and admin policy overrides; anomaly monitoring for reward spikes and attribution outliers. The architecture source adds the same boundary in another form: deterministic state, policy state, and monitoring state should stay separate. Claim consumption and nonces should not be mutable growth policy state. Monitoring should detect anomalies without silently rewriting economic history. Cooldown And Incident Scope A cooldown window before transferability can reduce the blast radius of fraudulent reward injections. It is not a complete defense. The source frames it as a circuit breaker that only works when paired with active monitoring. Launch readiness also needs incident runbooks, explicit freeze scopes, and fail safe paths for payout and withdrawal anomalies. Without those, the team can know something is wrong but still lack a bounded"
+    },
+    {
+      "id": "authored-referral-settlement-security-controls::002",
+      "pageId": "authored-referral-settlement-security-controls",
+      "chunkIndex": 2,
+      "title": "Referral Settlement Security Controls",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-settlement-security-controls.md",
+      "wordStart": 185,
+      "wordEnd": 313,
+      "wordCount": 128,
+      "text": "with active monitoring. Launch readiness also needs incident runbooks, explicit freeze scopes, and fail safe paths for payout and withdrawal anomalies. Without those, the team can know something is wrong but still lack a bounded response path. Reader Implication The public docs should not describe referral settlement as \"instant rewards\" unless the exact settlement path supports that claim. The safer principle is the source's principle: incentive systems should fail closed on settlement. Growth speed can return after verification; credibility cannot be easily recovered after silent inflation. Sources vibe papers : Neelo, \"Section 8: Security Controls\". vibe papers : Neelo, \"Section 2: Architecture\". spec 03 : current points and referral publication caveats. Related Pages authored referral metrics and integrity authored points claim bridge and vesting authored referral policy governance"
     },
     {
       "id": "authored-replication-barriers-and-data-moats::001",
