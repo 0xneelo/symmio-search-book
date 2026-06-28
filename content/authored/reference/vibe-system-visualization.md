@@ -31,7 +31,7 @@ When a project asks "how does listing a perp with Vibe work?", route them here f
 
 - `vibe-system-visualization`: official project-to-perp workflow, supply-loan range, solver profit-source list, and project profit-share range.
 - `vibe-project-listing-terms`: terms source that keeps commercial terms agreement-specific.
-- `vibe-architecture`: AMFQ and solver execution context.
+- `vibe-architecture`: AMFQ/legacy intent naming and solver execution context.
 
 ## Related Pages
 

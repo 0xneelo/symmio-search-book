@@ -527,3 +527,19 @@
 **Reason:** The funding model is one of the clearest places where the Vibe thesis becomes an operating system. The docs should explain how inventory, exposure, utilization, insurance, dynamic pricing, cross-market support, and ADL connect, while keeping example thresholds, APRs, rebates, insurance allocations, and live policy under implementation/operator review.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-067: Separate Symmio Protocol Surface From Frontend Responsibility
+
+**Decision:** Add authored pages from current official Symmio contract architecture, frontend-builder, contract-interaction, and audit-report docs for the protocol contract surface, Account Layer and Virtual Accounts, contract quote lifecycle, withdrawal/provider system, and frontend-builder/audit posture.
+
+**Reason:** Vibe's docs need to explain the real Symmio operating substrate without making Symmio, Vibe, and third-party frontends sound like one undifferentiated venue. These pages teach the multi-diamond protocol surface, account isolation, lifecycle state, withdrawal architecture, and versioned security posture while keeping deployed version, frontend support, provider coverage, and audit inventory publication-date sensitive.
+
+**Status:** Accepted for the authored protocol-reference layer.
+
+## D-068: Treat AMFQ/aMFQ As Legacy Intent Terminology
+
+**Decision:** Expand AMFQ/aMFQ as "Automated Market for Quotes" and describe it as legacy naming for the current intent-based trading model wherever the docs use that term.
+
+**Reason:** The source corpus still contains AMFQ/aMFQ language, especially in Vibe architecture and Symmio frontend-builder text, but readers should understand it as the earlier name for intents rather than a separate protocol concept.
+
+**Status:** Accepted for terminology normalization.

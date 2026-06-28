@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 997,
-  "totalChunks": 1696,
-  "pagesWithChunks": 997,
+  "totalPages": 1002,
+  "totalChunks": 1706,
+  "pagesWithChunks": 1002,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -48,13 +48,18 @@
     "spec-07",
     "spec-09",
     "styleguide",
+    "symmio-audit-reports",
     "symmio-build-solver",
+    "symmio-contract-architecture",
+    "symmio-contract-interactions",
     "symmio-core",
+    "symmio-frontend-builder",
     "symmio-funding-rates",
     "symmio-hedging-strategies",
     "symmio-intent-lifecycle",
     "symmio-liquidations",
     "symmio-llms",
+    "symmio-market-limit-orders",
     "symmio-options-docs",
     "symmio-options-facets",
     "symmio-options-instant-layer",
@@ -280,17 +285,41 @@
       "use": "Local terminology and page-structure lock for authored pages.",
       "href": "../../src/search-book/STYLEGUIDE.md"
     },
+    "symmio-audit-reports": {
+      "key": "symmio-audit-reports",
+      "group": "Public Symmio Sources",
+      "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+      "href": "https://docs.symm.io/security-and-architecture/audit-reports.md"
+    },
     "symmio-build-solver": {
       "key": "symmio-build-solver",
       "group": "Public Symmio Sources",
       "use": "Current solver-builder documentation index for intent lifecycle, seeing intents, hedging, on-chain open/close, APIs, websockets, instant trading, and conditionals.",
       "href": "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md"
     },
+    "symmio-contract-architecture": {
+      "key": "symmio-contract-architecture",
+      "group": "Public Symmio Sources",
+      "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+      "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md"
+    },
+    "symmio-contract-interactions": {
+      "key": "symmio-contract-interactions",
+      "group": "Public Symmio Sources",
+      "use": "Trader contract-interaction index for querying contract info and closing positions on-chain.",
+      "href": "https://docs.symm.io/trader-documentation/interacting-with-contracts.md"
+    },
     "symmio-core": {
       "key": "symmio-core",
       "group": "Public Symmio Sources",
       "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
       "href": "https://docs.symm.io/getting-started/core-concepts.md"
+    },
+    "symmio-frontend-builder": {
+      "key": "symmio-frontend-builder",
+      "group": "Public Symmio Sources",
+      "use": "Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer.",
+      "href": "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md"
     },
     "symmio-funding-rates": {
       "key": "symmio-funding-rates",
@@ -321,6 +350,12 @@
       "group": "Public Symmio Sources",
       "use": "Symmio docs index and required deep links.",
       "href": "https://docs.symm.io/llms.txt"
+    },
+    "symmio-market-limit-orders": {
+      "key": "symmio-market-limit-orders",
+      "group": "Public Symmio Sources",
+      "use": "Market and limit quote semantics, slippage, pending/close-pending states, partial fills, force-close boundary, and quote data.",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"
     },
     "symmio-options-docs": {
       "key": "symmio-options-docs",
@@ -469,7 +504,7 @@
     "vibe-architecture": {
       "key": "vibe-architecture",
       "group": "Public Vibe Sources",
-      "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+      "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
       "href": "https://docs.vibe.trading/architectural-overview.md"
     },
     "vibe-collateral-margining": {
@@ -618,19 +653,19 @@
     }
   },
   "byRouteSource": {
-    "authored": 185,
+    "authored": 190,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 355,
+    "authored": 365,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "manifesto": 186,
     "dashboard-reference": 24,
-    "protocol-reference": 50,
+    "protocol-reference": 60,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 40,
@@ -6483,6 +6518,56 @@
       "text": "side profitability field, so negative user profit means the LP side is up at that data cut. Do not collapse realized and unrealized profit into one promise. Realized debt is closer to withdrawable performance. Unrealized PnL is path dependent and can move before settlement. Why Volume Was Not The Main Driver The case reports roughly $100,000 of total notional volume and about $1,000 average daily volume. That means the headline economics are not explained by high turnover alone. The more important drivers were directional imbalance, adverse price movement for long biased users, funding transfers, fees, and possible liquidation cashflows. Reader Implication The unit economics page is useful because it forces the docs to distinguish token return, USDC denominated return, realized profit, unrealized mark, and passive benchmarks. It should not be used as an APR promise without audited attribution, drawdown history, and regime diverse evidence. Sources vibe papers : Neelo, \"Executive Summary\". vibe papers : Neelo, \"Performance and Unit Economics\". vibe papers : Neelo, \"Conclusion\". Related Pages authored symm lp case setup authored symm lp data guardrails neelo 12 case study symm lp 12 docs 03 performance and unit economics"
     },
     {
+      "id": "authored-symmio-account-layer-virtual-accounts::001",
+      "pageId": "authored-symmio-account-layer-virtual-accounts",
+      "chunkIndex": 1,
+      "title": "Symmio Account Layer And Virtual Accounts",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-account-layer-virtual-accounts.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Symmio Account Layer And Virtual Accounts The Account Layer page introduces the hierarchy that sits between a user and Symmio Core: a user owns SubAccounts, and SubAccounts own Virtual Accounts. SubAccounts SubAccounts are the user's top level organizational units. The official architecture page says each SubAccount is bound to a frontend affiliate, a Symmio Core instance, and an isolation type chosen at creation. That matters for Vibe x Symmio docs because \"one user account\" is not always the same thing as \"one risk bucket.\" A user can separate conservative and aggressive activity into different account units if the product exposes that structure. Virtual Accounts Virtual Accounts sit under SubAccounts and act as PartyA addresses on Symmio Core. They provide position isolation, hold their own balance and allocated margin, and carry their own positions. When a Virtual Account's final position closes, the official page says funds are swept back to the parent SubAccount and the address is recycled. The architecture page also names isolation modes: one Virtual Account per position, per market, per market direction, or caller supplied custom addresses. Reader Implication For traders, this explains why margin, liquidation, and withdrawals may depend on which account or isolated position container holds the funds. For frontend builders, it explains why account UX must map product concepts onto SubAccounts and Virtual Accounts rather"
+    },
+    {
+      "id": "authored-symmio-account-layer-virtual-accounts::002",
+      "pageId": "authored-symmio-account-layer-virtual-accounts",
+      "chunkIndex": 2,
+      "title": "Symmio Account Layer And Virtual Accounts",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-account-layer-virtual-accounts.md",
+      "wordStart": 185,
+      "wordEnd": 272,
+      "wordCount": 87,
+      "text": "why margin, liquidation, and withdrawals may depend on which account or isolated position container holds the funds. For frontend builders, it explains why account UX must map product concepts onto SubAccounts and Virtual Accounts rather than hiding all settlement state behind one balance label. Sources symmio contract architecture : official SubAccount, Virtual Account, funds flow, and isolation type descriptions. symmio core : official core account, collateral, margin, and PartyA vocabulary. Related Pages authored symmio cross margin liquidations authored vibe account health and liquidations authored collateral margin cva"
+    },
+    {
       "id": "authored-symmio-clearing-house-layer::001",
       "pageId": "authored-symmio-clearing-house-layer",
       "chunkIndex": 1,
@@ -6564,6 +6649,114 @@
       "text": "answer should start with role and settlement semantics, not exchange analogy. Symmio is the layer that lets different frontends and solvers create enforceable bilateral derivatives positions without making the order book or liquidity pool the primitive. Sources symmio what is : Symmio overview, clearing house framing, no order book/pool model, off chain quotation, and on chain settlement. symmio core : PartyA/PartyB, intent, collateral, margin, CVA, and lifecycle vocabulary. symmio whitepaper : current whitepaper pointer and protocol status note. Related Pages authored bilateral intent lifecycle authored symmio party a party b authored vibe trade flow symmio what is"
     },
     {
+      "id": "authored-symmio-contract-quote-lifecycle::001",
+      "pageId": "authored-symmio-contract-quote-lifecycle",
+      "chunkIndex": 1,
+      "title": "Symmio Contract Quote Lifecycle",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-intent-lifecycle",
+        "symmio-market-limit-orders"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-contract-quote-lifecycle.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Symmio Contract Quote Lifecycle The official architecture page gives the contract layer view of the Symmio quote lifecycle: a quote moves from pending, to locked, to opened, to close pending, then closed or cancelled through defined state transitions. From Pending To Opened PartyA creates a quote with symbol, side, order type, price, quantity, margin components, deadline, affiliate context, and required signed data. Pending balances lock while the quote waits. PartyB can lock an eligible quote after validating its own solvency and the quote's risk. Locking is a protocol state transition, not just a frontend status. If PartyB proceeds, the open call can fill the whole quote or partially fill it, creating a remainder quote for the unfilled amount. Closing And Cancellation PartyA requests a close by specifying close terms. PartyB fills the close request, with the official page distinguishing partial fill behavior for limit orders from full execution requirements for market orders. Cancellation flows cover pending quotes, locked quotes, and pending close requests. The architecture page also describes batch variants for PartyB group actions and newer funding rate aggregation that reduces per quote processing pressure by tracking symbol level aggregates. Reader Implication When a user asks why a trade is pending, locked, open, close pending, cancelled, or partially filled, the answer should route to lifecycle state, solver eligibility, collateral checks,"
+    },
+    {
+      "id": "authored-symmio-contract-quote-lifecycle::002",
+      "pageId": "authored-symmio-contract-quote-lifecycle",
+      "chunkIndex": 2,
+      "title": "Symmio Contract Quote Lifecycle",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-intent-lifecycle",
+        "symmio-market-limit-orders"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-contract-quote-lifecycle.md",
+      "wordStart": 185,
+      "wordEnd": 287,
+      "wordCount": 102,
+      "text": "by tracking symbol level aggregates. Reader Implication When a user asks why a trade is pending, locked, open, close pending, cancelled, or partially filled, the answer should route to lifecycle state, solver eligibility, collateral checks, and the quote's order type. The docs should not flatten those states into a generic \"order status.\" Sources symmio contract architecture : official contract quote lifecycle and grouped PartyB action context. symmio intent lifecycle : official solver event monitoring lifecycle. symmio market limit orders : official market and limit quote behavior. Related Pages authored bilateral intent lifecycle authored solver event monitoring authored symmio solver operations and hedging"
+    },
+    {
+      "id": "authored-symmio-contract-surface::001",
+      "pageId": "authored-symmio-contract-surface",
+      "chunkIndex": 1,
+      "title": "Symmio Contract Surface",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core",
+        "symmio-options-docs"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-contract-surface.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Symmio Contract Surface The current Symmio contract architecture page describes a protocol surface made of multiple diamonds and supporting contracts rather than one monolithic settlement contract. Core Surfaces Symmio Core, also called the perps diamond in the official architecture page, facilitates bilateral trades between PartyA and PartyB. It covers quote creation, locking, opening, closing, settlement, and liquidation. The Account Layer is a standalone diamond proxy for user account organization. It owns SubAccounts and deterministic Virtual Accounts, registers affiliates, distributes affiliate fees, supports express deposits, and can expose hooks for custom on chain logic. The Instant Layer is another diamond that mediates user signed operations through EIP 712 signed operation structures, templates, delegation, and operator submitted batches. Around those diamonds sit supporting contracts: the external Muon signature verifier, the ClearingHouse for privileged insolvency and stuck liquidation paths, provider contracts in the withdraw system, pledge collateral, and a liquidation insurance vault. Why Readers Need This Map Vibe readers should not think of Symmio as only a generic backend. It is an intent based bilateral settlement stack with separated surfaces for account organization, user signed execution, solver/PartyB operations, signatures, liquidation, and withdrawal delivery. Publication Note The architecture page is version sensitive. Final publication should verify the current Symmio version, deployed contract set, and whether Vibe uses the same surfaces for each product before"
+    },
+    {
+      "id": "authored-symmio-contract-surface::002",
+      "pageId": "authored-symmio-contract-surface",
+      "chunkIndex": 2,
+      "title": "Symmio Contract Surface",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core",
+        "symmio-options-docs"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-contract-surface.md",
+      "wordStart": 185,
+      "wordEnd": 274,
+      "wordCount": 89,
+      "text": "signatures, liquidation, and withdrawal delivery. Publication Note The architecture page is version sensitive. Final publication should verify the current Symmio version, deployed contract set, and whether Vibe uses the same surfaces for each product before presenting any contract inventory as live production fact. Sources symmio contract architecture : official Symmio contract architecture overview. symmio core : core PartyA, PartyB, collateral, and intent vocabulary. symmio options docs : current options contract documentation entry point. Related Pages authored symmio party a party b authored bilateral intent lifecycle authored options intent lifecycle"
+    },
+    {
       "id": "authored-symmio-cross-margin-liquidations::001",
       "pageId": "authored-symmio-cross-margin-liquidations",
       "chunkIndex": 1,
@@ -6612,6 +6805,60 @@
       "wordEnd": 273,
       "wordCount": 88,
       "text": "CVA and margin are applied according to protocol rules. Publication Boundary This page should teach the liquidation shape: pending versus locked versus free balance, cross margin account treatment, Muon backed loss proof, and liquidator execution. It should not publish current thresholds, fee amounts, or product specific Vibe liquidation UI behavior without current implementation evidence. Sources symmio liquidations : official Symmio liquidation mechanics. symmio core : official collateral, margin, and CVA vocabulary. Related Pages authored collateral margin cva authored vibe collateral and margining authored loss waterfall and profit caps"
+    },
+    {
+      "id": "authored-symmio-frontend-builder-audit-posture::001",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "chunkIndex": 1,
+      "title": "Symmio Frontend Builder And Audit Posture",
+      "section": "protocol-reference",
+      "track": "Symmio Builder And Security",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+        "https://docs.symm.io/security-and-architecture/audit-reports.md",
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-frontend-builder-audit-posture.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder Model The official page says Symmio itself does not host a trading frontend or promote derivatives trading. Traders use third party frontend applications. Frontend operators choose UI, UX, features, tools, liquidity relationships, and product offerings. That structure is important for Vibe docs: Vibe should be described as a frontend/product built on or integrated with Symmio infrastructure, not as the only expression of the protocol. Audit Index The audit report page publishes a versioned index of audit links across SYMM protocol versions, vaults, staking, and vesting. The current architecture page also adds versioned contract surface context, including the multi diamond architecture and supporting contracts. The safe publication pattern is versioned and source specific: name the contract family, version, audit page, and product surface. Avoid implying that one audit covers every future module, every frontend, or every third party integration. Reader Implication When someone asks \"is Symmio audited?\" or \"who operates the frontend?\", answer with the separation of responsibilities first: protocol infrastructure, third party frontend operator, and versioned audit"
+    },
+    {
+      "id": "authored-symmio-frontend-builder-audit-posture::002",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "chunkIndex": 2,
+      "title": "Symmio Frontend Builder And Audit Posture",
+      "section": "protocol-reference",
+      "track": "Symmio Builder And Security",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+        "https://docs.symm.io/security-and-architecture/audit-reports.md",
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-frontend-builder-audit-posture.md",
+      "wordStart": 185,
+      "wordEnd": 281,
+      "wordCount": 96,
+      "text": "frontend, or every third party integration. Reader Implication When someone asks \"is Symmio audited?\" or \"who operates the frontend?\", answer with the separation of responsibilities first: protocol infrastructure, third party frontend operator, and versioned audit evidence. Then route Vibe specific claims to Vibe's own public security page and product docs. Sources symmio frontend builder : official frontend builder/B2B and third party frontend framing. symmio audit reports : official current audit report index. symmio contract architecture : official versioned contract architecture context. Related Pages authored vibe security and audits authored symmio contract surface authored vibe platform overview"
     },
     {
       "id": "authored-symmio-funding-epochs::001",
@@ -6841,6 +7088,56 @@
       "wordEnd": 321,
       "wordCount": 136,
       "text": "chain contract behavior. The contracts operate independently of centralized exchanges, desks, or other hedging systems. Off chain hedging can affect a solver's business risk, but the protocol's on chain settlement rules remain separate. Publication Boundary Older solver materials include historical opportunity and APR language. This compendium should not reuse those as current claims. The source backed operating claim is role and boundary: PartyB listens, validates, locks, opens, settles, provides frontend data, may hedge externally, and must stay solvent under protocol rules. Sources symmio solver role : official role of a liquidity provider/solver. symmio hedging strategies : official hedging strategy overview. symmio solving : official solver section caveats and protocol isolation clarification. symmio build solver : official solver builder documentation index. Related Pages authored solver event monitoring authored solver engine operating loop authored residual counterparty hedge first"
+    },
+    {
+      "id": "authored-symmio-withdrawal-provider-system::001",
+      "pageId": "authored-symmio-withdrawal-provider-system",
+      "chunkIndex": 1,
+      "title": "Symmio Withdrawal And Provider System",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-contract-interactions"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/trader-documentation/interacting-with-contracts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-withdrawal-provider-system.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Symmio Withdrawal And Provider System The official architecture page describes withdrawals as a lifecycle that begins with deallocated free balance, not with margin still assigned to positions. From Allocated Margin To Withdrawal The source flow is: allocated margin sits in a Virtual Account, margin is removed and swept back to the SubAccount balance, the resulting free balance can initiate a withdrawal, and finalization happens after the relevant cooldown or provider flow completes. That distinction is useful for product docs. A user may see assets in a position or account container, but the withdrawable amount depends on whether those funds are still allocated to margin. Withdrawal Paths The current architecture page names several withdrawal paths: normal same chain withdrawal after cooldown, pure express same chain withdrawal, pure virtual cross chain withdrawal, and virtual express cross chain withdrawal. Express providers can front funds for a fee. Virtual providers support cross chain delivery and implement lifecycle callbacks. The page also describes cancellation behavior, blackout windows around provider acceptance, and administrative force cancel paths. Publication Note The exact withdrawal paths, cooldowns, fees, provider coverage, and Vibe product support should be verified on publication date. This page documents Symmio architecture, not a promise that every path is live in every frontend. Sources symmio contract architecture : official withdrawal system, provider, deallocation, and cooldown architecture. symmio"
+    },
+    {
+      "id": "authored-symmio-withdrawal-provider-system::002",
+      "pageId": "authored-symmio-withdrawal-provider-system",
+      "chunkIndex": 2,
+      "title": "Symmio Withdrawal And Provider System",
+      "section": "protocol-reference",
+      "track": "Symmio Contracts",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-contract-interactions"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+        "https://docs.symm.io/trader-documentation/interacting-with-contracts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-withdrawal-provider-system.md",
+      "wordStart": 185,
+      "wordEnd": 248,
+      "wordCount": 63,
+      "text": "be verified on publication date. This page documents Symmio architecture, not a promise that every path is live in every frontend. Sources symmio contract architecture : official withdrawal system, provider, deallocation, and cooldown architecture. symmio contract interactions : official contract interaction index for trader facing contract operations. Related Pages authored vibe deposits and withdrawals authored symmio contract surface authored symmio settlement profit realization"
     },
     {
       "id": "authored-technically-async-economically-sync::001",
@@ -8047,7 +8344,7 @@
       "wordStart": 0,
       "wordEnd": 220,
       "wordCount": 220,
-      "text": "Vibe Intent Architecture Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of intent based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms. Quote First, Collateral After Acceptance The architecture page makes an important distinction. During the quote stage, solvers can present real time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established. That prevents two bad explanations: Do not say solvers must pre fund every streamed quote before a trader accepts it. Do not say collateral never matters until after execution. The accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester"
+      "text": "Vibe Intent Architecture Vibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent based trading model: the user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of intent based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms. Quote First, Collateral After Acceptance The architecture page makes an important distinction. During the quote stage, solvers can present real time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established. That prevents two bad explanations: Do not say solvers must pre fund every streamed quote before a trader accepts it. Do not say collateral never matters until after execution. The accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core"
     },
     {
       "id": "authored-vibe-intent-architecture::002",
@@ -8072,9 +8369,9 @@
       "volumeId": "",
       "file": "content/authored/reference/vibe-intent-architecture.md",
       "wordStart": 185,
-      "wordEnd": 365,
-      "wordCount": 180,
-      "text": "acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state. This is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar. Reader Implication For traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations. Sources vibe architecture : AMFQ, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off chain hedging. symmio core : PartyA/PartyB and collateral vocabulary. symmio intent lifecycle : quote event monitoring and lifecycle state. Related Pages authored vibe trade flow authored bilateral intent lifecycle authored solver event monitoring vibe architecture amfq"
+      "wordEnd": 379,
+      "wordCount": 194,
+      "text": "until after execution. The accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state. This is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar. Reader Implication For traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations. Sources vibe architecture : AMFQ/legacy intent naming, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off chain hedging. symmio core : PartyA/PartyB and collateral vocabulary. symmio intent lifecycle : quote event monitoring and lifecycle state. Related Pages authored vibe trade flow authored bilateral intent lifecycle authored solver event monitoring vibe architecture amfq"
     },
     {
       "id": "authored-vibe-mobile-pwa::001",
@@ -8868,9 +9165,9 @@
       "volumeId": "",
       "file": "content/authored/reference/vibe-system-visualization.md",
       "wordStart": 185,
-      "wordEnd": 319,
-      "wordCount": 134,
-      "text": "trading mechanics: solver economics are not a single fee line; they come from multiple market making and risk management channels. Reader Implication When a project asks \"how does listing a perp with Vibe work?\", route them here for the high level loop, then to project listing terms for service, custody, profit, audit, and termination mechanics. When a trader asks what happens behind their trade, route them to the intent architecture and solver operations pages. Sources vibe system visualization : official project to perp workflow, supply loan range, solver profit source list, and project profit share range. vibe project listing terms : terms source that keeps commercial terms agreement specific. vibe architecture : AMFQ and solver execution context. Related Pages authored vibe project listing terms authored vibe intent architecture authored symmio solver operations and hedging"
+      "wordEnd": 321,
+      "wordCount": 136,
+      "text": "trading mechanics: solver economics are not a single fee line; they come from multiple market making and risk management channels. Reader Implication When a project asks \"how does listing a perp with Vibe work?\", route them here for the high level loop, then to project listing terms for service, custody, profit, audit, and termination mechanics. When a trader asks what happens behind their trade, route them to the intent architecture and solver operations pages. Sources vibe system visualization : official project to perp workflow, supply loan range, solver profit source list, and project profit share range. vibe project listing terms : terms source that keeps commercial terms agreement specific. vibe architecture : AMFQ/legacy intent naming and solver execution context. Related Pages authored vibe project listing terms authored vibe intent architecture authored symmio solver operations and hedging"
     },
     {
       "id": "authored-vibe-tpsl::001",

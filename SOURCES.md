@@ -64,7 +64,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | --- | --- | --- |
 | `vibe-llms` | https://docs.vibe.trading/llms.txt | Public Vibe docs index. |
 | `vibe-what-is` | https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md | Vibe product positioning and market claims. |
-| `vibe-architecture` | https://docs.vibe.trading/architectural-overview.md | AMFQ, intent flow, solver offers, on-chain execution. |
+| `vibe-architecture` | https://docs.vibe.trading/architectural-overview.md | AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution. |
 | `vibe-referral-program` | https://docs.vibe.trading/trading/referral-program.md | Referral commission tiers and daily referral points. |
 | `vibe-points` | https://docs.vibe.trading/trading/vibe-points.md | Trading, referring, and community points categories. |
 | `vibe-referral-codes` | https://docs.vibe.trading/getting-started/referral-codes.md | Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing. |
@@ -116,6 +116,10 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `symmio-solving` | https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md | Solver-section clarifications: educational scope, off-chain hedging independence, and protocol isolation from solver external systems. |
 | `symmio-build-solver` | https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md | Current solver-builder documentation index for intent lifecycle, seeing intents, hedging, on-chain open/close, APIs, websockets, instant trading, and conditionals. |
 | `symmio-whitepaper` | https://docs.symm.io/security-and-architecture/symmio-whitepaper.md | Whitepaper pointer and protocol status note. |
+| `symmio-contract-architecture` | https://docs.symm.io/security-and-architecture/contract-architecture-overview.md | Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system. |
+| `symmio-contract-interactions` | https://docs.symm.io/trader-documentation/interacting-with-contracts.md | Trader contract-interaction index for querying contract info and closing positions on-chain. |
+| `symmio-frontend-builder` | https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md | Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer. |
+| `symmio-audit-reports` | https://docs.symm.io/security-and-architecture/audit-reports.md | Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links. |
 | `symmio-options-docs` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md | Symmio options protocol documentation index and current entry point. |
 | `symmio-options-technical-architecture` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md | Symmio options Diamond architecture, shared storage, facets, libraries, and upgrade model. |
 | `symmio-options-facets` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md | Facet model and modular function boundaries for the options protocol. |

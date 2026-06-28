@@ -243,7 +243,7 @@
 - Added four authored Vibe product-reference pages: product overview, intent architecture, VibeCaps margin management, and Vibe points program.
 - Re-routed the first high-traffic product questions from generated companion pages into authored pages.
 - Preserved caveats around current market counts, onboarding-versus-Vibe points, referral-depth accounting, and product-specific risk guarantees.
-- Captured the AMFQ nuance that solvers stream offers before capital commitment, but accepted requests still move into collateral lock, solver review, solver collateral deposit, and bilateral agreement.
+- Captured the AMFQ/aMFQ terminology nuance: Automated Market for Quotes is legacy naming for the current intent-based model, and solvers can stream offers before capital commitment, but accepted requests still move into collateral lock, solver review, solver collateral deposit, and bilateral agreement.
 
 ## 2026-06-28 — Seed Route Quality Pass
 
@@ -401,6 +401,13 @@
 - Promoted five under-authored pages from Neelo's funding-rate model into Volume 04: core liquidation/inventory invariant, state-variable map, regime ladder, full objective, and worked-example reading guide.
 - Routed five new funding-model questions to authored pages so Ask can explain how netting, exposure, utilization, insurance, dynamic pricing, cross-market support, and ADL fit together.
 - Kept example thresholds, APRs, rebates, insurance allocations, rate caps, ADL behavior, and live liquidation/loss policy under operator and implementation review.
+
+## 2026-06-28 — Official Symmio Contract Builder Authored Layer
+
+- Fetched current official Symmio markdown for contract architecture overview, interacting with contracts, frontend-builder introduction, audit reports, and the Symmio Options v0.2.1 index.
+- Registered exact source keys for Symmio contract architecture, contract interactions, frontend builder, and audit reports instead of relying only on the broad docs index.
+- Added five authored protocol-reference pages for Symmio's protocol contract surface, SubAccounts and Virtual Accounts, contract-level quote lifecycle, withdrawal/provider system, and frontend-builder/audit posture.
+- Routed five new protocol/builder/security questions to authored pages while keeping deployed contract versions, Vibe-specific surface support, withdrawal-provider coverage, cooldowns, fees, and audit inventory under publication-date review.
 
 ## Still Open
 

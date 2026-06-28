@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 166,
+  "totalRoutes": 171,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 79,
+    "Medium": 84,
     "High": 29,
     "Low": 58
   },
   "byRouteSource": {
-    "authored": 166
+    "authored": 171
   },
   "answerable": [
     {
@@ -2877,6 +2877,99 @@
         "symmio-hedging-strategies",
         "symmio-solving",
         "symmio-build-solver"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-contracts-make-up-symmio-s-protocol-surface",
+      "question": "What contracts make up Symmio's protocol surface?",
+      "normalizedQuestion": "what contracts make up symmio s protocol surface",
+      "pageId": "authored-symmio-contract-surface",
+      "pageTitle": "Symmio Contract Surface",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official contract architecture docs describe the perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, provider contracts, pledge collateral, and liquidation insurance vault.",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core",
+        "symmio-options-docs"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-subaccounts-and-virtual-accounts-work-in-symmio",
+      "question": "How do SubAccounts and Virtual Accounts work in Symmio?",
+      "normalizedQuestion": "how do subaccounts and virtual accounts work in symmio",
+      "pageId": "authored-symmio-account-layer-virtual-accounts",
+      "pageTitle": "Symmio Account Layer And Virtual Accounts",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official contract architecture docs define SubAccounts, Virtual Accounts, isolation types, margin flow, and automatic sweep behavior.",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-contract-level-symmio-quote-lifecycle",
+      "question": "What is the contract-level Symmio quote lifecycle?",
+      "normalizedQuestion": "what is the contract level symmio quote lifecycle",
+      "pageId": "authored-symmio-contract-quote-lifecycle",
+      "pageTitle": "Symmio Contract Quote Lifecycle",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official architecture and lifecycle docs support pending, locked, opened, close-pending, partial-fill, cancellation, and batch PartyB action semantics.",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-intent-lifecycle",
+        "symmio-market-limit-orders"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-symmio-withdrawals-and-providers-work",
+      "question": "How do Symmio withdrawals and providers work?",
+      "normalizedQuestion": "how do symmio withdrawals and providers work",
+      "pageId": "authored-symmio-withdrawal-provider-system",
+      "pageTitle": "Symmio Withdrawal And Provider System",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official architecture docs describe deallocation before withdrawal, cooldown anchoring, normal/express/virtual withdrawal paths, provider callbacks, and cancellation boundaries.",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-contract-interactions"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-symmio-s-frontend-builder-and-audit-posture",
+      "question": "What is Symmio's frontend-builder and audit posture?",
+      "normalizedQuestion": "what is symmio s frontend builder and audit posture",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official builder and audit docs separate Symmio infrastructure from third-party frontends and publish a versioned audit-report index.",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
       ],
       "missing": false
     },

@@ -11,7 +11,7 @@ relatedGeneratedPages: ["vibe-architecture-amfq", "symmio-core-concepts", "symmi
 
 # Vibe Intent Architecture
 
-Vibe's public architecture describes an Automatic Market for Quotations, or AMFQ. The user defines a trade intention, solvers stream real-time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process.
+Vibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent-based trading model: the user defines a trade intention, solvers stream real-time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process.
 
 That is the product-language version of intent-based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms.
 
@@ -38,7 +38,7 @@ For traders, "intent" means they are asking the market for executable terms. For
 
 ## Sources
 
-- `vibe-architecture`: AMFQ, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off-chain hedging.
+- `vibe-architecture`: AMFQ/legacy intent naming, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off-chain hedging.
 - `symmio-core`: PartyA/PartyB and collateral vocabulary.
 - `symmio-intent-lifecycle`: quote-event monitoring and lifecycle state.
 
