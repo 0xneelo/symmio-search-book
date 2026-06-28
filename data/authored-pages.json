@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 296,
+  "totalPages": 301,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 162,
-    "publication-candidate": 121,
+    "publication-candidate-needs-operator-review": 164,
+    "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 153,
+    "manifesto": 158,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 47,
@@ -908,6 +908,30 @@
       "file": "content/authored/manifesto/end-of-narrative-based-listings.md",
       "bodyMarkdown": "# The End Of Narrative-Based Listings\n\nNarrative-based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed.\n\nThat substitution explains why listings become political. A venue evaluates spot volume, community pressure, narrative strength, relationships, auctions, and prior exchange listings. Those signals can be directionally useful, but they are proxies. They do not answer the question the venue really cares about: whether traders will use the perp market enough for it to function.\n\nVibe's vision is to produce the missing signal directly. Let the market exist early in a constrained environment. Let traders express demand. Let solvers quote, hedge, and learn the market. Let the resulting history become evidence for whether the asset deserves deeper execution.\n\nThis is why \"vibes-based listings\" is not just a meme about bad curation. It is a symptom of missing infrastructure. When early derivatives cannot exist, every later venue has to guess. When early derivatives can exist, listing decisions can be pulled toward observed market behavior.\n\n## Reader Implication\n\nThe compendium should teach market creators that Vibe changes the listing argument. Instead of asking for belief, a project can point to actual perp demand. Instead of competing on narrative alone, the market can compete on revealed trading behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The End of Vibes-Based Listings\".\n\n## Related Pages\n\n- `authored-game-theory-of-listings`\n- `authored-listing-monopoly`\n- `authored-proof-of-value`",
       "excerpt": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains why listings become political. A venue evaluates spot volume, community pressure, narrative strength, relationships, auctions, and prior exchange listings. Those signals can be directionally useful, but they are proxies. They do not answer the question the venue really cares about: whether traders will use the perp market enough for it to function. Vibe's vision is to produce the missing signal directly. Let the market exist early in a constrained environment. Let traders express demand. Let solvers quote, hedge, and learn the market. Let the resulting history become evidence for whether the asset deserves deeper execution. This is why \"vibes based listings\" is not just a meme about bad curation. It is a symptom of missing infrastructure. When early derivatives cannot exist, every later venue has to guess. When early derivatives can"
+    },
+    {
+      "id": "authored-episodic-long-tail-flow",
+      "title": "Episodic Long-Tail Flow",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-01-introduction",
+        "neelo-10-vibe-pillars-10-docs-03-pillar-two-bootstrap-and-counterparty",
+        "authored-bootstrap-counterparty-pillar"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/episodic-long-tail-flow.md",
+      "bodyMarkdown": "# Episodic Long-Tail Flow\n\nThe long-tail problem is not only low volume. It is timing.\n\nNeelo's Vibe Pillars paper explains that mature order books benefit from synchronous matching: a long and a short can often meet at the same moment. Low-cap markets do not reliably have that pattern. Interest is sparse, path-dependent, and episodic. Aggregate demand can exist without enough continuous two-sided flow to keep an order book live at every moment.\n\n## Why Order Books Struggle Here\n\nA book can be the right end state for a mature market and still be weak as the bootstrap mechanism. If buyers and sellers arrive at different times, the market may have real demand over days or weeks while still failing to clear a trade right now.\n\nThat is the gap Vibe tries to address. The goal is not to deny order-book superiority where depth exists. The goal is to make early markets tradeable before they already have dense matching.\n\n## Reader Guidance\n\nWhen a reader asks why \"just list it on an order book\" is not enough, this is the practical answer: long-tail flow can be real but asynchronous. Market design has to solve time mismatch, not only price discovery.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Introduction\" in Vibe Pillars.\n- `vibe-papers`: Neelo, \"Pillar Two: Bootstrap and Counterparty\".\n\n## Related Pages\n\n- `authored-bootstrap-counterparty-pillar`\n- `authored-intents-complete-order-books`\n- `authored-market-creation-gap`",
+      "excerpt": "Episodic Long Tail Flow The long tail problem is not only low volume. It is timing. Neelo's Vibe Pillars paper explains that mature order books benefit from synchronous matching: a long and a short can often meet at the same moment. Low cap markets do not reliably have that pattern. Interest is sparse, path dependent, and episodic. Aggregate demand can exist without enough continuous two sided flow to keep an order book live at every moment. Why Order Books Struggle Here A book can be the right end state for a mature market and still be weak as the bootstrap mechanism. If buyers and sellers arrive at different times, the market may have real demand over days or weeks while still failing to clear a trade right now. That is the gap Vibe tries to address. The goal is not to deny order book superiority where depth exists. The goal is to make early markets tradeable before they already have dense matching. Reader Guidance When a reader asks why \"just list it on an order book\" is not enough, this is the practical answer: long tail flow can be real but asynchronous. Market design has to solve time mismatch, not only price discovery. Sources vibe papers : Neelo, \"Introduction\" in Vibe Pill"
     },
     {
       "id": "authored-estimated-network-revenue",
@@ -2923,6 +2947,30 @@
       "excerpt": "The Percolator Wave Meets Settlement Reality The listing notes treat the Percolator wave as a serious attempt to reopen permissionless perp listing. The interesting part is not whether the contracts can create markets quickly. It is whether the markets have an economic path to pay winners when flow is one sided. Percolator style systems can make entry asynchronous: a trader can open exposure before a deep book exists. But settlement still requires an economic counterparty. If many traders are long and there are no shorts, no deep LP layer, and no inventory path sized for the risk, then open interest can exist while payout reliability remains fragile. That is the settlement reality. The UI may show a market. The contract may accept positions. The trader may think they bought exposure to the underlying. The economic object can still be a claim on future contra flow or a thin internal balance sheet. Reader Implication The docs should separate permissionless market creation from permissionless market solvency. Fast listing is valuable only if the design also explains who pays, what collateral backs the payout, how imbalance is priced, and what happens when the other side never arrives."
     },
     {
+      "id": "authored-perp-market-as-credit-system",
+      "title": "Perp Market As Credit System",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/02-pillar-one-exploit-resistance"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-01-introduction",
+        "neelo-10-vibe-pillars-10-docs-02-pillar-one-exploit-resistance",
+        "authored-vibe-pillars"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/perp-market-as-credit-system.md",
+      "bodyMarkdown": "# Perp Market As Credit System\n\nThe Vibe Pillars paper starts by refusing to treat a perpetual market as only a price chart with leverage attached.\n\nA perp market is a credit system. Traders post margin and receive exposure. Counterparties absorb risk. Solvers, market makers, LPs, or vaults stand behind the market during stress. If collateral, liquidation, oracle, execution, or counterparty continuity breaks, the venue can become exploitable, unbootstrappable, or uneconomic.\n\n## Why This Matters\n\nThis framing explains why Vibe cannot be documented as \"more listings plus leverage.\" Low-cap perpetuals are difficult because the system is extending exposure before the market has mature depth. Defense, counterparty formation, and capital incentives all become part of the product.\n\nThe credit-system lens also separates market-structure risk from ordinary smart-contract risk. A contract can be secure while the market it runs is economically fragile. The docs should therefore explain who takes risk, how collateral backs exposure, and what happens when price, liquidity, and liquidation timing move against the system.\n\n## Reader Guidance\n\nWhen a reader asks why Vibe needs so much architecture around solvers, vaults, margins, funding, and liquidation controls, route them here first. The answer is that a perp venue is underwriting exposure, not just rendering a trading widget.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Introduction\" in Vibe Pillars.\n- `vibe-papers`: Neelo, \"Pillar One: Exploit Resistance\".\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-exploit-resistance-pillar`\n- `authored-collateral-margin-cva`",
+      "excerpt": "Perp Market As Credit System The Vibe Pillars paper starts by refusing to treat a perpetual market as only a price chart with leverage attached. A perp market is a credit system. Traders post margin and receive exposure. Counterparties absorb risk. Solvers, market makers, LPs, or vaults stand behind the market during stress. If collateral, liquidation, oracle, execution, or counterparty continuity breaks, the venue can become exploitable, unbootstrappable, or uneconomic. Why This Matters This framing explains why Vibe cannot be documented as \"more listings plus leverage.\" Low cap perpetuals are difficult because the system is extending exposure before the market has mature depth. Defense, counterparty formation, and capital incentives all become part of the product. The credit system lens also separates market structure risk from ordinary smart contract risk. A contract can be secure while the market it runs is economically fragile. The docs should therefore explain who takes risk, how collateral backs exposure, and what happens when price, liquidity, and liquidation timing move against the system. Reader Guidance When a reader asks why Vibe needs so much architecture around solver"
+    },
+    {
       "id": "authored-perp-protocol-framework",
       "title": "The Three Axes Of Perp Protocol Design",
       "section": "manifesto",
@@ -3819,6 +3867,30 @@
       "excerpt": "Required Risk Premium For USDC LPs The USDC source's APR derivation is useful because it treats LP yield as compensation for risk, not as a marketing number. For a stablecoin LP, the required return is not just \"what APY sounds attractive?\" It has at least three components: the opportunity cost of deploying USDC elsewhere, expected protocol losses, and a premium for adverse selection and tail risk. In low cap perp markets, the source argues that those components can dominate the economics. That framing helps the compendium explain why generic USDC backstops can be expensive. If the LP pool is exposed to manipulation, bad debt, liquidation failure, and fat tail market states, then a low headline yield is not conservative. It may be underpriced risk. What To Publish Carefully The exact APR ranges and risk premium ratios in the source are model outputs. They are useful for comparative reasoning, but they should not be presented as final Vibe economics, guaranteed LP demand, or audited market data. The publishable thesis is the equation: low cap backstop capital needs a return high enough to cover opportunity cost, expected loss, and adverse selection. Sources vibe papers : Neelo, \"Req"
     },
     {
+      "id": "authored-residual-counterparty-balance-sheet-problem",
+      "title": "Residual Counterparty Balance-Sheet Problem",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-03-pillar-two-bootstrap-and-counterparty",
+        "neelo-10-vibe-pillars-10-docs-04-pillar-three-lp-yield-and-capital-efficiency",
+        "authored-solver-owned-market-maker"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/residual-counterparty-balance-sheet-problem.md",
+      "bodyMarkdown": "# Residual Counterparty Balance-Sheet Problem\n\nWhen a solver or designated risk-taker intermediates an early market, the problem changes.\n\nIt is no longer only an order-matching problem. It becomes a balance-sheet problem. The residual counterparty may warehouse exposure, fund stable collateral, hold inventory, hedge externally, or absorb one-sided flow until natural market activity becomes more balanced.\n\n## Why This Is Not Fake Liquidity\n\nThe source's point is not that a solver can magically create depth. It is that a thin market needs continuity before it can mature. A residual counterparty can make exposure available when synchronous matching would stall, but that service has costs and risks.\n\nThat is why the second and third pillars are connected. A counterparty of convenience is dangerous if it is easy to exploit or uneconomic to sustain. The balance sheet has to survive leverage, stress, adverse selection, and thin hedging venues.\n\n## Publication Boundary\n\nThis page should not publish exact Vibe solver capitalization, hedging policy, inventory terms, or LP economics unless the operator approves current public wording. It documents the architectural claim: early markets need a residual counterparty path, and that path must be paid and controlled.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Pillar Two: Bootstrap and Counterparty\".\n- `vibe-papers`: Neelo, \"Pillar Three: LP Yield and Capital Efficiency\".\n\n## Related Pages\n\n- `authored-bootstrap-counterparty-pillar`\n- `authored-solver-owned-market-maker`\n- `authored-lp-yield-capital-efficiency-pillar`",
+      "excerpt": "Residual Counterparty Balance Sheet Problem When a solver or designated risk taker intermediates an early market, the problem changes. It is no longer only an order matching problem. It becomes a balance sheet problem. The residual counterparty may warehouse exposure, fund stable collateral, hold inventory, hedge externally, or absorb one sided flow until natural market activity becomes more balanced. Why This Is Not Fake Liquidity The source's point is not that a solver can magically create depth. It is that a thin market needs continuity before it can mature. A residual counterparty can make exposure available when synchronous matching would stall, but that service has costs and risks. That is why the second and third pillars are connected. A counterparty of convenience is dangerous if it is easy to exploit or uneconomic to sustain. The balance sheet has to survive leverage, stress, adverse selection, and thin hedging venues. Publication Boundary This page should not publish exact Vibe solver capitalization, hedging policy, inventory terms, or LP economics unless the operator approves current public wording. It documents the architectural claim: early markets need a residual coun"
+    },
+    {
       "id": "authored-residual-counterparty-hedge-first",
       "title": "Residual Counterparty And Hedge-First Execution",
       "section": "protocol-reference",
@@ -4091,6 +4163,29 @@
       "file": "content/authored/manifesto/shorting-death-spiral.md",
       "bodyMarkdown": "# Shorting Death Spiral\n\nThe shorting death spiral is the inverse payoff trap under market stress.\n\nIn the source model, traders open large shorts, price falls, and the protocol must pay winning shorts in tokens. As price drops, each dollar of profit requires more token units. The vault drains faster, remaining LPs face pressure, liquidation can add selling, and the feedback loop deepens.\n\n## Why ADL Is Not A Full Answer\n\nPercolator's source-level defense is auto-deleveraging through a haircut model. That can prevent a purely technical insolvency by reducing winning traders' payouts.\n\nBut the source is clear about the credibility cost. If winning traders cannot receive full profit when the trade worked, the market has admitted that payout certainty is conditional on vault health. That may be acceptable as a last-resort emergency control, but it cannot be the normal economic answer for serious long-tail derivatives.\n\n## Why This Matters For Vibe\n\nThe Vibe comparison source argues for a defense stack before ADL: netting, token inventory, local insurance, global insurance, dynamic pricing, and solver-managed risk controls. The important distinction is not that Vibe can promise no stress. It is that the architecture tries to make ADL a final resort rather than the first meaningful response after margin breaks.\n\n## Reader Implication\n\nWhen docs discuss low-cap shorting, they should not only describe trader opportunity. They should explain who pays a winning short and what happens if the token collapses. Payout certainty is part of market quality.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\".\n\n## Related Pages\n\n- `authored-inverse-payoff-trap`\n- `authored-trader-payout-certainty`\n- `authored-funding-defense-hierarchy`",
       "excerpt": "Shorting Death Spiral The shorting death spiral is the inverse payoff trap under market stress. In the source model, traders open large shorts, price falls, and the protocol must pay winning shorts in tokens. As price drops, each dollar of profit requires more token units. The vault drains faster, remaining LPs face pressure, liquidation can add selling, and the feedback loop deepens. Why ADL Is Not A Full Answer Percolator's source level defense is auto deleveraging through a haircut model. That can prevent a purely technical insolvency by reducing winning traders' payouts. But the source is clear about the credibility cost. If winning traders cannot receive full profit when the trade worked, the market has admitted that payout certainty is conditional on vault health. That may be acceptable as a last resort emergency control, but it cannot be the normal economic answer for serious long tail derivatives. Why This Matters For Vibe The Vibe comparison source argues for a defense stack before ADL: netting, token inventory, local insurance, global insurance, dynamic pricing, and solver managed risk controls. The important distinction is not that Vibe can promise no stress. It is that "
+    },
+    {
+      "id": "authored-single-pillar-optimization-failure",
+      "title": "Single-Pillar Optimization Failure",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/05-the-coupled-design-problem"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-05-the-coupled-design-problem",
+        "authored-coupled-design-problem",
+        "authored-vibe-pillars"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/single-pillar-optimization-failure.md",
+      "bodyMarkdown": "# Single-Pillar Optimization Failure\n\nThe Vibe Pillars paper says the three pillars are not independent checkboxes.\n\nOptimizing one in isolation can break the market:\n\n- only defense can make the market too restrictive to bootstrap;\n- only bootstrap can create residual counterparties that are fragile or expensive;\n- only yield can push unacceptable tail risk onto capital.\n\n## Why The Pillars Are Coupled\n\nMature order books can hide some of this coupling because buyer and seller often arrive together. The venue does not have to warehouse much exposure, so counterparty formation, defense, and capital yield can be less visible.\n\nLong-tail markets are earlier and thinner. They need defense against leveraged abuse, tradability during asynchronous flow, and enough return for residual risk-takers. These constraints push against each other. That is why Vibe's architecture has to be judged as a system rather than as three separate product features.\n\n## Reader Guidance\n\nUse this page when a reader asks why Vibe cannot simply maximize leverage, maximize listings, maximize LP yield, or maximize safety. The answer is that each objective can damage another pillar if it is pursued alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Coupled Design Problem\".\n\n## Related Pages\n\n- `authored-coupled-design-problem`\n- `authored-vibe-pillars`\n- `authored-funding-defense-hierarchy`",
+      "excerpt": "Single Pillar Optimization Failure The Vibe Pillars paper says the three pillars are not independent checkboxes. Optimizing one in isolation can break the market: only defense can make the market too restrictive to bootstrap; only bootstrap can create residual counterparties that are fragile or expensive; only yield can push unacceptable tail risk onto capital. Why The Pillars Are Coupled Mature order books can hide some of this coupling because buyer and seller often arrive together. The venue does not have to warehouse much exposure, so counterparty formation, defense, and capital yield can be less visible. Long tail markets are earlier and thinner. They need defense against leveraged abuse, tradability during asynchronous flow, and enough return for residual risk takers. These constraints push against each other. That is why Vibe's architecture has to be judged as a system rather than as three separate product features. Reader Guidance Use this page when a reader asks why Vibe cannot simply maximize leverage, maximize listings, maximize LP yield, or maximize safety. The answer is that each objective can damage another pillar if it is pursued alone. Sources vibe papers : Neelo, \""
     },
     {
       "id": "authored-slab-isolation-capital-inefficiency",
@@ -7410,6 +7505,29 @@
       "file": "content/authored/manifesto/why-derivatives-matter.md",
       "bodyMarkdown": "# Why Derivatives Matter\n\nSpot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value.\n\nThat second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure.\n\nNeelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path.\n\nThe key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is not finished.\n\n## Reader Implication\n\nWhen a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two-sided, stress-tested market information.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Why Derivatives Matter\".\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n\n## Related Pages\n\n- `authored-truth-markets-no-button`\n- `authored-liquidity-as-trader-experience`\n- `authored-proof-of-value`",
       "excerpt": "Why Derivatives Matter Spot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value. That second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure. Neelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path. The key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is n"
+    },
+    {
+      "id": "authored-yield-as-market-survival-constraint",
+      "title": "Yield As Market Survival Constraint",
+      "section": "manifesto",
+      "track": "07 — Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-04-pillar-three-lp-yield-and-capital-efficiency",
+        "authored-lp-yield-capital-efficiency-pillar",
+        "authored-risk-adjusted-capital-efficiency"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/yield-as-market-survival-constraint.md",
+      "bodyMarkdown": "# Yield As Market Survival Constraint\n\nIn the Vibe Pillars paper, LP yield is not a marketing flourish. It is a survival constraint.\n\nIf a solver, maker, LP, vault, or designated counterparty helps bootstrap a low-cap market, that capital is taking risk. It may face thin flow, volatility, adverse selection, inventory exposure, funding costs, or stress events. If the return is weak or inconsistent, the market can technically exist while the capital supporting it leaves.\n\n## Enough Yield Relative To Risk\n\nThe source frames the question as risk-adjusted. The point is not whether a line item called yield exists. The point is whether the return is enough to justify the residual counterparty exposure and the opportunity cost of capital.\n\nThis is why capital efficiency matters. A design that needs too much idle balance sheet per market cannot scale across the long tail. A design that underpays its risk-takers cannot persist. A design that overpays by hiding tail risk is not stable either.\n\n## Publication Boundary\n\nExact Vibe revenue share, LP rights, fee routing, Phase B economics, and live yield claims remain operator/accounting review items. The publishable thesis is narrower: yield is architectural evidence that risk-bearing capital can remain in the system.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Pillar Three: LP Yield and Capital Efficiency\".\n\n## Related Pages\n\n- `authored-lp-yield-capital-efficiency-pillar`\n- `authored-risk-adjusted-capital-efficiency`\n- `authored-no-ponzi-market-revenue-test`",
+      "excerpt": "Yield As Market Survival Constraint In the Vibe Pillars paper, LP yield is not a marketing flourish. It is a survival constraint. If a solver, maker, LP, vault, or designated counterparty helps bootstrap a low cap market, that capital is taking risk. It may face thin flow, volatility, adverse selection, inventory exposure, funding costs, or stress events. If the return is weak or inconsistent, the market can technically exist while the capital supporting it leaves. Enough Yield Relative To Risk The source frames the question as risk adjusted. The point is not whether a line item called yield exists. The point is whether the return is enough to justify the residual counterparty exposure and the opportunity cost of capital. This is why capital efficiency matters. A design that needs too much idle balance sheet per market cannot scale across the long tail. A design that underpays its risk takers cannot persist. A design that overpays by hiding tail risk is not stable either. Publication Boundary Exact Vibe revenue share, LP rights, fee routing, Phase B economics, and live yield claims remain operator/accounting review items. The publishable thesis is narrower: yield is architectural e"
     },
     {
       "id": "authored-z-score-graduation-criteria",

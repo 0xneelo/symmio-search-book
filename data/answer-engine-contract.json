@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 277
+      "totalGoldenRoutes": 282
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 295,
-    "retrievalEligiblePages": 1087,
+    "publicNavigationPages": 300,
+    "retrievalEligiblePages": 1092,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 295,
+      "candidate": 300,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 277,
-    "exactRouteTestsPassing": 277,
+    "totalExactRouteTests": 282,
+    "exactRouteTestsPassing": 282,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 277
+      "candidate": 282
     },
     "exactRoutesByConfidence": {
-      "Medium": 127,
+      "Medium": 130,
       "High": 44,
-      "Low": 106
+      "Low": 108
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3376,6 +3376,111 @@
         "passes": true
       },
       {
+        "id": "qr-why-call-a-perp-market-a-credit-system",
+        "query": "Why call a perp market a credit system?",
+        "normalizedQuery": "why call a perp market a credit system",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-market-as-credit-system",
+        "expectedPageTitle": "Perp Market As Credit System",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-call-a-perp-market-a-credit-system",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-long-tail-market-flow-episodic",
+        "query": "Why is long-tail market flow episodic?",
+        "normalizedQuery": "why is long tail market flow episodic",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-episodic-long-tail-flow",
+        "expectedPageTitle": "Episodic Long-Tail Flow",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-long-tail-market-flow-episodic",
+        "passes": true
+      },
+      {
+        "id": "qr-when-does-a-solver-become-a-balance-sheet-counterparty",
+        "query": "When does a solver become a balance-sheet counterparty?",
+        "normalizedQuery": "when does a solver become a balance sheet counterparty",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-residual-counterparty-balance-sheet-problem",
+        "expectedPageTitle": "Residual Counterparty Balance-Sheet Problem",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-does-a-solver-become-a-balance-sheet-counterparty",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-lp-yield-a-survival-constraint-for-vibe-markets",
+        "query": "Why is LP yield a survival constraint for Vibe markets?",
+        "normalizedQuery": "why is lp yield a survival constraint for vibe markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-yield-as-market-survival-constraint",
+        "expectedPageTitle": "Yield As Market Survival Constraint",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-lp-yield-a-survival-constraint-for-vibe-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-t-vibe-optimize-one-pillar-at-a-time",
+        "query": "Why can't Vibe optimize one pillar at a time?",
+        "normalizedQuery": "why can t vibe optimize one pillar at a time",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-single-pillar-optimization-failure",
+        "expectedPageTitle": "Single-Pillar Optimization Failure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-can-t-vibe-optimize-one-pillar-at-a-time",
+        "passes": true
+      },
+      {
         "id": "qr-how-do-lp-profit-and-dynamic-pricing-work",
         "query": "How do LP profit and dynamic pricing work?",
         "normalizedQuery": "how do lp profit and dynamic pricing work",
@@ -6443,7 +6548,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 277,
+      "exactRoutes": 282,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

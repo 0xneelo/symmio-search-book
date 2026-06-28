@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 284,
-  "totalAnswerable": 277,
+  "totalEntries": 289,
+  "totalAnswerable": 282,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 24,
-    "Solvers And Settlement": 54,
+    "Solvers And Settlement": 56,
     "Risk And Markets": 22,
     "Revenue": 27,
-    "Manifesto": 63,
+    "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 127,
+    "Medium": 130,
     "High": 44,
-    "Low": 106
+    "Low": 108
   },
   "byRouteSource": {
-    "authored": 277
+    "authored": 282
   },
   "byType": {
-    "answerable": 277,
+    "answerable": 282,
     "reconciliation": 7
   },
   "answerable": [
@@ -5165,6 +5165,151 @@
       "confidence": "Medium",
       "pageId": "authored-vibe-pillars",
       "pageTitle": "The Three Vibe Pillars",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-call-a-perp-market-a-credit-system",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why call a perp market a credit system?",
+      "normalizedQuestion": "why call a perp market a credit system",
+      "shortAnswer": "Neelo's Vibe Pillars introduction frames perps as margin, exposure, counterparty, LP/solver, and stress-continuity systems rather than price charts with leverage.",
+      "answerSummary": "Perp Market As Credit System The Vibe Pillars paper starts by refusing to treat a perpetual market as only a price chart with leverage attached. A perp market is a credit system. Traders post margin and receive exposure. Counterparties absorb risk. Solvers, market makers, LPs, or vaults stand behind the market during stress. If collateral, liquidation, or...",
+      "confidence": "Medium",
+      "pageId": "authored-perp-market-as-credit-system",
+      "pageTitle": "Perp Market As Credit System",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-long-tail-market-flow-episodic",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is long-tail market flow episodic?",
+      "normalizedQuestion": "why is long tail market flow episodic",
+      "shortAnswer": "Neelo's Vibe Pillars paper explains why low-cap demand can be real over time without continuous synchronous order-book matching.",
+      "answerSummary": "Episodic Long Tail Flow The long tail problem is not only low volume. It is timing. Neelo's Vibe Pillars paper explains that mature order books benefit from synchronous matching: a long and a short can often meet at the same moment. Low cap markets do not reliably have that pattern. Interest is sparse, path dependent, and episodic. Aggregate demand can ex...",
+      "confidence": "Medium",
+      "pageId": "authored-episodic-long-tail-flow",
+      "pageTitle": "Episodic Long-Tail Flow",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-a-solver-become-a-balance-sheet-counterparty",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When does a solver become a balance-sheet counterparty?",
+      "normalizedQuestion": "when does a solver become a balance sheet counterparty",
+      "shortAnswer": "Neelo's bootstrap and LP-yield pillars explain that solver intermediation turns matching into inventory, hedging, and residual-risk balance-sheet work.",
+      "answerSummary": "Residual Counterparty Balance Sheet Problem When a solver or designated risk taker intermediates an early market, the problem changes. It is no longer only an order matching problem. It becomes a balance sheet problem. The residual counterparty may warehouse exposure, fund stable collateral, hold inventory, hedge externally, or absorb one sided flow until...",
+      "confidence": "Low",
+      "pageId": "authored-residual-counterparty-balance-sheet-problem",
+      "pageTitle": "Residual Counterparty Balance-Sheet Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-lp-yield-a-survival-constraint-for-vibe-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is LP yield a survival constraint for Vibe markets?",
+      "normalizedQuestion": "why is lp yield a survival constraint for vibe markets",
+      "shortAnswer": "Neelo's third pillar treats yield as the risk-adjusted return needed to keep residual counterparty capital in thin markets, not as a generic rewards table.",
+      "answerSummary": "Yield As Market Survival Constraint In the Vibe Pillars paper, LP yield is not a marketing flourish. It is a survival constraint. If a solver, maker, LP, vault, or designated counterparty helps bootstrap a low cap market, that capital is taking risk. It may face thin flow, volatility, adverse selection, inventory exposure, funding costs, or stress events....",
+      "confidence": "Low",
+      "pageId": "authored-yield-as-market-survival-constraint",
+      "pageTitle": "Yield As Market Survival Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-vibe-optimize-one-pillar-at-a-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can't Vibe optimize one pillar at a time?",
+      "normalizedQuestion": "why can t vibe optimize one pillar at a time",
+      "shortAnswer": "Neelo's coupled-design section shows how optimizing only defense, bootstrap, or yield can break the other constraints.",
+      "answerSummary": "Single Pillar Optimization Failure The Vibe Pillars paper says the three pillars are not independent checkboxes. Optimizing one in isolation can break the market: only defense can make the market too restrictive to bootstrap; only bootstrap can create residual counterparties that are fragile or expensive; only yield can push unacceptable tail risk onto ca...",
+      "confidence": "Medium",
+      "pageId": "authored-single-pillar-optimization-failure",
+      "pageTitle": "Single-Pillar Optimization Failure",
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
       "pageStatus": "publication-candidate",
@@ -15042,6 +15187,151 @@
       "confidence": "Medium",
       "pageId": "authored-vibe-pillars",
       "pageTitle": "The Three Vibe Pillars",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-call-a-perp-market-a-credit-system",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why call a perp market a credit system?",
+      "normalizedQuestion": "why call a perp market a credit system",
+      "shortAnswer": "Neelo's Vibe Pillars introduction frames perps as margin, exposure, counterparty, LP/solver, and stress-continuity systems rather than price charts with leverage.",
+      "answerSummary": "Perp Market As Credit System The Vibe Pillars paper starts by refusing to treat a perpetual market as only a price chart with leverage attached. A perp market is a credit system. Traders post margin and receive exposure. Counterparties absorb risk. Solvers, market makers, LPs, or vaults stand behind the market during stress. If collateral, liquidation, or...",
+      "confidence": "Medium",
+      "pageId": "authored-perp-market-as-credit-system",
+      "pageTitle": "Perp Market As Credit System",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-long-tail-market-flow-episodic",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is long-tail market flow episodic?",
+      "normalizedQuestion": "why is long tail market flow episodic",
+      "shortAnswer": "Neelo's Vibe Pillars paper explains why low-cap demand can be real over time without continuous synchronous order-book matching.",
+      "answerSummary": "Episodic Long Tail Flow The long tail problem is not only low volume. It is timing. Neelo's Vibe Pillars paper explains that mature order books benefit from synchronous matching: a long and a short can often meet at the same moment. Low cap markets do not reliably have that pattern. Interest is sparse, path dependent, and episodic. Aggregate demand can ex...",
+      "confidence": "Medium",
+      "pageId": "authored-episodic-long-tail-flow",
+      "pageTitle": "Episodic Long-Tail Flow",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-a-solver-become-a-balance-sheet-counterparty",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When does a solver become a balance-sheet counterparty?",
+      "normalizedQuestion": "when does a solver become a balance sheet counterparty",
+      "shortAnswer": "Neelo's bootstrap and LP-yield pillars explain that solver intermediation turns matching into inventory, hedging, and residual-risk balance-sheet work.",
+      "answerSummary": "Residual Counterparty Balance Sheet Problem When a solver or designated risk taker intermediates an early market, the problem changes. It is no longer only an order matching problem. It becomes a balance sheet problem. The residual counterparty may warehouse exposure, fund stable collateral, hold inventory, hedge externally, or absorb one sided flow until...",
+      "confidence": "Low",
+      "pageId": "authored-residual-counterparty-balance-sheet-problem",
+      "pageTitle": "Residual Counterparty Balance-Sheet Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-lp-yield-a-survival-constraint-for-vibe-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is LP yield a survival constraint for Vibe markets?",
+      "normalizedQuestion": "why is lp yield a survival constraint for vibe markets",
+      "shortAnswer": "Neelo's third pillar treats yield as the risk-adjusted return needed to keep residual counterparty capital in thin markets, not as a generic rewards table.",
+      "answerSummary": "Yield As Market Survival Constraint In the Vibe Pillars paper, LP yield is not a marketing flourish. It is a survival constraint. If a solver, maker, LP, vault, or designated counterparty helps bootstrap a low cap market, that capital is taking risk. It may face thin flow, volatility, adverse selection, inventory exposure, funding costs, or stress events....",
+      "confidence": "Low",
+      "pageId": "authored-yield-as-market-survival-constraint",
+      "pageTitle": "Yield As Market Survival Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-vibe-optimize-one-pillar-at-a-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can't Vibe optimize one pillar at a time?",
+      "normalizedQuestion": "why can t vibe optimize one pillar at a time",
+      "shortAnswer": "Neelo's coupled-design section shows how optimizing only defense, bootstrap, or yield can break the other constraints.",
+      "answerSummary": "Single Pillar Optimization Failure The Vibe Pillars paper says the three pillars are not independent checkboxes. Optimizing one in isolation can break the market: only defense can make the market too restrictive to bootstrap; only bootstrap can create residual counterparties that are fragile or expensive; only yield can push unacceptable tail risk onto ca...",
+      "confidence": "Medium",
+      "pageId": "authored-single-pillar-optimization-failure",
+      "pageTitle": "Single-Pillar Optimization Failure",
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
       "pageStatus": "publication-candidate",

@@ -775,3 +775,11 @@
 **Reason:** Broad system visualization/listing terms pages cover the loop, but project-side readers ask narrower diligence questions. Exact routes help answer inventory, solver economics, profit-share, custody, audit, and delisting without overclaiming commercial/legal terms.
 
 **Status:** Accepted for the authored product-reference layer; supply ranges, project distribution examples, custody/security-fund language, legal terms, and live agreement/SOW details remain operator/accounting/legal/current-source review.
+
+## D-098: Split Vibe Pillars Into Exact Architecture-Constraint Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for perps as credit systems, episodic long-tail flow, residual counterparty balance-sheet work, yield as a market-survival constraint, and single-pillar optimization failure.
+
+**Reason:** The broad Vibe Pillars pages explain defense, bootstrap, LP yield, and coupling, but answer-engine users will ask narrower architecture questions. Exact routes help explain why low-cap perps are hard without reducing the thesis to "more leverage" or "more listings."
+
+**Status:** Accepted for the authored manifesto layer; exact leverage, solver capitalization, vault economics, LP rights, fee routing, and live risk parameters remain operator/implementation/accounting review items.

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 277,
+  "totalRoutes": 282,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 127,
+    "Medium": 130,
     "High": 44,
-    "Low": 106
+    "Low": 108
   },
   "byRouteSource": {
-    "authored": 277
+    "authored": 282
   },
   "answerable": [
     {
@@ -2510,6 +2510,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's pillars paper links bootstrap, defense, and LP economics.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-call-a-perp-market-a-credit-system",
+      "question": "Why call a perp market a credit system?",
+      "normalizedQuestion": "why call a perp market a credit system",
+      "pageId": "authored-perp-market-as-credit-system",
+      "pageTitle": "Perp Market As Credit System",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Vibe Pillars introduction frames perps as margin, exposure, counterparty, LP/solver, and stress-continuity systems rather than price charts with leverage.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-long-tail-market-flow-episodic",
+      "question": "Why is long-tail market flow episodic?",
+      "normalizedQuestion": "why is long tail market flow episodic",
+      "pageId": "authored-episodic-long-tail-flow",
+      "pageTitle": "Episodic Long-Tail Flow",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Vibe Pillars paper explains why low-cap demand can be real over time without continuous synchronous order-book matching.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-does-a-solver-become-a-balance-sheet-counterparty",
+      "question": "When does a solver become a balance-sheet counterparty?",
+      "normalizedQuestion": "when does a solver become a balance sheet counterparty",
+      "pageId": "authored-residual-counterparty-balance-sheet-problem",
+      "pageTitle": "Residual Counterparty Balance-Sheet Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's bootstrap and LP-yield pillars explain that solver intermediation turns matching into inventory, hedging, and residual-risk balance-sheet work.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-lp-yield-a-survival-constraint-for-vibe-markets",
+      "question": "Why is LP yield a survival constraint for Vibe markets?",
+      "normalizedQuestion": "why is lp yield a survival constraint for vibe markets",
+      "pageId": "authored-yield-as-market-survival-constraint",
+      "pageTitle": "Yield As Market Survival Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's third pillar treats yield as the risk-adjusted return needed to keep residual counterparty capital in thin markets, not as a generic rewards table.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-t-vibe-optimize-one-pillar-at-a-time",
+      "question": "Why can't Vibe optimize one pillar at a time?",
+      "normalizedQuestion": "why can t vibe optimize one pillar at a time",
+      "pageId": "authored-single-pillar-optimization-failure",
+      "pageTitle": "Single-Pillar Optimization Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's coupled-design section shows how optimizing only defense, bootstrap, or yield can break the other constraints.",
       "sourceKeys": [
         "vibe-papers"
       ],

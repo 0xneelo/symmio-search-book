@@ -586,6 +586,12 @@
 - Routed five new Ask questions so project-side market-creation diligence questions resolve to exact pages instead of broad listing or system-visualization overviews.
 - Kept supply ranges, project distribution examples, custody/security-fund language, legal terms, and agreement-specific commercial details under operator/accounting/legal/current-source review.
 
+## 2026-06-29 — Vibe Pillars Architecture Subclaim Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Vibe Pillars paper: perps as credit systems, episodic long-tail flow, residual counterparty balance-sheet work, yield as a survival constraint, and single-pillar optimization failure.
+- Routed five new Ask questions so architecture-thesis readers can understand why exploit resistance, bootstrap, counterparty continuity, and LP economics must be solved together.
+- Kept exact leverage, solver capitalization, vault economics, LP rights, fee routing, and live risk parameters under operator/implementation/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
