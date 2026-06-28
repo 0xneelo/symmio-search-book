@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 130,
+  "totalPages": 135,
   "byStatus": {
     "publication-candidate": 69,
-    "publication-candidate-needs-operator-review": 60,
+    "publication-candidate-needs-operator-review": 65,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 68,
+    "manifesto": 73,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -904,6 +904,30 @@
       "file": "content/authored/manifesto/hybrid-solver-liquidity-waterfall.md",
       "bodyMarkdown": "# The Hybrid Solver Liquidity Waterfall\n\nThe hybrid solver model answers the cold-start question for intent markets: who quotes when a market is too new, too volatile, or too niche for external solvers to want the trade?\n\nNeelo's source proposes a waterfall. External solvers see flow first and can fill when they have the appetite or hedge path. If they can quote tighter than the backstop, the user benefits and the protocol does not need to warehouse that risk. When external solvers pass, a protocol-owned or protocol-operated solver can provide the fallback quote with wider pricing that reflects the risk of being last resort.\n\nThe strategic reason is simple. Pure intent systems can fail if no one answers the intent. Pure protocol backstops can absorb too much toxic flow if they quote blindly. A waterfall can combine both: market competition where external solvers are willing, and a controlled bootstrap path where the protocol wants a market to exist.\n\nThe same source discusses inventory vaults, risk tranching, cross-market mutualization, pass-through execution, and LP revenue-sharing concepts. Those details are important for the economic model, but they should stay under operator and implementation review until public vault semantics, fee splits, and loss allocation are confirmed. The publishable architectural point is the waterfall itself: external price discovery first, backstop liquidity second, explicit risk premium throughout.\n\n## Reader Implication\n\nSolvers should read this as a market-access stack rather than a single counterparty. Traders should understand why early markets may receive wider quotes: the fallback quote is doing the work that a mature market's organic liquidity has not yet earned.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-residual-counterparty-hedge-first`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "The Hybrid Solver Liquidity Waterfall The hybrid solver model answers the cold start question for intent markets: who quotes when a market is too new, too volatile, or too niche for external solvers to want the trade? Neelo's source proposes a waterfall. External solvers see flow first and can fill when they have the appetite or hedge path. If they can quote tighter than the backstop, the user benefits and the protocol does not need to warehouse that risk. When external solvers pass, a protocol owned or protocol operated solver can provide the fallback quote with wider pricing that reflects the risk of being last resort. The strategic reason is simple. Pure intent systems can fail if no one answers the intent. Pure protocol backstops can absorb too much toxic flow if they quote blindly. A waterfall can combine both: market competition where external solvers are willing, and a controlled bootstrap path where the protocol wants a market to exist. The same source discusses inventory vaults, risk tranching, cross market mutualization, pass through execution, and LP revenue sharing concepts. Those details are important for the economic model, but they should stay under operator and impl"
+    },
+    {
+      "id": "authored-incentive-based-attack-risk",
+      "title": "Attack Risk Is Incentive-Based",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+        "neelo-06-usdc-token-perps-06-docs-figure1"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/incentive-based-attack-risk.md",
+      "bodyMarkdown": "# Attack Risk Is Incentive-Based\n\nThe risk-premium source rejects a weak framing of low-cap perp attacks: \"what is the probability of a strange price move?\" The stronger framing is economic: what does it cost to move the market, and what can be extracted from the resulting bad debt?\n\nThat matters because rational attackers do not need a rare random event. They need a profitable trade. If open interest, leverage, oracle design, and spot-market depth create a path where expected extraction exceeds manipulation cost, the risk becomes structural.\n\nFor docs, this changes the risk vocabulary. Thin liquidity, fast blocks, delayed liquidation, and net long/short imbalance are not independent footnotes. They can combine into one incentive surface. A market can be unsafe precisely when its headline growth metrics look exciting.\n\n## Why It Belongs In The Compendium\n\nPermissionless market creation only works if the docs teach adversarial economics. A reader should understand that \"long-tail\" means more than smaller assets. It means lower manipulation cost, weaker liquidation depth, more concentrated inventory, and more path-dependent risk.\n\n## Publication Note\n\nThe source uses stylized examples and aggressive loss assumptions. Publish the incentive framework, but keep concrete thresholds and live exploitability claims under implementation/security review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n- `vibe-papers`: Neelo, \"Figure1\".\n\n## Related Pages\n\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-token-margined-reflexivity-risk`\n- `authored-solver-hedging-failure-modes`",
+      "excerpt": "Attack Risk Is Incentive Based The risk premium source rejects a weak framing of low cap perp attacks: \"what is the probability of a strange price move?\" The stronger framing is economic: what does it cost to move the market, and what can be extracted from the resulting bad debt? That matters because rational attackers do not need a rare random event. They need a profitable trade. If open interest, leverage, oracle design, and spot market depth create a path where expected extraction exceeds manipulation cost, the risk becomes structural. For docs, this changes the risk vocabulary. Thin liquidity, fast blocks, delayed liquidation, and net long/short imbalance are not independent footnotes. They can combine into one incentive surface. A market can be unsafe precisely when its headline growth metrics look exciting. Why It Belongs In The Compendium Permissionless market creation only works if the docs teach adversarial economics. A reader should understand that \"long tail\" means more than smaller assets. It means lower manipulation cost, weaker liquidation depth, more concentrated inventory, and more path dependent risk. Publication Note The source uses stylized examples and aggressiv"
     },
     {
       "id": "authored-information-validation-crisis",
@@ -1948,6 +1972,30 @@
       "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
     },
     {
+      "id": "authored-required-risk-premium-for-usdc-lps",
+      "title": "Required Risk Premium For USDC LPs",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-required-apr-derivation",
+        "neelo-06-usdc-token-perps-06-docs-figure5"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/required-risk-premium-for-usdc-lps.md",
+      "bodyMarkdown": "# Required Risk Premium For USDC LPs\n\nThe USDC source's APR derivation is useful because it treats LP yield as compensation for risk, not as a marketing number.\n\nFor a stablecoin LP, the required return is not just \"what APY sounds attractive?\" It has at least three components: the opportunity cost of deploying USDC elsewhere, expected protocol losses, and a premium for adverse selection and tail risk. In low-cap perp markets, the source argues that those components can dominate the economics.\n\nThat framing helps the compendium explain why generic USDC backstops can be expensive. If the LP pool is exposed to manipulation, bad debt, liquidation failure, and fat-tail market states, then a low headline yield is not conservative. It may be underpriced risk.\n\n## What To Publish Carefully\n\nThe exact APR ranges and risk-premium ratios in the source are model outputs. They are useful for comparative reasoning, but they should not be presented as final Vibe economics, guaranteed LP demand, or audited market data.\n\nThe publishable thesis is the equation: low-cap backstop capital needs a return high enough to cover opportunity cost, expected loss, and adverse selection.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n- `vibe-papers`: Neelo, \"Figure5\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-symm-lp-unit-economics`",
+      "excerpt": "Required Risk Premium For USDC LPs The USDC source's APR derivation is useful because it treats LP yield as compensation for risk, not as a marketing number. For a stablecoin LP, the required return is not just \"what APY sounds attractive?\" It has at least three components: the opportunity cost of deploying USDC elsewhere, expected protocol losses, and a premium for adverse selection and tail risk. In low cap perp markets, the source argues that those components can dominate the economics. That framing helps the compendium explain why generic USDC backstops can be expensive. If the LP pool is exposed to manipulation, bad debt, liquidation failure, and fat tail market states, then a low headline yield is not conservative. It may be underpriced risk. What To Publish Carefully The exact APR ranges and risk premium ratios in the source are model outputs. They are useful for comparative reasoning, but they should not be presented as final Vibe economics, guaranteed LP demand, or audited market data. The publishable thesis is the equation: low cap backstop capital needs a return high enough to cover opportunity cost, expected loss, and adverse selection. Sources vibe papers : Neelo, \"Req"
+    },
+    {
       "id": "authored-residual-counterparty-hedge-first",
       "title": "Residual Counterparty And Hedge-First Execution",
       "section": "protocol-reference",
@@ -1999,6 +2047,31 @@
       "file": "content/authored/manifesto/rfq-before-order-book.md",
       "bodyMarkdown": "# RFQ Before Order Book\n\nThe conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book.\n\nThat sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk-aware pricing, and a way to discover whether derivatives demand exists. A solver-based intent or RFQ layer can answer that earlier than a full central limit order book.\n\nVibe's bootstrap layer changes the first question from \"can this market support a full book today?\" to \"can this market start trading and prove itself?\" If the market attracts sustained demand, healthier two-sided flow, and lower residual solver dependency, then the order-book question becomes easier and more evidence-based.\n\n## What To Avoid\n\nDo not present RFQ as a permanent replacement for mature execution. The source is sharper than that. RFQ is the early-market mechanism that gives the market time to become worthy of a book.\n\n## Publication Note\n\nSpecific routing through internal, external, or intermediate venues needs implementation and operator review. The publishable thesis is the sequence: bootstrap first, graduate later.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Vibe as Bootstrap Layer\".\n- `vibe-papers`: Neelo, \"Section 9: Conclusion\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-z-score-graduation-criteria`",
       "excerpt": "RFQ Before Order Book The conclusion of the Ode to OrderBooks source is compact: the future is not RFQ versus order book. It is RFQ before order book. That sequence matters. A new market does not need perfect market structure on day one. It needs executable liquidity, a counterparty model, risk aware pricing, and a way to discover whether derivatives demand exists. A solver based intent or RFQ layer can answer that earlier than a full central limit order book. Vibe's bootstrap layer changes the first question from \"can this market support a full book today?\" to \"can this market start trading and prove itself?\" If the market attracts sustained demand, healthier two sided flow, and lower residual solver dependency, then the order book question becomes easier and more evidence based. What To Avoid Do not present RFQ as a permanent replacement for mature execution. The source is sharper than that. RFQ is the early market mechanism that gives the market time to become worthy of a book. Publication Note Specific routing through internal, external, or intermediate venues needs implementation and operator review. The publishable thesis is the sequence: bootstrap first, graduate later. Sour"
+    },
+    {
+      "id": "authored-risk-adjusted-capital-efficiency",
+      "title": "Capital Efficiency Must Be Risk-Adjusted",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure4",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure4",
+        "neelo-06-usdc-token-perps-06-docs-figure5",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/risk-adjusted-capital-efficiency.md",
+      "bodyMarkdown": "# Capital Efficiency Must Be Risk-Adjusted\n\nThe USDC-versus-token-vault source makes a useful distinction: gross leverage is not the same thing as useful capital efficiency.\n\nA system can report open interest against deposited capital, but if the capital is expensive, fragile, or exposed to adverse selection, the headline ratio misleads. For low-cap perps, the cost of backstop capital can be the constraint. A USDC LP pool may need conservative leverage and a high risk premium. Token inventory may support more market-specific exposure because the holder already bears the asset risk.\n\nFigure4 compares structural leverage. Figure5 then adds the risk-premium multiplier. The resulting source-model claim is that VibeCaps-style token inventory can be far more risk-adjusted-capital-efficient than an external USDC LP design.\n\n## What The Docs Should Teach\n\nCapital efficiency has to answer three questions:\n\n1. How much market exposure can the capital safely support?\n2. What return does that capital require to participate?\n3. Who absorbs the loss when the market moves through the model?\n\nWithout those questions, \"more leverage\" and \"more OI\" can hide a worse design.\n\n## Publication Note\n\nThe source's numeric multiplier is comparative model evidence, not an audited production metric. Use it to teach risk-adjusted thinking, not to promise a live efficiency ratio.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure4\".\n- `vibe-papers`: Neelo, \"Figure5\".\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n\n## Related Pages\n\n- `authored-hybrid-perps-comparative-advantage`\n- `authored-lp-yield-capital-efficiency-pillar`\n- `authored-token-vault-perps-versus-usdc-pools`",
+      "excerpt": "Capital Efficiency Must Be Risk Adjusted The USDC versus token vault source makes a useful distinction: gross leverage is not the same thing as useful capital efficiency. A system can report open interest against deposited capital, but if the capital is expensive, fragile, or exposed to adverse selection, the headline ratio misleads. For low cap perps, the cost of backstop capital can be the constraint. A USDC LP pool may need conservative leverage and a high risk premium. Token inventory may support more market specific exposure because the holder already bears the asset risk. Figure4 compares structural leverage. Figure5 then adds the risk premium multiplier. The resulting source model claim is that VibeCaps style token inventory can be far more risk adjusted capital efficient than an external USDC LP design. What The Docs Should Teach Capital efficiency has to answer three questions: 1. How much market exposure can the capital safely support? 2. What return does that capital require to participate? 3. Who absorbs the loss when the market moves through the model? Without those questions, \"more leverage\" and \"more OI\" can hide a worse design. Publication Note The source's numeric "
     },
     {
       "id": "authored-search-insights-loop",
@@ -2472,6 +2545,30 @@
       "excerpt": "Token Holders Are Natural Inventory Providers The Proof of Value framework separates two jobs that are often collapsed: stable settlement liquidity and token inventory. The source argues that Vibe should not ask generic external USDC LPs to back every long tail market. Stablecoin LPs are being asked to underwrite low cap token risk they may not understand, do not already hold, and would price very expensively. That can force a bad loop: high perceived risk, high yield demand, higher fees, lower trader activity, and weaker market sustainability. Token holders are different. A project treasury, founder, whale, or committed holder already has directional exposure to the asset. If that holder contributes a bounded portion of inventory to help a perp market exist, the incremental risk is closer to risk they already accepted. The deposit can add utility, signal support, and potentially earn yield from real market activity. The Architecture Claim The architecture claim is not that token inventory is risk free. It is that token inventory and USDC settlement should not be confused. Token side inventory can help a solver manage residual exposure in the market being created. Stable settlement"
     },
     {
+      "id": "authored-token-inventory-risk-localization",
+      "title": "Token Inventory Localizes Risk",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure3"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-overview",
+        "neelo-06-usdc-token-perps-06-docs-figure3",
+        "authored-token-holder-inventory-alignment"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-inventory-risk-localization.md",
+      "bodyMarkdown": "# Token Inventory Localizes Risk\n\nThe VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location.\n\nProject treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or market maker can then manage order-flow imbalance, spreads, funding, and hedging around that inventory.\n\nFigure3 separates this from protocol-wide insolvency. Order-flow imbalance, model error, and hedge execution can create solver PnL volatility or capital drawdown. Token repricing affects the token holders who already held the asset. That is still real risk, but it is not the same as asking unrelated USDC LPs to absorb every long-tail market's bad debt.\n\n## Reader Implication\n\nDocs should describe token inventory as localized market support, not as a magical backstop. The key question is whether the risk is borne by capital that understands and already owns the asset, with stable settlement obligations kept separate.\n\n## Publication Note\n\nExact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, and loss ordering still need operator and implementation review before publication as product guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"USDC vs Token-Margined Perpetuals\".\n- `vibe-papers`: Neelo, \"Figure3\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-residual-counterparty-hedge-first`",
+      "excerpt": "Token Inventory Localizes Risk The VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location. Project treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or market maker can then manage order flow imbalance, spreads, funding, and hedging around that inventory. Figure3 separates this from protocol wide insolvency. Order flow imbalance, model error, and hedge execution can create solver PnL volatility or capital drawdown. Token repricing affects the token holders who already held the asset. That is still real risk, but it is not the same as asking unrelated USDC LPs to absorb every long tail market's bad debt. Reader Implication Docs should describe token inventory as localized market support, not as a magical backstop. The key question is whether the risk is borne by capital that understands and already owns the asset, with stable settlement obligations kept separate. Publication Note Exact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, and loss ordering stil"
+    },
+    {
       "id": "authored-token-margined-lp-lose-lose",
       "title": "The Token-Margined LP Lose-Lose",
       "section": "manifesto",
@@ -2614,6 +2711,31 @@
       "file": "content/authored/manifesto/universal-issuance-needs-derivatives.md",
       "bodyMarkdown": "# Universal Issuance Needs Derivatives\n\nCrypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity.\n\nThat is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress-tested, or matured into credible market structure.\n\nThis is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying.\n\nDerivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail instead of waiting for a permissioned venue to decide which assets are worthy.\n\n## Reader Implication\n\nThe compendium should make the sequence clear: issuance created abundance; spot created access; derivatives create two-sided market discipline. Permissionless derivatives matter because they make the token lifecycle harder to fake.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Issuance Revolution\".\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-last-primitive`\n- `authored-end-of-narrative-based-listings`",
       "excerpt": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress tested, or matured into credible market structure. This is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying. Derivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail in"
+    },
+    {
+      "id": "authored-usdc-lp-backstop-cascade",
+      "title": "The USDC LP Backstop Cascade",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-overview",
+        "neelo-06-usdc-token-perps-06-docs-figure1",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-lp-backstop-cascade.md",
+      "bodyMarkdown": "# The USDC LP Backstop Cascade\n\nNeelo's USDC-versus-token-vault source starts with a simple cascade: generic USDC LP capital sits behind a low-cap perp engine, while the underlying market may be thin, fast-moving, and easy to manipulate.\n\nThe important point is not that USDC is a bad settlement asset. Vibe's trader-facing collateral and settlement story still relies on USDC in the current product-reference pages. The problem is asking external stablecoin LPs to be the first generalized backstop for every long-tail market.\n\nIn the source model, trader leverage, thin spot liquidity, oracle manipulation, net-position imbalance, liquidation latency, and backstop correlation can all route into bad debt. The backstop fund absorbs the first loss, but residual losses reach the USDC LP pool. That means the LP is not just earning passive pool yield; the LP is underwriting market-structure failures.\n\n## Reader Implication\n\nWhen the docs compare USDC pools with token-vault or inventory-backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not \"USDC bad, token good.\" It is: stable settlement and generalized loss absorption are different jobs.\n\n## Publication Note\n\nThis page summarizes Neelo's source model. Final public docs need operator and implementation review before naming live market parameters, loss order, vault rights, or current Vibe/Symmio backstop guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"USDC vs Token-Margined Perpetuals\".\n- `vibe-papers`: Neelo, \"Figure1\".\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-funding-defense-hierarchy`",
+      "excerpt": "The USDC LP Backstop Cascade Neelo's USDC versus token vault source starts with a simple cascade: generic USDC LP capital sits behind a low cap perp engine, while the underlying market may be thin, fast moving, and easy to manipulate. The important point is not that USDC is a bad settlement asset. Vibe's trader facing collateral and settlement story still relies on USDC in the current product reference pages. The problem is asking external stablecoin LPs to be the first generalized backstop for every long tail market. In the source model, trader leverage, thin spot liquidity, oracle manipulation, net position imbalance, liquidation latency, and backstop correlation can all route into bad debt. The backstop fund absorbs the first loss, but residual losses reach the USDC LP pool. That means the LP is not just earning passive pool yield; the LP is underwriting market structure failures. Reader Implication When the docs compare USDC pools with token vault or inventory backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not \"USDC bad, token good.\" It is: stable settlement and generalized loss absorption are different jobs. Public"
     },
     {
       "id": "authored-usdc-settlement-inventory-separation",

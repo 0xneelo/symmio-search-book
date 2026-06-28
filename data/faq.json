@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 117,
-  "totalAnswerable": 111,
+  "totalEntries": 122,
+  "totalAnswerable": 116,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,8 +17,8 @@
   "byCategory": {
     "Getting Started": 12,
     "Trading Flow": 12,
-    "Solvers And Settlement": 25,
-    "Risk And Markets": 9,
+    "Solvers And Settlement": 26,
+    "Risk And Markets": 13,
     "Revenue": 10,
     "Rewards And Referrals": 12,
     "Dashboard": 9,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 55,
+    "Medium": 56,
     "High": 18,
-    "Low": 38
+    "Low": 42
   },
   "byRouteSource": {
-    "authored": 111
+    "authored": 116
   },
   "byType": {
-    "answerable": 111,
+    "answerable": 116,
     "reconciliation": 6
   },
   "answerable": [
@@ -2485,6 +2485,151 @@
       "pageTitle": "Token-Vault Perps Versus USDC Pools",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-a-generic-usdc-pool-risky-for-low-cap-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is a generic USDC pool risky for low-cap perps?",
+      "normalizedQuestion": "why is a generic usdc pool risky for low cap perps",
+      "shortAnswer": "Neelo's USDC-vs-token source models how thin liquidity, oracle manipulation, imbalance, liquidation latency, and backstop correlation can route losses to USDC LPs.",
+      "answerSummary": "The USDC LP Backstop Cascade Neelo's USDC versus token vault source starts with a simple cascade: generic USDC LP capital sits behind a low cap perp engine, while the underlying market may be thin, fast moving, and easy to manipulate. The important point is not that USDC is a bad settlement asset. Vibe's trader facing collateral and settlement story still...",
+      "confidence": "Low",
+      "pageId": "authored-usdc-lp-backstop-cascade",
+      "pageTitle": "The USDC LP Backstop Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-manipulation-attacks-economic-not-random",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why are manipulation attacks economic, not random?",
+      "normalizedQuestion": "why are manipulation attacks economic not random",
+      "shortAnswer": "Neelo's risk-premium derivation frames low-cap attacks as incentive-based games where exploitability depends on profit versus manipulation cost.",
+      "answerSummary": "Attack Risk Is Incentive Based The risk premium source rejects a weak framing of low cap perp attacks: \"what is the probability of a strange price move?\" The stronger framing is economic: what does it cost to move the market, and what can be extracted from the resulting bad debt? That matters because rational attackers do not need a rare random event. The...",
+      "confidence": "Medium",
+      "pageId": "authored-incentive-based-attack-risk",
+      "pageTitle": "Attack Risk Is Incentive-Based",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-usdc-lps-demand-a-high-risk-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why would USDC LPs demand a high risk premium?",
+      "normalizedQuestion": "why would usdc lps demand a high risk premium",
+      "shortAnswer": "Neelo's APR derivation separates opportunity cost, expected loss, and adverse-selection premium; exact ranges remain source-model claims.",
+      "answerSummary": "Required Risk Premium For USDC LPs The USDC source's APR derivation is useful because it treats LP yield as compensation for risk, not as a marketing number. For a stablecoin LP, the required return is not just \"what APY sounds attractive?\" It has at least three components: the opportunity cost of deploying USDC elsewhere, expected protocol losses, and a...",
+      "confidence": "Low",
+      "pageId": "authored-required-risk-premium-for-usdc-lps",
+      "pageTitle": "Required Risk Premium For USDC LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-token-inventory-localize-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does token inventory localize risk?",
+      "normalizedQuestion": "how does token inventory localize risk",
+      "shortAnswer": "Neelo's Vibecaps figure separates token-holder inventory and solver drawdown from generalized USDC backstop losses.",
+      "answerSummary": "Token Inventory Localizes Risk The VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location. Project treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or m...",
+      "confidence": "Low",
+      "pageId": "authored-token-inventory-risk-localization",
+      "pageTitle": "Token Inventory Localizes Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-risk-adjusted-capital-efficiency-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What does risk-adjusted capital efficiency mean?",
+      "normalizedQuestion": "what does risk adjusted capital efficiency mean",
+      "shortAnswer": "Neelo's leverage and risk-premium figures show why useful capital efficiency must include required return and loss absorption, not only gross OI.",
+      "answerSummary": "Capital Efficiency Must Be Risk Adjusted The USDC versus token vault source makes a useful distinction: gross leverage is not the same thing as useful capital efficiency. A system can report open interest against deposited capital, but if the capital is expensive, fragile, or exposed to adverse selection, the headline ratio misleads. For low cap perps, th...",
+      "confidence": "Low",
+      "pageId": "authored-risk-adjusted-capital-efficiency",
+      "pageTitle": "Capital Efficiency Must Be Risk-Adjusted",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -6828,6 +6973,151 @@
       "pageTitle": "Token-Vault Perps Versus USDC Pools",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-a-generic-usdc-pool-risky-for-low-cap-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is a generic USDC pool risky for low-cap perps?",
+      "normalizedQuestion": "why is a generic usdc pool risky for low cap perps",
+      "shortAnswer": "Neelo's USDC-vs-token source models how thin liquidity, oracle manipulation, imbalance, liquidation latency, and backstop correlation can route losses to USDC LPs.",
+      "answerSummary": "The USDC LP Backstop Cascade Neelo's USDC versus token vault source starts with a simple cascade: generic USDC LP capital sits behind a low cap perp engine, while the underlying market may be thin, fast moving, and easy to manipulate. The important point is not that USDC is a bad settlement asset. Vibe's trader facing collateral and settlement story still...",
+      "confidence": "Low",
+      "pageId": "authored-usdc-lp-backstop-cascade",
+      "pageTitle": "The USDC LP Backstop Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-manipulation-attacks-economic-not-random",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why are manipulation attacks economic, not random?",
+      "normalizedQuestion": "why are manipulation attacks economic not random",
+      "shortAnswer": "Neelo's risk-premium derivation frames low-cap attacks as incentive-based games where exploitability depends on profit versus manipulation cost.",
+      "answerSummary": "Attack Risk Is Incentive Based The risk premium source rejects a weak framing of low cap perp attacks: \"what is the probability of a strange price move?\" The stronger framing is economic: what does it cost to move the market, and what can be extracted from the resulting bad debt? That matters because rational attackers do not need a rare random event. The...",
+      "confidence": "Medium",
+      "pageId": "authored-incentive-based-attack-risk",
+      "pageTitle": "Attack Risk Is Incentive-Based",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-usdc-lps-demand-a-high-risk-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why would USDC LPs demand a high risk premium?",
+      "normalizedQuestion": "why would usdc lps demand a high risk premium",
+      "shortAnswer": "Neelo's APR derivation separates opportunity cost, expected loss, and adverse-selection premium; exact ranges remain source-model claims.",
+      "answerSummary": "Required Risk Premium For USDC LPs The USDC source's APR derivation is useful because it treats LP yield as compensation for risk, not as a marketing number. For a stablecoin LP, the required return is not just \"what APY sounds attractive?\" It has at least three components: the opportunity cost of deploying USDC elsewhere, expected protocol losses, and a...",
+      "confidence": "Low",
+      "pageId": "authored-required-risk-premium-for-usdc-lps",
+      "pageTitle": "Required Risk Premium For USDC LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-token-inventory-localize-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does token inventory localize risk?",
+      "normalizedQuestion": "how does token inventory localize risk",
+      "shortAnswer": "Neelo's Vibecaps figure separates token-holder inventory and solver drawdown from generalized USDC backstop losses.",
+      "answerSummary": "Token Inventory Localizes Risk The VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location. Project treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or m...",
+      "confidence": "Low",
+      "pageId": "authored-token-inventory-risk-localization",
+      "pageTitle": "Token Inventory Localizes Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-risk-adjusted-capital-efficiency-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What does risk-adjusted capital efficiency mean?",
+      "normalizedQuestion": "what does risk adjusted capital efficiency mean",
+      "shortAnswer": "Neelo's leverage and risk-premium figures show why useful capital efficiency must include required return and loss absorption, not only gross OI.",
+      "answerSummary": "Capital Efficiency Must Be Risk Adjusted The USDC versus token vault source makes a useful distinction: gross leverage is not the same thing as useful capital efficiency. A system can report open interest against deposited capital, but if the capital is expensive, fragile, or exposed to adverse selection, the headline ratio misleads. For low cap perps, th...",
+      "confidence": "Low",
+      "pageId": "authored-risk-adjusted-capital-efficiency",
+      "pageTitle": "Capital Efficiency Must Be Risk-Adjusted",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

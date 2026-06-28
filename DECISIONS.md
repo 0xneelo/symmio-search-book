@@ -439,3 +439,11 @@
 **Reason:** The order-book corpus is central to the compendium's positioning because it avoids a weak "Vibe versus CLOBs" story. Vibe's stronger category claim is that early markets need discovery, shorting, and risk-managed liquidity before order books can scale them. Publishing this layer makes the listing-power thesis more precise while keeping exact graduation rules and SSHE mechanics under review.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-056: Teach Capital Source As A Risk Design Choice
+
+**Decision:** Add authored Volume 04 pages from Neelo's USDC vs token-margined perps corpus that explain generic USDC backstop cascades, incentive-based attack risk, required USDC LP risk premiums, token-inventory risk localization, and risk-adjusted capital efficiency.
+
+**Reason:** The collateral comparison is central to Vibe's long-tail perp thesis. The strongest claim is not that one asset is always superior; it is that the capital source, settlement unit, risk premium, and loss path must match the market phase. Publishing this layer makes the token-margin and funding-system volume more precise while keeping model numbers, vault rights, and live loss-ordering under review.
+
+**Status:** Accepted for the authored manifesto layer.

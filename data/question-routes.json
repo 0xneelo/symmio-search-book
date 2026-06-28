@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 111,
+  "totalRoutes": 116,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 55,
+    "Medium": 56,
     "High": 18,
-    "Low": 38
+    "Low": 42
   },
   "byRouteSource": {
-    "authored": 111
+    "authored": 116
   },
   "answerable": [
     {
@@ -1185,6 +1185,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's risk-premium material supports the distinction; final product claims need editorial review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-a-generic-usdc-pool-risky-for-low-cap-perps",
+      "question": "Why is a generic USDC pool risky for low-cap perps?",
+      "normalizedQuestion": "why is a generic usdc pool risky for low cap perps",
+      "pageId": "authored-usdc-lp-backstop-cascade",
+      "pageTitle": "The USDC LP Backstop Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's USDC-vs-token source models how thin liquidity, oracle manipulation, imbalance, liquidation latency, and backstop correlation can route losses to USDC LPs.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-manipulation-attacks-economic-not-random",
+      "question": "Why are manipulation attacks economic, not random?",
+      "normalizedQuestion": "why are manipulation attacks economic not random",
+      "pageId": "authored-incentive-based-attack-risk",
+      "pageTitle": "Attack Risk Is Incentive-Based",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's risk-premium derivation frames low-cap attacks as incentive-based games where exploitability depends on profit versus manipulation cost.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-would-usdc-lps-demand-a-high-risk-premium",
+      "question": "Why would USDC LPs demand a high risk premium?",
+      "normalizedQuestion": "why would usdc lps demand a high risk premium",
+      "pageId": "authored-required-risk-premium-for-usdc-lps",
+      "pageTitle": "Required Risk Premium For USDC LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's APR derivation separates opportunity cost, expected loss, and adverse-selection premium; exact ranges remain source-model claims.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-token-inventory-localize-risk",
+      "question": "How does token inventory localize risk?",
+      "normalizedQuestion": "how does token inventory localize risk",
+      "pageId": "authored-token-inventory-risk-localization",
+      "pageTitle": "Token Inventory Localizes Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's Vibecaps figure separates token-holder inventory and solver drawdown from generalized USDC backstop losses.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-risk-adjusted-capital-efficiency-mean",
+      "question": "What does risk-adjusted capital efficiency mean?",
+      "normalizedQuestion": "what does risk adjusted capital efficiency mean",
+      "pageId": "authored-risk-adjusted-capital-efficiency",
+      "pageTitle": "Capital Efficiency Must Be Risk-Adjusted",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's leverage and risk-premium figures show why useful capital efficiency must include required return and loss absorption, not only gross OI.",
       "sourceKeys": [
         "vibe-papers"
       ],

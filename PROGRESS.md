@@ -332,6 +332,12 @@
 - Routed five new order-book lifecycle questions to authored pages so Ask can explain why Vibe complements order-book venues instead of flattening the thesis into a venue war.
 - Kept exact graduation formulas, venue routing, and SSHE-specific mechanics under operator/source review.
 
+## 2026-06-28 — USDC Versus Token-Margin Authored Layer
+
+- Added five authored Volume 04 manifesto pages from Neelo's USDC vs token-margined perps corpus: USDC LP backstop cascades, incentive-based attack risk, required USDC LP risk premium, token-inventory risk localization, and risk-adjusted capital efficiency.
+- Routed five new collateral/risk questions to authored pages so Ask can explain why low-cap perp capital efficiency depends on who supplies capital, what unit settles claims, and who absorbs failure paths.
+- Kept APR ranges, risk-premium ratios, efficiency multipliers, vault terms, and loss ordering under operator/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

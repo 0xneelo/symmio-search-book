@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 924,
+  "readerPages": 929,
   "totalVolumes": 8,
   "totalChapters": 82,
-  "pagesAssigned": 924,
+  "pagesAssigned": 929,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -3077,29 +3077,29 @@
       "title": "Token Margin, Pillars, And Funding Systems",
       "premise": "Collect token-margined perps, Vibe pillars, information/trade convergence, and funding model architecture.",
       "readerPromise": "Understand the infrastructure mechanics that make inventory-backed markets economically legible.",
-      "totalPages": 198,
+      "totalPages": 203,
       "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
       "overviewTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-      "authoredPages": 26,
+      "authoredPages": 31,
       "generatedPages": 172,
       "statusCounts": {
         "draft-extracted-from-primary-source": 118,
         "draft-imported-from-primary-source": 54,
         "publication-candidate": 12,
-        "publication-candidate-needs-operator-review": 14
+        "publication-candidate-needs-operator-review": 19
       },
       "granularityCounts": {
-        "authored-page": 26,
+        "authored-page": 31,
         "section-page": 118,
         "source-page": 54
       },
       "routeSourceCounts": {
-        "authored": 26,
+        "authored": 31,
         "generated": 172
       },
       "sectionCounts": {
         "compendium": 1,
-        "manifesto": 24,
+        "manifesto": 29,
         "protocol-reference": 1,
         "vision-papers": 54,
         "vision-sections": 118
@@ -3113,16 +3113,21 @@
       "openingPageIds": [
         "authored-volume-04-token-margin-and-funding-systems",
         "authored-economic-clarity-for-permissionless-perps",
-        "authored-percolator-engineering-vs-economics",
-        "authored-slab-isolation-capital-inefficiency",
-        "authored-oracle-circuit-breaker-paradox",
-        "authored-token-margined-lp-lose-lose",
-        "authored-usdc-settlement-inventory-separation",
-        "authored-bootstrap-counterparty-pillar"
+        "authored-incentive-based-attack-risk",
+        "authored-risk-adjusted-capital-efficiency",
+        "authored-required-risk-premium-for-usdc-lps",
+        "authored-usdc-lp-backstop-cascade",
+        "authored-token-inventory-risk-localization",
+        "authored-percolator-engineering-vs-economics"
       ],
       "pageIds": [
         "authored-volume-04-token-margin-and-funding-systems",
         "authored-economic-clarity-for-permissionless-perps",
+        "authored-incentive-based-attack-risk",
+        "authored-risk-adjusted-capital-efficiency",
+        "authored-required-risk-premium-for-usdc-lps",
+        "authored-usdc-lp-backstop-cascade",
+        "authored-token-inventory-risk-localization",
         "authored-percolator-engineering-vs-economics",
         "authored-slab-isolation-capital-inefficiency",
         "authored-oracle-circuit-breaker-paradox",
@@ -3394,6 +3399,132 @@
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "06-usdc-vs-token-margined-perpetuals",
+          "title": "06 - USDC vs Token-Margined Perpetuals",
+          "section": "manifesto",
+          "track": "06 - USDC vs Token-Margined Perpetuals",
+          "totalPages": 21,
+          "authoredPages": 5,
+          "generatedPages": 16,
+          "statusCounts": {
+            "draft-extracted-from-primary-source": 9,
+            "draft-imported-from-primary-source": 7,
+            "publication-candidate-needs-operator-review": 5
+          },
+          "granularityCounts": {
+            "authored-page": 5,
+            "section-page": 9,
+            "source-page": 7
+          },
+          "sourceKeys": [
+            "vibe-papers"
+          ],
+          "firstPageId": "authored-incentive-based-attack-risk",
+          "pageIds": [
+            "authored-incentive-based-attack-risk",
+            "authored-risk-adjusted-capital-efficiency",
+            "authored-required-risk-premium-for-usdc-lps",
+            "authored-usdc-lp-backstop-cascade",
+            "authored-token-inventory-risk-localization",
+            "neelo-06-usdc-token-perps-06-docs-overview",
+            "neelo-06-usdc-token-perps-06-docs-figure1",
+            "neelo-06-usdc-token-perps-06-docs-figure2",
+            "neelo-06-usdc-token-perps-06-docs-figure3",
+            "neelo-06-usdc-token-perps-06-docs-figure4",
+            "neelo-06-usdc-token-perps-06-docs-figure5",
+            "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-1-methodology-and-first-principles",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-economic-interpretation",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-required-apr-derivation",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-4-empirical-validation",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-5-comparison-with-traditional-finance",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-6-implications-for-protocol-design",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-7-summary",
+            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-overview"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-incentive-based-attack-risk",
+              "title": "Attack Risk Is Incentive-Based",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-risk-adjusted-capital-efficiency",
+              "title": "Capital Efficiency Must Be Risk-Adjusted",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-required-risk-premium-for-usdc-lps",
+              "title": "Required Risk Premium For USDC LPs",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-usdc-lp-backstop-cascade",
+              "title": "The USDC LP Backstop Cascade",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-token-inventory-risk-localization",
+              "title": "Token Inventory Localizes Risk",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "neelo-06-usdc-token-perps-06-docs-overview",
+              "title": "01 — USDC vs Token-Margined Perpetuals",
+              "section": "vision-papers",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "source-page",
+              "status": "draft-imported-from-primary-source",
+              "routeSource": "generated",
               "volumeId": "",
               "sourceKeys": [
                 "vibe-papers"
@@ -4093,125 +4224,6 @@
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "06-usdc-vs-token-margined-perpetuals",
-          "title": "06 - USDC vs Token-Margined Perpetuals",
-          "section": "vision-papers",
-          "track": "06 - USDC vs Token-Margined Perpetuals",
-          "totalPages": 16,
-          "authoredPages": 0,
-          "generatedPages": 16,
-          "statusCounts": {
-            "draft-extracted-from-primary-source": 9,
-            "draft-imported-from-primary-source": 7
-          },
-          "granularityCounts": {
-            "section-page": 9,
-            "source-page": 7
-          },
-          "sourceKeys": [
-            "vibe-papers"
-          ],
-          "firstPageId": "neelo-06-usdc-token-perps-06-docs-overview",
-          "pageIds": [
-            "neelo-06-usdc-token-perps-06-docs-overview",
-            "neelo-06-usdc-token-perps-06-docs-figure1",
-            "neelo-06-usdc-token-perps-06-docs-figure2",
-            "neelo-06-usdc-token-perps-06-docs-figure3",
-            "neelo-06-usdc-token-perps-06-docs-figure4",
-            "neelo-06-usdc-token-perps-06-docs-figure5",
-            "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-1-methodology-and-first-principles",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-economic-interpretation",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-required-apr-derivation",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-4-empirical-validation",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-5-comparison-with-traditional-finance",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-6-implications-for-protocol-design",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-7-summary",
-            "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-overview"
-          ],
-          "samplePages": [
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-overview",
-              "title": "01 — USDC vs Token-Margined Perpetuals",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-figure1",
-              "title": "Figure1",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-figure2",
-              "title": "Figure2",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-figure3",
-              "title": "Figure3",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-figure4",
-              "title": "Figure4",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-figure5",
-              "title": "Figure5",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
               "volumeId": "",
               "sourceKeys": [
                 "vibe-papers"
@@ -8522,6 +8534,11 @@
     "section-05-ode-to-the-orderbook-part2-05-docs-07-conclusion-source": "volume-03-listing-power-and-orderbooks",
     "authored-volume-04-token-margin-and-funding-systems": "volume-04-token-margin-and-funding-systems",
     "authored-economic-clarity-for-permissionless-perps": "volume-04-token-margin-and-funding-systems",
+    "authored-incentive-based-attack-risk": "volume-04-token-margin-and-funding-systems",
+    "authored-risk-adjusted-capital-efficiency": "volume-04-token-margin-and-funding-systems",
+    "authored-required-risk-premium-for-usdc-lps": "volume-04-token-margin-and-funding-systems",
+    "authored-usdc-lp-backstop-cascade": "volume-04-token-margin-and-funding-systems",
+    "authored-token-inventory-risk-localization": "volume-04-token-margin-and-funding-systems",
     "authored-percolator-engineering-vs-economics": "volume-04-token-margin-and-funding-systems",
     "authored-slab-isolation-capital-inefficiency": "volume-04-token-margin-and-funding-systems",
     "authored-oracle-circuit-breaker-paradox": "volume-04-token-margin-and-funding-systems",
