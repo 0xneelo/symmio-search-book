@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 91,
+  "totalRoutes": 96,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 48,
+    "Medium": 52,
     "High": 18,
-    "Low": 25
+    "Low": 26
   },
   "byRouteSource": {
-    "authored": 91
+    "authored": 96
   },
   "answerable": [
     {
@@ -1118,6 +1118,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's funding model supports the layered defense framework; production percentages and ADL behavior still need implementation review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-token-margined-lps-face-a-lose-lose-setup",
+      "question": "Why do token-margined LPs face a lose-lose setup?",
+      "normalizedQuestion": "why do token margined lps face a lose lose setup",
+      "pageId": "authored-token-margined-lp-lose-lose",
+      "pageTitle": "The Token-Margined LP Lose-Lose",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Percolator critique explains why token-denominated collateral, fees, funding, and PnL make LPs short volatility and constrain safe leverage.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-oracle-circuit-breakers-create-arbitrage",
+      "question": "Why can oracle circuit breakers create arbitrage?",
+      "normalizedQuestion": "why can oracle circuit breakers create arbitrage",
+      "pageId": "authored-oracle-circuit-breaker-paradox",
+      "pageTitle": "The Oracle Circuit-Breaker Paradox",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Percolator source shows how capped oracle updates can turn volatility protection into a predictable latency-arbitrage path.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-isolated-slab-capital-inefficient-for-many-perps",
+      "question": "Why is isolated slab capital inefficient for many perps?",
+      "normalizedQuestion": "why is isolated slab capital inefficient for many perps",
+      "pageId": "authored-slab-isolation-capital-inefficiency",
+      "pageTitle": "Slab Isolation And Capital Inefficiency",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Percolator source explains why one-market-one-vault accounting is legible but scales capital requirements linearly across long-tail markets.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-percolator-get-right",
+      "question": "What does Percolator get right?",
+      "normalizedQuestion": "what does percolator get right",
+      "pageId": "authored-percolator-engineering-vs-economics",
+      "pageTitle": "Percolator: Engineering Strength, Economic Limit",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's critique credits Percolator's formal verification and clean on-chain architecture while separating those strengths from inverse-market economics.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-separate-token-inventory-from-usdc-settlement",
+      "question": "Why separate token inventory from USDC settlement?",
+      "normalizedQuestion": "why separate token inventory from usdc settlement",
+      "pageId": "authored-usdc-settlement-inventory-separation",
+      "pageTitle": "USDC Settlement Separates Inventory From Solvency",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's Percolator comparison frames Vibe's alternative as separating inventory risk from stable settlement; production parameters still need owner review.",
       "sourceKeys": [
         "vibe-papers"
       ],

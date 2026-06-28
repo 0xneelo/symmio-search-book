@@ -231,6 +231,13 @@
 - Kept solver automation, vault inventory, fee-share, and graduation-threshold examples under operator/implementation review instead of turning source models into live product claims.
 - Strengthened Volume 04, which still has a large generated source spine around token margin, funding, and information/trade architecture.
 
+## 2026-06-28 — Token-Margined Percolator Critique Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Percolator critique: token-margined LP lose-lose, oracle circuit-breaker paradox, slab isolation and capital inefficiency, Percolator engineering versus economics, and USDC settlement/inventory separation.
+- Added five direct question routes so Ask can answer token-margin risk questions from authored pages instead of only generated source chapters.
+- Preserved the distinction between engineering quality and economic model: Percolator is treated as a serious technical proof-of-concept while its inverse low-cap economics remain the critique target.
+- Kept Vibe-specific settlement, fee-share, vault, and defense-parameter claims under operator/implementation review.
+
 ## 2026-06-28 — Vibe Product Reference Authored Pages
 
 - Added four authored Vibe product-reference pages: product overview, intent architecture, VibeCaps margin management, and Vibe points program.

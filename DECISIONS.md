@@ -407,3 +407,11 @@
 **Reason:** The source is high-conviction but rhetorically broad. Publication-candidate docs need to preserve its strategic force while making the mechanism legible and caveating source examples that touch unresolved solver, vault, revenue-share, and graduation-policy decisions.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-052: Teach Token-Margining As Economic Architecture
+
+**Decision:** Add authored Volume 04 pages from Neelo's Percolator critique that separate software correctness from economic viability and explain LP incentives, oracle/circuit-breaker risk, capital isolation, and the USDC-settlement alternative.
+
+**Reason:** The compendium should not treat "token-margined perps are risky" as a slogan. The Percolator corpus gives concrete mechanisms and a fair comparison point: formally verified on-chain engineering can still instantiate same-asset collateral, inverse payoff, and LP/settlement failure modes that matter directly to Vibe's architecture.
+
+**Status:** Accepted for the authored manifesto layer.

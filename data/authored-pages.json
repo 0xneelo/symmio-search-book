@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 110,
+  "totalPages": 115,
   "byStatus": {
-    "publication-candidate": 62,
-    "publication-candidate-needs-operator-review": 47,
+    "publication-candidate": 66,
+    "publication-candidate-needs-operator-review": 48,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 48,
+    "manifesto": 53,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -1290,6 +1290,29 @@
       "excerpt": "Options Intent Lifecycle The options lifecycle should be documented as a sequence of explicit states, not as a generic \"place trade\" action. Vibe's public architecture explains the product side pattern: a trader expresses a trade intention, solvers show executable offers, the trader accepts, and the accepted request proceeds into on chain execution. Symmio's core docs explain the protocol vocabulary behind that pattern: PartyA creates the intent; PartyB is the solver/counterparty; collateral, margin, and lifecycle state are tracked by the protocol. The Symmio options docs make this concrete. Opening an options position starts when PartyA submits an open intent. The intent stays pending until a PartyB locks and fills it. Only then does a live trade exist. Closing follows the same philosophy: PartyA creates a close intent against an open trade, and PartyB fills all or part of it at a price that must be favorable to PartyA's requested terms. Open Path The open path has four user visible states: PartyA submits an open intent with trade agreement terms: symbol, quantity, strike price, expiration, margin type, side, exercise fee, solver fees, deadline, fee token, affiliate, and optional "
     },
     {
+      "id": "authored-oracle-circuit-breaker-paradox",
+      "title": "The Oracle Circuit-Breaker Paradox",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/oracle-circuit-breaker-paradox.md",
+      "bodyMarkdown": "# The Oracle Circuit-Breaker Paradox\n\nThe oracle problem in low-cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety.\n\nNeelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on-chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off-chain but before the capped oracle has arrived.\n\nThe passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long-tail tokens and memecoins violate that assumption constantly.\n\nThe source-backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a deterministic oracle rule can solve every adversarial market state.\n\n## Reader Implication\n\nTraders should understand why early-market quotes may widen or disappear during stress. LPs should understand that an oracle rule that looks conservative can still create a predictable arbitrage path.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\".\n\n## Related Pages\n\n- `authored-exploit-resistance-pillar`\n- `authored-hybrid-settlement-solver-stack`\n- `authored-hybrid-solver-liquidity-waterfall`",
+      "excerpt": "The Oracle Circuit Breaker Paradox The oracle problem in low cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety. Neelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off chain but before the capped oracle has arrived. The passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long tail tokens and memecoins violate that assumption constantly. The source backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a determinis"
+    },
+    {
       "id": "authored-order-books-as-graduation-layer",
       "title": "Order Books As The Graduation Layer",
       "section": "manifesto",
@@ -1336,6 +1359,30 @@
       "file": "content/authored/manifesto/partnership-over-venue-war.md",
       "bodyMarkdown": "# Partnership Over Venue War\n\nThe listing-monopoly thesis can sound adversarial, but Neelo's strategic section is more useful than a simple venue war. A gap-filling perp layer is complementary to launchpads, DEXs, order-book protocols, and late-stage exchanges because it serves a lifecycle stage they do not naturally own.\n\nLaunchpads and DEXs benefit if graduated tokens can receive derivative access earlier. That keeps communities inside the decentralized ecosystem longer and gives projects a clearer path from spot attention to two-sided market expression. Order-book protocols benefit if upstream markets generate real demand data before a deeper listing. Centralized exchanges benefit from better listing intelligence and a cleaner pipeline of proven markets.\n\nThe strongest Vibe story is therefore not \"replace every downstream venue.\" It is \"create the upstream evidence those venues wish they had.\" A market that proves volume, short interest, liquidity quality, and solver economics is easier for a mature venue to evaluate than a market competing only on narrative.\n\nThis posture also clarifies the product boundary. Vibe does not need every market to remain in its bootstrap state forever. Owning the bridge can be more valuable than trapping markets inside one execution model.\n\n## Reader Implication\n\nReaders should understand Vibe as a lifecycle connector. For CLOB ecosystems, it can be an upstream discovery and graduation layer. For launchpads, it can extend the value of graduation. For traders and LPs, it defines a different risk regime before mature liquidity arrives.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Strategic Implications\".\n- `vibe-papers`: Neelo, \"Section 5.4: Relationship to Existing Venues\".\n\n## Related Pages\n\n- `authored-vibe-as-discovery-layer`\n- `authored-market-assembly-line`\n- `authored-order-books-as-graduation-layer`",
       "excerpt": "Partnership Over Venue War The listing monopoly thesis can sound adversarial, but Neelo's strategic section is more useful than a simple venue war. A gap filling perp layer is complementary to launchpads, DEXs, order book protocols, and late stage exchanges because it serves a lifecycle stage they do not naturally own. Launchpads and DEXs benefit if graduated tokens can receive derivative access earlier. That keeps communities inside the decentralized ecosystem longer and gives projects a clearer path from spot attention to two sided market expression. Order book protocols benefit if upstream markets generate real demand data before a deeper listing. Centralized exchanges benefit from better listing intelligence and a cleaner pipeline of proven markets. The strongest Vibe story is therefore not \"replace every downstream venue.\" It is \"create the upstream evidence those venues wish they had.\" A market that proves volume, short interest, liquidity quality, and solver economics is easier for a mature venue to evaluate than a market competing only on narrative. This posture also clarifies the product boundary. Vibe does not need every market to remain in its bootstrap state forever. Ow"
+    },
+    {
+      "id": "authored-percolator-engineering-vs-economics",
+      "title": "Percolator: Engineering Strength, Economic Limit",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "neelo-07-token-margined-issues-perculator-07-docs-00-abstract"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-engineering-vs-economics.md",
+      "bodyMarkdown": "# Percolator: Engineering Strength, Economic Limit\n\nThe Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance-sheet safety, full on-chain execution, and a minimal state machine.\n\nThat distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token-denominated insurance, passive oracle execution, and slab-level capital lockup are not implementation bugs. They follow from the design constraints.\n\nAuto-deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on-chain and dead economically.\n\nThe compendium should use Percolator as a serious comparison point. It proves that fully on-chain derivatives engines can be elegant and verifiable. It also proves that permissionless perps need economic architecture, not only correct settlement code.\n\n## Reader Implication\n\nEngineers should separate software correctness from market solvency. LPs and traders should ask whether the economic model pays winners during stress, not only whether the smart contract conserves balances.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\".\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-economic-clarity-for-permissionless-perps`",
+      "excerpt": "Percolator: Engineering Strength, Economic Limit The Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance sheet safety, full on chain execution, and a minimal state machine. That distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token denominated insurance, passive oracle execution, and slab level capital lockup are not implementation bugs. They follow from the design constraints. Auto deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on chain and dead economically. The compendium should use Percolator as a serious comparison point. It proves that fully on chain derivatives engines can be elegant and verifiable. It also proves that permissio"
     },
     {
       "id": "authored-perp-protocol-framework",
@@ -1684,6 +1731,30 @@
       "file": "content/authored/reference/search-insights-loop.md",
       "bodyMarkdown": "# The Living Docs Loop\n\nThe answer engine is not only a search box. It is the intake system for documentation demand.\n\nThe loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop.\n\nIn this prototype, the loop is local and browser-based. It stores questions, ratings, and gaps in `localStorage` and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine.\n\n## Reader Implication\n\nThe docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next.\n\n## Sources\n\n- `spec-06`: Answer-engine and living-docs requirements.\n- `spec-09`: Design reference for Search insights.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-referral-depth-open-question`",
       "excerpt": "The Living Docs Loop The answer engine is not only a search box. It is the intake system for documentation demand. The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop. In this prototype, the loop is local and browser based. It stores questions, ratings, and gaps in localStorage and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine. Reader Implication The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next. Sources spec 06 : Answer engine and living docs requirements. spec 09 : Design reference for Search insights. Related Pages authored estimated network revenue authored referral depth open question"
+    },
+    {
+      "id": "authored-slab-isolation-capital-inefficiency",
+      "title": "Slab Isolation And Capital Inefficiency",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/slab-isolation-capital-inefficiency.md",
+      "bodyMarkdown": "# Slab Isolation And Capital Inefficiency\n\nPercolator's market structure is clean: one market, one slab, one isolated vault and risk engine. That is attractive for auditability and local reasoning. It is also expensive for capital.\n\nIn the source, slab isolation means positive PnL in one market cannot offset risk in another, LP capital must be funded market by market, and collateral remains locked for the life of resulting positions. A market maker operating many symbols cannot net exposure across the system. The capital requirement scales with every market it touches.\n\nThat matters for permissionless perps because the whole thesis is breadth. If thousands of long-tail markets need separate on-chain collateral commitments, the system can become permissionless in listing but not in practical liquidity. The venue may create many markets that professional capital cannot efficiently support.\n\nThis is one reason the compendium keeps returning to netting, solver risk, and cross-market insurance. A long-tail perp system cannot only ask whether each market is locally safe. It also has to ask whether the portfolio of markets can share information, collateral, hedges, and insurance without letting one toxic market endanger the whole system.\n\n## Reader Implication\n\nBuilders should distinguish isolation for accounting from isolation as a capital model. Too much isolation makes the system legible but starves liquidity. Too little isolation makes losses contagious. The architecture has to pick the boundary deliberately.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\".\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-temporal-separation-of-concerns`\n- `authored-funding-defense-hierarchy`\n- `authored-hybrid-solver-liquidity-waterfall`",
+      "excerpt": "Slab Isolation And Capital Inefficiency Percolator's market structure is clean: one market, one slab, one isolated vault and risk engine. That is attractive for auditability and local reasoning. It is also expensive for capital. In the source, slab isolation means positive PnL in one market cannot offset risk in another, LP capital must be funded market by market, and collateral remains locked for the life of resulting positions. A market maker operating many symbols cannot net exposure across the system. The capital requirement scales with every market it touches. That matters for permissionless perps because the whole thesis is breadth. If thousands of long tail markets need separate on chain collateral commitments, the system can become permissionless in listing but not in practical liquidity. The venue may create many markets that professional capital cannot efficiently support. This is one reason the compendium keeps returning to netting, solver risk, and cross market insurance. A long tail perp system cannot only ask whether each market is locally safe. It also has to ask whether the portfolio of markets can share information, collateral, hedges, and insurance without letting"
     },
     {
       "id": "authored-solver-default-and-continuity",
@@ -2088,6 +2159,29 @@
       "excerpt": "The Thielian Listing Monopoly Neelo's Thiel analysis reframes the gap filling perp thesis as a monopoly strategy rather than a feature checklist. The relevant market is not all perps. It is the narrow category of tokens that have graduated into spot trading but do not yet qualify for serious derivatives venues. That narrow market matters because it is small enough to own and structurally underserved. Mature venues do not want to list everything manually. Order books need liquidity before they work. Pure listing systems can create empty markets. A protocol that can bootstrap tradeable long tail perps begins with a bounded category where the status quo is close to nothing. The value creation side is clear: traders get exposure, hedgers get protection, projects get market evidence, and downstream venues get better listing intelligence. The value capture side comes from the bridge position: fees, spreads, data, integrations, and eventually the default habit of using one layer to move markets from early spot to mature derivatives. The durability claim depends on execution. Data compounds only if real markets use the system. Partnerships matter only if they route meaningful flow. The boo"
     },
     {
+      "id": "authored-token-margined-lp-lose-lose",
+      "title": "The Token-Margined LP Lose-Lose",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "section-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage-4-1-the-lp-lose-lose-quadrant",
+        "section-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage-4-2-the-fee-illusion"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-margined-lp-lose-lose.md",
+      "bodyMarkdown": "# The Token-Margined LP Lose-Lose\n\nNeelo's Percolator critique makes the LP problem sharper than generic \"LPs take risk.\" In a token-margined inverse market, the LP is exposed to the token in every state: collateral, fees, funding, profit, and loss are all denominated in the same volatile asset.\n\nThat creates a lose-lose quadrant. If the token pumps and traders are long, the LP loses tokens and underperforms simple holding. If the token dumps and traders are short, the LP receives more of a collapsing token. If the LP wins fees or funding, those earnings still share the same token risk. The LP is effectively short volatility while being paid in the volatile object.\n\nThe source also names the leverage constraint. To survive meaningful pumps without bankruptcy, a token-margined LP needs collateral close to open interest. That destroys the capital efficiency that makes perps useful. A leveraged derivatives venue that can only operate safely near one-to-one collateralization starts to resemble spot with extra fragility.\n\nThis does not mean every inventory provider is irrational. A project treasury might accept inventory risk for strategic reasons. A seller may want to distribute slowly. But that is not the same thing as a scalable, general-purpose liquidity model for long-tail perps.\n\n## Reader Implication\n\nLPs should ask what they are paid in, what they lose in, and whether they would be better off holding or selling the token directly. Docs should not describe token-denominated fees as yield without also explaining the token-denominated loss path.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-lp-yield-capital-efficiency-pillar`",
+      "excerpt": "The Token Margined LP Lose Lose Neelo's Percolator critique makes the LP problem sharper than generic \"LPs take risk.\" In a token margined inverse market, the LP is exposed to the token in every state: collateral, fees, funding, profit, and loss are all denominated in the same volatile asset. That creates a lose lose quadrant. If the token pumps and traders are long, the LP loses tokens and underperforms simple holding. If the token dumps and traders are short, the LP receives more of a collapsing token. If the LP wins fees or funding, those earnings still share the same token risk. The LP is effectively short volatility while being paid in the volatile object. The source also names the leverage constraint. To survive meaningful pumps without bankruptcy, a token margined LP needs collateral close to open interest. That destroys the capital efficiency that makes perps useful. A leveraged derivatives venue that can only operate safely near one to one collateralization starts to resemble spot with extra fragility. This does not mean every inventory provider is irrational. A project treasury might accept inventory risk for strategic reasons. A seller may want to distribute slowly. But "
+    },
+    {
       "id": "authored-token-margined-reflexivity-risk",
       "title": "Token-Margined Reflexivity Risk",
       "section": "manifesto",
@@ -2183,6 +2277,30 @@
       "file": "content/authored/manifesto/universal-issuance-needs-derivatives.md",
       "bodyMarkdown": "# Universal Issuance Needs Derivatives\n\nCrypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity.\n\nThat is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress-tested, or matured into credible market structure.\n\nThis is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying.\n\nDerivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail instead of waiting for a permissioned venue to decide which assets are worthy.\n\n## Reader Implication\n\nThe compendium should make the sequence clear: issuance created abundance; spot created access; derivatives create two-sided market discipline. Permissionless derivatives matter because they make the token lifecycle harder to fake.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Issuance Revolution\".\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-last-primitive`\n- `authored-end-of-narrative-based-listings`",
       "excerpt": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress tested, or matured into credible market structure. This is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying. Derivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail in"
+    },
+    {
+      "id": "authored-usdc-settlement-inventory-separation",
+      "title": "USDC Settlement Separates Inventory From Solvency",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-settlement-inventory-separation.md",
+      "bodyMarkdown": "# USDC Settlement Separates Inventory From Solvency\n\nThe alternative in Neelo's Percolator source is not \"remove token inventory.\" It is to separate token inventory from the unit of settlement.\n\nIn the USDC-margined hybrid model, traders post and settle in USDC. Token holders or project treasuries can still provide inventory, but that inventory is not the same thing as the trader's margin base or the final settlement currency. The solver can use inventory as one defense layer while USDC obligations remain linear and dollar-denominated.\n\nThat separation removes the worst same-asset feedback. A falling token can still damage inventory value, but it does not make every trader payout expand in token terms, and it does not make the settlement currency collapse at the moment claims must be paid. Inventory risk is accepted and priced. Solvency risk is kept in a more stable unit.\n\nThe source also connects this to active risk management: dynamic spreads, funding, local insurance, global insurance, and ADL only after other defenses fail. Exact production parameters, fee shares, vault rights, and liquidation behavior need operator and implementation review before publication. The architectural principle is already clear enough to teach: inventory providers and settlement guarantees are different roles.\n\n## Reader Implication\n\nLPs should ask whether they are providing inventory, settlement capital, or both. Traders should ask what unit pays their PnL. Docs should never blur token inventory yield with stable settlement solvency.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\".\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "USDC Settlement Separates Inventory From Solvency The alternative in Neelo's Percolator source is not \"remove token inventory.\" It is to separate token inventory from the unit of settlement. In the USDC margined hybrid model, traders post and settle in USDC. Token holders or project treasuries can still provide inventory, but that inventory is not the same thing as the trader's margin base or the final settlement currency. The solver can use inventory as one defense layer while USDC obligations remain linear and dollar denominated. That separation removes the worst same asset feedback. A falling token can still damage inventory value, but it does not make every trader payout expand in token terms, and it does not make the settlement currency collapse at the moment claims must be paid. Inventory risk is accepted and priced. Solvency risk is kept in a more stable unit. The source also connects this to active risk management: dynamic spreads, funding, local insurance, global insurance, and ADL only after other defenses fail. Exact production parameters, fee shares, vault rights, and liquidation behavior need operator and implementation review before publication. The architectural prin"
     },
     {
       "id": "authored-vibe-as-discovery-layer",
