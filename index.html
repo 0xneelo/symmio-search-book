@@ -10,6 +10,7 @@
     <script src="./data/navigation-tree.js"></script>
     <script src="./data/journeys.js"></script>
     <script src="./data/question-routes.js"></script>
+    <script src="./data/faq.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
     <script src="./data/crosslinks.js"></script>
@@ -286,7 +287,7 @@
       }
 
       .stats {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         margin: 24px 0;
       }
 
@@ -299,7 +300,8 @@
       .gap-row,
       .track-card,
       .collection-card,
-      .term-card {
+      .term-card,
+      .faq-card {
         border: 1px solid var(--line);
         background: rgba(13, 21, 38, 0.78);
         border-radius: 8px;
@@ -332,7 +334,8 @@
       .page-card h3,
       .journey h3,
       .track-card h3,
-      .collection-card h3 {
+      .collection-card h3,
+      .faq-card h3 {
         margin: 0;
         font-size: 18px;
       }
@@ -341,7 +344,8 @@
       .page-card p,
       .journey p,
       .gap-row p,
-      .collection-card p {
+      .collection-card p,
+      .faq-card p {
         color: var(--muted);
         line-height: 1.5;
       }
@@ -415,9 +419,27 @@
         gap: 14px;
       }
 
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 14px;
+      }
+
       .term-card {
         padding: 16px;
         min-height: 260px;
+      }
+
+      .faq-card {
+        padding: 16px;
+        min-height: 280px;
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+
+      .faq-card.is-gap {
+        border-color: rgba(255, 200, 115, 0.44);
       }
 
       .term-card h3 {
@@ -441,7 +463,8 @@
 
       .track-card,
       .collection-card,
-      .term-card {
+      .term-card,
+      .faq-card {
         padding: 16px;
       }
 
@@ -814,6 +837,7 @@
           <button data-nav="classic">Ask & search</button>
           <button data-nav="browse">Browse docs</button>
           <button data-nav="glossary">Glossary</button>
+          <button data-nav="faq">FAQ</button>
           <button data-nav="journey">Journeys</button>
           <button data-nav="insights">Search insights</button>
         </nav>
@@ -862,6 +886,7 @@
               <div class="stat-card"><span class="stat-label">Companions</span><strong id="companionPages">65</strong></div>
               <div class="stat-card"><span class="stat-label">Authored</span><strong id="authoredPages">12</strong></div>
               <div class="stat-card"><span class="stat-label">Glossary terms</span><strong id="glossaryTerms">32</strong></div>
+              <div class="stat-card"><span class="stat-label">FAQ routes</span><strong id="faqEntries">36</strong></div>
             </div>
             <h3 class="section-title">Authored Publication Candidates</h3>
             <div class="grid cards" id="authoredCards"></div>
@@ -887,6 +912,15 @@
             </div>
             <div class="source-row" id="glossaryCategories"></div>
             <div class="glossary-grid" id="glossaryGrid"></div>
+          </section>
+
+          <section data-view="faq" class="is-hidden">
+            <div class="toolbar">
+              <input id="faqFilter" autocomplete="off" placeholder="Filter local FAQ questions, gaps, sources, or routed pages..." />
+              <div class="meta" id="faqCount">36 FAQ entries</div>
+            </div>
+            <div class="source-row" id="faqCategories"></div>
+            <div class="faq-grid" id="faqGrid"></div>
           </section>
 
           <section data-view="journey" class="is-hidden">
@@ -959,6 +993,7 @@
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
       const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
+      const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
@@ -990,6 +1025,10 @@
       const seededQuestionRoutes = (questionRouteMap.answerable || [])
         .map((route) => ({ ...route, page: pageById.get(route.pageId) }))
         .filter((route) => route.page);
+      const faqEntries = (faqMap.entries || [...(faqMap.answerable || []), ...(faqMap.unresolved || [])]).map((entry) => ({
+        ...entry,
+        page: entry.pageId ? pageById.get(entry.pageId) : null,
+      }));
       const glossaryTerms = (glossary.terms || []).map((term) => ({
         ...term,
         pages: (term.pageIds || []).map((pageId) => pageById.get(pageId)).filter(Boolean),
@@ -999,8 +1038,9 @@
         { key: "classic", label: "A - Ask" },
         { key: "browse", label: "B - Browse" },
         { key: "glossary", label: "C - Glossary" },
-        { key: "journey", label: "D - Journeys" },
-        { key: "insights", label: "E - Insights" },
+        { key: "faq", label: "D - FAQ" },
+        { key: "journey", label: "E - Journeys" },
+        { key: "insights", label: "F - Insights" },
       ];
       const storageKeys = {
         questions: "searchBookPrototype.questions",
@@ -1581,6 +1621,62 @@
           : '<div class="gap-row"><p>No matching terms.</p></div>';
       }
 
+      function faqMatchesFilter(entry, filter) {
+        const words = wordsFor(filter);
+        if (!words.length) return true;
+        const haystack = [
+          entry.question,
+          entry.category,
+          entry.type,
+          entry.shortAnswer,
+          entry.answerSummary,
+          entry.pageTitle,
+          entry.pageSection,
+          entry.pageTrack,
+          entry.gapId,
+          entry.gapTitle,
+          (entry.sourceKeys || []).join(" "),
+        ]
+          .join(" ")
+          .toLowerCase();
+        return words.every((word) => haystack.includes(word));
+      }
+
+      function renderFaq() {
+        const filter = document.getElementById("faqFilter").value.trim();
+        const entries = faqEntries.filter((entry) => faqMatchesFilter(entry, filter));
+        document.getElementById("faqCount").textContent = `${entries.length} of ${faqEntries.length} local FAQ entries`;
+        document.getElementById("faqCategories").innerHTML = Object.entries(faqMap.byCategory || {})
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([category, count]) => `<button type="button" class="chip" data-faq-category="${escapeHtml(category)}">${escapeHtml(category)} / ${escapeHtml(count)}</button>`)
+          .join("");
+        document.getElementById("faqGrid").innerHTML = entries.length
+          ? entries
+              .map((entry) => {
+                const sourceRow = (entry.sourceKeys || []).slice(0, 5).map((source) => sourceChipForKey(source)).join("");
+                const routeAction = entry.page
+                  ? `<a class="source-chip" href="${escapeHtml(pageHref(entry.page))}" data-open-page="${escapeHtml(entry.page.id)}">Open exact page</a>`
+                  : `<span class="source-chip">${escapeHtml(entry.gapId || "gap")}</span>`;
+                const answer = entry.type === "answerable" ? entry.shortAnswer || entry.answerSummary || "" : entry.notes || entry.shortAnswer || "";
+                return `
+                  <article class="faq-card ${entry.type === "reconciliation" ? "is-gap" : ""}">
+                    <div class="meta">${escapeHtml(entry.type)} / ${escapeHtml(entry.category)} / ${escapeHtml(entry.confidence || "")}</div>
+                    <h3>${escapeHtml(entry.question)}</h3>
+                    <p>${escapeHtml(answer)}</p>
+                    ${entry.pageTitle ? `<div class="meta">Routes to ${escapeHtml(entry.pageTitle)}</div>` : ""}
+                    ${entry.gapTitle ? `<div class="meta">${escapeHtml(entry.gapId)} / ${escapeHtml(entry.gapTitle)}</div>` : ""}
+                    <div class="source-row">
+                      ${routeAction}
+                      <button type="button" class="chip" data-example-query="${escapeHtml(entry.question)}">Ask this</button>
+                    </div>
+                    <div class="source-row">${sourceRow}</div>
+                  </article>
+                `;
+              })
+              .join("")
+          : '<div class="gap-row"><p>No matching FAQ entries.</p></div>';
+      }
+
       function renderGaps() {
         const localGaps = loadList(storageKeys.gaps);
         const parkedPages = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation");
@@ -1668,6 +1764,7 @@
           <li><span class="meta">Reader-routable pages</span><br>${escapeHtml(totals.readerRoutablePages || 0)} routes: ${escapeHtml(totals.manifestPages || 0)} generated/indexed + ${escapeHtml(totals.authoredPublicationCandidates || 0)} authored.</li>
           <li><span class="meta">Guided journeys</span><br>${escapeHtml(totals.guidedJourneys || 0)} journeys, ${escapeHtml(totals.guidedJourneySteps || 0)} routed steps.</li>
           <li><span class="meta">Seeded question routes</span><br>${escapeHtml(totals.seededQuestionRoutes || 0)} answerable routes, ${escapeHtml(totals.seededReconciliationQuestions || 0)} reconciliation questions.</li>
+          <li><span class="meta">Local FAQ seed</span><br>${escapeHtml(totals.localFaqEntries || 0)} entries: ${escapeHtml(totals.localFaqAnswerable || 0)} answerable, ${escapeHtml(totals.localFaqUnresolved || 0)} unresolved across ${escapeHtml(totals.localFaqCategories || 0)} categories.</li>
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
@@ -1880,6 +1977,7 @@
         document.getElementById("variantMeta").textContent = current;
         if (current === "browse") renderBrowse();
         if (current === "glossary") renderGlossary();
+        if (current === "faq") renderFaq();
         if (current === "insights" || current === "journey") renderInsights();
       }
 
@@ -1902,6 +2000,7 @@
         document.getElementById("companionPages").textContent = stats.companionPages;
         document.getElementById("authoredPages").textContent = authored.totalPages || authoredPages.length;
         document.getElementById("glossaryTerms").textContent = glossary.totalTerms || glossaryTerms.length;
+        document.getElementById("faqEntries").textContent = faqMap.totalEntries || faqEntries.length;
         renderExampleQuestions();
         renderAuthoredCards();
         renderCards();
@@ -1909,6 +2008,7 @@
         renderJourneys();
         renderBrowse();
         renderGlossary();
+        renderFaq();
         renderInsights();
         renderVariant();
       }
@@ -1922,6 +2022,7 @@
 
       document.getElementById("browseFilter").addEventListener("input", renderBrowse);
       document.getElementById("glossaryFilter").addEventListener("input", renderGlossary);
+      document.getElementById("faqFilter").addEventListener("input", renderFaq);
       document.getElementById("copyEventLog").addEventListener("click", exportEventLog);
       document.getElementById("clearEventLog").addEventListener("click", clearEventLog);
 
@@ -1961,6 +2062,13 @@
         if (glossaryCategory) {
           document.getElementById("glossaryFilter").value = glossaryCategory.dataset.glossaryCategory;
           renderGlossary();
+          return;
+        }
+
+        const faqCategory = event.target.closest("[data-faq-category]");
+        if (faqCategory) {
+          document.getElementById("faqFilter").value = faqCategory.dataset.faqCategory;
+          renderFaq();
           return;
         }
 

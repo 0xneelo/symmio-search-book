@@ -105,6 +105,13 @@
 - Updated the page reader to use generated related pages and render Previous/Next controls.
 - Extended the quality audit with a reader-crosslinks gate; current result is 12 of 14 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Local FAQ Seed Map
+
+- Added `scripts/build-faq-map.mjs` and generated `data/faq.json` plus `data/faq.js` from `QUESTIONS.md`, `GAPS.md`, the validated question-route map, and the source catalog.
+- Validated 36 local FAQ entries: 29 answerable routes, 7 reconciliation/gap entries, 10 categories, 0 missing page ids, and 0 missing source keys.
+- Added a dedicated FAQ prototype view with filtering, category chips, exact-page links, source chips, and "Ask this" actions.
+- Extended the quality audit with a local FAQ route gate; current result is 13 of 15 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

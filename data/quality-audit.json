@@ -13,6 +13,10 @@
     "guidedJourneySteps": 38,
     "seededQuestionRoutes": 29,
     "seededReconciliationQuestions": 7,
+    "localFaqEntries": 36,
+    "localFaqAnswerable": 29,
+    "localFaqUnresolved": 7,
+    "localFaqCategories": 10,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
     "sourceCatalogEntries": 51,
@@ -89,6 +93,12 @@
       "label": "Question ledger routes resolve",
       "passed": true,
       "detail": "29 generated routes, 29 answerable ledger rows, 0 missing page ids"
+    },
+    {
+      "id": "local-faq-routes",
+      "label": "Local FAQ seed routes resolve",
+      "passed": true,
+      "detail": "29 answerable FAQs, 7 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "glossary-routes",
@@ -312,6 +322,38 @@
     },
     "missingRouteIds": []
   },
+  "faqCoverage": {
+    "seedSource": "local-question-ledger",
+    "status": "prototype-local-seed-discord-pending",
+    "totalEntries": 36,
+    "totalAnswerable": 29,
+    "totalUnresolved": 7,
+    "totalCategories": 10,
+    "byCategory": {
+      "Getting Started": 1,
+      "Trading Flow": 4,
+      "Solvers And Settlement": 6,
+      "Risk And Markets": 2,
+      "Rewards And Referrals": 5,
+      "Revenue": 4,
+      "Dashboard": 7,
+      "Manifesto": 5,
+      "Data And Volume": 1,
+      "Discord Import": 1
+    },
+    "byConfidence": {
+      "Medium": 19,
+      "High": 8,
+      "Low": 2
+    },
+    "byRouteSource": {
+      "curated": 8,
+      "authored": 21
+    },
+    "missingPageIds": [],
+    "missingSourceKeys": [],
+    "matchesQuestionRoutes": true
+  },
   "glossaryCoverage": {
     "totalTerms": 32,
     "byCategory": {
@@ -503,6 +545,8 @@
     ],
     "journeyMissingPageIds": [],
     "questionRouteMissingIds": [],
+    "faqMissingPageIds": [],
+    "faqMissingSourceKeys": [],
     "glossaryMissingPageIds": [],
     "glossaryMissingSourceKeys": [],
     "usedKeysMissingCatalog": [],
@@ -551,6 +595,7 @@
   },
   "nextAuditFocus": [
     "Convert generated drafts into publication-quality authored pages.",
+    "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
     "Resolve operator inbox items before final publication claims.",
     "Import Discord/Lafa Q&A once access is provided.",
     "Run final link, source, and live-market-count checks at publication time."

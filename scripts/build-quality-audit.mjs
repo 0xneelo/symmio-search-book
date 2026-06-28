@@ -14,6 +14,7 @@ const defaults = {
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
+  faq: path.join(searchBookRoot, "data", "faq.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
@@ -161,6 +162,9 @@ const journeys = fs.existsSync(args.journeys) ? readJson(args.journeys) : { jour
 const questionRoutes = fs.existsSync(args.questionRoutes)
   ? readJson(args.questionRoutes)
   : { answerable: [], reconciliation: [], totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] };
+const faq = fs.existsSync(args.faq)
+  ? readJson(args.faq)
+  : { totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, totalCategories: 0, missingPageIds: [], missingSourceKeys: [], byCategory: {} };
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
@@ -195,6 +199,11 @@ const gaps = parseGapItems(gapMarkdown);
 const answerableQuestions = parseQuestionRows(questionMarkdown, "Answerable In Prototype");
 const reconciliationQuestions = parseQuestionRows(questionMarkdown, "Needs Reconciliation");
 const questionRouteMissingIds = questionRoutes.missingRouteIds || [];
+const faqMissingPageIds = faq.missingPageIds || [];
+const faqMissingSourceKeys = faq.missingSourceKeys || [];
+const faqMatchesQuestionRoutes =
+  (faq.totalAnswerable || 0) === (questionRoutes.totalRoutes || 0) &&
+  (faq.totalUnresolved || 0) === (questionRoutes.totalReconciliationQuestions || 0);
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -291,6 +300,17 @@ const gates = [
     detail: `${questionRoutes.totalRoutes || 0} generated routes, ${answerableQuestions.length} answerable ledger rows, ${questionRouteMissingIds.length} missing page ids`,
   },
   {
+    id: "local-faq-routes",
+    label: "Local FAQ seed routes resolve",
+    passed:
+      faqMatchesQuestionRoutes &&
+      faqMissingPageIds.length === 0 &&
+      faqMissingSourceKeys.length === 0 &&
+      (faq.totalAnswerable || 0) > 0 &&
+      faq.seedSource === "local-question-ledger",
+    detail: `${faq.totalAnswerable || 0} answerable FAQs, ${faq.totalUnresolved || 0} unresolved gaps, ${faqMissingPageIds.length} missing page ids, ${faqMissingSourceKeys.length} missing source keys`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -338,6 +358,10 @@ const payload = {
     guidedJourneySteps: journeys.totalSteps || 0,
     seededQuestionRoutes: questionRoutes.totalRoutes || 0,
     seededReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
+    localFaqEntries: faq.totalEntries || 0,
+    localFaqAnswerable: faq.totalAnswerable || 0,
+    localFaqUnresolved: faq.totalUnresolved || 0,
+    localFaqCategories: faq.totalCategories || Object.keys(faq.byCategory || {}).length,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -395,6 +419,20 @@ const payload = {
     byRouteSource: questionRoutes.byRouteSource || {},
     missingRouteIds: questionRouteMissingIds,
   },
+  faqCoverage: {
+    seedSource: faq.seedSource || "missing",
+    status: faq.status || "missing",
+    totalEntries: faq.totalEntries || 0,
+    totalAnswerable: faq.totalAnswerable || 0,
+    totalUnresolved: faq.totalUnresolved || 0,
+    totalCategories: faq.totalCategories || Object.keys(faq.byCategory || {}).length,
+    byCategory: faq.byCategory || {},
+    byConfidence: faq.byConfidence || {},
+    byRouteSource: faq.byRouteSource || {},
+    missingPageIds: faqMissingPageIds,
+    missingSourceKeys: faqMissingSourceKeys,
+    matchesQuestionRoutes: faqMatchesQuestionRoutes,
+  },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,
     byCategory: glossary.byCategory || {},
@@ -419,6 +457,8 @@ const payload = {
     gaps,
     journeyMissingPageIds,
     questionRouteMissingIds,
+    faqMissingPageIds,
+    faqMissingSourceKeys,
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
     usedKeysMissingCatalog,
@@ -431,6 +471,7 @@ const payload = {
   },
   nextAuditFocus: [
     "Convert generated drafts into publication-quality authored pages.",
+    "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
     "Resolve operator inbox items before final publication claims.",
     "Import Discord/Lafa Q&A once access is provided.",
     "Run final link, source, and live-market-count checks at publication time.",
