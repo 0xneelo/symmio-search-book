@@ -17,6 +17,10 @@
     "glossaryCategories": 10,
     "sourceCatalogEntries": 51,
     "linkedSourceCatalogEntries": 45,
+    "crosslinkedReaderPages": 821,
+    "readerPagesWithPrevious": 820,
+    "readerPagesWithNext": 820,
+    "readerPagesWithRelated": 820,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
@@ -91,6 +95,12 @@
       "label": "Glossary terms resolve",
       "passed": true,
       "detail": "32 terms, 10 categories, 0 missing page ids, 0 missing source keys"
+    },
+    {
+      "id": "reader-crosslinks",
+      "label": "Reader crosslinks resolve",
+      "passed": true,
+      "detail": "821 crosslinked pages, 821 reader routes, 0 broken explicit related routes"
     },
     {
       "id": "operator-inbox",
@@ -385,6 +395,47 @@
     "missingPageIds": [],
     "missingSourceKeys": []
   },
+  "crosslinkCoverage": {
+    "totalPages": 821,
+    "pagesWithPrevious": 820,
+    "pagesWithNext": 820,
+    "pagesWithRelated": 820,
+    "bySection": {
+      "manifesto": 9,
+      "protocol-reference": 6,
+      "product-reference": 4,
+      "dashboard-reference": 14,
+      "rewards-referrals": 9,
+      "reference": 1,
+      "answer-engine": 1,
+      "architecture": 2,
+      "builder-reference": 1,
+      "competitive-context": 1,
+      "developer-reference": 1,
+      "faq": 1,
+      "fees": 6,
+      "glossary": 1,
+      "market-creation": 2,
+      "options-reference": 1,
+      "product-research": 5,
+      "risk-margin": 4,
+      "security": 4,
+      "settlement": 1,
+      "solver-reference": 7,
+      "trading-guides": 8,
+      "user-guides": 3,
+      "vision-papers": 188,
+      "vision-sections": 541
+    },
+    "byRouteSource": {
+      "authored": 27,
+      "generated": 794
+    },
+    "missingExplicitRelatedPageIds": [],
+    "duplicatePageIds": [],
+    "readerIdsMissingCrosslinks": [],
+    "crosslinkIdsMissingReader": []
+  },
   "unresolved": {
     "operatorInbox": [
       {
@@ -457,6 +508,9 @@
     "usedKeysMissingCatalog": [],
     "registryKeysMissingCatalog": [],
     "catalogKeysMissingRegistry": [],
+    "crosslinkMissingExplicitRelatedPageIds": [],
+    "readerIdsMissingCrosslinks": [],
+    "crosslinkIdsMissingReader": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",

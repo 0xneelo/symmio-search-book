@@ -12,6 +12,7 @@
     <script src="./data/question-routes.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
+    <script src="./data/crosslinks.js"></script>
     <script src="./data/quality-audit.js"></script>
     <style>
       :root {
@@ -960,8 +961,10 @@
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
+      const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
       const sourceByKey = sourceCatalog.sourceByKey || {};
+      const crosslinkByPageId = crosslinks.pageById || {};
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -1288,6 +1291,10 @@
       }
 
       function relatedPagesFor(page) {
+        const crosslink = crosslinkByPageId[page.id];
+        if (crosslink?.relatedPageIds?.length) {
+          return crosslink.relatedPageIds.map((id) => pageById.get(id)).filter(Boolean).slice(0, 8);
+        }
         const explicit = [...(page.relatedGeneratedPages || []), ...(page.relatedPages || [])]
           .map((id) => pageById.get(id))
           .filter(Boolean);
@@ -1295,6 +1302,14 @@
         return searchablePages
           .filter((candidate) => candidate.id !== page.id && candidate.section === page.section && candidate.track === page.track)
           .slice(0, 8);
+      }
+
+      function readerSequenceLinks(page) {
+        const crosslink = crosslinkByPageId[page.id] || {};
+        return {
+          previous: crosslink.previousPageId ? pageById.get(crosslink.previousPageId) : null,
+          next: crosslink.nextPageId ? pageById.get(crosslink.nextPageId) : null,
+        };
       }
 
       function renderAnswer(result, query, eventId) {
@@ -1655,6 +1670,7 @@
           <li><span class="meta">Seeded question routes</span><br>${escapeHtml(totals.seededQuestionRoutes || 0)} answerable routes, ${escapeHtml(totals.seededReconciliationQuestions || 0)} reconciliation questions.</li>
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
+          <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>
@@ -1794,6 +1810,7 @@
           ? markdownToHtml(page.bodyMarkdown)
           : `<p>${escapeHtml(page.summary || page.excerpt || "")}</p><p>This is a generated corpus preview. The underlying draft file is indexed and source-mapped, but still needs editorial restructuring before final publication.</p>`;
         const related = relatedPagesFor(page);
+        const sequenceLinks = readerSequenceLinks(page);
         const status = page.status || (page.curated ? "curated-route" : "indexed-page");
         root.innerHTML = `
           <div class="reader-layout">
@@ -1808,6 +1825,8 @@
               <div class="reader-actions">
                 <button type="button" data-return-variant="classic">Back to Ask</button>
                 <button type="button" data-return-variant="browse">Browse docs</button>
+                ${sequenceLinks.previous ? `<button type="button" data-open-page="${escapeHtml(sequenceLinks.previous.id)}">Previous: ${escapeHtml(sequenceLinks.previous.title)}</button>` : ""}
+                ${sequenceLinks.next ? `<button type="button" data-open-page="${escapeHtml(sequenceLinks.next.id)}">Next: ${escapeHtml(sequenceLinks.next.title)}</button>` : ""}
                 <a class="source-chip" href="${escapeHtml(directRouteFor(page))}">Indexed route</a>
               </div>
               <div class="reader-body">${body}</div>

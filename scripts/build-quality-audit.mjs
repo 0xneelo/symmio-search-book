@@ -16,6 +16,7 @@ const defaults = {
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
@@ -166,6 +167,9 @@ const glossary = fs.existsSync(args.glossary)
 const sourceCatalog = fs.existsSync(args.sourceCatalog)
   ? readJson(args.sourceCatalog)
   : { sources: [], sourceByKey: {}, totalSources: 0, duplicateKeys: [], byGroup: {}, byKind: {} };
+const crosslinks = fs.existsSync(args.crosslinks)
+  ? readJson(args.crosslinks)
+  : { totalPages: 0, pagesWithPrevious: 0, pagesWithNext: 0, pagesWithRelated: 0, missingExplicitRelatedPageIds: [], duplicatePageIds: [], pageById: {} };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
@@ -198,6 +202,9 @@ const searchCoverage = coverageFor(searchIndex, knownSourceKeys);
 const authoredCoverage = coverageFor(authoredPages, knownSourceKeys);
 const authoredMissingBodies = authoredPages.filter((page) => !page.bodyMarkdown).map((page) => page.id);
 const readerPageIds = new Set([...searchIndex.map((page) => page.id), ...authoredPages.map((page) => page.id)]);
+const crosslinkPageIds = Object.keys(crosslinks.pageById || {});
+const readerIdsMissingCrosslinks = [...readerPageIds].filter((pageId) => !crosslinkPageIds.includes(pageId));
+const crosslinkIdsMissingReader = crosslinkPageIds.filter((pageId) => !readerPageIds.has(pageId));
 const journeyMissingPageIds = (journeys.journeys || []).flatMap((journey) =>
   (journey.steps || [])
     .filter((step) => !readerPageIds.has(step.pageId))
@@ -290,6 +297,19 @@ const gates = [
     detail: `${glossary.totalTerms || 0} terms, ${Object.keys(glossary.byCategory || {}).length} categories, ${glossaryMissingPageIds.length} missing page ids, ${glossaryMissingSourceKeys.length} missing source keys`,
   },
   {
+    id: "reader-crosslinks",
+    label: "Reader crosslinks resolve",
+    passed:
+      (crosslinks.totalPages || 0) === readerPageIds.size &&
+      readerIdsMissingCrosslinks.length === 0 &&
+      crosslinkIdsMissingReader.length === 0 &&
+      !(crosslinks.duplicatePageIds || []).length &&
+      !(crosslinks.missingExplicitRelatedPageIds || []).length &&
+      (crosslinks.pagesWithPrevious || 0) >= readerPageIds.size - 1 &&
+      (crosslinks.pagesWithNext || 0) >= readerPageIds.size - 1,
+    detail: `${crosslinks.totalPages || 0} crosslinked pages, ${readerPageIds.size} reader routes, ${(crosslinks.missingExplicitRelatedPageIds || []).length} broken explicit related routes`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -322,6 +342,10 @@ const payload = {
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
     linkedSourceCatalogEntries: (sourceCatalog.sources || []).filter((source) => source.href).length,
+    crosslinkedReaderPages: crosslinks.totalPages || 0,
+    readerPagesWithPrevious: crosslinks.pagesWithPrevious || 0,
+    readerPagesWithNext: crosslinks.pagesWithNext || 0,
+    readerPagesWithRelated: crosslinks.pagesWithRelated || 0,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -378,6 +402,18 @@ const payload = {
     missingPageIds: glossaryMissingPageIds,
     missingSourceKeys: glossaryMissingSourceKeys,
   },
+  crosslinkCoverage: {
+    totalPages: crosslinks.totalPages || 0,
+    pagesWithPrevious: crosslinks.pagesWithPrevious || 0,
+    pagesWithNext: crosslinks.pagesWithNext || 0,
+    pagesWithRelated: crosslinks.pagesWithRelated || 0,
+    bySection: crosslinks.bySection || {},
+    byRouteSource: crosslinks.byRouteSource || {},
+    missingExplicitRelatedPageIds: crosslinks.missingExplicitRelatedPageIds || [],
+    duplicatePageIds: crosslinks.duplicatePageIds || [],
+    readerIdsMissingCrosslinks,
+    crosslinkIdsMissingReader,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
@@ -388,6 +424,9 @@ const payload = {
     usedKeysMissingCatalog,
     registryKeysMissingCatalog,
     catalogKeysMissingRegistry,
+    crosslinkMissingExplicitRelatedPageIds: crosslinks.missingExplicitRelatedPageIds || [],
+    readerIdsMissingCrosslinks,
+    crosslinkIdsMissingReader,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

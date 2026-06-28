@@ -98,6 +98,13 @@
 - Updated Ask answers and page-reader source chips to use the generated catalog for citation links and source-use labels instead of bare source keys only.
 - Extended the quality audit with a source-catalog gate; current result is 11 of 13 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Reader Crosslink Map
+
+- Added `scripts/build-crosslink-map.mjs` and generated `data/crosslinks.json` plus `data/crosslinks.js`.
+- Validated 821 reader-routable pages with 820 previous links, 820 next links, 820 pages with related links, and 0 broken explicit related-page routes.
+- Updated the page reader to use generated related pages and render Previous/Next controls.
+- Extended the quality audit with a reader-crosslinks gate; current result is 12 of 14 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

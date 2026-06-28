@@ -159,3 +159,11 @@
 **Reason:** The compendium requires every claim to be traceable to primary sources. Bare source-key chips are useful for debugging but not sufficient for readers; a source catalog keeps labels, links, groups, and use notes in one maintained place.
 
 **Status:** Accepted for prototype iteration.
+
+## D-021: Generate Reader Crosslinks
+
+**Decision:** Generate `data/crosslinks.*` over authored and indexed pages, validate explicit related-page ids, and use it for reader related pages plus previous/next navigation.
+
+**Reason:** The IA requires every page to carry cross-links and prev/next navigation. A generated map keeps the 821 reader-routable pages navigable without hand-maintaining links in the static prototype.
+
+**Status:** Accepted for prototype iteration.
