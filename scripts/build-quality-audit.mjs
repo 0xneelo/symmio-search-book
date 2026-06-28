@@ -15,6 +15,7 @@ const defaults = {
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   faq: path.join(searchBookRoot, "data", "faq.json"),
+  gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
@@ -165,6 +166,9 @@ const questionRoutes = fs.existsSync(args.questionRoutes)
 const faq = fs.existsSync(args.faq)
   ? readJson(args.faq)
   : { totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, totalCategories: 0, missingPageIds: [], missingSourceKeys: [], byCategory: {} };
+const gapQueue = fs.existsSync(args.gapQueue)
+  ? readJson(args.gapQueue)
+  : { totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, missingQuestionGapIds: [], missingOperatorGapIds: [], missingRelatedPageIds: [], missingSourceKeys: [], byPriority: {}, byCategory: {} };
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
@@ -204,6 +208,16 @@ const faqMissingSourceKeys = faq.missingSourceKeys || [];
 const faqMatchesQuestionRoutes =
   (faq.totalAnswerable || 0) === (questionRoutes.totalRoutes || 0) &&
   (faq.totalUnresolved || 0) === (questionRoutes.totalReconciliationQuestions || 0);
+const gapQueueMissingQuestionGapIds = gapQueue.missingQuestionGapIds || [];
+const gapQueueMissingOperatorGapIds = gapQueue.missingOperatorGapIds || [];
+const gapQueueMissingRelatedPageIds = gapQueue.missingRelatedPageIds || [];
+const gapQueueMissingSourceKeys = gapQueue.missingSourceKeys || [];
+const parkedReconciliationPages = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation");
+const gapQueueMatchesInputs =
+  (gapQueue.totalItems || 0) === gaps.length &&
+  (gapQueue.totalQuestionSignals || 0) === (questionRoutes.totalReconciliationQuestions || 0) &&
+  (gapQueue.totalOperatorSignals || 0) === openInboxItems.length &&
+  (gapQueue.totalParkedPageSignals || 0) === parkedReconciliationPages.length;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -311,6 +325,18 @@ const gates = [
     detail: `${faq.totalAnswerable || 0} answerable FAQs, ${faq.totalUnresolved || 0} unresolved gaps, ${faqMissingPageIds.length} missing page ids, ${faqMissingSourceKeys.length} missing source keys`,
   },
   {
+    id: "gap-queue",
+    label: "Living-docs gap queue resolves",
+    passed:
+      gapQueueMatchesInputs &&
+      gapQueueMissingQuestionGapIds.length === 0 &&
+      gapQueueMissingOperatorGapIds.length === 0 &&
+      gapQueueMissingRelatedPageIds.length === 0 &&
+      gapQueueMissingSourceKeys.length === 0 &&
+      (gapQueue.totalItems || 0) > 0,
+    detail: `${gapQueue.totalItems || 0} queue items, ${gapQueue.totalQuestionSignals || 0} question signals, ${gapQueue.totalOperatorSignals || 0} operator signals, ${gapQueue.totalParkedPageSignals || 0} parked pages`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -362,6 +388,11 @@ const payload = {
     localFaqAnswerable: faq.totalAnswerable || 0,
     localFaqUnresolved: faq.totalUnresolved || 0,
     localFaqCategories: faq.totalCategories || Object.keys(faq.byCategory || {}).length,
+    gapQueueItems: gapQueue.totalItems || 0,
+    gapQueueQuestionSignals: gapQueue.totalQuestionSignals || 0,
+    gapQueueOperatorSignals: gapQueue.totalOperatorSignals || 0,
+    gapQueueParkedPageSignals: gapQueue.totalParkedPageSignals || 0,
+    gapQueueCategories: Object.keys(gapQueue.byCategory || {}).length,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -433,6 +464,22 @@ const payload = {
     missingSourceKeys: faqMissingSourceKeys,
     matchesQuestionRoutes: faqMatchesQuestionRoutes,
   },
+  gapQueueCoverage: {
+    status: gapQueue.status || "missing",
+    totalItems: gapQueue.totalItems || 0,
+    totalQuestionSignals: gapQueue.totalQuestionSignals || 0,
+    totalOperatorSignals: gapQueue.totalOperatorSignals || 0,
+    totalParkedPageSignals: gapQueue.totalParkedPageSignals || 0,
+    byPriority: gapQueue.byPriority || {},
+    byCategory: gapQueue.byCategory || {},
+    byStatus: gapQueue.byStatus || {},
+    topItems: gapQueue.topItems || [],
+    missingQuestionGapIds: gapQueueMissingQuestionGapIds,
+    missingOperatorGapIds: gapQueueMissingOperatorGapIds,
+    missingRelatedPageIds: gapQueueMissingRelatedPageIds,
+    missingSourceKeys: gapQueueMissingSourceKeys,
+    matchesInputs: gapQueueMatchesInputs,
+  },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,
     byCategory: glossary.byCategory || {},
@@ -459,6 +506,10 @@ const payload = {
     questionRouteMissingIds,
     faqMissingPageIds,
     faqMissingSourceKeys,
+    gapQueueMissingQuestionGapIds,
+    gapQueueMissingOperatorGapIds,
+    gapQueueMissingRelatedPageIds,
+    gapQueueMissingSourceKeys,
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
     usedKeysMissingCatalog,

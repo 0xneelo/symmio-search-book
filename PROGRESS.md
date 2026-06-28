@@ -112,6 +112,13 @@
 - Added a dedicated FAQ prototype view with filtering, category chips, exact-page links, source chips, and "Ask this" actions.
 - Extended the quality audit with a local FAQ route gate; current result is 13 of 15 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Living-Docs Gap Queue
+
+- Added `scripts/build-gap-queue.mjs` and generated `data/gap-queue.json` plus `data/gap-queue.js` from `GAPS.md`, reconciliation questions, operator inbox items, and parked pages.
+- Validated 11 prioritized gap items with 7 linked question signals, 4 operator-blocked signals, 2 parked page signals, 0 missing gap ids, 0 missing related page ids, and 0 missing source keys.
+- Updated Search insights so "Where Docs Fall Short" renders the structured queue with priority, category, source chips, related page links, and live local low-rated/unanswered gaps.
+- Extended the quality audit with a gap-queue gate; current result is 14 of 16 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

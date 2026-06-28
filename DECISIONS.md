@@ -175,3 +175,11 @@
 **Reason:** The spec requires a Discord-seeded FAQ, but the Discord/Lafa corpus is parked in the operator inbox. A local FAQ seed makes current known questions visible and auditable without pretending community mining is complete.
 
 **Status:** Accepted for prototype iteration; superseded by Discord-derived FAQ once operator inbox item `#2` is resolved.
+
+## D-023: Generate The Living-Docs Gap Queue
+
+**Decision:** Generate `data/gap-queue.*` from documented gaps, reconciliation questions, operator inbox items, and parked pages, then render it in Search insights.
+
+**Reason:** The answer-engine spec says unanswered, low-rated, and repeated questions must become a prioritized improvement queue. A generated queue keeps that demand signal visible and validates that every parked thread still points at sources and exact pages.
+
+**Status:** Accepted for prototype iteration.

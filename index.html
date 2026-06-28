@@ -11,6 +11,7 @@
     <script src="./data/journeys.js"></script>
     <script src="./data/question-routes.js"></script>
     <script src="./data/faq.js"></script>
+    <script src="./data/gap-queue.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
     <script src="./data/crosslinks.js"></script>
@@ -720,6 +721,10 @@
         border-color: rgba(255, 200, 115, 0.44);
       }
 
+      .gap-row.is-priority {
+        border-color: rgba(245, 132, 238, 0.42);
+      }
+
       .insight-metrics {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         margin-bottom: 18px;
@@ -994,6 +999,7 @@
       const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
+      const gapQueue = window.SearchBookGapQueue || { items: [], totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, byPriority: {}, byCategory: {} };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
@@ -1679,29 +1685,48 @@
 
       function renderGaps() {
         const localGaps = loadList(storageKeys.gaps);
-        const parkedPages = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation");
-        const parked = corpus.gaps.map((gap) => ({ reason: "operator-inbox", query: gap, page: "Parked thread", local: false }));
-        const reconciliation = parkedPages.map((page) => ({
-          reason: "needs-reconciliation",
-          query: page.title,
-          page: page.file,
-          local: false,
-        }));
-        const rows = [...localGaps, ...reconciliation, ...parked];
+        const localRows = localGaps
+          .slice(0, 8)
+          .map(
+            (gap) => `
+              <div class="gap-row is-local">
+                <div class="meta">${escapeHtml(gap.reason || "local-gap")}</div>
+                <p>${escapeHtml(gap.query)}</p>
+                <div class="meta">${escapeHtml(gap.page || "")}</div>
+              </div>
+            `,
+          )
+          .join("");
+        const queueRows = (gapQueue.items || [])
+          .slice(0, 16)
+          .map((item) => {
+            const pageLinks = (item.relatedPages || [])
+              .slice(0, 4)
+              .map((page) => `<a class="source-chip" href="${escapeHtml(pageHref(page))}" data-open-page="${escapeHtml(page.id)}">${escapeHtml(page.title)}</a>`)
+              .join("");
+            const questionCount = (item.linkedQuestions || []).length;
+            const operatorCount = (item.linkedOperatorItems || []).length;
+            const parkedCount = (item.linkedParkedPages || []).length;
+            return `
+              <div class="gap-row ${item.priority === "P0" ? "is-priority" : item.status === "operator-parked" ? "is-blocked" : ""}">
+                <div class="meta">${escapeHtml(item.priority)} / ${escapeHtml(item.category)} / ${escapeHtml(item.status)}</div>
+                <p>${escapeHtml(item.title)}</p>
+                <div class="meta">${escapeHtml(item.needed || item.summary || "")}</div>
+                <div class="source-row">
+                  <span class="source-chip">${escapeHtml(questionCount)} questions</span>
+                  <span class="source-chip">${escapeHtml(operatorCount)} operator</span>
+                  <span class="source-chip">${escapeHtml(parkedCount)} parked pages</span>
+                  ${pageLinks}
+                </div>
+                <div class="source-row">${(item.sourceKeys || []).slice(0, 5).map((source) => sourceChipForKey(source)).join("")}</div>
+              </div>
+            `;
+          })
+          .join("");
+        const rows = [localRows, queueRows].filter(Boolean).join("");
         document.getElementById("gapList").innerHTML = rows.length
           ? rows
-              .slice(0, 24)
-              .map(
-                (gap) => `
-                  <div class="gap-row ${gap.local === false ? "" : "is-local"}">
-                    <div class="meta">${escapeHtml(gap.reason || "local-gap")}</div>
-                    <p>${escapeHtml(gap.query)}</p>
-                    <div class="meta">${escapeHtml(gap.page || "")}</div>
-                  </div>
-                `,
-              )
-              .join("")
-          : '<div class="gap-row"><p>No local gaps recorded yet.</p></div>';
+          : '<div class="gap-row"><p>No local or generated gaps recorded yet.</p></div>';
       }
 
       function formatQuestion(item) {
@@ -1732,11 +1757,10 @@
         const ratings = loadList(storageKeys.ratings);
         const gaps = loadList(storageKeys.gaps);
         const answered = questions.filter((item) => item.status === "answered").length;
-        const needsReconciliation = (navigation.parkedPages || []).filter((page) => page.status === "needs-reconciliation").length;
         document.getElementById("insightMetrics").innerHTML = `
           <div class="stat-card"><span class="stat-label">Questions</span><strong>${questions.length}</strong></div>
           <div class="stat-card"><span class="stat-label">Answered</span><strong>${answered}</strong></div>
-          <div class="stat-card"><span class="stat-label">Gaps</span><strong>${gaps.length + needsReconciliation}</strong></div>
+          <div class="stat-card"><span class="stat-label">Gaps</span><strong>${gaps.length + (gapQueue.totalItems || 0)}</strong></div>
           <div class="stat-card"><span class="stat-label">Ratings</span><strong>${ratings.length}</strong></div>
         `;
       }
@@ -1765,6 +1789,7 @@
           <li><span class="meta">Guided journeys</span><br>${escapeHtml(totals.guidedJourneys || 0)} journeys, ${escapeHtml(totals.guidedJourneySteps || 0)} routed steps.</li>
           <li><span class="meta">Seeded question routes</span><br>${escapeHtml(totals.seededQuestionRoutes || 0)} answerable routes, ${escapeHtml(totals.seededReconciliationQuestions || 0)} reconciliation questions.</li>
           <li><span class="meta">Local FAQ seed</span><br>${escapeHtml(totals.localFaqEntries || 0)} entries: ${escapeHtml(totals.localFaqAnswerable || 0)} answerable, ${escapeHtml(totals.localFaqUnresolved || 0)} unresolved across ${escapeHtml(totals.localFaqCategories || 0)} categories.</li>
+          <li><span class="meta">Gap queue</span><br>${escapeHtml(totals.gapQueueItems || 0)} prioritized items; ${escapeHtml(totals.gapQueueQuestionSignals || 0)} question signals, ${escapeHtml(totals.gapQueueOperatorSignals || 0)} operator signals, ${escapeHtml(totals.gapQueueParkedPageSignals || 0)} parked page signals.</li>
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>

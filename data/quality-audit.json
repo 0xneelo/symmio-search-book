@@ -17,6 +17,11 @@
     "localFaqAnswerable": 29,
     "localFaqUnresolved": 7,
     "localFaqCategories": 10,
+    "gapQueueItems": 11,
+    "gapQueueQuestionSignals": 7,
+    "gapQueueOperatorSignals": 4,
+    "gapQueueParkedPageSignals": 2,
+    "gapQueueCategories": 11,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
     "sourceCatalogEntries": 51,
@@ -99,6 +104,12 @@
       "label": "Local FAQ seed routes resolve",
       "passed": true,
       "detail": "29 answerable FAQs, 7 unresolved gaps, 0 missing page ids, 0 missing source keys"
+    },
+    {
+      "id": "gap-queue",
+      "label": "Living-docs gap queue resolves",
+      "passed": true,
+      "detail": "11 queue items, 7 question signals, 4 operator signals, 2 parked pages"
     },
     {
       "id": "glossary-routes",
@@ -354,6 +365,48 @@
     "missingSourceKeys": [],
     "matchesQuestionRoutes": true
   },
+  "gapQueueCoverage": {
+    "status": "prototype-gap-queue",
+    "totalItems": 11,
+    "totalQuestionSignals": 7,
+    "totalOperatorSignals": 4,
+    "totalParkedPageSignals": 2,
+    "byPriority": {
+      "P0": 4,
+      "P1": 5,
+      "P2": 2
+    },
+    "byCategory": {
+      "Rewards And Referrals": 1,
+      "Discord Import": 1,
+      "Revenue": 1,
+      "Production Answer Engine": 1,
+      "Options And Settlement": 1,
+      "Data And Volume": 1,
+      "Terminology": 1,
+      "Editorial Production": 1,
+      "Origin And Whitepapers": 1,
+      "Research Sweep": 1,
+      "Publication Freshness": 1
+    },
+    "byStatus": {
+      "operator-parked": 4,
+      "open": 7
+    },
+    "topItems": [
+      "queue-g-003",
+      "queue-g-001",
+      "queue-g-004",
+      "queue-g-010",
+      "queue-g-008",
+      "queue-g-005"
+    ],
+    "missingQuestionGapIds": [],
+    "missingOperatorGapIds": [],
+    "missingRelatedPageIds": [],
+    "missingSourceKeys": [],
+    "matchesInputs": true
+  },
   "glossaryCoverage": {
     "totalTerms": 32,
     "byCategory": {
@@ -547,6 +600,10 @@
     "questionRouteMissingIds": [],
     "faqMissingPageIds": [],
     "faqMissingSourceKeys": [],
+    "gapQueueMissingQuestionGapIds": [],
+    "gapQueueMissingOperatorGapIds": [],
+    "gapQueueMissingRelatedPageIds": [],
+    "gapQueueMissingSourceKeys": [],
     "glossaryMissingPageIds": [],
     "glossaryMissingSourceKeys": [],
     "usedKeysMissingCatalog": [],
