@@ -445,6 +445,13 @@
 - Routed five new proof-of-value questions to authored pages so Ask can explain the cost-of-truth thesis without flattening market price into absolute truth or publishing unconfirmed solver/vault economics.
 - Regenerated dependent maps: 195 authored pages, 176 exact answer routes, 183 FAQ entries with 176 answerable, 989 reader-routable pages, 1,714 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
 
+## 2026-06-28 — Neelo DDQ Authored Reference Layer
+
+- Added five authored Volume 05 reference pages from Neelo's DDQ corpus: architecture stack, netting-state risk transfer, token LP attractiveness, Force Close versus escape-mode recovery, and trader-compensation continuity.
+- Routed five new DDQ questions to authored pages so Ask can answer partner/operator risk questions without sending readers to raw imported DDQ notes.
+- Kept solver policy, Force Close timing/proofs, revenue share, partner traction, CVA percentages, buyout rules, insurance allocation, and live vault/LP terms under operator and implementation review.
+- Regenerated dependent maps: 200 authored pages, 181 exact answer routes, 188 FAQ entries with 181 answerable, 994 reader-routable pages, 1,724 answer chunks, and quality audit 24/27 with failures limited to source-ingestion, operator-inbox, and Discord.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -591,3 +591,11 @@
 **Reason:** Neelo's proof-of-value source is strongest when it is allowed to be ambitious and internally honest. The public compendium should preserve the thesis that markets can verify claims through capital at risk, while making clear that price is evidence rather than absolute truth and that live leverage, solver, vault, fee-share, and loss-allocation semantics need operator-approved implementation sources.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-075: Turn The DDQ Into Partner-Grade Risk Answers
+
+**Decision:** Add authored Volume 05 reference pages from Neelo's DDQ corpus that explain the architecture stack, netting-state risk transfer, token LP attractiveness, Force Close versus escape-mode recovery, and trader-compensation continuity.
+
+**Reason:** The DDQ material is where Vibe's thesis becomes diligence language. These pages let the compendium answer allocator, partner, solver, and risk-review questions directly while keeping exact Force Close parameters, proof-network details, revenue share, partner traction, CVA percentages, insurance rules, buyout mechanics, and live vault terms under operator and implementation review.
+
+**Status:** Accepted for the authored protocol-reference layer.

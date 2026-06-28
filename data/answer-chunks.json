@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1007,
-  "totalChunks": 1714,
-  "pagesWithChunks": 1007,
+  "totalPages": 1012,
+  "totalChunks": 1724,
+  "pagesWithChunks": 1012,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,19 +653,19 @@
     }
   },
   "byRouteSource": {
-    "authored": 195,
+    "authored": 200,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 373,
+    "authored": 383,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "manifesto": 194,
     "dashboard-reference": 24,
-    "protocol-reference": 60,
+    "protocol-reference": 70,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 40,
@@ -1825,6 +1825,52 @@
       "text": "Dashboard Volume The Volume view explains the network volume input behind revenue and points. It is routed as volume , fetches /api/me/volume , and shows total network trade volume, a per level summary, and wallet level snapshot rows. The current UI labels volume as local wallet snapshots that refresh daily. Rows show level, account, wallet, snapshot date, trade volume, and stale state markers. The underlying grounding spec says today's source is the Vibe backend wallet volume API with caching, normalization, and daily snapshots, while the planned Barometer upgrade would move to Goldsky analytics subgraphs. Reader Implication Volume should be documented as a measured input with lag and source status. It is not a live per trade feed in the current implementation, and the exact network depth remains tied to the referral depth reconciliation. Open Gaps Operator inbox item 3 controls final depth language. G 005 tracks the current REST source versus the planned subgraph migration. Sources dashboard app : dashboard route registration. dashboard volume : Volume tab UI and table shape. server volume : current backend wallet volume source and cache behavior. server volume snapshots : daily snapshot behavior. server me : /api/me/volume route behavior. spec 03 : current source and Barometer migration guidance. Related Pages authored network volume authored dashboard network linear subgraph volume"
     },
     {
+      "id": "authored-ddq-architecture-stack::001",
+      "pageId": "authored-ddq-architecture-stack",
+      "chunkIndex": 1,
+      "title": "DDQ Architecture Stack",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-architecture-stack.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Architecture Stack The DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together? The source names six primitives: margin trading; perpetuals; request based, intent style settlement; bilateral OTC derivatives primitives; proprietary solver technology; user vaults for liquidity tokens. The point is not that any one primitive is new in isolation. The source argument is that permissionless leverage for long tail assets needs the stack to work as one system. Margin mechanics supply collateral discipline. Perpetual mechanics supply ongoing mark, funding, close, and liquidation language. Intents let the solver quote only after checking risk. Bilateral OTC primitives fit the PartyA/PartyB settlement model. User vaults provide token side inventory without asking outside stablecoin LPs to underwrite every market. Why The Stack Exists The DDQ frames older on chain margin experiments as capital hungry and attackable. Near 1:1 backing can constrain depth and widen spreads. Pure USDC vaults for low cap leverage can attract a supply side attack pattern where a user builds spot exposure, opens leverage, then stresses the backing pool through spot selling. Vibe's proposed answer is a hybrid liquidity model: token inventory, solver funded stablecoin operations, quote by quote risk checks, and market controls that tighten"
+    },
+    {
+      "id": "authored-ddq-architecture-stack::002",
+      "pageId": "authored-ddq-architecture-stack",
+      "chunkIndex": 2,
+      "title": "DDQ Architecture Stack",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-architecture-stack.md",
+      "wordStart": 185,
+      "wordEnd": 359,
+      "wordCount": 174,
+      "text": "exposure, opens leverage, then stresses the backing pool through spot selling. Vibe's proposed answer is a hybrid liquidity model: token inventory, solver funded stablecoin operations, quote by quote risk checks, and market controls that tighten when the market is immature or stressed. Reader Implication This page should be the first DDQ route for partners. It explains why Vibe is not simply \"a perp UI\" or \"a vault.\" The product claim is an integrated market creation stack: intents, solvers, LP inventory, and settlement are designed to make long tail leveraged markets possible before a normal order book can support them. Publication Note The DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored residual counterparty hedge first authored token lp attractiveness model authored solver default and continuity neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
       "id": "authored-dynamic-pricing-controls::001",
       "pageId": "authored-dynamic-pricing-controls",
       "chunkIndex": 1,
@@ -2117,6 +2163,54 @@
       "wordEnd": 282,
       "wordCount": 97,
       "text": "prose should translate that into mechanism: financialized rejection, short side expression, and market discipline. The point is not vandalism. The point is falsification with economic consequence. Reader Implication New readers should understand the \"Thumbs Down\" as the simplest way to describe Vibe's cultural wedge: a market should let capital reject bad narratives as directly as it supports good ones. Sources vibe papers : Neelo, \"Section 8: The Thumbs Down\". vibe papers : Neelo, \"Section 4: The Missing NO Button\". Related Pages authored truth markets no button authored beyond polymarket continuous truth markets authored market price as verification"
+    },
+    {
+      "id": "authored-force-close-versus-escape-mode::001",
+      "pageId": "authored-force-close-versus-escape-mode",
+      "chunkIndex": 1,
+      "title": "Force Close Versus Escape Mode",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/ii-comparsion-to-other-protocols",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-versus-escape-mode.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Force Close Versus Escape Mode The DDQ compares two recovery philosophies for off chain component failure. An escape mode system is designed for catastrophic operator failure. It gives users a trust minimized path to recover account state or withdraw after a prolonged failure window. That is useful for funds safety, but it is not the same as trader grade position management. Vibe's Force Close model is described as position level recovery. If the solver is unresponsive, the user can submit an on chain close request, wait through a protocol timer, provide a valid proof, and finalize a close without solver cooperation. Why The Difference Matters Leveraged positions can become unsafe quickly. A whole account recovery mechanism that activates only after a long outage can protect custody, but it does not necessarily let a trader close a specific bleeding position while the market is moving. The DDQ therefore frames Force Close as surgical rather than global. The user is not asking the system to unwind the whole account or enter emergency withdrawal mode. The user is asking to close a specific position through an on chain escape path when the solver path is unavailable. Trust Minimized, Not Risk Free The source's comparison should not be read as \"there is no risk if a solver goes offline.\" Force Close reduces dependence on"
+    },
+    {
+      "id": "authored-force-close-versus-escape-mode::002",
+      "pageId": "authored-force-close-versus-escape-mode",
+      "chunkIndex": 2,
+      "title": "Force Close Versus Escape Mode",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/ii-comparsion-to-other-protocols",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/force-close-versus-escape-mode.md",
+      "wordStart": 185,
+      "wordEnd": 332,
+      "wordCount": 147,
+      "text": "escape path when the solver path is unavailable. Trust Minimized, Not Risk Free The source's comparison should not be read as \"there is no risk if a solver goes offline.\" Force Close reduces dependence on solver uptime, but it still leaves market movement risk during the timer, proof, and execution window. It also depends on production proof availability, proof freshness, supported markets, and UI behavior. Publication Note This page should remain review marked until exact production Force Close availability, timer values, proof network details, proof freshness constraints, supported position types, and fallback UI are verified. Sources vibe papers : Neelo DDQ, \"Comparsion to other Protocols\". vibe papers : Neelo DDQ, \"Operational Failure\". Related Pages authored solver operational failure force close authored bilateral intent lifecycle authored solver event monitoring neelo 08 due diligence questionnaire 08 docs solver worst case scenarios a operational failures ii comparsion to other protocols"
     },
     {
       "id": "authored-four-transitions::001",
@@ -3955,6 +4049,54 @@
       "wordEnd": 249,
       "wordCount": 64,
       "text": "as live universal policy until the owner confirms current partner, category, and payout semantics. Sources vibe papers : Neelo, \"Section 7: LP and Category Layer\". vibe papers : Neelo, \"Section 9: Metrics Framework\". spec 03 : Public economics and referral depth caveats. Related Pages authored referral architecture as market formation authored network volume neelo 17 referral program 17 docs 07 lp and category layer"
+    },
+    {
+      "id": "authored-netting-state-risk-transfer::001",
+      "pageId": "authored-netting-state-risk-transfer",
+      "chunkIndex": 1,
+      "title": "Netting State And Risk Transfer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/netting-state-risk-transfer.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Netting State And Risk Transfer The DDQ's cleanest risk explanation is the netting state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time. When a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid by a long who loses. The solver may still provide quoting, routing, and lifecycle operations, but the directional PnL is trader to trader. When a trade is un netted, the trader is effectively facing the solver on that residual portion until the solver hedges, rebalances, or attracts offsetting flow. If a long is un netted and the price rises, the winning trader's PnL is paid from solver hedging PnL and the liquidity resources backing that residual exposure, including LP vault capacity where the documented terms allow it. If the price falls, the losing trader pays through margin and balance. The Continuous Case The live market is usually not 100% netted or 0% netted. The source treats partial netting as the normal state. That makes the solver's job a balancing problem rather than a one time fill problem. The solver tries to reduce time spent carrying residual exposure by: matching opposing trader flow; adjusting"
+    },
+    {
+      "id": "authored-netting-state-risk-transfer::002",
+      "pageId": "authored-netting-state-risk-transfer",
+      "chunkIndex": 2,
+      "title": "Netting State And Risk Transfer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/netting-state-risk-transfer.md",
+      "wordStart": 185,
+      "wordEnd": 382,
+      "wordCount": 197,
+      "text": "as the normal state. That makes the solver's job a balancing problem rather than a one time fill problem. The solver tries to reduce time spent carrying residual exposure by: matching opposing trader flow; adjusting spreads, funding, or incentives; using inventory or vault capacity where allowed; hedging externally when liquidity and execution quality support it; tightening controls when the market becomes unsafe. Reader Implication For support and risk docs, the right answer is not \"the solver always takes the other side.\" The precise answer is: traders bear directional PnL on their positions; netted flow pays between traders; un netted residual flow is warehoused and hedged by the solver, with tail outcomes routed through the disclosed risk waterfall. Publication Note This page explains the DDQ model. Final docs still need operator approved wording for which vault resources can be used, how residual exposure is limited, and which waterfall rules are live in production. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". vibe papers : Neelo DDQ, \"Risk Walkthrough\". Related Pages authored residual counterparty hedge first authored loss waterfall and profit caps authored solver hedging failure modes neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
     },
     {
       "id": "authored-network-volume::001",
@@ -7597,6 +7739,54 @@
       "text": "and loss ordering still need operator and implementation review before publication as product guarantees. Sources vibe papers : Neelo, \"USDC vs Token Margined Perpetuals\". vibe papers : Neelo, \"Figure3\". Related Pages authored token holder inventory alignment authored usdc settlement inventory separation authored residual counterparty hedge first"
     },
     {
+      "id": "authored-token-lp-attractiveness-model::001",
+      "pageId": "authored-token-lp-attractiveness-model",
+      "chunkIndex": 1,
+      "title": "Token LP Attractiveness Model",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/00-abstract"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/token-lp-attractiveness-model.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Token LP Attractiveness Model The DDQ's LP attractiveness section makes a balance sheet argument: Vibe should not ask every market to begin with a large external USDC vault. It separates the stablecoin side from the token inventory side. On the stablecoin side, the source describes solver or protocol funded USDC operations. Stablecoin capital is used operationally for settlement, hedging, and bridging, but the model avoids asking outside USDC LPs to lend into low cap leveraged markets where they would demand a high risk premium. On the token side, the source argues that project treasuries, token holders, founders, early investors, and aligned communities are natural inventory providers because they already bear directional token exposure. Depositing some token inventory into a Vibe vault can create additional market utility and possible yield without forcing the project to spend scarce stablecoins. Lifecycle Role The DDQ describes LP deposits as ignition capital. In the bootstrapped stage, asynchronous execution and conservative risk limits rely more on LP deposits and solver control. In the maturing stage, trader to trader netting should increase and protocol side collateralization can decrease. In the mature stage, the solver should act more like a pricing, matching, and risk control layer than a balance sheet backstop for every fill. That lifecycle framing matters because it prevents a false promise. Token LPs are not"
+    },
+    {
+      "id": "authored-token-lp-attractiveness-model::002",
+      "pageId": "authored-token-lp-attractiveness-model",
+      "chunkIndex": 2,
+      "title": "Token LP Attractiveness Model",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/00-abstract"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/token-lp-attractiveness-model.md",
+      "wordStart": 185,
+      "wordEnd": 337,
+      "wordCount": 152,
+      "text": "the solver should act more like a pricing, matching, and risk control layer than a balance sheet backstop for every fill. That lifecycle framing matters because it prevents a false promise. Token LPs are not expected to remain the entire market forever. They help the market reach the stage where better two sided flow can carry more of the risk. Publication Boundary The source includes specific economic claims, including a modeled capital efficiency advantage, a revenue share target, and early partner/deposit traction. Those should remain source model claims until operator review confirms what can be published today under the revenue and partner disclosure boundary. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". vibe papers : Neelo, \"USDC vs Token Margined Perpetuals\". Related Pages authored token holder inventory alignment authored token inventory risk localization authored risk adjusted capital efficiency neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
+    },
+    {
       "id": "authored-token-margined-lp-lose-lose::001",
       "pageId": "authored-token-margined-lp-lose-lose",
       "chunkIndex": 1,
@@ -7785,6 +7975,54 @@
       "wordEnd": 173,
       "wordCount": 173,
       "text": "Tokens Are Information Objects The one primitive corpus treats tokens as more than ownership wrappers. A token can contain information about a project, community, claim, event, outcome, or productive capacity. That is why token issuance matters. Crypto did not only make financial assets easier to create; it made information easier to financialize. Once something can become a token, it can attract capital, attention, speculation, and coordination. But an information object needs a validation path. Spot trading tells the market who wants exposure. Derivatives tell the market how much conviction survives pressure, hedge demand, short interest, and maturity. A token without that second layer remains partially legible. Reader Implication Readers should understand why Vibe's market surface matters even for nontraditional assets. If tokens are information objects, then permissionless derivatives are one way to test the information with capital. Sources vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". vibe papers : Neelo, \"Section 3: The Issuance Revolution\". Related Pages authored information validation crisis authored beyond polymarket continuous truth markets authored market price as verification"
+    },
+    {
+      "id": "authored-trader-compensation-continuity-model::001",
+      "pageId": "authored-trader-compensation-continuity-model",
+      "chunkIndex": 1,
+      "title": "Trader Compensation And Continuity Model",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/trader-compensation-continuity-model.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Trader Compensation And Continuity Model The DDQ's trader compensation answer is intentionally not a simple \"default payout\" story. It separates protocol owned solver depletion from third party solver default, then makes trade continuity the design objective. For a protocol owned solver in the bootstrapping configuration, the source says conventional account level default is not the intended frame. A catastrophic depletion event would require the layered protections to be exhausted: token side LP deposits, solver inventory, global insurance, local insurance, parameter tightening, and ADL style exposure reduction. If every layer failed, positions would settle under system level rules rather than through ordinary third party liquidation. For third party solvers, the source uses a more conventional counterparty risk model. Solvers post CVA and maintenance margin. If a solver is liquidated, those buffers can compensate counterparties. The preferred path, however, is not merely to pay a buffer and force users out. A healthy solver, including the protocol owned solver as last resort in the model, can buy out distressed positions and become the new counterparty. Why Continuity Matters Traders care about position lifecycle, not only compensation tokens after failure. If a solver default forces every trader to close and re open manually, users inherit slippage, timing, and market access risk during the disruption. The DDQ's continuity model tries to keep margin, funding, PnL,"
+    },
+    {
+      "id": "authored-trader-compensation-continuity-model::002",
+      "pageId": "authored-trader-compensation-continuity-model",
+      "chunkIndex": 2,
+      "title": "Trader Compensation And Continuity Model",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/trader-compensation-continuity-model.md",
+      "wordStart": 185,
+      "wordEnd": 329,
+      "wordCount": 144,
+      "text": "failure. If a solver default forces every trader to close and re open manually, users inherit slippage, timing, and market access risk during the disruption. The DDQ's continuity model tries to keep margin, funding, PnL, and position state intact where possible by moving counterparty responsibility from the distressed solver to a healthy one. Publication Boundary This page should not publish exact CVA percentages, buyout probability, auction rules, solver reputation tiers, protocol owned solver liquidation flags, or \"practically unreachable\" depletion claims as current guarantees. It is a source backed design model awaiting operator and implementation confirmation. Sources vibe papers : Neelo DDQ, \"Trader Compensation Solver default\". vibe papers : Neelo DDQ, \"Solver default\". Related Pages authored solver default and continuity authored collateral margin cva authored funding defense hierarchy neelo 08 due diligence questionnaire 08 docs solver worst case scenarios c solver default ii trader compensation"
     },
     {
       "id": "authored-trader-project-value-loop::001",

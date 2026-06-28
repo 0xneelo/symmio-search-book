@@ -182,6 +182,11 @@ Questions are grouped by whether the current source set can answer them.
 | What happens if a solver goes offline? | `authored-solver-operational-failure-force-close` | Low | Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review. |
 | What happens if a solver defaults? | `authored-solver-default-and-continuity` | Low | Neelo DDQ sources distinguish protocol-operated and third-party solver default modes; exact production behavior needs operator review. |
 | Who bears losses in a tail event? | `authored-loss-waterfall-and-profit-caps` | Low | Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review. |
+| What is the DDQ architecture stack? | `authored-ddq-architecture-stack` | Low | Neelo's DDQ introduction names the margin, perpetual, intent, OTC, solver, and token-vault primitives while production parameters remain review-bound. |
+| Who holds risk when a trade is netted or un-netted? | `authored-netting-state-risk-transfer` | Low | Neelo's DDQ economic-outcomes and risk-walkthrough pages explain trader-to-trader PnL for netted flow and solver/LP-backed residual exposure for un-netted flow. |
+| Why would token holders LP instead of USDC LPs? | `authored-token-lp-attractiveness-model` | Low | Neelo's DDQ LP section supports token-holder inventory alignment and solver-funded stablecoin operations; revenue-share and traction claims need operator review. |
+| How is Force Close different from a general escape hatch? | `authored-force-close-versus-escape-mode` | Low | Neelo's DDQ comparison frames Force Close as position-level recovery, while exact timers, proof network details, and production UI need implementation review. |
+| How are traders compensated if a solver defaults? | `authored-trader-compensation-continuity-model` | Low | Neelo's DDQ trader-compensation page favors continuity and buyout paths over simple credit-default payout claims; exact solver-default mechanics need review. |
 
 ## Prototype Event Log
 

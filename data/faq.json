@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 183,
-  "totalAnswerable": 176,
+  "totalEntries": 188,
+  "totalAnswerable": 181,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 28,
     "Trading Flow": 18,
-    "Solvers And Settlement": 34,
+    "Solvers And Settlement": 39,
     "Risk And Markets": 15,
     "Revenue": 18,
     "Manifesto": 38,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 85,
     "High": 29,
-    "Low": 62
+    "Low": 67
   },
   "byRouteSource": {
-    "authored": 176
+    "authored": 181
   },
   "byType": {
-    "answerable": 176,
+    "answerable": 181,
     "reconciliation": 7
   },
   "answerable": [
@@ -6254,6 +6254,151 @@
       "confidence": "Low",
       "pageId": "authored-loss-waterfall-and-profit-caps",
       "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-ddq-architecture-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the DDQ architecture stack?",
+      "normalizedQuestion": "what is the ddq architecture stack",
+      "shortAnswer": "Neelo's DDQ introduction names the margin, perpetual, intent, OTC, solver, and token-vault primitives while production parameters remain review-bound.",
+      "answerSummary": "DDQ Architecture Stack The DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together? The source names six primitives: margin trading; perpetuals; request based, intent style settlement; bilateral OTC derivat...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-architecture-stack",
+      "pageTitle": "DDQ Architecture Stack",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-holds-risk-when-a-trade-is-netted-or-un-netted",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who holds risk when a trade is netted or un-netted?",
+      "normalizedQuestion": "who holds risk when a trade is netted or un netted",
+      "shortAnswer": "Neelo's DDQ economic-outcomes and risk-walkthrough pages explain trader-to-trader PnL for netted flow and solver/LP-backed residual exposure for un-netted flow.",
+      "answerSummary": "Netting State And Risk Transfer The DDQ's cleanest risk explanation is the netting state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time. When a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid...",
+      "confidence": "Low",
+      "pageId": "authored-netting-state-risk-transfer",
+      "pageTitle": "Netting State And Risk Transfer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-token-holders-lp-instead-of-usdc-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why would token holders LP instead of USDC LPs?",
+      "normalizedQuestion": "why would token holders lp instead of usdc lps",
+      "shortAnswer": "Neelo's DDQ LP section supports token-holder inventory alignment and solver-funded stablecoin operations; revenue-share and traction claims need operator review.",
+      "answerSummary": "Token LP Attractiveness Model The DDQ's LP attractiveness section makes a balance sheet argument: Vibe should not ask every market to begin with a large external USDC vault. It separates the stablecoin side from the token inventory side. On the stablecoin side, the source describes solver or protocol funded USDC operations. Stablecoin capital is used oper...",
+      "confidence": "Low",
+      "pageId": "authored-token-lp-attractiveness-model",
+      "pageTitle": "Token LP Attractiveness Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-is-force-close-different-from-a-general-escape-hatch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How is Force Close different from a general escape hatch?",
+      "normalizedQuestion": "how is force close different from a general escape hatch",
+      "shortAnswer": "Neelo's DDQ comparison frames Force Close as position-level recovery, while exact timers, proof network details, and production UI need implementation review.",
+      "answerSummary": "Force Close Versus Escape Mode The DDQ compares two recovery philosophies for off chain component failure. An escape mode system is designed for catastrophic operator failure. It gives users a trust minimized path to recover account state or withdraw after a prolonged failure window. That is useful for funds safety, but it is not the same as trader grade...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-versus-escape-mode",
+      "pageTitle": "Force Close Versus Escape Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-traders-compensated-if-a-solver-defaults",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are traders compensated if a solver defaults?",
+      "normalizedQuestion": "how are traders compensated if a solver defaults",
+      "shortAnswer": "Neelo's DDQ trader-compensation page favors continuity and buyout paths over simple credit-default payout claims; exact solver-default mechanics need review.",
+      "answerSummary": "Trader Compensation And Continuity Model The DDQ's trader compensation answer is intentionally not a simple \"default payout\" story. It separates protocol owned solver depletion from third party solver default, then makes trade continuity the design objective. For a protocol owned solver in the bootstrapping configuration, the source says conventional acco...",
+      "confidence": "Low",
+      "pageId": "authored-trader-compensation-continuity-model",
+      "pageTitle": "Trader Compensation And Continuity Model",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -12834,6 +12979,151 @@
       "confidence": "Low",
       "pageId": "authored-loss-waterfall-and-profit-caps",
       "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-ddq-architecture-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the DDQ architecture stack?",
+      "normalizedQuestion": "what is the ddq architecture stack",
+      "shortAnswer": "Neelo's DDQ introduction names the margin, perpetual, intent, OTC, solver, and token-vault primitives while production parameters remain review-bound.",
+      "answerSummary": "DDQ Architecture Stack The DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together? The source names six primitives: margin trading; perpetuals; request based, intent style settlement; bilateral OTC derivat...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-architecture-stack",
+      "pageTitle": "DDQ Architecture Stack",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-holds-risk-when-a-trade-is-netted-or-un-netted",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who holds risk when a trade is netted or un-netted?",
+      "normalizedQuestion": "who holds risk when a trade is netted or un netted",
+      "shortAnswer": "Neelo's DDQ economic-outcomes and risk-walkthrough pages explain trader-to-trader PnL for netted flow and solver/LP-backed residual exposure for un-netted flow.",
+      "answerSummary": "Netting State And Risk Transfer The DDQ's cleanest risk explanation is the netting state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time. When a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid...",
+      "confidence": "Low",
+      "pageId": "authored-netting-state-risk-transfer",
+      "pageTitle": "Netting State And Risk Transfer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-would-token-holders-lp-instead-of-usdc-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why would token holders LP instead of USDC LPs?",
+      "normalizedQuestion": "why would token holders lp instead of usdc lps",
+      "shortAnswer": "Neelo's DDQ LP section supports token-holder inventory alignment and solver-funded stablecoin operations; revenue-share and traction claims need operator review.",
+      "answerSummary": "Token LP Attractiveness Model The DDQ's LP attractiveness section makes a balance sheet argument: Vibe should not ask every market to begin with a large external USDC vault. It separates the stablecoin side from the token inventory side. On the stablecoin side, the source describes solver or protocol funded USDC operations. Stablecoin capital is used oper...",
+      "confidence": "Low",
+      "pageId": "authored-token-lp-attractiveness-model",
+      "pageTitle": "Token LP Attractiveness Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-is-force-close-different-from-a-general-escape-hatch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How is Force Close different from a general escape hatch?",
+      "normalizedQuestion": "how is force close different from a general escape hatch",
+      "shortAnswer": "Neelo's DDQ comparison frames Force Close as position-level recovery, while exact timers, proof network details, and production UI need implementation review.",
+      "answerSummary": "Force Close Versus Escape Mode The DDQ compares two recovery philosophies for off chain component failure. An escape mode system is designed for catastrophic operator failure. It gives users a trust minimized path to recover account state or withdraw after a prolonged failure window. That is useful for funds safety, but it is not the same as trader grade...",
+      "confidence": "Low",
+      "pageId": "authored-force-close-versus-escape-mode",
+      "pageTitle": "Force Close Versus Escape Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-traders-compensated-if-a-solver-defaults",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are traders compensated if a solver defaults?",
+      "normalizedQuestion": "how are traders compensated if a solver defaults",
+      "shortAnswer": "Neelo's DDQ trader-compensation page favors continuity and buyout paths over simple credit-default payout claims; exact solver-default mechanics need review.",
+      "answerSummary": "Trader Compensation And Continuity Model The DDQ's trader compensation answer is intentionally not a simple \"default payout\" story. It separates protocol owned solver depletion from third party solver default, then makes trade continuity the design objective. For a protocol owned solver in the bootstrapping configuration, the source says conventional acco...",
+      "confidence": "Low",
+      "pageId": "authored-trader-compensation-continuity-model",
+      "pageTitle": "Trader Compensation And Continuity Model",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

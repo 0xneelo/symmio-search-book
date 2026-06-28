@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 176,
+  "totalRoutes": 181,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 85,
     "High": 29,
-    "Low": 62
+    "Low": 67
   },
   "byRouteSource": {
-    "authored": 176
+    "authored": 181
   },
   "answerable": [
     {
@@ -3141,6 +3141,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-ddq-architecture-stack",
+      "question": "What is the DDQ architecture stack?",
+      "normalizedQuestion": "what is the ddq architecture stack",
+      "pageId": "authored-ddq-architecture-stack",
+      "pageTitle": "DDQ Architecture Stack",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ introduction names the margin, perpetual, intent, OTC, solver, and token-vault primitives while production parameters remain review-bound.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-holds-risk-when-a-trade-is-netted-or-un-netted",
+      "question": "Who holds risk when a trade is netted or un-netted?",
+      "normalizedQuestion": "who holds risk when a trade is netted or un netted",
+      "pageId": "authored-netting-state-risk-transfer",
+      "pageTitle": "Netting State And Risk Transfer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ economic-outcomes and risk-walkthrough pages explain trader-to-trader PnL for netted flow and solver/LP-backed residual exposure for un-netted flow.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-would-token-holders-lp-instead-of-usdc-lps",
+      "question": "Why would token holders LP instead of USDC LPs?",
+      "normalizedQuestion": "why would token holders lp instead of usdc lps",
+      "pageId": "authored-token-lp-attractiveness-model",
+      "pageTitle": "Token LP Attractiveness Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ LP section supports token-holder inventory alignment and solver-funded stablecoin operations; revenue-share and traction claims need operator review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-is-force-close-different-from-a-general-escape-hatch",
+      "question": "How is Force Close different from a general escape hatch?",
+      "normalizedQuestion": "how is force close different from a general escape hatch",
+      "pageId": "authored-force-close-versus-escape-mode",
+      "pageTitle": "Force Close Versus Escape Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ comparison frames Force Close as position-level recovery, while exact timers, proof network details, and production UI need implementation review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-are-traders-compensated-if-a-solver-defaults",
+      "question": "How are traders compensated if a solver defaults?",
+      "normalizedQuestion": "how are traders compensated if a solver defaults",
+      "pageId": "authored-trader-compensation-continuity-model",
+      "pageTitle": "Trader Compensation And Continuity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ trader-compensation page favors continuity and buyout paths over simple credit-default payout claims; exact solver-default mechanics need review.",
       "sourceKeys": [
         "vibe-papers"
       ],

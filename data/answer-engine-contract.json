@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 176
+      "totalGoldenRoutes": 181
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 194,
-    "retrievalEligiblePages": 986,
+    "publicNavigationPages": 199,
+    "retrievalEligiblePages": 991,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 194,
+      "candidate": 199,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 176,
-    "exactRouteTestsPassing": 176,
+    "totalExactRouteTests": 181,
+    "exactRouteTestsPassing": 181,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 176
+      "candidate": 181
     },
     "exactRoutesByConfidence": {
       "Medium": 85,
       "High": 29,
-      "Low": 62
+      "Low": 67
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4155,6 +4155,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-who-bears-losses-in-a-tail-event",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-the-ddq-architecture-stack",
+        "query": "What is the DDQ architecture stack?",
+        "normalizedQuery": "what is the ddq architecture stack",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-architecture-stack",
+        "expectedPageTitle": "DDQ Architecture Stack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-ddq-architecture-stack",
+        "passes": true
+      },
+      {
+        "id": "qr-who-holds-risk-when-a-trade-is-netted-or-un-netted",
+        "query": "Who holds risk when a trade is netted or un-netted?",
+        "normalizedQuery": "who holds risk when a trade is netted or un netted",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-netting-state-risk-transfer",
+        "expectedPageTitle": "Netting State And Risk Transfer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-holds-risk-when-a-trade-is-netted-or-un-netted",
+        "passes": true
+      },
+      {
+        "id": "qr-why-would-token-holders-lp-instead-of-usdc-lps",
+        "query": "Why would token holders LP instead of USDC LPs?",
+        "normalizedQuery": "why would token holders lp instead of usdc lps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-lp-attractiveness-model",
+        "expectedPageTitle": "Token LP Attractiveness Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-would-token-holders-lp-instead-of-usdc-lps",
+        "passes": true
+      },
+      {
+        "id": "qr-how-is-force-close-different-from-a-general-escape-hatch",
+        "query": "How is Force Close different from a general escape hatch?",
+        "normalizedQuery": "how is force close different from a general escape hatch",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-force-close-versus-escape-mode",
+        "expectedPageTitle": "Force Close Versus Escape Mode",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-is-force-close-different-from-a-general-escape-hatch",
+        "passes": true
+      },
+      {
+        "id": "qr-how-are-traders-compensated-if-a-solver-defaults",
+        "query": "How are traders compensated if a solver defaults?",
+        "normalizedQuery": "how are traders compensated if a solver defaults",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-trader-compensation-continuity-model",
+        "expectedPageTitle": "Trader Compensation And Continuity Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-are-traders-compensated-if-a-solver-defaults",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -4230,7 +4335,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 176,
+      "exactRoutes": 181,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
