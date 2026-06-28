@@ -183,3 +183,11 @@
 **Reason:** The answer-engine spec says unanswered, low-rated, and repeated questions must become a prioritized improvement queue. A generated queue keeps that demand signal visible and validates that every parked thread still points at sources and exact pages.
 
 **Status:** Accepted for prototype iteration.
+
+## D-024: Generate Deterministic Answer Chunks Before Production Retrieval
+
+**Decision:** Generate `data/answer-chunks.*` from authored pages, curated prototype pages, and generated markdown, then use those chunks as the static prototype's retrieval tier before broad page scoring.
+
+**Reason:** The production answer engine still needs a platform/backend decision, embeddings, analytics, and update workflow. Deterministic local chunks let the team validate exact-page routing, source coverage, and chunk-level answer behavior now without pretending the static prototype is the final vector or Claude-backed system.
+
+**Status:** Accepted for prototype iteration; production retrieval remains pending D-003/operator decision.

@@ -12,6 +12,7 @@
     <script src="./data/question-routes.js"></script>
     <script src="./data/faq.js"></script>
     <script src="./data/gap-queue.js"></script>
+    <script src="./data/answer-chunks.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
     <script src="./data/crosslinks.js"></script>
@@ -1000,6 +1001,7 @@
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
       const gapQueue = window.SearchBookGapQueue || { items: [], totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, byPriority: {}, byCategory: {} };
+      const answerChunkMap = window.SearchBookAnswerChunks || { chunks: [], totalPages: 0, totalChunks: 0, usedSourceKeys: [] };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
@@ -1028,6 +1030,9 @@
       corpus.pages.forEach((page) => {
         if (!pageById.has(page.id)) pageById.set(page.id, page);
       });
+      const answerChunks = (answerChunkMap.chunks || [])
+        .map((chunk) => ({ ...chunk, page: pageById.get(chunk.pageId) }))
+        .filter((chunk) => chunk.page);
       const seededQuestionRoutes = (questionRouteMap.answerable || [])
         .map((route) => ({ ...route, page: pageById.get(route.pageId) }))
         .filter((route) => route.page);
@@ -1189,6 +1194,32 @@
         };
       }
 
+      function scoreAnswerChunk(chunk, query) {
+        const words = wordsFor(query);
+        if (!words.length) return 0;
+        const title = String(chunk.title || "").toLowerCase();
+        const section = [chunk.section, chunk.track, (chunk.sourceKeys || []).join(" ")].join(" ").toLowerCase();
+        const body = String(chunk.text || "").toLowerCase();
+        const scoreText = (text, weight) => words.reduce((score, word) => score + (text.includes(word) ? weight : 0), 0);
+        const exact = body.includes(String(query || "").toLowerCase()) || title.includes(String(query || "").toLowerCase()) ? 16 : 0;
+        const routeBonus = chunk.routeSource === "authored" ? 8 : chunk.routeSource === "curated" ? 4 : 0;
+        const base = scoreText(title, 7) + scoreText(section, 4) + scoreText(body, 2);
+        return base > 0 ? base + exact + routeBonus : 0;
+      }
+
+      function findAnswerChunkRoute(query) {
+        const ranked = answerChunks
+          .map((chunk) => ({ chunk, score: scoreAnswerChunk(chunk, query) }))
+          .sort((a, b) => b.score - a.score);
+        const best = ranked[0];
+        if (!best || best.score <= 0) return null;
+        return {
+          page: best.chunk.page,
+          score: `chunk:${best.score}`,
+          answerChunk: best.chunk,
+        };
+      }
+
       function scorePage(page, query) {
         const words = wordsFor(query);
         if (!words.length) return 0;
@@ -1206,6 +1237,8 @@
         if (seeded) return seeded;
         const glossaryRoute = findGlossaryRoute(query);
         if (glossaryRoute) return glossaryRoute;
+        const chunkRoute = findAnswerChunkRoute(query);
+        if (chunkRoute) return chunkRoute;
         const ranked = searchablePages
           .map((page) => ({ page, score: scorePage(page, query) }))
           .sort((a, b) => b.score - a.score);
@@ -1381,6 +1414,11 @@
           <p>${escapeHtml(page.summary || page.excerpt || "")}</p>
           ${result.questionRoute ? `<p><strong>Seeded route:</strong> ${escapeHtml(result.questionRoute.question)} <span class="meta">/ confidence ${escapeHtml(result.questionRoute.confidence)}</span></p>` : ""}
           ${result.glossaryTerm ? `<p><strong>Glossary:</strong> ${escapeHtml(result.glossaryTerm.term)} — ${escapeHtml(result.glossaryTerm.definition)}</p>` : ""}
+          ${
+            result.answerChunk
+              ? `<p><strong>Matched chunk:</strong> ${escapeHtml(result.answerChunk.text.slice(0, 420))}${result.answerChunk.text.length > 420 ? "..." : ""}</p>`
+              : ""
+          }
           ${page.gap ? `<p><strong>Gap:</strong> ${escapeHtml(page.gap)}</p>` : ""}
           <div class="source-row">
             ${sourceChips(page)}
@@ -1793,6 +1831,7 @@
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
+          <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>

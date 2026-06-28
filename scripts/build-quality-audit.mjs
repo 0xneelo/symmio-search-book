@@ -16,6 +16,7 @@ const defaults = {
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   faq: path.join(searchBookRoot, "data", "faq.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
@@ -169,6 +170,9 @@ const faq = fs.existsSync(args.faq)
 const gapQueue = fs.existsSync(args.gapQueue)
   ? readJson(args.gapQueue)
   : { totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, missingQuestionGapIds: [], missingOperatorGapIds: [], missingRelatedPageIds: [], missingSourceKeys: [], byPriority: {}, byCategory: {} };
+const answerChunks = fs.existsSync(args.answerChunks)
+  ? readJson(args.answerChunks)
+  : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
@@ -225,6 +229,11 @@ const searchCoverage = coverageFor(searchIndex, knownSourceKeys);
 const authoredCoverage = coverageFor(authoredPages, knownSourceKeys);
 const authoredMissingBodies = authoredPages.filter((page) => !page.bodyMarkdown).map((page) => page.id);
 const readerPageIds = new Set([...searchIndex.map((page) => page.id), ...authoredPages.map((page) => page.id)]);
+const answerChunkPageIds = new Set((answerChunks.chunks || []).map((chunk) => chunk.pageId));
+const answerChunkPagesMissingChunks = answerChunks.pagesMissingChunks || [];
+const answerChunkDuplicateIds = answerChunks.duplicateChunkIds || [];
+const answerChunkUnknownSourceKeys = answerChunks.unknownSourceKeys || [];
+const readerIdsMissingAnswerChunks = [...readerPageIds].filter((pageId) => !answerChunkPageIds.has(pageId));
 const crosslinkPageIds = Object.keys(crosslinks.pageById || {});
 const readerIdsMissingCrosslinks = [...readerPageIds].filter((pageId) => !crosslinkPageIds.includes(pageId));
 const crosslinkIdsMissingReader = crosslinkPageIds.filter((pageId) => !readerPageIds.has(pageId));
@@ -356,6 +365,19 @@ const gates = [
     detail: `${crosslinks.totalPages || 0} crosslinked pages, ${readerPageIds.size} reader routes, ${(crosslinks.missingExplicitRelatedPageIds || []).length} broken explicit related routes`,
   },
   {
+    id: "answer-chunks",
+    label: "Answer retrieval chunks resolve",
+    passed:
+      (answerChunks.totalPages || 0) >= readerPageIds.size &&
+      (answerChunks.totalChunks || 0) >= (answerChunks.totalPages || 0) &&
+      (answerChunks.pagesWithChunks || 0) === (answerChunks.totalPages || 0) &&
+      answerChunkPagesMissingChunks.length === 0 &&
+      answerChunkDuplicateIds.length === 0 &&
+      answerChunkUnknownSourceKeys.length === 0 &&
+      readerIdsMissingAnswerChunks.length === 0,
+    detail: `${answerChunks.totalPages || 0} pages, ${answerChunks.totalChunks || 0} chunks, ${answerChunkUnknownSourceKeys.length} unknown source keys, ${readerIdsMissingAnswerChunks.length} reader ids missing chunks`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -401,6 +423,9 @@ const payload = {
     readerPagesWithPrevious: crosslinks.pagesWithPrevious || 0,
     readerPagesWithNext: crosslinks.pagesWithNext || 0,
     readerPagesWithRelated: crosslinks.pagesWithRelated || 0,
+    answerChunkPages: answerChunks.totalPages || 0,
+    answerChunks: answerChunks.totalChunks || 0,
+    answerChunkSourceKeys: (answerChunks.usedSourceKeys || []).length,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -499,6 +524,21 @@ const payload = {
     readerIdsMissingCrosslinks,
     crosslinkIdsMissingReader,
   },
+  answerChunkCoverage: {
+    status: answerChunks.status || "missing",
+    chunking: answerChunks.chunking || {},
+    totalPages: answerChunks.totalPages || 0,
+    totalChunks: answerChunks.totalChunks || 0,
+    pagesWithChunks: answerChunks.pagesWithChunks || 0,
+    byRouteSource: answerChunks.byRouteSource || {},
+    chunksByRouteSource: answerChunks.chunksByRouteSource || {},
+    chunksBySection: answerChunks.chunksBySection || {},
+    usedSourceKeys: answerChunks.usedSourceKeys || [],
+    pagesMissingChunks: answerChunkPagesMissingChunks,
+    duplicateChunkIds: answerChunkDuplicateIds,
+    unknownSourceKeys: answerChunkUnknownSourceKeys,
+    readerIdsMissingAnswerChunks,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
@@ -518,9 +558,14 @@ const payload = {
     crosslinkMissingExplicitRelatedPageIds: crosslinks.missingExplicitRelatedPageIds || [],
     readerIdsMissingCrosslinks,
     crosslinkIdsMissingReader,
+    answerChunkPagesMissingChunks,
+    answerChunkDuplicateIds,
+    answerChunkUnknownSourceKeys,
+    readerIdsMissingAnswerChunks,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [
+    "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
     "Resolve operator inbox items before final publication claims.",

@@ -119,6 +119,13 @@
 - Updated Search insights so "Where Docs Fall Short" renders the structured queue with priority, category, source chips, related page links, and live local low-rated/unanswered gaps.
 - Extended the quality audit with a gap-queue gate; current result is 14 of 16 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Answer Retrieval Chunks
+
+- Added `scripts/build-answer-chunks.mjs` and generated `data/answer-chunks.json` plus `data/answer-chunks.js` across the current reader corpus.
+- Validated 839 pages, 1,384 deterministic chunks, 38 used source keys, 0 pages missing chunks, 0 duplicate chunk ids, and 0 unknown source keys.
+- Updated the Ask flow so seeded question routes and glossary definitions still win, then chunk-level matching routes into exact pages before broad page scoring.
+- Extended Search insights and the quality audit with answer-chunk coverage; current result is 15 of 17 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
