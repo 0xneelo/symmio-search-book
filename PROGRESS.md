@@ -520,6 +520,12 @@
 - Routed five new Ask questions so the front door can explain why Vibe should complement order books first, how upstream trust compounds, and why connected market-formation layers are stronger than disconnected venue listings.
 - Kept SSHE specifics, destination venue integrations, exact graduation automation, and beyond-crypto asset expansion under operator/product/source review.
 
+## 2026-06-28 — Listing-Landscape Diagnostics Pages
+
+- Added five authored Volume 03 manifesto pages from Neelo's Listing Additional Notes annex: listing is not vault liquidity, the CLOB liquidity coordination loop, pooled backstop mismatch, the derivatives venue term, and exchange deviation as a trader-experience diagnostic.
+- Routed five new Ask questions so the front door can explain practical long-tail perp failure modes without relying only on broad landscape pages.
+- Kept live third-party venue parameters, minimums, lockups, auction cadence, and product-state claims under current-source review before final publication.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

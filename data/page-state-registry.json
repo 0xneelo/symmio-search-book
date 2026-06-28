@@ -35,25 +35,26 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1035,
+  "totalPages": 1040,
   "byState": {
-    "candidate": 240,
+    "candidate": 245,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 241,
+    "authored": 246,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 241,
+    "authored-page": 246,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
     "publication-candidate-needs-operator-review": 139,
-    "publication-candidate": 101,
+    "publication-candidate": 104,
+    "publication-candidate-needs-current-source-review": 2,
     "needs-reconciliation": 3,
     "source-mapped": 63,
     "draft-imported-from-primary-source": 187,
@@ -61,7 +62,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
-    "manifesto": 133,
+    "manifesto": 138,
     "product-reference": 25,
     "dashboard-reference": 17,
     "protocol-reference": 40,
@@ -111,7 +112,7 @@
       "source-companion": 75
     },
     "volume-03-listing-power-and-orderbooks": {
-      "candidate": 50,
+      "candidate": 55,
       "source-companion": 155
     },
     "volume-01-orientation-and-thesis": {
@@ -126,13 +127,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 240,
+  "publicCandidatePages": 245,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 240,
-  "retrievalEligiblePages": 1032,
+  "publicNavigationPages": 245,
+  "retrievalEligiblePages": 1037,
   "reviewRequiredPages": 934,
-  "exactQuestionRoutedPages": 219,
+  "exactQuestionRoutedPages": 224,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -178,6 +179,7 @@
     "authored-bootstrap-counterparty-pillar",
     "authored-bootstrap-oracle-risk-tiers",
     "authored-bootstrap-trilemma",
+    "authored-clob-liquidity-coordination-loop",
     "authored-clob-vault-rails-long-tail-limits",
     "authored-collateral-margin-cva",
     "authored-collateralized-pools-finite-long-tail",
@@ -192,8 +194,7 @@
     "authored-dashboard-faq",
     "authored-dashboard-invites",
     "authored-dashboard-network",
-    "authored-dashboard-overview",
-    "authored-dashboard-revenue-pulse"
+    "authored-dashboard-overview"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -433,6 +434,30 @@
       ],
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-clob-liquidity-coordination-loop",
+      "title": "The CLOB Liquidity Coordination Loop",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/clob-liquidity-coordination-loop.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -978,6 +1003,30 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-derivatives-venue-term",
+      "title": "The Venue Term In Every Derivatives Trade",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/derivatives-venue-term.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-dynamic-pricing-controls",
       "title": "Dynamic Pricing Controls",
       "section": "manifesto",
@@ -1078,6 +1127,31 @@
         "src/dashboard/revenue-doc.jsx",
         "server/pulse.js",
         "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-exchange-deviation-diagnostic",
+      "title": "Exchange Deviation As A Trader-Experience Diagnostic",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/exchange-deviation-diagnostic.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -2081,6 +2155,30 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-listing-is-not-vault-liquidity",
+      "title": "Listing Is Not Vault Liquidity",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/listing-is-not-vault-liquidity.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-listing-monopoly",
       "title": "The Listing Monopoly",
       "section": "manifesto",
@@ -3062,6 +3160,30 @@
         "src/dashboard/overview.jsx",
         "https://docs.vibe.trading/trading/vibe-points.md",
         "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-pooled-backstop-mismatch",
+      "title": "Pooled Backstop Mismatch",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/pooled-backstop-mismatch.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

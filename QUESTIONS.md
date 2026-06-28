@@ -228,6 +228,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why does cooperation with order-book venues create optionality? | `authored-cooperation-creates-optionality` | Low | Neelo frames cooperation as a way to earn distribution, credibility, and future execution choices; SSHE specifics remain source-review bound. |
 | What is a protocol-defined market lifecycle? | `authored-protocol-defined-market-lifecycle` | Low | Neelo's assembly-line section provides the staged market lifecycle model while exact integrations and graduation rules remain review-bound. |
 | What does market formation as a continuous system mean? | `authored-market-formation-continuous-system` | Medium | Neelo's House of All Finance section frames Vibe, flexible execution infrastructure, and order books as connected layers rather than disconnected venues. |
+| Why is a listing not the same as vault liquidity? | `authored-listing-is-not-vault-liquidity` | Low | Neelo's listing notes separate opening a symbol from receiving meaningful pooled liquidity or maker support. |
+| What is the long-tail CLOB coordination loop? | `authored-clob-liquidity-coordination-loop` | Medium | Neelo's practical CLOB notes explain why makers, traders, and LPs each wait for the others in cold-start markets. |
+| What is pooled backstop mismatch? | `authored-pooled-backstop-mismatch` | Low | Neelo's GMX-style pool notes distinguish the asset a trader thinks they are trading from the generalized collateral that may absorb PnL. |
+| Why am I trading the venue as well as the underlying in perps? | `authored-derivatives-venue-term` | Medium | Neelo's liquidity-as-UX section says a derivatives position includes both the index and the venue's settlement graph. |
+| What is exchange deviation? | `authored-exchange-deviation-diagnostic` | Medium | Neelo uses exchange deviation as an informal diagnostic for when realized economics track venue imbalance more than the underlying story. |
 
 ## Prototype Event Log
 

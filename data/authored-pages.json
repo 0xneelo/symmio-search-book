@@ -1,13 +1,14 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 241,
+  "totalPages": 246,
   "byStatus": {
     "publication-candidate-needs-operator-review": 139,
-    "publication-candidate": 101,
+    "publication-candidate": 104,
+    "publication-candidate-needs-current-source-review": 2,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 133,
+    "manifesto": 138,
     "product-reference": 22,
     "dashboard-reference": 12,
     "protocol-reference": 37,
@@ -242,6 +243,29 @@
       "file": "content/authored/manifesto/bootstrap-trilemma.md",
       "bodyMarkdown": "# The Bootstrap Trilemma\n\nThe central market-formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order-book conditions are present.\n\nNeelo's Vibe papers frame this as a three-way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it.\n\nVibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order-book-like liquidity once real flow proves itself.\n\n## Reader Implication\n\nFor a project, the question changes from \"can I persuade a venue to list me?\" to \"can I create enough credible trading demand that the market earns its next layer of liquidity?\" For a solver or LP, the question becomes whether the market's risk is priced well enough to justify carrying inventory or taking the other side.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`\n- `neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma`",
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
+    },
+    {
+      "id": "authored-clob-liquidity-coordination-loop",
+      "title": "The CLOB Liquidity Coordination Loop",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "authored-order-book-bootstrap-limit",
+        "authored-clob-vault-rails-long-tail-limits"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/clob-liquidity-coordination-loop.md",
+      "bodyMarkdown": "# The CLOB Liquidity Coordination Loop\n\nThe long-tail order-book problem is a coordination loop.\n\nMakers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again.\n\nThat is why \"just launch an order book\" is not enough for a new perp market. The matching engine can exist and still fail economically. The book needs enough simultaneous, two-sided participation to make the UI feel like exposure to the underlying rather than a sparse grid of stale or missing orders.\n\n## Why Vibe Needs A Different Starting Point\n\nAn intent and solver layer can start from a different premise. Instead of requiring continuous public depth on day one, it can ask whether a counterparty is willing to quote a specific request under explicit risk controls.\n\nThat does not make the risk disappear. It makes the bootstrap state visible. A market can begin with quoted, risk-managed exposure, then graduate only after real flow justifies deeper execution.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1.5: Chicken-and-egg on CLOB long tails\".\n\n## Related Pages\n\n- `authored-order-book-bootstrap-limit`\n- `authored-improve-before-replacing`\n- `authored-protocol-defined-market-lifecycle`",
+      "excerpt": "The CLOB Liquidity Coordination Loop The long tail order book problem is a coordination loop. Makers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again. That is why \"just launch an order book\" is not enough for a new perp market. The matching engine can exist and still fail economically. The book needs enough simultaneous, two sided participation to make the UI feel like exposure to the underlying rather than a sparse grid of stale or missing orders. Why Vibe Needs A Different Starting Point An intent and solver layer can start from a different premise. Instead of requiring continuous public depth on day one, it can ask whether a counterparty is willing to quote a specific request under explicit risk controls. That does not make the risk disappear. It makes the bootstrap state visible. A market can begin with quoted, risk managed exposure, then graduate only after real flow justifies deeper execution. Sources vibe papers : Neelo, \"Section 1.5: Chicken and egg on CLOB long tails\". Related Page"
     },
     {
       "id": "authored-clob-vault-rails-long-tail-limits",
@@ -764,6 +788,29 @@
       "excerpt": "DDQ Architecture Stack The DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together? The source names six primitives: margin trading; perpetuals; request based, intent style settlement; bilateral OTC derivatives primitives; proprietary solver technology; user vaults for liquidity tokens. The point is not that any one primitive is new in isolation. The source argument is that permissionless leverage for long tail assets needs the stack to work as one system. Margin mechanics supply collateral discipline. Perpetual mechanics supply ongoing mark, funding, close, and liquidation language. Intents let the solver quote only after checking risk. Bilateral OTC primitives fit the PartyA/PartyB settlement model. User vaults provide token side inventory without asking outside stablecoin LPs to underwrite every market. Why The Stack Exists The DDQ frames older on chain margin experiments as capital hungry and attackable. Near 1:1 backing can constrain depth and widen spreads. Pure USDC vaults for low cap leverage can attract a supply side attack "
     },
     {
+      "id": "authored-derivatives-venue-term",
+      "title": "The Venue Term In Every Derivatives Trade",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-05-liquidity-as-trader-experience",
+        "authored-liquidity-as-trader-experience",
+        "authored-technically-async-economically-sync"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/derivatives-venue-term.md",
+      "bodyMarkdown": "# The Venue Term In Every Derivatives Trade\n\nWhen a trader opens a perp, they are not trading only the underlying story. They are also trading the venue.\n\nThe source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matching rules, collateral paths, funding cadence, oracle and mark behavior, insurance, ADL, socialization, and the probability that another participant or backstop will be available when the trader exits.\n\nOn deep mature markets, the venue term can stay small enough that the position feels like exposure to the underlying. On thin markets, the venue term can dominate. The chart can look clean while the actual position is conditional on internal imbalance, funding freezes, mark divergence, haircut policy, or delayed contra-flow.\n\n## Why The Docs Should Say This Directly\n\nRetail and even sophisticated traders often ask \"am I long the token?\" The more precise answer is: \"you are long the token through this venue's settlement graph.\"\n\nThat is not a reason to avoid derivatives. It is a reason to document the settlement graph. Vibe's compendium should make the venue term explicit so users can understand why early markets may have different spreads, limits, profit caps, or settlement behavior than mature books.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5.1b: You are not only trading the underlying\".\n\n## Related Pages\n\n- `authored-liquidity-as-trader-experience`\n- `authored-technically-async-economically-sync`\n- `authored-settlement-state-boundary`",
+      "excerpt": "The Venue Term In Every Derivatives Trade When a trader opens a perp, they are not trading only the underlying story. They are also trading the venue. The source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matching rules, collateral paths, funding cadence, oracle and mark behavior, insurance, ADL, socialization, and the probability that another participant or backstop will be available when the trader exits. On deep mature markets, the venue term can stay small enough that the position feels like exposure to the underlying. On thin markets, the venue term can dominate. The chart can look clean while the actual position is conditional on internal imbalance, funding freezes, mark divergence, haircut policy, or delayed contra flow. Why The Docs Should Say This Directly Retail and even sophisticated traders often ask \"am I long the token?\" The more precise answer is: \"you are long the token through this venue's settlement graph.\" That is not a reason to avoid derivatives. It is a reason to document the settlement graph. Vibe's compendium should"
+    },
+    {
       "id": "authored-dynamic-pricing-controls",
       "title": "Dynamic Pricing Controls",
       "section": "manifesto",
@@ -863,6 +910,30 @@
       "file": "content/authored/reference/estimated-network-revenue.md",
       "bodyMarkdown": "# Estimated Network Revenue\n\nThe current dashboard model estimates network revenue from descendant trading volume, a configurable platform-fee input, and a configurable referrer-share input. The reference formula is:\n\n```text\nestimated referrer revenue = network volume x platform fee rate x referrer share\n```\n\nThis page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every future revenue stream is live, final, or publicly discloseable. Phase B items such as spread, liquidations, funding, solver/LP splits, venue-specific accounting, and points farmed are tracked as roadmap or designed economics until the operator resolves the public disclosure boundary.\n\nThe live counter should also be documented as a display model, not as a settlement guarantee. The dashboard pulse uses volume history and monotonic display behavior to make earning motion legible. That helps users understand direction and participation, but final accounting still depends on the revenue model and data sources the product owner approves for publication.\n\n## Reader Implication\n\nUsers should read the counter as an estimate of current network economics, not as an immutable protocol balance. Builders and operators should keep formula inputs, venue coverage, and Phase B components separately labeled.\n\n## Open Gap\n\nOperator inbox item `#1` must resolve the public revenue disclosure boundary before this page becomes final.\n\n## Sources\n\n- `local-revenue-doc`: Local network revenue document.\n- `dashboard-revenue-doc`: In-app dashboard revenue page.\n- `server-pulse`: Current pulse/revenue implementation.\n- `spec-03`: Grounding matrix and revenue-status guidance.\n\n## Related Pages\n\n- `authored-network-volume`\n- `local-network-revenue`\n- `local-revenue-pulse`",
       "excerpt": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, a configurable platform fee input, and a configurable referrer share input. The reference formula is: This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every future revenue stream is live, final, or publicly discloseable. Phase B items such as spread, liquidations, funding, solver/LP splits, venue specific accounting, and points farmed are tracked as roadmap or designed economics until the operator resolves the public disclosure boundary. The live counter should also be documented as a display model, not as a settlement guarantee. The dashboard pulse uses volume history and monotonic display behavior to make earning motion legible. That helps users understand direction and participation, but final accounting still depends on the revenue model and data sources the product owner approves for publication. Reader Implication Users should read the counter as an estimate of current network economics, not as an immutable protocol balance. Builders and operators should keep formula inputs, venue c"
+    },
+    {
+      "id": "authored-exchange-deviation-diagnostic",
+      "title": "Exchange Deviation As A Trader-Experience Diagnostic",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-05-liquidity-as-trader-experience",
+        "neelo-16-listing-additional-16-docs-06-summary",
+        "authored-liquidity-as-trader-experience"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/exchange-deviation-diagnostic.md",
+      "bodyMarkdown": "# Exchange Deviation As A Trader-Experience Diagnostic\n\nThe \"exchange deviation multiplier\" is not a formal protocol parameter. It is a useful diagnostic for whether a perp behaves like exposure to the underlying or like exposure to the venue's internal imbalance.\n\nWhen deviation is low, realized economics track the underlying story closely enough that a trader can reason about the position. The trader still faces basis, funding, fees, liquidations, and venue rules, but those do not swallow the index exposure.\n\nWhen deviation is high, the trader cannot price the position by looking only at the asset. They also need to forecast who will trade the other side later, whether funding will update, whether marks and oracles will drift apart, whether PnL can be paid, and whether the venue will socialize losses or haircut outcomes.\n\n## Why It Belongs In The Compendium\n\nOpen interest and TVL are easier to show than deviation. But for long-tail markets, deviation is often what users feel. A market with visible OI can still feel broken if the trader is mostly exposed to exchange-internal state.\n\nVibe should use this idea as a documentation lens. A market matures as the venue term becomes smaller, the settlement path becomes clearer, and the user's position behaves more like the reference asset.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5.2: Exchange deviation multiplier\".\n- `vibe-papers`: Neelo, \"Section 6.2: Core vocabulary\".\n\n## Related Pages\n\n- `authored-liquidity-as-trader-experience`\n- `authored-derivatives-venue-term`\n- `authored-market-maturation-risk-posture`",
+      "excerpt": "Exchange Deviation As A Trader Experience Diagnostic The \"exchange deviation multiplier\" is not a formal protocol parameter. It is a useful diagnostic for whether a perp behaves like exposure to the underlying or like exposure to the venue's internal imbalance. When deviation is low, realized economics track the underlying story closely enough that a trader can reason about the position. The trader still faces basis, funding, fees, liquidations, and venue rules, but those do not swallow the index exposure. When deviation is high, the trader cannot price the position by looking only at the asset. They also need to forecast who will trade the other side later, whether funding will update, whether marks and oracles will drift apart, whether PnL can be paid, and whether the venue will socialize losses or haircut outcomes. Why It Belongs In The Compendium Open interest and TVL are easier to show than deviation. But for long tail markets, deviation is often what users feel. A market with visible OI can still feel broken if the trader is mostly exposed to exchange internal state. Vibe should use this idea as a documentation lens. A market matures as the venue term becomes smaller, the set"
     },
     {
       "id": "authored-exploit-resistance-pillar",
@@ -1820,6 +1891,29 @@
       "excerpt": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and internal judgment. Those signals can be useful, but they are proxies. They can be noisy, gameable, late, or biased toward connected projects. A Vibe market can produce a different kind of evidence: solver dependency, daily derivative volume, unique trader breadth, position duration, liquidation behavior, funding history, spread quality, and whether flow stays active after the first attention wave. That evidence can inform whether a market is ready for deeper execution. This turns data itself into a product. Exchanges can use it for listing decisions. Projects can use it to prove market quality. LPs and solvers can use it to price risk. Data providers can package it into demand indicators, quality scores, and research surfaces. Publication Boundary The source includes example threshold rules. Those should not become public product claims"
     },
     {
+      "id": "authored-listing-is-not-vault-liquidity",
+      "title": "Listing Is Not Vault Liquidity",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "authored-clob-vault-rails-long-tail-limits",
+        "authored-listing-plus-liquidity-thesis"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/listing-is-not-vault-liquidity.md",
+      "bodyMarkdown": "# Listing Is Not Vault Liquidity\n\nNeelo's listing-landscape notes separate two things that crypto often collapses: opening a market and making that market liquid.\n\nA venue can add a symbol, route a market into a liquidity program, or let LPs supply capital through a vault-like product. That does not mean every listed market receives deep, continuous, usable liquidity. The source uses dYdX-style MegaVault rails as a field example: pooled liquidity can support market making, but listing a symbol and receiving meaningful vault-backed liquidity are different product actions.\n\nThe important claim is not the exact third-party minimum, lockup, or routing policy. Those details must be checked against current venue documentation before publication. The durable market-structure point is simpler: a market row is not the same as a market.\n\nIf makers do not quote size, LP capital is not allocated, and flow does not arrive, the trader still faces a thin or unreliable venue even though the symbol exists.\n\n## Reader Implication\n\nWhen a reader asks whether Vibe is \"just listing more markets,\" the answer should distinguish listing from liquidity. Vibe's stronger role is to make early derivatives demand, counterparty availability, and eventual graduation evidence legible before a market asks for mature venue resources.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1.3: dYdX: MegaVault, liquidity programs, and the listing-liquidity split\".\n\n## Related Pages\n\n- `authored-clob-vault-rails-long-tail-limits`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-order-book-admission-bottleneck`",
+      "excerpt": "Listing Is Not Vault Liquidity Neelo's listing landscape notes separate two things that crypto often collapses: opening a market and making that market liquid. A venue can add a symbol, route a market into a liquidity program, or let LPs supply capital through a vault like product. That does not mean every listed market receives deep, continuous, usable liquidity. The source uses dYdX style MegaVault rails as a field example: pooled liquidity can support market making, but listing a symbol and receiving meaningful vault backed liquidity are different product actions. The important claim is not the exact third party minimum, lockup, or routing policy. Those details must be checked against current venue documentation before publication. The durable market structure point is simpler: a market row is not the same as a market. If makers do not quote size, LP capital is not allocated, and flow does not arrive, the trader still faces a thin or unreliable venue even though the symbol exists. Reader Implication When a reader asks whether Vibe is \"just listing more markets,\" the answer should distinguish listing from liquidity. Vibe's stronger role is to make early derivatives demand, counte"
+    },
+    {
       "id": "authored-listing-monopoly",
       "title": "The Listing Monopoly",
       "section": "manifesto",
@@ -2768,6 +2862,29 @@
       "file": "content/authored/reference/points-taxonomy.md",
       "bodyMarkdown": "# Points Taxonomy\n\nThe docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings:\n\n1. **Onboarding points** are campaign/accounting points inside this onboarding app. They come from registration, verification-adjacent tasks, content actions, and referral-chain awards.\n2. **Referral points** are the onboarding-app entries awarded through the referral chain when a referred user qualifies.\n3. **Network/trading points** are aggregated from wallet trading data alongside network volume, where the backend returns `total_points` for wallets in the user's network.\n4. **Vibe points** are the public Vibe trading-program points described by Vibe's docs, covering trading, referring, and community categories.\n\nThose rails can be related, but they are not interchangeable.\n\n## Onboarding Points\n\n`server/points.js` is the local points ledger for the onboarding app. It is append-only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral-level amounts, code-grant counts, grant pool, and referral-depth config. Admin config now treats percentages and totals as canonical inputs, derives absolute reward amounts, and restricts unknown config keys.\n\nThe Overview page displays this ledger as user-facing points history. It shows the type, amount, referred user/level when present, and time.\n\n## Network And Trading Points\n\n`server/volume.js` accepts `total_points` from the same wallet-total payload that provides `total_trade_volume`. `server/routes/me.js` aggregates that value across snapshot rows and returns it to both the Volume and Pulse surfaces. That makes network/trading points part of the same measurement stack as network volume.\n\nBecause this is tied to the volume source, it inherits the same source caveats: caching, daily snapshots, and the future Barometer/subgraph upgrade.\n\n## Vibe Points\n\nThe public Vibe points docs describe Vibe's own points program. Those docs are the source for trading-program categories. The onboarding app should cite them when it talks about Vibe points, but it should not collapse Vibe points into onboarding campaign points.\n\n## Publication Rule\n\nEvery page should name the rail before explaining the number. \"Your points\" is too vague. Use \"onboarding points,\" \"referral points,\" \"network/trading points,\" or \"Vibe points\" depending on the source and behavior being explained.\n\n## Sources\n\n- `server-points`: Local points ledger, config, referral chain, and award semantics.\n- `server-me`: Points ledger payload and aggregated network points.\n- `dashboard-app`: Footer distinction between onboarding points and trading points.\n- `dashboard-overview`: Points ledger UI.\n- `vibe-points`: Public Vibe points categories.\n- `spec-03`: Required separation of onboarding, network/trading, referral, and Vibe points.\n\n## Related Pages\n\n- `authored-points-and-vibe-points`\n- `authored-vibe-points-program`\n- `authored-tge-settlement-multiplier`",
       "excerpt": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the onboarding app entries awarded through the referral chain when a referred user qualifies. 3. Network/trading points are aggregated from wallet trading data alongside network volume, where the backend returns total points for wallets in the user's network. 4. Vibe points are the public Vibe trading program points described by Vibe's docs, covering trading, referring, and community categories. Those rails can be related, but they are not interchangeable. Onboarding Points server/points.js is the local points ledger for the onboarding app. It is append only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral level amounts, code grant counts, grant pool, and referral depth config. Admin config now treats percentages and totals as canonical inputs, der"
+    },
+    {
+      "id": "authored-pooled-backstop-mismatch",
+      "title": "Pooled Backstop Mismatch",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-02-collateralized-pools-gmx",
+        "authored-collateralized-pools-finite-long-tail",
+        "authored-usdc-lp-backstop-cascade"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/pooled-backstop-mismatch.md",
+      "bodyMarkdown": "# Pooled Backstop Mismatch\n\nPool-style perps can make liquidity a protocol object. That is a real bootstrap advantage. A trader can receive oracle-priced execution without waiting for a populated order book.\n\nThe long-tail problem reappears in the backstop. The asset a trader thinks they are trading may be a small-cap or narrative token, while the pool that absorbs PnL may be backed by BTC, ETH, stablecoins, or another generalized collateral mix. In normal conditions that can work. In stress, the index, collateral, and loss path may stop behaving like one coherent exposure.\n\nThat is pooled backstop mismatch: the market's story and the market's loss absorber are not the same thing.\n\nThe source does not say that pooled collateral is bad. It says the model has a finite long tail. As more thin markets are added, capital either remains concentrated in majors or fragments into shallow tails. Traders then need to understand not only the index, but also what actually pays profitable PnL.\n\n## Reader Implication\n\nVibe's docs should explain why settlement unit, token inventory, solver risk, insurance, and LP capital cannot be treated as background plumbing. They decide whether a listed perp behaves like the asset or like a claim on a generalized backstop.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2.3: Economic mismatch: what backs P&L vs what you think you trade\".\n\n## Related Pages\n\n- `authored-collateralized-pools-finite-long-tail`\n- `authored-usdc-lp-backstop-cascade`\n- `authored-token-inventory-risk-localization`",
+      "excerpt": "Pooled Backstop Mismatch Pool style perps can make liquidity a protocol object. That is a real bootstrap advantage. A trader can receive oracle priced execution without waiting for a populated order book. The long tail problem reappears in the backstop. The asset a trader thinks they are trading may be a small cap or narrative token, while the pool that absorbs PnL may be backed by BTC, ETH, stablecoins, or another generalized collateral mix. In normal conditions that can work. In stress, the index, collateral, and loss path may stop behaving like one coherent exposure. That is pooled backstop mismatch: the market's story and the market's loss absorber are not the same thing. The source does not say that pooled collateral is bad. It says the model has a finite long tail. As more thin markets are added, capital either remains concentrated in majors or fragments into shallow tails. Traders then need to understand not only the index, but also what actually pays profitable PnL. Reader Implication Vibe's docs should explain why settlement unit, token inventory, solver risk, insurance, and LP capital cannot be treated as background plumbing. They decide whether a listed perp behaves like"
     },
     {
       "id": "authored-position-lifecycle-state-machine",

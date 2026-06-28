@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 229,
-  "totalAnswerable": 222,
+  "totalEntries": 234,
+  "totalAnswerable": 227,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 36,
     "Trading Flow": 24,
-    "Solvers And Settlement": 46,
+    "Solvers And Settlement": 47,
     "Risk And Markets": 20,
     "Revenue": 19,
-    "Manifesto": 45,
+    "Manifesto": 49,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
     "Data And Volume": 4,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 101,
+    "Medium": 104,
     "High": 30,
-    "Low": 91
+    "Low": 93
   },
   "byRouteSource": {
-    "authored": 222
+    "authored": 227
   },
   "byType": {
-    "answerable": 222,
+    "answerable": 227,
     "reconciliation": 7
   },
   "answerable": [
@@ -7679,6 +7679,151 @@
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
       "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-a-listing-not-the-same-as-vault-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is a listing not the same as vault liquidity?",
+      "normalizedQuestion": "why is a listing not the same as vault liquidity",
+      "shortAnswer": "Neelo's listing notes separate opening a symbol from receiving meaningful pooled liquidity or maker support.",
+      "answerSummary": "Listing Is Not Vault Liquidity Neelo's listing landscape notes separate two things that crypto often collapses: opening a market and making that market liquid. A venue can add a symbol, route a market into a liquidity program, or let LPs supply capital through a vault like product. That does not mean every listed market receives deep, continuous, usable l...",
+      "confidence": "Low",
+      "pageId": "authored-listing-is-not-vault-liquidity",
+      "pageTitle": "Listing Is Not Vault Liquidity",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-long-tail-clob-coordination-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the long-tail CLOB coordination loop?",
+      "normalizedQuestion": "what is the long tail clob coordination loop",
+      "shortAnswer": "Neelo's practical CLOB notes explain why makers, traders, and LPs each wait for the others in cold-start markets.",
+      "answerSummary": "The CLOB Liquidity Coordination Loop The long tail order book problem is a coordination loop. Makers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again. That is why...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-liquidity-coordination-loop",
+      "pageTitle": "The CLOB Liquidity Coordination Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-pooled-backstop-mismatch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is pooled backstop mismatch?",
+      "normalizedQuestion": "what is pooled backstop mismatch",
+      "shortAnswer": "Neelo's GMX-style pool notes distinguish the asset a trader thinks they are trading from the generalized collateral that may absorb PnL.",
+      "answerSummary": "Pooled Backstop Mismatch Pool style perps can make liquidity a protocol object. That is a real bootstrap advantage. A trader can receive oracle priced execution without waiting for a populated order book. The long tail problem reappears in the backstop. The asset a trader thinks they are trading may be a small cap or narrative token, while the pool that a...",
+      "confidence": "Low",
+      "pageId": "authored-pooled-backstop-mismatch",
+      "pageTitle": "Pooled Backstop Mismatch",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-am-i-trading-the-venue-as-well-as-the-underlying-in-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why am I trading the venue as well as the underlying in perps?",
+      "normalizedQuestion": "why am i trading the venue as well as the underlying in perps",
+      "shortAnswer": "Neelo's liquidity-as-UX section says a derivatives position includes both the index and the venue's settlement graph.",
+      "answerSummary": "The Venue Term In Every Derivatives Trade When a trader opens a perp, they are not trading only the underlying story. They are also trading the venue. The source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matchin...",
+      "confidence": "Medium",
+      "pageId": "authored-derivatives-venue-term",
+      "pageTitle": "The Venue Term In Every Derivatives Trade",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-exchange-deviation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is exchange deviation?",
+      "normalizedQuestion": "what is exchange deviation",
+      "shortAnswer": "Neelo uses exchange deviation as an informal diagnostic for when realized economics track venue imbalance more than the underlying story.",
+      "answerSummary": "Exchange Deviation As A Trader Experience Diagnostic The \"exchange deviation multiplier\" is not a formal protocol parameter. It is a useful diagnostic for whether a perp behaves like exposure to the underlying or like exposure to the venue's internal imbalance. When deviation is low, realized economics track the underlying story closely enough that a trad...",
+      "confidence": "Medium",
+      "pageId": "authored-exchange-deviation-diagnostic",
+      "pageTitle": "Exchange Deviation As A Trader-Experience Diagnostic",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -15681,6 +15826,151 @@
       "pageSection": "manifesto",
       "pageTrack": "08 — Market Structure",
       "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-a-listing-not-the-same-as-vault-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is a listing not the same as vault liquidity?",
+      "normalizedQuestion": "why is a listing not the same as vault liquidity",
+      "shortAnswer": "Neelo's listing notes separate opening a symbol from receiving meaningful pooled liquidity or maker support.",
+      "answerSummary": "Listing Is Not Vault Liquidity Neelo's listing landscape notes separate two things that crypto often collapses: opening a market and making that market liquid. A venue can add a symbol, route a market into a liquidity program, or let LPs supply capital through a vault like product. That does not mean every listed market receives deep, continuous, usable l...",
+      "confidence": "Low",
+      "pageId": "authored-listing-is-not-vault-liquidity",
+      "pageTitle": "Listing Is Not Vault Liquidity",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-long-tail-clob-coordination-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the long-tail CLOB coordination loop?",
+      "normalizedQuestion": "what is the long tail clob coordination loop",
+      "shortAnswer": "Neelo's practical CLOB notes explain why makers, traders, and LPs each wait for the others in cold-start markets.",
+      "answerSummary": "The CLOB Liquidity Coordination Loop The long tail order book problem is a coordination loop. Makers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again. That is why...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-liquidity-coordination-loop",
+      "pageTitle": "The CLOB Liquidity Coordination Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-pooled-backstop-mismatch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is pooled backstop mismatch?",
+      "normalizedQuestion": "what is pooled backstop mismatch",
+      "shortAnswer": "Neelo's GMX-style pool notes distinguish the asset a trader thinks they are trading from the generalized collateral that may absorb PnL.",
+      "answerSummary": "Pooled Backstop Mismatch Pool style perps can make liquidity a protocol object. That is a real bootstrap advantage. A trader can receive oracle priced execution without waiting for a populated order book. The long tail problem reappears in the backstop. The asset a trader thinks they are trading may be a small cap or narrative token, while the pool that a...",
+      "confidence": "Low",
+      "pageId": "authored-pooled-backstop-mismatch",
+      "pageTitle": "Pooled Backstop Mismatch",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-am-i-trading-the-venue-as-well-as-the-underlying-in-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why am I trading the venue as well as the underlying in perps?",
+      "normalizedQuestion": "why am i trading the venue as well as the underlying in perps",
+      "shortAnswer": "Neelo's liquidity-as-UX section says a derivatives position includes both the index and the venue's settlement graph.",
+      "answerSummary": "The Venue Term In Every Derivatives Trade When a trader opens a perp, they are not trading only the underlying story. They are also trading the venue. The source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matchin...",
+      "confidence": "Medium",
+      "pageId": "authored-derivatives-venue-term",
+      "pageTitle": "The Venue Term In Every Derivatives Trade",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-exchange-deviation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is exchange deviation?",
+      "normalizedQuestion": "what is exchange deviation",
+      "shortAnswer": "Neelo uses exchange deviation as an informal diagnostic for when realized economics track venue imbalance more than the underlying story.",
+      "answerSummary": "Exchange Deviation As A Trader Experience Diagnostic The \"exchange deviation multiplier\" is not a formal protocol parameter. It is a useful diagnostic for whether a perp behaves like exposure to the underlying or like exposure to the venue's internal imbalance. When deviation is low, realized economics track the underlying story closely enough that a trad...",
+      "confidence": "Medium",
+      "pageId": "authored-exchange-deviation-diagnostic",
+      "pageTitle": "Exchange Deviation As A Trader-Experience Diagnostic",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

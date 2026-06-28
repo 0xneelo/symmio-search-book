@@ -687,3 +687,11 @@
 **Reason:** The compendium already explains that order books are the mature layer and Vibe is the upstream discovery layer. These subclaims make the strategy more explicit: Vibe should first improve order-book ecosystems, earn trust upstream through repeated graduation outcomes, preserve optional execution paths, and frame open finance as connected market-formation infrastructure rather than one venue listing everything.
 
 **Status:** Accepted for the authored manifesto layer; exact SSHE behavior, destination venue integrations, graduation automation, and beyond-crypto asset expansion remain under operator/product/source review.
+
+## D-087: Promote Listing-Landscape Diagnostics Into Askable Pages
+
+**Decision:** Add authored Volume 03 pages from Neelo's Listing Additional Notes that turn practical long-tail-perp diagnostics into first-class answers: listing versus vault liquidity, the CLOB liquidity coordination loop, pooled backstop mismatch, the venue term inside derivatives trades, and exchange deviation.
+
+**Reason:** The annex is strongest when it converts protocol landscape observations into user-facing diagnostics. The compendium should help readers distinguish symbol count from liquidity, TVL from payout reliability, index exposure from venue-internal settlement risk, and asynchronous entry from economically complete settlement.
+
+**Status:** Accepted for the authored manifesto layer; live dYdX, Hyperliquid, GMX, Percolator-family, Perk.fund, and derp.fun parameters remain current-source-review items before final publication.
