@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assertCompendiumPageTarget } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -356,9 +357,7 @@ fs.writeFileSync(args.indexJson, `${JSON.stringify(searchIndex, null, 2)}\n`);
 fs.writeFileSync(args.indexJs, `window.SearchBookIndex = ${JSON.stringify(searchIndex)};\n`);
 fs.writeFileSync(args.stats, `${JSON.stringify(stats, null, 2)}\n`);
 
-if (manifest.pages.length < 500 || manifest.pages.length > 800) {
-  throw new Error(`Manifest page count ${manifest.pages.length} outside 500-800 target`);
-}
+assertCompendiumPageTarget(manifest.pages.length);
 if (generatedFiles.length !== manifest.pages.length) {
   throw new Error(`Generated ${generatedFiles.length} files for ${manifest.pages.length} manifest pages`);
 }

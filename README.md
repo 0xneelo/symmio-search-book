@@ -15,6 +15,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Seed question dataset: `data/seed-questions.json`
 - Editorial and UI style guide: `STYLEGUIDE.md`
 - 500-800 page manifest: `page-manifest.json`
+- Compendium target contract: `scripts/compendium-target.mjs`
 - Generated draft content corpus: `content/generated/`
 - Authored publication-candidate pages: `content/authored/`
 - Authored compendium volume overviews: `content/authored/compendium/`
@@ -82,6 +83,7 @@ node src/search-book/scripts/build-crosslink-map.mjs
 node src/search-book/scripts/build-requirement-map.mjs
 node src/search-book/scripts/build-quality-audit.mjs
 node --check src/search-book/answer-corpus.js
+node --check src/search-book/scripts/compendium-target.mjs
 node --check src/search-book/scripts/build-page-manifest.mjs
 node --check src/search-book/scripts/build-content-corpus.mjs
 node --check src/search-book/scripts/build-authored-index.mjs
@@ -128,8 +130,8 @@ node -e "const c=require('./src/search-book/data/crosslinks.json'); if (c.missin
 node -e "const r=require('./src/search-book/data/requirement-map.json'); if (r.duplicateRequirementIds.length || r.invalidParkedRequirements.length || r.totalRequirements < 12 || r.completionReady) process.exit(1); console.log((r.byStatus.complete || 0) + '/' + r.totalRequirements)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
 node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
-node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
-node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"
+node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.targetMinimumPages !== 500 || q.targetMaximumPages !== 800 || !q.totals.manifestWithinTarget || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
+node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.compendiumTarget.minimumPages !== 500 || m.compendiumTarget.maximumPages !== 800 || m.pages.length < m.compendiumTarget.minimumPages || m.pages.length > m.compendiumTarget.maximumPages) process.exit(1); console.log(m.pages.length)"
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md
 ```

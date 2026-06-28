@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { COMPENDIUM_TARGET_LABEL, withinCompendiumPageTarget } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -112,7 +113,7 @@ const finalReportExists = fs.existsSync(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
-const manifestWithinTarget = (manifest.pages || []).length >= 500 && (manifest.pages || []).length <= 800;
+const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
 const sourceIngestionOpenBlocks = [
   ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
   ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
@@ -133,7 +134,7 @@ const requirements = [
     status: manifestWithinTarget && searchIndex.length === (manifest.pages || []).length ? "complete" : "partial",
     category: "content",
     sourceSpecs: ["01", "05", "08"],
-    evidence: `${(manifest.pages || []).length} manifest pages, ${searchIndex.length} search-index entries, target ${manifest.compendiumTarget?.requestedRange || "500-800 pages"}`,
+    evidence: `${(manifest.pages || []).length} manifest pages, ${searchIndex.length} search-index entries, target ${manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL}`,
     nextAction: "Keep generated drafts source-traceable while converting highest-value routes into authored pages.",
   }),
   req({

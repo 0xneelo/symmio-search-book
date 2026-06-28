@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { COMPENDIUM_TARGET_LABEL, withinCompendiumPageTarget } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -333,7 +334,7 @@ const duplicatePageIds = assignedPageIds.filter((pageId, index, ids) => ids.inde
 const volumeIdsMissingPages = volumes.filter((volume) => !volume.totalPages).map((volume) => volume.id);
 const volumeIdsMissingOverview = volumes.filter((volume) => !volume.overviewPageId).map((volume) => volume.id);
 const unknownSourceKeys = unique(pages.flatMap((page) => (page.sourceKeys || []).filter((sourceKey) => !sourceByKey[sourceKey])));
-const manifestWithinTarget = manifest.pages.length >= 500 && manifest.pages.length <= 800;
+const manifestWithinTarget = withinCompendiumPageTarget(manifest.pages.length);
 
 if (unassignedPageIds.length) throw new Error(`Unassigned volume pages: ${unassignedPageIds.join(", ")}`);
 if (duplicatePageIds.length) throw new Error(`Duplicate volume page assignments: ${unique(duplicatePageIds).join(", ")}`);
@@ -345,7 +346,7 @@ if (unknownSourceKeys.length) throw new Error(`Volume map uses unknown source ke
 const payload = {
   generatedAt: "deterministic-build",
   status: "prototype-compendium-volume-map",
-  targetRange: manifest.compendiumTarget?.requestedRange || "500-800 pages",
+  targetRange: manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL,
   manifestPages: manifest.pages.length,
   readerPages: pages.length,
   totalVolumes: volumes.length,

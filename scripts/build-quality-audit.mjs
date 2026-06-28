@@ -3,6 +3,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  COMPENDIUM_TARGET_LABEL,
+  COMPENDIUM_TARGET_MAX,
+  COMPENDIUM_TARGET_MIN,
+  withinCompendiumPageTarget,
+} from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -292,8 +298,13 @@ const journeyMissingPageIds = (journeys.journeys || []).flatMap((journey) =>
     .filter((step) => !readerPageIds.has(step.pageId))
     .map((step) => ({ journeyId: journey.id, pageId: step.pageId })),
 );
-const manifestTarget = manifest.compendiumTarget?.requestedRange || "500-800 pages";
-const withinTargetRange = manifestPages.length >= 500 && manifestPages.length <= 800;
+const manifestTarget = manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL;
+const manifestTargetMinimum = manifest.compendiumTarget?.minimumPages || COMPENDIUM_TARGET_MIN;
+const manifestTargetMaximum = manifest.compendiumTarget?.maximumPages || COMPENDIUM_TARGET_MAX;
+const withinTargetRange =
+  manifestTargetMinimum === COMPENDIUM_TARGET_MIN && manifestTargetMaximum === COMPENDIUM_TARGET_MAX
+    ? withinCompendiumPageTarget(manifestPages.length)
+    : manifestPages.length >= manifestTargetMinimum && manifestPages.length <= manifestTargetMaximum;
 const duplicateIds = manifestPages
   .map((page) => page.id)
   .filter((id, index, ids) => ids.indexOf(id) !== index);
@@ -510,8 +521,13 @@ const payload = {
   generatedAt: "deterministic-build",
   manifestVersion: manifest.manifestVersion,
   targetRange: manifestTarget,
+  targetMinimumPages: manifestTargetMinimum,
+  targetMaximumPages: manifestTargetMaximum,
   totals: {
     manifestPages: manifestPages.length,
+    manifestTargetMinimum,
+    manifestTargetMaximum,
+    manifestWithinTarget: withinTargetRange,
     generatedFiles,
     searchIndexEntries: searchIndex.length,
     authoredPublicationCandidates: authoredPages.length,

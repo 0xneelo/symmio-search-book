@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { COMPENDIUM_TARGET_LABEL } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -113,7 +114,7 @@ function buildTree(manifest, searchIndex) {
     generatedAt: "deterministic-build",
     manifestVersion: manifest.manifestVersion,
     totalPages: searchIndex.length,
-    targetRange: manifest.compendiumTarget?.requestedRange || "500-800 pages",
+    targetRange: manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL,
     counts: {
       sections: sections.length,
       tracks: sections.reduce((sum, section) => sum + section.tracks.length, 0),

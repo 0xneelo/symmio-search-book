@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assertCompendiumPageTarget, compendiumTargetFields } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -156,8 +157,7 @@ function buildManifest(docsData, companions) {
   const manifest = {
     manifestVersion: "session-1-2026-06-28-500-800-scale",
     compendiumTarget: {
-      requestedRange: "500-800 pages",
-      currentManifestPages: pages.length,
+      ...compendiumTargetFields(pages.length),
       strategy:
         "Use Neelo vision docs as the backbone, expand high-value H2 sections into standalone pages, and add public product, Symmio protocol, local dashboard, Linear research, and competitive-context companions.",
     },
@@ -196,9 +196,7 @@ function buildManifest(docsData, companions) {
     pages,
   };
 
-  if (pages.length < 500 || pages.length > 800) {
-    throw new Error(`Manifest page count ${pages.length} outside 500-800 target`);
-  }
+  assertCompendiumPageTarget(pages.length);
 
   return manifest;
 }
@@ -209,4 +207,3 @@ const companionData = readJson(companionPath);
 const manifest = buildManifest(docsData, companionData.companions);
 fs.writeFileSync(args.output, `${JSON.stringify(manifest, null, 2)}\n`);
 console.log(JSON.stringify(manifest.counts, null, 2));
-

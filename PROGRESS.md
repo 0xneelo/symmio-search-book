@@ -263,6 +263,12 @@
 - Added five direct question routes for solver and LP risk questions that previously depended on generated DDQ drafts.
 - Kept all DDQ-derived production-sensitive mechanics under operator/implementation review, including Force Close timers, solver liquidation flags, exact compensation behavior, insurance allocations, and tail-event caps.
 
+## 2026-06-28 — 500-800 Target Contract Hardening
+
+- Confirmed the active specs and search-book artifacts already target a 500-800 page compendium, with the current manifest at 794 pages.
+- Added a shared compendium-target helper so manifest generation, content-corpus generation, requirement mapping, volume mapping, navigation, and quality audit all read the same 500-800 bounds.
+- Extended the quality audit payload and README verification so the generated data exposes the minimum, maximum, and in-range status rather than relying only on prose.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

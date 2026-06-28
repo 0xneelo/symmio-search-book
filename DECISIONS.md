@@ -351,3 +351,11 @@
 **Reason:** The DDQ corpus is strong enough to explain the risk model readers need: hedge-first execution, residual counterparty behavior, operational escape hatches, default continuity, and loss waterfalls. Those topics are also production-sensitive, so the compendium should publish the model with clear caveats instead of turning source examples into live guarantees.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-045: Enforce The 500-800 Page Scope As A Contract
+
+**Decision:** Centralize the compendium page target in `scripts/compendium-target.mjs` and use it from manifest generation, generated-content export, navigation, volume, requirement, and quality-audit scripts.
+
+**Reason:** The operator raised the compendium from the older 100-page floor to 500-800 pages. The current manifest already maps 794 pages; the remaining risk is drift across scripts or verification checks. A shared target helper makes the scale explicit, auditable, and hard to accidentally weaken.
+
+**Status:** Accepted for compendium readiness checks.
