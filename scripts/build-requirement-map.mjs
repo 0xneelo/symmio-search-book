@@ -21,6 +21,7 @@ const defaults = {
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   sourceIngestion: path.join(searchBookRoot, "data", "source-ingestion.json"),
+  competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
@@ -96,6 +97,15 @@ const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0
 const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
 const sourceCatalog = readJson(args.sourceCatalog, { totalSources: 0, duplicateKeys: [], sources: [] });
 const sourceIngestion = readJson(args.sourceIngestion, { totalSourceRequirements: 0, byStatus: {}, sourceCompletionReady: false, missingSourceFamilies: [] });
+const competitiveSweep = readJson(args.competitiveSweep, {
+  targetDocs: 0,
+  targetDocsReviewed: 0,
+  targetDocsUnverified: 0,
+  plannedAgentLanes: 0,
+  completedExplorerBatches: 0,
+  completedLaneReviews: 0,
+  completionReady: false,
+});
 const crosslinks = readJson(args.crosslinks, { totalPages: 0, missingExplicitRelatedPageIds: [] });
 const openInboxItems = parseOpenInboxItems(readText(args.inbox));
 const finalReportExists = fs.existsSync(args.finalReport);
@@ -233,6 +243,22 @@ const requirements = [
     evidence: `${sourceCatalog.totalSources || 0} registered sources; ${answerChunks.usedSourceKeys?.length || 0} source keys used in retrieval chunks; source-ingestion coverage ${sourceIngestion.byStatus?.complete || 0}/${sourceIngestion.totalSourceRequirements || 0} complete, ${sourceIngestion.byStatus?.partial || 0} partial, ${sourceIngestion.byStatus?.parked || 0} parked, ${sourceIngestion.byStatus?.missing || 0} missing`,
     blocks: sourceIngestionOpenBlocks,
     nextAction: "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
+  }),
+  req({
+    id: "competitive-docs-sweep",
+    label: "25-lane competitive docs sweep synthesized",
+    status:
+      competitiveSweep.completionReady
+        ? "complete"
+        : (competitiveSweep.targetDocs || 0) >= 50 &&
+            (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
+            (competitiveSweep.completedExplorerBatches || 0) >= 5
+          ? "partial"
+          : "missing",
+    category: "sourcing",
+    sourceSpecs: ["07"],
+    evidence: `${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} official docs verified, ${competitiveSweep.targetDocsUnverified || 0} unverified, ${competitiveSweep.completedExplorerBatches || 0} explorer batches, ${competitiveSweep.completedLaneReviews || 0}/${competitiveSweep.plannedAgentLanes || 0} lanes`,
+    nextAction: "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target.",
   }),
   req({
     id: "phase-zero-platform",

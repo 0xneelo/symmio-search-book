@@ -175,11 +175,19 @@
 - Registered the new public source keys in `SOURCES.md` and narrowed `G-005`, `G-007`, and `G-008` so the remaining gaps describe what is still unsourced or unauthored.
 - Kept SuperFlow/SSHE and the exact original Symmio whitepaper open because this pass did not find strong primary-source evidence for those source families.
 
+## 2026-06-28 — Competitive Sweep Batch 01 And 500-800 Target Lock
+
+- Updated the app-docs spec package so the mission, launch prompt, research gate, implementation gate, and README all require a 500-800 page compendium instead of the older 100-page floor.
+- Added `scripts/build-competitive-sweep.mjs` and generated `data/competitive-sweep.json` plus `data/competitive-sweep.js`.
+- Integrated the five returned official-docs explorer batches: 50 target docs across 25 lanes, 49 verified official docs, 1 unverified access gap for Opyn, 5 completed explorer batches, and 25 lane reviews.
+- Registered `competitive-sweep-batch-01` in `SOURCES.md`, wired it into source ingestion, and added quality-audit coverage so the benchmark is tracked without claiming the full sweep/final synthesis is complete.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
+- Final competitive-sweep synthesis and Opyn official-doc access gap.
 - Revenue disclosure boundary.
 - Referral-depth public stance.
 - Production docs platform/repository decision.

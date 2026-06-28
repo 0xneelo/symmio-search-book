@@ -247,3 +247,11 @@
 **Reason:** Source-ingestion coverage should improve when official source material is found, but the compendium should not close vague requirements by stretching generic links. The public source map can now cite Symmio options/foundation material and Goldsky mechanics while still showing the unresolved historical and SuperFlow gaps.
 
 **Status:** Accepted for research completeness tracking.
+
+## D-032: Track The Competitive Sweep As Batch Evidence Until Synthesized
+
+**Decision:** Generate `data/competitive-sweep.*` as the source of truth for the official-docs benchmark: 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one Opyn access gap. Do not mark the competitive sweep complete until the final sourced synthesis is written and the unverified official-doc target is resolved or explicitly excluded.
+
+**Reason:** The prompt requires a broad competitive sweep, but the compendium should not pretend that a target list or returned notes equal a publication-ready synthesis. The batch artifact preserves real progress and exact gaps while keeping source ingestion honest.
+
+**Status:** Accepted for research completeness tracking.

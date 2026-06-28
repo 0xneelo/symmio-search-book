@@ -24,14 +24,21 @@
     "gapQueueCategories": 12,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
-    "sourceCatalogEntries": 71,
-    "linkedSourceCatalogEntries": 57,
+    "sourceCatalogEntries": 72,
+    "linkedSourceCatalogEntries": 58,
     "sourceIngestionRequirements": 16,
     "sourceIngestionComplete": 11,
     "sourceIngestionPartial": 1,
     "sourceIngestionParked": 4,
     "sourceIngestionMissing": 0,
     "sourceIngestionReady": false,
+    "competitiveSweepTargetDocs": 50,
+    "competitiveSweepReviewedDocs": 49,
+    "competitiveSweepUnverifiedDocs": 1,
+    "competitiveSweepPlannedLanes": 25,
+    "competitiveSweepCompletedLanes": 25,
+    "competitiveSweepCompletedBatches": 5,
+    "competitiveSweepReady": false,
     "crosslinkedReaderPages": 837,
     "readerPagesWithPrevious": 836,
     "readerPagesWithNext": 836,
@@ -44,13 +51,13 @@
     "compendiumVolumeOverviews": 8,
     "compendiumVolumeReaderPages": 837,
     "compendiumVolumeAssignedPages": 837,
-    "completionRequirements": 16,
+    "completionRequirements": 17,
     "completionRequirementsComplete": 5,
-    "completionRequirementsPartial": 4,
+    "completionRequirementsPartial": 5,
     "completionRequirementsParked": 6,
     "completionRequirementsMissing": 1,
     "completionReady": false,
-    "sourceRegistryKeys": 71,
+    "sourceRegistryKeys": 72,
     "usedSourceKeys": 41,
     "openOperatorItems": 7,
     "resolvedOperatorItems": 0,
@@ -81,19 +88,25 @@
       "id": "source-keys",
       "label": "Registered source-key coverage",
       "passed": true,
-      "detail": "41 used keys, 71 registered keys, 0 unknown used keys"
+      "detail": "41 used keys, 72 registered keys, 0 unknown used keys"
     },
     {
       "id": "source-catalog",
       "label": "Source catalog matches registry",
       "passed": true,
-      "detail": "71 catalog sources, 71 registry keys, 0 used keys missing catalog"
+      "detail": "72 catalog sources, 72 registry keys, 0 used keys missing catalog"
     },
     {
       "id": "source-ingestion",
       "label": "Required source families are ingested",
       "passed": false,
       "detail": "11/16 complete, 1 partial, 4 parked, 0 missing"
+    },
+    {
+      "id": "competitive-sweep",
+      "label": "Competitive docs benchmark is tracked",
+      "passed": true,
+      "detail": "49/50 official docs reviewed, 1 unverified, 5 explorer batches, 25/25 lanes"
     },
     {
       "id": "source-urls",
@@ -165,7 +178,7 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "5/16 complete, 4 partial, 6 parked, 1 missing"
+      "detail": "5/17 complete, 5 partial, 6 parked, 1 missing"
     },
     {
       "id": "operator-inbox",
@@ -317,6 +330,7 @@
     "unusedRegisteredSourceKeys": [
       "authored-index",
       "authored-pages",
+      "competitive-sweep-batch-01",
       "goldsky-graphql-endpoints",
       "goldsky-subgraphs",
       "hyperliquid-llms",
@@ -348,19 +362,19 @@
     ]
   },
   "sourceCatalogCoverage": {
-    "totalSources": 71,
-    "linkedSources": 57,
+    "totalSources": 72,
+    "linkedSources": 58,
     "byGroup": {
       "Authored Publication Candidates": 2,
+      "Competitive Context": 5,
       "Local Product And Code": 16,
-      "Competitive Context": 4,
       "Local Specs": 12,
       "Public Symmio Sources": 15,
       "Linear Research": 13,
       "Public Vibe Sources": 9
     },
     "byKind": {
-      "repo-local": 28,
+      "repo-local": 29,
       "repo-pattern": 1,
       "public-url": 27,
       "absolute-local": 2,
@@ -468,14 +482,118 @@
         "id": "competitive-sweep",
         "status": "partial",
         "missingKeys": [
-          "25-agent-competitive-sweep-report"
+          "25-agent-competitive-sweep-final-synthesis",
+          "opyn-docs-official-review"
         ],
         "blocks": [],
-        "nextAction": "Run or import the competitive sweep before claiming Session 1 research is complete."
+        "nextAction": "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete."
       }
     ],
     "duplicateRequirementIds": [],
     "invalidParkedRequirements": []
+  },
+  "competitiveSweepCoverage": {
+    "status": "competitive-sweep-batch-01",
+    "completionReady": false,
+    "completionStatusReason": "The official-docs batch has returned, but Opyn was not crawlable from the official URL and the full final competitive synthesis has not been written into the compendium.",
+    "targetDocs": 50,
+    "targetDocsReviewed": 49,
+    "targetDocsUnverified": 1,
+    "plannedAgentLanes": 25,
+    "completedLaneReviews": 25,
+    "completedExplorerBatches": 5,
+    "activeExplorerBatches": 0,
+    "byCategory": {
+      "Derivatives": 6,
+      "Options": 4,
+      "DeFi": 9,
+      "Intents": 1,
+      "Infrastructure": 10,
+      "Data": 4,
+      "Interoperability": 2,
+      "Developer Tools": 6,
+      "Product": 8
+    },
+    "byStatus": {
+      "reviewed": 49,
+      "unverified-access-gap": 1
+    },
+    "blockedTargets": [
+      {
+        "id": "opyn-docs",
+        "name": "Opyn Docs",
+        "url": "https://opyn.gitbook.io/opyn/",
+        "reason": "Official URL could not be crawled by the research agent; mirrors and third-party snippets were intentionally not used."
+      }
+    ],
+    "synthesisFindings": [
+      {
+        "id": "ai-readable-source-trust",
+        "title": "AI-readable source trust is now table stakes",
+        "implication": "Publish llms.txt, full markdown, raw page markdown, copy-page affordances, edit/source links, and exact citations so both humans and answer engines can verify claims.",
+        "evidenceTargetIds": [
+          "jupiter-docs",
+          "coinbase-developer-docs",
+          "privy-docs",
+          "dynamic-docs",
+          "synthetix-docs",
+          "gmx-docs"
+        ]
+      },
+      {
+        "id": "job-first-front-door",
+        "title": "Job-first routing beats broad protocol navigation",
+        "implication": "The compendium should open with role and task paths for PartyA buyers, solvers/MMs, vault LPs, treasuries, integrators, and account-support users.",
+        "evidenceTargetIds": [
+          "dydx-docs",
+          "gmx-docs",
+          "farcaster-docs",
+          "walletconnect-docs",
+          "ethereum-docs",
+          "solana-docs"
+        ]
+      },
+      {
+        "id": "risk-economic-primitives",
+        "title": "Risk and economics need formulas plus failure modes",
+        "implication": "Margin, collateral, funding, liquidation, solver exposure, quote expiry, vault exhaustion, stale data, and settlement failure pages should be first-class, with formulas and worked examples.",
+        "evidenceTargetIds": [
+          "synthetix-docs",
+          "gmx-docs",
+          "drift-docs",
+          "aave-docs",
+          "ethena-docs",
+          "chainlink-docs",
+          "pyth-docs"
+        ]
+      },
+      {
+        "id": "data-lineage",
+        "title": "Data lineage is part of product trust",
+        "implication": "Every oracle, quote, vault metric, settlement state, and derived dashboard analytic needs owner, freshness, fallback, finality, and source-status metadata.",
+        "evidenceTargetIds": [
+          "chainlink-docs",
+          "pyth-docs",
+          "the-graph-docs",
+          "goldsky-docs",
+          "tenderly-docs",
+          "alchemy-docs"
+        ]
+      },
+      {
+        "id": "living-docs-visible-loop",
+        "title": "The living-docs loop should be visible",
+        "implication": "Helpful/not-helpful ratings, gap queues, issue/edit links, last-updated stamps, changelogs, and unanswered-search review can become a trust advantage instead of an internal process.",
+        "evidenceTargetIds": [
+          "drift-docs",
+          "premia-docs",
+          "safe-docs",
+          "rainbowkit-docs",
+          "wagmi-docs",
+          "viem-docs"
+        ]
+      }
+    ]
   },
   "journeyCoverage": {
     "totalJourneys": 6,
@@ -913,10 +1031,10 @@
   "requirementCoverage": {
     "status": "completion-coverage-map",
     "completionReady": false,
-    "totalRequirements": 16,
+    "totalRequirements": 17,
     "byStatus": {
       "complete": 5,
-      "partial": 4,
+      "partial": 5,
       "parked": 6,
       "missing": 1
     },
@@ -926,7 +1044,7 @@
       "answer-engine": 2,
       "demand-signal": 1,
       "navigation": 2,
-      "sourcing": 1,
+      "sourcing": 2,
       "production": 2,
       "delivery": 2
     },
@@ -1017,6 +1135,12 @@
           "OPERATOR-INBOX #2",
           "OPERATOR-INBOX #5"
         ]
+      },
+      {
+        "id": "competitive-docs-sweep",
+        "status": "partial",
+        "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target.",
+        "blocks": []
       },
       {
         "id": "phase-zero-platform",
@@ -1190,10 +1314,11 @@
         "id": "competitive-sweep",
         "status": "partial",
         "missingKeys": [
-          "25-agent-competitive-sweep-report"
+          "25-agent-competitive-sweep-final-synthesis",
+          "opyn-docs-official-review"
         ],
         "blocks": [],
-        "nextAction": "Run or import the competitive sweep before claiming Session 1 research is complete."
+        "nextAction": "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete."
       }
     ],
     "crosslinkMissingExplicitRelatedPageIds": [],
@@ -1270,6 +1395,12 @@
           "OPERATOR-INBOX #5"
         ],
         "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
+      },
+      {
+        "id": "competitive-docs-sweep",
+        "status": "partial",
+        "blocks": [],
+        "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target."
       },
       {
         "id": "phase-zero-platform",

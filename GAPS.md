@@ -8,9 +8,9 @@ The prompt asks to mine Discord, especially Lafa answers and repeated support qu
 
 ## G-002: 25-Agent Competitive Sweep Is Not Complete
 
-The prompt requests a 25-sub-agent competitive sweep. This package contains the local/source-led first dossier and a prototype, not the full competitive sweep.
+The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It is still not complete: the official Opyn docs URL was not crawlable in the returned batch, and the final sourced synthesis has not yet been promoted into authored compendium pages.
 
-**Needed:** Dedicated sub-agent runbook, target list, and final synthesis.
+**Needed:** Final sourced synthesis, publication-page integration, and resolution of the Opyn official-doc access gap without relying on mirrors or third-party snippets.
 
 ## G-002A: 500-800 Page Manifest Is Mapped, Not Authored
 

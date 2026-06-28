@@ -22,6 +22,7 @@ const defaults = {
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   sourceIngestion: path.join(searchBookRoot, "data", "source-ingestion.json"),
+  competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
@@ -191,6 +192,9 @@ const sourceCatalog = fs.existsSync(args.sourceCatalog)
 const sourceIngestion = fs.existsSync(args.sourceIngestion)
   ? readJson(args.sourceIngestion)
   : { totalSourceRequirements: 0, byStatus: {}, byCategory: {}, sourceCompletionReady: false, duplicateRequirementIds: [], invalidParkedRequirements: [], requirements: [], missingSourceFamilies: [] };
+const competitiveSweep = fs.existsSync(args.competitiveSweep)
+  ? readJson(args.competitiveSweep)
+  : { targetDocs: 0, targetDocsReviewed: 0, targetDocsUnverified: 0, plannedAgentLanes: 0, completedExplorerBatches: 0, completedLaneReviews: 0, completionReady: false };
 const crosslinks = fs.existsSync(args.crosslinks)
   ? readJson(args.crosslinks)
   : { totalPages: 0, pagesWithPrevious: 0, pagesWithNext: 0, pagesWithRelated: 0, missingExplicitRelatedPageIds: [], duplicatePageIds: [], pageById: {} };
@@ -210,6 +214,12 @@ const sourceCatalogKeys = Object.keys(sourceCatalog.sourceByKey || {}).sort((a, 
 const sourceIngestionDuplicateIds = sourceIngestion.duplicateRequirementIds || [];
 const sourceIngestionInvalidParkedIds = sourceIngestion.invalidParkedRequirements || [];
 const sourceIngestionRequirementIds = new Set((sourceIngestion.requirements || []).map((requirement) => requirement.id));
+const competitiveSweepTargetDocs = competitiveSweep.targetDocs || 0;
+const competitiveSweepReviewedDocs = competitiveSweep.targetDocsReviewed || 0;
+const competitiveSweepUnverifiedDocs = competitiveSweep.targetDocsUnverified || 0;
+const competitiveSweepPlannedLanes = competitiveSweep.plannedAgentLanes || 0;
+const competitiveSweepCompletedBatches = competitiveSweep.completedExplorerBatches || 0;
+const competitiveSweepCompletedLanes = competitiveSweep.completedLaneReviews || 0;
 const usedKeysMissingCatalog = usedSourceKeys.filter((key) => !sourceCatalogKeys.includes(key));
 const registryKeysMissingCatalog = [...knownSourceKeys].filter((key) => !sourceCatalogKeys.includes(key));
 const catalogKeysMissingRegistry = sourceCatalogKeys.filter((key) => !knownSourceKeys.has(key));
@@ -330,6 +340,17 @@ const gates = [
       sourceIngestionInvalidParkedIds.length === 0 &&
       sourceIngestion.sourceCompletionReady === true,
     detail: `${sourceIngestion.byStatus?.complete || 0}/${sourceIngestion.totalSourceRequirements || 0} complete, ${sourceIngestion.byStatus?.partial || 0} partial, ${sourceIngestion.byStatus?.parked || 0} parked, ${sourceIngestion.byStatus?.missing || 0} missing`,
+  },
+  {
+    id: "competitive-sweep",
+    label: "Competitive docs benchmark is tracked",
+    passed:
+      competitiveSweepTargetDocs >= 50 &&
+      competitiveSweepPlannedLanes >= 25 &&
+      competitiveSweepCompletedBatches >= 5 &&
+      competitiveSweepCompletedLanes >= 25 &&
+      competitiveSweepReviewedDocs >= 45,
+    detail: `${competitiveSweepReviewedDocs}/${competitiveSweepTargetDocs} official docs reviewed, ${competitiveSweepUnverifiedDocs} unverified, ${competitiveSweepCompletedBatches} explorer batches, ${competitiveSweepCompletedLanes}/${competitiveSweepPlannedLanes} lanes`,
   },
   {
     id: "source-urls",
@@ -495,6 +516,13 @@ const payload = {
     sourceIngestionParked: sourceIngestion.byStatus?.parked || 0,
     sourceIngestionMissing: sourceIngestion.byStatus?.missing || 0,
     sourceIngestionReady: sourceIngestion.sourceCompletionReady || false,
+    competitiveSweepTargetDocs,
+    competitiveSweepReviewedDocs,
+    competitiveSweepUnverifiedDocs,
+    competitiveSweepPlannedLanes,
+    competitiveSweepCompletedLanes,
+    competitiveSweepCompletedBatches,
+    competitiveSweepReady: competitiveSweep.completionReady || false,
     crosslinkedReaderPages: crosslinks.totalPages || 0,
     readerPagesWithPrevious: crosslinks.pagesWithPrevious || 0,
     readerPagesWithNext: crosslinks.pagesWithNext || 0,
@@ -559,6 +587,22 @@ const payload = {
     missingSourceFamilies: sourceIngestion.missingSourceFamilies || [],
     duplicateRequirementIds: sourceIngestionDuplicateIds,
     invalidParkedRequirements: sourceIngestionInvalidParkedIds,
+  },
+  competitiveSweepCoverage: {
+    status: competitiveSweep.status || "missing",
+    completionReady: competitiveSweep.completionReady || false,
+    completionStatusReason: competitiveSweep.completionStatusReason || "",
+    targetDocs: competitiveSweepTargetDocs,
+    targetDocsReviewed: competitiveSweepReviewedDocs,
+    targetDocsUnverified: competitiveSweepUnverifiedDocs,
+    plannedAgentLanes: competitiveSweepPlannedLanes,
+    completedLaneReviews: competitiveSweepCompletedLanes,
+    completedExplorerBatches: competitiveSweepCompletedBatches,
+    activeExplorerBatches: competitiveSweep.activeExplorerBatches || 0,
+    byCategory: competitiveSweep.byCategory || {},
+    byStatus: competitiveSweep.byStatus || {},
+    blockedTargets: competitiveSweep.blockedTargets || [],
+    synthesisFindings: competitiveSweep.synthesisFindings || [],
   },
   journeyCoverage: {
     totalJourneys: journeys.totalJourneys || 0,

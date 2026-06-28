@@ -12,6 +12,7 @@ const defaults = {
   manifest: path.join(searchBookRoot, "page-manifest.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
   gaps: path.join(searchBookRoot, "GAPS.md"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
@@ -104,6 +105,14 @@ const args = parseArgs(process.argv.slice(2));
 const manifest = readJson(args.manifest, { pages: [] });
 const authored = readJson(args.authoredIndex, { totalPages: 0, bySection: {} });
 const sourceCatalog = readJson(args.sourceCatalog, { sourceByKey: {}, totalSources: 0, duplicateKeys: [] });
+const competitiveSweep = readJson(args.competitiveSweep, {
+  targetDocs: 0,
+  targetDocsReviewed: 0,
+  targetDocsUnverified: 0,
+  plannedAgentLanes: 0,
+  completedExplorerBatches: 0,
+  completionReady: false,
+});
 const registryMarkdown = readText(args.sourceRegistry);
 const gapMarkdown = readText(args.gaps);
 const openInboxItems = parseOpenInboxItems(readText(args.inbox));
@@ -160,6 +169,7 @@ const symmioPublicKeys = [
 const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
 const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
+const competitiveSweepKeys = ["competitive-sweep-batch-01"];
 
 const localSpecStatus = requiredKeysStatus(keys, localSpecKeys);
 const localCodeStatus = requiredKeysStatus(keys, localCodeKeys);
@@ -171,6 +181,16 @@ const symmioStatus = requiredKeysStatus(keys, symmioPublicKeys);
 const symmioWhitepaperHistoryStatus = requiredKeysStatus(keys, symmioWhitepaperHistoryKeys);
 const symmioGithubStatus = requiredKeysStatus(keys, symmioGithubKeys);
 const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
+const competitiveSweepSourceStatus = requiredKeysStatus(keys, competitiveSweepKeys);
+const competitiveSweepHasBatch =
+  (competitiveSweep.targetDocs || 0) >= 50 &&
+  (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
+  (competitiveSweep.completedExplorerBatches || 0) >= 5;
+const competitiveSweepMissingKeys = [
+  ...competitiveSweepSourceStatus.missing,
+  ...((competitiveSweep.targetDocsReviewed || 0) < (competitiveSweep.targetDocs || 0) ? ["opyn-docs-official-review"] : []),
+  ...(competitiveSweep.completionReady ? [] : ["25-agent-competitive-sweep-final-synthesis"]),
+];
 
 const requirements = [
   sourceReq({
@@ -323,13 +343,17 @@ const requirements = [
   sourceReq({
     id: "competitive-sweep",
     label: "25-sub-agent competitive documentation sweep",
-    status: hasGap(gapMarkdown, "G-002") ? "partial" : "missing",
+    status: competitiveSweep.completionReady && competitiveSweepSourceStatus.complete ? "complete" : competitiveSweepHasBatch ? "partial" : "missing",
     category: "competitive-reference",
     sourceSpecs: ["07"],
-    presentKeys: [],
-    missingKeys: ["25-agent-competitive-sweep-report"],
-    evidence: hasGap(gapMarkdown, "G-002") ? "G-002 records that the competitive sweep is not complete." : "No competitive-sweep gap is registered.",
-    nextAction: "Run or import the competitive sweep before claiming Session 1 research is complete.",
+    presentKeys: competitiveSweepSourceStatus.present,
+    missingKeys: competitiveSweepMissingKeys,
+    evidence: competitiveSweepHasBatch
+      ? `${competitiveSweep.targetDocs || 0} target docs across ${competitiveSweep.plannedAgentLanes || 0} lanes; ${competitiveSweep.completedExplorerBatches || 0} explorer batches returned; ${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} docs verified, ${competitiveSweep.targetDocsUnverified || 0} unverified.`
+      : hasGap(gapMarkdown, "G-002")
+        ? "G-002 records that the competitive sweep is not complete."
+        : "No competitive-sweep gap is registered.",
+    nextAction: "Turn the batch findings into a final sourced synthesis and resolve the Opyn official-doc access gap before claiming the sweep complete.",
   }),
   sourceReq({
     id: "authored-derived-pages",

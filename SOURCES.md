@@ -12,7 +12,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `spec-02` | `_specs/app-docs/02-narrative-thesis.md` | Narrative thesis and required topics. |
 | `spec-03` | `_specs/app-docs/03-grounding.md` | Product facts and revenue/referral contradictions. |
 | `spec-04` | `_specs/app-docs/04-sources.md` | Required source families. |
-| `spec-05` | `_specs/app-docs/05-architecture.md` | Ask-first IA and original 100+ page shape, superseded by operator's 500-800 page instruction. |
+| `spec-05` | `_specs/app-docs/05-architecture.md` | Ask-first IA, 500-800 page shape, and guided journey structure. |
 | `spec-06` | `_specs/app-docs/06-answer-engine.md` | Ask/rate/ask-again loop. |
 | `spec-07` | `_specs/app-docs/07-research-session.md` | Session 1 research gate. |
 | `spec-08` | `_specs/app-docs/08-implementation-session.md` | Session 2 implementation gate. |
@@ -100,6 +100,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `hyperliquid-hip3` | https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md | Builder-deployed perps, staking, deployer duties, independent margin/order books. |
 | `goldsky-subgraphs` | https://docs.goldsky.com/subgraphs/introduction | Goldsky subgraph product docs for indexing and subgraph-backed data access. |
 | `goldsky-graphql-endpoints` | https://docs.goldsky.com/subgraphs/graph-endpoints | Goldsky GraphQL endpoint documentation for querying indexed subgraph data. |
+| `competitive-sweep-batch-01` | `src/search-book/data/competitive-sweep.json` | Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, and the unresolved Opyn access gap. |
 
 ## Authored Publication Candidates
 

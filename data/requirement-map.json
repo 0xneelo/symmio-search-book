@@ -2,10 +2,10 @@
   "generatedAt": "deterministic-build",
   "status": "completion-coverage-map",
   "completionReady": false,
-  "totalRequirements": 16,
+  "totalRequirements": 17,
   "byStatus": {
     "complete": 5,
-    "partial": 4,
+    "partial": 5,
     "parked": 6,
     "missing": 1
   },
@@ -15,7 +15,7 @@
     "answer-engine": 2,
     "demand-signal": 1,
     "navigation": 2,
-    "sourcing": 1,
+    "sourcing": 2,
     "production": 2,
     "delivery": 2
   },
@@ -227,12 +227,24 @@
         "07",
         "08"
       ],
-      "evidence": "71 registered sources; 41 source keys used in retrieval chunks; source-ingestion coverage 11/16 complete, 1 partial, 4 parked, 0 missing",
+      "evidence": "72 registered sources; 41 source keys used in retrieval chunks; source-ingestion coverage 11/16 complete, 1 partial, 4 parked, 0 missing",
       "blocks": [
         "OPERATOR-INBOX #2",
         "OPERATOR-INBOX #5"
       ],
       "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
+    },
+    {
+      "id": "competitive-docs-sweep",
+      "label": "25-lane competitive docs sweep synthesized",
+      "status": "partial",
+      "category": "sourcing",
+      "sourceSpecs": [
+        "07"
+      ],
+      "evidence": "49/50 official docs verified, 1 unverified, 5 explorer batches, 25/25 lanes",
+      "blocks": [],
+      "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target."
     },
     {
       "id": "phase-zero-platform",
@@ -350,6 +362,12 @@
         "OPERATOR-INBOX #2",
         "OPERATOR-INBOX #5"
       ]
+    },
+    {
+      "id": "competitive-docs-sweep",
+      "status": "partial",
+      "nextAction": "Promote the batch findings into a final sourced synthesis and resolve or explicitly exclude the unverified Opyn target.",
+      "blocks": []
     },
     {
       "id": "phase-zero-platform",
