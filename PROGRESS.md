@@ -415,6 +415,12 @@
 - Wired the registry into the quality audit so launch work can prove source companions stay out of public navigation and internal drafts stay out of answer synthesis.
 - Kept all current authored pages in candidate/review state; no page is marked published until final editorial, source, and operator review.
 
+## 2026-06-28 — Deterministic Answer-Engine Contract
+
+- Added a human-readable answer-engine contract and a generated machine-readable contract for exact routes, gap/refusal behavior, citation coverage, retrieval eligibility, feedback events, and LLM readiness.
+- Proved 171 seeded exact-route tests and 7 refusal tests against the current question ledger, FAQ map, answer chunks, page-state registry, source catalog, and gap queue.
+- Kept `llmProductionReady` false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

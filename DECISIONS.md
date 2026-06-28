@@ -551,3 +551,11 @@
 **Reason:** The LLM and launch pipeline need an explicit boundary between reviewable public prose and raw source scaffolding. Without that boundary, generated companion material could accidentally appear as final documentation or unresolved referral/revenue contradictions could leak into answer synthesis.
 
 **Status:** Accepted for production readiness and quality-audit enforcement.
+
+## D-070: Keep Deterministic Routing As The Answer-Engine Fallback
+
+**Decision:** Add a deterministic answer-engine contract that proves seeded exact-question routes, refusal/gap behavior, citation source coverage, retrieval eligibility, and feedback event shapes before adding LLM synthesis.
+
+**Reason:** The production LLM should not become the only way to answer. The docs need a measurable fallback: exact page routing when the corpus already knows the question, retrieval over eligible chunks for broader questions, and refusal/gap creation when evidence is missing. This protects primary-source discipline and gives the LLM layer a golden set.
+
+**Status:** Accepted for answer-engine implementation readiness.

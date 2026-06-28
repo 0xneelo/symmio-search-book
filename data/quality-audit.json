@@ -28,6 +28,12 @@
     "gapQueueOperatorSignals": 9,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
+    "answerEngineExactRouteTests": 171,
+    "answerEngineExactRouteTestsPassing": 171,
+    "answerEngineRefusalTests": 7,
+    "answerEngineRefusalTestsPassing": 7,
+    "answerEngineDeterministicReady": true,
+    "answerEngineLlmProductionReady": false,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
     "sourceCatalogEntries": 116,
@@ -170,6 +176,12 @@
       "label": "Living-docs gap queue resolves",
       "passed": true,
       "detail": "13 queue items, 7 question signals, 9 operator signals, 2 parked pages"
+    },
+    {
+      "id": "deterministic-answer-engine",
+      "label": "Deterministic answer engine contract resolves",
+      "passed": true,
+      "detail": "171/171 exact routes, 7/7 refusal tests, LLM production ready no"
     },
     {
       "id": "glossary-routes",
@@ -778,6 +790,178 @@
     "missingRelatedPageIds": [],
     "missingSourceKeys": [],
     "matchesInputs": true
+  },
+  "answerEngineCoverage": {
+    "status": "prototype-deterministic-answer-engine-contract",
+    "contractVersion": "2026-06-28.v1",
+    "deterministicReady": true,
+    "llmProductionReady": false,
+    "exactRouteTests": 171,
+    "exactRouteTestsPassing": 171,
+    "refusalTests": 7,
+    "refusalTestsPassing": 7,
+    "exactRoutesByPageState": {
+      "candidate": 171
+    },
+    "exactRoutesByConfidence": {
+      "Medium": 84,
+      "High": 29,
+      "Low": 58
+    },
+    "exactRoutesMissingChunks": [],
+    "exactRoutesInternalDraft": [],
+    "failingExactRouteIds": [],
+    "failingRefusalIds": [],
+    "exactRoutesWithUnknownSourceKeys": [],
+    "exactRoutesWithoutLinkedSources": [],
+    "pipeline": [
+      {
+        "stage": "normalize",
+        "priority": 0,
+        "behavior": "Lowercase, strip non-alphanumeric characters, collapse whitespace, remove common stop words for token scoring.",
+        "stopWords": [
+          "a",
+          "about",
+          "an",
+          "and",
+          "are",
+          "as",
+          "at",
+          "be",
+          "do",
+          "does",
+          "for",
+          "from",
+          "how",
+          "i",
+          "in",
+          "is",
+          "it",
+          "me",
+          "my",
+          "of",
+          "on",
+          "or",
+          "the",
+          "to",
+          "what",
+          "when",
+          "where",
+          "why"
+        ]
+      },
+      {
+        "stage": "exact-question-route",
+        "priority": 1,
+        "behavior": "If normalized query matches or strongly overlaps a seeded QUESTION route, return that exact page first.",
+        "sourceData": "data/question-routes.json",
+        "requiredPageStates": [
+          "candidate",
+          "published"
+        ],
+        "totalGoldenRoutes": 171
+      },
+      {
+        "stage": "glossary-route",
+        "priority": 2,
+        "behavior": "If a query asks for a term or alias, route to the term's primary page.",
+        "sourceData": "data/glossary.json"
+      },
+      {
+        "stage": "chunk-retrieval",
+        "priority": 3,
+        "behavior": "Search answer chunks for candidate and source-companion pages. Internal drafts are excluded from answer synthesis.",
+        "sourceData": "data/answer-chunks.json",
+        "eligiblePageStates": [
+          "candidate",
+          "published",
+          "source-companion"
+        ],
+        "excludedPageStates": [
+          "internal-draft"
+        ]
+      },
+      {
+        "stage": "gap-refusal",
+        "priority": 4,
+        "behavior": "If no grounded page is found or a reconciliation question is asked, record a gap/refusal event instead of inventing an answer.",
+        "sourceData": [
+          "data/gap-queue.json",
+          "QUESTIONS.md"
+        ],
+        "totalGoldenRefusals": 7
+      }
+    ],
+    "storageContract": {
+      "localPrototype": {
+        "questionsKey": "searchBookPrototype.questions",
+        "ratingsKey": "searchBookPrototype.ratings",
+        "gapsKey": "searchBookPrototype.gaps",
+        "maxLocalEvents": 200
+      },
+      "questionEventRequiredFields": [
+        "id",
+        "query",
+        "source",
+        "pageId",
+        "page",
+        "score",
+        "status",
+        "time"
+      ],
+      "ratingEventRequiredFields": [
+        "rating",
+        "query",
+        "page",
+        "pageId",
+        "eventId",
+        "time"
+      ],
+      "gapEventContracts": [
+        {
+          "trigger": "no-grounded-page",
+          "expectedEvent": "no-grounded-page",
+          "storageKey": "searchBookPrototype.gaps",
+          "requiredFields": [
+            "id",
+            "query",
+            "reason",
+            "page",
+            "time"
+          ]
+        },
+        {
+          "trigger": "rating:no",
+          "expectedEvent": "low-rated-answer",
+          "storageKey": "searchBookPrototype.gaps",
+          "requiredFields": [
+            "id",
+            "query",
+            "reason",
+            "page",
+            "time"
+          ]
+        }
+      ],
+      "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
+    },
+    "llmReadinessContract": {
+      "retrievalSubstrate": "Use exact-route, glossary, and chunk retrieval before synthesis.",
+      "contextBoundary": "Only retrieved chunks with known source keys may enter the model context.",
+      "answerBoundary": "The model must answer only from supplied chunks and page metadata.",
+      "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
+      "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
+      "evaluationSet": {
+        "exactRoutes": 171,
+        "refusals": 7,
+        "lowRatedFeedback": 1,
+        "noRouteFeedback": 1,
+        "adversarialMinimumRequiredBeforeProduction": 12
+      }
+    },
+    "warnings": [
+      "LLM production readiness is intentionally false until runtime citation validation, prompt-injection tests, and operator-blocked source decisions are resolved."
+    ]
   },
   "glossaryCoverage": {
     "totalTerms": 32,
@@ -1506,6 +1690,10 @@
     "gapQueueMissingOperatorGapIds": [],
     "gapQueueMissingRelatedPageIds": [],
     "gapQueueMissingSourceKeys": [],
+    "answerEngineFailingExactRouteIds": [],
+    "answerEngineFailingRefusalIds": [],
+    "answerEngineCitationUnknownRoutes": [],
+    "answerEngineRoutesWithoutLinkedSources": [],
     "glossaryMissingPageIds": [],
     "glossaryMissingSourceKeys": [],
     "usedKeysMissingCatalog": [],
@@ -1728,6 +1916,7 @@
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
+    "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",

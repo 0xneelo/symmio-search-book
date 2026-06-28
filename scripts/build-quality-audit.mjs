@@ -22,6 +22,7 @@ const defaults = {
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   faq: path.join(searchBookRoot, "data", "faq.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
@@ -181,6 +182,9 @@ const faq = fs.existsSync(args.faq)
 const gapQueue = fs.existsSync(args.gapQueue)
   ? readJson(args.gapQueue)
   : { totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, missingQuestionGapIds: [], missingOperatorGapIds: [], missingRelatedPageIds: [], missingSourceKeys: [], byPriority: {}, byCategory: {} };
+const answerEngineContract = fs.existsSync(args.answerEngineContract)
+  ? readJson(args.answerEngineContract)
+  : { deterministicReady: false, llmProductionReady: false, evaluation: { totalExactRouteTests: 0, exactRouteTestsPassing: 0, totalRefusalTests: 0, refusalTestsPassing: 0, failingExactRouteIds: [], failingRefusalIds: [] } };
 const answerChunks = fs.existsSync(args.answerChunks)
   ? readJson(args.answerChunks)
   : { totalPages: 0, totalChunks: 0, pagesWithChunks: 0, pagesMissingChunks: [], duplicateChunkIds: [], unknownSourceKeys: [], usedSourceKeys: [], chunks: [], byRouteSource: {}, chunksByRouteSource: {} };
@@ -258,6 +262,21 @@ const gapQueueMatchesInputs =
   (gapQueue.totalQuestionSignals || 0) === (questionRoutes.totalReconciliationQuestions || 0) &&
   (gapQueue.totalOperatorSignals || 0) === openInboxItems.length &&
   (gapQueue.totalParkedPageSignals || 0) === parkedReconciliationPages.length;
+const answerEngineEvaluation = answerEngineContract.evaluation || {};
+const answerEngineFailingExactRouteIds = answerEngineEvaluation.failingExactRouteIds || [];
+const answerEngineFailingRefusalIds = answerEngineEvaluation.failingRefusalIds || [];
+const answerEngineCitationUnknownRoutes = answerEngineContract.citationPolicy?.exactRoutesWithUnknownSourceKeys || [];
+const answerEngineRoutesWithoutLinkedSources = answerEngineContract.citationPolicy?.exactRoutesWithoutLinkedSources || [];
+const answerEngineReady =
+  answerEngineContract.deterministicReady === true &&
+  (answerEngineEvaluation.totalExactRouteTests || 0) === (questionRoutes.totalRoutes || 0) &&
+  (answerEngineEvaluation.exactRouteTestsPassing || 0) === (questionRoutes.totalRoutes || 0) &&
+  (answerEngineEvaluation.totalRefusalTests || 0) === (questionRoutes.totalReconciliationQuestions || 0) &&
+  (answerEngineEvaluation.refusalTestsPassing || 0) === (questionRoutes.totalReconciliationQuestions || 0) &&
+  answerEngineFailingExactRouteIds.length === 0 &&
+  answerEngineFailingRefusalIds.length === 0 &&
+  answerEngineCitationUnknownRoutes.length === 0 &&
+  answerEngineRoutesWithoutLinkedSources.length === 0;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -453,6 +472,12 @@ const gates = [
     detail: `${gapQueue.totalItems || 0} queue items, ${gapQueue.totalQuestionSignals || 0} question signals, ${gapQueue.totalOperatorSignals || 0} operator signals, ${gapQueue.totalParkedPageSignals || 0} parked pages`,
   },
   {
+    id: "deterministic-answer-engine",
+    label: "Deterministic answer engine contract resolves",
+    passed: answerEngineReady,
+    detail: `${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact routes, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, LLM production ready ${answerEngineContract.llmProductionReady ? "yes" : "no"}`,
+  },
+  {
     id: "glossary-routes",
     label: "Glossary terms resolve",
     passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
@@ -571,6 +596,12 @@ const payload = {
     gapQueueOperatorSignals: gapQueue.totalOperatorSignals || 0,
     gapQueueParkedPageSignals: gapQueue.totalParkedPageSignals || 0,
     gapQueueCategories: Object.keys(gapQueue.byCategory || {}).length,
+    answerEngineExactRouteTests: answerEngineEvaluation.totalExactRouteTests || 0,
+    answerEngineExactRouteTestsPassing: answerEngineEvaluation.exactRouteTestsPassing || 0,
+    answerEngineRefusalTests: answerEngineEvaluation.totalRefusalTests || 0,
+    answerEngineRefusalTestsPassing: answerEngineEvaluation.refusalTestsPassing || 0,
+    answerEngineDeterministicReady: answerEngineContract.deterministicReady || false,
+    answerEngineLlmProductionReady: answerEngineContract.llmProductionReady || false,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
@@ -722,6 +753,28 @@ const payload = {
     missingSourceKeys: gapQueueMissingSourceKeys,
     matchesInputs: gapQueueMatchesInputs,
   },
+  answerEngineCoverage: {
+    status: answerEngineContract.status || "missing",
+    contractVersion: answerEngineContract.contractVersion || "",
+    deterministicReady: answerEngineContract.deterministicReady || false,
+    llmProductionReady: answerEngineContract.llmProductionReady || false,
+    exactRouteTests: answerEngineEvaluation.totalExactRouteTests || 0,
+    exactRouteTestsPassing: answerEngineEvaluation.exactRouteTestsPassing || 0,
+    refusalTests: answerEngineEvaluation.totalRefusalTests || 0,
+    refusalTestsPassing: answerEngineEvaluation.refusalTestsPassing || 0,
+    exactRoutesByPageState: answerEngineEvaluation.exactRoutesByPageState || {},
+    exactRoutesByConfidence: answerEngineEvaluation.exactRoutesByConfidence || {},
+    exactRoutesMissingChunks: answerEngineEvaluation.exactRoutesMissingChunks || [],
+    exactRoutesInternalDraft: answerEngineEvaluation.exactRoutesInternalDraft || [],
+    failingExactRouteIds: answerEngineFailingExactRouteIds,
+    failingRefusalIds: answerEngineFailingRefusalIds,
+    exactRoutesWithUnknownSourceKeys: answerEngineCitationUnknownRoutes,
+    exactRoutesWithoutLinkedSources: answerEngineRoutesWithoutLinkedSources,
+    pipeline: answerEngineContract.pipeline || [],
+    storageContract: answerEngineContract.storageContract || {},
+    llmReadinessContract: answerEngineContract.llmReadinessContract || {},
+    warnings: answerEngineContract.warnings || [],
+  },
   glossaryCoverage: {
     totalTerms: glossary.totalTerms || 0,
     byCategory: glossary.byCategory || {},
@@ -830,6 +883,10 @@ const payload = {
     gapQueueMissingOperatorGapIds,
     gapQueueMissingRelatedPageIds,
     gapQueueMissingSourceKeys,
+    answerEngineFailingExactRouteIds,
+    answerEngineFailingRefusalIds,
+    answerEngineCitationUnknownRoutes,
+    answerEngineRoutesWithoutLinkedSources,
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
     usedKeysMissingCatalog,
@@ -875,6 +932,7 @@ const payload = {
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
+    "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
     "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
