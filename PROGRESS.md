@@ -362,6 +362,12 @@
 - Routed five new model-comparison questions to authored pages so Ask can explain why CLOBs, pools, and Percolator-family systems each solve only part of permissionless long-tail liquidity.
 - Kept exact third-party venue parameters and live market-state claims out of final guarantees pending current venue-source verification.
 
+## 2026-06-28 — Technical Moat Authored Layer
+
+- Added five authored manifesto pages from Neelo's technical deep-dive and competitive-analysis corpus: settlement state boundary, solver engine operating loop, bootstrap oracle risk tiers, position lifecycle state machine, and replication barriers/data moats.
+- Routed five new technical/competitive questions to authored pages so Ask can explain how the hybrid system separates settlement from computation, how solver operations compose, and why the architecture is difficult to retrofit.
+- Kept exact contract interfaces, oracle vendors and thresholds, solver policies, funding formulas, graduation parameters, and monopoly claims under operator/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

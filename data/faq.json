@@ -8,17 +8,17 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 142,
-  "totalAnswerable": 136,
+  "totalEntries": 147,
+  "totalAnswerable": 141,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 17,
+    "Getting Started": 20,
     "Trading Flow": 12,
-    "Solvers And Settlement": 28,
-    "Risk And Markets": 13,
+    "Solvers And Settlement": 29,
+    "Risk And Markets": 14,
     "Revenue": 10,
     "Rewards And Referrals": 17,
     "Dashboard": 9,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 68,
+    "Medium": 69,
     "High": 18,
-    "Low": 50
+    "Low": 54
   },
   "byRouteSource": {
-    "authored": 136
+    "authored": 141
   },
   "byType": {
-    "answerable": 136,
+    "answerable": 141,
     "reconciliation": 6
   },
   "answerable": [
@@ -1727,6 +1727,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-state-must-settle-on-chain-in-vibe-s-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What state must settle on-chain in Vibe's architecture?",
+      "normalizedQuestion": "what state must settle on chain in vibe s architecture",
+      "shortAnswer": "Neelo's technical model separates durable financial state from solver-managed operational calculations; final contract details need implementation confirmation.",
+      "answerSummary": "Settlement State Boundary Neelo's technical deep dive is clearest when it separates financial truth from operational computation. Position ownership, collateral balances, vault shares, insurance balances, and settlement records belong in the trustless settlement boundary. Order book state, risk calculations, market metrics, and Z score computations can be...",
+      "confidence": "Low",
+      "pageId": "authored-settlement-state-boundary",
+      "pageTitle": "Settlement State Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-engines-make-up-the-solver-operating-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What engines make up the solver operating loop?",
+      "normalizedQuestion": "what engines make up the solver operating loop",
+      "shortAnswer": "Neelo's technical deep-dive describes quote, risk, match, liquidation, hedging, and graduation engines as a model; live thresholds need review.",
+      "answerSummary": "Solver Engine Operating Loop The solver layer in Neelo's architecture is not a single quote service. It is an operating loop: quote, risk check, match, liquidate, hedge, and graduate. That is why the source treats the solver as infrastructure rather than customer support automation. The quote engine starts from oracle price, current inventory, market vola...",
+      "confidence": "Low",
+      "pageId": "authored-solver-engine-operating-loop",
+      "pageTitle": "Solver Engine Operating Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-bootstrap-markets-handle-oracle-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How should bootstrap markets handle oracle risk?",
+      "normalizedQuestion": "how should bootstrap markets handle oracle risk",
+      "shortAnswer": "Neelo's oracle section supports tiering capacity by feed quality; exact vendors, freshness targets, leverage, and OI limits are not final product claims.",
+      "answerSummary": "Bootstrap Oracle Risk Tiers Permissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi source feeds can support higher leverage and open interest; thinner or DEX derived feeds require tighter limits. That is the right p...",
+      "confidence": "Low",
+      "pageId": "authored-bootstrap-oracle-risk-tiers",
+      "pageTitle": "Bootstrap Oracle Risk Tiers",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-position-lifecycle-in-the-technical-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the position lifecycle in the technical model?",
+      "normalizedQuestion": "what is the position lifecycle in the technical model",
+      "shortAnswer": "Neelo's technical model traces validation, quote, execution, margin, funding, close, and solver updates; production formulas need implementation confirmation.",
+      "answerSummary": "Position Lifecycle State Machine The technical model should be documented as a lifecycle, not only as a trade ticket. A position opens after validation, quote generation, execution, margin transfer, and on chain position creation. It is then managed through margin operations, unrealized PnL, funding, liquidation checks, and eventual close or forced resolu...",
+      "confidence": "Low",
+      "pageId": "authored-position-lifecycle-state-machine",
+      "pageTitle": "Position Lifecycle State Machine",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-hard-for-competitors-to-copy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe hard for competitors to copy?",
+      "normalizedQuestion": "why is vibe hard for competitors to copy",
+      "shortAnswer": "Neelo's competitive analysis points to architectural lock-in, solver complexity, capital-efficiency traps, and data network effects while avoiding monopoly guarantees.",
+      "answerSummary": "Replication Barriers And Data Moats Neelo's competitive analysis argues that Vibe is hard to copy because the architecture is not a feature toggle. Order book first systems would need vaults, solver infrastructure, async execution paths, isolated market support, and new collateral logic to serve bootstrap markets. Vault first systems would need matching,...",
+      "confidence": "Medium",
+      "pageId": "authored-replication-barriers-and-data-moats",
+      "pageTitle": "Replication Barriers And Data Moats",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -6827,6 +6972,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-state-must-settle-on-chain-in-vibe-s-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What state must settle on-chain in Vibe's architecture?",
+      "normalizedQuestion": "what state must settle on chain in vibe s architecture",
+      "shortAnswer": "Neelo's technical model separates durable financial state from solver-managed operational calculations; final contract details need implementation confirmation.",
+      "answerSummary": "Settlement State Boundary Neelo's technical deep dive is clearest when it separates financial truth from operational computation. Position ownership, collateral balances, vault shares, insurance balances, and settlement records belong in the trustless settlement boundary. Order book state, risk calculations, market metrics, and Z score computations can be...",
+      "confidence": "Low",
+      "pageId": "authored-settlement-state-boundary",
+      "pageTitle": "Settlement State Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-engines-make-up-the-solver-operating-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What engines make up the solver operating loop?",
+      "normalizedQuestion": "what engines make up the solver operating loop",
+      "shortAnswer": "Neelo's technical deep-dive describes quote, risk, match, liquidation, hedging, and graduation engines as a model; live thresholds need review.",
+      "answerSummary": "Solver Engine Operating Loop The solver layer in Neelo's architecture is not a single quote service. It is an operating loop: quote, risk check, match, liquidate, hedge, and graduate. That is why the source treats the solver as infrastructure rather than customer support automation. The quote engine starts from oracle price, current inventory, market vola...",
+      "confidence": "Low",
+      "pageId": "authored-solver-engine-operating-loop",
+      "pageTitle": "Solver Engine Operating Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-bootstrap-markets-handle-oracle-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How should bootstrap markets handle oracle risk?",
+      "normalizedQuestion": "how should bootstrap markets handle oracle risk",
+      "shortAnswer": "Neelo's oracle section supports tiering capacity by feed quality; exact vendors, freshness targets, leverage, and OI limits are not final product claims.",
+      "answerSummary": "Bootstrap Oracle Risk Tiers Permissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi source feeds can support higher leverage and open interest; thinner or DEX derived feeds require tighter limits. That is the right p...",
+      "confidence": "Low",
+      "pageId": "authored-bootstrap-oracle-risk-tiers",
+      "pageTitle": "Bootstrap Oracle Risk Tiers",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-position-lifecycle-in-the-technical-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the position lifecycle in the technical model?",
+      "normalizedQuestion": "what is the position lifecycle in the technical model",
+      "shortAnswer": "Neelo's technical model traces validation, quote, execution, margin, funding, close, and solver updates; production formulas need implementation confirmation.",
+      "answerSummary": "Position Lifecycle State Machine The technical model should be documented as a lifecycle, not only as a trade ticket. A position opens after validation, quote generation, execution, margin transfer, and on chain position creation. It is then managed through margin operations, unrealized PnL, funding, liquidation checks, and eventual close or forced resolu...",
+      "confidence": "Low",
+      "pageId": "authored-position-lifecycle-state-machine",
+      "pageTitle": "Position Lifecycle State Machine",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-hard-for-competitors-to-copy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe hard for competitors to copy?",
+      "normalizedQuestion": "why is vibe hard for competitors to copy",
+      "shortAnswer": "Neelo's competitive analysis points to architectural lock-in, solver complexity, capital-efficiency traps, and data network effects while avoiding monopoly guarantees.",
+      "answerSummary": "Replication Barriers And Data Moats Neelo's competitive analysis argues that Vibe is hard to copy because the architecture is not a feature toggle. Order book first systems would need vaults, solver infrastructure, async execution paths, isolated market support, and new collateral logic to serve bootstrap markets. Vault first systems would need matching,...",
+      "confidence": "Medium",
+      "pageId": "authored-replication-barriers-and-data-moats",
+      "pageTitle": "Replication Barriers And Data Moats",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

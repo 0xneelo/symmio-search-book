@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 155,
+  "totalPages": 160,
   "byStatus": {
     "publication-candidate": 79,
-    "publication-candidate-needs-operator-review": 75,
+    "publication-candidate-needs-operator-review": 80,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 88,
+    "manifesto": 93,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -142,6 +142,30 @@
       "file": "content/authored/manifesto/bootstrap-counterparty-pillar.md",
       "bodyMarkdown": "# Bootstrap And Counterparty Formation\n\nThe second Vibe pillar asks how a market can exist before it already has deep, synchronous liquidity.\n\nIn a mature order book, a long and a short can meet at the same moment. In a low-cap market, interest is sparse and path-dependent. There may be real demand over time, but not enough simultaneous two-sided flow to make continuous matching the default answer.\n\n## The Asynchronous Counterparty Problem\n\nNeelo's pillar paper says this is where Vibe's bootstrap logic matters. If natural counterparties do not arrive together, a solver or designated risk-taker may need to intermediate the market. That creates continuity where a pure order book would stall.\n\nThe payoff is earlier market launch, less dependency on deep organic liquidity, and exposure access without requiring perfect timing from the opposite side.\n\nThe cost is that the problem changes. Once a solver becomes the effective counterparty, the venue is no longer only matching orders. It is managing a balance-sheet and risk-warehouse problem.\n\n## Reader Implication\n\nBootstrap and counterparty formation explain why \"just use an order book\" is not enough for the long tail. They also explain why solver design cannot be hand-waved: the counterparty path that makes a market possible must still survive leverage, stress, thin liquidity, and adverse selection.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Pillar Two: Bootstrap and Counterparty\".\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-solver-owned-market-maker`\n- `authored-bilateral-intent-lifecycle`\n- `neelo-10-vibe-pillars-10-docs-03-pillar-two-bootstrap-and-counterparty`",
       "excerpt": "Bootstrap And Counterparty Formation The second Vibe pillar asks how a market can exist before it already has deep, synchronous liquidity. In a mature order book, a long and a short can meet at the same moment. In a low cap market, interest is sparse and path dependent. There may be real demand over time, but not enough simultaneous two sided flow to make continuous matching the default answer. The Asynchronous Counterparty Problem Neelo's pillar paper says this is where Vibe's bootstrap logic matters. If natural counterparties do not arrive together, a solver or designated risk taker may need to intermediate the market. That creates continuity where a pure order book would stall. The payoff is earlier market launch, less dependency on deep organic liquidity, and exposure access without requiring perfect timing from the opposite side. The cost is that the problem changes. Once a solver becomes the effective counterparty, the venue is no longer only matching orders. It is managing a balance sheet and risk warehouse problem. Reader Implication Bootstrap and counterparty formation explain why \"just use an order book\" is not enough for the long tail. They also explain why solver design"
+    },
+    {
+      "id": "authored-bootstrap-oracle-risk-tiers",
+      "title": "Bootstrap Oracle Risk Tiers",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-4-oracle-layer",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-7-security-model"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-4-oracle-layer",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-7-security-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/bootstrap-oracle-risk-tiers.md",
+      "bodyMarkdown": "# Bootstrap Oracle Risk Tiers\n\nPermissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi-source feeds can support higher leverage and open interest; thinner or DEX-derived feeds require tighter limits.\n\nThat is the right product lesson. A market can be permissionless without pretending every price source is equally strong. The docs should show that oracle risk is a gating input for leverage, OI, liquidation safety, and solver exposure.\n\n## Tiered Risk, Not Binary Eligibility\n\nThe source names price-feed properties that matter for Vibe-style markets: freshness, accuracy, manipulation resistance, and availability. For new tokens without established feeds, it sketches a DEX-derived path using pool queries, TWAP smoothing, liquidity-depth validation, and confidence bounds.\n\nThe important idea is not a specific vendor stack. It is that bootstrap markets need an explicit risk tier. Mature multi-source oracle coverage can carry more system capacity. Single-source or thin DEX-derived pricing should carry less capacity and stricter execution limits.\n\n## Publication Boundary\n\nThe source's tables include illustrative freshness, leverage, and OI limits. Those should not be published as live product values unless confirmed by implementation owners. The compendium should instead teach the invariant: weaker price evidence must reduce allowed risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.4 Oracle Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.7 Security Model\".\n\n## Related Pages\n\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-incentive-based-attack-risk`\n- `authored-perps-for-the-trenches`",
+      "excerpt": "Bootstrap Oracle Risk Tiers Permissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi source feeds can support higher leverage and open interest; thinner or DEX derived feeds require tighter limits. That is the right product lesson. A market can be permissionless without pretending every price source is equally strong. The docs should show that oracle risk is a gating input for leverage, OI, liquidation safety, and solver exposure. Tiered Risk, Not Binary Eligibility The source names price feed properties that matter for Vibe style markets: freshness, accuracy, manipulation resistance, and availability. For new tokens without established feeds, it sketches a DEX derived path using pool queries, TWAP smoothing, liquidity depth validation, and confidence bounds. The important idea is not a specific vendor stack. It is that bootstrap markets need an explicit risk tier. Mature multi source oracle coverage can carry more system capacity. Single source or thin DEX derived pricing should carry less capacity and stricter execution limits. Publication Bo"
     },
     {
       "id": "authored-bootstrap-trilemma",
@@ -1977,6 +2001,30 @@
       "excerpt": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the onboarding app entries awarded through the referral chain when a referred user qualifies. 3. Network/trading points are aggregated from wallet trading data alongside network volume, where the backend returns total points for wallets in the user's network. 4. Vibe points are the public Vibe trading program points described by Vibe's docs, covering trading, referring, and community categories. Those rails can be related, but they are not interchangeable. Onboarding Points server/points.js is the local points ledger for the onboarding app. It is append only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral level amounts, code grant counts, grant pool, and referral depth config. Admin config now treats percentages and totals as canonical inputs, der"
     },
     {
+      "id": "authored-position-lifecycle-state-machine",
+      "title": "Position Lifecycle State Machine",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-6-position-lifecycle",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-5-funding-rate-mechanism"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-6-position-lifecycle",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-5-funding-rate-mechanism"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/position-lifecycle-state-machine.md",
+      "bodyMarkdown": "# Position Lifecycle State Machine\n\nThe technical model should be documented as a lifecycle, not only as a trade ticket. A position opens after validation, quote generation, execution, margin transfer, and on-chain position creation. It is then managed through margin operations, unrealized PnL, funding, liquidation checks, and eventual close or forced resolution.\n\nThat lifecycle language matters because it connects the trader experience to the system's accounting obligations. A user sees entry price, margin, funding, liquidation distance, and close price. The system has to maintain the corresponding state transitions so those numbers remain explainable.\n\n## Lifecycle Steps\n\nOpening a position requires margin sufficiency, position-size checks, and OI headroom before the solver quote becomes an accepted trade. Managing a position means tracking added or removed margin, unrealized PnL, accrued fees, funding, and maintenance requirements. Closing a position realizes PnL, applies fees and accrued funding, releases remaining margin, and updates solver exposure.\n\nIn the source, funding anchors perp price to spot and can also reflect solver inventory pressure during bootstrap. That makes funding part of lifecycle state, not a detached fee table.\n\n## Publication Boundary\n\nThis page should not imply final live formulas for funding intervals, margin rates, liquidation thresholds, or solver inventory incentives. The source is sufficient to explain the lifecycle model; production values still require implementation confirmation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.6 Position Lifecycle\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\".\n\n## Related Pages\n\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-collateral-and-margining`\n- `authored-vibe-fees-and-funding`",
+      "excerpt": "Position Lifecycle State Machine The technical model should be documented as a lifecycle, not only as a trade ticket. A position opens after validation, quote generation, execution, margin transfer, and on chain position creation. It is then managed through margin operations, unrealized PnL, funding, liquidation checks, and eventual close or forced resolution. That lifecycle language matters because it connects the trader experience to the system's accounting obligations. A user sees entry price, margin, funding, liquidation distance, and close price. The system has to maintain the corresponding state transitions so those numbers remain explainable. Lifecycle Steps Opening a position requires margin sufficiency, position size checks, and OI headroom before the solver quote becomes an accepted trade. Managing a position means tracking added or removed margin, unrealized PnL, accrued fees, funding, and maintenance requirements. Closing a position realizes PnL, applies fees and accrued funding, releases remaining margin, and updates solver exposure. In the source, funding anchors perp price to spot and can also reflect solver inventory pressure during bootstrap. That makes funding par"
+    },
+    {
       "id": "authored-programmatic-market-graduation",
       "title": "Programmatic Market Graduation",
       "section": "manifesto",
@@ -2289,6 +2337,32 @@
       "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
     },
     {
+      "id": "authored-replication-barriers-and-data-moats",
+      "title": "Replication Barriers And Data Moats",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-2-architectural-lock-in",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-3-the-solver-complexity-barrier",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-5-network-effects-and-ecosystem-position"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-08-competitive-analysis",
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-2-architectural-lock-in",
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-3-the-solver-complexity-barrier",
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-5-network-effects-and-ecosystem-position"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/replication-barriers-and-data-moats.md",
+      "bodyMarkdown": "# Replication Barriers And Data Moats\n\nNeelo's competitive analysis argues that Vibe is hard to copy because the architecture is not a feature toggle. Order-book-first systems would need vaults, solver infrastructure, async execution paths, isolated-market support, and new collateral logic to serve bootstrap markets. Vault-first systems would need matching, netting, transition logic, and order-book infrastructure to become efficient at maturity.\n\nThat means the moat is partly architectural. A static protocol optimized for one market state has to redesign itself to move across market states. If it already has users, LPs, positions, and governance constraints, the redesign also becomes a migration problem.\n\n## Solver And Data Compound\n\nThe solver barrier is operational as much as technical. The source names derivatives pricing, risk management, low-latency infrastructure, hedging, liquidation mechanics, and continuous monitoring as required capabilities. Those improve through market experience, not only through code.\n\nData compounds the advantage. Every market teaches demand patterns, risk profiles, maturation trajectories, and graduation evidence. Better data improves solver pricing and graduation decisions; better operation attracts more markets; more markets create more data.\n\n## Publication Boundary\n\nThis is a strategy model, not a guarantee of monopoly. The docs should avoid claiming that competitors cannot respond. The source supports a narrower and stronger statement: retrofitting hybrid bootstrap-to-graduation behavior is structurally harder than copying a UI or adding another market list.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Competitive Analysis: Architectural Lock-In\".\n- `vibe-papers`: Neelo, \"Section 8: Competitive Analysis: Solver Complexity Barrier\".\n- `vibe-papers`: Neelo, \"Section 8: Competitive Analysis: Network Effects and Ecosystem Position\".\n\n## Related Pages\n\n- `authored-thielian-listing-monopoly`\n- `authored-market-assembly-line`\n- `authored-hybrid-settlement-solver-stack`",
+      "excerpt": "Replication Barriers And Data Moats Neelo's competitive analysis argues that Vibe is hard to copy because the architecture is not a feature toggle. Order book first systems would need vaults, solver infrastructure, async execution paths, isolated market support, and new collateral logic to serve bootstrap markets. Vault first systems would need matching, netting, transition logic, and order book infrastructure to become efficient at maturity. That means the moat is partly architectural. A static protocol optimized for one market state has to redesign itself to move across market states. If it already has users, LPs, positions, and governance constraints, the redesign also becomes a migration problem. Solver And Data Compound The solver barrier is operational as much as technical. The source names derivatives pricing, risk management, low latency infrastructure, hedging, liquidation mechanics, and continuous monitoring as required capabilities. Those improve through market experience, not only through code. Data compounds the advantage. Every market teaches demand patterns, risk profiles, maturation trajectories, and graduation evidence. Better data improves solver pricing and gradu"
+    },
+    {
       "id": "authored-required-risk-premium-for-usdc-lps",
       "title": "Required Risk Premium For USDC LPs",
       "section": "manifesto",
@@ -2463,6 +2537,30 @@
       "excerpt": "The Self Correcting Token Market Stack The final stack in Neelo's corpus is simple: programmable issuance, permissionless spot trading, and permissionless derivatives. The third layer is what makes the stack self correcting. Issuance lets assets appear. Spot trading lets buyers form a market. Derivatives let the market express both belief and skepticism, hedge risk, and mature through pressure rather than only narrative momentum. This is where Vibe and Symmio are paired in the source. Symmio supplies derivatives infrastructure and settlement machinery. Vibe supplies the product and permissionless market layer that can bring perps to the long tail of tokens. What This Does Not Mean It does not mean every token deserves reckless leverage or permanent support. It means every meaningful token should have a path to being tested. Some markets will prove themselves and graduate. Others will fail earlier because the negative side can finally act. Publication Note The source supports the strategic division between Vibe and Symmio. Final production docs still need platform, product, and operator review before making promises about exact market creation workflow, graduation policy, solver res"
     },
     {
+      "id": "authored-settlement-state-boundary",
+      "title": "Settlement State Boundary",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-7-security-model"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-2-settlement-layer-on-chain",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-7-security-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/settlement-state-boundary.md",
+      "bodyMarkdown": "# Settlement State Boundary\n\nNeelo's technical deep-dive is clearest when it separates financial truth from operational computation. Position ownership, collateral balances, vault shares, insurance balances, and settlement records belong in the trustless settlement boundary. Order-book state, risk calculations, market metrics, and Z-score computations can be managed by the solver layer because they are fast-changing operational inputs rather than final custody state.\n\nThat distinction should become a recurring pattern in the compendium. The reader should not be asked to trust an off-chain service with final balances. They should understand which state is enforceable, which state is advisory, and which state is used to quote or manage risk before an enforceable update is submitted.\n\n## What Settles\n\nThe settlement model in the source centers on vaults, positions, and insurance. A trade begins as a user intent, passes through solver validation and execution, and ends with contract-side state updates for positions and balances. In publication prose, this should be described as a boundary, not as a finalized contract specification.\n\nThe source also defines what the solver cannot do: steal user funds, execute at arbitrary prices, prevent withdrawals, or rewrite past settlements. Those are the right security semantics to teach before discussing any particular implementation.\n\n## Publication Boundary\n\nThe source includes illustrative function signatures and TODO notes for final contract architecture, access controls, and upgrade mechanisms. Until those are confirmed by production contracts or product owners, the docs should present the settlement boundary as a model: durable financial state on-chain, operational calculations off-chain, and solver powers bounded by verifiable constraints.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.2 Settlement Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.7 Security Model\".\n\n## Related Pages\n\n- `authored-hybrid-settlement-solver-stack`\n- `authored-symmio-clearing-house-layer`\n- `authored-collateral-margin-cva`",
+      "excerpt": "Settlement State Boundary Neelo's technical deep dive is clearest when it separates financial truth from operational computation. Position ownership, collateral balances, vault shares, insurance balances, and settlement records belong in the trustless settlement boundary. Order book state, risk calculations, market metrics, and Z score computations can be managed by the solver layer because they are fast changing operational inputs rather than final custody state. That distinction should become a recurring pattern in the compendium. The reader should not be asked to trust an off chain service with final balances. They should understand which state is enforceable, which state is advisory, and which state is used to quote or manage risk before an enforceable update is submitted. What Settles The settlement model in the source centers on vaults, positions, and insurance. A trade begins as a user intent, passes through solver validation and execution, and ends with contract side state updates for positions and balances. In publication prose, this should be described as a boundary, not as a finalized contract specification. The source also defines what the solver cannot do: steal user f"
+    },
+    {
       "id": "authored-slab-isolation-capital-inefficiency",
       "title": "Slab Isolation And Capital Inefficiency",
       "section": "manifesto",
@@ -2512,6 +2610,30 @@
       "file": "content/authored/reference/solver-default-and-continuity.md",
       "bodyMarkdown": "# Solver Default And Trade Continuity\n\nSolver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity.\n\nFor standard or third-party solvers, the model includes strict liquidation, CVA-style buffers, maintenance margin, and optional position buyout by another solver. For higher-reputation solvers, the DDQ describes a softer margin-call style path that can de-risk progressively before full liquidation.\n\n## Protocol-Operated Solver\n\nThe same DDQ distinguishes the bootstrapping protocol-operated solver from ordinary third-party solvers. In that configuration, the protocol-operated solver may be treated as not liquidatable in the conventional account-level sense. That does not mean users are ignored; it means the shortfall is handled through protocol-level buffers, insurance, ADL, and ultimately system-level settlement if every layer is exhausted.\n\nThe publication-safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit-default payout narrative.\n\n## Third-Party Solver Continuity\n\nFor third-party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol-operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible.\n\n## Publication Note\n\nThis page is source-backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default\" and \"Trader Compensation - Solver default\".\n- `symmio-core`: protocol vocabulary for solvers, collateral, margin, and CVA.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-solver-owned-market-maker`\n- `authored-funding-defense-hierarchy`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default`",
       "excerpt": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, maintenance margin, and optional position buyout by another solver. For higher reputation solvers, the DDQ describes a softer margin call style path that can de risk progressively before full liquidation. Protocol Operated Solver The same DDQ distinguishes the bootstrapping protocol operated solver from ordinary third party solvers. In that configuration, the protocol operated solver may be treated as not liquidatable in the conventional account level sense. That does not mean users are ignored; it means the shortfall is handled through protocol level buffers, insurance, ADL, and ultimately system level settlement if every layer is exhausted. The publication safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit default payout narrative. Third Party Solver Continuity For third party solver defa"
+    },
+    {
+      "id": "authored-solver-engine-operating-loop",
+      "title": "Solver Engine Operating Loop",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-solver-layer-off-chain",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-6-graduation-engine"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-3-solver-layer-off-chain",
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-6-position-lifecycle"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/solver-engine-operating-loop.md",
+      "bodyMarkdown": "# Solver Engine Operating Loop\n\nThe solver layer in Neelo's architecture is not a single quote service. It is an operating loop: quote, risk-check, match, liquidate, hedge, and graduate. That is why the source treats the solver as infrastructure rather than customer-support automation.\n\nThe quote engine starts from oracle price, current inventory, market volatility, utilization, and maturity. The risk engine constrains position size, margin, and exposure. The match engine looks for natural counterparties as markets mature, then falls back to the solver when two-sided flow is not ready. Liquidation and hedging engines keep the solver from becoming an unbounded residual risk sink. The graduation engine watches whether the market has earned a deeper execution layer.\n\n## Why The Loop Matters\n\nLong-tail markets do not fail only because no one can click \"list.\" They fail when the first trade has no credible counterparty, the second trade has no risk budget, and the tenth trade has no path to better liquidity. The solver operating loop is the bridge across those states.\n\nThat is also why the docs should distinguish solver operation from solver omnipotence. The source gives the solver many responsibilities, but it also frames those responsibilities as bounded by collateral, oracle-derived pricing, position limits, and settlement verification.\n\n## Publication Boundary\n\nThe source includes model formulas for spreads, position limits, margin requirements, liquidation checks, and graduation criteria. Those should remain illustrative until live parameters, thresholds, venues, and operator policies are confirmed. The publication-ready claim is the operating loop, not any specific number inside it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.3 Solver Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.3.6 Graduation Engine\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-residual-counterparty-hedge-first`\n- `authored-z-score-graduation-criteria`",
+      "excerpt": "Solver Engine Operating Loop The solver layer in Neelo's architecture is not a single quote service. It is an operating loop: quote, risk check, match, liquidate, hedge, and graduate. That is why the source treats the solver as infrastructure rather than customer support automation. The quote engine starts from oracle price, current inventory, market volatility, utilization, and maturity. The risk engine constrains position size, margin, and exposure. The match engine looks for natural counterparties as markets mature, then falls back to the solver when two sided flow is not ready. Liquidation and hedging engines keep the solver from becoming an unbounded residual risk sink. The graduation engine watches whether the market has earned a deeper execution layer. Why The Loop Matters Long tail markets do not fail only because no one can click \"list.\" They fail when the first trade has no credible counterparty, the second trade has no risk budget, and the tenth trade has no path to better liquidity. The solver operating loop is the bridge across those states. That is also why the docs should distinguish solver operation from solver omnipotence. The source gives the solver many responsib"
     },
     {
       "id": "authored-solver-event-monitoring",

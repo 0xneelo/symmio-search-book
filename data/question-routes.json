@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 136,
+  "totalRoutes": 141,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 68,
+    "Medium": 69,
     "High": 18,
-    "Low": 50
+    "Low": 54
   },
   "byRouteSource": {
-    "authored": 136
+    "authored": 141
   },
   "answerable": [
     {
@@ -729,6 +729,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's framework defines matching architecture, collateralization architecture, and insurance topology.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-state-must-settle-on-chain-in-vibe-s-architecture",
+      "question": "What state must settle on-chain in Vibe's architecture?",
+      "normalizedQuestion": "what state must settle on chain in vibe s architecture",
+      "pageId": "authored-settlement-state-boundary",
+      "pageTitle": "Settlement State Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's technical model separates durable financial state from solver-managed operational calculations; final contract details need implementation confirmation.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-engines-make-up-the-solver-operating-loop",
+      "question": "What engines make up the solver operating loop?",
+      "normalizedQuestion": "what engines make up the solver operating loop",
+      "pageId": "authored-solver-engine-operating-loop",
+      "pageTitle": "Solver Engine Operating Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's technical deep-dive describes quote, risk, match, liquidation, hedging, and graduation engines as a model; live thresholds need review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-should-bootstrap-markets-handle-oracle-risk",
+      "question": "How should bootstrap markets handle oracle risk?",
+      "normalizedQuestion": "how should bootstrap markets handle oracle risk",
+      "pageId": "authored-bootstrap-oracle-risk-tiers",
+      "pageTitle": "Bootstrap Oracle Risk Tiers",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's oracle section supports tiering capacity by feed quality; exact vendors, freshness targets, leverage, and OI limits are not final product claims.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-position-lifecycle-in-the-technical-model",
+      "question": "What is the position lifecycle in the technical model?",
+      "normalizedQuestion": "what is the position lifecycle in the technical model",
+      "pageId": "authored-position-lifecycle-state-machine",
+      "pageTitle": "Position Lifecycle State Machine",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's technical model traces validation, quote, execution, margin, funding, close, and solver updates; production formulas need implementation confirmation.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-vibe-hard-for-competitors-to-copy",
+      "question": "Why is Vibe hard for competitors to copy?",
+      "normalizedQuestion": "why is vibe hard for competitors to copy",
+      "pageId": "authored-replication-barriers-and-data-moats",
+      "pageTitle": "Replication Barriers And Data Moats",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's competitive analysis points to architectural lock-in, solver complexity, capital-efficiency traps, and data network effects while avoiding monopoly guarantees.",
       "sourceKeys": [
         "vibe-papers"
       ],

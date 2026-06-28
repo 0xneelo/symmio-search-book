@@ -479,3 +479,11 @@
 **Reason:** The final compendium must explain revenue, rewards, referrals, Vibe points, and pre-TGE accounting without overstating unresolved economics. This layer lets the docs teach the architecture and integrity model now while keeping final TGE weighting, transferability, pack/artifact policy, referral depth, and third-party derivative scenarios under owner review.
 
 **Status:** Accepted for the authored rewards/referrals layer.
+
+## D-061: Make The Technical Moat Legible Without Freezing Parameters
+
+**Decision:** Add authored Volume 05 and Volume 02 pages from Neelo's technical deep-dive and competitive-analysis corpus that explain the settlement state boundary, solver engine operating loop, bootstrap oracle risk tiers, position lifecycle state machine, and replication barriers/data moats.
+
+**Reason:** The compendium needs to show how the vision becomes an operating system, not only why the category matters. These pages translate raw technical draft sections into publication-candidate explanations while keeping exact contract interfaces, oracle thresholds, solver policies, funding formulas, graduation parameters, and monopoly claims under implementation/operator review.
+
+**Status:** Accepted for the authored manifesto layer.
