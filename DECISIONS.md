@@ -847,3 +847,11 @@
 **Reason:** The broad token-LP attractiveness page explains the thesis, but project and LP diligence readers need exact routes for the capital-structure split: what LP deposits do at launch, who funds the stablecoin side, why outside USDC LPs are expensive, why token holders are naturally aligned inventory providers, and how projects can support a market without first spending stablecoins.
 
 **Status:** Accepted for the authored protocol-reference layer; live vault terms, revenue-share percentages, partner/deposit traction, stablecoin balances, solver accounting, withdrawal rights, and LP loss-ordering remain operator/accounting/legal/implementation review.
+
+## D-107: Split DDQ Hedging Risk Into Exact Solver-Control Answers
+
+**Decision:** Add authored protocol-reference pages for the VibeCaps hedge-first requirement, soft quote and last-look risk gating, liquidity-collapse freeze logic, discontinuous-outcome market guardrails, and strategic unhedged exposure boundaries.
+
+**Reason:** The broad solver-hedging failure page explains the overall risk model, but diligence readers need exact routes for why low-cap markets are hedge-first, how the RFQ/intent structure avoids forced unhedgeable fills, what a liquidity collapse changes, why discontinuous markets need mode switches, and when unhedged solver exposure is a strategic maturity choice rather than a failure.
+
+**Status:** Accepted for the authored protocol-reference layer; live hedge tests, quote-validity behavior, liquidity thresholds, market-freeze rules, discontinuity support, solver inventory limits, and maturity criteria remain operator/implementation/legal review.

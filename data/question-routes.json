@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 322,
+  "totalRoutes": 327,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 141
+    "Low": 146
   },
   "byRouteSource": {
-    "authored": 322
+    "authored": 327
   },
   "answerable": [
     {
@@ -4765,6 +4765,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo DDQ sources describe constrained hedging, refusal/tightening/freezing paths, and strategic unhedged exposure caveats.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-vibecaps-hedge-first-requirement",
+      "question": "What is the VibeCaps hedge-first requirement?",
+      "normalizedQuestion": "what is the vibecaps hedge first requirement",
+      "pageId": "authored-vibecap-hedge-first-requirement",
+      "pageTitle": "VibeCaps Hedge-First Requirement",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ treats low-cap permissionless markets as hedge-first by default because the solver should back or hedge residual exposure before acceptance.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-last-look-reduce-unhedgeable-fills",
+      "question": "How does last look reduce unhedgeable fills?",
+      "normalizedQuestion": "how does last look reduce unhedgeable fills",
+      "pageId": "authored-soft-quote-last-look-risk-gating",
+      "pageTitle": "Soft Quote And Last-Look Risk Gating",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says the intent/RFQ soft-quote structure lets the solver gate risk inside user bounds before final commitment.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-a-liquidity-collapse-freeze-trigger",
+      "question": "What is a liquidity-collapse freeze trigger?",
+      "normalizedQuestion": "what is a liquidity collapse freeze trigger",
+      "pageId": "authored-liquidity-collapse-freeze-logic",
+      "pageTitle": "Liquidity-Collapse Freeze Logic",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ uses liquidity-collapse logic as an illustrative guardrail for freezing and orderly shutdown when normal hedging is no longer feasible.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-discontinuous-markets-need-explicit-guardrails",
+      "question": "Why do discontinuous markets need explicit guardrails?",
+      "normalizedQuestion": "why do discontinuous markets need explicit guardrails",
+      "pageId": "authored-discontinuous-outcome-market-guardrails",
+      "pageTitle": "Discontinuous-Outcome Market Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ links liquidity-integrity checks to markets with rug, regime-shift, or prediction-like discontinuity risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-can-a-solver-stay-strategically-unhedged",
+      "question": "When can a solver stay strategically unhedged?",
+      "normalizedQuestion": "when can a solver stay strategically unhedged",
+      "pageId": "authored-strategic-unhedged-exposure-boundary",
+      "pageTitle": "Strategic Unhedged Exposure Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ separates limited strategic warehouse risk in mature markets from failure to hedge fragile VibeCaps.",
       "sourceKeys": [
         "vibe-papers"
       ],

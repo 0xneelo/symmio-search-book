@@ -640,6 +640,12 @@
 - Routed five new Ask questions so LP, project, and solver readers can inspect the source model's capital-structure split beneath the broad token-LP attractiveness answer.
 - Kept live vault terms, revenue-share percentages, partner/deposit traction, stablecoin balances, solver accounting, withdrawal rights, and LP loss-ordering under operator/accounting/legal/implementation review.
 
+## 2026-06-29 — DDQ Hedging-Risk Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ Solver Hedging Risk Considerations source: VibeCaps hedge-first requirements, soft quote and last-look risk gating, liquidity-collapse freeze logic, discontinuous-outcome market guardrails, and strategic unhedged exposure boundaries.
+- Routed five new Ask questions so trader, LP, solver, and risk-review readers can inspect the control surfaces beneath the broad "what if the solver cannot hedge?" answer.
+- Kept live hedge tests, quote-validity behavior, liquidity thresholds, market-freeze rules, discontinuity support, solver inventory limits, and maturity criteria under operator/implementation/legal review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

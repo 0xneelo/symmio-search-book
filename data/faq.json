@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 329,
-  "totalAnswerable": 322,
+  "totalEntries": 334,
+  "totalAnswerable": 327,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 85,
+    "Solvers And Settlement": 90,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 141
+    "Low": 146
   },
   "byRouteSource": {
-    "authored": 322
+    "authored": 327
   },
   "byType": {
-    "answerable": 322,
+    "answerable": 327,
     "reconciliation": 7
   },
   "answerable": [
@@ -9295,6 +9295,151 @@
       "confidence": "Low",
       "pageId": "authored-solver-hedging-failure-modes",
       "pageTitle": "Solver Hedging Failure Modes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-vibecaps-hedge-first-requirement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the VibeCaps hedge-first requirement?",
+      "normalizedQuestion": "what is the vibecaps hedge first requirement",
+      "shortAnswer": "Neelo's DDQ treats low-cap permissionless markets as hedge-first by default because the solver should back or hedge residual exposure before acceptance.",
+      "answerSummary": "VibeCaps Hedge First Requirement The DDQ hedging risk source is explicit about low cap, newly listed assets: the solver should hedge or fully back residual exposure before accepting the trade. That requirement is stricter than a generic \"solver manages risk\" claim. In VibeCaps style markets, liquidity can be thin, manipulation risk can be high, and an ext...",
+      "confidence": "Low",
+      "pageId": "authored-vibecap-hedge-first-requirement",
+      "pageTitle": "VibeCaps Hedge-First Requirement",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-last-look-reduce-unhedgeable-fills",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does last look reduce unhedgeable fills?",
+      "normalizedQuestion": "how does last look reduce unhedgeable fills",
+      "shortAnswer": "Neelo's DDQ says the intent/RFQ soft-quote structure lets the solver gate risk inside user bounds before final commitment.",
+      "answerSummary": "Soft Quote And Last Look Risk Gating The DDQ source says \"solver cannot hedge\" is often an order book framing problem. In a hard commit order book, a counterparty can be forced into execution at a price before its external hedge is complete. That creates latency and execution risk. Vibe's source model is different. Under the intent/RFQ flow, the user's re...",
+      "confidence": "Low",
+      "pageId": "authored-soft-quote-last-look-risk-gating",
+      "pageTitle": "Soft Quote And Last-Look Risk Gating",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-liquidity-collapse-freeze-trigger",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a liquidity-collapse freeze trigger?",
+      "normalizedQuestion": "what is a liquidity collapse freeze trigger",
+      "shortAnswer": "Neelo's DDQ uses liquidity-collapse logic as an illustrative guardrail for freezing and orderly shutdown when normal hedging is no longer feasible.",
+      "answerSummary": "Liquidity Collapse Freeze Logic The DDQ hedging risk source gives a simple example of a liquidity collapse trigger: if measurable available liquidity drops abruptly, the market can be frozen, positions can be settled under defined rules, and the market can be closed. The important claim is not the illustrative number in the source. The important claim is...",
+      "confidence": "Low",
+      "pageId": "authored-liquidity-collapse-freeze-logic",
+      "pageTitle": "Liquidity-Collapse Freeze Logic",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-discontinuous-markets-need-explicit-guardrails",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do discontinuous markets need explicit guardrails?",
+      "normalizedQuestion": "why do discontinuous markets need explicit guardrails",
+      "shortAnswer": "Neelo's DDQ links liquidity-integrity checks to markets with rug, regime-shift, or prediction-like discontinuity risk.",
+      "answerSummary": "Discontinuous Outcome Market Guardrails The DDQ hedging risk source connects liquidity integrity to markets with discontinuous outcomes. Some markets do not deteriorate smoothly. Liquidity can vanish, price regimes can jump, and the reference state can change faster than ordinary hedging or liquidation can clear. That matters for prediction like markets,...",
+      "confidence": "Low",
+      "pageId": "authored-discontinuous-outcome-market-guardrails",
+      "pageTitle": "Discontinuous-Outcome Market Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-a-solver-stay-strategically-unhedged",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can a solver stay strategically unhedged?",
+      "normalizedQuestion": "when can a solver stay strategically unhedged",
+      "shortAnswer": "Neelo's DDQ separates limited strategic warehouse risk in mature markets from failure to hedge fragile VibeCaps.",
+      "answerSummary": "Strategic Unhedged Exposure Boundary The DDQ source separates two ideas that should not be collapsed: a solver failing to hedge, and a solver intentionally carrying limited exposure. Failure means the solver is trapped in risk it cannot safely back, price, or unwind. Strategic unhedged exposure means the solver chooses, inside defined limits, to warehouse...",
+      "confidence": "Low",
+      "pageId": "authored-strategic-unhedged-exposure-boundary",
+      "pageTitle": "Strategic Unhedged Exposure Boundary",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -20493,6 +20638,151 @@
       "confidence": "Low",
       "pageId": "authored-solver-hedging-failure-modes",
       "pageTitle": "Solver Hedging Failure Modes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-vibecaps-hedge-first-requirement",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the VibeCaps hedge-first requirement?",
+      "normalizedQuestion": "what is the vibecaps hedge first requirement",
+      "shortAnswer": "Neelo's DDQ treats low-cap permissionless markets as hedge-first by default because the solver should back or hedge residual exposure before acceptance.",
+      "answerSummary": "VibeCaps Hedge First Requirement The DDQ hedging risk source is explicit about low cap, newly listed assets: the solver should hedge or fully back residual exposure before accepting the trade. That requirement is stricter than a generic \"solver manages risk\" claim. In VibeCaps style markets, liquidity can be thin, manipulation risk can be high, and an ext...",
+      "confidence": "Low",
+      "pageId": "authored-vibecap-hedge-first-requirement",
+      "pageTitle": "VibeCaps Hedge-First Requirement",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-last-look-reduce-unhedgeable-fills",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does last look reduce unhedgeable fills?",
+      "normalizedQuestion": "how does last look reduce unhedgeable fills",
+      "shortAnswer": "Neelo's DDQ says the intent/RFQ soft-quote structure lets the solver gate risk inside user bounds before final commitment.",
+      "answerSummary": "Soft Quote And Last Look Risk Gating The DDQ source says \"solver cannot hedge\" is often an order book framing problem. In a hard commit order book, a counterparty can be forced into execution at a price before its external hedge is complete. That creates latency and execution risk. Vibe's source model is different. Under the intent/RFQ flow, the user's re...",
+      "confidence": "Low",
+      "pageId": "authored-soft-quote-last-look-risk-gating",
+      "pageTitle": "Soft Quote And Last-Look Risk Gating",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-liquidity-collapse-freeze-trigger",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a liquidity-collapse freeze trigger?",
+      "normalizedQuestion": "what is a liquidity collapse freeze trigger",
+      "shortAnswer": "Neelo's DDQ uses liquidity-collapse logic as an illustrative guardrail for freezing and orderly shutdown when normal hedging is no longer feasible.",
+      "answerSummary": "Liquidity Collapse Freeze Logic The DDQ hedging risk source gives a simple example of a liquidity collapse trigger: if measurable available liquidity drops abruptly, the market can be frozen, positions can be settled under defined rules, and the market can be closed. The important claim is not the illustrative number in the source. The important claim is...",
+      "confidence": "Low",
+      "pageId": "authored-liquidity-collapse-freeze-logic",
+      "pageTitle": "Liquidity-Collapse Freeze Logic",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-discontinuous-markets-need-explicit-guardrails",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do discontinuous markets need explicit guardrails?",
+      "normalizedQuestion": "why do discontinuous markets need explicit guardrails",
+      "shortAnswer": "Neelo's DDQ links liquidity-integrity checks to markets with rug, regime-shift, or prediction-like discontinuity risk.",
+      "answerSummary": "Discontinuous Outcome Market Guardrails The DDQ hedging risk source connects liquidity integrity to markets with discontinuous outcomes. Some markets do not deteriorate smoothly. Liquidity can vanish, price regimes can jump, and the reference state can change faster than ordinary hedging or liquidation can clear. That matters for prediction like markets,...",
+      "confidence": "Low",
+      "pageId": "authored-discontinuous-outcome-market-guardrails",
+      "pageTitle": "Discontinuous-Outcome Market Guardrails",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-a-solver-stay-strategically-unhedged",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can a solver stay strategically unhedged?",
+      "normalizedQuestion": "when can a solver stay strategically unhedged",
+      "shortAnswer": "Neelo's DDQ separates limited strategic warehouse risk in mature markets from failure to hedge fragile VibeCaps.",
+      "answerSummary": "Strategic Unhedged Exposure Boundary The DDQ source separates two ideas that should not be collapsed: a solver failing to hedge, and a solver intentionally carrying limited exposure. Failure means the solver is trapped in risk it cannot safely back, price, or unwind. Strategic unhedged exposure means the solver chooses, inside defined limits, to warehouse...",
+      "confidence": "Low",
+      "pageId": "authored-strategic-unhedged-exposure-boundary",
+      "pageTitle": "Strategic Unhedged Exposure Boundary",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 322
+      "totalGoldenRoutes": 327
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 340,
-    "retrievalEligiblePages": 1132,
+    "publicNavigationPages": 345,
+    "retrievalEligiblePages": 1137,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 340,
+      "candidate": 345,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 322,
-    "exactRouteTestsPassing": 322,
+    "totalExactRouteTests": 327,
+    "exactRouteTestsPassing": 327,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 322
+      "candidate": 327
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 141
+      "Low": 146
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6196,6 +6196,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-is-the-vibecaps-hedge-first-requirement",
+        "query": "What is the VibeCaps hedge-first requirement?",
+        "normalizedQuery": "what is the vibecaps hedge first requirement",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibecap-hedge-first-requirement",
+        "expectedPageTitle": "VibeCaps Hedge-First Requirement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-vibecaps-hedge-first-requirement",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-last-look-reduce-unhedgeable-fills",
+        "query": "How does last look reduce unhedgeable fills?",
+        "normalizedQuery": "how does last look reduce unhedgeable fills",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-soft-quote-last-look-risk-gating",
+        "expectedPageTitle": "Soft Quote And Last-Look Risk Gating",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-last-look-reduce-unhedgeable-fills",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-a-liquidity-collapse-freeze-trigger",
+        "query": "What is a liquidity-collapse freeze trigger?",
+        "normalizedQuery": "what is a liquidity collapse freeze trigger",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-liquidity-collapse-freeze-logic",
+        "expectedPageTitle": "Liquidity-Collapse Freeze Logic",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-a-liquidity-collapse-freeze-trigger",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-discontinuous-markets-need-explicit-guardrails",
+        "query": "Why do discontinuous markets need explicit guardrails?",
+        "normalizedQuery": "why do discontinuous markets need explicit guardrails",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-discontinuous-outcome-market-guardrails",
+        "expectedPageTitle": "Discontinuous-Outcome Market Guardrails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-discontinuous-markets-need-explicit-guardrails",
+        "passes": true
+      },
+      {
+        "id": "qr-when-can-a-solver-stay-strategically-unhedged",
+        "query": "When can a solver stay strategically unhedged?",
+        "normalizedQuery": "when can a solver stay strategically unhedged",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-unhedged-exposure-boundary",
+        "expectedPageTitle": "Strategic Unhedged Exposure Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-can-a-solver-stay-strategically-unhedged",
+        "passes": true
+      },
+      {
         "id": "qr-what-happens-if-a-solver-goes-offline",
         "query": "What happens if a solver goes offline?",
         "normalizedQuery": "what happens if a solver goes offline",
@@ -7392,7 +7497,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 322,
+      "exactRoutes": 327,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
