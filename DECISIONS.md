@@ -151,3 +151,11 @@
 **Reason:** The spec and mockup require a glossary, but glossary copy easily drifts when it is embedded only in pages or UI. A generated glossary gives the answer engine concise definitions while the audit catches broken source/page routes.
 
 **Status:** Accepted for prototype iteration.
+
+## D-020: Render Citations From A Source Catalog
+
+**Decision:** Generate `data/source-catalog.*` from `SOURCES.md`, audit it against used source keys, and render answer/page citations through that catalog.
+
+**Reason:** The compendium requires every claim to be traceable to primary sources. Bare source-key chips are useful for debugging but not sufficient for readers; a source catalog keeps labels, links, groups, and use notes in one maintained place.
+
+**Status:** Accepted for prototype iteration.

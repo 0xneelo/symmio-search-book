@@ -91,6 +91,13 @@
 - Updated Ask routing to use glossary definitions after seeded question routes and before fuzzy corpus search.
 - Extended the quality audit with a glossary-route gate; current result is 10 of 12 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Source Catalog Citations
+
+- Added `scripts/build-source-catalog.mjs` and generated `data/source-catalog.json` plus `data/source-catalog.js` from `SOURCES.md`.
+- Validated 51 registered source keys across 7 registry groups and 5 source kinds; 45 entries carry direct browser links to public URLs or repo-local files.
+- Updated Ask answers and page-reader source chips to use the generated catalog for citation links and source-use labels instead of bare source keys only.
+- Extended the quality audit with a source-catalog gate; current result is 11 of 13 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

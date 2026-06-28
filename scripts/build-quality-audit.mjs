@@ -15,6 +15,7 @@ const defaults = {
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
+  sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
@@ -162,6 +163,9 @@ const questionRoutes = fs.existsSync(args.questionRoutes)
 const glossary = fs.existsSync(args.glossary)
   ? readJson(args.glossary)
   : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
+const sourceCatalog = fs.existsSync(args.sourceCatalog)
+  ? readJson(args.sourceCatalog)
+  : { sources: [], sourceByKey: {}, totalSources: 0, duplicateKeys: [], byGroup: {}, byKind: {} };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
@@ -174,6 +178,10 @@ const authoredPages = authored.pages || [];
 const knownSourceKeys = new Set(sourceRegistryKeys(registryMarkdown));
 const usedSourceKeys = uniqueSourceKeys(manifestPages, searchIndex, authoredPages);
 const unknownUsedSourceKeys = usedSourceKeys.filter((key) => !knownSourceKeys.has(key));
+const sourceCatalogKeys = Object.keys(sourceCatalog.sourceByKey || {}).sort((a, b) => a.localeCompare(b));
+const usedKeysMissingCatalog = usedSourceKeys.filter((key) => !sourceCatalogKeys.includes(key));
+const registryKeysMissingCatalog = [...knownSourceKeys].filter((key) => !sourceCatalogKeys.includes(key));
+const catalogKeysMissingRegistry = sourceCatalogKeys.filter((key) => !knownSourceKeys.has(key));
 const unusedRegisteredSourceKeys = [...knownSourceKeys].filter((key) => !usedSourceKeys.includes(key));
 const generatedFiles = listMarkdownFiles(args.generatedDir).length;
 const authoredFiles = listMarkdownFiles(args.authoredDir).length;
@@ -233,6 +241,17 @@ const gates = [
     label: "Registered source-key coverage",
     passed: unknownUsedSourceKeys.length === 0 && manifestCoverage.missingSourceKeys.length === 0 && searchCoverage.missingSourceKeys.length === 0 && authoredCoverage.missingSourceKeys.length === 0,
     detail: `${usedSourceKeys.length} used keys, ${knownSourceKeys.size} registered keys, ${unknownUsedSourceKeys.length} unknown used keys`,
+  },
+  {
+    id: "source-catalog",
+    label: "Source catalog matches registry",
+    passed:
+      (sourceCatalog.totalSources || 0) === knownSourceKeys.size &&
+      !(sourceCatalog.duplicateKeys || []).length &&
+      usedKeysMissingCatalog.length === 0 &&
+      registryKeysMissingCatalog.length === 0 &&
+      catalogKeysMissingRegistry.length === 0,
+    detail: `${sourceCatalog.totalSources || 0} catalog sources, ${knownSourceKeys.size} registry keys, ${usedKeysMissingCatalog.length} used keys missing catalog`,
   },
   {
     id: "source-urls",
@@ -301,6 +320,8 @@ const payload = {
     seededReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
     glossaryTerms: glossary.totalTerms || 0,
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
+    sourceCatalogEntries: sourceCatalog.totalSources || 0,
+    linkedSourceCatalogEntries: (sourceCatalog.sources || []).filter((source) => source.href).length,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -327,6 +348,15 @@ const payload = {
     usedSourceKeys,
     unknownUsedSourceKeys,
     unusedRegisteredSourceKeys,
+  },
+  sourceCatalogCoverage: {
+    totalSources: sourceCatalog.totalSources || 0,
+    linkedSources: (sourceCatalog.sources || []).filter((source) => source.href).length,
+    byGroup: sourceCatalog.byGroup || {},
+    byKind: sourceCatalog.byKind || {},
+    usedKeysMissingCatalog,
+    registryKeysMissingCatalog,
+    catalogKeysMissingRegistry,
   },
   journeyCoverage: {
     totalJourneys: journeys.totalJourneys || 0,
@@ -355,6 +385,9 @@ const payload = {
     questionRouteMissingIds,
     glossaryMissingPageIds,
     glossaryMissingSourceKeys,
+    usedKeysMissingCatalog,
+    registryKeysMissingCatalog,
+    catalogKeysMissingRegistry,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

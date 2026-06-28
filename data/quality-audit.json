@@ -15,6 +15,8 @@
     "seededReconciliationQuestions": 7,
     "glossaryTerms": 32,
     "glossaryCategories": 10,
+    "sourceCatalogEntries": 51,
+    "linkedSourceCatalogEntries": 45,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
@@ -47,6 +49,12 @@
       "label": "Registered source-key coverage",
       "passed": true,
       "detail": "38 used keys, 51 registered keys, 0 unknown used keys"
+    },
+    {
+      "id": "source-catalog",
+      "label": "Source catalog matches registry",
+      "passed": true,
+      "detail": "51 catalog sources, 51 registry keys, 0 used keys missing catalog"
     },
     {
       "id": "source-urls",
@@ -243,6 +251,29 @@
       "vibe-papers-site"
     ]
   },
+  "sourceCatalogCoverage": {
+    "totalSources": 51,
+    "linkedSources": 45,
+    "byGroup": {
+      "Authored Publication Candidates": 2,
+      "Local Product And Code": 16,
+      "Competitive Context": 2,
+      "Local Specs": 12,
+      "Public Symmio Sources": 5,
+      "Linear Research": 5,
+      "Public Vibe Sources": 9
+    },
+    "byKind": {
+      "repo-local": 28,
+      "repo-pattern": 1,
+      "public-url": 15,
+      "absolute-local": 2,
+      "linear": 5
+    },
+    "usedKeysMissingCatalog": [],
+    "registryKeysMissingCatalog": [],
+    "catalogKeysMissingRegistry": []
+  },
   "journeyCoverage": {
     "totalJourneys": 6,
     "totalSteps": 38,
@@ -423,6 +454,9 @@
     "questionRouteMissingIds": [],
     "glossaryMissingPageIds": [],
     "glossaryMissingSourceKeys": [],
+    "usedKeysMissingCatalog": [],
+    "registryKeysMissingCatalog": [],
+    "catalogKeysMissingRegistry": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",

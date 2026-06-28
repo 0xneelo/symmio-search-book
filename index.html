@@ -11,6 +11,7 @@
     <script src="./data/journeys.js"></script>
     <script src="./data/question-routes.js"></script>
     <script src="./data/glossary.js"></script>
+    <script src="./data/source-catalog.js"></script>
     <script src="./data/quality-audit.js"></script>
     <style>
       :root {
@@ -958,7 +959,9 @@
       const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
+      const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
+      const sourceByKey = sourceCatalog.sourceByKey || {};
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -1161,10 +1164,24 @@
         return best && best.score > 0 ? best : { page: null, score: 0 };
       }
 
+      function sourceForKey(sourceKey) {
+        return sourceByKey[sourceKey] || null;
+      }
+
+      function sourceChipForKey(sourceKey) {
+        const source = sourceForKey(sourceKey);
+        const label = source ? source.key : sourceKey;
+        const meta = source ? `${source.group} / ${source.use}` : "unregistered source key";
+        if (source?.href) {
+          return `<a class="source-chip" href="${escapeHtml(source.href)}" title="${escapeHtml(meta)}">${escapeHtml(label)}</a>`;
+        }
+        return `<span class="source-chip" title="${escapeHtml(meta)}">${escapeHtml(label)}</span>`;
+      }
+
       function sourceChips(page) {
         return (page.sources || page.sourceKeys || [])
           .slice(0, 5)
-          .map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`)
+          .map((source) => sourceChipForKey(source))
           .join("");
       }
 
@@ -1306,6 +1323,7 @@
           ${page.gap ? `<p><strong>Gap:</strong> ${escapeHtml(page.gap)}</p>` : ""}
           <div class="source-row">
             ${sourceChips(page)}
+            ${sourceUrlChips(page)}
           </div>
           <div class="rating">
             <button type="button" data-rate="yes" data-event="${escapeHtml(eventId)}">Useful</button>
@@ -1636,6 +1654,7 @@
           <li><span class="meta">Guided journeys</span><br>${escapeHtml(totals.guidedJourneys || 0)} journeys, ${escapeHtml(totals.guidedJourneySteps || 0)} routed steps.</li>
           <li><span class="meta">Seeded question routes</span><br>${escapeHtml(totals.seededQuestionRoutes || 0)} answerable routes, ${escapeHtml(totals.seededReconciliationQuestions || 0)} reconciliation questions.</li>
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
+          <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>
