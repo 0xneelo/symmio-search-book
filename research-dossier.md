@@ -145,6 +145,14 @@ node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Webs
 
 The script expects a local clone of `0xneelo/vibe_docs` or another copy of its generated `docs-data.json`.
 
+Generated content corpus:
+
+```sh
+node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
+```
+
+This creates 794 draft files under `content/generated/` plus a compact `data/search-index.js` used by the static answer-engine prototype. The files are source-traceable drafts, not final edited publication pages.
+
 ## Open Operator Threads
 
 The current parked threads live in `_specs/app-docs/OPERATOR-INBOX.md`:

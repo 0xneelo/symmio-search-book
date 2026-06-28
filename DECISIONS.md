@@ -71,3 +71,11 @@
 **Reason:** The operator raised the scope from 100 pages to a 500-800 page compendium. Section expansion keeps the scale source-traceable instead of inventing placeholder pages.
 
 **Status:** Accepted.
+
+## D-010: Generate A Transparent Draft Corpus Before Editorial Rewrite
+
+**Decision:** Generate `content/generated/` from `page-manifest.json` as source-traceable draft material, not final publication copy.
+
+**Reason:** The compendium needs hundreds of cited pages. The safest next step is to surface every mapped page as a concrete draft with status frontmatter, source URLs, and extracted primary-source content where available. This gives future agents and editors real material to restructure without pretending companion pages or unresolved contradictions are complete.
+
+**Status:** Accepted for the build pipeline.

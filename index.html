@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe x Symmio Search Book Prototype</title>
     <script src="./answer-corpus.js"></script>
+    <script src="./data/search-index.js"></script>
     <style>
       :root {
         color-scheme: dark;
@@ -591,6 +592,14 @@
 
     <script>
       const corpus = window.SearchBookCorpus;
+      const fullIndex = (window.SearchBookIndex || []).map((page) => ({
+        ...page,
+        summary: page.excerpt,
+        sources: page.sourceKeys || [],
+        route: page.file,
+        keywords: [page.title, page.section, page.track, page.excerpt, (page.sourceKeys || []).join(" ")].join(" ").split(/\s+/),
+      }));
+      const searchablePages = fullIndex.length ? fullIndex : corpus.pages;
       const variants = [
         { key: "classic", label: "A - Ask" },
         { key: "journey", label: "B - Journeys" },
@@ -634,12 +643,12 @@
 
       function scorePage(page, query) {
         const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-        const haystack = [page.title, page.section, page.summary, page.keywords.join(" ")].join(" ").toLowerCase();
+        const haystack = [page.title, page.section, page.summary || page.excerpt, (page.keywords || []).join(" ")].join(" ").toLowerCase();
         return words.reduce((score, word) => score + (haystack.includes(word) ? 1 : 0), 0);
       }
 
       function findAnswer(query) {
-        const ranked = corpus.pages
+        const ranked = searchablePages
           .map((page) => ({ page, score: scorePage(page, query) }))
           .sort((a, b) => b.score - a.score);
         return ranked[0] && ranked[0].score > 0 ? ranked[0].page : corpus.pages[0];
@@ -651,15 +660,15 @@
         box.innerHTML = `
           <div class="meta">${page.section} / routed answer</div>
           <h3>${page.title}</h3>
-          <p>${page.summary}</p>
+          <p>${page.summary || page.excerpt || ""}</p>
           ${page.gap ? `<p><strong>Gap:</strong> ${page.gap}</p>` : ""}
           <div class="source-row">
-            ${page.sources.map((source) => `<span class="source-chip">${source}</span>`).join("")}
+            ${(page.sources || page.sourceKeys || []).map((source) => `<span class="source-chip">${source}</span>`).join("")}
           </div>
           <div class="rating">
             <button type="button" data-rate="yes" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Useful</button>
             <button type="button" data-rate="no" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Needs work</button>
-            <a class="source-chip" href="${page.route}">Open route</a>
+            <a class="source-chip" href="${page.route || page.file || "#"}">Open route</a>
           </div>
         `;
       }
@@ -795,4 +804,3 @@
     </script>
   </body>
 </html>
-
