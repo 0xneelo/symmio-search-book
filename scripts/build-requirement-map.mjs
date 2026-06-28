@@ -20,6 +20,7 @@ const defaults = {
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  sourceIngestion: path.join(searchBookRoot, "data", "source-ingestion.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
@@ -94,6 +95,7 @@ const gapQueue = readJson(args.gapQueue, { totalItems: 0, totalOperatorSignals: 
 const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0, pagesMissingChunks: [], unknownSourceKeys: [] });
 const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
 const sourceCatalog = readJson(args.sourceCatalog, { totalSources: 0, duplicateKeys: [], sources: [] });
+const sourceIngestion = readJson(args.sourceIngestion, { totalSourceRequirements: 0, byStatus: {}, sourceCompletionReady: false, missingSourceFamilies: [] });
 const crosslinks = readJson(args.crosslinks, { totalPages: 0, missingExplicitRelatedPageIds: [] });
 const openInboxItems = parseOpenInboxItems(readText(args.inbox));
 const finalReportExists = fs.existsSync(args.finalReport);
@@ -101,6 +103,15 @@ const authoredSections = authored.bySection || countBy(authored.pages || [], (pa
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = (manifest.pages || []).length >= 500 && (manifest.pages || []).length <= 800;
+const sourceIngestionOpenBlocks = [
+  ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
+  ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
+];
+const sourceIngestionIncomplete =
+  !sourceIngestion.sourceCompletionReady ||
+  (sourceIngestion.byStatus?.missing || 0) > 0 ||
+  (sourceIngestion.byStatus?.partial || 0) > 0 ||
+  (sourceIngestion.byStatus?.parked || 0) > 0;
 
 const requirements = [
   req({
@@ -208,11 +219,20 @@ const requirements = [
   req({
     id: "source-traceability",
     label: "Every claim traceable to primary sources",
-    status: sourceCatalog.totalSources >= 50 && !(sourceCatalog.duplicateKeys || []).length ? "complete" : "partial",
+    status:
+      sourceCatalog.totalSources >= 50 &&
+      !(sourceCatalog.duplicateKeys || []).length &&
+      (sourceIngestion.totalSourceRequirements || 0) >= 12 &&
+      !sourceIngestionIncomplete
+        ? "complete"
+        : sourceIngestionOpenBlocks.length
+          ? "parked"
+          : "partial",
     category: "sourcing",
     sourceSpecs: ["01", "04", "07", "08"],
-    evidence: `${sourceCatalog.totalSources || 0} registered sources; ${answerChunks.usedSourceKeys?.length || 0} source keys used in retrieval chunks; no unknown chunk source keys`,
-    nextAction: "Continue source audits as authored pages replace generated drafts.",
+    evidence: `${sourceCatalog.totalSources || 0} registered sources; ${answerChunks.usedSourceKeys?.length || 0} source keys used in retrieval chunks; source-ingestion coverage ${sourceIngestion.byStatus?.complete || 0}/${sourceIngestion.totalSourceRequirements || 0} complete, ${sourceIngestion.byStatus?.partial || 0} partial, ${sourceIngestion.byStatus?.parked || 0} parked, ${sourceIngestion.byStatus?.missing || 0} missing`,
+    blocks: sourceIngestionOpenBlocks,
+    nextAction: "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
   }),
   req({
     id: "phase-zero-platform",

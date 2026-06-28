@@ -223,3 +223,11 @@
 **Reason:** The operator identified Neelo's GitHub docs as the strongest vision source. The 794-page manifest already preserves breadth; the next quality gain is authored synthesis around the core market-architecture thesis so the compendium reads like a book rather than a generated source dump.
 
 **Status:** Accepted for the authored layer.
+
+## D-029: Track Required Source Families Separately From Registered Citations
+
+**Decision:** Generate `data/source-ingestion.*` from the spec-required source families and current `SOURCES.md`, then feed it into the audit and requirement coverage.
+
+**Reason:** A claim can be properly cited to registered sources while the overall research mandate still has unmined source families. The compendium needs both citation integrity and ingestion completeness, especially for parked sources such as Discord and the Vibe Trading Notion.
+
+**Status:** Accepted for research completeness tracking.

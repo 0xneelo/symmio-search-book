@@ -71,3 +71,9 @@ Terms like VibeCaps, network revenue, referral commission, Vibe points, trading 
 The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.
 
 **Needed:** Platform decision and implementation plan.
+
+## G-011: Vibe Trading Notion Is Not Ingested
+
+The source spec names the Vibe Trading Notion workspace as a required working source. This repository has public Vibe docs, Neelo's GitHub corpus, local code, and Linear-derived facts, but no Notion export or readable local copy.
+
+**Needed:** Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.

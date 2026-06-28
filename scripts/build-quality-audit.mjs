@@ -21,6 +21,7 @@ const defaults = {
   requirementMap: path.join(searchBookRoot, "data", "requirement-map.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  sourceIngestion: path.join(searchBookRoot, "data", "source-ingestion.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
@@ -187,6 +188,9 @@ const glossary = fs.existsSync(args.glossary)
 const sourceCatalog = fs.existsSync(args.sourceCatalog)
   ? readJson(args.sourceCatalog)
   : { sources: [], sourceByKey: {}, totalSources: 0, duplicateKeys: [], byGroup: {}, byKind: {} };
+const sourceIngestion = fs.existsSync(args.sourceIngestion)
+  ? readJson(args.sourceIngestion)
+  : { totalSourceRequirements: 0, byStatus: {}, byCategory: {}, sourceCompletionReady: false, duplicateRequirementIds: [], invalidParkedRequirements: [], requirements: [], missingSourceFamilies: [] };
 const crosslinks = fs.existsSync(args.crosslinks)
   ? readJson(args.crosslinks)
   : { totalPages: 0, pagesWithPrevious: 0, pagesWithNext: 0, pagesWithRelated: 0, missingExplicitRelatedPageIds: [], duplicatePageIds: [], pageById: {} };
@@ -203,6 +207,9 @@ const knownSourceKeys = new Set(sourceRegistryKeys(registryMarkdown));
 const usedSourceKeys = uniqueSourceKeys(manifestPages, searchIndex, authoredPages);
 const unknownUsedSourceKeys = usedSourceKeys.filter((key) => !knownSourceKeys.has(key));
 const sourceCatalogKeys = Object.keys(sourceCatalog.sourceByKey || {}).sort((a, b) => a.localeCompare(b));
+const sourceIngestionDuplicateIds = sourceIngestion.duplicateRequirementIds || [];
+const sourceIngestionInvalidParkedIds = sourceIngestion.invalidParkedRequirements || [];
+const sourceIngestionRequirementIds = new Set((sourceIngestion.requirements || []).map((requirement) => requirement.id));
 const usedKeysMissingCatalog = usedSourceKeys.filter((key) => !sourceCatalogKeys.includes(key));
 const registryKeysMissingCatalog = [...knownSourceKeys].filter((key) => !sourceCatalogKeys.includes(key));
 const catalogKeysMissingRegistry = sourceCatalogKeys.filter((key) => !knownSourceKeys.has(key));
@@ -312,6 +319,17 @@ const gates = [
       registryKeysMissingCatalog.length === 0 &&
       catalogKeysMissingRegistry.length === 0,
     detail: `${sourceCatalog.totalSources || 0} catalog sources, ${knownSourceKeys.size} registry keys, ${usedKeysMissingCatalog.length} used keys missing catalog`,
+  },
+  {
+    id: "source-ingestion",
+    label: "Required source families are ingested",
+    passed:
+      (sourceIngestion.totalSourceRequirements || 0) >= 12 &&
+      sourceIngestionRequirementIds.size === (sourceIngestion.totalSourceRequirements || 0) &&
+      sourceIngestionDuplicateIds.length === 0 &&
+      sourceIngestionInvalidParkedIds.length === 0 &&
+      sourceIngestion.sourceCompletionReady === true,
+    detail: `${sourceIngestion.byStatus?.complete || 0}/${sourceIngestion.totalSourceRequirements || 0} complete, ${sourceIngestion.byStatus?.partial || 0} partial, ${sourceIngestion.byStatus?.parked || 0} parked, ${sourceIngestion.byStatus?.missing || 0} missing`,
   },
   {
     id: "source-urls",
@@ -471,6 +489,12 @@ const payload = {
     glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceCatalogEntries: sourceCatalog.totalSources || 0,
     linkedSourceCatalogEntries: (sourceCatalog.sources || []).filter((source) => source.href).length,
+    sourceIngestionRequirements: sourceIngestion.totalSourceRequirements || 0,
+    sourceIngestionComplete: sourceIngestion.byStatus?.complete || 0,
+    sourceIngestionPartial: sourceIngestion.byStatus?.partial || 0,
+    sourceIngestionParked: sourceIngestion.byStatus?.parked || 0,
+    sourceIngestionMissing: sourceIngestion.byStatus?.missing || 0,
+    sourceIngestionReady: sourceIngestion.sourceCompletionReady || false,
     crosslinkedReaderPages: crosslinks.totalPages || 0,
     readerPagesWithPrevious: crosslinks.pagesWithPrevious || 0,
     readerPagesWithNext: crosslinks.pagesWithNext || 0,
@@ -524,6 +548,17 @@ const payload = {
     usedKeysMissingCatalog,
     registryKeysMissingCatalog,
     catalogKeysMissingRegistry,
+  },
+  sourceIngestionCoverage: {
+    status: sourceIngestion.status || "missing",
+    sourceCompletionReady: sourceIngestion.sourceCompletionReady || false,
+    totalSourceRequirements: sourceIngestion.totalSourceRequirements || 0,
+    byStatus: sourceIngestion.byStatus || {},
+    byCategory: sourceIngestion.byCategory || {},
+    openOperatorItems: sourceIngestion.openOperatorItems || [],
+    missingSourceFamilies: sourceIngestion.missingSourceFamilies || [],
+    duplicateRequirementIds: sourceIngestionDuplicateIds,
+    invalidParkedRequirements: sourceIngestionInvalidParkedIds,
   },
   journeyCoverage: {
     totalJourneys: journeys.totalJourneys || 0,
@@ -657,6 +692,9 @@ const payload = {
     usedKeysMissingCatalog,
     registryKeysMissingCatalog,
     catalogKeysMissingRegistry,
+    sourceIngestionDuplicateIds,
+    sourceIngestionInvalidParkedIds,
+    sourceIngestionMissingFamilies: sourceIngestion.missingSourceFamilies || [],
     crosslinkMissingExplicitRelatedPageIds: crosslinks.missingExplicitRelatedPageIds || [],
     readerIdsMissingCrosslinks,
     crosslinkIdsMissingReader,
@@ -686,6 +724,7 @@ const payload = {
   },
   nextAuditFocus: [
     "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
+    "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",

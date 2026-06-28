@@ -26,6 +26,12 @@
     "glossaryCategories": 10,
     "sourceCatalogEntries": 51,
     "linkedSourceCatalogEntries": 45,
+    "sourceIngestionRequirements": 16,
+    "sourceIngestionComplete": 7,
+    "sourceIngestionPartial": 5,
+    "sourceIngestionParked": 2,
+    "sourceIngestionMissing": 2,
+    "sourceIngestionReady": false,
     "crosslinkedReaderPages": 837,
     "readerPagesWithPrevious": 836,
     "readerPagesWithNext": 836,
@@ -39,16 +45,16 @@
     "compendiumVolumeReaderPages": 837,
     "compendiumVolumeAssignedPages": 837,
     "completionRequirements": 16,
-    "completionRequirementsComplete": 6,
+    "completionRequirementsComplete": 5,
     "completionRequirementsPartial": 4,
-    "completionRequirementsParked": 5,
+    "completionRequirementsParked": 6,
     "completionRequirementsMissing": 1,
     "completionReady": false,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 41,
-    "openOperatorItems": 4,
+    "openOperatorItems": 5,
     "resolvedOperatorItems": 0,
-    "trackedGaps": 11,
+    "trackedGaps": 12,
     "answerablePrototypeQuestions": 29,
     "reconciliationQuestions": 7
   },
@@ -82,6 +88,12 @@
       "label": "Source catalog matches registry",
       "passed": true,
       "detail": "51 catalog sources, 51 registry keys, 0 used keys missing catalog"
+    },
+    {
+      "id": "source-ingestion",
+      "label": "Required source families are ingested",
+      "passed": false,
+      "detail": "7/16 complete, 5 partial, 2 parked, 2 missing"
     },
     {
       "id": "source-urls",
@@ -122,7 +134,7 @@
     {
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
-      "passed": true,
+      "passed": false,
       "detail": "11 queue items, 7 question signals, 4 operator signals, 2 parked pages"
     },
     {
@@ -153,13 +165,13 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "6/16 complete, 4 partial, 5 parked, 1 missing"
+      "detail": "5/16 complete, 4 partial, 6 parked, 1 missing"
     },
     {
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "4 open operator items, 0 resolved"
+      "detail": "5 open operator items, 0 resolved"
     },
     {
       "id": "discord",
@@ -338,6 +350,147 @@
     "registryKeysMissingCatalog": [],
     "catalogKeysMissingRegistry": []
   },
+  "sourceIngestionCoverage": {
+    "status": "source-ingestion-coverage-map",
+    "sourceCompletionReady": false,
+    "totalSourceRequirements": 16,
+    "byStatus": {
+      "complete": 7,
+      "missing": 2,
+      "parked": 2,
+      "partial": 5
+    },
+    "byCategory": {
+      "competitive-reference": 2,
+      "delivery": 2,
+      "demand-signal": 1,
+      "local-truth": 3,
+      "manifesto": 1,
+      "product-reference": 2,
+      "protocol-reference": 4,
+      "reference": 1
+    },
+    "openOperatorItems": [
+      {
+        "id": 5,
+        "title": "Vibe Trading Notion export or read access"
+      },
+      {
+        "id": 4,
+        "title": "Final docs platform and repository owner decision"
+      },
+      {
+        "id": 3,
+        "title": "Public stance on referral depth and historical accounting"
+      },
+      {
+        "id": 2,
+        "title": "Discord export and Lafa answer corpus"
+      },
+      {
+        "id": 1,
+        "title": "Current public revenue disclosure boundary"
+      }
+    ],
+    "missingSourceFamilies": [
+      {
+        "id": "linear-synchronicity-research",
+        "status": "partial",
+        "missingKeys": [
+          "syn-163",
+          "syn-192",
+          "syn-201",
+          "syn-204",
+          "syn-205",
+          "syn-56",
+          "syn-73",
+          "syn-98"
+        ],
+        "blocks": [],
+        "nextAction": "Register remaining Linear sources or mark unavailable with evidence before final publication."
+      },
+      {
+        "id": "vibe-notion",
+        "status": "parked",
+        "missingKeys": [
+          "vibe-trading-notion"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #5"
+        ],
+        "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
+      },
+      {
+        "id": "public-symmio-docs",
+        "status": "partial",
+        "missingKeys": [
+          "docs.symmio.foundation",
+          "symmio-options-docs"
+        ],
+        "blocks": [],
+        "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
+      },
+      {
+        "id": "symmio-whitepaper-history",
+        "status": "partial",
+        "missingKeys": [
+          "symmio-earliest-docs",
+          "symmio-original-whitepaper"
+        ],
+        "blocks": [],
+        "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
+      },
+      {
+        "id": "symm-io-github",
+        "status": "missing",
+        "missingKeys": [
+          "symm-io-github"
+        ],
+        "blocks": [],
+        "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
+      },
+      {
+        "id": "superflow-sshe",
+        "status": "missing",
+        "missingKeys": [
+          "superflow-sshe"
+        ],
+        "blocks": [],
+        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
+      },
+      {
+        "id": "hyperliquid-goldsky",
+        "status": "partial",
+        "missingKeys": [
+          "goldsky-analytics-subgraphs"
+        ],
+        "blocks": [],
+        "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+      },
+      {
+        "id": "discord-lafa-corpus",
+        "status": "parked",
+        "missingKeys": [
+          "symmio-discord-lafa-export"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #2"
+        ],
+        "nextAction": "Resume Discord-derived FAQ and answer-engine seeding when the operator fills inbox item #2."
+      },
+      {
+        "id": "competitive-sweep",
+        "status": "partial",
+        "missingKeys": [
+          "25-agent-competitive-sweep-report"
+        ],
+        "blocks": [],
+        "nextAction": "Run or import the competitive sweep before claiming Session 1 research is complete."
+      }
+    ],
+    "duplicateRequirementIds": [],
+    "invalidParkedRequirements": []
+  },
   "journeyCoverage": {
     "totalJourneys": 6,
     "totalSteps": 38,
@@ -438,7 +591,7 @@
     "missingOperatorGapIds": [],
     "missingRelatedPageIds": [],
     "missingSourceKeys": [],
-    "matchesInputs": true
+    "matchesInputs": false
   },
   "glossaryCoverage": {
     "totalTerms": 32,
@@ -775,9 +928,9 @@
     "completionReady": false,
     "totalRequirements": 16,
     "byStatus": {
-      "complete": 6,
+      "complete": 5,
       "partial": 4,
-      "parked": 5,
+      "parked": 6,
       "missing": 1
     },
     "byCategory": {
@@ -791,6 +944,10 @@
       "delivery": 2
     },
     "openOperatorItems": [
+      {
+        "id": 5,
+        "title": "Vibe Trading Notion export or read access"
+      },
       {
         "id": 4,
         "title": "Final docs platform and repository owner decision"
@@ -858,6 +1015,15 @@
         ]
       },
       {
+        "id": "source-traceability",
+        "status": "parked",
+        "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
+        "blocks": [
+          "OPERATOR-INBOX #2",
+          "OPERATOR-INBOX #5"
+        ]
+      },
+      {
         "id": "phase-zero-platform",
         "status": "parked",
         "nextAction": "Resume final scaffold/deploy implementation when platform/repo and transparency items are resolved.",
@@ -886,6 +1052,10 @@
   },
   "unresolved": {
     "operatorInbox": [
+      {
+        "id": 5,
+        "title": "Vibe Trading Notion export or read access"
+      },
       {
         "id": 4,
         "title": "Final docs platform and repository owner decision"
@@ -947,6 +1117,10 @@
       {
         "id": "G-010",
         "title": "Production Answer Engine Needs A Build/Buy Decision"
+      },
+      {
+        "id": "G-011",
+        "title": "Vibe Trading Notion Is Not Ingested"
       }
     ],
     "journeyMissingPageIds": [],
@@ -962,6 +1136,104 @@
     "usedKeysMissingCatalog": [],
     "registryKeysMissingCatalog": [],
     "catalogKeysMissingRegistry": [],
+    "sourceIngestionDuplicateIds": [],
+    "sourceIngestionInvalidParkedIds": [],
+    "sourceIngestionMissingFamilies": [
+      {
+        "id": "linear-synchronicity-research",
+        "status": "partial",
+        "missingKeys": [
+          "syn-163",
+          "syn-192",
+          "syn-201",
+          "syn-204",
+          "syn-205",
+          "syn-56",
+          "syn-73",
+          "syn-98"
+        ],
+        "blocks": [],
+        "nextAction": "Register remaining Linear sources or mark unavailable with evidence before final publication."
+      },
+      {
+        "id": "vibe-notion",
+        "status": "parked",
+        "missingKeys": [
+          "vibe-trading-notion"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #5"
+        ],
+        "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
+      },
+      {
+        "id": "public-symmio-docs",
+        "status": "partial",
+        "missingKeys": [
+          "docs.symmio.foundation",
+          "symmio-options-docs"
+        ],
+        "blocks": [],
+        "nextAction": "Mine Symmio options, foundation docs, and deeper architecture pages before final protocol-reference publication."
+      },
+      {
+        "id": "symmio-whitepaper-history",
+        "status": "partial",
+        "missingKeys": [
+          "symmio-earliest-docs",
+          "symmio-original-whitepaper"
+        ],
+        "blocks": [],
+        "nextAction": "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story."
+      },
+      {
+        "id": "symm-io-github",
+        "status": "missing",
+        "missingKeys": [
+          "symm-io-github"
+        ],
+        "blocks": [],
+        "nextAction": "Register relevant symm-io repositories and link them to protocol/developer reference pages."
+      },
+      {
+        "id": "superflow-sshe",
+        "status": "missing",
+        "missingKeys": [
+          "superflow-sshe"
+        ],
+        "blocks": [],
+        "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
+      },
+      {
+        "id": "hyperliquid-goldsky",
+        "status": "partial",
+        "missingKeys": [
+          "goldsky-analytics-subgraphs"
+        ],
+        "blocks": [],
+        "nextAction": "Register Goldsky analytics/subgraph docs before finalizing the Barometer and HIP-3 data-source argument."
+      },
+      {
+        "id": "discord-lafa-corpus",
+        "status": "parked",
+        "missingKeys": [
+          "symmio-discord-lafa-export"
+        ],
+        "blocks": [
+          "OPERATOR-INBOX #2"
+        ],
+        "nextAction": "Resume Discord-derived FAQ and answer-engine seeding when the operator fills inbox item #2."
+      },
+      {
+        "id": "competitive-sweep",
+        "status": "partial",
+        "missingKeys": [
+          "25-agent-competitive-sweep-report"
+        ],
+        "blocks": [],
+        "nextAction": "Run or import the competitive sweep before claiming Session 1 research is complete."
+      }
+    ],
     "crosslinkMissingExplicitRelatedPageIds": [],
     "readerIdsMissingCrosslinks": [],
     "crosslinkIdsMissingReader": [],
@@ -1029,6 +1301,15 @@
         "nextAction": "Resume Discord-derived FAQ import when the operator fills inbox item #2."
       },
       {
+        "id": "source-traceability",
+        "status": "parked",
+        "blocks": [
+          "OPERATOR-INBOX #2",
+          "OPERATOR-INBOX #5"
+        ],
+        "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
+      },
+      {
         "id": "phase-zero-platform",
         "status": "parked",
         "blocks": [
@@ -1092,6 +1373,7 @@
   },
   "nextAuditFocus": [
     "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
+    "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",

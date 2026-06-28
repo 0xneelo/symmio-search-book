@@ -4,9 +4,9 @@
   "completionReady": false,
   "totalRequirements": 16,
   "byStatus": {
-    "complete": 6,
+    "complete": 5,
     "partial": 4,
-    "parked": 5,
+    "parked": 6,
     "missing": 1
   },
   "byCategory": {
@@ -20,6 +20,10 @@
     "delivery": 2
   },
   "openOperatorItems": [
+    {
+      "id": 5,
+      "title": "Vibe Trading Notion export or read access"
+    },
     {
       "id": 4,
       "title": "Final docs platform and repository owner decision"
@@ -207,7 +211,7 @@
     {
       "id": "source-traceability",
       "label": "Every claim traceable to primary sources",
-      "status": "complete",
+      "status": "parked",
       "category": "sourcing",
       "sourceSpecs": [
         "01",
@@ -215,9 +219,12 @@
         "07",
         "08"
       ],
-      "evidence": "51 registered sources; 41 source keys used in retrieval chunks; no unknown chunk source keys",
-      "blocks": [],
-      "nextAction": "Continue source audits as authored pages replace generated drafts."
+      "evidence": "51 registered sources; 41 source keys used in retrieval chunks; source-ingestion coverage 7/16 complete, 5 partial, 2 parked, 2 missing",
+      "blocks": [
+        "OPERATOR-INBOX #2",
+        "OPERATOR-INBOX #5"
+      ],
+      "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
     },
     {
       "id": "phase-zero-platform",
@@ -325,6 +332,15 @@
       "nextAction": "Resume Discord-derived FAQ import when the operator fills inbox item #2.",
       "blocks": [
         "OPERATOR-INBOX #2"
+      ]
+    },
+    {
+      "id": "source-traceability",
+      "status": "parked",
+      "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
+      "blocks": [
+        "OPERATOR-INBOX #2",
+        "OPERATOR-INBOX #5"
       ]
     },
     {

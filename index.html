@@ -16,6 +16,7 @@
     <script src="./data/volume-map.js"></script>
     <script src="./data/glossary.js"></script>
     <script src="./data/source-catalog.js"></script>
+    <script src="./data/source-ingestion.js"></script>
     <script src="./data/crosslinks.js"></script>
     <script src="./data/requirement-map.js"></script>
     <script src="./data/quality-audit.js"></script>
@@ -975,6 +976,16 @@
             </div>
             <div class="console-layout">
               <div>
+                <h3 class="section-title">Source Ingestion</h3>
+                <div id="sourceIngestionList"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Source Summary</h3>
+                <ul class="compact-list" id="sourceIngestionSummary"></ul>
+              </aside>
+            </div>
+            <div class="console-layout">
+              <div>
                 <h3 class="section-title">Where Docs Fall Short</h3>
                 <div id="gapList"></div>
               </div>
@@ -1020,6 +1031,7 @@
       const volumeMap = window.SearchBookVolumeMap || { volumes: [], totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
       const sourceCatalog = window.SearchBookSourceCatalog || { sources: [], sourceByKey: {}, totalSources: 0 };
+      const sourceIngestion = window.SearchBookSourceIngestion || { requirements: [], byStatus: {}, byCategory: {}, missingSourceFamilies: [], sourceCompletionReady: false };
       const crosslinks = window.SearchBookCrosslinks || { pageById: {}, totalPages: 0 };
       const requirementMap = window.SearchBookRequirementMap || { requirements: [], byStatus: {}, byCategory: {}, nextFocus: [], completionReady: false };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
@@ -1883,6 +1895,7 @@
           <li><span class="meta">Gap queue</span><br>${escapeHtml(totals.gapQueueItems || 0)} prioritized items; ${escapeHtml(totals.gapQueueQuestionSignals || 0)} question signals, ${escapeHtml(totals.gapQueueOperatorSignals || 0)} operator signals, ${escapeHtml(totals.gapQueueParkedPageSignals || 0)} parked page signals.</li>
           <li><span class="meta">Glossary</span><br>${escapeHtml(totals.glossaryTerms || 0)} routed terms across ${escapeHtml(totals.glossaryCategories || 0)} categories.</li>
           <li><span class="meta">Source catalog</span><br>${escapeHtml(totals.sourceCatalogEntries || 0)} registered sources; ${escapeHtml(totals.linkedSourceCatalogEntries || 0)} carry direct links.</li>
+          <li><span class="meta">Source ingestion</span><br>${escapeHtml(totals.sourceIngestionComplete || 0)} of ${escapeHtml(totals.sourceIngestionRequirements || 0)} families complete; ${escapeHtml(totals.sourceIngestionPartial || 0)} partial, ${escapeHtml(totals.sourceIngestionParked || 0)} parked, ${escapeHtml(totals.sourceIngestionMissing || 0)} missing.</li>
           <li><span class="meta">Reader crosslinks</span><br>${escapeHtml(totals.crosslinkedReaderPages || 0)} pages; ${escapeHtml(totals.readerPagesWithPrevious || 0)} previous links, ${escapeHtml(totals.readerPagesWithNext || 0)} next links.</li>
           <li><span class="meta">Answer chunks</span><br>${escapeHtml(totals.answerChunks || 0)} retrieval chunks across ${escapeHtml(totals.answerChunkPages || 0)} pages and ${escapeHtml(totals.answerChunkSourceKeys || 0)} source keys.</li>
           <li><span class="meta">Compendium volumes</span><br>${escapeHtml(totals.compendiumVolumes || 0)} volumes, ${escapeHtml(totals.compendiumChapters || 0)} chapters, ${escapeHtml(totals.compendiumVolumeOverviews || 0)} overviews, ${escapeHtml(totals.compendiumVolumeAssignedPages || 0)} assigned reader pages.</li>
@@ -1930,10 +1943,47 @@
         `;
       }
 
+      function renderSourceIngestion() {
+        const requirements = sourceIngestion.requirements || [];
+        document.getElementById("sourceIngestionList").innerHTML = requirements.length
+          ? requirements
+              .map(
+                (sourceRequirement) => `
+                  <div class="gap-row ${requirementClass(sourceRequirement.status)}">
+                    <div class="meta">${escapeHtml(sourceRequirement.status)} / ${escapeHtml(sourceRequirement.category)} / ${escapeHtml(sourceRequirement.id)}</div>
+                    <p>${escapeHtml(sourceRequirement.label)}</p>
+                    <div class="meta">${escapeHtml(sourceRequirement.evidence || "")}</div>
+                    <div class="source-row">
+                      ${(sourceRequirement.sourceSpecs || []).map((spec) => `<span class="source-chip">spec-${escapeHtml(spec)}</span>`).join("")}
+                      ${(sourceRequirement.presentKeys || []).slice(0, 8).map((key) => `<span class="source-chip">${escapeHtml(key)}</span>`).join("")}
+                      ${(sourceRequirement.blocks || []).map((block) => `<span class="source-chip">${escapeHtml(block)}</span>`).join("")}
+                    </div>
+                    ${
+                      (sourceRequirement.missingKeys || []).length
+                        ? `<div class="meta">Missing: ${(sourceRequirement.missingKeys || []).map((key) => escapeHtml(key)).join(", ")}</div>`
+                        : ""
+                    }
+                    <div class="meta">${escapeHtml(sourceRequirement.nextAction || "")}</div>
+                  </div>
+                `,
+              )
+              .join("")
+          : '<div class="gap-row"><p>No source-ingestion map generated yet.</p></div>';
+        const byStatus = sourceIngestion.byStatus || {};
+        document.getElementById("sourceIngestionSummary").innerHTML = `
+          <li><span class="meta">Ready</span><br>${sourceIngestion.sourceCompletionReady ? "yes" : "no"}</li>
+          <li><span class="meta">Complete</span><br>${escapeHtml(byStatus.complete || 0)} of ${escapeHtml(sourceIngestion.totalSourceRequirements || 0)} source families.</li>
+          <li><span class="meta">Partial</span><br>${escapeHtml(byStatus.partial || 0)} source families need more mining or registration.</li>
+          <li><span class="meta">Parked</span><br>${escapeHtml(byStatus.parked || 0)} source families depend on operator inbox items.</li>
+          <li><span class="meta">Missing</span><br>${escapeHtml(byStatus.missing || 0)} source families have no registered source yet.</li>
+        `;
+      }
+
       function renderInsights() {
         renderMetrics();
         renderQualityAudit();
         renderRequirements();
+        renderSourceIngestion();
         renderGaps();
         renderRecent();
         renderRatings();

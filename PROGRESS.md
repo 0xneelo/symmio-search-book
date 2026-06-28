@@ -154,9 +154,18 @@
 - Regenerated authored pages, reader crosslinks, answer chunks, volume map, requirement map, and quality audit: 837 reader-routable pages, 1,414 answer chunks, 66 chapters, and audit 17 of 19 gates passing.
 - Kept funding and other implementation-sensitive claims labeled for operator review where they need current Vibe/Symmio reconciliation before publication.
 
+## 2026-06-28 — Required Source Ingestion Coverage
+
+- Logged missing Vibe Trading Notion access in `_specs/app-docs/OPERATOR-INBOX.md` and added `G-011` for the missing Notion source family.
+- Added `scripts/build-source-ingestion-map.mjs` and generated `data/source-ingestion.json` plus `data/source-ingestion.js` from the spec-required source families and current `SOURCES.md`.
+- Validated 16 required source families: 7 complete, 5 partial, 2 parked, and 2 missing. Notion and Discord remain parked; symm-io GitHub and SuperFlow/SSHE remain missing.
+- Updated Search insights with a Source Ingestion console and tightened requirement coverage so source traceability is not marked complete while required source families are still unmined.
+- Extended the quality audit with a required-source ingestion gate; current result is 16 of 20 gates passing, with source ingestion, operator inbox, and Discord/Lafa gates still open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
+- Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
 - Revenue disclosure boundary.
 - Referral-depth public stance.
