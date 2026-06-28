@@ -9,6 +9,7 @@
     <script src="./data/search-index.js"></script>
     <script src="./data/navigation-tree.js"></script>
     <script src="./data/journeys.js"></script>
+    <script src="./data/question-routes.js"></script>
     <script src="./data/quality-audit.js"></script>
     <style>
       :root {
@@ -911,6 +912,7 @@
       const authored = window.SearchBookAuthored || { pages: [], totalPages: 0 };
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
       const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
+      const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const qualityAudit = window.SearchBookQualityAudit || { totals: {}, gates: [], sourceCoverage: {}, unresolved: {} };
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
@@ -934,6 +936,9 @@
       corpus.pages.forEach((page) => {
         if (!pageById.has(page.id)) pageById.set(page.id, page);
       });
+      const seededQuestionRoutes = (questionRouteMap.answerable || [])
+        .map((route) => ({ ...route, page: pageById.get(route.pageId) }))
+        .filter((route) => route.page);
       const variants = [
         { key: "classic", label: "A - Ask" },
         { key: "browse", label: "B - Browse" },
@@ -945,13 +950,25 @@
         ratings: "searchBookPrototype.ratings",
         gaps: "searchBookPrototype.gaps",
       };
-      const exampleQuestions = [
+      const fallbackExampleQuestions = [
         "When do referral points credit?",
         "How is my revenue calculated?",
         "Why is my live counter not moving?",
         "How do solvers work?",
         "Why does Vibe matter for HIP-3?",
       ];
+      const preferredExamples = [
+        "Where do I see my invite statuses?",
+        "How is estimated network revenue calculated?",
+        "What does Proof of Value mean?",
+        "What should I read first as a solver or LP?",
+        "What should I read first as a dashboard user?",
+      ];
+      const seededExamples = preferredExamples
+        .map((question) => seededQuestionRoutes.find((route) => route.question === question)?.question || question)
+        .filter(Boolean)
+        .slice(0, 5);
+      const exampleQuestions = seededExamples.length ? seededExamples : fallbackExampleQuestions;
       const stopWords = new Set(["a", "about", "an", "and", "are", "as", "at", "be", "do", "does", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "the", "to", "what", "when", "where", "why"]);
 
       function getVariant() {
@@ -1008,6 +1025,40 @@
         ];
       }
 
+      function normalizeQuestionText(query) {
+        return String(query || "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim()
+          .replace(/\s+/g, " ");
+      }
+
+      function scoreQuestionRoute(route, query) {
+        const normalized = normalizeQuestionText(query);
+        if (!normalized) return 0;
+        if (normalized === route.normalizedQuestion) return 1000;
+        const queryWords = wordsFor(query);
+        if (!queryWords.length) return 0;
+        const routeWords = new Set(wordsFor([route.question, route.pageTitle, route.notes, route.pageSection, route.pageTrack].join(" ")));
+        const overlap = queryWords.filter((word) => routeWords.has(word)).length;
+        const coverage = overlap / Math.max(1, queryWords.length);
+        const confidenceBonus = route.confidence === "High" ? 8 : route.confidence === "Medium" ? 4 : 1;
+        return overlap >= Math.min(2, queryWords.length) && coverage >= 0.5 ? 120 + overlap * 8 + confidenceBonus : 0;
+      }
+
+      function findSeededQuestionRoute(query) {
+        const ranked = seededQuestionRoutes
+          .map((route) => ({ route, score: scoreQuestionRoute(route, query) }))
+          .sort((a, b) => b.score - a.score);
+        const best = ranked[0];
+        if (!best || best.score <= 0) return null;
+        return {
+          page: best.route.page,
+          score: `question-route:${best.score}`,
+          questionRoute: best.route,
+        };
+      }
+
       function scorePage(page, query) {
         const words = wordsFor(query);
         if (!words.length) return 0;
@@ -1021,6 +1072,8 @@
       }
 
       function findAnswer(query) {
+        const seeded = findSeededQuestionRoute(query);
+        if (seeded) return seeded;
         const ranked = searchablePages
           .map((page) => ({ page, score: scorePage(page, query) }))
           .sort((a, b) => b.score - a.score);
@@ -1168,6 +1221,7 @@
           <div class="meta">${escapeHtml(page.section)} / routed answer / score ${escapeHtml(result.score)}</div>
           <h3>${escapeHtml(page.title)}</h3>
           <p>${escapeHtml(page.summary || page.excerpt || "")}</p>
+          ${result.questionRoute ? `<p><strong>Seeded route:</strong> ${escapeHtml(result.questionRoute.question)} <span class="meta">/ confidence ${escapeHtml(result.questionRoute.confidence)}</span></p>` : ""}
           ${page.gap ? `<p><strong>Gap:</strong> ${escapeHtml(page.gap)}</p>` : ""}
           <div class="source-row">
             ${sourceChips(page)}
@@ -1458,6 +1512,7 @@
           <li><span class="meta">Gates</span><br>${passed} of ${gates.length} passing.</li>
           <li><span class="meta">Reader-routable pages</span><br>${escapeHtml(totals.readerRoutablePages || 0)} routes: ${escapeHtml(totals.manifestPages || 0)} generated/indexed + ${escapeHtml(totals.authoredPublicationCandidates || 0)} authored.</li>
           <li><span class="meta">Guided journeys</span><br>${escapeHtml(totals.guidedJourneys || 0)} journeys, ${escapeHtml(totals.guidedJourneySteps || 0)} routed steps.</li>
+          <li><span class="meta">Seeded question routes</span><br>${escapeHtml(totals.seededQuestionRoutes || 0)} answerable routes, ${escapeHtml(totals.seededReconciliationQuestions || 0)} reconciliation questions.</li>
           <li><span class="meta">Source coverage</span><br>${escapeHtml(totals.usedSourceKeys || 0)} used source keys; ${(qualityAudit.sourceCoverage?.unknownUsedSourceKeys || []).length} unknown.</li>
           <li><span class="meta">Open operator items</span><br>${escapeHtml(totals.openOperatorItems || 0)} parked threads: ${(unresolved.operatorInbox || []).map((item) => `#${escapeHtml(item.id)}`).join(", ") || "none"}.</li>
           <li><span class="meta">Tracked gaps</span><br>${escapeHtml(totals.trackedGaps || 0)} documented gaps; ${escapeHtml(totals.reconciliationQuestions || 0)} reconciliation questions.</li>

@@ -135,3 +135,11 @@
 **Reason:** The spec requires the docs to onboard readers into the system. Hardcoded journey copy in the prototype can drift from the authored/indexed corpus; a generated map lets the audit catch broken routes while keeping the final platform decision open.
 
 **Status:** Accepted for prototype iteration.
+
+## D-018: Prefer Seeded Question Routes Before Fuzzy Search
+
+**Decision:** Generate `data/question-routes.*` from `QUESTIONS.md` and let the prototype answer engine check those routes before scoring the full corpus.
+
+**Reason:** The living-docs loop requires tracked questions to shape retrieval. The current fuzzy search is useful, but explicit question-led routes are better evidence that known user questions resolve to exact pages and can be audited for drift.
+
+**Status:** Accepted for prototype iteration.

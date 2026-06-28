@@ -76,6 +76,13 @@
 - Updated the prototype Journeys tab to render the generated map instead of the legacy small `answer-corpus.js` journey list.
 - Extended the quality audit with a journey-route gate; current result is 8 of 10 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Seeded Question Routes
+
+- Added `scripts/build-question-routes.mjs` and generated `data/question-routes.json` plus `data/question-routes.js` from `QUESTIONS.md`.
+- Validated 29 answerable question routes across authored, generated, and curated prototype pages; 7 reconciliation questions remain gap-tracked.
+- Updated the Ask flow to prefer seeded question routes before fuzzy corpus search and show the matched seed question with confidence.
+- Extended the quality audit with a question-route gate; current result is 9 of 11 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -13,6 +13,7 @@ const defaults = {
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
+  questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
@@ -154,6 +155,9 @@ const manifest = readJson(args.manifest);
 const searchIndex = readJson(args.searchIndex);
 const authored = readJson(args.authoredIndex);
 const journeys = fs.existsSync(args.journeys) ? readJson(args.journeys) : { journeys: [], totalJourneys: 0, totalSteps: 0, missingPageIds: [] };
+const questionRoutes = fs.existsSync(args.questionRoutes)
+  ? readJson(args.questionRoutes)
+  : { answerable: [], reconciliation: [], totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
@@ -174,6 +178,7 @@ const resolvedInboxItems = parseResolvedInboxItems(inboxMarkdown);
 const gaps = parseGapItems(gapMarkdown);
 const answerableQuestions = parseQuestionRows(questionMarkdown, "Answerable In Prototype");
 const reconciliationQuestions = parseQuestionRows(questionMarkdown, "Needs Reconciliation");
+const questionRouteMissingIds = questionRoutes.missingRouteIds || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
 const searchCoverage = coverageFor(searchIndex, knownSourceKeys);
 const authoredCoverage = coverageFor(authoredPages, knownSourceKeys);
@@ -248,6 +253,12 @@ const gates = [
     detail: `${journeys.totalJourneys || 0} journeys, ${journeys.totalSteps || 0} steps, ${journeyMissingPageIds.length} missing page ids`,
   },
   {
+    id: "question-routes",
+    label: "Question ledger routes resolve",
+    passed: questionRouteMissingIds.length === 0 && (questionRoutes.totalRoutes || 0) === answerableQuestions.length && (questionRoutes.totalRoutes || 0) > 0,
+    detail: `${questionRoutes.totalRoutes || 0} generated routes, ${answerableQuestions.length} answerable ledger rows, ${questionRouteMissingIds.length} missing page ids`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -274,6 +285,8 @@ const payload = {
     readerRoutablePages: searchIndex.length + authoredPages.length,
     guidedJourneys: journeys.totalJourneys || 0,
     guidedJourneySteps: journeys.totalSteps || 0,
+    seededQuestionRoutes: questionRoutes.totalRoutes || 0,
+    seededReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -307,10 +320,18 @@ const payload = {
     missingPageIds: journeyMissingPageIds,
     journeyIds: (journeys.journeys || []).map((journey) => journey.id),
   },
+  questionRouteCoverage: {
+    totalRoutes: questionRoutes.totalRoutes || 0,
+    totalReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
+    byConfidence: questionRoutes.byConfidence || {},
+    byRouteSource: questionRoutes.byRouteSource || {},
+    missingRouteIds: questionRouteMissingIds,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
     journeyMissingPageIds,
+    questionRouteMissingIds,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

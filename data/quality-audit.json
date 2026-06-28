@@ -11,6 +11,8 @@
     "readerRoutablePages": 821,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
+    "seededQuestionRoutes": 29,
+    "seededReconciliationQuestions": 7,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
@@ -67,6 +69,12 @@
       "label": "Guided journey page IDs resolve",
       "passed": true,
       "detail": "6 journeys, 38 steps, 0 missing page ids"
+    },
+    {
+      "id": "question-routes",
+      "label": "Question ledger routes resolve",
+      "passed": true,
+      "detail": "29 generated routes, 29 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "operator-inbox",
@@ -240,6 +248,21 @@
       "dashboard-user"
     ]
   },
+  "questionRouteCoverage": {
+    "totalRoutes": 29,
+    "totalReconciliationQuestions": 7,
+    "byConfidence": {
+      "Medium": 19,
+      "High": 8,
+      "Low": 2
+    },
+    "byRouteSource": {
+      "curated": 7,
+      "generated": 1,
+      "authored": 21
+    },
+    "missingRouteIds": []
+  },
   "unresolved": {
     "operatorInbox": [
       {
@@ -306,6 +329,7 @@
       }
     ],
     "journeyMissingPageIds": [],
+    "questionRouteMissingIds": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",
