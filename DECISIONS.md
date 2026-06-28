@@ -455,3 +455,11 @@
 **Reason:** The source gives the compendium its broadest category frame. Vibe x Symmio should not read as only a perp venue with more tickers; it should read as infrastructure for validating abundant tokenized information through two-sided markets. Publishing this layer strengthens the manifesto while keeping exact product workflow and production guarantees under review.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-058: Treat Listings As Prediction Under Cost
+
+**Decision:** Add authored Volume 03 pages from Neelo's Game Theory of Listings corpus that separate perceived from actual interest, explain curation-cost distortions, preserve the evolutionary value of zero-cost systems, name crypto's issuance-versus-market-access disconnect, and frame Vibe as bringing perps to the trenches.
+
+**Reason:** The listing-power thesis is strongest when readers see why curated venues do not merely choose badly; they are forced to predict demand before actual demand is observable, while bearing downside for wrong calls. Publishing this layer makes Vibe's anti-bottleneck claim precise without turning the source thesis into final production eligibility rules.
+
+**Status:** Accepted for the authored manifesto layer.

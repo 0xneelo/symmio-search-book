@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 140,
+  "totalPages": 145,
   "byStatus": {
-    "publication-candidate": 73,
-    "publication-candidate-needs-operator-review": 66,
+    "publication-candidate": 77,
+    "publication-candidate-needs-operator-review": 67,
     "needs-reconciliation": 1
   },
   "bySection": {
-    "manifesto": 78,
+    "manifesto": 83,
     "dashboard-reference": 12,
     "protocol-reference": 18,
     "competitive-context": 1,
@@ -269,6 +269,54 @@
       "file": "content/authored/manifesto/cross-market-risk-mutualization.md",
       "bodyMarkdown": "# Cross-Market Risk Mutualization\n\nThe bell-curve flattening section of Neelo's funding model introduces a cross-market insurance idea: extreme winner markets can contribute part of their surplus to stressed markets.\n\nThat does not change the aggregate goal of profitable markets. It changes the distribution of tail outcomes. If one market is unusually profitable while another market is under stress, a controlled transfer can compress the extremes and reduce the probability that one local failure reaches ADL.\n\nIn the source model, this works through a defined pool. Profitable outliers contribute from excess above an upper cutoff. Stressed markets receive support based on shortfall or uncovered stress. Protocol retention can also route part of the pool into insurance reserves.\n\n## Why It Is Not One Big Shared Vault\n\nThe same corpus is careful about contagion. Local insurance is market-specific. Global insurance has eligibility rules and allocation caps. Not every market should be able to drain shared protection, especially if the token is low quality, manipulated, or outside the operator's risk policy.\n\nThat balance matters. Cross-market mutualization is useful because isolated tail events are expensive. But unlimited mutualization can make weak markets dangerous to strong ones. The architecture therefore needs both shared support and strict eligibility.\n\n## Relationship To ADL\n\nBell-curve flattening and insurance sit before ADL in the defense stack. Dynamic pricing tries to rebalance the market first. Local insurance absorbs market-specific shocks. Global allocation can help when the market is eligible and stress exceeds local support. ADL remains the final backstop when budget or exposure safety limits are breached.\n\nFor readers, the key point is not the exact formula. It is the principle: profitable markets can help stabilize the system, but public docs must show the gates, caps, and loss-ordering that prevent uncontrolled contagion.\n\n## Publication Note\n\nThe source model supports the architecture, but final public docs need operator review for eligibility policy, allocation caps, retained percentages, and any claim that a production global insurance layer is live.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"08. Bell Curve Flattening: Cross-Market Risk Mutualization\".\n- `vibe-papers`: Neelo, \"09. Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"11. Full Combined Objective\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-utilization-modes-inventory-insurance`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "Cross Market Risk Mutualization The bell curve flattening section of Neelo's funding model introduces a cross market insurance idea: extreme winner markets can contribute part of their surplus to stressed markets. That does not change the aggregate goal of profitable markets. It changes the distribution of tail outcomes. If one market is unusually profitable while another market is under stress, a controlled transfer can compress the extremes and reduce the probability that one local failure reaches ADL. In the source model, this works through a defined pool. Profitable outliers contribute from excess above an upper cutoff. Stressed markets receive support based on shortfall or uncovered stress. Protocol retention can also route part of the pool into insurance reserves. Why It Is Not One Big Shared Vault The same corpus is careful about contagion. Local insurance is market specific. Global insurance has eligibility rules and allocation caps. Not every market should be able to drain shared protection, especially if the token is low quality, manipulated, or outside the operator's risk policy. That balance matters. Cross market mutualization is useful because isolated tail events are "
+    },
+    {
+      "id": "authored-crypto-market-access-disconnect",
+      "title": "Crypto's Market Access Disconnect",
+      "section": "manifesto",
+      "track": "11 - Game Theory of Listings",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/05-the-disconnect-in-crypto",
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-11-gametheory-of-listings-11-docs-05-the-disconnect-in-crypto",
+        "neelo-11-gametheory-of-listings-11-docs-00-abstract",
+        "authored-issuance-abundance-creates-validation-debt"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/crypto-market-access-disconnect.md",
+      "bodyMarkdown": "# Crypto's Market Access Disconnect\n\nCrypto made token creation radically permissionless, but serious market access did not become equally permissionless.\n\nMillions of assets can be issued. Only a small minority receive deep liquidity, leverage, institutional attention, hedging surfaces, or mature venue support. That mismatch creates a validation bottleneck: creation is abundant, while serious market testing is scarce.\n\nThe source connects that bottleneck to familiar crypto distortions. Projects optimize for curated venue signals. Users migrate to the trenches because permissionless spot markets still allow discovery. Low-float, high-FDV structures can emerge because access to serious markets is scarce, expensive, and selective. Derivatives, shorting, and hedging are even more gated than spot trading.\n\nThe result is not simply that some tokens are underlisted. The deeper problem is that market structure lags issuance. The industry can produce assets faster than it can evaluate them with two-sided, risk-bearing markets.\n\n## Reader Implication\n\nVibe's strategic role is to close the gap between permissionless token creation and permissionless derivative validation. That is why the listing thesis belongs next to the one-primitive thesis: abundant issuance needs a market layer capable of testing what issuance creates.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: The Disconnect in Crypto\".\n- `vibe-papers`: Neelo, \"Game Theory of Listings\".\n\n## Related Pages\n\n- `authored-issuance-abundance-creates-validation-debt`\n- `authored-spot-only-markets-are-one-sided`\n- `authored-last-primitive`",
+      "excerpt": "Crypto's Market Access Disconnect Crypto made token creation radically permissionless, but serious market access did not become equally permissionless. Millions of assets can be issued. Only a small minority receive deep liquidity, leverage, institutional attention, hedging surfaces, or mature venue support. That mismatch creates a validation bottleneck: creation is abundant, while serious market testing is scarce. The source connects that bottleneck to familiar crypto distortions. Projects optimize for curated venue signals. Users migrate to the trenches because permissionless spot markets still allow discovery. Low float, high FDV structures can emerge because access to serious markets is scarce, expensive, and selective. Derivatives, shorting, and hedging are even more gated than spot trading. The result is not simply that some tokens are underlisted. The deeper problem is that market structure lags issuance. The industry can produce assets faster than it can evaluate them with two sided, risk bearing markets. Reader Implication Vibe's strategic role is to close the gap between permissionless token creation and permissionless derivative validation. That is why the listing thesis"
+    },
+    {
+      "id": "authored-curation-cost-distorts-listings",
+      "title": "Curation Cost Distorts Listings",
+      "section": "manifesto",
+      "track": "11 - Game Theory of Listings",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/03-the-cost-of-curation",
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/01-introduction"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-11-gametheory-of-listings-11-docs-03-the-cost-of-curation",
+        "neelo-11-gametheory-of-listings-11-docs-01-introduction",
+        "authored-lifecycle-gates-as-market-power"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/curation-cost-distorts-listings.md",
+      "bodyMarkdown": "# Curation Cost Distorts Listings\n\nCuration cost changes what a listing venue is optimizing for.\n\nIf a venue can list freely and let markets fail, it can learn from market outcomes. If the venue bears reputational risk, support cost, liquidity cost, user-protection expectations, or capital exposure, then each bad listing has downside. The rational response is to raise the threshold before a market can exist.\n\nThat threshold reshapes behavior. Projects try to look safer, larger, more institutionally legible, more liquid, and more obviously in demand. Metrics become targets. Engagement, deposits, launch optics, and venue relationships become part of the product strategy. The market then receives assets that are easier to justify in advance, not necessarily the assets with the strongest undiscovered demand.\n\nThe source does not require bad faith to explain the distortion. Conservative curation can be rational and still reduce evolutionary discovery. A system that protects users from noise also filters out the strange early markets that do not yet have clean signals.\n\n## Reader Implication\n\nThe compendium should frame curation as a tradeoff, not a villain. Vibe's category claim is that long-tail derivative discovery needs a lower-cost test environment before mature venues take on full listing responsibility.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Cost of Curation\".\n- `vibe-papers`: Neelo, \"Section 1: Introduction\".\n\n## Related Pages\n\n- `authored-lifecycle-gates-as-market-power`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-order-book-bootstrap-limit`",
+      "excerpt": "Curation Cost Distorts Listings Curation cost changes what a listing venue is optimizing for. If a venue can list freely and let markets fail, it can learn from market outcomes. If the venue bears reputational risk, support cost, liquidity cost, user protection expectations, or capital exposure, then each bad listing has downside. The rational response is to raise the threshold before a market can exist. That threshold reshapes behavior. Projects try to look safer, larger, more institutionally legible, more liquid, and more obviously in demand. Metrics become targets. Engagement, deposits, launch optics, and venue relationships become part of the product strategy. The market then receives assets that are easier to justify in advance, not necessarily the assets with the strongest undiscovered demand. The source does not require bad faith to explain the distortion. Conservative curation can be rational and still reduce evolutionary discovery. A system that protects users from noise also filters out the strange early markets that do not yet have clean signals. Reader Implication The compendium should frame curation as a tradeoff, not a villain. Vibe's category claim is that long tail "
     },
     {
       "id": "authored-dashboard-faq",
@@ -1626,6 +1674,30 @@
       "excerpt": "Partnership Over Venue War The listing monopoly thesis can sound adversarial, but Neelo's strategic section is more useful than a simple venue war. A gap filling perp layer is complementary to launchpads, DEXs, order book protocols, and late stage exchanges because it serves a lifecycle stage they do not naturally own. Launchpads and DEXs benefit if graduated tokens can receive derivative access earlier. That keeps communities inside the decentralized ecosystem longer and gives projects a clearer path from spot attention to two sided market expression. Order book protocols benefit if upstream markets generate real demand data before a deeper listing. Centralized exchanges benefit from better listing intelligence and a cleaner pipeline of proven markets. The strongest Vibe story is therefore not \"replace every downstream venue.\" It is \"create the upstream evidence those venues wish they had.\" A market that proves volume, short interest, liquidity quality, and solver economics is easier for a mature venue to evaluate than a market competing only on narrative. This posture also clarifies the product boundary. Vibe does not need every market to remain in its bootstrap state forever. Ow"
     },
     {
+      "id": "authored-perceived-vs-actual-listing-interest",
+      "title": "Perceived Versus Actual Listing Interest",
+      "section": "manifesto",
+      "track": "11 - Game Theory of Listings",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/02-perceived-vs-actual-interest",
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-11-gametheory-of-listings-11-docs-02-perceived-vs-actual-interest",
+        "neelo-11-gametheory-of-listings-11-docs-00-abstract",
+        "authored-game-theory-of-listings"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/perceived-vs-actual-listing-interest.md",
+      "bodyMarkdown": "# Perceived Versus Actual Listing Interest\n\nThe listing problem begins with a distinction that is easy to miss: actual interest only exists after a market can be used.\n\nActual interest is real buying, selling, retention, volatility, short demand, hedging demand, and repeat participation. A venue cannot observe that directly before it lists an asset. It can only observe perceived interest: community size, engagement, deposits, relationships, narrative strength, brand credibility, expected volume, prior venues, and modeled safety.\n\nThose proxies are not useless. They are often the only inputs a curator has. But once market access depends on them, projects learn to optimize for the proxy instead of the market. The venue is trying to forecast demand. The project is trying to appear forecastable.\n\nNeelo's game-theory point is that this is structural. Any venue with listing cost, curation responsibility, or reputational downside has to decide before actual interest is revealed. That turns listing from a market-discovery process into a prediction process.\n\n## Reader Implication\n\nReaders should understand why Vibe's thesis is not only \"list more assets.\" The stronger claim is that early derivative markets create the missing observation layer. They let actual interest become visible before later venues, solvers, and liquidity providers have to rely entirely on perceived interest.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Perceived vs Actual Interest\".\n- `vibe-papers`: Neelo, \"Game Theory of Listings\".\n\n## Related Pages\n\n- `authored-game-theory-of-listings`\n- `authored-end-of-narrative-based-listings`\n- `authored-market-price-as-verification`",
+      "excerpt": "Perceived Versus Actual Listing Interest The listing problem begins with a distinction that is easy to miss: actual interest only exists after a market can be used. Actual interest is real buying, selling, retention, volatility, short demand, hedging demand, and repeat participation. A venue cannot observe that directly before it lists an asset. It can only observe perceived interest: community size, engagement, deposits, relationships, narrative strength, brand credibility, expected volume, prior venues, and modeled safety. Those proxies are not useless. They are often the only inputs a curator has. But once market access depends on them, projects learn to optimize for the proxy instead of the market. The venue is trying to forecast demand. The project is trying to appear forecastable. Neelo's game theory point is that this is structural. Any venue with listing cost, curation responsibility, or reputational downside has to decide before actual interest is revealed. That turns listing from a market discovery process into a prediction process. Reader Implication Readers should understand why Vibe's thesis is not only \"list more assets.\" The stronger claim is that early derivative ma"
+    },
+    {
       "id": "authored-percolator-engineering-vs-economics",
       "title": "Percolator: Engineering Strength, Economic Limit",
       "section": "manifesto",
@@ -1696,6 +1768,30 @@
       "file": "content/authored/manifesto/perpetual-protocol-design-space.md",
       "bodyMarkdown": "# The Perpetual Protocol Design Space\n\nThe compendium should not describe perpetual protocols as if they differ only by branding. Neelo's framework gives readers the vocabulary needed to compare designs: matching engine, collateralization, and insurance topology.\n\nThe matching engine asks how trades execute. Synchronous systems, such as order books, need counterparties present at the same time. They are capital efficient and familiar when two-sided flow exists, but they struggle to bootstrap thin markets. Asynchronous systems let a trader execute against a persistent counterparty such as a solver or vault. They can serve one-sided demand, but the counterparty must price and manage the risk.\n\nCollateralization asks who pays winning traders. Netted systems are efficient because longs and shorts pay each other, but they require balanced flow. Fully collateralized systems can handle one-sided flow because an LP or vault backs payouts, but they demand much more capital. Insurance topology asks whether risk is isolated per market or shared across markets. Isolation is safer for new markets; cross-margin becomes attractive after maturity.\n\nThe resulting thesis is a lifecycle thesis. Early markets need bootstrap reliability more than maximum efficiency. Mature markets can move toward tighter spreads, better netting, and deeper order-book behavior. Vibe's argument sits in that transition: start where a market can exist, then graduate as the market proves itself.\n\n## Reader Implication\n\nReaders should leave this page able to ask the right architecture questions: is the market synchronous or asynchronous, netted or collateralized, isolated or cross-margin, and is that choice appropriate for the market's maturity?\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-four-transitions`\n- `authored-order-books-as-graduation-layer`",
       "excerpt": "The Perpetual Protocol Design Space The compendium should not describe perpetual protocols as if they differ only by branding. Neelo's framework gives readers the vocabulary needed to compare designs: matching engine, collateralization, and insurance topology. The matching engine asks how trades execute. Synchronous systems, such as order books, need counterparties present at the same time. They are capital efficient and familiar when two sided flow exists, but they struggle to bootstrap thin markets. Asynchronous systems let a trader execute against a persistent counterparty such as a solver or vault. They can serve one sided demand, but the counterparty must price and manage the risk. Collateralization asks who pays winning traders. Netted systems are efficient because longs and shorts pay each other, but they require balanced flow. Fully collateralized systems can handle one sided flow because an LP or vault backs payouts, but they demand much more capital. Insurance topology asks whether risk is isolated per market or shared across markets. Isolation is safer for new markets; cross margin becomes attractive after maturity. The resulting thesis is a lifecycle thesis. Early marke"
+    },
+    {
+      "id": "authored-perps-for-the-trenches",
+      "title": "Perps For The Trenches",
+      "section": "manifesto",
+      "track": "11 - Game Theory of Listings",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/06-vibe-and-perps-for-the-trenches",
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/07-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-11-gametheory-of-listings-11-docs-06-vibe-and-perps-for-the-trenches",
+        "neelo-11-gametheory-of-listings-11-docs-07-conclusion",
+        "authored-zero-cost-evolutionary-discovery"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/perps-for-the-trenches.md",
+      "bodyMarkdown": "# Perps For The Trenches\n\n\"Perps for the trenches\" means derivative access reaches tokens while perceived interest is still low.\n\nIn the Game Theory of Listings source, the trenches are not only small-cap speculation. They are the part of the market where actual interest has not yet been revealed, future winners are hard to distinguish from noise, and no high-cost curated venue can comfortably justify early validation.\n\nVibe is strategically important because it pushes derivatives earlier in that lifecycle. A token does not need elite approval before the market can test, hedge, short, and price it. That does not make every asset good. It makes the market better at discovering which assets are good, dangerous, fragile, ignored, or overhyped.\n\nThe conclusion of the source is that listing design is a theory of market evolution. A system can wait for obvious demand and reduce embarrassment, or it can let markets discover demand before it is obvious. Vibe's place is the second path: an anti-bottleneck layer between permissionless creation and mature venue validation.\n\n## Publication Note\n\nThis page should not be read as a live guarantee that every token can immediately receive a production Vibe market. The source supports the strategic thesis. Final docs still need product-owner confirmation for exact listing workflow, eligibility rules, solver support, vault exposure, and graduation policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Vibe and Perps for the Trenches\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-zero-cost-evolutionary-discovery`\n- `authored-self-correcting-token-market-stack`\n- `authored-vibe-as-listing-source-of-truth`",
+      "excerpt": "Perps For The Trenches \"Perps for the trenches\" means derivative access reaches tokens while perceived interest is still low. In the Game Theory of Listings source, the trenches are not only small cap speculation. They are the part of the market where actual interest has not yet been revealed, future winners are hard to distinguish from noise, and no high cost curated venue can comfortably justify early validation. Vibe is strategically important because it pushes derivatives earlier in that lifecycle. A token does not need elite approval before the market can test, hedge, short, and price it. That does not make every asset good. It makes the market better at discovering which assets are good, dangerous, fragile, ignored, or overhyped. The conclusion of the source is that listing design is a theory of market evolution. A system can wait for obvious demand and reduce embarrassment, or it can let markets discover demand before it is obvious. Vibe's place is the second path: an anti bottleneck layer between permissionless creation and mature venue validation. Publication Note This page should not be read as a live guarantee that every token can immediately receive a production Vibe ma"
     },
     {
       "id": "authored-points-and-vibe-points",
@@ -3606,6 +3702,30 @@
       "file": "content/authored/manifesto/z-score-graduation-criteria.md",
       "bodyMarkdown": "# Z-Score Graduation Criteria\n\nThe Z-score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one-sided and solver-dependent. A low score means natural trader flow is doing more of the balancing work.\n\nThat makes the Z-score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order-book readiness.\n\n## What It Should Not Do\n\nThe Z-score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets.\n\nThe docs should therefore explain two layers:\n\n- the thesis layer: solver dependency should fall as markets mature;\n- the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status.\n\n## Reader Implication\n\nThis page gives market creators and exchanges a concrete question to ask: is demand balanced enough that the market has earned its next execution layer? That is stronger than asking whether a listing committee feels confident.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.5 The Z-Score\".\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications\".\n\n## Related Pages\n\n- `authored-market-maturation-z-score`\n- `authored-vibe-as-discovery-layer`\n- `section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity`",
       "excerpt": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing work. That makes the Z score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order book readiness. What It Should Not Do The Z score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets. The docs should therefore explain two layers: the thesis layer: solver dependency should fall as markets mature; the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status. Reader Impli"
+    },
+    {
+      "id": "authored-zero-cost-evolutionary-discovery",
+      "title": "Zero-Cost Evolutionary Discovery",
+      "section": "manifesto",
+      "track": "11 - Game Theory of Listings",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/04-the-evolutionary-edge",
+        "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs-overview"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-11-gametheory-of-listings-11-docs-04-the-evolutionary-edge",
+        "neelo-11-gametheory-of-listings-11-docs-overview",
+        "authored-perceived-vs-actual-listing-interest"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/zero-cost-evolutionary-discovery.md",
+      "bodyMarkdown": "# Zero-Cost Evolutionary Discovery\n\nPermissionless systems look chaotic because they preserve the market's search process.\n\nWhen listing cost approaches zero, the system does not need to know which assets matter in advance. Most markets can be ignored, fail, or remain small. A small number can surprise the curators, gather actual demand, and later become legible to deeper liquidity venues.\n\nThat is the evolutionary edge. The market can test weird assets before they have institutional credibility, stable metrics, or obvious narrative consensus. Future winners can begin in the zero-perceived-interest zone instead of waiting for a committee to decide they are already worth attention.\n\nThis openness has costs. Noise, scams, volatility, and failed assets increase. But the source's argument is that the same mess also preserves the discovery process that made crypto powerful. If every serious market surface waits for clean perceived interest, the market becomes better at confirming consensus than discovering non-consensus demand.\n\n## Reader Implication\n\nReaders should see Vibe as trying to bring that evolutionary openness to derivatives, not as a promise that every long-tail market will be high quality. The point is to let the market discover quality earlier.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Evolutionary Edge\".\n- `vibe-papers`: Neelo, \"Game Theory of Listings\" overview.\n\n## Related Pages\n\n- `authored-perceived-vs-actual-listing-interest`\n- `authored-vibe-as-discovery-layer`\n- `authored-programmatic-market-graduation`",
+      "excerpt": "Zero Cost Evolutionary Discovery Permissionless systems look chaotic because they preserve the market's search process. When listing cost approaches zero, the system does not need to know which assets matter in advance. Most markets can be ignored, fail, or remain small. A small number can surprise the curators, gather actual demand, and later become legible to deeper liquidity venues. That is the evolutionary edge. The market can test weird assets before they have institutional credibility, stable metrics, or obvious narrative consensus. Future winners can begin in the zero perceived interest zone instead of waiting for a committee to decide they are already worth attention. This openness has costs. Noise, scams, volatility, and failed assets increase. But the source's argument is that the same mess also preserves the discovery process that made crypto powerful. If every serious market surface waits for clean perceived interest, the market becomes better at confirming consensus than discovering non consensus demand. Reader Implication Readers should see Vibe as trying to bring that evolutionary openness to derivatives, not as a promise that every long tail market will be high qual"
     }
   ]
 }

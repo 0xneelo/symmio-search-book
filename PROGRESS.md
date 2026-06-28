@@ -344,6 +344,12 @@
 - Routed five new primitive-thesis questions to authored pages so Ask can explain why Vibe x Symmio is framed as missing market infrastructure rather than only a trading venue.
 - Kept exact market-creation workflow, graduation policy, solver responsibilities, and vault exposure under operator/product review.
 
+## 2026-06-28 — Game Theory Of Listings Authored Layer
+
+- Added five authored Volume 03 manifesto pages from Neelo's Game Theory of Listings corpus: perceived-versus-actual listing interest, curation-cost distortions, zero-cost evolutionary discovery, crypto's market-access disconnect, and perps for the trenches.
+- Routed five new listing-theory questions to authored pages so Ask can explain why curated venues optimize for perceived interest and why Vibe is positioned as an anti-bottleneck layer for derivative discovery.
+- Kept exact token eligibility, listing workflow, solver support, vault exposure, and graduation policy under operator/product review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
