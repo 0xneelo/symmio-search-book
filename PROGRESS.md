@@ -83,6 +83,14 @@
 - Updated the Ask flow to prefer seeded question routes before fuzzy corpus search and show the matched seed question with confidence.
 - Extended the quality audit with a question-route gate; current result is 9 of 11 gates passing, with only parked operator and Discord/Lafa gates open.
 
+## 2026-06-28 — Routed Glossary Layer
+
+- Added `scripts/build-glossary.mjs` and generated `data/glossary.json` plus `data/glossary.js`.
+- Validated 32 source-backed glossary terms across 10 categories, with every term resolving to registered source keys and exact page ids.
+- Added a dedicated Glossary prototype view with term filtering, category chips, source chips, and exact-page links.
+- Updated Ask routing to use glossary definitions after seeded question routes and before fuzzy corpus search.
+- Extended the quality audit with a glossary-route gate; current result is 10 of 12 gates passing, with only parked operator and Discord/Lafa gates open.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

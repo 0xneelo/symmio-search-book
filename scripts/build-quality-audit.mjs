@@ -14,6 +14,7 @@ const defaults = {
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
+  glossary: path.join(searchBookRoot, "data", "glossary.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
@@ -158,6 +159,9 @@ const journeys = fs.existsSync(args.journeys) ? readJson(args.journeys) : { jour
 const questionRoutes = fs.existsSync(args.questionRoutes)
   ? readJson(args.questionRoutes)
   : { answerable: [], reconciliation: [], totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] };
+const glossary = fs.existsSync(args.glossary)
+  ? readJson(args.glossary)
+  : { terms: [], totalTerms: 0, byCategory: {}, missingPageIds: [], missingSourceKeys: [] };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
@@ -179,6 +183,8 @@ const gaps = parseGapItems(gapMarkdown);
 const answerableQuestions = parseQuestionRows(questionMarkdown, "Answerable In Prototype");
 const reconciliationQuestions = parseQuestionRows(questionMarkdown, "Needs Reconciliation");
 const questionRouteMissingIds = questionRoutes.missingRouteIds || [];
+const glossaryMissingPageIds = glossary.missingPageIds || [];
+const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
 const searchCoverage = coverageFor(searchIndex, knownSourceKeys);
 const authoredCoverage = coverageFor(authoredPages, knownSourceKeys);
@@ -259,6 +265,12 @@ const gates = [
     detail: `${questionRoutes.totalRoutes || 0} generated routes, ${answerableQuestions.length} answerable ledger rows, ${questionRouteMissingIds.length} missing page ids`,
   },
   {
+    id: "glossary-routes",
+    label: "Glossary terms resolve",
+    passed: glossaryMissingPageIds.length === 0 && glossaryMissingSourceKeys.length === 0 && (glossary.totalTerms || 0) >= 25,
+    detail: `${glossary.totalTerms || 0} terms, ${Object.keys(glossary.byCategory || {}).length} categories, ${glossaryMissingPageIds.length} missing page ids, ${glossaryMissingSourceKeys.length} missing source keys`,
+  },
+  {
     id: "operator-inbox",
     label: "Operator-blocked threads are surfaced",
     passed: openInboxItems.length === 0,
@@ -287,6 +299,8 @@ const payload = {
     guidedJourneySteps: journeys.totalSteps || 0,
     seededQuestionRoutes: questionRoutes.totalRoutes || 0,
     seededReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
+    glossaryTerms: glossary.totalTerms || 0,
+    glossaryCategories: Object.keys(glossary.byCategory || {}).length,
     sourceRegistryKeys: knownSourceKeys.size,
     usedSourceKeys: usedSourceKeys.length,
     openOperatorItems: openInboxItems.length,
@@ -327,11 +341,20 @@ const payload = {
     byRouteSource: questionRoutes.byRouteSource || {},
     missingRouteIds: questionRouteMissingIds,
   },
+  glossaryCoverage: {
+    totalTerms: glossary.totalTerms || 0,
+    byCategory: glossary.byCategory || {},
+    alphabet: glossary.alphabet || {},
+    missingPageIds: glossaryMissingPageIds,
+    missingSourceKeys: glossaryMissingSourceKeys,
+  },
   unresolved: {
     operatorInbox: openInboxItems,
     gaps,
     journeyMissingPageIds,
     questionRouteMissingIds,
+    glossaryMissingPageIds,
+    glossaryMissingSourceKeys,
     reconciliationQuestions: reconciliationQuestions.map((row) => ({ question: row[0], gap: row[1], notes: row[2] })),
   },
   nextAuditFocus: [

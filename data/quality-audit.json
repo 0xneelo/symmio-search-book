@@ -13,6 +13,8 @@
     "guidedJourneySteps": 38,
     "seededQuestionRoutes": 29,
     "seededReconciliationQuestions": 7,
+    "glossaryTerms": 32,
+    "glossaryCategories": 10,
     "sourceRegistryKeys": 51,
     "usedSourceKeys": 38,
     "openOperatorItems": 4,
@@ -75,6 +77,12 @@
       "label": "Question ledger routes resolve",
       "passed": true,
       "detail": "29 generated routes, 29 answerable ledger rows, 0 missing page ids"
+    },
+    {
+      "id": "glossary-routes",
+      "label": "Glossary terms resolve",
+      "passed": true,
+      "detail": "32 terms, 10 categories, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "operator-inbox",
@@ -263,6 +271,89 @@
     },
     "missingRouteIds": []
   },
+  "glossaryCoverage": {
+    "totalTerms": 32,
+    "byCategory": {
+      "Risk": 5,
+      "Trading Flow": 3,
+      "Data": 1,
+      "Market Formation": 5,
+      "Dashboard": 2,
+      "Economics": 2,
+      "Revenue": 3,
+      "Rewards": 4,
+      "Symmio": 3,
+      "Product": 4
+    },
+    "alphabet": {
+      "A": [
+        "term-adl",
+        "term-amfq"
+      ],
+      "B": [
+        "term-barometer",
+        "term-bootstrap-trilemma"
+      ],
+      "C": [
+        "term-collateral",
+        "term-cross-margin"
+      ],
+      "E": [
+        "term-estimated-network-revenue"
+      ],
+      "F": [
+        "term-funding"
+      ],
+      "G": [
+        "term-gamma"
+      ],
+      "H": [
+        "term-hip-3"
+      ],
+      "I": [
+        "term-intent",
+        "term-isolation"
+      ],
+      "L": [
+        "term-liquidation",
+        "term-listing-monopoly"
+      ],
+      "N": [
+        "term-network-volume"
+      ],
+      "O": [
+        "term-onboarding-points",
+        "term-order-book"
+      ],
+      "P": [
+        "term-partya",
+        "term-partyb",
+        "term-perpetual",
+        "term-phase-a",
+        "term-phase-b",
+        "term-proof-of-value"
+      ],
+      "R": [
+        "term-referral-depth"
+      ],
+      "S": [
+        "term-solver",
+        "term-spread",
+        "term-symmio"
+      ],
+      "T": [
+        "term-tge-settlement",
+        "term-token-vault-perp"
+      ],
+      "V": [
+        "term-vibe",
+        "term-vibe-points",
+        "term-vibecaps"
+      ]
+    },
+    "missingPageIds": [],
+    "missingSourceKeys": []
+  },
   "unresolved": {
     "operatorInbox": [
       {
@@ -330,6 +421,8 @@
     ],
     "journeyMissingPageIds": [],
     "questionRouteMissingIds": [],
+    "glossaryMissingPageIds": [],
+    "glossaryMissingSourceKeys": [],
     "reconciliationQuestions": [
       {
         "question": "Does referral depth count 5 or 15 levels?",

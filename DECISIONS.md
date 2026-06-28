@@ -143,3 +143,11 @@
 **Reason:** The living-docs loop requires tracked questions to shape retrieval. The current fuzzy search is useful, but explicit question-led routes are better evidence that known user questions resolve to exact pages and can be audited for drift.
 
 **Status:** Accepted for prototype iteration.
+
+## D-019: Keep Glossary Terms Generated And Audited
+
+**Decision:** Generate `data/glossary.*` from a maintained glossary definition list, validate every term against registered source keys and exact page ids, and render it as a dedicated prototype view.
+
+**Reason:** The spec and mockup require a glossary, but glossary copy easily drifts when it is embedded only in pages or UI. A generated glossary gives the answer engine concise definitions while the audit catches broken source/page routes.
+
+**Status:** Accepted for prototype iteration.
