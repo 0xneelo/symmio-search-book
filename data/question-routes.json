@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 302,
+  "totalRoutes": 307,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 121
+    "Low": 126
   },
   "byRouteSource": {
-    "authored": 302
+    "authored": 307
   },
   "answerable": [
     {
@@ -4887,6 +4887,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's DDQ describes a healthy solver or protocol-owned solver assuming distressed positions so the user's trade lifecycle can continue where implementation permits.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-internal-inventory-the-first-low-cap-hedge-source",
+      "question": "Why is internal inventory the first low-cap hedge source?",
+      "normalizedQuestion": "why is internal inventory the first low cap hedge source",
+      "pageId": "authored-internal-inventory-primary-hedge",
+      "pageTitle": "Internal Inventory As The Primary Low-Cap Hedge",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's residual-counterparty DDQ source says fragile low-cap flow generally prefers vault or solver-controlled inventory before immediate open-DEX execution.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-inputs-change-a-residual-counterparty-spread",
+      "question": "What inputs change a residual counterparty spread?",
+      "normalizedQuestion": "what inputs change a residual counterparty spread",
+      "pageId": "authored-residual-counterparty-dynamic-spread",
+      "pageTitle": "Residual Counterparty Dynamic Spread Inputs",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ ties the dynamic spread to market conditions, vault depth, volatility, and expected unwind cost rather than a fixed generic fee.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-internal-netting-reduce-external-execution",
+      "question": "How does internal netting reduce external execution?",
+      "normalizedQuestion": "how does internal netting reduce external execution",
+      "pageId": "authored-internal-netting-before-external-execution",
+      "pageTitle": "Internal Netting Before External Execution",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says opposing trader flow can net longs against shorts internally before the solver reaches external venues.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-my-closeout-price-reflect-executable-liquidity",
+      "question": "Why can my closeout price reflect executable liquidity?",
+      "normalizedQuestion": "why can my closeout price reflect executable liquidity",
+      "pageId": "authored-executable-closeout-pricing",
+      "pageTitle": "Executable Closeout Pricing",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says closes either net internally or unwind hedges externally, so realized slippage, price impact, and risk spread can enter the exit price.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-when-external-liquidity-disappears",
+      "question": "What happens when external liquidity disappears?",
+      "normalizedQuestion": "what happens when external liquidity disappears",
+      "pageId": "authored-liquidity-disappearance-protective-posture",
+      "pageTitle": "Protective Posture When Liquidity Disappears",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ frames disappearing liquidity as an execution-feasibility problem that can require wider spreads, tighter limits, de-risking, ADL-style controls, or market closure.",
       "sourceKeys": [
         "vibe-papers"
       ],

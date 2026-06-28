@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1133,
-  "totalChunks": 1954,
-  "pagesWithChunks": 1133,
+  "totalPages": 1138,
+  "totalChunks": 1964,
+  "pagesWithChunks": 1138,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 321,
+    "authored": 326,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 613,
+    "authored": 623,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 108,
+    "protocol-reference": 118,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2718,6 +2718,52 @@
       "text": "a documentation lens. A market matures as the venue term becomes smaller, the settlement path becomes clearer, and the user's position behaves more like the reference asset. Sources vibe papers : Neelo, \"Section 5.2: Exchange deviation multiplier\". vibe papers : Neelo, \"Section 6.2: Core vocabulary\". Related Pages authored liquidity as trader experience authored derivatives venue term authored market maturation risk posture"
     },
     {
+      "id": "authored-executable-closeout-pricing::001",
+      "pageId": "authored-executable-closeout-pricing",
+      "chunkIndex": 1,
+      "title": "Executable Closeout Pricing",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/executable-closeout-pricing.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Executable Closeout Pricing The DDQ source says a trader close is settled against what can actually be executed. When a trader asks to close, the solver has two broad paths: net the close against opposing demand if that flow exists, or unwind the needed hedge against external liquidity and return an exit price that reflects realized execution costs plus any required risk spread. That framing is important because a close price is not only an oracle mark. In a fragile market, slippage, price impact, and the available hedge path can change what the close can safely return. The Market Clearing Boundary Executable closeout pricing is the boundary between theoretical PnL and realizable settlement. If the solver can net internally, the close can depend less on external liquidity. If the solver must unwind externally, the close has to account for the cost of doing that unwind in the real market. This does not make every bad close a protocol failure. It means low cap derivatives need to expose the difference between index logic, quote logic, hedge execution, and final settlement economics. Publication Boundary Exact closeout formula, UI slippage language, execution venues, slippage allocation, force close path, and implementation specific close rules need operator and implementation review. The source backed point is narrower: closeout economics should reflect netting or executable hedge unwind,"
+    },
+    {
+      "id": "authored-executable-closeout-pricing::002",
+      "pageId": "authored-executable-closeout-pricing",
+      "chunkIndex": 2,
+      "title": "Executable Closeout Pricing",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/executable-closeout-pricing.md",
+      "wordStart": 185,
+      "wordEnd": 253,
+      "wordCount": 68,
+      "text": "UI slippage language, execution venues, slippage allocation, force close path, and implementation specific close rules need operator and implementation review. The source backed point is narrower: closeout economics should reflect netting or executable hedge unwind, not an unsupported theoretical price. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored pass through execution boundary authored solver hedging failure modes authored force close versus escape mode"
+    },
+    {
       "id": "authored-exploit-resistance-pillar::001",
       "pageId": "authored-exploit-resistance-pillar",
       "chunkIndex": 1,
@@ -4430,6 +4476,98 @@
       "text": "and Symmio as infrastructure that handles the pre book and solver mediated parts of the derivatives lifecycle, then links back to order books where order books are strongest. Sources vibe papers : Neelo, \"Ode to OrderBooks\". Related Pages authored bootstrap trilemma authored vibe as discovery layer neelo 04 ode to the orderbook 04 docs overview"
     },
     {
+      "id": "authored-internal-inventory-primary-hedge::001",
+      "pageId": "authored-internal-inventory-primary-hedge",
+      "chunkIndex": 1,
+      "title": "Internal Inventory As The Primary Low-Cap Hedge",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/internal-inventory-primary-hedge.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Internal Inventory As The Primary Low Cap Hedge Neelo's DDQ source gives internal inventory a specific role in low cap markets. When a market is thin, volatile, or easy to front run, the solver generally should not rush every hedge into open DEX liquidity. The source says the preferred first backing path is internal sourcing: token inventory held in vaults or otherwise controlled by the solver side system. That does not mean the market has infinite liquidity. It means the solver can compare the requested trade against inventory depth, market conditions, and expected unwind cost before it accepts residual exposure. Internal inventory gives the quote a buffer against immediate external price impact and against adversarial execution in fragile markets. Why It Matters This page answers a common diligence question: \"where does the hedge come from if the token is low cap?\" The source backed answer is that the system tries to make the first hedge source local to the market, not a panic trade through the thinnest possible venue. Internal inventory also keeps risk more naturally aligned. Token side inventory is closer to the market being listed, while external stablecoin or DEX execution is used when it actually improves the risk path. Publication Boundary Exact inventory custody, vault rights, eligible token balances, solver control mechanics, and live market specific inventory"
+    },
+    {
+      "id": "authored-internal-inventory-primary-hedge::002",
+      "pageId": "authored-internal-inventory-primary-hedge",
+      "chunkIndex": 2,
+      "title": "Internal Inventory As The Primary Low-Cap Hedge",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/internal-inventory-primary-hedge.md",
+      "wordStart": 185,
+      "wordEnd": 279,
+      "wordCount": 94,
+      "text": "being listed, while external stablecoin or DEX execution is used when it actually improves the risk path. Publication Boundary Exact inventory custody, vault rights, eligible token balances, solver control mechanics, and live market specific inventory depth are implementation and operator review items. The publishable source backed claim is the hierarchy: internal inventory or vault controlled liquidity is the preferred primary hedge source for fragile low cap flow. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored residual counterparty hedge first authored token lp attractiveness model authored token inventory risk localization"
+    },
+    {
+      "id": "authored-internal-netting-before-external-execution::001",
+      "pageId": "authored-internal-netting-before-external-execution",
+      "chunkIndex": 1,
+      "title": "Internal Netting Before External Execution",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/internal-netting-before-external-execution.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Internal Netting Before External Execution The residual counterparty DDQ source names opposing trader flow as a hedge source. If longs and shorts exist at the same time, the solver can net those positions internally and reduce how much must be bought or sold through external liquidity. This is not a cosmetic optimization. In low cap markets, every unnecessary external hedge can create price impact, reveal demand, or invite adverse selection. Internal netting lets the system reduce residual delta before it touches a thinner venue. Partial Netting Is Normal The practical case is usually partial. Some flow can net against opposing demand, while the remaining imbalance still needs inventory, controlled external execution, wider pricing, or tighter risk limits. That is why the docs should distinguish two questions. \"Who bears PnL?\" is the netting state risk transfer question. \"How much external execution is needed?\" is the execution question. Internal netting helps with both, but it does not remove all residual exposure when the market is one sided. Reader Implication When a user asks why Vibe style markets can operate before a deep order book exists, one answer is internal offsetting. The system can use actual opposing trader flow first, then route only the unresolved residual through inventory or external venues. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages"
+    },
+    {
+      "id": "authored-internal-netting-before-external-execution::002",
+      "pageId": "authored-internal-netting-before-external-execution",
+      "chunkIndex": 2,
+      "title": "Internal Netting Before External Execution",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/internal-netting-before-external-execution.md",
+      "wordStart": 185,
+      "wordEnd": 234,
+      "wordCount": 49,
+      "text": "is internal offsetting. The system can use actual opposing trader flow first, then route only the unresolved residual through inventory or external venues. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored netting state risk transfer authored residual counterparty hedge first authored funding defense hierarchy"
+    },
+    {
       "id": "authored-inverse-payoff-trap::001",
       "pageId": "authored-inverse-payoff-trap",
       "chunkIndex": 1,
@@ -4756,6 +4894,52 @@
       "wordEnd": 296,
       "wordCount": 111,
       "text": "This is also why order books become attractive after maturity. Deep two sided flow keeps execution and marks close enough to the underlying story. Before that flow exists, Vibe has to make the bootstrap state explicit instead of pretending the market already has mature liquidity. Reader Implication When docs describe liquidity, they should answer the trader's practical questions: can I enter, exit, settle, and price my risk? If the answer depends on venue internal imbalance, the docs should say that clearly. Sources vibe papers : Neelo, \"Section 5: Liquidity as Trader Experience\". Related Pages authored token vault perps versus usdc pools authored market lifecycle gap authored order books as graduation layer"
+    },
+    {
+      "id": "authored-liquidity-disappearance-protective-posture::001",
+      "pageId": "authored-liquidity-disappearance-protective-posture",
+      "chunkIndex": 1,
+      "title": "Protective Posture When Liquidity Disappears",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/liquidity-disappearance-protective-posture.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Protective Posture When Liquidity Disappears The DDQ source treats disappearing liquidity as a market integrity and execution feasibility problem. If external liquidity is near zero, an attempted hedge or unwind can create extreme price impact. In that state, the system cannot assume positions can be closed at clean theoretical prices. The protective response is progressive. The source names widening spreads, increasing funding adjustments, lowering max leverage or open interest, enforcing stricter close and quote conditions, forced de risking, ADL type mechanisms where the design includes them, and closing or delisting the market if it is no longer safely tradable. Why The Response Must Tighten The economic principle is blunt: traders are closed against what can be executed through netting or hedges. A system cannot sustainably pay profits that cannot be realized through opposing flow, inventory, or executable external markets. Protective posture therefore protects more than the solver. It protects LP resources, insurance resources, and the credibility of the market. Letting one sided exposure grow after liquidity has disappeared would turn a market making problem into a solvency problem. Publication Boundary Exact trigger thresholds, funding adjustments, leverage limits, open interest limits, close restrictions, ADL rules, market closing authority, and user notice workflow require implementation and operator review. This page documents the source backed control family, not production parameter values. Sources vibe"
+    },
+    {
+      "id": "authored-liquidity-disappearance-protective-posture::002",
+      "pageId": "authored-liquidity-disappearance-protective-posture",
+      "chunkIndex": 2,
+      "title": "Protective Posture When Liquidity Disappears",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/liquidity-disappearance-protective-posture.md",
+      "wordStart": 185,
+      "wordEnd": 248,
+      "wordCount": 63,
+      "text": "leverage limits, open interest limits, close restrictions, ADL rules, market closing authority, and user notice workflow require implementation and operator review. This page documents the source backed control family, not production parameter values. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored solver hedging failure modes authored tail event profit cap emergency brake authored funding adl trigger and target"
     },
     {
       "id": "authored-listing-data-product::001",
@@ -8775,6 +8959,52 @@
       "wordEnd": 231,
       "wordCount": 46,
       "text": "and that path must be paid and controlled. Sources vibe papers : Neelo, \"Pillar Two: Bootstrap and Counterparty\". vibe papers : Neelo, \"Pillar Three: LP Yield and Capital Efficiency\". Related Pages authored bootstrap counterparty pillar authored solver owned market maker authored lp yield capital efficiency pillar"
+    },
+    {
+      "id": "authored-residual-counterparty-dynamic-spread::001",
+      "pageId": "authored-residual-counterparty-dynamic-spread",
+      "chunkIndex": 1,
+      "title": "Residual Counterparty Dynamic Spread Inputs",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/residual-counterparty-dynamic-spread.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Residual Counterparty Dynamic Spread Inputs The DDQ source says the solver applies a dynamic spread when it prices residual counterparty flow. That spread is not just a generic fee label. It is the mechanism that lets the quote reflect market conditions, vault depth, volatility, and expected unwind cost before the solver accepts exposure. For low cap markets, those inputs can change quickly. A market with deeper internal inventory, cleaner price formation, and cheaper expected unwind can support tighter execution. A market with thin inventory, high volatility, one sided flow, or expensive expected unwind should quote wider or refuse unsafe requests. What The Spread Is Doing The dynamic spread translates execution risk into the user's executable terms. It keeps the solver from pretending that a fragile market can clear at a theoretical mid price when the actual hedge, unwind, or inventory path is costly. This is also why RFQ is central to the architecture. The solver can price the trade after seeing the requested size, direction, and market state. It can return a quote that reflects the current risk rather than inheriting a fixed curve that may already be stale. Publication Boundary The source supports the spread inputs, not a production formula. Exact spread math, thresholds, solver inventory policy, market classes, and user facing disclosures need operator and implementation review. Sources"
+    },
+    {
+      "id": "authored-residual-counterparty-dynamic-spread::002",
+      "pageId": "authored-residual-counterparty-dynamic-spread",
+      "chunkIndex": 2,
+      "title": "Residual Counterparty Dynamic Spread Inputs",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/residual-counterparty-dynamic-spread.md",
+      "wordStart": 185,
+      "wordEnd": 245,
+      "wordCount": 60,
+      "text": "may already be stale. Publication Boundary The source supports the spread inputs, not a production formula. Exact spread math, thresholds, solver inventory policy, market classes, and user facing disclosures need operator and implementation review. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\". Related Pages authored rfq risk tuning authored residual counterparty hedge first authored safety premium backstop quotes"
     },
     {
       "id": "authored-residual-counterparty-hedge-first::001",

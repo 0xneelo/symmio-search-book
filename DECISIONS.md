@@ -815,3 +815,11 @@
 **Reason:** The broad DDQ solver-default pages explain the continuity model, but solver/LP diligence readers need exact answers for each failure-mode branch. Splitting the modes makes it easier to distinguish ordinary third-party liquidation, reputation-sensitive de-risking, protocol-owned bootstrapping boundaries, CVA collateral, and buyout/auction continuity without turning any source-model parameter into a production guarantee.
 
 **Status:** Accepted for the authored protocol-reference layer; maintenance-margin thresholds, liquidation flags, solver reputation rules, CVA sizing, buyout probabilities, auction rules, protocol-owned solver depletion handling, and trader-compensation semantics remain operator/implementation/legal review.
+
+## D-103: Split Residual Counterparty Execution Into Exact Diligence Answers
+
+**Decision:** Add authored protocol-reference pages for internal inventory as the primary low-cap hedge, residual-counterparty dynamic spread inputs, internal netting before external execution, executable closeout pricing, and protective posture when liquidity disappears.
+
+**Reason:** The broad residual-counterparty page explains hedge-first solver behavior, but solver/LP and trader diligence readers need exact routes for where the hedge comes from, why quotes widen, how netting reduces external execution, why exits reflect executable liquidity, and what controls tighten when liquidity disappears. Splitting these answers improves answer-engine routing while preserving the source boundary.
+
+**Status:** Accepted for the authored protocol-reference layer; inventory custody, vault rights, spread formulas, execution venues, closeout rules, slippage allocation, protective thresholds, ADL rules, market-closing authority, and production solver policy remain operator/implementation/legal review.

@@ -616,6 +616,12 @@
 - Routed five new Ask questions so solver, LP, and risk-review readers can inspect each default/continuity branch beneath the broad solver-default answer.
 - Kept maintenance-margin thresholds, liquidation flags, reputation rules, CVA sizing, buyout probabilities, auction rules, depletion handling, and trader-compensation semantics under operator/implementation/legal review.
 
+## 2026-06-29 — DDQ Residual Counterparty Execution Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ residual-counterparty source: internal inventory as the primary low-cap hedge, residual-counterparty dynamic spread inputs, internal netting before external execution, executable closeout pricing, and protective posture when liquidity disappears.
+- Routed five new Ask questions so trader, solver, and LP diligence readers can inspect hedge sourcing, quote widening, netting, closeout economics, and liquidity-collapse controls beneath the broad residual-counterparty answer.
+- Kept inventory custody, vault rights, spread formulas, execution venues, closeout rules, slippage allocation, protective thresholds, ADL rules, market-closing authority, and production solver policy under operator/implementation/legal review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

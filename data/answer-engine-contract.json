@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 302
+      "totalGoldenRoutes": 307
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 320,
-    "retrievalEligiblePages": 1112,
+    "publicNavigationPages": 325,
+    "retrievalEligiblePages": 1117,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 320,
+      "candidate": 325,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 302,
-    "exactRouteTestsPassing": 302,
+    "totalExactRouteTests": 307,
+    "exactRouteTestsPassing": 307,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 302
+      "candidate": 307
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 121
+      "Low": 126
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6349,6 +6349,111 @@
         "passes": true
       },
       {
+        "id": "qr-why-is-internal-inventory-the-first-low-cap-hedge-source",
+        "query": "Why is internal inventory the first low-cap hedge source?",
+        "normalizedQuery": "why is internal inventory the first low cap hedge source",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-internal-inventory-primary-hedge",
+        "expectedPageTitle": "Internal Inventory As The Primary Low-Cap Hedge",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-internal-inventory-the-first-low-cap-hedge-source",
+        "passes": true
+      },
+      {
+        "id": "qr-what-inputs-change-a-residual-counterparty-spread",
+        "query": "What inputs change a residual counterparty spread?",
+        "normalizedQuery": "what inputs change a residual counterparty spread",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-residual-counterparty-dynamic-spread",
+        "expectedPageTitle": "Residual Counterparty Dynamic Spread Inputs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-inputs-change-a-residual-counterparty-spread",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-internal-netting-reduce-external-execution",
+        "query": "How does internal netting reduce external execution?",
+        "normalizedQuery": "how does internal netting reduce external execution",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-internal-netting-before-external-execution",
+        "expectedPageTitle": "Internal Netting Before External Execution",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-internal-netting-reduce-external-execution",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-my-closeout-price-reflect-executable-liquidity",
+        "query": "Why can my closeout price reflect executable liquidity?",
+        "normalizedQuery": "why can my closeout price reflect executable liquidity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-executable-closeout-pricing",
+        "expectedPageTitle": "Executable Closeout Pricing",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-my-closeout-price-reflect-executable-liquidity",
+        "passes": true
+      },
+      {
+        "id": "qr-what-happens-when-external-liquidity-disappears",
+        "query": "What happens when external liquidity disappears?",
+        "normalizedQuery": "what happens when external liquidity disappears",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-liquidity-disappearance-protective-posture",
+        "expectedPageTitle": "Protective Posture When Liquidity Disappears",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-happens-when-external-liquidity-disappears",
+        "passes": true
+      },
+      {
         "id": "qr-who-bears-losses-in-a-tail-event",
         "query": "Who bears losses in a tail event?",
         "normalizedQuery": "who bears losses in a tail event",
@@ -6972,7 +7077,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 302,
+      "exactRoutes": 307,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
@@ -6982,7 +7087,7 @@
   "gapSignals": {
     "totalGapQueueItems": 13,
     "questionSignals": 7,
-    "operatorSignals": 11,
+    "operatorSignals": 12,
     "parkedPageSignals": 2
   },
   "warnings": [
