@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 297,
+  "totalRoutes": 302,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 136,
+    "Medium": 137,
     "High": 44,
-    "Low": 117
+    "Low": 121
   },
   "byRouteSource": {
-    "authored": 297
+    "authored": 302
   },
   "answerable": [
     {
@@ -4802,6 +4802,93 @@
       "sourceKeys": [
         "vibe-papers",
         "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-strict-solver-liquidation",
+      "question": "What is strict solver liquidation?",
+      "normalizedQuestion": "what is strict solver liquidation",
+      "pageId": "authored-strict-solver-liquidation-mode",
+      "pageTitle": "Strict Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ treats standard solver default as an undercollateralized counterparty liquidation path with maintenance margin, fees, and CVA-style buffers.",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-soft-solver-liquidation",
+      "question": "What is soft solver liquidation?",
+      "normalizedQuestion": "what is soft solver liquidation",
+      "pageId": "authored-soft-solver-liquidation-mode",
+      "pageTitle": "Soft Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ sketches a margin-call and progressive de-risking path for higher-reputation solver stress while keeping final solvency enforcement intact.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-protocol-owned-solver-depletion-boundary",
+      "question": "What is the protocol-owned solver depletion boundary?",
+      "normalizedQuestion": "what is the protocol owned solver depletion boundary",
+      "pageId": "authored-protocol-owned-solver-depletion-boundary",
+      "pageTitle": "Protocol-Owned Solver Depletion Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ separates protocol-owned solver depletion from ordinary third-party default and routes it through protocol-level buffers and review-bound controls.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-a-solver-cva-compensation-buffer",
+      "question": "What is a solver CVA compensation buffer?",
+      "normalizedQuestion": "what is a solver cva compensation buffer",
+      "pageId": "authored-solver-cva-compensation-buffer",
+      "pageTitle": "Solver CVA Compensation Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's DDQ and Symmio vocabulary support CVA as collateral earmarked for counterparty compensation if a solver is liquidated.",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-can-distressed-position-buyout-preserve-trade-continuity",
+      "question": "How can distressed-position buyout preserve trade continuity?",
+      "normalizedQuestion": "how can distressed position buyout preserve trade continuity",
+      "pageId": "authored-distressed-position-buyout-continuity",
+      "pageTitle": "Distressed Position Buyout Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ describes a healthy solver or protocol-owned solver assuming distressed positions so the user's trade lifecycle can continue where implementation permits.",
+      "sourceKeys": [
+        "vibe-papers"
       ],
       "missing": false
     },

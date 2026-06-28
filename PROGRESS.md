@@ -610,6 +610,12 @@
 - Routed five new Ask questions so readers can inspect the negative-feedback mechanics beneath the broad short-side thesis.
 - Kept live shorting eligibility, leverage limits, launch timing, solver/vault availability, abuse controls, and user-facing risk language under operator/product/implementation review.
 
+## 2026-06-29 — DDQ Solver Default Submode Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ solver-default material: strict solver liquidation mode, soft solver liquidation mode, protocol-owned solver depletion boundary, solver CVA compensation buffer, and distressed-position buyout continuity.
+- Routed five new Ask questions so solver, LP, and risk-review readers can inspect each default/continuity branch beneath the broad solver-default answer.
+- Kept maintenance-margin thresholds, liquidation flags, reputation rules, CVA sizing, buyout probabilities, auction rules, depletion handling, and trader-compensation semantics under operator/implementation/legal review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -807,3 +807,11 @@
 **Reason:** Existing NO-button pages explain the broad short-side thesis, but answer-engine readers need exact routes for why long-only markets are asymmetric, why launch timing matters, how fake narratives are filtered, why correction can be incentivized, and how to translate aggressive source metaphors into publication-safe market mechanics.
 
 **Status:** Accepted for the authored manifesto layer; live shorting eligibility, leverage, market-support timing, solver/vault availability, abuse controls, and user-facing risk language remain operator/product/implementation review.
+
+## D-102: Split Solver Default Modes Into Diligence Answers
+
+**Decision:** Add authored protocol-reference pages for strict solver liquidation, soft solver liquidation, protocol-owned solver depletion, solver CVA compensation buffers, and distressed-position buyout continuity.
+
+**Reason:** The broad DDQ solver-default pages explain the continuity model, but solver/LP diligence readers need exact answers for each failure-mode branch. Splitting the modes makes it easier to distinguish ordinary third-party liquidation, reputation-sensitive de-risking, protocol-owned bootstrapping boundaries, CVA collateral, and buyout/auction continuity without turning any source-model parameter into a production guarantee.
+
+**Status:** Accepted for the authored protocol-reference layer; maintenance-margin thresholds, liquidation flags, solver reputation rules, CVA sizing, buyout probabilities, auction rules, protocol-owned solver depletion handling, and trader-compensation semantics remain operator/implementation/legal review.

@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 316,
+  "totalPages": 321,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 179,
+    "publication-candidate-needs-operator-review": 184,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -13,7 +13,7 @@
     "manifesto": 173,
     "product-reference": 47,
     "dashboard-reference": 12,
-    "protocol-reference": 47,
+    "protocol-reference": 52,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 25,
@@ -904,6 +904,30 @@
       "file": "content/authored/manifesto/derivatives-venue-term.md",
       "bodyMarkdown": "# The Venue Term In Every Derivatives Trade\n\nWhen a trader opens a perp, they are not trading only the underlying story. They are also trading the venue.\n\nThe source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matching rules, collateral paths, funding cadence, oracle and mark behavior, insurance, ADL, socialization, and the probability that another participant or backstop will be available when the trader exits.\n\nOn deep mature markets, the venue term can stay small enough that the position feels like exposure to the underlying. On thin markets, the venue term can dominate. The chart can look clean while the actual position is conditional on internal imbalance, funding freezes, mark divergence, haircut policy, or delayed contra-flow.\n\n## Why The Docs Should Say This Directly\n\nRetail and even sophisticated traders often ask \"am I long the token?\" The more precise answer is: \"you are long the token through this venue's settlement graph.\"\n\nThat is not a reason to avoid derivatives. It is a reason to document the settlement graph. Vibe's compendium should make the venue term explicit so users can understand why early markets may have different spreads, limits, profit caps, or settlement behavior than mature books.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5.1b: You are not only trading the underlying\".\n\n## Related Pages\n\n- `authored-liquidity-as-trader-experience`\n- `authored-technically-async-economically-sync`\n- `authored-settlement-state-boundary`",
       "excerpt": "The Venue Term In Every Derivatives Trade When a trader opens a perp, they are not trading only the underlying story. They are also trading the venue. The source names the two objects inside every derivatives position. First is the index or narrative: the synthetic BTC, meme token, project token, or other reference asset. Second is the venue term: matching rules, collateral paths, funding cadence, oracle and mark behavior, insurance, ADL, socialization, and the probability that another participant or backstop will be available when the trader exits. On deep mature markets, the venue term can stay small enough that the position feels like exposure to the underlying. On thin markets, the venue term can dominate. The chart can look clean while the actual position is conditional on internal imbalance, funding freezes, mark divergence, haircut policy, or delayed contra flow. Why The Docs Should Say This Directly Retail and even sophisticated traders often ask \"am I long the token?\" The more precise answer is: \"you are long the token through this venue's settlement graph.\" That is not a reason to avoid derivatives. It is a reason to document the settlement graph. Vibe's compendium should"
+    },
+    {
+      "id": "authored-distressed-position-buyout-continuity",
+      "title": "Distressed Position Buyout Continuity",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default",
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-ii-trader-compensation",
+        "authored-trader-compensation-continuity-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/distressed-position-buyout-continuity.md",
+      "bodyMarkdown": "# Distressed Position Buyout Continuity\n\nThe DDQ's preferred third-party solver-default outcome is continuity, not simply payout-and-close.\n\nIf a third-party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol-owned solver can act as buyer of last resort in that model. In a mature multi-solver environment, the source also describes a competitive auction where active solvers can bid for the positions and inherit the counterparty obligations.\n\nThe user-facing reason is practical. Traders care about their position lifecycle. If every solver default forced position closure, users would inherit timing risk, slippage, and the need to rebuild exposure during a disrupted market. A buyout path can preserve the position, margin, funding, and PnL state while replacing the counterparty behind it.\n\nThe source's continuity design also clarifies why CVA and buyout are complementary. CVA compensates default risk. Buyout keeps the trade alive where a healthy counterparty can take over.\n\n## Publication Boundary\n\nThis page should not publish a live buyout probability, auction rule, discount formula, solver eligibility standard, or guarantee that user positions always continue after a solver default. It documents the DDQ model and requires implementation review before production publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default: Optional continuity mechanism\".\n- `vibe-papers`: Neelo DDQ, \"Trader Compensation - position buyout and auction mechanism\".\n\n## Related Pages\n\n- `authored-trader-compensation-continuity-model`\n- `authored-solver-cva-compensation-buffer`\n- `authored-protocol-owned-solver-depletion-boundary`",
+      "excerpt": "Distressed Position Buyout Continuity The DDQ's preferred third party solver default outcome is continuity, not simply payout and close. If a third party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol owned solver can act as buyer of last resort in that model. In a mature multi solver environment, the source also describes a competitive auction where active solvers can bid for the positions and inherit the counterparty obligations. The user facing reason is practical. Traders care about their position lifecycle. If every solver default forced position closure, users would inherit timing risk, slippage, and the need to rebuild exposure during a disrupted market. A buyout path can preserve the position, margin, funding, and PnL state while replacing the counterparty behind it. The source's continuity design also clarifies why CVA and buyout are complementary. CVA compensates default risk. Buyout keeps the trade alive where a healthy counterparty can take over. Publication Boundary This page should not publish a live buyout probability, auction rule, discount formula, solver eligibi"
     },
     {
       "id": "authored-dynamic-pricing-controls",
@@ -3669,6 +3693,30 @@
       "excerpt": "Protocol Defined Market Lifecycle The order book assembly line source proposes a market path that is defined by stages rather than relationships: The literal path is review bound, especially any SSHE or destination venue claim. The durable idea is stronger than the example: a market should move through layers as evidence appears. Without a protocol defined lifecycle, market formation is fragmented. Token creation is permissionless, spot liquidity is permissionless, but derivatives access remains selective. Shorting is scarce. Demand is noisy. Listing decisions are expensive. Each layer asks its own question, and no shared process says when a market has earned the next stage. With a lifecycle, the stages become legible. Launchpads create the asset. DEXs create spot access. Vibe creates the first derivatives market and exposes long/short demand. Intermediate or internal execution can support markets that are not ready for the deepest books. Mature order books absorb the winners. Publication Boundary This page should not publish exact live graduation rules, destination venues, SSHE behavior, or automatic listing guarantees. It documents the market structure model: Vibe is valuable bec"
     },
     {
+      "id": "authored-protocol-owned-solver-depletion-boundary",
+      "title": "Protocol-Owned Solver Depletion Boundary",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default",
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-ii-trader-compensation",
+        "authored-trader-compensation-continuity-model"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/protocol-owned-solver-depletion-boundary.md",
+      "bodyMarkdown": "# Protocol-Owned Solver Depletion Boundary\n\nThe DDQ separates protocol-owned solver depletion from ordinary third-party solver default.\n\nIn the bootstrapping configuration described by the source, the protocol-owned solver may be flagged as not liquidatable in the conventional account-level sense. That does not mean users are ignored or the solver can fail without consequence. It means the shortfall is handled at the protocol level through layered buffers and risk controls rather than by immediately liquidating the solver account like an outside counterparty.\n\nThe trader-compensation source defines the extreme depletion boundary as a state where protection layers have been exhausted: LP vault deposits, solver inventory, global insurance, local insurance, and ADL or other exposure-reduction controls. If all of those failed, the source model says positions would close, vaults would settle, and the protocol could restart from new deposits.\n\nThe publication-safe point is narrower than the source's strongest language. The protocol-owned solver is a bootstrapping backstop with protocol-level responsibilities. Its depletion boundary is a catastrophic system-state boundary, not a normal solver-default event.\n\n## Publication Boundary\n\nThis page must not present the protocol-owned solver as currently non-liquidatable, practically unable to deplete, or guaranteed to make every trader whole unless the operator confirms the live deployment and public wording. Exact flags, buffer inventory, ADL policy, restart rules, and compensation semantics remain implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default: Mode 3 - Protocol-operated solver\".\n- `vibe-papers`: Neelo DDQ, \"Trader Compensation - Protocol-owned solver\".\n\n## Related Pages\n\n- `authored-trader-compensation-continuity-model`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "Protocol Owned Solver Depletion Boundary The DDQ separates protocol owned solver depletion from ordinary third party solver default. In the bootstrapping configuration described by the source, the protocol owned solver may be flagged as not liquidatable in the conventional account level sense. That does not mean users are ignored or the solver can fail without consequence. It means the shortfall is handled at the protocol level through layered buffers and risk controls rather than by immediately liquidating the solver account like an outside counterparty. The trader compensation source defines the extreme depletion boundary as a state where protection layers have been exhausted: LP vault deposits, solver inventory, global insurance, local insurance, and ADL or other exposure reduction controls. If all of those failed, the source model says positions would close, vaults would settle, and the protocol could restart from new deposits. The publication safe point is narrower than the source's strongest language. The protocol owned solver is a bootstrapping backstop with protocol level responsibilities. Its depletion boundary is a catastrophic system state boundary, not a normal solver d"
+    },
+    {
       "id": "authored-protocol-owned-solver-public-option",
       "title": "Protocol-Owned Solver As Public Option",
       "section": "manifesto",
@@ -4512,6 +4560,54 @@
       "excerpt": "The Small Market Wedge Strategy The small market wedge is the strategic answer to a common category mistake: Vibe is not trying to win all perpetual volume on day one. The source argues that the first category is narrower: tokens with spot attention and no serious perp market. That market is small enough to define and painful enough to matter. Incumbent order books focus on assets with proven demand. Vault protocols struggle to scale long tail risk efficiently. The wedge is the lifecycle gap where traders want exposure before conventional venues can justify the market. From there, the expansion path is concentric. Start with the long tail markets nobody else can serve well. Accumulate risk data, solver experience, LP behavior, and listing evidence. Expand across chains, asset classes, integrations, data products, and mature venue handoffs. This is a strategy page, not a monopoly guarantee. The source's Thiel framing is useful because it forces precise market definition and durability analysis. The docs should avoid unsupported claims that Vibe cannot be competed with. The safer and stronger claim is that solving bootstrap to maturity creates a category incumbents are not structural"
     },
     {
+      "id": "authored-soft-solver-liquidation-mode",
+      "title": "Soft Solver Liquidation Mode",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default",
+        "authored-solver-default-and-continuity",
+        "authored-market-maturation-risk-posture"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/soft-solver-liquidation-mode.md",
+      "bodyMarkdown": "# Soft Solver Liquidation Mode\n\nThe DDQ also sketches a softer solver-liquidation path for higher-reputation solvers or later-stage reputation systems.\n\nInstead of jumping immediately from shortfall to full liquidation, the source describes a margin-call style flow. The solver receives a notice or opportunity to restore collateral within defined constraints. If the shortfall is not cured, the system can progressively de-risk, slash, or converge toward full liquidation.\n\nThe design purpose is continuity. Volatile markets can create temporary stress that a solvent, trusted solver may be able to cure. Soft liquidation gives the system a way to reduce unnecessary disruption while still enforcing solvency over time.\n\nThat distinction matters for docs because \"soft\" must not mean \"optional.\" The safe public interpretation is: reputation can affect process, but the end state still needs collateral restoration, de-risking, or liquidation if the solver remains undercollateralized.\n\n## Publication Boundary\n\nThis page should not claim a live solver reputation system, margin-call window, slashing schedule, or soft-liquidation eligibility rule until the operator confirms current implementation. It documents the DDQ source model.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default: Mode 2 - Soft liquidation\".\n\n## Related Pages\n\n- `authored-solver-default-and-continuity`\n- `authored-market-maturation-risk-posture`\n- `authored-strict-solver-liquidation-mode`",
+      "excerpt": "Soft Solver Liquidation Mode The DDQ also sketches a softer solver liquidation path for higher reputation solvers or later stage reputation systems. Instead of jumping immediately from shortfall to full liquidation, the source describes a margin call style flow. The solver receives a notice or opportunity to restore collateral within defined constraints. If the shortfall is not cured, the system can progressively de risk, slash, or converge toward full liquidation. The design purpose is continuity. Volatile markets can create temporary stress that a solvent, trusted solver may be able to cure. Soft liquidation gives the system a way to reduce unnecessary disruption while still enforcing solvency over time. That distinction matters for docs because \"soft\" must not mean \"optional.\" The safe public interpretation is: reputation can affect process, but the end state still needs collateral restoration, de risking, or liquidation if the solver remains undercollateralized. Publication Boundary This page should not claim a live solver reputation system, margin call window, slashing schedule, or soft liquidation eligibility rule until the operator confirms current implementation. It documen"
+    },
+    {
+      "id": "authored-solver-cva-compensation-buffer",
+      "title": "Solver CVA Compensation Buffer",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-ii-trader-compensation",
+        "authored-collateral-margin-cva",
+        "authored-solver-default-and-continuity"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/solver-cva-compensation-buffer.md",
+      "bodyMarkdown": "# Solver CVA Compensation Buffer\n\nThe DDQ trader-compensation page uses CVA as the default-specific compensation buffer for solver counterparty risk.\n\nIn the source model, third-party solvers post a CVA buffer on trades they participate in. The buffer is collateral earmarked for counterparties if the solver falls below maintenance margin and is liquidated. The DDQ also says the CVA requirement can vary with trust level or reputation: a newer solver may need more default insurance than an established one.\n\nCVA is not the whole continuity model. It is the collateral buffer. The preferred operating outcome may still be that another solver buys out the distressed positions and continues the trade lifecycle. CVA matters because it gives the system a defined buffer if continuity cannot fully absorb the default event.\n\nThis lets the docs answer a common diligence question: traders should not be asked to trust a solver only because it is allowed to quote. The solver needs collateralized obligations, liquidation rules, and a default buffer.\n\n## Publication Boundary\n\nThis page should not publish exact CVA percentages, trust-tier formulas, distribution priority, or current solver admission policy until those are confirmed against live implementation and operator-approved wording.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Trader Compensation - CVA\".\n- `symmio-core`: protocol vocabulary for CVA, collateral, margin, and solver obligations.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-solver-default-and-continuity`\n- `authored-distressed-position-buyout-continuity`",
+      "excerpt": "Solver CVA Compensation Buffer The DDQ trader compensation page uses CVA as the default specific compensation buffer for solver counterparty risk. In the source model, third party solvers post a CVA buffer on trades they participate in. The buffer is collateral earmarked for counterparties if the solver falls below maintenance margin and is liquidated. The DDQ also says the CVA requirement can vary with trust level or reputation: a newer solver may need more default insurance than an established one. CVA is not the whole continuity model. It is the collateral buffer. The preferred operating outcome may still be that another solver buys out the distressed positions and continues the trade lifecycle. CVA matters because it gives the system a defined buffer if continuity cannot fully absorb the default event. This lets the docs answer a common diligence question: traders should not be asked to trust a solver only because it is allowed to quote. The solver needs collateralized obligations, liquidation rules, and a default buffer. Publication Boundary This page should not publish exact CVA percentages, trust tier formulas, distribution priority, or current solver admission policy until "
+    },
+    {
       "id": "authored-solver-default-and-continuity",
       "title": "Solver Default And Trade Continuity",
       "section": "protocol-reference",
@@ -4805,6 +4901,31 @@
       "file": "content/authored/manifesto/strait-gate-market-filter.md",
       "bodyMarkdown": "# The Strait Gate Is A Market Filter\n\nThe Strait Gate is the metaphor for a stricter path from token launch to durable market. The wide path is easy issuance, fake volume, narrative optimization, and committee persuasion. Many assets can enter that path because it rewards looking valuable before actual derivative demand exists.\n\nThe narrow path is survival. A token that passes through Vibe has to face short-side pressure, volatility, solver pricing, liquidation behavior, actual demand, and repeatable flow. It cannot only persuade a listing committee. It has to produce market evidence.\n\nThat makes Vibe a filter between launchpad chaos and mature listings. The source gives example graduation thresholds and downstream listing paths, but those examples should remain review-bound until product owners confirm live rules. The publishable thesis is the filter: Vibe can help markets prove whether they deserve deeper execution before scarce order-book venues must guess.\n\nThis also clarifies the power shift. A project should not only ask to be listed. It should earn evidence. A downstream venue should not only read a narrative. It should inspect the stress-test record.\n\n## Reader Implication\n\nMarket creators should read the Strait Gate as a demand for proof. Surviving a two-sided derivatives market is different from launching a token or running a campaign. The docs should preserve the metaphor while keeping exact graduation rules under operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: The Game Theory of Listings\".\n- `vibe-papers`: Neelo, \"Section 9: Conclusion\".\n\n## Related Pages\n\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-graduation-data-checklist`\n- `authored-launchpad-dex-vibe-orderbook-path`",
       "excerpt": "The Strait Gate Is A Market Filter The Strait Gate is the metaphor for a stricter path from token launch to durable market. The wide path is easy issuance, fake volume, narrative optimization, and committee persuasion. Many assets can enter that path because it rewards looking valuable before actual derivative demand exists. The narrow path is survival. A token that passes through Vibe has to face short side pressure, volatility, solver pricing, liquidation behavior, actual demand, and repeatable flow. It cannot only persuade a listing committee. It has to produce market evidence. That makes Vibe a filter between launchpad chaos and mature listings. The source gives example graduation thresholds and downstream listing paths, but those examples should remain review bound until product owners confirm live rules. The publishable thesis is the filter: Vibe can help markets prove whether they deserve deeper execution before scarce order book venues must guess. This also clarifies the power shift. A project should not only ask to be listed. It should earn evidence. A downstream venue should not only read a narrative. It should inspect the stress test record. Reader Implication Market cre"
+    },
+    {
+      "id": "authored-strict-solver-liquidation-mode",
+      "title": "Strict Solver Liquidation Mode",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default",
+        "authored-solver-default-and-continuity",
+        "authored-collateral-margin-cva"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/strict-solver-liquidation-mode.md",
+      "bodyMarkdown": "# Strict Solver Liquidation Mode\n\nThe DDQ's strict solver-liquidation mode treats a solver like a counterparty that must maintain collateral against its obligations.\n\nIn that model, if the solver falls below required margin, it can become liquidatable. The source names maintenance margin, liquidation fees, and a locked CVA-style buffer as the relevant accounting concepts. The intent is to restore solvency and compensate affected counterparties according to defined liquidation rules.\n\nStrict liquidation is the clearest default mode for third-party or ordinary solver accounts because it does not rely on special protocol discretion. It says: the solver has obligations, posts buffers, and can be liquidated if those obligations are undercollateralized.\n\nThe source also leaves room for continuity. Another solver may be allowed to buy out or assume distressed positions instead of forcing the trader into an immediate close. That continuity path should be documented separately from the liquidation trigger itself.\n\n## Publication Boundary\n\nThis page does not publish live maintenance-margin thresholds, liquidation fees, CVA sizes, liquidation timing, or which solver accounts are currently subject to strict liquidation. Those details require current implementation and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default: Mode 1 - Strict liquidation\".\n- `symmio-core`: protocol vocabulary for collateral, margin, CVA, and counterparty roles.\n\n## Related Pages\n\n- `authored-solver-default-and-continuity`\n- `authored-collateral-margin-cva`\n- `authored-distressed-position-buyout-continuity`",
+      "excerpt": "Strict Solver Liquidation Mode The DDQ's strict solver liquidation mode treats a solver like a counterparty that must maintain collateral against its obligations. In that model, if the solver falls below required margin, it can become liquidatable. The source names maintenance margin, liquidation fees, and a locked CVA style buffer as the relevant accounting concepts. The intent is to restore solvency and compensate affected counterparties according to defined liquidation rules. Strict liquidation is the clearest default mode for third party or ordinary solver accounts because it does not rely on special protocol discretion. It says: the solver has obligations, posts buffers, and can be liquidated if those obligations are undercollateralized. The source also leaves room for continuity. Another solver may be allowed to buy out or assume distressed positions instead of forcing the trader into an immediate close. That continuity path should be documented separately from the liquidation trigger itself. Publication Boundary This page does not publish live maintenance margin thresholds, liquidation fees, CVA sizes, liquidation timing, or which solver accounts are currently subject to str"
     },
     {
       "id": "authored-symm-lp-benchmark-reading",

@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 304,
-  "totalAnswerable": 297,
+  "totalEntries": 309,
+  "totalAnswerable": 302,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 60,
+    "Solvers And Settlement": 65,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 136,
+    "Medium": 137,
     "High": 44,
-    "Low": 117
+    "Low": 121
   },
   "byRouteSource": {
-    "authored": 297
+    "authored": 302
   },
   "byType": {
-    "answerable": 297,
+    "answerable": 302,
     "reconciliation": 7
   },
   "answerable": [
@@ -9374,6 +9374,167 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-strict-solver-liquidation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is strict solver liquidation?",
+      "normalizedQuestion": "what is strict solver liquidation",
+      "shortAnswer": "Neelo's DDQ treats standard solver default as an undercollateralized counterparty liquidation path with maintenance margin, fees, and CVA-style buffers.",
+      "answerSummary": "Strict Solver Liquidation Mode The DDQ's strict solver liquidation mode treats a solver like a counterparty that must maintain collateral against its obligations. In that model, if the solver falls below required margin, it can become liquidatable. The source names maintenance margin, liquidation fees, and a locked CVA style buffer as the relevant account...",
+      "confidence": "Low",
+      "pageId": "authored-strict-solver-liquidation-mode",
+      "pageTitle": "Strict Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-soft-solver-liquidation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is soft solver liquidation?",
+      "normalizedQuestion": "what is soft solver liquidation",
+      "shortAnswer": "Neelo's DDQ sketches a margin-call and progressive de-risking path for higher-reputation solver stress while keeping final solvency enforcement intact.",
+      "answerSummary": "Soft Solver Liquidation Mode The DDQ also sketches a softer solver liquidation path for higher reputation solvers or later stage reputation systems. Instead of jumping immediately from shortfall to full liquidation, the source describes a margin call style flow. The solver receives a notice or opportunity to restore collateral within defined constraints....",
+      "confidence": "Low",
+      "pageId": "authored-soft-solver-liquidation-mode",
+      "pageTitle": "Soft Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-protocol-owned-solver-depletion-boundary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the protocol-owned solver depletion boundary?",
+      "normalizedQuestion": "what is the protocol owned solver depletion boundary",
+      "shortAnswer": "Neelo's DDQ separates protocol-owned solver depletion from ordinary third-party default and routes it through protocol-level buffers and review-bound controls.",
+      "answerSummary": "Protocol Owned Solver Depletion Boundary The DDQ separates protocol owned solver depletion from ordinary third party solver default. In the bootstrapping configuration described by the source, the protocol owned solver may be flagged as not liquidatable in the conventional account level sense. That does not mean users are ignored or the solver can fail wi...",
+      "confidence": "Low",
+      "pageId": "authored-protocol-owned-solver-depletion-boundary",
+      "pageTitle": "Protocol-Owned Solver Depletion Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-solver-cva-compensation-buffer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a solver CVA compensation buffer?",
+      "normalizedQuestion": "what is a solver cva compensation buffer",
+      "shortAnswer": "Neelo's DDQ and Symmio vocabulary support CVA as collateral earmarked for counterparty compensation if a solver is liquidated.",
+      "answerSummary": "Solver CVA Compensation Buffer The DDQ trader compensation page uses CVA as the default specific compensation buffer for solver counterparty risk. In the source model, third party solvers post a CVA buffer on trades they participate in. The buffer is collateral earmarked for counterparties if the solver falls below maintenance margin and is liquidated. Th...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-cva-compensation-buffer",
+      "pageTitle": "Solver CVA Compensation Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-distressed-position-buyout-preserve-trade-continuity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can distressed-position buyout preserve trade continuity?",
+      "normalizedQuestion": "how can distressed position buyout preserve trade continuity",
+      "shortAnswer": "Neelo's DDQ describes a healthy solver or protocol-owned solver assuming distressed positions so the user's trade lifecycle can continue where implementation permits.",
+      "answerSummary": "Distressed Position Buyout Continuity The DDQ's preferred third party solver default outcome is continuity, not simply payout and close. If a third party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol owned solver can act as buyer of last resort in that...",
+      "confidence": "Low",
+      "pageId": "authored-distressed-position-buyout-continuity",
+      "pageTitle": "Distressed Position Buyout Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -19831,6 +19992,167 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-strict-solver-liquidation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is strict solver liquidation?",
+      "normalizedQuestion": "what is strict solver liquidation",
+      "shortAnswer": "Neelo's DDQ treats standard solver default as an undercollateralized counterparty liquidation path with maintenance margin, fees, and CVA-style buffers.",
+      "answerSummary": "Strict Solver Liquidation Mode The DDQ's strict solver liquidation mode treats a solver like a counterparty that must maintain collateral against its obligations. In that model, if the solver falls below required margin, it can become liquidatable. The source names maintenance margin, liquidation fees, and a locked CVA style buffer as the relevant account...",
+      "confidence": "Low",
+      "pageId": "authored-strict-solver-liquidation-mode",
+      "pageTitle": "Strict Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-soft-solver-liquidation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is soft solver liquidation?",
+      "normalizedQuestion": "what is soft solver liquidation",
+      "shortAnswer": "Neelo's DDQ sketches a margin-call and progressive de-risking path for higher-reputation solver stress while keeping final solvency enforcement intact.",
+      "answerSummary": "Soft Solver Liquidation Mode The DDQ also sketches a softer solver liquidation path for higher reputation solvers or later stage reputation systems. Instead of jumping immediately from shortfall to full liquidation, the source describes a margin call style flow. The solver receives a notice or opportunity to restore collateral within defined constraints....",
+      "confidence": "Low",
+      "pageId": "authored-soft-solver-liquidation-mode",
+      "pageTitle": "Soft Solver Liquidation Mode",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-protocol-owned-solver-depletion-boundary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the protocol-owned solver depletion boundary?",
+      "normalizedQuestion": "what is the protocol owned solver depletion boundary",
+      "shortAnswer": "Neelo's DDQ separates protocol-owned solver depletion from ordinary third-party default and routes it through protocol-level buffers and review-bound controls.",
+      "answerSummary": "Protocol Owned Solver Depletion Boundary The DDQ separates protocol owned solver depletion from ordinary third party solver default. In the bootstrapping configuration described by the source, the protocol owned solver may be flagged as not liquidatable in the conventional account level sense. That does not mean users are ignored or the solver can fail wi...",
+      "confidence": "Low",
+      "pageId": "authored-protocol-owned-solver-depletion-boundary",
+      "pageTitle": "Protocol-Owned Solver Depletion Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-solver-cva-compensation-buffer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a solver CVA compensation buffer?",
+      "normalizedQuestion": "what is a solver cva compensation buffer",
+      "shortAnswer": "Neelo's DDQ and Symmio vocabulary support CVA as collateral earmarked for counterparty compensation if a solver is liquidated.",
+      "answerSummary": "Solver CVA Compensation Buffer The DDQ trader compensation page uses CVA as the default specific compensation buffer for solver counterparty risk. In the source model, third party solvers post a CVA buffer on trades they participate in. The buffer is collateral earmarked for counterparties if the solver falls below maintenance margin and is liquidated. Th...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-cva-compensation-buffer",
+      "pageTitle": "Solver CVA Compensation Buffer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-distressed-position-buyout-preserve-trade-continuity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can distressed-position buyout preserve trade continuity?",
+      "normalizedQuestion": "how can distressed position buyout preserve trade continuity",
+      "shortAnswer": "Neelo's DDQ describes a healthy solver or protocol-owned solver assuming distressed positions so the user's trade lifecycle can continue where implementation permits.",
+      "answerSummary": "Distressed Position Buyout Continuity The DDQ's preferred third party solver default outcome is continuity, not simply payout and close. If a third party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol owned solver can act as buyer of last resort in that...",
+      "confidence": "Low",
+      "pageId": "authored-distressed-position-buyout-continuity",
+      "pageTitle": "Distressed Position Buyout Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

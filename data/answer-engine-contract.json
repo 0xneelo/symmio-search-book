@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 297
+      "totalGoldenRoutes": 302
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 315,
-    "retrievalEligiblePages": 1107,
+    "publicNavigationPages": 320,
+    "retrievalEligiblePages": 1112,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 315,
+      "candidate": 320,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 297,
-    "exactRouteTestsPassing": 297,
+    "totalExactRouteTests": 302,
+    "exactRouteTestsPassing": 302,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 297
+      "candidate": 302
     },
     "exactRoutesByConfidence": {
-      "Medium": 136,
+      "Medium": 137,
       "High": 44,
-      "Low": 117
+      "Low": 121
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6240,6 +6240,115 @@
         "passes": true
       },
       {
+        "id": "qr-what-is-strict-solver-liquidation",
+        "query": "What is strict solver liquidation?",
+        "normalizedQuery": "what is strict solver liquidation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strict-solver-liquidation-mode",
+        "expectedPageTitle": "Strict Solver Liquidation Mode",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-strict-solver-liquidation",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-soft-solver-liquidation",
+        "query": "What is soft solver liquidation?",
+        "normalizedQuery": "what is soft solver liquidation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-soft-solver-liquidation-mode",
+        "expectedPageTitle": "Soft Solver Liquidation Mode",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-soft-solver-liquidation",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-protocol-owned-solver-depletion-boundary",
+        "query": "What is the protocol-owned solver depletion boundary?",
+        "normalizedQuery": "what is the protocol owned solver depletion boundary",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-protocol-owned-solver-depletion-boundary",
+        "expectedPageTitle": "Protocol-Owned Solver Depletion Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-protocol-owned-solver-depletion-boundary",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-a-solver-cva-compensation-buffer",
+        "query": "What is a solver CVA compensation buffer?",
+        "normalizedQuery": "what is a solver cva compensation buffer",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-cva-compensation-buffer",
+        "expectedPageTitle": "Solver CVA Compensation Buffer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-a-solver-cva-compensation-buffer",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-distressed-position-buyout-preserve-trade-continuity",
+        "query": "How can distressed-position buyout preserve trade continuity?",
+        "normalizedQuery": "how can distressed position buyout preserve trade continuity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-distressed-position-buyout-continuity",
+        "expectedPageTitle": "Distressed Position Buyout Continuity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-distressed-position-buyout-preserve-trade-continuity",
+        "passes": true
+      },
+      {
         "id": "qr-who-bears-losses-in-a-tail-event",
         "query": "Who bears losses in a tail event?",
         "normalizedQuery": "who bears losses in a tail event",
@@ -6863,7 +6972,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 297,
+      "exactRoutes": 302,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
