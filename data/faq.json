@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 324,
-  "totalAnswerable": 317,
+  "totalEntries": 329,
+  "totalAnswerable": 322,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 80,
+    "Solvers And Settlement": 85,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 136
+    "Low": 141
   },
   "byRouteSource": {
-    "authored": 317
+    "authored": 322
   },
   "byType": {
-    "answerable": 317,
+    "answerable": 322,
     "reconciliation": 7
   },
   "answerable": [
@@ -10073,6 +10073,151 @@
       "confidence": "Low",
       "pageId": "authored-token-lp-attractiveness-model",
       "pageTitle": "Token LP Attractiveness Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-do-lp-deposits-play-at-launch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role do LP deposits play at launch?",
+      "normalizedQuestion": "what role do lp deposits play at launch",
+      "shortAnswer": "Neelo's DDQ frames LP deposits as ignition capital that helps a market quote before two-sided flow can carry more of the risk.",
+      "answerSummary": "LP Deposits As Ignition Capital The DDQ's LP section frames LP deposits as ignition capital. At launch, deposits provide the initial liquidity and hedging capacity that lets a market quote before it has deep two sided flow. That role is stage specific. In the bootstrapped stage, execution is more asynchronous, conservative risk limits matter more, and the...",
+      "confidence": "Low",
+      "pageId": "authored-lp-ignition-capital-lifecycle",
+      "pageTitle": "LP Deposits As Ignition Capital",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-funds-the-stablecoin-side-of-vibe-s-lp-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who funds the stablecoin side of Vibe's LP model?",
+      "normalizedQuestion": "who funds the stablecoin side of vibe s lp model",
+      "shortAnswer": "Neelo's DDQ separates solver/protocol-funded stablecoin operations from token-side LP inventory; exact accounting needs review.",
+      "answerSummary": "Solver Funded Stablecoin Operations The DDQ separates stablecoin operations from token side inventory. In the source model, Vibe does not ask outside LPs to deposit USDC for low cap perp markets. The stablecoin side is funded and operated by the solver or protocol. Stablecoins are still necessary. They support settlement, hedging, and cross chain operatio...",
+      "confidence": "Low",
+      "pageId": "authored-solver-funded-stablecoin-operations",
+      "pageTitle": "Solver-Funded Stablecoin Operations",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-avoid-external-usdc-lp-pools",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does Vibe avoid external USDC LP pools?",
+      "normalizedQuestion": "why does vibe avoid external usdc lp pools",
+      "shortAnswer": "Neelo's DDQ says outside USDC LPs would price low-cap leveraged exposure expensively because the risk is not naturally theirs.",
+      "answerSummary": "External USDC LP Risk Premium Mismatch The DDQ argues that external USDC LP pools are a poor fit for low cap leveraged perp markets because the capital source does not naturally want the risk it is being asked to bear. An outside stablecoin LP sees a leveraged market on a thin, volatile, and potentially manipulable token. The LP does not necessarily hold...",
+      "confidence": "Low",
+      "pageId": "authored-external-usdc-lp-risk-premium-mismatch",
+      "pageTitle": "External USDC LP Risk-Premium Mismatch",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-token-holder-vault-risk-considered-incremental",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is token-holder vault risk considered incremental?",
+      "normalizedQuestion": "why is token holder vault risk considered incremental",
+      "shortAnswer": "Neelo's DDQ argues token holders already bear directional exposure, so market-specific inventory risk is better aligned than generic USDC backstop risk.",
+      "answerSummary": "Token Holder Incremental Risk Alignment The DDQ's token side LP argument starts from a simple observation: token holders are already directionally exposed to the asset. If a project treasury, founder, early investor, whale, or long term community holder deposits some inventory into a market specific vault, the exposure is not the same as asking an unrelat...",
+      "confidence": "Low",
+      "pageId": "authored-token-holder-incremental-risk-alignment",
+      "pageTitle": "Token Holder Incremental Risk Alignment",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-projects-create-perp-liquidity-without-spending-stablecoins",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can projects create perp liquidity without spending stablecoins?",
+      "normalizedQuestion": "how can projects create perp liquidity without spending stablecoins",
+      "shortAnswer": "Neelo's DDQ frames project token inventory as a market-creation input, while stablecoin settlement operations remain solver/protocol funded.",
+      "answerSummary": "Project Token Inventory Without Stablecoins The DDQ frames Vibe as an alternative market creation path for projects that have token inventory but limited stablecoin appetite. The source contrasts Vibe with several familiar routes. Centralized exchange listings can require costly commitments. Market maker arrangements can require stablecoin budgets or nego...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "pageTitle": "Project Token Inventory Without Stablecoins",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -21126,6 +21271,151 @@
       "confidence": "Low",
       "pageId": "authored-token-lp-attractiveness-model",
       "pageTitle": "Token LP Attractiveness Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-do-lp-deposits-play-at-launch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role do LP deposits play at launch?",
+      "normalizedQuestion": "what role do lp deposits play at launch",
+      "shortAnswer": "Neelo's DDQ frames LP deposits as ignition capital that helps a market quote before two-sided flow can carry more of the risk.",
+      "answerSummary": "LP Deposits As Ignition Capital The DDQ's LP section frames LP deposits as ignition capital. At launch, deposits provide the initial liquidity and hedging capacity that lets a market quote before it has deep two sided flow. That role is stage specific. In the bootstrapped stage, execution is more asynchronous, conservative risk limits matter more, and the...",
+      "confidence": "Low",
+      "pageId": "authored-lp-ignition-capital-lifecycle",
+      "pageTitle": "LP Deposits As Ignition Capital",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-funds-the-stablecoin-side-of-vibe-s-lp-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who funds the stablecoin side of Vibe's LP model?",
+      "normalizedQuestion": "who funds the stablecoin side of vibe s lp model",
+      "shortAnswer": "Neelo's DDQ separates solver/protocol-funded stablecoin operations from token-side LP inventory; exact accounting needs review.",
+      "answerSummary": "Solver Funded Stablecoin Operations The DDQ separates stablecoin operations from token side inventory. In the source model, Vibe does not ask outside LPs to deposit USDC for low cap perp markets. The stablecoin side is funded and operated by the solver or protocol. Stablecoins are still necessary. They support settlement, hedging, and cross chain operatio...",
+      "confidence": "Low",
+      "pageId": "authored-solver-funded-stablecoin-operations",
+      "pageTitle": "Solver-Funded Stablecoin Operations",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-vibe-avoid-external-usdc-lp-pools",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does Vibe avoid external USDC LP pools?",
+      "normalizedQuestion": "why does vibe avoid external usdc lp pools",
+      "shortAnswer": "Neelo's DDQ says outside USDC LPs would price low-cap leveraged exposure expensively because the risk is not naturally theirs.",
+      "answerSummary": "External USDC LP Risk Premium Mismatch The DDQ argues that external USDC LP pools are a poor fit for low cap leveraged perp markets because the capital source does not naturally want the risk it is being asked to bear. An outside stablecoin LP sees a leveraged market on a thin, volatile, and potentially manipulable token. The LP does not necessarily hold...",
+      "confidence": "Low",
+      "pageId": "authored-external-usdc-lp-risk-premium-mismatch",
+      "pageTitle": "External USDC LP Risk-Premium Mismatch",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-token-holder-vault-risk-considered-incremental",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is token-holder vault risk considered incremental?",
+      "normalizedQuestion": "why is token holder vault risk considered incremental",
+      "shortAnswer": "Neelo's DDQ argues token holders already bear directional exposure, so market-specific inventory risk is better aligned than generic USDC backstop risk.",
+      "answerSummary": "Token Holder Incremental Risk Alignment The DDQ's token side LP argument starts from a simple observation: token holders are already directionally exposed to the asset. If a project treasury, founder, early investor, whale, or long term community holder deposits some inventory into a market specific vault, the exposure is not the same as asking an unrelat...",
+      "confidence": "Low",
+      "pageId": "authored-token-holder-incremental-risk-alignment",
+      "pageTitle": "Token Holder Incremental Risk Alignment",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-projects-create-perp-liquidity-without-spending-stablecoins",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can projects create perp liquidity without spending stablecoins?",
+      "normalizedQuestion": "how can projects create perp liquidity without spending stablecoins",
+      "shortAnswer": "Neelo's DDQ frames project token inventory as a market-creation input, while stablecoin settlement operations remain solver/protocol funded.",
+      "answerSummary": "Project Token Inventory Without Stablecoins The DDQ frames Vibe as an alternative market creation path for projects that have token inventory but limited stablecoin appetite. The source contrasts Vibe with several familiar routes. Centralized exchange listings can require costly commitments. Market maker arrangements can require stablecoin budgets or nego...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "pageTitle": "Project Token Inventory Without Stablecoins",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",

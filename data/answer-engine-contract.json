@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 317
+      "totalGoldenRoutes": 322
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 335,
-    "retrievalEligiblePages": 1127,
+    "publicNavigationPages": 340,
+    "retrievalEligiblePages": 1132,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 335,
+      "candidate": 340,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 317,
-    "exactRouteTestsPassing": 317,
+    "totalExactRouteTests": 322,
+    "exactRouteTestsPassing": 322,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 317
+      "candidate": 322
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 136
+      "Low": 141
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6748,6 +6748,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-role-do-lp-deposits-play-at-launch",
+        "query": "What role do LP deposits play at launch?",
+        "normalizedQuery": "what role do lp deposits play at launch",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lp-ignition-capital-lifecycle",
+        "expectedPageTitle": "LP Deposits As Ignition Capital",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-role-do-lp-deposits-play-at-launch",
+        "passes": true
+      },
+      {
+        "id": "qr-who-funds-the-stablecoin-side-of-vibe-s-lp-model",
+        "query": "Who funds the stablecoin side of Vibe's LP model?",
+        "normalizedQuery": "who funds the stablecoin side of vibe s lp model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-funded-stablecoin-operations",
+        "expectedPageTitle": "Solver-Funded Stablecoin Operations",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-funds-the-stablecoin-side-of-vibe-s-lp-model",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-vibe-avoid-external-usdc-lp-pools",
+        "query": "Why does Vibe avoid external USDC LP pools?",
+        "normalizedQuery": "why does vibe avoid external usdc lp pools",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-external-usdc-lp-risk-premium-mismatch",
+        "expectedPageTitle": "External USDC LP Risk-Premium Mismatch",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-vibe-avoid-external-usdc-lp-pools",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-token-holder-vault-risk-considered-incremental",
+        "query": "Why is token-holder vault risk considered incremental?",
+        "normalizedQuery": "why is token holder vault risk considered incremental",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-holder-incremental-risk-alignment",
+        "expectedPageTitle": "Token Holder Incremental Risk Alignment",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-token-holder-vault-risk-considered-incremental",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-projects-create-perp-liquidity-without-spending-stablecoins",
+        "query": "How can projects create perp liquidity without spending stablecoins?",
+        "normalizedQuery": "how can projects create perp liquidity without spending stablecoins",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-project-token-inventory-without-stablecoins",
+        "expectedPageTitle": "Project Token Inventory Without Stablecoins",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-projects-create-perp-liquidity-without-spending-stablecoins",
+        "passes": true
+      },
+      {
         "id": "qr-how-is-force-close-different-from-a-general-escape-hatch",
         "query": "How is Force Close different from a general escape hatch?",
         "normalizedQuery": "how is force close different from a general escape hatch",
@@ -7287,7 +7392,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 317,
+      "exactRoutes": 322,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -839,3 +839,11 @@
 **Reason:** The broad loss-waterfall page answers who bears losses overall, but diligence readers need exact routes for each layer of the waterfall. Splitting these claims makes it clearer that ordinary directional loss starts with trader margin, residual exposure then reaches solver hedging resources, LP capacity is conditional on actual vault use and terms, local insurance is market-specific protection before global allocation, and market tiers can bound losses after extreme events.
 
 **Status:** Accepted for the authored protocol-reference layer; live margin thresholds, solver capital and hedge policy, LP vault rights, insurance inflows and allocations, tier limits, ADL triggers, delisting authority, and user-compensation semantics remain operator/implementation/legal review.
+
+## D-106: Split DDQ LP Attractiveness Into Exact Capital-Structure Answers
+
+**Decision:** Add authored protocol-reference pages for LP deposits as ignition capital, solver-funded stablecoin operations, external USDC LP risk-premium mismatch, token-holder incremental risk alignment, and project token inventory without stablecoin deployment.
+
+**Reason:** The broad token-LP attractiveness page explains the thesis, but project and LP diligence readers need exact routes for the capital-structure split: what LP deposits do at launch, who funds the stablecoin side, why outside USDC LPs are expensive, why token holders are naturally aligned inventory providers, and how projects can support a market without first spending stablecoins.
+
+**Status:** Accepted for the authored protocol-reference layer; live vault terms, revenue-share percentages, partner/deposit traction, stablecoin balances, solver accounting, withdrawal rights, and LP loss-ordering remain operator/accounting/legal/implementation review.

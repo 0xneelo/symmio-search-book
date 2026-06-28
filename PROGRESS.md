@@ -634,6 +634,12 @@
 - Routed five new Ask questions so trader, LP, and risk-review readers can inspect each layer beneath the broad loss-waterfall answer.
 - Kept live margin thresholds, hedge policy, vault rights, insurance inflows, allocation formulas, tier limits, ADL triggers, delisting authority, and user-compensation semantics under operator/implementation/legal review.
 
+## 2026-06-29 — DDQ LP Economics Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ Attractiveness for LPs source: LP deposits as ignition capital, solver-funded stablecoin operations, external USDC LP risk-premium mismatch, token-holder incremental risk alignment, and project token inventory without stablecoin deployment.
+- Routed five new Ask questions so LP, project, and solver readers can inspect the source model's capital-structure split beneath the broad token-LP attractiveness answer.
+- Kept live vault terms, revenue-share percentages, partner/deposit traction, stablecoin balances, solver accounting, withdrawal rights, and LP loss-ordering under operator/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

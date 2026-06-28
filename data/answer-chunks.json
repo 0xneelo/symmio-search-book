@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1148,
-  "totalChunks": 1984,
-  "pagesWithChunks": 1148,
+  "totalPages": 1153,
+  "totalChunks": 1994,
+  "pagesWithChunks": 1153,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 336,
+    "authored": 341,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 643,
+    "authored": 653,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 138,
+    "protocol-reference": 148,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2902,6 +2902,54 @@
       "wordEnd": 262,
       "wordCount": 77,
       "text": "naturally absorb. Reader Implication Traders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first look tier as an invitation to price real flow before the fallback layer takes risk. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\". Related Pages authored hybrid solver liquidity waterfall authored protocol owned solver public option authored symmio solver operations and hedging"
+    },
+    {
+      "id": "authored-external-usdc-lp-risk-premium-mismatch::001",
+      "pageId": "authored-external-usdc-lp-risk-premium-mismatch",
+      "chunkIndex": 1,
+      "title": "External USDC LP Risk-Premium Mismatch",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/external-usdc-lp-risk-premium-mismatch.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "External USDC LP Risk Premium Mismatch The DDQ argues that external USDC LP pools are a poor fit for low cap leveraged perp markets because the capital source does not naturally want the risk it is being asked to bear. An outside stablecoin LP sees a leveraged market on a thin, volatile, and potentially manipulable token. The LP does not necessarily hold the token, understand its community, or benefit from its market utility. If that LP is asked to absorb tail losses or provide balance sheet support, it will demand a high risk premium. That risk premium becomes a product problem. It can require higher fees, wider spreads, subsidies, or lower leverage. In the source's framing, this creates a negative loop: the market needs capital, the capital is expensive because the risk is unnatural, and the expense makes the market less competitive. Why Vibe Routes Around The Mismatch Vibe's source model separates stablecoin operations from token inventory. The solver or protocol funds stablecoin operations it can control and model. Token holders provide market specific inventory because they already hold the underlying asset and have ecosystem reasons to support the market. The point is not that token inventory has no risk. It is that the risk is better aligned with the party bearing it. Stablecoin LPs are spared an exposure they"
+    },
+    {
+      "id": "authored-external-usdc-lp-risk-premium-mismatch::002",
+      "pageId": "authored-external-usdc-lp-risk-premium-mismatch",
+      "chunkIndex": 2,
+      "title": "External USDC LP Risk-Premium Mismatch",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/external-usdc-lp-risk-premium-mismatch.md",
+      "wordStart": 185,
+      "wordEnd": 361,
+      "wordCount": 176,
+      "text": "reasons to support the market. The point is not that token inventory has no risk. It is that the risk is better aligned with the party bearing it. Stablecoin LPs are spared an exposure they would price expensively; token holders support an asset they already chose to own. What To Do With Source Numbers The DDQ and related USDC vs token material include strong modeled claims about USDC LP yield demand and capital efficiency disadvantage. Those are useful as source model evidence, but public production docs should not turn them into current product promises without operator approved economics and vault terms. Publication Boundary Do not publish final APR comparisons, capital efficiency multiples, loss probabilities, stablecoin LP product claims, or live fee/spread implications without operator and implementation review. This page documents the structural mismatch and why the Vibe model routes around it. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". vibe papers : Neelo, \"Risk Premium Calculations\". Related Pages authored required risk premium for usdc lps authored usdc lp backstop cascade authored solver funded stablecoin operations"
     },
     {
       "id": "authored-financialized-rejection-thumbs-down::001",
@@ -5702,6 +5750,52 @@
       "text": "should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early market access has a cost because someone is providing the market's carrying capacity. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages authored token holder inventory alignment authored proof value four constituencies authored vibe project profit share boundary"
     },
     {
+      "id": "authored-lp-ignition-capital-lifecycle::001",
+      "pageId": "authored-lp-ignition-capital-lifecycle",
+      "chunkIndex": 1,
+      "title": "LP Deposits As Ignition Capital",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/lp-ignition-capital-lifecycle.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "LP Deposits As Ignition Capital The DDQ's LP section frames LP deposits as ignition capital. At launch, deposits provide the initial liquidity and hedging capacity that lets a market quote before it has deep two sided flow. That role is stage specific. In the bootstrapped stage, execution is more asynchronous, conservative risk limits matter more, and the solver may rely more heavily on LP capacity and inventory. In the maturing stage, more longs and shorts can net against each other, liquidity improves, and protocol side collateralization can decrease. In the mature stage, the market should look more like trader to trader settlement, with the solver focused on pricing, matching, and risk controls rather than acting as the balance sheet for every fill. Why This Matters This distinction prevents a misleading LP story. The goal is not for every market to remain permanently dependent on fresh LP deposits. The healthier path is for LP deposits to help a market start, then for real trading activity and opposing flow to reduce the system's balance sheet burden. That is why the source compares Vibe's role to a market bootstrapping engine. LP capital helps a permissionless market exist early, but market maturation should make the system more capital efficient over time. Reader Implication For LPs, the relevant question is not only expected yield. It"
+    },
+    {
+      "id": "authored-lp-ignition-capital-lifecycle::002",
+      "pageId": "authored-lp-ignition-capital-lifecycle",
+      "chunkIndex": 2,
+      "title": "LP Deposits As Ignition Capital",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/lp-ignition-capital-lifecycle.md",
+      "wordStart": 185,
+      "wordEnd": 347,
+      "wordCount": 162,
+      "text": "bootstrapping engine. LP capital helps a permissionless market exist early, but market maturation should make the system more capital efficient over time. Reader Implication For LPs, the relevant question is not only expected yield. It is where the market sits in its lifecycle. A new market may need more inventory support and tighter limits. A proven market can justify looser terms because more PnL clears between traders. For project teams, LP deposits are not merely passive collateral. They are the first piece of market infrastructure that helps the solver safely open the market and collect the data needed to improve its terms. Publication Boundary Do not publish final launch stage definitions, required deposit amounts, leverage bands, collateralization schedules, or graduation thresholds without operator and implementation review. This page documents the source backed lifecycle role of LP deposits. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored token lp attractiveness model authored market maturation risk posture authored conservative launch collateralization"
+    },
+    {
       "id": "authored-lp-profit-and-dynamic-pricing::001",
       "pageId": "authored-lp-profit-and-dynamic-pricing",
       "chunkIndex": 1,
@@ -8196,6 +8290,52 @@
       "text": "risk. The source backed inversion is narrower: the project may be able to avoid leading with a stablecoin deposit, a separate market maker hiring cycle, or a centralized listing dependency before derivative demand exists. That inversion is strategically useful for the compendium. When a project asks \"why would we use Vibe?\", the answer should not begin with a generic list of features. It should compare the project alternatives: spend stablecoins to pursue venue access; pay or negotiate with a market maker; support spot liquidity and accept its tradeoffs; leave inventory idle; use token inventory to help create a measured perp market. The last option is Vibe's wedge. It turns project inventory into market formation capital and makes the resulting flow observable. Publication Note The source includes example revenue share and partner traction claims. Keep those claims review bound until current public economics and project listing terms are confirmed. Sources vibe papers : Neelo, \"Section 4: Trader and Project Value\". Related Pages authored project token utility without stablecoin authored vibe project listing terms authored trader project value loop"
     },
     {
+      "id": "authored-project-token-inventory-without-stablecoins::001",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "chunkIndex": 1,
+      "title": "Project Token Inventory Without Stablecoins",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/project-token-inventory-without-stablecoins.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Project Token Inventory Without Stablecoins The DDQ frames Vibe as an alternative market creation path for projects that have token inventory but limited stablecoin appetite. The source contrasts Vibe with several familiar routes. Centralized exchange listings can require costly commitments. Market maker arrangements can require stablecoin budgets or negotiated terms. Uniswap style single sided liquidity can function economically like selling inventory into the market. Vibe's token side model asks a different question: can the project or its aligned holders support a derivatives market with the asset they already hold? What The Project Contributes The contribution is market specific inventory. That inventory can help the solver quote and hedge early flow while the market is still proving demand. It can create utility for the token, support visibility, and give the market a path to mature trader to trader netting. This does not make the contribution free. Token inventory can still be exposed under vault terms and risk rules. The difference is that the project is not being asked to spend unrelated stablecoins before the market has earned deeper liquidity. Why The Stablecoin Distinction Matters Stablecoins remain important for settlement and hedging operations, but the source model keeps that side solver/protocol funded. Project side LPing is about token inventory, not turning project treasuries into generic USDC backstops. That distinction is one reason"
+    },
+    {
+      "id": "authored-project-token-inventory-without-stablecoins::002",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "chunkIndex": 2,
+      "title": "Project Token Inventory Without Stablecoins",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/project-token-inventory-without-stablecoins.md",
+      "wordStart": 185,
+      "wordEnd": 323,
+      "wordCount": 138,
+      "text": "important for settlement and hedging operations, but the source model keeps that side solver/protocol funded. Project side LPing is about token inventory, not turning project treasuries into generic USDC backstops. That distinction is one reason the DDQ describes the model as attractive to projects. It matches the market creation burden to the asset the project already wants to support. Publication Boundary Do not publish live partner counts, token value deposits, revenue share percentages, vault legal terms, custody guarantees, or project agreement details without operator, accounting, legal, and implementation review. This page documents the source backed market creation path: token inventory can support market launch without requiring project stablecoin deployment. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored project token utility without stablecoin authored vibe project supply loan flow authored token holder incremental risk alignment"
+    },
+    {
       "id": "authored-project-token-utility-without-stablecoin::001",
       "pageId": "authored-project-token-utility-without-stablecoin",
       "chunkIndex": 1,
@@ -10407,6 +10547,54 @@
       "text": "solver eligibility, risk acceptance, lock state, collateral allocation, and lifecycle events. When a solver asks what to build, the answer starts with event listeners and reconciliation, not a static pricing page. Sources symmio what is : solvers as professional market maker counterparties who lock collateral. symmio core : bilateral PartyA/PartyB model and solver role. symmio intent lifecycle : event listener, quote fields, risk checks, locking, collateral allocation, partial fills, and lifecycle monitoring. Related Pages authored bilateral intent lifecycle authored intents and solvers authored vibe trade flow symmio solver role"
     },
     {
+      "id": "authored-solver-funded-stablecoin-operations::001",
+      "pageId": "authored-solver-funded-stablecoin-operations",
+      "chunkIndex": 1,
+      "title": "Solver-Funded Stablecoin Operations",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/solver-funded-stablecoin-operations.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Solver Funded Stablecoin Operations The DDQ separates stablecoin operations from token side inventory. In the source model, Vibe does not ask outside LPs to deposit USDC for low cap perp markets. The stablecoin side is funded and operated by the solver or protocol. Stablecoins are still necessary. They support settlement, hedging, and cross chain operational flows. The difference is who provides them and why. Instead of parking a large external stablecoin vault behind every long tail market, the solver uses stablecoin capital in short operational cycles tied to the trades it is willing to quote and hedge. Why This Is Not The Same As Token LPing Token LPs provide market specific inventory. They are usually projects, treasuries, whales, or committed holders that already hold the asset being listed. Stablecoin operations are different: they are settlement and hedging infrastructure controlled by the actor pricing the risk. Collapsing those two roles into one word, \"liquidity,\" makes the system harder to understand. The DDQ's point is that stable settlement capital and token inventory should be assigned to different parties because they carry different risks. Why Solver Control Matters The source argues that the solver has direct operational control over stablecoin deployment and can model the risk and reward of that deployment. That is what makes a solver funded loop different from an external"
+    },
+    {
+      "id": "authored-solver-funded-stablecoin-operations::002",
+      "pageId": "authored-solver-funded-stablecoin-operations",
+      "chunkIndex": 2,
+      "title": "Solver-Funded Stablecoin Operations",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/solver-funded-stablecoin-operations.md",
+      "wordStart": 185,
+      "wordEnd": 343,
+      "wordCount": 158,
+      "text": "The source argues that the solver has direct operational control over stablecoin deployment and can model the risk and reward of that deployment. That is what makes a solver funded loop different from an external stablecoin LP product that must compensate third party capital for opaque, leveraged low cap exposure. This page should therefore describe solver funded stablecoin operations as a capital structure choice, not as a claim that stablecoin risk disappears. Publication Boundary Do not publish final solver funding sources, stablecoin balances, bridge flows, hedge venues, reserve requirements, accounting treatment, or cross chain operational paths without operator and implementation review. The source backed claim is the role separation: stablecoin operations are solver/protocol funded, while token inventory is market specific LP capacity. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". vibe papers : Neelo, \"Section 3: LP Value Proposition\". Related Pages authored solver funded usdc capital loop authored usdc settlement inventory separation authored token lp attractiveness model"
+    },
+    {
       "id": "authored-solver-funded-usdc-capital-loop::001",
       "pageId": "authored-solver-funded-usdc-capital-loop",
       "chunkIndex": 1,
@@ -12398,6 +12586,54 @@
       "wordEnd": 293,
       "wordCount": 108,
       "text": "is not simply making negativity tradable. It is attempting to assemble inventory, solver execution, and risk controls so the market can express rejection where spot only systems cannot. Reader Implication If someone asks what makes the Thumbs Down real, the answer is the stack: inventory provides capacity, solvers provide pricing and execution, and users provide the directional intent. The icon is only the visible edge of that mechanism. Sources vibe papers : Neelo, \"Section 8: The Thumbs Down: 8.4 The Mechanism\". vibe papers : Neelo, \"Section 6: The Hybrid Solver Model\". Related Pages authored financialized rejection thumbs down authored whale vault risk tranching authored hybrid solver liquidity waterfall"
+    },
+    {
+      "id": "authored-token-holder-incremental-risk-alignment::001",
+      "pageId": "authored-token-holder-incremental-risk-alignment",
+      "chunkIndex": 1,
+      "title": "Token Holder Incremental Risk Alignment",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/token-holder-incremental-risk-alignment.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Token Holder Incremental Risk Alignment The DDQ's token side LP argument starts from a simple observation: token holders are already directionally exposed to the asset. If a project treasury, founder, early investor, whale, or long term community holder deposits some inventory into a market specific vault, the exposure is not the same as asking an unrelated USDC LP to underwrite the market from scratch. The token holder already bears the underlying token's price risk. The vault adds incremental risk on top of an exposure they already chose to carry. Why That Can Be Rational The source gives several motivations that can coexist: token holders want more utility for inventory they already hold; projects and communities want deeper markets and visibility; long term holders may have lower cost basis and a longer horizon; incremental yield can be attractive even if it is not priced like high risk stablecoin lending. The resulting claim is risk alignment, not risk removal. A token side LP can still lose money, face withdrawal limits, or see adverse market behavior. The source's narrower point is that the marginal risk is better matched to the participant than a generic stablecoin backstop would be. How This Helps The Market Aligned token inventory gives the solver something to work with during the bootstrapped phase. It can support quoting, hedging, and"
+    },
+    {
+      "id": "authored-token-holder-incremental-risk-alignment::002",
+      "pageId": "authored-token-holder-incremental-risk-alignment",
+      "chunkIndex": 2,
+      "title": "Token Holder Incremental Risk Alignment",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/token-holder-incremental-risk-alignment.md",
+      "wordStart": 185,
+      "wordEnd": 344,
+      "wordCount": 159,
+      "text": "to the participant than a generic stablecoin backstop would be. How This Helps The Market Aligned token inventory gives the solver something to work with during the bootstrapped phase. It can support quoting, hedging, and market creation without requiring the project to spend scarce stablecoins or hire every external service before demand is proven. That is why token side LPing belongs in the reference layer. It explains who is naturally positioned to provide inventory and why the market can start before mature two sided flow exists. Publication Boundary Do not publish final vault rights, withdrawal windows, yield expectations, cost basis assumptions, revenue share percentages, or LP loss ordering semantics without operator, accounting, and implementation review. This page documents the source backed risk alignment thesis. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". vibe papers : Neelo, \"Section 3: LP Value Proposition\". Related Pages authored token holder inventory alignment authored token inventory risk localization authored token lp attractiveness model"
     },
     {
       "id": "authored-token-holder-inventory-alignment::001",
