@@ -76,6 +76,41 @@ const volumeDefinitions = [
   },
 ];
 
+const authoredVolumeOverrides = {
+  "authored-autonomous-market-creation": "volume-02-bootstrap-and-proof-of-value",
+  "authored-bootstrap-trilemma": "volume-02-bootstrap-and-proof-of-value",
+  "authored-economic-clarity-for-permissionless-perps": "volume-04-token-margin-and-funding-systems",
+  "authored-end-of-narrative-based-listings": "volume-03-listing-power-and-orderbooks",
+  "authored-four-transitions": "volume-02-bootstrap-and-proof-of-value",
+  "authored-funding-as-market-balancing": "volume-04-token-margin-and-funding-systems",
+  "authored-game-theory-of-listings": "volume-03-listing-power-and-orderbooks",
+  "authored-hybrid-settlement-solver-stack": "volume-05-solver-lp-and-protocol-operations",
+  "authored-information-validation-crisis": "volume-01-orientation-and-thesis",
+  "authored-intents-and-solvers": "volume-05-solver-lp-and-protocol-operations",
+  "authored-intents-complete-order-books": "volume-03-listing-power-and-orderbooks",
+  "authored-last-primitive": "volume-03-listing-power-and-orderbooks",
+  "authored-liquidity-as-trader-experience": "volume-03-listing-power-and-orderbooks",
+  "authored-listing-monopoly": "volume-03-listing-power-and-orderbooks",
+  "authored-market-assembly-line": "volume-03-listing-power-and-orderbooks",
+  "authored-market-creation-gap": "volume-02-bootstrap-and-proof-of-value",
+  "authored-market-lifecycle-gap": "volume-03-listing-power-and-orderbooks",
+  "authored-market-maturation-z-score": "volume-02-bootstrap-and-proof-of-value",
+  "authored-order-books-as-graduation-layer": "volume-03-listing-power-and-orderbooks",
+  "authored-perpetual-protocol-design-space": "volume-03-listing-power-and-orderbooks",
+  "authored-proof-of-value": "volume-02-bootstrap-and-proof-of-value",
+  "authored-solver-owned-market-maker": "volume-05-solver-lp-and-protocol-operations",
+  "authored-token-margined-reflexivity-risk": "volume-04-token-margin-and-funding-systems",
+  "authored-token-vault-perps-versus-usdc-pools": "volume-04-token-margin-and-funding-systems",
+  "authored-truth-markets-no-button": "volume-02-bootstrap-and-proof-of-value",
+  "authored-universal-issuance-needs-derivatives": "volume-01-orientation-and-thesis",
+  "authored-vibe-as-discovery-layer": "volume-03-listing-power-and-orderbooks",
+  "authored-vibe-intent-architecture": "volume-07-product-trading-and-risk",
+  "authored-vibe-pillars": "volume-04-token-margin-and-funding-systems",
+  "authored-vibe-trade-flow": "volume-07-product-trading-and-risk",
+  "authored-vibecaps-margin-management": "volume-07-product-trading-and-risk",
+  "authored-why-derivatives-matter": "volume-01-orientation-and-thesis",
+};
+
 function parseArgs(argv) {
   const args = { ...defaults };
   for (let index = 0; index < argv.length; index += 1) {
@@ -178,9 +213,12 @@ function pageUniverse({ authoredIndex, searchIndex, crosslinks }) {
 
 function volumeForPage(page) {
   if (page.volumeId) return page.volumeId;
+  if (authoredVolumeOverrides[page.id]) return authoredVolumeOverrides[page.id];
   const section = page.section || "";
   const number = trackNumber(page.track);
-  if (section === "manifesto" || section === "product-reference" || section === "product-research" || section === "competitive-context" || section === "architecture") {
+  if (section === "manifesto") return "volume-01-orientation-and-thesis";
+  if (section === "product-reference" && page.track !== "Vibe Basics") return "volume-07-product-trading-and-risk";
+  if (section === "product-reference" || section === "product-research" || section === "competitive-context" || section === "architecture") {
     return "volume-01-orientation-and-thesis";
   }
   if ([1, 2, 13].includes(number)) return "volume-02-bootstrap-and-proof-of-value";

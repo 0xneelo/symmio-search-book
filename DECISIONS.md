@@ -311,3 +311,11 @@
 **Reason:** The generated and curated corpora remain useful fallback layers, but known user questions should prove exact-page editorial coverage. This makes answer quality easier to audit and makes the living-docs loop less dependent on fuzzy retrieval for first-contact questions.
 
 **Status:** Accepted for the answer-engine prototype.
+
+## D-040: Assign Authored Pages To Book Volumes Explicitly
+
+**Decision:** Keep the generated 794-page manifest intact, but route authored manifesto and product-reference pages into the compendium volume where their subject belongs. Use an explicit authored-page override table in `build-volume-map.mjs` for high-signal authored pages whose section name alone is too broad.
+
+**Reason:** The `manifesto` section is an editorial mode, not a book-volume destination. Letting every manifesto page fall into Volume 01 overloaded the orientation volume and hid the authored spine inside later volumes. Explicit placement makes the 500-800 page compendium navigable as a book, not only as a search index.
+
+**Status:** Accepted for the compendium IA.

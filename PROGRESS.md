@@ -231,6 +231,12 @@
 - Kept the pulse page source-limited to tracked local implementation behavior and the existing revenue disclosure caveat.
 - Current seed route map now resolves all 46 answerable questions to authored pages.
 
+## 2026-06-28 — Authored Volume Placement
+
+- Updated the compendium volume map generator so authored manifesto and product-reference pages are assigned to their intended book volumes instead of defaulting almost entirely to Volume 01.
+- Placed market-formation and Proof-of-Value pages in Volume 02, order-book/listing-power pages in Volume 03, token-margin/funding/risk pages in Volume 04, solver/protocol pages in Volume 05, product trading/risk pages in Volume 07, and dashboard/living-doc pages in Volume 08.
+- Kept the 794-page generated manifest unchanged; this slice improves reader navigation and editor workload distribution over the same source-traceable corpus.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
