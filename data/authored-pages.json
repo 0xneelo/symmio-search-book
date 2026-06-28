@@ -1,14 +1,14 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 12,
+  "totalPages": 19,
   "byStatus": {
-    "publication-candidate": 7,
-    "publication-candidate-needs-operator-review": 4,
+    "publication-candidate": 10,
+    "publication-candidate-needs-operator-review": 8,
     "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 4,
-    "dashboard-reference": 2,
+    "dashboard-reference": 9,
     "reference": 1,
     "rewards-referrals": 2,
     "answer-engine": 1,
@@ -35,6 +35,198 @@
       "file": "content/authored/manifesto/bootstrap-trilemma.md",
       "bodyMarkdown": "# The Bootstrap Trilemma\n\nThe central market-formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order-book conditions are present.\n\nNeelo's Vibe papers frame this as a three-way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it.\n\nVibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order-book-like liquidity once real flow proves itself.\n\n## Reader Implication\n\nFor a project, the question changes from \"can I persuade a venue to list me?\" to \"can I create enough credible trading demand that the market earns its next layer of liquidity?\" For a solver or LP, the question becomes whether the market's risk is priced well enough to justify carrying inventory or taking the other side.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`\n- `neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma`",
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
+    },
+    {
+      "id": "authored-dashboard-faq",
+      "title": "Dashboard FAQ",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-faq",
+        "dashboard-revenue-doc"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/faq.jsx",
+        "src/dashboard/revenue-doc.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-dashboard-faq",
+        "local-network-revenue"
+      ],
+      "file": "content/authored/reference/dashboard-faq.md",
+      "bodyMarkdown": "# Dashboard FAQ\n\nThe FAQ view is the dashboard's short-answer layer. It is routed as `#faq` and groups questions into rewards and referral payouts, then invites and tracking. It also links revenue questions to the hidden `#revenue` reference route.\n\nThe FAQ covers why revenue is estimated, how network revenue is calculated, when referral points credit, how rewards work, invite statuses, how to get more invites, what \"Dashboard opened\" means, what the Follow up tag means, and why invite values are hidden. It is the closest local substitute for the missing Discord/Lafa demand signal until that corpus is provided.\n\n## Reader Implication\n\nThis page should be treated as a seed FAQ, not the final Discord-seeded FAQ. It is useful because it shows actual support questions already encoded in product copy, but the broader docs still need community mining.\n\n## Open Gaps\n\nOperator inbox item `#2` blocks Discord/Lafa import. Operator inbox items `#1` and `#3` affect final revenue and referral-depth answers.\n\n## Sources\n\n- `dashboard-app`: dashboard route registration.\n- `dashboard-faq`: FAQ question groups and answers.\n- `dashboard-revenue-doc`: hidden revenue page linked from FAQ.\n\n## Related Pages\n\n- `authored-search-insights-loop`\n- `authored-dashboard-invites`\n- `local-dashboard-faq`",
+      "excerpt": "Dashboard FAQ The FAQ view is the dashboard's short answer layer. It is routed as faq and groups questions into rewards and referral payouts, then invites and tracking. It also links revenue questions to the hidden revenue reference route. The FAQ covers why revenue is estimated, how network revenue is calculated, when referral points credit, how rewards work, invite statuses, how to get more invites, what \"Dashboard opened\" means, what the Follow up tag means, and why invite values are hidden. It is the closest local substitute for the missing Discord/Lafa demand signal until that corpus is provided. Reader Implication This page should be treated as a seed FAQ, not the final Discord seeded FAQ. It is useful because it shows actual support questions already encoded in product copy, but the broader docs still need community mining. Open Gaps Operator inbox item 2 blocks Discord/Lafa import. Operator inbox items 1 and 3 affect final revenue and referral depth answers. Sources dashboard app : dashboard route registration. dashboard faq : FAQ question groups and answers. dashboard revenue doc : hidden revenue page linked from FAQ. Related Pages authored search insights loop authored da"
+    },
+    {
+      "id": "authored-dashboard-invites",
+      "title": "Dashboard My Invites",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-codes",
+        "dashboard-faq"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/codes.jsx",
+        "src/dashboard/faq.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-dashboard-faq"
+      ],
+      "file": "content/authored/reference/dashboard-invites.md",
+      "bodyMarkdown": "# Dashboard My Invites\n\nMy invites is the operational table for referral-code distribution. It shows every invite assigned to the user, masked invite values, status, who redeemed the invite, follow-up flags, dashboard-opened state, used timestamp, and referee progress.\n\nThe view is routed as `#codes` in the dashboard shell and implemented by `DashCodes`. Its filters separate all invites, used invites, available invites, follow-up cases, and invitees who have opened their dashboard. The source deliberately keeps raw invite values out of the browser table: masked values are shown, and users are directed to share the personal referral link rather than copying full invite codes.\n\n## Reader Implication\n\nThis page should explain the difference between a redeemed invite and a completed referral. A used invite is only the start of attribution; the FAQ says the invitee still needs to open the dashboard and finish onboarding before referral points credit.\n\n## Sources\n\n- `dashboard-app`: dashboard route registration.\n- `dashboard-codes`: My invites table, filters, masked invite values, and referee progress states.\n- `dashboard-faq`: invite statuses, dashboard-opened explanation, follow-up language, and masked-invite safety copy.\n\n## Related Pages\n\n- `authored-dashboard-faq`\n- `authored-referral-depth-open-question`\n- `local-dashboard-faq`",
+      "excerpt": "Dashboard My Invites My invites is the operational table for referral code distribution. It shows every invite assigned to the user, masked invite values, status, who redeemed the invite, follow up flags, dashboard opened state, used timestamp, and referee progress. The view is routed as codes in the dashboard shell and implemented by DashCodes . Its filters separate all invites, used invites, available invites, follow up cases, and invitees who have opened their dashboard. The source deliberately keeps raw invite values out of the browser table: masked values are shown, and users are directed to share the personal referral link rather than copying full invite codes. Reader Implication This page should explain the difference between a redeemed invite and a completed referral. A used invite is only the start of attribution; the FAQ says the invitee still needs to open the dashboard and finish onboarding before referral points credit. Sources dashboard app : dashboard route registration. dashboard codes : My invites table, filters, masked invite values, and referee progress states. dashboard faq : invite statuses, dashboard opened explanation, follow up language, and masked invite sa"
+    },
+    {
+      "id": "authored-dashboard-network",
+      "title": "Dashboard My Network",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-network",
+        "server-me",
+        "server-points",
+        "dashboard-volume"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/network.jsx",
+        "server/routes/me.js",
+        "server/points.js",
+        "src/dashboard/volume.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-network-depth",
+        "local-dashboard-points-distinction"
+      ],
+      "file": "content/authored/reference/dashboard-network.md",
+      "bodyMarkdown": "# Dashboard My Network\n\nMy network visualizes the referral tree and the points attached to each visible account. The dashboard shell routes `#network` to `DashNetwork`, which loads `/api/me/network` plus `/api/me`, builds a synthetic \"you\" root, and renders the referral tree in graph or tree mode.\n\nThe graph mode includes orientation controls, zoom, free or fixed camera behavior, depth controls up to fifteen levels, keyboard navigation, a minimap, fullscreen mode, and a focus drawer that shows points, invites used, direct referrals, and network size for the selected node. Tree mode exposes the same referral data as a collapsible nested list.\n\n## Reader Implication\n\nThis page should distinguish visibility from final reward accounting. The UI can show a graph with up to fifteen levels, while public reward and historical-accounting language still depends on the unresolved referral-depth decision.\n\n## Open Gap\n\nOperator inbox item `#3` must resolve whether final public docs say 5 levels, 15 levels, or configurable/current-depth language, and how historical backfill should be described.\n\n## Sources\n\n- `dashboard-app`: dashboard route registration.\n- `dashboard-network`: graph/tree view, camera controls, depth controls, keyboard navigation, minimap, fullscreen mode, and focus drawer.\n- `server-me`: current network endpoint and configured-depth behavior.\n- `server-points`: referral-depth configuration source.\n- `dashboard-volume`: current volume view still carries depth language that must be reconciled.\n\n## Related Pages\n\n- `authored-referral-depth-open-question`\n- `authored-dashboard-volume`\n- `local-network-depth`",
+      "excerpt": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders the referral tree in graph or tree mode. The graph mode includes orientation controls, zoom, free or fixed camera behavior, depth controls up to fifteen levels, keyboard navigation, a minimap, fullscreen mode, and a focus drawer that shows points, invites used, direct referrals, and network size for the selected node. Tree mode exposes the same referral data as a collapsible nested list. Reader Implication This page should distinguish visibility from final reward accounting. The UI can show a graph with up to fifteen levels, while public reward and historical accounting language still depends on the unresolved referral depth decision. Open Gap Operator inbox item 3 must resolve whether final public docs say 5 levels, 15 levels, or configurable/current depth language, and how historical backfill should be described. Sources dashboard app : dashboard route registration. dashboard network : graph/tree view, camera controls, depth controls, k"
+    },
+    {
+      "id": "authored-dashboard-overview",
+      "title": "Dashboard Overview",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-overview",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/overview.jsx",
+        "src/dashboard/revenue-hero.jsx",
+        "src/dashboard/revenue-doc.jsx",
+        "server/pulse.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "local-network-revenue",
+        "local-revenue-pulse",
+        "local-dashboard-points-distinction"
+      ],
+      "file": "content/authored/reference/dashboard-overview.md",
+      "bodyMarkdown": "# Dashboard Overview\n\nThe Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab.\n\nThe shell routes `#overview` to `DashOverview`. That view loads `/api/me`, renders the revenue hero, shows the core task checklist, exposes the user's referral link through a copyable field, summarizes invite states, and lists the points ledger. The revenue hero and hidden `#revenue` reference page explain that the USD number is an estimate derived from network volume and configurable fee/share inputs, not a final settlement balance.\n\n## Reader Implication\n\nUsers should treat Overview as a status console, not an accounting source of truth. It answers \"what is happening in my network right now?\" and then routes deeper: revenue to the hidden revenue page, invites to My invites, network growth to My network, and unfinished onboarding to Tasks.\n\n## Open Gaps\n\nRevenue wording depends on operator inbox item `#1`. Referral depth and historical accounting depend on operator inbox item `#3`.\n\n## Sources\n\n- `dashboard-app`: dashboard shell and route list.\n- `dashboard-overview`: Overview cards for revenue, tasks, referral link, invites, and points ledger.\n- `dashboard-revenue-doc`: hidden revenue route and revenue copy.\n- `server-pulse`: current revenue pulse implementation.\n- `spec-03`: reference-layer grounding for revenue, volume, points, and dashboard views.\n\n## Related Pages\n\n- `authored-estimated-network-revenue`\n- `authored-dashboard-tasks`\n- `authored-dashboard-invites`\n- `local-network-revenue`",
+      "excerpt": "Dashboard Overview The Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab. The shell routes overview to DashOverview . That view loads /api/me , renders the revenue hero, shows the core task checklist, exposes the user's referral link through a copyable field, summarizes invite states, and lists the points ledger. The revenue hero and hidden revenue reference page explain that the USD number is an estimate derived from network volume and configurable fee/share inputs, not a final settlement balance. Reader Implication Users should treat Overview as a status console, not an accounting source of truth. It answers \"what is happening in my network right now?\" and then routes deeper: revenue to the hidden revenue page, invites to My invites, network growth to My network, and unfinished onboarding to Tasks. Open Gaps Revenue wording depends on operator inbox item 1 . Referral depth and historical accounting depend on operator inbox item 3 . Sources dashboard app : dashboard shell and route list. dashboard overview : Overview ca"
+    },
+    {
+      "id": "authored-dashboard-settings",
+      "title": "Dashboard Settings",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-settings",
+        "dashboard-data"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/settings.jsx",
+        "src/dashboard/data.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-dashboard-points-distinction"
+      ],
+      "file": "content/authored/reference/dashboard-settings.md",
+      "bodyMarkdown": "# Dashboard Settings\n\nSettings is the user-maintained contact and recovery surface. It is routed as `#settings`, loads `/api/me`, lets a logged-in user choose a contact channel, edit the matching handle, optionally store a recovery email, and save the patch through `/api/me/settings`.\n\nThe component validates email shape in the browser, normalizes handles before sending them, and labels the recovery email as future recovery infrastructure rather than an email flow that is active today. The dashboard data seam sends authenticated calls with the bearer token and supports local-only mock fixtures for development.\n\n## Reader Implication\n\nThis page should explain settings as metadata capture, not account custody. Users can update contact and recovery details, but the docs should avoid implying that email recovery is live until the backend recovery flow is actually public.\n\n## Sources\n\n- `dashboard-app`: dashboard route registration.\n- `dashboard-settings`: contact channel, handle, recovery email, validation, and save behavior.\n- `dashboard-data`: bearer-token API seam and localhost-only fixture mode.\n\n## Related Pages\n\n- `authored-dashboard-overview`\n- `authored-glossary-core-terms`\n- `local-dashboard-points-distinction`",
+      "excerpt": "Dashboard Settings Settings is the user maintained contact and recovery surface. It is routed as settings , loads /api/me , lets a logged in user choose a contact channel, edit the matching handle, optionally store a recovery email, and save the patch through /api/me/settings . The component validates email shape in the browser, normalizes handles before sending them, and labels the recovery email as future recovery infrastructure rather than an email flow that is active today. The dashboard data seam sends authenticated calls with the bearer token and supports local only mock fixtures for development. Reader Implication This page should explain settings as metadata capture, not account custody. Users can update contact and recovery details, but the docs should avoid implying that email recovery is live until the backend recovery flow is actually public. Sources dashboard app : dashboard route registration. dashboard settings : contact channel, handle, recovery email, validation, and save behavior. dashboard data : bearer token API seam and localhost only fixture mode. Related Pages authored dashboard overview authored glossary core terms local dashboard points distinction"
+    },
+    {
+      "id": "authored-dashboard-tasks",
+      "title": "Dashboard Tasks",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-tasks",
+        "dashboard-faq"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/tasks.jsx",
+        "src/dashboard/faq.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-points-engine",
+        "local-dashboard-points-distinction",
+        "local-dashboard-faq"
+      ],
+      "file": "content/authored/reference/dashboard-tasks.md",
+      "bodyMarkdown": "# Dashboard Tasks\n\nTasks is the onboarding workflow inside the dashboard. It is routed as `#tasks`, reads `/api/me`, summarizes completion, and renders a five-step checklist: verified dashboard access, earn education path, mechanics education path, post on X, and watch the explainer.\n\nThe shell also uses task state to show a badge on the Tasks tab when unfinished tasks remain. The task cards expose points where a task carries a bonus, collapse completed or non-current steps, and emit local task-progress events so the shell can update the tab badge without waiting for a full reload.\n\n## Reader Implication\n\nThe docs should explain that tasks are not just UI chores. They are the local campaign actions that unlock onboarding points, referral-slot chances, and a cleaner referral record for later Vibe rewards.\n\n## Sources\n\n- `dashboard-app`: route registration and task-tab badge.\n- `dashboard-tasks`: five-step checklist, bonus task flows, task-progress event, and funnel bridges.\n- `dashboard-faq`: user-facing explanation of tasks, invites, and referral completion.\n\n## Related Pages\n\n- `authored-points-and-vibe-points`\n- `authored-dashboard-overview`\n- `local-points-engine`",
+      "excerpt": "Dashboard Tasks Tasks is the onboarding workflow inside the dashboard. It is routed as tasks , reads /api/me , summarizes completion, and renders a five step checklist: verified dashboard access, earn education path, mechanics education path, post on X, and watch the explainer. The shell also uses task state to show a badge on the Tasks tab when unfinished tasks remain. The task cards expose points where a task carries a bonus, collapse completed or non current steps, and emit local task progress events so the shell can update the tab badge without waiting for a full reload. Reader Implication The docs should explain that tasks are not just UI chores. They are the local campaign actions that unlock onboarding points, referral slot chances, and a cleaner referral record for later Vibe rewards. Sources dashboard app : route registration and task tab badge. dashboard tasks : five step checklist, bonus task flows, task progress event, and funnel bridges. dashboard faq : user facing explanation of tasks, invites, and referral completion. Related Pages authored points and vibe points authored dashboard overview local points engine"
+    },
+    {
+      "id": "authored-dashboard-volume",
+      "title": "Dashboard Volume",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-volume",
+        "server-volume",
+        "server-volume-snapshots",
+        "server-me",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "src/dashboard/volume.jsx",
+        "server/volume.js",
+        "server/volume-snapshots.js",
+        "server/routes/me.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "local-volume-source",
+        "local-volume-snapshots",
+        "local-network-depth",
+        "linear-subgraph-volume"
+      ],
+      "file": "content/authored/reference/dashboard-volume.md",
+      "bodyMarkdown": "# Dashboard Volume\n\nThe Volume view explains the network-volume input behind revenue and points. It is routed as `#volume`, fetches `/api/me/volume`, and shows total network trade volume, a per-level summary, and wallet-level snapshot rows.\n\nThe current UI labels volume as local wallet snapshots that refresh daily. Rows show level, account, wallet, snapshot date, trade volume, and stale-state markers. The underlying grounding spec says today's source is the Vibe backend wallet-volume API with caching, normalization, and daily snapshots, while the planned Barometer upgrade would move to Goldsky analytics subgraphs.\n\n## Reader Implication\n\nVolume should be documented as a measured input with lag and source status. It is not a live per-trade feed in the current implementation, and the exact network depth remains tied to the referral-depth reconciliation.\n\n## Open Gaps\n\nOperator inbox item `#3` controls final depth language. `G-005` tracks the current REST source versus the planned subgraph migration.\n\n## Sources\n\n- `dashboard-app`: dashboard route registration.\n- `dashboard-volume`: Volume tab UI and table shape.\n- `server-volume`: current backend wallet-volume source and cache behavior.\n- `server-volume-snapshots`: daily snapshot behavior.\n- `server-me`: `/api/me/volume` route behavior.\n- `spec-03`: current source and Barometer migration guidance.\n\n## Related Pages\n\n- `authored-network-volume`\n- `authored-dashboard-network`\n- `linear-subgraph-volume`",
+      "excerpt": "Dashboard Volume The Volume view explains the network volume input behind revenue and points. It is routed as volume , fetches /api/me/volume , and shows total network trade volume, a per level summary, and wallet level snapshot rows. The current UI labels volume as local wallet snapshots that refresh daily. Rows show level, account, wallet, snapshot date, trade volume, and stale state markers. The underlying grounding spec says today's source is the Vibe backend wallet volume API with caching, normalization, and daily snapshots, while the planned Barometer upgrade would move to Goldsky analytics subgraphs. Reader Implication Volume should be documented as a measured input with lag and source status. It is not a live per trade feed in the current implementation, and the exact network depth remains tied to the referral depth reconciliation. Open Gaps Operator inbox item 3 controls final depth language. G 005 tracks the current REST source versus the planned subgraph migration. Sources dashboard app : dashboard route registration. dashboard volume : Volume tab UI and table shape. server volume : current backend wallet volume source and cache behavior. server volume snapshots : daily "
     },
     {
       "id": "authored-estimated-network-revenue",

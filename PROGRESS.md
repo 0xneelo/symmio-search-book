@@ -55,6 +55,13 @@
 - Current audit result: 7 of 9 gates pass. The two open gates are expected parked requirements: operator inbox resolution and Discord/Lafa corpus import.
 - Search insights now renders a Publication Audit panel with gate rows, source coverage, reader-routable page count, open operator items, and tracked gaps.
 
+## 2026-06-28 — Dashboard View Reference Pages
+
+- Added 7 hand-authored dashboard reference pages for Overview, My invites, My network, Volume, Tasks, FAQ, and Settings.
+- Registered per-view dashboard source keys so view-specific claims cite the exact local component, not only the dashboard shell.
+- Extended the question ledger with dashboard operational questions so Ask can route directly to the authored view pages.
+- These pages satisfy the "every dashboard view" reference-scope requirement except for final revenue, Discord/Lafa FAQ, and referral-depth wording that remain parked in the operator inbox.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

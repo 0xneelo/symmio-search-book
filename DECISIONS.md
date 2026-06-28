@@ -111,3 +111,11 @@
 **Reason:** The compendium is large enough that readiness cannot be judged by manual scanning. A generated audit keeps source traceability, parked blockers, and remaining editorial work visible without claiming the static prototype is final production.
 
 **Status:** Accepted for QA and handoff.
+
+## D-015: Document Dashboard Views As First-Class Reference Pages
+
+**Decision:** Add authored reference pages for every dashboard view named in the spec: Overview, My invites, My network, Volume, Tasks, FAQ, Settings, plus the already covered hidden revenue route.
+
+**Reason:** The final compendium must onboard users into the product, not only the protocol thesis. The dashboard is where revenue, volume, points, referral status, invite safety, and settings semantics become observable, so each view needs a directly routable page.
+
+**Status:** Accepted for the authored layer.

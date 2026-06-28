@@ -31,7 +31,13 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `server-me` | `server/routes/me.js` | Network, volume, pulse, and configured depth behavior. |
 | `server-points` | `server/points.js` | Referral depth config and percentages. |
 | `dashboard-faq` | `src/dashboard/faq.jsx` | User-facing FAQ copy, including 15-level wording. |
+| `dashboard-overview` | `src/dashboard/overview.jsx` | Overview cards for revenue, tasks, referral link, invites, and points ledger. |
+| `dashboard-codes` | `src/dashboard/codes.jsx` | My invites table, filters, masked invite values, and referee progress states. |
+| `dashboard-network` | `src/dashboard/network.jsx` | My network graph/tree view, depth controls, focus drawer, and node-level display. |
 | `dashboard-volume` | `src/dashboard/volume.jsx` | Dashboard network-volume UI and 5-level remnants. |
+| `dashboard-tasks` | `src/dashboard/tasks.jsx` | Dashboard task checklist, bonus actions, task progress events, and funnel bridges. |
+| `dashboard-settings` | `src/dashboard/settings.jsx` | Contact channel, handle, and recovery-email settings UI. |
+| `dashboard-data` | `src/dashboard/data.jsx` | Dashboard data-source seam, bearer-token calls, and local fixture mode. |
 | `dashboard-app` | `src/dashboard/app.jsx` | Points distinction and dashboard shell. |
 
 ## Linear Research

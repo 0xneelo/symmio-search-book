@@ -15,6 +15,13 @@ Questions are grouped by whether the current source set can answer them.
 | How are Vibe points earned? | `vibe-points` | Medium | Public docs cover categories; onboarding dashboard has separate campaign logic. |
 | How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
 | Why does the dashboard revenue number move? | `revenue-pulse` | Medium | Local code/docs describe pulse from volume history. |
+| What does the Dashboard Overview show? | `authored-dashboard-overview` | Medium | Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats. |
+| Where do I see my invite statuses? | `authored-dashboard-invites` | High | Local My invites view shows masked invites, status, follow-up, dashboard-opened state, and referee progress. |
+| What does My network show? | `authored-dashboard-network` | Medium | Local graph/tree behavior is sourced; final public depth language remains unresolved. |
+| Where does network volume come from? | `authored-dashboard-volume` | Medium | Current code uses backend wallet-volume snapshots; planned subgraph migration remains a tracked gap. |
+| What do dashboard tasks unlock? | `authored-dashboard-tasks` | High | Local task view and FAQ explain onboarding actions, bonuses, and referral-completion context. |
+| What can I change in Settings? | `authored-dashboard-settings` | High | Local settings code captures contact metadata and recovery email without implying live email recovery. |
+| Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local FAQ is a seed until Discord/Lafa import is provided. |
 | What is HIP-3 and why compare it? | `authored-vibe-as-discovery-layer` | Medium | Hyperliquid docs support builder-deployed perps context; Neelo docs frame Vibe as a discovery layer. |
 | Why do intents matter if order books already exist? | `authored-intents-complete-order-books` | Medium | Neelo docs frame Vibe as a complement to order books, not a denial of them. |
 
