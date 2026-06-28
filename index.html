@@ -1169,6 +1169,7 @@
       }
 
       .nav-link[aria-current="true"],
+      .nav button.nav-link[aria-current="true"],
       .nav-link.active {
         border-color: rgba(245, 132, 238, 0.28);
         background: rgba(245, 132, 238, 0.1);
@@ -1176,6 +1177,7 @@
       }
 
       .nav-link[aria-current="true"] .ic,
+      .nav button.nav-link[aria-current="true"] .ic,
       .nav-link.active .ic {
         color: var(--pink);
         opacity: 1;
@@ -1192,6 +1194,15 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .nav-group.is-compendium {
+        display: none;
+      }
+
+      .rail:hover .nav-group.is-compendium,
+      .rail:focus-within .nav-group.is-compendium {
+        display: flex;
       }
 
       .rail-footer {
@@ -1309,7 +1320,7 @@
         align-items: center;
         justify-content: flex-end;
         flex-direction: column;
-        margin: 0 auto 34px;
+        margin: 0 auto 22px;
         padding-top: clamp(90px, 20vh, 220px);
         text-align: center;
       }
@@ -1318,10 +1329,10 @@
         max-width: none;
         color: #e9effc;
         font-family: var(--font);
-        font-size: clamp(64px, 7vw, 96px);
+        font-size: clamp(64px, 7vw, 92px);
         font-weight: 800;
-        letter-spacing: 0;
-        line-height: 0.9;
+        letter-spacing: -0.05em;
+        line-height: 1;
       }
 
       .hero p {
@@ -1396,8 +1407,8 @@
         height: 44px;
         border: 0;
         border-radius: 999px;
-        background: var(--pink);
-        box-shadow: 0 0 28px rgba(245, 132, 238, 0.44);
+        background: linear-gradient(135deg, var(--magenta), #ff5ec7);
+        box-shadow: 0 6px 18px rgba(255, 45, 168, 0.34);
         color: #fff;
         font-weight: 800;
         padding: 0;
@@ -1408,7 +1419,7 @@
       }
 
       .ask .ask-arrow {
-        font-size: 22px;
+        font-size: 19px;
         line-height: 1;
         white-space: nowrap;
       }
@@ -1429,6 +1440,8 @@
       }
 
       .home-actions {
+        width: fit-content;
+        max-width: 100%;
         justify-content: center;
         gap: 12px;
         margin: 24px auto 0;
@@ -1440,7 +1453,7 @@
         border-radius: 9px;
         background: rgba(16, 26, 48, 0.82);
         color: var(--muted);
-        font-size: 15px;
+        font-size: 13.5px;
         padding: 0 18px;
         font-weight: 600;
         line-height: 1;
@@ -1801,7 +1814,7 @@
         }
 
         .hero h2 {
-          font-size: clamp(52px, 17vw, 68px);
+          font-size: 64px;
         }
 
         .hero p {
@@ -1826,6 +1839,8 @@
         .ask button {
           width: 44px;
           min-width: 44px;
+          min-height: 44px;
+          height: 44px;
         }
 
         #exampleQuestions {
@@ -1838,7 +1853,7 @@
         }
 
         .home-actions button {
-          flex: 1 1 0;
+          flex: 0 0 auto;
           padding: 0 10px;
         }
 
@@ -1892,7 +1907,7 @@
               <span class="lbl">Search insights</span>
             </button>
           </div>
-          <div class="nav-group">
+          <div class="nav-group is-compendium">
             <div class="g-label">Compendium</div>
             <button class="nav-link" type="button" data-nav="browse">
               <span class="ic" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 5.5h12M4 10h12M4 14.5h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></span>
