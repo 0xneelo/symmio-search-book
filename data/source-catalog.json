@@ -1,20 +1,20 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "SOURCES.md",
-  "totalSources": 86,
+  "totalSources": 97,
   "byGroup": {
     "Authored Publication Candidates": 2,
     "Competitive Context": 6,
     "Local Product And Code": 16,
     "Local Specs": 12,
-    "Public Symmio Sources": 21,
+    "Public Symmio Sources": 32,
     "Linear Research": 13,
     "Public Vibe Sources": 16
   },
   "byKind": {
     "repo-local": 30,
     "repo-pattern": 1,
-    "public-url": 40,
+    "public-url": 51,
     "absolute-local": 2,
     "linear": 13
   },
@@ -349,6 +349,14 @@
       "href": "https://github.com/SYMM-IO/subgraphs"
     },
     {
+      "key": "symmio-build-solver",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md",
+      "use": "Current solver-builder documentation index for intent lifecycle, seeing intents, hedging, on-chain open/close, APIs, websockets, instant trading, and conditionals.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md"
+    },
+    {
       "key": "symmio-core",
       "source": "https://docs.symm.io/getting-started/core-concepts.md",
       "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
@@ -373,6 +381,22 @@
       "href": "https://docs.symmio.foundation/"
     },
     {
+      "key": "symmio-funding-rates",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md",
+      "use": "Per-symbol funding epochs, funding-rate windows, legacy opened-price adjustment, and newer weighted-average balance deduction.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md"
+    },
+    {
+      "key": "symmio-hedging-strategies",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md",
+      "use": "Solver hedged, partially hedged, and unhedged operating styles, with protocol solvency rules as the enforced boundary.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md"
+    },
+    {
       "key": "symmio-intent-lifecycle",
       "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
       "use": "Solver event monitoring and quote lifecycle.",
@@ -381,12 +405,28 @@
       "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
     },
     {
+      "key": "symmio-liquidations",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md",
+      "use": "Cross-margin liquidation, pending/locked/free balance treatment, PartyA account-wide liquidation, Muon data, and liquidator role.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md"
+    },
+    {
       "key": "symmio-llms",
       "source": "https://docs.symm.io/llms.txt",
       "use": "Symmio docs index and required deep links.",
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symm.io/llms.txt"
+    },
+    {
+      "key": "symmio-market-limit-orders",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md",
+      "use": "Market and limit quote semantics, slippage, pending/close-pending states, partial fills, force-close boundary, and quote data.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"
     },
     {
       "key": "symmio-options-docs",
@@ -453,12 +493,60 @@
       "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md"
     },
     {
+      "key": "symmio-profit-realization",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+      "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"
+    },
+    {
+      "key": "symmio-settlement",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+      "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md"
+    },
+    {
+      "key": "symmio-settlement-costs",
+      "source": "https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md",
+      "use": "Product-specific settlement costs, zero solver/market-maker settlement fees, platform fees, and affiliate/frontend credits.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md"
+    },
+    {
+      "key": "symmio-solver-role",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md",
+      "use": "Solver as PartyB, quote listening, risk checks, collateral/solvency, APIs, instant trading, and conditional-order responsibilities.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md"
+    },
+    {
+      "key": "symmio-solving",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md",
+      "use": "Solver-section clarifications: educational scope, off-chain hedging independence, and protocol isolation from solver external systems.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md"
+    },
+    {
       "key": "symmio-token-foundation",
       "source": "https://docs.symmio.foundation/symm-token/overview",
       "use": "SYMM token, veSYMM, staking, buybacks, utility, and tokenomics context from the Foundation docs.",
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symmio.foundation/symm-token/overview"
+    },
+    {
+      "key": "symmio-trading-fees",
+      "source": "https://docs.symm.io/trader-documentation/trading-fees.md",
+      "use": "Current Symmio trading-fee pointer to product-specific settlement-cost pages and per-symbol/per-affiliate fee structure.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/trading-fees.md"
     },
     {
       "key": "symmio-what-is",
@@ -1038,6 +1126,14 @@
       "kind": "public-url",
       "href": "https://github.com/SYMM-IO/subgraphs"
     },
+    "symmio-build-solver": {
+      "key": "symmio-build-solver",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md",
+      "use": "Current solver-builder documentation index for intent lifecycle, seeing intents, hedging, on-chain open/close, APIs, websockets, instant trading, and conditionals.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md"
+    },
     "symmio-core": {
       "key": "symmio-core",
       "source": "https://docs.symm.io/getting-started/core-concepts.md",
@@ -1062,6 +1158,22 @@
       "kind": "public-url",
       "href": "https://docs.symmio.foundation/"
     },
+    "symmio-funding-rates": {
+      "key": "symmio-funding-rates",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md",
+      "use": "Per-symbol funding epochs, funding-rate windows, legacy opened-price adjustment, and newer weighted-average balance deduction.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md"
+    },
+    "symmio-hedging-strategies": {
+      "key": "symmio-hedging-strategies",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md",
+      "use": "Solver hedged, partially hedged, and unhedged operating styles, with protocol solvency rules as the enforced boundary.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md"
+    },
     "symmio-intent-lifecycle": {
       "key": "symmio-intent-lifecycle",
       "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
@@ -1070,6 +1182,14 @@
       "kind": "public-url",
       "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
     },
+    "symmio-liquidations": {
+      "key": "symmio-liquidations",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md",
+      "use": "Cross-margin liquidation, pending/locked/free balance treatment, PartyA account-wide liquidation, Muon data, and liquidator role.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md"
+    },
     "symmio-llms": {
       "key": "symmio-llms",
       "source": "https://docs.symm.io/llms.txt",
@@ -1077,6 +1197,14 @@
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symm.io/llms.txt"
+    },
+    "symmio-market-limit-orders": {
+      "key": "symmio-market-limit-orders",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md",
+      "use": "Market and limit quote semantics, slippage, pending/close-pending states, partial fills, force-close boundary, and quote data.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"
     },
     "symmio-options-docs": {
       "key": "symmio-options-docs",
@@ -1142,6 +1270,46 @@
       "kind": "public-url",
       "href": "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md"
     },
+    "symmio-profit-realization": {
+      "key": "symmio-profit-realization",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+      "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"
+    },
+    "symmio-settlement": {
+      "key": "symmio-settlement",
+      "source": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+      "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md"
+    },
+    "symmio-settlement-costs": {
+      "key": "symmio-settlement-costs",
+      "source": "https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md",
+      "use": "Product-specific settlement costs, zero solver/market-maker settlement fees, platform fees, and affiliate/frontend credits.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md"
+    },
+    "symmio-solver-role": {
+      "key": "symmio-solver-role",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md",
+      "use": "Solver as PartyB, quote listening, risk checks, collateral/solvency, APIs, instant trading, and conditional-order responsibilities.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md"
+    },
+    "symmio-solving": {
+      "key": "symmio-solving",
+      "source": "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md",
+      "use": "Solver-section clarifications: educational scope, off-chain hedging independence, and protocol isolation from solver external systems.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md"
+    },
     "symmio-token-foundation": {
       "key": "symmio-token-foundation",
       "source": "https://docs.symmio.foundation/symm-token/overview",
@@ -1149,6 +1317,14 @@
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symmio.foundation/symm-token/overview"
+    },
+    "symmio-trading-fees": {
+      "key": "symmio-trading-fees",
+      "source": "https://docs.symm.io/trader-documentation/trading-fees.md",
+      "use": "Current Symmio trading-fee pointer to product-specific settlement-cost pages and per-symbol/per-affiliate fee structure.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symm.io/trader-documentation/trading-fees.md"
     },
     "symmio-what-is": {
       "key": "symmio-what-is",

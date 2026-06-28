@@ -1,19 +1,20 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 160,
+  "totalPages": 165,
   "byStatus": {
-    "publication-candidate": 79,
+    "publication-candidate": 84,
     "publication-candidate-needs-operator-review": 80,
     "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 93,
     "dashboard-reference": 12,
-    "protocol-reference": 18,
+    "protocol-reference": 22,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 16,
     "answer-engine": 1,
+    "solver-reference": 1,
     "product-reference": 10,
     "compendium": 8
   },
@@ -2935,6 +2936,54 @@
       "excerpt": "Symmio Clearing House Layer Symmio should not be documented as another exchange skin. Its public docs frame it as a trustless hybrid on chain and off chain clearing house for permissionless derivatives: pricing and quoting can happen off chain for speed, while collateral, positions, settlement, and lifecycle state are anchored on chain. That distinction is the protocol core of the Vibe x Symmio story. Vibe can make intent based markets feel usable at the product layer, while Symmio supplies the shared settlement grammar underneath: PartyA, PartyB, intent, collateral, margin, CVA, lock, open, close, and liquidation. What It Is Not The strongest reader correction is negative. Symmio's own overview says the protocol does not rely on a central limit order book or pooled liquidity as the core matching model. A trader does not wait for an order book to match them against anonymous resting flow. A trader expresses an intent, and a professional counterparty can choose to take the other side under protocol enforced collateral and lifecycle rules. That is why \"clearing house\" is the better phrase than \"venue.\" Frontends can differ. Solvers can differ. Products can differ. The shared layer is"
     },
     {
+      "id": "authored-symmio-cross-margin-liquidations",
+      "title": "Symmio Cross-Margin Liquidations",
+      "section": "protocol-reference",
+      "track": "Symmio Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-liquidations",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-liquidations",
+        "authored-collateral-margin-cva",
+        "authored-bilateral-intent-lifecycle"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-cross-margin-liquidations.md",
+      "bodyMarkdown": "# Symmio Cross-Margin Liquidations\n\nSymmio liquidation starts from allocated collateral, not from a single isolated ticket. The official docs separate a trader's balance into pending margin, locked margin, and free balance. Pending margin is reserved for quotes waiting to be accepted. Locked margin actively backs open positions. Free balance is the remaining collateral available for new risk or withdrawal.\n\nEvery position on Symmio is cross-margin in the official liquidation description. That means PartyA's allocated balance supports the account across open positions and pending quotes. As unrealized PnL moves against the account, the protocol draws on collateral in sequence: locked margin, free balance, and pending locked amounts. If losses breach the lowest allowed threshold, the account is unsafe.\n\n## Account-Wide Liquidation\n\nBecause the account is cross-margined, PartyA is liquidated as a whole. Open positions and outstanding quotes move into liquidation together, rather than one position being isolated from the rest of the account.\n\nLiquidators use signed data from the Muon network to prove total losses and market prices. The protocol then closes positions, redistributes collateral between PartyA and counterparties, and pays a liquidator fee. CVA and margin are applied according to protocol rules.\n\n## Publication Boundary\n\nThis page should teach the liquidation shape: pending versus locked versus free balance, cross-margin account treatment, Muon-backed loss proof, and liquidator execution. It should not publish current thresholds, fee amounts, or product-specific Vibe liquidation UI behavior without current implementation evidence.\n\n## Sources\n\n- `symmio-liquidations`: official Symmio liquidation mechanics.\n- `symmio-core`: official collateral, margin, and CVA vocabulary.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-vibe-collateral-and-margining`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "Symmio Cross Margin Liquidations Symmio liquidation starts from allocated collateral, not from a single isolated ticket. The official docs separate a trader's balance into pending margin, locked margin, and free balance. Pending margin is reserved for quotes waiting to be accepted. Locked margin actively backs open positions. Free balance is the remaining collateral available for new risk or withdrawal. Every position on Symmio is cross margin in the official liquidation description. That means PartyA's allocated balance supports the account across open positions and pending quotes. As unrealized PnL moves against the account, the protocol draws on collateral in sequence: locked margin, free balance, and pending locked amounts. If losses breach the lowest allowed threshold, the account is unsafe. Account Wide Liquidation Because the account is cross margined, PartyA is liquidated as a whole. Open positions and outstanding quotes move into liquidation together, rather than one position being isolated from the rest of the account. Liquidators use signed data from the Muon network to prove total losses and market prices. The protocol then closes positions, redistributes collateral bet"
+    },
+    {
+      "id": "authored-symmio-funding-epochs",
+      "title": "Symmio Funding Epochs",
+      "section": "protocol-reference",
+      "track": "Symmio Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-funding-rates"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-funding-rates",
+        "authored-vibe-fees-and-funding",
+        "authored-position-lifecycle-state-machine"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-funding-epochs.md",
+      "bodyMarkdown": "# Symmio Funding Epochs\n\nSymmio's trader docs explain funding as the mechanism that keeps a perpetual contract from drifting too far away from the underlying market price. When the long side is crowded and the perp trades above spot, longs pay shorts. When the short side is crowded and the perp trades below spot, shorts pay longs.\n\nThe operational detail that matters for the compendium is epoch timing. Each symbol has its own funding rate. Funding is applied at the end of fixed periods called epochs, and the contract exposes cycle settings such as `fundingRateEpochDuration` and `fundingRateWindowTime`. Solvers can charge funding only during the configured window around the epoch transition.\n\n## Two Accounting Paths\n\nThe official docs describe two funding-accounting methods. Older symbols can simulate funding by adjusting a position's opened price. Newer symbols track funding as a weighted average at the symbol level and deduct it from allocated balance when charged. The second path makes funding more visible as a balance line item and avoids updating every open position at each epoch.\n\nThat distinction is useful for Vibe x Symmio docs because it separates the economic idea from the accounting implementation. A reader should know funding can affect either an opened-price representation or allocated balance depending on symbol migration status.\n\n## Publication Boundary\n\nThe docs should not publish a universal epoch length, funding window, or rate unless the current symbol configuration is queried from contracts. Symmio's own page says solvers stream the rates they plan to apply, but contract settings remain authoritative for epoch duration and charge windows.\n\n## Sources\n\n- `symmio-funding-rates`: official Symmio funding-rate page.\n\n## Related Pages\n\n- `authored-vibe-fees-and-funding`\n- `authored-position-lifecycle-state-machine`\n- `authored-funding-model-control-problem`",
+      "excerpt": "Symmio Funding Epochs Symmio's trader docs explain funding as the mechanism that keeps a perpetual contract from drifting too far away from the underlying market price. When the long side is crowded and the perp trades above spot, longs pay shorts. When the short side is crowded and the perp trades below spot, shorts pay longs. The operational detail that matters for the compendium is epoch timing. Each symbol has its own funding rate. Funding is applied at the end of fixed periods called epochs, and the contract exposes cycle settings such as fundingRateEpochDuration and fundingRateWindowTime . Solvers can charge funding only during the configured window around the epoch transition. Two Accounting Paths The official docs describe two funding accounting methods. Older symbols can simulate funding by adjusting a position's opened price. Newer symbols track funding as a weighted average at the symbol level and deduct it from allocated balance when charged. The second path makes funding more visible as a balance line item and avoids updating every open position at each epoch. That distinction is useful for Vibe x Symmio docs because it separates the economic idea from the accounting i"
+    },
+    {
       "id": "authored-symmio-party-a-party-b",
       "title": "PartyA And PartyB",
       "section": "protocol-reference",
@@ -2957,6 +3006,87 @@
       "file": "content/authored/reference/symmio-party-a-party-b.md",
       "bodyMarkdown": "# PartyA And PartyB\n\nSymmio names the two sides of an intent-based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position.\n\nThat vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state.\n\nFor Vibe, the PartyA/PartyB model explains why solvers are central. The user-facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance.\n\n## Reader Implication\n\nWhen a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained.\n\n## Sources\n\n- `symmio-core`: Symmio core concepts.\n- `symmio-intent-lifecycle`: Symmio intent lifecycle and event monitoring.\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-vibe-trade-flow`\n- `symmio-core-concepts`",
       "excerpt": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state. For Vibe, the PartyA/PartyB model explains why solvers are central. The user facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance. Reader Implication When a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained. Sources symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring."
+    },
+    {
+      "id": "authored-symmio-settlement-costs-and-affiliates",
+      "title": "Symmio Settlement Costs And Affiliates",
+      "section": "protocol-reference",
+      "track": "Symmio Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-settlement-costs",
+        "symmio-trading-fees"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md",
+        "https://docs.symm.io/trader-documentation/trading-fees.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-settlement-costs",
+        "symmio-trading-fees",
+        "authored-vibe-fees-and-funding"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-settlement-costs-and-affiliates.md",
+      "bodyMarkdown": "# Symmio Settlement Costs And Affiliates\n\nSymmio's cost model is product-specific. The official settlement-costs page says settlement costs are not one-size-fits-all and points traders and builders to separate product categories such as perps and pair trading. The current trading-fees page likewise redirects fee detail toward product-specific settlement-cost pages and notes that rates can be set by symbol and affiliate.\n\nThe source also states a key builder-side asymmetry: solvers and market makers do not pay settlement fees. That policy is framed as a way to encourage professional market makers and solvers to provide tighter, more efficient markets.\n\n## Frontend Builder Economics\n\nSymmio's settlement-costs page says a portion of each platform fee is allocated to the exchange's affiliate partner, meaning a frontend builder integrated with Symmio can earn a share of fees generated by traders executing through that interface.\n\nThat is relevant to Vibe x Symmio docs because Vibe is a product surface on top of a protocol layer. Readers need to distinguish protocol-level settlement-cost categories from product-specific fee presentation and any Vibe-specific revenue disclosure.\n\n## Publication Boundary\n\nDo not publish fee percentages here unless the product-specific settlement-cost page and Vibe's public disclosure boundary both support them. The safe claim is structure: product-specific settlement costs, zero settlement fees for solvers and market makers, and affiliate/frontend-builder fee-credit semantics.\n\n## Sources\n\n- `symmio-settlement-costs`: official settlement-cost and affiliate-credit page.\n- `symmio-trading-fees`: official trading-fee pointer page.\n\n## Related Pages\n\n- `authored-vibe-fees-and-funding`\n- `authored-estimated-network-revenue`\n- `authored-dashboard-revenue-pulse`",
+      "excerpt": "Symmio Settlement Costs And Affiliates Symmio's cost model is product specific. The official settlement costs page says settlement costs are not one size fits all and points traders and builders to separate product categories such as perps and pair trading. The current trading fees page likewise redirects fee detail toward product specific settlement cost pages and notes that rates can be set by symbol and affiliate. The source also states a key builder side asymmetry: solvers and market makers do not pay settlement fees. That policy is framed as a way to encourage professional market makers and solvers to provide tighter, more efficient markets. Frontend Builder Economics Symmio's settlement costs page says a portion of each platform fee is allocated to the exchange's affiliate partner, meaning a frontend builder integrated with Symmio can earn a share of fees generated by traders executing through that interface. That is relevant to Vibe x Symmio docs because Vibe is a product surface on top of a protocol layer. Readers need to distinguish protocol level settlement cost categories from product specific fee presentation and any Vibe specific revenue disclosure. Publication Boundar"
+    },
+    {
+      "id": "authored-symmio-settlement-profit-realization",
+      "title": "Symmio Settlement And Profit Realization",
+      "section": "protocol-reference",
+      "track": "Symmio Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-settlement",
+        "symmio-profit-realization",
+        "authored-bilateral-intent-lifecycle"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-settlement-profit-realization.md",
+      "bodyMarkdown": "# Symmio Settlement And Profit Realization\n\nSymmio separates unrealized PnL from allocated balance. Unrealized PnL is what open positions are worth on paper. Allocated balance is realized collateral that can cover losses, open new positions, or be withdrawn. Settlement is the mechanism that converts enough unrealized profit into usable allocated balance so the account can keep operating.\n\nThe official trader docs describe a common case: a trader is profitable overall, but wants to close a losing leg and does not have enough realized collateral to cover that loss. A solver can submit Muon-signed data attesting to current prices and unrealized PnL across the account. If the contract verifies the signature and solvency conditions, profitable positions can be partially realized into allocated balance, letting the losing close proceed without creating uncollateralized risk.\n\n## Solver View\n\nThe liquidity-provider docs explain why settlement matters for PartyB. Without settlement, a profitable account can still get stuck because its gains are unrealized while its closing loss requires realized collateral. Settlement is therefore an operational tool for keeping good traders from being blocked by accounting state.\n\nNewer Symmio settlement behavior also handles accumulated funding fees, so position PnL and owed funding can be considered together when a solver settles positions.\n\n## Publication Boundary\n\nThis page should not imply that every frontend exposes settlement identically. The source-backed claim is narrower: settlement converts enough unrealized profit and funding-accounting state into realized allocated balance under Muon-backed and solvency-preserving checks.\n\n## Sources\n\n- `symmio-settlement`: official trader settlement explanation.\n- `symmio-profit-realization`: official liquidity-provider profit-realization context.\n\n## Related Pages\n\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`\n- `authored-symmio-cross-margin-liquidations`",
+      "excerpt": "Symmio Settlement And Profit Realization Symmio separates unrealized PnL from allocated balance. Unrealized PnL is what open positions are worth on paper. Allocated balance is realized collateral that can cover losses, open new positions, or be withdrawn. Settlement is the mechanism that converts enough unrealized profit into usable allocated balance so the account can keep operating. The official trader docs describe a common case: a trader is profitable overall, but wants to close a losing leg and does not have enough realized collateral to cover that loss. A solver can submit Muon signed data attesting to current prices and unrealized PnL across the account. If the contract verifies the signature and solvency conditions, profitable positions can be partially realized into allocated balance, letting the losing close proceed without creating uncollateralized risk. Solver View The liquidity provider docs explain why settlement matters for PartyB. Without settlement, a profitable account can still get stuck because its gains are unrealized while its closing loss requires realized collateral. Settlement is therefore an operational tool for keeping good traders from being blocked by a"
+    },
+    {
+      "id": "authored-symmio-solver-operations-and-hedging",
+      "title": "Symmio Solver Operations And Hedging",
+      "section": "solver-reference",
+      "track": "Symmio Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "symmio-solver-role",
+        "symmio-hedging-strategies",
+        "symmio-solving",
+        "symmio-build-solver"
+      ],
+      "sourceUrls": [
+        "https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md",
+        "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md",
+        "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-solver-role",
+        "symmio-hedging-strategies",
+        "symmio-solving",
+        "symmio-build-solver",
+        "authored-solver-event-monitoring"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-solver-operations-and-hedging.md",
+      "bodyMarkdown": "# Symmio Solver Operations And Hedging\n\nSymmio's solver docs define a solver as the PartyB side of the protocol. Traders send intents or quotes. Solver infrastructure listens for those events, checks whether the symbol is supported, whether the account is allowed, whether collateral is sufficient, and whether the price fits the solver's strategy. If the checks pass, the solver can lock the quote and open the position on-chain.\n\nThat makes a solver more than a passive liquidity label. The official role page says solvers manage capital allocation, market open-interest limits, settlement timing, API data for frontends, instant-trading delegation, and conditional-order services such as take-profit and stop-loss monitoring.\n\n## Hedging Is A Solver Policy, Not A Protocol Dependency\n\nThe hedging-strategies page describes a spectrum. A solver can try to remain close to delta-neutral by hedging elsewhere, or it can run partially hedged or unhedged like a market maker or prop desk. Symmio does not enforce one hedging style. The protocol enforces solvency rules.\n\nThe solving guide adds an important caveat for publication: off-chain hedging actions do not control on-chain contract behavior. The contracts operate independently of centralized exchanges, desks, or other hedging systems. Off-chain hedging can affect a solver's business risk, but the protocol's on-chain settlement rules remain separate.\n\n## Publication Boundary\n\nOlder solver materials include historical opportunity and APR language. This compendium should not reuse those as current claims. The source-backed operating claim is role and boundary: PartyB listens, validates, locks, opens, settles, provides frontend data, may hedge externally, and must stay solvent under protocol rules.\n\n## Sources\n\n- `symmio-solver-role`: official role of a liquidity provider/solver.\n- `symmio-hedging-strategies`: official hedging strategy overview.\n- `symmio-solving`: official solver-section caveats and protocol-isolation clarification.\n- `symmio-build-solver`: official solver-builder documentation index.\n\n## Related Pages\n\n- `authored-solver-event-monitoring`\n- `authored-solver-engine-operating-loop`\n- `authored-residual-counterparty-hedge-first`",
+      "excerpt": "Symmio Solver Operations And Hedging Symmio's solver docs define a solver as the PartyB side of the protocol. Traders send intents or quotes. Solver infrastructure listens for those events, checks whether the symbol is supported, whether the account is allowed, whether collateral is sufficient, and whether the price fits the solver's strategy. If the checks pass, the solver can lock the quote and open the position on chain. That makes a solver more than a passive liquidity label. The official role page says solvers manage capital allocation, market open interest limits, settlement timing, API data for frontends, instant trading delegation, and conditional order services such as take profit and stop loss monitoring. Hedging Is A Solver Policy, Not A Protocol Dependency The hedging strategies page describes a spectrum. A solver can try to remain close to delta neutral by hedging elsewhere, or it can run partially hedged or unhedged like a market maker or prop desk. Symmio does not enforce one hedging style. The protocol enforces solvency rules. The solving guide adds an important caveat for publication: off chain hedging actions do not control on chain contract behavior. The contract"
     },
     {
       "id": "authored-technically-async-economically-sync",

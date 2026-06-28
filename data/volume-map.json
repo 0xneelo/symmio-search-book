@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 954,
+  "readerPages": 959,
   "totalVolumes": 8,
-  "totalChapters": 84,
-  "pagesAssigned": 954,
+  "totalChapters": 85,
+  "pagesAssigned": 959,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -4511,26 +4511,26 @@
       "title": "Solver, LP, And Protocol Operations",
       "premise": "Bind due diligence, the SYMM LP case study, solver references, Symmio protocol pages, and builder/developer material.",
       "readerPromise": "Move from thesis to operational workflows for LPs, solvers, market creators, and protocol integrators.",
-      "totalPages": 100,
+      "totalPages": 105,
       "overviewPageId": "authored-volume-05-solver-lp-and-protocol-operations",
       "overviewTitle": "Volume 05: Solver, LP, And Protocol Operations",
-      "authoredPages": 25,
+      "authoredPages": 30,
       "generatedPages": 75,
       "statusCounts": {
         "draft-extracted-from-primary-source": 37,
         "draft-imported-from-primary-source": 24,
-        "publication-candidate": 9,
+        "publication-candidate": 14,
         "publication-candidate-needs-operator-review": 16,
         "source-mapped": 14
       },
       "granularityCounts": {
-        "authored-page": 25,
+        "authored-page": 30,
         "companion-page": 14,
         "section-page": 37,
         "source-page": 24
       },
       "routeSourceCounts": {
-        "authored": 25,
+        "authored": 30,
         "generated": 75
       },
       "sectionCounts": {
@@ -4539,17 +4539,21 @@
         "developer-reference": 1,
         "manifesto": 7,
         "options-reference": 1,
-        "protocol-reference": 20,
+        "protocol-reference": 24,
         "settlement": 1,
-        "solver-reference": 7,
+        "solver-reference": 8,
         "vision-papers": 24,
         "vision-sections": 37
       },
       "sourceKeys": [
         "spec-02",
         "spec-03",
+        "symmio-build-solver",
         "symmio-core",
+        "symmio-funding-rates",
+        "symmio-hedging-strategies",
         "symmio-intent-lifecycle",
+        "symmio-liquidations",
         "symmio-llms",
         "symmio-options-docs",
         "symmio-options-facets",
@@ -4559,6 +4563,12 @@
         "symmio-options-partyb-close",
         "symmio-options-partyb-open",
         "symmio-options-technical-architecture",
+        "symmio-profit-realization",
+        "symmio-settlement",
+        "symmio-settlement-costs",
+        "symmio-solver-role",
+        "symmio-solving",
+        "symmio-trading-fees",
         "symmio-what-is",
         "symmio-whitepaper",
         "vibe-architecture",
@@ -4566,15 +4576,16 @@
       ],
       "openingPageIds": [
         "authored-volume-05-solver-lp-and-protocol-operations",
+        "authored-symmio-solver-operations-and-hedging",
         "authored-intents-and-solvers",
         "authored-solver-owned-market-maker",
         "authored-bootstrap-oracle-risk-tiers",
         "authored-hybrid-settlement-solver-stack",
         "authored-position-lifecycle-state-machine",
-        "authored-settlement-state-boundary",
-        "authored-solver-engine-operating-loop"
+        "authored-settlement-state-boundary"
       ],
       "pageIds": [
+        "authored-symmio-solver-operations-and-hedging",
         "authored-volume-05-solver-lp-and-protocol-operations",
         "authored-intents-and-solvers",
         "authored-solver-owned-market-maker",
@@ -4599,6 +4610,10 @@
         "authored-symmio-party-a-party-b",
         "authored-solver-event-monitoring",
         "authored-symmio-clearing-house-layer",
+        "authored-symmio-cross-margin-liquidations",
+        "authored-symmio-funding-epochs",
+        "authored-symmio-settlement-profit-realization",
+        "authored-symmio-settlement-costs-and-affiliates",
         "authored-options-intent-lifecycle",
         "symmio-frontend-builder",
         "symmio-contracts",
@@ -4677,6 +4692,115 @@
         "section-12-case-study-symm-lp-12-docs-overview-scope-note"
       ],
       "chapters": [
+        {
+          "id": "symmio-operations",
+          "title": "Symmio Operations",
+          "section": "solver-reference",
+          "track": "Symmio Operations",
+          "totalPages": 5,
+          "authoredPages": 5,
+          "generatedPages": 0,
+          "statusCounts": {
+            "publication-candidate": 5
+          },
+          "granularityCounts": {
+            "authored-page": 5
+          },
+          "sourceKeys": [
+            "symmio-build-solver",
+            "symmio-core",
+            "symmio-funding-rates",
+            "symmio-hedging-strategies",
+            "symmio-liquidations",
+            "symmio-profit-realization",
+            "symmio-settlement",
+            "symmio-settlement-costs",
+            "symmio-solver-role",
+            "symmio-solving",
+            "symmio-trading-fees"
+          ],
+          "firstPageId": "authored-symmio-solver-operations-and-hedging",
+          "pageIds": [
+            "authored-symmio-solver-operations-and-hedging",
+            "authored-symmio-cross-margin-liquidations",
+            "authored-symmio-funding-epochs",
+            "authored-symmio-settlement-profit-realization",
+            "authored-symmio-settlement-costs-and-affiliates"
+          ],
+          "samplePages": [
+            {
+              "id": "authored-symmio-solver-operations-and-hedging",
+              "title": "Symmio Solver Operations And Hedging",
+              "section": "solver-reference",
+              "track": "Symmio Operations",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-solver-role",
+                "symmio-hedging-strategies",
+                "symmio-solving",
+                "symmio-build-solver"
+              ]
+            },
+            {
+              "id": "authored-symmio-cross-margin-liquidations",
+              "title": "Symmio Cross-Margin Liquidations",
+              "section": "protocol-reference",
+              "track": "Symmio Operations",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-liquidations",
+                "symmio-core"
+              ]
+            },
+            {
+              "id": "authored-symmio-funding-epochs",
+              "title": "Symmio Funding Epochs",
+              "section": "protocol-reference",
+              "track": "Symmio Operations",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-funding-rates"
+              ]
+            },
+            {
+              "id": "authored-symmio-settlement-profit-realization",
+              "title": "Symmio Settlement And Profit Realization",
+              "section": "protocol-reference",
+              "track": "Symmio Operations",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-settlement",
+                "symmio-profit-realization"
+              ]
+            },
+            {
+              "id": "authored-symmio-settlement-costs-and-affiliates",
+              "title": "Symmio Settlement Costs And Affiliates",
+              "section": "protocol-reference",
+              "track": "Symmio Operations",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "",
+              "sourceKeys": [
+                "symmio-settlement-costs",
+                "symmio-trading-fees"
+              ]
+            }
+          ]
+        },
         {
           "id": "volume-05",
           "title": "Volume 05",
@@ -8985,6 +9109,7 @@
     "section-15-funding-model-15-docs-02-index-key-innovations": "volume-04-token-margin-and-funding-systems",
     "section-15-funding-model-15-docs-02-index-notation-convention": "volume-04-token-margin-and-funding-systems",
     "section-15-funding-model-15-docs-02-index-quick-reference-the-one-line-summary": "volume-04-token-margin-and-funding-systems",
+    "authored-symmio-solver-operations-and-hedging": "volume-05-solver-lp-and-protocol-operations",
     "authored-volume-05-solver-lp-and-protocol-operations": "volume-05-solver-lp-and-protocol-operations",
     "authored-intents-and-solvers": "volume-05-solver-lp-and-protocol-operations",
     "authored-solver-owned-market-maker": "volume-05-solver-lp-and-protocol-operations",
@@ -9009,6 +9134,10 @@
     "authored-symmio-party-a-party-b": "volume-05-solver-lp-and-protocol-operations",
     "authored-solver-event-monitoring": "volume-05-solver-lp-and-protocol-operations",
     "authored-symmio-clearing-house-layer": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symmio-cross-margin-liquidations": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symmio-funding-epochs": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symmio-settlement-profit-realization": "volume-05-solver-lp-and-protocol-operations",
+    "authored-symmio-settlement-costs-and-affiliates": "volume-05-solver-lp-and-protocol-operations",
     "authored-options-intent-lifecycle": "volume-05-solver-lp-and-protocol-operations",
     "symmio-frontend-builder": "volume-05-solver-lp-and-protocol-operations",
     "symmio-contracts": "volume-05-solver-lp-and-protocol-operations",

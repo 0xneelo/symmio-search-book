@@ -368,6 +368,13 @@
 - Routed five new technical/competitive questions to authored pages so Ask can explain how the hybrid system separates settlement from computation, how solver operations compose, and why the architecture is difficult to retrofit.
 - Kept exact contract interfaces, oracle vendors and thresholds, solver policies, funding formulas, graduation parameters, and monopoly claims under operator/implementation review.
 
+## 2026-06-28 — Official Symmio Operations Authored Layer
+
+- Fetched current official Symmio markdown for funding rates, liquidations, settlement, settlement/profit realization, settlement costs, trading fees, solver role, hedging strategies, solving caveats, and the current solver-builder index.
+- Registered specific official Symmio source keys for those pages, including current replacements for moved market/limit, trading-fee, and solver-builder URLs.
+- Added five authored Volume 05 reference pages for Symmio funding epochs, cross-margin liquidations, settlement/profit realization, settlement costs and affiliate credits, and solver operations/hedging.
+- Routed five new Symmio operations questions to authored pages while keeping fee percentages, live epoch values, liquidation thresholds, solver APR/history, and product-specific Vibe semantics under source or operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 141,
+  "totalRoutes": 146,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 69,
-    "High": 18,
+    "Medium": 71,
+    "High": 21,
     "Low": 54
   },
   "byRouteSource": {
-    "authored": 141
+    "authored": 146
   },
   "answerable": [
     {
@@ -2423,6 +2423,97 @@
       "sourceKeys": [
         "symmio-core",
         "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-symmio-funding-epochs-work",
+      "question": "How do Symmio funding epochs work?",
+      "normalizedQuestion": "how do symmio funding epochs work",
+      "pageId": "authored-symmio-funding-epochs",
+      "pageTitle": "Symmio Funding Epochs",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Operations",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Symmio funding docs explain per-symbol epochs, funding-rate windows, legacy opened-price adjustment, and newer balance deduction.",
+      "sourceKeys": [
+        "symmio-funding-rates"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-liquidations-work-in-symmio",
+      "question": "How do liquidations work in Symmio?",
+      "normalizedQuestion": "how do liquidations work in symmio",
+      "pageId": "authored-symmio-cross-margin-liquidations",
+      "pageTitle": "Symmio Cross-Margin Liquidations",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Operations",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Symmio liquidation docs explain pending, locked, and free balance, cross-margin PartyA liquidation, Muon proofs, and liquidators.",
+      "sourceKeys": [
+        "symmio-liquidations",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-a-profitable-symmio-account-need-settlement",
+      "question": "Why can a profitable Symmio account need settlement?",
+      "normalizedQuestion": "why can a profitable symmio account need settlement",
+      "pageId": "authored-symmio-settlement-profit-realization",
+      "pageTitle": "Symmio Settlement And Profit Realization",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Operations",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official settlement and LP docs explain unrealized PnL versus allocated balance and solver-invoked settlement to unblock safe closes.",
+      "sourceKeys": [
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-pays-settlement-costs-in-symmio",
+      "question": "Who pays settlement costs in Symmio?",
+      "normalizedQuestion": "who pays settlement costs in symmio",
+      "pageId": "authored-symmio-settlement-costs-and-affiliates",
+      "pageTitle": "Symmio Settlement Costs And Affiliates",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Operations",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official settlement-cost docs say costs are product-specific, solvers and market makers pay zero settlement fees, and affiliates/frontend builders can receive fee credits.",
+      "sourceKeys": [
+        "symmio-settlement-costs",
+        "symmio-trading-fees"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-symmio-solvers-operate-and-hedge",
+      "question": "How do Symmio solvers operate and hedge?",
+      "normalizedQuestion": "how do symmio solvers operate and hedge",
+      "pageId": "authored-symmio-solver-operations-and-hedging",
+      "pageTitle": "Symmio Solver Operations And Hedging",
+      "pageSection": "solver-reference",
+      "pageTrack": "Symmio Operations",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official solver docs explain PartyB responsibilities, quote checks, collateral/solvency, frontend APIs, optional hedging styles, and on-chain/off-chain isolation.",
+      "sourceKeys": [
+        "symmio-solver-role",
+        "symmio-hedging-strategies",
+        "symmio-solving",
+        "symmio-build-solver"
       ],
       "missing": false
     },

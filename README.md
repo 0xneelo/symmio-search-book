@@ -118,7 +118,7 @@ node --check src/search-book/data/requirement-map.js
 node --check src/search-book/data/quality-audit.js
 node -e "const j=require('./src/search-book/data/journeys.json'); if (j.missingPageIds.length || j.totalJourneys < 5) process.exit(1); console.log(j.totalJourneys + '/' + j.totalSteps)"
 node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.missingRouteIds.length || q.totalRoutes < 1) process.exit(1); console.log(q.totalRoutes + '/' + q.totalReconciliationQuestions)"
-node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 141) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
+node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 146) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 6) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"
 node -e "const v=require('./src/search-book/data/volume-map.json'); if (v.unassignedPageIds.length || v.duplicatePageIds.length || v.volumeIdsMissingPages.length || v.readerPages !== v.pagesAssigned || !v.manifestWithinTarget) process.exit(1); console.log(v.totalVolumes + '/' + v.totalChapters)"

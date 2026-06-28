@@ -487,3 +487,11 @@
 **Reason:** The compendium needs to show how the vision becomes an operating system, not only why the category matters. These pages translate raw technical draft sections into publication-candidate explanations while keeping exact contract interfaces, oracle thresholds, solver policies, funding formulas, graduation parameters, and monopoly claims under implementation/operator review.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-062: Separate Official Symmio Operations From Vibe Product Commitments
+
+**Decision:** Add authored reference pages from current official Symmio docs for funding epochs, cross-margin liquidations, settlement/profit realization, settlement costs and affiliate credits, and solver operations/hedging. Register the specific official source keys rather than relying only on the broad Symmio docs index.
+
+**Reason:** The compendium needs a deeper Symmio operations layer to support sophisticated traders, solvers, LPs, and frontend builders. These pages explain protocol mechanics from primary sources while avoiding overclaims about Vibe-specific fee schedules, live funding values, liquidation thresholds, solver economics, and vault/product semantics that remain under operator or implementation review.
+
+**Status:** Accepted for the authored protocol-reference layer.
