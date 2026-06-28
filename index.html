@@ -1903,7 +1903,12 @@
           letter-spacing: 0.26em;
         }
 
-        .ask,
+        .ask {
+          width: calc(100% + 0.796875px);
+          margin-left: -0.390625px;
+          margin-right: -0.40625px;
+        }
+
         #exampleQuestions {
           width: 100%;
         }
@@ -1997,6 +2002,11 @@
         .ask,
         #exampleQuestions {
           width: min(620px, calc(100vw - 128px));
+        }
+
+        .ask {
+          margin-left: auto;
+          margin-right: auto;
         }
       }
     </style>
