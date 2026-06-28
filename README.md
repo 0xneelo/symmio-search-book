@@ -16,6 +16,8 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Editorial and UI style guide: `STYLEGUIDE.md`
 - 500-800 page manifest: `page-manifest.json`
 - Generated draft content corpus: `content/generated/`
+- Authored publication-candidate pages: `content/authored/`
+- Authored page index: `data/authored-pages.js`
 - Compact prototype search index: `data/search-index.js`
 - Generated browse/navigation tree: `data/navigation-tree.js`
 - Throwaway static prototype: `index.html`
@@ -48,10 +50,13 @@ Focused checks for this package:
 ```sh
 node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
 node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
+node src/search-book/scripts/build-authored-index.mjs
 node src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/answer-corpus.js
 node --check src/search-book/scripts/build-page-manifest.mjs
 node --check src/search-book/scripts/build-content-corpus.mjs
+node --check src/search-book/scripts/build-authored-index.mjs
+node --check src/search-book/data/authored-pages.js
 node --check src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/data/navigation-tree.js
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"

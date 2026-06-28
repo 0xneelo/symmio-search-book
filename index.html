@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe x Symmio Search Book Prototype</title>
     <script src="./answer-corpus.js"></script>
+    <script src="./data/authored-pages.js"></script>
     <script src="./data/search-index.js"></script>
     <script src="./data/navigation-tree.js"></script>
     <style>
@@ -279,7 +280,7 @@
       }
 
       .stats {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         margin: 24px 0;
       }
 
@@ -660,7 +661,10 @@
               <div class="stat-card"><span class="stat-label">Neelo source</span><strong id="neeloPages">188</strong></div>
               <div class="stat-card"><span class="stat-label">Neelo sections</span><strong id="sectionPages">541</strong></div>
               <div class="stat-card"><span class="stat-label">Companions</span><strong id="companionPages">65</strong></div>
+              <div class="stat-card"><span class="stat-label">Authored</span><strong id="authoredPages">12</strong></div>
             </div>
+            <h3 class="section-title">Authored Publication Candidates</h3>
+            <div class="grid cards" id="authoredCards"></div>
             <h3 class="section-title">High-Signal Routes</h3>
             <div class="grid cards" id="pageCards"></div>
           </section>
@@ -728,7 +732,17 @@
 
     <script>
       const corpus = window.SearchBookCorpus;
+      const authored = window.SearchBookAuthored || { pages: [], totalPages: 0 };
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
+      const authoredPages = (authored.pages || []).map((page) => ({
+        ...page,
+        summary: page.excerpt,
+        sources: page.sourceKeys || [],
+        route: page.file,
+        curated: true,
+        authored: true,
+        keywords: [page.title, page.section, page.track, page.excerpt, (page.sourceKeys || []).join(" ")].join(" ").split(/\s+/),
+      }));
       const fullIndex = (window.SearchBookIndex || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -736,8 +750,8 @@
         route: page.file,
         keywords: [page.title, page.section, page.track, page.excerpt, (page.sourceKeys || []).join(" ")].join(" ").split(/\s+/),
       }));
-      const curatedIds = new Set(corpus.pages.map((page) => page.id));
-      const searchablePages = fullIndex.length ? [...corpus.pages.map((page) => ({ ...page, curated: true })), ...fullIndex.filter((page) => !curatedIds.has(page.id))] : corpus.pages;
+      const curatedIds = new Set([...authoredPages.map((page) => page.id), ...corpus.pages.map((page) => page.id)]);
+      const searchablePages = fullIndex.length ? [...authoredPages, ...corpus.pages.map((page) => ({ ...page, curated: true })), ...fullIndex.filter((page) => !curatedIds.has(page.id))] : [...authoredPages, ...corpus.pages];
       const pageById = new Map(searchablePages.map((page) => [page.id, page]));
       corpus.pages.forEach((page) => {
         if (!pageById.has(page.id)) pageById.set(page.id, page);
@@ -928,6 +942,26 @@
                 <p>${escapeHtml(page.summary)}</p>
                 <div class="source-row">
                   ${page.sources.slice(0, 3).map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`).join("")}
+                </div>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderAuthoredCards() {
+        const root = document.getElementById("authoredCards");
+        root.innerHTML = authoredPages
+          .slice(0, 12)
+          .map(
+            (page) => `
+              <article class="page-card">
+                <div class="meta">${escapeHtml(page.section)} / ${escapeHtml(page.status)}</div>
+                <h3>${escapeHtml(page.title)}</h3>
+                <p>${escapeHtml(page.summary || "")}</p>
+                <div class="source-row">
+                  ${page.sources.slice(0, 4).map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`).join("")}
+                  <a class="source-chip" href="${escapeHtml(routeFor(page))}">Open page</a>
                 </div>
               </article>
             `,
@@ -1178,7 +1212,9 @@
         document.getElementById("neeloPages").textContent = navigation.counts.bySourcePriority?.neeloVision || stats.neeloVisionPages;
         document.getElementById("sectionPages").textContent = navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages;
         document.getElementById("companionPages").textContent = stats.companionPages;
+        document.getElementById("authoredPages").textContent = authored.totalPages || authoredPages.length;
         renderExampleQuestions();
+        renderAuthoredCards();
         renderCards();
         renderCollections();
         renderJourneys();

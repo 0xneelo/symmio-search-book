@@ -13,9 +13,10 @@ Questions are grouped by whether the current source set can answer them.
 | What does a solver do? | `solver-role` | High | Symmio and Vibe architecture docs. |
 | How does VibeCaps margin work? | `vibecaps-margin` | Medium | Public Vibe margin page. |
 | How are Vibe points earned? | `vibe-points` | Medium | Public docs cover categories; onboarding dashboard has separate campaign logic. |
-| How is estimated network revenue calculated? | `estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate. |
+| How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
 | Why does the dashboard revenue number move? | `revenue-pulse` | Medium | Local code/docs describe pulse from volume history. |
-| What is HIP-3 and why compare it? | `hip3-context` | Medium | Hyperliquid docs support builder-deployed perps context. |
+| What is HIP-3 and why compare it? | `authored-vibe-as-discovery-layer` | Medium | Hyperliquid docs support builder-deployed perps context; Neelo docs frame Vibe as a discovery layer. |
+| Why do intents matter if order books already exist? | `authored-intents-complete-order-books` | Medium | Neelo docs frame Vibe as a complement to order books, not a denial of them. |
 
 ## Prototype Event Log
 

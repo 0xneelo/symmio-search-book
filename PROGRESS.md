@@ -31,6 +31,14 @@
 - Search insights now reads local question, rating, and gap events; low-rated or unanswered answers become local gap rows.
 - Improved static routing so high-signal curated pages stay in the search set alongside generated pages.
 
+## 2026-06-28 — Authored Publication Candidates
+
+- Added 12 hand-shaped pages under `content/authored/`.
+- Added `scripts/build-authored-index.mjs`.
+- Generated `data/authored-pages.json` and `data/authored-pages.js`.
+- Wired the prototype to search authored pages before curated routes and generated draft pages.
+- Covered initial manifesto/reference spine: bootstrap trilemma, intents/order books, Vibe discovery layer, intents/solvers, PartyA/PartyB, Vibe trade flow, revenue, volume, points, referral-depth gap, living-docs loop, and core glossary.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

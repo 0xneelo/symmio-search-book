@@ -8,15 +8,16 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | --- | --- | --- |
 | `spec-prompt` | `/home/tabor/.codex/attachments/4632c9a8-89bd-47cd-9f2b-514b80548daa/pasted-text-1.txt` | Original objective and non-negotiables. |
 | `spec-00` | `_specs/app-docs/00-goal-prompt.md` | Full goal prompt in repo. |
-| `spec-01` | `_specs/app-docs/01-mission-and-done.md` | Definition of done. |
+| `spec-01` | `_specs/app-docs/01-mission.md` | Definition of done. |
 | `spec-02` | `_specs/app-docs/02-narrative-thesis.md` | Narrative thesis and required topics. |
-| `spec-03` | `_specs/app-docs/03-product-grounding.md` | Product facts and revenue/referral contradictions. |
-| `spec-04` | `_specs/app-docs/04-source-map.md` | Required source families. |
-| `spec-05` | `_specs/app-docs/05-information-architecture.md` | Ask-first IA and original 100+ page shape, superseded by operator's 500-800 page instruction. |
+| `spec-03` | `_specs/app-docs/03-grounding.md` | Product facts and revenue/referral contradictions. |
+| `spec-04` | `_specs/app-docs/04-sources.md` | Required source families. |
+| `spec-05` | `_specs/app-docs/05-architecture.md` | Ask-first IA and original 100+ page shape, superseded by operator's 500-800 page instruction. |
 | `spec-06` | `_specs/app-docs/06-answer-engine.md` | Ask/rate/ask-again loop. |
 | `spec-07` | `_specs/app-docs/07-research-session.md` | Session 1 research gate. |
 | `spec-08` | `_specs/app-docs/08-implementation-session.md` | Session 2 implementation gate. |
 | `spec-09` | `_specs/app-docs/09-design-reference.md` | Mockup and visual direction. |
+| `styleguide` | `src/search-book/STYLEGUIDE.md` | Local terminology and page-structure lock for authored pages. |
 
 ## Local Product And Code
 
@@ -73,3 +74,10 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | --- | --- | --- |
 | `hyperliquid-llms` | https://hyperliquid.gitbook.io/hyperliquid-docs/llms.txt | Hyperliquid docs index. |
 | `hyperliquid-hip3` | https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md | Builder-deployed perps, staking, deployer duties, independent margin/order books. |
+
+## Authored Publication Candidates
+
+| Key | Source | Use |
+| --- | --- | --- |
+| `authored-pages` | `src/search-book/content/authored/**` | Hand-shaped publication-candidate pages built from the registered primary sources above. |
+| `authored-index` | `src/search-book/data/authored-pages.json` | Prototype search/index payload for authored pages. |
