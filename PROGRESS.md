@@ -550,6 +550,12 @@
 - Routed five new Ask questions so the front door can answer practical Proof of Value follow-ups without collapsing them into broad value-creation language.
 - Kept vault terms, insurance rules, partner metrics, solver profitability, fee routing, protocol share, and revenue-share claims under operator/accounting review.
 
+## 2026-06-29 — Game Theory Listing Subclaim Pages
+
+- Added five authored Volume 03 manifesto pages from Neelo's Game Theory of Listings corpus: left of the listing threshold, curated venues inheriting asymmetric blame, listing metrics becoming targets, the zero perceived interest zone, and perps as an anti-bottleneck layer.
+- Routed five new Ask questions so the front door can answer practical listing-game follow-ups without relying only on broad listing-monopoly pages.
+- Kept exact token eligibility, market launch workflow, safety filters, HIP-3 handoff, and downstream graduation policy under operator/product review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

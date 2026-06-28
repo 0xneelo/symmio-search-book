@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 247
+      "totalGoldenRoutes": 252
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 265,
-    "retrievalEligiblePages": 1057,
+    "publicNavigationPages": 270,
+    "retrievalEligiblePages": 1062,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 265,
+      "candidate": 270,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 247,
-    "exactRouteTestsPassing": 247,
+    "totalExactRouteTests": 252,
+    "exactRouteTestsPassing": 252,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 247
+      "candidate": 252
     },
     "exactRoutesByConfidence": {
-      "Medium": 113,
+      "Medium": 116,
       "High": 30,
-      "Low": 104
+      "Low": 106
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2656,6 +2656,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-perps-for-the-trenches-mean",
+        "passes": true
+      },
+      {
+        "id": "qr-what-sits-left-of-the-listing-threshold",
+        "query": "What sits left of the listing threshold?",
+        "normalizedQuery": "what sits left of the listing threshold",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-threshold-left-of-obvious-demand",
+        "expectedPageTitle": "Left Of The Listing Threshold",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-sits-left-of-the-listing-threshold",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-curated-venues-become-conservative",
+        "query": "Why do curated venues become conservative?",
+        "normalizedQuery": "why do curated venues become conservative",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-curated-venues-inherit-asymmetric-blame",
+        "expectedPageTitle": "Curated Venues Inherit Asymmetric Blame",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-curated-venues-become-conservative",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-listing-metrics-become-targets",
+        "query": "How do listing metrics become targets?",
+        "normalizedQuery": "how do listing metrics become targets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-metrics-become-targets-in-listing-games",
+        "expectedPageTitle": "Metrics Become Targets In Listing Games",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-listing-metrics-become-targets",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-zero-perceived-interest-zone",
+        "query": "What is the zero perceived interest zone?",
+        "normalizedQuery": "what is the zero perceived interest zone",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-zero-perceived-interest-zone",
+        "expectedPageTitle": "The Zero Perceived Interest Zone",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-zero-perceived-interest-zone",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-vibe-an-anti-bottleneck-layer",
+        "query": "Why is Vibe an anti-bottleneck layer?",
+        "normalizedQuery": "why is vibe an anti bottleneck layer",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perps-as-anti-bottleneck-layer",
+        "expectedPageTitle": "Perps As An Anti-Bottleneck Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-vibe-an-anti-bottleneck-layer",
         "passes": true
       },
       {
@@ -5747,7 +5852,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 247,
+      "exactRoutes": 252,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -727,3 +727,11 @@
 **Reason:** The existing Proof of Value pages explain the broad thesis, but sophisticated readers will ask narrower diligence questions: who bears each risk, what project alternatives Vibe displaces, what early commitment actually proves, whether solver economics can stay durable, and how capture avoids becoming extraction. These pages turn those follow-ups into routed answers while keeping economic and partner metrics review-bound.
 
 **Status:** Accepted for the authored manifesto layer; vault terms, insurance policy, live partner figures, solver profitability, fee routing, protocol share, and revenue-share claims remain under operator/accounting review.
+
+## D-092: Expand Listing Game Theory Into Askable Market-Evolution Subclaims
+
+**Decision:** Add authored Volume 03 manifesto pages for the region left of the listing threshold, asymmetric blame in curated venues, listing metrics becoming targets, the zero perceived interest zone, and Vibe/perps as an anti-bottleneck layer.
+
+**Reason:** The existing listing-game pages explain perceived versus actual interest, curation cost, and zero-cost discovery, but the answer engine needs direct routes for the follow-up questions market creators and researchers will ask. These pages make the game-theoretic mechanism concrete: curation creates thresholds, thresholds create proxy optimization, proxy optimization delays actual-interest discovery, and Vibe's derivative layer can test markets earlier without pretending every early market is high quality.
+
+**Status:** Accepted for the authored manifesto layer; token eligibility, market launch workflow, safety filters, HIP-3 handoff, and downstream graduation policy remain under operator/product review.
