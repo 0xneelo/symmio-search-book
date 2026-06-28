@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 77,
-  "totalAnswerable": 71,
+  "totalEntries": 82,
+  "totalAnswerable": 76,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,7 +20,7 @@
     "Solvers And Settlement": 20,
     "Risk And Markets": 6,
     "Revenue": 5,
-    "Rewards And Referrals": 7,
+    "Rewards And Referrals": 12,
     "Dashboard": 9,
     "Manifesto": 13,
     "Data And Volume": 1,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 37,
     "High": 18,
-    "Low": 16
+    "Low": 21
   },
   "byRouteSource": {
-    "authored": 71
+    "authored": 76
   },
   "byType": {
-    "answerable": 71,
+    "answerable": 76,
     "reconciliation": 6
   },
   "answerable": [
@@ -1309,6 +1309,191 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-referral-identity-in-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is referral identity in Vibe?",
+      "normalizedQuestion": "what is referral identity in vibe",
+      "shortAnswer": "Neelo's referral architecture supports identity, policy, attribution, and claim-flow concepts; final production depth and settlement wording remain parked.",
+      "answerSummary": "Referral Identity And Claim Flow Neelo's referral program architecture starts by separating identity, attribution, policy, and settlement. A referral NFT or equivalent identity anchor can carry the user's referral identity, but reward eligible code activation is a separate state governed by policy. That separation matters because a referral system has to...",
+      "confidence": "Low",
+      "pageId": "authored-referral-identity-and-claim-flow",
+      "pageTitle": "Referral Identity And Claim Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-rakeback-be-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral rakeback be documented?",
+      "normalizedQuestion": "how should referral rakeback be documented",
+      "shortAnswer": "The referral paper supports self/referral channel separation and public/private policy overlays; exact economics need operator review.",
+      "answerSummary": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"wh...",
+      "confidence": "Low",
+      "pageId": "authored-referral-rakeback-policy-model",
+      "pageTitle": "Referral Rakeback Policy Model",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-referral-code-issuance-be-qualified",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why should referral code issuance be qualified?",
+      "normalizedQuestion": "why should referral code issuance be qualified",
+      "shortAnswer": "Neelo's referral-economics source names self-referral, code-shopping, and attribution risks; final public issuance policy remains owner-controlled.",
+      "answerSummary": "Referral Issuance And Anti Gaming Neelo's referral economics section is blunt about the failure modes: self referral loops, code shopping, and attribution disputes can turn a growth system into extraction. The design goal is not maximum code count. It is durable, fee producing attribution that can survive adversarial behavior. Qualified issuance is the ma...",
+      "confidence": "Low",
+      "pageId": "authored-referral-issuance-and-anti-gaming",
+      "pageTitle": "Referral Issuance And Anti-Gaming",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-market-scoped-referrals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are market-scoped referrals?",
+      "normalizedQuestion": "what are market scoped referrals",
+      "shortAnswer": "The LP/category layer supports market-level referral attachment and partner overlays; current live partner semantics need product confirmation.",
+      "answerSummary": "Market Scoped Referrals The LP and category layer expands referrals beyond user acquisition. The source describes a second referral surface attached to market creation: a referral can be bound to a specific market's fee flow, and the absence of attachment means no market level referral share. This turns referral design into market supply design. Creators,...",
+      "confidence": "Low",
+      "pageId": "authored-market-scoped-referrals",
+      "pageTitle": "Market-Scoped Referrals",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-metrics-prove-quality",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral metrics prove quality?",
+      "normalizedQuestion": "which referral metrics prove quality",
+      "shortAnswer": "Neelo's metrics and security sections support market-quality KPIs and integrity controls; dashboard publication needs phase and formula versioning.",
+      "answerSummary": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume whi...",
+      "confidence": "Low",
+      "pageId": "authored-referral-metrics-and-integrity",
+      "pageTitle": "Referral Metrics And Integrity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -4452,6 +4637,191 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-referral-identity-in-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is referral identity in Vibe?",
+      "normalizedQuestion": "what is referral identity in vibe",
+      "shortAnswer": "Neelo's referral architecture supports identity, policy, attribution, and claim-flow concepts; final production depth and settlement wording remain parked.",
+      "answerSummary": "Referral Identity And Claim Flow Neelo's referral program architecture starts by separating identity, attribution, policy, and settlement. A referral NFT or equivalent identity anchor can carry the user's referral identity, but reward eligible code activation is a separate state governed by policy. That separation matters because a referral system has to...",
+      "confidence": "Low",
+      "pageId": "authored-referral-identity-and-claim-flow",
+      "pageTitle": "Referral Identity And Claim Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-rakeback-be-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral rakeback be documented?",
+      "normalizedQuestion": "how should referral rakeback be documented",
+      "shortAnswer": "The referral paper supports self/referral channel separation and public/private policy overlays; exact economics need operator review.",
+      "answerSummary": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"wh...",
+      "confidence": "Low",
+      "pageId": "authored-referral-rakeback-policy-model",
+      "pageTitle": "Referral Rakeback Policy Model",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-referral-code-issuance-be-qualified",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why should referral code issuance be qualified?",
+      "normalizedQuestion": "why should referral code issuance be qualified",
+      "shortAnswer": "Neelo's referral-economics source names self-referral, code-shopping, and attribution risks; final public issuance policy remains owner-controlled.",
+      "answerSummary": "Referral Issuance And Anti Gaming Neelo's referral economics section is blunt about the failure modes: self referral loops, code shopping, and attribution disputes can turn a growth system into extraction. The design goal is not maximum code count. It is durable, fee producing attribution that can survive adversarial behavior. Qualified issuance is the ma...",
+      "confidence": "Low",
+      "pageId": "authored-referral-issuance-and-anti-gaming",
+      "pageTitle": "Referral Issuance And Anti-Gaming",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-market-scoped-referrals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are market-scoped referrals?",
+      "normalizedQuestion": "what are market scoped referrals",
+      "shortAnswer": "The LP/category layer supports market-level referral attachment and partner overlays; current live partner semantics need product confirmation.",
+      "answerSummary": "Market Scoped Referrals The LP and category layer expands referrals beyond user acquisition. The source describes a second referral surface attached to market creation: a referral can be bound to a specific market's fee flow, and the absence of attachment means no market level referral share. This turns referral design into market supply design. Creators,...",
+      "confidence": "Low",
+      "pageId": "authored-market-scoped-referrals",
+      "pageTitle": "Market-Scoped Referrals",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-metrics-prove-quality",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral metrics prove quality?",
+      "normalizedQuestion": "which referral metrics prove quality",
+      "shortAnswer": "Neelo's metrics and security sections support market-quality KPIs and integrity controls; dashboard publication needs phase and formula versioning.",
+      "answerSummary": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume whi...",
+      "confidence": "Low",
+      "pageId": "authored-referral-metrics-and-integrity",
+      "pageTitle": "Referral Metrics And Integrity",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]

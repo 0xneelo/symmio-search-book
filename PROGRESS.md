@@ -281,6 +281,12 @@
 - Routed five new LP/treasury questions to authored pages so Ask can answer the case-study mechanism without treating raw generated source imports as final copy.
 - Kept the case framed as a proof of mechanism from one favorable-period data cut, with realized/unrealized PnL, sign conventions, drawdown gaps, and replication conditions explicit.
 
+## 2026-06-28 — Referral Architecture Authored Layer
+
+- Added five authored Volume 06 reference pages from Neelo's referral-program architecture corpus: identity and claim flow, rakeback policy, qualified issuance/anti-gaming, market-scoped referrals, and referral metrics/integrity.
+- Routed five new referral architecture questions to authored pages while preserving the parked public referral-depth and historical-accounting decision.
+- Framed referrals as market-formation infrastructure tied to listings, attribution, fee flow, and integrity controls rather than only a campaign-growth surface.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

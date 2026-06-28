@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 90,
+  "totalPages": 95,
   "byStatus": {
     "publication-candidate": 51,
-    "publication-candidate-needs-operator-review": 38,
+    "publication-candidate-needs-operator-review": 43,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -12,7 +12,7 @@
     "protocol-reference": 18,
     "competitive-context": 1,
     "reference": 1,
-    "rewards-referrals": 6,
+    "rewards-referrals": 11,
     "answer-engine": 1,
     "product-reference": 10,
     "compendium": 8
@@ -1000,6 +1000,32 @@
       "excerpt": "Market Maturation And The Z Score The Z score gives the market creation thesis a measurable axis. Instead of treating launch and listing as binary events, Neelo's model tracks how much a market still depends on the solver as residual counterparty. In the source model, the Z score compares net solver exposure to total open interest. A high score means the market is one sided and solver dependent. A low score means trader flow is naturally balancing and the solver's residual role is shrinking. That metric supports a maturation story: bootstrap markets are functional but heavily solver dependent; early growth markets start to show natural flow; growth markets have enough offsetting interest to tighten spreads; mature markets become candidates for order book activation; fully netted markets can behave more like conventional high efficiency venues. Publication Note This is a vision metric unless the operator confirms where, if anywhere, it appears in the live product. The current compendium should explain Z score as Neelo's market maturity model, not as a live dashboard number. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Architecture: 5.4 The Market Maturation Process\". vibe p"
     },
     {
+      "id": "authored-market-scoped-referrals",
+      "title": "Market-Scoped Referrals",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/07-lp-and-category-layer",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-07-lp-and-category-layer",
+        "section-17-referral-program-17-docs-07-lp-and-category-layer-7-1-market-scoped-referral",
+        "section-17-referral-program-17-docs-07-lp-and-category-layer-7-5-strategic-role"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/market-scoped-referrals.md",
+      "bodyMarkdown": "# Market-Scoped Referrals\n\nThe LP and category layer expands referrals beyond user acquisition. The source describes a second referral surface attached to market creation: a referral can be bound to a specific market's fee flow, and the absence of attachment means no market-level referral share.\n\nThis turns referral design into market supply design. Creators, LPs, and distribution partners can be aligned around listing velocity and market activation instead of only signup counts.\n\n## Partner And Category Overlays\n\nFor strategic partners, the source allows category-level overlays on tagged market groups, with uplift split between the platform and partner. This is separate from normal user-level referral and should be accounted for separately.\n\nThe implementation requirements are strict:\n\n- deterministic category tagging;\n- precedence rules between global referral and market referral;\n- explicit payout accounting per market and partner bucket.\n\nWithout those rules, partner economics blur into the public referral policy and become difficult to audit.\n\n## Reader Implication\n\nMarket-scoped referrals explain why the compendium treats referrals as market-formation infrastructure. They can connect distribution to listings, LP flow, and partner-led market categories. They should not be described as live universal policy until the owner confirms current partner, category, and payout semantics.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: LP and Category Layer\".\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `spec-03`: Public economics and referral-depth caveats.\n\n## Related Pages\n\n- `authored-referral-architecture-as-market-formation`\n- `authored-network-volume`\n- `neelo-17-referral-program-17-docs-07-lp-and-category-layer`",
+      "excerpt": "Market Scoped Referrals The LP and category layer expands referrals beyond user acquisition. The source describes a second referral surface attached to market creation: a referral can be bound to a specific market's fee flow, and the absence of attachment means no market level referral share. This turns referral design into market supply design. Creators, LPs, and distribution partners can be aligned around listing velocity and market activation instead of only signup counts. Partner And Category Overlays For strategic partners, the source allows category level overlays on tagged market groups, with uplift split between the platform and partner. This is separate from normal user level referral and should be accounted for separately. The implementation requirements are strict: deterministic category tagging; precedence rules between global referral and market referral; explicit payout accounting per market and partner bucket. Without those rules, partner economics blur into the public referral policy and become difficult to audit. Reader Implication Market scoped referrals explain why the compendium treats referrals as market formation infrastructure. They can connect distribution t"
+    },
+    {
       "id": "authored-network-volume",
       "title": "Network Volume",
       "section": "dashboard-reference",
@@ -1265,6 +1291,111 @@
       "file": "content/authored/reference/referral-depth-open-question.md",
       "bodyMarkdown": "# Referral Depth Is An Open Product Decision\n\nThis page intentionally does not publish a final referral-depth answer.\n\nThe current evidence is contradictory. Local code supports configurable depth and has evidence around a 5-level default. Dashboard FAQ copy and rollout work point toward 15 levels. Older product language and current volume surfaces may still carry 5-level wording. Publishing one number without reconciliation would mislead users about rewards, network volume, and historical crediting.\n\nUntil the operator resolves the public stance, every final referral, rewards, network-volume, and revenue page should use guarded language such as \"configured referral network\" or \"multi-level network\" and link here for the open decision.\n\n## Reader Implication\n\nIf a user's question is \"how many levels count?\", the correct current answer is that the docs are waiting for a product decision. This is better than hiding the conflict behind confident copy.\n\n## Required Resolution\n\nOperator inbox item `#3` must decide whether public docs say 5 levels, 15 levels, configurable/current-depth language, and how historical backfill should be described.\n\n## Sources\n\n- `server-points`: Referral depth configuration.\n- `server-me`: Network and volume aggregation behavior.\n- `dashboard-faq`: User-facing FAQ copy.\n- `dashboard-volume`: Volume UI copy and historical 5-level remnants.\n- `syn-172`: 15-level rollout evidence.\n- `syn-118`: Network-depth product question.\n- `spec-03`: Grounding note on the contradiction.\n\n## Related Pages\n\n- `authored-network-volume`\n- `authored-points-and-vibe-points`\n- `local-network-depth`",
       "excerpt": "Referral Depth Is An Open Product Decision This page intentionally does not publish a final referral depth answer. The current evidence is contradictory. Local code supports configurable depth and has evidence around a 5 level default. Dashboard FAQ copy and rollout work point toward 15 levels. Older product language and current volume surfaces may still carry 5 level wording. Publishing one number without reconciliation would mislead users about rewards, network volume, and historical crediting. Until the operator resolves the public stance, every final referral, rewards, network volume, and revenue page should use guarded language such as \"configured referral network\" or \"multi level network\" and link here for the open decision. Reader Implication If a user's question is \"how many levels count?\", the correct current answer is that the docs are waiting for a product decision. This is better than hiding the conflict behind confident copy. Required Resolution Operator inbox item 3 must decide whether public docs say 5 levels, 15 levels, configurable/current depth language, and how historical backfill should be described. Sources server points : Referral depth configuration. server m"
+    },
+    {
+      "id": "authored-referral-identity-and-claim-flow",
+      "title": "Referral Identity And Claim Flow",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "neelo-17-referral-program-17-docs-02-architecture",
+        "section-17-referral-program-17-docs-02-architecture-2-2-canonical-flow"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/referral-identity-and-claim-flow.md",
+      "bodyMarkdown": "# Referral Identity And Claim Flow\n\nNeelo's referral-program architecture starts by separating identity, attribution, policy, and settlement. A referral NFT or equivalent identity anchor can carry the user's referral identity, but reward-eligible code activation is a separate state governed by policy.\n\nThat separation matters because a referral system has to answer more than \"who invited whom?\" It has to decide when a user becomes eligible to issue codes, how activity is attributed, which tiers apply, who signs claim authorizations, and how claims are consumed without replay or double-credit paths.\n\n## The Stack\n\nThe source splits the referral stack across three planes:\n\n- on-chain identity and settlement;\n- off-chain attribution and policy logic;\n- user-facing access and claims UX.\n\nThe canonical flow is: onboard, receive base identity, trade or refer, compute rolling activity windows, activate referral code eligibility through policy thresholds or approved exceptions, issue replay-safe claim authorizations, and settle claims through a contract path.\n\n## Trust Boundary\n\nThe key design rule is that fast-changing policy can stay off-chain only if it is versioned and auditable. Claim consumption, nonces, and settlement integrity should be deterministic. Monitoring state should be separate from both, so anomaly detection does not silently mutate economic history.\n\n## Reader Implication\n\nDo not describe referral identity as only a marketing code. In the compendium it is an attribution and settlement primitive. The open referral-depth question remains parked, but the identity and claim-flow architecture can still be explained safely.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\".\n- `spec-03`: Referral-depth and points-publication caveats.\n\n## Related Pages\n\n- `authored-referral-architecture-as-market-formation`\n- `authored-referral-depth-open-question`\n- `neelo-17-referral-program-17-docs-02-architecture`",
+      "excerpt": "Referral Identity And Claim Flow Neelo's referral program architecture starts by separating identity, attribution, policy, and settlement. A referral NFT or equivalent identity anchor can carry the user's referral identity, but reward eligible code activation is a separate state governed by policy. That separation matters because a referral system has to answer more than \"who invited whom?\" It has to decide when a user becomes eligible to issue codes, how activity is attributed, which tiers apply, who signs claim authorizations, and how claims are consumed without replay or double credit paths. The Stack The source splits the referral stack across three planes: on chain identity and settlement; off chain attribution and policy logic; user facing access and claims UX. The canonical flow is: onboard, receive base identity, trade or refer, compute rolling activity windows, activate referral code eligibility through policy thresholds or approved exceptions, issue replay safe claim authorizations, and settle claims through a contract path. Trust Boundary The key design rule is that fast changing policy can stay off chain only if it is versioned and auditable. Claim consumption, nonces, "
+    },
+    {
+      "id": "authored-referral-issuance-and-anti-gaming",
+      "title": "Referral Issuance And Anti-Gaming",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-05-referral-economics",
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-05-referral-economics-5-1-why-referral-systems-get-gamed"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/referral-issuance-and-anti-gaming.md",
+      "bodyMarkdown": "# Referral Issuance And Anti-Gaming\n\nNeelo's referral-economics section is blunt about the failure modes: self-referral loops, code shopping, and attribution disputes can turn a growth system into extraction. The design goal is not maximum code count. It is durable, fee-producing attribution that can survive adversarial behavior.\n\nQualified issuance is the main control. Instead of giving every user reward-eligible code issuance immediately, the source proposes activity thresholds, tier thresholds, curated campaign grants, or progressive unlock criteria. That preserves referral signal quality and makes early cohorts accountable.\n\n## Uniform Referee Benefit\n\nThe source's anti-gaming logic favors uniform baseline referee benefits. If every valid code gives the same baseline benefit to the new user, code quality depends on issuer eligibility rather than discount magnitude. That reduces \"best code\" arbitrage and keeps social referrals viable.\n\n## Phasing\n\nThe access-phasing section describes a controlled path:\n\n- access-gated launch, where codes bound high-sensitivity actions such as trading and listing;\n- unified access and referral identity, where onboarding and attribution become one surface;\n- open participation, where codes become optional accelerators instead of mandatory gates.\n\nThis sequencing avoids opening incentive surfaces before monitoring is mature, while also avoiding permanent gating that throttles network effects.\n\n## Reader Implication\n\nThe docs should frame referral-code scarcity as a quality-control mechanism, not as artificial exclusivity. Any early-cohort or master-code model needs eligibility, duration, propagation limits, and sunset rules before it becomes public policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Referral Economics\".\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\".\n- `spec-03`: Referral public stance remains unresolved.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-depth-open-question`\n- `neelo-17-referral-program-17-docs-05-referral-economics`",
+      "excerpt": "Referral Issuance And Anti Gaming Neelo's referral economics section is blunt about the failure modes: self referral loops, code shopping, and attribution disputes can turn a growth system into extraction. The design goal is not maximum code count. It is durable, fee producing attribution that can survive adversarial behavior. Qualified issuance is the main control. Instead of giving every user reward eligible code issuance immediately, the source proposes activity thresholds, tier thresholds, curated campaign grants, or progressive unlock criteria. That preserves referral signal quality and makes early cohorts accountable. Uniform Referee Benefit The source's anti gaming logic favors uniform baseline referee benefits. If every valid code gives the same baseline benefit to the new user, code quality depends on issuer eligibility rather than discount magnitude. That reduces \"best code\" arbitrage and keeps social referrals viable. Phasing The access phasing section describes a controlled path: access gated launch, where codes bound high sensitivity actions such as trading and listing; unified access and referral identity, where onboarding and attribution become one surface; open part"
+    },
+    {
+      "id": "authored-referral-metrics-and-integrity",
+      "title": "Referral Metrics And Integrity",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/referral-metrics-and-integrity.md",
+      "bodyMarkdown": "# Referral Metrics And Integrity\n\nThe referral program's north star is not raw signups. Neelo's metrics framework names high-quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation.\n\nThat framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together.\n\n## KPI Layers\n\nThe source separates the KPI stack into layers:\n\n- supply: new listings, active markets, repeat listers, and time-to-first-listing;\n- demand: traders per active market, fee-generating volume, turnover concentration, and demand distribution;\n- growth: referral attach rate, code-to-first-trade conversion, code-to-first-listing conversion, and claim conversion;\n- integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected-versus-realized reward deviations.\n\n## Security Controls\n\nThe security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over-issuance, and launch-phase blind spots. The minimum control set includes signer isolation, key rotation, replay-safe claims, nonces, expiry, tier/admin audit trails, and anomaly monitoring.\n\nThe design principle is simple: incentive systems should fail closed on settlement. Growth can recover after verification. Credibility cannot recover easily after silent reward inflation.\n\n## Reader Implication\n\nThe docs should report referral growth with phase labels, formula versions, and organic-versus-campaign separation. They should also expose the integrity frame so users understand that anti-gaming controls are part of the product, not friction added after the fact.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: Current product metrics and points caveats.\n\n## Related Pages\n\n- `authored-referral-issuance-and-anti-gaming`\n- `authored-points-taxonomy`\n- `neelo-17-referral-program-17-docs-09-metrics-framework`",
+      "excerpt": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together. KPI Layers The source separates the KPI stack into layers: supply: new listings, active markets, repeat listers, and time to first listing; demand: traders per active market, fee generating volume, turnover concentration, and demand distribution; growth: referral attach rate, code to first trade conversion, code to first listing conversion, and claim conversion; integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected versus realized reward deviations. Security Controls The security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over issuance, and launch phase blind spots. The minimum control set "
+    },
+    {
+      "id": "authored-referral-rakeback-policy-model",
+      "title": "Referral Rakeback Policy Model",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/10-open-decisions",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-03-rakeback-design",
+        "section-17-referral-program-17-docs-03-rakeback-design-3-1-dual-channel-model",
+        "section-17-referral-program-17-docs-10-open-decisions-10-2-economic-policy"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/referral-rakeback-policy-model.md",
+      "bodyMarkdown": "# Referral Rakeback Policy Model\n\nThe referral paper models rakeback as two separate channels: the user's own trading-fee activity and the referred network's fee-generating activity. Both can be windowed, tiered, and policy-driven, but the docs should not collapse them into a single \"reward\" label.\n\nThe reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling-window calculations, but they have different trust and disclosure requirements.\n\n## Public And Private Policy\n\nThe source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model.\n\nThe source also flags unresolved policy questions: one-level versus multi-level referral depth, uniform versus campaign-specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the system.\n\n## UX Tradeoff\n\nA claim-based model is easier to operate early because claims can be authorized and settled through a constrained path. A net-fee or same-flow rebate model is smoother for users, but it requires stronger real-time determinism and tighter settlement controls.\n\n## Reader Implication\n\nWhen the docs explain rakeback, they should name the channel, the calculation window, the applicable public policy version, and whether a private overlay exists. Until operator inbox item `#3` is resolved, do not publish final depth, stacking, or backfill language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Rakeback Design\".\n- `vibe-papers`: Neelo, \"Section 10: Open Decisions\".\n- `spec-03`: Referral-depth contradiction and public disclosure caveats.\n\n## Related Pages\n\n- `authored-points-taxonomy`\n- `authored-referral-depth-open-question`\n- `neelo-17-referral-program-17-docs-03-rakeback-design`",
+      "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
     },
     {
       "id": "authored-residual-counterparty-hedge-first",

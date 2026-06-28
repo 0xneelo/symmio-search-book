@@ -375,3 +375,11 @@
 **Reason:** The case study is strong evidence for Vibe's LP mechanism because it ties inventory, long skew, realized debt, unrealized PnL, benchmark comparison, and low-volume market activity into one concrete deployment. It is still one favorable-period data cut, so the compendium must preserve sign conventions, realized/unrealized separation, drawdown gaps, and regime-risk caveats before turning it into public yield language.
 
 **Status:** Accepted for the authored protocol-reference layer.
+
+## D-048: Keep Referral Architecture Separate From Referral-Depth Policy
+
+**Decision:** Promote Neelo's referral-program architecture into authored pages for identity, claims, rakeback, qualified issuance, market-scoped referrals, and KPI/integrity controls, while keeping exact public depth, backfill, and settlement economics parked behind the operator decision.
+
+**Reason:** The referral corpus is strong enough to explain referrals as market-formation infrastructure: identity anchors, fee-linked activity, tier windows, qualified code issuance, partner overlays, high-quality listing metrics, and anti-gaming controls. Those mechanisms should be documented now, but final public depth and economic promises still depend on unresolved product policy.
+
+**Status:** Accepted for the authored rewards/referrals layer.
