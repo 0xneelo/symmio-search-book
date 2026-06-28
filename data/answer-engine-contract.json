@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 252
+      "totalGoldenRoutes": 257
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 270,
-    "retrievalEligiblePages": 1062,
+    "publicNavigationPages": 275,
+    "retrievalEligiblePages": 1067,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 270,
+      "candidate": 275,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,18 +160,18 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 252,
-    "exactRouteTestsPassing": 252,
+    "totalExactRouteTests": 257,
+    "exactRouteTestsPassing": 257,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 252
+      "candidate": 257
     },
     "exactRoutesByConfidence": {
-      "Medium": 116,
-      "High": 30,
+      "Medium": 117,
+      "High": 34,
       "Low": 106
     },
     "exactRoutesMissingChunks": [],
@@ -569,6 +569,123 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-my-account-show-on-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-which-vibe-login-path-should-i-choose",
+        "query": "Which Vibe login path should I choose?",
+        "normalizedQuery": "which vibe login path should i choose",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-login-path-choice",
+        "expectedPageTitle": "Choosing A Vibe Login Path",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-account-creation"
+        ],
+        "linkedSourceKeys": [
+          "vibe-account-creation"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-vibe-login-path-should-i-choose",
+        "passes": true
+      },
+      {
+        "id": "qr-which-chains-can-i-deposit-from-on-vibe",
+        "query": "Which chains can I deposit from on Vibe?",
+        "normalizedQuery": "which chains can i deposit from on vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-deposit-chain-support",
+        "expectedPageTitle": "Vibe Deposit Chain Support",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-deposits-withdrawals",
+          "vibe-account-creation"
+        ],
+        "linkedSourceKeys": [
+          "vibe-deposits-withdrawals",
+          "vibe-account-creation"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-chains-can-i-deposit-from-on-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-allocated-balance-on-vibe",
+        "query": "What is Allocated Balance on Vibe?",
+        "normalizedQuery": "what is allocated balance on vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-allocated-balance",
+        "expectedPageTitle": "Vibe Allocated Balance",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-deposits-withdrawals",
+          "vibe-account-health-liquidations",
+          "vibe-account-portfolio"
+        ],
+        "linkedSourceKeys": [
+          "vibe-deposits-withdrawals",
+          "vibe-account-health-liquidations",
+          "vibe-account-portfolio"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-allocated-balance-on-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-large-vibe-withdrawals-take-12-hours",
+        "query": "Why can large Vibe withdrawals take 12 hours?",
+        "normalizedQuery": "why can large vibe withdrawals take 12 hours",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-large-withdrawal-window",
+        "expectedPageTitle": "Vibe Large Withdrawal Safety Window",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-deposits-withdrawals"
+        ],
+        "linkedSourceKeys": [
+          "vibe-deposits-withdrawals"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-large-vibe-withdrawals-take-12-hours",
+        "passes": true
+      },
+      {
+        "id": "qr-where-can-i-export-vibe-account-history",
+        "query": "Where can I export Vibe account history?",
+        "normalizedQuery": "where can i export vibe account history",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-account-history-and-csv-export",
+        "expectedPageTitle": "Vibe Account History And CSV Export",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-account-portfolio",
+          "vibe-deposits-withdrawals",
+          "vibe-fees",
+          "vibe-funding"
+        ],
+        "linkedSourceKeys": [
+          "vibe-account-portfolio",
+          "vibe-deposits-withdrawals",
+          "vibe-fees",
+          "vibe-funding"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-where-can-i-export-vibe-account-history",
         "passes": true
       },
       {
@@ -5852,7 +5969,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 252,
+      "exactRoutes": 257,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

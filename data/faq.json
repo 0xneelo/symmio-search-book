@@ -8,14 +8,14 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 259,
-  "totalAnswerable": 252,
+  "totalEntries": 264,
+  "totalAnswerable": 257,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 36,
+    "Getting Started": 41,
     "Trading Flow": 24,
     "Solvers And Settlement": 54,
     "Risk And Markets": 22,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 116,
-    "High": 30,
+    "Medium": 117,
+    "High": 34,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 252
+    "authored": 257
   },
   "byType": {
-    "answerable": 252,
+    "answerable": 257,
     "reconciliation": 7
   },
   "answerable": [
@@ -723,6 +723,199 @@
           "group": "Public Vibe Sources",
           "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
           "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-vibe-login-path-should-i-choose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which Vibe login path should I choose?",
+      "normalizedQuestion": "which vibe login path should i choose",
+      "shortAnswer": "Official Vibe account docs distinguish self-custody-oriented EOA login from convenience-oriented email/social login with different custody assumptions.",
+      "answerSummary": "Choosing A Vibe Login Path Vibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path. The EOA path is the self custody oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow...",
+      "confidence": "High",
+      "pageId": "authored-vibe-login-path-choice",
+      "pageTitle": "Choosing A Vibe Login Path",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-chains-can-i-deposit-from-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which chains can I deposit from on Vibe?",
+      "normalizedQuestion": "which chains can i deposit from on vibe",
+      "shortAnswer": "Official Vibe deposit docs distinguish Base-only direct deposits for EOA-created accounts from broader email-created account deposit support; recheck at publication.",
+      "answerSummary": "Vibe Deposit Chain Support Vibe deposit support depends on how the account was created. The current public deposit guide says EOA created accounts can deposit directly from Base only. It also says email created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. That distinction should stay visible because a generic \"Vibe supports...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-deposit-chain-support",
+      "pageTitle": "Vibe Deposit Chain Support",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-allocated-balance-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Allocated Balance on Vibe?",
+      "normalizedQuestion": "what is allocated balance on vibe",
+      "shortAnswer": "Official Vibe deposit and account-health docs use Allocated Balance as the funded account balance behind equity, margin, and withdrawal states.",
+      "answerSummary": "Vibe Allocated Balance Allocated Balance is the account side balance users should distinguish from wallet funds, pending withdrawals, and position level margin. The official deposit guide says that after a deposit transaction is confirmed on chain, the USDC amount appears in Allocated Balance. That makes Allocated Balance the visible funded amount inside...",
+      "confidence": "High",
+      "pageId": "authored-vibe-allocated-balance",
+      "pageTitle": "Vibe Allocated Balance",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-health-liquidations",
+          "group": "Public Vibe Sources",
+          "use": "Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas.",
+          "href": "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-large-vibe-withdrawals-take-12-hours",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can large Vibe withdrawals take 12 hours?",
+      "normalizedQuestion": "why can large vibe withdrawals take 12 hours",
+      "shortAnswer": "Official Vibe withdrawal docs describe a 12-hour fraud-proof window for large withdrawals, cancellation, grouped requests, and final approval.",
+      "answerSummary": "Vibe Large Withdrawal Safety Window The official withdrawal guide separates small withdrawals from large withdrawals. Small withdrawals are described as basically instantaneous. Large withdrawals use a 12 hour fraud proof window. The source frames that waiting period as a safety measure against exploits and double spend attempts, not as a normal settlemen...",
+      "confidence": "High",
+      "pageId": "authored-vibe-large-withdrawal-window",
+      "pageTitle": "Vibe Large Withdrawal Safety Window",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-can-i-export-vibe-account-history",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Where can I export Vibe account history?",
+      "normalizedQuestion": "where can i export vibe account history",
+      "shortAnswer": "Official My Account docs support transaction history, fee/funding charts, PnL analytics, and CSV export, without implying tax/accounting treatment.",
+      "answerSummary": "Vibe Account History And CSV Export Vibe's My Account page is the reference surface for account history. The official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading fee charts, rakeback tracking, account health, referral code activit...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-history-and-csv-export",
+      "pageTitle": "Vibe Account History And CSV Export",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
           "missing": false
         }
       ]
@@ -9611,6 +9804,199 @@
           "group": "Public Vibe Sources",
           "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
           "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-vibe-login-path-should-i-choose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which Vibe login path should I choose?",
+      "normalizedQuestion": "which vibe login path should i choose",
+      "shortAnswer": "Official Vibe account docs distinguish self-custody-oriented EOA login from convenience-oriented email/social login with different custody assumptions.",
+      "answerSummary": "Choosing A Vibe Login Path Vibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path. The EOA path is the self custody oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow...",
+      "confidence": "High",
+      "pageId": "authored-vibe-login-path-choice",
+      "pageTitle": "Choosing A Vibe Login Path",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-chains-can-i-deposit-from-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which chains can I deposit from on Vibe?",
+      "normalizedQuestion": "which chains can i deposit from on vibe",
+      "shortAnswer": "Official Vibe deposit docs distinguish Base-only direct deposits for EOA-created accounts from broader email-created account deposit support; recheck at publication.",
+      "answerSummary": "Vibe Deposit Chain Support Vibe deposit support depends on how the account was created. The current public deposit guide says EOA created accounts can deposit directly from Base only. It also says email created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. That distinction should stay visible because a generic \"Vibe supports...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-deposit-chain-support",
+      "pageTitle": "Vibe Deposit Chain Support",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-allocated-balance-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Allocated Balance on Vibe?",
+      "normalizedQuestion": "what is allocated balance on vibe",
+      "shortAnswer": "Official Vibe deposit and account-health docs use Allocated Balance as the funded account balance behind equity, margin, and withdrawal states.",
+      "answerSummary": "Vibe Allocated Balance Allocated Balance is the account side balance users should distinguish from wallet funds, pending withdrawals, and position level margin. The official deposit guide says that after a deposit transaction is confirmed on chain, the USDC amount appears in Allocated Balance. That makes Allocated Balance the visible funded amount inside...",
+      "confidence": "High",
+      "pageId": "authored-vibe-allocated-balance",
+      "pageTitle": "Vibe Allocated Balance",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-health-liquidations",
+          "group": "Public Vibe Sources",
+          "use": "Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas.",
+          "href": "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-large-vibe-withdrawals-take-12-hours",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can large Vibe withdrawals take 12 hours?",
+      "normalizedQuestion": "why can large vibe withdrawals take 12 hours",
+      "shortAnswer": "Official Vibe withdrawal docs describe a 12-hour fraud-proof window for large withdrawals, cancellation, grouped requests, and final approval.",
+      "answerSummary": "Vibe Large Withdrawal Safety Window The official withdrawal guide separates small withdrawals from large withdrawals. Small withdrawals are described as basically instantaneous. Large withdrawals use a 12 hour fraud proof window. The source frames that waiting period as a safety measure against exploits and double spend attempts, not as a normal settlemen...",
+      "confidence": "High",
+      "pageId": "authored-vibe-large-withdrawal-window",
+      "pageTitle": "Vibe Large Withdrawal Safety Window",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals"
+      ],
+      "sources": [
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-can-i-export-vibe-account-history",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Where can I export Vibe account history?",
+      "normalizedQuestion": "where can i export vibe account history",
+      "shortAnswer": "Official My Account docs support transaction history, fee/funding charts, PnL analytics, and CSV export, without implying tax/accounting treatment.",
+      "answerSummary": "Vibe Account History And CSV Export Vibe's My Account page is the reference surface for account history. The official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading fee charts, rakeback tracking, account health, referral code activit...",
+      "confidence": "High",
+      "pageId": "authored-vibe-account-history-and-csv-export",
+      "pageTitle": "Vibe Account History And CSV Export",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-account-portfolio",
+          "group": "Public Vibe Sources",
+          "use": "My Account portfolio, PnL, funding, fee, transaction-history, account-health, referral, points, and CSV export views.",
+          "href": "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-deposits-withdrawals",
+          "group": "Public Vibe Sources",
+          "use": "Deposit entry points, allocated-balance crediting, chain support by account path, and large-withdrawal fraud-proof window.",
+          "href": "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
           "missing": false
         }
       ]

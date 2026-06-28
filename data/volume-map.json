@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1065,
+  "readerPages": 1070,
   "totalVolumes": 8,
   "totalChapters": 97,
-  "pagesAssigned": 1065,
+  "pagesAssigned": 1070,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -7689,29 +7689,30 @@
       "title": "Product, Trading, And Risk Guides",
       "premise": "Collect user-facing Vibe guides for trading, fees, collateral, risk, security, and market operations.",
       "readerPromise": "Translate the vision into practical product behavior and reader-facing operational semantics.",
-      "totalPages": 51,
+      "totalPages": 56,
       "overviewPageId": "authored-volume-07-product-trading-and-risk",
       "overviewTitle": "Volume 07: Product, Trading, And Risk Guides",
-      "authoredPages": 21,
+      "authoredPages": 26,
       "generatedPages": 30,
       "statusCounts": {
-        "publication-candidate": 17,
+        "publication-candidate": 20,
         "publication-candidate-needs-operator-review": 4,
+        "publication-candidate-needs-publication-date-review": 2,
         "source-mapped": 30
       },
       "granularityCounts": {
-        "authored-page": 21,
+        "authored-page": 26,
         "companion-page": 30
       },
       "routeSourceCounts": {
-        "authored": 21,
+        "authored": 26,
         "generated": 30
       },
       "sectionCounts": {
         "compendium": 1,
         "fees": 6,
         "market-creation": 2,
-        "product-reference": 23,
+        "product-reference": 28,
         "risk-margin": 4,
         "security": 4,
         "trading-guides": 8,
@@ -7751,18 +7752,23 @@
       ],
       "openingPageIds": [
         "authored-volume-07-product-trading-and-risk",
+        "authored-vibe-login-path-choice",
         "authored-vibe-account-creation-and-login",
+        "authored-vibe-account-history-and-csv-export",
+        "authored-vibe-allocated-balance",
+        "authored-vibe-deposit-chain-support",
         "authored-vibe-deposits-and-withdrawals",
-        "authored-vibe-mobile-pwa",
-        "authored-vibe-portfolio-and-account-data",
-        "authored-vibe-security-and-audits",
-        "authored-vibe-fees-and-funding",
-        "authored-vibe-project-listing-terms"
+        "authored-vibe-large-withdrawal-window"
       ],
       "pageIds": [
         "authored-volume-07-product-trading-and-risk",
+        "authored-vibe-login-path-choice",
         "authored-vibe-account-creation-and-login",
+        "authored-vibe-account-history-and-csv-export",
+        "authored-vibe-allocated-balance",
+        "authored-vibe-deposit-chain-support",
         "authored-vibe-deposits-and-withdrawals",
+        "authored-vibe-large-withdrawal-window",
         "authored-vibe-mobile-pwa",
         "authored-vibe-portfolio-and-account-data",
         "authored-vibe-security-and-audits",
@@ -7861,34 +7867,56 @@
           "title": "Account And Safety",
           "section": "product-reference",
           "track": "Account And Safety",
-          "totalPages": 5,
-          "authoredPages": 5,
+          "totalPages": 10,
+          "authoredPages": 10,
           "generatedPages": 0,
           "statusCounts": {
-            "publication-candidate": 4,
-            "publication-candidate-needs-operator-review": 1
+            "publication-candidate": 7,
+            "publication-candidate-needs-operator-review": 1,
+            "publication-candidate-needs-publication-date-review": 2
           },
           "granularityCounts": {
-            "authored-page": 5
+            "authored-page": 10
           },
           "sourceKeys": [
             "sherlock-symmetrical-contest",
             "vibe-account-creation",
+            "vibe-account-health-liquidations",
             "vibe-account-portfolio",
             "vibe-deposits-withdrawals",
+            "vibe-fees",
+            "vibe-funding",
             "vibe-mobile-pwa",
             "vibe-points",
             "vibe-security-audits"
           ],
-          "firstPageId": "authored-vibe-account-creation-and-login",
+          "firstPageId": "authored-vibe-login-path-choice",
           "pageIds": [
+            "authored-vibe-login-path-choice",
             "authored-vibe-account-creation-and-login",
+            "authored-vibe-account-history-and-csv-export",
+            "authored-vibe-allocated-balance",
+            "authored-vibe-deposit-chain-support",
             "authored-vibe-deposits-and-withdrawals",
+            "authored-vibe-large-withdrawal-window",
             "authored-vibe-mobile-pwa",
             "authored-vibe-portfolio-and-account-data",
             "authored-vibe-security-and-audits"
           ],
           "samplePages": [
+            {
+              "id": "authored-vibe-login-path-choice",
+              "title": "Choosing A Vibe Login Path",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-account-creation"
+              ]
+            },
             {
               "id": "authored-vibe-account-creation-and-login",
               "title": "Vibe Account Creation And Login",
@@ -7899,6 +7927,51 @@
               "routeSource": "authored",
               "volumeId": "",
               "sourceKeys": [
+                "vibe-account-creation"
+              ]
+            },
+            {
+              "id": "authored-vibe-account-history-and-csv-export",
+              "title": "Vibe Account History And CSV Export",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-account-portfolio",
+                "vibe-deposits-withdrawals",
+                "vibe-fees",
+                "vibe-funding"
+              ]
+            },
+            {
+              "id": "authored-vibe-allocated-balance",
+              "title": "Vibe Allocated Balance",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-deposits-withdrawals",
+                "vibe-account-health-liquidations",
+                "vibe-account-portfolio"
+              ]
+            },
+            {
+              "id": "authored-vibe-deposit-chain-support",
+              "title": "Vibe Deposit Chain Support",
+              "section": "product-reference",
+              "track": "Account And Safety",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-publication-date-review",
+              "routeSource": "authored",
+              "volumeId": "volume-07-product-trading-and-risk",
+              "sourceKeys": [
+                "vibe-deposits-withdrawals",
                 "vibe-account-creation"
               ]
             },
@@ -7914,49 +7987,6 @@
               "sourceKeys": [
                 "vibe-deposits-withdrawals",
                 "vibe-account-creation"
-              ]
-            },
-            {
-              "id": "authored-vibe-mobile-pwa",
-              "title": "Vibe Mobile PWA",
-              "section": "product-reference",
-              "track": "Account And Safety",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-mobile-pwa",
-                "vibe-account-creation"
-              ]
-            },
-            {
-              "id": "authored-vibe-portfolio-and-account-data",
-              "title": "Vibe Portfolio And Account Data",
-              "section": "product-reference",
-              "track": "Account And Safety",
-              "granularity": "authored-page",
-              "status": "publication-candidate",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-account-portfolio",
-                "vibe-points",
-                "vibe-deposits-withdrawals"
-              ]
-            },
-            {
-              "id": "authored-vibe-security-and-audits",
-              "title": "Vibe Security And Audits",
-              "section": "product-reference",
-              "track": "Account And Safety",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "",
-              "sourceKeys": [
-                "vibe-security-audits",
-                "sherlock-symmetrical-contest"
               ]
             }
           ]
@@ -10581,8 +10611,13 @@
     "section-17-referral-program-17-docs-09-metrics-framework-9-3-reporting-rules": "volume-06-referrals-and-market-formation",
     "section-17-referral-program-17-docs-09-metrics-framework-9-4-decision-use": "volume-06-referrals-and-market-formation",
     "authored-volume-07-product-trading-and-risk": "volume-07-product-trading-and-risk",
+    "authored-vibe-login-path-choice": "volume-07-product-trading-and-risk",
     "authored-vibe-account-creation-and-login": "volume-07-product-trading-and-risk",
+    "authored-vibe-account-history-and-csv-export": "volume-07-product-trading-and-risk",
+    "authored-vibe-allocated-balance": "volume-07-product-trading-and-risk",
+    "authored-vibe-deposit-chain-support": "volume-07-product-trading-and-risk",
     "authored-vibe-deposits-and-withdrawals": "volume-07-product-trading-and-risk",
+    "authored-vibe-large-withdrawal-window": "volume-07-product-trading-and-risk",
     "authored-vibe-mobile-pwa": "volume-07-product-trading-and-risk",
     "authored-vibe-portfolio-and-account-data": "volume-07-product-trading-and-risk",
     "authored-vibe-security-and-audits": "volume-07-product-trading-and-risk",

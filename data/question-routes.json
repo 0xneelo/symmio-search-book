@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 252,
+  "totalRoutes": 257,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 116,
-    "High": 30,
+    "Medium": 117,
+    "High": 34,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 252
+    "authored": 257
   },
   "answerable": [
     {
@@ -310,6 +310,97 @@
         "vibe-account-portfolio",
         "vibe-points",
         "vibe-deposits-withdrawals"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-vibe-login-path-should-i-choose",
+      "question": "Which Vibe login path should I choose?",
+      "normalizedQuestion": "which vibe login path should i choose",
+      "pageId": "authored-vibe-login-path-choice",
+      "pageTitle": "Choosing A Vibe Login Path",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe account docs distinguish self-custody-oriented EOA login from convenience-oriented email/social login with different custody assumptions.",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-chains-can-i-deposit-from-on-vibe",
+      "question": "Which chains can I deposit from on Vibe?",
+      "normalizedQuestion": "which chains can i deposit from on vibe",
+      "pageId": "authored-vibe-deposit-chain-support",
+      "pageTitle": "Vibe Deposit Chain Support",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official Vibe deposit docs distinguish Base-only direct deposits for EOA-created accounts from broader email-created account deposit support; recheck at publication.",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-allocated-balance-on-vibe",
+      "question": "What is Allocated Balance on Vibe?",
+      "normalizedQuestion": "what is allocated balance on vibe",
+      "pageId": "authored-vibe-allocated-balance",
+      "pageTitle": "Vibe Allocated Balance",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe deposit and account-health docs use Allocated Balance as the funded account balance behind equity, margin, and withdrawal states.",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-large-vibe-withdrawals-take-12-hours",
+      "question": "Why can large Vibe withdrawals take 12 hours?",
+      "normalizedQuestion": "why can large vibe withdrawals take 12 hours",
+      "pageId": "authored-vibe-large-withdrawal-window",
+      "pageTitle": "Vibe Large Withdrawal Safety Window",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official Vibe withdrawal docs describe a 12-hour fraud-proof window for large withdrawals, cancellation, grouped requests, and final approval.",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-where-can-i-export-vibe-account-history",
+      "question": "Where can I export Vibe account history?",
+      "normalizedQuestion": "where can i export vibe account history",
+      "pageId": "authored-vibe-account-history-and-csv-export",
+      "pageTitle": "Vibe Account History And CSV Export",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "Official My Account docs support transaction history, fee/funding charts, PnL analytics, and CSV export, without implying tax/accounting treatment.",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
       ],
       "missing": false
     },

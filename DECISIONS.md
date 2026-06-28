@@ -735,3 +735,11 @@
 **Reason:** The existing listing-game pages explain perceived versus actual interest, curation cost, and zero-cost discovery, but the answer engine needs direct routes for the follow-up questions market creators and researchers will ask. These pages make the game-theoretic mechanism concrete: curation creates thresholds, thresholds create proxy optimization, proxy optimization delays actual-interest discovery, and Vibe's derivative layer can test markets earlier without pretending every early market is high quality.
 
 **Status:** Accepted for the authored manifesto layer; token eligibility, market launch workflow, safety filters, HIP-3 handoff, and downstream graduation policy remain under operator/product review.
+
+## D-093: Split Vibe Account Funding Mechanics Into Exact Reference Answers
+
+**Decision:** Add authored Volume 07 product-reference pages for Vibe login path choice, deposit chain support, Allocated Balance, large-withdrawal safety windows, and account history/CSV export.
+
+**Reason:** The broad official Vibe account, deposits, withdrawals, and My Account pages already exist in the authored layer, but common support questions need exact answers. Users ask which login path to choose, which chains can fund an account, what Allocated Balance means, why some withdrawals wait, and where account history can be exported. These pages keep official-source facts precise while avoiding unsupported thresholds or time-sensitive chain claims.
+
+**Status:** Accepted for the authored product-reference layer; chain support, withdrawal-size thresholds, custody wording, and publication-date product behavior remain under current-source review.

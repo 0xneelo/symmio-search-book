@@ -1,16 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 271,
+  "totalPages": 276,
   "byStatus": {
     "publication-candidate-needs-operator-review": 157,
-    "publication-candidate": 109,
+    "publication-candidate": 112,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
-    "needs-reconciliation": 1
+    "needs-reconciliation": 1,
+    "publication-candidate-needs-publication-date-review": 2
   },
   "bySection": {
     "manifesto": 153,
-    "product-reference": 22,
+    "product-reference": 27,
     "dashboard-reference": 12,
     "protocol-reference": 47,
     "competitive-context": 1,
@@ -5723,6 +5724,63 @@
       "excerpt": "Vibe Account Health And Liquidations Account health is the user facing risk gauge for liquidation proximity. The official guide ties it to equity relative to maintenance margin/CVA, then shows the user that risk through the Account Overview tab and visual health indicator. Liquidation Trigger And Scope The official Vibe account health page says liquidation occurs when Equity Balance falls below Maintenance Margin (CVA). If liquidation happens, the CVA locked in the affected trades is forfeited to the counterparty. Liquidation scope depends on margin mode. Cross margin accounts can have multiple positions closed because account balance backs the shared account. VibeCaps uses isolated virtual accounts, so liquidation is scoped to the affected virtual account rather than other VibeCaps virtual accounts. Balance Terms The product page gives three terms the docs should keep separate: Allocated Balance: the full amount designated to the account, including equity. Locked Margin: the portion of equity locked in open trades. Available for Orders: funds remaining for new positions after margin and maintenance requirements. The public formula for equity is: The public formula for available or"
     },
     {
+      "id": "authored-vibe-account-history-and-csv-export",
+      "title": "Vibe Account History And CSV Export",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-account-history-and-csv-export.md",
+      "bodyMarkdown": "# Vibe Account History And CSV Export\n\nVibe's My Account page is the reference surface for account history.\n\nThe official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading-fee charts, rakeback tracking, account health, referral-code activity, points, and CSV export.\n\nThat makes it the right page to answer \"where did this number come from?\" questions. Deposits and withdrawals explain balance movement. Fees and funding explain trading-cost movement. PnL charts explain performance over time. Account health explains risk capacity.\n\n## What CSV Export Means\n\nCSV export gives the user a recordkeeping output. The docs should not imply that exporting a CSV solves tax treatment, accounting classification, or jurisdiction-specific reporting. The source supports data export, not legal or tax interpretation.\n\nThe practical answer is:\n\n- use My Account for transaction history and account-state review;\n- use the fee and funding charts to explain trading-cost changes;\n- export CSV when the user needs raw records for their own workflow;\n- route tax/accounting interpretation outside the current source set.\n\n## Sources\n\n- `vibe-account-portfolio`: official My Account history, analytics, fee/funding charts, transaction history, and CSV export.\n- `vibe-deposits-withdrawals`: official deposit and withdrawal history context.\n- `vibe-fees`: official fee category context.\n- `vibe-funding`: official funding cost context.\n\n## Related Pages\n\n- `authored-vibe-portfolio-and-account-data`\n- `authored-vibe-fees-and-funding`\n- `authored-vibe-deposits-and-withdrawals`",
+      "excerpt": "Vibe Account History And CSV Export Vibe's My Account page is the reference surface for account history. The official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading fee charts, rakeback tracking, account health, referral code activity, points, and CSV export. That makes it the right page to answer \"where did this number come from?\" questions. Deposits and withdrawals explain balance movement. Fees and funding explain trading cost movement. PnL charts explain performance over time. Account health explains risk capacity. What CSV Export Means CSV export gives the user a recordkeeping output. The docs should not imply that exporting a CSV solves tax treatment, accounting classification, or jurisdiction specific reporting. The source supports data export, not legal or tax interpretation. The practical answer is: use My Account for transaction history and account state review; use the fee and funding charts to explain trading cost changes; export CSV when the user needs raw records for their own workflow; route tax/accounting interpretation outside the current sour"
+    },
+    {
+      "id": "authored-vibe-allocated-balance",
+      "title": "Vibe Allocated Balance",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-allocated-balance.md",
+      "bodyMarkdown": "# Vibe Allocated Balance\n\nAllocated Balance is the account-side balance users should distinguish from wallet funds, pending withdrawals, and position-level margin.\n\nThe official deposit guide says that after a deposit transaction is confirmed on-chain, the USDC amount appears in Allocated Balance. That makes Allocated Balance the visible funded amount inside the Vibe account rather than merely a wallet balance.\n\nThe account-health guide then uses Allocated Balance in risk math. It defines equity as Allocated Balance plus unrealized PnL, and it uses equity, locked margin, maintenance margin, and CVA to explain available order capacity and liquidation risk.\n\n## Why The Term Matters\n\nSupport answers should be precise about which balance bucket moved:\n\n- wallet or smart-wallet funds before deposit;\n- Allocated Balance after confirmed deposit credit;\n- locked margin once a position or quote uses collateral;\n- equity after unrealized PnL is included;\n- pending withdrawal during the withdrawal flow.\n\nThat vocabulary prevents a common user confusion: seeing funds in one place and expecting them to be immediately available for every action. A confirmed deposit, an allocated account balance, free trading capacity, and withdrawable funds are related but not identical.\n\n## Sources\n\n- `vibe-deposits-withdrawals`: official Allocated Balance crediting after confirmed deposits.\n- `vibe-account-health-liquidations`: official equity and available-for-orders formulas using Allocated Balance.\n- `vibe-account-portfolio`: official My Account balance and account-health context.\n\n## Related Pages\n\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-account-health-and-liquidations`\n- `authored-vibecaps-margin-management`",
+      "excerpt": "Vibe Allocated Balance Allocated Balance is the account side balance users should distinguish from wallet funds, pending withdrawals, and position level margin. The official deposit guide says that after a deposit transaction is confirmed on chain, the USDC amount appears in Allocated Balance. That makes Allocated Balance the visible funded amount inside the Vibe account rather than merely a wallet balance. The account health guide then uses Allocated Balance in risk math. It defines equity as Allocated Balance plus unrealized PnL, and it uses equity, locked margin, maintenance margin, and CVA to explain available order capacity and liquidation risk. Why The Term Matters Support answers should be precise about which balance bucket moved: wallet or smart wallet funds before deposit; Allocated Balance after confirmed deposit credit; locked margin once a position or quote uses collateral; equity after unrealized PnL is included; pending withdrawal during the withdrawal flow. That vocabulary prevents a common user confusion: seeing funds in one place and expecting them to be immediately available for every action. A confirmed deposit, an allocated account balance, free trading capacity"
+    },
+    {
       "id": "authored-vibe-as-discovery-layer",
       "title": "Vibe As The Discovery Layer",
       "section": "manifesto",
@@ -5796,6 +5854,31 @@
       "file": "content/authored/reference/vibe-collateral-and-margining.md",
       "bodyMarkdown": "# Vibe Collateral And Margining\n\nVibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non-liquidated party.\n\nThe docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about.\n\n## Cross-Margin Accounts\n\nThe official page says Vibe uses cross-margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated.\n\nThis is the capital-efficiency tradeoff. Cross-margin can reduce idle collateral, but the reader must understand that risk is shared across the account.\n\n## Isolated Margin And VibeCaps\n\nThe same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings.\n\nThat means a liquidation in one isolated virtual account should not drain margin from another isolated virtual account. The companion VibeCaps margin page explains how adding margin increases the collateral buffer and moves liquidation farther away, while removing margin frees balance and moves liquidation closer.\n\n## Reader Implication\n\nWhen explaining margin, start with the mode: cross-margin shares account equity across positions; isolated margin confines risk to a virtual account or bucket. Then explain the action: adding margin increases cushion; removing margin releases balance but increases liquidation risk.\n\n## Sources\n\n- `vibe-collateral-margining`: official Vibe collateral, CVA, cross-margin, isolated-margin, and virtual-account descriptions.\n- `vibe-margin`: VibeCaps add/remove margin behavior.\n- `symmio-core`: protocol vocabulary for collateral, locked margin, CVA, and balance.\n\n## Related Pages\n\n- `authored-vibecaps-margin-management`\n- `authored-collateral-margin-cva`\n- `authored-vibe-tpsl`\n- `vibe-collateral-margining`",
       "excerpt": "Vibe Collateral And Margining Vibe's current collateral guide makes USDC the base settlement and collateral unit for traders, and says solvers also deposit equivalent USDC for symmetry. It also documents CVA as a liquidation penalty paid to the non liquidated party. The docs should keep collateral, margin, CVA, balance, and liquidation risk separate. Treating them as synonyms makes the risk model harder to reason about. Cross Margin Accounts The official page says Vibe uses cross margin accounts by default. In that mode, the user's overall account equity backs multiple positions. Gains on one position can offset losses on another, but the account also carries shared liquidation risk: if overall equity falls below maintenance margin, all positions can be liquidated. This is the capital efficiency tradeoff. Cross margin can reduce idle collateral, but the reader must understand that risk is shared across the account. Isolated Margin And VibeCaps The same official page says VibeCaps now uses isolated margin through virtual accounts. A virtual account is an isolated bucket connected to a position, market, or market direction depending on the account's isolation settings. That means a l"
+    },
+    {
+      "id": "authored-vibe-deposit-chain-support",
+      "title": "Vibe Deposit Chain Support",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation",
+        "authored-vibe-deposits-and-withdrawals"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-deposit-chain-support.md",
+      "bodyMarkdown": "# Vibe Deposit Chain Support\n\nVibe deposit support depends on how the account was created.\n\nThe current public deposit guide says EOA-created accounts can deposit directly from Base only. It also says email-created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. That distinction should stay visible because a generic \"Vibe supports deposits\" answer is not precise enough for a user preparing funds.\n\nThe account-creation guide reinforces the setup sequence. Wallet users should prepare USDC collateral and gas on the selected chain before connecting and funding the Vibe account. Email/social users receive a smart-wallet address and then move funds from that smart wallet into the Vibe account after the deposit appears.\n\n## Publication-Date Review\n\nChain support is time-sensitive. This page should be rechecked before publication or launch because deposit coverage can change as the product adds or removes supported chains.\n\nDo not infer support from a chain logo, social post, or internal endpoint. The safe public claim is the current official-doc distinction: EOA direct deposit path is Base-only in the source, while email-created accounts have broader direct deposit coverage.\n\n## Sources\n\n- `vibe-deposits-withdrawals`: official deposit entry points and account-path chain support.\n- `vibe-account-creation`: official account-creation setup and smart-wallet funding sequence.\n\n## Related Pages\n\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-login-path-choice`\n- `authored-vibe-account-creation-and-login`",
+      "excerpt": "Vibe Deposit Chain Support Vibe deposit support depends on how the account was created. The current public deposit guide says EOA created accounts can deposit directly from Base only. It also says email created Vibe accounts can deposit directly from Solana, Base, and major EVM chains. That distinction should stay visible because a generic \"Vibe supports deposits\" answer is not precise enough for a user preparing funds. The account creation guide reinforces the setup sequence. Wallet users should prepare USDC collateral and gas on the selected chain before connecting and funding the Vibe account. Email/social users receive a smart wallet address and then move funds from that smart wallet into the Vibe account after the deposit appears. Publication Date Review Chain support is time sensitive. This page should be rechecked before publication or launch because deposit coverage can change as the product adds or removes supported chains. Do not infer support from a chain logo, social post, or internal endpoint. The safe public claim is the current official doc distinction: EOA direct deposit path is Base only in the source, while email created accounts have broader direct deposit covera"
     },
     {
       "id": "authored-vibe-deposits-and-withdrawals",
@@ -5902,6 +5985,52 @@
       "file": "content/authored/reference/vibe-intent-architecture.md",
       "bodyMarkdown": "# Vibe Intent Architecture\n\nVibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent-based trading model: the user defines a trade intention, solvers stream real-time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process.\n\nThat is the product-language version of intent-based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms.\n\n## Quote First, Collateral After Acceptance\n\nThe architecture page makes an important distinction. During the quote stage, solvers can present real-time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established.\n\nThat prevents two bad explanations:\n\n- Do not say solvers must pre-fund every streamed quote before a trader accepts it.\n- Do not say collateral never matters until after execution.\n\nThe accurate sequence is quote, accept/request, collateral lock, solver acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring.\n\n## Bilateral Agreement\n\nVibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state.\n\nThis is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar.\n\n## Reader Implication\n\nFor traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations.\n\n## Sources\n\n- `vibe-architecture`: AMFQ/legacy intent naming, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off-chain hedging.\n- `symmio-core`: PartyA/PartyB and collateral vocabulary.\n- `symmio-intent-lifecycle`: quote-event monitoring and lifecycle state.\n\n## Related Pages\n\n- `authored-vibe-trade-flow`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`\n- `vibe-architecture-amfq`",
       "excerpt": "Vibe Intent Architecture Vibe's public architecture describes an Automated Market for Quotes, or AMFQ. Treat AMFQ/aMFQ as legacy naming for the current intent based trading model: the user defines a trade intention, solvers stream real time offers, and the trader can choose to execute the best available quote immediately instead of manually hunting through a traditional RFQ process. That is the product language version of intent based trading. A trader is not first placing a passive order into a shared order book. They are expressing a desired outcome. Solvers compete to present executable terms. Quote First, Collateral After Acceptance The architecture page makes an important distinction. During the quote stage, solvers can present real time offers without upfront capital commitment. After the trader accepts an offer, the trader sends a request to trade, the trader's collateral is locked, and the solver reviews the request. If the request checks out, the solver deposits collateral and the bilateral agreement is established. That prevents two bad explanations: Do not say solvers must pre fund every streamed quote before a trader accepts it. Do not say collateral never matters until"
+    },
+    {
+      "id": "authored-vibe-large-withdrawal-window",
+      "title": "Vibe Large Withdrawal Safety Window",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "sourceKeys": [
+        "vibe-deposits-withdrawals"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-deposits-withdrawals",
+        "authored-vibe-deposits-and-withdrawals",
+        "authored-vibe-security-and-audits"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-large-withdrawal-window.md",
+      "bodyMarkdown": "# Vibe Large Withdrawal Safety Window\n\nThe official withdrawal guide separates small withdrawals from large withdrawals.\n\nSmall withdrawals are described as basically instantaneous. Large withdrawals use a 12-hour fraud-proof window. The source frames that waiting period as a safety measure against exploits and double-spend attempts, not as a normal settlement delay for every withdrawal.\n\nThe user-visible large-withdrawal flow has four important behaviors:\n\n- the user initiates the request from the trade panel, account dropdown, or My Account;\n- the withdrawal waits through the 12-hour window;\n- the user can cancel during the window and return the funds to Allocated Balance;\n- a second request groups with the existing request and resets the window to 12 hours.\n\nAfter the window elapses, the user approves the withdrawal if the request is valid.\n\n## Publication Boundary\n\nThe public source does not define the threshold that makes a withdrawal \"large.\" Do not invent that value. The source-backed answer is the behavior: small withdrawals are intended to be fast, while large withdrawals introduce a 12-hour fraud-proof safety window.\n\nBecause withdrawal thresholds and chain support can change, this page should be rechecked before publication.\n\n## Sources\n\n- `vibe-deposits-withdrawals`: official small-withdrawal note, 12-hour large-withdrawal fraud-proof flow, cancel behavior, grouped-request reset, and approval step.\n\n## Related Pages\n\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-allocated-balance`\n- `authored-symmio-withdrawal-provider-system`",
+      "excerpt": "Vibe Large Withdrawal Safety Window The official withdrawal guide separates small withdrawals from large withdrawals. Small withdrawals are described as basically instantaneous. Large withdrawals use a 12 hour fraud proof window. The source frames that waiting period as a safety measure against exploits and double spend attempts, not as a normal settlement delay for every withdrawal. The user visible large withdrawal flow has four important behaviors: the user initiates the request from the trade panel, account dropdown, or My Account; the withdrawal waits through the 12 hour window; the user can cancel during the window and return the funds to Allocated Balance; a second request groups with the existing request and resets the window to 12 hours. After the window elapses, the user approves the withdrawal if the request is valid. Publication Boundary The public source does not define the threshold that makes a withdrawal \"large.\" Do not invent that value. The source backed answer is the behavior: small withdrawals are intended to be fast, while large withdrawals introduce a 12 hour fraud proof safety window. Because withdrawal thresholds and chain support can change, this page shoul"
+    },
+    {
+      "id": "authored-vibe-login-path-choice",
+      "title": "Choosing A Vibe Login Path",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-account-creation",
+        "authored-vibe-account-creation-and-login",
+        "authored-vibe-security-and-audits"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-login-path-choice.md",
+      "bodyMarkdown": "# Choosing A Vibe Login Path\n\nVibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path.\n\nThe EOA path is the self-custody-oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow. The source frames this as the more secure path because the user retains direct wallet control.\n\nThe email or social path optimizes for convenience. The user enters an email, confirms a 6-digit code, deposits USDC into the provided smart-wallet address, waits for the deposit to appear, creates the account, and moves funds into the Vibe account. The official source also carries the important custody caveat: this path is closer to a centralized-exchange security posture because funds are not stored in the user's own wallet.\n\n## Reader Guidance\n\nThe docs should not present the two paths as a purely cosmetic choice. The choice affects custody posture, funding flow, and mobile behavior.\n\nAnswer the user this way:\n\n- choose the EOA path when direct wallet control is the priority;\n- choose email or social login when convenience and portability matter more;\n- understand that the email/social path changes custody assumptions;\n- read deposit mechanics next, because the account is not useful until funds reach the Vibe account.\n\n## Sources\n\n- `vibe-account-creation`: official Vibe EOA wallet account flow, email/social login flow, 6-digit confirmation code, smart-wallet deposit sequence, one-click gas-free trading claim, and custody caveat.\n\n## Related Pages\n\n- `authored-vibe-account-creation-and-login`\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-mobile-pwa`",
+      "excerpt": "Choosing A Vibe Login Path Vibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path. The EOA path is the self custody oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow. The source frames this as the more secure path because the user retains direct wallet control. The email or social path optimizes for convenience. The user enters an email, confirms a 6 digit code, deposits USDC into the provided smart wallet address, waits for the deposit to appear, creates the account, and moves funds into the Vibe account. The official source also carries the important custody caveat: this path is closer to a centralized exchange security posture because funds are not stored in the user's own wallet. Reader Guidance The docs should not present the two paths as a purely cosmetic choice. The choice affects custody posture, funding flow, and mobile behavior. Answer the user this way: choose the EOA path when direct wallet control is the priority; choose email or social login when convenience and portability matte"
     },
     {
       "id": "authored-vibe-mobile-pwa",

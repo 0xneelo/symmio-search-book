@@ -35,28 +35,29 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1065,
+  "totalPages": 1070,
   "byState": {
-    "candidate": 270,
+    "candidate": 275,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 271,
+    "authored": 276,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 271,
+    "authored-page": 276,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
     "publication-candidate-needs-operator-review": 157,
-    "publication-candidate": 109,
+    "publication-candidate": 112,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 3,
+    "publication-candidate-needs-publication-date-review": 2,
     "source-mapped": 63,
     "draft-imported-from-primary-source": 187,
     "draft-imported-from-generated-html": 1,
@@ -64,7 +65,7 @@
   },
   "bySection": {
     "manifesto": 153,
-    "product-reference": 25,
+    "product-reference": 30,
     "dashboard-reference": 17,
     "protocol-reference": 50,
     "competitive-context": 2,
@@ -96,7 +97,7 @@
       "source-companion": 172
     },
     "volume-07-product-trading-and-risk": {
-      "candidate": 21,
+      "candidate": 26,
       "source-companion": 30
     },
     "volume-02-bootstrap-and-proof-of-value": {
@@ -128,13 +129,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 270,
+  "publicCandidatePages": 275,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 270,
-  "retrievalEligiblePages": 1062,
+  "publicNavigationPages": 275,
+  "retrievalEligiblePages": 1067,
   "reviewRequiredPages": 952,
-  "exactQuestionRoutedPages": 249,
+  "exactQuestionRoutedPages": 254,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -6128,6 +6129,64 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-vibe-account-history-and-csv-export",
+      "title": "Vibe Account History And CSV Export",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-account-history-and-csv-export.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-deposits-withdrawals",
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md",
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/trading/fees.md",
+        "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-vibe-allocated-balance",
+      "title": "Vibe Allocated Balance",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-allocated-balance.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/trading/account-health-and-liquidations.md",
+        "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-vibe-as-discovery-layer",
       "title": "Vibe As The Discovery Layer",
       "section": "manifesto",
@@ -6202,6 +6261,32 @@
         "https://docs.vibe.trading/trading/collateral-and-margining.md",
         "https://docs.vibe.trading/trading/managing-vibecaps-margin.md",
         "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-vibe-deposit-chain-support",
+      "title": "Vibe Deposit Chain Support",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-deposit-chain-support.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-deposits-withdrawals",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -6310,6 +6395,54 @@
         "https://docs.vibe.trading/architectural-overview.md",
         "https://docs.symm.io/getting-started/core-concepts.md",
         "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-vibe-large-withdrawal-window",
+      "title": "Vibe Large Withdrawal Safety Window",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-publication-date-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-large-withdrawal-window.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-deposits-withdrawals"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-vibe-login-path-choice",
+      "title": "Choosing A Vibe Login Path",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-login-path-choice.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/getting-started/account-creation.md"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
