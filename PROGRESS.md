@@ -592,6 +592,12 @@
 - Routed five new Ask questions so architecture-thesis readers can understand why exploit resistance, bootstrap, counterparty continuity, and LP economics must be solved together.
 - Kept exact leverage, solver capitalization, vault economics, LP rights, fee routing, and live risk parameters under operator/implementation/accounting review.
 
+## 2026-06-29 — Information/Trade Mechanism Subclaim Pages
+
+- Added five authored manifesto pages from Neelo's Information/Trade convergence source: agency model over casino model, one-counterparty niche verification, AI solver verification thesis, universal perp wedge, and Thumbs Down mechanism stack.
+- Routed five new Ask questions so readers can move from the broad Information/Trade thesis into the concrete intent, solver, inventory, and short-side mechanism.
+- Kept AI-solver behavior, exact product categories, token eligibility, market-cap/liquidity limits, vault/solver mechanics, and truth-market wording under operator/product/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

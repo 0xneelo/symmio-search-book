@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 282
+      "totalGoldenRoutes": 287
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 300,
-    "retrievalEligiblePages": 1092,
+    "publicNavigationPages": 305,
+    "retrievalEligiblePages": 1097,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 300,
+      "candidate": 305,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 282,
-    "exactRouteTestsPassing": 282,
+    "totalExactRouteTests": 287,
+    "exactRouteTestsPassing": 287,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 282
+      "candidate": 287
     },
     "exactRoutesByConfidence": {
-      "Medium": 130,
+      "Medium": 132,
       "High": 44,
-      "Low": 108
+      "Low": 111
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2788,6 +2788,90 @@
         "passes": true
       },
       {
+        "id": "qr-why-does-neelo-call-vibe-an-agency-model-instead-of-a-casino-model",
+        "query": "Why does Neelo call Vibe an agency model instead of a casino model?",
+        "normalizedQuery": "why does neelo call vibe an agency model instead of a casino model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-agency-model-over-casino-model",
+        "expectedPageTitle": "Agency Model Over Casino Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-neelo-call-vibe-an-agency-model-instead-of-a-casino-model",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-niche-verification-need-one-counterparty-instead-of-a-liquidity-pool",
+        "query": "Why can niche verification need one counterparty instead of a liquidity pool?",
+        "normalizedQuery": "why can niche verification need one counterparty instead of a liquidity pool",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-one-counterparty-for-niche-verification",
+        "expectedPageTitle": "One Counterparty For Niche Verification",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-niche-verification-need-one-counterparty-instead-of-a-liquidity-pool",
+        "passes": true
+      },
+      {
+        "id": "qr-how-could-ai-solvers-become-verification-agents",
+        "query": "How could AI solvers become verification agents?",
+        "normalizedQuery": "how could ai solvers become verification agents",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ai-solver-verification-thesis",
+        "expectedPageTitle": "AI Solver Verification Thesis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-could-ai-solvers-become-verification-agents",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-universal-perp-wedge",
+        "query": "What is the universal perp wedge?",
+        "normalizedQuery": "what is the universal perp wedge",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-universal-perp-wedge",
+        "expectedPageTitle": "Universal Perp Wedge",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-universal-perp-wedge",
+        "passes": true
+      },
+      {
         "id": "qr-what-is-the-hybrid-solver-liquidity-waterfall",
         "query": "What is the hybrid solver liquidity waterfall?",
         "normalizedQuery": "what is the hybrid solver liquidity waterfall",
@@ -2995,6 +3079,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-thumbs-down-for-the-tokenized-economy",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-mechanism-behind-the-thumbs-down-metaphor",
+        "query": "What is the mechanism behind the Thumbs Down metaphor?",
+        "normalizedQuery": "what is the mechanism behind the thumbs down metaphor",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thumbs-down-mechanism-stack",
+        "expectedPageTitle": "The Thumbs Down Mechanism Stack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-mechanism-behind-the-thumbs-down-metaphor",
         "passes": true
       },
       {
@@ -6548,7 +6653,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 282,
+      "exactRoutes": 287,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

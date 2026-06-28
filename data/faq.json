@@ -8,16 +8,16 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 289,
-  "totalAnswerable": 282,
+  "totalEntries": 294,
+  "totalAnswerable": 287,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 54,
-    "Trading Flow": 24,
-    "Solvers And Settlement": 56,
+    "Trading Flow": 27,
+    "Solvers And Settlement": 58,
     "Risk And Markets": 22,
     "Revenue": 27,
     "Manifesto": 66,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 130,
+    "Medium": 132,
     "High": 44,
-    "Low": 108
+    "Low": 111
   },
   "byRouteSource": {
-    "authored": 282
+    "authored": 287
   },
   "byType": {
-    "answerable": 282,
+    "answerable": 287,
     "reconciliation": 7
   },
   "answerable": [
@@ -4371,6 +4371,122 @@
       ]
     },
     {
+      "id": "faq-why-does-neelo-call-vibe-an-agency-model-instead-of-a-casino-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why does Neelo call Vibe an agency model instead of a casino model?",
+      "normalizedQuestion": "why does neelo call vibe an agency model instead of a casino model",
+      "shortAnswer": "Neelo's intent-architecture source contrasts AMM/bonding-curve casino dynamics with intent-centric OTC agency, where solvers evaluate and satisfy expressed outcomes.",
+      "answerSummary": "Agency Model Over Casino Model Neelo's Information/Trade source contrasts two market creation models. The first is the pool first casino model: launch a token, seed an AMM or bonding curve, and let attention plus passive liquidity define the initial game. The second is the agency model: a user expresses an intent, a solver evaluates the risk, and the trad...",
+      "confidence": "Medium",
+      "pageId": "authored-agency-model-over-casino-model",
+      "pageTitle": "Agency Model Over Casino Model",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-niche-verification-need-one-counterparty-instead-of-a-liquidity-pool",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why can niche verification need one counterparty instead of a liquidity pool?",
+      "normalizedQuestion": "why can niche verification need one counterparty instead of a liquidity pool",
+      "shortAnswer": "Neelo's no-liquidity-pools section frames intent-based OTC as enough for long-tail claims where an AMM pool would be capital-inefficient.",
+      "answerSummary": "One Counterparty For Niche Verification The Information/Trade source makes one of its cleanest capital efficiency claims in the no pool section: a niche claim does not need a deep liquidity pool before anyone can test it. It needs a counterparty willing to take the other side. That distinction is central to long tail markets. If every local news event, sm...",
+      "confidence": "Low",
+      "pageId": "authored-one-counterparty-for-niche-verification",
+      "pageTitle": "One Counterparty For Niche Verification",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-could-ai-solvers-become-verification-agents",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How could AI solvers become verification agents?",
+      "normalizedQuestion": "how could ai solvers become verification agents",
+      "shortAnswer": "Neelo's AI-to-AI negotiation section imagines solvers pricing evidence and risk for information markets; this remains a thesis, not a production promise.",
+      "answerSummary": "AI Solver Verification Thesis Neelo's Information/Trade source imagines solvers as more than passive market makers. In the AI to AI negotiation section, the solver is an evidence pricing agent: it evaluates a user's intent, reads signals around the asset or claim, estimates risk, and quotes only if the trade is attractive. The strategic point is economic,...",
+      "confidence": "Low",
+      "pageId": "authored-ai-solver-verification-thesis",
+      "pageTitle": "AI Solver Verification Thesis",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-universal-perp-wedge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the universal perp wedge?",
+      "normalizedQuestion": "what is the universal perp wedge",
+      "shortAnswer": "Neelo's long-tail engine section frames any-token perps as the initial wedge before more specialized niche information markets; live eligibility remains review-bound.",
+      "answerSummary": "Universal Perp Wedge The Information/Trade source does not jump directly from verification crisis to every possible niche information market. It names a practical wedge first: the universal perp. That wedge matters because perps are already legible to crypto traders, market makers, and listing venues. If Vibe can make early derivatives markets possible fo...",
+      "confidence": "Low",
+      "pageId": "authored-universal-perp-wedge",
+      "pageTitle": "Universal Perp Wedge",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-is-the-hybrid-solver-liquidity-waterfall",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -4646,6 +4762,35 @@
       "pageSection": "manifesto",
       "pageTrack": "14 - Information and Trade Convergence",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-mechanism-behind-the-thumbs-down-metaphor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the mechanism behind the Thumbs Down metaphor?",
+      "normalizedQuestion": "what is the mechanism behind the thumbs down metaphor",
+      "shortAnswer": "Neelo's Thumbs Down section maps negative market expression to inventory, solver execution, and user-side short intent while the docs translate rhetoric into mechanism.",
+      "answerSummary": "The Thumbs Down Mechanism Stack The \"Thumbs Down\" is useful because it compresses the negative side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it. The first layer is inventory. The source calls this the whale vault layer: token holders, projects, or la...",
+      "confidence": "Medium",
+      "pageId": "authored-thumbs-down-mechanism-stack",
+      "pageTitle": "The Thumbs Down Mechanism Stack",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -14393,6 +14538,122 @@
       ]
     },
     {
+      "id": "faq-why-does-neelo-call-vibe-an-agency-model-instead-of-a-casino-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why does Neelo call Vibe an agency model instead of a casino model?",
+      "normalizedQuestion": "why does neelo call vibe an agency model instead of a casino model",
+      "shortAnswer": "Neelo's intent-architecture source contrasts AMM/bonding-curve casino dynamics with intent-centric OTC agency, where solvers evaluate and satisfy expressed outcomes.",
+      "answerSummary": "Agency Model Over Casino Model Neelo's Information/Trade source contrasts two market creation models. The first is the pool first casino model: launch a token, seed an AMM or bonding curve, and let attention plus passive liquidity define the initial game. The second is the agency model: a user expresses an intent, a solver evaluates the risk, and the trad...",
+      "confidence": "Medium",
+      "pageId": "authored-agency-model-over-casino-model",
+      "pageTitle": "Agency Model Over Casino Model",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-niche-verification-need-one-counterparty-instead-of-a-liquidity-pool",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why can niche verification need one counterparty instead of a liquidity pool?",
+      "normalizedQuestion": "why can niche verification need one counterparty instead of a liquidity pool",
+      "shortAnswer": "Neelo's no-liquidity-pools section frames intent-based OTC as enough for long-tail claims where an AMM pool would be capital-inefficient.",
+      "answerSummary": "One Counterparty For Niche Verification The Information/Trade source makes one of its cleanest capital efficiency claims in the no pool section: a niche claim does not need a deep liquidity pool before anyone can test it. It needs a counterparty willing to take the other side. That distinction is central to long tail markets. If every local news event, sm...",
+      "confidence": "Low",
+      "pageId": "authored-one-counterparty-for-niche-verification",
+      "pageTitle": "One Counterparty For Niche Verification",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-could-ai-solvers-become-verification-agents",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How could AI solvers become verification agents?",
+      "normalizedQuestion": "how could ai solvers become verification agents",
+      "shortAnswer": "Neelo's AI-to-AI negotiation section imagines solvers pricing evidence and risk for information markets; this remains a thesis, not a production promise.",
+      "answerSummary": "AI Solver Verification Thesis Neelo's Information/Trade source imagines solvers as more than passive market makers. In the AI to AI negotiation section, the solver is an evidence pricing agent: it evaluates a user's intent, reads signals around the asset or claim, estimates risk, and quotes only if the trade is attractive. The strategic point is economic,...",
+      "confidence": "Low",
+      "pageId": "authored-ai-solver-verification-thesis",
+      "pageTitle": "AI Solver Verification Thesis",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-universal-perp-wedge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the universal perp wedge?",
+      "normalizedQuestion": "what is the universal perp wedge",
+      "shortAnswer": "Neelo's long-tail engine section frames any-token perps as the initial wedge before more specialized niche information markets; live eligibility remains review-bound.",
+      "answerSummary": "Universal Perp Wedge The Information/Trade source does not jump directly from verification crisis to every possible niche information market. It names a practical wedge first: the universal perp. That wedge matters because perps are already legible to crypto traders, market makers, and listing venues. If Vibe can make early derivatives markets possible fo...",
+      "confidence": "Low",
+      "pageId": "authored-universal-perp-wedge",
+      "pageTitle": "Universal Perp Wedge",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-is-the-hybrid-solver-liquidity-waterfall",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -14668,6 +14929,35 @@
       "pageSection": "manifesto",
       "pageTrack": "14 - Information and Trade Convergence",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-mechanism-behind-the-thumbs-down-metaphor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the mechanism behind the Thumbs Down metaphor?",
+      "normalizedQuestion": "what is the mechanism behind the thumbs down metaphor",
+      "shortAnswer": "Neelo's Thumbs Down section maps negative market expression to inventory, solver execution, and user-side short intent while the docs translate rhetoric into mechanism.",
+      "answerSummary": "The Thumbs Down Mechanism Stack The \"Thumbs Down\" is useful because it compresses the negative side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it. The first layer is inventory. The source calls this the whale vault layer: token holders, projects, or la...",
+      "confidence": "Medium",
+      "pageId": "authored-thumbs-down-mechanism-stack",
+      "pageTitle": "The Thumbs Down Mechanism Stack",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

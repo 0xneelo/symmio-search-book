@@ -783,3 +783,11 @@
 **Reason:** The broad Vibe Pillars pages explain defense, bootstrap, LP yield, and coupling, but answer-engine users will ask narrower architecture questions. Exact routes help explain why low-cap perps are hard without reducing the thesis to "more leverage" or "more listings."
 
 **Status:** Accepted for the authored manifesto layer; exact leverage, solver capitalization, vault economics, LP rights, fee routing, and live risk parameters remain operator/implementation/accounting review items.
+
+## D-099: Split Information/Trade Mechanism Claims Into Exact Answers
+
+**Decision:** Add authored manifesto pages for agency model over casino model, one-counterparty niche verification, AI solver verification thesis, the universal perp wedge, and the Thumbs Down mechanism stack.
+
+**Reason:** Existing Information/Trade pages cover the broad convergence, verification, solver-waterfall, and Thumbs Down theses, but answer-engine users need exact routes for how intents, solvers, long-tail perps, and short-side rejection map into the mechanism. These pages preserve Neelo's vision while translating aggressive source language into publication-safe architecture and product boundaries.
+
+**Status:** Accepted for the authored manifesto layer; AI-solver behavior, exact product categories, token eligibility, market-cap/liquidity limits, vault/solver mechanics, and any "truth market" wording remain operator/product/implementation review.

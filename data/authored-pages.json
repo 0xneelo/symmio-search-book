@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 301,
+  "totalPages": 306,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 164,
+    "publication-candidate-needs-operator-review": 169,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 158,
+    "manifesto": 163,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 47,
@@ -45,6 +45,52 @@
       "file": "content/authored/manifesto/active-risk-management-vs-passive-physics.md",
       "bodyMarkdown": "# Active Risk Management Versus Passive Physics\n\nNeelo's Vibe-versus-Percolator comparison describes two risk philosophies.\n\nPercolator is framed as passive physics: parameters are set, invariants are checked, and the state machine liquidates or applies ADL when constraints fail. Vibe is framed as active optimization: the solver adjusts spreads, funding, borrow rates, insurance deployment, and defensive escalation in response to market state.\n\n## What The Active Layer Buys\n\nActive risk management can use several control surfaces:\n\n- widen spreads when volatility or utilization rises;\n- adjust funding to discourage dominant-side skew;\n- deploy local or global insurance before forced deleveraging;\n- offer pricing incentives for rebalancing flow;\n- reduce exposure when oracle or manipulation risk rises.\n\nThe point is not that an active solver can eliminate risk. It is that a solver can respond before the only remaining action is liquidation or haircut.\n\n## What It Costs\n\nThe active approach costs simplicity. It needs risk models, monitoring, operator policy, source-backed parameters, and public documentation of failure modes. It also creates UX tradeoffs: quotes can widen, capacity can tighten, and some trades can be refused.\n\nThat cost is still part of the Vibe thesis. Long-tail markets are not mature CLOB markets. They need an adaptive counterparty layer until the market has enough two-sided flow to clear more naturally.\n\n## Reader Implication\n\nThe docs should present active solver discretion as a risk-control mechanism, not as magic. It is more complex than passive invariant checking, but the complexity is the price of making thin, volatile markets tradeable without pretending every asset has mature liquidity from day one.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Structurally Superior Alternative\".\n- `vibe-papers`: Neelo, \"Vibe Trading's OTC Solver Model vs. Percolator's Inverted Perps\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-defense-hierarchy`\n- `authored-solver-engine-operating-loop`",
       "excerpt": "Active Risk Management Versus Passive Physics Neelo's Vibe versus Percolator comparison describes two risk philosophies. Percolator is framed as passive physics: parameters are set, invariants are checked, and the state machine liquidates or applies ADL when constraints fail. Vibe is framed as active optimization: the solver adjusts spreads, funding, borrow rates, insurance deployment, and defensive escalation in response to market state. What The Active Layer Buys Active risk management can use several control surfaces: widen spreads when volatility or utilization rises; adjust funding to discourage dominant side skew; deploy local or global insurance before forced deleveraging; offer pricing incentives for rebalancing flow; reduce exposure when oracle or manipulation risk rises. The point is not that an active solver can eliminate risk. It is that a solver can respond before the only remaining action is liquidation or haircut. What It Costs The active approach costs simplicity. It needs risk models, monitoring, operator policy, source backed parameters, and public documentation of failure modes. It also creates UX tradeoffs: quotes can widen, capacity can tighten, and some trades"
+    },
+    {
+      "id": "authored-agency-model-over-casino-model",
+      "title": "Agency Model Over Casino Model",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-14-information-trade-convergence-14-docs-05-intent-based-architecture",
+        "section-14-information-trade-convergence-14-docs-05-intent-based-architecture-5-1-moving-beyond-the-casino-model",
+        "authored-intent-otc-long-tail-verification"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/agency-model-over-casino-model.md",
+      "bodyMarkdown": "# Agency Model Over Casino Model\n\nNeelo's Information/Trade source contrasts two market-creation models. The first is the pool-first casino model: launch a token, seed an AMM or bonding curve, and let attention plus passive liquidity define the initial game. The second is the agency model: a user expresses an intent, a solver evaluates the risk, and the trade happens only if a counterparty can price it.\n\nThe agency model matters because it changes what has to exist before a market can begin. A bonding curve needs committed inventory and a pool design before anyone knows whether the claim deserves a market. An intent-based OTC model can begin with a specific request and a specific counterparty. The market starts as priced judgment rather than as an always-on pool.\n\nThat is why the source treats Vibe as a better architecture for long-tail information and tokenized credibility. The system is not promising that every claim becomes true or that every thin market deserves execution. It is saying the first market interaction can be mediated by a solver instead of by a blind curve.\n\nThis page should remain careful with the phrase \"truth market.\" The source uses that language, but publication prose should translate it into verifiable mechanics: intents, solver pricing, counterparty acceptance, risk controls, and settlement.\n\n## Reader Implication\n\nThe agency model explains why Vibe is not trying to make every early token look like a mature AMM market. It tries to let market access begin with an intent and a priceable counterparty, then mature only if demand and risk data justify it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture: 5.1 Moving Beyond the Casino Model\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-intent-otc-long-tail-verification`\n- `authored-hybrid-solver-liquidity-waterfall`",
+      "excerpt": "Agency Model Over Casino Model Neelo's Information/Trade source contrasts two market creation models. The first is the pool first casino model: launch a token, seed an AMM or bonding curve, and let attention plus passive liquidity define the initial game. The second is the agency model: a user expresses an intent, a solver evaluates the risk, and the trade happens only if a counterparty can price it. The agency model matters because it changes what has to exist before a market can begin. A bonding curve needs committed inventory and a pool design before anyone knows whether the claim deserves a market. An intent based OTC model can begin with a specific request and a specific counterparty. The market starts as priced judgment rather than as an always on pool. That is why the source treats Vibe as a better architecture for long tail information and tokenized credibility. The system is not promising that every claim becomes true or that every thin market deserves execution. It is saying the first market interaction can be mediated by a solver instead of by a blind curve. This page should remain careful with the phrase \"truth market.\" The source uses that language, but publication pro"
+    },
+    {
+      "id": "authored-ai-solver-verification-thesis",
+      "title": "AI Solver Verification Thesis",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-14-information-trade-convergence-14-docs-05-intent-based-architecture",
+        "section-14-information-trade-convergence-14-docs-05-intent-based-architecture-5-3-vibe-trading-ai-to-ai-negotiation",
+        "authored-solver-refusal-as-oracle-defense"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/ai-solver-verification-thesis.md",
+      "bodyMarkdown": "# AI Solver Verification Thesis\n\nNeelo's Information/Trade source imagines solvers as more than passive market makers. In the AI-to-AI negotiation section, the solver is an evidence-pricing agent: it evaluates a user's intent, reads signals around the asset or claim, estimates risk, and quotes only if the trade is attractive.\n\nThe strategic point is economic, not moral. A solver that earns spread has an incentive to be skeptical. If the request is based on bad evidence, manipulated reference prices, or a weak claim, the solver can widen, refuse, or quote a price that reflects that risk. The verification layer emerges from adversarial pricing.\n\nThis becomes especially important when synthetic content and token issuance are cheap. A manual reviewer cannot inspect every market. A passive pool cannot know why a price is moving. A solver can at least be designed to decide whether the requested risk is priceable at that moment.\n\nThe AI details must remain review-bound. Deepfake detection, news cross-checking, model inputs, automated solver policies, and any \"AI fact-checker\" wording should not be published as current product behavior unless the implementation, model provider, and operator-approved disclosure are confirmed.\n\n## Reader Implication\n\nAI solvers are best described today as a thesis for economically motivated verification. The production-safe claim is that solver pricing and refusal can become an adversarial filter; the exact automation stack is still a product and implementation question.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture: 5.3 Vibe Trading = AI-to-AI Negotiation\".\n\n## Related Pages\n\n- `authored-solver-refusal-as-oracle-defense`\n- `authored-short-sellers-as-fact-checkers`\n- `authored-market-price-as-verification`",
+      "excerpt": "AI Solver Verification Thesis Neelo's Information/Trade source imagines solvers as more than passive market makers. In the AI to AI negotiation section, the solver is an evidence pricing agent: it evaluates a user's intent, reads signals around the asset or claim, estimates risk, and quotes only if the trade is attractive. The strategic point is economic, not moral. A solver that earns spread has an incentive to be skeptical. If the request is based on bad evidence, manipulated reference prices, or a weak claim, the solver can widen, refuse, or quote a price that reflects that risk. The verification layer emerges from adversarial pricing. This becomes especially important when synthetic content and token issuance are cheap. A manual reviewer cannot inspect every market. A passive pool cannot know why a price is moving. A solver can at least be designed to decide whether the requested risk is priceable at that moment. The AI details must remain review bound. Deepfake detection, news cross checking, model inputs, automated solver policies, and any \"AI fact checker\" wording should not be published as current product behavior unless the implementation, model provider, and operator appr"
     },
     {
       "id": "authored-amfq-legacy-intent-naming",
@@ -2616,6 +2662,29 @@
       "file": "content/authored/manifesto/no-ponzi-market-revenue-test.md",
       "bodyMarkdown": "# The No-Ponzi Market Revenue Test\n\nNeelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits?\n\nThat question matters for any LP-facing market, but it matters even more for long-tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts can signal demand before revenue exists. A market can show large inventory and still fail the economic test if fees, spread, funding, and liquidation economics never materialize into durable revenue.\n\nThe source's answer is lifecycle-based. In bootstrap, LP deposits ignite the market and the solver carries more residual responsibility. In maturity, more two-sided flow can net trader-to-trader, spreads can tighten, solver exposure can decline, and the market can become a better graduation candidate. The healthier path is not endless deposit growth. It is declining dependence on subsidy and increasing evidence of real flow.\n\n## What To Measure\n\nThe no-ponzi test should become part of the living-docs measurement agenda:\n\n- Is revenue coming from trading activity rather than new LP deposits?\n- Are spreads and funding compensating actual risk?\n- Is solver residual exposure declining as markets mature?\n- Are LPs paid from repeatable market economics?\n- Do stressed markets use the disclosed defense stack before ADL?\n\nIf the docs track those questions, Proof of Value becomes falsifiable rather than purely rhetorical.\n\n## Publication Note\n\nCurrent live market revenue, LP payouts, solver profitability, and stress outcomes need operator-approved source data before final publication. This page documents the test the compendium should apply.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Validation and Sustainability\".\n- `vibe-papers`: Neelo, \"Section 8: Conclusion\".\n\n## Related Pages\n\n- `authored-proof-value-validation-sustainability`\n- `authored-search-insights-loop`\n- `authored-graduation-data-checklist`",
       "excerpt": "The No Ponzi Market Revenue Test Neelo's sustainability section gives the compendium a useful test: does yield come from real market activity, or does it depend on new deposits? That question matters for any LP facing market, but it matters even more for long tail perps. Early deposits can make a market look healthy before traders arrive. Partner counts can signal demand before revenue exists. A market can show large inventory and still fail the economic test if fees, spread, funding, and liquidation economics never materialize into durable revenue. The source's answer is lifecycle based. In bootstrap, LP deposits ignite the market and the solver carries more residual responsibility. In maturity, more two sided flow can net trader to trader, spreads can tighten, solver exposure can decline, and the market can become a better graduation candidate. The healthier path is not endless deposit growth. It is declining dependence on subsidy and increasing evidence of real flow. What To Measure The no ponzi test should become part of the living docs measurement agenda: Is revenue coming from trading activity rather than new LP deposits? Are spreads and funding compensating actual risk? Is s"
+    },
+    {
+      "id": "authored-one-counterparty-for-niche-verification",
+      "title": "One Counterparty For Niche Verification",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-14-information-trade-convergence-14-docs-05-intent-based-architecture",
+        "section-14-information-trade-convergence-14-docs-05-intent-based-architecture-5-2-no-liquidity-pools-needed",
+        "authored-intent-otc-long-tail-verification"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/one-counterparty-for-niche-verification.md",
+      "bodyMarkdown": "# One Counterparty For Niche Verification\n\nThe Information/Trade source makes one of its cleanest capital-efficiency claims in the no-pool section: a niche claim does not need a deep liquidity pool before anyone can test it. It needs a counterparty willing to take the other side.\n\nThat distinction is central to long-tail markets. If every local news event, small token, narrow narrative, or early project needs a fully seeded AMM, most possible markets will never start. Capital is too scarce, and each pool fragments liquidity before demand is proven.\n\nAn intent-based OTC design changes the minimum viable market. A trader signs an intent. A solver or counterparty evaluates it. If the risk can be priced, a bilateral trade can exist. The first trade does not prove the claim is true. It proves at least one informed counterparty was willing to price the disagreement.\n\nThis is a thesis page, not a production promise that Vibe will list every fact, video, local event, or information market. Exact supported assets, categories, eligibility rules, and dispute or settlement semantics need product and implementation review.\n\n## Reader Implication\n\nWhen readers ask why Vibe can address the long tail, the answer is not \"because pools are unnecessary forever.\" The answer is narrower: the first credible price can come from a counterparty relationship before a market has earned deep pooled liquidity.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture: 5.2 No Liquidity Pools Needed\".\n\n## Related Pages\n\n- `authored-intent-otc-long-tail-verification`\n- `authored-small-market-wedge-strategy`\n- `authored-temporal-separation-of-concerns`",
+      "excerpt": "One Counterparty For Niche Verification The Information/Trade source makes one of its cleanest capital efficiency claims in the no pool section: a niche claim does not need a deep liquidity pool before anyone can test it. It needs a counterparty willing to take the other side. That distinction is central to long tail markets. If every local news event, small token, narrow narrative, or early project needs a fully seeded AMM, most possible markets will never start. Capital is too scarce, and each pool fragments liquidity before demand is proven. An intent based OTC design changes the minimum viable market. A trader signs an intent. A solver or counterparty evaluates it. If the risk can be priced, a bilateral trade can exist. The first trade does not prove the claim is true. It proves at least one informed counterparty was willing to price the disagreement. This is a thesis page, not a production promise that Vibe will list every fact, video, local event, or information market. Exact supported assets, categories, eligibility rules, and dispute or settlement semantics need product and implementation review. Reader Implication When readers ask why Vibe can address the long tail, the an"
     },
     {
       "id": "authored-one-x-leverage-ceiling",
@@ -5263,6 +5332,30 @@
       "excerpt": "The Thielian Listing Monopoly Neelo's Thiel analysis reframes the gap filling perp thesis as a monopoly strategy rather than a feature checklist. The relevant market is not all perps. It is the narrow category of tokens that have graduated into spot trading but do not yet qualify for serious derivatives venues. That narrow market matters because it is small enough to own and structurally underserved. Mature venues do not want to list everything manually. Order books need liquidity before they work. Pure listing systems can create empty markets. A protocol that can bootstrap tradeable long tail perps begins with a bounded category where the status quo is close to nothing. The value creation side is clear: traders get exposure, hedgers get protection, projects get market evidence, and downstream venues get better listing intelligence. The value capture side comes from the bridge position: fees, spreads, data, integrations, and eventually the default habit of using one layer to move markets from early spot to mature derivatives. The durability claim depends on execution. Data compounds only if real markets use the system. Partnerships matter only if they route meaningful flow. The boo"
     },
     {
+      "id": "authored-thumbs-down-mechanism-stack",
+      "title": "The Thumbs Down Mechanism Stack",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down",
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-14-information-trade-convergence-14-docs-08-the-thumbs-down",
+        "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-4-the-mechanism",
+        "neelo-14-information-trade-convergence-14-docs-06-hybrid-solver-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/thumbs-down-mechanism-stack.md",
+      "bodyMarkdown": "# The Thumbs Down Mechanism Stack\n\nThe \"Thumbs Down\" is useful because it compresses the negative-side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it.\n\nThe first layer is inventory. The source calls this the whale-vault layer: token holders, projects, or large inventory owners supply the asset exposure that makes short-side access possible. Without borrowable or usable inventory, a short button is only a slogan.\n\nThe second layer is execution. Solvers price and route the requested risk. They decide whether the trade is fillable, where the spread should be, and whether current conditions make quoting unsafe. This is why the Thumbs Down belongs inside the intent and solver architecture rather than inside a simple reaction interface.\n\nThe third layer is the user intent. The user expresses the skeptical view by taking a short-side position. That action is not just sentiment. It is capital at risk, bounded by the system's margin, liquidity, solver, vault, and settlement rules.\n\nPublication prose should translate the source's aggressive rhetoric into mechanism. Vibe is not simply making negativity tradable. It is attempting to assemble inventory, solver execution, and risk controls so the market can express rejection where spot-only systems cannot.\n\n## Reader Implication\n\nIf someone asks what makes the Thumbs Down real, the answer is the stack: inventory provides capacity, solvers provide pricing and execution, and users provide the directional intent. The icon is only the visible edge of that mechanism.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Thumbs Down: 8.4 The Mechanism\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model\".\n\n## Related Pages\n\n- `authored-financialized-rejection-thumbs-down`\n- `authored-whale-vault-risk-tranching`\n- `authored-hybrid-solver-liquidity-waterfall`",
+      "excerpt": "The Thumbs Down Mechanism Stack The \"Thumbs Down\" is useful because it compresses the negative side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it. The first layer is inventory. The source calls this the whale vault layer: token holders, projects, or large inventory owners supply the asset exposure that makes short side access possible. Without borrowable or usable inventory, a short button is only a slogan. The second layer is execution. Solvers price and route the requested risk. They decide whether the trade is fillable, where the spread should be, and whether current conditions make quoting unsafe. This is why the Thumbs Down belongs inside the intent and solver architecture rather than inside a simple reaction interface. The third layer is the user intent. The user expresses the skeptical view by taking a short side position. That action is not just sentiment. It is capital at risk, bounded by the system's margin, liquidity, solver, vault, and settlement rules. Publication prose should translate the source's aggressive rhetoric into mechanism. Vibe is not simply making negat"
+    },
+    {
       "id": "authored-token-holder-inventory-alignment",
       "title": "Token Holders Are Natural Inventory Providers",
       "section": "manifesto",
@@ -5621,6 +5714,29 @@
       "file": "content/authored/manifesto/universal-issuance-needs-derivatives.md",
       "bodyMarkdown": "# Universal Issuance Needs Derivatives\n\nCrypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity.\n\nThat is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress-tested, or matured into credible market structure.\n\nThis is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying.\n\nDerivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail instead of waiting for a permissioned venue to decide which assets are worthy.\n\n## Reader Implication\n\nThe compendium should make the sequence clear: issuance created abundance; spot created access; derivatives create two-sided market discipline. Permissionless derivatives matter because they make the token lifecycle harder to fake.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Issuance Revolution\".\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-last-primitive`\n- `authored-end-of-narrative-based-listings`",
       "excerpt": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary achievement, but it creates a second problem. Universal issuance without universal validation produces more assets than the market can evaluate. Tokens can launch faster than they can be shorted, hedged, stress tested, or matured into credible market structure. This is why the industry can feel incomplete even after permissionless spot. The source's diagnosis is direct: the system is excellent at producing assets and weak at giving those assets complete market expression. Narratives can outrun fundamentals because the default market only lets participants vote yes by buying or abstain by not buying. Derivatives fix the missing side. They let a token face a fuller set of market forces: long exposure, short pressure, hedging demand, basis trades, and maturity signals. Vibe's role in the thesis is to bring that layer to the long tail in"
+    },
+    {
+      "id": "authored-universal-perp-wedge",
+      "title": "Universal Perp Wedge",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-14-information-trade-convergence-14-docs-05-intent-based-architecture",
+        "section-14-information-trade-convergence-14-docs-05-intent-based-architecture-5-4-the-long-tail-engine",
+        "authored-gap-filling-perps-protocol"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/universal-perp-wedge.md",
+      "bodyMarkdown": "# Universal Perp Wedge\n\nThe Information/Trade source does not jump directly from verification crisis to every possible niche information market. It names a practical wedge first: the universal perp.\n\nThat wedge matters because perps are already legible to crypto traders, market makers, and listing venues. If Vibe can make early derivatives markets possible for assets that do not yet have mature order books, it can collect the first serious evidence of demand, risk, volatility, solver appetite, and short-side pressure.\n\nThe source frames the long tail aggressively: any DEX token, any market cap, any liquidity. The publication-safe version should keep the ambition while caveating the implementation. The compendium can say the wedge is broader long-tail perp access. It should not promise literal support for every token or every liquidity condition until eligibility, oracle, solver, margin, and risk filters are confirmed.\n\nThe strategic order is important. Universal perps are the wedge because they are a familiar derivatives primitive. More specialized information or reputation markets can come later if the system proves that solvers, vaults, and risk controls can price the long tail.\n\n## Reader Implication\n\nThe universal-perp wedge explains why Vibe can begin as market infrastructure before becoming a broader information-verification layer. Perps provide the first tractable surface for long-tail market formation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture: 5.4 The Long Tail Engine\".\n\n## Related Pages\n\n- `authored-gap-filling-perps-protocol`\n- `authored-small-market-wedge-strategy`\n- `authored-perps-as-anti-bottleneck-layer`",
+      "excerpt": "Universal Perp Wedge The Information/Trade source does not jump directly from verification crisis to every possible niche information market. It names a practical wedge first: the universal perp. That wedge matters because perps are already legible to crypto traders, market makers, and listing venues. If Vibe can make early derivatives markets possible for assets that do not yet have mature order books, it can collect the first serious evidence of demand, risk, volatility, solver appetite, and short side pressure. The source frames the long tail aggressively: any DEX token, any market cap, any liquidity. The publication safe version should keep the ambition while caveating the implementation. The compendium can say the wedge is broader long tail perp access. It should not promise literal support for every token or every liquidity condition until eligibility, oracle, solver, margin, and risk filters are confirmed. The strategic order is important. Universal perps are the wedge because they are a familiar derivatives primitive. More specialized information or reputation markets can come later if the system proves that solvers, vaults, and risk controls can price the long tail. Reader"
     },
     {
       "id": "authored-usdc-lp-backstop-cascade",
