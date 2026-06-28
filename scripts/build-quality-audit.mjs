@@ -232,6 +232,7 @@ const gaps = parseGapItems(gapMarkdown);
 const answerableQuestions = parseQuestionRows(questionMarkdown, "Answerable In Prototype");
 const reconciliationQuestions = parseQuestionRows(questionMarkdown, "Needs Reconciliation");
 const questionRouteMissingIds = questionRoutes.missingRouteIds || [];
+const nonAuthoredQuestionRoutes = (questionRoutes.answerable || []).filter((route) => route.routeSource !== "authored");
 const faqMissingPageIds = faq.missingPageIds || [];
 const faqMissingSourceKeys = faq.missingSourceKeys || [];
 const faqMatchesQuestionRoutes =
@@ -269,6 +270,17 @@ const readerIdsMissingVolumeMap = [...readerPageIds].filter((pageId) => !volumeM
 const volumeMapIdsMissingReader = [...volumeMapPageIds].filter((pageId) => !readerPageIds.has(pageId));
 const volumeOverviewPageIds = (volumeMap.volumes || []).map((volume) => volume.overviewPageId).filter(Boolean);
 const volumeOverviewIdsMissingReader = volumeOverviewPageIds.filter((pageId) => !readerPageIds.has(pageId));
+const authoredVolumeCounts = (volumeMap.volumes || []).map((volume) => ({
+  id: volume.id,
+  title: volume.title,
+  authoredPages: volume.authoredPages || 0,
+}));
+const volumesMissingAuthoredPages = authoredVolumeCounts.filter((volume) => volume.authoredPages === 0);
+const maxAuthoredPagesInSingleVolume = authoredVolumeCounts.reduce((max, volume) => Math.max(max, volume.authoredPages), 0);
+const authoredVolumeSpreadReady =
+  authoredVolumeCounts.length > 0 &&
+  volumesMissingAuthoredPages.length === 0 &&
+  maxAuthoredPagesInSingleVolume < Math.ceil(Math.max(authoredPages.length, 1) / 2);
 const requirementDuplicateIds = requirementMap.duplicateRequirementIds || [];
 const invalidParkedRequirementIds = requirementMap.invalidParkedRequirements || [];
 const requirementIds = new Set((requirementMap.requirements || []).map((requirement) => requirement.id));
@@ -383,6 +395,12 @@ const gates = [
     detail: `${questionRoutes.totalRoutes || 0} generated routes, ${answerableQuestions.length} answerable ledger rows, ${questionRouteMissingIds.length} missing page ids`,
   },
   {
+    id: "authored-question-routes",
+    label: "Answerable seed questions use authored pages",
+    passed: questionRouteMissingIds.length === 0 && (questionRoutes.totalRoutes || 0) > 0 && nonAuthoredQuestionRoutes.length === 0,
+    detail: `${(questionRoutes.totalRoutes || 0) - nonAuthoredQuestionRoutes.length}/${questionRoutes.totalRoutes || 0} seed routes use authored pages, ${nonAuthoredQuestionRoutes.length} generated/curated fallbacks`,
+  },
+  {
     id: "local-faq-routes",
     label: "Local FAQ seed routes resolve",
     passed:
@@ -459,6 +477,12 @@ const gates = [
     detail: `${volumeMap.totalVolumes || 0} volumes, ${volumeMap.totalChapters || 0} chapters, ${volumeOverviewPageIds.length} overview pages, ${volumeMap.pagesAssigned || 0}/${readerPageIds.size} reader pages assigned, manifest target ${volumeMap.manifestWithinTarget ? "met" : "open"}`,
   },
   {
+    id: "authored-volume-spread",
+    label: "Authored pages are spread across volumes",
+    passed: authoredVolumeSpreadReady,
+    detail: `${authoredVolumeCounts.filter((volume) => volume.authoredPages > 0).length}/${authoredVolumeCounts.length} volumes have authored pages; max authored pages in one volume is ${maxAuthoredPagesInSingleVolume}/${authoredPages.length}`,
+  },
+  {
     id: "requirement-map",
     label: "Definition-of-done requirements are tracked",
     passed:
@@ -496,6 +520,7 @@ const payload = {
     guidedJourneys: journeys.totalJourneys || 0,
     guidedJourneySteps: journeys.totalSteps || 0,
     seededQuestionRoutes: questionRoutes.totalRoutes || 0,
+    seededAuthoredQuestionRoutes: (questionRoutes.totalRoutes || 0) - nonAuthoredQuestionRoutes.length,
     seededReconciliationQuestions: questionRoutes.totalReconciliationQuestions || 0,
     localFaqEntries: faq.totalEntries || 0,
     localFaqAnswerable: faq.totalAnswerable || 0,
@@ -532,6 +557,8 @@ const payload = {
     answerChunkSourceKeys: (answerChunks.usedSourceKeys || []).length,
     compendiumVolumes: volumeMap.totalVolumes || 0,
     compendiumChapters: volumeMap.totalChapters || 0,
+    compendiumVolumesWithAuthoredPages: authoredVolumeCounts.filter((volume) => volume.authoredPages > 0).length,
+    compendiumMaxAuthoredPagesInSingleVolume: maxAuthoredPagesInSingleVolume,
     compendiumVolumeOverviews: volumeOverviewPageIds.length,
     compendiumVolumeReaderPages: volumeMap.readerPages || 0,
     compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
@@ -616,6 +643,7 @@ const payload = {
     byConfidence: questionRoutes.byConfidence || {},
     byRouteSource: questionRoutes.byRouteSource || {},
     missingRouteIds: questionRouteMissingIds,
+    nonAuthoredQuestionRoutes,
   },
   faqCoverage: {
     seedSource: faq.seedSource || "missing",
@@ -690,6 +718,9 @@ const payload = {
     totalChapters: volumeMap.totalChapters || 0,
     pagesAssigned: volumeMap.pagesAssigned || 0,
     manifestWithinTarget: volumeMap.manifestWithinTarget || false,
+    authoredVolumeCounts,
+    volumesMissingAuthoredPages,
+    authoredVolumeSpreadReady,
     volumes: (volumeMap.volumes || []).map((volume) => ({
       id: volume.id,
       number: volume.number,

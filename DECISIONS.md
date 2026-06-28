@@ -319,3 +319,11 @@
 **Reason:** The `manifesto` section is an editorial mode, not a book-volume destination. Letting every manifesto page fall into Volume 01 overloaded the orientation volume and hid the authored spine inside later volumes. Explicit placement makes the 500-800 page compendium navigable as a book, not only as a search index.
 
 **Status:** Accepted for the compendium IA.
+
+## D-041: Audit Authored Coverage As A First-Class Readiness Signal
+
+**Decision:** Add publication-audit gates for answerable seed questions resolving to authored pages and authored pages being distributed across every compendium volume.
+
+**Reason:** The compendium can pass generic route and volume-map checks while still relying on generated drafts for first-contact questions or hiding authored work in one book part. These two states directly affect answer quality and editorial readiness, so the audit should protect them explicitly.
+
+**Status:** Accepted for publication-readiness tracking.

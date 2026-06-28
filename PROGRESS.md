@@ -237,6 +237,12 @@
 - Placed market-formation and Proof-of-Value pages in Volume 02, order-book/listing-power pages in Volume 03, token-margin/funding/risk pages in Volume 04, solver/protocol pages in Volume 05, product trading/risk pages in Volume 07, and dashboard/living-doc pages in Volume 08.
 - Kept the 794-page generated manifest unchanged; this slice improves reader navigation and editor workload distribution over the same source-traceable corpus.
 
+## 2026-06-28 — Audit Guardrails For Authored Coverage
+
+- Added publication-audit gates for authored seed-question routes and authored volume spread.
+- The audit now fails if answerable seed questions fall back to generated/curated pages or if any compendium volume has no authored pages.
+- Current audit gate count is 20 of 23 passing, with failures still limited to parked source-ingestion, operator-inbox, and Discord requirements.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
