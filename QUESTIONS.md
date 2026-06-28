@@ -25,9 +25,13 @@ Questions are grouped by whether the current source set can answer them.
 | Where do I see my invite statuses? | `authored-dashboard-invites` | High | Local My invites view shows masked invites, status, follow-up, dashboard-opened state, and referee progress. |
 | What does My network show? | `authored-dashboard-network` | Medium | Local graph/tree behavior is sourced; final public depth language remains unresolved. |
 | Where does network volume come from? | `authored-dashboard-volume` | Medium | Current code uses backend wallet-volume snapshots; planned subgraph migration remains a tracked gap. |
+| Why does network volume use daily snapshots? | `authored-volume-snapshot-cadence` | Medium | Local volume code supports cache, stale-while-revalidate, daily snapshots, and stale UI markers. |
+| What is the Barometer volume upgrade? | `authored-barometer-subgraph-upgrade` | Medium | Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review. |
 | What do dashboard tasks unlock? | `authored-dashboard-tasks` | High | Local task view and FAQ explain onboarding actions, bonuses, and referral-completion context. |
 | What can I change in Settings? | `authored-dashboard-settings` | High | Local settings code captures contact metadata and recovery email without implying live email recovery. |
 | Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local FAQ is a seed until Discord/Lafa import is provided. |
+| What are the different kinds of points? | `authored-points-taxonomy` | Medium | Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology. |
+| How do onboarding points settle at TGE? | `authored-tge-settlement-multiplier` | Low | Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review. |
 | What is HIP-3 and why compare it? | `authored-vibe-as-discovery-layer` | Medium | Hyperliquid docs support builder-deployed perps context; Neelo docs frame Vibe as a discovery layer. |
 | Why do intents matter if order books already exist? | `authored-intents-complete-order-books` | Medium | Neelo docs frame Vibe as a complement to order books, not a denial of them. |
 | What does Proof of Value mean? | `authored-proof-of-value` | Medium | Neelo's paper provides the vision; treat as thesis rather than implemented dashboard behavior. |

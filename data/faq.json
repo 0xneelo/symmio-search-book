@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 68,
-  "totalAnswerable": 62,
+  "totalEntries": 72,
+  "totalAnswerable": 66,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,22 +20,22 @@
     "Solvers And Settlement": 15,
     "Risk And Markets": 6,
     "Revenue": 5,
-    "Rewards And Referrals": 5,
-    "Dashboard": 7,
+    "Rewards And Referrals": 7,
+    "Dashboard": 9,
     "Manifesto": 13,
     "Data And Volume": 1,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 34,
+    "Medium": 37,
     "High": 18,
-    "Low": 10
+    "Low": 11
   },
   "byRouteSource": {
-    "authored": 62
+    "authored": 66
   },
   "byType": {
-    "answerable": 62,
+    "answerable": 66,
     "reconciliation": 6
   },
   "answerable": [
@@ -935,6 +935,128 @@
       ]
     },
     {
+      "id": "faq-why-does-network-volume-use-daily-snapshots",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Why does network volume use daily snapshots?",
+      "normalizedQuestion": "why does network volume use daily snapshots",
+      "shortAnswer": "Local volume code supports cache, stale-while-revalidate, daily snapshots, and stale UI markers.",
+      "answerSummary": "Volume Snapshot Cadence The dashboard does not treat network volume as a live tick by tick feed. The current implementation reads each wallet's cumulative Vibe trading volume from the backend wallet volume API, caches the result, and then stores daily wallet snapshots that the dashboard can aggregate without making a live upstream request for every page l...",
+      "confidence": "Medium",
+      "pageId": "authored-volume-snapshot-cadence",
+      "pageTitle": "Volume Snapshot Cadence",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-volume",
+        "server-volume-snapshots",
+        "server-me",
+        "dashboard-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "server-volume-snapshots",
+          "group": "Local Product And Code",
+          "use": "Daily snapshot behavior.",
+          "href": "../../server/volume-snapshots.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-barometer-volume-upgrade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "What is the Barometer volume upgrade?",
+      "normalizedQuestion": "what is the barometer volume upgrade",
+      "shortAnswer": "Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review.",
+      "answerSummary": "Barometer Subgraph Upgrade Barometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the cu...",
+      "confidence": "Medium",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "syn-200",
+          "group": "Linear Research",
+          "use": "Subgraph migration research and more accurate volume path.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "goldsky-subgraphs",
+          "group": "Competitive Context",
+          "use": "Goldsky subgraph product docs for indexing and subgraph-backed data access.",
+          "href": "https://docs.goldsky.com/subgraphs/introduction",
+          "missing": false
+        },
+        {
+          "key": "goldsky-graphql-endpoints",
+          "group": "Competitive Context",
+          "use": "Goldsky GraphQL endpoint documentation for querying indexed subgraph data.",
+          "href": "https://docs.goldsky.com/subgraphs/graph-endpoints",
+          "missing": false
+        },
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-do-dashboard-tasks-unlock",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -1065,6 +1187,128 @@
           "group": "Local Product And Code",
           "use": "Dashboard copy for revenue model.",
           "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-different-kinds-of-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are the different kinds of points?",
+      "normalizedQuestion": "what are the different kinds of points",
+      "shortAnswer": "Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology.",
+      "answerSummary": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the...",
+      "confidence": "Medium",
+      "pageId": "authored-points-taxonomy",
+      "pageTitle": "Points Taxonomy",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-points",
+        "server-me",
+        "dashboard-app",
+        "dashboard-overview",
+        "vibe-points",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-onboarding-points-settle-at-tge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do onboarding points settle at TGE?",
+      "normalizedQuestion": "how do onboarding points settle at tge",
+      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
+      "confidence": "Low",
+      "pageId": "authored-tge-settlement-multiplier",
+      "pageTitle": "TGE Settlement Multiplier",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
           "missing": false
         }
       ]
@@ -3689,6 +3933,128 @@
       ]
     },
     {
+      "id": "faq-why-does-network-volume-use-daily-snapshots",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Why does network volume use daily snapshots?",
+      "normalizedQuestion": "why does network volume use daily snapshots",
+      "shortAnswer": "Local volume code supports cache, stale-while-revalidate, daily snapshots, and stale UI markers.",
+      "answerSummary": "Volume Snapshot Cadence The dashboard does not treat network volume as a live tick by tick feed. The current implementation reads each wallet's cumulative Vibe trading volume from the backend wallet volume API, caches the result, and then stores daily wallet snapshots that the dashboard can aggregate without making a live upstream request for every page l...",
+      "confidence": "Medium",
+      "pageId": "authored-volume-snapshot-cadence",
+      "pageTitle": "Volume Snapshot Cadence",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-volume",
+        "server-volume-snapshots",
+        "server-me",
+        "dashboard-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "server-volume-snapshots",
+          "group": "Local Product And Code",
+          "use": "Daily snapshot behavior.",
+          "href": "../../server/volume-snapshots.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-barometer-volume-upgrade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "What is the Barometer volume upgrade?",
+      "normalizedQuestion": "what is the barometer volume upgrade",
+      "shortAnswer": "Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review.",
+      "answerSummary": "Barometer Subgraph Upgrade Barometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the cu...",
+      "confidence": "Medium",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "syn-200",
+          "group": "Linear Research",
+          "use": "Subgraph migration research and more accurate volume path.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "goldsky-subgraphs",
+          "group": "Competitive Context",
+          "use": "Goldsky subgraph product docs for indexing and subgraph-backed data access.",
+          "href": "https://docs.goldsky.com/subgraphs/introduction",
+          "missing": false
+        },
+        {
+          "key": "goldsky-graphql-endpoints",
+          "group": "Competitive Context",
+          "use": "Goldsky GraphQL endpoint documentation for querying indexed subgraph data.",
+          "href": "https://docs.goldsky.com/subgraphs/graph-endpoints",
+          "missing": false
+        },
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-do-dashboard-tasks-unlock",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -3819,6 +4185,128 @@
           "group": "Local Product And Code",
           "use": "Dashboard copy for revenue model.",
           "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-different-kinds-of-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are the different kinds of points?",
+      "normalizedQuestion": "what are the different kinds of points",
+      "shortAnswer": "Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology.",
+      "answerSummary": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the...",
+      "confidence": "Medium",
+      "pageId": "authored-points-taxonomy",
+      "pageTitle": "Points Taxonomy",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "server-points",
+        "server-me",
+        "dashboard-app",
+        "dashboard-overview",
+        "vibe-points",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-onboarding-points-settle-at-tge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do onboarding points settle at TGE?",
+      "normalizedQuestion": "how do onboarding points settle at tge",
+      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
+      "confidence": "Low",
+      "pageId": "authored-tge-settlement-multiplier",
+      "pageTitle": "TGE Settlement Multiplier",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
           "missing": false
         }
       ]

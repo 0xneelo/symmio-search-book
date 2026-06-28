@@ -269,6 +269,12 @@
 - Added a shared compendium-target helper so manifest generation, content-corpus generation, requirement mapping, volume mapping, navigation, and quality audit all read the same 500-800 bounds.
 - Extended the quality audit payload and README verification so the generated data exposes the minimum, maximum, and in-range status rather than relying only on prose.
 
+## 2026-06-28 — Product Reference Depth Batch
+
+- Added four authored product-reference pages for the required revenue/volume/points layer: volume snapshot cadence, Barometer subgraph upgrade, points taxonomy, and TGE settlement multiplier.
+- Routed four new practical questions to those pages so Ask can answer snapshot lag, Barometer status, points rails, and TGE settlement without falling back to generated local-code stubs.
+- Preserved operator-review caveats around referral depth, final public revenue/source disclosure, exact Barometer endpoint mapping, and the final TGE settlement formula.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

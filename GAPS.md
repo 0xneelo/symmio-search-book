@@ -14,7 +14,7 @@ The prompt requests a 25-sub-agent competitive sweep. The package now has a gene
 
 ## G-002A: 500-800 Page Manifest Is Mapped, Not Fully Authored
 
-The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is growing around the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, and Neelo DDQ solver-risk material, including market formation, Proof of Value, listing power, solver architecture, options lifecycle, information validation, universal issuance, derivatives as market discipline, perpetual design space, market assembly-line, CLOB graduation, liquidity-as-experience, the last primitive, token-margined risk, Vibe's exploit-resistance/bootstrap/yield pillars, funding defense hierarchy, residual counterparty hedging, Force Close failure handling, solver default continuity, loss waterfalls, Symmio's clearing-house layer, bilateral intent lifecycle, solver event monitoring, collateral/margin/CVA, simple trade flow, order types, TP/SL, OI/liquidity, collateral/margining, and fees/funding. Most of the 794-page corpus is still generated draft material rather than fully edited publication prose.
+The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is growing around the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, and local product-reference mechanics, including market formation, Proof of Value, listing power, solver architecture, options lifecycle, information validation, universal issuance, derivatives as market discipline, perpetual design space, market assembly-line, CLOB graduation, liquidity-as-experience, the last primitive, token-margined risk, Vibe's exploit-resistance/bootstrap/yield pillars, funding defense hierarchy, residual counterparty hedging, Force Close failure handling, solver default continuity, loss waterfalls, Symmio's clearing-house layer, bilateral intent lifecycle, solver event monitoring, collateral/margin/CVA, simple trade flow, order types, TP/SL, OI/liquidity, collateral/margining, fees/funding, volume snapshot cadence, Barometer source migration, points taxonomy, and TGE multiplier caveats. Most of the 794-page corpus is still generated draft material rather than fully edited publication prose.
 
 **Needed:** Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.
 
@@ -40,7 +40,7 @@ Phase A is implemented as estimated revenue from network volume, configurable pl
 
 Linear research says Goldsky subgraphs should become the more accurate network-volume source than the current Vibe backend wallet-volume endpoint. Current local code still uses the backend REST source and daily snapshots.
 
-Goldsky subgraph and GraphQL endpoint docs are now registered as public citation sources, but this repo still has not implemented the Barometer migration.
+Goldsky subgraph and GraphQL endpoint docs are now registered as public citation sources, and `authored-barometer-subgraph-upgrade` explains the current-source versus target-source distinction. This repo still has not implemented the Barometer migration, and the exact Vibe subgraph endpoint/venue mapping remains unconfirmed.
 
 **Needed:** Implementation status, exact Vibe subgraph endpoint/venue mapping suitable for publication, and whether docs should describe the future subgraph source or the current production source.
 
@@ -67,6 +67,8 @@ The prompt frames Vibe x Symmio around options intents, vault-backed inventory, 
 ## G-009: Public Versus Internal Terminology Needs Owner Review
 
 Terms like VibeCaps, network revenue, referral commission, Vibe points, trading points, onboarding points, PartyA, PartyB, solver, and MM are all used across sources. Some are protocol terms, some product terms, and some campaign terms.
+
+`authored-points-taxonomy` now separates onboarding points, referral points, network/trading points, and Vibe points using local code plus public Vibe docs. The remaining owner-review need is canonical naming approval and the final public TGE settlement formula.
 
 **Needed:** Canonical glossary approval.
 

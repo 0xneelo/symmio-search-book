@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 62,
+  "totalRoutes": 66,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 34,
+    "Medium": 37,
     "High": 18,
-    "Low": 10
+    "Low": 11
   },
   "byRouteSource": {
-    "authored": 62
+    "authored": 66
   },
   "answerable": [
     {
@@ -380,6 +380,48 @@
       "missing": false
     },
     {
+      "id": "qr-why-does-network-volume-use-daily-snapshots",
+      "question": "Why does network volume use daily snapshots?",
+      "normalizedQuestion": "why does network volume use daily snapshots",
+      "pageId": "authored-volume-snapshot-cadence",
+      "pageTitle": "Volume Snapshot Cadence",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Local volume code supports cache, stale-while-revalidate, daily snapshots, and stale UI markers.",
+      "sourceKeys": [
+        "server-volume",
+        "server-volume-snapshots",
+        "server-me",
+        "dashboard-volume",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-barometer-volume-upgrade",
+      "question": "What is the Barometer volume upgrade?",
+      "normalizedQuestion": "what is the barometer volume upgrade",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review.",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-what-do-dashboard-tasks-unlock",
       "question": "What do dashboard tasks unlock?",
       "normalizedQuestion": "what do dashboard tasks unlock",
@@ -433,6 +475,48 @@
         "dashboard-app",
         "dashboard-faq",
         "dashboard-revenue-doc"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-are-the-different-kinds-of-points",
+      "question": "What are the different kinds of points?",
+      "normalizedQuestion": "what are the different kinds of points",
+      "pageId": "authored-points-taxonomy",
+      "pageTitle": "Points Taxonomy",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology.",
+      "sourceKeys": [
+        "server-points",
+        "server-me",
+        "dashboard-app",
+        "dashboard-overview",
+        "vibe-points",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-onboarding-points-settle-at-tge",
+      "question": "How do onboarding points settle at TGE?",
+      "normalizedQuestion": "how do onboarding points settle at tge",
+      "pageId": "authored-tge-settlement-multiplier",
+      "pageTitle": "TGE Settlement Multiplier",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
       ],
       "missing": false
     },

@@ -1,18 +1,18 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 81,
+  "totalPages": 85,
   "byStatus": {
     "publication-candidate": 51,
-    "publication-candidate-needs-operator-review": 29,
+    "publication-candidate-needs-operator-review": 33,
     "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 33,
+    "dashboard-reference": 12,
     "protocol-reference": 13,
     "competitive-context": 1,
-    "dashboard-reference": 10,
     "reference": 1,
-    "rewards-referrals": 4,
+    "rewards-referrals": 6,
     "answer-engine": 1,
     "product-reference": 10,
     "compendium": 8
@@ -38,6 +38,37 @@
       "file": "content/authored/manifesto/autonomous-market-creation.md",
       "bodyMarkdown": "# Autonomous Market Creation\n\nAutonomous market creation is the positive version of the market-creation gap. Instead of asking which markets deserve to exist, the system lets markets begin in a constrained form and then become more efficient if real demand appears.\n\nThe source thesis has six moving parts: any token can begin with a market, the first state can be inefficient but functional, traders make the market deeper over time, objective maturity metrics track progress, graduation can happen by transparent criteria, and no human listing desk has to decide in advance which assets deserve a derivatives venue.\n\nThat matters because it changes what \"permissionless\" means. It is not just permissionless contract deployment. It is permissionless market testing with an economic path from first trade to mature venue.\n\n## Reader Implication\n\nThis page should orient founders, treasuries, and traders around Vibe as a market-lifecycle machine. A market starts because someone wants exposure; it matures because enough flow, balance, and liquidity show up.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.6 The Vision: Autonomous Market Creation\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-four-transitions`\n- `authored-market-maturation-z-score`",
       "excerpt": "Autonomous Market Creation Autonomous market creation is the positive version of the market creation gap. Instead of asking which markets deserve to exist, the system lets markets begin in a constrained form and then become more efficient if real demand appears. The source thesis has six moving parts: any token can begin with a market, the first state can be inefficient but functional, traders make the market deeper over time, objective maturity metrics track progress, graduation can happen by transparent criteria, and no human listing desk has to decide in advance which assets deserve a derivatives venue. That matters because it changes what \"permissionless\" means. It is not just permissionless contract deployment. It is permissionless market testing with an economic path from first trade to mature venue. Reader Implication This page should orient founders, treasuries, and traders around Vibe as a market lifecycle machine. A market starts because someone wants exposure; it matures because enough flow, balance, and liquidity show up. Sources vibe papers : Neelo, \"Section 1: Introduction: 1.6 The Vision: Autonomous Market Creation\". Related Pages authored market creation gap authore"
+    },
+    {
+      "id": "authored-barometer-subgraph-upgrade",
+      "title": "Barometer Subgraph Upgrade",
+      "section": "dashboard-reference",
+      "track": "Volume",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "Linear SYN-200",
+        "https://docs.goldsky.com/subgraphs/introduction",
+        "https://docs.goldsky.com/subgraphs/graph-endpoints",
+        "server/volume.js",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "linear-subgraph-volume",
+        "local-volume-source",
+        "local-volume-snapshots"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/barometer-subgraph-upgrade.md",
+      "bodyMarkdown": "# Barometer Subgraph Upgrade\n\nBarometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the current backend rollup.\n\nThe important product point is narrow: Barometer changes the quality of `V` in `V x f x s`; it does not by itself change the revenue formula.\n\n## Current Source Versus Target Source\n\nThe current implementation in `server/volume.js` is REST-first. It calls a backend wallet-volume endpoint, caches each wallet result, and exposes normalized totals to the rest of the app. The code explicitly leaves subgraph fallback out of scope for the current version.\n\nThe target direction in the grounding spec and Linear research is subgraph-backed volume. Goldsky's public docs describe subgraphs as indexed GraphQL APIs over blockchain data, and its endpoint docs explain the GraphQL access model. That supports the architecture of the upgrade: query a maintained analytics index, then aggregate per trader/wallet into the same network model the dashboard already understands.\n\n## What Must Stay Parked\n\nThis page should not invent a final Vibe subgraph endpoint, schema, chain mapping, or venue mapping. The docs can say the intended upgrade is subgraph-backed and that Goldsky-style GraphQL subgraphs are the cited infrastructure pattern. Final publication still needs the exact Vibe subgraph identifiers and the product decision about which venue/chain rows are included in each public metric.\n\n## Reader Implication\n\nWhen a user asks why network volume may differ from another dashboard or from a live venue screen, the answer should separate two questions:\n\n1. Which source powers the current product today?\n2. Which source is intended to improve accuracy later?\n\nToday the answer is backend wallet totals plus snapshots. The planned answer is subgraph-backed Barometer volume once the implementation and endpoint mapping are confirmed.\n\n## Sources\n\n- `syn-200`: Product research for switching network-volume source from backend rollup to subgraphs.\n- `goldsky-subgraphs`: Public subgraph/indexing architecture.\n- `goldsky-graphql-endpoints`: Public GraphQL endpoint model.\n- `server-volume`: Current REST-first implementation and subgraph fallback note.\n- `spec-03`: Grounding note that Barometer is the planned volume-source upgrade.\n\n## Related Pages\n\n- `authored-network-volume`\n- `authored-volume-snapshot-cadence`\n- `authored-estimated-network-revenue`",
+      "excerpt": "Barometer Subgraph Upgrade Barometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the current backend rollup. The important product point is narrow: Barometer changes the quality of V in V x f x s ; it does not by itself change the revenue formula. Current Source Versus Target Source The current implementation in server/volume.js is REST first. It calls a backend wallet volume endpoint, caches each wallet result, and exposes normalized totals to the rest of the app. The code explicitly leaves subgraph fallback out of scope for the current version. The target direction in the grounding spec and Linear research is subgraph backed volume. Goldsky's public docs describe subgraphs as indexed GraphQL APIs over blockchain data, and its endpoint docs explain the GraphQL access model. That supports the architecture of the upgrade: query a maintained analytics index, then aggregate per trader/wallet into the same network model "
     },
     {
       "id": "authored-bilateral-intent-lifecycle",
@@ -1118,6 +1149,40 @@
       "excerpt": "Onboarding Points And Vibe Points The docs need to keep points vocabulary separated. The onboarding app has campaign style points for actions such as registration, content tasks, and referral participation. Vibe public docs describe protocol facing Vibe points categories such as trading, referring, and community activity. The dashboard also surfaces network or trading related values that should not be collapsed into one generic \"points\" number. The safest public language is explicit: onboarding points are campaign/accounting units in this app; Vibe points are the trading program points described by Vibe's public docs; referral points are their own category; and network/trading points are aggregated from trading activity where the product source supports that wording. TGE settlement language needs care. The current grounding says onboarding points settle at TGE with a multiplier on the network's Vibecaps trading volume, but final publication should cite the exact user facing source and product owner wording before making that a prominent promise. Reader Implication Users ask \"where did my points go?\" because the product has multiple point systems. The answer should first identify wh"
     },
     {
+      "id": "authored-points-taxonomy",
+      "title": "Points Taxonomy",
+      "section": "rewards-referrals",
+      "track": "Points",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "server-points",
+        "server-me",
+        "dashboard-app",
+        "dashboard-overview",
+        "vibe-points",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "server/points.js",
+        "server/routes/me.js",
+        "src/dashboard/app.jsx",
+        "src/dashboard/overview.jsx",
+        "https://docs.vibe.trading/trading/vibe-points.md",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "local-points-engine",
+        "local-dashboard-points-distinction",
+        "vibe-points-overview",
+        "neelo-17-referral-program-17-docs-04-points-and-rewards"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/points-taxonomy.md",
+      "bodyMarkdown": "# Points Taxonomy\n\nThe docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings:\n\n1. **Onboarding points** are campaign/accounting points inside this onboarding app. They come from registration, verification-adjacent tasks, content actions, and referral-chain awards.\n2. **Referral points** are the onboarding-app entries awarded through the referral chain when a referred user qualifies.\n3. **Network/trading points** are aggregated from wallet trading data alongside network volume, where the backend returns `total_points` for wallets in the user's network.\n4. **Vibe points** are the public Vibe trading-program points described by Vibe's docs, covering trading, referring, and community categories.\n\nThose rails can be related, but they are not interchangeable.\n\n## Onboarding Points\n\n`server/points.js` is the local points ledger for the onboarding app. It is append-only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral-level amounts, code-grant counts, grant pool, and referral-depth config. Admin config now treats percentages and totals as canonical inputs, derives absolute reward amounts, and restricts unknown config keys.\n\nThe Overview page displays this ledger as user-facing points history. It shows the type, amount, referred user/level when present, and time.\n\n## Network And Trading Points\n\n`server/volume.js` accepts `total_points` from the same wallet-total payload that provides `total_trade_volume`. `server/routes/me.js` aggregates that value across snapshot rows and returns it to both the Volume and Pulse surfaces. That makes network/trading points part of the same measurement stack as network volume.\n\nBecause this is tied to the volume source, it inherits the same source caveats: caching, daily snapshots, and the future Barometer/subgraph upgrade.\n\n## Vibe Points\n\nThe public Vibe points docs describe Vibe's own points program. Those docs are the source for trading-program categories. The onboarding app should cite them when it talks about Vibe points, but it should not collapse Vibe points into onboarding campaign points.\n\n## Publication Rule\n\nEvery page should name the rail before explaining the number. \"Your points\" is too vague. Use \"onboarding points,\" \"referral points,\" \"network/trading points,\" or \"Vibe points\" depending on the source and behavior being explained.\n\n## Sources\n\n- `server-points`: Local points ledger, config, referral chain, and award semantics.\n- `server-me`: Points ledger payload and aggregated network points.\n- `dashboard-app`: Footer distinction between onboarding points and trading points.\n- `dashboard-overview`: Points ledger UI.\n- `vibe-points`: Public Vibe points categories.\n- `spec-03`: Required separation of onboarding, network/trading, referral, and Vibe points.\n\n## Related Pages\n\n- `authored-points-and-vibe-points`\n- `authored-vibe-points-program`\n- `authored-tge-settlement-multiplier`",
+      "excerpt": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the onboarding app entries awarded through the referral chain when a referred user qualifies. 3. Network/trading points are aggregated from wallet trading data alongside network volume, where the backend returns total points for wallets in the user's network. 4. Vibe points are the public Vibe trading program points described by Vibe's docs, covering trading, referring, and community categories. Those rails can be related, but they are not interchangeable. Onboarding Points server/points.js is the local points ledger for the onboarding app. It is append only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral level amounts, code grant counts, grant pool, and referral depth config. Admin config now treats percentages and totals as canonical inputs, der"
+    },
+    {
       "id": "authored-proof-of-value",
       "title": "Proof Of Value",
       "section": "manifesto",
@@ -1430,6 +1495,35 @@
       "file": "content/authored/reference/symmio-party-a-party-b.md",
       "bodyMarkdown": "# PartyA And PartyB\n\nSymmio names the two sides of an intent-based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position.\n\nThat vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state.\n\nFor Vibe, the PartyA/PartyB model explains why solvers are central. The user-facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance.\n\n## Reader Implication\n\nWhen a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained.\n\n## Sources\n\n- `symmio-core`: Symmio core concepts.\n- `symmio-intent-lifecycle`: Symmio intent lifecycle and event monitoring.\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-vibe-trade-flow`\n- `symmio-core-concepts`",
       "excerpt": "PartyA And PartyB Symmio names the two sides of an intent based derivatives trade with protocol roles. PartyA is the trader/requester side. PartyB is the solver or counterparty side that accepts, prices, hedges, and manages the other side of the position. That vocabulary matters because it prevents the docs from flattening the protocol into \"user versus exchange.\" Symmio is better understood as a clearing and settlement layer where applications can present different products while the protocol tracks roles, collateral, margin, and lifecycle state. For Vibe, the PartyA/PartyB model explains why solvers are central. The user facing product can feel like a trading app, but the market is sustained by professional counterparties deciding what flow to accept and how to manage the exposure after acceptance. Reader Implication When a page says \"trader\", ask whether it means PartyA. When it says \"solver\", \"market maker\", or \"counterparty\", ask whether it means PartyB. The distinction controls how margin, settlement, liquidation, hedging, and responsibility should be explained. Sources symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring."
+    },
+    {
+      "id": "authored-tge-settlement-multiplier",
+      "title": "TGE Settlement Multiplier",
+      "section": "rewards-referrals",
+      "track": "Points",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
+      ],
+      "sourceUrls": [
+        "src/dashboard/app.jsx",
+        "_specs/app-docs/03-grounding.md",
+        "server/points.js",
+        "src/dashboard/overview.jsx"
+      ],
+      "relatedGeneratedPages": [
+        "local-dashboard-points-distinction",
+        "local-points-engine",
+        "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-9-tge-allocation-rule"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/tge-settlement-multiplier.md",
+      "bodyMarkdown": "# TGE Settlement Multiplier\n\nThe dashboard footer currently tells users that onboarding points are tallied off-chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on `beta.vibe.trading`.\n\nThat makes the TGE multiplier a public-facing concept, but it still needs careful documentation because the exact formula is not implemented as a final public settlement calculator in this search-book source set.\n\n## What The Current Sources Prove\n\nThe current sources prove three things:\n\n- The onboarding app keeps an off-chain points ledger.\n- The dashboard user interface tells users the onboarding points will interact with network Vibecaps trading volume at TGE.\n- The docs spec requires this distinction to be documented separately from Vibe protocol/trading points.\n\nThey do not prove the final settlement formula, the exact multiplier schedule, claim mechanics, TGE timing, eligibility cutoff, anti-sybil adjustments, or whether historical backfill changes the final public explanation.\n\n## How To Explain It Safely\n\nUse this wording until a product owner approves the final formula:\n\n```text\nOnboarding points are off-chain campaign points. The current dashboard says they are intended to settle at TGE with a multiplier tied to the network's Vibecaps trading volume. The final settlement formula, eligibility rules, and claim mechanics need product-owner confirmation before publication as a promise.\n```\n\nThat wording preserves the user-facing concept without pretending the docs have the final economic schedule.\n\n## Reader Implication\n\nIf a user asks \"what are my points worth?\", the docs should not answer with a token value or a fixed conversion. The correct answer is rail-first:\n\n1. Identify whether the user means onboarding points, Vibe points, referral points, or network/trading points.\n2. Explain that onboarding points are tracked off-chain now.\n3. Explain that the dashboard frames TGE settlement as multiplier-based.\n4. State that final settlement mechanics are pending public confirmation.\n\n## Sources\n\n- `dashboard-app`: Footer language separating onboarding points from trading points and naming the TGE multiplier concept.\n- `spec-03`: Required TGE settlement note and points taxonomy.\n- `server-points`: Off-chain local points ledger.\n- `dashboard-overview`: Points ledger display.\n\n## Related Pages\n\n- `authored-points-taxonomy`\n- `authored-points-and-vibe-points`\n- `authored-vibe-points-program`",
+      "excerpt": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier a public facing concept, but it still needs careful documentation because the exact formula is not implemented as a final public settlement calculator in this search book source set. What The Current Sources Prove The current sources prove three things: The onboarding app keeps an off chain points ledger. The dashboard user interface tells users the onboarding points will interact with network Vibecaps trading volume at TGE. The docs spec requires this distinction to be documented separately from Vibe protocol/trading points. They do not prove the final settlement formula, the exact multiplier schedule, claim mechanics, TGE timing, eligibility cutoff, anti sybil adjustments, or whether historical backfill changes the final public explanation. How To Explain It Safely Use this wording until a product owner approves the final formul"
     },
     {
       "id": "authored-token-margined-reflexivity-risk",
@@ -2125,6 +2219,37 @@
       "file": "content/authored/compendium/volume-08-dashboard-faq-and-living-docs.md",
       "bodyMarkdown": "# Volume 08: Dashboard, FAQ, And Living Docs\n\nThe compendium ends where the user actually operates: the dashboard, the FAQ, and the answer-engine feedback loop. This is the reference layer that turns the manifesto into a self-serve product surface.\n\nThe dashboard pages need special discipline because they sit closest to current implementation. Revenue, volume, points, invite states, and tasks must cite code and local docs, and they must keep configurable or unresolved claims labeled. The FAQ layer remains local until the Discord and Lafa corpus is provided.\n\n## What This Volume Does\n\n- It documents every dashboard view as a first-class page.\n- It gives the answer engine exact routes for revenue, volume, points, invites, settings, tasks, and FAQ questions.\n- It explains the living-docs loop: question tracking, answer ratings, gaps, and demand-driven improvement.\n- It keeps open operator decisions visible in the gap queue instead of hiding them in polished copy.\n\n## Reader Implication\n\nIf you are using the dashboard, this volume should answer what each number means and why it can be trusted. If it cannot answer, the question should become a tracked gap.\n\n## Sources\n\n- `spec-03`: Dashboard and economics grounding.\n- `spec-06`: Answer-engine and living-docs loop.\n- `spec-09`: Mockup and visual IA target.\n- `dashboard-app`: Current dashboard shell.\n- `local-revenue-doc`: Local network-revenue explanation.\n- `dashboard-revenue-doc`: In-app revenue documentation.\n\n## Related Pages\n\n- `authored-dashboard-overview`\n- `authored-estimated-network-revenue`\n- `authored-search-insights-loop`\n- `authored-dashboard-faq`",
       "excerpt": "Volume 08: Dashboard, FAQ, And Living Docs The compendium ends where the user actually operates: the dashboard, the FAQ, and the answer engine feedback loop. This is the reference layer that turns the manifesto into a self serve product surface. The dashboard pages need special discipline because they sit closest to current implementation. Revenue, volume, points, invite states, and tasks must cite code and local docs, and they must keep configurable or unresolved claims labeled. The FAQ layer remains local until the Discord and Lafa corpus is provided. What This Volume Does It documents every dashboard view as a first class page. It gives the answer engine exact routes for revenue, volume, points, invites, settings, tasks, and FAQ questions. It explains the living docs loop: question tracking, answer ratings, gaps, and demand driven improvement. It keeps open operator decisions visible in the gap queue instead of hiding them in polished copy. Reader Implication If you are using the dashboard, this volume should answer what each number means and why it can be trusted. If it cannot answer, the question should become a tracked gap. Sources spec 03 : Dashboard and economics grounding."
+    },
+    {
+      "id": "authored-volume-snapshot-cadence",
+      "title": "Volume Snapshot Cadence",
+      "section": "dashboard-reference",
+      "track": "Volume",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "server-volume",
+        "server-volume-snapshots",
+        "server-me",
+        "dashboard-volume",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "server/volume.js",
+        "server/volume-snapshots.js",
+        "server/routes/me.js",
+        "src/dashboard/volume.jsx",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "local-volume-source",
+        "local-volume-snapshots",
+        "local-network-depth"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/volume-snapshot-cadence.md",
+      "bodyMarkdown": "# Volume Snapshot Cadence\n\nThe dashboard does not treat network volume as a live tick-by-tick feed. The current implementation reads each wallet's cumulative Vibe trading volume from the backend wallet-volume API, caches the result, and then stores daily wallet snapshots that the dashboard can aggregate without making a live upstream request for every page load.\n\nThat distinction matters because the reader sees a measured operating number with intentional lag:\n\n- `server/volume.js` normalizes the upstream `total_trade_volume` response, preserves raw fixed-point diagnostics when present, and uses a six-hour cache with stale-while-revalidate behavior.\n- `server/volume-snapshots.js` persists per-wallet daily snapshots for known users and can seed a snapshot from a fresh cache entry before spending live backend quota.\n- `server/routes/me.js` aggregates those snapshots across descendants, returning per-level counts, wallet counts, snapshotted counts, total volume, total points, snapshot cadence, and stale markers.\n- `src/dashboard/volume.jsx` shows the total, the level breakdown, the wallet rows, each snapshot date, and a stale badge when a row is missing or older than the cadence.\n\n## What The Lag Means\n\nA user should not expect the Volume tab to move every time someone in their network trades. The current source is cumulative wallet volume, refreshed through cache and daily snapshots. That makes the number resilient and inexpensive to serve, but it also means the dashboard is a recent operational read rather than an instant settlement ledger.\n\nThe same caveat applies to downstream metrics. Estimated network revenue and network trading points are only as current as the volume/points snapshot feeding them.\n\n## What Is Safe To Say Publicly\n\nIt is safe to say that the current dashboard uses backend wallet-volume readings, local cache, and daily snapshots. It is also safe to say that the UI exposes staleness rather than hiding it.\n\nIt is not safe to publish a final referral-depth statement from this page. The route aggregates to the configured referral depth, but the public 5-versus-15 wording remains parked under the referral-depth operator decision.\n\n## Sources\n\n- `server-volume`: Wallet-volume API shape, normalization, six-hour cache, and stale-while-revalidate behavior.\n- `server-volume-snapshots`: Daily snapshot persistence, stale detection, cache seeding, and scheduled refresh.\n- `server-me`: `/api/me/volume` aggregation payload.\n- `dashboard-volume`: Volume tab labels, table shape, stale badge, and cadence display.\n- `spec-03`: Current volume source and Barometer guidance.\n\n## Related Pages\n\n- `authored-network-volume`\n- `authored-dashboard-volume`\n- `authored-estimated-network-revenue`",
+      "excerpt": "Volume Snapshot Cadence The dashboard does not treat network volume as a live tick by tick feed. The current implementation reads each wallet's cumulative Vibe trading volume from the backend wallet volume API, caches the result, and then stores daily wallet snapshots that the dashboard can aggregate without making a live upstream request for every page load. That distinction matters because the reader sees a measured operating number with intentional lag: server/volume.js normalizes the upstream total trade volume response, preserves raw fixed point diagnostics when present, and uses a six hour cache with stale while revalidate behavior. server/volume snapshots.js persists per wallet daily snapshots for known users and can seed a snapshot from a fresh cache entry before spending live backend quota. server/routes/me.js aggregates those snapshots across descendants, returning per level counts, wallet counts, snapshotted counts, total volume, total points, snapshot cadence, and stale markers. src/dashboard/volume.jsx shows the total, the level breakdown, the wallet rows, each snapshot date, and a stale badge when a row is missing or older than the cadence. What The Lag Means A user s"
     },
     {
       "id": "authored-why-derivatives-matter",

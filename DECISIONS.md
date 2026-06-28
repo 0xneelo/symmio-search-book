@@ -359,3 +359,11 @@
 **Reason:** The operator raised the compendium from the older 100-page floor to 500-800 pages. The current manifest already maps 794 pages; the remaining risk is drift across scripts or verification checks. A shared target helper makes the scale explicit, auditable, and hard to accidentally weaken.
 
 **Status:** Accepted for compendium readiness checks.
+
+## D-046: Split Product Metrics Into Source-Status Pages
+
+**Decision:** Add separate authored pages for volume snapshot cadence, Barometer/subgraph upgrade status, points taxonomy, and TGE settlement multiplier rather than folding all product-economics semantics into the existing revenue, volume, and points overview pages.
+
+**Reason:** The reference layer needs to answer practical user questions without overstating unresolved product decisions. Splitting current source behavior from target-source migration, and splitting point rails from TGE settlement, lets the docs be useful now while keeping referral depth, Barometer endpoint mapping, and final settlement formula under operator review.
+
+**Status:** Accepted for the product-reference layer.
