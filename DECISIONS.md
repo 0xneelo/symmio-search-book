@@ -503,3 +503,11 @@
 **Reason:** The larger 500-800 page compendium should not only publish the high-conviction thesis. It also has to onboard users into the product with precise custody, funding, balance, risk, and audit semantics. These pages convert practical Vibe account guides into source-backed answers while keeping large-withdrawal thresholds, exact live contract inventory, token/staking audit status, and future security-roadmap details source-limited.
 
 **Status:** Accepted for the authored product-reference layer.
+
+## D-064: Document Utility Surfaces Without Diluting Market-Creation Terms
+
+**Decision:** Add authored reference pages from current official Vibe docs for hotkeys, mobile PWA, TradingView controls, system visualization, and project listing terms. Park Add Token Info behind operator inbox item #9 after two source-fetch approval timeouts instead of authoring from a one-line companion brief.
+
+**Reason:** The compendium should answer practical product-usage questions and project-side market-creation questions, but those answer types need different publication posture. Hotkeys, mobile, and chart controls can be straightforward user guides. System visualization and project listing terms touch token supply loans, solver profit channels, project distributions, custody, audit rights, conduct restrictions, termination, and legal terms, so they must remain source-limited and review-marked.
+
+**Status:** Accepted for the authored product-reference layer.

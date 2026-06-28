@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 982,
-  "totalChunks": 1666,
-  "pagesWithChunks": 982,
+  "totalPages": 987,
+  "totalChunks": 1676,
+  "pagesWithChunks": 987,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -84,16 +84,21 @@
     "vibe-deposits-withdrawals",
     "vibe-fees",
     "vibe-funding",
+    "vibe-hotkeys",
     "vibe-llms",
     "vibe-margin",
+    "vibe-mobile-pwa",
     "vibe-oi-liquidity",
     "vibe-order-types",
     "vibe-papers",
     "vibe-points",
+    "vibe-project-listing-terms",
     "vibe-referral-program",
     "vibe-security-audits",
     "vibe-simple-trade",
+    "vibe-system-visualization",
     "vibe-tpsl",
+    "vibe-tradingview-control",
     "vibe-what-is"
   ],
   "sourceRefs": {
@@ -487,6 +492,12 @@
       "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
       "href": "https://docs.vibe.trading/trading/funding.md"
     },
+    "vibe-hotkeys": {
+      "key": "vibe-hotkeys",
+      "group": "Public Vibe Sources",
+      "use": "Keyboard shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls.",
+      "href": "https://docs.vibe.trading/trading/hot-keys.md"
+    },
     "vibe-llms": {
       "key": "vibe-llms",
       "group": "Public Vibe Sources",
@@ -498,6 +509,12 @@
       "group": "Public Vibe Sources",
       "use": "VibeCaps margin behavior.",
       "href": "https://docs.vibe.trading/trading/managing-vibecaps-margin.md"
+    },
+    "vibe-mobile-pwa": {
+      "key": "vibe-mobile-pwa",
+      "group": "Public Vibe Sources",
+      "use": "Mobile PWA installation on iOS/Android, push-notification categories, and configurable notification settings.",
+      "href": "https://docs.vibe.trading/trading/mobile-app-pwa.md"
     },
     "vibe-oi-liquidity": {
       "key": "vibe-oi-liquidity",
@@ -523,6 +540,12 @@
       "use": "Trading, referring, and community points categories.",
       "href": "https://docs.vibe.trading/trading/vibe-points.md"
     },
+    "vibe-project-listing-terms": {
+      "key": "vibe-project-listing-terms",
+      "group": "Public Vibe Sources",
+      "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+      "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
+    },
     "vibe-referral-program": {
       "key": "vibe-referral-program",
       "group": "Public Vibe Sources",
@@ -541,11 +564,23 @@
       "use": "Simple trade placement flow and trade ticket controls.",
       "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
     },
+    "vibe-system-visualization": {
+      "key": "vibe-system-visualization",
+      "group": "Public Vibe Sources",
+      "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+      "href": "https://docs.vibe.trading/system-visualisation.md"
+    },
     "vibe-tpsl": {
       "key": "vibe-tpsl",
       "group": "Public Vibe Sources",
       "use": "Take-profit and stop-loss setup, amendment, and execution caveats.",
       "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md"
+    },
+    "vibe-tradingview-control": {
+      "key": "vibe-tradingview-control",
+      "group": "Public Vibe Sources",
+      "use": "In-app TradingView controls for indicators, chart customization, saved layouts, ticker switching, and watchlists.",
+      "href": "https://docs.vibe.trading/trading/tradingview-control.md"
     },
     "vibe-what-is": {
       "key": "vibe-what-is",
@@ -555,12 +590,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 170,
+    "authored": 175,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 325,
+    "authored": 335,
     "curated": 20,
     "generated": 1321
   },
@@ -573,7 +608,7 @@
     "rewards-referrals": 32,
     "answer-engine": 1,
     "solver-reference": 9,
-    "product-reference": 32,
+    "product-reference": 42,
     "compendium": 16,
     "Dashboard": 2,
     "Competitive": 1,
@@ -7662,6 +7697,60 @@
       "text": "explains why perpetuals have recurring payments. When perpetual prices are above spot, long traders pay short side solvers. When perpetual prices are below spot, short side solvers pay long traders. The point is to keep the perpetual price aligned with the underlying spot market. Funding affects holding cost and profitability, so it belongs in strategy and risk pages, not only in an advanced glossary. Minimum Payment Threshold The funding page says Vibe relies on solver quotes and real time trader/solver interaction for funding rate inputs. It also states that if the amount owed is lower than blockchain gas cost, the funding payment is not processed because each update requires an on chain interaction. Reader Implication When answering \"what will this trade cost?\", show both layers: fees around the trade and funding over time. Exact percentages require current product confirmation; funding direction depends on market conditions and position side. Sources vibe fees : official fee categories and trade panel cost breakdown caveat. vibe funding : official funding rate direction, solver pricing, and minimum payment threshold. Related Pages authored vibe simple trade flow authored vibe order types authored vibe oi and liquidity symmio funding rates"
     },
     {
+      "id": "authored-vibe-hotkeys::001",
+      "pageId": "authored-vibe-hotkeys",
+      "chunkIndex": 1,
+      "title": "Vibe Hotkeys",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/hot-keys.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/order-types.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-hotkeys.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Hotkeys Vibe's hotkey guide treats keyboard control as part of execution speed. Hotkeys let a trader move through the ticket, select order modes, open common panels, and submit a trade without depending entirely on the mouse. Current Shortcut Surface The public hotkey page lists shortcuts for Market and Limit order selection, Amount and Price input focus, token picker opening, Buy/Long and Sell/Short direction, trade placement, leverage modal opening, orderbook visibility, deposit flow, and TP/SL controls. That means hotkeys belong in the trading workflow docs, not only in a convenience appendix. They sit directly beside order type, direction, amount, leverage, and risk management controls. Guardrail Keyboard speed does not change the trade semantics. A hotkey can move the user through the interface faster, but the same order type, margin, fee, funding, and TP/SL rules still apply. The docs should present hotkeys as UI acceleration, not as a separate execution engine. Reader Implication When a trader asks how to move faster in the Vibe UI, route them here. When they ask what an order does after a shortcut selects it, route them to the simple trade flow, order type, TP/SL, and account health pages. Sources vibe hotkeys : official shortcut list and execution speed framing. vibe simple trade : trade ticket sequence that the shortcuts accelerate. vibe order types : order"
+    },
+    {
+      "id": "authored-vibe-hotkeys::002",
+      "pageId": "authored-vibe-hotkeys",
+      "chunkIndex": 2,
+      "title": "Vibe Hotkeys",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/hot-keys.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+        "https://docs.vibe.trading/trading/order-types.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-hotkeys.md",
+      "wordStart": 185,
+      "wordEnd": 240,
+      "wordCount": 55,
+      "text": "flow, order type, TP/SL, and account health pages. Sources vibe hotkeys : official shortcut list and execution speed framing. vibe simple trade : trade ticket sequence that the shortcuts accelerate. vibe order types : order modes selected by the hotkey flow. Related Pages authored vibe simple trade flow authored vibe order types authored vibe tpsl"
+    },
+    {
       "id": "authored-vibe-intent-architecture::001",
       "pageId": "authored-vibe-intent-architecture",
       "chunkIndex": 1,
@@ -7714,6 +7803,56 @@
       "wordEnd": 365,
       "wordCount": 180,
       "text": "acceptance, solver collateral deposit, bilateral agreement, lifecycle monitoring. Bilateral Agreement Vibe's architecture page calls the live position a perpetual bilateral agreement. Symmio's core docs provide the protocol vocabulary behind that idea: PartyA is the trader/requester side, PartyB is the solver/counterparty side, and the protocol tracks collateral, margin, CVA, and lifecycle state. This is why the Vibe x Symmio compendium should teach product and protocol language together. Vibe makes the interaction readable; Symmio supplies the settlement grammar. Reader Implication For traders, \"intent\" means they are asking the market for executable terms. For solvers, it means they are operating quote, risk, collateral, hedging, and lifecycle infrastructure. For docs, it means every page should name whether it is explaining product quote UX, protocol lifecycle state, or solver operations. Sources vibe architecture : AMFQ, trade intention, solver offers, request to trade, solver acceptance, collateral, bilateral agreement, and off chain hedging. symmio core : PartyA/PartyB and collateral vocabulary. symmio intent lifecycle : quote event monitoring and lifecycle state. Related Pages authored vibe trade flow authored bilateral intent lifecycle authored solver event monitoring vibe architecture amfq"
+    },
+    {
+      "id": "authored-vibe-mobile-pwa::001",
+      "pageId": "authored-vibe-mobile-pwa",
+      "chunkIndex": 1,
+      "title": "Vibe Mobile PWA",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-mobile-pwa.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Mobile PWA The mobile PWA page positions Vibe as an installable trading surface for users who want position control and alerts away from desktop. It is especially relevant to email created accounts, where the official source recommends installing the app for smoother mobile usage. Notifications The public page lists push notifications for opened trades, closed trades, referral updates, liquidations, new features, rewards, and newly added trading pairs. It also says users can configure which notifications they receive in app settings. For documentation, that notification list should be treated as product surface scope. It does not replace risk monitoring; it tells the user which events the mobile app is designed to surface. Installation Flow The official setup flow is platform specific: On iOS, open Safari, visit app.vibe.trading , choose Install PWA App from the navigation menu, use the share sheet, and add the app to the home screen. On Android, open Chrome or another browser, visit app.vibe.trading , choose Install PWA App, use the browser menu, and add the app to the home screen. Reader Implication When a user asks whether Vibe has a mobile app, the precise answer is \"mobile PWA.\" The docs should explain installation, alert categories, and configurable settings, then route risk sensitive questions back to account health, liquidation, and portfolio pages. Sources vibe mobile pwa :"
+    },
+    {
+      "id": "authored-vibe-mobile-pwa::002",
+      "pageId": "authored-vibe-mobile-pwa",
+      "chunkIndex": 2,
+      "title": "Vibe Mobile PWA",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+        "https://docs.vibe.trading/getting-started/account-creation.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-mobile-pwa.md",
+      "wordStart": 185,
+      "wordEnd": 259,
+      "wordCount": 74,
+      "text": "app, the precise answer is \"mobile PWA.\" The docs should explain installation, alert categories, and configurable settings, then route risk sensitive questions back to account health, liquidation, and portfolio pages. Sources vibe mobile pwa : official iOS/Android setup instructions, notification categories, and configurable settings. vibe account creation : account path context for email/social onboarding. Related Pages authored vibe account creation and login authored vibe portfolio and account data authored vibe account health and liquidations"
     },
     {
       "id": "authored-vibe-oi-and-liquidity::001",
@@ -8009,6 +8148,81 @@
       "text": "Vibe overview says its bespoke lowcap solver isolates each lowcap perp market and frames that isolation as protection against platform wide risk if a token fails. The docs can report that product claim, but they should also route users to risk, margin, and solver pages before turning it into a guarantee. For publication, the safer formulation is: Vibe's public product story is isolated lowcap perp listing; the exact operational guarantees, solver exposure, vault inventory treatment, and LP risk visibility must be explained on the dedicated risk pages where the relevant sources are cited. Reader Implication If a reader asks \"what is Vibe?\", the answer should not be only a DEX category label. Vibe is a perpetuals product, a permissionless market creation path, and a demand discovery layer in the broader Vibe x Symmio thesis. Sources vibe what is : official product positioning, major market and lowcap listing claims. vibe architecture : intent based quotation and execution model. vibe papers : Neelo's market creation and discovery layer thesis. Related Pages authored vibe intent architecture authored vibe as discovery layer authored market assembly line vibe product what is"
     },
     {
+      "id": "authored-vibe-project-listing-terms::001",
+      "pageId": "authored-vibe-project-listing-terms",
+      "chunkIndex": 1,
+      "title": "Vibe Project Listing Terms",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/system-visualisation.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-project-listing-terms.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe Project Listing Terms The project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice. Service Model The terms frame the relationship as a market making and liquidity service for a token issuer or project. The service can include creating a perpetual market on Vibe/Symmio, supporting liquidity, price stabilization, and orderly trading activity, with KPIs specified in the relevant statement of work. The source also gives the client an audit path: the client can request access to trading records and PnL statements with prior written notice, using a mutually agreed third party auditor under confidentiality obligations, with audit costs borne by the client. Custody And Risk The terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. They also include a custody risk disclaimer: no custody method or smart contract arrangement is entirely risk free. The page describes a discretionary security fund concept, but also states that it is not a legally segregated or guaranteed reserve. That distinction is important for publication: the docs can explain the"
+    },
+    {
+      "id": "authored-vibe-project-listing-terms::002",
+      "pageId": "authored-vibe-project-listing-terms",
+      "chunkIndex": 2,
+      "title": "Vibe Project Listing Terms",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/system-visualisation.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-project-listing-terms.md",
+      "wordStart": 185,
+      "wordEnd": 405,
+      "wordCount": 220,
+      "text": "entirely risk free. The page describes a discretionary security fund concept, but also states that it is not a legally segregated or guaranteed reserve. That distinction is important for publication: the docs can explain the control, but should not imply guaranteed insurance coverage. Profit, Conduct, And Exit Mechanics The terms distinguish operational profits, such as spreads, fees, funding, borrowing costs, and liquidation fees, from opportunistic revenues related to maintenance margin, trading results, and rebalancing. Profit split and distribution mechanics are agreement specific, and the source says no profit, return, volume, liquidity, price performance, or market outcome is guaranteed. The terms also include conduct restrictions against market manipulation, client information obligations, termination rights, community notice and wind down language around delisting, final reporting, and Swiss law arbitration terms. Reader Implication Projects should read this page before treating Vibe listing as a simple self serve ticker request. Traders should read it as background for how project side inventory and market making services can support a Vibe perp, not as a guarantee of any specific market's terms, liquidity, or profit split. Sources vibe project listing terms : official project listing and market making terms. vibe system visualization : concise public workflow connecting project supply, solver operations, user trading, and project distributions. Related Pages authored vibe system visualization authored vibe as discovery layer authored"
+    },
+    {
+      "id": "authored-vibe-project-listing-terms::003",
+      "pageId": "authored-vibe-project-listing-terms",
+      "chunkIndex": 3,
+      "title": "Vibe Project Listing Terms",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/system-visualisation.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-project-listing-terms.md",
+      "wordStart": 370,
+      "wordEnd": 410,
+      "wordCount": 40,
+      "text": "project listing and market making terms. vibe system visualization : concise public workflow connecting project supply, solver operations, user trading, and project distributions. Related Pages authored vibe system visualization authored vibe as discovery layer authored symmio solver operations and hedging"
+    },
+    {
       "id": "authored-vibe-security-and-audits::001",
       "pageId": "authored-vibe-security-and-audits",
       "chunkIndex": 1,
@@ -8117,6 +8331,60 @@
       "text": "loss thresholds are reached. Reader Implication When a new trader asks how to place a trade, the docs should answer in the language of the ticket: market, direction, amount, entry type, and optional exits. When a more technical reader asks what happens behind that ticket, route them to the intent architecture and Symmio lifecycle pages. Sources vibe simple trade : official simple trade sequence and keyboard control references. vibe order types : supported order categories and pending advanced types. vibe tpsl : TP/SL trigger and amendment behavior. vibe architecture : intent based solver quotation and execution context. Related Pages authored vibe trade flow authored vibe order types authored vibe tpsl authored vibe intent architecture"
     },
     {
+      "id": "authored-vibe-system-visualization::001",
+      "pageId": "authored-vibe-system-visualization",
+      "chunkIndex": 1,
+      "title": "Vibe System Visualization",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-system-visualization.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Vibe System Visualization The public system visualization page is the shortest official explanation of how a project side perp listing can work on Vibe: a project wants a perp, discusses supply and revenue projections, agrees terms, loans token supply to the solver, gets listed, users trade, and the solver manages trading and hedging. Listing Loop The source presents the listing loop as a project inventory and solver operation workflow. The project contributes supply, the solver facilitates trading, and the market creates activity around the token as a perpetual. The source also gives example commercial ranges: a project loan is usually described as 1% 5% of supply, and 75% 85% of solver profits are periodically returned to the project depending on volume. Those figures should stay marked for operator/accounting review before final publication, because commercial terms can vary and the project listing terms say material commercial terms belong in the applicable agreement or statement of work. Solver Profit Sources The same page lists spread, funding rates, liquidations, and losing trades as solver profit sources. That phrasing is useful because it connects the project facing story to trading mechanics: solver economics are not a single fee line; they come from multiple market making and risk management channels. Reader Implication When a project asks \"how does listing a perp with Vibe work?\", route"
+    },
+    {
+      "id": "authored-vibe-system-visualization::002",
+      "pageId": "authored-vibe-system-visualization",
+      "chunkIndex": 2,
+      "title": "Vibe System Visualization",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-system-visualization.md",
+      "wordStart": 185,
+      "wordEnd": 319,
+      "wordCount": 134,
+      "text": "trading mechanics: solver economics are not a single fee line; they come from multiple market making and risk management channels. Reader Implication When a project asks \"how does listing a perp with Vibe work?\", route them here for the high level loop, then to project listing terms for service, custody, profit, audit, and termination mechanics. When a trader asks what happens behind their trade, route them to the intent architecture and solver operations pages. Sources vibe system visualization : official project to perp workflow, supply loan range, solver profit source list, and project profit share range. vibe project listing terms : terms source that keeps commercial terms agreement specific. vibe architecture : AMFQ and solver execution context. Related Pages authored vibe project listing terms authored vibe intent architecture authored symmio solver operations and hedging"
+    },
+    {
       "id": "authored-vibe-tpsl::001",
       "pageId": "authored-vibe-tpsl",
       "chunkIndex": 1,
@@ -8196,6 +8464,31 @@
       "wordEnd": 206,
       "wordCount": 206,
       "text": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent based quotation process. Symmio's protocol sources frame the settlement side with PartyA, PartyB, collateral, and lifecycle events. The compendium should connect those two layers on every trading page: Vibe makes the product legible; Symmio gives the trade its protocol structure. This also explains why solver quality matters to UX. A better solver path can quote faster, hedge better, handle more markets, and produce a tighter experience. A weak solver path creates delay, rejection, poor pricing, or brittle lifecycle handling. Reader Implication For a trader, \"trade flow\" should answer what happens after submitting an intent. For a solver, it should identify where quoting, risk checks, event monitoring, hedging, and settlement responsibility enter the system. Sources vibe architecture : Vibe architectural overview. symmio core : Symmio core concepts. symmio intent lifecycle : Symmio intent lifecycle and event monitoring. Related Pages authored intents and solvers authored symmio party a party b vibe architecture amfq"
+    },
+    {
+      "id": "authored-vibe-tradingview-controls::001",
+      "pageId": "authored-vibe-tradingview-controls",
+      "chunkIndex": 1,
+      "title": "Vibe TradingView Controls",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/trading/tradingview-control.md",
+        "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-tradingview-controls.md",
+      "wordStart": 0,
+      "wordEnd": 200,
+      "wordCount": 200,
+      "text": "Vibe TradingView Controls Vibe's TradingView controls keep chart analysis inside the trading product. The point is not only prettier charts; it is reducing context switching while a trader studies a market and prepares a trade. Charting Controls The official TradingView page names five practical capabilities: adding indicators, customizing chart appearance, saving multiple layouts, switching tickers while preserving drawn lines and indicators, and creating custom watchlists. Those controls support repeated market review. Saved layouts and persistent drawings matter because a trader can compare markets without reconstructing the chart state every time they move between tickers. Source Boundary The public source does not enumerate every supported indicator, data vendor, chart interval, or watchlist constraint. The compendium should document the control categories and avoid pretending the source is a complete TradingView feature matrix. Reader Implication When a user asks where to perform technical analysis, route them here. When they ask how analysis becomes an order, route them to the simple trade flow, order type, liquidity, and TP/SL pages. Sources vibe tradingview control : official charting control capabilities. vibe simple trade : trade flow that chart analysis informs. Related Pages authored vibe simple trade flow authored vibe order types authored vibe oi and liquidity"
     },
     {
       "id": "authored-vibecaps-margin-management::001",

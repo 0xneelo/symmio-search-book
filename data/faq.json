@@ -8,35 +8,35 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 157,
-  "totalAnswerable": 151,
-  "totalUnresolved": 6,
+  "totalEntries": 163,
+  "totalAnswerable": 156,
+  "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 24,
+    "Getting Started": 27,
     "Trading Flow": 13,
     "Solvers And Settlement": 31,
     "Risk And Markets": 15,
     "Revenue": 12,
+    "Manifesto": 36,
     "Rewards And Referrals": 17,
     "Dashboard": 9,
-    "Manifesto": 34,
-    "Data And Volume": 1,
+    "Data And Volume": 2,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 72,
-    "High": 25,
+    "Medium": 74,
+    "High": 28,
     "Low": 54
   },
   "byRouteSource": {
-    "authored": 151
+    "authored": 156
   },
   "byType": {
-    "answerable": 151,
-    "reconciliation": 6
+    "answerable": 156,
+    "reconciliation": 7
   },
   "answerable": [
     {
@@ -752,6 +752,207 @@
           "group": "Public Vibe Sources",
           "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
           "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-hotkeys-does-vibe-support",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which hotkeys does Vibe support?",
+      "normalizedQuestion": "which hotkeys does vibe support",
+      "shortAnswer": "Official Vibe hotkey docs list shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls.",
+      "answerSummary": "Vibe Hotkeys Vibe's hotkey guide treats keyboard control as part of execution speed. Hotkeys let a trader move through the ticket, select order modes, open common panels, and submit a trade without depending entirely on the mouse. Current Shortcut Surface The public hotkey page lists shortcuts for Market and Limit order selection, Amount and Price input f...",
+      "confidence": "High",
+      "pageId": "authored-vibe-hotkeys",
+      "pageTitle": "Vibe Hotkeys",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ],
+      "sources": [
+        {
+          "key": "vibe-hotkeys",
+          "group": "Public Vibe Sources",
+          "use": "Keyboard shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls.",
+          "href": "https://docs.vibe.trading/trading/hot-keys.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-i-install-the-vibe-mobile-pwa",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do I install the Vibe mobile PWA?",
+      "normalizedQuestion": "how do i install the vibe mobile pwa",
+      "shortAnswer": "Official Vibe mobile docs support iOS and Android PWA installation flows, push-notification categories, and configurable notification settings.",
+      "answerSummary": "Vibe Mobile PWA The mobile PWA page positions Vibe as an installable trading surface for users who want position control and alerts away from desktop. It is especially relevant to email created accounts, where the official source recommends installing the app for smoother mobile usage. Notifications The public page lists push notifications for opened trad...",
+      "confidence": "High",
+      "pageId": "authored-vibe-mobile-pwa",
+      "pageTitle": "Vibe Mobile PWA",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-mobile-pwa",
+          "group": "Public Vibe Sources",
+          "use": "Mobile PWA installation on iOS/Android, push-notification categories, and configurable notification settings.",
+          "href": "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-can-vibe-tradingview-controls-do",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What can Vibe TradingView controls do?",
+      "normalizedQuestion": "what can vibe tradingview controls do",
+      "shortAnswer": "Official Vibe charting docs support indicators, chart customization, saved layouts, ticker switching with drawings preserved, and custom watchlists.",
+      "answerSummary": "Vibe TradingView Controls Vibe's TradingView controls keep chart analysis inside the trading product. The point is not only prettier charts; it is reducing context switching while a trader studies a market and prepares a trade. Charting Controls The official TradingView page names five practical capabilities: adding indicators, customizing chart appearanc...",
+      "confidence": "High",
+      "pageId": "authored-vibe-tradingview-controls",
+      "pageTitle": "Vibe TradingView Controls",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ],
+      "sources": [
+        {
+          "key": "vibe-tradingview-control",
+          "group": "Public Vibe Sources",
+          "use": "In-app TradingView controls for indicators, chart customization, saved layouts, ticker switching, and watchlists.",
+          "href": "https://docs.vibe.trading/trading/tradingview-control.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-project-perp-listing-work-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does a project perp listing work on Vibe?",
+      "normalizedQuestion": "how does a project perp listing work on vibe",
+      "shortAnswer": "Official Vibe system visualization supports the project-supply, solver, trading, hedging, and project distribution loop; commercial ranges need operator/accounting review.",
+      "answerSummary": "Vibe System Visualization The public system visualization page is the shortest official explanation of how a project side perp listing can work on Vibe: a project wants a perp, discusses supply and revenue projections, agrees terms, loans token supply to the solver, gets listed, users trade, and the solver manages trading and hedging. Listing Loop The sou...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-system-visualization",
+      "pageTitle": "Vibe System Visualization",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-vibe-project-listing-terms-cover",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What do Vibe project listing terms cover?",
+      "normalizedQuestion": "what do vibe project listing terms cover",
+      "shortAnswer": "Official project listing terms cover market-making services, custody risk, audit rights, profit categories, conduct restrictions, termination, and delisting mechanics.",
+      "answerSummary": "Vibe Project Listing Terms The project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice. Service Model The terms frame the relationship as a market mak...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-listing-terms",
+      "pageTitle": "Vibe Project Listing Terms",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
           "missing": false
         }
       ]
@@ -5667,6 +5868,30 @@
           "missing": false
         }
       ]
+    },
+    {
+      "id": "faq-gap-what-project-managed-token-metadata-can-be-added-to-vibe",
+      "type": "reconciliation",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "What project-managed token metadata can be added to Vibe?",
+      "gapId": "G-012",
+      "gapTitle": "Vibe Add Token Info Source Fetch Is Parked",
+      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
+      "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text.",
+      "confidence": "Needs Reconciliation",
+      "sourceKeys": [
+        "spec-06"
+      ],
+      "sources": [
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        }
+      ]
     }
   ],
   "entries": [
@@ -6383,6 +6608,207 @@
           "group": "Public Vibe Sources",
           "use": "Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context.",
           "href": "https://audits.sherlock.xyz/contests/85",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-hotkeys-does-vibe-support",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Which hotkeys does Vibe support?",
+      "normalizedQuestion": "which hotkeys does vibe support",
+      "shortAnswer": "Official Vibe hotkey docs list shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls.",
+      "answerSummary": "Vibe Hotkeys Vibe's hotkey guide treats keyboard control as part of execution speed. Hotkeys let a trader move through the ticket, select order modes, open common panels, and submit a trade without depending entirely on the mouse. Current Shortcut Surface The public hotkey page lists shortcuts for Market and Limit order selection, Amount and Price input f...",
+      "confidence": "High",
+      "pageId": "authored-vibe-hotkeys",
+      "pageTitle": "Vibe Hotkeys",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ],
+      "sources": [
+        {
+          "key": "vibe-hotkeys",
+          "group": "Public Vibe Sources",
+          "use": "Keyboard shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls.",
+          "href": "https://docs.vibe.trading/trading/hot-keys.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-order-types",
+          "group": "Public Vibe Sources",
+          "use": "Market, limit, TP/SL, stop, scale, and TWAP order behavior.",
+          "href": "https://docs.vibe.trading/trading/order-types.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-i-install-the-vibe-mobile-pwa",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do I install the Vibe mobile PWA?",
+      "normalizedQuestion": "how do i install the vibe mobile pwa",
+      "shortAnswer": "Official Vibe mobile docs support iOS and Android PWA installation flows, push-notification categories, and configurable notification settings.",
+      "answerSummary": "Vibe Mobile PWA The mobile PWA page positions Vibe as an installable trading surface for users who want position control and alerts away from desktop. It is especially relevant to email created accounts, where the official source recommends installing the app for smoother mobile usage. Notifications The public page lists push notifications for opened trad...",
+      "confidence": "High",
+      "pageId": "authored-vibe-mobile-pwa",
+      "pageTitle": "Vibe Mobile PWA",
+      "pageSection": "product-reference",
+      "pageTrack": "Account And Safety",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ],
+      "sources": [
+        {
+          "key": "vibe-mobile-pwa",
+          "group": "Public Vibe Sources",
+          "use": "Mobile PWA installation on iOS/Android, push-notification categories, and configurable notification settings.",
+          "href": "https://docs.vibe.trading/trading/mobile-app-pwa.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-account-creation",
+          "group": "Public Vibe Sources",
+          "use": "EOA wallet and email/social account creation paths, one-click gas-free trading setup, and custody/security tradeoffs.",
+          "href": "https://docs.vibe.trading/getting-started/account-creation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-can-vibe-tradingview-controls-do",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What can Vibe TradingView controls do?",
+      "normalizedQuestion": "what can vibe tradingview controls do",
+      "shortAnswer": "Official Vibe charting docs support indicators, chart customization, saved layouts, ticker switching with drawings preserved, and custom watchlists.",
+      "answerSummary": "Vibe TradingView Controls Vibe's TradingView controls keep chart analysis inside the trading product. The point is not only prettier charts; it is reducing context switching while a trader studies a market and prepares a trade. Charting Controls The official TradingView page names five practical capabilities: adding indicators, customizing chart appearanc...",
+      "confidence": "High",
+      "pageId": "authored-vibe-tradingview-controls",
+      "pageTitle": "Vibe TradingView Controls",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Guides",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ],
+      "sources": [
+        {
+          "key": "vibe-tradingview-control",
+          "group": "Public Vibe Sources",
+          "use": "In-app TradingView controls for indicators, chart customization, saved layouts, ticker switching, and watchlists.",
+          "href": "https://docs.vibe.trading/trading/tradingview-control.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-simple-trade",
+          "group": "Public Vibe Sources",
+          "use": "Simple trade placement flow and trade ticket controls.",
+          "href": "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-project-perp-listing-work-on-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does a project perp listing work on Vibe?",
+      "normalizedQuestion": "how does a project perp listing work on vibe",
+      "shortAnswer": "Official Vibe system visualization supports the project-supply, solver, trading, hedging, and project distribution loop; commercial ranges need operator/accounting review.",
+      "answerSummary": "Vibe System Visualization The public system visualization page is the shortest official explanation of how a project side perp listing can work on Vibe: a project wants a perp, discusses supply and revenue projections, agrees terms, loans token supply to the solver, gets listed, users trade, and the solver manages trading and hedging. Listing Loop The sou...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-system-visualization",
+      "pageTitle": "Vibe System Visualization",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-vibe-project-listing-terms-cover",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What do Vibe project listing terms cover?",
+      "normalizedQuestion": "what do vibe project listing terms cover",
+      "shortAnswer": "Official project listing terms cover market-making services, custody risk, audit rights, profit categories, conduct restrictions, termination, and delisting mechanics.",
+      "answerSummary": "Vibe Project Listing Terms The project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice. Service Model The terms frame the relationship as a market mak...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-listing-terms",
+      "pageTitle": "Vibe Project Listing Terms",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
           "missing": false
         }
       ]
@@ -11288,6 +11714,30 @@
           "href": "../../_specs/app-docs/04-sources.md",
           "missing": false
         },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-gap-what-project-managed-token-metadata-can-be-added-to-vibe",
+      "type": "reconciliation",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "What project-managed token metadata can be added to Vibe?",
+      "gapId": "G-012",
+      "gapTitle": "Vibe Add Token Info Source Fetch Is Parked",
+      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
+      "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text.",
+      "confidence": "Needs Reconciliation",
+      "sourceKeys": [
+        "spec-06"
+      ],
+      "sources": [
         {
           "key": "spec-06",
           "group": "Local Specs",

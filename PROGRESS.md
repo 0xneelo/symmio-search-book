@@ -382,12 +382,20 @@
 - Added five authored Volume 07 reference pages for account creation/login, deposits and withdrawals, portfolio/account data, account-health liquidations, and security/audits.
 - Routed five new Vibe onboarding/account/risk/security questions to authored pages while keeping large-withdrawal thresholds, exact live contract inventory, token/staking audit details, and future security-roadmap claims source-limited or under operator review.
 
+## 2026-06-28 — Official Vibe Utility And Market Access Authored Layer
+
+- Fetched current official Vibe markdown for hotkeys, mobile PWA, TradingView controls, system visualization, and project listing terms. Two network-escalated attempts to fetch Add Token Info timed out during approval review, so that page is parked in operator inbox item #9 instead of guessed.
+- Registered page-specific official Vibe source keys for hotkeys, mobile PWA, TradingView controls, system visualization, and project listing terms.
+- Added five authored Volume 07 product-reference pages for keyboard operation, mobile installation and notifications, in-app chart controls, project-side system visualization, and project listing terms.
+- Routed five new utility/access/market-creation questions to authored pages while keeping supply-loan ranges, project distribution percentages, custody/security-fund language, profit split, and legal terms under operator/accounting/legal review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
 - Opyn official-doc access, replacement, or exclusion decision for the competitive sweep.
+- Vibe Add Token Info source fetch or canonical replacement.
 - Vibe-specific covered-call/vault inventory example and LP exposure semantics.
 - Revenue disclosure boundary.
 - Referral-depth public stance.

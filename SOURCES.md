@@ -81,6 +81,11 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-account-health-liquidations` | https://docs.vibe.trading/trading/account-health-and-liquidations.md | Account-health semantics, equity balance, maintenance margin/CVA, liquidation scope, locked margin, and available-for-orders formulas. |
 | `vibe-security-audits` | https://docs.vibe.trading/more-info/security-and-audits.md | Public Vibe security/audit posture, SYMMIO-Core v0.8.4 settlement-contract audit statement, and token/staking audit roadmap caveat. |
 | `sherlock-symmetrical-contest` | https://audits.sherlock.xyz/contests/85 | Sherlock contest page linked by Vibe's security guide for Symmetrical/SYMMIO-Core audit context. |
+| `vibe-hotkeys` | https://docs.vibe.trading/trading/hot-keys.md | Keyboard shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls. |
+| `vibe-mobile-pwa` | https://docs.vibe.trading/trading/mobile-app-pwa.md | Mobile PWA installation on iOS/Android, push-notification categories, and configurable notification settings. |
+| `vibe-tradingview-control` | https://docs.vibe.trading/trading/tradingview-control.md | In-app TradingView controls for indicators, chart customization, saved layouts, ticker switching, and watchlists. |
+| `vibe-system-visualization` | https://docs.vibe.trading/system-visualisation.md | Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges. |
+| `vibe-project-listing-terms` | https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md | Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process. |
 | `vibe-papers` | https://github.com/0xneelo/vibe_docs | Research-paper corpus and long-form themes. |
 | `vibe-papers-site` | https://0xneelo.github.io/vibe_docs/ | Reader-first published version of Neelo's papers. |
 | `vibe-papers-data` | `/tmp/vibe_docs/Website/public/generated/docs-data.json` | Session 1 local clone data used to derive the 794-page manifest. |

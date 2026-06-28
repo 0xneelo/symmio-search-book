@@ -23,6 +23,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does My Account show on Vibe? | `authored-vibe-portfolio-and-account-data` | High | Official Vibe portfolio docs support open positions, PnL windows, transaction history, balance/account health, referral code overview, points, fees/funding charts, and CSV export. |
 | How does Vibe account health affect liquidation risk? | `authored-vibe-account-health-and-liquidations` | High | Official Vibe account-health docs define equity, maintenance margin/CVA, locked margin, available-for-orders math, CVA forfeiture, and cross-margin versus isolated VibeCaps scope. |
 | What security and audit status does Vibe publish? | `authored-vibe-security-and-audits` | Medium | Official Vibe docs and the linked Sherlock contest support SYMMIO-Core v0.8.4 settlement-contract audit context; token/staking audit details remain coming soon. |
+| Which hotkeys does Vibe support? | `authored-vibe-hotkeys` | High | Official Vibe hotkey docs list shortcuts for order type, amount, token picker, long/short, trade placement, leverage, price, orderbook, deposit, and TP/SL controls. |
+| How do I install the Vibe mobile PWA? | `authored-vibe-mobile-pwa` | High | Official Vibe mobile docs support iOS and Android PWA installation flows, push-notification categories, and configurable notification settings. |
+| What can Vibe TradingView controls do? | `authored-vibe-tradingview-controls` | High | Official Vibe charting docs support indicators, chart customization, saved layouts, ticker switching with drawings preserved, and custom watchlists. |
+| How does a project perp listing work on Vibe? | `authored-vibe-system-visualization` | Medium | Official Vibe system visualization supports the project-supply, solver, trading, hedging, and project distribution loop; commercial ranges need operator/accounting review. |
+| What do Vibe project listing terms cover? | `authored-vibe-project-listing-terms` | Medium | Official project listing terms cover market-making services, custody risk, audit rights, profit categories, conduct restrictions, termination, and delisting mechanics. |
 | How are Vibe points earned? | `authored-vibe-points-program` | Medium | Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic. |
 | How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
 | Why does the dashboard revenue number move? | `authored-dashboard-revenue-pulse` | Medium | Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout. |
@@ -172,6 +177,7 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 | Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |
+| What project-managed token metadata can be added to Vibe? | `G-012` | Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text. |
 
 ## Seeded FAQ Topics For Discord Mining
 
