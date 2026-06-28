@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 63,
-  "totalAnswerable": 57,
+  "totalEntries": 68,
+  "totalAnswerable": 62,
   "totalUnresolved": 6,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 7,
     "Trading Flow": 8,
-    "Solvers And Settlement": 10,
+    "Solvers And Settlement": 15,
     "Risk And Markets": 6,
     "Revenue": 5,
     "Rewards And Referrals": 5,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 34,
     "High": 18,
-    "Low": 5
+    "Low": 10
   },
   "byRouteSource": {
-    "authored": 57
+    "authored": 62
   },
   "byType": {
-    "answerable": 57,
+    "answerable": 62,
     "reconciliation": 6
   },
   "answerable": [
@@ -2296,6 +2296,175 @@
           "group": "Public Symmio Sources",
           "use": "Solver event monitoring and quote lifecycle.",
           "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-solver-hedge-before-accepting-a-lowcap-trade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does a solver hedge before accepting a lowcap trade?",
+      "normalizedQuestion": "how does a solver hedge before accepting a lowcap trade",
+      "shortAnswer": "Neelo DDQ sources support hedge-first residual counterparty behavior; production-specific hedge policy needs operator review.",
+      "answerSummary": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before fi...",
+      "confidence": "Low",
+      "pageId": "authored-residual-counterparty-hedge-first",
+      "pageTitle": "Residual Counterparty And Hedge-First Execution",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-cannot-hedge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver cannot hedge?",
+      "normalizedQuestion": "what happens if a solver cannot hedge",
+      "shortAnswer": "Neelo DDQ sources describe constrained hedging, refusal/tightening/freezing paths, and strategic unhedged exposure caveats.",
+      "answerSummary": "Solver Hedging Failure Modes The DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low cap VibeCaps style markets are described as hedge first by default. That is different from an order b...",
+      "confidence": "Low",
+      "pageId": "authored-solver-hedging-failure-modes",
+      "pageTitle": "Solver Hedging Failure Modes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-goes-offline",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver goes offline?",
+      "normalizedQuestion": "what happens if a solver goes offline",
+      "shortAnswer": "Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review.",
+      "answerSummary": "Solver Operational Failure And Force Close The DDQ separates solver operational failure from solver insolvency. Operational failure means the solver becomes unresponsive: it does not answer open or close requests through the normal off chain intent/RFQ path. The modeled recovery path is an on chain Force Close escape hatch. The user can initiate an on cha...",
+      "confidence": "Low",
+      "pageId": "authored-solver-operational-failure-force-close",
+      "pageTitle": "Solver Operational Failure And Force Close",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-defaults",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver defaults?",
+      "normalizedQuestion": "what happens if a solver defaults",
+      "shortAnswer": "Neelo DDQ sources distinguish protocol-operated and third-party solver default modes; exact production behavior needs operator review.",
+      "answerSummary": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, mainte...",
+      "confidence": "Low",
+      "pageId": "authored-solver-default-and-continuity",
+      "pageTitle": "Solver Default And Trade Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-bears-losses-in-a-tail-event",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who bears losses in a tail event?",
+      "normalizedQuestion": "who bears losses in a tail event",
+      "shortAnswer": "Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review.",
+      "answerSummary": "Loss Waterfall And Tail Event Profit Caps The DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations? The model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbala...",
+      "confidence": "Low",
+      "pageId": "authored-loss-waterfall-and-profit-caps",
+      "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -4881,6 +5050,175 @@
           "group": "Public Symmio Sources",
           "use": "Solver event monitoring and quote lifecycle.",
           "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-solver-hedge-before-accepting-a-lowcap-trade",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does a solver hedge before accepting a lowcap trade?",
+      "normalizedQuestion": "how does a solver hedge before accepting a lowcap trade",
+      "shortAnswer": "Neelo DDQ sources support hedge-first residual counterparty behavior; production-specific hedge policy needs operator review.",
+      "answerSummary": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before fi...",
+      "confidence": "Low",
+      "pageId": "authored-residual-counterparty-hedge-first",
+      "pageTitle": "Residual Counterparty And Hedge-First Execution",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-cannot-hedge",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver cannot hedge?",
+      "normalizedQuestion": "what happens if a solver cannot hedge",
+      "shortAnswer": "Neelo DDQ sources describe constrained hedging, refusal/tightening/freezing paths, and strategic unhedged exposure caveats.",
+      "answerSummary": "Solver Hedging Failure Modes The DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low cap VibeCaps style markets are described as hedge first by default. That is different from an order b...",
+      "confidence": "Low",
+      "pageId": "authored-solver-hedging-failure-modes",
+      "pageTitle": "Solver Hedging Failure Modes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-goes-offline",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver goes offline?",
+      "normalizedQuestion": "what happens if a solver goes offline",
+      "shortAnswer": "Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review.",
+      "answerSummary": "Solver Operational Failure And Force Close The DDQ separates solver operational failure from solver insolvency. Operational failure means the solver becomes unresponsive: it does not answer open or close requests through the normal off chain intent/RFQ path. The modeled recovery path is an on chain Force Close escape hatch. The user can initiate an on cha...",
+      "confidence": "Low",
+      "pageId": "authored-solver-operational-failure-force-close",
+      "pageTitle": "Solver Operational Failure And Force Close",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-happens-if-a-solver-defaults",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What happens if a solver defaults?",
+      "normalizedQuestion": "what happens if a solver defaults",
+      "shortAnswer": "Neelo DDQ sources distinguish protocol-operated and third-party solver default modes; exact production behavior needs operator review.",
+      "answerSummary": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, mainte...",
+      "confidence": "Low",
+      "pageId": "authored-solver-default-and-continuity",
+      "pageTitle": "Solver Default And Trade Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-bears-losses-in-a-tail-event",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who bears losses in a tail event?",
+      "normalizedQuestion": "who bears losses in a tail event",
+      "shortAnswer": "Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review.",
+      "answerSummary": "Loss Waterfall And Tail Event Profit Caps The DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations? The model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbala...",
+      "confidence": "Low",
+      "pageId": "authored-loss-waterfall-and-profit-caps",
+      "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

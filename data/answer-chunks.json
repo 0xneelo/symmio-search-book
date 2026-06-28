@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 888,
-  "totalChunks": 1488,
-  "pagesWithChunks": 888,
+  "totalPages": 893,
+  "totalChunks": 1498,
+  "pagesWithChunks": 893,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -429,18 +429,18 @@
     }
   },
   "byRouteSource": {
-    "authored": 76,
+    "authored": 81,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 147,
+    "authored": 157,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
     "manifesto": 62,
-    "protocol-reference": 22,
+    "protocol-reference": 32,
     "competitive-context": 6,
     "dashboard-reference": 20,
     "reference": 2,
@@ -1937,6 +1937,56 @@
       "text": ": Neelo, \"The Listing Monopoly: Controlling the Token Lifecycle\". vibe papers : Neelo, \"Section 4: The Lifecycle Gap\". Related Pages authored vibe as discovery layer authored game theory of listings neelo 03 listing monopoly 03 docs 00 abstract"
     },
     {
+      "id": "authored-loss-waterfall-and-profit-caps::001",
+      "pageId": "authored-loss-waterfall-and-profit-caps",
+      "chunkIndex": 1,
+      "title": "Loss Waterfall And Tail-Event Profit Caps",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/loss-waterfall-and-profit-caps.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Loss Waterfall And Tail Event Profit Caps The DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations? The model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbalance, losses can move into solver hedging resources, LP vault capacity used for hedging, local insurance, and then the market's allocation of global insurance. Tail Event Profit Caps The DDQ explicitly treats profit caps as tail event tools, not normal UX. The cap exists for catastrophic gaps, manipulation, discontinuous pricing, or other states where standard liquidation and hedging cannot safely clear. The key economic idea is bounded loss propagation. A permissionless system cannot promise unlimited payouts from markets that may be adversarial, newly launched, or extremely thin. If a market has limited liquidity, limited local insurance, and no global insurance allocation, the maximum realizable payout should be bounded by the resources actually available to that market. Maturation Path The same source gives a useful maturity model. New markets can begin close to fully backed protocol side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior,"
+    },
+    {
+      "id": "authored-loss-waterfall-and-profit-caps::002",
+      "pageId": "authored-loss-waterfall-and-profit-caps",
+      "chunkIndex": 2,
+      "title": "Loss Waterfall And Tail-Event Profit Caps",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/loss-waterfall-and-profit-caps.md",
+      "wordStart": 185,
+      "wordEnd": 313,
+      "wordCount": 128,
+      "text": "model. New markets can begin close to fully backed protocol side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior, not assumed at launch. Publication Note This page should not publish exact production caps, percentages, global insurance allocation rules, or market tier policy without operator review. It documents the source model and the reader facing risk vocabulary. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\" and \"Balancing UX vs Risk\". vibe papers : Neelo funding model, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored solver hedging failure modes authored economic clarity for permissionless perps neelo 08 due diligence questionnaire 08 docs risk walkthrough a bearer of losses i bearer of losses"
+    },
+    {
       "id": "authored-lp-profit-and-dynamic-pricing::001",
       "pageId": "authored-lp-profit-and-dynamic-pricing",
       "chunkIndex": 1,
@@ -2782,6 +2832,62 @@
       "text": "behavior. dashboard faq : User facing FAQ copy. dashboard volume : Volume UI copy and historical 5 level remnants. syn 172 : 15 level rollout evidence. syn 118 : Network depth product question. spec 03 : Grounding note on the contradiction. Related Pages authored network volume authored points and vibe points local network depth"
     },
     {
+      "id": "authored-residual-counterparty-hedge-first::001",
+      "pageId": "authored-residual-counterparty-hedge-first",
+      "chunkIndex": 1,
+      "title": "Residual Counterparty And Hedge-First Execution",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/residual-counterparty-hedge-first.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance. That makes \"hedge first\" a core design idea for permissionless low cap perps. The solver should establish backing inventory, a hedge, or a risk adjusted quote before it becomes responsible for the residual exposure. Internal And External Hedge Sources For low cap markets, the DDQ source emphasizes internal inventory or vault controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP style routing to reduce price impact. Opposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity. Reader Implication The important support answer is not \"the solver always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen,"
+    },
+    {
+      "id": "authored-residual-counterparty-hedge-first::002",
+      "pageId": "authored-residual-counterparty-hedge-first",
+      "chunkIndex": 2,
+      "title": "Residual Counterparty And Hedge-First Execution",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/residual-counterparty-hedge-first.md",
+      "wordStart": 185,
+      "wordEnd": 297,
+      "wordCount": 112,
+      "text": "always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market level controls can tighten. Sources vibe papers : Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\". vibe architecture : Vibe intent quotation context. symmio intent lifecycle : solver event monitoring, risk checks, locking, and collateral allocation. Related Pages authored solver owned market maker authored solver event monitoring authored vibe oi and liquidity neelo 08 due diligence questionnaire 08 docs solver as residual counterparty solver as residual counterparty"
+    },
+    {
       "id": "authored-search-insights-loop::001",
       "pageId": "authored-search-insights-loop",
       "chunkIndex": 1,
@@ -2805,6 +2911,58 @@
       "wordEnd": 186,
       "wordCount": 186,
       "text": "The Living Docs Loop The answer engine is not only a search box. It is the intake system for documentation demand. The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop. In this prototype, the loop is local and browser based. It stores questions, ratings, and gaps in localStorage and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine. Reader Implication The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next. Sources spec 06 : Answer engine and living docs requirements. spec 09 : Design reference for Search insights. Related Pages authored estimated network revenue authored referral depth open question"
+    },
+    {
+      "id": "authored-solver-default-and-continuity::001",
+      "pageId": "authored-solver-default-and-continuity",
+      "chunkIndex": 1,
+      "title": "Solver Default And Trade Continuity",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-default-and-continuity.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, maintenance margin, and optional position buyout by another solver. For higher reputation solvers, the DDQ describes a softer margin call style path that can de risk progressively before full liquidation. Protocol Operated Solver The same DDQ distinguishes the bootstrapping protocol operated solver from ordinary third party solvers. In that configuration, the protocol operated solver may be treated as not liquidatable in the conventional account level sense. That does not mean users are ignored; it means the shortfall is handled through protocol level buffers, insurance, ADL, and ultimately system level settlement if every layer is exhausted. The publication safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit default payout narrative. Third Party Solver Continuity For third party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible. Publication Note This"
+    },
+    {
+      "id": "authored-solver-default-and-continuity::002",
+      "pageId": "authored-solver-default-and-continuity",
+      "chunkIndex": 2,
+      "title": "Solver Default And Trade Continuity",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation",
+        "https://docs.symm.io/getting-started/core-concepts.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-default-and-continuity.md",
+      "wordStart": 185,
+      "wordEnd": 309,
+      "wordCount": 124,
+      "text": "also describes a preferred continuity path where the protocol operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible. Publication Note This page is source backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication. Sources vibe papers : Neelo DDQ, \"Solver default\" and \"Trader Compensation Solver default\". symmio core : protocol vocabulary for solvers, collateral, margin, and CVA. Related Pages authored collateral margin cva authored solver owned market maker authored funding defense hierarchy neelo 08 due diligence questionnaire 08 docs solver worst case scenarios c solver default i solver default"
     },
     {
       "id": "authored-solver-event-monitoring::001",
@@ -2886,6 +3044,102 @@
       "wordEnd": 459,
       "wordCount": 89,
       "text": "solver eligibility, risk acceptance, lock state, collateral allocation, and lifecycle events. When a solver asks what to build, the answer starts with event listeners and reconciliation, not a static pricing page. Sources symmio what is : solvers as professional market maker counterparties who lock collateral. symmio core : bilateral PartyA/PartyB model and solver role. symmio intent lifecycle : event listener, quote fields, risk checks, locking, collateral allocation, partial fills, and lifecycle monitoring. Related Pages authored bilateral intent lifecycle authored intents and solvers authored vibe trade flow symmio solver role"
+    },
+    {
+      "id": "authored-solver-hedging-failure-modes::001",
+      "pageId": "authored-solver-hedging-failure-modes",
+      "chunkIndex": 1,
+      "title": "Solver Hedging Failure Modes",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-hedging-failure-modes.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Solver Hedging Failure Modes The DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low cap VibeCaps style markets are described as hedge first by default. That is different from an order book framing where a counterparty may be hard committed to a fixed price before external execution is complete. Constrained Hedging Hedging can still become economically or mechanically constrained. The DDQ identifies several stress conditions: external liquidity is too thin for meaningful execution, price formation becomes discontinuous or unreliable, or manipulation signals appear. In those cases the model does not ask the solver to warehouse unbounded exposure. It can widen spreads, adjust funding, reduce open interest, lower leverage, refuse new trades, freeze the market, or move to orderly shutdown depending on the market state and risk controls. Strategic Unhedged Exposure The same source separates failure from strategy. A solver may intentionally hold limited unhedged exposure in a mature market if inventory, risk limits, and expected P&L make that acceptable. That is not the baseline for newly launched low cap markets. Publication Note This page summarizes the DDQ model. Final public docs should not publish exact liquidity collapse triggers, freeze thresholds, or production market shutdown"
+    },
+    {
+      "id": "authored-solver-hedging-failure-modes::002",
+      "pageId": "authored-solver-hedging-failure-modes",
+      "chunkIndex": 2,
+      "title": "Solver Hedging Failure Modes",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-hedging-failure-modes.md",
+      "wordStart": 185,
+      "wordEnd": 276,
+      "wordCount": 91,
+      "text": "That is not the baseline for newly launched low cap markets. Publication Note This page summarizes the DDQ model. Final public docs should not publish exact liquidity collapse triggers, freeze thresholds, or production market shutdown behavior until implementation and operator review confirm them. Sources vibe papers : Neelo DDQ, \"Solver Hedging Risk Considerations\" and \"Balancing UX vs Risk\". Related Pages authored residual counterparty hedge first authored funding defense hierarchy authored liquidity as trader experience neelo 08 due diligence questionnaire 08 docs solver worst case scenarios b hedging risks hedging risk considerations"
+    },
+    {
+      "id": "authored-solver-operational-failure-force-close::001",
+      "pageId": "authored-solver-operational-failure-force-close",
+      "chunkIndex": 1,
+      "title": "Solver Operational Failure And Force Close",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-operational-failure-force-close.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Solver Operational Failure And Force Close The DDQ separates solver operational failure from solver insolvency. Operational failure means the solver becomes unresponsive: it does not answer open or close requests through the normal off chain intent/RFQ path. The modeled recovery path is an on chain Force Close escape hatch. The user can initiate an on chain close request, wait through the protocol timer, provide a recent price proof, and finalize the close without solver cooperation. Financial Effect For The User The DDQ's important distinction is that the user is not meant to lose money simply because the solver is offline. The main financial cost is exposure to market movement during the forced close latency window. The source gives an illustrative minutes level timeline, but final public docs should not freeze exact timing unless production parameters are confirmed. This is the right way to document the risk: the escape hatch reduces dependence on solver uptime, but it does not remove price risk during the recovery path. Why It Matters For leveraged trading, a long horizon withdrawal only emergency path is not enough. A trader needs a position level close path because exposure can change materially in minutes. The DDQ frames Force Close as a position specific escape hatch for solver unresponsiveness. Publication Note This page should remain under operator and implementation"
+    },
+    {
+      "id": "authored-solver-operational-failure-force-close::002",
+      "pageId": "authored-solver-operational-failure-force-close",
+      "chunkIndex": 2,
+      "title": "Solver Operational Failure And Force Close",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/solver-operational-failure-force-close.md",
+      "wordStart": 185,
+      "wordEnd": 284,
+      "wordCount": 99,
+      "text": "position level close path because exposure can change materially in minutes. The DDQ frames Force Close as a position specific escape hatch for solver unresponsiveness. Publication Note This page should remain under operator and implementation review until exact Force Close availability, timer values, proof source, freshness constraints, and UI behavior are confirmed for the production product. Sources vibe papers : Neelo DDQ, \"Operational Failure\" and \"Operation failure aftermath\". Related Pages authored bilateral intent lifecycle authored solver event monitoring authored collateral margin cva neelo 08 due diligence questionnaire 08 docs solver worst case scenarios a operational failures i operational failure"
     },
     {
       "id": "authored-solver-owned-market-maker::001",

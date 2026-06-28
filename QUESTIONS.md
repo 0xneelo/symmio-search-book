@@ -63,6 +63,11 @@ Questions are grouped by whether the current source set can answer them.
 | How does a Symmio intent become a position? | `authored-bilateral-intent-lifecycle` | High | Official Symmio core and lifecycle docs support the PartyA submit, solver observe, lock, collateral allocation, open, close, and reconciliation path. |
 | What does a Symmio solver monitor? | `authored-solver-event-monitoring` | High | Official lifecycle docs describe quote events, PartyB whitelists, risk checks, locking, collateral allocation, partial fills, and status reconciliation. |
 | What are collateral, margin, and CVA? | `authored-collateral-margin-cva` | High | Official Symmio core docs define collateral, locked margin, CVA, available balance, and the current collateral formula. |
+| How does a solver hedge before accepting a lowcap trade? | `authored-residual-counterparty-hedge-first` | Low | Neelo DDQ sources support hedge-first residual counterparty behavior; production-specific hedge policy needs operator review. |
+| What happens if a solver cannot hedge? | `authored-solver-hedging-failure-modes` | Low | Neelo DDQ sources describe constrained hedging, refusal/tightening/freezing paths, and strategic unhedged exposure caveats. |
+| What happens if a solver goes offline? | `authored-solver-operational-failure-force-close` | Low | Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review. |
+| What happens if a solver defaults? | `authored-solver-default-and-continuity` | Low | Neelo DDQ sources distinguish protocol-operated and third-party solver default modes; exact production behavior needs operator review. |
+| Who bears losses in a tail event? | `authored-loss-waterfall-and-profit-caps` | Low | Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review. |
 
 ## Prototype Event Log
 

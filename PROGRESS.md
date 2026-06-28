@@ -257,6 +257,12 @@
 - Added five direct question routes so the Ask surface can explain the pillars and pre-ADL defense stack from authored pages.
 - Placed the new pillar/funding pages in Volume 04 through explicit volume overrides instead of letting manifesto defaults send them to Volume 01.
 
+## 2026-06-28 — Solver And LP Risk Authored Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ solver-risk corpus: residual counterparty hedge-first execution, hedging failure modes, operational failure and Force Close, solver default and continuity, and the loss waterfall/profit-cap model.
+- Added five direct question routes for solver and LP risk questions that previously depended on generated DDQ drafts.
+- Kept all DDQ-derived production-sensitive mechanics under operator/implementation review, including Force Close timers, solver liquidation flags, exact compensation behavior, insurance allocations, and tail-event caps.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

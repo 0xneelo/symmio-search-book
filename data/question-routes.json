@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 57,
+  "totalRoutes": 62,
   "totalReconciliationQuestions": 6,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 34,
     "High": 18,
-    "Low": 5
+    "Low": 10
   },
   "byRouteSource": {
-    "authored": 57
+    "authored": 62
   },
   "answerable": [
     {
@@ -1055,6 +1055,94 @@
       "sourceKeys": [
         "symmio-core",
         "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-a-solver-hedge-before-accepting-a-lowcap-trade",
+      "question": "How does a solver hedge before accepting a lowcap trade?",
+      "normalizedQuestion": "how does a solver hedge before accepting a lowcap trade",
+      "pageId": "authored-residual-counterparty-hedge-first",
+      "pageTitle": "Residual Counterparty And Hedge-First Execution",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo DDQ sources support hedge-first residual counterparty behavior; production-specific hedge policy needs operator review.",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-if-a-solver-cannot-hedge",
+      "question": "What happens if a solver cannot hedge?",
+      "normalizedQuestion": "what happens if a solver cannot hedge",
+      "pageId": "authored-solver-hedging-failure-modes",
+      "pageTitle": "Solver Hedging Failure Modes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo DDQ sources describe constrained hedging, refusal/tightening/freezing paths, and strategic unhedged exposure caveats.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-if-a-solver-goes-offline",
+      "question": "What happens if a solver goes offline?",
+      "normalizedQuestion": "what happens if a solver goes offline",
+      "pageId": "authored-solver-operational-failure-force-close",
+      "pageTitle": "Solver Operational Failure And Force Close",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo DDQ sources describe Force Close as an escape hatch; exact production timers/proofs/UI need implementation review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-if-a-solver-defaults",
+      "question": "What happens if a solver defaults?",
+      "normalizedQuestion": "what happens if a solver defaults",
+      "pageId": "authored-solver-default-and-continuity",
+      "pageTitle": "Solver Default And Trade Continuity",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo DDQ sources distinguish protocol-operated and third-party solver default modes; exact production behavior needs operator review.",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-bears-losses-in-a-tail-event",
+      "question": "Who bears losses in a tail event?",
+      "normalizedQuestion": "who bears losses in a tail event",
+      "pageId": "authored-loss-waterfall-and-profit-caps",
+      "pageTitle": "Loss Waterfall And Tail-Event Profit Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo DDQ sources describe the loss waterfall and profit-cap model; exact caps and insurance policy need operator review.",
+      "sourceKeys": [
+        "vibe-papers"
       ],
       "missing": false
     }

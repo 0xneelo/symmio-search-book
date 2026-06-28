@@ -343,3 +343,11 @@
 **Reason:** The operator identified Neelo's GitHub docs as the strongest vision source. The pillar material explains the architecture tradeoff behind Vibe better than generic product copy: exploit resistance, asynchronous counterparty formation, LP yield, and defense layering have to be read together for the long-tail market thesis to make sense.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-044: Treat Solver Risk Pages As Source-Backed Models Until Implementation Review
+
+**Decision:** Add authored solver/LP risk pages from Neelo's DDQ material, but keep Force Close timing, solver default behavior, compensation, insurance allocation, and tail-event cap language under operator and implementation review.
+
+**Reason:** The DDQ corpus is strong enough to explain the risk model readers need: hedge-first execution, residual counterparty behavior, operational escape hatches, default continuity, and loss waterfalls. Those topics are also production-sensitive, so the compendium should publish the model with clear caveats instead of turning source examples into live guarantees.
+
+**Status:** Accepted for the authored protocol-reference layer.
