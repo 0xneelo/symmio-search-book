@@ -1749,7 +1749,7 @@
         }
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 860px) {
         .rail {
           width: 74px;
           height: 74px;
@@ -1929,6 +1929,68 @@
 
         .section-title {
           font-size: 20px;
+        }
+      }
+
+      @media (min-width: 761px) and (max-width: 860px) {
+        .rail {
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
+        }
+
+        .rail.is-open,
+        .rail:focus-within {
+          left: 0;
+          width: 280px;
+          height: 100vh;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
+          box-shadow: 36px 0 80px rgba(2, 6, 14, 0.55);
+        }
+
+        .rail:hover:not(:focus-within):not(.is-open) {
+          left: -280px;
+          width: 280px;
+          height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          border-right: 1px solid var(--line);
+          background: var(--sidebar);
+          box-shadow: none;
+        }
+
+        .mobile-menu-glyph {
+          position: fixed;
+          top: 16px;
+          left: 16px;
+          z-index: 50;
+          margin: 0;
+        }
+
+        .viewport {
+          padding: 46px 40px 120px;
+        }
+
+        body[data-view="classic"] .viewport {
+          padding-top: 101px;
+        }
+
+        .hero {
+          min-height: 286px;
+          margin: 0 auto 22px;
+          padding-top: calc(clamp(90px, 20vh, 220px) - 23px);
+          padding-bottom: 18px;
+        }
+
+        .ask,
+        #exampleQuestions {
+          width: min(620px, calc(100vw - 128px));
         }
       }
     </style>
