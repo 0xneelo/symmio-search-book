@@ -42,7 +42,9 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 Focused checks for this package:
 
 ```sh
+node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
 node --check src/search-book/answer-corpus.js
+node --check src/search-book/scripts/build-page-manifest.mjs
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.pages.length < 500 || m.pages.length > 800) process.exit(1); console.log(m.pages.length)"
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md

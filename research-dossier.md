@@ -137,6 +137,14 @@ The 794-page manifest is source-mapped as follows:
 
 This gives the compendium enough density for a serious book while keeping the route map traceable.
 
+Regeneration command:
+
+```sh
+node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out src/search-book/page-manifest.json
+```
+
+The script expects a local clone of `0xneelo/vibe_docs` or another copy of its generated `docs-data.json`.
+
 ## Open Operator Threads
 
 The current parked threads live in `_specs/app-docs/OPERATOR-INBOX.md`:
@@ -162,4 +170,3 @@ Recommended next build phases:
 8. Wire ratings and unanswered-question capture.
 9. Import Discord FAQ after operator provides export.
 10. Publish final gap report and phase checkpoint.
-
