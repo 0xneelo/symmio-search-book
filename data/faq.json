@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 279,
-  "totalAnswerable": 272,
+  "totalEntries": 284,
+  "totalAnswerable": 277,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,23 +19,23 @@
     "Trading Flow": 24,
     "Solvers And Settlement": 54,
     "Risk And Markets": 22,
-    "Revenue": 25,
-    "Manifesto": 60,
+    "Revenue": 27,
+    "Manifesto": 63,
     "Rewards And Referrals": 25,
     "Dashboard": 9,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 122,
+    "Medium": 127,
     "High": 44,
     "Low": 106
   },
   "byRouteSource": {
-    "authored": 272
+    "authored": 277
   },
   "byType": {
-    "answerable": 272,
+    "answerable": 277,
     "reconciliation": 7
   },
   "answerable": [
@@ -1810,6 +1810,191 @@
           "group": "Public Vibe Sources",
           "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
           "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-project-supply-loan-become-a-vibe-perp-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does a project supply loan become a Vibe perp listing?",
+      "normalizedQuestion": "how does a project supply loan become a vibe perp listing",
+      "shortAnswer": "Official system visualization supports the project request, supply/revenue discussion, token-supply loan, listing, user trading, and solver hedging loop.",
+      "answerSummary": "Vibe Project Supply Loan Flow The project side listing loop starts with inventory, not only a ticker request. Vibe's system visualization source describes a project that wants a perpetual market, discusses supply and revenue projections, agrees terms, loans token supply to the solver, receives a listing, and then lets users trade while the solver manages...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-supply-loan-flow",
+      "pageTitle": "Vibe Project Supply Loan Flow",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-solver-profit-sources-does-vibe-name-for-project-listings",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which solver profit sources does Vibe name for project listings?",
+      "normalizedQuestion": "which solver profit sources does vibe name for project listings",
+      "shortAnswer": "Official system visualization names spread, funding rates, liquidations, and losing trades; listing terms keep distribution agreement-specific.",
+      "answerSummary": "Vibe Project Solver Profit Sources The official system visualization names multiple solver profit channels for project side perp listings. It lists spread, funding rates, liquidations, and losing trades as solver profit sources. The project listing terms then broaden the economic vocabulary by distinguishing operational profits from opportunistic revenues...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-solver-profit-sources",
+      "pageTitle": "Vibe Project Solver Profit Sources",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-vibe-project-profit-share-percentages-guaranteed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Are Vibe project profit-share percentages guaranteed?",
+      "normalizedQuestion": "are vibe project profit share percentages guaranteed",
+      "shortAnswer": "Official system visualization gives example distributions, while project listing terms say profit splits are agreement-specific and no outcomes are guaranteed.",
+      "answerSummary": "Vibe Project Profit Share Boundary Project profit share language needs the same discipline as user revenue language: cite the source, scope the claim, and do not turn examples into guarantees. The public system visualization page gives an example range for project distributions from solver profits. The project listing terms then say profit splits, distrib...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-profit-share-boundary",
+      "pageTitle": "Vibe Project Profit-Share Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-project-tokens-custodied-for-vibe-listings",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How are project tokens custodied for Vibe listings?",
+      "normalizedQuestion": "how are project tokens custodied for vibe listings",
+      "shortAnswer": "Official listing terms describe client-asset accounting, custody-risk disclaimers, and a non-guaranteed discretionary security-fund concept.",
+      "answerSummary": "Vibe Project Token Custody Boundary Project supplied tokens are part of the market creation workflow, so custody language has to be exact. The project listing terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. The same...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-token-custody-boundary",
+      "pageTitle": "Vibe Project Token Custody Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-a-project-audit-records-or-exit-a-vibe-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Can a project audit records or exit a Vibe listing?",
+      "normalizedQuestion": "can a project audit records or exit a vibe listing",
+      "shortAnswer": "Official listing terms describe audit access, third-party auditor/confidentiality/cost rules, termination, delisting wind-down, and final reporting.",
+      "answerSummary": "Vibe Project Audit And Exit Rights The project listing terms include two practical control surfaces: audit access and exit mechanics. The audit path gives the client a way to request access to trading records and PnL statements with prior written notice. The source says this uses a mutually agreed third party auditor under confidentiality obligations, wit...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-audit-and-exit-rights",
+      "pageTitle": "Vibe Project Audit And Exit Rights",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
           "missing": false
         }
       ]
@@ -11502,6 +11687,191 @@
           "group": "Public Vibe Sources",
           "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
           "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-project-supply-loan-become-a-vibe-perp-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How does a project supply loan become a Vibe perp listing?",
+      "normalizedQuestion": "how does a project supply loan become a vibe perp listing",
+      "shortAnswer": "Official system visualization supports the project request, supply/revenue discussion, token-supply loan, listing, user trading, and solver hedging loop.",
+      "answerSummary": "Vibe Project Supply Loan Flow The project side listing loop starts with inventory, not only a ticker request. Vibe's system visualization source describes a project that wants a perpetual market, discusses supply and revenue projections, agrees terms, loans token supply to the solver, receives a listing, and then lets users trade while the solver manages...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-supply-loan-flow",
+      "pageTitle": "Vibe Project Supply Loan Flow",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-solver-profit-sources-does-vibe-name-for-project-listings",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which solver profit sources does Vibe name for project listings?",
+      "normalizedQuestion": "which solver profit sources does vibe name for project listings",
+      "shortAnswer": "Official system visualization names spread, funding rates, liquidations, and losing trades; listing terms keep distribution agreement-specific.",
+      "answerSummary": "Vibe Project Solver Profit Sources The official system visualization names multiple solver profit channels for project side perp listings. It lists spread, funding rates, liquidations, and losing trades as solver profit sources. The project listing terms then broaden the economic vocabulary by distinguishing operational profits from opportunistic revenues...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-solver-profit-sources",
+      "pageTitle": "Vibe Project Solver Profit Sources",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-vibe-project-profit-share-percentages-guaranteed",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Are Vibe project profit-share percentages guaranteed?",
+      "normalizedQuestion": "are vibe project profit share percentages guaranteed",
+      "shortAnswer": "Official system visualization gives example distributions, while project listing terms say profit splits are agreement-specific and no outcomes are guaranteed.",
+      "answerSummary": "Vibe Project Profit Share Boundary Project profit share language needs the same discipline as user revenue language: cite the source, scope the claim, and do not turn examples into guarantees. The public system visualization page gives an example range for project distributions from solver profits. The project listing terms then say profit splits, distrib...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-profit-share-boundary",
+      "pageTitle": "Vibe Project Profit-Share Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-project-tokens-custodied-for-vibe-listings",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "How are project tokens custodied for Vibe listings?",
+      "normalizedQuestion": "how are project tokens custodied for vibe listings",
+      "shortAnswer": "Official listing terms describe client-asset accounting, custody-risk disclaimers, and a non-guaranteed discretionary security-fund concept.",
+      "answerSummary": "Vibe Project Token Custody Boundary Project supplied tokens are part of the market creation workflow, so custody language has to be exact. The project listing terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. The same...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-token-custody-boundary",
+      "pageTitle": "Vibe Project Token Custody Boundary",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-system-visualization",
+          "group": "Public Vibe Sources",
+          "use": "Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges.",
+          "href": "https://docs.vibe.trading/system-visualisation.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-a-project-audit-records-or-exit-a-vibe-listing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Can a project audit records or exit a Vibe listing?",
+      "normalizedQuestion": "can a project audit records or exit a vibe listing",
+      "shortAnswer": "Official listing terms describe audit access, third-party auditor/confidentiality/cost rules, termination, delisting wind-down, and final reporting.",
+      "answerSummary": "Vibe Project Audit And Exit Rights The project listing terms include two practical control surfaces: audit access and exit mechanics. The audit path gives the client a way to request access to trading records and PnL statements with prior written notice. The source says this uses a mutually agreed third party auditor under confidentiality obligations, wit...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-project-audit-and-exit-rights",
+      "pageTitle": "Vibe Project Audit And Exit Rights",
+      "pageSection": "product-reference",
+      "pageTrack": "Market Creation",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-project-listing-terms"
+      ],
+      "sources": [
+        {
+          "key": "vibe-project-listing-terms",
+          "group": "Public Vibe Sources",
+          "use": "Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process.",
+          "href": "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
           "missing": false
         }
       ]

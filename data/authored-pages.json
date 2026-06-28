@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 291,
+  "totalPages": 296,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 157,
+    "publication-candidate-needs-operator-review": 162,
     "publication-candidate": 121,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
   },
   "bySection": {
     "manifesto": 153,
-    "product-reference": 42,
+    "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 47,
     "competitive-context": 1,
@@ -6403,6 +6403,28 @@
       "excerpt": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and \"390+ markets.\" Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication. What Vibe Adds Vibe combines two ideas that are usually documented separately: A trader facing perpetuals product where users can trade established markets. A market creation surface where projects or inventory owners can support isolated lowcap perp markets using their own supply. Neelo's vision corpus explains why that matters. The point is not simply \"more markets.\" The point is to move market creation upstream: from opaque venue listing committees and mature order books toward permissionless demand discovery, solver quotation, and eventual market graduation. Risk "
     },
     {
+      "id": "authored-vibe-project-audit-and-exit-rights",
+      "title": "Vibe Project Audit And Exit Rights",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-project-listing-terms"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-project-listing-terms",
+        "authored-vibe-project-listing-terms"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-project-audit-and-exit-rights.md",
+      "bodyMarkdown": "# Vibe Project Audit And Exit Rights\n\nThe project-listing terms include two practical control surfaces: audit access and exit mechanics.\n\nThe audit path gives the client a way to request access to trading records and PnL statements with prior written notice. The source says this uses a mutually agreed third-party auditor under confidentiality obligations, with audit costs borne by the client.\n\n## Exit And Delisting\n\nThe same terms include termination rights, community notice and wind-down language around delisting, final reporting, and dispute-resolution language. Those terms matter because a project listing is not only a launch event. It also needs a controlled path if the service ends, the market is delisted, or the relationship changes.\n\n## Reader Guidance\n\nFor projects, the answer is not \"trust the dashboard.\" The public terms describe a formal audit path and an exit/wind-down framework. For traders, the existence of delisting language is a reminder that a listed market can have service-level and safety boundaries; a listing does not guarantee permanent support or unchanged terms.\n\nThis page is a documentation summary, not legal advice. The applicable agreement or statement of work controls exact rights, notice, reporting, and dispute mechanics.\n\n## Sources\n\n- `vibe-project-listing-terms`: official audit access, third-party auditor, confidentiality, termination, delisting, final reporting, and dispute-resolution language.\n\n## Related Pages\n\n- `authored-vibe-project-listing-terms`\n- `authored-vibe-project-token-custody-boundary`\n- `authored-vibe-project-profit-share-boundary`",
+      "excerpt": "Vibe Project Audit And Exit Rights The project listing terms include two practical control surfaces: audit access and exit mechanics. The audit path gives the client a way to request access to trading records and PnL statements with prior written notice. The source says this uses a mutually agreed third party auditor under confidentiality obligations, with audit costs borne by the client. Exit And Delisting The same terms include termination rights, community notice and wind down language around delisting, final reporting, and dispute resolution language. Those terms matter because a project listing is not only a launch event. It also needs a controlled path if the service ends, the market is delisted, or the relationship changes. Reader Guidance For projects, the answer is not \"trust the dashboard.\" The public terms describe a formal audit path and an exit/wind down framework. For traders, the existence of delisting language is a reminder that a listed market can have service level and safety boundaries; a listing does not guarantee permanent support or unchanged terms. This page is a documentation summary, not legal advice. The applicable agreement or statement of work controls e"
+    },
+    {
       "id": "authored-vibe-project-listing-terms",
       "title": "Vibe Project Listing Terms",
       "section": "product-reference",
@@ -6426,6 +6448,108 @@
       "file": "content/authored/reference/vibe-project-listing-terms.md",
       "bodyMarkdown": "# Vibe Project Listing Terms\n\nThe project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice.\n\n## Service Model\n\nThe terms frame the relationship as a market-making and liquidity service for a token issuer or project. The service can include creating a perpetual market on Vibe/Symmio, supporting liquidity, price stabilization, and orderly trading activity, with KPIs specified in the relevant statement of work.\n\nThe source also gives the client an audit path: the client can request access to trading records and PnL statements with prior written notice, using a mutually agreed third-party auditor under confidentiality obligations, with audit costs borne by the client.\n\n## Custody And Risk\n\nThe terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. They also include a custody-risk disclaimer: no custody method or smart-contract arrangement is entirely risk-free.\n\nThe page describes a discretionary security fund concept, but also states that it is not a legally segregated or guaranteed reserve. That distinction is important for publication: the docs can explain the control, but should not imply guaranteed insurance coverage.\n\n## Profit, Conduct, And Exit Mechanics\n\nThe terms distinguish operational profits, such as spreads, fees, funding, borrowing costs, and liquidation fees, from opportunistic revenues related to maintenance margin, trading results, and rebalancing. Profit split and distribution mechanics are agreement-specific, and the source says no profit, return, volume, liquidity, price performance, or market outcome is guaranteed.\n\nThe terms also include conduct restrictions against market manipulation, client information obligations, termination rights, community notice and wind-down language around delisting, final reporting, and Swiss-law arbitration terms.\n\n## Reader Implication\n\nProjects should read this page before treating Vibe listing as a simple self-serve ticker request. Traders should read it as background for how project-side inventory and market-making services can support a Vibe perp, not as a guarantee of any specific market's terms, liquidity, or profit split.\n\n## Sources\n\n- `vibe-project-listing-terms`: official project listing and market-making terms.\n- `vibe-system-visualization`: concise public workflow connecting project supply, solver operations, user trading, and project distributions.\n\n## Related Pages\n\n- `authored-vibe-system-visualization`\n- `authored-vibe-as-discovery-layer`\n- `authored-symmio-solver-operations-and-hedging`",
       "excerpt": "Vibe Project Listing Terms The project listing terms page is not ordinary product copy. It is the public terms source for projects that are listing, or considering listing, a token as a perpetual on Vibe. The compendium should summarize its operating model without turning it into legal advice. Service Model The terms frame the relationship as a market making and liquidity service for a token issuer or project. The service can include creating a perpetual market on Vibe/Symmio, supporting liquidity, price stabilization, and orderly trading activity, with KPIs specified in the relevant statement of work. The source also gives the client an audit path: the client can request access to trading records and PnL statements with prior written notice, using a mutually agreed third party auditor under confidentiality obligations, with audit costs borne by the client. Custody And Risk The terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. They also include a custody risk disclaimer: no custody method or smart contract arrangement is entirely risk free. The "
+    },
+    {
+      "id": "authored-vibe-project-profit-share-boundary",
+      "title": "Vibe Project Profit-Share Boundary",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "authored-vibe-system-visualization"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-project-profit-share-boundary.md",
+      "bodyMarkdown": "# Vibe Project Profit-Share Boundary\n\nProject profit-share language needs the same discipline as user revenue language: cite the source, scope the claim, and do not turn examples into guarantees.\n\nThe public system-visualization page gives an example range for project distributions from solver profits. The project-listing terms then say profit splits, distribution mechanics, and material commercial terms belong in the applicable agreement or statement of work. They also state that no profit, return, volume, liquidity, price performance, or market outcome is guaranteed.\n\n## How To Document It\n\nThe publication-safe shape is:\n\n- cite the system-visualization example as source context;\n- state that actual commercial terms are agreement-specific;\n- avoid implying a guaranteed project return;\n- avoid using project profit-share examples as proof of user dashboard revenue or referrer revenue;\n- route detailed economics to the final operator-approved revenue disclosure boundary when available.\n\n## Reader Guidance\n\nProjects can use this page to understand that Vibe's public materials include a profit-share concept. They should not treat the example range as a live quote, a universal term sheet, or a guaranteed payout schedule.\n\n## Sources\n\n- `vibe-system-visualization`: official project distribution example.\n- `vibe-project-listing-terms`: agreement-specific profit split, no-guarantee, and statement-of-work language.\n\n## Related Pages\n\n- `authored-vibe-project-solver-profit-sources`\n- `authored-vibe-project-listing-terms`\n- `authored-estimated-network-revenue`",
+      "excerpt": "Vibe Project Profit Share Boundary Project profit share language needs the same discipline as user revenue language: cite the source, scope the claim, and do not turn examples into guarantees. The public system visualization page gives an example range for project distributions from solver profits. The project listing terms then say profit splits, distribution mechanics, and material commercial terms belong in the applicable agreement or statement of work. They also state that no profit, return, volume, liquidity, price performance, or market outcome is guaranteed. How To Document It The publication safe shape is: cite the system visualization example as source context; state that actual commercial terms are agreement specific; avoid implying a guaranteed project return; avoid using project profit share examples as proof of user dashboard revenue or referrer revenue; route detailed economics to the final operator approved revenue disclosure boundary when available. Reader Guidance Projects can use this page to understand that Vibe's public materials include a profit share concept. They should not treat the example range as a live quote, a universal term sheet, or a guaranteed payou"
+    },
+    {
+      "id": "authored-vibe-project-solver-profit-sources",
+      "title": "Vibe Project Solver Profit Sources",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "authored-vibe-system-visualization"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-project-solver-profit-sources.md",
+      "bodyMarkdown": "# Vibe Project Solver Profit Sources\n\nThe official system visualization names multiple solver profit channels for project-side perp listings.\n\nIt lists spread, funding rates, liquidations, and losing trades as solver profit sources. The project-listing terms then broaden the economic vocabulary by distinguishing operational profits from opportunistic revenues and by keeping distribution mechanics agreement-specific.\n\n## Why This Matters\n\nSolver economics are not one fee line. A project-side listing can create market-making and risk-management economics through:\n\n- spread or quote economics;\n- funding-rate effects;\n- liquidation-related flows;\n- trader losses or trading-result effects;\n- other agreement-defined operational or opportunistic revenue categories.\n\nThat list should not be presented as a guaranteed project payout. It should be presented as the official source's map of possible profit channels around a market-making service.\n\n## Publication Boundary\n\nThe operator still needs to approve the final public revenue disclosure boundary. This page can cite the official project-listing and system-visualization sources, but it should not convert those source examples into a live revenue calculator, venue-level revenue promise, or universal solver/LP split.\n\n## Sources\n\n- `vibe-system-visualization`: official solver profit-source list.\n- `vibe-project-listing-terms`: official profit category and agreement-specific distribution language.\n\n## Related Pages\n\n- `authored-vibe-project-profit-share-boundary`\n- `authored-vibe-project-listing-terms`\n- `authored-lp-profit-and-dynamic-pricing`",
+      "excerpt": "Vibe Project Solver Profit Sources The official system visualization names multiple solver profit channels for project side perp listings. It lists spread, funding rates, liquidations, and losing trades as solver profit sources. The project listing terms then broaden the economic vocabulary by distinguishing operational profits from opportunistic revenues and by keeping distribution mechanics agreement specific. Why This Matters Solver economics are not one fee line. A project side listing can create market making and risk management economics through: spread or quote economics; funding rate effects; liquidation related flows; trader losses or trading result effects; other agreement defined operational or opportunistic revenue categories. That list should not be presented as a guaranteed project payout. It should be presented as the official source's map of possible profit channels around a market making service. Publication Boundary The operator still needs to approve the final public revenue disclosure boundary. This page can cite the official project listing and system visualization sources, but it should not convert those source examples into a live revenue calculator, venue le"
+    },
+    {
+      "id": "authored-vibe-project-supply-loan-flow",
+      "title": "Vibe Project Supply Loan Flow",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "vibe-architecture"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/architectural-overview.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-system-visualization",
+        "vibe-project-listing-terms",
+        "authored-vibe-system-visualization"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-project-supply-loan-flow.md",
+      "bodyMarkdown": "# Vibe Project Supply Loan Flow\n\nThe project-side listing loop starts with inventory, not only a ticker request.\n\nVibe's system-visualization source describes a project that wants a perpetual market, discusses supply and revenue projections, agrees terms, loans token supply to the solver, receives a listing, and then lets users trade while the solver manages trading and hedging.\n\n## The Flow\n\nThe public source supports this sequence:\n\n- the project wants a perp market for its token;\n- Vibe and the project discuss supply and revenue projections;\n- the parties agree listing and commercial terms;\n- the project loans token supply to the solver or market-making arrangement;\n- the perp is listed;\n- users trade the market;\n- the solver manages trading and hedging around the supplied inventory.\n\nThe source also gives a typical supply-loan range, but the project-listing terms make commercial terms agreement-specific. That means the compendium can explain the workflow and source example while avoiding a universal promise about any project's required supply.\n\n## Reader Guidance\n\nFor a project, the core question is not \"can I add a symbol?\" It is \"what inventory, agreement, risk, and reporting path supports the symbol?\" Route broad market-creation questions here first, then to project-listing terms for custody, audit, profit, and exit mechanics.\n\n## Sources\n\n- `vibe-system-visualization`: official project-to-perp workflow, supply-loan range, listing, trading, and solver hedging loop.\n- `vibe-project-listing-terms`: agreement-specific commercial terms and service framing.\n- `vibe-architecture`: solver and intent execution context.\n\n## Related Pages\n\n- `authored-vibe-system-visualization`\n- `authored-vibe-project-listing-terms`\n- `authored-vibe-project-token-custody-boundary`",
+      "excerpt": "Vibe Project Supply Loan Flow The project side listing loop starts with inventory, not only a ticker request. Vibe's system visualization source describes a project that wants a perpetual market, discusses supply and revenue projections, agrees terms, loans token supply to the solver, receives a listing, and then lets users trade while the solver manages trading and hedging. The Flow The public source supports this sequence: the project wants a perp market for its token; Vibe and the project discuss supply and revenue projections; the parties agree listing and commercial terms; the project loans token supply to the solver or market making arrangement; the perp is listed; users trade the market; the solver manages trading and hedging around the supplied inventory. The source also gives a typical supply loan range, but the project listing terms make commercial terms agreement specific. That means the compendium can explain the workflow and source example while avoiding a universal promise about any project's required supply. Reader Guidance For a project, the core question is not \"can I add a symbol?\" It is \"what inventory, agreement, risk, and reporting path supports the symbol?\" Ro"
+    },
+    {
+      "id": "authored-vibe-project-token-custody-boundary",
+      "title": "Vibe Project Token Custody Boundary",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md",
+        "https://docs.vibe.trading/system-visualisation.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-project-listing-terms",
+        "vibe-system-visualization",
+        "authored-vibe-project-listing-terms"
+      ],
+      "volumeId": "volume-07-product-trading-and-risk",
+      "file": "content/authored/reference/vibe-project-token-custody-boundary.md",
+      "bodyMarkdown": "# Vibe Project Token Custody Boundary\n\nProject-supplied tokens are part of the market-creation workflow, so custody language has to be exact.\n\nThe project-listing terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. The same terms include a custody-risk disclaimer: no custody method or smart-contract arrangement is entirely risk-free.\n\n## Security Fund Caveat\n\nThe terms also describe a discretionary security fund concept. The important caveat is that the source does not frame it as a legally segregated or guaranteed reserve.\n\nThat means the docs can explain that a security-fund concept exists in the terms, but they should not describe it as guaranteed insurance, legal segregation, or an unconditional project protection mechanism.\n\n## Reader Guidance\n\nFor projects, this page answers \"what happens to the tokens we provide?\" at the source level: client-asset accounting, service use, custody risk, and a non-guaranteed security-fund concept. It does not replace the actual agreement or legal review.\n\n## Sources\n\n- `vibe-project-listing-terms`: official client-asset, custody-risk, separate-accounting, and discretionary security-fund language.\n- `vibe-system-visualization`: project supply-loan context.\n\n## Related Pages\n\n- `authored-vibe-project-supply-loan-flow`\n- `authored-vibe-project-listing-terms`\n- `authored-vibe-custody-path-security-boundary`",
+      "excerpt": "Vibe Project Token Custody Boundary Project supplied tokens are part of the market creation workflow, so custody language has to be exact. The project listing terms say liquidity tokens and related digital assets are provided to the market maker for the services, held as client assets, and accounted separately from the market maker's own assets. The same terms include a custody risk disclaimer: no custody method or smart contract arrangement is entirely risk free. Security Fund Caveat The terms also describe a discretionary security fund concept. The important caveat is that the source does not frame it as a legally segregated or guaranteed reserve. That means the docs can explain that a security fund concept exists in the terms, but they should not describe it as guaranteed insurance, legal segregation, or an unconditional project protection mechanism. Reader Guidance For projects, this page answers \"what happens to the tokens we provide?\" at the source level: client asset accounting, service use, custody risk, and a non guaranteed security fund concept. It does not replace the actual agreement or legal review. Sources vibe project listing terms : official client asset, custody ri"
     },
     {
       "id": "authored-vibe-pwa-notification-categories",

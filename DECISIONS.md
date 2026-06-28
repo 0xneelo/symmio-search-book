@@ -767,3 +767,11 @@
 **Reason:** The broad Vibe security page is enough to answer whether Vibe publishes audit context, but production docs need exact routes for security-sensitive follow-ups. Readers need to know which contract family and version the public audit claim covers, where the linked Sherlock evidence lives, which token/staking details remain coming soon, and why login-path custody assumptions are separate from contract audit posture.
 
 **Status:** Accepted for the authored product-reference layer; publication-date contract inventory, token/staking audit details, future module coverage, and custody wording remain current-source-review items.
+
+## D-097: Split Vibe Project Listing Terms Into Exact Market-Creation Answers
+
+**Decision:** Add authored Volume 07 product-reference pages for project supply-loan flow, solver profit-source categories, project profit-share boundaries, project token custody/security-fund boundaries, and project audit/exit rights.
+
+**Reason:** Broad system visualization/listing terms pages cover the loop, but project-side readers ask narrower diligence questions. Exact routes help answer inventory, solver economics, profit-share, custody, audit, and delisting without overclaiming commercial/legal terms.
+
+**Status:** Accepted for the authored product-reference layer; supply ranges, project distribution examples, custody/security-fund language, legal terms, and live agreement/SOW details remain operator/accounting/legal/current-source review.

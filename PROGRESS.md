@@ -580,6 +580,12 @@
 - Routed five new Ask questions so security-sensitive support questions resolve to exact pages rather than one broad audit overview.
 - Kept publication-date contract inventory, token/staking audit details, future module coverage, and custody wording under current-source review.
 
+## 2026-06-29 — Vibe Project Listing Exact Reference Pages
+
+- Added five authored Volume 07 product-reference pages from official Vibe system-visualization and project-listing terms sources: project supply-loan flow, solver profit sources, project profit-share boundaries, token custody/security-fund boundaries, and audit/exit rights.
+- Routed five new Ask questions so project-side market-creation diligence questions resolve to exact pages instead of broad listing or system-visualization overviews.
+- Kept supply ranges, project distribution examples, custody/security-fund language, legal terms, and agreement-specific commercial details under operator/accounting/legal/current-source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
