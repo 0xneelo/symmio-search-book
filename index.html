@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vibe x Symmio Search Book Prototype</title>
+    <script src="./answer-corpus.js"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #070d1a;
+        --panel: #0d1526;
+        --panel-2: #111d32;
+        --line: rgba(255, 255, 255, 0.12);
+        --line-strong: rgba(245, 132, 238, 0.38);
+        --text: #f5f2ff;
+        --muted: #a8b0c6;
+        --soft: #778198;
+        --pink: #f584ee;
+        --cyan: #7dd8ff;
+        --green: #7ff0b3;
+        --amber: #ffc873;
+        --danger: #ff7f9e;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+        font-family:
+          "Plus Jakarta Sans",
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(245, 132, 238, 0.07), transparent 270px),
+          var(--bg);
+        color: var(--text);
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .rail {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        border-right: 1px solid var(--line);
+        background: rgba(7, 13, 26, 0.92);
+        padding: 24px 18px;
+      }
+
+      .brand {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line-strong);
+        color: var(--pink);
+        background: rgba(245, 132, 238, 0.08);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-weight: 800;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 28px;
+        line-height: 1;
+        font-weight: 500;
+      }
+
+      .brand p,
+      .eyebrow,
+      .meta,
+      .source-chip,
+      .stat-label {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      .brand p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .nav button,
+      .switcher button,
+      .rating button,
+      .chip {
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--muted);
+      }
+
+      .nav button {
+        width: 100%;
+        text-align: left;
+        padding: 10px 11px;
+        border-radius: 6px;
+      }
+
+      .nav button[aria-current="true"] {
+        border-color: var(--line-strong);
+        color: var(--text);
+        background: rgba(245, 132, 238, 0.1);
+      }
+
+      .rail-footer {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 22px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .mini-stat {
+        border: 1px solid var(--line);
+        padding: 10px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .stat-label {
+        color: var(--soft);
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        display: block;
+        margin-top: 4px;
+        font-size: 20px;
+        color: var(--text);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      .viewport {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 34px 32px 110px;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .eyebrow {
+        color: var(--pink);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        color: var(--soft);
+        font-size: 12px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 26px;
+      }
+
+      .hero h2 {
+        max-width: 940px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(42px, 6vw, 86px);
+        line-height: 0.96;
+        font-weight: 500;
+      }
+
+      .hero p {
+        max-width: 770px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .ask {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid var(--line-strong);
+        background: rgba(13, 21, 38, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .ask input {
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--text);
+        padding: 14px 12px;
+        font-size: 17px;
+      }
+
+      .ask button,
+      .primary-button {
+        border: 1px solid rgba(245, 132, 238, 0.6);
+        background: var(--pink);
+        color: #16051a;
+        border-radius: 6px;
+        padding: 0 18px;
+        font-weight: 800;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin: 24px 0;
+      }
+
+      .stat-card,
+      .page-card,
+      .answer,
+      .ledger,
+      .journey,
+      .gap-row {
+        border: 1px solid var(--line);
+        background: rgba(13, 21, 38, 0.78);
+        border-radius: 8px;
+      }
+
+      .stat-card {
+        padding: 16px;
+      }
+
+      .stat-card strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 30px;
+        font-weight: 750;
+      }
+
+      .answer {
+        display: none;
+        margin: 18px 0 26px;
+        padding: 18px;
+        border-color: rgba(125, 216, 255, 0.32);
+      }
+
+      .answer.is-visible {
+        display: block;
+      }
+
+      .answer h3,
+      .section-title,
+      .page-card h3,
+      .journey h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .answer p,
+      .page-card p,
+      .journey p,
+      .gap-row p {
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .source-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .source-chip,
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 11px;
+      }
+
+      .source-chip {
+        border: 1px solid rgba(125, 216, 255, 0.35);
+        color: var(--cyan);
+        background: rgba(125, 216, 255, 0.08);
+      }
+
+      .rating {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .rating button {
+        border-radius: 6px;
+        padding: 8px 10px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .page-card {
+        padding: 16px;
+        min-height: 220px;
+      }
+
+      .page-card a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+
+      .page-card .meta {
+        margin-bottom: 10px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .ledger {
+        padding: 16px;
+      }
+
+      .ledger ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .journeys {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .journey {
+        padding: 18px;
+      }
+
+      .journey-pages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .console-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
+      }
+
+      .gap-row {
+        padding: 14px;
+      }
+
+      .gap-row + .gap-row {
+        margin-top: 10px;
+      }
+
+      .switcher {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: rgba(5, 9, 18, 0.92);
+        box-shadow: var(--shadow);
+        z-index: 20;
+      }
+
+      .switcher button {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        color: var(--text);
+      }
+
+      .switcher span {
+        min-width: 190px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .is-hidden {
+        display: none !important;
+      }
+
+      @media (max-width: 920px) {
+        .shell {
+          display: block;
+        }
+
+        .rail {
+          position: relative;
+          height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .rail-footer {
+          position: static;
+          margin-top: 22px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .viewport {
+          padding: 24px 18px 104px;
+        }
+
+        .stats,
+        .cards,
+        .split,
+        .journeys,
+        .console-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .topline,
+        .ask {
+          grid-template-columns: 1fr;
+        }
+
+        .topline {
+          display: grid;
+        }
+
+        .ask button {
+          min-height: 46px;
+        }
+
+        .switcher span {
+          min-width: 128px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <div class="brand">
+          <div class="brand-mark">VX</div>
+          <h1>Search Book</h1>
+          <p>Vibe x Symmio docs map</p>
+        </div>
+        <nav class="nav" aria-label="Prototype variants">
+          <button data-nav="classic">Ask</button>
+          <button data-nav="journey">Journeys</button>
+          <button data-nav="console">Console</button>
+        </nav>
+        <div class="rail-footer">
+          <div class="mini-stat">
+            <span class="stat-label">Manifest</span>
+            <span class="stat-value" id="railTotal">794</span>
+          </div>
+          <div class="mini-stat">
+            <span class="stat-label">Neelo spine</span>
+            <span class="stat-value" id="railNeelo">729</span>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="viewport">
+          <div class="topline">
+            <div>
+              <div class="eyebrow">Session 1 prototype</div>
+              <div class="meta">Static, throwaway, source-led</div>
+            </div>
+            <div class="meta" id="variantMeta">classic</div>
+          </div>
+
+          <section class="hero">
+            <h2>Ask first. Then route into the book.</h2>
+            <p>
+              A 794-page compendium map led by Neelo's vision docs, grounded by Vibe product docs, Symmio protocol docs, local implementation, and live research gaps.
+            </p>
+          </section>
+
+          <form class="ask" id="askForm">
+            <input id="queryInput" name="query" autocomplete="off" placeholder="Ask about referrals, solvers, VibeCaps margin, revenue, HIP-3..." />
+            <button type="submit">Ask</button>
+          </form>
+
+          <section class="answer" id="answerBox" aria-live="polite"></section>
+
+          <section data-view="classic">
+            <div class="grid stats">
+              <div class="stat-card"><span class="stat-label">Mapped pages</span><strong id="totalPages">794</strong></div>
+              <div class="stat-card"><span class="stat-label">Neelo source</span><strong id="neeloPages">188</strong></div>
+              <div class="stat-card"><span class="stat-label">Neelo sections</span><strong id="sectionPages">541</strong></div>
+              <div class="stat-card"><span class="stat-label">Companions</span><strong id="companionPages">65</strong></div>
+            </div>
+            <h3 class="section-title">High-Signal Routes</h3>
+            <div class="grid cards" id="pageCards"></div>
+          </section>
+
+          <section data-view="journey" class="is-hidden">
+            <div class="split">
+              <div>
+                <h3 class="section-title">Audience Journeys</h3>
+                <div class="grid journeys" id="journeys"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Recent Questions</h3>
+                <ul id="recentQuestions"></ul>
+              </aside>
+            </div>
+          </section>
+
+          <section data-view="console" class="is-hidden">
+            <div class="console-layout">
+              <div>
+                <h3 class="section-title">Open Threads</h3>
+                <div id="gapList"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Ratings</h3>
+                <ul id="ratingsList"></ul>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="switcher" aria-label="Prototype variant switcher">
+      <button type="button" id="prevVariant" aria-label="Previous variant">&lt;</button>
+      <span id="switcherLabel">A - Ask</span>
+      <button type="button" id="nextVariant" aria-label="Next variant">&gt;</button>
+    </div>
+
+    <script>
+      const corpus = window.SearchBookCorpus;
+      const variants = [
+        { key: "classic", label: "A - Ask" },
+        { key: "journey", label: "B - Journeys" },
+        { key: "console", label: "C - Console" },
+      ];
+      const storageKeys = {
+        questions: "searchBookPrototype.questions",
+        ratings: "searchBookPrototype.ratings",
+      };
+
+      function getVariant() {
+        const query = new URLSearchParams(window.location.search);
+        return variants.some((item) => item.key === query.get("variant")) ? query.get("variant") : "classic";
+      }
+
+      function setVariant(next) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("variant", next);
+        window.history.replaceState({}, "", url);
+        renderVariant();
+      }
+
+      function cycleVariant(direction) {
+        const current = getVariant();
+        const index = variants.findIndex((item) => item.key === current);
+        const next = variants[(index + direction + variants.length) % variants.length].key;
+        setVariant(next);
+      }
+
+      function loadList(key) {
+        try {
+          return JSON.parse(localStorage.getItem(key) || "[]");
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function saveList(key, value) {
+        localStorage.setItem(key, JSON.stringify(value.slice(0, 30)));
+      }
+
+      function scorePage(page, query) {
+        const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+        const haystack = [page.title, page.section, page.summary, page.keywords.join(" ")].join(" ").toLowerCase();
+        return words.reduce((score, word) => score + (haystack.includes(word) ? 1 : 0), 0);
+      }
+
+      function findAnswer(query) {
+        const ranked = corpus.pages
+          .map((page) => ({ page, score: scorePage(page, query) }))
+          .sort((a, b) => b.score - a.score);
+        return ranked[0] && ranked[0].score > 0 ? ranked[0].page : corpus.pages[0];
+      }
+
+      function renderAnswer(page, query) {
+        const box = document.getElementById("answerBox");
+        box.classList.add("is-visible");
+        box.innerHTML = `
+          <div class="meta">${page.section} / routed answer</div>
+          <h3>${page.title}</h3>
+          <p>${page.summary}</p>
+          ${page.gap ? `<p><strong>Gap:</strong> ${page.gap}</p>` : ""}
+          <div class="source-row">
+            ${page.sources.map((source) => `<span class="source-chip">${source}</span>`).join("")}
+          </div>
+          <div class="rating">
+            <button type="button" data-rate="yes" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Useful</button>
+            <button type="button" data-rate="no" data-query="${encodeURIComponent(query)}" data-page="${page.id}">Needs work</button>
+            <a class="source-chip" href="${page.route}">Open route</a>
+          </div>
+        `;
+      }
+
+      function renderCards() {
+        const root = document.getElementById("pageCards");
+        root.innerHTML = corpus.pages
+          .slice(0, 12)
+          .map(
+            (page) => `
+              <article class="page-card">
+                <div class="meta">${page.section}</div>
+                <h3>${page.title}</h3>
+                <p>${page.summary}</p>
+                <div class="source-row">
+                  ${page.sources.slice(0, 3).map((source) => `<span class="source-chip">${source}</span>`).join("")}
+                </div>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderJourneys() {
+        const root = document.getElementById("journeys");
+        root.innerHTML = corpus.journeys
+          .map((journey) => {
+            const chips = journey.pages
+              .map((id) => corpus.pages.find((page) => page.id === id))
+              .filter(Boolean)
+              .map((page) => `<button type="button" class="chip" data-jump="${page.id}">${page.title}</button>`)
+              .join("");
+            return `
+              <article class="journey">
+                <h3>${journey.title}</h3>
+                <p>${journey.focus}</p>
+                <div class="journey-pages">${chips}</div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      function renderGaps() {
+        document.getElementById("gapList").innerHTML = corpus.gaps
+          .map((gap) => `<div class="gap-row"><div class="meta">parked thread</div><p>${gap}</p></div>`)
+          .join("");
+      }
+
+      function renderRecent() {
+        const recent = loadList(storageKeys.questions);
+        document.getElementById("recentQuestions").innerHTML = recent.length
+          ? recent.map((item) => `<li>${item.query} -> ${item.page}</li>`).join("")
+          : "<li>No questions recorded yet.</li>";
+      }
+
+      function renderRatings() {
+        const ratings = loadList(storageKeys.ratings);
+        document.getElementById("ratingsList").innerHTML = ratings.length
+          ? ratings.map((item) => `<li>${item.rating}: ${item.query} -> ${item.page}</li>`).join("")
+          : "<li>No ratings recorded yet.</li>";
+      }
+
+      function renderVariant() {
+        const current = getVariant();
+        document.querySelectorAll("[data-view]").forEach((node) => node.classList.toggle("is-hidden", node.dataset.view !== current));
+        document.querySelectorAll("[data-nav]").forEach((node) => node.setAttribute("aria-current", String(node.dataset.nav === current)));
+        const item = variants.find((variant) => variant.key === current);
+        document.getElementById("switcherLabel").textContent = item.label;
+        document.getElementById("variantMeta").textContent = current;
+      }
+
+      function init() {
+        document.getElementById("railTotal").textContent = corpus.manifestStats.totalPages;
+        document.getElementById("railNeelo").textContent = corpus.manifestStats.neeloVisionPages + corpus.manifestStats.neeloSectionPages;
+        document.getElementById("totalPages").textContent = corpus.manifestStats.totalPages;
+        document.getElementById("neeloPages").textContent = corpus.manifestStats.neeloVisionPages;
+        document.getElementById("sectionPages").textContent = corpus.manifestStats.neeloSectionPages;
+        document.getElementById("companionPages").textContent = corpus.manifestStats.companionPages;
+        renderCards();
+        renderJourneys();
+        renderGaps();
+        renderRecent();
+        renderRatings();
+        renderVariant();
+      }
+
+      document.getElementById("askForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = document.getElementById("queryInput").value.trim();
+        if (!query) return;
+        const page = findAnswer(query);
+        renderAnswer(page, query);
+        const recent = loadList(storageKeys.questions);
+        saveList(storageKeys.questions, [{ query, page: page.title, time: Date.now() }, ...recent]);
+        renderRecent();
+      });
+
+      document.addEventListener("click", (event) => {
+        const rate = event.target.closest("[data-rate]");
+        if (rate) {
+          const ratings = loadList(storageKeys.ratings);
+          saveList(storageKeys.ratings, [
+            {
+              rating: rate.dataset.rate,
+              query: decodeURIComponent(rate.dataset.query),
+              page: rate.dataset.page,
+              time: Date.now(),
+            },
+            ...ratings,
+          ]);
+          renderRatings();
+        }
+
+        const jump = event.target.closest("[data-jump]");
+        if (jump) {
+          const page = corpus.pages.find((item) => item.id === jump.dataset.jump);
+          if (page) renderAnswer(page, page.title);
+        }
+      });
+
+      document.getElementById("prevVariant").addEventListener("click", () => cycleVariant(-1));
+      document.getElementById("nextVariant").addEventListener("click", () => cycleVariant(1));
+      document.querySelectorAll("[data-nav]").forEach((node) => node.addEventListener("click", () => setVariant(node.dataset.nav)));
+      document.addEventListener("keydown", (event) => {
+        const tag = document.activeElement && document.activeElement.tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA") return;
+        if (event.key === "ArrowLeft") cycleVariant(-1);
+        if (event.key === "ArrowRight") cycleVariant(1);
+      });
+
+      init();
+    </script>
+  </body>
+</html>
+
