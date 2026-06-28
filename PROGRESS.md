@@ -478,6 +478,12 @@
 - Routed five new Ask questions so the front door can explain the capital-structure and business-quality parts of the Vibe thesis without collapsing them into final economics promises.
 - Kept capital-efficiency, revenue-share, partner-traction, solver-funding, and protocol-capture claims under operator/accounting review until current public disclosure boundaries are confirmed.
 
+## 2026-06-28 — AMFQ Terminology Lock
+
+- Added a standalone reference page that translates AMFQ/aMFQ into the current Intents vocabulary, so legacy architecture language remains searchable without creating a second canonical term.
+- Added an Ask route for `What was AMFQ?` and locked the terminology in the style guide.
+- Recorded the decision that current docs should use `Intent`, while AMFQ remains a legacy/source-translation term.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

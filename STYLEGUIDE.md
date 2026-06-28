@@ -34,6 +34,7 @@ Every substantive page should include:
 - `PartyB`: solver/market-maker counterparty in Symmio language.
 - `Solver`: professional counterparty that prices, accepts, hedges, and settles trades.
 - `Intent`: trade request or desired action expressed before a solver accepts it.
+- `AMFQ` / `aMFQ`: legacy Vibe name for Intents, short for Automated Market for Quotes. Use `Intent` in current docs; mention AMFQ only when translating older architecture/source language.
 - `VibeCaps`: Vibe lowcap perps surface; describe with margin/isolated-market context.
 - `Network volume`: descendant wallet trading volume used by the onboarding dashboard; depth must remain flagged until reconciled.
 - `Estimated revenue`: dashboard estimate from network volume and configurable fee/share inputs; not final realized protocol accounting.

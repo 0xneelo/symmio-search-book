@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 191
+      "totalGoldenRoutes": 192
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 209,
-    "retrievalEligiblePages": 1001,
+    "publicNavigationPages": 210,
+    "retrievalEligiblePages": 1002,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 209,
+      "candidate": 210,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,18 +160,18 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 191,
-    "exactRouteTestsPassing": 191,
+    "totalExactRouteTests": 192,
+    "exactRouteTestsPassing": 192,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 191
+      "candidate": 192
     },
     "exactRoutesByConfidence": {
       "Medium": 88,
-      "High": 29,
+      "High": 30,
       "Low": 74
     },
     "exactRoutesMissingChunks": [],
@@ -252,6 +252,33 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-an-intent",
+        "passes": true
+      },
+      {
+        "id": "qr-what-was-amfq",
+        "query": "What was AMFQ?",
+        "normalizedQuery": "what was amfq",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-amfq-legacy-intent-naming",
+        "expectedPageTitle": "AMFQ Is Legacy Naming For Intents",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-architecture",
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "styleguide"
+        ],
+        "linkedSourceKeys": [
+          "vibe-architecture",
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "styleguide"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-was-amfq",
         "passes": true
       },
       {
@@ -4547,7 +4574,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 191,
+      "exactRoutes": 192,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

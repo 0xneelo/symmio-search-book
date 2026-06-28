@@ -25,12 +25,12 @@
     "totalFixtures": 26,
     "passingFixtures": 26,
     "failingFixtures": 0,
-    "exactRouteGoldenSet": 191,
+    "exactRouteGoldenSet": 192,
     "adversarialGoldenSet": 14,
-    "answerChunkPages": 1022,
-    "answerChunks": 1744,
+    "answerChunkPages": 1023,
+    "answerChunks": 1746,
     "sourceCatalogEntries": 116,
-    "pageStatePages": 1004,
+    "pageStatePages": 1005,
     "openOperatorItems": 11,
     "gapQueueItems": 13
   },
@@ -153,6 +153,46 @@
           {
             "type": "question-answered",
             "pageId": "authored-vibe-intent-architecture"
+          }
+        ]
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
+      "id": "fixture-qr-what-was-amfq",
+      "type": "cited-answer",
+      "query": "What was AMFQ?",
+      "expectedPageId": "authored-amfq-legacy-intent-naming",
+      "response": {
+        "requestId": "req-qr-what-was-amfq",
+        "status": "answered",
+        "answer": "AMFQ Is Legacy Naming For Intents is the cited answer route for this seeded question.",
+        "primaryPageId": "authored-amfq-legacy-intent-naming",
+        "citations": [
+          {
+            "id": "qr-what-was-amfq-citation-1",
+            "pageId": "authored-amfq-legacy-intent-naming",
+            "pageTitle": "AMFQ Is Legacy Naming For Intents",
+            "sourceKey": "vibe-architecture",
+            "sourceHref": "https://docs.vibe.trading/architectural-overview.md",
+            "chunkIds": [
+              "authored-amfq-legacy-intent-naming::001"
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "text": "AMFQ Is Legacy Naming For Intents is the cited answer route for this seeded question.",
+            "citationIds": [
+              "qr-what-was-amfq-citation-1"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "type": "question-answered",
+            "pageId": "authored-amfq-legacy-intent-naming"
           }
         ]
       },
@@ -473,46 +513,6 @@
           {
             "type": "question-answered",
             "pageId": "authored-vibe-collateral-and-margining"
-          }
-        ]
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-qr-what-fees-or-funding-should-i-understand-before-trading",
-      "type": "cited-answer",
-      "query": "What fees or funding should I understand before trading?",
-      "expectedPageId": "authored-vibe-fees-and-funding",
-      "response": {
-        "requestId": "req-qr-what-fees-or-funding-should-i-understand-before-trading",
-        "status": "answered",
-        "answer": "Vibe Fees And Funding is the cited answer route for this seeded question.",
-        "primaryPageId": "authored-vibe-fees-and-funding",
-        "citations": [
-          {
-            "id": "qr-what-fees-or-funding-should-i-understand-before-trading-citation-1",
-            "pageId": "authored-vibe-fees-and-funding",
-            "pageTitle": "Vibe Fees And Funding",
-            "sourceKey": "vibe-fees",
-            "sourceHref": "https://docs.vibe.trading/trading/fees.md",
-            "chunkIds": [
-              "authored-vibe-fees-and-funding::001"
-            ]
-          }
-        ],
-        "paragraphs": [
-          {
-            "text": "Vibe Fees And Funding is the cited answer route for this seeded question.",
-            "citationIds": [
-              "qr-what-fees-or-funding-should-i-understand-before-trading-citation-1"
-            ]
-          }
-        ],
-        "events": [
-          {
-            "type": "question-answered",
-            "pageId": "authored-vibe-fees-and-funding"
           }
         ]
       },

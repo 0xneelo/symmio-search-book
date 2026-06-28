@@ -631,3 +631,11 @@
 **Reason:** This source is central to the vision, but it contains strong economics claims such as revenue share, capital-efficiency estimates, partner traction, solver-funding assumptions, and protocol capture mechanisms. The compendium should preserve the framework because it explains why the architecture matters, but it must not turn model claims or strategy analysis into final public guarantees before accounting/operator review.
 
 **Status:** Accepted for the authored manifesto layer; exact economics remain parked under OPERATOR-INBOX #1 and platform/deploy choices remain parked under OPERATOR-INBOX #4.
+
+## D-080: Treat AMFQ As Legacy Naming For Intents
+
+**Decision:** Canonicalize `Intent` as the current term and treat AMFQ/aMFQ, short for Automated Market for Quotes, as legacy Vibe architecture naming for the same intent-based quotation model.
+
+**Reason:** The source corpus and older Vibe architecture language use AMFQ/aMFQ, while the operator clarified that AMFQ was the old name for Intents. Without a terminology lock, the compendium could accidentally imply two separate systems.
+
+**Status:** Accepted for all current docs. Use AMFQ only when translating older source material, search queries, or archived diagrams into the current Intents vocabulary.

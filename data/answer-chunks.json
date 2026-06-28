@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1022,
-  "totalChunks": 1744,
-  "pagesWithChunks": 1022,
+  "totalPages": 1023,
+  "totalChunks": 1746,
+  "pagesWithChunks": 1023,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,16 +653,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 210,
+    "authored": 211,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 403,
+    "authored": 405,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
+    "product-reference": 46,
     "manifesto": 214,
     "dashboard-reference": 24,
     "protocol-reference": 70,
@@ -671,7 +672,6 @@
     "rewards-referrals": 40,
     "answer-engine": 1,
     "solver-reference": 9,
-    "product-reference": 44,
     "compendium": 16,
     "Dashboard": 2,
     "Competitive": 1,
@@ -701,6 +701,64 @@
     "architecture": 2
   },
   "chunks": [
+    {
+      "id": "authored-amfq-legacy-intent-naming::001",
+      "pageId": "authored-amfq-legacy-intent-naming",
+      "chunkIndex": 1,
+      "title": "AMFQ Is Legacy Naming For Intents",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "src/search-book/STYLEGUIDE.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/amfq-legacy-intent-naming.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote market shape of that same product idea; it should not be documented as a separate live system beside Intents. How To Use The Terms Use intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language. The distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state. Reader Implication If a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should translate the legacy name into current terms before explaining trade flow. That prevents duplicate vocabulary and keeps older source material searchable. Sources vibe architecture : AMFQ/aMFQ naming, trade intention, solver offers, request to trade flow, collateral,"
+    },
+    {
+      "id": "authored-amfq-legacy-intent-naming::002",
+      "pageId": "authored-amfq-legacy-intent-naming",
+      "chunkIndex": 2,
+      "title": "AMFQ Is Legacy Naming For Intents",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "src/search-book/STYLEGUIDE.md"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/amfq-legacy-intent-naming.md",
+      "wordStart": 185,
+      "wordEnd": 272,
+      "wordCount": 87,
+      "text": "the legacy name into current terms before explaining trade flow. That prevents duplicate vocabulary and keeps older source material searchable. Sources vibe architecture : AMFQ/aMFQ naming, trade intention, solver offers, request to trade flow, collateral, and bilateral agreement. symmio core : PartyA, PartyB, intent, collateral, and margin vocabulary. symmio intent lifecycle : quote events, solver monitoring, locking, and lifecycle state. styleguide : local terminology lock for current docs language. Related Pages authored vibe intent architecture authored intents and solvers authored bilateral intent lifecycle authored solver event monitoring"
+    },
     {
       "id": "authored-autonomous-market-creation::001",
       "pageId": "authored-autonomous-market-creation",

@@ -1,12 +1,13 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 210,
+  "totalPages": 211,
   "byStatus": {
-    "publication-candidate": 94,
+    "publication-candidate": 95,
     "publication-candidate-needs-operator-review": 115,
     "needs-reconciliation": 1
   },
   "bySection": {
+    "product-reference": 22,
     "manifesto": 113,
     "dashboard-reference": 12,
     "protocol-reference": 32,
@@ -15,10 +16,39 @@
     "rewards-referrals": 20,
     "answer-engine": 1,
     "solver-reference": 1,
-    "product-reference": 21,
     "compendium": 8
   },
   "pages": [
+    {
+      "id": "authored-amfq-legacy-intent-naming",
+      "title": "AMFQ Is Legacy Naming For Intents",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "src/search-book/STYLEGUIDE.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-architecture-amfq",
+        "authored-vibe-intent-architecture",
+        "authored-intents-and-solvers",
+        "symmio-intent-lifecycle"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/amfq-legacy-intent-naming.md",
+      "bodyMarkdown": "# AMFQ Is Legacy Naming For Intents\n\nAMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model.\n\nThe current reader-facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote-market shape of that same product idea; it should not be documented as a separate live system beside Intents.\n\n## How To Use The Terms\n\nUse intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language.\n\nThe distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent-based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state.\n\n## Reader Implication\n\nIf a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should translate the legacy name into current terms before explaining trade flow. That prevents duplicate vocabulary and keeps older source material searchable.\n\n## Sources\n\n- `vibe-architecture`: AMFQ/aMFQ naming, trade intention, solver offers, request-to-trade flow, collateral, and bilateral agreement.\n- `symmio-core`: PartyA, PartyB, intent, collateral, and margin vocabulary.\n- `symmio-intent-lifecycle`: quote events, solver monitoring, locking, and lifecycle state.\n- `styleguide`: local terminology lock for current docs language.\n\n## Related Pages\n\n- `authored-vibe-intent-architecture`\n- `authored-intents-and-solvers`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`",
+      "excerpt": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote market shape of that same product idea; it should not be documented as a separate live system beside Intents. How To Use The Terms Use intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language. The distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state. Reader Implication If a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should transla"
+    },
     {
       "id": "authored-autonomous-market-creation",
       "title": "Autonomous Market Creation",

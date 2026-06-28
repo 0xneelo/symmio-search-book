@@ -35,24 +35,24 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1004,
+  "totalPages": 1005,
   "byState": {
-    "candidate": 209,
+    "candidate": 210,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 210,
+    "authored": 211,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 210,
+    "authored-page": 211,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate": 94,
+    "publication-candidate": 95,
     "publication-candidate-needs-operator-review": 115,
     "needs-reconciliation": 3,
     "source-mapped": 63,
@@ -61,6 +61,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
+    "product-reference": 25,
     "manifesto": 113,
     "dashboard-reference": 17,
     "protocol-reference": 35,
@@ -69,7 +70,6 @@
     "rewards-referrals": 26,
     "answer-engine": 1,
     "solver-reference": 8,
-    "product-reference": 24,
     "compendium": 8,
     "product-research": 5,
     "faq": 1,
@@ -89,6 +89,10 @@
     "architecture": 2
   },
   "statesByVolume": {
+    "volume-07-product-trading-and-risk": {
+      "candidate": 21,
+      "source-companion": 30
+    },
     "volume-02-bootstrap-and-proof-of-value": {
       "candidate": 29,
       "source-companion": 238
@@ -119,20 +123,16 @@
       "candidate": 20,
       "internal-draft": 1,
       "source-companion": 109
-    },
-    "volume-07-product-trading-and-risk": {
-      "candidate": 20,
-      "source-companion": 30
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 209,
+  "publicCandidatePages": 210,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 209,
-  "retrievalEligiblePages": 1001,
+  "publicNavigationPages": 210,
+  "retrievalEligiblePages": 1002,
   "reviewRequiredPages": 910,
-  "exactQuestionRoutedPages": 188,
+  "exactQuestionRoutedPages": 189,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -169,6 +169,7 @@
     "neelo-02-proof-of-value-02-docs-00-abstract"
   ],
   "publicCandidateSamplePageIds": [
+    "authored-amfq-legacy-intent-naming",
     "authored-autonomous-market-creation",
     "authored-barometer-subgraph-upgrade",
     "authored-beyond-polymarket-continuous-truth-markets",
@@ -192,8 +193,7 @@
     "authored-dashboard-settings",
     "authored-dashboard-tasks",
     "authored-dashboard-volume",
-    "authored-ddq-architecture-stack",
-    "authored-dynamic-pricing-controls"
+    "authored-ddq-architecture-stack"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -201,6 +201,36 @@
     "792 source companion pages should support retrieval/authoring but not final public navigation."
   ],
   "pages": [
+    {
+      "id": "authored-amfq-legacy-intent-naming",
+      "title": "AMFQ Is Legacy Naming For Intents",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/reference/amfq-legacy-intent-naming.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+        "src/search-book/STYLEGUIDE.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
     {
       "id": "authored-autonomous-market-creation",
       "title": "Autonomous Market Creation",

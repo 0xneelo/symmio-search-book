@@ -9,6 +9,7 @@ Questions are grouped by whether the current source set can answer them.
 | What is Vibe Trading? | `authored-vibe-product-overview` | Medium | Public Vibe docs answer; exact market counts need fresh verification before final publication. |
 | What is Symmio? | `authored-symmio-clearing-house-layer` | High | Public Symmio docs answer; authored page explains the clearing-house and hybrid settlement model. |
 | What is an intent? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state. |
+| What was AMFQ? | `authored-amfq-legacy-intent-naming` | High | Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model. |
 | Who are PartyA and PartyB? | `authored-symmio-party-a-party-b` | High | Symmio core docs support the role distinction. |
 | What does a solver do? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities. |
 | How does VibeCaps margin work? | `authored-vibecaps-margin-management` | High | Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints. |
