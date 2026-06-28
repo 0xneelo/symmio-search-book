@@ -224,6 +224,13 @@
 - Kept the distinction between source-backed strategic model and live product commitments: graduation thresholds, venue handoffs, and exact liquidity mechanics still need implementation/product review before becoming public promises.
 - Strengthened the 500-800 page compendium's book spine without changing the 794-page manifest target.
 
+## 2026-06-28 — Information And Trade Convergence Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Information/Trade Convergence corpus: continuous truth markets beyond Polymarket, intent OTC as long-tail verification, hybrid solver liquidity waterfall, Vibe as listing source of truth, and financialized rejection via the Thumbs Down.
+- Added five direct question routes so Ask can answer information-market and negative-signal questions from authored pages before falling back to generated source chapters.
+- Kept solver automation, vault inventory, fee-share, and graduation-threshold examples under operator/implementation review instead of turning source models into live product claims.
+- Strengthened Volume 04, which still has a large generated source spine around token margin, funding, and information/trade architecture.
+
 ## 2026-06-28 — Vibe Product Reference Authored Pages
 
 - Added four authored Vibe product-reference pages: product overview, intent architecture, VibeCaps margin management, and Vibe points program.

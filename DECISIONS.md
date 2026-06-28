@@ -399,3 +399,11 @@
 **Reason:** The operator called Neelo's GitHub docs the strongest vision source, and the listing-monopoly corpus is one of the clearest sources for Vibe's category ambition. It prevents the compendium from flattening the thesis into "more tickers" by showing that durable power sits in the path from early market creation to real liquidity and eventual order-book readiness.
 
 **Status:** Accepted for the authored manifesto layer.
+
+## D-051: Translate Information/Trade Into Mechanism
+
+**Decision:** Add authored Volume 04 pages from Neelo's Information/Trade Convergence corpus that translate the "market cap as truth" thesis into continuous markets, intent-based OTC, solver liquidity waterfalls, listing evidence, and financialized rejection.
+
+**Reason:** The source is high-conviction but rhetorically broad. Publication-candidate docs need to preserve its strategic force while making the mechanism legible and caveating source examples that touch unresolved solver, vault, revenue-share, and graduation-policy decisions.
+
+**Status:** Accepted for the authored manifesto layer.
