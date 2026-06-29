@@ -1527,3 +1527,11 @@
 **Reason:** Existing SYMM LP pages cover setup, unit economics, risk, scaling, reporting, methodology, and reproducibility, but the overview still carries two exact routing questions: how the case-study source is organized and what boundary governs its interpretation. Splitting these pages keeps the case useful as a structured operating example while making the first-pass, non-audited scope explicit before readers reach performance pages.
 
 **Status:** Accepted for the authored protocol-reference layer; audited performance, generalized LP APY, current vault capacity, treasury allocation guidance, data ownership, accounting treatment, and public reporting policy remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-192: Split Referral Product Metrics Into Exact Answers
+
+**Decision:** Add authored Volume 06 rewards-reference pages for the Referral Program product-metrics framework: phase definitions, supporting KPI set, illustrative phase targets, measurement guardrails, and related-chapter routing.
+
+**Reason:** Existing referral metrics pages explain market-creation velocity, supply and demand KPIs, and dashboard reporting standards, but the product-metrics source still contains exact reader questions that should not collapse into one broad dashboard page. Readers need to know which phase a metric belongs to, which KPIs support the north star, why target bands are illustrative, what guardrails prevent metric gaming, and which adjacent chapters own the policy beneath a metric.
+
+**Status:** Accepted for the authored rewards-reference layer; target bands, release timing, final formulas, referral depth, anti-gaming thresholds, dispute tooling, payout rules, public dashboard metrics, and economics disclosures remain fresh operator/product/risk/legal/accounting review.

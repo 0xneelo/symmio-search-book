@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 741
+      "totalGoldenRoutes": 746
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 759,
-    "retrievalEligiblePages": 1551,
+    "publicNavigationPages": 764,
+    "retrievalEligiblePages": 1556,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 759,
+      "candidate": 764,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 741,
-    "exactRouteTestsPassing": 741,
+    "totalExactRouteTests": 746,
+    "exactRouteTestsPassing": 746,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 741
+      "candidate": 746
     },
     "exactRoutesByConfidence": {
       "Medium": 467,
       "High": 44,
-      "Low": 230
+      "Low": 235
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2151,6 +2151,121 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-referral-dashboards-report-growth",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-referral-product-phases",
+        "query": "What are the referral product phases?",
+        "normalizedQuery": "what are the referral product phases",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-phase-definitions",
+        "expectedPageTitle": "Referral Phase Definitions",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-referral-product-phases",
+        "passes": true
+      },
+      {
+        "id": "qr-which-kpis-support-referral-market-creation-velocity",
+        "query": "Which KPIs support referral market creation velocity?",
+        "normalizedQuery": "which kpis support referral market creation velocity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-supporting-kpi-set",
+        "expectedPageTitle": "Referral Supporting KPI Set",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-kpis-support-referral-market-creation-velocity",
+        "passes": true
+      },
+      {
+        "id": "qr-are-referral-phase-targets-final",
+        "query": "Are referral phase targets final?",
+        "normalizedQuery": "are referral phase targets final",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-illustrative-phase-targets",
+        "expectedPageTitle": "Referral Illustrative Phase Targets",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-are-referral-phase-targets-final",
+        "passes": true
+      },
+      {
+        "id": "qr-what-guardrails-should-referral-metrics-preserve",
+        "query": "What guardrails should referral metrics preserve?",
+        "normalizedQuery": "what guardrails should referral metrics preserve",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-metrics-guardrails",
+        "expectedPageTitle": "Referral Metrics Guardrails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-guardrails-should-referral-metrics-preserve",
+        "passes": true
+      },
+      {
+        "id": "qr-which-chapters-should-referral-metric-questions-route-into",
+        "query": "Which chapters should referral metric questions route into?",
+        "normalizedQuery": "which chapters should referral metric questions route into",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-related-chapter-routing",
+        "expectedPageTitle": "Referral Related Chapter Routing",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-chapters-should-referral-metric-questions-route-into",
         "passes": true
       },
       {
@@ -16321,7 +16436,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 741,
+      "exactRoutes": 746,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

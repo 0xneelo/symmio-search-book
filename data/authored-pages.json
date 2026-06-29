@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 760,
+  "totalPages": 765,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 587,
+    "publication-candidate-needs-operator-review": 592,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -13,7 +13,7 @@
   "bySection": {
     "manifesto": 470,
     "product-reference": 47,
-    "rewards-referrals": 80,
+    "rewards-referrals": 85,
     "dashboard-reference": 12,
     "protocol-reference": 139,
     "competitive-context": 1,
@@ -10636,6 +10636,31 @@
       "excerpt": "Referral Identity And Claim Flow Neelo's referral program architecture starts by separating identity, attribution, policy, and settlement. A referral NFT or equivalent identity anchor can carry the user's referral identity, but reward eligible code activation is a separate state governed by policy. That separation matters because a referral system has to answer more than \"who invited whom?\" It has to decide when a user becomes eligible to issue codes, how activity is attributed, which tiers apply, who signs claim authorizations, and how claims are consumed without replay or double credit paths. The Stack The source splits the referral stack across three planes: on chain identity and settlement; off chain attribution and policy logic; user facing access and claims UX. The canonical flow is: onboard, receive base identity, trade or refer, compute rolling activity windows, activate referral code eligibility through policy thresholds or approved exceptions, issue replay safe claim authorizations, and settle claims through a contract path. Trust Boundary The key design rule is that fast changing policy can stay off chain only if it is versioned and auditable. Claim consumption, nonces, "
     },
     {
+      "id": "authored-referral-illustrative-phase-targets",
+      "title": "Referral Illustrative Phase Targets",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#4-phase-targets-illustrative",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "section-17-referral-program-17-docs-12-product-metrics-prebeta-beta-4-phase-targets-illustrative",
+        "authored-referral-phase-definitions",
+        "authored-referral-dashboard-reporting-standards"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-illustrative-phase-targets.md",
+      "bodyMarkdown": "# Referral Illustrative Phase Targets\n\nNeelo's product-metrics source treats phase targets as illustrative. That word matters. The page says targets should be finalized in public release notes for each milestone.\n\nThe compendium should preserve that boundary. It can explain what a phase is trying to prove without turning draft bands into a product promise.\n\n## What Each Phase Tries To Prove\n\nPre-beta should prove controlled growth with stable operations and no critical flow outages. In this phase, the strongest signal is not maximum scale; it is whether the system can move through onboarding, attribution, listing, monitoring, and support without breaking.\n\nBeta should prove measurable referral attribution, stronger listing velocity, and improved market activation rates. In this phase, the dashboard needs enough volume of behavior to test whether referral attribution connects to real market creation.\n\nOpen phase should prove broad participation with consistent quality controls and predictable conversion funnels. In this phase, the system has to preserve integrity while access is no longer tightly constrained.\n\n## Release-Note Rule\n\nThe source's safest publication rule is simple: phase targets belong in release notes for the milestone that owns them.\n\nThat keeps targets time-bound and reviewable. It also prevents old target bands from becoming stale docs that users read as current guarantees.\n\n## Publication Boundary\n\nThis page explains the illustrative target framework. It does not publish final target numbers, launch commitments, uptime guarantees, referral benefit schedules, listing quotas, quality thresholds, or payout formulas.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Product Metrics Framework\", \"Phase targets (illustrative)\".\n- `spec-03`: current public-disclosure caveats for referrals, revenue, and points.\n\n## Related Pages\n\n- `authored-referral-phase-definitions`\n- `authored-referral-dashboard-reporting-standards`\n- `authored-referral-rollout-governance-checklist`",
+      "excerpt": "Referral Illustrative Phase Targets Neelo's product metrics source treats phase targets as illustrative. That word matters. The page says targets should be finalized in public release notes for each milestone. The compendium should preserve that boundary. It can explain what a phase is trying to prove without turning draft bands into a product promise. What Each Phase Tries To Prove Pre beta should prove controlled growth with stable operations and no critical flow outages. In this phase, the strongest signal is not maximum scale; it is whether the system can move through onboarding, attribution, listing, monitoring, and support without breaking. Beta should prove measurable referral attribution, stronger listing velocity, and improved market activation rates. In this phase, the dashboard needs enough volume of behavior to test whether referral attribution connects to real market creation. Open phase should prove broad participation with consistent quality controls and predictable conversion funnels. In this phase, the system has to preserve integrity while access is no longer tightly constrained. Release Note Rule The source's safest publication rule is simple: phase targets belon"
+    },
+    {
       "id": "authored-referral-issuance-and-anti-gaming",
       "title": "Referral Issuance And Anti-Gaming",
       "section": "rewards-referrals",
@@ -10818,6 +10843,31 @@
       "excerpt": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together. KPI Layers The source separates the KPI stack into layers: supply: new listings, active markets, repeat listers, and time to first listing; demand: traders per active market, fee generating volume, turnover concentration, and demand distribution; growth: referral attach rate, code to first trade conversion, code to first listing conversion, and claim conversion; integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected versus realized reward deviations. Security Controls The security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over issuance, and launch phase blind spots. The minimum control set "
     },
     {
+      "id": "authored-referral-metrics-guardrails",
+      "title": "Referral Metrics Guardrails",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#7-guardrails",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "section-17-referral-program-17-docs-12-product-metrics-prebeta-beta-7-guardrails",
+        "authored-referral-metrics-and-integrity",
+        "authored-referral-dashboard-reporting-standards"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-metrics-guardrails.md",
+      "bodyMarkdown": "# Referral Metrics Guardrails\n\nThe product-metrics source gives three guardrails for referral measurement:\n\n- do not optimize headline KPIs by lowering market quality thresholds;\n- keep anti-gaming controls active when incentive surfaces expand;\n- ensure referral growth does not outpace monitoring and dispute tooling.\n\nThose guardrails keep the referral program aligned with market formation instead of pure growth theater.\n\n## Headline Metrics Are Not The Goal\n\nA referral program can make a dashboard look better while making the market worse. If the system lowers listing standards to increase new listings, increases code issuance without activation quality, or pays for activity that is easy to spoof, headline KPIs stop being evidence.\n\nThe source's first guardrail therefore protects market quality thresholds. Growth that degrades market quality is not progress toward Vibe's thesis.\n\n## Incentives Need Controls\n\nThe second and third guardrails are operational. Incentive surfaces should not expand faster than anti-gaming, monitoring, dispute handling, and reconciliation tooling.\n\nThat is why referral metrics should be paired with integrity views. A chart that shows referral attach rate without anomaly rate, suspicious volume, dispute state, or formula version is incomplete.\n\n## Publication Boundary\n\nThis page defines measurement guardrails. It does not publish final anti-gaming rules, anomaly thresholds, dispute procedures, freeze powers, market-quality thresholds, or enforcement policy. Those need product, risk, legal, and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Product Metrics Framework\", \"Guardrails\".\n- `spec-03`: current referral, points, and dashboard caveats.\n\n## Related Pages\n\n- `authored-referral-metrics-and-integrity`\n- `authored-referral-anomaly-monitoring-signals`\n- `authored-referral-fail-closed-incident-operations`",
+      "excerpt": "Referral Metrics Guardrails The product metrics source gives three guardrails for referral measurement: do not optimize headline KPIs by lowering market quality thresholds; keep anti gaming controls active when incentive surfaces expand; ensure referral growth does not outpace monitoring and dispute tooling. Those guardrails keep the referral program aligned with market formation instead of pure growth theater. Headline Metrics Are Not The Goal A referral program can make a dashboard look better while making the market worse. If the system lowers listing standards to increase new listings, increases code issuance without activation quality, or pays for activity that is easy to spoof, headline KPIs stop being evidence. The source's first guardrail therefore protects market quality thresholds. Growth that degrades market quality is not progress toward Vibe's thesis. Incentives Need Controls The second and third guardrails are operational. Incentive surfaces should not expand faster than anti gaming, monitoring, dispute handling, and reconciliation tooling. That is why referral metrics should be paired with integrity views. A chart that shows referral attach rate without anomaly rate,"
+    },
+    {
       "id": "authored-referral-mixed-accountability-boundary",
       "title": "Referral Mixed Accountability Boundary",
       "section": "rewards-referrals",
@@ -10917,6 +10967,32 @@
       "file": "content/authored/reference/referral-open-participation-benefits.md",
       "bodyMarkdown": "# Referral Open Participation With Optional Benefits\n\nNeelo's long-term access phase removes hard code requirements for core participation. Codes become optional accelerators rather than mandatory gates.\n\nThat target matters because a referral program should not permanently block the product's base network effects. Gating is useful while infrastructure hardens; open participation is the eventual usability goal.\n\n## Optional Does Not Mean Economically Irrelevant\n\nWhen codes stop being mandatory, they can still route benefits, attribution, partner economics, or campaign acceleration. The difference is that a user can participate in the core product without first finding a code.\n\nThe docs should therefore avoid two misleading claims: that all code gates are permanent, or that optional codes have no economic role. The source model is phase-based.\n\n## Publication Boundary\n\nThis page explains the source long-term target. It should not publish the exact date when code gates end, which actions become open first, which benefits remain code-linked, or whether historical users receive backfill until operator and implementation review confirm the public policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Phase C - Open Participation with Optional Benefits\".\n- `spec-03`: Current referral-depth and product-state caveats.\n\n## Related Pages\n\n- `authored-referral-access-gated-launch`\n- `authored-referral-uniform-referee-benefit`\n- `authored-referral-depth-open-question`",
       "excerpt": "Referral Open Participation With Optional Benefits Neelo's long term access phase removes hard code requirements for core participation. Codes become optional accelerators rather than mandatory gates. That target matters because a referral program should not permanently block the product's base network effects. Gating is useful while infrastructure hardens; open participation is the eventual usability goal. Optional Does Not Mean Economically Irrelevant When codes stop being mandatory, they can still route benefits, attribution, partner economics, or campaign acceleration. The difference is that a user can participate in the core product without first finding a code. The docs should therefore avoid two misleading claims: that all code gates are permanent, or that optional codes have no economic role. The source model is phase based. Publication Boundary This page explains the source long term target. It should not publish the exact date when code gates end, which actions become open first, which benefits remain code linked, or whether historical users receive backfill until operator and implementation review confirm the public policy. Sources vibe papers : Neelo, \"Section 6: Access"
+    },
+    {
+      "id": "authored-referral-phase-definitions",
+      "title": "Referral Phase Definitions",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#1-phase-definitions",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "section-17-referral-program-17-docs-12-product-metrics-prebeta-beta-1-phase-definitions",
+        "authored-referral-access-gated-launch",
+        "authored-referral-unified-access-identity",
+        "authored-referral-open-participation-benefits"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-phase-definitions.md",
+      "bodyMarkdown": "# Referral Phase Definitions\n\nNeelo's product-metrics source gives the referral rollout three phase labels: beta access-gated, beta, and open phase.\n\nThose labels should be read as operating states, not as marketing milestones. The source uses them to explain what kind of referral evidence can be trusted at each stage.\n\n## The Three Phases\n\nBeta access-gated is the controlled state. Onboarding and market growth are intentionally constrained so the team can observe flow quality, attribution behavior, and operational load before broad expansion.\n\nBeta is the scale-up state. Referral mechanics and attribution are live to a wider set of users, so reporting has to distinguish acquisition, market creation, demand, and integrity instead of treating all growth as the same signal.\n\nOpen phase is the broad-access state. Access is broadly available, and referral benefits act as an accelerator layer rather than the only way into the system.\n\n## Why Phase Labels Matter\n\nThe same metric can mean different things in different phases. A low number of issued codes during access-gated beta may be an intentional capacity decision. The same number in open phase may signal weak demand or a broken funnel.\n\nEvery public referral dashboard should therefore carry a phase label and, where relevant, a formula version. Without phase context, readers cannot tell whether a metric is measuring controlled launch quality, beta-scale activation, or open-network throughput.\n\n## Publication Boundary\n\nThis page defines the source's phase vocabulary. It does not publish launch dates, eligibility thresholds, code quotas, final referral depth, final economic terms, or milestone acceptance criteria. Those remain operator and product review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Product Metrics Framework\", \"Phase definitions\".\n- `spec-03`: referral-depth and public disclosure caveats.\n\n## Related Pages\n\n- `authored-referral-access-gated-launch`\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-dashboard-reporting-standards`",
+      "excerpt": "Referral Phase Definitions Neelo's product metrics source gives the referral rollout three phase labels: beta access gated, beta, and open phase. Those labels should be read as operating states, not as marketing milestones. The source uses them to explain what kind of referral evidence can be trusted at each stage. The Three Phases Beta access gated is the controlled state. Onboarding and market growth are intentionally constrained so the team can observe flow quality, attribution behavior, and operational load before broad expansion. Beta is the scale up state. Referral mechanics and attribution are live to a wider set of users, so reporting has to distinguish acquisition, market creation, demand, and integrity instead of treating all growth as the same signal. Open phase is the broad access state. Access is broadly available, and referral benefits act as an accelerator layer rather than the only way into the system. Why Phase Labels Matter The same metric can mean different things in different phases. A low number of issued codes during access gated beta may be an intentional capacity decision. The same number in open phase may signal weak demand or a broken funnel. Every public "
     },
     {
       "id": "authored-referral-phase-migration-requirements",
@@ -11201,6 +11277,32 @@
       "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
     },
     {
+      "id": "authored-referral-related-chapter-routing",
+      "title": "Referral Related Chapter Routing",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#8-related-chapters",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "section-17-referral-program-17-docs-12-product-metrics-prebeta-beta-8-related-chapters",
+        "authored-referral-access-phasing-operating-model",
+        "authored-points-taxonomy",
+        "authored-referral-adversarial-trust-constraints"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-related-chapter-routing.md",
+      "bodyMarkdown": "# Referral Related Chapter Routing\n\nThe product-metrics source closes by routing readers to access phasing, points and rewards, and the conclusion.\n\nThat routing is not just an appendix. It tells the answer engine which adjacent concepts must be inspected before a metric is treated as complete.\n\n## The Three Required Neighbors\n\nAccess phasing explains which operating state the metric belongs to. A pre-beta funnel, beta attribution metric, and open-phase conversion metric should not be compared as if they come from the same operating regime.\n\nPoints and rewards explain how referral behavior becomes economic state. Once points can affect TGE weighting, claims, packs, artifacts, or future settlement, metrics need stronger accounting boundaries.\n\nThe conclusion explains the strategic objective: referral growth should connect user acquisition, market creation, fee distribution, and trust under adversarial conditions.\n\n## Routing Rule\n\nWhen a reader asks about a referral metric, the answer should route to the metric definition first, then to the relevant chapter that owns the underlying policy:\n\n- phase questions route to access phasing;\n- points and claims questions route to points and rewards;\n- trust and adversarial-condition questions route to the conclusion and security controls.\n\nThis prevents the docs from answering policy questions from a dashboard metric alone.\n\n## Publication Boundary\n\nThis page defines routing across the referral source. It does not settle final access policy, points settlement, reward economics, referral depth, or anti-gaming enforcement.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Product Metrics Framework\", \"Related chapters\".\n- `spec-03`: referral, points, and public-dashboard caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-points-taxonomy`\n- `authored-referral-adversarial-trust-constraints`",
+      "excerpt": "Referral Related Chapter Routing The product metrics source closes by routing readers to access phasing, points and rewards, and the conclusion. That routing is not just an appendix. It tells the answer engine which adjacent concepts must be inspected before a metric is treated as complete. The Three Required Neighbors Access phasing explains which operating state the metric belongs to. A pre beta funnel, beta attribution metric, and open phase conversion metric should not be compared as if they come from the same operating regime. Points and rewards explain how referral behavior becomes economic state. Once points can affect TGE weighting, claims, packs, artifacts, or future settlement, metrics need stronger accounting boundaries. The conclusion explains the strategic objective: referral growth should connect user acquisition, market creation, fee distribution, and trust under adversarial conditions. Routing Rule When a reader asks about a referral metric, the answer should route to the metric definition first, then to the relevant chapter that owns the underlying policy: phase questions route to access phasing; points and claims questions route to points and rewards; trust and ad"
+    },
+    {
       "id": "authored-referral-reliable-incentives-under-scale",
       "title": "Referral Reliable Incentives Under Scale",
       "section": "rewards-referrals",
@@ -11434,6 +11536,32 @@
       "file": "content/authored/reference/referral-supply-kpis.md",
       "bodyMarkdown": "# Referral Supply KPIs\n\nNeelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high-quality tradable markets, not only more users with codes.\n\nThe supply KPI set includes:\n\n- new listings per week or day;\n- active markets;\n- repeat listers or weekly active listers;\n- time-to-first-listing for newly onboarded creators.\n\nTogether, those metrics distinguish market creation from one-time listing bursts. A campaign can increase code issuance and first signups while failing to create durable market supply. Supply KPIs show whether referrals are actually expanding the set of assets and communities that can be traded.\n\n## Documentation Boundary\n\nThe docs should define each supply metric with a phase label and formula version. They should not publish final listing-quality thresholds, market eligibility rules, creator scoring, listing incentives, or target bands until product and risk owners approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: product-state and dashboard-metric caveats.\n\n## Related Pages\n\n- `authored-referral-market-creation-velocity`\n- `authored-market-scoped-referrals`\n- `authored-referral-dashboard-reporting-standards`",
       "excerpt": "Referral Supply KPIs Neelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high quality tradable markets, not only more users with codes. The supply KPI set includes: new listings per week or day; active markets; repeat listers or weekly active listers; time to first listing for newly onboarded creators. Together, those metrics distinguish market creation from one time listing bursts. A campaign can increase code issuance and first signups while failing to create durable market supply. Supply KPIs show whether referrals are actually expanding the set of assets and communities that can be traded. Documentation Boundary The docs should define each supply metric with a phase label and formula version. They should not publish final listing quality thresholds, market eligibility rules, creator scoring, listing incentives, or target bands until product and risk owners approve them. Sources vibe papers : Neelo, \"Section 9: Metrics Framework\". vibe papers : Neelo, \"Product Metrics Framework\". spec 03 : product state and dashboard metric caveats. Related Pages authored referral market creation velocity authored market scoped referrals authored ref"
+    },
+    {
+      "id": "authored-referral-supporting-kpi-set",
+      "title": "Referral Supporting KPI Set",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#3-supporting-kpi-set",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "section-17-referral-program-17-docs-12-product-metrics-prebeta-beta-3-supporting-kpi-set",
+        "authored-referral-market-creation-velocity",
+        "authored-referral-supply-kpis",
+        "authored-referral-demand-kpis"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-supporting-kpi-set.md",
+      "bodyMarkdown": "# Referral Supporting KPI Set\n\nThe product-metrics source lists supporting KPIs that explain market creation velocity instead of replacing it.\n\nThe list is deliberately mixed. Some KPIs measure supply, some measure onboarding friction, some measure referral-loop participation, and some measure demand quality.\n\n## KPI Layers\n\nSupply growth is measured by new listings per week. Market depth is measured by active markets, which distinguishes one-time creation from sustained trading surfaces.\n\nOnboarding efficiency is measured by time-to-first-listing. Creator retention is measured by weekly active listers, because a one-off listing burst is weaker than repeated supply behavior.\n\nReferral attach rate measures whether attribution participates in the growth loop. Traders per active market measures demand distribution and helps detect concentration risk. Fee-generating volume ties usage to economic output instead of vanity activity.\n\n## How To Read The Set\n\nNo single supporting KPI proves referral success. The set is useful because it forces the dashboard to ask several questions at once:\n\n- are more markets being created;\n- are those markets active;\n- are creators returning;\n- are referrals attached to real market behavior;\n- is demand distributed across markets;\n- is the activity generating fees.\n\nThat is the difference between referral reporting and a simple invite counter.\n\n## Publication Boundary\n\nThis page defines the source's KPI categories. It does not publish final formulas, target bands, data sources, eligibility thresholds, referral-depth accounting, or payout rules. Each public metric should be versioned when product owners approve it for release.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Product Metrics Framework\", \"Supporting KPI set\".\n- `spec-03`: current dashboard, referral, and revenue caveats.\n\n## Related Pages\n\n- `authored-referral-market-creation-velocity`\n- `authored-referral-supply-kpis`\n- `authored-referral-demand-kpis`",
+      "excerpt": "Referral Supporting KPI Set The product metrics source lists supporting KPIs that explain market creation velocity instead of replacing it. The list is deliberately mixed. Some KPIs measure supply, some measure onboarding friction, some measure referral loop participation, and some measure demand quality. KPI Layers Supply growth is measured by new listings per week. Market depth is measured by active markets, which distinguishes one time creation from sustained trading surfaces. Onboarding efficiency is measured by time to first listing. Creator retention is measured by weekly active listers, because a one off listing burst is weaker than repeated supply behavior. Referral attach rate measures whether attribution participates in the growth loop. Traders per active market measures demand distribution and helps detect concentration risk. Fee generating volume ties usage to economic output instead of vanity activity. How To Read The Set No single supporting KPI proves referral success. The set is useful because it forces the dashboard to ask several questions at once: are more markets being created; are those markets active; are creators returning; are referrals attached to real mark"
     },
     {
       "id": "authored-referral-sustainable-fee-flow-objective",

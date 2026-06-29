@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Referral Product Metrics Exact Pages
+
+- Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo Referral Program product-metrics headings.
+- Split the product-metrics framework into exact answer pages for phase definitions, supporting KPI set, illustrative phase targets, metrics guardrails, and related-chapter routing.
+- Extended the question ledger so Ask can answer referral metrics questions without turning illustrative targets, phase labels, or dashboard KPIs into final public economic policy.
+- Kept target bands, release timing, final formulas, referral depth, anti-gaming thresholds, dispute tooling, payout rules, and public dashboard metrics marked for fresh operator/product/risk/legal/accounting review.
+
 ## 2026-06-29 — SYMM LP Overview Exact Pages
 
 - Added 2 authored Volume 05 protocol-reference pages from the remaining uncovered Neelo SYMM LP overview headings.
