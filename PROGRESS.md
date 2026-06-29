@@ -895,6 +895,18 @@
 - Routed five new Ask questions so users, growth operators, and partners can inspect the anti-gaming mechanics and ownership boundaries directly instead of relying on one broad issuance page.
 - Kept live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior under operator/legal/accounting/implementation review.
 
+## 2026-06-29 — Competitive Timing Exact Pages
+
+- Added five authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Section 8 competitive-analysis source: why-now window, first-mover operational learning, competitive response scenarios, sustainable moat scorecard, and replication checklist.
+- Routed five new Ask questions so strategy readers can inspect timing, response, and moat claims without turning source-model strategy into live dominance or partner claims.
+- Kept live market metrics, partner status, first-mover dominance, competitor roadmaps, LP stickiness, integration lock-in, development timelines, and final superiority claims under operator/product/risk/legal/implementation review.
+
+## 2026-06-29 — Industry Implications Exact Pages
+
+- Added five authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Section 7 industry-implications source: listing oracle, ecosystem synergy map, market participant impact map, risk-distribution shift, and permissionless perps as market infrastructure.
+- Routed five new Ask questions so venues, projects, traders, LPs, builders, and researchers can inspect Section 7's industry implications without collapsing them into the broader lifecycle or listing-data pages.
+- Kept live integrations, partner status, venue use of Vibe data, Z-score thresholds, listing rules, LP terms, solver obligations, market counts, and universal availability under operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Referral Access Phasing Exact Pages
 
 - Added five authored rewards-reference pages from Neelo's access-phasing source: access-gated launch, unified access and referral identity, open participation with optional benefits, phase migration requirements, and referral launch sequencing.

@@ -1303,3 +1303,19 @@
 **Reason:** Existing pages explain the broad hybrid settlement/solver stack and several important technical boundaries, but answer-engine readers also need narrower routes for the raw Section 6 questions: what the layers are, what the settlement contracts own, what inputs the quote/risk engines use, what the security trust model says, and what capabilities the technical architecture enables.
 
 **Status:** Accepted for the authored manifesto layer; live contract ABIs, access controls, upgrade mechanisms, solver policies, quote formulas, margin parameters, oracle thresholds, audit scope, circuit breakers, and production security guarantees remain fresh source/operator/product/risk/security/legal/implementation review.
+
+## D-164: Split Industry Implications Into Exact Stakeholder Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for Vibe as a listing oracle, ecosystem synergies, market participant impacts, risk-distribution evolution, and permissionless perps as market infrastructure.
+
+**Reason:** Existing pages covered lifecycle gap, listing data, programmatic graduation, and broader conclusion themes, but Section 7 still needed direct Ask routes for readers asking what changes for venues, integrations, traders, LPs, projects, exchanges, DeFi, and the broader industry. Splitting the source keeps strategic implications answerable without overstating live partner, venue, threshold, or product claims.
+
+**Status:** Accepted for the authored manifesto layer; live integrations, partner status, venue use of Vibe data, Z-score thresholds, listing rules, LP terms, solver obligations, market counts, and universal availability remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-165: Split Competitive Timing And Response Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the competitive why-now window, first-mover operational learning, competitive response scenarios, sustainable moat scorecard, and competitive replication checklist.
+
+**Reason:** Existing competitive pages already covered architectural lock-in, state migration, solver complexity, capital-efficiency traps, integration/data network effects, and Thiel scorecard interpretation. The remaining Section 8 headings still needed direct Ask routes for timing, first-mover learning, response scenarios, moat categories, and what a competitor would actually need to replicate.
+
+**Status:** Accepted for the authored manifesto layer; live market metrics, partner status, first-mover dominance, competitor roadmaps, LP stickiness, integration lock-in, development timelines, and final superiority claims remain fresh source/operator/product/risk/legal/implementation review.
