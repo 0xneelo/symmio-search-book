@@ -1255,3 +1255,11 @@
 **Reason:** The existing framework, trilemma, conclusion, and Thiel pages answer deeper strategy questions, but answer-engine readers also need foundation routes from the introduction: why perps matter, why current architectures leave a bootstrap gap, why listing decisions need better evidence, what Vibe's thesis claims, and where the source stops short.
 
 **Status:** Accepted for the authored manifesto layer; live market-size/share claims, venue-specific comparisons, current implementation state, graduation thresholds, integrations, regulatory conclusions, and universal listing claims remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-158: Split The Perp Bootstrap Abstract Into Exact Orientation Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the Perp Classes / Z-Score paper abstract, keyword map, paper-structure roadmap, long-tail scale problem, and introduction contribution preview.
+
+**Reason:** The existing introduction and conclusion pages cover specific claims, but the answer engine also needs orientation routes for readers asking what the paper is, what field it sits in, how it is organized, why the scale mismatch matters, and what the introduction promises before the proof develops.
+
+**Status:** Accepted for the authored manifesto layer; source-time token/perp counts, live implementation state, autonomous graduation, Z-score policy, integrations, venue use of listing evidence, and universal availability remain fresh source/operator/product/risk/legal/implementation review.

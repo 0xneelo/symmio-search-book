@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 577
+      "totalGoldenRoutes": 582
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 595,
-    "retrievalEligiblePages": 1387,
+    "publicNavigationPages": 600,
+    "retrievalEligiblePages": 1392,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 595,
+      "candidate": 600,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 577,
-    "exactRouteTestsPassing": 577,
+    "totalExactRouteTests": 582,
+    "exactRouteTestsPassing": 582,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 577
+      "candidate": 582
     },
     "exactRoutesByConfidence": {
-      "Medium": 357,
+      "Medium": 362,
       "High": 44,
       "Low": 176
     },
@@ -12802,6 +12802,111 @@
         "chunkCount": 1,
         "faqEntryId": "faq-what-are-the-scope-and-limits-of-the-perp-bootstrap-paper",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-the-perp-classes-z-score-paper-about",
+        "query": "What is the Perp Classes / Z-Score paper about?",
+        "normalizedQuery": "what is the perp classes z score paper about",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-paper-abstract",
+        "expectedPageTitle": "The Perp Bootstrap Paper Abstract",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-perp-classes-z-score-paper-about",
+        "passes": true
+      },
+      {
+        "id": "qr-which-keywords-define-the-perp-bootstrap-paper",
+        "query": "Which keywords define the perp bootstrap paper?",
+        "normalizedQuery": "which keywords define the perp bootstrap paper",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-paper-keyword-map",
+        "expectedPageTitle": "The Perp Bootstrap Paper Keyword Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-keywords-define-the-perp-bootstrap-paper",
+        "passes": true
+      },
+      {
+        "id": "qr-how-is-the-perp-bootstrap-paper-structured",
+        "query": "How is the perp bootstrap paper structured?",
+        "normalizedQuery": "how is the perp bootstrap paper structured",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-paper-structure-roadmap",
+        "expectedPageTitle": "The Perp Bootstrap Paper Structure Roadmap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-is-the-perp-bootstrap-paper-structured",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-long-tail-perp-market-creation-a-scale-problem",
+        "query": "Why is long-tail perp market creation a scale problem?",
+        "normalizedQuery": "why is long tail perp market creation a scale problem",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-scale-of-long-tail-perp-problem",
+        "expectedPageTitle": "The Scale Of The Long-Tail Perp Problem",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-long-tail-perp-market-creation-a-scale-problem",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-perp-paper-promise-to-contribute-in-the-introduction",
+        "query": "What does the perp paper promise to contribute in the introduction?",
+        "normalizedQuery": "what does the perp paper promise to contribute in the introduction",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-paper-contribution-preview",
+        "expectedPageTitle": "The Perp Paper Contribution Preview",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-perp-paper-promise-to-contribute-in-the-introduction",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12877,7 +12982,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 577,
+      "exactRoutes": 582,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

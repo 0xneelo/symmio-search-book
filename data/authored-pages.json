@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 596,
+  "totalPages": 601,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 438,
-    "publication-candidate": 139,
+    "publication-candidate-needs-operator-review": 441,
+    "publication-candidate": 141,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 318,
+    "manifesto": 323,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -6537,6 +6537,27 @@
       "excerpt": "Perp Market As Credit System The Vibe Pillars paper starts by refusing to treat a perpetual market as only a price chart with leverage attached. A perp market is a credit system. Traders post margin and receive exposure. Counterparties absorb risk. Solvers, market makers, LPs, or vaults stand behind the market during stress. If collateral, liquidation, oracle, execution, or counterparty continuity breaks, the venue can become exploitable, unbootstrappable, or uneconomic. Why This Matters This framing explains why Vibe cannot be documented as \"more listings plus leverage.\" Low cap perpetuals are difficult because the system is extending exposure before the market has mature depth. Defense, counterparty formation, and capital incentives all become part of the product. The credit system lens also separates market structure risk from ordinary smart contract risk. A contract can be secure while the market it runs is economically fragile. The docs should therefore explain who takes risk, how collateral backs exposure, and what happens when price, liquidity, and liquidation timing move against the system. Reader Guidance When a reader asks why Vibe needs so much architecture around solver"
     },
     {
+      "id": "authored-perp-paper-abstract",
+      "title": "The Perp Bootstrap Paper Abstract",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract#abstract"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-00-abstract-abstract"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-paper-abstract.md",
+      "bodyMarkdown": "# The Perp Bootstrap Paper Abstract\n\nNeelo's Perp Classes / Z-Score paper starts with the market-bootstrap problem: architectures that work for established, liquid perpetual futures markets can fail when a market begins from zero.\n\nThe abstract frames the missing layer as systematic market creation. Crypto perps already matter as core trading infrastructure, but listing and market-formation processes remain manual, opaque, slow, and unable to keep up with long-tail token issuance. The paper's target is not a better homepage for existing markets. It is a method for turning first demand into a real derivative market.\n\nThe abstract then compresses the paper into three contributions. First, it classifies perpetual protocols by matching synchronicity and collateralization architecture. Second, it names the bootstrap trilemma: permissionless listing, capital efficiency, and reliable counterparty guarantees are difficult to achieve together in one static architecture. Third, it presents Vibe's hybrid lifecycle architecture as a path from collateralized asynchronous bootstrap toward more efficient synchronous order-book maturity.\n\n## Publication Boundary\n\nTreat the abstract as the paper's thesis map, not proof that every live Vibe market has already completed every transition. Source-time empirical examples, autonomous graduation behavior, live Z-score thresholds, and production implementation state still need fresh product/operator/risk review before public final language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals: Abstract\".\n\n## Related Pages\n\n- `authored-perp-paper-keyword-map`\n- `authored-perp-paper-structure-roadmap`\n- `authored-bootstrap-trilemma`\n- `authored-market-creation-gap`",
+      "excerpt": "The Perp Bootstrap Paper Abstract Neelo's Perp Classes / Z Score paper starts with the market bootstrap problem: architectures that work for established, liquid perpetual futures markets can fail when a market begins from zero. The abstract frames the missing layer as systematic market creation. Crypto perps already matter as core trading infrastructure, but listing and market formation processes remain manual, opaque, slow, and unable to keep up with long tail token issuance. The paper's target is not a better homepage for existing markets. It is a method for turning first demand into a real derivative market. The abstract then compresses the paper into three contributions. First, it classifies perpetual protocols by matching synchronicity and collateralization architecture. Second, it names the bootstrap trilemma: permissionless listing, capital efficiency, and reliable counterparty guarantees are difficult to achieve together in one static architecture. Third, it presents Vibe's hybrid lifecycle architecture as a path from collateralized asynchronous bootstrap toward more efficient synchronous order book maturity. Publication Boundary Treat the abstract as the paper's thesis map"
+    },
+    {
       "id": "authored-perp-paper-contribution-map",
       "title": "The Perp Paper Contribution Map",
       "section": "manifesto",
@@ -6558,6 +6579,69 @@
       "file": "content/authored/manifesto/perp-paper-contribution-map.md",
       "bodyMarkdown": "# The Perp Paper Contribution Map\n\nNeelo's conclusion says the Perp Classes / Z-Score paper contributes three things: a protocol-design framework, the bootstrap trilemma, and a hybrid architecture path through that trilemma.\n\nThe framework contribution gives readers the three axes: matching architecture, collateralization architecture, and insurance topology. That matters because it prevents lazy comparisons between protocols that solve different market states.\n\nThe trilemma contribution names the constraint: a single static architecture struggles to deliver permissionless listing, capital efficiency, and reliable counterparty at the same time. Some systems favor mature efficiency. Some systems favor capitalized counterparty. Some experiments try to avoid the payer question and break under bootstrap conditions.\n\nThe hybrid contribution is temporal. Vibe is framed as a system that can accept inefficiency at bootstrap, measure market maturity, and move toward more efficient structure as evidence accumulates.\n\n## Publication Boundary\n\nTreat this as the paper's argument map, not proof that any live implementation has completed every transition. Venue comparisons, production graduation behavior, Z-score thresholds, and automatic integration claims need operator/product review before public final language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Conclusion: 9.1 Summary of Contributions\".\n\n## Related Pages\n\n- `authored-perp-protocol-framework`\n- `authored-bootstrap-trilemma`\n- `authored-static-perp-design-failures`",
       "excerpt": "The Perp Paper Contribution Map Neelo's conclusion says the Perp Classes / Z Score paper contributes three things: a protocol design framework, the bootstrap trilemma, and a hybrid architecture path through that trilemma. The framework contribution gives readers the three axes: matching architecture, collateralization architecture, and insurance topology. That matters because it prevents lazy comparisons between protocols that solve different market states. The trilemma contribution names the constraint: a single static architecture struggles to deliver permissionless listing, capital efficiency, and reliable counterparty at the same time. Some systems favor mature efficiency. Some systems favor capitalized counterparty. Some experiments try to avoid the payer question and break under bootstrap conditions. The hybrid contribution is temporal. Vibe is framed as a system that can accept inefficiency at bootstrap, measure market maturity, and move toward more efficient structure as evidence accumulates. Publication Boundary Treat this as the paper's argument map, not proof that any live implementation has completed every transition. Venue comparisons, production graduation behavior, Z"
+    },
+    {
+      "id": "authored-perp-paper-contribution-preview",
+      "title": "The Perp Paper Contribution Preview",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-8-paper-contributions"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-8-paper-contributions"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-paper-contribution-preview.md",
+      "bodyMarkdown": "# The Perp Paper Contribution Preview\n\nThe introduction's contribution section is the promise of the paper before the detailed proof. It says the paper will contribute theory, practice, and industry framing.\n\nThe theoretical contribution is a categorization framework for perpetual protocols, a formal bootstrap trilemma, and an explanation of why certain architecture combinations fail. This is the part that gives the compendium a precise vocabulary instead of a loose \"perps are hard\" claim.\n\nThe practical contribution is a market-creation architecture, a Z-score maturity metric, and design patterns for graduation. This is where the paper moves from diagnosis to lifecycle mechanics.\n\nThe industry contribution is a path toward transparent listing decisions, a way for order-book protocols to identify ready markets, and a vision for completing the token lifecycle. This matters because Vibe is framed as upstream infrastructure for market evidence, not only as a venue competing for already-obvious markets.\n\n## Publication Boundary\n\nDistinguish this preview from the conclusion's contribution map. The introduction tells readers what the paper intends to show; the conclusion summarizes the argument after the framework, trilemma, architecture, technical model, and industry sections have been developed. Live listing partnerships, final Z-score policy, and automatic graduation claims still need product/operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.8 Paper Contributions\".\n\n## Related Pages\n\n- `authored-perp-paper-contribution-map`\n- `authored-perp-protocol-framework`\n- `authored-bootstrap-trilemma`\n- `authored-z-score-graduation-criteria`",
+      "excerpt": "The Perp Paper Contribution Preview The introduction's contribution section is the promise of the paper before the detailed proof. It says the paper will contribute theory, practice, and industry framing. The theoretical contribution is a categorization framework for perpetual protocols, a formal bootstrap trilemma, and an explanation of why certain architecture combinations fail. This is the part that gives the compendium a precise vocabulary instead of a loose \"perps are hard\" claim. The practical contribution is a market creation architecture, a Z score maturity metric, and design patterns for graduation. This is where the paper moves from diagnosis to lifecycle mechanics. The industry contribution is a path toward transparent listing decisions, a way for order book protocols to identify ready markets, and a vision for completing the token lifecycle. This matters because Vibe is framed as upstream infrastructure for market evidence, not only as a venue competing for already obvious markets. Publication Boundary Distinguish this preview from the conclusion's contribution map. The introduction tells readers what the paper intends to show; the conclusion summarizes the argument aft"
+    },
+    {
+      "id": "authored-perp-paper-keyword-map",
+      "title": "The Perp Bootstrap Paper Keyword Map",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract#keywords"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-00-abstract-keywords"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-paper-keyword-map.md",
+      "bodyMarkdown": "# The Perp Bootstrap Paper Keyword Map\n\nThe abstract keywords are a useful map of the paper's intellectual territory. They place the argument at the intersection of perpetual futures, market microstructure, automated market makers, order books, decentralized finance, market bootstrap, liquidity provision, and derivatives trading.\n\nThat mix matters. The source is not only about a perp venue, not only about a solver, and not only about DeFi liquidity. It asks how a derivative market comes into existence, how the first counterparty problem is handled, and how the design changes as liquidity matures.\n\nThe keyword set also keeps the compendium honest about complementarity. Automated market makers and order books both appear because the paper is not written as a simple \"AMM versus CLOB\" argument. It is about which mechanism fits which market state and how a market can move between states.\n\n## Reader Implication\n\nWhen a reader asks \"what field is this paper in?\", route here before sending them into the full framework. The short answer is: market bootstrap for perpetual futures, using market microstructure as the organizing language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals: Keywords\".\n\n## Related Pages\n\n- `authored-perp-paper-abstract`\n- `authored-perp-protocol-framework`\n- `authored-temporal-separation-of-concerns`\n- `authored-order-books-as-graduation-layer`",
+      "excerpt": "The Perp Bootstrap Paper Keyword Map The abstract keywords are a useful map of the paper's intellectual territory. They place the argument at the intersection of perpetual futures, market microstructure, automated market makers, order books, decentralized finance, market bootstrap, liquidity provision, and derivatives trading. That mix matters. The source is not only about a perp venue, not only about a solver, and not only about DeFi liquidity. It asks how a derivative market comes into existence, how the first counterparty problem is handled, and how the design changes as liquidity matures. The keyword set also keeps the compendium honest about complementarity. Automated market makers and order books both appear because the paper is not written as a simple \"AMM versus CLOB\" argument. It is about which mechanism fits which market state and how a market can move between states. Reader Implication When a reader asks \"what field is this paper in?\", route here before sending them into the full framework. The short answer is: market bootstrap for perpetual futures, using market microstructure as the organizing language. Sources vibe papers : Neelo, \"Vibe Trading: Solving the Market Boo"
+    },
+    {
+      "id": "authored-perp-paper-structure-roadmap",
+      "title": "The Perp Bootstrap Paper Structure Roadmap",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract#paper-structure"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-00-abstract-paper-structure"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-paper-structure-roadmap.md",
+      "bodyMarkdown": "# The Perp Bootstrap Paper Structure Roadmap\n\nThe paper structure shows that Neelo's argument is sequential. It does not jump from \"perps are important\" to \"Vibe is the answer.\" It builds a ladder from market gap, to protocol taxonomy, to existing-architecture analysis, to the bootstrap trilemma, to Vibe's hybrid architecture, to technical mechanisms, industry implications, competitive barriers, and conclusion.\n\nThat order is important for the compendium. A reader should not meet the Z-score as an isolated metric. The Z-score belongs after the market-lifecycle problem and after the trilemma, because it measures when a market has earned a different architecture state.\n\nThe structure also explains why Volume 02 has many exact pages. Each section answers a different class of question: why the gap exists, what current protocols optimize for, why a static design breaks, how a hybrid design moves over time, what the implementation must measure, and what that changes for exchanges, LPs, traders, and builders.\n\n## Reader Implication\n\nUse this page as the map for readers who ask where to start in the Perp Classes / Z-Score paper. The correct path is not one mega-summary; it is an ordered progression from problem statement to lifecycle architecture.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals: Paper Structure\".\n\n## Related Pages\n\n- `authored-perp-paper-abstract`\n- `authored-scale-of-long-tail-perp-problem`\n- `authored-perp-paper-contribution-preview`\n- `authored-perp-paper-contribution-map`",
+      "excerpt": "The Perp Bootstrap Paper Structure Roadmap The paper structure shows that Neelo's argument is sequential. It does not jump from \"perps are important\" to \"Vibe is the answer.\" It builds a ladder from market gap, to protocol taxonomy, to existing architecture analysis, to the bootstrap trilemma, to Vibe's hybrid architecture, to technical mechanisms, industry implications, competitive barriers, and conclusion. That order is important for the compendium. A reader should not meet the Z score as an isolated metric. The Z score belongs after the market lifecycle problem and after the trilemma, because it measures when a market has earned a different architecture state. The structure also explains why Volume 02 has many exact pages. Each section answers a different class of question: why the gap exists, what current protocols optimize for, why a static design breaks, how a hybrid design moves over time, what the implementation must measure, and what that changes for exchanges, LPs, traders, and builders. Reader Implication Use this page as the map for readers who ask where to start in the Perp Classes / Z Score paper. The correct path is not one mega summary; it is an ordered progression "
     },
     {
       "id": "authored-perp-protocol-framework",
@@ -9162,6 +9246,27 @@
       "file": "content/authored/manifesto/safety-premium-backstop-quotes.md",
       "bodyMarkdown": "# Safety Premium Backstop Quotes\n\nThe protocol-owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk-priced quote.\n\nThat safety premium is the honest cost of cold-start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it.\n\nThis page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability.\n\nExact spread formulas, quote floors, solver profitability, and user-facing pricing promises remain implementation-sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback risk.\n\n## Reader Implication\n\nIf an early-market quote is wider, that can be a market-structure signal rather than a UI defect. The system is pricing the fact that the trade needed a backstop.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.1 Protocol-Owned Solver (POS)\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-protocol-owned-solver-public-option`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-solver-sustainability-condition`",
       "excerpt": "Safety Premium Backstop Quotes The protocol owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk priced quote. That safety premium is the honest cost of cold start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it. This page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability. Exact spread formulas, quote floors, solver profitability, and user facing pricing promises remain implementation sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback ris"
+    },
+    {
+      "id": "authored-scale-of-long-tail-perp-problem",
+      "title": "The Scale Of The Long-Tail Perp Problem",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-3-the-scale-of-the-problem"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-3-the-scale-of-the-problem"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/scale-of-long-tail-perp-problem.md",
+      "bodyMarkdown": "# The Scale Of The Long-Tail Perp Problem\n\nNeelo's introduction turns the market-creation gap into a scale problem. Token issuance has become extremely cheap and fast, while perpetual market creation remains scarce, selective, and operationally heavy.\n\nThe source uses source-time figures to make the asymmetry concrete: thousands of tokens launch daily, PumpFun had facilitated millions of token launches, while the set of assets with perpetual markets across major exchanges was far smaller. The durable point is the ratio, not any single live number. Asset creation scales like software distribution; serious derivatives coverage still behaves like a curated venue process.\n\nThat mismatch explains why the compendium should not frame Vibe as merely \"more listings.\" If the industry can create token markets faster than it can create derivative markets, then the bottleneck is a market-formation system. Traders want leverage, hedgers want protection, DeFi protocols want perp primitives, and market makers can only participate if the market surface exists.\n\n## Publication Boundary\n\nDo not publish the source-time token counts, perp-market counts, or ratio as current without fresh market-data verification. The source-backed claim is structural: long-tail token issuance massively outpaces systematic perpetual market creation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.3 The Scale of the Problem\".\n\n## Related Pages\n\n- `authored-market-creation-gap`\n- `authored-valley-of-death-lifecycle-gap`\n- `authored-perpetual-futures-rise`\n- `authored-listing-decision-problem`",
+      "excerpt": "The Scale Of The Long Tail Perp Problem Neelo's introduction turns the market creation gap into a scale problem. Token issuance has become extremely cheap and fast, while perpetual market creation remains scarce, selective, and operationally heavy. The source uses source time figures to make the asymmetry concrete: thousands of tokens launch daily, PumpFun had facilitated millions of token launches, while the set of assets with perpetual markets across major exchanges was far smaller. The durable point is the ratio, not any single live number. Asset creation scales like software distribution; serious derivatives coverage still behaves like a curated venue process. That mismatch explains why the compendium should not frame Vibe as merely \"more listings.\" If the industry can create token markets faster than it can create derivative markets, then the bottleneck is a market formation system. Traders want leverage, hedgers want protection, DeFi protocols want perp primitives, and market makers can only participate if the market surface exists. Publication Boundary Do not publish the source time token counts, perp market counts, or ratio as current without fresh market data verification."
     },
     {
       "id": "authored-search-insights-loop",

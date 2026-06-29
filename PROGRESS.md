@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Abstract And Structure Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score abstract and remaining introduction foundation source.
+- Split the paper opening into exact answer routes for the abstract, keyword map, paper-structure roadmap, long-tail market-creation scale problem, and introduction contribution preview.
+- Extended the question ledger so Ask can route paper-orientation questions before readers reach the framework, bootstrap trilemma, architecture, or conclusion pages.
+- Kept source-time token/perp counts, live implementation state, autonomous graduation, Z-score policy, integrations, and universal availability marked for fresh source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Perp Introduction Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score introduction source.

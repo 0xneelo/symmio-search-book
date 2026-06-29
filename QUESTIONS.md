@@ -583,6 +583,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the listing decision problem? | `authored-listing-decision-problem` | Medium | Neelo frames listing decisions as data-poor and proxy-heavy until markets produce objective demand and risk evidence. |
 | What is the bootstrap thesis statement? | `authored-bootstrap-thesis-statement` | Medium | Neelo argues a hybrid lifecycle architecture can accept bootstrap costs, measure maturity, and move toward efficient structures when earned. |
 | What are the scope and limits of the perp bootstrap paper? | `authored-perp-bootstrap-scope-and-limits` | Medium | Neelo scopes the paper to crypto perpetual futures market design, not live implementation proof, legal conclusions, options, or prediction markets. |
+| What is the Perp Classes / Z-Score paper about? | `authored-perp-paper-abstract` | Medium | Neelo's abstract frames the paper as a market-bootstrap thesis for permissionless perpetual futures, with framework, trilemma, and hybrid-architecture contributions. |
+| Which keywords define the perp bootstrap paper? | `authored-perp-paper-keyword-map` | Medium | The abstract keywords place the paper at the intersection of perps, market microstructure, AMMs, order books, DeFi, bootstrap, liquidity provision, and derivatives trading. |
+| How is the perp bootstrap paper structured? | `authored-perp-paper-structure-roadmap` | Medium | Neelo's paper structure moves from market gap to framework, landscape, trilemma, Vibe architecture, technical mechanisms, implications, competition, and conclusion. |
+| Why is long-tail perp market creation a scale problem? | `authored-scale-of-long-tail-perp-problem` | Medium | Neelo's introduction uses the mismatch between mass token issuance and scarce perp listings as the scale argument; source-time counts need fresh verification. |
+| What does the perp paper promise to contribute in the introduction? | `authored-perp-paper-contribution-preview` | Medium | The introduction previews theoretical, practical, and industry contributions before the conclusion restates the developed argument. |
 
 ## Prototype Event Log
 
