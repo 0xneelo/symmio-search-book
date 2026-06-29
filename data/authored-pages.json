@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 436,
+  "totalPages": 441,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 299,
+    "publication-candidate-needs-operator-review": 304,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,11 +12,11 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 47,
+    "rewards-referrals": 45,
     "dashboard-reference": 12,
     "protocol-reference": 117,
     "competitive-context": 1,
     "reference": 1,
-    "rewards-referrals": 40,
     "answer-engine": 1,
     "solver-reference": 1,
     "compendium": 8
@@ -144,6 +144,31 @@
       "file": "content/authored/reference/amfq-legacy-intent-naming.md",
       "bodyMarkdown": "# AMFQ Is Legacy Naming For Intents\n\nAMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model.\n\nThe current reader-facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote-market shape of that same product idea; it should not be documented as a separate live system beside Intents.\n\n## How To Use The Terms\n\nUse intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language.\n\nThe distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent-based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state.\n\n## Reader Implication\n\nIf a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should translate the legacy name into current terms before explaining trade flow. That prevents duplicate vocabulary and keeps older source material searchable.\n\n## Sources\n\n- `vibe-architecture`: AMFQ/aMFQ naming, trade intention, solver offers, request-to-trade flow, collateral, and bilateral agreement.\n- `symmio-core`: PartyA, PartyB, intent, collateral, and margin vocabulary.\n- `symmio-intent-lifecycle`: quote events, solver monitoring, locking, and lifecycle state.\n- `styleguide`: local terminology lock for current docs language.\n\n## Related Pages\n\n- `authored-vibe-intent-architecture`\n- `authored-intents-and-solvers`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`",
       "excerpt": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote market shape of that same product idea; it should not be documented as a separate live system beside Intents. How To Use The Terms Use intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language. The distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state. Reader Implication If a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should transla"
+    },
+    {
+      "id": "authored-artifact-exposure-and-boost-rules",
+      "title": "Artifact Exposure And Boost Rules",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "authored-rewards-packs-and-artifacts",
+        "authored-reward-pack-ev-supply-policy"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/artifact-exposure-and-boost-rules.md",
+      "bodyMarkdown": "# Artifact Exposure And Boost Rules\n\nThe artifact model turns opened packs into persistent assets. Each artifact can carry embedded point value, rarity, and optional boost fields.\n\nThose properties are economically sensitive. Embedded point value affects future exposure. Rarity affects secondary-market pricing. Boosts affect user behavior if they change earning rates, eligibility, or utility. The docs should not present any boost as live until policy defines what the boost does, when it applies, whether it stacks, and how it is audited.\n\nThe source also separates equipped and unequipped artifacts. Unequipped artifacts still retain embedded point exposure, while equipped artifacts may apply boosts under explicit policy rules. That distinction should be preserved because it changes how users reason about inventory.\n\n## Publication Boundary\n\nArtifacts can be described as a possible reward-object layer, not as a current rewards guarantee. A final page needs an artifact catalog, rarity classes, embedded point values, slot rules, boost formulas, stacking rules, transferability, and audit trail before users can treat artifacts as production economics.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Boosts, TGE weight, and transferability require product-owner approval.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-pack-ev-supply-policy`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "excerpt": "Artifact Exposure And Boost Rules The artifact model turns opened packs into persistent assets. Each artifact can carry embedded point value, rarity, and optional boost fields. Those properties are economically sensitive. Embedded point value affects future exposure. Rarity affects secondary market pricing. Boosts affect user behavior if they change earning rates, eligibility, or utility. The docs should not present any boost as live until policy defines what the boost does, when it applies, whether it stacks, and how it is audited. The source also separates equipped and unequipped artifacts. Unequipped artifacts still retain embedded point exposure, while equipped artifacts may apply boosts under explicit policy rules. That distinction should be preserved because it changes how users reason about inventory. Publication Boundary Artifacts can be described as a possible reward object layer, not as a current rewards guarantee. A final page needs an artifact catalog, rarity classes, embedded point values, slot rules, boost formulas, stacking rules, transferability, and audit trail before users can treat artifacts as production economics. Sources vibe papers : Neelo, \"Section 12: Rewar"
     },
     {
       "id": "authored-autonomous-market-creation",
@@ -5416,6 +5441,32 @@
       "excerpt": "Points Taxonomy The docs should never answer \"points\" as if there is only one rail. The current source set supports at least four distinct meanings: 1. Onboarding points are campaign/accounting points inside this onboarding app. They come from registration, verification adjacent tasks, content actions, and referral chain awards. 2. Referral points are the onboarding app entries awarded through the referral chain when a referred user qualifies. 3. Network/trading points are aggregated from wallet trading data alongside network volume, where the backend returns total points for wallets in the user's network. 4. Vibe points are the public Vibe trading program points described by Vibe's docs, covering trading, referring, and community categories. Those rails can be related, but they are not interchangeable. Onboarding Points server/points.js is the local points ledger for the onboarding app. It is append only: entries are written as ledger events and totals are computed from the ledger. The default config includes self/action bonuses, referral level amounts, code grant counts, grant pool, and referral depth config. Admin config now treats percentages and totals as canonical inputs, der"
     },
     {
+      "id": "authored-points-value-state-lifecycle",
+      "title": "Points Value State Lifecycle",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-04-points-and-rewards",
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "authored-points-claim-bridge-and-vesting"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/points-value-state-lifecycle.md",
+      "bodyMarkdown": "# Points Value State Lifecycle\n\nThe rewards sources separate point balances by economic state. A user-visible points number is not automatically final, transferable, or eligible for TGE accounting.\n\nThe clean lifecycle is:\n\n- unfinalized off-chain points, which may still depend on daily or epoch source checks;\n- finalized off-chain points, which are source-bucketed and eligible for a claim path if policy allows;\n- claimed on-chain points, which become economically active only after authorization and any required delay;\n- converted reward objects, such as packs or artifacts, if a future policy permits conversion.\n\nThis state model prevents a common documentation error: treating every displayed point as the same thing. The source warns that real-time \"final points\" displays can increase gaming risk if users can optimize against incomplete settlement logic.\n\n## Reader Implication\n\nWhen users ask whether points are final, the docs should answer by state. A live dashboard can show progress without implying the balance has passed finalization, claim eligibility, transferability, or TGE qualification.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Public TGE and claim semantics remain owner-review.\n\n## Related Pages\n\n- `authored-referral-points-economic-state`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-settlement-multiplier`",
+      "excerpt": "Points Value State Lifecycle The rewards sources separate point balances by economic state. A user visible points number is not automatically final, transferable, or eligible for TGE accounting. The clean lifecycle is: unfinalized off chain points, which may still depend on daily or epoch source checks; finalized off chain points, which are source bucketed and eligible for a claim path if policy allows; claimed on chain points, which become economically active only after authorization and any required delay; converted reward objects, such as packs or artifacts, if a future policy permits conversion. This state model prevents a common documentation error: treating every displayed point as the same thing. The source warns that real time \"final points\" displays can increase gaming risk if users can optimize against incomplete settlement logic. Reader Implication When users ask whether points are final, the docs should answer by state. A live dashboard can show progress without implying the balance has passed finalization, claim eligibility, transferability, or TGE qualification. Sources vibe papers : Neelo, \"Section 4: Points and Rewards\". vibe papers : Neelo, \"Section 12: Rewards, Pa"
+    },
+    {
       "id": "authored-pooled-backstop-mismatch",
       "title": "Pooled Backstop Mismatch",
       "section": "manifesto",
@@ -6656,6 +6707,56 @@
       "file": "content/authored/reference/residual-counterparty-hedge-first.md",
       "bodyMarkdown": "# Residual Counterparty And Hedge-First Execution\n\nNeelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance.\n\nThat makes \"hedge first\" a core design idea for permissionless low-cap perps. The solver should establish backing inventory, a hedge, or a risk-adjusted quote before it becomes responsible for the residual exposure.\n\n## Internal And External Hedge Sources\n\nFor low-cap markets, the DDQ source emphasizes internal inventory or vault-controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP-style routing to reduce price impact.\n\nOpposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity.\n\n## Reader Implication\n\nThe important support answer is not \"the solver always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market-level controls can tighten.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\".\n- `vibe-architecture`: Vibe intent quotation context.\n- `symmio-intent-lifecycle`: solver event monitoring, risk checks, locking, and collateral allocation.\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-solver-event-monitoring`\n- `authored-vibe-oi-and-liquidity`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty`",
       "excerpt": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance. That makes \"hedge first\" a core design idea for permissionless low cap perps. The solver should establish backing inventory, a hedge, or a risk adjusted quote before it becomes responsible for the residual exposure. Internal And External Hedge Sources For low cap markets, the DDQ source emphasizes internal inventory or vault controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP style routing to reduce price impact. Opposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity. Reader Implication The "
+    },
+    {
+      "id": "authored-reward-pack-ev-supply-policy",
+      "title": "Reward Pack EV And Supply Policy",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "authored-rewards-packs-and-artifacts",
+        "authored-reward-packs-future-facing-status"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/reward-pack-ev-supply-policy.md",
+      "bodyMarkdown": "# Reward Pack EV And Supply Policy\n\nThe pack model only works if supply and expected value are documented before users treat packs as economic objects.\n\nThe source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected-value containers.\n\nExpected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low-probability high-rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved.\n\n## Documentation Standard\n\nA production pack page needs:\n\n- total or phase supply;\n- rarity classes and probability tables;\n- input point cost or earning path;\n- expected output policy;\n- whether market price can diverge from expected value;\n- how unopened packs count for TGE exposure.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Reward formulas and conversion terms need owner approval.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-packs-future-facing-status`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "excerpt": "Reward Pack EV And Supply Policy The pack model only works if supply and expected value are documented before users treat packs as economic objects. The source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected value containers. Expected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low probability high rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved. Documentation Standard A production pack page needs: total or phase supply; rarity classes and probability tables; input point cost or earning path; expected output policy; whether market price can diverge from expected value; how unopened packs count for TGE exposure. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". spec 03 : Reward formulas and conversion terms"
+    },
+    {
+      "id": "authored-reward-packs-future-facing-status",
+      "title": "Reward Packs Are Future-Facing Design Models",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "authored-rewards-packs-and-artifacts",
+        "authored-points-claim-bridge-and-vesting"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/reward-packs-future-facing-status.md",
+      "bodyMarkdown": "# Reward Packs Are Future-Facing Design Models\n\nThe rewards-pack source is explicit about status: packs and artifacts are a future-facing thought experiment, not a current product announcement or endorsed live feature.\n\nThat caveat matters because the model introduces economically sensitive concepts: on-chain point claims, transferable points, unopened packs, opened artifacts, rarity, boosts, and TGE accounting across multiple asset forms. Publishing those as live policy before the operator has approved supply, dates, eligibility, transferability, and valuation rules would mislead users.\n\nThe docs should therefore use two layers:\n\n- the current principle: points require source-bucketed accounting, finalization, eligibility checks, and anti-abuse controls;\n- the future model: packs and artifacts show how reward exposure could become composable once those controls are ready.\n\n## Publication Boundary\n\nThis page should answer whether packs are live by saying no final public commitment is established from the source alone. The useful takeaway is architectural: keep base point accounting simple, and only add game mechanics after supply, EV, rarity, transferability, and TGE rules can be audited.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Final product status and reward-policy wording require owner review.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-referral-points-economic-state`",
+      "excerpt": "Reward Packs Are Future Facing Design Models The rewards pack source is explicit about status: packs and artifacts are a future facing thought experiment, not a current product announcement or endorsed live feature. That caveat matters because the model introduces economically sensitive concepts: on chain point claims, transferable points, unopened packs, opened artifacts, rarity, boosts, and TGE accounting across multiple asset forms. Publishing those as live policy before the operator has approved supply, dates, eligibility, transferability, and valuation rules would mislead users. The docs should therefore use two layers: the current principle: points require source bucketed accounting, finalization, eligibility checks, and anti abuse controls; the future model: packs and artifacts show how reward exposure could become composable once those controls are ready. Publication Boundary This page should answer whether packs are live by saying no final public commitment is established from the source alone. The useful takeaway is architectural: keep base point accounting simple, and only add game mechanics after supply, EV, rarity, transferability, and TGE rules can be audited. Sources"
     },
     {
       "id": "authored-rewards-packs-and-artifacts",
@@ -8260,6 +8361,32 @@
       "file": "content/authored/manifesto/temporal-separation-of-concerns.md",
       "bodyMarkdown": "# Temporal Separation Of Concerns\n\nTemporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages.\n\nAt bootstrap, the market needs a defined counterparty more than it needs order-book efficiency. Capital is expensive, spreads are wider, leverage is conservative, and risk stays isolated. That is the cost of making a market work before both sides exist.\n\nDuring growth, natural trader flow starts to net some exposure. The solver handles the residual imbalance, but less of the market is purely solver-backed. Spreads can tighten, leverage can improve, and the market can begin to look more like a conventional trading venue.\n\nAt maturity, if the market has sustained balance, depth, and demand, it becomes a candidate for order-book or cross-margin integration. The solver shifts from primary counterparty toward backstop and market-maker roles.\n\n## Reader Implication\n\nThis page is the bridge between thesis and architecture. It lets readers understand why early-market costs are not a permanent defect if the system has a credible path toward lower-cost, more netted execution later.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture\".\n\n## Related Pages\n\n- `authored-four-transitions`\n- `authored-market-maturation-z-score`\n- `neelo-01-perp-classes-zscore-01-docs-05-vibe-architecture`",
       "excerpt": "Temporal Separation Of Concerns Temporal separation of concerns is the mechanism behind the bootstrap trilemma escape. Instead of demanding permissionless listing, capital efficiency, and reliable counterparty guarantees at the same instant, the market receives different architecture at different stages. At bootstrap, the market needs a defined counterparty more than it needs order book efficiency. Capital is expensive, spreads are wider, leverage is conservative, and risk stays isolated. That is the cost of making a market work before both sides exist. During growth, natural trader flow starts to net some exposure. The solver handles the residual imbalance, but less of the market is purely solver backed. Spreads can tighten, leverage can improve, and the market can begin to look more like a conventional trading venue. At maturity, if the market has sustained balance, depth, and demand, it becomes a candidate for order book or cross margin integration. The solver shifts from primary counterparty toward backstop and market maker roles. Reader Implication This page is the bridge between thesis and architecture. It lets readers understand why early market costs are not a permanent def"
+    },
+    {
+      "id": "authored-tge-qualifying-exposure-across-rewards",
+      "title": "TGE Qualifying Exposure Across Reward Forms",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "neelo-17-referral-program-17-docs-04-points-and-rewards",
+        "authored-tge-settlement-multiplier"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tge-qualifying-exposure-across-rewards.md",
+      "bodyMarkdown": "# TGE Qualifying Exposure Across Reward Forms\n\nThe rewards-pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms.\n\nIn the future model, qualifying exposure can include:\n\n- claimed points held directly in a wallet;\n- point value represented by held unopened packs, under a defined valuation rule;\n- embedded point value inside held artifacts.\n\nThe source is also explicit about what should not count: unclaimed off-chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release.\n\n## What Remains Operator-Controlled\n\nThe model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication-critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `spec-03`: TGE settlement mechanics remain owner-review.\n\n## Related Pages\n\n- `authored-tge-settlement-multiplier`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-rewards-packs-and-artifacts`",
+      "excerpt": "TGE Qualifying Exposure Across Reward Forms The rewards pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms. In the future model, qualifying exposure can include: claimed points held directly in a wallet; point value represented by held unopened packs, under a defined valuation rule; embedded point value inside held artifacts. The source is also explicit about what should not count: unclaimed off chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release. What Remains Operator Controlled The model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". vibe papers : Neelo, \"Section 4: Points and Rewards\". spec 03 : TGE"
     },
     {
       "id": "authored-tge-settlement-multiplier",

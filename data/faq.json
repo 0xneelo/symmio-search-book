@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 424,
-  "totalAnswerable": 417,
+  "totalEntries": 429,
+  "totalAnswerable": 422,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 23,
     "Revenue": 68,
     "Manifesto": 66,
-    "Rewards And Referrals": 39,
+    "Rewards And Referrals": 44,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 197,
+    "Medium": 202,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 417
+    "authored": 422
   },
   "byType": {
-    "answerable": 417,
+    "answerable": 422,
     "reconciliation": 7
   },
   "answerable": [
@@ -13795,6 +13795,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-launch-sequencing",
       "pageTitle": "Referral Launch Sequencing",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-reward-packs-current-product-policy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Are reward packs current product policy?",
+      "normalizedQuestion": "are reward packs current product policy",
+      "shortAnswer": "Neelo marks packs and artifacts as future-facing design models, so public docs should separate architectural possibilities from live reward policy.",
+      "answerSummary": "Reward Packs Are Future Facing Design Models The rewards pack source is explicit about status: packs and artifacts are a future facing thought experiment, not a current product announcement or endorsed live feature. That caveat matters because the model introduces economically sensitive concepts: on chain point claims, transferable points, unopened packs,...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-packs-future-facing-status",
+      "pageTitle": "Reward Packs Are Future-Facing Design Models",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-value-states-can-points-have",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What value states can points have?",
+      "normalizedQuestion": "what value states can points have",
+      "shortAnswer": "Neelo separates unfinalized off-chain points, finalized claimable points, claimed on-chain points, and future converted reward objects.",
+      "answerSummary": "Points Value State Lifecycle The rewards sources separate point balances by economic state. A user visible points number is not automatically final, transferable, or eligible for TGE accounting. The clean lifecycle is: unfinalized off chain points, which may still depend on daily or epoch source checks; finalized off chain points, which are source buckete...",
+      "confidence": "Medium",
+      "pageId": "authored-points-value-state-lifecycle",
+      "pageTitle": "Points Value State Lifecycle",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-reward-pack-ev-and-supply-be-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should reward pack EV and supply be documented?",
+      "normalizedQuestion": "how should reward pack ev and supply be documented",
+      "shortAnswer": "Neelo requires bounded supply, disclosed rarity/probability rules, and explicit expected-value policy before packs become economic objects.",
+      "answerSummary": "Reward Pack EV And Supply Policy The pack model only works if supply and expected value are documented before users treat packs as economic objects. The source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, un...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-ev-supply-policy",
+      "pageTitle": "Reward Pack EV And Supply Policy",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-reward-artifacts-carry-economically",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What do reward artifacts carry economically?",
+      "normalizedQuestion": "what do reward artifacts carry economically",
+      "shortAnswer": "Neelo's artifact model includes embedded point exposure, rarity, and optional boosts, each of which needs explicit policy before publication as live economics.",
+      "answerSummary": "Artifact Exposure And Boost Rules The artifact model turns opened packs into persistent assets. Each artifact can carry embedded point value, rarity, and optional boost fields. Those properties are economically sensitive. Embedded point value affects future exposure. Rarity affects secondary market pricing. Boosts affect user behavior if they change earni...",
+      "confidence": "Medium",
+      "pageId": "authored-artifact-exposure-and-boost-rules",
+      "pageTitle": "Artifact Exposure And Boost Rules",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-tge-exposure-count-points-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should TGE exposure count points, packs, and artifacts?",
+      "normalizedQuestion": "how should tge exposure count points packs and artifacts",
+      "shortAnswer": "Neelo counts only qualifying point exposure across approved forms and excludes unclaimed off-chain points until finalization and claim authorization.",
+      "answerSummary": "TGE Qualifying Exposure Across Reward Forms The rewards pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms. In the future model, qualifying exposure can include: claimed points held directly in a wallet; point value represented by held unopened packs, under a defined v...",
+      "confidence": "Medium",
+      "pageId": "authored-tge-qualifying-exposure-across-rewards",
+      "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -27924,6 +28109,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-launch-sequencing",
       "pageTitle": "Referral Launch Sequencing",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-are-reward-packs-current-product-policy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Are reward packs current product policy?",
+      "normalizedQuestion": "are reward packs current product policy",
+      "shortAnswer": "Neelo marks packs and artifacts as future-facing design models, so public docs should separate architectural possibilities from live reward policy.",
+      "answerSummary": "Reward Packs Are Future Facing Design Models The rewards pack source is explicit about status: packs and artifacts are a future facing thought experiment, not a current product announcement or endorsed live feature. That caveat matters because the model introduces economically sensitive concepts: on chain point claims, transferable points, unopened packs,...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-packs-future-facing-status",
+      "pageTitle": "Reward Packs Are Future-Facing Design Models",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-value-states-can-points-have",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What value states can points have?",
+      "normalizedQuestion": "what value states can points have",
+      "shortAnswer": "Neelo separates unfinalized off-chain points, finalized claimable points, claimed on-chain points, and future converted reward objects.",
+      "answerSummary": "Points Value State Lifecycle The rewards sources separate point balances by economic state. A user visible points number is not automatically final, transferable, or eligible for TGE accounting. The clean lifecycle is: unfinalized off chain points, which may still depend on daily or epoch source checks; finalized off chain points, which are source buckete...",
+      "confidence": "Medium",
+      "pageId": "authored-points-value-state-lifecycle",
+      "pageTitle": "Points Value State Lifecycle",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-reward-pack-ev-and-supply-be-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should reward pack EV and supply be documented?",
+      "normalizedQuestion": "how should reward pack ev and supply be documented",
+      "shortAnswer": "Neelo requires bounded supply, disclosed rarity/probability rules, and explicit expected-value policy before packs become economic objects.",
+      "answerSummary": "Reward Pack EV And Supply Policy The pack model only works if supply and expected value are documented before users treat packs as economic objects. The source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, un...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-ev-supply-policy",
+      "pageTitle": "Reward Pack EV And Supply Policy",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-do-reward-artifacts-carry-economically",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What do reward artifacts carry economically?",
+      "normalizedQuestion": "what do reward artifacts carry economically",
+      "shortAnswer": "Neelo's artifact model includes embedded point exposure, rarity, and optional boosts, each of which needs explicit policy before publication as live economics.",
+      "answerSummary": "Artifact Exposure And Boost Rules The artifact model turns opened packs into persistent assets. Each artifact can carry embedded point value, rarity, and optional boost fields. Those properties are economically sensitive. Embedded point value affects future exposure. Rarity affects secondary market pricing. Boosts affect user behavior if they change earni...",
+      "confidence": "Medium",
+      "pageId": "authored-artifact-exposure-and-boost-rules",
+      "pageTitle": "Artifact Exposure And Boost Rules",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-tge-exposure-count-points-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should TGE exposure count points, packs, and artifacts?",
+      "normalizedQuestion": "how should tge exposure count points packs and artifacts",
+      "shortAnswer": "Neelo counts only qualifying point exposure across approved forms and excludes unclaimed off-chain points until finalization and claim authorization.",
+      "answerSummary": "TGE Qualifying Exposure Across Reward Forms The rewards pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms. In the future model, qualifying exposure can include: claimed points held directly in a wallet; point value represented by held unopened packs, under a defined v...",
+      "confidence": "Medium",
+      "pageId": "authored-tge-qualifying-exposure-across-rewards",
+      "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

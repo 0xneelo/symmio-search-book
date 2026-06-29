@@ -35,24 +35,24 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1230,
+  "totalPages": 1235,
   "byState": {
-    "candidate": 435,
+    "candidate": 440,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 436,
+    "authored": 441,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 436,
+    "authored-page": 441,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate-needs-operator-review": 299,
+    "publication-candidate-needs-operator-review": 304,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -66,11 +66,11 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 50,
+    "rewards-referrals": 51,
     "dashboard-reference": 17,
     "protocol-reference": 120,
     "competitive-context": 2,
     "reference": 1,
-    "rewards-referrals": 46,
     "answer-engine": 1,
     "solver-reference": 8,
     "compendium": 8,
@@ -108,6 +108,11 @@
       "candidate": 46,
       "source-companion": 30
     },
+    "volume-06-referrals-and-market-formation": {
+      "candidate": 45,
+      "internal-draft": 1,
+      "source-companion": 109
+    },
     "volume-08-dashboard-faq-and-living-docs": {
       "candidate": 15,
       "source-companion": 6,
@@ -121,21 +126,16 @@
       "candidate": 11,
       "source-companion": 7,
       "internal-draft": 1
-    },
-    "volume-06-referrals-and-market-formation": {
-      "candidate": 40,
-      "internal-draft": 1,
-      "source-companion": 109
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 435,
+  "publicCandidatePages": 440,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 435,
-  "retrievalEligiblePages": 1227,
-  "reviewRequiredPages": 1094,
-  "exactQuestionRoutedPages": 414,
+  "publicNavigationPages": 440,
+  "retrievalEligiblePages": 1232,
+  "reviewRequiredPages": 1099,
+  "exactQuestionRoutedPages": 419,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -177,6 +177,7 @@
     "authored-agency-model-over-casino-model",
     "authored-ai-solver-verification-thesis",
     "authored-amfq-legacy-intent-naming",
+    "authored-artifact-exposure-and-boost-rules",
     "authored-autonomous-market-creation",
     "authored-barometer-subgraph-upgrade",
     "authored-beyond-polymarket-continuous-truth-markets",
@@ -195,8 +196,7 @@
     "authored-coupled-design-problem",
     "authored-cross-market-risk-mutualization",
     "authored-crypto-market-access-disconnect",
-    "authored-curated-venues-inherit-asymmetric-blame",
-    "authored-curation-cost-distorts-listings"
+    "authored-curated-venues-inherit-asymmetric-blame"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -328,6 +328,32 @@
         "https://docs.symm.io/getting-started/core-concepts.md",
         "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
         "src/search-book/STYLEGUIDE.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-artifact-exposure-and-boost-rules",
+      "title": "Artifact Exposure And Boost Rules",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/artifact-exposure-and-boost-rules.md",
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -5813,6 +5839,33 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-points-value-state-lifecycle",
+      "title": "Points Value State Lifecycle",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/points-value-state-lifecycle.md",
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-pooled-backstop-mismatch",
       "title": "Pooled Backstop Mismatch",
       "section": "manifesto",
@@ -7093,6 +7146,58 @@
         "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
         "https://docs.vibe.trading/architectural-overview.md",
         "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-reward-pack-ev-supply-policy",
+      "title": "Reward Pack EV And Supply Policy",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/reward-pack-ev-supply-policy.md",
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-reward-packs-future-facing-status",
+      "title": "Reward Packs Are Future-Facing Design Models",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/reward-packs-future-facing-status.md",
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -8759,6 +8864,33 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma",
         "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-tge-qualifying-exposure-across-rewards",
+      "title": "TGE Qualifying Exposure Across Reward Forms",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/reference/tge-qualifying-exposure-across-rewards.md",
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "_specs/app-docs/03-grounding.md"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

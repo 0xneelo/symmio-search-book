@@ -999,3 +999,11 @@
 **Reason:** The broad access-phasing page explains the operating model, but answer-engine readers need direct routes for the actual phase states and transition requirements. Splitting these answers makes launch-state questions answerable without turning the source model into live public commitments.
 
 **Status:** Accepted for the authored rewards-reference layer; live beta gates, launch dates, supported sensitive actions, migration windows, code formats, activation timing, transferability, packs, artifacts, partner commitments, and historical credit behavior remain operator/legal/accounting/implementation review.
+
+## D-126: Split Rewards Packs Into Exact Accounting Answers
+
+**Decision:** Add authored rewards-reference pages for reward-pack future-facing status, point value states, pack EV and supply policy, artifact exposure and boost rules, and TGE qualifying exposure across reward forms.
+
+**Reason:** The broad packs-and-artifacts page explains the concept, but answer-engine readers need direct routes for the policy caveat and the accounting mechanics. Splitting these answers lets the docs explain the future model without announcing live product commitments.
+
+**Status:** Accepted for the authored rewards-reference layer; live pack launch, supply, probabilities, EV, conversion cost, transferability, artifact catalog, boost formulas, stacking rules, snapshot timing, TGE weights, and claim formulas remain operator/legal/accounting/implementation review.

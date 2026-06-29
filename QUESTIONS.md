@@ -423,6 +423,11 @@ Questions are grouped by whether the current source set can answer them.
 | What happens when referral participation opens? | `authored-referral-open-participation-benefits` | Medium | Neelo's Phase C removes hard code requirements for core participation while keeping codes as optional benefit and acceleration layers. |
 | What must happen during a referral phase migration? | `authored-referral-phase-migration-requirements` | Medium | Neelo requires backward compatibility windows, code-format migration rules, and transparent communication for traders, listers, and partners. |
 | How should referral launch sequencing unfold? | `authored-referral-launch-sequencing` | Medium | Neelo sequences access-code beta, referral-code activation, and broader reward-layer expansion so growth can proceed while accounting and abuse controls harden. |
+| Are reward packs current product policy? | `authored-reward-packs-future-facing-status` | Medium | Neelo marks packs and artifacts as future-facing design models, so public docs should separate architectural possibilities from live reward policy. |
+| What value states can points have? | `authored-points-value-state-lifecycle` | Medium | Neelo separates unfinalized off-chain points, finalized claimable points, claimed on-chain points, and future converted reward objects. |
+| How should reward pack EV and supply be documented? | `authored-reward-pack-ev-supply-policy` | Medium | Neelo requires bounded supply, disclosed rarity/probability rules, and explicit expected-value policy before packs become economic objects. |
+| What do reward artifacts carry economically? | `authored-artifact-exposure-and-boost-rules` | Medium | Neelo's artifact model includes embedded point exposure, rarity, and optional boosts, each of which needs explicit policy before publication as live economics. |
+| How should TGE exposure count points, packs, and artifacts? | `authored-tge-qualifying-exposure-across-rewards` | Medium | Neelo counts only qualifying point exposure across approved forms and excludes unclaimed off-chain points until finalization and claim authorization. |
 
 ## Prototype Event Log
 

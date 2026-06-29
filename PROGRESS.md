@@ -754,6 +754,12 @@
 - Routed five new Ask questions so users, listers, partners, and operators can inspect phase state and transition requirements without treating the source model as final live policy.
 - Kept live beta gates, launch dates, supported sensitive actions, migration windows, code formats, activation timing, transferability, packs, artifacts, partner commitments, and historical credit behavior under operator/legal/accounting/implementation review.
 
+## 2026-06-29 — Rewards Packs Accounting Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's points-and-rewards and rewards-pack sources: future-facing pack status, point value-state lifecycle, reward-pack EV and supply policy, artifact exposure and boost rules, and TGE qualifying exposure across points, packs, and artifacts.
+- Routed five new Ask questions so users, rewards operators, and legal/accounting reviewers can separate live point accounting from future reward-object mechanics.
+- Kept live pack launch, supply, probabilities, EV, conversion cost, transferability, artifact catalog, boost formulas, stacking rules, snapshot timing, TGE weights, and claim formulas under operator/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

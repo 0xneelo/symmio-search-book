@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 417
+      "totalGoldenRoutes": 422
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 435,
-    "retrievalEligiblePages": 1227,
+    "publicNavigationPages": 440,
+    "retrievalEligiblePages": 1232,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 435,
+      "candidate": 440,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 417,
-    "exactRouteTestsPassing": 417,
+    "totalExactRouteTests": 422,
+    "exactRouteTestsPassing": 422,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 417
+      "candidate": 422
     },
     "exactRoutesByConfidence": {
-      "Medium": 197,
+      "Medium": 202,
       "High": 44,
       "Low": 176
     },
@@ -9356,6 +9356,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-referral-launch-sequencing-unfold",
         "passes": true
+      },
+      {
+        "id": "qr-are-reward-packs-current-product-policy",
+        "query": "Are reward packs current product policy?",
+        "normalizedQuery": "are reward packs current product policy",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-packs-future-facing-status",
+        "expectedPageTitle": "Reward Packs Are Future-Facing Design Models",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-are-reward-packs-current-product-policy",
+        "passes": true
+      },
+      {
+        "id": "qr-what-value-states-can-points-have",
+        "query": "What value states can points have?",
+        "normalizedQuery": "what value states can points have",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-points-value-state-lifecycle",
+        "expectedPageTitle": "Points Value State Lifecycle",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-value-states-can-points-have",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-reward-pack-ev-and-supply-be-documented",
+        "query": "How should reward pack EV and supply be documented?",
+        "normalizedQuery": "how should reward pack ev and supply be documented",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-pack-ev-supply-policy",
+        "expectedPageTitle": "Reward Pack EV And Supply Policy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-reward-pack-ev-and-supply-be-documented",
+        "passes": true
+      },
+      {
+        "id": "qr-what-do-reward-artifacts-carry-economically",
+        "query": "What do reward artifacts carry economically?",
+        "normalizedQuery": "what do reward artifacts carry economically",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-artifact-exposure-and-boost-rules",
+        "expectedPageTitle": "Artifact Exposure And Boost Rules",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-do-reward-artifacts-carry-economically",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-tge-exposure-count-points-packs-and-artifacts",
+        "query": "How should TGE exposure count points, packs, and artifacts?",
+        "normalizedQuery": "how should tge exposure count points packs and artifacts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tge-qualifying-exposure-across-rewards",
+        "expectedPageTitle": "TGE Qualifying Exposure Across Reward Forms",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-tge-exposure-count-points-packs-and-artifacts",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9431,7 +9546,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 417,
+      "exactRoutes": 422,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
