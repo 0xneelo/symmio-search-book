@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 434,
-  "totalAnswerable": 427,
+  "totalEntries": 439,
+  "totalAnswerable": 432,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,23 +19,23 @@
     "Trading Flow": 32,
     "Solvers And Settlement": 126,
     "Risk And Markets": 23,
-    "Revenue": 68,
+    "Revenue": 69,
     "Manifesto": 66,
-    "Rewards And Referrals": 49,
+    "Rewards And Referrals": 53,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 207,
+    "Medium": 212,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 427
+    "authored": 432
   },
   "byType": {
-    "answerable": 427,
+    "answerable": 432,
     "reconciliation": 7
   },
   "answerable": [
@@ -14165,6 +14165,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-fail-closed-incident-operations",
       "pageTitle": "Fail-Closed Referral Incident Operations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-supply-kpis-show-referral-market-creation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which supply KPIs show referral market creation?",
+      "normalizedQuestion": "which supply kpis show referral market creation",
+      "shortAnswer": "Neelo's supply layer tracks new listings, active markets, repeat listers, and time-to-first-listing so referrals are judged by market creation, not code count.",
+      "answerSummary": "Referral Supply KPIs Neelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high quality tradable markets, not only more users with codes. The supply KPI set includes: new listings per week or day; active markets; repeat listers or weekly active listers; time to first listing for newly onboarded creators. Togethe...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-supply-kpis",
+      "pageTitle": "Referral Supply KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-demand-kpis-show-referred-markets-are-working",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which demand KPIs show referred markets are working?",
+      "normalizedQuestion": "which demand kpis show referred markets are working",
+      "shortAnswer": "Neelo's demand layer tracks traders per active market, fee-generating volume, turnover, and concentration so listed markets are not mistaken for active markets.",
+      "answerSummary": "Referral Demand KPIs Supply metrics say whether markets are being created. Demand metrics say whether those markets attract real trader attention. The source names demand KPIs such as: traders per active market; fee generating volume; market turnover concentration; trades per market decile, depth concentration, and turnover. This layer prevents a referral...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-demand-kpis",
+      "pageTitle": "Referral Demand KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-growth-funnel-kpis-matter-for-referrals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which growth funnel KPIs matter for referrals?",
+      "normalizedQuestion": "which growth funnel kpis matter for referrals",
+      "shortAnswer": "Neelo separates referral attach, code-to-first-trade, code-to-first-listing, claim conversion, and future pack conversion from raw signups.",
+      "answerSummary": "Referral Growth Funnel KPIs The growth layer measures whether referral participation turns into real product actions. The source names several funnel KPIs: referral attach rate; code to first trade conversion; code to first listing conversion; claim conversion rate from off chain to on chain points; pack conversion rate from claimed points to packs if tha...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-growth-funnel-kpis",
+      "pageTitle": "Referral Growth Funnel KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-kpis-would-a-rewards-game-layer-need",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which KPIs would a rewards game layer need?",
+      "normalizedQuestion": "which kpis would a rewards game layer need",
+      "shortAnswer": "Neelo's future game-layer metrics include packs held/opened, artifact volume, equip rates, and embedded point exposure without making those features current policy.",
+      "answerSummary": "Referral Game Layer KPIs The metrics framework includes game layer KPIs for a future packs and artifacts reward layer. These are not current product promises; they are measurement requirements if that layer becomes economically active. The source names: packs held versus packs opened ratio; artifact trading volume; artifact equip rate by slot type; median...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-game-layer-kpis",
+      "pageTitle": "Referral Game-Layer KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-metrics-be-phase-labeled-and-versioned",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should referral metrics be phase-labeled and versioned?",
+      "normalizedQuestion": "how should referral metrics be phase labeled and versioned",
+      "shortAnswer": "Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states.",
+      "answerSummary": "Referral Phase And Version Reporting Rules Neelo's reporting rules are as important as the KPIs themselves: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels. The product metrics source defines the rollout phases as beta access gated, beta, and open phase. Metrics from those phases should not be compar...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-phase-version-reporting-rules",
+      "pageTitle": "Referral Phase And Version Reporting Rules",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -28664,6 +28849,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-fail-closed-incident-operations",
       "pageTitle": "Fail-Closed Referral Incident Operations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-supply-kpis-show-referral-market-creation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which supply KPIs show referral market creation?",
+      "normalizedQuestion": "which supply kpis show referral market creation",
+      "shortAnswer": "Neelo's supply layer tracks new listings, active markets, repeat listers, and time-to-first-listing so referrals are judged by market creation, not code count.",
+      "answerSummary": "Referral Supply KPIs Neelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high quality tradable markets, not only more users with codes. The supply KPI set includes: new listings per week or day; active markets; repeat listers or weekly active listers; time to first listing for newly onboarded creators. Togethe...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-supply-kpis",
+      "pageTitle": "Referral Supply KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-demand-kpis-show-referred-markets-are-working",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which demand KPIs show referred markets are working?",
+      "normalizedQuestion": "which demand kpis show referred markets are working",
+      "shortAnswer": "Neelo's demand layer tracks traders per active market, fee-generating volume, turnover, and concentration so listed markets are not mistaken for active markets.",
+      "answerSummary": "Referral Demand KPIs Supply metrics say whether markets are being created. Demand metrics say whether those markets attract real trader attention. The source names demand KPIs such as: traders per active market; fee generating volume; market turnover concentration; trades per market decile, depth concentration, and turnover. This layer prevents a referral...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-demand-kpis",
+      "pageTitle": "Referral Demand KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-growth-funnel-kpis-matter-for-referrals",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which growth funnel KPIs matter for referrals?",
+      "normalizedQuestion": "which growth funnel kpis matter for referrals",
+      "shortAnswer": "Neelo separates referral attach, code-to-first-trade, code-to-first-listing, claim conversion, and future pack conversion from raw signups.",
+      "answerSummary": "Referral Growth Funnel KPIs The growth layer measures whether referral participation turns into real product actions. The source names several funnel KPIs: referral attach rate; code to first trade conversion; code to first listing conversion; claim conversion rate from off chain to on chain points; pack conversion rate from claimed points to packs if tha...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-growth-funnel-kpis",
+      "pageTitle": "Referral Growth Funnel KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-kpis-would-a-rewards-game-layer-need",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which KPIs would a rewards game layer need?",
+      "normalizedQuestion": "which kpis would a rewards game layer need",
+      "shortAnswer": "Neelo's future game-layer metrics include packs held/opened, artifact volume, equip rates, and embedded point exposure without making those features current policy.",
+      "answerSummary": "Referral Game Layer KPIs The metrics framework includes game layer KPIs for a future packs and artifacts reward layer. These are not current product promises; they are measurement requirements if that layer becomes economically active. The source names: packs held versus packs opened ratio; artifact trading volume; artifact equip rate by slot type; median...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-game-layer-kpis",
+      "pageTitle": "Referral Game-Layer KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-metrics-be-phase-labeled-and-versioned",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should referral metrics be phase-labeled and versioned?",
+      "normalizedQuestion": "how should referral metrics be phase labeled and versioned",
+      "shortAnswer": "Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states.",
+      "answerSummary": "Referral Phase And Version Reporting Rules Neelo's reporting rules are as important as the KPIs themselves: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels. The product metrics source defines the rollout phases as beta access gated, beta, and open phase. Metrics from those phases should not be compar...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-phase-version-reporting-rules",
+      "pageTitle": "Referral Phase And Version Reporting Rules",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

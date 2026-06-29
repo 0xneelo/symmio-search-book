@@ -766,6 +766,12 @@
 - Routed five new Ask questions so users, security reviewers, and operators can inspect the referral settlement control set one risk at a time.
 - Kept live signer topology, key custody, message schemas, nonce storage, expiration windows, admin roles, override thresholds, anomaly rules, freeze scopes, payout holds, notification copy, and incident runbooks under operator/security/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Metrics KPI-Layer Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's metrics-framework and product-metrics sources: referral supply KPIs, demand KPIs, growth-funnel KPIs, game-layer KPIs, and phase/version reporting rules.
+- Routed five new Ask questions so users, rewards operators, analytics reviewers, and dashboard readers can inspect each KPI layer without collapsing the metrics into raw invite or signup counts.
+- Kept live KPI definitions, formula versions, target bands, phase dates, campaign labels, market-quality thresholds, game-layer instrumentation, pack/artifact support, and dashboard release wording under operator/analytics/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

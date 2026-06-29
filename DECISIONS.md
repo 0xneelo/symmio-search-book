@@ -1015,3 +1015,11 @@
 **Reason:** The broad referral settlement-security page names the control set, but answer-engine readers need direct routes for each settlement risk and control. Splitting these answers makes referral security legible without exposing private thresholds or implementation-sensitive runbooks.
 
 **Status:** Accepted for the authored rewards-reference layer; live signer topology, key custody, message schemas, nonce storage, expiration windows, admin roles, override thresholds, anomaly rules, freeze scopes, payout holds, notification copy, and incident runbooks remain operator/security/legal/accounting/implementation review.
+
+## D-128: Split Referral Metrics Into KPI-Layer Exact Answers
+
+**Decision:** Add authored rewards-reference pages for referral supply KPIs, demand KPIs, growth-funnel KPIs, game-layer KPIs, and phase/version reporting rules.
+
+**Reason:** The broad referral metrics pages explain the north star, but answer-engine readers need direct routes for what each KPI layer measures and why. Splitting these answers makes the reporting model inspectable while avoiding premature publication of targets, formulas, or phase dates.
+
+**Status:** Accepted for the authored rewards-reference layer; live KPI definitions, formula versions, target bands, phase dates, campaign labels, market-quality thresholds, game-layer instrumentation, pack/artifact support, and dashboard release wording remain operator/analytics/legal/accounting/implementation review.

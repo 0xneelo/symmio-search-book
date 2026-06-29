@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 446,
+  "totalPages": 451,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 309,
+    "publication-candidate-needs-operator-review": 314,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,7 +12,7 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 47,
-    "rewards-referrals": 50,
+    "rewards-referrals": 55,
     "dashboard-reference": 12,
     "protocol-reference": 117,
     "competitive-context": 1,
@@ -6052,6 +6052,32 @@
       "excerpt": "Referral Dashboard Reporting Standards The product metrics chapter defines minimum external dashboard views for a referral rollout: acquisition funnel, market supply, market demand, and integrity. That structure matters because a referral dashboard can otherwise over index on the easiest numbers to inflate. Code issued, signups, and first deposits are useful, but they do not prove market quality by themselves. Minimum Views The source's dashboard architecture separates: acquisition funnel: code issued, signup, first deposit, first trade, first listing; market supply: new listings, active markets, and repeat listers; market demand: trades per market decile, depth concentration, and turnover; integrity: anomaly flags, suspicious volume ratio, and false positive rates. The metrics framework adds reporting rules: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels such as pre beta, beta, and open. Traceability The design coverage map is a routing layer for referral documentation. It says concept details should live in their owning chapter, with the map updated when chapter scope changes. The same principle should apply to dashboards: "
     },
     {
+      "id": "authored-referral-demand-kpis",
+      "title": "Referral Demand KPIs",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta",
+        "authored-referral-market-creation-velocity"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-demand-kpis.md",
+      "bodyMarkdown": "# Referral Demand KPIs\n\nSupply metrics say whether markets are being created. Demand metrics say whether those markets attract real trader attention.\n\nThe source names demand KPIs such as:\n\n- traders per active market;\n- fee-generating volume;\n- market turnover concentration;\n- trades per market decile, depth concentration, and turnover.\n\nThis layer prevents a referral program from mistaking listed markets for working markets. A market that exists but attracts no traders is weaker evidence than a market with distributed trader participation and fee-producing activity.\n\n## Concentration Risk\n\nDemand distribution matters. If most fee-generating volume comes from a few markets or a few accounts, headline volume can look healthy while the long-tail market-formation thesis remains unproven. The docs should therefore explain both aggregate demand and concentration.\n\n## Publication Boundary\n\nThe docs can define the demand layer and its purpose. They should not publish final demand thresholds, fee-quality scoring, depth formulas, market decile construction, or partner-specific performance claims until implementation and analytics owners approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: product-state and dashboard-metric caveats.\n\n## Related Pages\n\n- `authored-referral-market-creation-velocity`\n- `authored-referral-dashboard-reporting-standards`\n- `authored-dashboard-volume`",
+      "excerpt": "Referral Demand KPIs Supply metrics say whether markets are being created. Demand metrics say whether those markets attract real trader attention. The source names demand KPIs such as: traders per active market; fee generating volume; market turnover concentration; trades per market decile, depth concentration, and turnover. This layer prevents a referral program from mistaking listed markets for working markets. A market that exists but attracts no traders is weaker evidence than a market with distributed trader participation and fee producing activity. Concentration Risk Demand distribution matters. If most fee generating volume comes from a few markets or a few accounts, headline volume can look healthy while the long tail market formation thesis remains unproven. The docs should therefore explain both aggregate demand and concentration. Publication Boundary The docs can define the demand layer and its purpose. They should not publish final demand thresholds, fee quality scoring, depth formulas, market decile construction, or partner specific performance claims until implementation and analytics owners approve them. Sources vibe papers : Neelo, \"Section 9: Metrics Framework\". vi"
+    },
+    {
       "id": "authored-referral-depth-open-question",
       "title": "Referral Depth Is An Open Product Decision",
       "section": "rewards-referrals",
@@ -6162,6 +6188,58 @@
       "file": "content/authored/reference/referral-fail-closed-incident-operations.md",
       "bodyMarkdown": "# Fail-Closed Referral Incident Operations\n\nNeelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth.\n\nFailing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause, which actions continue, which claims require review, and how users are told the difference between a temporary verification hold and a permanent denial.\n\nThe security source names the launch-readiness pieces: incident runbooks, clear freeze scopes, and fail-safe paths for payout and withdrawal anomalies. Cooldowns before transferability give the operator time to detect fraudulent reward injections before they leave the controlled state.\n\n## Publication Boundary\n\nThe docs can promise the principle, not the exact emergency procedure. Final freeze scopes, runbook owners, user notification copy, payout hold rules, withdrawal anomaly paths, and restart criteria need security, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `spec-03`: referral, points, and reward-publication caveats.\n\n## Related Pages\n\n- `authored-referral-settlement-security-controls`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-referral-access-phasing-operating-model`",
       "excerpt": "Fail Closed Referral Incident Operations Neelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth. Failing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause, which actions continue, which claims require review, and how users are told the difference between a temporary verification hold and a permanent denial. The security source names the launch readiness pieces: incident runbooks, clear freeze scopes, and fail safe paths for payout and withdrawal anomalies. Cooldowns before transferability give the operator time to detect fraudulent reward injections before they leave the controlled state. Publication Boundary The docs can promise the principle, not the exact emergency procedure. Final freeze scopes, runbook owners, user notification copy, payout hold rules, withdrawal anomaly paths, and restart criteria need security, legal, accounting, and implementation review. Sources vibe papers : Neelo, \"Section 8: Security Controls\". spec 03 : referral, points, and reward publication caveats. "
+    },
+    {
+      "id": "authored-referral-game-layer-kpis",
+      "title": "Referral Game-Layer KPIs",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
+        "authored-rewards-packs-and-artifacts"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-game-layer-kpis.md",
+      "bodyMarkdown": "# Referral Game-Layer KPIs\n\nThe metrics framework includes game-layer KPIs for a future packs-and-artifacts reward layer. These are not current product promises; they are measurement requirements if that layer becomes economically active.\n\nThe source names:\n\n- packs held versus packs opened ratio;\n- artifact trading volume;\n- artifact equip rate by slot type;\n- median embedded-point exposure per active wallet.\n\nThese KPIs exist because packs and artifacts can change user incentives. Users may hold expected-value containers, open them for variance, trade artifacts for rarity and exposure, or equip artifacts for boosts. Each behavior has a different economic and abuse profile.\n\n## Why This Must Stay Separate\n\nGame-layer metrics should not be mixed with core point accounting. Points are the base reward ledger. Packs and artifacts are optional composability layers. Reporting should show whether game mechanics improve retention and engagement without obscuring supply, demand, or integrity.\n\n## Publication Boundary\n\nThe docs should describe these KPIs as future-layer requirements. Live pack supply, artifact catalog, equip slots, boost rules, trading support, embedded point valuation, and TGE weighting remain operator and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: rewards-pack and TGE settlement caveats.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-artifact-exposure-and-boost-rules`\n- `authored-reward-pack-ev-supply-policy`",
+      "excerpt": "Referral Game Layer KPIs The metrics framework includes game layer KPIs for a future packs and artifacts reward layer. These are not current product promises; they are measurement requirements if that layer becomes economically active. The source names: packs held versus packs opened ratio; artifact trading volume; artifact equip rate by slot type; median embedded point exposure per active wallet. These KPIs exist because packs and artifacts can change user incentives. Users may hold expected value containers, open them for variance, trade artifacts for rarity and exposure, or equip artifacts for boosts. Each behavior has a different economic and abuse profile. Why This Must Stay Separate Game layer metrics should not be mixed with core point accounting. Points are the base reward ledger. Packs and artifacts are optional composability layers. Reporting should show whether game mechanics improve retention and engagement without obscuring supply, demand, or integrity. Publication Boundary The docs should describe these KPIs as future layer requirements. Live pack supply, artifact catalog, equip slots, boost rules, trading support, embedded point valuation, and TGE weighting remain op"
+    },
+    {
+      "id": "authored-referral-growth-funnel-kpis",
+      "title": "Referral Growth Funnel KPIs",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta",
+        "authored-referral-dashboard-reporting-standards"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-growth-funnel-kpis.md",
+      "bodyMarkdown": "# Referral Growth Funnel KPIs\n\nThe growth layer measures whether referral participation turns into real product actions.\n\nThe source names several funnel KPIs:\n\n- referral attach rate;\n- code-to-first-trade conversion;\n- code-to-first-listing conversion;\n- claim conversion rate from off-chain to on-chain points;\n- pack conversion rate from claimed points to packs if that future layer launches.\n\nThe product-metrics dashboard architecture gives the public funnel shape: code issued, signup, first deposit, first trade, and first listing. That progression is useful because it separates vanity issuance from economically relevant activation.\n\n## How To Read The Funnel\n\nEach stage answers a different question. Signup shows onboarding reach. First deposit shows funding intent. First trade shows demand activation. First listing shows supply activation. Claim and pack conversion show whether rewards are moving through the approved economic path.\n\n## Publication Boundary\n\nThe docs should not publish target conversion rates, anti-abuse thresholds, cohort definitions, or live pack-conversion promises until the operator confirms phase, policy, and instrumentation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: referral and points publication caveats.\n\n## Related Pages\n\n- `authored-referral-dashboard-reporting-standards`\n- `authored-referral-access-phasing-operating-model`\n- `authored-points-value-state-lifecycle`",
+      "excerpt": "Referral Growth Funnel KPIs The growth layer measures whether referral participation turns into real product actions. The source names several funnel KPIs: referral attach rate; code to first trade conversion; code to first listing conversion; claim conversion rate from off chain to on chain points; pack conversion rate from claimed points to packs if that future layer launches. The product metrics dashboard architecture gives the public funnel shape: code issued, signup, first deposit, first trade, and first listing. That progression is useful because it separates vanity issuance from economically relevant activation. How To Read The Funnel Each stage answers a different question. Signup shows onboarding reach. First deposit shows funding intent. First trade shows demand activation. First listing shows supply activation. Claim and pack conversion show whether rewards are moving through the approved economic path. Publication Boundary The docs should not publish target conversion rates, anti abuse thresholds, cohort definitions, or live pack conversion promises until the operator confirms phase, policy, and instrumentation. Sources vibe papers : Neelo, \"Section 9: Metrics Framework"
     },
     {
       "id": "authored-referral-identity-anchor",
@@ -6371,6 +6449,32 @@
       "file": "content/authored/reference/referral-phase-migration-requirements.md",
       "bodyMarkdown": "# Referral Phase Migration Requirements\n\nNeelo's access-phasing source says every phase transition should include three migration controls:\n\n- backward compatibility windows;\n- code format migration rules;\n- transparent communication to traders, listers, and partners.\n\nThose controls are the difference between a controlled rollout and a support incident.\n\n## Why Migration Is Economic\n\nReferral access state can become economic state. If a code unlocks trading, attribution, benefits, or claims, then a phase transition can affect who receives credit and what users believe they are eligible for.\n\nBackward compatibility protects existing users and partners from abrupt semantic changes. Format rules prevent old and new code systems from colliding. Transparent communication prevents users from mistaking a migration for a loss of rights.\n\n## Publication Boundary\n\nThis page explains the source migration requirements. It should not publish final migration dates, compatibility windows, old-code treatment, account-merge behavior, partner migration rules, or historical credit treatment until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Migration Requirements\".\n- `spec-03`: Current referral-depth and historical-accounting caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-rights-ownership-model`\n- `authored-referral-policy-governance`",
       "excerpt": "Referral Phase Migration Requirements Neelo's access phasing source says every phase transition should include three migration controls: backward compatibility windows; code format migration rules; transparent communication to traders, listers, and partners. Those controls are the difference between a controlled rollout and a support incident. Why Migration Is Economic Referral access state can become economic state. If a code unlocks trading, attribution, benefits, or claims, then a phase transition can affect who receives credit and what users believe they are eligible for. Backward compatibility protects existing users and partners from abrupt semantic changes. Format rules prevent old and new code systems from colliding. Transparent communication prevents users from mistaking a migration for a loss of rights. Publication Boundary This page explains the source migration requirements. It should not publish final migration dates, compatibility windows, old code treatment, account merge behavior, partner migration rules, or historical credit treatment until operator, legal, accounting, and implementation review confirm them. Sources vibe papers : Neelo, \"Section 6: Access Phasing\","
+    },
+    {
+      "id": "authored-referral-phase-version-reporting-rules",
+      "title": "Referral Phase And Version Reporting Rules",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta",
+        "authored-referral-dashboard-reporting-standards"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-phase-version-reporting-rules.md",
+      "bodyMarkdown": "# Referral Phase And Version Reporting Rules\n\nNeelo's reporting rules are as important as the KPIs themselves: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels.\n\nThe product-metrics source defines the rollout phases as beta access-gated, beta, and open phase. Metrics from those phases should not be compared as if the product state were identical. A gated launch can show high conversion because the cohort is curated. An open phase can show lower conversion while proving broader reach.\n\nFormula versioning prevents another failure mode. If the scoring logic changes and the chart does not say so, readers can mistake an instrumentation change for real product acceleration or decay.\n\n## Decision Use\n\nThe metrics framework says metrics should inform policy, not substitute for it. A metric that rises while market quality falls is not success. Public docs should preserve that rule so growth dashboards do not become a license to lower quality thresholds.\n\n## Publication Boundary\n\nThe docs can require phase labels, organic/campaign separation, formula versions, and stable definitions. Final formula text, target bands, campaign import labels, phase dates, and policy thresholds remain owner-approved release-note material.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: dashboard and product-metric caveats.\n\n## Related Pages\n\n- `authored-referral-dashboard-reporting-standards`\n- `authored-referral-market-creation-velocity`\n- `authored-referral-access-phasing-operating-model`",
+      "excerpt": "Referral Phase And Version Reporting Rules Neelo's reporting rules are as important as the KPIs themselves: separate organic growth from campaign imports, keep formula versions explicit, and publish phase labels. The product metrics source defines the rollout phases as beta access gated, beta, and open phase. Metrics from those phases should not be compared as if the product state were identical. A gated launch can show high conversion because the cohort is curated. An open phase can show lower conversion while proving broader reach. Formula versioning prevents another failure mode. If the scoring logic changes and the chart does not say so, readers can mistake an instrumentation change for real product acceleration or decay. Decision Use The metrics framework says metrics should inform policy, not substitute for it. A metric that rises while market quality falls is not success. Public docs should preserve that rule so growth dashboards do not become a license to lower quality thresholds. Publication Boundary The docs can require phase labels, organic/campaign separation, formula versions, and stable definitions. Final formula text, target bands, campaign import labels, phase dates"
     },
     {
       "id": "authored-referral-points-economic-state",
@@ -6631,6 +6735,32 @@
       "file": "content/authored/reference/referral-signer-isolation-key-rotation.md",
       "bodyMarkdown": "# Referral Signer Isolation And Key Rotation\n\nThe referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience.\n\nSigner isolation means the authority that approves reward claims should be separated from ordinary growth tooling. A campaign operator should not be able to silently mint economic claims by changing a tier table or exporting a CSV. Claim authorization needs constrained keys, approval controls, and a rotation path if a key is suspected to be exposed.\n\nKey rotation is not only a recovery action. It is also a readiness requirement. A system that cannot rotate signers without breaking claim accounting is not ready for high-growth launch conditions.\n\n## Publication Boundary\n\nThe public docs can explain the control objective: referral settlement keys should be isolated, approval-gated, and rotatable. They should not publish signer addresses, custody topology, approval quorum, rotation procedure, or emergency thresholds until implementation and security review approve those details.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `spec-03`: referral and points settlement caveats.\n\n## Related Pages\n\n- `authored-referral-settlement-security-controls`\n- `authored-referral-three-plane-architecture`\n- `authored-points-claim-bridge-and-vesting`",
       "excerpt": "Referral Signer Isolation And Key Rotation The referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience. Signer isolation means the authority that approves reward claims should be separated from ordinary growth tooling. A campaign operator should not be able to silently mint economic claims by changing a tier table or exporting a CSV. Claim authorization needs constrained keys, approval controls, and a rotation path if a key is suspected to be exposed. Key rotation is not only a recovery action. It is also a readiness requirement. A system that cannot rotate signers without breaking claim accounting is not ready for high growth launch conditions. Publication Boundary The public docs can explain the control objective: referral settlement keys should be isolated, approval gated, and rotatable. They should not publish signer addresses, custody topology, approval quorum, rotation procedure, or emergency thresholds until implementation and security review approve those details. Sources vibe papers : Neelo, \"Section 8: Security Controls\". spec 03 "
+    },
+    {
+      "id": "authored-referral-supply-kpis",
+      "title": "Referral Supply KPIs",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta",
+        "authored-referral-market-creation-velocity"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-supply-kpis.md",
+      "bodyMarkdown": "# Referral Supply KPIs\n\nNeelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high-quality tradable markets, not only more users with codes.\n\nThe supply KPI set includes:\n\n- new listings per week or day;\n- active markets;\n- repeat listers or weekly active listers;\n- time-to-first-listing for newly onboarded creators.\n\nTogether, those metrics distinguish market creation from one-time listing bursts. A campaign can increase code issuance and first signups while failing to create durable market supply. Supply KPIs show whether referrals are actually expanding the set of assets and communities that can be traded.\n\n## Documentation Boundary\n\nThe docs should define each supply metric with a phase label and formula version. They should not publish final listing-quality thresholds, market eligibility rules, creator scoring, listing incentives, or target bands until product and risk owners approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: product-state and dashboard-metric caveats.\n\n## Related Pages\n\n- `authored-referral-market-creation-velocity`\n- `authored-market-scoped-referrals`\n- `authored-referral-dashboard-reporting-standards`",
+      "excerpt": "Referral Supply KPIs Neelo's referral metrics framework treats supply as the first proof layer because Vibe needs more high quality tradable markets, not only more users with codes. The supply KPI set includes: new listings per week or day; active markets; repeat listers or weekly active listers; time to first listing for newly onboarded creators. Together, those metrics distinguish market creation from one time listing bursts. A campaign can increase code issuance and first signups while failing to create durable market supply. Supply KPIs show whether referrals are actually expanding the set of assets and communities that can be traded. Documentation Boundary The docs should define each supply metric with a phase label and formula version. They should not publish final listing quality thresholds, market eligibility rules, creator scoring, listing incentives, or target bands until product and risk owners approve them. Sources vibe papers : Neelo, \"Section 9: Metrics Framework\". vibe papers : Neelo, \"Product Metrics Framework\". spec 03 : product state and dashboard metric caveats. Related Pages authored referral market creation velocity authored market scoped referrals authored ref"
     },
     {
       "id": "authored-referral-three-plane-architecture",

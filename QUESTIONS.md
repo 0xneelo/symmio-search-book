@@ -433,6 +433,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why audit referral admin overrides? | `authored-referral-admin-override-audit-trails` | Medium | Neelo requires audit trails for tier and admin policy overrides because partner terms, grants, and corrections can affect future economics. |
 | Which referral anomalies need monitoring? | `authored-referral-anomaly-monitoring-signals` | Medium | Neelo calls out reward spikes and attribution outliers, and the metrics source ties integrity monitoring to quality rather than raw growth. |
 | What does fail-closed referral settlement mean? | `authored-referral-fail-closed-incident-operations` | Medium | Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies. |
+| Which supply KPIs show referral market creation? | `authored-referral-supply-kpis` | Medium | Neelo's supply layer tracks new listings, active markets, repeat listers, and time-to-first-listing so referrals are judged by market creation, not code count. |
+| Which demand KPIs show referred markets are working? | `authored-referral-demand-kpis` | Medium | Neelo's demand layer tracks traders per active market, fee-generating volume, turnover, and concentration so listed markets are not mistaken for active markets. |
+| Which growth funnel KPIs matter for referrals? | `authored-referral-growth-funnel-kpis` | Medium | Neelo separates referral attach, code-to-first-trade, code-to-first-listing, claim conversion, and future pack conversion from raw signups. |
+| Which KPIs would a rewards game layer need? | `authored-referral-game-layer-kpis` | Medium | Neelo's future game-layer metrics include packs held/opened, artifact volume, equip rates, and embedded point exposure without making those features current policy. |
+| How should referral metrics be phase-labeled and versioned? | `authored-referral-phase-version-reporting-rules` | Medium | Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states. |
 
 ## Prototype Event Log
 

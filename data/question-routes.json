@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 427,
+  "totalRoutes": 432,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 207,
+    "Medium": 212,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 427
+    "authored": 432
   },
   "answerable": [
     {
@@ -7487,6 +7487,96 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-supply-kpis-show-referral-market-creation",
+      "question": "Which supply KPIs show referral market creation?",
+      "normalizedQuestion": "which supply kpis show referral market creation",
+      "pageId": "authored-referral-supply-kpis",
+      "pageTitle": "Referral Supply KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's supply layer tracks new listings, active markets, repeat listers, and time-to-first-listing so referrals are judged by market creation, not code count.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-demand-kpis-show-referred-markets-are-working",
+      "question": "Which demand KPIs show referred markets are working?",
+      "normalizedQuestion": "which demand kpis show referred markets are working",
+      "pageId": "authored-referral-demand-kpis",
+      "pageTitle": "Referral Demand KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's demand layer tracks traders per active market, fee-generating volume, turnover, and concentration so listed markets are not mistaken for active markets.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-growth-funnel-kpis-matter-for-referrals",
+      "question": "Which growth funnel KPIs matter for referrals?",
+      "normalizedQuestion": "which growth funnel kpis matter for referrals",
+      "pageId": "authored-referral-growth-funnel-kpis",
+      "pageTitle": "Referral Growth Funnel KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo separates referral attach, code-to-first-trade, code-to-first-listing, claim conversion, and future pack conversion from raw signups.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-kpis-would-a-rewards-game-layer-need",
+      "question": "Which KPIs would a rewards game layer need?",
+      "normalizedQuestion": "which kpis would a rewards game layer need",
+      "pageId": "authored-referral-game-layer-kpis",
+      "pageTitle": "Referral Game-Layer KPIs",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's future game-layer metrics include packs held/opened, artifact volume, equip rates, and embedded point exposure without making those features current policy.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-should-referral-metrics-be-phase-labeled-and-versioned",
+      "question": "How should referral metrics be phase-labeled and versioned?",
+      "normalizedQuestion": "how should referral metrics be phase labeled and versioned",
+      "pageId": "authored-referral-phase-version-reporting-rules",
+      "pageTitle": "Referral Phase And Version Reporting Rules",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"

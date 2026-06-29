@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 427
+      "totalGoldenRoutes": 432
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 445,
-    "retrievalEligiblePages": 1237,
+    "publicNavigationPages": 450,
+    "retrievalEligiblePages": 1242,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 445,
+      "candidate": 450,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 427,
-    "exactRouteTestsPassing": 427,
+    "totalExactRouteTests": 432,
+    "exactRouteTestsPassing": 432,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 427
+      "candidate": 432
     },
     "exactRoutesByConfidence": {
-      "Medium": 207,
+      "Medium": 212,
       "High": 44,
       "Low": 176
     },
@@ -9586,6 +9586,121 @@
         "chunkCount": 1,
         "faqEntryId": "faq-what-does-fail-closed-referral-settlement-mean",
         "passes": true
+      },
+      {
+        "id": "qr-which-supply-kpis-show-referral-market-creation",
+        "query": "Which supply KPIs show referral market creation?",
+        "normalizedQuery": "which supply kpis show referral market creation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-supply-kpis",
+        "expectedPageTitle": "Referral Supply KPIs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-supply-kpis-show-referral-market-creation",
+        "passes": true
+      },
+      {
+        "id": "qr-which-demand-kpis-show-referred-markets-are-working",
+        "query": "Which demand KPIs show referred markets are working?",
+        "normalizedQuery": "which demand kpis show referred markets are working",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-demand-kpis",
+        "expectedPageTitle": "Referral Demand KPIs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-demand-kpis-show-referred-markets-are-working",
+        "passes": true
+      },
+      {
+        "id": "qr-which-growth-funnel-kpis-matter-for-referrals",
+        "query": "Which growth funnel KPIs matter for referrals?",
+        "normalizedQuery": "which growth funnel kpis matter for referrals",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-growth-funnel-kpis",
+        "expectedPageTitle": "Referral Growth Funnel KPIs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-growth-funnel-kpis-matter-for-referrals",
+        "passes": true
+      },
+      {
+        "id": "qr-which-kpis-would-a-rewards-game-layer-need",
+        "query": "Which KPIs would a rewards game layer need?",
+        "normalizedQuery": "which kpis would a rewards game layer need",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-game-layer-kpis",
+        "expectedPageTitle": "Referral Game-Layer KPIs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-kpis-would-a-rewards-game-layer-need",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-metrics-be-phase-labeled-and-versioned",
+        "query": "How should referral metrics be phase-labeled and versioned?",
+        "normalizedQuery": "how should referral metrics be phase labeled and versioned",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-phase-version-reporting-rules",
+        "expectedPageTitle": "Referral Phase And Version Reporting Rules",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-metrics-be-phase-labeled-and-versioned",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9661,7 +9776,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 427,
+      "exactRoutes": 432,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
