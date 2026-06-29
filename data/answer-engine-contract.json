@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 778
+      "totalGoldenRoutes": 779
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 792,
-    "retrievalEligiblePages": 1584,
+    "publicNavigationPages": 793,
+    "retrievalEligiblePages": 1585,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 792,
+      "candidate": 793,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 778,
-    "exactRouteTestsPassing": 778,
+    "totalExactRouteTests": 779,
+    "exactRouteTestsPassing": 779,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 778
+      "candidate": 779
     },
     "exactRoutesByConfidence": {
-      "Medium": 486,
+      "Medium": 487,
       "High": 44,
       "Low": 248
     },
@@ -15925,6 +15925,27 @@
         "passes": true
       },
       {
+        "id": "qr-how-should-i-read-the-perp-bootstrap-source-set",
+        "query": "How should I read the Perp Bootstrap source set?",
+        "normalizedQuery": "how should i read the perp bootstrap source set",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-bootstrap-source-navigation-map",
+        "expectedPageTitle": "Perp Bootstrap Source Navigation Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-should-i-read-the-perp-bootstrap-source-set",
+        "passes": true
+      },
+      {
         "id": "qr-why-should-perp-markets-be-treated-as-dynamic",
         "query": "Why should perp markets be treated as dynamic?",
         "normalizedQuery": "why should perp markets be treated as dynamic",
@@ -18389,7 +18410,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 778,
+      "exactRoutes": 779,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

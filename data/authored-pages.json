@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 793,
+  "totalPages": 794,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 618,
+    "publication-candidate-needs-operator-review": 619,
     "publication-candidate": 154,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 474,
+    "manifesto": 475,
     "product-reference": 48,
     "rewards-referrals": 103,
     "dashboard-reference": 12,
@@ -9034,6 +9034,41 @@
       "file": "content/authored/manifesto/perp-bootstrap-scope-and-limits.md",
       "bodyMarkdown": "# The Perp Bootstrap Paper's Scope And Limits\n\nThe Perp Classes / Z-Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market.\n\nThat matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction-market design, regulatory treatment, or traditional-finance applicability.\n\nThe source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain.\n\nThe page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make.\n\n## Publication Boundary\n\nUse this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options-market applicability, prediction-market applicability, traditional-finance portability, or live implementation guarantees from the introduction alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.9 Scope and Limitations\".\n\n## Related Pages\n\n- `authored-perp-paper-contribution-map`\n- `authored-market-lifecycle-future-directions`\n- `authored-thiel-risk-analysis-checklist`",
       "excerpt": "The Perp Bootstrap Paper's Scope And Limits The Perp Classes / Z Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market. That matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction market design, regulatory treatment, or traditional finance applicability. The source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain. The page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make. Publication Boundary Use this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options market applicability, prediction market applicability, traditional finance portability, or live implementati"
+    },
+    {
+      "id": "authored-perp-bootstrap-source-navigation-map",
+      "title": "Perp Bootstrap Source Navigation Map",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/overview",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-09-conclusion-9-6-closing-thoughts",
+        "section-01-perp-classes-zscore-01-docs-09-conclusion-acknowledgments",
+        "section-01-perp-classes-zscore-01-docs-09-conclusion-references",
+        "section-01-perp-classes-zscore-01-docs-09-conclusion-appendices",
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-introduction",
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-part-1-the-value-creation-vs-value-capture-framework",
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-appendix-key-thiel-quotes-applied-to-vibe",
+        "section-01-perp-classes-zscore-01-docs-overview-paper-overview",
+        "section-01-perp-classes-zscore-01-docs-overview-table-of-contents",
+        "section-01-perp-classes-zscore-01-docs-overview-key-themes",
+        "section-01-perp-classes-zscore-01-docs-overview-to-do-items-for-author",
+        "section-01-perp-classes-zscore-01-docs-overview-reading-order",
+        "section-01-perp-classes-zscore-01-docs-overview-version-history"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-bootstrap-source-navigation-map.md",
+      "bodyMarkdown": "# Perp Bootstrap Source Navigation Map\n\nNeelo's Perp Classes / Z-Score overview, conclusion, and Thiel-analysis fragments are source-navigation material for the bootstrap thesis. They should orient the reader toward the exact authored pages, not become thirteen separate public pages.\n\nThe overview fragments describe the paper's job: explain why permissionless perpetual market creation is hard, classify existing perp protocols, formalize the bootstrap trilemma, and show why Vibe's hybrid architecture is designed to move a market from bootstrap to maturity. Route readers who need the ordered paper map to `authored-perp-paper-structure-roadmap`, and route readers who need the short thesis to `authored-perp-paper-abstract` or `authored-bootstrap-trilemma`.\n\nThe key-theme and reading-order fragments are useful as audience routing. Executives should start with the abstract, market gap, and conclusion. Technical readers should follow the framework, landscape, trilemma, architecture, and technical deep dive. Competitive readers should use the framework, landscape, and competitive-analysis pages. Builders should use the architecture, solver, oracle, settlement, funding, and position-lifecycle pages.\n\nThe conclusion fragments close the argument: market creation remains primitive, opaque, and manually gated; a hybrid lifecycle architecture can create early markets, measure maturity, and graduate markets when evidence supports it. Route contribution questions to `authored-perp-paper-contribution-map`, industry questions to `authored-market-lifecycle-industry-implications`, and vision questions to `authored-permissionless-perps-vision-restated`.\n\nThe TODO, acknowledgments, references, and appendices fragments are boundary signals. They name missing work: HIP-3 data, fee comparisons, lifecycle-gap sizing, smart-contract architecture, hedging algorithms, threat model, Z-score thresholds, roadmap milestones, author acknowledgments, comprehensive references, formal proofs, protocol comparison data, and solver specifications. Do not publish those placeholders as complete claims. Use them as a checklist for product, research, risk, security, and operator review.\n\nThe Thiel-analysis fragments add the strategy frame. They apply value creation versus value capture to Vibe: creating new perp markets for long-tail tokens is the X, while fees, solver spread, LP management, data products, and graduation relationships are possible Y surfaces. Route monopoly questions to `authored-thiel-monopoly-verdict-boundary`, value-capture questions to `authored-value-capture-durability-scorecard`, and technology-moat questions to `authored-thiel-proprietary-technology-test`.\n\n## Publication Boundary\n\nSource-time market counts, daily-volume claims, lifecycle-gap sizing, HIP-3 outcomes, GMX/Hyperliquid fee comparisons, Z-score thresholds, automatic graduation, order-book integrations, solver algorithms, smart-contract architecture, threat model, roadmap milestones, formal proofs, protocol comparison tables, revenue capture surfaces, and monopoly verdicts require fresh primary-source, product, research, risk, legal, security, accounting, and operator review before publication as current facts. This page preserves source traceability and reading order only.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals\", overview and conclusion fragments.\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis\", introduction, value-creation/value-capture framework, and appendix fragments.\n\n## Related Pages\n\n- `authored-perp-paper-structure-roadmap`\n- `authored-bootstrap-trilemma`\n- `authored-perp-paper-contribution-map`\n- `authored-market-lifecycle-industry-implications`\n- `authored-thiel-monopoly-verdict-boundary`\n- `authored-thiel-proprietary-technology-test`",
+      "excerpt": "Perp Bootstrap Source Navigation Map Neelo's Perp Classes / Z Score overview, conclusion, and Thiel analysis fragments are source navigation material for the bootstrap thesis. They should orient the reader toward the exact authored pages, not become thirteen separate public pages. The overview fragments describe the paper's job: explain why permissionless perpetual market creation is hard, classify existing perp protocols, formalize the bootstrap trilemma, and show why Vibe's hybrid architecture is designed to move a market from bootstrap to maturity. Route readers who need the ordered paper map to authored perp paper structure roadmap , and route readers who need the short thesis to authored perp paper abstract or authored bootstrap trilemma . The key theme and reading order fragments are useful as audience routing. Executives should start with the abstract, market gap, and conclusion. Technical readers should follow the framework, landscape, trilemma, architecture, and technical deep dive. Competitive readers should use the framework, landscape, and competitive analysis pages. Builders should use the architecture, solver, oracle, settlement, funding, and position lifecycle pages."
     },
     {
       "id": "authored-perp-framework-implications",

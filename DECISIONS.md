@@ -1727,3 +1727,11 @@
 **Reason:** The uncovered items are orientation fragments and source headings. Promoting each fragment into a standalone public page would duplicate the exact Percolator mechanism pages already present. A single source map preserves traceability for the generated companions while keeping the public manifesto focused on durable mechanisms rather than source-table sprawl.
 
 **Status:** Accepted for source-traceability coverage. Percolator SOV mainnet details, live parameters, vault balances, open interest, fee rates, burn behavior, oracle caps, proof counts, repository state, deployed programs, market behavior, and Vibe comparative guarantees remain current-source/operator/risk/legal/security/implementation review items before publication.
+
+## D-217: Map Perp Bootstrap Navigation Fragments Through One Source Map
+
+**Decision:** Add `authored-perp-bootstrap-source-navigation-map` to cover the remaining uncovered generated section fragments from Neelo's Perp Classes / Z-Score overview, conclusion, and Thiel-analysis material, routing readers into existing authored pages for the paper roadmap, bootstrap trilemma, contribution map, industry implications, monopoly-verdict boundary, value-capture durability, and technology-moat framing.
+
+**Reason:** The uncovered items are mostly reading-order, table-of-contents, source TODO, references, appendix, conclusion, and Thiel framing fragments. Promoting each fragment into a standalone public page would duplicate stronger authored pages and publish placeholders as if they were finished claims. A single source map preserves traceability while making the review boundary explicit.
+
+**Status:** Accepted for source-traceability coverage. HIP-3 data, fee comparisons, lifecycle-gap sizing, smart-contract details, hedging algorithms, threat model, Z-score thresholds, roadmap milestones, author acknowledgments, comprehensive references, formal proofs, protocol comparison tables, solver specs, value-capture surfaces, and monopoly verdicts remain fresh primary-source/operator/product/research/risk/legal/security/accounting review items before publication.

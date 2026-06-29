@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Bootstrap Source Navigation Coverage
+
+- Added `authored-perp-bootstrap-source-navigation-map` to route Neelo's remaining Perp Classes / Z-Score overview, conclusion, and Thiel-analysis source fragments into existing authored Bootstrap Trilemma pages.
+- Mapped 13 uncovered generated section companions covering paper overview, table of contents, key themes, author TODOs, reading order, version history, conclusion closing thoughts, acknowledgments, references, appendices, Thiel introduction, value-creation/value-capture framing, and Thiel quote appendix material.
+- Routed one new Ask question, "How should I read the Perp Bootstrap source set?", to the new source-navigation page.
+- Kept HIP-3 data, fee comparisons, lifecycle-gap sizing, smart-contract details, hedging algorithms, threat model, Z-score thresholds, roadmap milestones, formal proofs, solver specs, value-capture surfaces, and monopoly verdicts under fresh primary-source/operator/product/research/risk/legal/security/accounting review.
+
 ## 2026-06-29 — Percolator Section Fragment Source Map Coverage
 
 - Added `authored-percolator-section-fragments-source-map` to route Neelo's remaining Percolator abstract, introduction, architecture, and reflexivity section fragments into existing authored Percolator mechanism pages.
