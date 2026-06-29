@@ -5,13 +5,13 @@ section: "manifesto"
 track: "07 — Architecture Thesis"
 status: "publication-candidate"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/00-abstract"]
-relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-00-abstract"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/00-abstract"]
+relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-overview", "neelo-10-vibe-pillars-10-docs-00-abstract"]
 ---
 
 # The Three Vibe Pillars
 
-Neelo's "Vibe Pillars" paper compresses the architecture thesis into three linked design problems: bootstrap and counterparty formation, exploit resistance, and LP yield with capital efficiency.
+Neelo's "Vibe Pillars" paper compresses the architecture thesis into three linked design problems: bootstrap and counterparty formation, exploit resistance, and LP yield with capital efficiency. The overview frames those problems as a coupled system: leveraged safety, reliable counterparty formation, and enough yield for risk capital have to be solved together.
 
 The first pillar is market birth. Thin long-tail markets cannot assume continuous synchronous matching, so a system needs asynchronous matching and a reliable counterparty path when natural flow is one-sided or intermittent.
 
@@ -25,7 +25,7 @@ This page is the bridge between the manifesto and the reference. If one pillar i
 
 ## Sources
 
-- `vibe-papers`: Neelo, "Vibe Pillars".
+- `vibe-papers`: Neelo, "Vibe Pillars", overview and abstract.
 
 ## Related Pages
 

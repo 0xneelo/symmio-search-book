@@ -6,13 +6,13 @@ track: "Solver And LP Economics"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/overview#document-map"]
-relatedGeneratedPages: ["section-12-case-study-symm-lp-12-docs-overview-document-map", "authored-symm-lp-case-setup", "authored-symm-lp-source-and-reproducibility-notes"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/overview#document-map"]
+relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-overview", "section-12-case-study-symm-lp-12-docs-overview-document-map", "authored-symm-lp-case-setup", "authored-symm-lp-source-and-reproducibility-notes"]
 ---
 
 # SYMM LP Document Map
 
-The SYMM LP case-study overview maps the source into eight documents: abstract, executive summary, case context and setup, performance and unit economics, risk analysis and edge cases, scaling and replication framework, conclusion, and data snapshot with metric definitions.
+The SYMM LP case-study overview says the folder is a structured case built from transcript statements and dashboard data cuts. It maps the source into eight documents: abstract, executive summary, case context and setup, performance and unit economics, risk analysis and edge cases, scaling and replication framework, conclusion, and data snapshot with metric definitions.
 
 That map matters because the case study is easy to overread when its pieces are collapsed into one headline. The abstract and executive summary explain what the case is trying to show. The setup document defines the participant, deposited inventory, market context, and objective. The performance document explains the measured outcome and benchmark comparison. The risk document names what can reverse or invalidate the case. The scaling document turns a single example into a replication checklist. The conclusion states the proof-of-possibility frame. The data snapshot defines source cuts, metrics, sign conventions, and reproducibility notes.
 
@@ -34,7 +34,7 @@ This page is a source-navigation page. It does not certify the case as audited, 
 
 ## Sources
 
-- `vibe-papers`: Neelo, "SYMM LP Case Study (Vibe)", "Document Map".
+- `vibe-papers`: Neelo, "SYMM LP Case Study (Vibe)", overview and "Document Map".
 
 ## Related Pages
 

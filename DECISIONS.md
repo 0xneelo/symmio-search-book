@@ -1575,3 +1575,11 @@
 **Reason:** The final uncovered headings were source-routing, policy-use, guardrail, sequencing, and hypothetical-upside pages. They still matter for Ask precision because readers need to know how referral metrics should affect decisions, why reward packs require controls, how launch sequence should be treated, what tokenized-points upside is hypothetical, and how the full referral source should be navigated. Adding focused pages and tightening metadata finishes Section 17 generated-heading coverage without duplicating already-authored referral architecture pages.
 
 **Status:** Accepted for the authored rewards-reference layer; metrics thresholds, referral economics, phase targets, rollout dates and caps, pack supply, expected value, rarity probabilities, transferability, tokenized-points markets, TGE accounting, public dashboard formulas, and enforcement policy remain fresh operator/product/risk/legal/accounting/security/implementation review.
+
+## D-198: Map Singleton Parent Source Companions To Existing Authored Pages
+
+**Decision:** Map four singleton generated parent source-pages to existing authored pages: Vibe Pillars overview to `authored-vibe-pillars`, SYMM LP overview to `authored-symm-lp-document-map`, Funding Model `02-index` to `authored-funding-derivation-document-index`, and Listing Additional raw transcript to `authored-long-tail-perp-model-map`.
+
+**Reason:** These source companions were not missing concepts. Their substantive section-level claims already had authored coverage. Adding duplicate pages would make Ask less precise, while mapping the parent companions strengthens traceability from the imported source pages into the authored compendium. The Listing Additional transcript is rough source material, so its safest parent route is the model-map page that already translates the raw comparison into publication-quality categories.
+
+**Status:** Accepted for source-traceability coverage; current third-party venue behavior, live market counts, audited LP outcomes, funding formula production status, solver controls, and venue-specific economic claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Singleton Parent Source Coverage
+
+- Mapped 4 remaining singleton generated parent source-pages to existing authored pages instead of duplicating content.
+- Closed parent overview coverage for Vibe Pillars, SYMM LP case-study overview, the Funding Model derivation index, and the raw Listing Additional transcript.
+- Preserved existing exact answer pages while improving traceability from source companions into authored navigation and thesis pages.
+- Kept live third-party venue comparisons, current market counts, production formulas, audited LP results, and solver/funding parameters marked for fresh primary-source/operator review.
+
 ## 2026-06-29 — Referral Section 17 Exact Coverage Finished
 
 - Added 5 authored Volume 06 rewards-reference pages from the final uncovered Neelo Referral Program headings.

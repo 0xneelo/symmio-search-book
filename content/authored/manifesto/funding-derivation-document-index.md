@@ -6,13 +6,13 @@ track: "15 - Funding Rate Model"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index#document-index"]
-relatedGeneratedPages: ["section-15-funding-model-15-docs-02-index-document-index", "authored-funding-model-reading-boundary", "authored-funding-document-cross-reference-map"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index#document-index"]
+relatedGeneratedPages: ["neelo-15-funding-model-15-docs-02-index", "section-15-funding-model-15-docs-02-index-document-index", "authored-funding-model-reading-boundary", "authored-funding-document-cross-reference-map"]
 ---
 
 # Funding Derivation Document Index
 
-The funding-model document index frames the source folder as a complete mathematical specification for Vibe perpetual markets: funding rates, dynamic spreads, insurance mechanisms, and auto-deleveraging logic. It also tells readers where to start. The abstract gives the system overview and master formula, while the informal intro explains why the math exists and what it does not claim to solve by itself.
+The funding-model source page frames the folder as a full mathematical derivation for Vibe perpetual markets: funding rates, dynamic spreads, insurance mechanisms, and auto-deleveraging logic. It also tells readers where to start. The abstract gives the system overview and master formula, while the informal intro explains why the math exists and what it does not claim to solve by itself.
 
 The core document list then gives the structure of the derivation:
 
@@ -42,7 +42,7 @@ This page describes the source folder's derivation structure. It does not claim 
 
 ## Sources
 
-- `vibe-papers`: Neelo, "Vibe Perpetual Market - Full Mathematical Derivation", "Document Index".
+- `vibe-papers`: Neelo, "Vibe Perpetual Market - Full Mathematical Derivation", source page and "Document Index".
 
 ## Related Pages
 
