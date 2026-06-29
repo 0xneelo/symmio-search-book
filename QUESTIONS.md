@@ -408,6 +408,11 @@ Questions are grouped by whether the current source set can answer them.
 | How does the insurance-mode spread example work? | `authored-funding-insurance-mode-spread-example` | Medium | Neelo's insurance-mode example estimates unhedged loss, compares it with defense budget, then makes exposure-worsening flow more expensive and exposure-reducing flow cheaper. |
 | What does the bell-curve worked example prove? | `authored-funding-bell-curve-example` | Medium | Neelo's bell-curve example shows that transfer-pool flattening compresses winner and loser tails while preserving total market profit. |
 | How does the worked ADL defense sequence unfold? | `authored-funding-adl-defense-sequence-example` | Medium | Neelo's ADL and sequence examples move from normal utilization to stress, emergency pricing, insurance deployment, ADL, and recovery. |
+| What is the referral identity anchor? | `authored-referral-identity-anchor` | Medium | Neelo's referral baseline treats the referral NFT or equivalent identity object as the identity anchor while separating it from reward-eligible code activation. |
+| Why does the referral system have two incentive rails? | `authored-referral-dual-incentive-rails` | Medium | Neelo separates trading rakeback from referral rewards so self activity and downstream attributed activity can be audited separately. |
+| When does a referral code become reward eligible? | `authored-referral-code-activation-gates` | Medium | Neelo separates onboarding identity from code activation and gives threshold, exception, and pre-beta activation examples; final live policy remains operator-review. |
+| What are the referral architecture's three planes? | `authored-referral-three-plane-architecture` | Medium | Neelo splits the referral stack into on-chain identity/settlement, off-chain attribution/policy, and user-facing access/claims UX. |
+| How should public referral policy handle private partner terms? | `authored-referral-public-private-policy-overlays` | Medium | Neelo expects public default tables plus explicit private overlays, not hidden side effects inside public policy. |
 
 ## Prototype Event Log
 

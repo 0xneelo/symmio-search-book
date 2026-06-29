@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 409,
-  "totalAnswerable": 402,
+  "totalEntries": 414,
+  "totalAnswerable": 407,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 23,
     "Revenue": 67,
     "Manifesto": 66,
-    "Rewards And Referrals": 25,
+    "Rewards And Referrals": 30,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 182,
+    "Medium": 187,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 402
+    "authored": 407
   },
   "byType": {
-    "answerable": 402,
+    "answerable": 407,
     "reconciliation": 7
   },
   "answerable": [
@@ -13261,6 +13261,191 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-referral-identity-anchor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the referral identity anchor?",
+      "normalizedQuestion": "what is the referral identity anchor",
+      "shortAnswer": "Neelo's referral baseline treats the referral NFT or equivalent identity object as the identity anchor while separating it from reward-eligible code activation.",
+      "answerSummary": "Referral Identity Anchor Neelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier. That anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward eligible code activation. A user can have identity metadat...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-identity-anchor",
+      "pageTitle": "Referral Identity Anchor",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-referral-system-have-two-incentive-rails",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why does the referral system have two incentive rails?",
+      "normalizedQuestion": "why does the referral system have two incentive rails",
+      "shortAnswer": "Neelo separates trading rakeback from referral rewards so self activity and downstream attributed activity can be audited separately.",
+      "answerSummary": "Referral Dual Incentive Rails Neelo's referral baseline separates two incentive rails: trading rakeback, based on the user's own rolling activity; referral rewards, based on referred user activity over the same rolling window. The rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-dual-incentive-rails",
+      "pageTitle": "Referral Dual Incentive Rails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-a-referral-code-become-reward-eligible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "When does a referral code become reward eligible?",
+      "normalizedQuestion": "when does a referral code become reward eligible",
+      "shortAnswer": "Neelo separates onboarding identity from code activation and gives threshold, exception, and pre-beta activation examples; final live policy remains operator-review.",
+      "answerSummary": "Referral Code Activation Gates Neelo's referral architecture separates referral identity from referral code activation. The source model allows a user to hold identity metadata at onboarding while reward eligible code activation requires additional policy approval. The architecture gives example activation gates: reaching a minimum performance threshold,...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-code-activation-gates",
+      "pageTitle": "Referral Code Activation Gates",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-referral-architecture-s-three-planes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are the referral architecture's three planes?",
+      "normalizedQuestion": "what are the referral architecture s three planes",
+      "shortAnswer": "Neelo splits the referral stack into on-chain identity/settlement, off-chain attribution/policy, and user-facing access/claims UX.",
+      "answerSummary": "Referral Three Plane Architecture Neelo's referral architecture splits the stack across three planes: 1. on chain identity and settlement; 2. off chain attribution and policy logic; 3. user facing access and claims UX. That split is the core architecture. Referral programs need policy agility, but value bearing claims need settlement integrity. Determinis...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-three-plane-architecture",
+      "pageTitle": "Referral Three-Plane Architecture",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-public-referral-policy-handle-private-partner-terms",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should public referral policy handle private partner terms?",
+      "normalizedQuestion": "how should public referral policy handle private partner terms",
+      "shortAnswer": "Neelo expects public default tables plus explicit private overlays, not hidden side effects inside public policy.",
+      "answerSummary": "Referral Public And Private Policy Overlays Neelo's rakeback design source expects the referral system to support public default tables and private commercial overlays. That is not a contradiction by itself. A public default table gives normal users a legible baseline. A private overlay can support strategic partners or commercial agreements. The importan...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-public-private-policy-overlays",
+      "pageTitle": "Referral Public And Private Policy Overlays",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -26835,6 +27020,191 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-referral-identity-anchor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the referral identity anchor?",
+      "normalizedQuestion": "what is the referral identity anchor",
+      "shortAnswer": "Neelo's referral baseline treats the referral NFT or equivalent identity object as the identity anchor while separating it from reward-eligible code activation.",
+      "answerSummary": "Referral Identity Anchor Neelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier. That anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward eligible code activation. A user can have identity metadat...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-identity-anchor",
+      "pageTitle": "Referral Identity Anchor",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-referral-system-have-two-incentive-rails",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why does the referral system have two incentive rails?",
+      "normalizedQuestion": "why does the referral system have two incentive rails",
+      "shortAnswer": "Neelo separates trading rakeback from referral rewards so self activity and downstream attributed activity can be audited separately.",
+      "answerSummary": "Referral Dual Incentive Rails Neelo's referral baseline separates two incentive rails: trading rakeback, based on the user's own rolling activity; referral rewards, based on referred user activity over the same rolling window. The rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-dual-incentive-rails",
+      "pageTitle": "Referral Dual Incentive Rails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-does-a-referral-code-become-reward-eligible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "When does a referral code become reward eligible?",
+      "normalizedQuestion": "when does a referral code become reward eligible",
+      "shortAnswer": "Neelo separates onboarding identity from code activation and gives threshold, exception, and pre-beta activation examples; final live policy remains operator-review.",
+      "answerSummary": "Referral Code Activation Gates Neelo's referral architecture separates referral identity from referral code activation. The source model allows a user to hold identity metadata at onboarding while reward eligible code activation requires additional policy approval. The architecture gives example activation gates: reaching a minimum performance threshold,...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-code-activation-gates",
+      "pageTitle": "Referral Code Activation Gates",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-referral-architecture-s-three-planes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What are the referral architecture's three planes?",
+      "normalizedQuestion": "what are the referral architecture s three planes",
+      "shortAnswer": "Neelo splits the referral stack into on-chain identity/settlement, off-chain attribution/policy, and user-facing access/claims UX.",
+      "answerSummary": "Referral Three Plane Architecture Neelo's referral architecture splits the stack across three planes: 1. on chain identity and settlement; 2. off chain attribution and policy logic; 3. user facing access and claims UX. That split is the core architecture. Referral programs need policy agility, but value bearing claims need settlement integrity. Determinis...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-three-plane-architecture",
+      "pageTitle": "Referral Three-Plane Architecture",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-public-referral-policy-handle-private-partner-terms",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should public referral policy handle private partner terms?",
+      "normalizedQuestion": "how should public referral policy handle private partner terms",
+      "shortAnswer": "Neelo expects public default tables plus explicit private overlays, not hidden side effects inside public policy.",
+      "answerSummary": "Referral Public And Private Policy Overlays Neelo's rakeback design source expects the referral system to support public default tables and private commercial overlays. That is not a contradiction by itself. A public default table gives normal users a legible baseline. A private overlay can support strategic partners or commercial agreements. The importan...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-public-private-policy-overlays",
+      "pageTitle": "Referral Public And Private Policy Overlays",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]

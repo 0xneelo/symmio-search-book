@@ -975,3 +975,11 @@
 **Reason:** The broad worked-example reading guide tells readers how to use the examples, but answer-engine readers need direct routes for the actual walkthroughs: how utilization is calculated, how emergency time accelerates, how insurance utilization changes spreads, how flattening preserves total profit, and how the defense stack progresses into ADL. Splitting these pages keeps the illustrative numbers legible without publishing them as deployed parameter commitments.
 
 **Status:** Accepted for the authored manifesto layer; live market thresholds, APRs, grace periods, spread tables, insurance fractions, flattening coefficients, ADL fractions, timing, and emergency procedures remain operator/risk/legal/accounting/implementation review.
+
+## D-123: Split Referral Baseline Architecture Into Exact Answers
+
+**Decision:** Add authored rewards-reference pages for referral identity anchors, dual incentive rails, referral-code activation gates, three-plane referral architecture, and public/private policy overlays.
+
+**Reason:** Existing referral pages explain the broad architecture, but answer-engine readers need exact routes for the mechanics they will ask first: what the identity anchor is, why self rakeback and referral rewards are separate, when a code becomes reward eligible, which architecture plane owns which responsibility, and how public policy can coexist with private commercial terms. Splitting these answers improves referral documentation without resolving the parked referral-depth and historical-accounting decision.
+
+**Status:** Accepted for the authored rewards-reference layer; live referral depth, activation thresholds, tier tables, private terms, backfill behavior, transferability, signer topology, settlement contracts, and public economic commitments remain operator/legal/accounting/implementation review.

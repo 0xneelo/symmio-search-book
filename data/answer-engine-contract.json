@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 402
+      "totalGoldenRoutes": 407
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 420,
-    "retrievalEligiblePages": 1212,
+    "publicNavigationPages": 425,
+    "retrievalEligiblePages": 1217,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 420,
+      "candidate": 425,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 402,
-    "exactRouteTestsPassing": 402,
+    "totalExactRouteTests": 407,
+    "exactRouteTestsPassing": 407,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 402
+      "candidate": 407
     },
     "exactRoutesByConfidence": {
-      "Medium": 182,
+      "Medium": 187,
       "High": 44,
       "Low": 176
     },
@@ -9011,6 +9011,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-the-worked-adl-defense-sequence-unfold",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-the-referral-identity-anchor",
+        "query": "What is the referral identity anchor?",
+        "normalizedQuery": "what is the referral identity anchor",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-identity-anchor",
+        "expectedPageTitle": "Referral Identity Anchor",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-referral-identity-anchor",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-referral-system-have-two-incentive-rails",
+        "query": "Why does the referral system have two incentive rails?",
+        "normalizedQuery": "why does the referral system have two incentive rails",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-dual-incentive-rails",
+        "expectedPageTitle": "Referral Dual Incentive Rails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-referral-system-have-two-incentive-rails",
+        "passes": true
+      },
+      {
+        "id": "qr-when-does-a-referral-code-become-reward-eligible",
+        "query": "When does a referral code become reward eligible?",
+        "normalizedQuery": "when does a referral code become reward eligible",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-code-activation-gates",
+        "expectedPageTitle": "Referral Code Activation Gates",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-does-a-referral-code-become-reward-eligible",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-referral-architecture-s-three-planes",
+        "query": "What are the referral architecture's three planes?",
+        "normalizedQuery": "what are the referral architecture s three planes",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-three-plane-architecture",
+        "expectedPageTitle": "Referral Three-Plane Architecture",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-referral-architecture-s-three-planes",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-public-referral-policy-handle-private-partner-terms",
+        "query": "How should public referral policy handle private partner terms?",
+        "normalizedQuery": "how should public referral policy handle private partner terms",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-public-private-policy-overlays",
+        "expectedPageTitle": "Referral Public And Private Policy Overlays",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-public-referral-policy-handle-private-partner-terms",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9086,7 +9201,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 402,
+      "exactRoutes": 407,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

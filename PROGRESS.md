@@ -736,6 +736,12 @@
 - Routed five new Ask questions so formula, LP, solver, trader, and risk-review readers can inspect the example calculations directly instead of relying on one broad reading guide.
 - Kept live market thresholds, APRs, grace periods, spread tables, insurance fractions, flattening coefficients, ADL fractions, timing, and emergency procedures under operator/risk/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Baseline Architecture Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's referral baseline, architecture, and rakeback-design sources: referral identity anchors, dual incentive rails, referral-code activation gates, three-plane referral architecture, and public/private policy overlays.
+- Routed five new Ask questions so users, partners, and operators can inspect referral identity, reward rails, activation state, architecture boundaries, and private-overlay policy without relying on one broad referral architecture page.
+- Kept live referral depth, activation thresholds, tier tables, private terms, backfill behavior, transferability, signer topology, settlement contracts, and public economic commitments under operator/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
