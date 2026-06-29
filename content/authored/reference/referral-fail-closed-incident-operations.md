@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-08-security-controls", "authored-referral-settlement-security-controls", "authored-referral-access-phasing-operating-model"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls#8-5-design-principle", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-08-security-controls", "section-17-referral-program-17-docs-08-security-controls-8-5-design-principle", "authored-referral-settlement-security-controls", "authored-referral-access-phasing-operating-model"]
 ---
 
 # Fail-Closed Referral Incident Operations

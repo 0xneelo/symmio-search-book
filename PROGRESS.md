@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Referral Section 17 Exact Coverage Finished
+
+- Added 5 authored Volume 06 rewards-reference pages from the final uncovered Neelo Referral Program headings.
+- Split the remaining source into exact answer pages for metrics decision use, rewards-pack guardrails, rollout sequencing, tokenized-points strategic upside, and the referral source table of contents.
+- Tightened exact generated-heading coverage on existing LP/category, security, metrics, tokenized-points, and traceability pages so Section 17 can route every generated heading to authored coverage.
+- Kept metrics thresholds, referral economics, rollout dates/caps, pack supply/EV/rarity, transferability, tokenized-points products, and TGE accounting marked for operator/product/risk/legal/accounting/security review.
+
 ## 2026-06-29 — Referral Rewards And Phasing Exact Coverage
 
 - Added 2 authored Volume 06 rewards-reference pages from uncovered Neelo architecture and points/rewards headings.

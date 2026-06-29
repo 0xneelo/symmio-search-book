@@ -7,7 +7,7 @@ status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps", "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-1-scope-and-disclaimer", "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-7-major-risks-and-constraints"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps", "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-1-scope-and-disclaimer", "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-7-major-risks-and-constraints", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-12-related-hypothetical-scenario"]
 ---
 
 # Tokenized Points Perps Are A Hypothetical Scenario

@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 766,
-  "totalAnswerable": 759,
+  "totalEntries": 771,
+  "totalAnswerable": 764,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,7 +21,7 @@
     "Risk And Markets": 69,
     "Revenue": 96,
     "Manifesto": 157,
-    "Rewards And Referrals": 95,
+    "Rewards And Referrals": 100,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 477,
     "High": 44,
-    "Low": 238
+    "Low": 243
   },
   "byRouteSource": {
-    "authored": 759
+    "authored": 764
   },
   "byType": {
-    "answerable": 759,
+    "answerable": 764,
     "reconciliation": 7
   },
   "answerable": [
@@ -3670,6 +3670,43 @@
       ]
     },
     {
+      "id": "faq-how-should-referral-metrics-be-used-in-decisions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral metrics be used in decisions?",
+      "normalizedQuestion": "how should referral metrics be used in decisions",
+      "shortAnswer": "Neelo's metrics framework says metrics inform policy but cannot replace policy when market quality deteriorates.",
+      "answerSummary": "Referral Metrics Decision Use Referral metrics should inform policy. They should not replace policy. The metrics source gives the operating rule directly: a rising metric is not success if market quality falls at the same time. This is the boundary that keeps referral dashboards from becoming automatic payout, access, or expansion logic. How Decisions Sho...",
+      "confidence": "Low",
+      "pageId": "authored-referral-metrics-decision-use",
+      "pageTitle": "Referral Metrics Decision Use",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-are-referral-phase-targets-final",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -3792,6 +3829,154 @@
       "confidence": "Medium",
       "pageId": "authored-referral-rollout-governance-checklist",
       "pageTitle": "Referral Rollout Governance Checklist",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-guardrails-keep-rewards-packs-credible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What guardrails keep rewards packs credible?",
+      "normalizedQuestion": "what guardrails keep rewards packs credible",
+      "shortAnswer": "Neelo's rewards-pack source requires simplicity, controlled supply, transparent EV/rarity, and auditable security controls before packs become credible economic objects.",
+      "answerSummary": "Reward Pack System Guardrails The rewards pack source names four guardrails for any pack or artifact system: simplicity, supply control, fairness, and security. Those guardrails matter because packs and artifacts sit above the point ledger. If the game layer becomes more expressive than the accounting layer can audit, users will not know what they own, wh...",
+      "confidence": "Low",
+      "pageId": "authored-reward-pack-system-guardrails",
+      "pageTitle": "Reward Pack System Guardrails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-rewards-packs-roll-out",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should rewards packs roll out?",
+      "normalizedQuestion": "how should rewards packs roll out",
+      "shortAnswer": "Neelo's transcript-derived rollout note sequences invite gating, referral activation, and later transferability/packs while treating dates and caps as planning inputs.",
+      "answerSummary": "Reward Pack Rollout Sequencing Boundary The rewards pack source treats launch sequencing as phased operating context, not as an immutable protocol guarantee. The transcript derived rollout note suggests an order: beta access with invite code gating, referral activation in a following phase, and on chain transferability or packs in later milestones. The im...",
+      "confidence": "Low",
+      "pageId": "authored-reward-pack-rollout-sequencing-boundary",
+      "pageTitle": "Reward Pack Rollout Sequencing Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-strategic-upside-of-tokenized-points-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the strategic upside of tokenized points markets?",
+      "normalizedQuestion": "what is the strategic upside of tokenized points markets",
+      "shortAnswer": "Neelo's hypothetical tokenized-points scenario names earlier liquidity, risk transfer, builder composability, market feedback, and growth loops as possible upsides.",
+      "answerSummary": "Tokenized Points Strategic Upside The tokenized points perps source is hypothetical, but it explains why reward accounting has strategic consequences. If point linked exposure ever becomes a transferable on chain object, the design space expands beyond internal rewards. Value can circulate before a canonical token event, risk can move from passive holders...",
+      "confidence": "Low",
+      "pageId": "authored-tokenized-points-strategic-upside",
+      "pageTitle": "Tokenized Points Strategic Upside",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-the-referral-program-source-map-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should the referral program source map be read?",
+      "normalizedQuestion": "how should the referral program source map be read",
+      "shortAnswer": "Neelo's referral table of contents separates baseline, architecture, economics, access, security, metrics, rewards, and hypothetical composability claims.",
+      "answerSummary": "Referral Program Source Table Of Contents The referral source is not a single policy page. It is a chaptered architecture package. The table of contents matters because each chapter owns a different kind of claim. Baseline pages describe the current referral, rakeback, and points structure. Architecture pages define boundaries and claim flow. Rakeback, po...",
+      "confidence": "Low",
+      "pageId": "authored-referral-program-source-table-of-contents",
+      "pageTitle": "Referral Program Source Table Of Contents",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -28205,6 +28390,43 @@
       ]
     },
     {
+      "id": "faq-how-should-referral-metrics-be-used-in-decisions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should referral metrics be used in decisions?",
+      "normalizedQuestion": "how should referral metrics be used in decisions",
+      "shortAnswer": "Neelo's metrics framework says metrics inform policy but cannot replace policy when market quality deteriorates.",
+      "answerSummary": "Referral Metrics Decision Use Referral metrics should inform policy. They should not replace policy. The metrics source gives the operating rule directly: a rising metric is not success if market quality falls at the same time. This is the boundary that keeps referral dashboards from becoming automatic payout, access, or expansion logic. How Decisions Sho...",
+      "confidence": "Low",
+      "pageId": "authored-referral-metrics-decision-use",
+      "pageTitle": "Referral Metrics Decision Use",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-are-referral-phase-targets-final",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -28327,6 +28549,154 @@
       "confidence": "Medium",
       "pageId": "authored-referral-rollout-governance-checklist",
       "pageTitle": "Referral Rollout Governance Checklist",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-guardrails-keep-rewards-packs-credible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What guardrails keep rewards packs credible?",
+      "normalizedQuestion": "what guardrails keep rewards packs credible",
+      "shortAnswer": "Neelo's rewards-pack source requires simplicity, controlled supply, transparent EV/rarity, and auditable security controls before packs become credible economic objects.",
+      "answerSummary": "Reward Pack System Guardrails The rewards pack source names four guardrails for any pack or artifact system: simplicity, supply control, fairness, and security. Those guardrails matter because packs and artifacts sit above the point ledger. If the game layer becomes more expressive than the accounting layer can audit, users will not know what they own, wh...",
+      "confidence": "Low",
+      "pageId": "authored-reward-pack-system-guardrails",
+      "pageTitle": "Reward Pack System Guardrails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-rewards-packs-roll-out",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should rewards packs roll out?",
+      "normalizedQuestion": "how should rewards packs roll out",
+      "shortAnswer": "Neelo's transcript-derived rollout note sequences invite gating, referral activation, and later transferability/packs while treating dates and caps as planning inputs.",
+      "answerSummary": "Reward Pack Rollout Sequencing Boundary The rewards pack source treats launch sequencing as phased operating context, not as an immutable protocol guarantee. The transcript derived rollout note suggests an order: beta access with invite code gating, referral activation in a following phase, and on chain transferability or packs in later milestones. The im...",
+      "confidence": "Low",
+      "pageId": "authored-reward-pack-rollout-sequencing-boundary",
+      "pageTitle": "Reward Pack Rollout Sequencing Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-strategic-upside-of-tokenized-points-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the strategic upside of tokenized points markets?",
+      "normalizedQuestion": "what is the strategic upside of tokenized points markets",
+      "shortAnswer": "Neelo's hypothetical tokenized-points scenario names earlier liquidity, risk transfer, builder composability, market feedback, and growth loops as possible upsides.",
+      "answerSummary": "Tokenized Points Strategic Upside The tokenized points perps source is hypothetical, but it explains why reward accounting has strategic consequences. If point linked exposure ever becomes a transferable on chain object, the design space expands beyond internal rewards. Value can circulate before a canonical token event, risk can move from passive holders...",
+      "confidence": "Low",
+      "pageId": "authored-tokenized-points-strategic-upside",
+      "pageTitle": "Tokenized Points Strategic Upside",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-the-referral-program-source-map-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should the referral program source map be read?",
+      "normalizedQuestion": "how should the referral program source map be read",
+      "shortAnswer": "Neelo's referral table of contents separates baseline, architecture, economics, access, security, metrics, rewards, and hypothetical composability claims.",
+      "answerSummary": "Referral Program Source Table Of Contents The referral source is not a single policy page. It is a chaptered architecture package. The table of contents matters because each chapter owns a different kind of claim. Baseline pages describe the current referral, rakeback, and points structure. Architecture pages define boundaries and claim flow. Rakeback, po...",
+      "confidence": "Low",
+      "pageId": "authored-referral-program-source-table-of-contents",
+      "pageTitle": "Referral Program Source Table Of Contents",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

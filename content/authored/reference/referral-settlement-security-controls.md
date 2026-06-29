@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-08-security-controls", "section-17-referral-program-17-docs-08-security-controls-8-1-critical-risk-surfaces", "section-17-referral-program-17-docs-08-security-controls-8-2-minimum-control-set", "section-17-referral-program-17-docs-08-security-controls-8-4-operational-readiness"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls#8-3-cooldown-and-verification", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-08-security-controls", "section-17-referral-program-17-docs-08-security-controls-8-1-critical-risk-surfaces", "section-17-referral-program-17-docs-08-security-controls-8-2-minimum-control-set", "section-17-referral-program-17-docs-08-security-controls-8-3-cooldown-and-verification", "section-17-referral-program-17-docs-08-security-controls-8-4-operational-readiness"]
 ---
 
 # Referral Settlement Security Controls

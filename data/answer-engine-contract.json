@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 759
+      "totalGoldenRoutes": 764
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 777,
-    "retrievalEligiblePages": 1569,
+    "publicNavigationPages": 782,
+    "retrievalEligiblePages": 1574,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 777,
+      "candidate": 782,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 759,
-    "exactRouteTestsPassing": 759,
+    "totalExactRouteTests": 764,
+    "exactRouteTestsPassing": 764,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 759
+      "candidate": 764
     },
     "exactRoutesByConfidence": {
       "Medium": 477,
       "High": 44,
-      "Low": 238
+      "Low": 243
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2269,6 +2269,29 @@
         "passes": true
       },
       {
+        "id": "qr-how-should-referral-metrics-be-used-in-decisions",
+        "query": "How should referral metrics be used in decisions?",
+        "normalizedQuery": "how should referral metrics be used in decisions",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-metrics-decision-use",
+        "expectedPageTitle": "Referral Metrics Decision Use",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-metrics-be-used-in-decisions",
+        "passes": true
+      },
+      {
         "id": "qr-are-referral-phase-targets-final",
         "query": "Are referral phase targets final?",
         "normalizedQuery": "are referral phase targets final",
@@ -2358,6 +2381,98 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-open-referral-decisions-be-governed",
+        "passes": true
+      },
+      {
+        "id": "qr-what-guardrails-keep-rewards-packs-credible",
+        "query": "What guardrails keep rewards packs credible?",
+        "normalizedQuery": "what guardrails keep rewards packs credible",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-pack-system-guardrails",
+        "expectedPageTitle": "Reward Pack System Guardrails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-guardrails-keep-rewards-packs-credible",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-rewards-packs-roll-out",
+        "query": "How should rewards packs roll out?",
+        "normalizedQuery": "how should rewards packs roll out",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-pack-rollout-sequencing-boundary",
+        "expectedPageTitle": "Reward Pack Rollout Sequencing Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-rewards-packs-roll-out",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-strategic-upside-of-tokenized-points-markets",
+        "query": "What is the strategic upside of tokenized points markets?",
+        "normalizedQuery": "what is the strategic upside of tokenized points markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-strategic-upside",
+        "expectedPageTitle": "Tokenized Points Strategic Upside",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-strategic-upside-of-tokenized-points-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-the-referral-program-source-map-be-read",
+        "query": "How should the referral program source map be read?",
+        "normalizedQuery": "how should the referral program source map be read",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-program-source-table-of-contents",
+        "expectedPageTitle": "Referral Program Source Table Of Contents",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-the-referral-program-source-map-be-read",
         "passes": true
       },
       {
@@ -16735,7 +16850,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 759,
+      "exactRoutes": 764,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
