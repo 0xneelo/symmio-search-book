@@ -1023,3 +1023,11 @@
 **Reason:** The broad referral metrics pages explain the north star, but answer-engine readers need direct routes for what each KPI layer measures and why. Splitting these answers makes the reporting model inspectable while avoiding premature publication of targets, formulas, or phase dates.
 
 **Status:** Accepted for the authored rewards-reference layer; live KPI definitions, formula versions, target bands, phase dates, campaign labels, market-quality thresholds, game-layer instrumentation, pack/artifact support, and dashboard release wording remain operator/analytics/legal/accounting/implementation review.
+
+## D-129: Split Referral LP And Category Layer Into Exact Accounting Answers
+
+**Decision:** Add authored rewards-reference pages for market-creation referral attachment, no-attachment/no-share semantics, LP-side bounded accounting, category partner overlays, and market referral precedence/payout buckets.
+
+**Reason:** The broad market-scoped referral page explains the layer, but answer-engine readers need direct routes for attachment timing, what happens when attachment is absent, why the share should be bounded, how partner category overlays differ from user-level referral, and why precedence rules are required.
+
+**Status:** Accepted for the authored rewards-reference layer; live attachment eligibility, lister roles, market-review criteria, partner identities, category tags, uplift rates, fee splits, precedence order, stacking rules, payout cadence, dispute procedures, and accounting ledgers remain operator/commercial/legal/accounting/implementation review.

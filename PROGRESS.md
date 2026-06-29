@@ -772,6 +772,12 @@
 - Routed five new Ask questions so users, rewards operators, analytics reviewers, and dashboard readers can inspect each KPI layer without collapsing the metrics into raw invite or signup counts.
 - Kept live KPI definitions, formula versions, target bands, phase dates, campaign labels, market-quality thresholds, game-layer instrumentation, pack/artifact support, and dashboard release wording under operator/analytics/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral LP Category Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's LP-and-category source: market-creation referral attachment, no-attachment/no-share semantics, LP-side bounded accounting, category partner overlays, and market referral precedence/payout buckets.
+- Routed five new Ask questions so market listers, partners, rewards operators, and accounting reviewers can separate user-level referral from market-scoped and category-scoped economics.
+- Kept live attachment eligibility, lister roles, market-review criteria, partner identities, category tags, uplift rates, fee splits, precedence order, stacking rules, payout cadence, dispute procedures, and accounting ledgers under operator/commercial/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

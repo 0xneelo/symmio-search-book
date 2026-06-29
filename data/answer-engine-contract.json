@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 432
+      "totalGoldenRoutes": 437
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 450,
-    "retrievalEligiblePages": 1242,
+    "publicNavigationPages": 455,
+    "retrievalEligiblePages": 1247,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 450,
+      "candidate": 455,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 432,
-    "exactRouteTestsPassing": 432,
+    "totalExactRouteTests": 437,
+    "exactRouteTestsPassing": 437,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 432
+      "candidate": 437
     },
     "exactRoutesByConfidence": {
-      "Medium": 212,
+      "Medium": 217,
       "High": 44,
       "Low": 176
     },
@@ -9701,6 +9701,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-referral-metrics-be-phase-labeled-and-versioned",
         "passes": true
+      },
+      {
+        "id": "qr-how-can-referrals-attach-at-market-creation",
+        "query": "How can referrals attach at market creation?",
+        "normalizedQuery": "how can referrals attach at market creation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-market-creation-attachment",
+        "expectedPageTitle": "Referral Attachment At Market Creation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-can-referrals-attach-at-market-creation",
+        "passes": true
+      },
+      {
+        "id": "qr-what-happens-if-a-market-has-no-referral-attachment",
+        "query": "What happens if a market has no referral attachment?",
+        "normalizedQuery": "what happens if a market has no referral attachment",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-no-market-attachment-no-share",
+        "expectedPageTitle": "No Market Attachment Means No Market-Level Share",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-happens-if-a-market-has-no-referral-attachment",
+        "passes": true
+      },
+      {
+        "id": "qr-why-model-market-referral-share-as-lp-side-accounting",
+        "query": "Why model market referral share as LP-side accounting?",
+        "normalizedQuery": "why model market referral share as lp side accounting",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-lp-side-bounded-accounting",
+        "expectedPageTitle": "Referral LP-Side Bounded Accounting",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-model-market-referral-share-as-lp-side-accounting",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-referral-category-partner-overlays",
+        "query": "What are referral category partner overlays?",
+        "normalizedQuery": "what are referral category partner overlays",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-category-partner-overlays",
+        "expectedPageTitle": "Referral Category Partner Overlays",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-are-referral-category-partner-overlays",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-market-referrals-need-precedence-and-payout-buckets",
+        "query": "Why do market referrals need precedence and payout buckets?",
+        "normalizedQuery": "why do market referrals need precedence and payout buckets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-market-precedence-payout-buckets",
+        "expectedPageTitle": "Referral Market Precedence And Payout Buckets",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-do-market-referrals-need-precedence-and-payout-buckets",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9776,7 +9891,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 432,
+      "exactRoutes": 437,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

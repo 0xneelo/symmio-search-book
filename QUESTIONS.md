@@ -438,6 +438,11 @@ Questions are grouped by whether the current source set can answer them.
 | Which growth funnel KPIs matter for referrals? | `authored-referral-growth-funnel-kpis` | Medium | Neelo separates referral attach, code-to-first-trade, code-to-first-listing, claim conversion, and future pack conversion from raw signups. |
 | Which KPIs would a rewards game layer need? | `authored-referral-game-layer-kpis` | Medium | Neelo's future game-layer metrics include packs held/opened, artifact volume, equip rates, and embedded point exposure without making those features current policy. |
 | How should referral metrics be phase-labeled and versioned? | `authored-referral-phase-version-reporting-rules` | Medium | Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states. |
+| How can referrals attach at market creation? | `authored-referral-market-creation-attachment` | Medium | Neelo's LP/category layer defines a market-scoped referral surface where attribution is attached when a market is created. |
+| What happens if a market has no referral attachment? | `authored-referral-no-market-attachment-no-share` | Medium | Neelo states that no market-level attachment means no market-level referral share, avoiding after-the-fact attribution disputes. |
+| Why model market referral share as LP-side accounting? | `authored-referral-lp-side-bounded-accounting` | Medium | Neelo frames market-scoped referral share as a bounded slice of LP-side economics to keep accounting predictable and market-specific. |
+| What are referral category partner overlays? | `authored-referral-category-partner-overlays` | Medium | Neelo allows strategic partner overlays on tagged market groups with uplift split separately from ordinary user-level referral policy. |
+| Why do market referrals need precedence and payout buckets? | `authored-referral-market-precedence-payout-buckets` | Medium | Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket. |
 
 ## Prototype Event Log
 

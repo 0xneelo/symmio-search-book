@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 432,
+  "totalRoutes": 437,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 212,
+    "Medium": 217,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 432
+    "authored": 437
   },
   "answerable": [
     {
@@ -7577,6 +7577,96 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo requires organic/campaign separation, formula versions, and phase labels so charts do not create false comparisons across rollout states.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-can-referrals-attach-at-market-creation",
+      "question": "How can referrals attach at market creation?",
+      "normalizedQuestion": "how can referrals attach at market creation",
+      "pageId": "authored-referral-market-creation-attachment",
+      "pageTitle": "Referral Attachment At Market Creation",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's LP/category layer defines a market-scoped referral surface where attribution is attached when a market is created.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-happens-if-a-market-has-no-referral-attachment",
+      "question": "What happens if a market has no referral attachment?",
+      "normalizedQuestion": "what happens if a market has no referral attachment",
+      "pageId": "authored-referral-no-market-attachment-no-share",
+      "pageTitle": "No Market Attachment Means No Market-Level Share",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo states that no market-level attachment means no market-level referral share, avoiding after-the-fact attribution disputes.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-model-market-referral-share-as-lp-side-accounting",
+      "question": "Why model market referral share as LP-side accounting?",
+      "normalizedQuestion": "why model market referral share as lp side accounting",
+      "pageId": "authored-referral-lp-side-bounded-accounting",
+      "pageTitle": "Referral LP-Side Bounded Accounting",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo frames market-scoped referral share as a bounded slice of LP-side economics to keep accounting predictable and market-specific.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-are-referral-category-partner-overlays",
+      "question": "What are referral category partner overlays?",
+      "normalizedQuestion": "what are referral category partner overlays",
+      "pageId": "authored-referral-category-partner-overlays",
+      "pageTitle": "Referral Category Partner Overlays",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo allows strategic partner overlays on tagged market groups with uplift split separately from ordinary user-level referral policy.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-market-referrals-need-precedence-and-payout-buckets",
+      "question": "Why do market referrals need precedence and payout buckets?",
+      "normalizedQuestion": "why do market referrals need precedence and payout buckets",
+      "pageId": "authored-referral-market-precedence-payout-buckets",
+      "pageTitle": "Referral Market Precedence And Payout Buckets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
