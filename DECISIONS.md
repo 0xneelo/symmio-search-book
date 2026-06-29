@@ -1423,3 +1423,11 @@
 **Reason:** The participant-specific pages explain who benefits and how, but Section 6 closes with a system-level claim: filling the DEX-to-perp gap completes the lifecycle, may reduce some market-structure issues, and supports a partnership-over-competition path to durable value capture. Ask needs direct routes for that ecosystem conclusion without duplicating the broader ecosystem-synergy or permissionless-perps hypothesis summary pages.
 
 **Status:** Accepted for the authored manifesto layer; systemic-risk reduction, volatility/manipulation reduction, institutional or ETF pathways, current partnerships, market eligibility, product guarantees, category dominance, and investment/value-capture claims remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-179: Split Listing Monopoly Conclusion Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the Listing Monopoly conclusion's contributions, key insights, industry implications, restated vision, future directions, and closing thoughts.
+
+**Reason:** Earlier authored pages cover the paper's introduction, framework, lifecycle gap, permissionless-perps hypothesis, and strategic implications. The conclusion is still useful as its own reader path because it compresses the whole argument into final takeaways, future research, and the fair-launch-to-institutional bridge frame. Ask needs direct routes for conclusion-level questions rather than sending readers back into scattered earlier sections.
+
+**Status:** Accepted for the authored manifesto layer; market-share examples, market-cap thresholds, post-listing performance, investment/moat conclusions, regulatory/policy claims, institutional pathways, category-control claims, and product guarantees remain fresh primary-source/operator/product/risk/legal/implementation review.
