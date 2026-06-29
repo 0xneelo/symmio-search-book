@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Answer-Engine Retention And Moderation Export
+
+- Added configurable retention to the standalone answer-engine service for persisted question, rating, and gap events, with a 180-day default and `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=0` reserved for local archival use.
+- Added a disabled-by-default reviewer export at `GET /api/search-book/moderation` that summarizes gap backlog, low-rated answers, unanswered questions, and repeated questions only when `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and a moderation token are configured.
+- Exposed retention/moderation policy metadata through health and insights responses without printing API keys or moderation tokens.
+- Kept production readiness false until the production service env, public deploy route, admin/reviewer operating workflow, and remaining source imports are complete.
+
 ## 2026-06-29 — Static Frontend Service Bridge
 
 - Wired `src/search-book/index.html` to use the standalone answer-engine service when configured with `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`.

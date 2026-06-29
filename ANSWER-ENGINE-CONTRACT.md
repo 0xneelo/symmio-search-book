@@ -32,13 +32,13 @@ Prototype storage keys:
 - Ratings: `searchBookPrototype.ratings`
 - Gaps: `searchBookPrototype.gaps`
 
-Production must persist equivalent event shapes behind Search Insights. A low rating creates a `low-rated-answer` gap event. No grounded route creates a `no-grounded-page` gap event. The static prototype can now call the standalone service for Ask, rating, and Search Insights events when configured with a service URL, while preserving `localStorage` fallback.
+Production must persist equivalent event shapes behind Search Insights. A low rating creates a `low-rated-answer` gap event. No grounded route creates a `no-grounded-page` gap event. The static prototype can now call the standalone service for Ask, rating, and Search Insights events when configured with a service URL, while preserving `localStorage` fallback. The service applies a configurable retention window to question, rating, and gap events, and exposes a disabled-by-default token-gated moderation export for reviewer triage.
 
 ## Living-Docs Event Contract
 
 `data/living-docs-events.json` turns the feedback rules into executable fixtures for question, rating, and gap events. It validates answered questions, no-grounded-page refusals, operator-blocked refusals, low ratings, linked gap ids, and linked operator inbox ids.
 
-This proves the event contract is ready. The standalone service now persists equivalent event shapes to SQLite and the static frontend has an optional configured-service bridge, while `livingDocsProductionReady` remains false until deployment/public route, retention/moderation policy, production LLM service env, and Discord import are resolved.
+This proves the event contract is ready. The standalone service now persists equivalent event shapes to SQLite, the static frontend has an optional configured-service bridge, and the service has retention plus a gated moderation export. `livingDocsProductionReady` remains false until deployment/public route, production LLM service env, admin/reviewer operations, and Discord import are resolved.
 
 ## Generated Proof
 
@@ -49,7 +49,7 @@ node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 ```
 
-The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 775 seeded exact-route tests and 4 refusal tests. The living-docs event contract validates 12 event fixtures across question, rating, and gap events; `scripts/serve-answer-engine.mjs` persists the same shapes to SQLite; and `index.html?service=...` can read/write through those endpoints. `llmProductionReady` intentionally remains false even though runtime citation validation and live `gpt-4.1-mini` evals have passed, because production service env, public route/deploy wiring, source-ingestion decisions, and Discord/Lafa import are still open.
+The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 775 seeded exact-route tests and 4 refusal tests. The living-docs event contract validates 12 event fixtures across question, rating, and gap events; `scripts/serve-answer-engine.mjs` persists the same shapes to SQLite, prunes them under `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS`, and exposes `GET /api/search-book/moderation` only when token-gated export is enabled; and `index.html?service=...` can read/write through the public answer/rating/insights endpoints. `llmProductionReady` intentionally remains false even though runtime citation validation and live `gpt-4.1-mini` evals have passed, because production service env, public route/deploy wiring, source-ingestion decisions, and Discord/Lafa import are still open.
 
 Glossary routing is now executable in the runtime harness and generated proof: 32/32 glossary route tests pass. Of those terms, 26 route to a public candidate page, 5 are retrieval-context-only until a public page is selected by chunk retrieval, and 1 is internal/blocked and must fail closed through the existing operator/refusal path.
 

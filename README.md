@@ -57,7 +57,18 @@ Run the standalone answer-engine service locally:
 SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
 ```
 
-It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, and Search Insights will use the service while keeping `localStorage` fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
+It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, `GET /api/search-book/moderation`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, and Search Insights will use the service while keeping `localStorage` fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
+
+Operational env knobs:
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=180
+SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=false
+SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
+SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
+```
+
+Retention applies to persisted question, rating, and gap events; set retention days to `0` only for a local archive. The moderation export is disabled by default and, when enabled, requires `Authorization: Bearer ...` or `x-search-book-moderation-token`; never put that token in public frontend code.
 
 ## Prototype Question
 
@@ -74,9 +85,9 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 ## Non-Goals
 
 - This is not the final authored documentation site.
-- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary plus static frontend bridge; production service env, selected public frontend route, retention/moderation policy, and deploy wiring remain production work.
+- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, and gated moderation export; production service env, selected public frontend route, admin/reviewer operations, and deploy wiring remain production work.
 - This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
-- This does not expose private API URLs, tokens, admin endpoints, or operator-only credentials.
+- This does not expose private API URLs, tokens, unprotected admin/reviewer endpoints, or operator-only credentials.
 
 ## Verification
 
@@ -160,7 +171,7 @@ node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageId
 node -e "const dc=require('./src/search-book/data/discord-corpus.json'); if (!dc.importContractReady || !dc.apiScraperReady || dc.corpusReady || dc.totals.importedMessages !== 0 || dc.totals.seededTopics < 1) process.exit(1); console.log(dc.status + '/' + dc.totals.seededTopics)"
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 4) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 775) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
-node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || !l.datastoreImplemented || !l.sqliteDatastoreImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
+node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || !l.datastoreImplemented || !l.sqliteDatastoreImplemented || !l.retentionPolicyImplemented || !l.moderationExportImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
 node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || !lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
 node -e "const av=require('./src/search-book/data/answer-validation-report.json'); if (!av.reportReady || av.coverage.totalFixtures < 20 || av.coverage.passingFixtures !== av.coverage.totalFixtures || av.failureSummary.failingFixtureIds.length) process.exit(1); console.log(av.coverage.passingFixtures + '/' + av.coverage.totalFixtures)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"

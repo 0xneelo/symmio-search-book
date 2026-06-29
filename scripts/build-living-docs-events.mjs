@@ -341,6 +341,7 @@ const eventContractReady =
   (gapQueue.totalItems || 0) > 0 &&
   (questionRoutes.totalRoutes || 0) > 0;
 const serviceRuntimeImplemented = fs.existsSync(args.serviceScript);
+const serviceScriptText = readText(args.serviceScript);
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 const frontendServiceIntegrationImplemented =
   frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
@@ -348,20 +349,35 @@ const frontendServiceIntegrationImplemented =
   frontendPrototype.includes('"/api/search-book/rating"') &&
   frontendPrototype.includes('"/api/search-book/insights"') &&
   frontendPrototype.includes("searchBookPrototype.serviceUrl");
+const retentionPolicyImplemented =
+  serviceRuntimeImplemented &&
+  serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS") &&
+  serviceScriptText.includes("applyRetention") &&
+  serviceScriptText.includes("retentionPolicy");
+const moderationExportImplemented =
+  serviceRuntimeImplemented &&
+  serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT") &&
+  serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN") &&
+  serviceScriptText.includes("/api/search-book/moderation") &&
+  serviceScriptText.includes("requireModerationAccess");
 
 const payload = {
   generatedAt: "deterministic-build",
   status: "sqlite-backed-living-docs-event-contract",
-  contractVersion: "2026-06-29.v2",
+  contractVersion: "2026-06-29.v3",
   eventContractReady,
   serviceRuntimeImplemented,
   sqliteDatastoreImplemented,
   frontendServiceIntegrationImplemented,
+  retentionPolicyImplemented,
+  moderationExportImplemented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented
+        ? "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention plus a disabled-by-default token-gated moderation export. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
+        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
   storage: {
@@ -376,8 +392,24 @@ const payload = {
         "POST /api/search-book/answer",
         "POST /api/search-book/rating",
         "GET /api/search-book/insights",
+        "GET /api/search-book/moderation",
       ],
       tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
+      retention: retentionPolicyImplemented
+        ? {
+            env: "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
+            defaultDays: 180,
+            behavior: "The service prunes old question, rating, and gap events on startup and before insight/moderation reads; set 0 to disable local pruning.",
+          }
+        : "Retention policy is not implemented in the service.",
+      moderation: moderationExportImplemented
+        ? {
+            enabledEnv: "SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT",
+            tokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
+            limitEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT",
+            behavior: "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled.",
+          }
+        : "Moderation export is not implemented in the service.",
       frontendIntegration: frontendServiceIntegrationImplemented
         ? "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
         : "No public frontend is wired to the service yet.",
@@ -393,6 +425,8 @@ const payload = {
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
     "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
+    "Apply the configured retention window to question, rating, and gap event storage.",
+    "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
@@ -428,8 +462,16 @@ const payload = {
     frontendIntegration: frontendServiceIntegrationImplemented
       ? "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints."
       : "The static prototype is not wired to the standalone service.",
+    retention: retentionPolicyImplemented
+      ? "The service has a configured retention policy with a 180-day default and a documented env override."
+      : "Retention policy is not implemented yet.",
+    moderation: moderationExportImplemented
+      ? "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work."
+      : "Moderation export is not implemented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
-      ? "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
+      ? retentionPolicyImplemented && moderationExportImplemented
+        ? "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided."
+        : "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
       : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
   },
@@ -444,5 +486,7 @@ console.log(JSON.stringify({
   fixtures: `${payload.coverage.passingFixtures}/${payload.coverage.totalFixtures}`,
   datastoreImplemented: payload.datastoreImplemented,
   frontendServiceIntegrationImplemented: payload.frontendServiceIntegrationImplemented,
+  retentionPolicyImplemented: payload.retentionPolicyImplemented,
+  moderationExportImplemented: payload.moderationExportImplemented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));

@@ -332,6 +332,8 @@ const frontendServiceIntegrationImplemented =
     frontendPrototype.includes('"/api/search-book/rating"') &&
     frontendPrototype.includes('"/api/search-book/insights"') &&
     frontendPrototype.includes("searchBookPrototype.serviceUrl"));
+const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
+const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
 const livingDocsEventsReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -555,7 +557,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -697,6 +699,8 @@ const payload = {
     livingDocsEventContractReady: livingDocsEvents.eventContractReady || false,
     livingDocsDatastoreImplemented: livingDocsEvents.datastoreImplemented || false,
     livingDocsFrontendServiceIntegrationImplemented: frontendServiceIntegrationImplemented,
+    livingDocsRetentionPolicyImplemented: retentionPolicyImplemented,
+    livingDocsModerationExportImplemented: moderationExportImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     livingDocsEventFixtures: livingDocsEventCoverage.totalFixtures || 0,
     livingDocsEventFixturesPassing: livingDocsEventCoverage.passingFixtures || 0,
@@ -917,6 +921,8 @@ const payload = {
     eventContractReady: livingDocsEvents.eventContractReady || false,
     datastoreImplemented: livingDocsEvents.datastoreImplemented || false,
     frontendServiceIntegrationImplemented,
+    retentionPolicyImplemented,
+    moderationExportImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     reasonLivingDocsProductionReadyIsFalse: livingDocsEvents.reasonLivingDocsProductionReadyIsFalse || "",
     storage: livingDocsEvents.storage || {},

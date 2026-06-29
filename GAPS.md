@@ -80,9 +80,9 @@ Terms like VibeCaps, network revenue, referral commission, Vibe points, trading 
 
 ## G-010: Production Answer Engine Build Decision Is Resolved; Service Hardening Remains
 
-The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, live `gpt-4.1-mini` evaluation, HTTP service endpoints, SQLite event persistence, ratings, Search Insights reads, and basic request rate limiting are now implemented in the current service boundary. Production still needs service deployment, public frontend wiring, production LLM environment installation, analytics retention, moderation/gap triage workflow, and remaining source imports.
+The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, live `gpt-4.1-mini` evaluation, HTTP service endpoints, SQLite event persistence, ratings, Search Insights reads, basic request rate limiting, configurable event retention, and a disabled-by-default token-gated moderation export are now implemented in the current service boundary. Production still needs service deployment, public frontend wiring, production LLM environment installation, reviewer/admin operating workflow, and remaining source imports.
 
-**Needed:** Public frontend platform/deploy route, production service environment, frontend-to-service integration, retention/moderation policy, and operational hardening.
+**Needed:** Public frontend platform/deploy route, production service environment, frontend-to-service deployment wiring, reviewer/admin operating workflow, and operational hardening.
 
 ## G-011: Vibe Trading Notion Is Not Ingested
 

@@ -1695,3 +1695,11 @@
 **Reason:** The static prototype still needs to work as a file/local preview with no backend, but production readiness requires proving that the same UI can hand questions, ratings, and gap signals to the SQLite-backed service without exposing LLM credentials. Keeping `localStorage` fallback avoids platform lock-in while the public frontend route remains open.
 
 **Status:** Accepted for frontend-service integration. This does not mark production ready; service env, deploy route, retention/moderation policy, and remaining source imports are still open.
+
+## D-213: Default To Retained Local Telemetry And Token-Gated Reviewer Export
+
+**Decision:** Add a 180-day default retention policy to `src/search-book/scripts/serve-answer-engine.mjs` for persisted question, rating, and gap events, configurable with `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS`. Add `GET /api/search-book/moderation` as a disabled-by-default reviewer export that requires `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and `SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN`.
+
+**Reason:** Search Insights needs durable event data, but a production service should not keep user questions forever by accident or expose the editorial queue publicly. The answer-engine service can now prune telemetry, keep local archive mode explicit, and provide editors with gap, low-rating, unanswered, and repeated-question queues without putting moderation data or tokens in public frontend code.
+
+**Status:** Accepted for service operations. This does not mark production ready; production still needs service env installation, selected public route/deploy wiring, reviewer/admin operating procedure, source imports, and deployment QA.

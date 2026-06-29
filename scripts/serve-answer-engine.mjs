@@ -20,6 +20,10 @@ const config = {
   maxBodyBytes: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_BODY_BYTES || 64_000),
   maxRecentEvents: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS || 25),
   rateLimitPerMinute: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE || 60),
+  retentionDays: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS || 180),
+  moderationExportEnabled: process.env.SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT === "true",
+  moderationExportLimit: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT || 50),
+  moderationToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
 };
 
 const allowedModes = new Set(["extractive", "llm"]);
@@ -49,7 +53,7 @@ function jsonResponse(res, statusCode, payload) {
     "content-type": "application/json; charset=utf-8",
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type",
+    "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token",
   });
   res.end(`${body}\n`);
 }
@@ -145,7 +149,51 @@ function openDatabase(dbPath) {
     CREATE INDEX IF NOT EXISTS idx_search_book_gaps_created_at
       ON search_book_gaps(created_at DESC);
   `);
+  applyRetention(db);
   return db;
+}
+
+function boundedLimit(value, fallback, max) {
+  if (!Number.isFinite(value)) return fallback;
+  return Math.max(1, Math.min(Math.trunc(value), max));
+}
+
+function retentionPolicy() {
+  return {
+    enabled: config.retentionDays > 0,
+    days: config.retentionDays,
+    env: "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
+    defaultDays: 180,
+    scope: ["questions", "ratings", "gaps"],
+  };
+}
+
+function retentionCutoffIso() {
+  if (!Number.isFinite(config.retentionDays) || config.retentionDays <= 0) return "";
+  const retentionMs = config.retentionDays * 24 * 60 * 60 * 1000;
+  return new Date(Date.now() - retentionMs).toISOString();
+}
+
+function applyRetention(db) {
+  const cutoff = retentionCutoffIso();
+  if (!cutoff) {
+    return {
+      ...retentionPolicy(),
+      cutoff: "",
+      deleted: { ratings: 0, gaps: 0, questions: 0, orphanGaps: 0 },
+    };
+  }
+  const deleted = {
+    ratings: db.prepare("DELETE FROM search_book_ratings WHERE created_at < ?").run(cutoff).changes,
+    gaps: db.prepare("DELETE FROM search_book_gaps WHERE created_at < ?").run(cutoff).changes,
+    questions: db.prepare("DELETE FROM search_book_questions WHERE created_at < ?").run(cutoff).changes,
+    orphanGaps: db.prepare(`
+      DELETE FROM search_book_gaps
+      WHERE event_id != ''
+        AND event_id NOT IN (SELECT id FROM search_book_questions)
+    `).run().changes,
+  };
+  return { ...retentionPolicy(), cutoff, deleted };
 }
 
 function pageTitleForResponse(response, context) {
@@ -319,7 +367,7 @@ function parseJsonColumn(value, fallback) {
 }
 
 function insightRows(db) {
-  const limit = Math.max(1, Math.min(config.maxRecentEvents, 100));
+  const limit = boundedLimit(config.maxRecentEvents, 25, 100);
   const questions = rows(
     db,
     "SELECT * FROM search_book_questions ORDER BY created_at DESC LIMIT ?",
@@ -393,6 +441,210 @@ function counts(db) {
       (SELECT COUNT(*) FROM search_book_gaps) AS gaps
   `).get();
   return { totals, byQuestionStatus, byRating, byGapReason };
+}
+
+function moderationPolicy() {
+  return {
+    enabled: config.moderationExportEnabled,
+    endpoint: "/api/search-book/moderation",
+    tokenRequired: true,
+    tokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
+    enableEnv: "SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT",
+    limitEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT",
+    defaultLimit: 50,
+    exposesUserQuestions: true,
+  };
+}
+
+function headerValue(req, name) {
+  const value = req.headers[name];
+  if (Array.isArray(value)) return value[0] || "";
+  return value || "";
+}
+
+function bearerToken(req) {
+  const authorization = headerValue(req, "authorization");
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
+  if (match) return match[1].trim();
+  return headerValue(req, "x-search-book-moderation-token").trim();
+}
+
+function tokenMatches(actual, expected) {
+  if (!actual || !expected) return false;
+  const actualBuffer = Buffer.from(actual);
+  const expectedBuffer = Buffer.from(expected);
+  return actualBuffer.length === expectedBuffer.length && crypto.timingSafeEqual(actualBuffer, expectedBuffer);
+}
+
+function requireModerationAccess(req) {
+  if (!config.moderationExportEnabled) {
+    throw Object.assign(new Error("Moderation export is disabled."), { statusCode: 404 });
+  }
+  if (!config.moderationToken) {
+    throw Object.assign(new Error("Moderation export requires SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN."), { statusCode: 403 });
+  }
+  if (!tokenMatches(bearerToken(req), config.moderationToken)) {
+    throw Object.assign(new Error("Moderation export token is missing or invalid."), { statusCode: 403 });
+  }
+}
+
+function compactList(value) {
+  return String(value || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function gapQuerySamples(db, gap) {
+  return rows(
+    db,
+    `
+      SELECT query
+      FROM search_book_gaps
+      WHERE reason = ?
+        AND page_id = ?
+        AND gap_id = ?
+      ORDER BY created_at DESC
+      LIMIT 3
+    `,
+    gap.reason,
+    gap.pageId,
+    gap.gapId,
+  ).map((item) => item.query);
+}
+
+function moderationRows(db) {
+  const limit = boundedLimit(config.moderationExportLimit, 50, 200);
+  const gapBacklog = rows(
+    db,
+    `
+      SELECT
+        reason,
+        page_id AS pageId,
+        page_title AS pageTitle,
+        gap_id AS gapId,
+        COUNT(*) AS count,
+        MAX(created_at) AS latestCreatedAt,
+        GROUP_CONCAT(DISTINCT source) AS sources,
+        GROUP_CONCAT(DISTINCT rating) AS ratings
+      FROM search_book_gaps
+      GROUP BY reason, page_id, page_title, gap_id
+      ORDER BY count DESC, latestCreatedAt DESC
+      LIMIT ?
+    `,
+    limit,
+  ).map((item) => ({
+    reason: item.reason,
+    pageId: item.pageId,
+    pageTitle: item.pageTitle,
+    gapId: item.gapId,
+    count: item.count,
+    latestCreatedAt: item.latestCreatedAt,
+    sources: compactList(item.sources),
+    ratings: compactList(item.ratings),
+    querySamples: gapQuerySamples(db, item),
+  }));
+
+  const lowRatedAnswers = rows(
+    db,
+    `
+      SELECT
+        r.id,
+        r.event_id AS eventId,
+        r.rating,
+        r.query,
+        r.page_id AS pageId,
+        r.page_title AS pageTitle,
+        r.note,
+        r.created_at AS createdAt,
+        q.request_id AS requestId,
+        q.status AS answerStatus,
+        q.confidence,
+        q.refusal_reason AS refusalReason
+      FROM search_book_ratings r
+      LEFT JOIN search_book_questions q ON q.id = r.event_id
+      WHERE r.rating IN ('no', 'not-useful')
+      ORDER BY r.created_at DESC
+      LIMIT ?
+    `,
+    limit,
+  ).map((item) => ({
+    id: item.id,
+    eventId: item.eventId,
+    requestId: item.requestId || "",
+    rating: item.rating,
+    query: item.query,
+    pageId: item.pageId,
+    pageTitle: item.pageTitle,
+    note: item.note,
+    answerStatus: item.answerStatus || "",
+    confidence: item.confidence || "",
+    refusalReason: item.refusalReason || "",
+    createdAt: item.createdAt,
+  }));
+
+  const unansweredQuestions = rows(
+    db,
+    `
+      SELECT
+        id,
+        request_id AS requestId,
+        query,
+        source,
+        mode,
+        status,
+        page_id AS pageId,
+        page_title AS pageTitle,
+        confidence,
+        refusal_reason AS refusalReason,
+        gap_id AS gapId,
+        operator_item_ids_json AS operatorItemIdsJson,
+        created_at AS createdAt
+      FROM search_book_questions
+      WHERE status != 'answered'
+      ORDER BY created_at DESC
+      LIMIT ?
+    `,
+    limit,
+  ).map((item) => ({
+    id: item.id,
+    requestId: item.requestId,
+    query: item.query,
+    source: item.source,
+    mode: item.mode,
+    status: item.status,
+    pageId: item.pageId,
+    pageTitle: item.pageTitle,
+    confidence: item.confidence,
+    refusalReason: item.refusalReason,
+    gapId: item.gapId,
+    operatorItemIds: parseJsonColumn(item.operatorItemIdsJson, []),
+    createdAt: item.createdAt,
+  }));
+
+  const repeatedQuestions = rows(
+    db,
+    `
+      SELECT
+        LOWER(TRIM(query)) AS normalizedQuery,
+        MIN(query) AS query,
+        COUNT(*) AS count,
+        MAX(created_at) AS latestCreatedAt
+      FROM search_book_questions
+      GROUP BY LOWER(TRIM(query))
+      HAVING count > 1
+      ORDER BY count DESC, latestCreatedAt DESC
+      LIMIT ?
+    `,
+    limit,
+  ).map((item) => ({
+    normalizedQuery: item.normalizedQuery,
+    query: item.query,
+    count: item.count,
+    latestCreatedAt: item.latestCreatedAt,
+  }));
+
+  return { gapBacklog, lowRatedAnswers, unansweredQuestions, repeatedQuestions };
 }
 
 function serviceConfigRefusal({ query, requestId, source }) {
@@ -489,6 +741,7 @@ async function handleRating(db, req, res) {
 }
 
 function handleInsights(db, res) {
+  const retention = applyRetention(db);
   jsonResponse(res, 200, {
     status: "ok",
     generatedAt: nowIso(),
@@ -496,15 +749,48 @@ function handleInsights(db, res) {
       adapter: "node:sqlite",
       tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
     },
+    retention,
+    moderation: moderationPolicy(),
     ...counts(db),
     recent: insightRows(db),
   });
 }
 
-function createServer() {
+function handleModeration(db, req, res) {
+  requireModerationAccess(req);
+  const retention = applyRetention(db);
+  jsonResponse(res, 200, {
+    status: "ok",
+    generatedAt: nowIso(),
+    policy: {
+      retention,
+      moderation: {
+        ...moderationPolicy(),
+        configured: true,
+      },
+    },
+    ...counts(db),
+    queue: moderationRows(db),
+  });
+}
+
+function validateConfig() {
   if (!allowedModes.has(config.defaultMode)) {
     throw new Error("SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE must be extractive or llm.");
   }
+  if (!Number.isFinite(config.retentionDays) || config.retentionDays < 0) {
+    throw new Error("SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS must be a non-negative number.");
+  }
+  if (!Number.isFinite(config.moderationExportLimit) || config.moderationExportLimit < 1) {
+    throw new Error("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT must be a positive number.");
+  }
+  if (config.moderationExportEnabled && !config.moderationToken) {
+    throw new Error("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT requires SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN.");
+  }
+}
+
+function createServer() {
+  validateConfig();
   const db = openDatabase(config.dbPath);
   const runtime = loadRuntime(runtimeDefaults);
   return http.createServer(async (req, res) => {
@@ -529,6 +815,13 @@ function createServer() {
             questionRoutes: runtime.questionRoutes.totalRoutes || 0,
             openOperatorItems: runtime.openInboxItems.length,
           },
+          operations: {
+            retention: retentionPolicy(),
+            moderation: {
+              ...moderationPolicy(),
+              configured: config.moderationExportEnabled && Boolean(config.moderationToken),
+            },
+          },
         });
         return;
       }
@@ -542,6 +835,10 @@ function createServer() {
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {
         handleInsights(db, res);
+        return;
+      }
+      if (req.method === "GET" && url.pathname === "/api/search-book/moderation") {
+        handleModeration(db, req, res);
         return;
       }
       jsonResponse(res, 404, { status: "not-found" });
@@ -572,5 +869,7 @@ server.listen(config.port, config.host, () => {
     port: config.port,
     defaultMode: config.defaultMode,
     datastore: "sqlite",
+    retentionDays: config.retentionDays,
+    moderationExportEnabled: config.moderationExportEnabled,
   }));
 });

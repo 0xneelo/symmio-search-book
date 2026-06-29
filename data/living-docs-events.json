@@ -1,14 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "status": "sqlite-backed-living-docs-event-contract",
-  "contractVersion": "2026-06-29.v2",
+  "contractVersion": "2026-06-29.v3",
   "eventContractReady": true,
   "serviceRuntimeImplemented": true,
   "sqliteDatastoreImplemented": true,
   "frontendServiceIntegrationImplemented": true,
+  "retentionPolicyImplemented": true,
+  "moderationExportImplemented": true,
   "datastoreImplemented": true,
   "livingDocsProductionReady": false,
-  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete.",
+  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention plus a disabled-by-default token-gated moderation export. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete.",
   "storage": {
     "localPrototype": {
       "questionsKey": "searchBookPrototype.questions",
@@ -70,13 +72,25 @@
         "GET /health",
         "POST /api/search-book/answer",
         "POST /api/search-book/rating",
-        "GET /api/search-book/insights"
+        "GET /api/search-book/insights",
+        "GET /api/search-book/moderation"
       ],
       "tables": [
         "search_book_questions",
         "search_book_ratings",
         "search_book_gaps"
       ],
+      "retention": {
+        "env": "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
+        "defaultDays": 180,
+        "behavior": "The service prunes old question, rating, and gap events on startup and before insight/moderation reads; set 0 to disable local pruning."
+      },
+      "moderation": {
+        "enabledEnv": "SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT",
+        "tokenEnv": "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
+        "limitEnv": "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT",
+        "behavior": "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled."
+      },
       "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
     }
   },
@@ -148,6 +162,8 @@
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
     "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
+    "Apply the configured retention window to question, rating, and gap event storage.",
+    "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Keep API keys in process environment only; never persist or print them."
   ],
   "fixtures": {
@@ -351,7 +367,9 @@
     "localPrototype": "The current static prototype uses localStorage with these same event shapes.",
     "sqliteService": "The standalone service persists equivalent event shapes to SQLite and exposes Search Insights data over HTTP.",
     "frontendIntegration": "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints.",
-    "requiredNextStep": "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+    "retention": "The service has a configured retention policy with a 180-day default and a documented env override.",
+    "moderation": "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work.",
+    "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided.",
     "blockedBy": [
       "OPERATOR-INBOX #4",
       "OPERATOR-INBOX #11",
