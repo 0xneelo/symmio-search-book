@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 601,
+  "totalPages": 606,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 441,
-    "publication-candidate": 141,
-    "publication-candidate-needs-current-source-review": 7,
+    "publication-candidate-needs-operator-review": 443,
+    "publication-candidate": 143,
+    "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 323,
+    "manifesto": 328,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -2056,6 +2056,27 @@
       "file": "content/authored/reference/executable-closeout-pricing.md",
       "bodyMarkdown": "# Executable Closeout Pricing\n\nThe DDQ source says a trader close is settled against what can actually be executed. When a trader asks to close, the solver has two broad paths: net the close against opposing demand if that flow exists, or unwind the needed hedge against external liquidity and return an exit price that reflects realized execution costs plus any required risk spread.\n\nThat framing is important because a close price is not only an oracle mark. In a fragile market, slippage, price impact, and the available hedge path can change what the close can safely return.\n\n## The Market-Clearing Boundary\n\nExecutable closeout pricing is the boundary between theoretical PnL and realizable settlement. If the solver can net internally, the close can depend less on external liquidity. If the solver must unwind externally, the close has to account for the cost of doing that unwind in the real market.\n\nThis does not make every bad close a protocol failure. It means low-cap derivatives need to expose the difference between index logic, quote logic, hedge execution, and final settlement economics.\n\n## Publication Boundary\n\nExact closeout formula, UI slippage language, execution venues, slippage allocation, force-close path, and implementation-specific close rules need operator and implementation review. The source-backed point is narrower: closeout economics should reflect netting or executable hedge unwind, not an unsupported theoretical price.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\".\n\n## Related Pages\n\n- `authored-pass-through-execution-boundary`\n- `authored-solver-hedging-failure-modes`\n- `authored-force-close-versus-escape-mode`",
       "excerpt": "Executable Closeout Pricing The DDQ source says a trader close is settled against what can actually be executed. When a trader asks to close, the solver has two broad paths: net the close against opposing demand if that flow exists, or unwind the needed hedge against external liquidity and return an exit price that reflects realized execution costs plus any required risk spread. That framing is important because a close price is not only an oracle mark. In a fragile market, slippage, price impact, and the available hedge path can change what the close can safely return. The Market Clearing Boundary Executable closeout pricing is the boundary between theoretical PnL and realizable settlement. If the solver can net internally, the close can depend less on external liquidity. If the solver must unwind externally, the close has to account for the cost of doing that unwind in the real market. This does not make every bad close a protocol failure. It means low cap derivatives need to expose the difference between index logic, quote logic, hedge execution, and final settlement economics. Publication Boundary Exact closeout formula, UI slippage language, execution venues, slippage allocati"
+    },
+    {
+      "id": "authored-existing-perp-landscape-overview",
+      "title": "The Existing Perp Protocol Landscape",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-1-overview"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-1-overview"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/existing-perp-landscape-overview.md",
+      "bodyMarkdown": "# The Existing Perp Protocol Landscape\n\nThe landscape section applies the framework to existing perpetual futures protocols. Its point is not to rank brands by popularity. It is to show that protocol categories cluster around different architecture choices, and each cluster has characteristic strengths and limits.\n\nOrder-book systems are the mature-market cluster: efficient, familiar, and strong when there is enough two-sided flow. Vault or pool-backed systems are the availability cluster: they can serve one-sided flow earlier, but the cost appears in LP risk, capital requirements, caps, fees, or spreads. Async-netted experiments try to combine permissionless access with efficiency, but the payer problem returns when a trader wins before the opposite side exists.\n\nThis is the bridge between taxonomy and trilemma. Once the landscape is mapped, the bootstrap problem becomes easier to see: the industry has useful designs for different market states, but not enough dynamic infrastructure for moving a market from empty to mature.\n\n## Publication Boundary\n\nUse this as the source's category overview. Current venue metrics, protocol market counts, fee levels, liquidity programs, listing rules, and implementation status must be refreshed from primary sources before being published as current comparisons.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.1 Overview\".\n\n## Related Pages\n\n- `authored-static-perp-design-failures`\n- `authored-synchronous-netted-order-book-protocols`\n- `authored-bootstrap-trilemma`\n- `authored-perp-framework-summary`",
+      "excerpt": "The Existing Perp Protocol Landscape The landscape section applies the framework to existing perpetual futures protocols. Its point is not to rank brands by popularity. It is to show that protocol categories cluster around different architecture choices, and each cluster has characteristic strengths and limits. Order book systems are the mature market cluster: efficient, familiar, and strong when there is enough two sided flow. Vault or pool backed systems are the availability cluster: they can serve one sided flow earlier, but the cost appears in LP risk, capital requirements, caps, fees, or spreads. Async netted experiments try to combine permissionless access with efficiency, but the payer problem returns when a trader wins before the opposite side exists. This is the bridge between taxonomy and trilemma. Once the landscape is mapped, the bootstrap problem becomes easier to see: the industry has useful designs for different market states, but not enough dynamic infrastructure for moving a market from empty to mature. Publication Boundary Use this as the source's category overview. Current venue metrics, protocol market counts, fee levels, liquidity programs, listing rules, and i"
     },
     {
       "id": "authored-expected-loss-capital-maintenance",
@@ -6511,6 +6532,48 @@
       "file": "content/authored/manifesto/perp-bootstrap-scope-and-limits.md",
       "bodyMarkdown": "# The Perp Bootstrap Paper's Scope And Limits\n\nThe Perp Classes / Z-Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market.\n\nThat matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction-market design, regulatory treatment, or traditional-finance applicability.\n\nThe source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain.\n\nThe page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make.\n\n## Publication Boundary\n\nUse this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options-market applicability, prediction-market applicability, traditional-finance portability, or live implementation guarantees from the introduction alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.9 Scope and Limitations\".\n\n## Related Pages\n\n- `authored-perp-paper-contribution-map`\n- `authored-market-lifecycle-future-directions`\n- `authored-thiel-risk-analysis-checklist`",
       "excerpt": "The Perp Bootstrap Paper's Scope And Limits The Perp Classes / Z Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market. That matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction market design, regulatory treatment, or traditional finance applicability. The source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain. The page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make. Publication Boundary Use this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options market applicability, prediction market applicability, traditional finance portability, or live implementati"
+    },
+    {
+      "id": "authored-perp-framework-implications",
+      "title": "What The Perp Framework Implies",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-6-framework-implications"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-02-framework-2-6-framework-implications"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-framework-implications.md",
+      "bodyMarkdown": "# What The Perp Framework Implies\n\nThe framework implications section turns taxonomy into strategy. Its core claim is that no static quadrant solves permissionless market creation, capital efficiency, and reliable counterparty support at the same time.\n\nThat is why the source moves from categorization to lifecycle. A bootstrap market may need asynchronous execution and stronger collateralization because there is not enough natural flow yet. As the market matures, the same market should be able to move toward tighter netting, better efficiency, and eventually order-book-style execution.\n\nInsurance topology follows the same lifecycle logic. New markets should be isolated enough that a bad long-tail listing does not infect the rest of the system. Proven markets can justify more shared collateral or cross-margin behavior because there is more evidence that their risk is legible.\n\nThe industry gap follows from this. If order-book systems are efficient but cannot create first liquidity, and collateralized systems can support one-sided flow but struggle to scale, then the missing architecture is dynamic traversal between states.\n\n## Publication Boundary\n\nThis page states the source's architecture implication. Do not turn it into a live claim about final Vibe graduation thresholds, automatic market movement, Hyperliquid/GMX current listing policy, or production insurance rules without operator/product/risk review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols: 2.6 Framework Implications\".\n\n## Related Pages\n\n- `authored-temporal-separation-of-concerns`\n- `authored-four-transitions`\n- `authored-market-maturation-state-map`\n- `authored-bootstrap-trilemma`",
+      "excerpt": "What The Perp Framework Implies The framework implications section turns taxonomy into strategy. Its core claim is that no static quadrant solves permissionless market creation, capital efficiency, and reliable counterparty support at the same time. That is why the source moves from categorization to lifecycle. A bootstrap market may need asynchronous execution and stronger collateralization because there is not enough natural flow yet. As the market matures, the same market should be able to move toward tighter netting, better efficiency, and eventually order book style execution. Insurance topology follows the same lifecycle logic. New markets should be isolated enough that a bad long tail listing does not infect the rest of the system. Proven markets can justify more shared collateral or cross margin behavior because there is more evidence that their risk is legible. The industry gap follows from this. If order book systems are efficient but cannot create first liquidity, and collateralized systems can support one sided flow but struggle to scale, then the missing architecture is dynamic traversal between states. Publication Boundary This page states the source's architecture im"
+    },
+    {
+      "id": "authored-perp-framework-summary",
+      "title": "The Perp Framework In One Table",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-7-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-02-framework-2-7-summary"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-framework-summary.md",
+      "bodyMarkdown": "# The Perp Framework In One Table\n\nThe framework summary gives the compact version: three dimensions, each with a tradeoff.\n\nMatching runs from synchronous to asynchronous. Synchronous matching is efficient when both sides are present; asynchronous execution is more useful when the opposite side is not yet there. Collateralization runs from netted to collateralized. Netted exposure is efficient when winners and losers can pay each other; collateralized exposure is more reliable when a persistent payer is needed. Insurance runs from cross-market sharing to isolation. Cross-margin improves efficiency; isolation contains new-market risk.\n\nThe summary matters because it makes the rest of the paper readable. The landscape section applies the table to existing protocols. The trilemma section explains why the table creates hard constraints. The Vibe architecture section argues for moving through the table over time rather than choosing one cell forever.\n\n## Reader Implication\n\nUse this page when a reader wants the short version of the taxonomy. The answer should be simple enough to remember: matching is about timing, collateralization is about the payer, and insurance is about where losses can travel.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols: 2.7 Summary\".\n\n## Related Pages\n\n- `authored-systematic-perp-categorization`\n- `authored-perp-protocol-framework`\n- `authored-synchronous-matching-counterparty-requirement`\n- `authored-collateralization-as-payout-source`",
+      "excerpt": "The Perp Framework In One Table The framework summary gives the compact version: three dimensions, each with a tradeoff. Matching runs from synchronous to asynchronous. Synchronous matching is efficient when both sides are present; asynchronous execution is more useful when the opposite side is not yet there. Collateralization runs from netted to collateralized. Netted exposure is efficient when winners and losers can pay each other; collateralized exposure is more reliable when a persistent payer is needed. Insurance runs from cross market sharing to isolation. Cross margin improves efficiency; isolation contains new market risk. The summary matters because it makes the rest of the paper readable. The landscape section applies the table to existing protocols. The trilemma section explains why the table creates hard constraints. The Vibe architecture section argues for moving through the table over time rather than choosing one cell forever. Reader Implication Use this page when a reader wants the short version of the taxonomy. The answer should be simple enough to remember: matching is about timing, collateralization is about the payer, and insurance is about where losses can trav"
     },
     {
       "id": "authored-perp-market-as-credit-system",
@@ -11086,6 +11149,27 @@
       "excerpt": "Synchronous Matching Requires Present Counterparties Synchronous matching is powerful because it only executes when both sides are present at the same time. In Neelo's framework, an order book is the canonical synchronous system: bids and asks rest until prices cross, and the exchange can clear the trade because the long and the short are both known at execution. That property explains why order books become so efficient in mature markets. They do not need a vault to warehouse every possible payout. Traders and market makers supply the other side, price discovery comes from live order flow, and capital can be deployed with much less balance sheet overhead. The same property also explains the bootstrap limit. A new token can have real future demand without having a ready buyer and seller at the same moment, size, and price. If the first motivated trader arrives before the opposite side exists, a pure synchronous book has no trade to clear. That is why the compendium should not describe order books as inferior. They solve the mature market version of the problem. They do not, by themselves, solve the first counterparty problem for a thin market. Reader Implication When readers ask wh"
     },
     {
+      "id": "authored-synchronous-netted-order-book-protocols",
+      "title": "Synchronous Fully Netted Order-Book Protocols",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-2-category-1-synchronous-fully-netted-order-book-protocols"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-2-category-1-synchronous-fully-netted-order-book-protocols"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/synchronous-netted-order-book-protocols.md",
+      "bodyMarkdown": "# Synchronous Fully Netted Order-Book Protocols\n\nIn Neelo's landscape, order-book protocols are synchronous and fully netted. They match buyers and sellers through a book, settle long and short PnL through a clearing function, and use insurance funds or backstops for stress rather than requiring a vault to pay every ordinary winner.\n\nThat architecture explains their strength. When a market is mature, synchronous netting is capital efficient. Traders and market makers provide live quotes, price discovery is tight, and the venue does not have to warehouse every unit of exposure itself.\n\nThe same architecture explains their bootstrap weakness. If a new token starts with an empty book, the first long has no ask and the first short has no bid. Market makers may refuse to quote until there is evidence of demand, risk, and hedgeability. The book can facilitate demand once counterparties exist; it does not create the missing counterparty by itself.\n\nThe source uses Hyperliquid, dYdX, and centralized exchanges as examples in this category. The publication-safe lesson is stage fit: order-book venues can be excellent endpoints for proven markets while still being weak at day-one market creation.\n\n## Publication Boundary\n\nDo not publish source-time Hyperliquid volume, listed-market counts, latency claims, HIP-3 auction outcomes, dYdX architecture details, or centralized-exchange listing behavior as current without fresh primary-source review. The durable source claim is architectural: synchronous fully netted systems need existing liquidity to work well.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.2 Category 1: Synchronous + Fully Netted (Order Book Protocols)\".\n\n## Related Pages\n\n- `authored-synchronous-matching-counterparty-requirement`\n- `authored-order-books-solve-mature-version`\n- `authored-order-book-bootstrap-limit`\n- `authored-order-book-integration-handshake`",
+      "excerpt": "Synchronous Fully Netted Order Book Protocols In Neelo's landscape, order book protocols are synchronous and fully netted. They match buyers and sellers through a book, settle long and short PnL through a clearing function, and use insurance funds or backstops for stress rather than requiring a vault to pay every ordinary winner. That architecture explains their strength. When a market is mature, synchronous netting is capital efficient. Traders and market makers provide live quotes, price discovery is tight, and the venue does not have to warehouse every unit of exposure itself. The same architecture explains their bootstrap weakness. If a new token starts with an empty book, the first long has no ask and the first short has no bid. Market makers may refuse to quote until there is evidence of demand, risk, and hedgeability. The book can facilitate demand once counterparties exist; it does not create the missing counterparty by itself. The source uses Hyperliquid, dYdX, and centralized exchanges as examples in this category. The publication safe lesson is stage fit: order book venues can be excellent endpoints for proven markets while still being weak at day one market creation. Pu"
+    },
+    {
       "id": "authored-synthetic-abundance-verification-crisis",
       "title": "Synthetic Abundance Creates A Verification Crisis",
       "section": "manifesto",
@@ -11108,6 +11192,27 @@
       "file": "content/authored/manifesto/synthetic-abundance-verification-crisis.md",
       "bodyMarkdown": "# Synthetic Abundance Creates A Verification Crisis\n\nThe verification crisis starts when convincing information becomes cheaper to produce than to evaluate. A fake source can look polished. A bot narrative can look popular. A synthetic paper, video, or project page can borrow the surface area of credibility without paying the old cost of production.\n\nNeelo's source argues that this breaks the old filter. Before AI, making complex false information required time, craft, and coordination. After AI, the marginal cost can approach zero. The result is asymmetric cost: producing noise is cheap, but proving what deserves trust remains expensive.\n\nMarkets add cost back into belief. They do not create perfect truth. They make belief more expensive, observable, and contestable. Someone who wants to defend a claim can buy, LP, quote, or build around it. Someone who rejects a claim can short, refuse to quote, hedge, or pressure the market over time.\n\nThat negative side is essential. Long-only markets can amplify excitement even when skepticism is widespread. Two-sided markets force the claim to face both enthusiasm and rejection. In the Information/Trade thesis, Vibe's short side is the mechanism that turns synthetic abundance from pure attention warfare into a more adversarial market.\n\n## Reader Implication\n\nMarket verification should be presented as evidence, not certainty. Vibe does not magically identify truth. It makes support, skepticism, liquidity, durability, and refusal visible enough for readers, solvers, and venues to inspect.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: The Crisis of Verification\".\n- `vibe-papers`: Neelo, \"Section 1: Introduction\".\n\n## Related Pages\n\n- `authored-proof-value-shadow-side`\n- `authored-market-price-as-verification`\n- `authored-financialized-rejection-thumbs-down`",
       "excerpt": "Synthetic Abundance Creates A Verification Crisis The verification crisis starts when convincing information becomes cheaper to produce than to evaluate. A fake source can look polished. A bot narrative can look popular. A synthetic paper, video, or project page can borrow the surface area of credibility without paying the old cost of production. Neelo's source argues that this breaks the old filter. Before AI, making complex false information required time, craft, and coordination. After AI, the marginal cost can approach zero. The result is asymmetric cost: producing noise is cheap, but proving what deserves trust remains expensive. Markets add cost back into belief. They do not create perfect truth. They make belief more expensive, observable, and contestable. Someone who wants to defend a claim can buy, LP, quote, or build around it. Someone who rejects a claim can short, refuse to quote, hedge, or pressure the market over time. That negative side is essential. Long only markets can amplify excitement even when skepticism is widespread. Two sided markets force the claim to face both enthusiasm and rejection. In the Information/Trade thesis, Vibe's short side is the mechanism th"
+    },
+    {
+      "id": "authored-systematic-perp-categorization",
+      "title": "Why Perp Protocols Need Systematic Categorization",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-1-the-need-for-systematic-categorization"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-02-framework-2-1-the-need-for-systematic-categorization"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/systematic-perp-categorization.md",
+      "bodyMarkdown": "# Why Perp Protocols Need Systematic Categorization\n\nNeelo's framework starts by rejecting brand-level comparison. A perpetual protocol cannot be understood only by asking whether it is a CLOB, AMM, vault, solver system, or app-chain. The useful question is what architecture choice it makes for matching, collateralization, and insurance.\n\nThe source says the landscape lacks a common vocabulary. Without one, protocols can all claim innovation while readers lose the ability to compare them objectively, identify their limits, predict which use cases they fit, or understand why a design fails under bootstrap pressure.\n\nThe categorization is therefore an editorial tool and a risk tool. Matching asks how trades meet. Collateralization asks who pays winners. Insurance topology asks whether a market's failure is contained or shared. Those questions are more durable than protocol marketing copy.\n\n## Reader Implication\n\nRoute here when a reader asks why the compendium spends so much time on taxonomy. The answer is that taxonomy prevents false equivalence. It lets the docs compare systems by architecture and market state rather than by slogan.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols: 2.1 The Need for Systematic Categorization\".\n\n## Related Pages\n\n- `authored-perp-protocol-framework`\n- `authored-perpetual-protocol-design-space`\n- `authored-collateralization-as-payout-source`\n- `authored-insurance-topology-by-market-maturity`",
+      "excerpt": "Why Perp Protocols Need Systematic Categorization Neelo's framework starts by rejecting brand level comparison. A perpetual protocol cannot be understood only by asking whether it is a CLOB, AMM, vault, solver system, or app chain. The useful question is what architecture choice it makes for matching, collateralization, and insurance. The source says the landscape lacks a common vocabulary. Without one, protocols can all claim innovation while readers lose the ability to compare them objectively, identify their limits, predict which use cases they fit, or understand why a design fails under bootstrap pressure. The categorization is therefore an editorial tool and a risk tool. Matching asks how trades meet. Collateralization asks who pays winners. Insurance topology asks whether a market's failure is contained or shared. Those questions are more durable than protocol marketing copy. Reader Implication Route here when a reader asks why the compendium spends so much time on taxonomy. The answer is that taxonomy prevents false equivalence. It lets the docs compare systems by architecture and market state rather than by slogan. Sources vibe papers : Neelo, \"Section 2: A Framework for Ca"
     },
     {
       "id": "authored-systemic-leverage-comparison",

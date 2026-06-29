@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Framework Landscape Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score framework and landscape source.
+- Split the framework-to-landscape bridge into exact answer routes for systematic protocol categorization, lifecycle implications, framework summary, existing-protocol landscape overview, and synchronous fully-netted order-book protocols.
+- Extended the question ledger so Ask can route taxonomy and order-book-category questions without collapsing them into the broad bootstrap-trilemma page.
+- Kept live venue metrics, HIP-3 auction data, current dYdX/Hyperliquid/CEX architecture details, market counts, listing policies, insurance behavior, and production graduation rules marked for fresh source/operator/product/risk review.
+
 ## 2026-06-29 — Perp Abstract And Structure Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score abstract and remaining introduction foundation source.

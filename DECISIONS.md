@@ -1263,3 +1263,11 @@
 **Reason:** The existing introduction and conclusion pages cover specific claims, but the answer engine also needs orientation routes for readers asking what the paper is, what field it sits in, how it is organized, why the scale mismatch matters, and what the introduction promises before the proof develops.
 
 **Status:** Accepted for the authored manifesto layer; source-time token/perp counts, live implementation state, autonomous graduation, Z-score policy, integrations, venue use of listing evidence, and universal availability remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-159: Split The Perp Framework And Landscape Bridge Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for systematic perp categorization, framework implications, framework summary, existing-protocol landscape overview, and synchronous fully-netted order-book protocols.
+
+**Reason:** The broad framework and trilemma pages explain the axes, but answer-engine readers also need direct routes for why the vocabulary exists, what it implies for lifecycle design, how to remember the table, how the source maps incumbent categories, and why order-book systems are mature-market endpoints rather than bootstrap engines.
+
+**Status:** Accepted for the authored manifesto layer; live venue metrics, HIP-3 auction data, current dYdX/Hyperliquid/CEX architecture details, market counts, listing policies, insurance behavior, and production graduation rules remain fresh source/operator/product/risk review.

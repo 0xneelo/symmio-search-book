@@ -588,6 +588,11 @@ Questions are grouped by whether the current source set can answer them.
 | How is the perp bootstrap paper structured? | `authored-perp-paper-structure-roadmap` | Medium | Neelo's paper structure moves from market gap to framework, landscape, trilemma, Vibe architecture, technical mechanisms, implications, competition, and conclusion. |
 | Why is long-tail perp market creation a scale problem? | `authored-scale-of-long-tail-perp-problem` | Medium | Neelo's introduction uses the mismatch between mass token issuance and scarce perp listings as the scale argument; source-time counts need fresh verification. |
 | What does the perp paper promise to contribute in the introduction? | `authored-perp-paper-contribution-preview` | Medium | The introduction previews theoretical, practical, and industry contributions before the conclusion restates the developed argument. |
+| Why does the perp paper need systematic categorization? | `authored-systematic-perp-categorization` | Medium | Neelo says a common vocabulary is needed to compare protocols objectively by matching, collateralization, and insurance instead of by protocol branding. |
+| What does the perp framework imply for market lifecycle design? | `authored-perp-framework-implications` | Medium | Neelo's framework implies that markets should move from bootstrap reliability toward mature efficiency as liquidity and risk evidence improve. |
+| What is the short summary of the perp categorization framework? | `authored-perp-framework-summary` | Medium | The source summary compresses the framework into matching, collateralization, and insurance tradeoffs. |
+| How does Neelo map the existing perp protocol landscape? | `authored-existing-perp-landscape-overview` | Medium | The landscape section groups protocols by architecture cluster and uses those clusters to expose the market-bootstrap gap. |
+| Why do synchronous fully netted order-book protocols struggle with unknown markets? | `authored-synchronous-netted-order-book-protocols` | Medium | The source says order books are efficient when counterparties already exist, but an empty book cannot create the missing opposite side at bootstrap. |
 
 ## Prototype Event Log
 

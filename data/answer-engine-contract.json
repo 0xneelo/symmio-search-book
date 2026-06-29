@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 582
+      "totalGoldenRoutes": 587
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 600,
-    "retrievalEligiblePages": 1392,
+    "publicNavigationPages": 605,
+    "retrievalEligiblePages": 1397,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 600,
+      "candidate": 605,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 582,
-    "exactRouteTestsPassing": 582,
+    "totalExactRouteTests": 587,
+    "exactRouteTestsPassing": 587,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 582
+      "candidate": 587
     },
     "exactRoutesByConfidence": {
-      "Medium": 362,
+      "Medium": 367,
       "High": 44,
       "Low": 176
     },
@@ -12907,6 +12907,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-the-perp-paper-promise-to-contribute-in-the-introduction",
         "passes": true
+      },
+      {
+        "id": "qr-why-does-the-perp-paper-need-systematic-categorization",
+        "query": "Why does the perp paper need systematic categorization?",
+        "normalizedQuery": "why does the perp paper need systematic categorization",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-systematic-perp-categorization",
+        "expectedPageTitle": "Why Perp Protocols Need Systematic Categorization",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-does-the-perp-paper-need-systematic-categorization",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-perp-framework-imply-for-market-lifecycle-design",
+        "query": "What does the perp framework imply for market lifecycle design?",
+        "normalizedQuery": "what does the perp framework imply for market lifecycle design",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-framework-implications",
+        "expectedPageTitle": "What The Perp Framework Implies",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-perp-framework-imply-for-market-lifecycle-design",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-short-summary-of-the-perp-categorization-framework",
+        "query": "What is the short summary of the perp categorization framework?",
+        "normalizedQuery": "what is the short summary of the perp categorization framework",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-framework-summary",
+        "expectedPageTitle": "The Perp Framework In One Table",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-short-summary-of-the-perp-categorization-framework",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-map-the-existing-perp-protocol-landscape",
+        "query": "How does Neelo map the existing perp protocol landscape?",
+        "normalizedQuery": "how does neelo map the existing perp protocol landscape",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-existing-perp-landscape-overview",
+        "expectedPageTitle": "The Existing Perp Protocol Landscape",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-map-the-existing-perp-protocol-landscape",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-synchronous-fully-netted-order-book-protocols-struggle-with-unknown-marke",
+        "query": "Why do synchronous fully netted order-book protocols struggle with unknown markets?",
+        "normalizedQuery": "why do synchronous fully netted order book protocols struggle with unknown markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-synchronous-netted-order-book-protocols",
+        "expectedPageTitle": "Synchronous Fully Netted Order-Book Protocols",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-synchronous-fully-netted-order-book-protocols-struggle-with-unknown-markets",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12982,7 +13087,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 582,
+      "exactRoutes": 587,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
