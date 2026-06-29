@@ -1607,3 +1607,11 @@
 **Reason:** These source-page companions are parent imports and narrative source routes, not missing concepts. The compendium already has stronger authored pages for the thesis, verification break, Strait Gate, financialized rejection, and global reputation endgame. Mapping the parents improves retrieval/source traceability and avoids adding duplicate public pages while the manifest is already near the 800-page upper bound.
 
 **Status:** Accepted for source-traceability coverage; market-cap-as-truth framing, example graduation thresholds, short-interface details, solver/vault mechanics, LP-share examples, downstream listing integrations, and global reputation protocol claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-202: Map Perps Bootstrap Parent Source Companions To Existing Authored Pages
+
+**Decision:** Map five remaining Perps Categories / Bootstrap Trilemma generated parent source-pages to existing authored manifesto pages: the overview to `authored-perp-paper-structure-roadmap`, the abstract to `authored-perp-paper-abstract`, the introduction to `authored-market-creation-gap`, industry implications to `authored-market-lifecycle-industry-implications`, and the conclusion to `authored-perp-paper-contribution-map`.
+
+**Reason:** These parent source-pages are table-of-contents, executive-summary, introduction, implications, and closeout routes for a corpus that already has strong exact authored coverage. Mapping them improves retrieval/source traceability while avoiding duplicate public pages and preserving the 500-800 page target discipline.
+
+**Status:** Accepted for source-traceability coverage; source-time token/perp counts, market-cap bands, lifecycle diagrams, Z-score thresholds, automatic graduation, exchange integration behavior, market sizing estimates, and roadmap claims remain fresh primary-source/operator/product/risk/legal/implementation review.

@@ -6,8 +6,8 @@ track: "01 - Perps Categories & Bootstrap Trilemma"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion#9-1-summary-of-contributions"]
-relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-09-conclusion-9-1-summary-of-contributions", "authored-perp-protocol-framework", "authored-bootstrap-trilemma"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion#9-1-summary-of-contributions"]
+relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-09-conclusion", "section-01-perp-classes-zscore-01-docs-09-conclusion-9-1-summary-of-contributions", "authored-perp-protocol-framework", "authored-bootstrap-trilemma"]
 ---
 
 # The Perp Paper Contribution Map

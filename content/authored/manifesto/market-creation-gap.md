@@ -5,8 +5,8 @@ section: "manifesto"
 track: "06 — Market Creation Architecture"
 status: "publication-candidate"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-2-the-market-creation-gap", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-1-defining-the-gap"]
-relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-01-introduction-1-2-the-market-creation-gap", "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-1-defining-the-gap"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-2-the-market-creation-gap", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-1-defining-the-gap"]
+relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-01-introduction", "section-01-perp-classes-zscore-01-docs-01-introduction-1-2-the-market-creation-gap", "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-1-defining-the-gap"]
 ---
 
 # The Market Creation Gap

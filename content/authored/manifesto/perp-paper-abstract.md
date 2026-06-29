@@ -6,8 +6,8 @@ track: "01 - Perps Categories & Bootstrap Trilemma"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract#abstract"]
-relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-00-abstract-abstract"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract#abstract"]
+relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-00-abstract", "section-01-perp-classes-zscore-01-docs-00-abstract-abstract"]
 ---
 
 # The Perp Bootstrap Paper Abstract

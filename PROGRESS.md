@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perps Bootstrap Parent Source Coverage
+
+- Mapped 5 remaining Perps Categories / Bootstrap Trilemma generated source-page companions to existing authored manifesto pages instead of duplicating content.
+- Closed parent source-page coverage for the paper overview, abstract, introduction, industry-implications, and conclusion imports.
+- Preserved the existing exact answer pages while improving traceability from parent source imports into the authored roadmap, abstract, market-creation gap, lifecycle implications, and contribution-map pages.
+- Kept source-time market counts, token-launch statistics, Vibe-enabled lifecycle diagrams, Z-score thresholds, automatic graduation, exchange integration behavior, and roadmap claims marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Proof Of Value Parent Source Coverage
 
 - Mapped 5 remaining Proof of Value generated source-page companions to existing authored manifesto pages instead of duplicating content.

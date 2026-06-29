@@ -6,8 +6,8 @@ track: "01 - Perps Categories & Bootstrap Trilemma"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion#9-3-implications-for-the-industry"]
-relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-09-conclusion-9-3-implications-for-the-industry", "authored-vibe-as-listing-source-of-truth", "authored-programmatic-market-graduation"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion#9-3-implications-for-the-industry"]
+relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-07-industry-implications", "section-01-perp-classes-zscore-01-docs-09-conclusion-9-3-implications-for-the-industry", "authored-vibe-as-listing-source-of-truth", "authored-programmatic-market-graduation"]
 ---
 
 # Market Lifecycle Implications For The Industry
