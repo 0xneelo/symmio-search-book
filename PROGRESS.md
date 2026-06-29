@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Section Fragment Source Map Coverage
+
+- Added `authored-percolator-section-fragments-source-map` to route Neelo's remaining Percolator abstract, introduction, architecture, and reflexivity section fragments into existing authored Percolator mechanism pages.
+- Mapped 16 uncovered generated section companions covering the abstract, paper structure, design-question framing, paradigms, Percolator case study, permissionless self-collateral scope, architecture overview, SOV model, key parameters, engineering achievements, reflexivity problem, and linear-settlement contrast.
+- Routed one new Ask question, "How should I read the Percolator section fragments?", to the new source-map page.
+- Kept Percolator SOV mainnet details, live parameters, vault balances, open interest, fee rates, burn behavior, oracle caps, proof counts, repository state, deployed programs, market behavior, and Vibe comparative guarantees under fresh primary-source/operator/risk/legal/security/implementation review.
+
 ## 2026-06-29 — Proof Of Value Framework Source Map Coverage
 
 - Added `authored-proof-value-framework-source-map` to route Neelo's `13-framework-value-permissionless-perps` evaluation corpus into existing authored Proof of Value Framework pages.

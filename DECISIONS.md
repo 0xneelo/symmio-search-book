@@ -1719,3 +1719,11 @@
 **Reason:** The uncovered items are mostly abstract, source-table, value-metric, summary, comparison, stress, and conclusion fragments. Promoting each one into a standalone public page would duplicate the already-authored Proof of Value Framework spine while making the compendium noisier. A source map preserves traceability and exact Ask routing while keeping review-sensitive metrics and claims in their proper boundary.
 
 **Status:** Accepted for source-traceability coverage. The 70 percent revenue-share language, source-time partner and committed-token metrics, capital-efficiency comparisons, stress-resilience claims, risk-waterfall details, insurance/ADL behavior, and structural-superiority conclusions remain source-model material until current product, risk, legal, accounting, security, and operator review approves public wording.
+
+## D-216: Map Percolator Section Fragments Through One Source Map
+
+**Decision:** Add `authored-percolator-section-fragments-source-map` to cover the remaining uncovered generated section fragments from Neelo's Percolator abstract, introduction, architecture, and reflexivity material, routing readers into existing authored pages for token-margin reflexivity, inverse payoff, Percolator architecture, SOV insurance, formal-verification boundaries, and USDC-hybrid settlement.
+
+**Reason:** The uncovered items are orientation fragments and source headings. Promoting each fragment into a standalone public page would duplicate the exact Percolator mechanism pages already present. A single source map preserves traceability for the generated companions while keeping the public manifesto focused on durable mechanisms rather than source-table sprawl.
+
+**Status:** Accepted for source-traceability coverage. Percolator SOV mainnet details, live parameters, vault balances, open interest, fee rates, burn behavior, oracle caps, proof counts, repository state, deployed programs, market behavior, and Vibe comparative guarantees remain current-source/operator/risk/legal/security/implementation review items before publication.
