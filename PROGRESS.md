@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Dashboard Route Inventory Coverage
+
+- Added `authored-dashboard-route-inventory` as the dashboard-reference coverage map for visible routes `#overview`, `#codes`, `#network`, `#volume`, `#tasks`, `#faq`, and `#settings`, plus the hidden `#revenue` route.
+- Routed one new Ask question, "Which dashboard views are documented?", to the inventory before view-specific follow-up pages.
+- Refreshed the Dashboard Volume authored page so it uses the operator-approved 15-level referral-depth stance and no longer treats inbox item `#3` as open.
+- Kept this as a documentation coverage map, not a dashboard implementation claim; revenue Phase B, Discord/Lafa FAQ import, volume subgraph migration, and production deploy route remain separately gated.
+
 ## 2026-06-30 — Reproducible Build Orchestrator
 
 - Added `src/search-book/scripts/build-all.mjs` as the canonical deterministic Search Book build entrypoint.
@@ -837,7 +844,7 @@
 ## 2026-06-28 — Referral Architecture Authored Layer
 
 - Added five authored Volume 06 reference pages from Neelo's referral-program architecture corpus: identity and claim flow, rakeback policy, qualified issuance/anti-gaming, market-scoped referrals, and referral metrics/integrity.
-- Routed five new referral architecture questions to authored pages while preserving the parked public referral-depth and historical-accounting decision.
+- Routed five new referral architecture questions to authored pages while preserving the then-parked public depth/accounting decision; current public depth is now resolved through the dashboard-reference pages as 15 levels with additive backfill.
 - Framed referrals as market-formation infrastructure tied to listings, attribution, fee flow, and integrity controls rather than only a campaign-growth surface.
 
 ## 2026-06-28 — Referral Rewards Authored Layer

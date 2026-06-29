@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 788,
-  "totalAnswerable": 784,
+  "totalEntries": 789,
+  "totalAnswerable": 785,
   "totalUnresolved": 4,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -22,20 +22,20 @@
     "Revenue": 97,
     "Manifesto": 160,
     "Rewards And Referrals": 100,
-    "Dashboard": 10,
+    "Dashboard": 11,
     "Data And Volume": 5,
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 487,
+    "Medium": 488,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 784
+    "authored": 785
   },
   "byType": {
-    "answerable": 784,
+    "answerable": 785,
     "reconciliation": 4
   },
   "answerable": [
@@ -2592,6 +2592,115 @@
         "spec-03"
       ],
       "sources": [
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-dashboard-views-are-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Which dashboard views are documented?",
+      "normalizedQuestion": "which dashboard views are documented",
+      "shortAnswer": "Local dashboard shell and Search Book dashboard-reference pages cover Overview, My invites, My network, Volume, Tasks, FAQ, Settings, and the hidden `#revenue` docs route.",
+      "answerSummary": "Dashboard Route Inventory The dashboard reference set covers every current dashboard route that the shell exposes for users, plus the hidden revenue explanation route. Visible routes are overview , codes , network , volume , tasks , faq , and settings . The hidden route is revenue , reached from the revenue estimate link and the FAQ rather than from the t...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-route-inventory",
+      "pageTitle": "Dashboard Route Inventory",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-overview",
+        "dashboard-codes",
+        "dashboard-network",
+        "dashboard-volume",
+        "dashboard-tasks",
+        "dashboard-faq",
+        "dashboard-settings",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-codes",
+          "group": "Local Product And Code",
+          "use": "My invites table, filters, masked invite values, and referee progress states.",
+          "href": "../../src/dashboard/codes.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-network",
+          "group": "Local Product And Code",
+          "use": "My network graph/tree view, depth controls, focus drawer, and node-level display.",
+          "href": "../../src/dashboard/network.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-tasks",
+          "group": "Local Product And Code",
+          "use": "Dashboard task checklist, bonus actions, task progress events, and funnel bridges.",
+          "href": "../../src/dashboard/tasks.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-settings",
+          "group": "Local Product And Code",
+          "use": "Contact channel, handle, and recovery-email settings UI.",
+          "href": "../../src/dashboard/settings.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
         {
           "key": "server-pulse",
           "group": "Local Product And Code",
@@ -27940,6 +28049,115 @@
         "spec-03"
       ],
       "sources": [
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-dashboard-views-are-documented",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Which dashboard views are documented?",
+      "normalizedQuestion": "which dashboard views are documented",
+      "shortAnswer": "Local dashboard shell and Search Book dashboard-reference pages cover Overview, My invites, My network, Volume, Tasks, FAQ, Settings, and the hidden `#revenue` docs route.",
+      "answerSummary": "Dashboard Route Inventory The dashboard reference set covers every current dashboard route that the shell exposes for users, plus the hidden revenue explanation route. Visible routes are overview , codes , network , volume , tasks , faq , and settings . The hidden route is revenue , reached from the revenue estimate link and the FAQ rather than from the t...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-route-inventory",
+      "pageTitle": "Dashboard Route Inventory",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-overview",
+        "dashboard-codes",
+        "dashboard-network",
+        "dashboard-volume",
+        "dashboard-tasks",
+        "dashboard-faq",
+        "dashboard-settings",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-codes",
+          "group": "Local Product And Code",
+          "use": "My invites table, filters, masked invite values, and referee progress states.",
+          "href": "../../src/dashboard/codes.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-network",
+          "group": "Local Product And Code",
+          "use": "My network graph/tree view, depth controls, focus drawer, and node-level display.",
+          "href": "../../src/dashboard/network.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-tasks",
+          "group": "Local Product And Code",
+          "use": "Dashboard task checklist, bonus actions, task progress events, and funnel bridges.",
+          "href": "../../src/dashboard/tasks.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-settings",
+          "group": "Local Product And Code",
+          "use": "Contact channel, handle, and recovery-email settings UI.",
+          "href": "../../src/dashboard/settings.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
         {
           "key": "server-pulse",
           "group": "Local Product And Code",

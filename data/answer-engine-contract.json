@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 784
+      "totalGoldenRoutes": 785
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 797,
-    "retrievalEligiblePages": 1589,
+    "publicNavigationPages": 798,
+    "retrievalEligiblePages": 1590,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 797,
+      "candidate": 798,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 784,
-    "exactRouteTestsPassing": 784,
+    "totalExactRouteTests": 785,
+    "exactRouteTestsPassing": 785,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 784
+      "candidate": 785
     },
     "exactRoutesByConfidence": {
-      "Medium": 487,
+      "Medium": 488,
       "High": 44,
       "Low": 253
     },
@@ -1696,6 +1696,47 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-does-the-dashboard-revenue-number-move",
+        "passes": true
+      },
+      {
+        "id": "qr-which-dashboard-views-are-documented",
+        "query": "Which dashboard views are documented?",
+        "normalizedQuery": "which dashboard views are documented",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-dashboard-route-inventory",
+        "expectedPageTitle": "Dashboard Route Inventory",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "dashboard-app",
+          "dashboard-overview",
+          "dashboard-codes",
+          "dashboard-network",
+          "dashboard-volume",
+          "dashboard-tasks",
+          "dashboard-faq",
+          "dashboard-settings",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "dashboard-app",
+          "dashboard-overview",
+          "dashboard-codes",
+          "dashboard-network",
+          "dashboard-volume",
+          "dashboard-tasks",
+          "dashboard-faq",
+          "dashboard-settings",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-which-dashboard-views-are-documented",
         "passes": true
       },
       {
@@ -18515,7 +18556,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 784,
+      "exactRoutes": 785,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

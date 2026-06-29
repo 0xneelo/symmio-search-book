@@ -32,13 +32,13 @@
 
 **Status:** Accepted.
 
-## D-005: Treat Referral Depth As A Contradiction Until Reconciled
+## D-005: Publish Referral Depth As Fifteen Levels After Reconciliation
 
-**Decision:** Do not publish a single final answer for referral depth without reconciliation. The dossier tracks 5-level and 15-level evidence separately.
+**Decision:** Publish the current public referral depth as 15 levels, and describe historical backfill as additive so it never lowers an existing balance.
 
-**Reason:** Local code defaults/config support 5 or 15 levels, FAQ copy says 15, and rollout issues describe 15-level deployment/backfill. Some older comments and surfaces still say 5.
+**Reason:** The earlier source set contained 5-level and 15-level evidence. Operator decision SYN-212 reconciled the public stance: users should see 15 levels, and migration/backfill language must preserve the additive accounting rule.
 
-**Status:** Open gap.
+**Status:** Resolved for v1 public copy. Older 5-level source remnants remain useful as provenance, not as current public guidance.
 
 ## D-006: Use Vibe Docs Branding For This Prototype
 
@@ -516,7 +516,7 @@
 
 **Decision:** Add authored pages from official Vibe docs for referral-code onboarding, referral commission/pre-TGE points, rakeback tiers, trading-program points, and the platform overview. Keep referral commission, referee rakeback, trading leaderboard points, Vibe points, local onboarding points, and final TGE settlement as distinct rails.
 
-**Reason:** The public Vibe docs contain useful reward tables, but the local product and grounding docs already show unresolved referral-depth and points-accounting questions. The compendium should publish the directly sourced user flows and tables while avoiding one blended rewards answer that would overstate final economics or erase the existing 5-vs-15-level ambiguity.
+**Reason:** The public Vibe docs contain useful reward tables, but the local product and grounding docs distinguish referral commission, onboarding points, trading points, and TGE settlement. The compendium should publish the directly sourced user flows and tables while avoiding one blended rewards answer that would overstate final economics or erase rail-specific accounting boundaries.
 
 **Status:** Accepted for the authored rewards/platform reference layer.
 
@@ -980,17 +980,17 @@
 
 **Decision:** Add authored rewards-reference pages for referral identity anchors, dual incentive rails, referral-code activation gates, three-plane referral architecture, and public/private policy overlays.
 
-**Reason:** Existing referral pages explain the broad architecture, but answer-engine readers need exact routes for the mechanics they will ask first: what the identity anchor is, why self rakeback and referral rewards are separate, when a code becomes reward eligible, which architecture plane owns which responsibility, and how public policy can coexist with private commercial terms. Splitting these answers improves referral documentation without resolving the parked referral-depth and historical-accounting decision.
+**Reason:** Existing referral pages explain the broad architecture, but answer-engine readers need exact routes for the mechanics they will ask first: what the identity anchor is, why self rakeback and referral rewards are separate, when a code becomes reward eligible, which architecture plane owns which responsibility, and how public policy can coexist with private commercial terms. Splitting these answers improves referral documentation while keeping economic policy gates separate from the now-resolved 15-level public depth stance.
 
-**Status:** Accepted for the authored rewards-reference layer; live referral depth, activation thresholds, tier tables, private terms, backfill behavior, transferability, signer topology, settlement contracts, and public economic commitments remain operator/legal/accounting/implementation review.
+**Status:** Accepted for the authored rewards-reference layer; activation thresholds, tier tables, private terms, transferability, signer topology, settlement contracts, and public economic commitments remain operator/legal/accounting/implementation review.
 
 ## D-124: Split Referral Economics Into Exact Anti-Gaming Answers
 
 **Decision:** Add authored rewards-reference pages for referral abuse patterns, uniform baseline referee benefits, qualified issuance gating, referral-right ownership models, and early-code scarcity cohorts.
 
-**Reason:** The broad referral issuance and anti-gaming page explains the economics source, but answer-engine readers need direct routes for why referral programs get gamed, why referee benefits should be uniform, why economically active codes should be gated, what can own referral rights, and why early-code cohorts need explicit sunset rules. Splitting these answers improves precision while preserving the unresolved referral-depth and historical-accounting boundary.
+**Reason:** The broad referral issuance and anti-gaming page explains the economics source, but answer-engine readers need direct routes for why referral programs get gamed, why referee benefits should be uniform, why economically active codes should be gated, what can own referral rights, and why early-code cohorts need explicit sunset rules. Splitting these answers improves precision without reopening the resolved public referral-depth and additive-backfill stance.
 
-**Status:** Accepted for the authored rewards-reference layer; live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior remain operator/legal/accounting/implementation review.
+**Status:** Accepted for the authored rewards-reference layer; live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, and sunset timing remain operator/legal/accounting/implementation review.
 
 ## D-125: Split Referral Access Phasing Into Exact Phase Answers
 
@@ -1783,3 +1783,11 @@
 **Reason:** The package had a reliable deterministic build chain, but it lived as a long README command block that agents had to copy exactly. A single entrypoint reduces drift, supports dry-run/list/resume workflows, and lets CI or future agents run the same generation, syntax, invariant, and sensitive-pattern checks from one command.
 
 **Status:** Accepted for production-readiness workflow. The orchestrator does not resolve parked source imports, production service env, frontend deploy route, Discord/Lafa ingestion, or final-report work; those remain separately tracked in the requirement map and operator inbox.
+
+## D-224: Use A Dashboard Route Inventory As The Coverage Map
+
+**Decision:** Add `authored-dashboard-route-inventory` as the dashboard-reference coverage map for the current dashboard shell routes instead of duplicating each view page's details in the overview page.
+
+**Reason:** The product already has focused authored pages for Overview, My invites, My network, Volume, Tasks, FAQ, Settings, estimated revenue, and revenue pulse. A route inventory makes the "every dashboard view is documented" claim auditable while keeping citations narrow and avoiding another large dashboard omnibus page.
+
+**Status:** Accepted for dashboard-reference coverage. The inventory records the current route list and Search Book page mapping; it does not make revenue Phase B, Discord/Lafa FAQ import, the Barometer/subgraph migration, or production frontend deployment complete.

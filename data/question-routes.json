@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 784,
+  "totalRoutes": 785,
   "totalReconciliationQuestions": 4,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 487,
+    "Medium": 488,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 784
+    "authored": 785
   },
   "answerable": [
     {
@@ -1145,6 +1145,33 @@
       "confidence": "Medium",
       "notes": "Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout.",
       "sourceKeys": [
+        "server-pulse",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-dashboard-views-are-documented",
+      "question": "Which dashboard views are documented?",
+      "normalizedQuestion": "which dashboard views are documented",
+      "pageId": "authored-dashboard-route-inventory",
+      "pageTitle": "Dashboard Route Inventory",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Local dashboard shell and Search Book dashboard-reference pages cover Overview, My invites, My network, Volume, Tasks, FAQ, Settings, and the hidden `#revenue` docs route.",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-overview",
+        "dashboard-codes",
+        "dashboard-network",
+        "dashboard-volume",
+        "dashboard-tasks",
+        "dashboard-faq",
+        "dashboard-settings",
+        "dashboard-revenue-doc",
         "server-pulse",
         "spec-03"
       ],

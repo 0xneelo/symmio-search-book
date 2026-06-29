@@ -17,11 +17,11 @@ The current UI labels volume as local wallet snapshots that refresh daily. Rows 
 
 ## Reader Implication
 
-Volume should be documented as a measured input with lag and source status. It is not a live per-trade feed in the current implementation, and the exact network depth remains tied to the referral-depth reconciliation.
+Volume should be documented as a measured input with lag and source status. It is not a live per-trade feed in the current implementation. Public referral depth is 15 levels, and historical backfill is additive and never lowers an existing balance.
 
 ## Open Gaps
 
-Operator inbox item `#3` controls final depth language. `G-005` tracks the current REST source versus the planned subgraph migration.
+`G-005` tracks the current REST source versus the planned subgraph migration.
 
 ## Sources
 
