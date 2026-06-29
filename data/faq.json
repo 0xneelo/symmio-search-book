@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 795,
-  "totalAnswerable": 793,
+  "totalEntries": 796,
+  "totalAnswerable": 794,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,22 +20,22 @@
     "Solvers And Settlement": 180,
     "Data And Volume": 7,
     "Revenue": 98,
+    "Rewards And Referrals": 101,
     "Risk And Markets": 72,
     "Manifesto": 160,
-    "Rewards And Referrals": 100,
     "Dashboard": 12,
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 496,
+    "Medium": 497,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 793
+    "authored": 794
   },
   "byType": {
-    "answerable": 793,
+    "answerable": 794,
     "reconciliation": 2
   },
   "answerable": [
@@ -732,6 +732,75 @@
           "group": "Public Symmio Sources",
           "use": "Solver event monitoring and quote lifecycle.",
           "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-volume-06-on-referrals-and-market-formation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should I read Volume 06 on referrals and market formation?",
+      "normalizedQuestion": "how should i read volume 06 on referrals and market formation",
+      "shortAnswer": "The Volume 06 overview orders referral market-formation, current 15-level public wording, architecture/security paths, policy metrics, reward rails, and review-bound future-composability claims.",
+      "answerSummary": "Volume 06: Referrals And Market Formation This volume treats referrals as market formation, not just growth plumbing. In the Vibe thesis, distribution is part of liquidity formation: communities create attention, attention creates trading demand, and demand gives solvers and LPs something to price. This volume is also intentionally review marked, but the...",
+      "confidence": "Medium",
+      "pageId": "authored-volume-06-referrals-and-market-formation",
+      "pageTitle": "Volume 06: Referrals And Market Formation",
+      "pageSection": "compendium",
+      "pageTrack": "Volume 06",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "spec-03",
+        "vibe-papers",
+        "vibe-points",
+        "server-points",
+        "server-me",
+        "dashboard-faq"
+      ],
+      "sources": [
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
           "missing": false
         }
       ]
@@ -26541,6 +26610,75 @@
           "group": "Public Symmio Sources",
           "use": "Solver event monitoring and quote lifecycle.",
           "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-i-read-volume-06-on-referrals-and-market-formation",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should I read Volume 06 on referrals and market formation?",
+      "normalizedQuestion": "how should i read volume 06 on referrals and market formation",
+      "shortAnswer": "The Volume 06 overview orders referral market-formation, current 15-level public wording, architecture/security paths, policy metrics, reward rails, and review-bound future-composability claims.",
+      "answerSummary": "Volume 06: Referrals And Market Formation This volume treats referrals as market formation, not just growth plumbing. In the Vibe thesis, distribution is part of liquidity formation: communities create attention, attention creates trading demand, and demand gives solvers and LPs something to price. This volume is also intentionally review marked, but the...",
+      "confidence": "Medium",
+      "pageId": "authored-volume-06-referrals-and-market-formation",
+      "pageTitle": "Volume 06: Referrals And Market Formation",
+      "pageSection": "compendium",
+      "pageTrack": "Volume 06",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "spec-03",
+        "vibe-papers",
+        "vibe-points",
+        "server-points",
+        "server-me",
+        "dashboard-faq"
+      ],
+      "sources": [
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
           "missing": false
         }
       ]

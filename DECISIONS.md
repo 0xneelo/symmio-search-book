@@ -1863,3 +1863,11 @@
 **Reason:** The exact Volume 05 pages already cover solver engines, quote/risk inputs, external-solver waterfalls, Force Close, solver liquidation modes, insurance/loss waterfalls, and SYMM LP accounting. Readers still need one overview that explains how those pages fit together before they dive into a narrow lifecycle or case-study question.
 
 **Status:** Accepted for compendium authoring. Exact contract interfaces, oracle thresholds, solver routing and quote policy, hedging venues, TWAP behavior, slippage allocation, vault rights, Force Close timers, proof-network details, liquidation thresholds, CVA sizing, insurance formulas, local/global loss allocation, ADL behavior, LP yield claims, partner traction, fee shares, live capacity, and SYMM LP performance extrapolation remain implementation, risk, legal, accounting, security, product, and operator review items before publication.
+
+## D-234: Use Volume 06 As The Referral Market-Formation Reading Order
+
+**Decision:** Expand `authored-volume-06-referrals-and-market-formation` into the canonical book-level entry point for referral market-formation, resolved 15-level public wording, architecture/security paths, policy metrics, rewards rails, and future-composability boundaries.
+
+**Reason:** The exact Volume 06 pages already cover referral architecture, points, rewards, security controls, metrics, reward packs, and tokenized-points hypotheticals. The volume overview still carried stale "depth unresolved" language, so readers needed one updated route that separates current public facts from future-facing economics and implementation-sensitive claims.
+
+**Status:** Accepted for compendium authoring. Public v1 referral depth is fifteen levels and historical backfill is additive. Final TGE formulas, claim mechanics, transferable rewards, signer topology, reward-pack supply and expected value, partner overlays, private economics, anti-gaming thresholds, dispute tooling, live KPI formulas, public dashboard release wording, market-scoped payout rules, and tokenized-points scenarios remain product, security, legal, accounting, implementation, and operator review items before publication.

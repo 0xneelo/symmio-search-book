@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Reading Order Overview
+
+- Expanded `authored-volume-06-referrals-and-market-formation` from a stale review-marked stub into a book-level reading order for referral market-formation, resolved 15-level public wording, architecture/security paths, policy metrics, reward rails, and tokenized-points hypotheticals.
+- Routed one new Ask question, "How should I read Volume 06 on referrals and market formation?", to the Volume 06 overview so broad reader-orientation demand lands on the compendium entry point instead of a narrow referral policy page.
+- Updated the volume boundary so the old 5-level language is historical/stale context while final TGE formulas, claim mechanics, transferable rewards, signer topology, reward-pack supply/EV, partner overlays, private economics, anti-gaming thresholds, dispute tooling, live KPI formulas, public dashboard release wording, market-scoped payout rules, and tokenized-points scenarios remain review-bound.
+
 ## 2026-06-30 — Volume 05 Reading Order Overview
 
 - Expanded `authored-volume-05-solver-lp-and-protocol-operations` from a short volume stub into a book-level reading order for architecture boundaries, solver operating pages, DDQ diligence routes, failure/loss-handling pages, and the SYMM LP case-study path.
