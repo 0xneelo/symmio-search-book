@@ -623,6 +623,11 @@ Questions are grouped by whether the current source set can answer them.
 | How might competitors respond to Vibe? | `authored-competitive-response-scenario-map` | Medium | Neelo maps response scenarios for order-book venues, vault-first venues, and new entrants; the page treats them as scenarios, not factual predictions. |
 | Which moats does Neelo's competitive scorecard name? | `authored-sustainable-moat-scorecard` | Medium | The Section 8 moat scorecard separates technical, market-position, and ecosystem advantages while requiring current evidence for live durability claims. |
 | What would competitors need to replicate Vibe? | `authored-competitive-replication-checklist` | Medium | The competitive summary turns replication into a checklist across architecture, solver operation, capital design, data, and integrations, without claiming final dominance. |
+| Why are prediction markets not enough for Vibe's verification thesis? | `authored-prediction-market-resolution-bottleneck` | Medium | Neelo's Beyond Polymarket section says resolved prediction markets still need setup and adjudication, so they cannot cover every synthetic claim. |
+| Why does long-tail verification need market throughput? | `authored-long-tail-verification-throughput` | Medium | Neelo frames infinite AI claims and instant token issuance as a throughput problem that permissionless derivatives can make more priceable. |
+| What is the ticker-tape verification layer? | `authored-ticker-tape-verification-layer` | Medium | Neelo's crisis-of-verification source treats price, liquidity, persistence, and market pressure as running signals rather than perfect truth. |
+| Why does controlling the token lifecycle matter? | `authored-token-lifecycle-control-thesis` | Medium | Neelo's listing-game source argues that the layer producing credible pre-listing market evidence can influence downstream listing decisions. |
+| What does the Thumbs Down mean in Vibe's thesis? | `authored-thumbs-down-market-position` | Medium | Neelo's Thumbs Down section frames negative conviction as a market position, not merely a dislike reaction; product details remain review-bound. |
 
 ## Prototype Event Log
 

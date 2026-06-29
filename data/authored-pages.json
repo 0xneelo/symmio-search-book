@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 636,
+  "totalPages": 641,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 466,
-    "publication-candidate": 150,
+    "publication-candidate-needs-operator-review": 468,
+    "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
-    "publication-candidate-needs-editorial-review": 2,
+    "publication-candidate-needs-editorial-review": 3,
     "publication-candidate-needs-fresh-source-review": 1,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 358,
+    "manifesto": 363,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -5434,6 +5434,30 @@
       "excerpt": "The Long Tail Perp Model Map The practical landscape can be reduced to a model map. CLOBs are best when a market is mature enough for continuous two sided flow. Vault or LP rails can support some order book liquidity, but they do not remove maker economics. Strict listing policy protects microstructure at the cost of breadth. Collateralized pools can quote earlier than a CLOB, but they face finite universe size, tail TVL fragmentation, oracle risk, and mismatch between the pool's backstop and the token narrative being traded. Percolator family systems can open markets quickly and keep more logic on chain, but fast listing does not answer settlement reliability when the book is one sided, USDC settlement lacks inventory, or token margined collateral becomes reflexive. Vibe's thesis sits in the gap between those rows. The system needs the openness of permissionless listing, the trader legibility of stable settlement, the market specificity of token inventory, and the operational judgment of a solver/risk layer that can change behavior as the market matures. Reader Implication This page should orient readers before they enter the deeper architecture sections. Every design is a tradeof"
     },
     {
+      "id": "authored-long-tail-verification-throughput",
+      "title": "Long-Tail Verification Needs Throughput",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket",
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "section-14-information-trade-convergence-14-docs-03-beyond-polymarket-3-3-solving-the-long-tail",
+        "section-14-information-trade-convergence-14-docs-05-intent-based-architecture-5-4-the-long-tail-engine",
+        "authored-intent-otc-long-tail-verification"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/long-tail-verification-throughput.md",
+      "bodyMarkdown": "# Long-Tail Verification Needs Throughput\n\nThe long-tail problem is a throughput problem. A verification system that depends on manual market creation, formal question design, or explicit resolution cannot keep up with a world where new claims and new tokens can be generated continuously.\n\nNeelo's source uses AI-generated media and instantly tokenized claims to make the point. The issue is not only misinformation. It is volume. The market cannot wait for a committee, resolver, or mainstream platform to decide which claims deserve markets. Most claims will be too small, too local, too fast-moving, or too strange for that process.\n\nThis is where permissionless derivatives become more than speculation. If a market can form around any sufficiently priceable token or claim, then verification can happen at the edge. Participants express belief or skepticism through positions. Solvers decide whether the risk is quoteable. Liquidity, spread, funding, short interest, and persistence become evidence.\n\nThat does not make every long-tail market correct. It makes more claims testable. In a world of synthetic abundance, increasing the number of claims that can face capital is a different kind of information infrastructure.\n\n## Reader Implication\n\nReaders should understand the long tail as a scale argument. Vibe's thesis depends on making more claims priceable, not on pretending every claim deserves a mature order book on day one.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Beyond Polymarket: 3.3 Solving the Long Tail\".\n- `vibe-papers`: Neelo, \"Section 5: Intent-Based Architecture: 5.4 The Long Tail Engine\".\n\n## Related Pages\n\n- `authored-intent-otc-long-tail-verification`\n- `authored-universal-perp-wedge`\n- `authored-scale-of-long-tail-perp-problem`",
+      "excerpt": "Long Tail Verification Needs Throughput The long tail problem is a throughput problem. A verification system that depends on manual market creation, formal question design, or explicit resolution cannot keep up with a world where new claims and new tokens can be generated continuously. Neelo's source uses AI generated media and instantly tokenized claims to make the point. The issue is not only misinformation. It is volume. The market cannot wait for a committee, resolver, or mainstream platform to decide which claims deserve markets. Most claims will be too small, too local, too fast moving, or too strange for that process. This is where permissionless derivatives become more than speculation. If a market can form around any sufficiently priceable token or claim, then verification can happen at the edge. Participants express belief or skepticism through positions. Solvers decide whether the risk is quoteable. Liquidity, spread, funding, short interest, and persistence become evidence. That does not make every long tail market correct. It makes more claims testable. In a world of synthetic abundance, increasing the number of claims that can face capital is a different kind of infor"
+    },
+    {
       "id": "authored-losing-trader-first-loss",
       "title": "Losing Traders As First Loss",
       "section": "protocol-reference",
@@ -7447,6 +7471,29 @@
       "file": "content/authored/manifesto/pre-revenue-commitment-signal.md",
       "bodyMarkdown": "# Pre-Revenue Commitment Is A Signal, Not Proof\n\nNeelo's validation section treats launch-partner commitment before full product maturity as meaningful evidence. The compendium should preserve that signal, but it should not confuse it with final proof.\n\nPre-revenue commitment can say several useful things. It can show that projects understand the problem Vibe is solving. It can show that token holders and treasuries value an alternative to stablecoin-heavy listing paths. It can show that the project-side offer is legible before payouts, historical yields, or permissionless listing workflows are fully observable.\n\nBut it cannot prove that the market will be sustainable. A project can commit inventory because the proposition is attractive and still discover later that trader flow is weak, solver costs are high, spreads are too wide, or stress behavior is worse than expected. Partner count is demand evidence, not a substitute for market evidence.\n\n## How To Use The Signal\n\nThe docs should use pre-revenue commitment as an early validation layer. It belongs before operational metrics, not after them.\n\nThe sequence is:\n\n- projects commit because the alternative-cost stack is painful;\n- markets launch and produce actual trader behavior;\n- trader behavior produces fees, funding, liquidations, solver exposure, and support questions;\n- the living-docs and reporting layer show which markets are maturing and which remain subsidized or stressed.\n\nThat framing lets the compendium stay honest. Early partner interest matters because sophisticated projects rarely commit inventory to a proposition they do not understand. Sustainable proof arrives later, through repeated market use and stress outcomes.\n\n## Publication Note\n\nThe source includes specific launch-partner and deposited-value figures. Those figures need current operator-approved sourcing before final publication. This page documents the evidentiary role of pre-revenue commitment rather than publishing a live metric.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Validation and Sustainability\".\n\n## Related Pages\n\n- `authored-proof-value-validation-sustainability`\n- `authored-no-ponzi-market-revenue-test`\n- `authored-project-token-utility-without-stablecoin`",
       "excerpt": "Pre Revenue Commitment Is A Signal, Not Proof Neelo's validation section treats launch partner commitment before full product maturity as meaningful evidence. The compendium should preserve that signal, but it should not confuse it with final proof. Pre revenue commitment can say several useful things. It can show that projects understand the problem Vibe is solving. It can show that token holders and treasuries value an alternative to stablecoin heavy listing paths. It can show that the project side offer is legible before payouts, historical yields, or permissionless listing workflows are fully observable. But it cannot prove that the market will be sustainable. A project can commit inventory because the proposition is attractive and still discover later that trader flow is weak, solver costs are high, spreads are too wide, or stress behavior is worse than expected. Partner count is demand evidence, not a substitute for market evidence. How To Use The Signal The docs should use pre revenue commitment as an early validation layer. It belongs before operational metrics, not after them. The sequence is: projects commit because the alternative cost stack is painful; markets launch an"
+    },
+    {
+      "id": "authored-prediction-market-resolution-bottleneck",
+      "title": "Prediction Markets Still Need A Resolution Layer",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket"
+      ],
+      "relatedGeneratedPages": [
+        "section-14-information-trade-convergence-14-docs-03-beyond-polymarket-3-1-the-polymarket-problem",
+        "neelo-14-information-trade-convergence-14-docs-03-beyond-polymarket",
+        "authored-beyond-polymarket-continuous-truth-markets"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/prediction-market-resolution-bottleneck.md",
+      "bodyMarkdown": "# Prediction Markets Still Need A Resolution Layer\n\nPrediction markets are powerful, but Neelo's Information/Trade source treats them as only the first step toward market-based verification.\n\nThe constraint is resolution. A prediction market usually needs a question to be created, bounded, traded, and later resolved by a human, oracle mechanism, or formal adjudication process. That works best for large public events with known endpoints. It works less well for the long tail of claims that are local, weird, AI-generated, niche, or too numerous for anyone to curate.\n\nThis is why the source distinguishes prediction markets from continuous market verification. A prediction market asks whether an event happened. A continuous token or derivatives market keeps asking whether capital still believes, whether liquidity remains, whether skeptics can attack the claim, and whether the claim survives over time.\n\nThe compendium should keep this distinction precise. Vibe is not \"Polymarket with perps.\" The deeper thesis is that permissionless derivatives can make verification continuous for assets and claims that never receive a clean prediction-market resolution path.\n\n## Reader Implication\n\nIf a reader asks why prediction markets are not enough, route them here first. The answer is not that prediction markets fail; it is that they still need market creation and resolution machinery that cannot cover infinite synthetic information.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Beyond Polymarket: 3.1 The Polymarket Problem\".\n\n## Related Pages\n\n- `authored-beyond-polymarket-continuous-truth-markets`\n- `authored-market-cap-as-costly-signal`\n- `authored-market-eye-view`",
+      "excerpt": "Prediction Markets Still Need A Resolution Layer Prediction markets are powerful, but Neelo's Information/Trade source treats them as only the first step toward market based verification. The constraint is resolution. A prediction market usually needs a question to be created, bounded, traded, and later resolved by a human, oracle mechanism, or formal adjudication process. That works best for large public events with known endpoints. It works less well for the long tail of claims that are local, weird, AI generated, niche, or too numerous for anyone to curate. This is why the source distinguishes prediction markets from continuous market verification. A prediction market asks whether an event happened. A continuous token or derivatives market keeps asking whether capital still believes, whether liquidity remains, whether skeptics can attack the claim, and whether the claim survives over time. The compendium should keep this distinction precise. Vibe is not \"Polymarket with perps.\" The deeper thesis is that permissionless derivatives can make verification continuous for assets and claims that never receive a clean prediction market resolution path. Reader Implication If a reader ask"
     },
     {
       "id": "authored-profitable-fact-checking-loop",
@@ -12221,6 +12268,29 @@
       "excerpt": "The Thielian Listing Monopoly Neelo's Thiel analysis reframes the gap filling perp thesis as a monopoly strategy rather than a feature checklist. The relevant market is not all perps. It is the narrow category of tokens that have graduated into spot trading but do not yet qualify for serious derivatives venues. That narrow market matters because it is small enough to own and structurally underserved. Mature venues do not want to list everything manually. Order books need liquidity before they work. Pure listing systems can create empty markets. A protocol that can bootstrap tradeable long tail perps begins with a bounded category where the status quo is close to nothing. The value creation side is clear: traders get exposure, hedgers get protection, projects get market evidence, and downstream venues get better listing intelligence. The value capture side comes from the bridge position: fees, spreads, data, integrations, and eventually the default habit of using one layer to move markets from early spot to mature derivatives. The durability claim depends on execution. Data compounds only if real markets use the system. Partnerships matter only if they route meaningful flow. The boo"
     },
     {
+      "id": "authored-thumbs-down-market-position",
+      "title": "The Thumbs Down Is A Market Position",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down"
+      ],
+      "relatedGeneratedPages": [
+        "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-1-the-conceptual-hook",
+        "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-3-the-product",
+        "authored-financialized-rejection-thumbs-down"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thumbs-down-market-position.md",
+      "bodyMarkdown": "# The Thumbs Down Is A Market Position\n\nThe Thumbs Down should not be documented as a social reaction button. In Neelo's source, it is a financial position.\n\nThat distinction matters. Web2 made negative feedback weak because disagreement often produced more engagement. Crypto made negative feedback weak because many early token markets were effectively long-only: buy, hold, ignore, or leave. Neither system gives informed skepticism a clean way to become price pressure.\n\nThe Thumbs Down thesis is that rejection should be expressible as a trade. A user is not merely saying \"I dislike this.\" The user is taking exposure to the downside of a claim or token, through a short-like instrument that depends on inventory, solver execution, risk controls, and settlement rules.\n\nThis page should stay product-careful. The source uses weapon language. Public docs should translate it into market mechanics: borrow or synthetic short exposure, solver-mediated execution, risk limits, and the possibility of profit when a weak claim collapses. Exact UI, eligible assets, leverage, borrow mechanics, and user-risk disclosures remain product and legal review.\n\n## Reader Implication\n\nIf readers ask what the Thumbs Down actually is, the answer is not \"a dislike button.\" It is Vibe's framing for financialized negative conviction in the tokenized economy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Thumbs Down: 8.1 The Conceptual Hook\".\n- `vibe-papers`: Neelo, \"Section 8: The Thumbs Down: 8.3 The Product\".\n\n## Related Pages\n\n- `authored-financialized-rejection-thumbs-down`\n- `authored-thumbs-down-mechanism-stack`\n- `authored-no-button-market-filter`",
+      "excerpt": "The Thumbs Down Is A Market Position The Thumbs Down should not be documented as a social reaction button. In Neelo's source, it is a financial position. That distinction matters. Web2 made negative feedback weak because disagreement often produced more engagement. Crypto made negative feedback weak because many early token markets were effectively long only: buy, hold, ignore, or leave. Neither system gives informed skepticism a clean way to become price pressure. The Thumbs Down thesis is that rejection should be expressible as a trade. A user is not merely saying \"I dislike this.\" The user is taking exposure to the downside of a claim or token, through a short like instrument that depends on inventory, solver execution, risk controls, and settlement rules. This page should stay product careful. The source uses weapon language. Public docs should translate it into market mechanics: borrow or synthetic short exposure, solver mediated execution, risk limits, and the possibility of profit when a weak claim collapses. Exact UI, eligible assets, leverage, borrow mechanics, and user risk disclosures remain product and legal review. Reader Implication If readers ask what the Thumbs Down"
+    },
+    {
       "id": "authored-thumbs-down-mechanism-stack",
       "title": "The Thumbs Down Mechanism Stack",
       "section": "manifesto",
@@ -12243,6 +12313,29 @@
       "file": "content/authored/manifesto/thumbs-down-mechanism-stack.md",
       "bodyMarkdown": "# The Thumbs Down Mechanism Stack\n\nThe \"Thumbs Down\" is useful because it compresses the negative-side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it.\n\nThe first layer is inventory. The source calls this the whale-vault layer: token holders, projects, or large inventory owners supply the asset exposure that makes short-side access possible. Without borrowable or usable inventory, a short button is only a slogan.\n\nThe second layer is execution. Solvers price and route the requested risk. They decide whether the trade is fillable, where the spread should be, and whether current conditions make quoting unsafe. This is why the Thumbs Down belongs inside the intent and solver architecture rather than inside a simple reaction interface.\n\nThe third layer is the user intent. The user expresses the skeptical view by taking a short-side position. That action is not just sentiment. It is capital at risk, bounded by the system's margin, liquidity, solver, vault, and settlement rules.\n\nPublication prose should translate the source's aggressive rhetoric into mechanism. Vibe is not simply making negativity tradable. It is attempting to assemble inventory, solver execution, and risk controls so the market can express rejection where spot-only systems cannot.\n\n## Reader Implication\n\nIf someone asks what makes the Thumbs Down real, the answer is the stack: inventory provides capacity, solvers provide pricing and execution, and users provide the directional intent. The icon is only the visible edge of that mechanism.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Thumbs Down: 8.4 The Mechanism\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model\".\n\n## Related Pages\n\n- `authored-financialized-rejection-thumbs-down`\n- `authored-whale-vault-risk-tranching`\n- `authored-hybrid-solver-liquidity-waterfall`",
       "excerpt": "The Thumbs Down Mechanism Stack The \"Thumbs Down\" is useful because it compresses the negative side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it. The first layer is inventory. The source calls this the whale vault layer: token holders, projects, or large inventory owners supply the asset exposure that makes short side access possible. Without borrowable or usable inventory, a short button is only a slogan. The second layer is execution. Solvers price and route the requested risk. They decide whether the trade is fillable, where the spread should be, and whether current conditions make quoting unsafe. This is why the Thumbs Down belongs inside the intent and solver architecture rather than inside a simple reaction interface. The third layer is the user intent. The user expresses the skeptical view by taking a short side position. That action is not just sentiment. It is capital at risk, bounded by the system's margin, liquidity, solver, vault, and settlement rules. Publication prose should translate the source's aggressive rhetoric into mechanism. Vibe is not simply making negat"
+    },
+    {
+      "id": "authored-ticker-tape-verification-layer",
+      "title": "The Ticker Tape Verification Layer",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-editorial-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/02-crisis-of-verification"
+      ],
+      "relatedGeneratedPages": [
+        "section-14-information-trade-convergence-14-docs-02-crisis-of-verification-2-4-the-new-verification-layer",
+        "section-14-information-trade-convergence-14-docs-02-crisis-of-verification-2-5-the-danger-plutocracy-of-truth",
+        "authored-market-cap-as-costly-signal"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/ticker-tape-verification-layer.md",
+      "bodyMarkdown": "# The Ticker Tape Verification Layer\n\nNeelo's source argues that the internet's verification layer changes when information becomes cheap to manufacture and assets become cheap to launch.\n\nThe old mental model is a library: information is stored, searched, cited, and judged by institutions, media brands, experts, or communities. That model still matters, but it weakens when synthetic content can be produced faster than institutions can review it.\n\nThe new mental model is closer to a ticker tape. Claims become attached to markets. Those markets produce running signals: price, liquidity, volatility, persistence, short pressure, solver appetite, and funding stress. None of those signals is perfect truth. Together they create a costly, adversarial verification surface that unsupported content lacks.\n\nThis page should keep the rhetoric bounded. The source says truth becomes an asset class; production docs should translate that into mechanics. A tokenized claim with a market is not automatically true. It is exposed to capitalized belief and capitalized rejection. That exposure is the verification primitive.\n\n## Reader Implication\n\nThe answer engine should use this page when readers ask why Vibe treats trading data as information. The durable claim is that markets can add costly evidence to claims, not that prices are infallible truth.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: The Crisis of Verification: 2.4 The New Verification Layer\".\n- `vibe-papers`: Neelo, \"Section 2: The Crisis of Verification: 2.5 The Danger: Plutocracy of Truth\".\n\n## Related Pages\n\n- `authored-market-cap-as-costly-signal`\n- `authored-proof-value-shadow-side`\n- `authored-market-price-as-verification`",
+      "excerpt": "The Ticker Tape Verification Layer Neelo's source argues that the internet's verification layer changes when information becomes cheap to manufacture and assets become cheap to launch. The old mental model is a library: information is stored, searched, cited, and judged by institutions, media brands, experts, or communities. That model still matters, but it weakens when synthetic content can be produced faster than institutions can review it. The new mental model is closer to a ticker tape. Claims become attached to markets. Those markets produce running signals: price, liquidity, volatility, persistence, short pressure, solver appetite, and funding stress. None of those signals is perfect truth. Together they create a costly, adversarial verification surface that unsupported content lacks. This page should keep the rhetoric bounded. The source says truth becomes an asset class; production docs should translate that into mechanics. A tokenized claim with a market is not automatically true. It is exposed to capitalized belief and capitalized rejection. That exposure is the verification primitive. Reader Implication The answer engine should use this page when readers ask why Vibe tre"
     },
     {
       "id": "authored-token-denominated-fee-illusion",
@@ -12362,6 +12455,29 @@
       "file": "content/authored/manifesto/token-inventory-structural-capital.md",
       "bodyMarkdown": "# Token Inventory As Structural Capital\n\nFigure4 gives the token-inventory design a simpler structural-capital equation: `K_V = T`.\n\n`T` is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is `Q_V = lambda * T`, so systemic leverage becomes `sysLev_V = Q_V / K_V = lambda`. The capital base is the inventory itself because the asset holders already own the risk that the market is trying to organize.\n\nThat does not remove risk. It changes the capital source. Instead of asking generic USDC LPs to underwrite every low-cap market, the system starts from market-native inventory whose holders may want token utility, liquidity, hedging, and fee flow around the asset they already hold.\n\n## Reader Implication\n\nToken inventory should be documented as structural market capital, not as decorative staking. It becomes useful when solver operations, settlement rules, risk limits, and loss allocation make that inventory available to support real market exposure.\n\n## Publication Boundary\n\nKeep `K_V = T` and `sysLev_V = lambda` as source-model notation until live inventory eligibility, withdrawal rights, rehypothecation limits, solver access, risk limits, loss ordering, and accounting treatment are approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure4\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-token-inventory-risk-localization`\n- `authored-risk-adjusted-capital-efficiency`",
       "excerpt": "Token Inventory As Structural Capital Figure4 gives the token inventory design a simpler structural capital equation: K V = T . T is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is Q V = lambda T , so systemic leverage becomes sysLev V = Q V / K V = lambda . The capital base is the inventory itself because the asset holders already own the risk that the market is trying to organize. That does not remove risk. It changes the capital source. Instead of asking generic USDC LPs to underwrite every low cap market, the system starts from market native inventory whose holders may want token utility, liquidity, hedging, and fee flow around the asset they already hold. Reader Implication Token inventory should be documented as structural market capital, not as decorative staking. It becomes useful when solver operations, settlement rules, risk limits, and loss allocation make that inventory available to support real market exposure. Publication Boundary Keep K V = T and sysLev V = lambda as source model notation until live inventory eligibility, withdrawal rights, rehypothecation limits, solver access, risk limits, loss or"
+    },
+    {
+      "id": "authored-token-lifecycle-control-thesis",
+      "title": "Control The Token Lifecycle, Control The Signal",
+      "section": "manifesto",
+      "track": "14 - Information and Trade Convergence",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings"
+      ],
+      "relatedGeneratedPages": [
+        "section-14-information-trade-convergence-14-docs-07-game-theory-of-listings-7-1-the-british-empire-analogy",
+        "section-14-information-trade-convergence-14-docs-07-game-theory-of-listings-7-2-the-listing-gatekeeping-problem",
+        "authored-vibe-as-listing-source-of-truth"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/token-lifecycle-control-thesis.md",
+      "bodyMarkdown": "# Control The Token Lifecycle, Control The Signal\n\nNeelo's listing-game source makes a strategic claim: the valuable position is not only the final trading venue. It is the layer that shapes how a token moves from launch chaos toward credible market status.\n\nListing power exists because downstream venues must decide which assets deserve scarce attention, risk budget, market-maker support, and user trust. If those venues can only observe perceived value, the game rewards narrative, relationships, deposits, campaigns, and fake-looking demand signals. Projects optimize for appearing listable.\n\nVibe's thesis is that an earlier derivatives layer can produce better signals. A token that trades through a two-sided derivatives environment generates data that a committee or builder can inspect: real demand, short-side pressure, solver appetite, volatility, quote quality, and persistence. That can change listing from persuasion into evidence.\n\nThe source uses empire and sea-control analogies. The public compendium should keep the sharper strategic point and avoid overclaiming. The durable idea is lifecycle leverage: whoever creates trusted market evidence before mature venues list an asset can influence what downstream venues believe is real.\n\n## Reader Implication\n\nThis page explains why Vibe's discovery layer matters even if later order-book venues remain important. The layer that creates credible pre-listing evidence can become part of the listing decision itself.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: The Game Theory of Listings: 7.1 The British Empire Analogy\".\n- `vibe-papers`: Neelo, \"Section 7: The Game Theory of Listings: 7.2 The Listing Gatekeeping Problem\".\n\n## Related Pages\n\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-perceived-vs-actual-listing-interest`\n- `authored-listing-threshold-left-of-obvious-demand`",
+      "excerpt": "Control The Token Lifecycle, Control The Signal Neelo's listing game source makes a strategic claim: the valuable position is not only the final trading venue. It is the layer that shapes how a token moves from launch chaos toward credible market status. Listing power exists because downstream venues must decide which assets deserve scarce attention, risk budget, market maker support, and user trust. If those venues can only observe perceived value, the game rewards narrative, relationships, deposits, campaigns, and fake looking demand signals. Projects optimize for appearing listable. Vibe's thesis is that an earlier derivatives layer can produce better signals. A token that trades through a two sided derivatives environment generates data that a committee or builder can inspect: real demand, short side pressure, solver appetite, volatility, quote quality, and persistence. That can change listing from persuasion into evidence. The source uses empire and sea control analogies. The public compendium should keep the sharper strategic point and avoid overclaiming. The durable idea is lifecycle leverage: whoever creates trusted market evidence before mature venues list an asset can inf"
     },
     {
       "id": "authored-token-lp-attractiveness-model",

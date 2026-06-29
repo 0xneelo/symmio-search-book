@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 617
+      "totalGoldenRoutes": 622
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 635,
-    "retrievalEligiblePages": 1427,
+    "publicNavigationPages": 640,
+    "retrievalEligiblePages": 1432,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 635,
+      "candidate": 640,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 617,
-    "exactRouteTestsPassing": 617,
+    "totalExactRouteTests": 622,
+    "exactRouteTestsPassing": 622,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 617
+      "candidate": 622
     },
     "exactRoutesByConfidence": {
-      "Medium": 397,
+      "Medium": 402,
       "High": 44,
       "Low": 176
     },
@@ -13642,6 +13642,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-would-competitors-need-to-replicate-vibe",
         "passes": true
+      },
+      {
+        "id": "qr-why-are-prediction-markets-not-enough-for-vibe-s-verification-thesis",
+        "query": "Why are prediction markets not enough for Vibe's verification thesis?",
+        "normalizedQuery": "why are prediction markets not enough for vibe s verification thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-prediction-market-resolution-bottleneck",
+        "expectedPageTitle": "Prediction Markets Still Need A Resolution Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-prediction-markets-not-enough-for-vibe-s-verification-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-long-tail-verification-need-market-throughput",
+        "query": "Why does long-tail verification need market throughput?",
+        "normalizedQuery": "why does long tail verification need market throughput",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-long-tail-verification-throughput",
+        "expectedPageTitle": "Long-Tail Verification Needs Throughput",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-long-tail-verification-need-market-throughput",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-ticker-tape-verification-layer",
+        "query": "What is the ticker-tape verification layer?",
+        "normalizedQuery": "what is the ticker tape verification layer",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ticker-tape-verification-layer",
+        "expectedPageTitle": "The Ticker Tape Verification Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-ticker-tape-verification-layer",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-controlling-the-token-lifecycle-matter",
+        "query": "Why does controlling the token lifecycle matter?",
+        "normalizedQuery": "why does controlling the token lifecycle matter",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-lifecycle-control-thesis",
+        "expectedPageTitle": "Control The Token Lifecycle, Control The Signal",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-controlling-the-token-lifecycle-matter",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-thumbs-down-mean-in-vibe-s-thesis",
+        "query": "What does the Thumbs Down mean in Vibe's thesis?",
+        "normalizedQuery": "what does the thumbs down mean in vibe s thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thumbs-down-market-position",
+        "expectedPageTitle": "The Thumbs Down Is A Market Position",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-thumbs-down-mean-in-vibe-s-thesis",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -13717,7 +13822,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 617,
+      "exactRoutes": 622,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

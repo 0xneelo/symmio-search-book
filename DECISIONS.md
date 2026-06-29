@@ -1319,3 +1319,11 @@
 **Reason:** Existing competitive pages already covered architectural lock-in, state migration, solver complexity, capital-efficiency traps, integration/data network effects, and Thiel scorecard interpretation. The remaining Section 8 headings still needed direct Ask routes for timing, first-mover learning, response scenarios, moat categories, and what a competitor would actually need to replicate.
 
 **Status:** Accepted for the authored manifesto layer; live market metrics, partner status, first-mover dominance, competitor roadmaps, LP stickiness, integration lock-in, development timelines, and final superiority claims remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-166: Split Information Trade Convergence Into Exact Verification Answers
+
+**Decision:** Add authored Volume 02/03 manifesto pages for prediction-market resolution bottlenecks, long-tail verification throughput, ticker-tape verification, token-lifecycle control, and the Thumbs Down as a market position.
+
+**Reason:** The existing Information/Trade and Proof of Value pages covered the broad thesis, but the generated section map still had uncovered atomic source headings. Answer-engine readers need direct routes for why resolved prediction markets are not enough, why synthetic abundance creates a throughput problem, how market data becomes a verification surface, why lifecycle control changes listing incentives, and what the Thumbs Down is mechanically.
+
+**Status:** Accepted for the authored manifesto layer; exact product UI, eligible assets, leverage, borrow mechanics, solver policy, graduation/listing thresholds, market-cap rules, legal language, and user-risk disclosures remain operator/product/risk/legal/implementation review.

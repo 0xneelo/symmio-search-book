@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Information Trade Convergence Exact Pages
+
+- Added 5 authored Volume 02/03 manifesto pages from Neelo's Information and Trade Convergence source.
+- Split uncovered source sections into exact answer routes for prediction-market resolution bottlenecks, long-tail verification throughput, ticker-tape verification, token-lifecycle control, and the Thumbs Down as a market position.
+- Extended the question ledger so Ask can answer Polymarket/oracle, long-tail, verification-layer, listing-control, and Thumbs Down product-framing questions without collapsing them into broad Proof of Value or listing-source-of-truth pages.
+- Kept exact product UI, eligible assets, leverage, borrow mechanics, solver policy, downstream listing rules, market-cap thresholds, and legal/user-risk language marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Technical Deep-Dive Exact Pages
 
 - Added 5 authored Volume 05 manifesto pages from Neelo's Perp Classes / Z-Score technical-deep-dive source.
