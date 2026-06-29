@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 780
+      "totalGoldenRoutes": 781
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 794,
-    "retrievalEligiblePages": 1586,
+    "publicNavigationPages": 795,
+    "retrievalEligiblePages": 1587,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 794,
+      "candidate": 795,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 780,
-    "exactRouteTestsPassing": 780,
+    "totalExactRouteTests": 781,
+    "exactRouteTestsPassing": 781,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 780
+      "candidate": 781
     },
     "exactRoutesByConfidence": {
       "Medium": 487,
       "High": 44,
-      "Low": 249
+      "Low": 250
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -8517,6 +8517,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 1,
         "faqEntryId": "faq-why-does-vibe-praise-order-books",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-ode-to-orderbooks-source-set",
+        "query": "How should I read the Ode to OrderBooks source set?",
+        "normalizedQuery": "how should i read the ode to orderbooks source set",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ode-orderbooks-source-navigation-map",
+        "expectedPageTitle": "Ode To OrderBooks Source Navigation Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-should-i-read-the-ode-to-orderbooks-source-set",
         "passes": true
       },
       {
@@ -18431,7 +18452,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 780,
+      "exactRoutes": 781,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Ode To OrderBooks Source Navigation Coverage
+
+- Added `authored-ode-orderbooks-source-navigation-map` to route Neelo's remaining Ode to OrderBooks abstract, thesis, overview, table-of-contents, core-thesis, and source-marker fragments into existing authored order-book complementarity pages.
+- Mapped 7 uncovered generated section companions covering the abstract, introduction thesis, dissertation overview, table of contents, core thesis, overview source marker, and conclusion source marker.
+- Routed one new Ask question, "How should I read the Ode to OrderBooks source set?", to the new source-navigation page.
+- Kept direct Hyperliquid integrations, SSHE mechanics, automatic graduation rules, current order-book listing policies, market-maturity thresholds, venue economics, launchpad partnerships, and house-of-all-finance commitments under fresh primary-source/operator/product/market/risk/legal/security review.
+
 ## 2026-06-29 — Listing Monopoly Source Navigation Coverage
 
 - Added `authored-listing-monopoly-source-navigation-map` to route Neelo's remaining Listing Monopoly overview, 4Z summary, conclusion-reference, acknowledgment, and version-history source fragments into existing authored Listing Monopoly pages.

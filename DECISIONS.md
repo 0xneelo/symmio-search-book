@@ -1743,3 +1743,11 @@
 **Reason:** The uncovered items are mostly paper overview, table-of-contents, reading-order, source-reference, acknowledgment, version-history, and summary fragments. Promoting them into standalone public pages would duplicate the already-authored Listing Monopoly spine and risk publishing placeholder source TODOs as final claims. A single source map preserves traceability while keeping review-sensitive metrics and examples in their proper boundary.
 
 **Status:** Accepted for source-traceability coverage. Source-time market-share claims, venue-listing histories, PumpFun graduation metrics, Uniswap dominance figures, Hyperliquid HIP-3 details, DEX-to-perp threshold bands, low-cap perp wedge sizing, downstream listing influence, and monopoly verdicts remain fresh primary-source/operator/product/market/risk/legal/accounting review items before publication.
+
+## D-219: Map Ode To OrderBooks Navigation Fragments Through One Source Map
+
+**Decision:** Add `authored-ode-orderbooks-source-navigation-map` to cover the remaining uncovered generated section fragments from Neelo's Ode to OrderBooks overview, abstract, introduction thesis, and conclusion source markers, routing readers into existing authored pages for order books as the mature end state, order-book bootstrap limits, RFQ before order book, market assembly line, lifecycle hardening, Hyperliquid gap, and order-book cooperation.
+
+**Reason:** The uncovered items are abstract, thesis, table-of-contents, overview, and provenance fragments. Promoting them into standalone public pages would duplicate the existing authored order-book complementarity spine while making transcript/source markers look like final claims. A single source map preserves traceability and keeps SSHE/Hyperliquid handoff language under review.
+
+**Status:** Accepted for source-traceability coverage. Direct Hyperliquid integrations, SSHE mechanics, automatic graduation rules, current order-book listing policies, market-maturity thresholds, venue economics, launchpad partnerships, and house-of-all-finance commitments remain fresh primary-source/operator/product/market/risk/legal/security review items before publication.
