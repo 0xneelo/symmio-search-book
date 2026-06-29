@@ -6,8 +6,8 @@ track: "13 — Proof of Value Framework"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"]
-relatedGeneratedPages: ["neelo-13-framework-value-permissionless-perps-13-docs-00-abstract", "neelo-13-framework-value-permissionless-perps-13-docs-02-framework", "authored-economic-clarity-for-permissionless-perps"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"]
+relatedGeneratedPages: ["neelo-13-framework-value-permissionless-perps-13-docs-overview", "neelo-13-framework-value-permissionless-perps-13-docs-00-abstract", "neelo-13-framework-value-permissionless-perps-13-docs-02-framework", "authored-economic-clarity-for-permissionless-perps"]
 ---
 
 # Proof Of Value Needs Four Constituencies

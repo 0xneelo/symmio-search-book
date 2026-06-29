@@ -5,8 +5,8 @@ section: "manifesto"
 track: "08 — Market Structure"
 status: "publication-candidate-needs-operator-review"
 sourceKeys: ["vibe-papers", "hyperliquid-hip3"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/04-the-hyperliquid-gap", "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md"]
-relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap", "authored-vibe-as-discovery-layer", "authored-order-books-as-graduation-layer"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/04-the-hyperliquid-gap", "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md"]
+relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-overview", "neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap", "authored-vibe-as-discovery-layer", "authored-order-books-as-graduation-layer"]
 volumeId: "volume-03-listing-power-and-orderbooks"
 ---
 

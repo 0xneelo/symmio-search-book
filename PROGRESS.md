@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Remaining Vision Parent Source Coverage
+
+- Mapped all 11 remaining Neelo vision generated source-page companions to existing authored manifesto pages instead of duplicating public pages.
+- Closed parent source-page coverage across Listing Monopoly, Ode to OrderBooks, Ode Part II, USDC risk figure, Fix Industry, Proof of Value Framework, and Information/Trade convergence.
+- Preserved the 794-page manifest while improving traceability from parent imports into authored thesis, landscape, conclusion, market-structure, risk-cascade, last-primitive, Proof of Value, and Strait Gate pages.
+- Kept market-share examples, live venue behavior, LP economics, capital-efficiency numbers, launch-partner metrics, solver/backstop details, and current product guarantees marked for fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Perps Bootstrap Parent Source Coverage
 
 - Mapped 5 remaining Perps Categories / Bootstrap Trilemma generated source-page companions to existing authored manifesto pages instead of duplicating content.

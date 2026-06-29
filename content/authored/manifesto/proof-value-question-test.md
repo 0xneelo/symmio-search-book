@@ -6,8 +6,8 @@ track: "13 — Proof of Value Framework"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-1-the-proof-of-value-question"]
-relatedGeneratedPages: ["section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-1-the-proof-of-value-question", "authored-proof-of-value", "authored-proof-value-four-constituencies"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-1-the-proof-of-value-question"]
+relatedGeneratedPages: ["neelo-13-framework-value-permissionless-perps-13-docs-01-introduction", "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-1-the-proof-of-value-question", "authored-proof-of-value", "authored-proof-value-four-constituencies"]
 ---
 
 # The Proof Of Value Question

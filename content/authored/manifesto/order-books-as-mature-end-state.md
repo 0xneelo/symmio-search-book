@@ -6,8 +6,8 @@ track: "04 — Ode to OrderBooks"
 status: "publication-candidate"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/06-ode-to-orderbooks"]
-relatedGeneratedPages: ["neelo-04-ode-to-the-orderbook-04-docs-00-abstract", "neelo-04-ode-to-the-orderbook-04-docs-06-ode-to-orderbooks", "authored-order-books-as-graduation-layer"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/06-ode-to-orderbooks"]
+relatedGeneratedPages: ["neelo-04-ode-to-the-orderbook-04-docs-00-abstract", "neelo-04-ode-to-the-orderbook-04-docs-01-introduction", "neelo-04-ode-to-the-orderbook-04-docs-06-ode-to-orderbooks", "authored-order-books-as-graduation-layer"]
 ---
 
 # Order Books Are The Mature End State

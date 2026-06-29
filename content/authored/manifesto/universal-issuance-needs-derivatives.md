@@ -5,8 +5,8 @@ section: "manifesto"
 track: "02 — Thesis"
 status: "publication-candidate"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"]
-relatedGeneratedPages: ["neelo-09-fix-industry-one-primitive-09-docs-03-the-issuance-revolution", "neelo-09-fix-industry-one-primitive-09-docs-04-why-the-industry-is-still-broken", "authored-market-creation-gap", "authored-last-primitive"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"]
+relatedGeneratedPages: ["neelo-09-fix-industry-one-primitive-09-docs-01-introduction", "neelo-09-fix-industry-one-primitive-09-docs-03-the-issuance-revolution", "neelo-09-fix-industry-one-primitive-09-docs-04-why-the-industry-is-still-broken", "authored-market-creation-gap", "authored-last-primitive"]
 ---
 
 # Universal Issuance Needs Derivatives

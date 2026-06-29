@@ -6,8 +6,8 @@ track: "03 - Listing Monopoly"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/07-conclusion#7-4-the-vision-restated"]
-relatedGeneratedPages: ["section-03-listing-monopoly-03-docs-07-conclusion-7-4-the-vision-restated", "authored-filled-lifecycle-gap-continuity", "authored-permissionless-perps-vision-restated", "authored-partnership-over-venue-war"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/07-conclusion", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/07-conclusion#7-4-the-vision-restated"]
+relatedGeneratedPages: ["neelo-03-listing-monopoly-03-docs-07-conclusion", "section-03-listing-monopoly-03-docs-07-conclusion-7-4-the-vision-restated", "authored-filled-lifecycle-gap-continuity", "authored-permissionless-perps-vision-restated", "authored-partnership-over-venue-war"]
 ---
 
 # Listing Monopoly Vision Restated

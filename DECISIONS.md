@@ -1615,3 +1615,11 @@
 **Reason:** These parent source-pages are table-of-contents, executive-summary, introduction, implications, and closeout routes for a corpus that already has strong exact authored coverage. Mapping them improves retrieval/source traceability while avoiding duplicate public pages and preserving the 500-800 page target discipline.
 
 **Status:** Accepted for source-traceability coverage; source-time token/perp counts, market-cap bands, lifecycle diagrams, Z-score thresholds, automatic graduation, exchange integration behavior, market sizing estimates, and roadmap claims remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-203: Map Remaining Vision Parent Source Companions To Existing Authored Pages
+
+**Decision:** Map the final 11 unmapped Neelo vision generated source-page companions to existing authored manifesto pages: Listing Monopoly overview to `authored-listing-monopoly`, Listing Landscape to `authored-listing-controller-landscape-overview`, Listing Conclusion to `authored-listing-monopoly-vision-restated`, Ode Introduction to `authored-order-books-as-mature-end-state`, Ode Part II overview to `authored-hyperliquid-gap-lower-layer`, USDC Figure2 to `authored-usdc-lp-backstop-cascade`, Fix Industry overview to `authored-last-primitive`, Fix Industry introduction to `authored-universal-issuance-needs-derivatives`, Proof of Value Framework overview to `authored-proof-value-four-constituencies`, Proof of Value Framework introduction to `authored-proof-value-question-test`, and Information/Trade overview to `authored-information-trade-convergence-crossroads`.
+
+**Reason:** These remaining source-pages are parent imports, overviews, introductions, diagrams, and conclusion/source-navigation pages whose substantive claims already route into authored manifesto coverage. Mapping them closes source-page companion traceability, improves retrieval coverage, and avoids duplicate pages while keeping the 500-800 page target at the existing 794-page manifest size.
+
+**Status:** Accepted for source-traceability coverage; current market-share examples, venue behavior, LP economics, capital-efficiency ratios, launch-partner counts, solver/backstop details, proof-of-value claims, and Information/Trade verification claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

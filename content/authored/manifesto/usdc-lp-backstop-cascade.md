@@ -6,8 +6,8 @@ track: "06 - USDC vs Token-Margined Perpetuals"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
-relatedGeneratedPages: ["neelo-06-usdc-token-perps-06-docs-overview", "neelo-06-usdc-token-perps-06-docs-figure1", "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure2", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
+relatedGeneratedPages: ["neelo-06-usdc-token-perps-06-docs-overview", "neelo-06-usdc-token-perps-06-docs-figure1", "neelo-06-usdc-token-perps-06-docs-figure2", "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs"]
 ---
 
 # The USDC LP Backstop Cascade

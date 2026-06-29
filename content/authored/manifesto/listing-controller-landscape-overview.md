@@ -6,8 +6,8 @@ track: "03 - Listing Monopoly"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/03-landscape#3-1-overview"]
-relatedGeneratedPages: ["section-03-listing-monopoly-03-docs-03-landscape-3-1-overview", "authored-listing-framework-summary", "authored-listing-monopoly-dynamics-stage-map"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/03-landscape", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/03-landscape#3-1-overview"]
+relatedGeneratedPages: ["neelo-03-listing-monopoly-03-docs-03-landscape", "section-03-listing-monopoly-03-docs-03-landscape-3-1-overview", "authored-listing-framework-summary", "authored-listing-monopoly-dynamics-stage-map"]
 ---
 
 # The Landscape Of Listing Controllers

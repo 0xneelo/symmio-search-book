@@ -6,8 +6,8 @@ track: "14 - Information and Trade Convergence"
 status: "publication-candidate"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/00-abstract"]
-relatedGeneratedPages: ["neelo-14-information-trade-convergence-14-docs-01-introduction", "section-14-information-trade-convergence-14-docs-01-introduction-1-1-two-threads-through-human-history", "section-14-information-trade-convergence-14-docs-01-introduction-1-2-the-crossroads"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/00-abstract"]
+relatedGeneratedPages: ["neelo-14-information-trade-convergence-14-docs-overview", "neelo-14-information-trade-convergence-14-docs-01-introduction", "section-14-information-trade-convergence-14-docs-01-introduction-1-1-two-threads-through-human-history", "section-14-information-trade-convergence-14-docs-01-introduction-1-2-the-crossroads"]
 ---
 
 # Information And Trade Are Converging
