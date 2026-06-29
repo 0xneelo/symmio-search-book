@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator LP Economics Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 4 LP-economics source.
+- Split the broad LP lose-lose and 1x leverage critique into exact answer routes for token-denominated fee illusion, rational LP paradox, short-volatility LP profile, pump-bankruptcy arithmetic, and Percolator low-utilization necessity.
+- Extended the question ledger so Ask can route direct user questions about fee compensation, LP motives, volatility exposure, pump bankruptcy math, and utilization safety.
+- Kept live Percolator parameters, current utilization, payout behavior, and venue-specific safety claims marked for fresh primary-source review.
+
 ## 2026-06-28 — Session 1 Dossier And Manifest
 
 - Created the research dossier, source registry, decisions, gaps, style guide, question ledger, and seed questions.

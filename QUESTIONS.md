@@ -508,6 +508,11 @@ Questions are grouped by whether the current source set can answer them.
 | What changes in Percolator's inverted market mode? | `authored-inverted-market-mode-semantics` | Medium | Neelo explains that inverted mode represents price as inverse price, changing long/short semantics while collateral, fees, funding, and PnL remain token-denominated. |
 | Why is SOV insurance still token-denominated risk? | `authored-percolator-sov-insurance-deflation-model` | Medium | Neelo's SOV model accumulates trading fees into an insurance fund denominated in PERC, so the protection unit can weaken with the market it is meant to protect. |
 | What does formal verification not prove for Percolator? | `authored-percolator-formal-verification-boundary` | Medium | Neelo credits Percolator's proofs and balance-sheet invariant while separating software correctness from inverse-market economic robustness. |
+| Why can token-denominated fees be misleading for LPs? | `authored-token-denominated-fee-illusion` | Medium | Neelo's LP-economics source says fees, funding, collateral, profits, and losses share the same volatile token unit, so yield must be read through currency risk. |
+| What is the rational LP paradox in token-margined perps? | `authored-rational-lp-paradox` | Medium | Neelo's decision tree says bullish holders may prefer holding, bearish holders avoid collateral exposure, and neutral holders may prefer stables, leaving few scalable LP motives. |
+| Why are token-margined LPs short volatility? | `authored-token-margined-short-volatility-profile` | Medium | Neelo's lose-lose quadrant shows large moves in either direction can damage LP value, while flat price behavior is the narrow favorable state. |
+| How can a small pump bankrupt a token-margined LP? | `authored-pump-bankruptcy-arithmetic` | Medium | Neelo's inverse-PnL example shows 10x open interest against LP collateral can consume all collateral after an approximately 11.11% pump. |
+| Why can Percolator's low utilization be necessary? | `authored-percolator-low-utilization-necessity` | Medium | Neelo interprets low Percolator SOV utilization as a safety necessity under token-margined inverse payout risk, not merely weak demand. |
 
 ## Prototype Event Log
 

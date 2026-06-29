@@ -1135,3 +1135,11 @@
 **Reason:** The broad Percolator critique already explains that correct code can still instantiate fragile economics, but answer-engine readers need direct routes into the architecture terms. Splitting Section 2 keeps matcher execution, slab isolation, inverse market semantics, token-denominated insurance, and proof scope distinct before readers reach the later reflexivity and capital-efficiency critique.
 
 **Status:** Accepted for the authored manifesto layer; live deployed Percolator parameters, matcher safety, SOV balances, market count, fee and circuit-breaker values, verification scope, audit status, current repository state, and security claims remain fresh primary-source and publication-date review.
+
+## D-143: Split Percolator LP Economics Into Exact Risk Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for token-denominated fee illusion, rational LP paradox, token-margined short-volatility profile, pump-bankruptcy arithmetic, and Percolator low-utilization necessity.
+
+**Reason:** The broad token-margined LP and 1x leverage pages explain the conclusion, but answer-engine readers need direct routes for the mechanics underneath it. Splitting Section 4 keeps the unit-of-account problem, LP motive problem, volatility payoff shape, inverse-PnL bankruptcy example, and utilization-safety interpretation separate enough to answer precise questions without overgeneralizing the source.
+
+**Status:** Accepted for the authored manifesto layer; live Percolator SOV balances, current utilization, deployed risk parameters, haircut behavior, margin thresholds, fee/funding values, LP terms, and publication-date third-party claims remain fresh primary-source and operator/risk/legal/implementation review.

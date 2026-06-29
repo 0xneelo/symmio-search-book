@@ -1,16 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 521,
+  "totalPages": 526,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 379,
-    "publication-candidate": 125,
+    "publication-candidate-needs-operator-review": 380,
+    "publication-candidate": 128,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
+    "publication-candidate-needs-fresh-source-review": 1,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 243,
+    "manifesto": 248,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -5510,6 +5511,29 @@
       "excerpt": "Percolator Hybrid Risk And Execution Model Neelo's architecture section frames Percolator as a hybrid: synthetics style risk with orderbook style execution. The synthetics side is the shared balance sheet. Users trade against LP accounts, and the engine enforces margin, liquidation, ADL or socialization, and withdrawal safety. The orderbook style side is execution: LPs can provide a matcher program over CPI, including passive AMM style pricing, RFQ logic, or custom market making logic. That distinction matters because Percolator is not simply an AMM and not simply a CLOB. It is a risk engine plus a pluggable execution surface. The system can make local accounting legible while leaving pricing logic to LP scoped matcher programs. Reader Implication When docs compare Percolator to Vibe, the fair comparison is not \"on chain AMM versus solver.\" It is \"local on chain risk engine plus matcher\" versus \"intent, solver, inventory, and settlement architecture.\" The first can be technically elegant while still inheriting token margined economic constraints. Publication Boundary Do not turn this architecture description into claims about current Percolator deployments, matcher safety, liquidit"
     },
     {
+      "id": "authored-percolator-low-utilization-necessity",
+      "title": "Percolator Low Utilization Is A Safety Signal",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-fresh-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "authored-one-x-leverage-ceiling",
+        "authored-pump-bankruptcy-arithmetic"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-low-utilization-necessity.md",
+      "bodyMarkdown": "# Percolator Low Utilization Is A Safety Signal\n\nNeelo's Percolator source gives a concrete utilization snapshot: roughly `251.7M` PERC in the vault, roughly `24.7M` PERC of open interest, and about `9.8%` utilization.\n\nThe source's interpretation is important. Low utilization is not presented as a simple market failure. In a token-margined inverse system, conservative utilization can be a mathematical necessity. If open interest grows too close to token collateral, a relatively small adverse move can consume the LP's collateral.\n\n## Low Utilization Versus Capital Efficiency\n\nThis is the tension behind the 1x leverage ceiling. The safer the token-margined vault tries to be, the less capital-efficient it becomes. The more capital-efficient it tries to be, the closer it can move to insolvency under a pump where longs win.\n\nThat is why headline vault size is insufficient. A vault can look large, but if safe OI must remain a small fraction of the token inventory, the system may not deliver the leverage or market depth that traders expect from perpetuals.\n\n## Reader Implication\n\nDocs should avoid treating utilization as a one-directional growth metric. In this architecture, low utilization may be evidence of risk containment. The public question is whether the resulting market is economically useful enough after the safety constraint is applied.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\", \"4.4.3 Percolator SOV in Practice\".\n\n## Related Pages\n\n- `authored-one-x-leverage-ceiling`\n- `authored-systemic-leverage-comparison`\n- `authored-risk-adjusted-efficiency-multiplier`",
+      "excerpt": "Percolator Low Utilization Is A Safety Signal Neelo's Percolator source gives a concrete utilization snapshot: roughly 251.7M PERC in the vault, roughly 24.7M PERC of open interest, and about 9.8% utilization. The source's interpretation is important. Low utilization is not presented as a simple market failure. In a token margined inverse system, conservative utilization can be a mathematical necessity. If open interest grows too close to token collateral, a relatively small adverse move can consume the LP's collateral. Low Utilization Versus Capital Efficiency This is the tension behind the 1x leverage ceiling. The safer the token margined vault tries to be, the less capital efficient it becomes. The more capital efficient it tries to be, the closer it can move to insolvency under a pump where longs win. That is why headline vault size is insufficient. A vault can look large, but if safe OI must remain a small fraction of the token inventory, the system may not deliver the leverage or market depth that traders expect from perpetuals. Reader Implication Docs should avoid treating utilization as a one directional growth metric. In this architecture, low utilization may be evidence o"
+    },
+    {
       "id": "authored-percolator-one-market-one-slab-accounting",
       "title": "Percolator One-Market-One-Slab Accounting",
       "section": "manifesto",
@@ -6281,6 +6305,52 @@
       "file": "content/authored/manifesto/protocol-owned-solver-public-option.md",
       "bodyMarkdown": "# Protocol-Owned Solver As Public Option\n\nThe hybrid solver model needs a cold-start answer: who quotes when a new market is too early, too volatile, or too small for third-party solvers to want the flow?\n\nNeelo's source describes the protocol-owned solver as a public option for liquidity. External solvers can compete for attractive flow first. If they decline, the protocol-owned or protocol-operated solver can become the market maker of last resort, quoting wider prices that reflect the risk of supporting the market before organic liquidity has arrived.\n\nThat framing is important because it avoids two weak extremes. A pure third-party solver marketplace can leave niche intents unanswered. A pure protocol backstop can absorb every toxic trade. The public-option model tries to preserve market access while making the risk premium explicit.\n\n## Publication Boundary\n\nWhether the production system uses a protocol-owned solver, operator-run solver, third-party solvers, or a mixed routing model is implementation-sensitive. This page documents the source architecture and should be reviewed against the current solver deployment model before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.1 Protocol-Owned Solver (POS)\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-symmio-solver-operations-and-hedging`",
       "excerpt": "Protocol Owned Solver As Public Option The hybrid solver model needs a cold start answer: who quotes when a new market is too early, too volatile, or too small for third party solvers to want the flow? Neelo's source describes the protocol owned solver as a public option for liquidity. External solvers can compete for attractive flow first. If they decline, the protocol owned or protocol operated solver can become the market maker of last resort, quoting wider prices that reflect the risk of supporting the market before organic liquidity has arrived. That framing is important because it avoids two weak extremes. A pure third party solver marketplace can leave niche intents unanswered. A pure protocol backstop can absorb every toxic trade. The public option model tries to preserve market access while making the risk premium explicit. Publication Boundary Whether the production system uses a protocol owned solver, operator run solver, third party solvers, or a mixed routing model is implementation sensitive. This page documents the source architecture and should be reviewed against the current solver deployment model before publication. Sources vibe papers : Neelo, \"Section 6: The Hy"
+    },
+    {
+      "id": "authored-pump-bankruptcy-arithmetic",
+      "title": "Pump Bankruptcy Arithmetic",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "authored-one-x-leverage-ceiling",
+        "authored-token-margined-short-volatility-profile"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/pump-bankruptcy-arithmetic.md",
+      "bodyMarkdown": "# Pump Bankruptcy Arithmetic\n\nNeelo's 1x leverage argument is not only qualitative. The source gives a simple inverse-PnL example: an LP deposits `1,000,000` tokens, traders open `10,000,000` tokens of long exposure, and price rises from `$1.00` to `$1.1111`.\n\nUsing the source's inverse-PnL form:\n\n```text\nPnL_tokens = 10,000,000 * (1 / 1.00 - 1 / 1.1111)\n```\n\nThe resulting trader profit is approximately `1,000,000` tokens. That is the LP's entire collateral. In the source model, a roughly `11.11%` pump can bankrupt a token-margined LP when open interest is `10x` LP collateral.\n\n## Why The Example Matters\n\nThe example is not a universal risk limit. It is a stress proof for the architecture category. If the market lets open interest become many times larger than token collateral, a modest pump can turn winning longs into a token-denominated claim larger than the LP can pay.\n\nThat is the practical bridge from inverse payoff math to market design. The system can either restrict open interest and utilization aggressively, or it can risk a state where profitable traders cannot be paid without socialization, haircuts, or other emergency mechanics.\n\n## Reader Implication\n\nWhen a market advertises leverage, readers should ask what collateral-to-OI ratio keeps the payer solvent under plausible price moves. The answer engine should route \"can token-margined LPs support 10x leverage?\" to the arithmetic, not only to a general risk warning.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\", \"4.4.1 The Mathematical Proof\".\n\n## Related Pages\n\n- `authored-one-x-leverage-ceiling`\n- `authored-percolator-formal-verification-boundary`\n- `authored-open-interest-without-payout-reliability`",
+      "excerpt": "Pump Bankruptcy Arithmetic Neelo's 1x leverage argument is not only qualitative. The source gives a simple inverse PnL example: an LP deposits 1,000,000 tokens, traders open 10,000,000 tokens of long exposure, and price rises from $1.00 to $1.1111 . Using the source's inverse PnL form: The resulting trader profit is approximately 1,000,000 tokens. That is the LP's entire collateral. In the source model, a roughly 11.11% pump can bankrupt a token margined LP when open interest is 10x LP collateral. Why The Example Matters The example is not a universal risk limit. It is a stress proof for the architecture category. If the market lets open interest become many times larger than token collateral, a modest pump can turn winning longs into a token denominated claim larger than the LP can pay. That is the practical bridge from inverse payoff math to market design. The system can either restrict open interest and utilization aggressively, or it can risk a state where profitable traders cannot be paid without socialization, haircuts, or other emergency mechanics. Reader Implication When a market advertises leverage, readers should ask what collateral to OI ratio keeps the payer solvent und"
+    },
+    {
+      "id": "authored-rational-lp-paradox",
+      "title": "The Rational LP Paradox",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "authored-token-denominated-fee-illusion",
+        "authored-token-margined-lp-lose-lose"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/rational-lp-paradox.md",
+      "bodyMarkdown": "# The Rational LP Paradox\n\nNeelo's Section 4 source turns token-margined LPing into a decision tree. If the holder is bullish, the simple position is to hold the token. LPing can cap that upside because winning longs are paid in tokens from the LP side. If the holder is bearish, depositing the token as collateral is unattractive because the collateral unit is expected to weaken. If the holder is neutral, the rational alternative may be to convert to stables instead of taking token-denominated vault risk.\n\nThat creates the rational LP paradox: the ordinary directional views do not naturally produce a scalable passive LP base.\n\n## Who Might Still LP?\n\nThe source names two edge cases. A holder may use LPing as a slow distribution path, effectively selling into demand over time. A project treasury may also post inventory for strategic market-formation reasons.\n\nThose cases matter, but they are not the same as generic public liquidity. They are inventory-management or treasury-strategy cases. They can support a specific market under a specific motive, but they do not prove that token-margined perps have a broad, self-sustaining LP supply.\n\n## Reader Implication\n\nWhen a reader asks \"who supplies liquidity here?\", the docs should not stop at \"token holders.\" The better question is why that token holder would choose LPing over holding, selling, or converting. Vibe's broader architecture should make the capital provider's motive explicit.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\", \"4.3 The Rational LP Paradox\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-proof-value-liquidity-role-separation`\n- `authored-token-denominated-fee-illusion`",
+      "excerpt": "The Rational LP Paradox Neelo's Section 4 source turns token margined LPing into a decision tree. If the holder is bullish, the simple position is to hold the token. LPing can cap that upside because winning longs are paid in tokens from the LP side. If the holder is bearish, depositing the token as collateral is unattractive because the collateral unit is expected to weaken. If the holder is neutral, the rational alternative may be to convert to stables instead of taking token denominated vault risk. That creates the rational LP paradox: the ordinary directional views do not naturally produce a scalable passive LP base. Who Might Still LP? The source names two edge cases. A holder may use LPing as a slow distribution path, effectively selling into demand over time. A project treasury may also post inventory for strategic market formation reasons. Those cases matter, but they are not the same as generic public liquidity. They are inventory management or treasury strategy cases. They can support a specific market under a specific motive, but they do not prove that token margined perps have a broad, self sustaining LP supply. Reader Implication When a reader asks \"who supplies liquid"
     },
     {
       "id": "authored-referral-abuse-patterns",
@@ -10061,6 +10131,29 @@
       "excerpt": "The Thumbs Down Mechanism Stack The \"Thumbs Down\" is useful because it compresses the negative side thesis into a single product metaphor. But the source's mechanism section makes clear that the button only works if several layers exist underneath it. The first layer is inventory. The source calls this the whale vault layer: token holders, projects, or large inventory owners supply the asset exposure that makes short side access possible. Without borrowable or usable inventory, a short button is only a slogan. The second layer is execution. Solvers price and route the requested risk. They decide whether the trade is fillable, where the spread should be, and whether current conditions make quoting unsafe. This is why the Thumbs Down belongs inside the intent and solver architecture rather than inside a simple reaction interface. The third layer is the user intent. The user expresses the skeptical view by taking a short side position. That action is not just sentiment. It is capital at risk, bounded by the system's margin, liquidity, solver, vault, and settlement rules. Publication prose should translate the source's aggressive rhetoric into mechanism. Vibe is not simply making negat"
     },
     {
+      "id": "authored-token-denominated-fee-illusion",
+      "title": "The Token-Denominated Fee Illusion",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "section-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage-4-2-the-fee-illusion",
+        "authored-token-margined-lp-lose-lose"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-denominated-fee-illusion.md",
+      "bodyMarkdown": "# The Token-Denominated Fee Illusion\n\nNeelo's Percolator LP-economics source rejects the simple answer that trading fees and funding compensate token-margined LPs. The problem is the unit of account. In the source model, fees, funding income, collateral, realized profits, and realized losses are all denominated in the volatile token.\n\nThat makes \"yield\" hard to interpret. If the token appreciates, the LP may have been better off holding the token rather than posting it into a vault that pays winning longs in token terms. If the token depreciates, the LP's fee and funding income lose value alongside the collateral base.\n\n## The Contradictory Belief Set\n\nThe source's sharper point is that the LP needs two beliefs that conflict:\n\n- the token should stay stable enough that LPing earns usable token-denominated income;\n- the token should appreciate enough that holding the token remains attractive.\n\nFor assets with meaningful expected return or meaningful downside risk, those are not the same bet. The LP is not simply earning fees. The LP is changing the payoff shape of an existing token position.\n\n## Reader Implication\n\nDocs should not call token-denominated fees \"yield\" without naming the currency risk of the yield. The answer engine should route fee-compensation questions to this unit-of-account problem before discussing APR or funding.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\", \"4.2 The Fee Illusion\".\n\n## Related Pages\n\n- `authored-token-margined-lp-lose-lose`\n- `authored-one-x-leverage-ceiling`\n- `authored-usdc-opportunity-cost-floor`",
+      "excerpt": "The Token Denominated Fee Illusion Neelo's Percolator LP economics source rejects the simple answer that trading fees and funding compensate token margined LPs. The problem is the unit of account. In the source model, fees, funding income, collateral, realized profits, and realized losses are all denominated in the volatile token. That makes \"yield\" hard to interpret. If the token appreciates, the LP may have been better off holding the token rather than posting it into a vault that pays winning longs in token terms. If the token depreciates, the LP's fee and funding income lose value alongside the collateral base. The Contradictory Belief Set The source's sharper point is that the LP needs two beliefs that conflict: the token should stay stable enough that LPing earns usable token denominated income; the token should appreciate enough that holding the token remains attractive. For assets with meaningful expected return or meaningful downside risk, those are not the same bet. The LP is not simply earning fees. The LP is changing the payoff shape of an existing token position. Reader Implication Docs should not call token denominated fees \"yield\" without naming the currency risk of "
+    },
+    {
       "id": "authored-token-holder-incremental-risk-alignment",
       "title": "Token Holder Incremental Risk Alignment",
       "section": "protocol-reference",
@@ -10226,6 +10319,29 @@
       "file": "content/authored/manifesto/token-margined-reflexivity-risk.md",
       "bodyMarkdown": "# Token-Margined Reflexivity Risk\n\nThe token-margined risk argument is about correlation between collateral and exposure. If the position and the collateral are both tied to the same asset, a price move can damage the trade and the margin base at the same time.\n\nThat creates reflexivity. A falling token price can reduce position value, reduce collateral value, accelerate liquidations, and create more sell pressure. In a thin or newly listed market, the venue can become part of the volatility engine rather than only a place where volatility is observed.\n\nNeelo's source also highlights the inverse payoff problem. Token-denominated liabilities can expand in token terms as price falls. A short that looks bounded in dollars can require more and more tokens to settle if the token approaches zero. The important compendium point is not a single formula; it is the risk category. When collateral, payout, and underlying are all the same unstable asset, the market can contain endogenous risk that USDC-margined linear systems avoid.\n\nThis page should sit next to the token-vault and liquidity-experience pages. It explains why \"permissionless derivatives\" cannot mean \"list anything with any collateral and hope the market works.\" The architecture needs to make collateral, payout, liquidation, insurance, and settlement assumptions legible.\n\n## Reader Implication\n\nLPs and solvers should ask whether the collateral base degrades exactly when the market needs it. Traders should ask whether the venue can settle gains without relying on a collapsing asset. Documentation should state the settlement unit and collateral risk before presenting a market as liquid.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Reflexivity and Negative Convexity\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-liquidity-as-trader-experience`\n- `authored-funding-as-market-balancing`",
       "excerpt": "Token Margined Reflexivity Risk The token margined risk argument is about correlation between collateral and exposure. If the position and the collateral are both tied to the same asset, a price move can damage the trade and the margin base at the same time. That creates reflexivity. A falling token price can reduce position value, reduce collateral value, accelerate liquidations, and create more sell pressure. In a thin or newly listed market, the venue can become part of the volatility engine rather than only a place where volatility is observed. Neelo's source also highlights the inverse payoff problem. Token denominated liabilities can expand in token terms as price falls. A short that looks bounded in dollars can require more and more tokens to settle if the token approaches zero. The important compendium point is not a single formula; it is the risk category. When collateral, payout, and underlying are all the same unstable asset, the market can contain endogenous risk that USDC margined linear systems avoid. This page should sit next to the token vault and liquidity experience pages. It explains why \"permissionless derivatives\" cannot mean \"list anything with any collateral "
+    },
+    {
+      "id": "authored-token-margined-short-volatility-profile",
+      "title": "Token-Margined LPs Are Short Volatility",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage",
+        "section-07-token-margined-issues-perculator-07-docs-04-lp-economics-and-leverage-4-1-the-lp-lose-lose-quadrant",
+        "authored-token-margined-lp-lose-lose"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-margined-short-volatility-profile.md",
+      "bodyMarkdown": "# Token-Margined LPs Are Short Volatility\n\nThe LP lose-lose quadrant in Neelo's Percolator source can be summarized as a volatility position. The LP tends to do best when price stays relatively flat. Large moves in either direction create bad states.\n\nOn a pump, winning longs can take tokens from the LP, so the LP underperforms simple holding. On a dump, winning shorts can leave the LP with more units of a weaker token, while losing longs may transfer collateral whose dollar value has collapsed. The edge case where shorts lose into a pumping token exists, but the source treats it as less likely because shorting a fast-pumping memecoin is not the dominant flow assumption.\n\n## Why This Is Not Ordinary Inventory Risk\n\nInventory risk is already familiar to market makers. The Percolator critique is narrower: the LP is short volatility while collateral, fees, funding, and settlement all share the same unstable token unit.\n\nThat means the LP is not merely exposed to price. The LP is exposed to realized market movement through trader PnL and to mark-to-market collateral value through the same asset. Volatility attacks both the liability side and the balance-sheet side.\n\n## Reader Implication\n\nLP docs should tell readers that token-margined LPing is a volatility-bearing position, not only a passive fee-earning position. A market can show activity and fees while still putting LPs in a payoff shape that only works under narrow price behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: LP Economics and the 1x Leverage Constraint\", \"4.1 The LP Lose-Lose Quadrant\".\n\n## Related Pages\n\n- `authored-token-margined-lp-lose-lose`\n- `authored-inverse-payoff-trap`\n- `authored-lp-profit-decomposition-map`",
+      "excerpt": "Token Margined LPs Are Short Volatility The LP lose lose quadrant in Neelo's Percolator source can be summarized as a volatility position. The LP tends to do best when price stays relatively flat. Large moves in either direction create bad states. On a pump, winning longs can take tokens from the LP, so the LP underperforms simple holding. On a dump, winning shorts can leave the LP with more units of a weaker token, while losing longs may transfer collateral whose dollar value has collapsed. The edge case where shorts lose into a pumping token exists, but the source treats it as less likely because shorting a fast pumping memecoin is not the dominant flow assumption. Why This Is Not Ordinary Inventory Risk Inventory risk is already familiar to market makers. The Percolator critique is narrower: the LP is short volatility while collateral, fees, funding, and settlement all share the same unstable token unit. That means the LP is not merely exposed to price. The LP is exposed to realized market movement through trader PnL and to mark to market collateral value through the same asset. Volatility attacks both the liability side and the balance sheet side. Reader Implication LP docs sho"
     },
     {
       "id": "authored-token-vault-perps-versus-usdc-pools",

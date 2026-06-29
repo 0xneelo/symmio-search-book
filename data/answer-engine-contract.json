@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 502
+      "totalGoldenRoutes": 507
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 520,
-    "retrievalEligiblePages": 1312,
+    "publicNavigationPages": 525,
+    "retrievalEligiblePages": 1317,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 520,
+      "candidate": 525,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 502,
-    "exactRouteTestsPassing": 502,
+    "totalExactRouteTests": 507,
+    "exactRouteTestsPassing": 507,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 502
+      "candidate": 507
     },
     "exactRoutesByConfidence": {
-      "Medium": 282,
+      "Medium": 287,
       "High": 44,
       "Low": 176
     },
@@ -11227,6 +11227,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-formal-verification-not-prove-for-percolator",
         "passes": true
+      },
+      {
+        "id": "qr-why-can-token-denominated-fees-be-misleading-for-lps",
+        "query": "Why can token-denominated fees be misleading for LPs?",
+        "normalizedQuery": "why can token denominated fees be misleading for lps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-denominated-fee-illusion",
+        "expectedPageTitle": "The Token-Denominated Fee Illusion",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-token-denominated-fees-be-misleading-for-lps",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-rational-lp-paradox-in-token-margined-perps",
+        "query": "What is the rational LP paradox in token-margined perps?",
+        "normalizedQuery": "what is the rational lp paradox in token margined perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-rational-lp-paradox",
+        "expectedPageTitle": "The Rational LP Paradox",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-rational-lp-paradox-in-token-margined-perps",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-token-margined-lps-short-volatility",
+        "query": "Why are token-margined LPs short volatility?",
+        "normalizedQuery": "why are token margined lps short volatility",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-margined-short-volatility-profile",
+        "expectedPageTitle": "Token-Margined LPs Are Short Volatility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-token-margined-lps-short-volatility",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-a-small-pump-bankrupt-a-token-margined-lp",
+        "query": "How can a small pump bankrupt a token-margined LP?",
+        "normalizedQuery": "how can a small pump bankrupt a token margined lp",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-pump-bankruptcy-arithmetic",
+        "expectedPageTitle": "Pump Bankruptcy Arithmetic",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-a-small-pump-bankrupt-a-token-margined-lp",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-percolator-s-low-utilization-be-necessary",
+        "query": "Why can Percolator's low utilization be necessary?",
+        "normalizedQuery": "why can percolator s low utilization be necessary",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-low-utilization-necessity",
+        "expectedPageTitle": "Percolator Low Utilization Is A Safety Signal",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-percolator-s-low-utilization-be-necessary",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11302,7 +11407,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 502,
+      "exactRoutes": 507,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

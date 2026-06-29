@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 509,
-  "totalAnswerable": 502,
+  "totalEntries": 514,
+  "totalAnswerable": 507,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,9 +17,9 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 145,
-    "Risk And Markets": 38,
-    "Revenue": 74,
+    "Solvers And Settlement": 148,
+    "Risk And Markets": 39,
+    "Revenue": 75,
     "Manifesto": 72,
     "Rewards And Referrals": 78,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 282,
+    "Medium": 287,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 502
+    "authored": 507
   },
   "byType": {
-    "answerable": 502,
+    "answerable": 507,
     "reconciliation": 7
   },
   "answerable": [
@@ -16615,6 +16615,151 @@
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-token-denominated-fees-be-misleading-for-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can token-denominated fees be misleading for LPs?",
+      "normalizedQuestion": "why can token denominated fees be misleading for lps",
+      "shortAnswer": "Neelo's LP-economics source says fees, funding, collateral, profits, and losses share the same volatile token unit, so yield must be read through currency risk.",
+      "answerSummary": "The Token Denominated Fee Illusion Neelo's Percolator LP economics source rejects the simple answer that trading fees and funding compensate token margined LPs. The problem is the unit of account. In the source model, fees, funding income, collateral, realized profits, and realized losses are all denominated in the volatile token. That makes \"yield\" hard...",
+      "confidence": "Medium",
+      "pageId": "authored-token-denominated-fee-illusion",
+      "pageTitle": "The Token-Denominated Fee Illusion",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-rational-lp-paradox-in-token-margined-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the rational LP paradox in token-margined perps?",
+      "normalizedQuestion": "what is the rational lp paradox in token margined perps",
+      "shortAnswer": "Neelo's decision tree says bullish holders may prefer holding, bearish holders avoid collateral exposure, and neutral holders may prefer stables, leaving few scalable LP motives.",
+      "answerSummary": "The Rational LP Paradox Neelo's Section 4 source turns token margined LPing into a decision tree. If the holder is bullish, the simple position is to hold the token. LPing can cap that upside because winning longs are paid in tokens from the LP side. If the holder is bearish, depositing the token as collateral is unattractive because the collateral unit i...",
+      "confidence": "Medium",
+      "pageId": "authored-rational-lp-paradox",
+      "pageTitle": "The Rational LP Paradox",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-token-margined-lps-short-volatility",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why are token-margined LPs short volatility?",
+      "normalizedQuestion": "why are token margined lps short volatility",
+      "shortAnswer": "Neelo's lose-lose quadrant shows large moves in either direction can damage LP value, while flat price behavior is the narrow favorable state.",
+      "answerSummary": "Token Margined LPs Are Short Volatility The LP lose lose quadrant in Neelo's Percolator source can be summarized as a volatility position. The LP tends to do best when price stays relatively flat. Large moves in either direction create bad states. On a pump, winning longs can take tokens from the LP, so the LP underperforms simple holding. On a dump, winn...",
+      "confidence": "Medium",
+      "pageId": "authored-token-margined-short-volatility-profile",
+      "pageTitle": "Token-Margined LPs Are Short Volatility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-a-small-pump-bankrupt-a-token-margined-lp",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can a small pump bankrupt a token-margined LP?",
+      "normalizedQuestion": "how can a small pump bankrupt a token margined lp",
+      "shortAnswer": "Neelo's inverse-PnL example shows 10x open interest against LP collateral can consume all collateral after an approximately 11.11% pump.",
+      "answerSummary": "Pump Bankruptcy Arithmetic Neelo's 1x leverage argument is not only qualitative. The source gives a simple inverse PnL example: an LP deposits 1,000,000 tokens, traders open 10,000,000 tokens of long exposure, and price rises from $1.00 to $1.1111 . Using the source's inverse PnL form: The resulting trader profit is approximately 1,000,000 tokens. That is...",
+      "confidence": "Medium",
+      "pageId": "authored-pump-bankruptcy-arithmetic",
+      "pageTitle": "Pump Bankruptcy Arithmetic",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-percolator-s-low-utilization-be-necessary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why can Percolator's low utilization be necessary?",
+      "normalizedQuestion": "why can percolator s low utilization be necessary",
+      "shortAnswer": "Neelo interprets low Percolator SOV utilization as a safety necessity under token-margined inverse payout risk, not merely weak demand.",
+      "answerSummary": "Percolator Low Utilization Is A Safety Signal Neelo's Percolator source gives a concrete utilization snapshot: roughly 251.7M PERC in the vault, roughly 24.7M PERC of open interest, and about 9.8% utilization. The source's interpretation is important. Low utilization is not presented as a simple market failure. In a token margined inverse system, conserva...",
+      "confidence": "Medium",
+      "pageId": "authored-percolator-low-utilization-necessity",
+      "pageTitle": "Percolator Low Utilization Is A Safety Signal",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-fresh-source-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -33553,6 +33698,151 @@
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-token-denominated-fees-be-misleading-for-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can token-denominated fees be misleading for LPs?",
+      "normalizedQuestion": "why can token denominated fees be misleading for lps",
+      "shortAnswer": "Neelo's LP-economics source says fees, funding, collateral, profits, and losses share the same volatile token unit, so yield must be read through currency risk.",
+      "answerSummary": "The Token Denominated Fee Illusion Neelo's Percolator LP economics source rejects the simple answer that trading fees and funding compensate token margined LPs. The problem is the unit of account. In the source model, fees, funding income, collateral, realized profits, and realized losses are all denominated in the volatile token. That makes \"yield\" hard...",
+      "confidence": "Medium",
+      "pageId": "authored-token-denominated-fee-illusion",
+      "pageTitle": "The Token-Denominated Fee Illusion",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-rational-lp-paradox-in-token-margined-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the rational LP paradox in token-margined perps?",
+      "normalizedQuestion": "what is the rational lp paradox in token margined perps",
+      "shortAnswer": "Neelo's decision tree says bullish holders may prefer holding, bearish holders avoid collateral exposure, and neutral holders may prefer stables, leaving few scalable LP motives.",
+      "answerSummary": "The Rational LP Paradox Neelo's Section 4 source turns token margined LPing into a decision tree. If the holder is bullish, the simple position is to hold the token. LPing can cap that upside because winning longs are paid in tokens from the LP side. If the holder is bearish, depositing the token as collateral is unattractive because the collateral unit i...",
+      "confidence": "Medium",
+      "pageId": "authored-rational-lp-paradox",
+      "pageTitle": "The Rational LP Paradox",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-token-margined-lps-short-volatility",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why are token-margined LPs short volatility?",
+      "normalizedQuestion": "why are token margined lps short volatility",
+      "shortAnswer": "Neelo's lose-lose quadrant shows large moves in either direction can damage LP value, while flat price behavior is the narrow favorable state.",
+      "answerSummary": "Token Margined LPs Are Short Volatility The LP lose lose quadrant in Neelo's Percolator source can be summarized as a volatility position. The LP tends to do best when price stays relatively flat. Large moves in either direction create bad states. On a pump, winning longs can take tokens from the LP, so the LP underperforms simple holding. On a dump, winn...",
+      "confidence": "Medium",
+      "pageId": "authored-token-margined-short-volatility-profile",
+      "pageTitle": "Token-Margined LPs Are Short Volatility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-can-a-small-pump-bankrupt-a-token-margined-lp",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How can a small pump bankrupt a token-margined LP?",
+      "normalizedQuestion": "how can a small pump bankrupt a token margined lp",
+      "shortAnswer": "Neelo's inverse-PnL example shows 10x open interest against LP collateral can consume all collateral after an approximately 11.11% pump.",
+      "answerSummary": "Pump Bankruptcy Arithmetic Neelo's 1x leverage argument is not only qualitative. The source gives a simple inverse PnL example: an LP deposits 1,000,000 tokens, traders open 10,000,000 tokens of long exposure, and price rises from $1.00 to $1.1111 . Using the source's inverse PnL form: The resulting trader profit is approximately 1,000,000 tokens. That is...",
+      "confidence": "Medium",
+      "pageId": "authored-pump-bankruptcy-arithmetic",
+      "pageTitle": "Pump Bankruptcy Arithmetic",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-percolator-s-low-utilization-be-necessary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why can Percolator's low utilization be necessary?",
+      "normalizedQuestion": "why can percolator s low utilization be necessary",
+      "shortAnswer": "Neelo interprets low Percolator SOV utilization as a safety necessity under token-margined inverse payout risk, not merely weak demand.",
+      "answerSummary": "Percolator Low Utilization Is A Safety Signal Neelo's Percolator source gives a concrete utilization snapshot: roughly 251.7M PERC in the vault, roughly 24.7M PERC of open interest, and about 9.8% utilization. The source's interpretation is important. Low utilization is not presented as a simple market failure. In a token margined inverse system, conserva...",
+      "confidence": "Medium",
+      "pageId": "authored-percolator-low-utilization-necessity",
+      "pageTitle": "Percolator Low Utilization Is A Safety Signal",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-fresh-source-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
