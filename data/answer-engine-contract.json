@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 642
+      "totalGoldenRoutes": 647
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 660,
-    "retrievalEligiblePages": 1452,
+    "publicNavigationPages": 665,
+    "retrievalEligiblePages": 1457,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 660,
+      "candidate": 665,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 642,
-    "exactRouteTestsPassing": 642,
+    "totalExactRouteTests": 647,
+    "exactRouteTestsPassing": 647,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 642
+      "candidate": 647
     },
     "exactRoutesByConfidence": {
-      "Medium": 412,
+      "Medium": 416,
       "High": 44,
-      "Low": 186
+      "Low": 187
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3541,6 +3541,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-outside-the-listing-monopoly-paper-s-scope",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-token-lifecycle-concept",
+        "query": "What is the token lifecycle concept?",
+        "normalizedQuery": "what is the token lifecycle concept",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-token-lifecycle-concept",
+        "expectedPageTitle": "The Token Lifecycle Concept",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-token-lifecycle-concept",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-listing-monopoly-lifecycle-stages",
+        "query": "What are the Listing Monopoly lifecycle stages?",
+        "normalizedQuery": "what are the listing monopoly lifecycle stages",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-lifecycle-stage-map",
+        "expectedPageTitle": "Listing Monopoly Lifecycle Stage Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-listing-monopoly-lifecycle-stages",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-visualize-the-token-lifecycle-gap",
+        "query": "How does Neelo visualize the token lifecycle gap?",
+        "normalizedQuery": "how does neelo visualize the token lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-lifecycle-visual-map",
+        "expectedPageTitle": "The Listing Lifecycle Visual Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-visualize-the-token-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-monopoly-dynamics-differ-by-lifecycle-stage",
+        "query": "How do monopoly dynamics differ by lifecycle stage?",
+        "normalizedQuery": "how do monopoly dynamics differ by lifecycle stage",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-dynamics-stage-map",
+        "expectedPageTitle": "Monopoly Dynamics By Lifecycle Stage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-monopoly-dynamics-differ-by-lifecycle-stage",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-barbell-structure-in-crypto-listings",
+        "query": "What is the barbell structure in crypto listings?",
+        "normalizedQuery": "what is the barbell structure in crypto listings",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-barbell-structure",
+        "expectedPageTitle": "The Barbell Structure Of Crypto Listings",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-barbell-structure-in-crypto-listings",
         "passes": true
       },
       {
@@ -14242,7 +14347,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 642,
+      "exactRoutes": 647,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

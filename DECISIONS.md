@@ -1359,3 +1359,11 @@
 **Reason:** The previous orientation pages let Ask answer what the Listing Monopoly paper is and how to read it, while existing lifecycle and gap pages cover deeper mechanics. The remaining introduction headings still needed exact routes for why listings create monopoly power, why permissionless perps are the next infrastructure frontier, what the full thesis says, what the paper contributes, and what the paper explicitly excludes.
 
 **Status:** Accepted for the authored manifesto layer; live dominance, market-share/current-positioning claims, product coverage, integrations, listing eligibility, regulatory conclusions, token valuation, and production protocol guarantees remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-171: Split Listing Lifecycle Framework Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the token lifecycle concept, lifecycle stage map, lifecycle visual ladder, monopoly dynamics by stage, and the barbell structure.
+
+**Reason:** Existing lifecycle pages explain the broad market-power thesis, but Section 2 of the Listing Monopoly source introduces a precise framework that Ask should route into directly. Splitting the framework preserves the difference between the lifecycle concept, the stage taxonomy, the visual gap, the stage-by-stage monopoly table, and the barbell middle-market claim.
+
+**Status:** Accepted for the authored manifesto layer; source-time market caps, platform market-share examples, dominant-player rankings, listing thresholds, venue policies, and live Vibe middle-layer claims remain fresh primary-source/operator/product/risk/legal/implementation review.

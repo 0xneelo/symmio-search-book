@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Lifecycle Framework Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly lifecycle-framework source.
+- Split the opening framework into exact answer routes for the token lifecycle concept, lifecycle stage map, lifecycle visual ladder, monopoly dynamics by stage, and the barbell structure.
+- Extended the question ledger so Ask can route lifecycle-framework questions before deeper gap, listing-plus-liquidity, permissionless-perps, or Thiel-strategy pages.
+- Kept source-time market caps, platform market-share examples, dominant-player rankings, listing thresholds, venue policies, and live Vibe middle-layer claims marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Listing Monopoly Mechanics Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly introduction mechanics source.
