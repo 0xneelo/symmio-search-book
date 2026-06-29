@@ -6,13 +6,15 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/overview#table-of-contents", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["section-17-referral-program-17-docs-overview-table-of-contents", "authored-referral-design-coverage-routing-map", "authored-referral-related-chapter-routing", "authored-referral-rollout-governance-checklist"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/overview#table-of-contents", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-overview", "section-17-referral-program-17-docs-overview-table-of-contents", "authored-referral-design-coverage-routing-map", "authored-referral-related-chapter-routing", "authored-referral-rollout-governance-checklist"]
 ---
 
 # Referral Program Source Table Of Contents
 
 The referral source is not a single policy page. It is a chaptered architecture package.
+
+The overview states the thesis: referrals evolve from invite-gated onboarding into an incentive-aligned growth layer that can connect identity, rakeback, points, partner economics, and operational safeguards.
 
 The table of contents matters because each chapter owns a different kind of claim. Baseline pages describe the current referral, rakeback, and points structure. Architecture pages define boundaries and claim flow. Rakeback, points, economics, access phasing, LP/category routing, security, metrics, open decisions, rewards packs, and tokenized-points scenarios each answer a different reader question.
 
@@ -40,6 +42,7 @@ When a user asks a referral question, route to the chapter that owns the claim i
 ## Sources
 
 - `vibe-papers`: Neelo, "17 - Referral Program Architecture", "Table of Contents".
+- `vibe-papers`: Neelo, "17 - Referral Program Architecture", overview.
 - `spec-03`: current product-state and disclosure caveats.
 
 ## Related Pages
