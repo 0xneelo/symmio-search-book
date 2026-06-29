@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 557
+      "totalGoldenRoutes": 562
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 575,
-    "retrievalEligiblePages": 1367,
+    "publicNavigationPages": 580,
+    "retrievalEligiblePages": 1372,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 575,
+      "candidate": 580,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 557,
-    "exactRouteTestsPassing": 557,
+    "totalExactRouteTests": 562,
+    "exactRouteTestsPassing": 562,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 557
+      "candidate": 562
     },
     "exactRoutesByConfidence": {
-      "Medium": 337,
+      "Medium": 342,
       "High": 44,
       "Low": 176
     },
@@ -12382,6 +12382,111 @@
         "chunkCount": 1,
         "faqEntryId": "faq-what-network-effects-compound-around-vibe-s-market-creation-layer",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-vibe-s-10x-technology-claim",
+        "query": "What is Vibe's 10x technology claim?",
+        "normalizedQuery": "what is vibe s 10x technology claim",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-proprietary-technology-test",
+        "expectedPageTitle": "The Thiel 10x Technology Test",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-vibe-s-10x-technology-claim",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-vibe-have-software-like-scale-economics",
+        "query": "Why does Vibe have software-like scale economics?",
+        "normalizedQuery": "why does vibe have software like scale economics",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-software-scale-economics",
+        "expectedPageTitle": "Software-Like Scale Economics",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-vibe-have-software-like-scale-economics",
+        "passes": true
+      },
+      {
+        "id": "qr-is-vibe-s-brand-already-a-moat",
+        "query": "Is Vibe's brand already a moat?",
+        "normalizedQuery": "is vibe s brand already a moat",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-brand-as-earned-signal",
+        "expectedPageTitle": "Brand As An Earned Market Signal",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-is-vibe-s-brand-already-a-moat",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-last-mover-question-for-vibe",
+        "query": "What is the last-mover question for Vibe?",
+        "normalizedQuery": "what is the last mover question for vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-last-mover-question",
+        "expectedPageTitle": "The Last-Mover Question",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-last-mover-question-for-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-is-vibe-a-monopoly",
+        "query": "Is Vibe a monopoly?",
+        "normalizedQuery": "is vibe a monopoly",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-monopoly-verdict-boundary",
+        "expectedPageTitle": "How To Read The Monopoly Verdict",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-is-vibe-a-monopoly",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12457,7 +12562,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 557,
+      "exactRoutes": 562,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

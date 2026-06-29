@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Thiel Monopoly Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Thiel-monopoly source.
+- Split the Thielian analysis into exact answer routes for the 10x technology test, software-like scale economics, brand as an earned market signal, the last-mover category question, and the safe publication boundary for monopoly verdicts.
+- Extended the question ledger so Ask can route direct strategy questions without relying on one broad listing-monopoly or replication-barriers page.
+- Kept live monopoly/dominance claims, solver performance, market share, integration status, graduation outcomes, data-moat strength, public brand claims, production economics, and competitor-specific judgments marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Competitive Barriers Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score competitive-analysis source.

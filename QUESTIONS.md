@@ -563,6 +563,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why is the solver hard to replicate? | `authored-solver-complexity-replication-barrier` | Medium | Neelo says a competent solver requires derivatives pricing, risk, low-latency systems, market making, operations, live data, and capital discipline. |
 | What is the capital efficiency trap for existing perp protocols? | `authored-capital-efficiency-trap` | Medium | Neelo says vault-first protocols risk losing LP protection when moving to efficiency, while order-book-first protocols risk losing efficiency when adding bootstrap support. |
 | What network effects compound around Vibe's market-creation layer? | `authored-integration-data-network-effects` | Medium | Neelo frames Vibe's compounding effects as market data, LP learning, and integrations with launchpads, lending protocols, data providers, and downstream venues. |
+| What is Vibe's 10x technology claim? | `authored-thiel-proprietary-technology-test` | Medium | Neelo's Thiel analysis treats Vibe's hybrid architecture, solver, Z-score maturity logic, and graduation path as a capability stack rather than a UI improvement. |
+| Why does Vibe have software-like scale economics? | `authored-thiel-software-scale-economics` | Medium | Neelo separates high fixed infrastructure costs from reusable market-creation logic, while preserving market-specific risk capital as a real cost. |
+| Is Vibe's brand already a moat? | `authored-thiel-brand-as-earned-signal` | Medium | Neelo scores brand as potential but early; the docs should frame brand as an earned market signal after repeated operating proof. |
+| What is the last-mover question for Vibe? | `authored-thiel-last-mover-question` | Medium | Neelo's last-mover frame asks whether Vibe can become the durable standard for permissionless perpetual market creation, not whether it shipped the first perp interface. |
+| Is Vibe a monopoly? | `authored-thiel-monopoly-verdict-boundary` | Medium | Neelo's source supports a Thielian monopoly thesis and moat map, while live dominance remains an execution claim requiring product and market evidence. |
 
 ## Prototype Event Log
 

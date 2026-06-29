@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 576,
+  "totalPages": 581,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 418,
+    "publication-candidate-needs-operator-review": 423,
     "publication-candidate": 139,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 298,
+    "manifesto": 303,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -10948,6 +10948,122 @@
       "file": "content/authored/reference/tge-settlement-multiplier.md",
       "bodyMarkdown": "# TGE Settlement Multiplier\n\nThe dashboard footer currently tells users that onboarding points are tallied off-chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on `beta.vibe.trading`.\n\nThat makes the TGE multiplier a public-facing concept, but it still needs careful documentation because the exact formula is not implemented as a final public settlement calculator in this search-book source set.\n\n## What The Current Sources Prove\n\nThe current sources prove three things:\n\n- The onboarding app keeps an off-chain points ledger.\n- The dashboard user interface tells users the onboarding points will interact with network Vibecaps trading volume at TGE.\n- The docs spec requires this distinction to be documented separately from Vibe protocol/trading points.\n\nThey do not prove the final settlement formula, the exact multiplier schedule, claim mechanics, TGE timing, eligibility cutoff, anti-sybil adjustments, or whether historical backfill changes the final public explanation.\n\n## How To Explain It Safely\n\nUse this wording until a product owner approves the final formula:\n\n```text\nOnboarding points are off-chain campaign points. The current dashboard says they are intended to settle at TGE with a multiplier tied to the network's Vibecaps trading volume. The final settlement formula, eligibility rules, and claim mechanics need product-owner confirmation before publication as a promise.\n```\n\nThat wording preserves the user-facing concept without pretending the docs have the final economic schedule.\n\n## Reader Implication\n\nIf a user asks \"what are my points worth?\", the docs should not answer with a token value or a fixed conversion. The correct answer is rail-first:\n\n1. Identify whether the user means onboarding points, Vibe points, referral points, or network/trading points.\n2. Explain that onboarding points are tracked off-chain now.\n3. Explain that the dashboard frames TGE settlement as multiplier-based.\n4. State that final settlement mechanics are pending public confirmation.\n\n## Sources\n\n- `dashboard-app`: Footer language separating onboarding points from trading points and naming the TGE multiplier concept.\n- `spec-03`: Required TGE settlement note and points taxonomy.\n- `server-points`: Off-chain local points ledger.\n- `dashboard-overview`: Points ledger display.\n\n## Related Pages\n\n- `authored-points-taxonomy`\n- `authored-points-and-vibe-points`\n- `authored-vibe-points-program`",
       "excerpt": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier a public facing concept, but it still needs careful documentation because the exact formula is not implemented as a final public settlement calculator in this search book source set. What The Current Sources Prove The current sources prove three things: The onboarding app keeps an off chain points ledger. The dashboard user interface tells users the onboarding points will interact with network Vibecaps trading volume at TGE. The docs spec requires this distinction to be documented separately from Vibe protocol/trading points. They do not prove the final settlement formula, the exact multiplier schedule, claim mechanics, TGE timing, eligibility cutoff, anti sybil adjustments, or whether historical backfill changes the final public explanation. How To Explain It Safely Use this wording until a product owner approves the final formul"
+    },
+    {
+      "id": "authored-thiel-brand-as-earned-signal",
+      "title": "Brand As An Earned Market Signal",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-3-the-four-characteristics-of-monopoly"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-part-3-the-four-characteristics-of-monopoly",
+        "authored-end-of-narrative-based-listings",
+        "authored-trust-flows-upstream"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-brand-as-earned-signal.md",
+      "bodyMarkdown": "# Brand As An Earned Market Signal\n\nThe Thiel source treats branding as the least mature part of Vibe's monopoly scorecard. That restraint is important. In this compendium, brand should not mean hype, aesthetics, or a claim that attention alone creates a moat.\n\nFor Vibe, brand becomes meaningful only if it turns into an earned market signal. A project should want a Vibe market because the market says something useful: there is tradable demand, solver-managed liquidity, observable risk, and a path toward mature venue integration. A trader should trust the label because the market has passed real operating constraints, not because the listing was marketed well.\n\nThe source's sharpest brand idea is the irony that \"Vibe\" should end vibes-based listings. If the system works, the brand is not a substitute for proof. It is shorthand for a proof path: market created, traded, measured, stress-tested, and potentially graduated.\n\n## Publication Boundary\n\nDo not describe Vibe's brand as already established market infrastructure unless live adoption supports that claim. The current source supports brand potential and positioning. The durable brand only exists after repeated markets make the label credible.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Branding\".\n\n## Related Pages\n\n- `authored-end-of-narrative-based-listings`\n- `authored-trust-flows-upstream`\n- `authored-proof-of-value`",
+      "excerpt": "Brand As An Earned Market Signal The Thiel source treats branding as the least mature part of Vibe's monopoly scorecard. That restraint is important. In this compendium, brand should not mean hype, aesthetics, or a claim that attention alone creates a moat. For Vibe, brand becomes meaningful only if it turns into an earned market signal. A project should want a Vibe market because the market says something useful: there is tradable demand, solver managed liquidity, observable risk, and a path toward mature venue integration. A trader should trust the label because the market has passed real operating constraints, not because the listing was marketed well. The source's sharpest brand idea is the irony that \"Vibe\" should end vibes based listings. If the system works, the brand is not a substitute for proof. It is shorthand for a proof path: market created, traded, measured, stress tested, and potentially graduated. Publication Boundary Do not describe Vibe's brand as already established market infrastructure unless live adoption supports that claim. The current source supports brand potential and positioning. The durable brand only exists after repeated markets make the label credibl"
+    },
+    {
+      "id": "authored-thiel-last-mover-question",
+      "title": "The Last-Mover Question",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-4-last-mover-advantage"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-part-4-last-mover-advantage",
+        "authored-replication-barriers-and-data-moats",
+        "authored-integration-data-network-effects"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-last-mover-question.md",
+      "bodyMarkdown": "# The Last-Mover Question\n\nNeelo's last-mover framing asks whether Vibe can become the enduring standard for permissionless perpetual market creation. That is a better question than \"who shipped a perp interface first.\" Many protocols can expose leverage after a market is obvious. The category here is the route from no reliable derivatives market to a mature market that other venues can trust.\n\nThe source identifies five reasons the last-mover question is plausible: category definition, architectural lock-in, compounding network effects, integration relationships, and a data moat. Each is conditional. Architecture matters only if it survives live markets. Data matters only if enough markets run through the system. Integrations matter only if they route meaningful project, trader, LP, or venue demand.\n\nThe useful publication stance is therefore not \"Vibe will be last.\" It is \"this is the right durability question.\" If someone wants to beat Vibe in this category, they need a better way to bootstrap liquidity, manage long-tail risk, measure maturity, integrate with downstream venues, and overcome the incumbent data advantage created by operating real markets.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Last Mover Advantage\".\n\n## Related Pages\n\n- `authored-replication-barriers-and-data-moats`\n- `authored-integration-data-network-effects`\n- `authored-small-market-wedge-strategy`",
+      "excerpt": "The Last Mover Question Neelo's last mover framing asks whether Vibe can become the enduring standard for permissionless perpetual market creation. That is a better question than \"who shipped a perp interface first.\" Many protocols can expose leverage after a market is obvious. The category here is the route from no reliable derivatives market to a mature market that other venues can trust. The source identifies five reasons the last mover question is plausible: category definition, architectural lock in, compounding network effects, integration relationships, and a data moat. Each is conditional. Architecture matters only if it survives live markets. Data matters only if enough markets run through the system. Integrations matter only if they route meaningful project, trader, LP, or venue demand. The useful publication stance is therefore not \"Vibe will be last.\" It is \"this is the right durability question.\" If someone wants to beat Vibe in this category, they need a better way to bootstrap liquidity, manage long tail risk, measure maturity, integrate with downstream venues, and overcome the incumbent data advantage created by operating real markets. Sources vibe papers : Neelo, \""
+    },
+    {
+      "id": "authored-thiel-monopoly-verdict-boundary",
+      "title": "How To Read The Monopoly Verdict",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#conclusion-is-vibe-a-potential-monopoly",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-9-final-assessment"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-conclusion-is-vibe-a-potential-monopoly",
+        "neelo-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis",
+        "authored-thielian-listing-monopoly"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-monopoly-verdict-boundary.md",
+      "bodyMarkdown": "# How To Read The Monopoly Verdict\n\nThe Thiel source ends with a strong verdict: Vibe has the structural characteristics of a potential monopoly. The compendium should preserve the force of that argument while making the publication boundary explicit.\n\nThe argument is structural. Vibe creates value if it enables derivative markets that would otherwise not exist. It captures value if the solver, market-creation layer, data layer, and integrations earn a share of the markets they make possible. It starts small if it owns the long-tail gap before competing for mature perp volume. It compounds if data, LP learning, project demand, and venue integrations reinforce each other.\n\nThat is not the same as a guaranteed monopoly. The source itself depends on execution: live market quality, real risk management, credible graduation, defensible data, integrations, and a category that expands beyond the first wedge. If those do not happen, the framework becomes an ambition map rather than a result.\n\n## Safe Reader Answer\n\nWhen asked \"is Vibe a monopoly?\", the safest answer is: Vibe is being designed around a Thielian monopoly thesis. It is trying to create and own the category of permissionless perpetual market creation. The source supports the category logic and the moat map. Live dominance remains an execution claim that needs product, market, and operator evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Final Assessment\".\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Conclusion\".\n\n## Related Pages\n\n- `authored-thielian-listing-monopoly`\n- `authored-thiel-last-mover-question`\n- `authored-replication-barriers-and-data-moats`",
+      "excerpt": "How To Read The Monopoly Verdict The Thiel source ends with a strong verdict: Vibe has the structural characteristics of a potential monopoly. The compendium should preserve the force of that argument while making the publication boundary explicit. The argument is structural. Vibe creates value if it enables derivative markets that would otherwise not exist. It captures value if the solver, market creation layer, data layer, and integrations earn a share of the markets they make possible. It starts small if it owns the long tail gap before competing for mature perp volume. It compounds if data, LP learning, project demand, and venue integrations reinforce each other. That is not the same as a guaranteed monopoly. The source itself depends on execution: live market quality, real risk management, credible graduation, defensible data, integrations, and a category that expands beyond the first wedge. If those do not happen, the framework becomes an ambition map rather than a result. Safe Reader Answer When asked \"is Vibe a monopoly?\", the safest answer is: Vibe is being designed around a Thielian monopoly thesis. It is trying to create and own the category of permissionless perpetual m"
+    },
+    {
+      "id": "authored-thiel-proprietary-technology-test",
+      "title": "The Thiel 10x Technology Test",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-3-the-four-characteristics-of-monopoly"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-part-3-the-four-characteristics-of-monopoly",
+        "authored-hybrid-retrofit-is-new-protocol",
+        "authored-small-market-wedge-strategy"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-proprietary-technology-test.md",
+      "bodyMarkdown": "# The Thiel 10x Technology Test\n\nNeelo's Thiel analysis uses the 10x technology test to separate real category creation from ordinary differentiation. The question is not whether Vibe has a nicer trading screen. The question is whether the architecture enables a market state that alternatives cannot reach.\n\nThe source names the hybrid architecture, solver system, Z-score maturity measurement, and auto-graduation path as the technical stack behind that claim. Each part answers a different bootstrap problem: how to quote before a book exists, how to manage long-tail risk, how to observe when a market becomes mature, and how to move toward order-book efficiency without forcing the market to start there.\n\nThat is why \"10x\" should be read as a capability claim, not a vanity metric. Compared with waiting for a centralized listing, the improvement is that the market can exist earlier. Compared with pool-only designs, the improvement is that capital efficiency can improve as maturity appears. Compared with failed async-netted designs, the improvement is that the system still has an accountable risk bearer.\n\n## Publication Boundary\n\nDo not publish final 10x superiority as a measured production fact until market data, graduation outcomes, solver performance, and product owners support it. The source-backed claim is narrower and stronger: the architecture is designed to make early derivative markets possible where incumbent designs either wait, over-isolate capital, or require mature order-book flow first.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Four Characteristics of Monopoly\".\n\n## Related Pages\n\n- `authored-hybrid-retrofit-is-new-protocol`\n- `authored-small-market-wedge-strategy`\n- `authored-solver-as-initial-network-effect`",
+      "excerpt": "The Thiel 10x Technology Test Neelo's Thiel analysis uses the 10x technology test to separate real category creation from ordinary differentiation. The question is not whether Vibe has a nicer trading screen. The question is whether the architecture enables a market state that alternatives cannot reach. The source names the hybrid architecture, solver system, Z score maturity measurement, and auto graduation path as the technical stack behind that claim. Each part answers a different bootstrap problem: how to quote before a book exists, how to manage long tail risk, how to observe when a market becomes mature, and how to move toward order book efficiency without forcing the market to start there. That is why \"10x\" should be read as a capability claim, not a vanity metric. Compared with waiting for a centralized listing, the improvement is that the market can exist earlier. Compared with pool only designs, the improvement is that capital efficiency can improve as maturity appears. Compared with failed async netted designs, the improvement is that the system still has an accountable risk bearer. Publication Boundary Do not publish final 10x superiority as a measured production fact u"
+    },
+    {
+      "id": "authored-thiel-software-scale-economics",
+      "title": "Software-Like Scale Economics",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-3-the-four-characteristics-of-monopoly"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis-part-3-the-four-characteristics-of-monopoly",
+        "authored-capital-efficiency-trap",
+        "authored-yield-as-market-survival-constraint"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/thiel-software-scale-economics.md",
+      "bodyMarkdown": "# Software-Like Scale Economics\n\nThe scale-economics claim in Neelo's Thiel analysis is not that risk disappears at scale. It is that the reusable parts of Vibe's system can cover more markets without every market needing a bespoke venue, committee, or one-off market maker.\n\nThe source frames the fixed-cost side as solver infrastructure, smart contracts, audits, oracle integrations, risk models, and operations. Those are expensive to build. The reason they matter is that the marginal market can reuse much of the same infrastructure: solver logic, contract surfaces, risk-model improvements, and graduation criteria.\n\nThis matters for long-tail derivatives because the category has a volume distribution problem. If every new token needs a full standalone venue, the economics do not clear. If market creation can reuse a shared system while still isolating and pricing local risk, the cost curve becomes more software-like.\n\n## Reader Implication\n\nReaders should distinguish two costs. The first is market-specific risk capital, which remains real and must be paid. The second is market-creation infrastructure, which should become cheaper per market as the system learns and repeats. Vibe's thesis depends on compressing the second cost without pretending the first cost is zero.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: A Thielian Monopoly Analysis: Economies of Scale\".\n\n## Related Pages\n\n- `authored-capital-efficiency-trap`\n- `authored-yield-as-market-survival-constraint`\n- `authored-integration-data-network-effects`",
+      "excerpt": "Software Like Scale Economics The scale economics claim in Neelo's Thiel analysis is not that risk disappears at scale. It is that the reusable parts of Vibe's system can cover more markets without every market needing a bespoke venue, committee, or one off market maker. The source frames the fixed cost side as solver infrastructure, smart contracts, audits, oracle integrations, risk models, and operations. Those are expensive to build. The reason they matter is that the marginal market can reuse much of the same infrastructure: solver logic, contract surfaces, risk model improvements, and graduation criteria. This matters for long tail derivatives because the category has a volume distribution problem. If every new token needs a full standalone venue, the economics do not clear. If market creation can reuse a shared system while still isolating and pricing local risk, the cost curve becomes more software like. Reader Implication Readers should distinguish two costs. The first is market specific risk capital, which remains real and must be paid. The second is market creation infrastructure, which should become cheaper per market as the system learns and repeats. Vibe's thesis depen"
     },
     {
       "id": "authored-thiel-value-creation-capture",

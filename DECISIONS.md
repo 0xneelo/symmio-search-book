@@ -1223,3 +1223,11 @@
 **Reason:** The existing replication-barriers page gives the broad moat thesis, but Ask needs narrower routes for operator, investor, partner, and researcher questions about why competitors cannot simply bolt on the model, what makes migration hard, what makes solvers scarce, why static architectures get trapped, and how data/integration effects compound.
 
 **Status:** Accepted for the authored manifesto layer; live integrations, partner status, solver obligations, capital commitments, fee capture, competitor-specific judgments, timeline claims, and production economics remain operator/product/risk/legal/implementation review.
+
+## D-154: Split Thiel Monopoly Analysis Into Exact Strategy Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for Vibe's 10x proprietary-technology test, software-like scale economics, brand as an earned market signal, the last-mover category question, and the safe publication boundary for monopoly verdicts.
+
+**Reason:** The existing Thielian listing-monopoly, small-market wedge, and replication-barrier pages explain the broad strategy, but answer-engine readers also ask direct questions about specific Thiel criteria. Splitting the source prevents the docs from overloading "monopoly" as a slogan and gives precise routes for what is source-backed, what is conditional on execution, and what must remain review-bound before publication.
+
+**Status:** Accepted for the authored manifesto layer; live monopoly/dominance claims, solver performance, graduation outcomes, integration status, market share, data-moat strength, public brand claims, production economics, and competitor-specific judgments remain operator/product/risk/legal/implementation review.
