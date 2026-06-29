@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Proof Of Value Introduction Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Proof of Value introduction.
+- Split the introduction into exact answer pages for the proof question, why proof matters by participant class, the low-cap perp challenge, Vibe's hybrid approach preview, and the thesis publication boundary.
+- Extended the question ledger so Ask can route introductory Proof of Value questions before dropping readers into LP value, trader/project value, economic clarity, comparative advantage, validation, or Thiel scorecard pages.
+- Kept source-time APR examples, capital-efficiency magnitude, partner counts, committed value, revenue shares, solver funding, defense hierarchy, smart-contract security, regulatory conclusions, and detailed derivations marked for fresh primary-source/operator/product/risk/legal/accounting/security review.
+
 ## 2026-06-29 — Proof Of Value Thiel Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Proof of Value Thiel analysis.

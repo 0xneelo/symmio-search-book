@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 724,
+  "totalPages": 729,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 551,
+    "publication-candidate-needs-operator-review": 556,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 441,
+    "manifesto": 446,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -6839,6 +6839,29 @@
       "excerpt": "Loss Waterfall And Tail Event Profit Caps The DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations? The model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbalance, losses can move into solver hedging resources, LP vault capacity used for hedging, local insurance, and then the market's allocation of global insurance. Tail Event Profit Caps The DDQ explicitly treats profit caps as tail event tools, not normal UX. The cap exists for catastrophic gaps, manipulation, discontinuous pricing, or other states where standard liquidation and hedging cannot safely clear. The key economic idea is bounded loss propagation. A permissionless system cannot promise unlimited payouts from markets that may be adversarial, newly launched, or extremely thin. If a market has limited liquidity, limited local insurance, and no global insurance allocation, the maximum realizable payout should be bounded by the resources actually available to that market. Maturation Path The same source gives a useful maturity mod"
     },
     {
+      "id": "authored-low-cap-perp-proof-challenge",
+      "title": "The Low-Cap Perp Proof Challenge",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-3-the-challenge-of-low-cap-perpetuals"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-3-the-challenge-of-low-cap-perpetuals",
+        "authored-usdc-vault-negative-feedback-loop",
+        "authored-token-margined-reflexivity-risk"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/low-cap-perp-proof-challenge.md",
+      "bodyMarkdown": "# The Low-Cap Perp Proof Challenge\n\nLow-cap perpetual markets are hard because every architecture has to answer who backs payouts when the market is thin, volatile, and easy to move.\n\nNeelo's source names four pressure points. Full stablecoin collateralization can become prohibitively expensive. External stablecoin LPs may demand yields too high for traders to fund. Token-margined designs can become reflexive when the collateral and the traded asset fall together. Thin spot liquidity makes oracle manipulation and attack economics part of the design problem.\n\nThat is why Proof of Value is acute for low-cap assets. A mature BTC or ETH market can rely on deep external liquidity, broad hedging venues, and substantial two-sided flow. A new token market often cannot.\n\n## What The Docs Must Explain\n\nThe docs should not present low-cap perps as simply \"more listings.\" They need to explain:\n\n- what capital backs trader PnL;\n- why LP compensation can remain sustainable;\n- how oracle and manipulation risk are bounded;\n- how inventory, settlement capital, insurance, and ADL differ;\n- how the market can improve as it matures.\n\nWithout those answers, a low-cap perp is only a speculative symbol. With those answers, it can become credible market infrastructure.\n\n## Publication Boundary\n\nThe source includes model-level examples for payout scale, LP APR demand, and historical protocol failures. Treat those as source-context claims until final publication review verifies numbers, examples, and current applicability.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.3 The Challenge of Low-Cap Perpetuals\".\n\n## Related Pages\n\n- `authored-usdc-vault-negative-feedback-loop`\n- `authored-token-margined-reflexivity-risk`\n- `authored-bootstrap-oracle-risk-tiers`",
+      "excerpt": "The Low Cap Perp Proof Challenge Low cap perpetual markets are hard because every architecture has to answer who backs payouts when the market is thin, volatile, and easy to move. Neelo's source names four pressure points. Full stablecoin collateralization can become prohibitively expensive. External stablecoin LPs may demand yields too high for traders to fund. Token margined designs can become reflexive when the collateral and the traded asset fall together. Thin spot liquidity makes oracle manipulation and attack economics part of the design problem. That is why Proof of Value is acute for low cap assets. A mature BTC or ETH market can rely on deep external liquidity, broad hedging venues, and substantial two sided flow. A new token market often cannot. What The Docs Must Explain The docs should not present low cap perps as simply \"more listings.\" They need to explain: what capital backs trader PnL; why LP compensation can remain sustainable; how oracle and manipulation risk are bounded; how inventory, settlement capital, insurance, and ADL differ; how the market can improve as it matures. Without those answers, a low cap perp is only a speculative symbol. With those answers, it"
+    },
+    {
       "id": "authored-lp-capacity-rent-model",
       "title": "LP Capacity Rent Model",
       "section": "manifesto",
@@ -9291,6 +9314,29 @@
       "excerpt": "Liquidity Is Two Jobs, Not One Neelo's Proof of Value framework starts the LP argument by separating two roles that are often collapsed into one word: stablecoin liquidity and token inventory. Stablecoin liquidity supports settlement, hedging, cross chain operations, and short operational capital cycles. Token inventory supports the specific market being created. Those roles have different risk profiles, different natural providers, and different failure paths. That distinction is the core design insight. If a protocol asks one generic pool to do every job, the documentation may look simpler, but the risk explanation becomes worse. Readers cannot tell whether capital is settling trades, absorbing bad debt, providing inventory, funding hedges, or warehousing directional exposure. Why The Split Matters In the source model, solver or protocol funded stablecoin capital handles the settlement and hedging side. Token holders, projects, whales, and treasuries provide inventory for the asset they already hold. The point is not that either role is risk free. The point is that each role is assigned to the participant best positioned to understand and bear it. This helps the compendium avoid "
     },
     {
+      "id": "authored-proof-value-question-test",
+      "title": "The Proof Of Value Question",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-1-the-proof-of-value-question"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-1-the-proof-of-value-question",
+        "authored-proof-of-value",
+        "authored-proof-value-four-constituencies"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-question-test.md",
+      "bodyMarkdown": "# The Proof Of Value Question\n\nThe Proof of Value question is whether a permissionless perp design creates value that is real, measurable, aligned, and sustainable.\n\nThat is a stricter test than \"can the protocol list a market?\" A listed market can still fail if LPs demand impossible compensation, traders cannot trust execution or settlement, projects pay more than they receive, or risks are pushed into hidden corners of the system.\n\nNeelo's introduction frames Proof of Value as a four-part test:\n\n- value is created for each participant class;\n- participants benefit together rather than at one another's expense;\n- the market can operate under realistic stress;\n- early evidence supports the claims without being mistaken for final proof.\n\n## Why This Is The Entry Point\n\nThis page should route readers who ask why the compendium treats economics as seriously as architecture. For long-tail perp markets, value is not proven by technical possibility alone. It is proven when the market can name who participates, what they receive, what they risk, and what evidence would show the system can keep operating.\n\nThe rest of the Proof of Value framework then decomposes that question into LP value, trader value, project value, ecosystem value, economic clarity, comparative advantage, validation, and durability.\n\n## Publication Boundary\n\nThis page explains the source's evaluation test. It does not certify current Vibe economics, live market quality, LP returns, solver policy, or launch-partner metrics. Those remain current-source/operator/product/risk/legal/accounting review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.1 The Proof of Value Question\".\n\n## Related Pages\n\n- `authored-proof-of-value`\n- `authored-proof-value-four-constituencies`\n- `authored-thiel-x-y-value-frame`",
+      "excerpt": "The Proof Of Value Question The Proof of Value question is whether a permissionless perp design creates value that is real, measurable, aligned, and sustainable. That is a stricter test than \"can the protocol list a market?\" A listed market can still fail if LPs demand impossible compensation, traders cannot trust execution or settlement, projects pay more than they receive, or risks are pushed into hidden corners of the system. Neelo's introduction frames Proof of Value as a four part test: value is created for each participant class; participants benefit together rather than at one another's expense; the market can operate under realistic stress; early evidence supports the claims without being mistaken for final proof. Why This Is The Entry Point This page should route readers who ask why the compendium treats economics as seriously as architecture. For long tail perp markets, value is not proven by technical possibility alone. It is proven when the market can name who participates, what they receive, what they risk, and what evidence would show the system can keep operating. The rest of the Proof of Value framework then decomposes that question into LP value, trader value, proj"
+    },
+    {
       "id": "authored-proof-value-shadow-side",
       "title": "The Shadow Side Of Proof Of Value",
       "section": "manifesto",
@@ -9312,6 +9358,30 @@
       "file": "content/authored/manifesto/proof-value-shadow-side.md",
       "bodyMarkdown": "# The Shadow Side Of Proof Of Value\n\nProof of Value is powerful because it attaches cost to belief. It is dangerous if the docs make that sound like perfect truth.\n\nNeelo's crisis-of-verification source names the shadow side directly: market-cap-as-truth can drift toward a plutocracy of truth, where the wealthy or the coordinated crowd can push a narrative harder than quieter participants can resist. The source does not present markets as morally pure. It presents them as a costly filter in a world where lying and synthetic content can be nearly free.\n\nThat distinction matters for the Vibe x Symmio compendium. A market can reveal commitment, liquidity, skepticism, and stress. It cannot guarantee objective truth by itself. The docs should frame Proof of Value as a verification layer with adversaries, not as a substitute for judgment, source review, risk controls, or governance.\n\n## Reader Implication\n\nReaders should see Vibe's thesis as a harder information market, not an infallible one. Market price is evidence. Short interest is evidence. Solver refusal is evidence. None of those are absolute truth; they are economically costly signals that can be inspected and challenged.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: The Crisis of Verification: 2.5 The Danger: Plutocracy of Truth\".\n\n## Related Pages\n\n- `authored-market-price-as-verification`\n- `authored-beyond-polymarket-continuous-truth-markets`\n- `authored-financialized-rejection-thumbs-down`",
       "excerpt": "The Shadow Side Of Proof Of Value Proof of Value is powerful because it attaches cost to belief. It is dangerous if the docs make that sound like perfect truth. Neelo's crisis of verification source names the shadow side directly: market cap as truth can drift toward a plutocracy of truth, where the wealthy or the coordinated crowd can push a narrative harder than quieter participants can resist. The source does not present markets as morally pure. It presents them as a costly filter in a world where lying and synthetic content can be nearly free. That distinction matters for the Vibe x Symmio compendium. A market can reveal commitment, liquidity, skepticism, and stress. It cannot guarantee objective truth by itself. The docs should frame Proof of Value as a verification layer with adversaries, not as a substitute for judgment, source review, risk controls, or governance. Reader Implication Readers should see Vibe's thesis as a harder information market, not an infallible one. Market price is evidence. Short interest is evidence. Solver refusal is evidence. None of those are absolute truth; they are economically costly signals that can be inspected and challenged. Sources vibe pape"
+    },
+    {
+      "id": "authored-proof-value-thesis-boundary",
+      "title": "Proof Of Value Thesis Boundary",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-5-thesis-statement",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-7-scope"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-5-thesis-statement",
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-7-scope",
+        "authored-proof-value-question-test"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-thesis-boundary.md",
+      "bodyMarkdown": "# Proof Of Value Thesis Boundary\n\nThe Proof of Value thesis says Vibe's hybrid architecture can create sustainable economic value for LPs, traders, and projects, but the compendium must separate thesis from production proof.\n\nNeelo's source states the thesis in strong terms: token-vault inventory, solver-funded stablecoin operations, active risk management, and lifecycle progression together form a structurally superior path for low-cap perpetuals. It also includes model claims about capital efficiency, risk alignment, and early partner commitment.\n\nThe publication boundary is just as important. The same introduction says the paper focuses on economic value creation and structural sustainability. It does not settle smart-contract security, jurisdiction-specific compliance, or detailed mathematical derivations.\n\n## How The Docs Should Use The Thesis\n\nUse the thesis as the argument spine, not as a blanket proof. It should route readers into the pages that can substantiate each piece:\n\n- LP value and token inventory;\n- trader execution and payout confidence;\n- project utility and participation;\n- solver-funded USDC operations;\n- risk alignment and defense hierarchy;\n- validation, sustainability, and market maturity.\n\nIf one of those pieces lacks current source evidence, the docs should say so and keep the claim review-bound.\n\n## Publication Boundary\n\nDo not publish source-time partner counts, committed value, capital-efficiency ratios, live risk alignment, security assurances, regulatory conclusions, or mathematical finality as settled production facts without fresh primary-source/operator/product/risk/legal/accounting/security review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.5 Thesis Statement\".\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.7 Scope\".\n\n## Related Pages\n\n- `authored-proof-value-question-test`\n- `authored-proof-value-validation-sustainability`\n- `authored-hybrid-perps-comparative-advantage`",
+      "excerpt": "Proof Of Value Thesis Boundary The Proof of Value thesis says Vibe's hybrid architecture can create sustainable economic value for LPs, traders, and projects, but the compendium must separate thesis from production proof. Neelo's source states the thesis in strong terms: token vault inventory, solver funded stablecoin operations, active risk management, and lifecycle progression together form a structurally superior path for low cap perpetuals. It also includes model claims about capital efficiency, risk alignment, and early partner commitment. The publication boundary is just as important. The same introduction says the paper focuses on economic value creation and structural sustainability. It does not settle smart contract security, jurisdiction specific compliance, or detailed mathematical derivations. How The Docs Should Use The Thesis Use the thesis as the argument spine, not as a blanket proof. It should route readers into the pages that can substantiate each piece: LP value and token inventory; trader execution and payout confidence; project utility and participation; solver funded USDC operations; risk alignment and defense hierarchy; validation, sustainability, and market "
     },
     {
       "id": "authored-proof-value-validation-sustainability",
@@ -15926,6 +15996,29 @@
       "excerpt": "Vibe Hotkeys Vibe's hotkey guide treats keyboard control as part of execution speed. Hotkeys let a trader move through the ticket, select order modes, open common panels, and submit a trade without depending entirely on the mouse. Current Shortcut Surface The public hotkey page lists shortcuts for Market and Limit order selection, Amount and Price input focus, token picker opening, Buy/Long and Sell/Short direction, trade placement, leverage modal opening, orderbook visibility, deposit flow, and TP/SL controls. That means hotkeys belong in the trading workflow docs, not only in a convenience appendix. They sit directly beside order type, direction, amount, leverage, and risk management controls. Guardrail Keyboard speed does not change the trade semantics. A hotkey can move the user through the interface faster, but the same order type, margin, fee, funding, and TP/SL rules still apply. The docs should present hotkeys as UI acceleration, not as a separate execution engine. Reader Implication When a trader asks how to move faster in the Vibe UI, route them here. When they ask what an order does after a shortcut selects it, route them to the simple trade flow, order type, TP/SL, and "
     },
     {
+      "id": "authored-vibe-hybrid-approach-preview",
+      "title": "Vibe's Hybrid Approach Preview",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-4-vibes-approach-a-preview"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-4-vibes-approach-a-preview",
+        "authored-hybrid-perps-comparative-advantage",
+        "authored-solver-funded-usdc-capital-loop"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/vibe-hybrid-approach-preview.md",
+      "bodyMarkdown": "# Vibe's Hybrid Approach Preview\n\nThe Proof of Value introduction previews Vibe as a hybrid architecture: token inventory, solver-funded stablecoin operations, active risk management, and market lifecycle progression.\n\nThe point of the preview is role separation. Projects and token holders can supply the asset they already hold. The solver handles the stablecoin-side operational layer instead of asking generic external USDC LPs to back every long-tail market. The risk layer adjusts spreads, funding, borrow rates, insurance, and defensive escalation as market state changes. Over time, the market is supposed to move from solver-heavy bootstrap toward more natural netting and possible order-book graduation.\n\n## Why The Preview Matters\n\nThis preview gives the reader a map before the detailed framework:\n\n- token inventory is not the same job as stablecoin settlement;\n- solver operation is not the same job as passive LP provision;\n- bootstrap markets are not expected to behave like mature CLOB markets;\n- the architecture is judged by whether reliance on defensive capital can decline as markets mature.\n\nThat is the bridge from the low-cap problem to the Proof of Value thesis.\n\n## Publication Boundary\n\nKeep this page as an architectural preview, not a production guarantee. Revenue shares, solver funding, hedge mechanics, defense hierarchy, market graduation, and active-risk parameters need current implementation/operator/risk/legal review before final publication.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.4 Vibe's Approach: A Preview\".\n\n## Related Pages\n\n- `authored-hybrid-perps-comparative-advantage`\n- `authored-solver-funded-usdc-capital-loop`\n- `authored-market-maturation-state-map`",
+      "excerpt": "Vibe's Hybrid Approach Preview The Proof of Value introduction previews Vibe as a hybrid architecture: token inventory, solver funded stablecoin operations, active risk management, and market lifecycle progression. The point of the preview is role separation. Projects and token holders can supply the asset they already hold. The solver handles the stablecoin side operational layer instead of asking generic external USDC LPs to back every long tail market. The risk layer adjusts spreads, funding, borrow rates, insurance, and defensive escalation as market state changes. Over time, the market is supposed to move from solver heavy bootstrap toward more natural netting and possible order book graduation. Why The Preview Matters This preview gives the reader a map before the detailed framework: token inventory is not the same job as stablecoin settlement; solver operation is not the same job as passive LP provision; bootstrap markets are not expected to behave like mature CLOB markets; the architecture is judged by whether reliance on defensive capital can decline as markets mature. That is the bridge from the low cap problem to the Proof of Value thesis. Publication Boundary Keep this "
+    },
+    {
       "id": "authored-vibe-intent-architecture",
       "title": "Vibe Intent Architecture",
       "section": "product-reference",
@@ -17473,6 +17566,29 @@
       "file": "content/authored/manifesto/why-lifecycle-gap-exists.md",
       "bodyMarkdown": "# Why The Lifecycle Gap Exists\n\nThe lifecycle gap exists because architecture, economics, and incentives all point away from the long tail.\n\nAt the architecture layer, mature order-book systems need two-sided liquidity. They are excellent once a market has makers, takers, depth, and enough flow to justify maintenance. They are weak as zero-to-one bootstrap engines for thousands of early assets. Collateralized or pool-based systems can create markets earlier, but the source argues that they have not scaled permissionless perp creation across the long tail.\n\nAt the economics layer, listing work is costly. Venues must evaluate risk, integrate assets, support markets, manage reputation, and justify operational load. Low market-cap tokens often create too little expected fee revenue to pay for that work under existing models.\n\nAt the incentive layer, no incumbent naturally owns the gap. CEXs and order-book protocols optimize for established markets. Bootstrap-capable protocols have not made long-tail perp creation their central territory. The gap becomes negative space.\n\n## Reader Implication\n\nThis page is the bridge from diagnosis to product thesis. If the gap is created by architecture, economics, and incentive misalignment, then a solution cannot be only a prettier listing interface. It needs a different market-creation mechanism.\n\n## Publication Boundary\n\nTreat venue behavior, protocol capabilities, and economic costs as source-backed analytical claims. Current Hyperliquid, Binance, GMX-style, CEX, and Vibe-specific mechanics need primary-source/operator/product/risk review before publication as live comparative facts.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.5 Why the Gap Exists\".\n\n## Related Pages\n\n- `authored-static-perp-design-failures`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-gap-filling-perps-protocol`",
       "excerpt": "Why The Lifecycle Gap Exists The lifecycle gap exists because architecture, economics, and incentives all point away from the long tail. At the architecture layer, mature order book systems need two sided liquidity. They are excellent once a market has makers, takers, depth, and enough flow to justify maintenance. They are weak as zero to one bootstrap engines for thousands of early assets. Collateralized or pool based systems can create markets earlier, but the source argues that they have not scaled permissionless perp creation across the long tail. At the economics layer, listing work is costly. Venues must evaluate risk, integrate assets, support markets, manage reputation, and justify operational load. Low market cap tokens often create too little expected fee revenue to pay for that work under existing models. At the incentive layer, no incumbent naturally owns the gap. CEXs and order book protocols optimize for established markets. Bootstrap capable protocols have not made long tail perp creation their central territory. The gap becomes negative space. Reader Implication This page is the bridge from diagnosis to product thesis. If the gap is created by architecture, economic"
+    },
+    {
+      "id": "authored-why-proof-value-matters",
+      "title": "Why Proof Of Value Matters",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-2-why-proof-of-value-matters"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-01-introduction-1-2-why-proof-of-value-matters",
+        "authored-economic-clarity-for-permissionless-perps",
+        "authored-trader-payout-certainty"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/why-proof-value-matters.md",
+      "bodyMarkdown": "# Why Proof Of Value Matters\n\nProof of Value matters because each participant has a different failure mode.\n\nLPs need to know whether the return compensates the actual risk they carry. Traders need execution quality, liquidity, and confidence that profitable positions can settle. Projects need a market path whose benefits justify inventory, attention, and operational cost. The ecosystem needs capital-efficient price discovery and hedging, not a structure that extracts value through hidden risk transfers.\n\nThe source's contribution is to make those questions explicit. A permissionless perp market can look active while still being fragile if one participant class is subsidizing another without knowing it.\n\n## The Four Audience Test\n\nThe compendium should answer Proof of Value questions by audience:\n\n- LP or inventory owner: what risk do I bear, and why is the yield coherent?\n- Trader: who backs my fill, and what happens if the market moves hard?\n- Project: what utility does my inventory create, and what do I receive?\n- Ecosystem or venue: does this market produce better validation and listing evidence?\n\nIf the docs cannot answer those questions, the product may be interesting but not yet self-serve for serious market participants.\n\n## Publication Boundary\n\nAudience-specific value claims must stay source-labeled. Do not publish exact LP terms, project economics, trader guarantees, or ecosystem impact as current facts without approved product/accounting/risk/legal sources.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.2 Why Proof of Value Matters\".\n\n## Related Pages\n\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-trader-payout-certainty`\n- `authored-project-token-utility-without-stablecoin`",
+      "excerpt": "Why Proof Of Value Matters Proof of Value matters because each participant has a different failure mode. LPs need to know whether the return compensates the actual risk they carry. Traders need execution quality, liquidity, and confidence that profitable positions can settle. Projects need a market path whose benefits justify inventory, attention, and operational cost. The ecosystem needs capital efficient price discovery and hedging, not a structure that extracts value through hidden risk transfers. The source's contribution is to make those questions explicit. A permissionless perp market can look active while still being fragile if one participant class is subsidizing another without knowing it. The Four Audience Test The compendium should answer Proof of Value questions by audience: LP or inventory owner: what risk do I bear, and why is the yield coherent? Trader: who backs my fill, and what happens if the market moves hard? Project: what utility does my inventory create, and what do I receive? Ecosystem or venue: does this market produce better validation and listing evidence? If the docs cannot answer those questions, the product may be interesting but not yet self serve for "
     },
     {
       "id": "authored-yield-as-architecture-survival-proof",

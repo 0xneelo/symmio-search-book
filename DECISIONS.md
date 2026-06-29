@@ -1463,3 +1463,11 @@
 **Reason:** Existing pages summarized value creation/capture and durability, but the generated Section 13 source contains several exact questions the answer engine should distinguish. Readers may ask what X and Y mean, what value is created, which capture mechanisms are named, why creation and capture must remain independent, or what threatens durability. Splitting those routes lets Ask answer precisely without treating the scorecard as audited production proof.
 
 **Status:** Accepted for the authored manifesto layer; partner counts, capital-efficiency magnitude, protocol share, solver spreads, fees, data products, graduation economics, competitor timelines, live durability, and final scorecard conclusions remain fresh primary-source/operator/product/risk/legal/accounting/market review.
+
+## D-184: Split Proof Of Value Introduction Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the Proof of Value introduction: the proof question, why proof matters, the low-cap perp challenge, Vibe's hybrid approach preview, and the thesis publication boundary.
+
+**Reason:** Existing pages define Proof of Value broadly and cover later framework details, but the introduction establishes the source's evaluation gate. Ask needs direct routes for what is being tested, why each participant class cares, why low-cap perps are structurally difficult, what hybrid design the paper previews, and what the thesis does not prove. This keeps the manifesto rigorous before readers reach detailed economics or Thiel scorecards.
+
+**Status:** Accepted for the authored manifesto layer; source-time APR examples, capital-efficiency magnitude, partner counts, committed value, revenue shares, solver funding, defense hierarchy, security claims, regulatory conclusions, and detailed derivations remain fresh primary-source/operator/product/risk/legal/accounting/security review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 705
+      "totalGoldenRoutes": 710
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 723,
-    "retrievalEligiblePages": 1515,
+    "publicNavigationPages": 728,
+    "retrievalEligiblePages": 1520,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 723,
+      "candidate": 728,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 705,
-    "exactRouteTestsPassing": 705,
+    "totalExactRouteTests": 710,
+    "exactRouteTestsPassing": 710,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 705
+      "candidate": 710
     },
     "exactRoutesByConfidence": {
       "Medium": 456,
       "High": 44,
-      "Low": 205
+      "Low": 210
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2554,6 +2554,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-proof-of-value-mean",
+        "passes": true
+      },
+      {
+        "id": "qr-what-question-does-proof-of-value-test",
+        "query": "What question does Proof of Value test?",
+        "normalizedQuery": "what question does proof of value test",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-question-test",
+        "expectedPageTitle": "The Proof Of Value Question",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-question-does-proof-of-value-test",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-proof-of-value-matter-for-lps-traders-projects-and-the-ecosystem",
+        "query": "Why does Proof of Value matter for LPs, traders, projects, and the ecosystem?",
+        "normalizedQuery": "why does proof of value matter for lps traders projects and the ecosystem",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-why-proof-value-matters",
+        "expectedPageTitle": "Why Proof Of Value Matters",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-proof-of-value-matter-for-lps-traders-projects-and-the-ecosystem",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-low-cap-perpetual-markets-hard-to-prove",
+        "query": "Why are low-cap perpetual markets hard to prove?",
+        "normalizedQuery": "why are low cap perpetual markets hard to prove",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-low-cap-perp-proof-challenge",
+        "expectedPageTitle": "The Low-Cap Perp Proof Challenge",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-low-cap-perpetual-markets-hard-to-prove",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-vibe-s-hybrid-approach-in-the-proof-of-value-paper",
+        "query": "What is Vibe's hybrid approach in the Proof of Value paper?",
+        "normalizedQuery": "what is vibe s hybrid approach in the proof of value paper",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-hybrid-approach-preview",
+        "expectedPageTitle": "Vibe's Hybrid Approach Preview",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-vibe-s-hybrid-approach-in-the-proof-of-value-paper",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-the-proof-of-value-thesis-be-bounded",
+        "query": "How should the Proof of Value thesis be bounded?",
+        "normalizedQuery": "how should the proof of value thesis be bounded",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-thesis-boundary",
+        "expectedPageTitle": "Proof Of Value Thesis Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-the-proof-of-value-thesis-be-bounded",
         "passes": true
       },
       {
@@ -15565,7 +15670,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 705,
+      "exactRoutes": 710,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
