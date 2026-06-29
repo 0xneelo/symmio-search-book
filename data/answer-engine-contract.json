@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 637
+      "totalGoldenRoutes": 642
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 655,
-    "retrievalEligiblePages": 1447,
+    "publicNavigationPages": 660,
+    "retrievalEligiblePages": 1452,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 655,
+      "candidate": 660,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 637,
-    "exactRouteTestsPassing": 637,
+    "totalExactRouteTests": 642,
+    "exactRouteTestsPassing": 642,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 637
+      "candidate": 642
     },
     "exactRoutesByConfidence": {
-      "Medium": 409,
+      "Medium": 412,
       "High": 44,
-      "Low": 184
+      "Low": 186
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3436,6 +3436,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-listing-monopoly-thesis-statement",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-listings-create-monopoly-power",
+        "query": "How do listings create monopoly power?",
+        "normalizedQuery": "how do listings create monopoly power",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-power-mechanics",
+        "expectedPageTitle": "How Listings Create Monopoly Power",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-listings-create-monopoly-power",
+        "passes": true
+      },
+      {
+        "id": "qr-how-did-permissionless-crypto-infrastructure-evolve-toward-perps",
+        "query": "How did permissionless crypto infrastructure evolve toward perps?",
+        "normalizedQuery": "how did permissionless crypto infrastructure evolve toward perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-infrastructure-evolution",
+        "expectedPageTitle": "The Evolution Of Permissionless Infrastructure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-did-permissionless-crypto-infrastructure-evolve-toward-perps",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-full-lifecycle-control-thesis",
+        "query": "What is the full lifecycle-control thesis?",
+        "normalizedQuery": "what is the full lifecycle control thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-lifecycle-thesis-statement",
+        "expectedPageTitle": "The Full Lifecycle-Control Thesis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-full-lifecycle-control-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-listing-monopoly-paper-contribute",
+        "query": "What does the Listing Monopoly paper contribute?",
+        "normalizedQuery": "what does the listing monopoly paper contribute",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-paper-contribution-map",
+        "expectedPageTitle": "Listing Monopoly Paper Contribution Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-listing-monopoly-paper-contribute",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-outside-the-listing-monopoly-paper-s-scope",
+        "query": "What is outside the Listing Monopoly paper's scope?",
+        "normalizedQuery": "what is outside the listing monopoly paper s scope",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-paper-scope-limits",
+        "expectedPageTitle": "Listing Monopoly Paper Scope And Limits",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-outside-the-listing-monopoly-paper-s-scope",
         "passes": true
       },
       {
@@ -14137,7 +14242,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 637,
+      "exactRoutes": 642,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

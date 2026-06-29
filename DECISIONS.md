@@ -1351,3 +1351,11 @@
 **Reason:** Existing listing pages explain lifecycle gates, market power, the lifecycle gap, and the Thielian strategy, but the generated source still had uncovered introductory sections. Ask needs precise routes for "what is this paper arguing," "which concepts matter," "how do I read it," "why the historical analogy," and "what is the thesis statement" before routing readers into deeper gap-filling and monopoly-durability pages.
 
 **Status:** Accepted for the authored manifesto layer; source market-share examples, market-cap thresholds, live dominance, partnership claims, integrations, and product roadmap language remain publication-date/operator/product review.
+
+## D-170: Split Listing Monopoly Mechanics Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for listing-power mechanisms, the permissionless-infrastructure evolution toward perps, the full lifecycle-control thesis, the paper contribution map, and the paper's scope/limitations.
+
+**Reason:** The previous orientation pages let Ask answer what the Listing Monopoly paper is and how to read it, while existing lifecycle and gap pages cover deeper mechanics. The remaining introduction headings still needed exact routes for why listings create monopoly power, why permissionless perps are the next infrastructure frontier, what the full thesis says, what the paper contributes, and what the paper explicitly excludes.
+
+**Status:** Accepted for the authored manifesto layer; live dominance, market-share/current-positioning claims, product coverage, integrations, listing eligibility, regulatory conclusions, token valuation, and production protocol guarantees remain fresh source/operator/product/risk/legal/implementation review.

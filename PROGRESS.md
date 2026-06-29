@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Monopoly Mechanics Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly introduction mechanics source.
+- Split uncovered introduction sections into exact answer routes for listing-power mechanisms, permissionless infrastructure evolution, the full lifecycle-control thesis, the paper contribution map, and scope/limitations.
+- Extended the question ledger so Ask can route readers to mechanics and publication-boundary pages before deeper lifecycle, gap-filling, listing-plus-liquidity, or Thiel analysis.
+- Kept live dominance, current market share, product coverage, integration status, listing eligibility, regulatory conclusions, token valuation, and production protocol guarantees marked for fresh source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Listing Monopoly Intro Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly abstract and introduction source.
