@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Proof Of Value Thiel Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Proof of Value Thiel analysis.
+- Split the broad value-analysis source into exact answer pages for the X/Y value frame, value creation map, value capture mechanisms, X/Y independence, and durability/threat model.
+- Extended the question ledger so Ask can route Thiel value-analysis questions without collapsing every answer into the broad value-creation/capture or durability scorecard pages.
+- Kept partner counts, capital-efficiency magnitude, protocol share, solver spreads, fees, data products, graduation economics, competitor timelines, and final scorecard conclusions marked for fresh primary-source/operator/product/risk/legal/accounting/market review.
+
 ## 2026-06-29 — Listing Liquidity Thesis Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly Section 4Z listing/liquidity thesis.

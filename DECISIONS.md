@@ -1455,3 +1455,11 @@
 **Reason:** The existing listing-plus-liquidity page states the broad correction, but Section 4Z carries several exact questions the answer engine should distinguish. Readers may ask why symbolic listing is insufficient, what "zero-cost" liquidity actually means, why generalized market making is hard, where durable advantage sits, or how liquidity and listings compound. Exact pages preserve those distinctions before routing into the permissionless-perps hypothesis or Thiel monopoly analysis.
 
 **Status:** Accepted for the authored manifesto layer; current venue rules, maker incentives, LP economics, solver capacity, automated counterparty guarantees, market eligibility, adverse-flow controls, liquidity depth, moat claims, and live network effects remain fresh primary-source/operator/product/risk/legal/market review.
+
+## D-183: Split Proof Of Value Thiel Analysis Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the Proof of Value Thiel analysis: the X/Y value frame, value creation map, value capture mechanisms, X/Y independence, and durability/threat model.
+
+**Reason:** Existing pages summarized value creation/capture and durability, but the generated Section 13 source contains several exact questions the answer engine should distinguish. Readers may ask what X and Y mean, what value is created, which capture mechanisms are named, why creation and capture must remain independent, or what threatens durability. Splitting those routes lets Ask answer precisely without treating the scorecard as audited production proof.
+
+**Status:** Accepted for the authored manifesto layer; partner counts, capital-efficiency magnitude, protocol share, solver spreads, fees, data products, graduation economics, competitor timelines, live durability, and final scorecard conclusions remain fresh primary-source/operator/product/risk/legal/accounting/market review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 700
+      "totalGoldenRoutes": 705
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 718,
-    "retrievalEligiblePages": 1510,
+    "publicNavigationPages": 723,
+    "retrievalEligiblePages": 1515,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 718,
+      "candidate": 723,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 700,
-    "exactRouteTestsPassing": 700,
+    "totalExactRouteTests": 705,
+    "exactRouteTestsPassing": 705,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 700
+      "candidate": 705
     },
     "exactRoutesByConfidence": {
       "Medium": 456,
       "High": 44,
-      "Low": 200
+      "Low": 205
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -7983,6 +7983,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-is-the-thiel-x-y-value-frame",
+        "query": "What is the Thiel X/Y value frame?",
+        "normalizedQuery": "what is the thiel x y value frame",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-thiel-x-y-value-frame",
+        "expectedPageTitle": "The Thiel X/Y Value Frame",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-thiel-x-y-value-frame",
+        "passes": true
+      },
+      {
+        "id": "qr-what-value-does-vibe-create-in-proof-of-value",
+        "query": "What value does Vibe create in Proof of Value?",
+        "normalizedQuery": "what value does vibe create in proof of value",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-creation-map",
+        "expectedPageTitle": "Proof Of Value Creation Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-value-does-vibe-create-in-proof-of-value",
+        "passes": true
+      },
+      {
+        "id": "qr-which-value-capture-mechanisms-does-proof-of-value-name",
+        "query": "Which value capture mechanisms does Proof of Value name?",
+        "normalizedQuery": "which value capture mechanisms does proof of value name",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-capture-mechanisms",
+        "expectedPageTitle": "Proof Of Value Capture Mechanisms",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-value-capture-mechanisms-does-proof-of-value-name",
+        "passes": true
+      },
+      {
+        "id": "qr-why-must-value-creation-and-value-capture-stay-independent",
+        "query": "Why must value creation and value capture stay independent?",
+        "normalizedQuery": "why must value creation and value capture stay independent",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-value-creation-capture-independence",
+        "expectedPageTitle": "Value Creation And Capture Must Stay Independent",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-must-value-creation-and-value-capture-stay-independent",
+        "passes": true
+      },
+      {
+        "id": "qr-what-threatens-vibe-s-durability-in-the-thiel-value-analysis",
+        "query": "What threatens Vibe's durability in the Thiel value analysis?",
+        "normalizedQuery": "what threatens vibe s durability in the thiel value analysis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-durability-threat-model",
+        "expectedPageTitle": "Proof Of Value Durability Threat Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-threatens-vibe-s-durability-in-the-thiel-value-analysis",
+        "passes": true
+      },
+      {
         "id": "qr-how-should-vibe-assign-each-major-risk",
         "query": "How should Vibe assign each major risk?",
         "normalizedQuery": "how should vibe assign each major risk",
@@ -15460,7 +15565,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 700,
+      "exactRoutes": 705,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
