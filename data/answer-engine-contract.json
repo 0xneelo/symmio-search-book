@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 627
+      "totalGoldenRoutes": 632
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 645,
-    "retrievalEligiblePages": 1437,
+    "publicNavigationPages": 650,
+    "retrievalEligiblePages": 1442,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 645,
+      "candidate": 650,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 627,
-    "exactRouteTestsPassing": 627,
+    "totalExactRouteTests": 632,
+    "exactRouteTestsPassing": 632,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 627
+      "candidate": 632
     },
     "exactRoutesByConfidence": {
-      "Medium": 402,
+      "Medium": 406,
       "High": 44,
-      "Low": 181
+      "Low": 182
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3837,6 +3837,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 3,
         "faqEntryId": "faq-what-is-the-funding-model-trying-to-control",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-funding-model-source",
+        "query": "How should I read the funding model source?",
+        "normalizedQuery": "how should i read the funding model source",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-model-reading-boundary",
+        "expectedPageTitle": "Funding Model Reading Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-funding-model-source",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-funding-model-traversal-an-information-loop",
+        "query": "Why is funding-model traversal an information loop?",
+        "normalizedQuery": "why is funding model traversal an information loop",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-information-traversal-loop",
+        "expectedPageTitle": "Funding Information And Traversal Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-funding-model-traversal-an-information-loop",
+        "passes": true
+      },
+      {
+        "id": "qr-what-operational-path-does-the-funding-model-propose",
+        "query": "What operational path does the funding model propose?",
+        "normalizedQuery": "what operational path does the funding model propose",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-operational-path-control",
+        "expectedPageTitle": "Funding Operational Path Control",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-operational-path-does-the-funding-model-propose",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-math-in-the-funding-model-actually-for",
+        "query": "What is the math in the funding model actually for?",
+        "normalizedQuery": "what is the math in the funding model actually for",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-math-as-problem-sharpening",
+        "expectedPageTitle": "Funding Math As Problem Sharpening",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-math-in-the-funding-model-actually-for",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-funding-model-master-formula",
+        "query": "How should I read the funding model master formula?",
+        "normalizedQuery": "how should i read the funding model master formula",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-master-formula-reading",
+        "expectedPageTitle": "Funding Master Formula Reading",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-funding-model-master-formula",
         "passes": true
       },
       {
@@ -13927,7 +14032,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 627,
+      "exactRoutes": 632,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

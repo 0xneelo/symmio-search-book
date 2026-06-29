@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Funding Model Reading-Guide Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's funding-model informal intro and abstract source.
+- Split uncovered source sections into exact answer routes for how to read the model, traversal as information, the operational path separate from the formula, what the math is for, and the master formula reading boundary.
+- Extended the question ledger so Ask can route funding-model interpretation questions before dropping readers into detailed control equations, utilization modes, insurance, or ADL pages.
+- Kept live weights, caps, rates, z-score thresholds, solver obligations, ADL policy, external-solver competition, insurance eligibility, and product parameters marked for fresh operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — SYMM LP Setup Exact Pages
 
 - Added 5 authored Volume 05 reference pages from Neelo's SYMM LP case-study setup source.

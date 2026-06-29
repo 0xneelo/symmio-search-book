@@ -1335,3 +1335,11 @@
 **Reason:** Existing SYMM LP pages explain the case at the summary, benchmark, risk, and reporting layers, but the generated section map still had uncovered setup headings. Answer-engine readers need direct routes for "what exactly was the case," "which deposits are in scope," "what regime shaped it," "what was the operational objective," and "why LP collateral is described as bootstrap capacity" before they interpret performance.
 
 **Status:** Accepted for the authored reference layer; current balances, live vault terms, LP instructions, generalized yield claims, fee-share terms, accounting treatment, and current market-state claims remain fresh operator/product/risk/legal/accounting/implementation review.
+
+## D-168: Split Funding Model Reading Boundaries Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for how to read the funding model source, traversal as information, the operational path separate from the formula, math as problem sharpening, and the master formula reading boundary.
+
+**Reason:** Existing funding pages cover many detailed variables, controls, defenses, examples, and optimization terms. The source still needed exact introductory routes that prevent readers from mistaking the model for a static production promise. Splitting the intro gives Ask precise answers for what the derivation is, what it is not, how the system learns, and how to interpret the master formula before reading lower-level mechanics.
+
+**Status:** Accepted for the authored manifesto layer; live weights, caps, rates, z-score thresholds, solver obligations, ADL policy, external-solver competition, insurance eligibility, and public product parameters remain fresh operator/product/risk/legal/implementation review.

@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 646,
+  "totalPages": 651,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 473,
+    "publication-candidate-needs-operator-review": 478,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 363,
+    "manifesto": 368,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -3291,6 +3291,29 @@
       "excerpt": "Funding Hedge Cost Coverage Neelo's insurance and ADL source treats hedging as an active exposure reduction control. Before ADL reduces user positions, the system can use a hedge or trade action to bring exposure down. The source writes the hedge action as: where h m(t) is the hedge or trade action in base units. The hedge has a cost: That cost must fit inside available insurance spend: Why This Is Not Free Protection The hedge action can reduce exposure, but the model still prices the action against market liquidity and spread. In thin or stressed markets, the cost of reducing exposure can be exactly the problem: the system may know what exposure it wants to reduce, while the available local and global insurance spend limits whether it can pay for that reduction. This keeps the docs from describing hedging as a magic escape hatch. Hedging is part of the defense stack, but it competes for the same capped defense budget that later determines residual stress and ADL proximity. Publication Boundary This page explains the source model hedge cost constraint. It should not publish live hedge venues, routing policy, liquidity assumptions, spread tables, execution guarantees, hedge size li"
     },
     {
+      "id": "authored-funding-information-traversal-loop",
+      "title": "Funding Information And Traversal Loop",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#information-and-traversal"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-00-informal-intro-information-and-traversal",
+        "authored-gradient-flow-market-balancing",
+        "authored-funding-rate-regime-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-information-traversal-loop.md",
+      "bodyMarkdown": "# Funding Information And Traversal Loop\n\nThe funding model is also an information system. Neelo's intro says that moving up the z-score or netting spectrum teaches the protocol from flow, stress, and recoveries. Stepping back through ADL, parameter resets, or a more isolated posture is not only failure handling. It is part of how the system corrects and recalibrates.\n\nThat is an important inversion. A brittle model pretends that every market should move one way: toward more leverage, more netting, and more capital efficiency. A living control model accepts that markets can advance, reveal stress, and need to retreat before trying again.\n\n## What Traversal Means\n\nTraversal is the movement between market states:\n\n- up toward more netting and more capital efficiency when evidence supports it;\n- inward toward a more cross-market, netted posture when coupling becomes safe;\n- down and outward toward isolation, collateralization, or ADL when stress says the market is not ready.\n\nThe goal is not to discover a unique algorithm that ends market design. The goal is to approximate better over time, including through future solver competition and better control policies.\n\n## Publication Boundary\n\nDo not imply that current Vibe markets automatically traverse these states, that z-score thresholds are final, or that external solvers currently compete over every control policy. Those are product and implementation claims that need fresh review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Informal intro\", \"Information and traversal\".\n\n## Related Pages\n\n- `authored-gradient-flow-market-balancing`\n- `authored-funding-rate-regime-model`\n- `authored-trilemma-escape-route`",
+      "excerpt": "Funding Information And Traversal Loop The funding model is also an information system. Neelo's intro says that moving up the z score or netting spectrum teaches the protocol from flow, stress, and recoveries. Stepping back through ADL, parameter resets, or a more isolated posture is not only failure handling. It is part of how the system corrects and recalibrates. That is an important inversion. A brittle model pretends that every market should move one way: toward more leverage, more netting, and more capital efficiency. A living control model accepts that markets can advance, reveal stress, and need to retreat before trying again. What Traversal Means Traversal is the movement between market states: up toward more netting and more capital efficiency when evidence supports it; inward toward a more cross market, netted posture when coupling becomes safe; down and outward toward isolation, collateralization, or ADL when stress says the market is not ready. The goal is not to discover a unique algorithm that ends market design. The goal is to approximate better over time, including through future solver competition and better control policies. Publication Boundary Do not imply that "
+    },
+    {
       "id": "authored-funding-insurance-buyback-accounting",
       "title": "Funding Insurance And Buyback Accounting",
       "section": "manifesto",
@@ -3525,6 +3548,29 @@
       "excerpt": "Funding LP Master Profit Formula Neelo's LP profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form: That structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market level results across markets. Why This Matters The formula makes Vibe's long tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough. This is also why dynamic pricing, utilization"
     },
     {
+      "id": "authored-funding-master-formula-reading",
+      "title": "Funding Master Formula Reading",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/01-abstract#master-formula"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-01-abstract-master-formula",
+        "authored-funding-master-optimization-equation",
+        "authored-funding-full-objective"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-master-formula-reading.md",
+      "bodyMarkdown": "# Funding Master Formula Reading\n\nThe funding model's master formula should be read as an objective function for market control. It names markets, per-market controls, per-market state, raw profit, local risk, residual stress, flattening, insurance cost, and ADL cost. The interpretation is simple: maximize profit after flattening while subtracting risk, insurance cost, and ADL or UX penalties, under hard budget and safety constraints.\n\nThat does not make the formula a production config. It is the highest-level map of the control problem.\n\n## What The Formula Connects\n\nThe formula connects four families of ideas:\n\n- **profit:** spreads, funding, borrow, liquidations, market-making, and other revenue channels after costs;\n- **risk:** local market risk, systemic coupling, exposure, volatility, and stress;\n- **insurance:** local and global buffers with eligibility and spend limits;\n- **ADL:** last-resort deleveraging when stress exceeds safety budgets or exposure limits.\n\nThe point is not that every term is final. The point is that profit, risk, insurance, and deleveraging must be optimized together rather than in separate silos.\n\n## Publication Boundary\n\nDo not treat the master formula as a live guarantee about rates, thresholds, eligibility, or ADL behavior. Public product docs need implementation-specific values and operator-approved risk language before exposing operational parameters.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Abstract\", \"Master Formula\".\n\n## Related Pages\n\n- `authored-funding-master-optimization-equation`\n- `authored-funding-full-objective`\n- `authored-funding-local-risk-score-penalties`",
+      "excerpt": "Funding Master Formula Reading The funding model's master formula should be read as an objective function for market control. It names markets, per market controls, per market state, raw profit, local risk, residual stress, flattening, insurance cost, and ADL cost. The interpretation is simple: maximize profit after flattening while subtracting risk, insurance cost, and ADL or UX penalties, under hard budget and safety constraints. That does not make the formula a production config. It is the highest level map of the control problem. What The Formula Connects The formula connects four families of ideas: profit: spreads, funding, borrow, liquidations, market making, and other revenue channels after costs; risk: local market risk, systemic coupling, exposure, volatility, and stress; insurance: local and global buffers with eligibility and spend limits; ADL: last resort deleveraging when stress exceeds safety budgets or exposure limits. The point is not that every term is final. The point is that profit, risk, insurance, and deleveraging must be optimized together rather than in separate silos. Publication Boundary Do not treat the master formula as a live guarantee about rates, thres"
+    },
+    {
       "id": "authored-funding-master-optimization-equation",
       "title": "Funding Master Optimization Equation",
       "section": "manifesto",
@@ -3546,6 +3592,29 @@
       "file": "content/authored/manifesto/funding-master-optimization-equation.md",
       "bodyMarkdown": "# Funding Master Optimization Equation\n\nNeelo's full funding objective expresses the control problem as a single optimization:\n\n```\nmaximize sum_m Pi'_m - lambda * sum_m R_m - sum_m C_ins(x_m) - sum_m C_adl(a_m)\n```\n\nThe source describes this as an optimization over markets subject to insurance budget constraints, global allocation rules, exposure dynamics, and ADL safety constraints.\n\nIn plain English, the system wants high flattened profit, but it subtracts local risk, insurance spend, and ADL cost. That makes the objective different from a naive \"maximize fees\" target.\n\n## What Each Term Means\n\n`Pi'_m` is flattened per-market profit after cross-market tail adjustment. It is the attractor: the system wants durable, risk-adjusted market profit.\n\n`R_m` is local risk score. It captures pressure from utilization, insurance stress, skew, volatility, profit deviation, and residual stress.\n\n`C_ins(x_m)` is insurance cost. It prevents insurance from being treated as free capital.\n\n`C_adl(a_m)` is ADL cost. It makes forced deleveraging an expensive last-resort action rather than a normal balancing tool.\n\n## Publication Boundary\n\nThis page explains the source-model equation. It should not publish live lambda values, objective weights, optimized variables, production solver policy, or operator-approved risk tolerances without risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"The Master Equation\".\n\n## Related Pages\n\n- `authored-funding-full-objective`\n- `authored-gradient-flow-market-balancing`\n- `authored-funding-defense-layer-cost-ordering`",
       "excerpt": "Funding Master Optimization Equation Neelo's full funding objective expresses the control problem as a single optimization: The source describes this as an optimization over markets subject to insurance budget constraints, global allocation rules, exposure dynamics, and ADL safety constraints. In plain English, the system wants high flattened profit, but it subtracts local risk, insurance spend, and ADL cost. That makes the objective different from a naive \"maximize fees\" target. What Each Term Means Pi' m is flattened per market profit after cross market tail adjustment. It is the attractor: the system wants durable, risk adjusted market profit. R m is local risk score. It captures pressure from utilization, insurance stress, skew, volatility, profit deviation, and residual stress. C ins(x m) is insurance cost. It prevents insurance from being treated as free capital. C adl(a m) is ADL cost. It makes forced deleveraging an expensive last resort action rather than a normal balancing tool. Publication Boundary This page explains the source model equation. It should not publish live lambda values, objective weights, optimized variables, production solver policy, or operator approved "
+    },
+    {
+      "id": "authored-funding-math-as-problem-sharpening",
+      "title": "Funding Math As Problem Sharpening",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#what-the-math-is-for-sharpening-the-problem"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-00-informal-intro-what-the-math-is-for-sharpening-the-problem",
+        "authored-funding-math-not-market-solution",
+        "authored-funding-state-variable-map"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-math-as-problem-sharpening.md",
+      "bodyMarkdown": "# Funding Math As Problem Sharpening\n\nThe funding model's math is not there to make the market disappear into a spreadsheet. Neelo says its role is to sharpen the problem: make state, controls, risks, and constraints explicit; show how local risk, global coupling, insurance, and ADL interact; and give language for the tradeoffs.\n\nThat makes the math useful precisely because it is bounded. It identifies the knobs. It does not prove that any one knob setting is permanent.\n\n## What The Math Gives The Protocol\n\nThe math gives Vibe a vocabulary for questions like:\n\n- what state is the market in;\n- which controls are available before insurance or ADL;\n- how local market risk interacts with global safety resources;\n- when trader UX and LP economics pull in opposite directions;\n- where netting, asynchrony, leverage, and conservatism sit on a spectrum.\n\nThis vocabulary makes debates more precise. It does not remove the need to test, monitor, and revise the model as markets change.\n\n## Publication Boundary\n\nDo not publish the mathematical source as a finished production policy. It supports control reasoning and research. Live knobs, weights, caps, and thresholds need current implementation evidence and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Informal intro\", \"What the math is for: sharpening the problem\".\n\n## Related Pages\n\n- `authored-funding-math-not-market-solution`\n- `authored-funding-state-variable-map`\n- `authored-funding-control-actions-map`",
+      "excerpt": "Funding Math As Problem Sharpening The funding model's math is not there to make the market disappear into a spreadsheet. Neelo says its role is to sharpen the problem: make state, controls, risks, and constraints explicit; show how local risk, global coupling, insurance, and ADL interact; and give language for the tradeoffs. That makes the math useful precisely because it is bounded. It identifies the knobs. It does not prove that any one knob setting is permanent. What The Math Gives The Protocol The math gives Vibe a vocabulary for questions like: what state is the market in; which controls are available before insurance or ADL; how local market risk interacts with global safety resources; when trader UX and LP economics pull in opposite directions; where netting, asynchrony, leverage, and conservatism sit on a spectrum. This vocabulary makes debates more precise. It does not remove the need to test, monitor, and revise the model as markets change. Publication Boundary Do not publish the mathematical source as a finished production policy. It supports control reasoning and research. Live knobs, weights, caps, and thresholds need current implementation evidence and operator revie"
     },
     {
       "id": "authored-funding-math-not-market-solution",
@@ -3595,6 +3664,29 @@
       "excerpt": "The Funding Model Is A Control Problem Neelo's funding model corpus starts with a useful warning: the math is not a claim that one formula can solve long tail leverage. That distinction matters for Vibe. The open problem is not only \"calculate a funding rate.\" It is how to run leveraged markets when flow is thin, information is incomplete, trader demand is asymmetric, and the residual counterparty may need to carry risk before the market matures. The model turns that problem into a control surface. Each market has state: open interest, netting, exposure, inventory, volatility, skew, insurance capacity, profit deviation, and residual stress. The protocol then has controls: spread, funding, borrow, buybacks, local insurance, global insurance, and ADL. The point of the derivation is to make the tension visible before the operator or solver chooses a policy. What It Controls At cold start, the source frames the market as close to z score zero. Flow is asynchronous, full natural netting may not exist, and a residual solver can sit in the middle. The conservative path is to begin with heavy hedging and lower LP efficiency, then increase effective leverage only as live data supports it. T"
     },
     {
+      "id": "authored-funding-model-reading-boundary",
+      "title": "Funding Model Reading Boundary",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#how-to-read-the-rest-of-15-docs"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-00-informal-intro-how-to-read-the-rest-of-15-docs",
+        "authored-funding-model-control-problem",
+        "authored-funding-full-objective"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-model-reading-boundary.md",
+      "bodyMarkdown": "# Funding Model Reading Boundary\n\nNeelo's funding-model intro tells readers not to treat the numbered derivation as a finished law of markets. It is a rigorous map of states, controls, profit, risk, insurance, and ADL, but it is still a scaffold for control and iteration.\n\nThat reading boundary matters because Vibe's risk problem is strategic. Trader behavior changes. Solver competition changes. Market maturity changes. A model can name the tensions and the control surfaces, but it should not be published as if one static optimum solves every future market state.\n\n## How To Read The Folder\n\nThe funding-model folder should be read as:\n\n- a map of what the system observes;\n- a map of what the system can adjust;\n- a language for profit, risk, insurance, and deleveraging;\n- a frame for iteration when live flow teaches the model something new.\n\nWhen a later section appears to give a final answer, this intro should govern the interpretation. The model is meant to help the protocol adapt, not to remove the need for observation, governance, and operational judgment.\n\n## Publication Boundary\n\nDo not turn source-model equations into live product parameters, guaranteed risk controls, or final LP economics without implementation and risk review. The source-backed claim is that the model is a control scaffold.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Informal intro\", \"How to read the rest of 15_docs/\".\n\n## Related Pages\n\n- `authored-funding-model-control-problem`\n- `authored-funding-full-objective`\n- `authored-funding-worked-examples-reading-guide`",
+      "excerpt": "Funding Model Reading Boundary Neelo's funding model intro tells readers not to treat the numbered derivation as a finished law of markets. It is a rigorous map of states, controls, profit, risk, insurance, and ADL, but it is still a scaffold for control and iteration. That reading boundary matters because Vibe's risk problem is strategic. Trader behavior changes. Solver competition changes. Market maturity changes. A model can name the tensions and the control surfaces, but it should not be published as if one static optimum solves every future market state. How To Read The Folder The funding model folder should be read as: a map of what the system observes; a map of what the system can adjust; a language for profit, risk, insurance, and deleveraging; a frame for iteration when live flow teaches the model something new. When a later section appears to give a final answer, this intro should govern the interpretation. The model is meant to help the protocol adapt, not to remove the need for observation, governance, and operational judgment. Publication Boundary Do not turn source model equations into live product parameters, guaranteed risk controls, or final LP economics without im"
+    },
+    {
       "id": "authored-funding-normal-stress-utilization-example",
       "title": "Funding Normal And Stress Utilization Example",
       "section": "manifesto",
@@ -3617,6 +3709,29 @@
       "file": "content/authored/manifesto/funding-normal-stress-utilization-example.md",
       "bodyMarkdown": "# Funding Normal And Stress Utilization Example\n\nNeelo's first two worked examples show the ordinary token-inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime.\n\nIn the normal example, `$60,000` of longs and `$50,000` of shorts net to `$50,000`, leaving `$10,000` of residual long exposure. With `5,000` tokens at `$10`, token inventory is worth `$50,000`, so token utilization is:\n\n```\nu1 = 10,000 / 50,000 = 20%\n```\n\nThat sits below the source example's optimal utilization threshold, so the market remains in normal funding.\n\n## What Changes In Stress\n\nThe stress example uses `$120,000` longs and `$80,000` shorts. Netting leaves `$40,000` residual exposure against the same `$50,000` token inventory:\n\n```\nu1 = 40,000 / 50,000 = 80%\n```\n\nAt the example boundary, stress pricing begins. If utilization rises to `90%`, the source's normalized stress term becomes:\n\n```\ns = (0.90 - 0.80) / (1 - 0.80) = 0.50\n```\n\nWith the illustrative stress curve, funding moves from `30%` APR to `55%` APR.\n\n## Reader Implication\n\nThe example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back toward balance.\n\n## Publication Boundary\n\nThe percentages, threshold, market name, APRs, and token amounts are source-model examples. Do not publish them as live market parameters without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 1: Normal Operation\" and \"Example 2: Stress Regime\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-token-inventory-utilization-mode`\n- `authored-funding-worked-examples-reading-guide`",
       "excerpt": "Funding Normal And Stress Utilization Example Neelo's first two worked examples show the ordinary token inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime. In the normal example, $60,000 of longs and $50,000 of shorts net to $50,000 , leaving $10,000 of residual long exposure. With 5,000 tokens at $10 , token inventory is worth $50,000 , so token utilization is: That sits below the source example's optimal utilization threshold, so the market remains in normal funding. What Changes In Stress The stress example uses $120,000 longs and $80,000 shorts. Netting leaves $40,000 residual exposure against the same $50,000 token inventory: At the example boundary, stress pricing begins. If utilization rises to 90% , the source's normalized stress term becomes: With the illustrative stress curve, funding moves from 30% APR to 55% APR. Reader Implication The example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back towar"
+    },
+    {
+      "id": "authored-funding-operational-path-control",
+      "title": "Funding Operational Path Control",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#the-operational-idea-separate-from-the-formula"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-00-informal-intro-the-operational-idea-separate-from-the-formula",
+        "authored-funding-risk-inversion",
+        "authored-funding-defense-hierarchy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-operational-path-control.md",
+      "bodyMarkdown": "# Funding Operational Path Control\n\nNeelo separates the product/protocol direction from the master formula. The operational idea is a path: start in a cold-start regime, keep matching highly asynchronous, place a residual solver in the middle, and increase effective leverage only as live conditions justify it.\n\nThis is not a one-way ratchet. The source describes a \"two steps forward, one step back\" loop. When stress appears, ADL and related tools can step in; when conditions improve, better algorithms and external solvers can help the system move up the netting spectrum again.\n\n## The Path In Plain English\n\nThe source-backed path is:\n\n- begin near z-score zero, where flow is not fully netted;\n- keep the residual solver hedged and conservative in aggregate;\n- increase effective leverage gradually as the market proves it can support more netting;\n- use ADL, resets, and parameter changes as part of learning and safety;\n- let better solver policies improve the timing over time.\n\nThe key is humility. The protocol can name the path and the problem shape without claiming perfect timing or full market dynamics in advance.\n\n## Publication Boundary\n\nDo not turn this page into a live leverage schedule, z-score policy, solver obligation, or ADL promise. The source gives the operational thesis; production parameters remain implementation and risk work.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Informal intro\", \"The operational idea (separate from the formula)\".\n\n## Related Pages\n\n- `authored-funding-risk-inversion`\n- `authored-funding-defense-hierarchy`\n- `authored-funding-adl-trigger-and-target`",
+      "excerpt": "Funding Operational Path Control Neelo separates the product/protocol direction from the master formula. The operational idea is a path: start in a cold start regime, keep matching highly asynchronous, place a residual solver in the middle, and increase effective leverage only as live conditions justify it. This is not a one way ratchet. The source describes a \"two steps forward, one step back\" loop. When stress appears, ADL and related tools can step in; when conditions improve, better algorithms and external solvers can help the system move up the netting spectrum again. The Path In Plain English The source backed path is: begin near z score zero, where flow is not fully netted; keep the residual solver hedged and conservative in aggregate; increase effective leverage gradually as the market proves it can support more netting; use ADL, resets, and parameter changes as part of learning and safety; let better solver policies improve the timing over time. The key is humility. The protocol can name the path and the problem shape without claiming perfect timing or full market dynamics in advance. Publication Boundary Do not turn this page into a live leverage schedule, z score policy,"
     },
     {
       "id": "authored-funding-per-market-state-variables",
