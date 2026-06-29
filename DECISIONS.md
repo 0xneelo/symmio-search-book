@@ -1479,3 +1479,11 @@
 **Reason:** The existing Proof of Value pages cover the introduction, framework details, validation, and Thiel analysis, but the conclusion carries the source's final compression of the argument. Ask needs direct routes for what the paper contributed, how the thesis should be stated in one answer, what the implications are by constituency, what future validation remains, and why proof stays ongoing instead of being a one-time launch claim.
 
 **Status:** Accepted for the authored manifesto layer; source-time launch-partner counts, committed token value, revenue-share percentages, capital-efficiency ratios, payout behavior, LP yield, project revenue distribution, trader retention, stress outcomes, solver hedge quality, defense-stack policy, regulatory posture, and security claims remain fresh primary-source/operator/product/risk/legal/accounting/security review.
+
+## D-186: Split Information And Trade Uncovered Headings Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for uncovered Information and Trade Convergence headings: the verification breaking point, dissertation scope, consensus reality versus objective reality, leverage for the NO button, and solver defense against the wick of death.
+
+**Reason:** Existing authored pages covered broad Information/Trade ideas such as synthetic abundance, market-price verification, prediction-market limits, the NO button, and solver refusal. The remaining source headings still carry exact questions the answer engine should distinguish: what breaks authority-based verification, what the dissertation covers, how to read market-eye-view claims without asserting objective truth, why negative conviction may require leverage, and how active solver quoting changes oracle-manipulation risk. Splitting these pages improves routing precision and keeps the source's strongest vision in publication-safe language.
+
+**Status:** Accepted for the authored manifesto layer; market-cap-as-truth claims, live shorting availability, leverage limits, solver refusal policy, oracle sources, spread formulas, last-look semantics, manipulation thresholds, wick protection guarantees, and production risk controls remain fresh primary-source/operator/product/risk/legal/security review.

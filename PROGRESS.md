@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Information And Trade Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from uncovered Neelo Information and Trade Convergence source headings.
+- Split the source into exact answer pages for the verification breaking point, dissertation scope, consensus-reality versus objective-reality framing, NO-button leverage, and the wick-of-death solver defense.
+- Extended the question ledger so Ask can route readers to exact Information/Trade answers without collapsing every question into broad verification-crisis, market-price, NO-button, or solver-refusal pages.
+- Kept market-cap-as-truth, live shorting availability, leverage limits, solver refusal policy, oracle inputs, spread formulas, last-look semantics, manipulation thresholds, and production risk controls marked for fresh primary-source/operator/product/risk/legal/security review.
+
 ## 2026-06-29 — Proof Of Value Conclusion Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Proof of Value conclusion.
