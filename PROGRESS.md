@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Lifecycle Gap Mechanics Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly lifecycle-gap mechanics source.
+- Split uncovered source sections into exact answer routes for the trench system, gap visualization, scale of the problem, why the gap exists, and consequences of the gap.
+- Extended the question ledger so Ask can route lifecycle-gap mechanics questions without collapsing them into the broad lifecycle-gap definition, older valley-of-death page, or general perps-for-the-trenches thesis.
+- Kept source-time market-cap bands, token-launch counts, perp-market counts, lending-market claims, venue economics, protocol capabilities, and live product thresholds marked for fresh primary-source/operator/product/risk/legal review.
+
 ## 2026-06-29 — Listing Landscape Gap Bridge Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly landscape close and lifecycle-gap opening.

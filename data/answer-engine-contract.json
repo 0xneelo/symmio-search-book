@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 657
+      "totalGoldenRoutes": 662
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 675,
-    "retrievalEligiblePages": 1467,
+    "publicNavigationPages": 680,
+    "retrievalEligiblePages": 1472,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 675,
+      "candidate": 680,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 657,
-    "exactRouteTestsPassing": 657,
+    "totalExactRouteTests": 662,
+    "exactRouteTestsPassing": 662,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 657
+      "candidate": 662
     },
     "exactRoutesByConfidence": {
-      "Medium": 422,
+      "Medium": 426,
       "High": 44,
-      "Low": 191
+      "Low": 192
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3856,6 +3856,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-trench-system-in-token-market-formation",
+        "query": "What is the trench system in token market formation?",
+        "normalizedQuery": "what is the trench system in token market formation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-trench-system",
+        "expectedPageTitle": "The Trench System In Token Market Formation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-trench-system-in-token-market-formation",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-visualize-the-listing-lifecycle-gap",
+        "query": "How does Neelo visualize the listing lifecycle gap?",
+        "normalizedQuery": "how does neelo visualize the listing lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-gap-visualized",
+        "expectedPageTitle": "Visualizing The Listing Lifecycle Gap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-visualize-the-listing-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-how-large-is-the-lifecycle-gap",
+        "query": "How large is the lifecycle gap?",
+        "normalizedQuery": "how large is the lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lifecycle-gap-scale-problem",
+        "expectedPageTitle": "The Scale Of The Lifecycle Gap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-large-is-the-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-lifecycle-gap-exist",
+        "query": "Why does the lifecycle gap exist?",
+        "normalizedQuery": "why does the lifecycle gap exist",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-why-lifecycle-gap-exists",
+        "expectedPageTitle": "Why The Lifecycle Gap Exists",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-lifecycle-gap-exist",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-consequences-of-the-lifecycle-gap",
+        "query": "What are the consequences of the lifecycle gap?",
+        "normalizedQuery": "what are the consequences of the lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lifecycle-gap-consequences",
+        "expectedPageTitle": "Consequences Of The Lifecycle Gap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-consequences-of-the-lifecycle-gap",
         "passes": true
       },
       {
@@ -14557,7 +14662,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 657,
+      "exactRoutes": 662,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

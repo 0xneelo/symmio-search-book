@@ -1383,3 +1383,11 @@
 **Reason:** The previous landscape pages introduced the controller map and its early/late poles, but the remaining source headings bridge the map into the lifecycle-gap thesis. Ask needs exact routes for why Uniswap matters as spot access, how Hyperliquid fits as late-stage perp infrastructure, what the comparative table proves, why adjacent expansion does not erase the gap, and what "lifecycle gap" means before deeper gap-filling and permissionless-perps pages.
 
 **Status:** Accepted for the authored manifesto layer; source-time market share, venue volumes, HIP-3 auction details, platform expansions, market-cap bands, listing eligibility, product coverage, and live Vibe positioning remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-174: Split Lifecycle Gap Mechanics Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the trench system, gap visualization, scale of the problem, why the gap exists, and consequences of the gap.
+
+**Reason:** The lifecycle-gap definition page gives Ask the concept, but Section 4 then turns the concept into mechanics. Exact routes are needed for readers asking how the trench model works, what the gap diagram shows, how large the mismatch is, which architectural/economic/incentive forces cause it, and what market-structure consequences follow.
+
+**Status:** Accepted for the authored manifesto layer; approximate market-cap bands, token-launch counts, perp-market counts, lending-market claims, venue economics, current protocol capabilities, and live Vibe thresholds remain fresh primary-source/operator/product/risk/legal/implementation review.
