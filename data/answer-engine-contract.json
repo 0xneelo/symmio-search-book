@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 766
+      "totalGoldenRoutes": 767
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 784,
-    "retrievalEligiblePages": 1576,
+    "publicNavigationPages": 785,
+    "retrievalEligiblePages": 1577,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 784,
+      "candidate": 785,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 766,
-    "exactRouteTestsPassing": 766,
+    "totalExactRouteTests": 767,
+    "exactRouteTestsPassing": 767,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 766
+      "candidate": 767
     },
     "exactRoutesByConfidence": {
-      "Medium": 477,
+      "Medium": 478,
       "High": 44,
       "Low": 245
     },
@@ -7099,6 +7099,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-do-token-margined-lps-face-a-lose-lose-setup",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-percolator-token-margin-dissertation",
+        "query": "How should I read the Percolator token-margin dissertation?",
+        "normalizedQuery": "how should i read the percolator token margin dissertation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-dissertation-source-map",
+        "expectedPageTitle": "Percolator Dissertation Source Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 4,
+        "faqEntryId": "faq-how-should-i-read-the-percolator-token-margin-dissertation",
         "passes": true
       },
       {
@@ -16892,7 +16913,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 766,
+      "exactRoutes": 767,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

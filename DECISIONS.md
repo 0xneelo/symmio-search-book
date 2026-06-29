@@ -1591,3 +1591,11 @@
 **Reason:** The remaining DDQ unmapped source-pages were parent navigation pages, not missing atomic mechanics. A DDQ table of contents and a solver worst-case source map preserve the source structure, route readers into existing exact pages, and prevent Ask from flattening operational failure, hedging constraints, solver default, and loss-absorption questions into one broad answer.
 
 **Status:** Accepted for source-traceability coverage; Force Close timers, proof networks, hedge venues, risk thresholds, market freeze rules, solver liquidation flags, buyout mechanics, compensation percentages, insurance allocations, ADL triggers, production solver guarantees, and restart rules remain fresh operator/product/risk/legal/accounting/security/implementation review.
+
+## D-200: Add Percolator Dissertation Source Map
+
+**Decision:** Add an authored Volume 04 manifesto source-map page for the remaining Percolator/token-margined parent source companions: overview, single-file dissertation, and introduction.
+
+**Reason:** The Percolator parent imports are source-navigation and thesis-orientation pages. The exact mechanics already have authored coverage across reflexivity, inverse payoff, LP economics, oracle risk, manipulation, engineering boundaries, and USDC-hybrid settlement. A single source map closes traceability for the parent imports while routing readers into those precise pages instead of duplicating the failure-mode corpus.
+
+**Status:** Accepted for source-traceability coverage; Percolator SOV parameters, vault balances, open interest, fee rates, oracle caps, proof counts, repository state, deployed programs, current market behavior, comparative production claims, and Vibe guarantees remain fresh primary-source/operator/product/risk/legal/security/implementation review.

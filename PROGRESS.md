@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Parent Source Coverage
+
+- Added 1 authored Volume 04 manifesto source-map page for the remaining Percolator/token-margined parent source companions.
+- Closed the overview, dissertation, and introduction imports by routing them through a single source map that points to the existing exact pages for reflexivity, inverse payoff, LP economics, oracle risk, engineering boundaries, and USDC-hybrid settlement.
+- Extended the question ledger so Ask can route Percolator source-navigation questions without duplicating the already-authored failure-mode pages.
+- Kept Percolator SOV parameters, vault balances, open interest, fee rates, oracle caps, proof counts, repository state, deployed programs, live market behavior, and Vibe production guarantees marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — DDQ Parent Source Coverage
 
 - Added 2 authored Volume 05 protocol-reference source-map pages for the remaining DDQ parent source companions.

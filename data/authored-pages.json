@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 785,
+  "totalPages": 786,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 612,
+    "publication-candidate-needs-operator-review": 613,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 470,
+    "manifesto": 471,
     "product-reference": 47,
     "rewards-referrals": 103,
     "dashboard-reference": 12,
@@ -8475,6 +8475,35 @@
       "file": "content/authored/manifesto/percolator-clean-trust-boundaries.md",
       "bodyMarkdown": "# Percolator Clean Trust Boundaries\n\nNeelo's Section 7 says Percolator gets an important trust-boundary separation right: the risk engine handles accounting, the program handles validation, and the matcher handles LP-scoped execution logic.\n\nThat is a better architecture than a system where every concern is fused into one opaque contract. Clean boundaries make review, testing, formal reasoning, and failure analysis easier. If a matcher is wrong, the question can be separated from whether the core balance-sheet logic conserves state.\n\nThe critique is that clean trust boundaries are not the same as clean economic boundaries. A program can separate accounting from matching while still binding collateral, PnL, fees, insurance, and settlement to the same volatile token unit. The software boundary is clean; the risk unit can remain reflexive.\n\n## Trust Boundary Versus Risk Boundary\n\nA trust boundary says which component is allowed to do what. A risk boundary says who eats loss when the market moves, when the oracle lags, or when winning traders need payment. Percolator's engineering can make the first boundary legible while the token-margined model leaves the second boundary economically fragile.\n\n## Reader Implication\n\nWhen docs describe architecture quality, separate module isolation from risk localization. Clean components are necessary for credible infrastructure, but they do not prove that volatile-asset liabilities are safely assigned.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-percolator-formal-verification-boundary`\n- `authored-token-margin-manipulation-amplifier`\n- `authored-token-inventory-risk-localization`",
       "excerpt": "Percolator Clean Trust Boundaries Neelo's Section 7 says Percolator gets an important trust boundary separation right: the risk engine handles accounting, the program handles validation, and the matcher handles LP scoped execution logic. That is a better architecture than a system where every concern is fused into one opaque contract. Clean boundaries make review, testing, formal reasoning, and failure analysis easier. If a matcher is wrong, the question can be separated from whether the core balance sheet logic conserves state. The critique is that clean trust boundaries are not the same as clean economic boundaries. A program can separate accounting from matching while still binding collateral, PnL, fees, insurance, and settlement to the same volatile token unit. The software boundary is clean; the risk unit can remain reflexive. Trust Boundary Versus Risk Boundary A trust boundary says which component is allowed to do what. A risk boundary says who eats loss when the market moves, when the oracle lags, or when winning traders need payment. Percolator's engineering can make the first boundary legible while the token margined model leaves the second boundary economically fragile. "
+    },
+    {
+      "id": "authored-percolator-dissertation-source-map",
+      "title": "Percolator Dissertation Source Map",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/overview",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/dissertation",
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/01-introduction"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-overview",
+        "neelo-07-token-margined-issues-perculator-07-docs-dissertation",
+        "neelo-07-token-margined-issues-perculator-07-docs-01-introduction",
+        "authored-token-margined-reflexivity-risk",
+        "authored-percolator-engineering-vs-economics",
+        "authored-usdc-settlement-inventory-separation",
+        "authored-percolator-seven-failure-mode-synthesis"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-dissertation-source-map.md",
+      "bodyMarkdown": "# Percolator Dissertation Source Map\n\nNeelo's Percolator dissertation is the compendium's main source for why token-margined inverse perpetuals are structurally fragile for volatile long-tail assets. The overview, single-file dissertation, and introduction all serve the same editorial job: they orient the reader before the source splits into exact failure modes.\n\nThe source's starting question is simple: what currency should collateral, PnL, fees, funding, and settlement use? In a linear USDC-margined design, trader PnL is measured in a stable unit. In an inverse token-margined design, the traded asset also becomes collateral and settlement currency. That choice is not cosmetic. It determines the risk profile of the whole market.\n\n## How To Read The Source\n\nUse `authored-token-margined-reflexivity-risk` when the reader asks why same-asset collateral is dangerous. That page explains the double hit: the position can move against the account while the collateral base weakens at the same time.\n\nUse `authored-inverse-payoff-trap` or `authored-linear-pnl-versus-hyperbolic-payout` when the reader asks why inverse settlement is mathematically different. The core issue is that token-denominated liabilities can expand as the token weakens, while USDC-denominated liabilities remain linear.\n\nUse `authored-token-margined-lp-lose-lose`, `authored-token-denominated-fee-illusion`, and `authored-one-x-leverage-ceiling` when the reader asks why LPs are structurally constrained. The source does not merely say LPs take risk. It argues that token-margined LPs can be short volatility, paid in the same unstable unit, and forced toward low utilization if the market wants to survive.\n\nUse `authored-oracle-circuit-breaker-paradox`, `authored-spot-perp-pump-dump-attack`, and `authored-shorting-death-spiral` when the reader asks about adversarial states. Those pages cover the oracle, manipulation, and tail-payout mechanics that make low-cap inverse markets especially fragile.\n\nUse `authored-percolator-engineering-vs-economics` when the reader asks whether the critique is about poor engineering. The answer is no. The source credits Percolator's engineering, formal verification, matcher modularity, and on-chain execution, then argues that those strengths cannot remove the economic consequences of the inverse token-margined model.\n\nUse `authored-usdc-settlement-inventory-separation` when the reader asks what alternative the source proposes. The thesis is not \"never use token inventory.\" It is \"separate token inventory from settlement solvency.\" Token inventory can help bootstrap a market, but trader PnL should not depend on a collapsing payout unit.\n\n## The Dissertation Thesis\n\nThe Percolator source is strongest when read as a structural argument:\n\n- the same token should not simultaneously be the underlying, collateral, inventory, fee unit, insurance unit, and payout unit for volatile low-cap leverage;\n- a correct state machine can still instantiate fragile market economics;\n- a permissionless perp system needs active risk management and stable settlement if it wants to support assets before mature order books exist;\n- Vibe's USDC-margined hybrid model is presented as a response to that market-design problem, not as a denial that Percolator has meaningful technical strengths.\n\nThat reading keeps the compendium precise. Percolator is not a strawman. It is a serious proof that a fully on-chain derivatives engine can exist. The critique is that a token-margined inverse engine is the wrong economic substrate for the long-tail market-creation problem Vibe is trying to solve.\n\n## Publication Boundary\n\nPercolator SOV parameters, vault balances, open interest, fee rates, oracle caps, proof counts, repository state, deployed programs, and live market behavior must be refreshed from primary sources before publication as current facts. This page preserves the source thesis and reading map; it does not publish live Percolator or Vibe production guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo Percolator overview, single-file dissertation, and introduction.\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-inverse-payoff-trap`\n- `authored-percolator-engineering-vs-economics`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-percolator-seven-failure-mode-synthesis`",
+      "excerpt": "Percolator Dissertation Source Map Neelo's Percolator dissertation is the compendium's main source for why token margined inverse perpetuals are structurally fragile for volatile long tail assets. The overview, single file dissertation, and introduction all serve the same editorial job: they orient the reader before the source splits into exact failure modes. The source's starting question is simple: what currency should collateral, PnL, fees, funding, and settlement use? In a linear USDC margined design, trader PnL is measured in a stable unit. In an inverse token margined design, the traded asset also becomes collateral and settlement currency. That choice is not cosmetic. It determines the risk profile of the whole market. How To Read The Source Use authored token margined reflexivity risk when the reader asks why same asset collateral is dangerous. That page explains the double hit: the position can move against the account while the collateral base weakens at the same time. Use authored inverse payoff trap or authored linear pnl versus hyperbolic payout when the reader asks why inverse settlement is mathematically different. The core issue is that token denominated liabilities"
     },
     {
       "id": "authored-percolator-engineering-vs-economics",
