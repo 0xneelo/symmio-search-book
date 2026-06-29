@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — One-Primitive Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's "Fix the Industry with One Primitive" source.
+- Split the vision paper into exact answer routes for the false-information-age validation bottleneck, creation-before-validation disorder, complete market expression, ungated derivatives access, and the continuous asset lifecycle.
+- Extended the question ledger so Ask can route direct questions about why information abundance needs validation, why issuance creates disorder without derivatives, and how Vibe/Symmio fit the permissionless derivatives primitive.
+- Kept live listing eligibility, solver support, vault exposure, market approval process, leverage limits, graduation rules, integrations, and production timelines marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Vibe Pillars Constraint Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Vibe Pillars source.

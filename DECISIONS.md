@@ -1199,3 +1199,11 @@
 **Reason:** The existing Vibe Pillars pages cover the overview, each broad pillar, and the coupled-design problem. The answer engine still benefits from narrower routes that translate the source's architecture thesis into the exact questions readers ask: why leverage changes the safety bar, why asynchronous flow matters, why capital must be paid, why order books are still the endpoint for mature markets, and why Vibe's product surface follows from constraints rather than from generic market breadth.
 
 **Status:** Accepted for the authored manifesto layer; live listing eligibility, solver obligations, vault exposure, insurance policy, graduation criteria, risk limits, LP terms, fee routing, and market parameters remain operator/risk/legal/accounting/implementation review.
+
+## D-151: Split One-Primitive Thesis Into Exact Validation And Lifecycle Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the false-information-age validation bottleneck, creation-before-validation disorder, complete market expression, ungated derivatives access, and the continuous asset lifecycle.
+
+**Reason:** The existing one-primitive pages cover the broad thesis, but the answer engine needs narrower routes for readers asking why AI/information abundance changes the problem, why universal issuance creates disorder, what derivatives add beyond spot, what permissionless derivative access removes from listing gatekeeping, and how token markets progress from creation to mature venues.
+
+**Status:** Accepted for the authored manifesto layer; live listing eligibility, solver support, vault exposure, market approval process, leverage limits, graduation rules, integrations, and production timelines remain operator/product/risk/legal/implementation review.

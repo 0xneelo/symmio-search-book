@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 561,
+  "totalPages": 566,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 409,
-    "publication-candidate": 133,
+    "publication-candidate-needs-operator-review": 411,
+    "publication-candidate": 136,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 283,
+    "manifesto": 288,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -632,6 +632,30 @@
       "excerpt": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn remains an official source access gap; mirrors and third party copies were not used. The result is not \"copy a docs platform.\" It is a sharper product requirement: Vibe x Symmio should behave like a source cited answer engine wrapped around a serious derivatives reference. The Front Door Should Be A Job Router The strongest docs did not make readers guess the taxonomy before getting help. They started with the reader's job, then revealed reference depth. For Vibe x Symmio, the front door should route five jobs without ceremony: sign or understand a PartyA intent; quote or operate as a solver/MM; deposit or manage vault backed inventory; settle, monitor, or debug Symmio lifecycle states; fix a wallet, account, chain, quote, or dashboard state. This matters because the product crosses several mental models at once. A project treasury, a solver, a vault LP, and an options buyer should not begi"
     },
     {
+      "id": "authored-complete-market-expression",
+      "title": "Complete Market Expression",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-09-fix-industry-one-primitive-09-docs-04-why-the-industry-is-still-broken",
+        "neelo-09-fix-industry-one-primitive-09-docs-05-tokens-as-information-containers",
+        "authored-spot-only-markets-are-one-sided"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/complete-market-expression.md",
+      "bodyMarkdown": "# Complete Market Expression\n\nComplete market expression means a token can be more than bought or ignored.\n\nNeelo's source says spot markets are powerful but incomplete. A spot market lets participants buy an asset, sell inventory, or abstain. It does not give every token a native path to be shorted, hedged, stress-tested, basis-traded, or matured under market pressure.\n\nThat missing side is why narratives can outrun fundamentals. The positive side of the market acts earlier than the negative and hedging side.\n\n## Why Derivatives Matter\n\nDerivatives add the missing market language. They let participants express disbelief without needing to own the token first. They let holders hedge. They let markets measure conviction under leverage, funding, liquidation, and risk limits.\n\nThe source's point is not that derivatives guarantee truth. It is narrower and stronger: a token without derivatives has incomplete price discovery because a large part of market opinion has no direct expression.\n\n## Reader Implication\n\nWhen a reader asks why perps matter beyond leverage, route them here. Derivatives complete market expression by adding skepticism, hedging, and stress to the token's public market life.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n- `vibe-papers`: Neelo, \"Section 5: Why Derivatives Matter\".\n\n## Related Pages\n\n- `authored-spot-only-markets-are-one-sided`\n- `authored-why-derivatives-matter`\n- `authored-truth-markets-no-button`",
+      "excerpt": "Complete Market Expression Complete market expression means a token can be more than bought or ignored. Neelo's source says spot markets are powerful but incomplete. A spot market lets participants buy an asset, sell inventory, or abstain. It does not give every token a native path to be shorted, hedged, stress tested, basis traded, or matured under market pressure. That missing side is why narratives can outrun fundamentals. The positive side of the market acts earlier than the negative and hedging side. Why Derivatives Matter Derivatives add the missing market language. They let participants express disbelief without needing to own the token first. They let holders hedge. They let markets measure conviction under leverage, funding, liquidation, and risk limits. The source's point is not that derivatives guarantee truth. It is narrower and stronger: a token without derivatives has incomplete price discovery because a large part of market opinion has no direct expression. Reader Implication When a reader asks why perps matter beyond leverage, route them here. Derivatives complete market expression by adding skepticism, hedging, and stress to the token's public market life. Sources "
+    },
+    {
       "id": "authored-conditional-global-insurance-allocation",
       "title": "Conditional Global Insurance Allocation",
       "section": "protocol-reference",
@@ -677,6 +701,30 @@
       "file": "content/authored/reference/conservative-launch-collateralization.md",
       "bodyMarkdown": "# Conservative Launch Collateralization\n\nThe DDQ's risk-control model starts new markets from a conservative mental model: treat net solver exposure as close to fully backed until the market earns looser conditions.\n\nIn the source, a newly launched market can be understood as beginning near `100%` protocol-side collateralization. If the solver is warehousing residual long-side or short-side exposure, the system should assume that exposure needs explicit backing through token inventory, stablecoin resources, hedges, local buffers, or other disclosed protections.\n\nThat does not mean every public page should publish a literal live collateral ratio. The useful reader-facing point is the launch posture. An immature market should not be documented like a mature perp venue with deep two-sided flow. It has less history, weaker price formation, thinner liquidity, and more adversarial uncertainty.\n\n## UX Tradeoff\n\nConservative collateralization can make early markets feel less generous. Leverage may be lower. Open-interest caps may be tighter. Spreads may widen. Some quote requests may be refused.\n\nThose are not arbitrary frictions if the market is still proving itself. They are the cost of giving a low-cap market a credible place to begin without pretending it already has mature order-book depth.\n\n## Publication Boundary\n\nThis page should not publish final collateral ratios, exact leverage bands, inventory requirements, or solver backing formulas. It documents the DDQ model: launch safely first, then relax only as market evidence improves.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Balancing UX vs Risk\".\n\n## Related Pages\n\n- `authored-loss-waterfall-and-profit-caps`\n- `authored-market-maturation-state-map`\n- `neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-ii-balancing-ux-vs-risk`",
       "excerpt": "Conservative Launch Collateralization The DDQ's risk control model starts new markets from a conservative mental model: treat net solver exposure as close to fully backed until the market earns looser conditions. In the source, a newly launched market can be understood as beginning near 100% protocol side collateralization. If the solver is warehousing residual long side or short side exposure, the system should assume that exposure needs explicit backing through token inventory, stablecoin resources, hedges, local buffers, or other disclosed protections. That does not mean every public page should publish a literal live collateral ratio. The useful reader facing point is the launch posture. An immature market should not be documented like a mature perp venue with deep two sided flow. It has less history, weaker price formation, thinner liquidity, and more adversarial uncertainty. UX Tradeoff Conservative collateralization can make early markets feel less generous. Leverage may be lower. Open interest caps may be tighter. Spreads may widen. Some quote requests may be refused. Those are not arbitrary frictions if the market is still proving itself. They are the cost of giving a low "
+    },
+    {
+      "id": "authored-continuous-asset-lifecycle",
+      "title": "Continuous Asset Lifecycle",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/07-fixing-the-industry",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/08-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-09-fix-industry-one-primitive-09-docs-07-fixing-the-industry",
+        "neelo-09-fix-industry-one-primitive-09-docs-08-conclusion",
+        "authored-self-correcting-token-market-stack"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/continuous-asset-lifecycle.md",
+      "bodyMarkdown": "# Continuous Asset Lifecycle\n\nNeelo's one-primitive conclusion describes the desired lifecycle: creation, spot trading, permissionless derivatives, and eventual mature venues.\n\nThat sequence matters because issuance should not be the end of the story. A token can launch, attract spot attention, enter a derivatives market where the market can express both belief and skepticism, and then mature toward deeper order-book venues if the evidence supports it.\n\n## From Self-Expanding To Self-Correcting\n\nWithout the derivatives layer, crypto can keep expanding asset count without necessarily improving market judgment. The source calls for the missing step that makes the stack self-correcting rather than merely self-expanding.\n\nDerivatives are the pressure layer in that lifecycle. They let claims face hedge demand, short pressure, funding, liquidation, and maturity signals. Some assets will look stronger after that process. Others will fail earlier because the negative side can act.\n\n## Publication Boundary\n\nThis page supports the lifecycle thesis. It does not promise current Vibe graduation rules, supported asset types, order-book integrations, or production listing timelines.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Fixing the Industry\".\n- `vibe-papers`: Neelo, \"Section 8: Conclusion\".\n\n## Related Pages\n\n- `authored-self-correcting-token-market-stack`\n- `authored-programmatic-market-graduation`\n- `authored-market-maturation-state-map`",
+      "excerpt": "Continuous Asset Lifecycle Neelo's one primitive conclusion describes the desired lifecycle: creation, spot trading, permissionless derivatives, and eventual mature venues. That sequence matters because issuance should not be the end of the story. A token can launch, attract spot attention, enter a derivatives market where the market can express both belief and skepticism, and then mature toward deeper order book venues if the evidence supports it. From Self Expanding To Self Correcting Without the derivatives layer, crypto can keep expanding asset count without necessarily improving market judgment. The source calls for the missing step that makes the stack self correcting rather than merely self expanding. Derivatives are the pressure layer in that lifecycle. They let claims face hedge demand, short pressure, funding, liquidation, and maturity signals. Some assets will look stronger after that process. Others will fail earlier because the negative side can act. Publication Boundary This page supports the lifecycle thesis. It does not promise current Vibe graduation rules, supported asset types, order book integrations, or production listing timelines. Sources vibe papers : Neelo,"
     },
     {
       "id": "authored-cooperation-creates-optionality",
@@ -726,6 +774,30 @@
       "file": "content/authored/manifesto/coupled-design-problem.md",
       "bodyMarkdown": "# The Coupled Design Problem\n\nThe Vibe pillars are not independent checkboxes. They are a coupled design problem.\n\nIf a system optimizes only for exploit resistance, it can become too restrictive for long-tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only for LP yield, it can push risk onto capital in ways that fail during tail events.\n\n## Why Order Books Do Not Solve The Early Stage\n\nMature order books collapse many of these concerns into synchronous matching: a buyer and seller arrive together, the venue avoids warehousing much exposure, and the market clears. That works for assets that already have deep liquidity.\n\nLow-cap markets sit earlier on the maturity curve. They need defense against leveraged abuse, tradability when two-sided flow is intermittent, and a reason for residual risk-takers to keep capital in the system.\n\n## Reader Implication\n\nThis page is the bridge from \"Vibe has three pillars\" to \"Vibe needs a different market structure.\" The pillars are hard because solving one can weaken another. The product thesis is credible only if the architecture can satisfy all three at once.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Coupled Design Problem\".\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-exploit-resistance-pillar`\n- `authored-bootstrap-counterparty-pillar`\n- `authored-lp-yield-capital-efficiency-pillar`\n- `neelo-10-vibe-pillars-10-docs-05-the-coupled-design-problem`",
       "excerpt": "The Coupled Design Problem The Vibe pillars are not independent checkboxes. They are a coupled design problem. If a system optimizes only for exploit resistance, it can become too restrictive for long tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only for LP yield, it can push risk onto capital in ways that fail during tail events. Why Order Books Do Not Solve The Early Stage Mature order books collapse many of these concerns into synchronous matching: a buyer and seller arrive together, the venue avoids warehousing much exposure, and the market clears. That works for assets that already have deep liquidity. Low cap markets sit earlier on the maturity curve. They need defense against leveraged abuse, tradability when two sided flow is intermittent, and a reason for residual risk takers to keep capital in the system. Reader Implication This page is the bridge from \"Vibe has three pillars\" to \"Vibe needs a different market structure.\" The pillars are hard because solving one can weaken another. The product thesis is credible only if the architecture can satisfy all three at once."
+    },
+    {
+      "id": "authored-creation-before-validation-disorder",
+      "title": "Creation Before Validation Disorder",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/04-why-the-industry-is-still-broken"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-09-fix-industry-one-primitive-09-docs-03-the-issuance-revolution",
+        "neelo-09-fix-industry-one-primitive-09-docs-04-why-the-industry-is-still-broken",
+        "authored-issuance-abundance-creates-validation-debt"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/creation-before-validation-disorder.md",
+      "bodyMarkdown": "# Creation Before Validation Disorder\n\nThe one-primitive source says crypto solved creation before validation.\n\nBitcoin proved digital scarcity. Ethereum made issuance programmable. Uniswap made spot trading permissionless. Launchpads made asset creation cheap. Together, those breakthroughs made it possible for projects, communities, claims, events, outcomes, and productive capacity to become tokens.\n\nThe disorder appears when assets can exist faster than markets can evaluate what they mean.\n\n## The Missing Market Layer\n\nUniversal issuance without universal validation creates token abundance without complete market discipline. A token can be launched and traded on spot, but still lack permissionless shorting, hedging, stress testing, and mature price discovery.\n\nThat is why the source does not call for a slower issuance stack. It calls for a stronger validation stack. The missing layer is the one that lets newly created assets face both belief and disbelief earlier.\n\n## Reader Implication\n\nThis page explains why Vibe is not merely a listing feature. The deeper problem is that token creation became too easy for legacy validation paths. Permissionless derivatives are one candidate for closing that gap.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Issuance Revolution\".\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n\n## Related Pages\n\n- `authored-issuance-abundance-creates-validation-debt`\n- `authored-universal-issuance-needs-derivatives`\n- `authored-market-creation-gap`",
+      "excerpt": "Creation Before Validation Disorder The one primitive source says crypto solved creation before validation. Bitcoin proved digital scarcity. Ethereum made issuance programmable. Uniswap made spot trading permissionless. Launchpads made asset creation cheap. Together, those breakthroughs made it possible for projects, communities, claims, events, outcomes, and productive capacity to become tokens. The disorder appears when assets can exist faster than markets can evaluate what they mean. The Missing Market Layer Universal issuance without universal validation creates token abundance without complete market discipline. A token can be launched and traded on spot, but still lack permissionless shorting, hedging, stress testing, and mature price discovery. That is why the source does not call for a slower issuance stack. It calls for a stronger validation stack. The missing layer is the one that lets newly created assets face both belief and disbelief earlier. Reader Implication This page explains why Vibe is not merely a listing feature. The deeper problem is that token creation became too easy for legacy validation paths. Permissionless derivatives are one candidate for closing that g"
     },
     {
       "id": "authored-cross-margin-capital-fungibility",
@@ -1982,6 +2054,30 @@
       "file": "content/authored/reference/external-usdc-lp-risk-premium-mismatch.md",
       "bodyMarkdown": "# External USDC LP Risk-Premium Mismatch\n\nThe DDQ argues that external USDC LP pools are a poor fit for low-cap leveraged perp markets because the capital source does not naturally want the risk it is being asked to bear.\n\nAn outside stablecoin LP sees a leveraged market on a thin, volatile, and potentially manipulable token. The LP does not necessarily hold the token, understand its community, or benefit from its market utility. If that LP is asked to absorb tail losses or provide balance-sheet support, it will demand a high risk premium.\n\nThat risk premium becomes a product problem. It can require higher fees, wider spreads, subsidies, or lower leverage. In the source's framing, this creates a negative loop: the market needs capital, the capital is expensive because the risk is unnatural, and the expense makes the market less competitive.\n\n## Why Vibe Routes Around The Mismatch\n\nVibe's source model separates stablecoin operations from token inventory. The solver or protocol funds stablecoin operations it can control and model. Token holders provide market-specific inventory because they already hold the underlying asset and have ecosystem reasons to support the market.\n\nThe point is not that token inventory has no risk. It is that the risk is better aligned with the party bearing it. Stablecoin LPs are spared an exposure they would price expensively; token holders support an asset they already chose to own.\n\n## What To Do With Source Numbers\n\nThe DDQ and related USDC-vs-token material include strong modeled claims about USDC LP yield demand and capital-efficiency disadvantage. Those are useful as source-model evidence, but public production docs should not turn them into current product promises without operator-approved economics and vault terms.\n\n## Publication Boundary\n\nDo not publish final APR comparisons, capital-efficiency multiples, loss probabilities, stablecoin LP product claims, or live fee/spread implications without operator and implementation review. This page documents the structural mismatch and why the Vibe model routes around it.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Attractiveness for LPs\".\n- `vibe-papers`: Neelo, \"Risk Premium Calculations\".\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-usdc-lp-backstop-cascade`\n- `authored-solver-funded-stablecoin-operations`",
       "excerpt": "External USDC LP Risk Premium Mismatch The DDQ argues that external USDC LP pools are a poor fit for low cap leveraged perp markets because the capital source does not naturally want the risk it is being asked to bear. An outside stablecoin LP sees a leveraged market on a thin, volatile, and potentially manipulable token. The LP does not necessarily hold the token, understand its community, or benefit from its market utility. If that LP is asked to absorb tail losses or provide balance sheet support, it will demand a high risk premium. That risk premium becomes a product problem. It can require higher fees, wider spreads, subsidies, or lower leverage. In the source's framing, this creates a negative loop: the market needs capital, the capital is expensive because the risk is unnatural, and the expense makes the market less competitive. Why Vibe Routes Around The Mismatch Vibe's source model separates stablecoin operations from token inventory. The solver or protocol funds stablecoin operations it can control and model. Token holders provide market specific inventory because they already hold the underlying asset and have ecosystem reasons to support the market. The point is not tha"
+    },
+    {
+      "id": "authored-false-information-age-validation-bottleneck",
+      "title": "False Information Age Validation Bottleneck",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/00-abstract"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-09-fix-industry-one-primitive-09-docs-02-information-as-civilization",
+        "neelo-09-fix-industry-one-primitive-09-docs-00-abstract",
+        "authored-information-systems-need-market-validation"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/false-information-age-validation-bottleneck.md",
+      "bodyMarkdown": "# False Information Age Validation Bottleneck\n\nNeelo's one-primitive paper frames the current moment as a shift from information scarcity to validation scarcity.\n\nSpeech, writing, print, computers, the internet, and AI each made information easier to preserve, distribute, process, access, or generate. The consequence is not only abundance. It is distortion. When convincing information becomes cheap to create, the hard problem moves from access to credibility.\n\n## Why Markets Enter The Argument\n\nThe source argues that spot markets alone cannot solve this credibility bottleneck. Buying expresses belief, but a mature validation surface also needs skepticism, hedging, stress, and the ability to make overstatement costly.\n\nThat is why permissionless derivatives enter the thesis. They make information-bearing tokens face more than attention. They let the market test claims through long exposure, short pressure, hedge demand, and risk transfer.\n\n## Reader Implication\n\nVibe x Symmio should be explained as market validation infrastructure, not only as a trading surface. In an era where creation is cheap, the valuable primitive is the one that makes claims harder to fake with capital.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Information as Civilization\".\n- `vibe-papers`: Neelo, \"Fix the Industry with One Primitive\".\n\n## Related Pages\n\n- `authored-information-systems-need-market-validation`\n- `authored-information-validation-crisis`\n- `authored-market-price-as-verification`",
+      "excerpt": "False Information Age Validation Bottleneck Neelo's one primitive paper frames the current moment as a shift from information scarcity to validation scarcity. Speech, writing, print, computers, the internet, and AI each made information easier to preserve, distribute, process, access, or generate. The consequence is not only abundance. It is distortion. When convincing information becomes cheap to create, the hard problem moves from access to credibility. Why Markets Enter The Argument The source argues that spot markets alone cannot solve this credibility bottleneck. Buying expresses belief, but a mature validation surface also needs skepticism, hedging, stress, and the ability to make overstatement costly. That is why permissionless derivatives enter the thesis. They make information bearing tokens face more than attention. They let the market test claims through long exposure, short pressure, hedge demand, and risk transfer. Reader Implication Vibe x Symmio should be explained as market validation infrastructure, not only as a trading surface. In an era where creation is cheap, the valuable primitive is the one that makes claims harder to fake with capital. Sources vibe papers :"
     },
     {
       "id": "authored-financialized-rejection-thumbs-down",
@@ -11356,6 +11452,30 @@
       "file": "content/authored/manifesto/two-questions-permissionless-perps.md",
       "bodyMarkdown": "# Two Questions For Permissionless Perps\n\nNeelo's conclusion reduces the Vibe-versus-Percolator debate to two different questions.\n\nPercolator asks whether a fully on-chain, formally verified, trustless derivatives engine can be built. The source's answer is yes. The engineering is impressive, but the token-margined economic model is structurally unsuitable for volatile assets.\n\nVibe asks whether permissionless perpetuals can be economically sustainable, LP-friendly, and safe for low-cap assets. The source's answer is also yes, but only through a different architecture: separate settlement from inventory, introduce active risk management, use defense-in-depth, and mutualize risk across markets.\n\n## Why This Framing Matters\n\nThe two systems optimize for different truths. Percolator proves a mechanical possibility. Vibe tries to solve the market-design problem that remains after mechanical possibility is achieved.\n\nThat is why the comparison should not be flattened into \"trustless versus centralized\" or \"on-chain versus off-chain.\" The more useful question is what each architecture can guarantee under low-cap stress.\n\n## Reader Implication\n\nWhen a reader wants the final takeaway from the Percolator sequence, route here. The answer is that Percolator solves the trustless-engine question better, while Vibe is designed around the harder economic question of making permissionless long-tail perps survive.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.5 Two Questions, Two Answers\".\n\n## Related Pages\n\n- `authored-vibe-percolator-trustlessness-tradeoff`\n- `authored-usdc-hybrid-path-forward`\n- `authored-percolator-proof-of-concept-boundary`",
       "excerpt": "Two Questions For Permissionless Perps Neelo's conclusion reduces the Vibe versus Percolator debate to two different questions. Percolator asks whether a fully on chain, formally verified, trustless derivatives engine can be built. The source's answer is yes. The engineering is impressive, but the token margined economic model is structurally unsuitable for volatile assets. Vibe asks whether permissionless perpetuals can be economically sustainable, LP friendly, and safe for low cap assets. The source's answer is also yes, but only through a different architecture: separate settlement from inventory, introduce active risk management, use defense in depth, and mutualize risk across markets. Why This Framing Matters The two systems optimize for different truths. Percolator proves a mechanical possibility. Vibe tries to solve the market design problem that remains after mechanical possibility is achieved. That is why the comparison should not be flattened into \"trustless versus centralized\" or \"on chain versus off chain.\" The more useful question is what each architecture can guarantee under low cap stress. Reader Implication When a reader wants the final takeaway from the Percolator "
+    },
+    {
+      "id": "authored-ungated-derivatives-access",
+      "title": "Ungated Derivatives Access",
+      "section": "manifesto",
+      "track": "09 - Fix Industry One Primitive",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive",
+        "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/07-fixing-the-industry"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-09-fix-industry-one-primitive-09-docs-06-the-last-primitive",
+        "neelo-09-fix-industry-one-primitive-09-docs-07-fixing-the-industry",
+        "authored-last-primitive"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/ungated-derivatives-access.md",
+      "bodyMarkdown": "# Ungated Derivatives Access\n\nThe last-primitive claim is about access to market structure.\n\nNeelo's source defines the missing primitive as permissionless derivatives for any token. That means a token can receive a perpetual market without first passing through centralized listing committees, gatekept market makers, or late-stage order-book approval.\n\nThe point is not that every token should receive unlimited leverage. The point is that market testing should not depend only on elite venue permission.\n\n## What The Primitive Changes\n\nUngated derivatives access gives long-tail tokens a path to two-sided price discovery earlier in their lifecycle. A market can express enthusiasm, skepticism, hedge demand, and stress before a mature venue has enough evidence to list it.\n\nThat is where Vibe and Symmio are paired in the source: Symmio supplies derivatives infrastructure and settlement machinery, while Vibe supplies the product and permissionless market layer for assets that the rest of the industry does not yet serve.\n\n## Publication Boundary\n\nThis page documents the strategic primitive. It does not finalize current Vibe listing eligibility, solver support, vault exposure, market approval process, leverage limits, or launch workflow.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Last Primitive\".\n- `vibe-papers`: Neelo, \"Section 7: Fixing the Industry\".\n\n## Related Pages\n\n- `authored-last-primitive`\n- `authored-perps-for-the-trenches`\n- `authored-vibe-as-listing-source-of-truth`",
+      "excerpt": "Ungated Derivatives Access The last primitive claim is about access to market structure. Neelo's source defines the missing primitive as permissionless derivatives for any token. That means a token can receive a perpetual market without first passing through centralized listing committees, gatekept market makers, or late stage order book approval. The point is not that every token should receive unlimited leverage. The point is that market testing should not depend only on elite venue permission. What The Primitive Changes Ungated derivatives access gives long tail tokens a path to two sided price discovery earlier in their lifecycle. A market can express enthusiasm, skepticism, hedge demand, and stress before a mature venue has enough evidence to list it. That is where Vibe and Symmio are paired in the source: Symmio supplies derivatives infrastructure and settlement machinery, while Vibe supplies the product and permissionless market layer for assets that the rest of the industry does not yet serve. Publication Boundary This page documents the strategic primitive. It does not finalize current Vibe listing eligibility, solver support, vault exposure, market approval process, lever"
     },
     {
       "id": "authored-universal-issuance-needs-derivatives",
