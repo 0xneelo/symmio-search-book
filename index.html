@@ -1764,14 +1764,17 @@
 
       @media (max-width: 860px) {
         .rail {
-          left: -280px;
+          left: 0;
           width: 280px;
           height: 100vh;
           overflow-x: hidden;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
           box-shadow: none;
+          transform: translateX(-280px);
+          transition: transform 0.26s;
         }
 
         .rail.is-open,
@@ -1781,8 +1784,11 @@
           height: 100vh;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
-          box-shadow: 36px 0 80px rgba(2, 6, 14, 0.55);
+          box-shadow: 40px 0 80px rgba(0, 0, 0, 0.6);
+          transform: translateX(0);
+          transition: transform 0.26s;
         }
 
         .mobile-menu-glyph {
@@ -1804,6 +1810,10 @@
           font-size: 13.3333px;
           font-weight: 400;
           padding: 0;
+        }
+
+        .mobile-menu-glyph[aria-expanded="true"] {
+          display: none;
         }
 
         .mobile-menu-glyph svg {
@@ -1855,14 +1865,17 @@
         }
 
         .rail:hover:not(:focus-within):not(.is-open) {
-          left: -280px;
+          left: 0;
           width: 280px;
           height: 100vh;
           overflow-x: hidden;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
           box-shadow: none;
+          transform: translateX(-280px);
+          transition: transform 0.26s;
         }
 
         .rail:hover:not(:focus-within):not(.is-open) .side-brand,
@@ -1958,13 +1971,16 @@
 
       @media (min-width: 761px) and (max-width: 860px) {
         .rail {
-          left: -280px;
+          left: 0;
           width: 280px;
           height: 100vh;
           overflow-x: hidden;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
+          transform: translateX(-280px);
+          transition: transform 0.26s;
         }
 
         .rail.is-open,
@@ -1974,19 +1990,25 @@
           height: 100vh;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
-          box-shadow: 36px 0 80px rgba(2, 6, 14, 0.55);
+          box-shadow: 40px 0 80px rgba(0, 0, 0, 0.6);
+          transform: translateX(0);
+          transition: transform 0.26s;
         }
 
         .rail:hover:not(:focus-within):not(.is-open) {
-          left: -280px;
+          left: 0;
           width: 280px;
           height: 100vh;
           overflow-x: hidden;
           overflow-y: auto;
           border-right: 1px solid var(--line);
+          border-bottom: 0;
           background: var(--sidebar);
           box-shadow: none;
+          transform: translateX(-280px);
+          transition: transform 0.26s;
         }
 
         .mobile-menu-glyph {
@@ -2026,8 +2048,8 @@
   </head>
   <body>
     <div class="shell">
+      <button class="mobile-menu-glyph" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></button>
       <aside class="rail" aria-label="Vibe Docs navigation">
-        <button class="mobile-menu-glyph" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></button>
         <div class="side-brand">
           <div class="wm-mini">V<span class="dot">.</span></div>
           <div class="wm">Vibe<span class="dot">.</span></div>
