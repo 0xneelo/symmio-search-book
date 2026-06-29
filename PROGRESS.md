@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 Reading Order Overview
+
+- Expanded `authored-volume-05-solver-lp-and-protocol-operations` from a short volume stub into a book-level reading order for architecture boundaries, solver operating pages, DDQ diligence routes, failure/loss-handling pages, and the SYMM LP case-study path.
+- Routed one new Ask question, "How should I read Volume 05 on solver, LP, and protocol operations?", to the Volume 05 overview so broad reader-orientation demand lands on the compendium entry point rather than a narrow solver or case-study page.
+- Kept exact contract interfaces, oracle thresholds, solver routing/quote policy, hedging venues, TWAP behavior, slippage allocation, vault rights, Force Close timers, proof-network details, liquidation thresholds, CVA sizing, insurance formulas, local/global loss allocation, ADL behavior, LP yield claims, partner traction, fee shares, live capacity, and SYMM LP performance extrapolation under implementation/product/risk/legal/accounting/security/operator review.
+
 ## 2026-06-30 — Volume 04 Reading Order Overview
 
 - Expanded `authored-volume-04-token-margin-and-funding-systems` from a short volume stub into a book-level reading order for the Vibe pillars, collateral/USDC risk-premium path, Percolator critique, and funding-control path.

@@ -1855,3 +1855,11 @@
 **Reason:** The exact Volume 04 mechanism pages already exist, but readers still need one overview that explains how collateral form, token inventory, USDC backstop economics, inverse token-margin risk, funding controls, insurance, and ADL fit together. A volume overview should answer the broad "how do I read this?" question, then route into exact mechanism pages and source maps without turning model examples or review-bound parameter tables into current product claims.
 
 **Status:** Accepted for compendium authoring. Exact APR ranges, expected-loss ranges, adverse-selection premiums, live LP terms, fee levels, funding rates, spread policy, borrow policy, insurance budgets, ADL thresholds, Percolator live parameters, Vibe vault rights, solver funding sources, loss ordering, reserve policy, partner claims, market eligibility, and graduation thresholds remain source-model, implementation, risk, legal, accounting, security, and operator review items before publication.
+
+## D-233: Use Volume 05 As The Solver And LP Operations Reading Order
+
+**Decision:** Expand `authored-volume-05-solver-lp-and-protocol-operations` into the canonical book-level entry point for architecture boundaries, solver operating pages, DDQ diligence routes, failure and loss-handling pages, and the SYMM LP case-study path.
+
+**Reason:** The exact Volume 05 pages already cover solver engines, quote/risk inputs, external-solver waterfalls, Force Close, solver liquidation modes, insurance/loss waterfalls, and SYMM LP accounting. Readers still need one overview that explains how those pages fit together before they dive into a narrow lifecycle or case-study question.
+
+**Status:** Accepted for compendium authoring. Exact contract interfaces, oracle thresholds, solver routing and quote policy, hedging venues, TWAP behavior, slippage allocation, vault rights, Force Close timers, proof-network details, liquidation thresholds, CVA sizing, insurance formulas, local/global loss allocation, ADL behavior, LP yield claims, partner traction, fee shares, live capacity, and SYMM LP performance extrapolation remain implementation, risk, legal, accounting, security, product, and operator review items before publication.
