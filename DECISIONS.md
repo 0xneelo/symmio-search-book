@@ -1367,3 +1367,11 @@
 **Reason:** Existing lifecycle pages explain the broad market-power thesis, but Section 2 of the Listing Monopoly source introduces a precise framework that Ask should route into directly. Splitting the framework preserves the difference between the lifecycle concept, the stage taxonomy, the visual gap, the stage-by-stage monopoly table, and the barbell middle-market claim.
 
 **Status:** Accepted for the authored manifesto layer; source-time market caps, platform market-share examples, dominant-player rankings, listing thresholds, venue policies, and live Vibe middle-layer claims remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-172: Split Listing Controller Landscape Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for why listing control creates power, the Listing Monopoly framework summary, the landscape of listing controllers, Binance as late-stage leviathan, and PumpFun as early-stage monopoly.
+
+**Reason:** The framework pages defined the lifecycle and barbell, but the source then turns to controller case studies. Ask needs precise routes for the power-loop summary and the first landscape examples before routing readers to later Uniswap, Hyperliquid, comparative-summary, or boundary-blurring pages.
+
+**Status:** Accepted for the authored manifesto layer; current market share, venue volume, listing-policy, token-performance, graduation-rule, compliance, chain-coverage, and live platform-position claims remain fresh primary-source/operator/product/risk/legal review.

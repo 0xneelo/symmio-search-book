@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Landscape Power Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly framework close and landscape opening.
+- Split uncovered source sections into exact answer routes for why listing control creates power, what the framework establishes, how to read the landscape of listing controllers, Binance as late-stage leviathan, and PumpFun as early-stage monopoly.
+- Extended the question ledger so Ask can route landscape questions before deeper pages on Uniswap, Hyperliquid, comparative summaries, or the lifecycle-gap thesis.
+- Kept current market share, venue volume, listing-policy, token-performance, graduation-rule, compliance, chain-coverage, and live platform-position claims marked for fresh primary-source/operator/product/risk/legal review.
+
 ## 2026-06-29 — Listing Lifecycle Framework Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly lifecycle-framework source.

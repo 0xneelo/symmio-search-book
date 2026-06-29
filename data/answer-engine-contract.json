@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 647
+      "totalGoldenRoutes": 652
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 665,
-    "retrievalEligiblePages": 1457,
+    "publicNavigationPages": 670,
+    "retrievalEligiblePages": 1462,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 665,
+      "candidate": 670,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 647,
-    "exactRouteTestsPassing": 647,
+    "totalExactRouteTests": 652,
+    "exactRouteTestsPassing": 652,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 647
+      "candidate": 652
     },
     "exactRoutesByConfidence": {
-      "Medium": 416,
+      "Medium": 419,
       "High": 44,
-      "Low": 187
+      "Low": 189
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3646,6 +3646,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-barbell-structure-in-crypto-listings",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-listing-control-create-power",
+        "query": "Why does listing control create power?",
+        "normalizedQuery": "why does listing control create power",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-control-power-loop",
+        "expectedPageTitle": "Why Listing Control Creates Power",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-listing-control-create-power",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-listing-monopoly-framework-establish",
+        "query": "What does the Listing Monopoly framework establish?",
+        "normalizedQuery": "what does the listing monopoly framework establish",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-framework-summary",
+        "expectedPageTitle": "Listing Monopoly Framework Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-listing-monopoly-framework-establish",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-landscape-of-listing-controllers",
+        "query": "How should I read the landscape of listing controllers?",
+        "normalizedQuery": "how should i read the landscape of listing controllers",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-controller-landscape-overview",
+        "expectedPageTitle": "The Landscape Of Listing Controllers",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-landscape-of-listing-controllers",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-neelo-call-binance-the-late-stage-leviathan",
+        "query": "Why does Neelo call Binance the late-stage leviathan?",
+        "normalizedQuery": "why does neelo call binance the late stage leviathan",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-binance-late-stage-leviathan",
+        "expectedPageTitle": "Binance As The Late-Stage Leviathan",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-neelo-call-binance-the-late-stage-leviathan",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-neelo-call-pumpfun-the-early-stage-monopoly",
+        "query": "Why does Neelo call PumpFun the early-stage monopoly?",
+        "normalizedQuery": "why does neelo call pumpfun the early stage monopoly",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-pumpfun-early-stage-monopoly",
+        "expectedPageTitle": "PumpFun As The Early-Stage Monopoly",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-neelo-call-pumpfun-the-early-stage-monopoly",
         "passes": true
       },
       {
@@ -14347,7 +14452,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 647,
+      "exactRoutes": 652,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
