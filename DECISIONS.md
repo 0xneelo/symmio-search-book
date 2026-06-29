@@ -1415,3 +1415,11 @@
 **Reason:** The broad partnership-over-venue-war and venue-relationship pages explain complementarity, but Section 6 gives each stakeholder a distinct strategic question. Ask needs direct routes for protocol positioning, upstream venue retention, order-book data pipelines, CEX listing intelligence, and participant risk/opportunity instead of collapsing every stakeholder into one generic partnership answer.
 
 **Status:** Accepted for the authored manifesto layer; live integrations, venue partnerships, regulatory conclusions, CEX strategy, Z-Score thresholds, LP terms, market eligibility, liquidity capacity, graduation rules, data-sharing behavior, and risk assurances remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-178: Split Strategic Implications Ecosystem Close Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the broader ecosystem implications of filling the lifecycle gap and for Section 6's strategic summary.
+
+**Reason:** The participant-specific pages explain who benefits and how, but Section 6 closes with a system-level claim: filling the DEX-to-perp gap completes the lifecycle, may reduce some market-structure issues, and supports a partnership-over-competition path to durable value capture. Ask needs direct routes for that ecosystem conclusion without duplicating the broader ecosystem-synergy or permissionless-perps hypothesis summary pages.
+
+**Status:** Accepted for the authored manifesto layer; systemic-risk reduction, volatility/manipulation reduction, institutional or ETF pathways, current partnerships, market eligibility, product guarantees, category dominance, and investment/value-capture claims remain fresh primary-source/operator/product/risk/legal/implementation review.

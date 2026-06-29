@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 677
+      "totalGoldenRoutes": 679
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 695,
-    "retrievalEligiblePages": 1487,
+    "publicNavigationPages": 697,
+    "retrievalEligiblePages": 1489,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 695,
+      "candidate": 697,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 677,
-    "exactRouteTestsPassing": 677,
+    "totalExactRouteTests": 679,
+    "exactRouteTestsPassing": 679,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 677
+      "candidate": 679
     },
     "exactRoutesByConfidence": {
-      "Medium": 439,
+      "Medium": 440,
       "High": 44,
-      "Low": 194
+      "Low": 195
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4276,6 +4276,48 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-changes-for-traders-and-lps-if-the-gap-is-filled",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-broader-ecosystem-implications-of-filling-the-lifecycle-gap",
+        "query": "What are the broader ecosystem implications of filling the lifecycle gap?",
+        "normalizedQuery": "what are the broader ecosystem implications of filling the lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-broader-ecosystem",
+        "expectedPageTitle": "Strategic Implications For The Broader Ecosystem",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-broader-ecosystem-implications-of-filling-the-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-summarize-the-strategic-implications",
+        "query": "How does Neelo summarize the strategic implications?",
+        "normalizedQuery": "how does neelo summarize the strategic implications",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-summary",
+        "expectedPageTitle": "Strategic Implications Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-summarize-the-strategic-implications",
         "passes": true
       },
       {
@@ -14977,7 +15019,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 677,
+      "exactRoutes": 679,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
