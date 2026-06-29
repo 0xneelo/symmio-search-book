@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 739,
+  "totalPages": 744,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 566,
+    "publication-candidate-needs-operator-review": 571,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 456,
+    "manifesto": 461,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -3337,6 +3337,30 @@
       "excerpt": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a weak or manipulated market could externalize its losses to unrelated markets. The model therefore gives global insurance three constraints: a market must be eligible; the per market allocation is capped; the system should never risk the whole global fund in one market. How To Explain It To Users Global insurance should be described as a capped risk budget, not a guarantee. A market may have zero allocation, a small allocation, or a larger allocation after it earns trust through cleaner price formation, better liquidity, and safer behavior. This also explains why early markets can have stricter terms. A market that has not earned shared protection must rely more heavily on netting, token inventory, local insurance, dynamic pricing, and tighter limits. Publication Boundary Do not publish final eligibility rules, allocation caps, governa"
     },
     {
+      "id": "authored-funding-gradient-flow-math-map",
+      "title": "Funding Gradient Flow Math Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#mathematical-foundation-gradient-flow"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-03-core-concepts-mathematical-foundation-gradient-flow",
+        "authored-funding-magnet-attractor-repeller-analogy",
+        "authored-gradient-flow-market-balancing",
+        "authored-funding-model-control-problem"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-gradient-flow-math-map.md",
+      "bodyMarkdown": "# Funding Gradient Flow Math Map\n\nThe gradient-flow section gives the funding model its control-language skeleton. It starts from the idea that a system follows a local gradient of a potential: it moves downhill in cost, stress, or risk.\n\nIn the source's notation, the master equation is `dx/dt = -grad V(x)`. `V(x)` is the potential landscape. Local gradients push the system away from danger. A global minimum represents the sustainable state toward which capital and liquidity trajectories should converge.\n\n## Mapping To Vibe Markets\n\nThe mapping is not that markets literally become physics. The mapping is that each market has state, and the control system should shape the path through that state.\n\n- local risk maps to a high local gradient;\n- the push away from danger maps to the force `-grad V`;\n- global sustainability maps to the lower-risk attractor;\n- capital, liquidity, exposure, and quote behavior map to the trajectory.\n\nThat is a concise way to explain why funding, spread, borrow, insurance, and ADL are not independent widgets. They are different controls acting on the same market-state landscape.\n\n## Reader Implication\n\nWhen a user asks why a market is more expensive or constrained, the answer should not be \"because the formula says so.\" The better answer is that the market state moved closer to a risk gradient, and the controls are supposed to push additional flow away from that state.\n\n## Publication Boundary\n\nThis page explains the source-model math map. It should not publish final production potentials, gradients, weights, risk scores, solver quote functions, or live parameter values without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\", \"Mathematical Foundation: Gradient Flow\".\n\n## Related Pages\n\n- `authored-funding-magnet-attractor-repeller-analogy`\n- `authored-gradient-flow-market-balancing`\n- `authored-funding-model-control-problem`",
+      "excerpt": "Funding Gradient Flow Math Map The gradient flow section gives the funding model its control language skeleton. It starts from the idea that a system follows a local gradient of a potential: it moves downhill in cost, stress, or risk. In the source's notation, the master equation is dx/dt = grad V(x) . V(x) is the potential landscape. Local gradients push the system away from danger. A global minimum represents the sustainable state toward which capital and liquidity trajectories should converge. Mapping To Vibe Markets The mapping is not that markets literally become physics. The mapping is that each market has state, and the control system should shape the path through that state. local risk maps to a high local gradient; the push away from danger maps to the force grad V ; global sustainability maps to the lower risk attractor; capital, liquidity, exposure, and quote behavior map to the trajectory. That is a concise way to explain why funding, spread, borrow, insurance, and ADL are not independent widgets. They are different controls acting on the same market state landscape. Reader Implication When a user asks why a market is more expensive or constrained, the answer should not"
+    },
+    {
       "id": "authored-funding-hedge-cost-coverage",
       "title": "Funding Hedge Cost Coverage",
       "section": "protocol-reference",
@@ -3548,6 +3572,30 @@
       "excerpt": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same market; CVA style charges where applicable. The important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted. Why Local Comes Before Global Local insurance keeps loss responsibility close to the market that generated the risk. A permissionless low cap market should build its own runway from its own operations before it asks for shared protection. That also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source model inflows are being counted. Publication Boundary The source model uses example percentages and formulas. Public docs should not present 30% , spend caps"
     },
     {
+      "id": "authored-funding-local-optima-avoidance",
+      "title": "Funding Local Optima Avoidance",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#how-systems-avoid-bad-local-optima"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-03-core-concepts-how-systems-avoid-bad-local-optima",
+        "authored-funding-gradient-flow-math-map",
+        "authored-funding-local-risk-score-penalties",
+        "authored-funding-full-objective"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-local-optima-avoidance.md",
+      "bodyMarkdown": "# Funding Local Optima Avoidance\n\nNeelo's core-concepts source names the failure mode directly: a system that only follows local improvement can get stuck in bad local optima. In market terms, a venue can optimize for immediate flow, immediate utilization, or immediate profit while letting deeper risk accumulate.\n\nThe source lists several general mechanisms that help systems escape those traps: noise or temperature, momentum, local repulsive penalties, and population or mean-field effects. The Vibe funding model emphasizes the local-penalty version: risk spikes create repulsive gradients.\n\n## What This Means For Funding\n\nThe local-penalty frame says the model should not merely reward the highest short-term profit state. It should subtract the cost of local stress. Utilization, skew, residual exposure, volatility, insurance stress, profit deviation, and proximity to forced unwind paths can all become reasons to make a state less attractive.\n\nThat matters because a young market can look locally profitable while becoming structurally brittle. If same-side demand is large, if hedging is weak, or if token inventory is close to exhausted, quoting more aggressively in the same direction may maximize near-term fees but worsen the path to solvency.\n\n## Why It Belongs In The Manifesto\n\nThe local-optima page gives the compendium a rigorous way to say \"more volume is not always better.\" Vibe's thesis is not only permissionless listing. It is permissionless market formation with controls that try to prevent fragile local success from turning into a tail event.\n\n## Publication Boundary\n\nThis page explains the source-model mechanism. It should not publish live penalty weights, temperature/noise behavior, quote-routing rules, solver discretion, eligibility criteria, or production risk-score formulas without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\", \"How Systems Avoid Bad Local Optima\".\n\n## Related Pages\n\n- `authored-funding-gradient-flow-math-map`\n- `authored-funding-local-risk-score-penalties`\n- `authored-funding-full-objective`",
+      "excerpt": "Funding Local Optima Avoidance Neelo's core concepts source names the failure mode directly: a system that only follows local improvement can get stuck in bad local optima. In market terms, a venue can optimize for immediate flow, immediate utilization, or immediate profit while letting deeper risk accumulate. The source lists several general mechanisms that help systems escape those traps: noise or temperature, momentum, local repulsive penalties, and population or mean field effects. The Vibe funding model emphasizes the local penalty version: risk spikes create repulsive gradients. What This Means For Funding The local penalty frame says the model should not merely reward the highest short term profit state. It should subtract the cost of local stress. Utilization, skew, residual exposure, volatility, insurance stress, profit deviation, and proximity to forced unwind paths can all become reasons to make a state less attractive. That matters because a young market can look locally profitable while becoming structurally brittle. If same side demand is large, if hedging is weak, or if token inventory is close to exhausted, quoting more aggressively in the same direction may maximiz"
+    },
+    {
       "id": "authored-funding-local-risk-score-penalties",
       "title": "Funding Local Risk Score Penalties",
       "section": "manifesto",
@@ -3615,6 +3663,30 @@
       "file": "content/authored/manifesto/funding-lp-master-profit-formula.md",
       "bodyMarkdown": "# Funding LP Master Profit Formula\n\nNeelo's LP-profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form:\n\n```text\nmarket profit = revenue - cost - counterparty_share * trader_pnl + hedge_pnl - shortfall\n```\n\nThat structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance-margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market-level results across markets.\n\n## Why This Matters\n\nThe formula makes Vibe's long-tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough.\n\nThis is also why dynamic pricing, utilization modes, insurance, and ADL belong in the same model as LP profit. They are not separate features. They are control surfaces that try to keep the profit equation inside acceptable bounds before the system reaches harder defense layers.\n\n## Publication Boundary\n\nThis page explains the source-model equation. It does not publish live Vibe LP terms, final fee shares, market-specific rates, hedge venues, accounting treatment, token buyback policy, or a promised vault yield. Those remain operator, implementation, legal, and accounting review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n\n## Related Pages\n\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-funding-revenue-cost-accounting-map`\n- `authored-funding-full-objective`",
       "excerpt": "Funding LP Master Profit Formula Neelo's LP profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form: That structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market level results across markets. Why This Matters The formula makes Vibe's long tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough. This is also why dynamic pricing, utilization"
+    },
+    {
+      "id": "authored-funding-magnet-attractor-repeller-analogy",
+      "title": "Funding Magnet Attractor Repeller Analogy",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#the-fundamental-analogy"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-03-core-concepts-the-fundamental-analogy",
+        "authored-gradient-flow-market-balancing",
+        "authored-funding-model-control-problem",
+        "authored-funding-full-objective"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-magnet-attractor-repeller-analogy.md",
+      "bodyMarkdown": "# Funding Magnet Attractor Repeller Analogy\n\nNeelo's funding-model core concepts use a magnet analogy to make the control problem legible: the south pole attracts, the north pole pushes. In the model, the attractor is global sustainability. The repellers are local danger zones such as high utilization, skew, exposure, and other market-specific risk.\n\nThat analogy keeps the model from sounding like a static fee table. A long-tail market is not merely charged a funding number at intervals. It is pushed away from states that can exhaust inventory or insurance, while being pulled toward states where capital, flow, and profit can remain durable.\n\n## Mapping\n\nThe source maps north-pole behavior to local maxima or sources: risk spikes push capital away. It maps south-pole behavior to a sink or global minimum: sustainable system state attracts capital trajectories.\n\nTranslated into product language, a market with dangerous same-side exposure should not keep quoting as if nothing changed. Dynamic pricing, borrow, funding, insurance, and ADL constraints are all ways of shaping the field so the market does not casually drift into a fragile local state.\n\n## Why It Matters\n\nThe analogy is useful because it separates \"profitable activity\" from \"any activity.\" A market can create volume while moving toward a local stress peak. The funding model's job is to keep that local stress visible and expensive enough that ordinary flow is redirected before the defense stack has to spend scarce insurance or force deleveraging.\n\n## Publication Boundary\n\nThis page explains the source-model analogy. It should not publish live field weights, utilization thresholds, pricing ramps, insurance rules, ADL guarantees, or production solver policies without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\", \"The Fundamental Analogy\".\n\n## Related Pages\n\n- `authored-gradient-flow-market-balancing`\n- `authored-funding-model-control-problem`\n- `authored-funding-full-objective`",
+      "excerpt": "Funding Magnet Attractor Repeller Analogy Neelo's funding model core concepts use a magnet analogy to make the control problem legible: the south pole attracts, the north pole pushes. In the model, the attractor is global sustainability. The repellers are local danger zones such as high utilization, skew, exposure, and other market specific risk. That analogy keeps the model from sounding like a static fee table. A long tail market is not merely charged a funding number at intervals. It is pushed away from states that can exhaust inventory or insurance, while being pulled toward states where capital, flow, and profit can remain durable. Mapping The source maps north pole behavior to local maxima or sources: risk spikes push capital away. It maps south pole behavior to a sink or global minimum: sustainable system state attracts capital trajectories. Translated into product language, a market with dangerous same side exposure should not keep quoting as if nothing changed. Dynamic pricing, borrow, funding, insurance, and ADL constraints are all ways of shaping the field so the market does not casually drift into a fragile local state. Why It Matters The analogy is useful because it se"
     },
     {
       "id": "authored-funding-master-formula-reading",
@@ -4197,6 +4269,55 @@
       "file": "content/authored/reference/funding-transfer-pool-feasibility.md",
       "bodyMarkdown": "# Funding Transfer Pool Feasibility\n\nNeelo's bell-curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall.\n\nThat \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail.\n\nThis is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open-ended obligation across all markets.\n\n## Operational Meaning\n\nFeasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically.\n\nFor public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered.\n\n## Publication Boundary\n\nThis page explains the source-model pool sizing. It does not publish live flattening intensity, market inclusion rules, time windows, transfer execution mechanics, or production insurance commitments.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", transfer pool.\n\n## Related Pages\n\n- `authored-funding-winner-surplus-loser-shortfall`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-funding-global-insurance-eligibility`",
       "excerpt": "Funding Transfer Pool Feasibility Neelo's bell curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall. That \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail. This is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open ended obligation across all markets. Operational Meaning Feasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically. For public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered. Publication Boundary This page explains the source model pool sizing. It"
+    },
+    {
+      "id": "authored-funding-two-mode-utilization-switch",
+      "title": "Funding Two Mode Utilization Switch",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#overview",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-transition-diagram"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-05-utilization-modes-overview",
+        "section-15-funding-model-15-docs-05-utilization-modes-mode-transition-diagram",
+        "authored-funding-token-inventory-utilization-mode",
+        "authored-funding-insurance-fund-utilization-mode"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-two-mode-utilization-switch.md",
+      "bodyMarkdown": "# Funding Two Mode Utilization Switch\n\nNeelo's utilization-mode source says the model tracks two different utilization metrics and switches between them based on exposure state. That is the core reason the system can be both capital-efficient in ordinary states and more aggressive when token inventory is no longer the binding defense.\n\nThe first mode is token-inventory utilization. It asks whether un-netted exposure is still inside available token coverage. The second mode is insurance-fund utilization. It asks whether modeled exposure loss would consume local or eligible global insurance capacity.\n\n## The Transition\n\nThe source transition diagram moves from token-inventory mode to insurance-fund mode when exposure grows beyond token coverage. In the diagram, token-inventory mode prices normally around token inventory utilization. Insurance-fund mode uses the more urgent utilization measure and can involve aggressive pricing plus proximity to ADL.\n\nThe reverse transition happens when exposure is reduced through hedging, ADL, or other controls and token-inventory coverage becomes the relevant constraint again.\n\n## Why Two Modes Matter\n\nA single utilization metric can understate risk. If a market only watches token inventory, it can miss the point where the residual problem has become an insurance-capacity problem. If it only watches insurance, it can overstate ordinary inventory pressure and become too conservative before the defense budget is actually relevant.\n\nTwo modes let the model ask the right question at the right time: \"How scarce is token coverage?\" in ordinary and stress states, then \"How much defense budget would the modeled loss consume?\" once exposure passes coverage.\n\n## Publication Boundary\n\nThis page explains the source-model switch. It should not publish live transition thresholds, exact loss-estimate horizons, insurance budget composition, hedging rules, ADL mechanics, user-facing guarantees, or production parameter values without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\", \"Overview\".\n- `vibe-papers`: Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\", \"Mode Transition Diagram\".\n\n## Related Pages\n\n- `authored-funding-token-inventory-utilization-mode`\n- `authored-funding-insurance-fund-utilization-mode`\n- `authored-funding-rate-regime-model`",
+      "excerpt": "Funding Two Mode Utilization Switch Neelo's utilization mode source says the model tracks two different utilization metrics and switches between them based on exposure state. That is the core reason the system can be both capital efficient in ordinary states and more aggressive when token inventory is no longer the binding defense. The first mode is token inventory utilization. It asks whether un netted exposure is still inside available token coverage. The second mode is insurance fund utilization. It asks whether modeled exposure loss would consume local or eligible global insurance capacity. The Transition The source transition diagram moves from token inventory mode to insurance fund mode when exposure grows beyond token coverage. In the diagram, token inventory mode prices normally around token inventory utilization. Insurance fund mode uses the more urgent utilization measure and can involve aggressive pricing plus proximity to ADL. The reverse transition happens when exposure is reduced through hedging, ADL, or other controls and token inventory coverage becomes the relevant constraint again. Why Two Modes Matter A single utilization metric can understate risk. If a market o"
+    },
+    {
+      "id": "authored-funding-unified-objective-preview",
+      "title": "Funding Unified Objective Preview",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#the-unified-objective-preview"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-03-core-concepts-the-unified-objective-preview",
+        "authored-funding-full-objective",
+        "authored-funding-local-risk-score-penalties",
+        "authored-funding-magnet-attractor-repeller-analogy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-unified-objective-preview.md",
+      "bodyMarkdown": "# Funding Unified Objective Preview\n\nThe unified-objective preview compresses the source's control idea into one simple expression: maximize flattened market profit while subtracting local risk. In source notation, that is the \"global attractor plus local repellers\" version of the funding model.\n\nThe preview formula is:\n\n```text\nmax sum_m profit'_m - lambda * sum_m risk_m\n```\n\n`profit'_m` is the flattened or adjusted market profit term. `risk_m` is the local market risk score. `lambda` controls how aggressively risk repels the objective away from dangerous local states.\n\n## How To Read The Preview\n\nThe formula is not the full product policy. It is the shortest version of the principle: profit matters, but risk changes the meaning of profit. A state that earns fees while concentrating unhedged exposure can be worse than a lower-volume state that keeps the market solvent and quoteable.\n\nThe preview also explains why later source sections add more terms. Insurance spend, ADL cost, flattening, utilization modes, and dynamic pricing are not separate ideas bolted on afterward. They are ways of specifying what profit and risk mean under long-tail market stress.\n\n## Reader Implication\n\nFor the answer engine, route broad \"what is the objective?\" questions here first, then send readers to the full objective page when they need the complete accounting stack.\n\n## Publication Boundary\n\nThis page explains the source preview. It should not publish final production `lambda` values, profit definitions, risk-score formulas, market eligibility, insurance weights, or ADL costs without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\", \"The Unified Objective (Preview)\".\n\n## Related Pages\n\n- `authored-funding-full-objective`\n- `authored-funding-local-risk-score-penalties`\n- `authored-funding-magnet-attractor-repeller-analogy`",
+      "excerpt": "Funding Unified Objective Preview The unified objective preview compresses the source's control idea into one simple expression: maximize flattened market profit while subtracting local risk. In source notation, that is the \"global attractor plus local repellers\" version of the funding model. The preview formula is: profit' m is the flattened or adjusted market profit term. risk m is the local market risk score. lambda controls how aggressively risk repels the objective away from dangerous local states. How To Read The Preview The formula is not the full product policy. It is the shortest version of the principle: profit matters, but risk changes the meaning of profit. A state that earns fees while concentrating unhedged exposure can be worse than a lower volume state that keeps the market solvent and quoteable. The preview also explains why later source sections add more terms. Insurance spend, ADL cost, flattening, utilization modes, and dynamic pricing are not separate ideas bolted on afterward. They are ways of specifying what profit and risk mean under long tail market stress. Reader Implication For the answer engine, route broad \"what is the objective?\" questions here first, "
     },
     {
       "id": "authored-funding-user-position-netting-defense",

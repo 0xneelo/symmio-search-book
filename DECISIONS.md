@@ -1487,3 +1487,11 @@
 **Reason:** Existing authored pages covered broad Information/Trade ideas such as synthetic abundance, market-price verification, prediction-market limits, the NO button, and solver refusal. The remaining source headings still carry exact questions the answer engine should distinguish: what breaks authority-based verification, what the dissertation covers, how to read market-eye-view claims without asserting objective truth, why negative conviction may require leverage, and how active solver quoting changes oracle-manipulation risk. Splitting these pages improves routing precision and keeps the source's strongest vision in publication-safe language.
 
 **Status:** Accepted for the authored manifesto layer; market-cap-as-truth claims, live shorting availability, leverage limits, solver refusal policy, oracle sources, spread formulas, last-look semantics, manipulation thresholds, wick protection guarantees, and production risk controls remain fresh primary-source/operator/product/risk/legal/security review.
+
+## D-187: Split Funding Core Concepts Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for uncovered Funding Model core-concepts headings: the magnet attractor/repeller analogy, gradient-flow math mapping, local-optima avoidance, unified objective preview, and two-mode utilization switching.
+
+**Reason:** The existing broad gradient-flow, control-problem, full-objective, and utilization-mode pages explain the funding model at a high level. The source still contains exact core-concept headings that answer different reader questions: why magnets are the right analogy, how the math map works, how the model avoids local traps, how the preview objective compresses the system, and when token-inventory mode gives way to insurance-fund mode. Splitting these routes improves Ask precision without turning model parameters into production guarantees.
+
+**Status:** Accepted for the authored manifesto layer; live field weights, potential functions, penalty weights, utilization thresholds, pricing ramps, risk scores, insurance budgets, ADL mechanics, solver quote functions, and production parameter values remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

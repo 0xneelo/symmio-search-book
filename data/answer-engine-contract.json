@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 720
+      "totalGoldenRoutes": 725
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 738,
-    "retrievalEligiblePages": 1530,
+    "publicNavigationPages": 743,
+    "retrievalEligiblePages": 1535,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 738,
+      "candidate": 743,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 720,
-    "exactRouteTestsPassing": 720,
+    "totalExactRouteTests": 725,
+    "exactRouteTestsPassing": 725,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 720
+      "candidate": 725
     },
     "exactRoutesByConfidence": {
       "Medium": 458,
       "High": 44,
-      "Low": 218
+      "Low": 223
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -5814,6 +5814,90 @@
         "passes": true
       },
       {
+        "id": "qr-why-does-the-funding-model-use-a-magnet-analogy",
+        "query": "Why does the funding model use a magnet analogy?",
+        "normalizedQuery": "why does the funding model use a magnet analogy",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-magnet-attractor-repeller-analogy",
+        "expectedPageTitle": "Funding Magnet Attractor Repeller Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-funding-model-use-a-magnet-analogy",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-gradient-flow-math-map-onto-vibe-markets",
+        "query": "How does gradient-flow math map onto Vibe markets?",
+        "normalizedQuery": "how does gradient flow math map onto vibe markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-gradient-flow-math-map",
+        "expectedPageTitle": "Funding Gradient Flow Math Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-gradient-flow-math-map-onto-vibe-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-avoid-bad-local-optima",
+        "query": "How does the funding model avoid bad local optima?",
+        "normalizedQuery": "how does the funding model avoid bad local optima",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-local-optima-avoidance",
+        "expectedPageTitle": "Funding Local Optima Avoidance",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-funding-model-avoid-bad-local-optima",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-funding-model-s-unified-objective-preview",
+        "query": "What is the funding model's unified objective preview?",
+        "normalizedQuery": "what is the funding model s unified objective preview",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-unified-objective-preview",
+        "expectedPageTitle": "Funding Unified Objective Preview",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-funding-model-s-unified-objective-preview",
+        "passes": true
+      },
+      {
         "id": "qr-what-are-token-inventory-and-insurance-fund-utilization-modes",
         "query": "What are token-inventory and insurance-fund utilization modes?",
         "normalizedQuery": "what are token inventory and insurance fund utilization modes",
@@ -5832,6 +5916,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-are-token-inventory-and-insurance-fund-utilization-modes",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-switch-between-token-inventory-and-insurance-mode",
+        "query": "How does the funding model switch between token inventory and insurance mode?",
+        "normalizedQuery": "how does the funding model switch between token inventory and insurance mode",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-two-mode-utilization-switch",
+        "expectedPageTitle": "Funding Two Mode Utilization Switch",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-funding-model-switch-between-token-inventory-and-insurance-mode",
         "passes": true
       },
       {
@@ -15880,7 +15985,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 720,
+      "exactRoutes": 725,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

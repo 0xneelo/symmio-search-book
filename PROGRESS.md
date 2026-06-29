@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Funding Core Concepts Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from uncovered Neelo Funding Model core-concepts and utilization-mode headings.
+- Split the source into exact answer pages for the magnet attractor/repeller analogy, gradient-flow math mapping, local-optima avoidance, unified objective preview, and the two-mode utilization switch.
+- Extended the question ledger so Ask can route precise funding-model questions instead of collapsing all core-concept traffic into the broad gradient-flow, full-objective, or utilization-mode overview pages.
+- Kept live field weights, thresholds, pricing ramps, risk scores, insurance composition, ADL mechanics, solver quote functions, and production parameter values marked for fresh operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Information And Trade Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from uncovered Neelo Information and Trade Convergence source headings.
