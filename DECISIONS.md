@@ -1751,3 +1751,11 @@
 **Reason:** The uncovered items are abstract, thesis, table-of-contents, overview, and provenance fragments. Promoting them into standalone public pages would duplicate the existing authored order-book complementarity spine while making transcript/source markers look like final claims. A single source map preserves traceability and keeps SSHE/Hyperliquid handoff language under review.
 
 **Status:** Accepted for source-traceability coverage. Direct Hyperliquid integrations, SSHE mechanics, automatic graduation rules, current order-book listing policies, market-maturity thresholds, venue economics, launchpad partnerships, and house-of-all-finance commitments remain fresh primary-source/operator/product/market/risk/legal/security review items before publication.
+
+## D-220: Map USDC Required-APR Fragments To The Canonical Risk-Premium Page
+
+**Decision:** Map the remaining uncovered USDC required-APR overview and summary fragments directly into `authored-required-risk-premium-for-usdc-lps`, adding source-navigation text and an Ask route instead of creating a separate source-map page.
+
+**Reason:** The uncovered items are not independent source sections; they are the overview and summary of the same APR derivation already represented by the canonical required-risk-premium page and its component pages. Metadata mapping preserves traceability while avoiding another public page that would duplicate the risk-premium argument.
+
+**Status:** Accepted for source-traceability coverage. Exact APR ranges, expected-loss ranges, adverse-selection premium ranges, current LP terms, fee levels, funding rates, spread policy, token-emission policy, subsidies, and token-backed APR claims remain operator/risk/accounting/legal/implementation review items before publication.

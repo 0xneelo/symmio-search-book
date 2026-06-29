@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 781
+      "totalGoldenRoutes": 782
     },
     {
       "stage": "glossary-route",
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 781,
-    "exactRouteTestsPassing": 781,
+    "totalExactRouteTests": 782,
+    "exactRouteTestsPassing": 782,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 781
+      "candidate": 782
     },
     "exactRoutesByConfidence": {
       "Medium": 487,
       "High": 44,
-      "Low": 250
+      "Low": 251
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -7022,6 +7022,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-would-usdc-lps-demand-a-high-risk-premium",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-usdc-required-apr-derivation",
+        "query": "How should I read the USDC required APR derivation?",
+        "normalizedQuery": "how should i read the usdc required apr derivation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-required-risk-premium-for-usdc-lps",
+        "expectedPageTitle": "Required Risk Premium For USDC LPs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-usdc-required-apr-derivation",
         "passes": true
       },
       {
@@ -18452,7 +18473,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 781,
+      "exactRoutes": 782,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

@@ -7,7 +7,7 @@ status: "publication-candidate-needs-operator-review"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5"]
-relatedGeneratedPages: ["neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs", "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-required-apr-derivation", "neelo-06-usdc-token-perps-06-docs-figure5"]
+relatedGeneratedPages: ["neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs", "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-overview", "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-3-required-apr-derivation", "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-7-summary", "neelo-06-usdc-token-perps-06-docs-figure5"]
 ---
 
 # Required Risk Premium For USDC LPs
@@ -23,6 +23,12 @@ That framing helps the compendium explain why generic USDC backstops can be expe
 The exact APR ranges and risk-premium ratios in the source are model outputs. They are useful for comparative reasoning, but they should not be presented as final Vibe economics, guaranteed LP demand, or audited market data.
 
 The publishable thesis is the equation: low-cap backstop capital needs a return high enough to cover opportunity cost, expected loss, and adverse selection.
+
+## Source Navigation
+
+Use the source overview to frame the derivation: it is an APR model for USDC depositors in Imperial, based on expected loss, opportunity cost, and risk premiums. Use the source summary as a boundary marker: the high APR range is a source-model conclusion, not a current public yield quote or an approved Vibe LP term.
+
+Route component questions to `authored-usdc-expected-loss-decomposition`, `authored-usdc-opportunity-cost-floor`, `authored-adverse-selection-premium-for-usdc-lps`, `authored-break-even-versus-attractive-apr`, and `authored-high-apr-sustainability-pressure`.
 
 ## Sources
 

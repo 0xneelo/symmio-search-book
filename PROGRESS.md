@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — USDC Risk-Premium Source Navigation Coverage
+
+- Mapped the remaining USDC required-APR overview and summary generated fragments into `authored-required-risk-premium-for-usdc-lps` instead of creating duplicate public pages.
+- Added source-navigation text that routes component questions to expected loss, opportunity cost, adverse-selection premium, break-even APR, and high-APR sustainability pages.
+- Routed one new Ask question, "How should I read the USDC required APR derivation?", to the canonical risk-premium page.
+- Kept exact APR ranges, expected-loss ranges, adverse-selection premium ranges, current LP terms, fee levels, funding rates, spread policy, token-emission policy, subsidies, and token-backed APR claims under operator/risk/accounting/legal/implementation review.
+
 ## 2026-06-29 — Ode To OrderBooks Source Navigation Coverage
 
 - Added `authored-ode-orderbooks-source-navigation-map` to route Neelo's remaining Ode to OrderBooks abstract, thesis, overview, table-of-contents, core-thesis, and source-marker fragments into existing authored order-book complementarity pages.
