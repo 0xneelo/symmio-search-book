@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 667
+      "totalGoldenRoutes": 672
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 685,
-    "retrievalEligiblePages": 1477,
+    "publicNavigationPages": 690,
+    "retrievalEligiblePages": 1482,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 685,
+      "candidate": 690,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 667,
-    "exactRouteTestsPassing": 667,
+    "totalExactRouteTests": 672,
+    "exactRouteTestsPassing": 672,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 667
+      "candidate": 672
     },
     "exactRoutesByConfidence": {
-      "Medium": 430,
+      "Medium": 434,
       "High": 44,
-      "Low": 193
+      "Low": 194
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4066,6 +4066,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-would-a-hypothetical-permissionless-perps-model-include",
+        "passes": true
+      },
+      {
+        "id": "qr-how-would-permissionless-perps-relate-to-existing-venues",
+        "query": "How would permissionless perps relate to existing venues?",
+        "normalizedQuery": "how would permissionless perps relate to existing venues",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-perps-venue-relationships",
+        "expectedPageTitle": "How Permissionless Perps Relate To Existing Venues",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-would-permissionless-perps-relate-to-existing-venues",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-initial-market-for-permissionless-perps",
+        "query": "What is the initial market for permissionless perps?",
+        "normalizedQuery": "what is the initial market for permissionless perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-perps-initial-market",
+        "expectedPageTitle": "The Initial Market For Permissionless Perps",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-initial-market-for-permissionless-perps",
+        "passes": true
+      },
+      {
+        "id": "qr-what-changes-if-the-lifecycle-gap-is-filled",
+        "query": "What changes if the lifecycle gap is filled?",
+        "normalizedQuery": "what changes if the lifecycle gap is filled",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-filled-lifecycle-gap-continuity",
+        "expectedPageTitle": "What Changes If The Lifecycle Gap Is Filled",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-changes-if-the-lifecycle-gap-is-filled",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-monopoly-implications-of-a-gap-filling-protocol",
+        "query": "What are the monopoly implications of a gap-filling protocol?",
+        "normalizedQuery": "what are the monopoly implications of a gap filling protocol",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-gap-filling-protocol-monopoly-implications",
+        "expectedPageTitle": "Monopoly Implications Of A Gap-Filling Protocol",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-monopoly-implications-of-a-gap-filling-protocol",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-summarize-the-permissionless-perps-hypothesis",
+        "query": "How does Neelo summarize the permissionless perps hypothesis?",
+        "normalizedQuery": "how does neelo summarize the permissionless perps hypothesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-perps-hypothesis-summary",
+        "expectedPageTitle": "Permissionless Perps Hypothesis Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-summarize-the-permissionless-perps-hypothesis",
         "passes": true
       },
       {
@@ -14767,7 +14872,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 667,
+      "exactRoutes": 672,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

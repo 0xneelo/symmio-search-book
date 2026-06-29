@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Permissionless Perps Closeout Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly permissionless-perps hypothesis close.
+- Split uncovered source sections into exact answer routes for venue relationships, the initial beachhead market, lifecycle continuity if the gap is filled, monopoly implications, and the Section 5 summary.
+- Extended the question ledger so Ask can route readers through the Section 5 closeout without collapsing venue-complementarity, beachhead, continuity, moat, and summary questions into the broad gap-filling protocol page.
+- Kept current integrations, venue partnerships, market-cap thresholds, supported chains, launch criteria, leverage, liquidity requirements, graduation policy, moat claims, and product scope marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Permissionless Perps Bridge Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly gap-opportunity close and permissionless-perps hypothesis opening.

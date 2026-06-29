@@ -1399,3 +1399,11 @@
 **Reason:** The previous lifecycle-gap pages diagnose the missing derivatives interval, while Section 5 begins the solution hypothesis. Ask needs direct routes for why the gap is attractive, how Section 4 summarizes the problem, where a permissionless perp layer would sit, why derivatives are the next permissionless infrastructure frontier, and what bootstrap/maturation/graduation would mean before routing to broader gap-filling, liquidity, or monopoly-strategy pages.
 
 **Status:** Accepted for the authored manifesto layer; source-time market-cap bands, first-mover claims, current Vibe eligibility, solver obligations, bootstrap liquidity mechanics, objective maturation criteria, graduation rules, and downstream venue integrations remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-176: Split The Permissionless Perps Hypothesis Close Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for permissionless perps' venue relationships, initial beachhead market, filled-gap lifecycle continuity, monopoly implications, and Section 5 summary.
+
+**Reason:** The previous Section 5 pages explain the lifecycle position, thesis, and hypothetical model. The closeout sections add the strategic shape: the protocol complements adjacent venues, starts from a bounded low-cap spot-graduated niche, creates continuity if the gap is filled, and may become a category-defining bridge under a Thiel-style monopoly frame. Ask needs exact routes for those distinctions before routing readers into broader strategic-implication pages.
+
+**Status:** Accepted for the authored manifesto layer; current integrations, venue partnerships, market-cap thresholds, supported chains, launch criteria, leverage policy, liquidity requirements, graduation rules, data moat claims, category-control claims, and production product scope remain fresh primary-source/operator/product/risk/legal/implementation review.
