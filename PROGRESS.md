@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Taxonomy Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score source.
+- Split the framework and trilemma into exact answer routes for synchronous matching, collateralization as payout source, insurance topology by maturity, async-netted no-payer failure, and the solver as the initial network effect.
+- Extended the question ledger so Ask can route direct architecture questions about matching timing, payout liability, insurance containment, no-payer bootstrap failure, and solver-led cold starts.
+- Kept live solver obligations, capital commitments, cross-margin eligibility, insurance allocation rules, market graduation thresholds, and current production policy marked for operator/risk/implementation review.
+
 ## 2026-06-29 — One-Primitive Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's "Fix the Industry with One Primitive" source.

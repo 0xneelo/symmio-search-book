@@ -553,6 +553,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the path forward after token-margined inverse perps? | `authored-usdc-hybrid-path-forward` | Medium | Neelo's conclusion points to USDC-margined hybrid architecture: separated inventory and settlement, solver controls, defense-in-depth, and cross-market mutualization. |
 | How has the market moved away from inverse token settlement? | `authored-industry-migration-stable-settlement` | Medium | Neelo reads BitMEX, Drift, Synthetix, and Futureswap-style lessons as a trajectory toward stable settlement, active risk, and limits on inverse reflexivity. |
 | What two questions separate Percolator and Vibe? | `authored-two-questions-permissionless-perps` | Medium | Neelo says Percolator asks whether a trustless verified engine can be built, while Vibe asks whether permissionless low-cap perps can be economically sustainable. |
+| What does synchronous matching require? | `authored-synchronous-matching-counterparty-requirement` | Medium | Neelo's framework says synchronous systems such as order books execute only when counterparties are present at the same time, which explains their mature-market strength and bootstrap limit. |
+| Why is collateralization the payout question in perp design? | `authored-collateralization-payout-source` | Medium | Neelo's collateralization axis asks who pays winning traders: opposing traders in netted systems or capitalized LP/vault/solver support in collateralized systems. |
+| Why should insurance topology follow market maturity? | `authored-insurance-topology-maturity-path` | Medium | Neelo's insurance-topology axis says new markets benefit from isolated containment while proven markets can earn cross-margin or shared-insurance efficiency. |
+| Why does asynchronous netted architecture fail at bootstrap? | `authored-async-netted-no-payer-failure` | Medium | Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists. |
+| How does the solver solve the network-effect cold start? | `authored-solver-as-initial-network-effect` | Medium | Neelo's architecture and Thielian analysis frame the solver as the first functional network: it quotes and absorbs residual flow before natural trader/LP/project/data flywheels form. |
 
 ## Prototype Event Log
 

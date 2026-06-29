@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 547
+      "totalGoldenRoutes": 552
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 565,
-    "retrievalEligiblePages": 1357,
+    "publicNavigationPages": 570,
+    "retrievalEligiblePages": 1362,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 565,
+      "candidate": 570,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 547,
-    "exactRouteTestsPassing": 547,
+    "totalExactRouteTests": 552,
+    "exactRouteTestsPassing": 552,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 547
+      "candidate": 552
     },
     "exactRoutesByConfidence": {
-      "Medium": 327,
+      "Medium": 332,
       "High": 44,
       "Low": 176
     },
@@ -12172,6 +12172,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-two-questions-separate-percolator-and-vibe",
         "passes": true
+      },
+      {
+        "id": "qr-what-does-synchronous-matching-require",
+        "query": "What does synchronous matching require?",
+        "normalizedQuery": "what does synchronous matching require",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-synchronous-matching-counterparty-requirement",
+        "expectedPageTitle": "Synchronous Matching Requires Present Counterparties",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-synchronous-matching-require",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-collateralization-the-payout-question-in-perp-design",
+        "query": "Why is collateralization the payout question in perp design?",
+        "normalizedQuery": "why is collateralization the payout question in perp design",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-collateralization-payout-source",
+        "expectedPageTitle": "Collateralization Is The Payout Question",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-collateralization-the-payout-question-in-perp-design",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-insurance-topology-follow-market-maturity",
+        "query": "Why should insurance topology follow market maturity?",
+        "normalizedQuery": "why should insurance topology follow market maturity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-insurance-topology-maturity-path",
+        "expectedPageTitle": "Insurance Topology Should Follow Market Maturity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-should-insurance-topology-follow-market-maturity",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-asynchronous-netted-architecture-fail-at-bootstrap",
+        "query": "Why does asynchronous netted architecture fail at bootstrap?",
+        "normalizedQuery": "why does asynchronous netted architecture fail at bootstrap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-async-netted-no-payer-failure",
+        "expectedPageTitle": "The Async-Netted No-Payer Failure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-asynchronous-netted-architecture-fail-at-bootstrap",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-solver-solve-the-network-effect-cold-start",
+        "query": "How does the solver solve the network-effect cold start?",
+        "normalizedQuery": "how does the solver solve the network effect cold start",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-as-initial-network-effect",
+        "expectedPageTitle": "The Solver As The Initial Network Effect",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-solver-solve-the-network-effect-cold-start",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12247,7 +12352,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 547,
+      "exactRoutes": 552,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

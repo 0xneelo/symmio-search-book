@@ -1207,3 +1207,11 @@
 **Reason:** The existing one-primitive pages cover the broad thesis, but the answer engine needs narrower routes for readers asking why AI/information abundance changes the problem, why universal issuance creates disorder, what derivatives add beyond spot, what permissionless derivative access removes from listing gatekeeping, and how token markets progress from creation to mature venues.
 
 **Status:** Accepted for the authored manifesto layer; live listing eligibility, solver support, vault exposure, market approval process, leverage limits, graduation rules, integrations, and production timelines remain operator/product/risk/legal/implementation review.
+
+## D-152: Split Perp Taxonomy Into Exact Architecture Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for synchronous matching's present-counterparty requirement, collateralization as the payout-source question, insurance topology following maturity, async-netted no-payer failure, and the solver as the initial network effect.
+
+**Reason:** The existing framework and bootstrap-trilemma pages explain the design space broadly, but answer-engine readers need direct routes into the atomic mechanics: timing, payer identity, risk sharing, why one impossible quadrant fails, and how the solver starts the market before natural network effects exist.
+
+**Status:** Accepted for the authored manifesto layer; live solver obligations, capital commitments, cross-margin eligibility, shared-insurance policy, market graduation thresholds, quote uptime, fee capture, and current production implementation remain operator/risk/implementation review.

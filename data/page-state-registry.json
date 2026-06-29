@@ -35,25 +35,25 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1360,
+  "totalPages": 1365,
   "byState": {
-    "candidate": 565,
+    "candidate": 570,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 566,
+    "authored": 571,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 566,
+    "authored-page": 571,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "publication-candidate-needs-operator-review": 411,
-    "publication-candidate": 136,
+    "publication-candidate-needs-operator-review": 413,
+    "publication-candidate": 139,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -65,7 +65,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
-    "manifesto": 288,
+    "manifesto": 293,
     "product-reference": 50,
     "rewards-referrals": 86,
     "dashboard-reference": 17,
@@ -98,7 +98,7 @@
       "source-companion": 172
     },
     "volume-02-bootstrap-and-proof-of-value": {
-      "candidate": 51,
+      "candidate": 56,
       "source-companion": 238
     },
     "volume-03-listing-power-and-orderbooks": {
@@ -130,13 +130,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 565,
+  "publicCandidatePages": 570,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 565,
-  "retrievalEligiblePages": 1357,
-  "reviewRequiredPages": 1206,
-  "exactQuestionRoutedPages": 544,
+  "publicNavigationPages": 570,
+  "retrievalEligiblePages": 1362,
+  "reviewRequiredPages": 1208,
+  "exactQuestionRoutedPages": 549,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -182,6 +182,7 @@
     "authored-amfq-legacy-intent-naming",
     "authored-architecture-defined-by-constraint-set",
     "authored-artifact-exposure-and-boost-rules",
+    "authored-async-netted-no-payer-failure",
     "authored-autonomous-market-creation",
     "authored-barometer-subgraph-upgrade",
     "authored-beyond-polymarket-continuous-truth-markets",
@@ -196,8 +197,7 @@
     "authored-clob-majors-first-stage-fit",
     "authored-clob-vault-rails-long-tail-limits",
     "authored-collateral-margin-cva",
-    "authored-collateralized-pools-finite-long-tail",
-    "authored-competitive-docs-benchmark"
+    "authored-collateralization-payout-source"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -428,6 +428,31 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
         "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-async-netted-no-payer-failure",
+      "title": "The Async-Netted No-Payer Failure",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/async-netted-no-payer-failure.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-4-why-single-architectures-fail",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-5-the-complete-framework"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -780,6 +805,31 @@
       "sourceUrls": [
         "https://docs.symm.io/getting-started/core-concepts.md",
         "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-collateralization-payout-source",
+      "title": "Collateralization Is The Payout Question",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/collateralization-payout-source.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-3-dimension-2-collateralization-architecture",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-6-why-the-trilemma-exists"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -4549,6 +4599,31 @@
       ],
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-insurance-topology-maturity-path",
+      "title": "Insurance Topology Should Follow Market Maturity",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/insurance-topology-maturity-path.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-4-dimension-3-insurance-topology",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-2-the-four-transitions"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -9613,6 +9688,31 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-solver-as-initial-network-effect",
+      "title": "The Solver As The Initial Network Effect",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/solver-as-initial-network-effect.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": true,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-3-the-solver-protocol-owned-market-maker",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis#part-3-the-four-characteristics-of-monopoly"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-solver-cva-compensation-buffer",
       "title": "Solver CVA Compensation Buffer",
       "section": "protocol-reference",
@@ -11125,6 +11225,31 @@
       "sourceUrls": [
         "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
         "https://docs.symm.io/trader-documentation/interacting-with-contracts.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-synchronous-matching-counterparty-requirement",
+      "title": "Synchronous Matching Requires Present Counterparties",
+      "section": "manifesto",
+      "track": "01 — Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/synchronous-matching-counterparty-requirement.md",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-2-dimension-1-matching-engine-architecture",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-4-why-single-architectures-fail"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

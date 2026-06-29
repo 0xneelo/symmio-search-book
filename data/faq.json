@@ -8,16 +8,16 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 554,
-  "totalAnswerable": 547,
+  "totalEntries": 559,
+  "totalAnswerable": 552,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 59,
+    "Getting Started": 63,
     "Trading Flow": 32,
-    "Solvers And Settlement": 153,
+    "Solvers And Settlement": 154,
     "Risk And Markets": 64,
     "Revenue": 75,
     "Manifesto": 77,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 327,
+    "Medium": 332,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 547
+    "authored": 552
   },
   "byType": {
-    "answerable": 547,
+    "answerable": 552,
     "reconciliation": 7
   },
   "answerable": [
@@ -17919,6 +17919,151 @@
       "pageTitle": "Two Questions For Permissionless Perps",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-synchronous-matching-require",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does synchronous matching require?",
+      "normalizedQuestion": "what does synchronous matching require",
+      "shortAnswer": "Neelo's framework says synchronous systems such as order books execute only when counterparties are present at the same time, which explains their mature-market strength and bootstrap limit.",
+      "answerSummary": "Synchronous Matching Requires Present Counterparties Synchronous matching is powerful because it only executes when both sides are present at the same time. In Neelo's framework, an order book is the canonical synchronous system: bids and asks rest until prices cross, and the exchange can clear the trade because the long and the short are both known at ex...",
+      "confidence": "Medium",
+      "pageId": "authored-synchronous-matching-counterparty-requirement",
+      "pageTitle": "Synchronous Matching Requires Present Counterparties",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-collateralization-the-payout-question-in-perp-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is collateralization the payout question in perp design?",
+      "normalizedQuestion": "why is collateralization the payout question in perp design",
+      "shortAnswer": "Neelo's collateralization axis asks who pays winning traders: opposing traders in netted systems or capitalized LP/vault/solver support in collateralized systems.",
+      "answerSummary": "Collateralization Is The Payout Question Collateralization is the question of who pays the winning trader. In a fully netted system, longs and shorts pay each other. If price rises, short side losses fund long side profits; if price falls, long side losses fund short side profits. That design is capital efficient because the venue does not need to pre fun...",
+      "confidence": "Medium",
+      "pageId": "authored-collateralization-payout-source",
+      "pageTitle": "Collateralization Is The Payout Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-insurance-topology-follow-market-maturity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why should insurance topology follow market maturity?",
+      "normalizedQuestion": "why should insurance topology follow market maturity",
+      "shortAnswer": "Neelo's insurance-topology axis says new markets benefit from isolated containment while proven markets can earn cross-margin or shared-insurance efficiency.",
+      "answerSummary": "Insurance Topology Should Follow Market Maturity Insurance topology asks whether market risk is isolated or shared. In Neelo's framework, cross margin or global insurance systems improve capital efficiency for proven markets, but they also couple outcomes across markets. A weak market can contaminate stronger markets if shared protection is available too...",
+      "confidence": "Medium",
+      "pageId": "authored-insurance-topology-maturity-path",
+      "pageTitle": "Insurance Topology Should Follow Market Maturity",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-asynchronous-netted-architecture-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why does asynchronous netted architecture fail at bootstrap?",
+      "normalizedQuestion": "why does asynchronous netted architecture fail at bootstrap",
+      "shortAnswer": "Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists.",
+      "answerSummary": "The Async Netted No Payer Failure The most tempting impossible quadrant is asynchronous plus fully netted. It appears to promise everything a new market wants: trades can arrive without a simultaneous counterparty, listings can be permissionless, and the system does not tie up vault capital. Neelo's trilemma source says the failure is direct. Netted accou...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-solver-solve-the-network-effect-cold-start",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does the solver solve the network-effect cold start?",
+      "normalizedQuestion": "how does the solver solve the network effect cold start",
+      "shortAnswer": "Neelo's architecture and Thielian analysis frame the solver as the first functional network: it quotes and absorbs residual flow before natural trader/LP/project/data flywheels form.",
+      "answerSummary": "The Solver As The Initial Network Effect Network effects are normally hard to start because the first user arrives before the network is useful. In a new perp market, the problem is sharper: the first trader needs liquidity, LPs need volume, and volume needs traders. Without an initial counterparty, the loop never begins. Neelo's Vibe architecture assigns...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-as-initial-network-effect",
+      "pageTitle": "The Solver As The Initial Network Effect",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -36162,6 +36307,151 @@
       "pageTitle": "Two Questions For Permissionless Perps",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-synchronous-matching-require",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does synchronous matching require?",
+      "normalizedQuestion": "what does synchronous matching require",
+      "shortAnswer": "Neelo's framework says synchronous systems such as order books execute only when counterparties are present at the same time, which explains their mature-market strength and bootstrap limit.",
+      "answerSummary": "Synchronous Matching Requires Present Counterparties Synchronous matching is powerful because it only executes when both sides are present at the same time. In Neelo's framework, an order book is the canonical synchronous system: bids and asks rest until prices cross, and the exchange can clear the trade because the long and the short are both known at ex...",
+      "confidence": "Medium",
+      "pageId": "authored-synchronous-matching-counterparty-requirement",
+      "pageTitle": "Synchronous Matching Requires Present Counterparties",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-collateralization-the-payout-question-in-perp-design",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is collateralization the payout question in perp design?",
+      "normalizedQuestion": "why is collateralization the payout question in perp design",
+      "shortAnswer": "Neelo's collateralization axis asks who pays winning traders: opposing traders in netted systems or capitalized LP/vault/solver support in collateralized systems.",
+      "answerSummary": "Collateralization Is The Payout Question Collateralization is the question of who pays the winning trader. In a fully netted system, longs and shorts pay each other. If price rises, short side losses fund long side profits; if price falls, long side losses fund short side profits. That design is capital efficient because the venue does not need to pre fun...",
+      "confidence": "Medium",
+      "pageId": "authored-collateralization-payout-source",
+      "pageTitle": "Collateralization Is The Payout Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-insurance-topology-follow-market-maturity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why should insurance topology follow market maturity?",
+      "normalizedQuestion": "why should insurance topology follow market maturity",
+      "shortAnswer": "Neelo's insurance-topology axis says new markets benefit from isolated containment while proven markets can earn cross-margin or shared-insurance efficiency.",
+      "answerSummary": "Insurance Topology Should Follow Market Maturity Insurance topology asks whether market risk is isolated or shared. In Neelo's framework, cross margin or global insurance systems improve capital efficiency for proven markets, but they also couple outcomes across markets. A weak market can contaminate stronger markets if shared protection is available too...",
+      "confidence": "Medium",
+      "pageId": "authored-insurance-topology-maturity-path",
+      "pageTitle": "Insurance Topology Should Follow Market Maturity",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-asynchronous-netted-architecture-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why does asynchronous netted architecture fail at bootstrap?",
+      "normalizedQuestion": "why does asynchronous netted architecture fail at bootstrap",
+      "shortAnswer": "Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists.",
+      "answerSummary": "The Async Netted No Payer Failure The most tempting impossible quadrant is asynchronous plus fully netted. It appears to promise everything a new market wants: trades can arrive without a simultaneous counterparty, listings can be permissionless, and the system does not tie up vault capital. Neelo's trilemma source says the failure is direct. Netted accou...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-solver-solve-the-network-effect-cold-start",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does the solver solve the network-effect cold start?",
+      "normalizedQuestion": "how does the solver solve the network effect cold start",
+      "shortAnswer": "Neelo's architecture and Thielian analysis frame the solver as the first functional network: it quotes and absorbs residual flow before natural trader/LP/project/data flywheels form.",
+      "answerSummary": "The Solver As The Initial Network Effect Network effects are normally hard to start because the first user arrives before the network is useful. In a new perp market, the problem is sharper: the first trader needs liquidity, LPs need volume, and volume needs traders. Without an initial counterparty, the loop never begins. Neelo's Vibe architecture assigns...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-as-initial-network-effect",
+      "pageTitle": "The Solver As The Initial Network Effect",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

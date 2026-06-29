@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 547,
+  "totalRoutes": 552,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 327,
+    "Medium": 332,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 547
+    "authored": 552
   },
   "answerable": [
     {
@@ -9561,6 +9561,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo says Percolator asks whether a trustless verified engine can be built, while Vibe asks whether permissionless low-cap perps can be economically sustainable.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-synchronous-matching-require",
+      "question": "What does synchronous matching require?",
+      "normalizedQuestion": "what does synchronous matching require",
+      "pageId": "authored-synchronous-matching-counterparty-requirement",
+      "pageTitle": "Synchronous Matching Requires Present Counterparties",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's framework says synchronous systems such as order books execute only when counterparties are present at the same time, which explains their mature-market strength and bootstrap limit.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-collateralization-the-payout-question-in-perp-design",
+      "question": "Why is collateralization the payout question in perp design?",
+      "normalizedQuestion": "why is collateralization the payout question in perp design",
+      "pageId": "authored-collateralization-payout-source",
+      "pageTitle": "Collateralization Is The Payout Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's collateralization axis asks who pays winning traders: opposing traders in netted systems or capitalized LP/vault/solver support in collateralized systems.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-should-insurance-topology-follow-market-maturity",
+      "question": "Why should insurance topology follow market maturity?",
+      "normalizedQuestion": "why should insurance topology follow market maturity",
+      "pageId": "authored-insurance-topology-maturity-path",
+      "pageTitle": "Insurance Topology Should Follow Market Maturity",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's insurance-topology axis says new markets benefit from isolated containment while proven markets can earn cross-margin or shared-insurance efficiency.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-asynchronous-netted-architecture-fail-at-bootstrap",
+      "question": "Why does asynchronous netted architecture fail at bootstrap?",
+      "normalizedQuestion": "why does asynchronous netted architecture fail at bootstrap",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-solver-solve-the-network-effect-cold-start",
+      "question": "How does the solver solve the network-effect cold start?",
+      "normalizedQuestion": "how does the solver solve the network effect cold start",
+      "pageId": "authored-solver-as-initial-network-effect",
+      "pageTitle": "The Solver As The Initial Network Effect",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's architecture and Thielian analysis frame the solver as the first functional network: it quotes and absorbs residual flow before natural trader/LP/project/data flywheels form.",
       "sourceKeys": [
         "vibe-papers"
       ],
