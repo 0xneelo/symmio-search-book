@@ -1431,3 +1431,11 @@
 **Reason:** Earlier authored pages cover the paper's introduction, framework, lifecycle gap, permissionless-perps hypothesis, and strategic implications. The conclusion is still useful as its own reader path because it compresses the whole argument into final takeaways, future research, and the fair-launch-to-institutional bridge frame. Ask needs direct routes for conclusion-level questions rather than sending readers back into scattered earlier sections.
 
 **Status:** Accepted for the authored manifesto layer; market-share examples, market-cap thresholds, post-listing performance, investment/moat conclusions, regulatory/policy claims, institutional pathways, category-control claims, and product guarantees remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-180: Split Listing Monopoly Thiel Criteria Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the first half of the Listing Monopoly Thiel analysis: category boundary, value creation/capture, small-market wedge, 10x gap-filler claim, and network effects/cold start.
+
+**Reason:** The existing `authored-thielian-listing-monopoly` page gives the broad strategy, while the Perp Classes Thiel pages explain a related but separate source. Section 8 of the Listing Monopoly paper asks more exact questions about whether the gap-filling bridge satisfies individual Thiel criteria. Ask needs direct routes for those criteria so readers can inspect what is source-backed and what remains conditional on execution.
+
+**Status:** Accepted for the authored manifesto layer; current category ownership, exact market-cap eligibility, dominance, fee/spread economics, data moats, partner lock-in, solver capacity, current product capability, and regulatory claims remain fresh primary-source/operator/product/risk/legal/implementation review.

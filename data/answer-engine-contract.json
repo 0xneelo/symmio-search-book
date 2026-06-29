@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 685
+      "totalGoldenRoutes": 690
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 703,
-    "retrievalEligiblePages": 1495,
+    "publicNavigationPages": 708,
+    "retrievalEligiblePages": 1500,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 703,
+      "candidate": 708,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 685,
-    "exactRouteTestsPassing": 685,
+    "totalExactRouteTests": 690,
+    "exactRouteTestsPassing": 690,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 685
+      "candidate": 690
     },
     "exactRoutesByConfidence": {
-      "Medium": 441,
+      "Medium": 446,
       "High": 44,
       "Low": 200
     },
@@ -4549,6 +4549,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-the-listing-monopoly-thesis-a-monopoly-strategy",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-the-listing-monopoly-thiel-analysis-hypothetical",
+        "query": "Why is the Listing Monopoly Thiel analysis hypothetical?",
+        "normalizedQuery": "why is the listing monopoly thiel analysis hypothetical",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-category-boundary",
+        "expectedPageTitle": "Listing Monopoly Thiel Category Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-the-listing-monopoly-thiel-analysis-hypothetical",
+        "passes": true
+      },
+      {
+        "id": "qr-how-would-a-gap-filling-protocol-create-and-capture-value",
+        "query": "How would a gap-filling protocol create and capture value?",
+        "normalizedQuery": "how would a gap filling protocol create and capture value",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-value-capture-bridge",
+        "expectedPageTitle": "Listing Monopoly Value Creation And Capture",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-would-a-gap-filling-protocol-create-and-capture-value",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-small-market-wedge-in-the-listing-monopoly-thesis",
+        "query": "What is the small-market wedge in the Listing Monopoly thesis?",
+        "normalizedQuery": "what is the small market wedge in the listing monopoly thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-small-market-wedge",
+        "expectedPageTitle": "Listing Monopoly Small-Market Wedge",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-small-market-wedge-in-the-listing-monopoly-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-listing-monopoly-10x-gap-filler-claim",
+        "query": "What is the Listing Monopoly 10x gap-filler claim?",
+        "normalizedQuery": "what is the listing monopoly 10x gap filler claim",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-10x-gap-filler",
+        "expectedPageTitle": "Listing Monopoly 10x Gap-Filler Claim",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-listing-monopoly-10x-gap-filler-claim",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-network-effects-start-for-a-gap-filling-protocol",
+        "query": "How do network effects start for a gap-filling protocol?",
+        "normalizedQuery": "how do network effects start for a gap filling protocol",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-network-effects-cold-start",
+        "expectedPageTitle": "Listing Monopoly Network Effects And Cold Start",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-network-effects-start-for-a-gap-filling-protocol",
         "passes": true
       },
       {
@@ -15145,7 +15250,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 685,
+      "exactRoutes": 690,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

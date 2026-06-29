@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Monopoly Thiel Criteria Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from the first half of Neelo's Listing Monopoly Thiel analysis.
+- Split the category-analysis frame into exact answer pages for the hypothetical category boundary, value creation/capture bridge, small-market wedge, 10x gap-filler claim, and network-effect cold start.
+- Extended the question ledger so Ask can route Thiel-criterion questions without collapsing them into the broader Thielian listing-monopoly, gap-filling protocol, or Perp Classes Thiel pages.
+- Kept current category ownership, exact market-cap eligibility, dominance, fee/spread economics, data moats, partner lock-in, solver capacity, and regulatory claims marked for fresh primary-source/operator/product/risk/legal review.
+
 ## 2026-06-29 — Listing Monopoly Conclusion Exact Pages
 
 - Added 6 authored Volume 03 manifesto pages from Neelo's Listing Monopoly conclusion.
