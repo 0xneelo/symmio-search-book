@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 352
+      "totalGoldenRoutes": 357
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 370,
-    "retrievalEligiblePages": 1162,
+    "publicNavigationPages": 375,
+    "retrievalEligiblePages": 1167,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 370,
+      "candidate": 375,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 352,
-    "exactRouteTestsPassing": 352,
+    "totalExactRouteTests": 357,
+    "exactRouteTestsPassing": 357,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 352
+      "candidate": 357
     },
     "exactRoutesByConfidence": {
-      "Medium": 137,
+      "Medium": 142,
       "High": 44,
       "Low": 171
     },
@@ -7961,6 +7961,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-would-verified-on-vibe-mean",
         "passes": true
+      },
+      {
+        "id": "qr-can-the-funding-formula-solve-low-cap-leverage-by-itself",
+        "query": "Can the funding formula solve low-cap leverage by itself?",
+        "normalizedQuery": "can the funding formula solve low cap leverage by itself",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-math-not-market-solution",
+        "expectedPageTitle": "Funding Math Is Not A Market Solution",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-can-the-funding-formula-solve-low-cap-leverage-by-itself",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-trader-ux-trade-off-against-lp-efficiency",
+        "query": "Why does trader UX trade off against LP efficiency?",
+        "normalizedQuery": "why does trader ux trade off against lp efficiency",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-trader-ux-lp-efficiency-tradeoff",
+        "expectedPageTitle": "Trader UX And LP Efficiency Trade Off",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-trader-ux-trade-off-against-lp-efficiency",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-liquidations-described-as-inventory-reallocations",
+        "query": "Why are liquidations described as inventory reallocations?",
+        "normalizedQuery": "why are liquidations described as inventory reallocations",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-liquidations-as-inventory-reallocation",
+        "expectedPageTitle": "Liquidations As Inventory Reallocation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-liquidations-described-as-inventory-reallocations",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-funding-risk-inversion",
+        "query": "What is the funding risk inversion?",
+        "normalizedQuery": "what is the funding risk inversion",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-risk-inversion",
+        "expectedPageTitle": "The Funding Risk Inversion",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-funding-risk-inversion",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-funding-model-need-two-utilization-modes",
+        "query": "Why does the funding model need two utilization modes?",
+        "normalizedQuery": "why does the funding model need two utilization modes",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-two-mode-utilization-rationale",
+        "expectedPageTitle": "Why The Funding Model Needs Two Utilization Modes",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-funding-model-need-two-utilization-modes",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8036,7 +8141,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 352,
+      "exactRoutes": 357,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

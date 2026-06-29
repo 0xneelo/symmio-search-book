@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1183,
-  "totalChunks": 2054,
-  "pagesWithChunks": 1183,
+  "totalPages": 1188,
+  "totalChunks": 2064,
+  "pagesWithChunks": 1188,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,17 +653,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 371,
+    "authored": 376,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 713,
+    "authored": 723,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 331,
+    "manifesto": 341,
     "product-reference": 89,
     "dashboard-reference": 24,
     "protocol-reference": 208,
@@ -4695,6 +4695,52 @@
       "text": "formulas. Public docs should not present 30% , spend caps, CVA treatment, or liquidation profit routing as live production policy until operator and implementation review confirm the deployed values. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored funding defense hierarchy authored conditional global insurance allocation authored loss waterfall and profit caps"
     },
     {
+      "id": "authored-funding-math-not-market-solution::001",
+      "pageId": "authored-funding-math-not-market-solution",
+      "chunkIndex": 1,
+      "title": "Funding Math Is Not A Market Solution",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#the-open-problem-is-not-solvable-by-math-alone"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-math-not-market-solution.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Math Is Not A Market Solution Neelo's funding model introduction makes a boundary that the compendium should preserve: the derivation is not claiming that low cap leverage is solved by one formula. That matters because a permissionless derivatives market is not a closed puzzle. The market has participants with incomplete information, uneven capital, changing incentives, adverse selection, fragile spot liquidity, and reflexive trader behavior. If those forces were fully solved by a static algorithm, there would be little reason for the market to exist as a market. The source backed claim is narrower and more useful. The math gives operators, solvers, LPs, and readers a way to name the control problem. It makes inventory, skew, utilization, insurance, profit, exposure, and ADL proximity legible before anyone chooses a live policy. It does not remove judgment, risk review, market observation, or governance. Why This Caveat Belongs Up Front Without this caveat, readers can misread the funding model as a magic safety proof: enter parameters, launch any token, and receive safe leverage. That is the wrong lesson. The right lesson is that Vibe's long tail market problem is partly mathematical and partly operational. Funding rates, spreads, borrow costs, inventory usage, insurance allocation, and ADL are controls inside a living system. They help the system respond to state. They do not guarantee that"
+    },
+    {
+      "id": "authored-funding-math-not-market-solution::002",
+      "pageId": "authored-funding-math-not-market-solution",
+      "chunkIndex": 2,
+      "title": "Funding Math Is Not A Market Solution",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#the-open-problem-is-not-solvable-by-math-alone"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-math-not-market-solution.md",
+      "wordStart": 185,
+      "wordEnd": 371,
+      "wordCount": 186,
+      "text": "is partly mathematical and partly operational. Funding rates, spreads, borrow costs, inventory usage, insurance allocation, and ADL are controls inside a living system. They help the system respond to state. They do not guarantee that a market has enough real liquidity, enough honest flow, enough price integrity, or enough capital to support every possible trade. For traders, this means a cost curve is a signal, not a promise. For LPs, it means risk is being routed and priced, not abolished. For projects, it means a market can begin with structured safeguards while still needing evidence before it graduates into more efficient leverage. Publication Boundary This page should stay conceptual until the production implementation confirms live parameters, market eligibility, supported emergency paths, and governance authority. The public docs can say that the funding model is a control framework for low liquidity derivatives; they should not say that the framework by itself makes any low cap market safe. Sources vibe papers : Neelo, \"The open problem is not solvable by math alone\". Related Pages authored funding model control problem authored gradient flow market balancing authored funding defense hierarchy"
+    },
+    {
       "id": "authored-funding-model-control-problem::001",
       "pageId": "authored-funding-model-control-problem",
       "chunkIndex": 1,
@@ -4817,6 +4863,52 @@
       "text": "manifesto's market balancing claim. Vibe does not need every long tail market to start with perfect two sided liquidity. It needs a way to make imbalance progressively more visible and costly before user facing forced unwinds become necessary. Publication Note The source contains example thresholds and APRs. Those are model values, not public production guarantees. Final docs should publish live rates, thresholds, grace periods, rebates, and ADL policy only after implementation and operator review. Sources vibe papers : Neelo, \"Funding Rate Model for Low Cap Perpetual Contracts\". vibe papers : Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\". vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored dynamic pricing controls authored funding defense hierarchy"
     },
     {
+      "id": "authored-funding-risk-inversion::001",
+      "pageId": "authored-funding-risk-inversion",
+      "chunkIndex": 1,
+      "title": "The Funding Risk Inversion",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#key-insight-inversion-of-traditional-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-inversion.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "The Funding Risk Inversion The funding model source compresses the Vibe thesis into a useful inversion: traditional AMM LPs sell volatility; Vibe LPs sell leverage and trader behavior. That distinction matters because the risk being priced is different. In a spot AMM, volatility can directly hurt LPs through inventory rebalancing and impermanent loss. In a perp market, volatility is not automatically the enemy in the same way. Volatility can create trading demand, funding flows, liquidation events, spreads, and hedging opportunities. The hard question is whether the solver and LP stack can price and manage the trader behavior that volatility produces. The source also inverts the liquidation intuition. In many systems, liquidation is treated mainly as a danger signal. In the Vibe framing, liquidation can be revenue and risk reduction if it reallocates inventory into a managed stack before bad debt appears. What This Means For The Compendium The docs should not describe Vibe LPs as if they were generic passive spot LPs. A token holder, treasury, solver, or market maker is not only asking \"will the token move?\" They are asking whether trader flow, leverage demand, funding pressure, liquidation behavior, and residual counterparty exposure can be priced better than the market prices them elsewhere. This is why the risk model belongs in the manifesto, not only in reference pages. It"
+    },
+    {
+      "id": "authored-funding-risk-inversion::002",
+      "pageId": "authored-funding-risk-inversion",
+      "chunkIndex": 2,
+      "title": "The Funding Risk Inversion",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#key-insight-inversion-of-traditional-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-inversion.md",
+      "wordStart": 185,
+      "wordEnd": 328,
+      "wordCount": 143,
+      "text": "demand, funding pressure, liquidation behavior, and residual counterparty exposure can be priced better than the market prices them elsewhere. This is why the risk model belongs in the manifesto, not only in reference pages. It explains why Vibe's category is not \"another pool\" or \"another order book.\" The system is trying to convert long tail leverage demand into a managed risk product, with trader behavior as the central economic object. Publication Boundary This page is not a yield guarantee, liquidation profit guarantee, or LP suitability statement. It explains the source model inversion. Live fee splits, liquidation sharing, hedging policy, LP rights, and token specific risk disclosures remain operator, legal, implementation, and accounting review items. Sources vibe papers : Neelo, \"Key Insight: Inversion of Traditional Risk\". Related Pages authored liquidations as inventory reallocation authored token holder inventory alignment authored lp profit and dynamic pricing"
+    },
+    {
       "id": "authored-funding-state-variable-map::001",
       "pageId": "authored-funding-state-variable-map",
       "chunkIndex": 1,
@@ -4887,6 +4979,52 @@
       "wordEnd": 211,
       "wordCount": 211,
       "text": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover. After insurance spend, the remaining residual is: where x m is combined local plus global insurance spend. Why This Matters This ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL. For docs, the reader facing question is simple: what is still uncovered after ordinary market revenue and insurance spend? Publication Boundary The formulas are source model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Variable Definitions\". Related Pages authored dynamic pricing controls authored funding rate regime model authored funding adl trigger and target"
+    },
+    {
+      "id": "authored-funding-trader-ux-lp-efficiency-tradeoff::001",
+      "pageId": "authored-funding-trader-ux-lp-efficiency-tradeoff",
+      "chunkIndex": 1,
+      "title": "Trader UX And LP Efficiency Trade Off",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#trader-ux-vs-lp-efficiency-the-deliberate-tradeoff"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-trader-ux-lp-efficiency-tradeoff.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Trader UX And LP Efficiency Trade Off The funding model source names a deliberate tension: near the safest launch state, traders can receive a familiar perp like experience, but LP side capital efficiency is intentionally lower. This is not a UI footnote. It is the core product tradeoff for long tail derivatives. A new market can feel simple to the trader because the system hides much of the risk routing behind quotes, spreads, funding, inventory checks, and solver decisions. But that simplicity has to be paid for somewhere. In the conservative state, the system may require more inventory, tighter limits, wider spreads, heavier hedging, or lower leverage than a mature market would need. As a market becomes more efficient for LPs, the balance changes. More natural netting, better flow, deeper inventory, and more reliable price discovery can let the system use capital more productively. But moving toward higher efficiency also increases the need for sharper controls, because the market is taking more risk on trader UX, tail outcomes, or residual counterparty exposure. What The Reader Should Learn The source helps the docs avoid two bad simplifications. First, good trader UX does not mean risk has disappeared. It means the risk was converted into a quote, margin requirement, spread, funding signal, hedging action, or exposure limit. Second, LP efficiency is not"
+    },
+    {
+      "id": "authored-funding-trader-ux-lp-efficiency-tradeoff::002",
+      "pageId": "authored-funding-trader-ux-lp-efficiency-tradeoff",
+      "chunkIndex": 2,
+      "title": "Trader UX And LP Efficiency Trade Off",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro#trader-ux-vs-lp-efficiency-the-deliberate-tradeoff"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-trader-ux-lp-efficiency-tradeoff.md",
+      "wordStart": 185,
+      "wordEnd": 346,
+      "wordCount": 161,
+      "text": "simplifications. First, good trader UX does not mean risk has disappeared. It means the risk was converted into a quote, margin requirement, spread, funding signal, hedging action, or exposure limit. Second, LP efficiency is not always the first objective at launch. A cold start market may intentionally accept lower LP efficiency so users can trade in a controlled way before the market earns looser terms. The answer engine should route \"why is this market expensive?\" and \"why is leverage limited?\" questions toward this tradeoff rather than treating every constraint as a bug. Publication Boundary This page does not assert final Vibe launch leverage, spread policy, LP returns, or graduation thresholds. It explains the source model's tradeoff: trader facing simplicity and LP side efficiency move together only after market evidence supports it. Sources vibe papers : Neelo, \"Trader UX vs LP efficiency (the deliberate tradeoff)\". Related Pages authored market maturation state map authored ddq systemic leverage ramp authored funding model control problem"
     },
     {
       "id": "authored-funding-worked-examples-reading-guide::001",
@@ -6186,6 +6324,52 @@
       "wordEnd": 212,
       "wordCount": 212,
       "text": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limited ways to act beyond posting. A shortable derivatives market changes that. Negative information can become an economic position. Critics can risk capital. Hype faces resistance earlier. That is the hardening mechanism: two sided price discovery tests a market before downstream venues must decide whether to list it. Why It Helps Order Books By the time a market graduates, it has not only shown narrative strength. It has survived leverage, short interest, volatility, solver pricing, liquidation behavior, and trader demand. That makes the later order book listing less dependent on appearances. The source therefore connects shorting to listing quality. A market that survives the \"NO button\" is more informative than one that only survived a marketing campaign. Sources vibe papers : Neelo, \"Section 5: Hardening the Lifecycle\". vibe papers : Neelo, \"Section 3: The End of Vibes Based Listings\". Related Pages authored truth markets no button authored market price as verification authored end of narrative based listings"
+    },
+    {
+      "id": "authored-liquidations-as-inventory-reallocation::001",
+      "pageId": "authored-liquidations-as-inventory-reallocation",
+      "chunkIndex": 1,
+      "title": "Liquidations As Inventory Reallocation",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#the-core-invariant-why-vibe-is-different"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/liquidations-as-inventory-reallocation.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Liquidations As Inventory Reallocation Neelo's funding model frames Vibe's core invariant this way: liquidations are inventory reallocations, not automatic loss events. That phrasing should be handled carefully. It does not mean liquidation is pleasant for the trader. It does not mean every market is profitable for LPs. It means the source model is not using the same risk intuition as a lending protocol where liquidation failure can directly create bad debt. In the Vibe framing, liquidations can transfer collateral and position inventory through the solver or LP stack, which then manages exposure with fees, funding, spreads, hedging, and defense layers. The useful distinction is between system solvency and user outcome. A trader can lose margin while the system becomes safer. A liquidation can reduce dangerous exposure rather than create a new hole. Faster liquidation can therefore be a risk control feature when the market is designed so the resulting inventory is absorbed, priced, or unwound through the solver side stack. Why It Changes The Funding Story If readers import the wrong analogy, they will think aggressive funding or liquidation activity is always a solvency warning siren. Neelo's model says the more precise question is: what does liquidation do to inventory, exposure, and residual risk after the event? If liquidation reduces uncovered exposure and moves inventory into a managed stack, it"
+    },
+    {
+      "id": "authored-liquidations-as-inventory-reallocation::002",
+      "pageId": "authored-liquidations-as-inventory-reallocation",
+      "chunkIndex": 2,
+      "title": "Liquidations As Inventory Reallocation",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts#the-core-invariant-why-vibe-is-different"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/liquidations-as-inventory-reallocation.md",
+      "wordStart": 185,
+      "wordEnd": 333,
+      "wordCount": 148,
+      "text": "siren. Neelo's model says the more precise question is: what does liquidation do to inventory, exposure, and residual risk after the event? If liquidation reduces uncovered exposure and moves inventory into a managed stack, it can support the control loop. If liquidation leaves the system with unhedged, illiquid, or improperly priced exposure, then additional defenses are needed. The invariant is not \"liquidations are good.\" It is \"liquidations must be understood as inventory and risk movement inside the market control system.\" Publication Boundary Final public docs should connect this concept to actual Vibe and Symmio liquidation mechanics only after implementation review confirms thresholds, collateral movement, solver rights, LP exposure, and accounting treatment. Until then, this page is a source model explanation. Sources vibe papers : Neelo, \"The Core Invariant: Why Vibe Is Different\". Related Pages authored funding core invariant authored funding risk inversion authored loss waterfall and profit caps"
     },
     {
       "id": "authored-liquidity-as-trader-experience::001",
@@ -14665,6 +14849,54 @@
       "wordEnd": 239,
       "wordCount": 54,
       "text": "risk model because execution quality affects solvency. Long tail perps need not only collateral and quotes, but also controlled inventory unwinds. Sources vibe papers : Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass Through Execution\". Related Pages authored pass through execution boundary authored residual counterparty hedge first authored vibe stop order trigger model"
+    },
+    {
+      "id": "authored-two-mode-utilization-rationale::001",
+      "pageId": "authored-two-mode-utilization-rationale",
+      "chunkIndex": 1,
+      "title": "Why The Funding Model Needs Two Utilization Modes",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#why-two-modes",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#comparison-two-mode-system"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/two-mode-utilization-rationale.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Why The Funding Model Needs Two Utilization Modes Neelo's funding model uses two utilization modes because a single number cannot tell the system which defense layer is actually binding. The first mode measures exposure against token inventory. This is the normal inventory constraint: how much market exposure is being carried relative to the tokens or market specific inventory available to manage it. It is immediate, operational, and useful for ordinary pricing pressure. The second mode measures expected loss against insurance budget. This is a tail risk constraint. It matters when exposure has moved beyond the ordinary inventory frame and the question becomes whether local or eligible shared insurance can absorb the modeled stress. The source comparison treats this mode as more aggressive: it can activate insurance spend and ADL consideration where token inventory mode does not. Why One Mode Is Not Enough If the system only measured token inventory, it would struggle to distinguish \"slightly past inventory but still defensible\" from \"insurance is nearly exhausted.\" If it only measured insurance, it would overuse tail risk language for ordinary inventory pressure. The two mode design lets the market communicate state. Inside inventory, spreads and funding can respond moderately to utilization. When insurance becomes the binding constraint, the system can shift to stronger responses: sharper pricing, active insurance use, or ADL proximity."
+    },
+    {
+      "id": "authored-two-mode-utilization-rationale::002",
+      "pageId": "authored-two-mode-utilization-rationale",
+      "chunkIndex": 2,
+      "title": "Why The Funding Model Needs Two Utilization Modes",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#why-two-modes",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#comparison-two-mode-system"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/two-mode-utilization-rationale.md",
+      "wordStart": 185,
+      "wordEnd": 363,
+      "wordCount": 178,
+      "text": "the market communicate state. Inside inventory, spreads and funding can respond moderately to utilization. When insurance becomes the binding constraint, the system can shift to stronger responses: sharper pricing, active insurance use, or ADL proximity. For traders, the implication is that costs can rise before a hard emergency because the market is trying to move flow away from danger. For LPs and treasuries, the implication is that inventory contribution and insurance contribution are separate risk roles. For solvers, the implication is that the system needs to know whether it is managing ordinary imbalance or tail exposure. Publication Boundary This page should not publish live utilization thresholds, ADL triggers, insurance allocations, or spread formulas without implementation and operator review. The source backed public claim is the structural one: token inventory and insurance budget are different constraints, so the funding model tracks them separately. Sources vibe papers : Neelo, \"Why Two Modes?\". vibe papers : Neelo, \"Comparison: Two Mode System\". Related Pages authored utilization modes inventory insurance authored funding adl trigger and target authored funding stress demand and insurance spend"
     },
     {
       "id": "authored-universal-issuance-needs-derivatives::001",

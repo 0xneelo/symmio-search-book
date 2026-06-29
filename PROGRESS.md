@@ -676,6 +676,12 @@
 - Routed five new Ask questions so solver/LP, treasury, and operator readers can separate point-in-time results, mechanism proof, regime dependence, attribution channels, and source-field evidence.
 - Kept audited attribution, live vault performance, drawdown history, fee/funding/liquidation distribution, dashboard-field ownership, source refresh cadence, tax/accounting treatment, and public yield wording under operator/accounting/legal/implementation review.
 
+## 2026-06-29 — Funding-Model Caveat Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's funding-model source: math as control framework rather than complete market solution, trader UX versus LP efficiency tradeoff, liquidation as inventory reallocation, funding risk inversion, and the rationale for two utilization modes.
+- Routed five new Ask questions so traders, LPs, projects, and operators can inspect the model's caveats and risk-state transitions instead of relying on one broad funding-control page.
+- Kept live market eligibility, leverage, utilization thresholds, liquidation accounting, insurance allocation, ADL behavior, LP rights, fee shares, and public risk wording under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

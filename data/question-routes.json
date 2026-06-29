@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 352,
+  "totalRoutes": 357,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 137,
+    "Medium": 142,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 352
+    "authored": 357
   },
   "answerable": [
     {
@@ -6188,6 +6188,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's game-theory section frames Vibe as a stress-test layer; exact badge, threshold, and listing policies remain operator-review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-can-the-funding-formula-solve-low-cap-leverage-by-itself",
+      "question": "Can the funding formula solve low-cap leverage by itself?",
+      "normalizedQuestion": "can the funding formula solve low cap leverage by itself",
+      "pageId": "authored-funding-math-not-market-solution",
+      "pageTitle": "Funding Math Is Not A Market Solution",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's funding intro explicitly says the open problem is not solved by math alone; the model is a control framework, not a market-safety proof.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-trader-ux-trade-off-against-lp-efficiency",
+      "question": "Why does trader UX trade off against LP efficiency?",
+      "normalizedQuestion": "why does trader ux trade off against lp efficiency",
+      "pageId": "authored-funding-trader-ux-lp-efficiency-tradeoff",
+      "pageTitle": "Trader UX And LP Efficiency Trade Off",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's funding intro frames near-launch trader UX and LP efficiency as a deliberate tradeoff that changes only as market evidence improves.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-liquidations-described-as-inventory-reallocations",
+      "question": "Why are liquidations described as inventory reallocations?",
+      "normalizedQuestion": "why are liquidations described as inventory reallocations",
+      "pageId": "authored-liquidations-as-inventory-reallocation",
+      "pageTitle": "Liquidations As Inventory Reallocation",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's funding-model invariant treats liquidations as inventory/risk movement inside the solver and LP stack, not automatic bad-debt events.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-funding-risk-inversion",
+      "question": "What is the funding risk inversion?",
+      "normalizedQuestion": "what is the funding risk inversion",
+      "pageId": "authored-funding-risk-inversion",
+      "pageTitle": "The Funding Risk Inversion",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's core-concepts source distinguishes Vibe LPs selling leverage and trader behavior from spot AMM LPs selling volatility.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-the-funding-model-need-two-utilization-modes",
+      "question": "Why does the funding model need two utilization modes?",
+      "normalizedQuestion": "why does the funding model need two utilization modes",
+      "pageId": "authored-two-mode-utilization-rationale",
+      "pageTitle": "Why The Funding Model Needs Two Utilization Modes",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's utilization-mode source separates ordinary token-inventory pressure from insurance-budget tail-risk pressure.",
       "sourceKeys": [
         "vibe-papers"
       ],

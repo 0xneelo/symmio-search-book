@@ -358,6 +358,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the Market's Eye View? | `authored-market-eye-view` | Medium | Neelo's Beyond Polymarket section contrasts external resolution with continuous market judgment through price, liquidity, and survival. |
 | How do short sellers act as fact-checkers? | `authored-short-sellers-as-fact-checkers` | Medium | Neelo's missing-NO-button and Thumbs Down sections frame shorting as an economically motivated adversary for false or overhyped claims. |
 | What would Verified on Vibe mean? | `authored-verified-on-vibe-stress-test` | Low | Neelo's game-theory section frames Vibe as a stress-test layer; exact badge, threshold, and listing policies remain operator-review. |
+| Can the funding formula solve low-cap leverage by itself? | `authored-funding-math-not-market-solution` | Medium | Neelo's funding intro explicitly says the open problem is not solved by math alone; the model is a control framework, not a market-safety proof. |
+| Why does trader UX trade off against LP efficiency? | `authored-funding-trader-ux-lp-efficiency-tradeoff` | Medium | Neelo's funding intro frames near-launch trader UX and LP efficiency as a deliberate tradeoff that changes only as market evidence improves. |
+| Why are liquidations described as inventory reallocations? | `authored-liquidations-as-inventory-reallocation` | Medium | Neelo's funding-model invariant treats liquidations as inventory/risk movement inside the solver and LP stack, not automatic bad-debt events. |
+| What is the funding risk inversion? | `authored-funding-risk-inversion` | Medium | Neelo's core-concepts source distinguishes Vibe LPs selling leverage and trader behavior from spot AMM LPs selling volatility. |
+| Why does the funding model need two utilization modes? | `authored-two-mode-utilization-rationale` | Medium | Neelo's utilization-mode source separates ordinary token-inventory pressure from insurance-budget tail-risk pressure. |
 
 ## Prototype Event Log
 

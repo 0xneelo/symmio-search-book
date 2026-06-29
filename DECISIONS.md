@@ -895,3 +895,11 @@
 **Reason:** The broad SYMM LP setup, unit-economics, risk, replication, and measurement pages explain the case, but solver/LP and treasury readers need exact routes for the questions they will ask first: what the headline numbers are, what the case actually proves, why the regime caveat matters, which channels produced the result, and what dashboard state supports the analysis. Splitting these answers keeps the case useful without turning a favorable data cut into a generalized yield promise.
 
 **Status:** Accepted for the authored protocol-reference layer; audited attribution, live vault performance, drawdown history, fee/funding/liquidation distribution, dashboard-field ownership, source refresh cadence, tax/accounting treatment, and public yield language remain operator/accounting/legal/implementation review.
+
+## D-113: Split Funding-Model Caveats Into Exact Manifesto Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the funding math-not-solution caveat, trader UX versus LP efficiency tradeoff, liquidation-as-inventory invariant, funding risk inversion, and two-utilization-mode rationale.
+
+**Reason:** Existing funding pages explain the broad control problem, core invariant, gradient-flow frame, and utilization modes, but answer-engine readers will ask narrower questions about what the model does not prove, why launch constraints can feel conservative, why liquidations are not simply bad-debt events, how Vibe LP risk differs from AMM LP risk, and why insurance utilization is not the same as token-inventory utilization. Splitting these answers makes the model more precise without publishing live parameters as guarantees.
+
+**Status:** Accepted for the authored manifesto layer; live market eligibility, leverage, utilization thresholds, liquidation accounting, insurance allocation, ADL behavior, LP rights, fee shares, and public risk wording remain operator/implementation/legal/accounting review.
