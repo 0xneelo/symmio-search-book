@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 366,
+  "totalPages": 371,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 229,
+    "publication-candidate-needs-operator-review": 234,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -13,7 +13,7 @@
     "manifesto": 173,
     "product-reference": 47,
     "dashboard-reference": 12,
-    "protocol-reference": 97,
+    "protocol-reference": 102,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 25,
@@ -6068,6 +6068,30 @@
       "excerpt": "SYMM LP Current Debt And UPnL The SYMM LP case study uses user side accounting fields to describe LP side economics. Current Debt is users' already realized debt to the LP. Current UPnL is users' current unrealized profit and loss at the mark. In the case study sign convention, a negative user side value is favorable to the LP. That makes the reported data cut easier to read: Current Debt = 5,895.90 maps to about $5,895.90 of realized LP profit. Current UPnL = 7,999.32 maps to about $7,999.32 of unrealized LP edge at that mark. User Profit = 5,816.45 means users were net down at the referenced dashboard state. Realized Versus Marked The distinction is not cosmetic. Current Debt is the realized component and the source describes it as withdrawable for the LP. Current UPnL is mark to market; it can move before it is realized. A public case study should not treat both as identical cash. This maps to the broader Symmio settlement boundary: unrealized PnL and realized allocated balance are different states. Settlement and profit realization mechanics exist because open position PnL has to be converted into realized accounting state before it behaves like spendable or withdrawable balanc"
     },
     {
+      "id": "authored-symm-lp-dashboard-data-cut",
+      "title": "SYMM LP Dashboard Data Cut",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-7-data-cut-dashboard-state",
+        "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-2-data-values-referenced",
+        "authored-symm-lp-data-guardrails"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-dashboard-data-cut.md",
+      "bodyMarkdown": "# SYMM LP Dashboard Data Cut\n\nThe SYMM LP case study uses a specific dashboard state as its data cut. That matters because the case is not a continuously audited time series in the current source. It is a point-in-time interpretation of displayed fields.\n\nThe setup source records user-side fields including `User Profit = -5,816.45`, `Current Debt = -5,895.90`, and `Current UPnL = -7,999.32`. It also records market-state fields such as total open interest, long open interest, short open interest, open positions, and utilization.\n\n## How To Read The Cut\n\nThe data cut gives the state that the performance section interprets. Negative user-side debt and UPnL are favorable to the LP in the case-study sign convention, but the field names are still user-side fields.\n\nThat is why this page should be read beside the data-guardrails page. A single cut can show the mechanism, but it cannot prove drawdown behavior, attribution over time, or whether the same fields would remain favorable after settlement, market reversal, or higher volume.\n\n## Reader Implication\n\nWhen a reader asks what data the case relies on, answer with the cut, not only the summary. The source has a concrete dashboard snapshot, and the public docs should keep that snapshot tied to its timestamp and state rather than making it sound like an always-current product metric.\n\nThis also gives reviewers a checklist for production: any public LP case should identify source fields, sign conventions, time window, current versus realized accounting, and reproducibility notes.\n\n## Publication Boundary\n\nDo not publish the case as audited current performance, live dashboard truth, or a recurring report until source ownership, current data access, refresh cadence, and accounting treatment are confirmed. The source-backed claim is that the case study interprets a specific dashboard data cut.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n\n## Related Pages\n\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-beta-report-kpis`\n- `section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-7-data-cut-dashboard-state`",
+      "excerpt": "SYMM LP Dashboard Data Cut The SYMM LP case study uses a specific dashboard state as its data cut. That matters because the case is not a continuously audited time series in the current source. It is a point in time interpretation of displayed fields. The setup source records user side fields including User Profit = 5,816.45 , Current Debt = 5,895.90 , and Current UPnL = 7,999.32 . It also records market state fields such as total open interest, long open interest, short open interest, open positions, and utilization. How To Read The Cut The data cut gives the state that the performance section interprets. Negative user side debt and UPnL are favorable to the LP in the case study sign convention, but the field names are still user side fields. That is why this page should be read beside the data guardrails page. A single cut can show the mechanism, but it cannot prove drawdown behavior, attribution over time, or whether the same fields would remain favorable after settlement, market reversal, or higher volume. Reader Implication When a reader asks what data the case relies on, answer with the cut, not only the summary. The source has a concrete dashboard snapshot, and the public do"
+    },
+    {
       "id": "authored-symm-lp-data-guardrails",
       "title": "SYMM LP Data Guardrails",
       "section": "protocol-reference",
@@ -6092,6 +6116,78 @@
       "excerpt": "SYMM LP Data Guardrails The SYMM LP case study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge. The key dashboard fields are: total tokens, locked tokens, free tokens, and total USDC; user profit, current debt, current UPnL, total OI, long OI, and short OI; long utilization, open interest quantity, and open position count; deposited tokens, current token balance, average deposit price, current price reference, and realized/unrealized LP profit. Guardrails For Publication Do not treat one data cut as a full cycle performance report. Do not sum heterogeneous dashboard fields unless the accounting method confirms they are additive. Keep realized and unrealized components separate. Explain that negative user side debt or PnL is favorable to the LP side only under the stated sign convention. The reproducibility note also matters. The source window starts at the first deposit timestamp and runs through the referenced dashboard snaps"
     },
     {
+      "id": "authored-symm-lp-economic-channels",
+      "title": "SYMM LP Economic Channels",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-6-economic-channels-in-scope",
+        "section-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics-3-6-revenue-attribution-qualitative",
+        "authored-symm-lp-unit-economics"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-economic-channels.md",
+      "bodyMarkdown": "# SYMM LP Economic Channels\n\nThe SYMM LP case-study setup names four economic channels in scope: trader directional losses, funding transfers from persistent long positioning, trading fees from activity, and liquidation-related cashflows.\n\nThe important point is that the case is not only a fee-volume story. The source reports low total volume relative to the headline result, so the reader has to understand skew, funding, and user-side PnL transfer as part of the mechanism.\n\n## Channel By Channel\n\nTrader directional losses are the dominant case-study intuition. In a long-skew market where price declines, long traders can lose and the LP side can benefit.\n\nFunding transfers matter when positioning is persistent. A crowded side can pay the other side or the solver-side system depending on the funding design and market state.\n\nTrading fees still matter, but the source warns against explaining this case only through high turnover. Activity was not large enough to make simple fee volume the full story.\n\nLiquidation-related cashflows can matter when leveraged positions cross thresholds, but final public wording needs implementation and accounting review before treating liquidation revenue as a settled live LP claim.\n\n## Reader Implication\n\nWhen readers ask where the LP result came from, avoid a one-factor answer. The case-study mechanism is a stack of channels. A mature report should separate directional PnL transfer, funding, trading fees, liquidation cashflows, and marked versus realized components.\n\nThat separation is what turns the case from marketing into diligence material.\n\n## Publication Boundary\n\nDo not publish final attribution percentages, liquidation-revenue treatment, funding-share terms, fee-share terms, tax/accounting treatment, or live LP distribution rules without operator/accounting/legal review. The source-backed claim is the set of channels in scope for interpreting the case.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-low-volume-driver`\n- `authored-lp-profit-and-dynamic-pricing`\n- `section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-6-economic-channels-in-scope`",
+      "excerpt": "SYMM LP Economic Channels The SYMM LP case study setup names four economic channels in scope: trader directional losses, funding transfers from persistent long positioning, trading fees from activity, and liquidation related cashflows. The important point is that the case is not only a fee volume story. The source reports low total volume relative to the headline result, so the reader has to understand skew, funding, and user side PnL transfer as part of the mechanism. Channel By Channel Trader directional losses are the dominant case study intuition. In a long skew market where price declines, long traders can lose and the LP side can benefit. Funding transfers matter when positioning is persistent. A crowded side can pay the other side or the solver side system depending on the funding design and market state. Trading fees still matter, but the source warns against explaining this case only through high turnover. Activity was not large enough to make simple fee volume the full story. Liquidation related cashflows can matter when leveraged positions cross thresholds, but final public wording needs implementation and accounting review before treating liquidation revenue as a settle"
+    },
+    {
+      "id": "authored-symm-lp-favorable-regime-caveat",
+      "title": "SYMM LP Favorable Regime Caveat",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-main-caveats",
+        "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-1-core-risk-statement",
+        "authored-symm-lp-regime-dependence"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-favorable-regime-caveat.md",
+      "bodyMarkdown": "# SYMM LP Favorable Regime Caveat\n\nThe SYMM LP case worked in a favorable measured regime for the LP: traders were heavily long while the token price declined. That combination makes user-side losses and LP-side gains more likely at the data cut.\n\nThe source calls this out directly. It says the results are concrete point-in-time results from one case and one regime, not a guaranteed steady-state yield.\n\n## Why The Caveat Is Central\n\nThe case is most useful when the caveat is included in the same breath as the headline. If traders are long and wrong, the LP can benefit. If traders are long and right, the LP can be the side that pays. If the market is choppy, thin, or low activity, fee and funding dynamics may not offset mark-to-market swings.\n\nThe source also warns that unrealized PnL is path-dependent. A favorable mark can reverse before realization. That is why the authored docs split `Current Debt` from `Current UPnL` and avoid treating both as identical cash.\n\n## Reader Implication\n\nWhen a reader asks whether the SYMM LP case is repeatable, start with the regime. The case is a proof that the mechanism can produce LP-favorable outcomes when skew and price movement align. It is not proof that LPs are insulated from trader correctness.\n\nThis caveat protects the docs from two errors: dismissing the case as anecdotal noise and overselling it as a stable yield product. The right middle position is source-backed and specific.\n\n## Publication Boundary\n\nDo not publish generalized APY, expected return, risk-adjusted return, downside floor, or regime-independent yield claims without operator/accounting review and broader data. The source-backed caveat is that this was one favorable long-skew down-market case.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n\n## Related Pages\n\n- `authored-symm-lp-regime-dependence`\n- `authored-symm-lp-risk-and-edge-cases`\n- `authored-symm-lp-current-debt-and-upnl`\n- `section-12-case-study-symm-lp-12-docs-01-executive-summary-main-caveats`",
+      "excerpt": "SYMM LP Favorable Regime Caveat The SYMM LP case worked in a favorable measured regime for the LP: traders were heavily long while the token price declined. That combination makes user side losses and LP side gains more likely at the data cut. The source calls this out directly. It says the results are concrete point in time results from one case and one regime, not a guaranteed steady state yield. Why The Caveat Is Central The case is most useful when the caveat is included in the same breath as the headline. If traders are long and wrong, the LP can benefit. If traders are long and right, the LP can be the side that pays. If the market is choppy, thin, or low activity, fee and funding dynamics may not offset mark to market swings. The source also warns that unrealized PnL is path dependent. A favorable mark can reverse before realization. That is why the authored docs split Current Debt from Current UPnL and avoid treating both as identical cash. Reader Implication When a reader asks whether the SYMM LP case is repeatable, start with the regime. The case is a proof that the mechanism can produce LP favorable outcomes when skew and price movement align. It is not proof that LPs ar"
+    },
+    {
+      "id": "authored-symm-lp-headline-result-shape",
+      "title": "SYMM LP Headline Result Shape",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-headline-results",
+        "neelo-12-case-study-symm-lp-12-docs-01-executive-summary",
+        "authored-symm-lp-unit-economics"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-headline-result-shape.md",
+      "bodyMarkdown": "# SYMM LP Headline Result Shape\n\nThe SYMM LP case-study headline is not a single yield number. It is a shape with several parts: token balance increased, realized LP profit was positive, unrealized LP profit was positive at the data cut, and passive SYMM holding underperformed during the same measured window.\n\nThe source reports `2,271,131` SYMM deposited across three transactions and a current token balance of `2,501,328.4` SYMM. That is a token-count gain of `230,197.4` SYMM, or `10.14%` versus deposited tokens. It also reports `Current Debt` as `$5,895.90` realized LP profit and `Current UPnL` as `$7,999.32` unrealized LP profit at mark.\n\n## Why The Shape Matters\n\nThose numbers should not be collapsed into one promise. Token-count gain, realized USDC-denominated profit, unrealized mark, and passive-token benchmark spread are different claims.\n\nThe headline supports a proof-of-mechanism statement: in this observed long-skew down market, LP-side economics were favorable. It does not prove a durable APR, a risk-free vault, or a universal result across all token communities.\n\n## Reader Implication\n\nWhen a reader asks what the case study showed, answer in layers. The LP did not merely \"earn yield.\" The measured state combined more SYMM tokens, positive realized debt owed to the LP, positive marked UPnL for the LP side, and a favorable comparison against passive SYMM holding.\n\nThat is stronger than vague marketing language and safer than overclaiming. It lets the case demonstrate the mechanism while leaving regime, attribution, drawdown, and replication questions open for the next pages.\n\n## Publication Boundary\n\nDo not publish these figures as current live vault performance, future APY, or a generalized investor claim. Final public wording needs operator/accounting review for audited attribution, time window, dashboard source, drawdowns, and whether any current product surface exposes the same fields.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-favorable-regime-caveat`\n- `section-12-case-study-symm-lp-12-docs-01-executive-summary-headline-results`",
+      "excerpt": "SYMM LP Headline Result Shape The SYMM LP case study headline is not a single yield number. It is a shape with several parts: token balance increased, realized LP profit was positive, unrealized LP profit was positive at the data cut, and passive SYMM holding underperformed during the same measured window. The source reports 2,271,131 SYMM deposited across three transactions and a current token balance of 2,501,328.4 SYMM. That is a token count gain of 230,197.4 SYMM, or 10.14% versus deposited tokens. It also reports Current Debt as $5,895.90 realized LP profit and Current UPnL as $7,999.32 unrealized LP profit at mark. Why The Shape Matters Those numbers should not be collapsed into one promise. Token count gain, realized USDC denominated profit, unrealized mark, and passive token benchmark spread are different claims. The headline supports a proof of mechanism statement: in this observed long skew down market, LP side economics were favorable. It does not prove a durable APR, a risk free vault, or a universal result across all token communities. Reader Implication When a reader asks what the case study showed, answer in layers. The LP did not merely \"earn yield.\" The measured st"
+    },
+    {
       "id": "authored-symm-lp-low-volume-driver",
       "title": "Low Volume Did Not Mean Weak LP Economics",
       "section": "protocol-reference",
@@ -6114,6 +6210,30 @@
       "file": "content/authored/reference/symm-lp-low-volume-driver.md",
       "bodyMarkdown": "# Low Volume Did Not Mean Weak LP Economics\n\nThe SYMM LP case reports only about `$100,000` of total trading volume over the measured period, with roughly `$1,000` of average daily volume. The headline LP outcome therefore cannot be explained as a simple high-turnover fee story.\n\nThe source's explanation is regime and positioning. The market was strongly long-biased while the token price declined. Users were net down at the referenced mark, and negative `Current Debt` plus negative `Current UPnL` were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user-side loss transfer in a one-sided regime.\n\n## Why This Matters\n\nThat is strategically important for bootstrapping. A young token market may not have mature order-book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move.\n\nIt is also a caution. Low-volume profitability is not a guarantee that any low-volume market is safe or profitable. If the same low-volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse.\n\n## Reader Implication\n\nDo not ask only \"how much volume was there?\" Ask what the volume did: who was crowded, whether users won or lost, how funding moved, whether liquidations executed, and how much of the LP result was realized versus marked.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-risk-and-edge-cases`",
       "excerpt": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long biased while the token price declined. Users were net down at the referenced mark, and negative Current Debt plus negative Current UPnL were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user side loss transfer in a one sided regime. Why This Matters That is strategically important for bootstrapping. A young token market may not have mature order book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move. It is also a caution. Low volume profitability is not a guarantee that any low volume market is safe or profitable. If the same low volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse. Reader Implication Do not ask only \"how"
+    },
+    {
+      "id": "authored-symm-lp-proof-of-possibility",
+      "title": "SYMM LP Proof Of Possibility",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-bottom-line",
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-why-it-matters",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-proof-of-possibility.md",
+      "bodyMarkdown": "# SYMM LP Proof Of Possibility\n\nThe case study's bottom line is proof of possibility, not proof of permanence.\n\nIt shows that a token-aligned participant can contribute inventory to bootstrap a perp market, let traders express directional views, and potentially turn market imbalance into LP-side economics while still retaining broader exposure to the token outside the deposit.\n\n## What The Case Proves\n\nThe source's strategic claim is concrete. Vibe can let a project, whale, treasury, or holder use token inventory as bootstrap LP capital instead of leaving the inventory idle or spending scarce stablecoins first.\n\nThat matters because many long-tail token communities have tokens before they have deep stablecoin budgets, professional market-making terms, or mature order-book liquidity. A Vibe-style perp market can test whether there is real directional demand and whether token inventory can support the market during early formation.\n\n## What It Does Not Prove\n\nProof of possibility is narrower than proof of steady state. The case does not prove that every token LP deposit will earn positive returns. It does not prove that the same results hold in an uptrend, a choppy market, a low-participation market, or a market with difficult liquidations.\n\nIt proves that the mechanism can work under at least one observed regime. That is still useful: it turns a thesis about token inventory into a concrete case that can be measured, debated, and replicated cautiously.\n\n## Reader Implication\n\nWhen a reader asks why this case matters, route them to the mechanism: token inventory can become market-formation capital. The public docs should then immediately route them to risk, caveat, and KPI pages so the case does not become an unsupported yield slogan.\n\n## Publication Boundary\n\nDo not call this a guaranteed strategy, audited investment result, live product APY, or current public vault term without operator/accounting/legal review. The source-backed claim is proof of possibility for bootstrap LP economics in one observed case.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Case Context and Setup\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-token-holder-incremental-risk-alignment`\n- `authored-symm-lp-replication-framework`\n- `section-12-case-study-symm-lp-12-docs-01-executive-summary-bottom-line`",
+      "excerpt": "SYMM LP Proof Of Possibility The case study's bottom line is proof of possibility, not proof of permanence. It shows that a token aligned participant can contribute inventory to bootstrap a perp market, let traders express directional views, and potentially turn market imbalance into LP side economics while still retaining broader exposure to the token outside the deposit. What The Case Proves The source's strategic claim is concrete. Vibe can let a project, whale, treasury, or holder use token inventory as bootstrap LP capital instead of leaving the inventory idle or spending scarce stablecoins first. That matters because many long tail token communities have tokens before they have deep stablecoin budgets, professional market making terms, or mature order book liquidity. A Vibe style perp market can test whether there is real directional demand and whether token inventory can support the market during early formation. What It Does Not Prove Proof of possibility is narrower than proof of steady state. The case does not prove that every token LP deposit will earn positive returns. It does not prove that the same results hold in an uptrend, a choppy market, a low participation marke"
     },
     {
       "id": "authored-symm-lp-regime-dependence",

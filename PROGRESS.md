@@ -670,6 +670,12 @@
 - Routed five new Ask questions so trader, LP, solver, and diligence readers can inspect who holds risk at each lifecycle step rather than relying only on the broad netting/waterfall summary.
 - Kept final margin thresholds, netting rules, hedge venues, vault exposure terms, funding/liquidation formulas, closeout pricing, settlement timing, and waterfall implementation under operator/risk/legal/accounting/implementation review.
 
+## 2026-06-29 — SYMM LP Case-Study Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's SYMM LP case-study executive/setup material: headline result shape, proof-of-possibility meaning, favorable-regime caveat, economic channels, and dashboard data-cut interpretation.
+- Routed five new Ask questions so solver/LP, treasury, and operator readers can separate point-in-time results, mechanism proof, regime dependence, attribution channels, and source-field evidence.
+- Kept audited attribution, live vault performance, drawdown history, fee/funding/liquidation distribution, dashboard-field ownership, source refresh cadence, tax/accounting treatment, and public yield wording under operator/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

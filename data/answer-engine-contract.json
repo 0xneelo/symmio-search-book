@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 347
+      "totalGoldenRoutes": 352
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 365,
-    "retrievalEligiblePages": 1157,
+    "publicNavigationPages": 370,
+    "retrievalEligiblePages": 1162,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 365,
+      "candidate": 370,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 347,
-    "exactRouteTestsPassing": 347,
+    "totalExactRouteTests": 352,
+    "exactRouteTestsPassing": 352,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 347
+      "candidate": 352
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 166
+      "Low": 171
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4812,6 +4812,111 @@
         "passes": true
       },
       {
+        "id": "qr-what-are-the-headline-symm-lp-case-study-results",
+        "query": "What are the headline SYMM LP case-study results?",
+        "normalizedQuery": "what are the headline symm lp case study results",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-headline-result-shape",
+        "expectedPageTitle": "SYMM LP Headline Result Shape",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-headline-symm-lp-case-study-results",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-the-symm-lp-case-proof-of-possibility-instead-of-a-yield-promise",
+        "query": "Why is the SYMM LP case proof of possibility instead of a yield promise?",
+        "normalizedQuery": "why is the symm lp case proof of possibility instead of a yield promise",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-proof-of-possibility",
+        "expectedPageTitle": "SYMM LP Proof Of Possibility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-the-symm-lp-case-proof-of-possibility-instead-of-a-yield-promise",
+        "passes": true
+      },
+      {
+        "id": "qr-what-caveat-matters-most-in-the-symm-lp-case",
+        "query": "What caveat matters most in the SYMM LP case?",
+        "normalizedQuery": "what caveat matters most in the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-favorable-regime-caveat",
+        "expectedPageTitle": "SYMM LP Favorable Regime Caveat",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-caveat-matters-most-in-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-which-economic-channels-drove-the-symm-lp-case",
+        "query": "Which economic channels drove the SYMM LP case?",
+        "normalizedQuery": "which economic channels drove the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-economic-channels",
+        "expectedPageTitle": "SYMM LP Economic Channels",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-economic-channels-drove-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-what-dashboard-data-cut-supports-the-symm-lp-case",
+        "query": "What dashboard data cut supports the SYMM LP case?",
+        "normalizedQuery": "what dashboard data cut supports the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-dashboard-data-cut",
+        "expectedPageTitle": "SYMM LP Dashboard Data Cut",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-dashboard-data-cut-supports-the-symm-lp-case",
+        "passes": true
+      },
+      {
         "id": "qr-explain-the-whole-vibe-x-symmio-thesis",
         "query": "Explain the whole Vibe x Symmio thesis.",
         "normalizedQuery": "explain the whole vibe x symmio thesis",
@@ -7931,7 +8036,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 347,
+      "exactRoutes": 352,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

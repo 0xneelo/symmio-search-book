@@ -887,3 +887,11 @@
 **Reason:** The broad netting-state and loss-waterfall pages explain the overall model, but trader, LP, and diligence readers need exact routes for each lifecycle step. Splitting the walkthrough makes the answer-engine precise about when risk starts with the trader, when it becomes trader-to-trader versus solver-to-trader, when LP capacity can become relevant, how ordinary position risk differs from residual system risk, and how settlement traces back to the party or resource stack that held the offsetting exposure.
 
 **Status:** Accepted for the authored protocol-reference layer; final margin thresholds, netting rules, hedge venues, vault exposure terms, funding/liquidation formulas, closeout pricing, settlement timing, and waterfall implementation remain operator/risk/legal/accounting/implementation review.
+
+## D-112: Split SYMM LP Case Study Into Exact Diligence Answers
+
+**Decision:** Add authored protocol-reference pages for the SYMM LP headline result shape, proof-of-possibility meaning, favorable-regime caveat, economic channels, and dashboard data-cut interpretation.
+
+**Reason:** The broad SYMM LP setup, unit-economics, risk, replication, and measurement pages explain the case, but solver/LP and treasury readers need exact routes for the questions they will ask first: what the headline numbers are, what the case actually proves, why the regime caveat matters, which channels produced the result, and what dashboard state supports the analysis. Splitting these answers keeps the case useful without turning a favorable data cut into a generalized yield promise.
+
+**Status:** Accepted for the authored protocol-reference layer; audited attribution, live vault performance, drawdown history, fee/funding/liquidation distribution, dashboard-field ownership, source refresh cadence, tax/accounting treatment, and public yield language remain operator/accounting/legal/implementation review.
