@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — SYMM LP Overview Exact Pages
+
+- Added 2 authored Volume 05 protocol-reference pages from the remaining uncovered Neelo SYMM LP overview headings.
+- Finished the Section 12 coverage with exact answer pages for the document map and scope note.
+- Extended the question ledger so Ask can route case-study organization and scope-boundary questions before readers inspect setup, performance, risk, scaling, or reproducibility pages.
+- Kept audited performance, generalized LP APY, current vault capacity, treasury allocation guidance, data ownership, accounting treatment, and public reporting policy marked for fresh operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Funding Model Remaining Exact Pages
 
 - Added 4 authored Volume 04 manifesto pages from the remaining uncovered Neelo Funding Model headings.

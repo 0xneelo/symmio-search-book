@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 758,
+  "totalPages": 760,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 585,
+    "publication-candidate-needs-operator-review": 587,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -15,7 +15,7 @@
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
-    "protocol-reference": 137,
+    "protocol-reference": 139,
     "competitive-context": 1,
     "reference": 1,
     "answer-engine": 1,
@@ -13261,6 +13261,29 @@
       "excerpt": "SYMM LP Data Guardrails The SYMM LP case study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge. The key dashboard fields are: total tokens, locked tokens, free tokens, and total USDC; user profit, current debt, current UPnL, total OI, long OI, and short OI; long utilization, open interest quantity, and open position count; deposited tokens, current token balance, average deposit price, current price reference, and realized/unrealized LP profit. Guardrails For Publication Do not treat one data cut as a full cycle performance report. Do not sum heterogeneous dashboard fields unless the accounting method confirms they are additive. Keep realized and unrealized components separate. Explain that negative user side debt or PnL is favorable to the LP side only under the stated sign convention. The reproducibility note also matters. The source window starts at the first deposit timestamp and runs through the referenced dashboard snaps"
     },
     {
+      "id": "authored-symm-lp-document-map",
+      "title": "SYMM LP Document Map",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/overview#document-map"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-overview-document-map",
+        "authored-symm-lp-case-setup",
+        "authored-symm-lp-source-and-reproducibility-notes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-document-map.md",
+      "bodyMarkdown": "# SYMM LP Document Map\n\nThe SYMM LP case-study overview maps the source into eight documents: abstract, executive summary, case context and setup, performance and unit economics, risk analysis and edge cases, scaling and replication framework, conclusion, and data snapshot with metric definitions.\n\nThat map matters because the case study is easy to overread when its pieces are collapsed into one headline. The abstract and executive summary explain what the case is trying to show. The setup document defines the participant, deposited inventory, market context, and objective. The performance document explains the measured outcome and benchmark comparison. The risk document names what can reverse or invalidate the case. The scaling document turns a single example into a replication checklist. The conclusion states the proof-of-possibility frame. The data snapshot defines source cuts, metrics, sign conventions, and reproducibility notes.\n\n## How To Navigate The Case\n\nReaders should treat the map as a diligence sequence:\n\n- start with the setup before reading returns;\n- read unit economics before using the case as evidence;\n- read risk before extrapolating;\n- read scaling before copying the model;\n- read the data snapshot before quoting any figure.\n\nThe map also helps the answer engine route questions precisely. A question about what happened belongs in the executive summary. A question about yield methodology belongs in the data and performance layer. A question about whether another community can copy the model belongs in the scaling framework.\n\n## Publication Boundary\n\nThis page is a source-navigation page. It does not certify the case as audited, current, generally repeatable, or complete as public LP reporting. Any public performance use still needs the setup, methodology, risk, attribution, and reproducibility pages.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"SYMM LP Case Study (Vibe)\", \"Document Map\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-yield-methodology`\n- `authored-symm-lp-source-and-reproducibility-notes`",
+      "excerpt": "SYMM LP Document Map The SYMM LP case study overview maps the source into eight documents: abstract, executive summary, case context and setup, performance and unit economics, risk analysis and edge cases, scaling and replication framework, conclusion, and data snapshot with metric definitions. That map matters because the case study is easy to overread when its pieces are collapsed into one headline. The abstract and executive summary explain what the case is trying to show. The setup document defines the participant, deposited inventory, market context, and objective. The performance document explains the measured outcome and benchmark comparison. The risk document names what can reverse or invalidate the case. The scaling document turns a single example into a replication checklist. The conclusion states the proof of possibility frame. The data snapshot defines source cuts, metrics, sign conventions, and reproducibility notes. How To Navigate The Case Readers should treat the map as a diligence sequence: start with the setup before reading returns; read unit economics before using the case as evidence; read risk before extrapolating; read scaling before copying the model; read t"
+    },
+    {
       "id": "authored-symm-lp-drawdown-recovery-reporting",
       "title": "SYMM LP Drawdown And Recovery Reporting",
       "section": "protocol-reference",
@@ -13694,6 +13717,29 @@
       "file": "content/authored/reference/symm-lp-scaling-hypothesis.md",
       "bodyMarkdown": "# SYMM LP Scaling Hypothesis\n\nThe SYMM LP scaling section presents a hypothesis, not a completed scale proof. It suggests the model may scale from tens of thousands of dollars of notional LP size to higher notional sizes, conditional on trader appetite, leverage usage, and sustained market activity.\n\nThe key word is conditional. More LP inventory does not automatically create more useful flow. Scaling only helps if traders continue to express demand, leverage remains within controlled bounds, liquidations and funding behave as expected, and reporting can show whether returns came from repeatable structure rather than one favorable episode.\n\n## Why Phased Scaling Is Required\n\nThe source says the idea is plausible, but should be tested through phased scaling instead of one-step capital expansion.\n\nThat means the practical path is not \"case worked, scale immediately.\" It is pilot, observe, validate, increase in tranches, and stop if drawdown, skew instability, utilization stress, liquidity quality, or data quality breaks the thesis.\n\n## Reader Implication\n\nFor token communities, the scaling hypothesis is an invitation to test Vibe's LP mechanism with discipline. For LPs and treasuries, it is a warning that capacity is empirical. It must be discovered from real trader behavior and real risk reporting.\n\n## Publication Boundary\n\nDo not publish a live capital capacity, target vault size, treasury allocation recommendation, leverage band, or scale-up schedule from this source alone. Final scaling language needs operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\", \"5.1 Scaling Hypothesis\".\n\n## Related Pages\n\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-pilot-allocation-discipline`\n- `authored-symm-lp-tranche-scale-up-stop-conditions`",
       "excerpt": "SYMM LP Scaling Hypothesis The SYMM LP scaling section presents a hypothesis, not a completed scale proof. It suggests the model may scale from tens of thousands of dollars of notional LP size to higher notional sizes, conditional on trader appetite, leverage usage, and sustained market activity. The key word is conditional. More LP inventory does not automatically create more useful flow. Scaling only helps if traders continue to express demand, leverage remains within controlled bounds, liquidations and funding behave as expected, and reporting can show whether returns came from repeatable structure rather than one favorable episode. Why Phased Scaling Is Required The source says the idea is plausible, but should be tested through phased scaling instead of one step capital expansion. That means the practical path is not \"case worked, scale immediately.\" It is pilot, observe, validate, increase in tranches, and stop if drawdown, skew instability, utilization stress, liquidity quality, or data quality breaks the thesis. Reader Implication For token communities, the scaling hypothesis is an invitation to test Vibe's LP mechanism with discipline. For LPs and treasuries, it is a warni"
+    },
+    {
+      "id": "authored-symm-lp-scope-note",
+      "title": "SYMM LP Scope Note",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/overview#scope-note"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-overview-scope-note",
+        "authored-symm-lp-setup-reading-boundary",
+        "authored-symm-lp-data-guardrails"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-scope-note.md",
+      "bodyMarkdown": "# SYMM LP Scope Note\n\nThe SYMM LP overview scope note says the case study is based on transcript statements plus dashboard data cuts. It should be treated as a first-pass operating case, not an audited performance report. The source also says core deposit and PnL values are concrete inputs in this version.\n\nThat scope note is the controlling caveat for the whole case. It lets the compendium use the case as evidence that token inventory can act as market bootstrap collateral and can produce LP-favorable economics in a specific regime, but it prevents the case from becoming a generalized vault-return claim.\n\n## What The Scope Note Allows\n\nThe case can support mechanism-level questions:\n\n- what inventory was deposited;\n- what the market regime looked like;\n- which dashboard fields were used;\n- how the case window and yield methodology were defined;\n- which operational lessons should shape future pilots.\n\nIt can also support a proof-of-possibility claim, if that phrase is kept narrow. The case shows that one deployment, one token, one participant, and one market regime produced a favorable data cut under the source's sign conventions.\n\n## What The Scope Note Does Not Allow\n\nThe scope note does not allow the docs to publish audited LP APY, guaranteed yield, current vault capacity, generalized treasury allocation guidance, or final accounting treatment. It also does not replace a full NAV time series, gross-to-net attribution bridge, drawdown report, or updated benchmark across regimes.\n\n## Publication Boundary\n\nAny public use of the SYMM LP case should carry this boundary: first-pass operating case, transcript plus dashboard data cuts, concrete source inputs, not audited performance. Final public reporting needs source ownership, data retention, accounting review, and risk/legal/operator approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"SYMM LP Case Study (Vibe)\", \"Scope Note\".\n\n## Related Pages\n\n- `authored-symm-lp-setup-reading-boundary`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-source-and-reproducibility-notes`",
+      "excerpt": "SYMM LP Scope Note The SYMM LP overview scope note says the case study is based on transcript statements plus dashboard data cuts. It should be treated as a first pass operating case, not an audited performance report. The source also says core deposit and PnL values are concrete inputs in this version. That scope note is the controlling caveat for the whole case. It lets the compendium use the case as evidence that token inventory can act as market bootstrap collateral and can produce LP favorable economics in a specific regime, but it prevents the case from becoming a generalized vault return claim. What The Scope Note Allows The case can support mechanism level questions: what inventory was deposited; what the market regime looked like; which dashboard fields were used; how the case window and yield methodology were defined; which operational lessons should shape future pilots. It can also support a proof of possibility claim, if that phrase is kept narrow. The case shows that one deployment, one token, one participant, and one market regime produced a favorable data cut under the source's sign conventions. What The Scope Note Does Not Allow The scope note does not allow the doc"
     },
     {
       "id": "authored-symm-lp-setup-reading-boundary",

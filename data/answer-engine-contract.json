@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 739
+      "totalGoldenRoutes": 741
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 757,
-    "retrievalEligiblePages": 1549,
+    "publicNavigationPages": 759,
+    "retrievalEligiblePages": 1551,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 757,
+      "candidate": 759,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 739,
-    "exactRouteTestsPassing": 739,
+    "totalExactRouteTests": 741,
+    "exactRouteTestsPassing": 741,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 739
+      "candidate": 741
     },
     "exactRoutesByConfidence": {
       "Medium": 467,
       "High": 44,
-      "Low": 228
+      "Low": 230
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6968,6 +6968,48 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-the-symm-lp-case-study-show",
+        "passes": true
+      },
+      {
+        "id": "qr-how-is-the-symm-lp-case-study-organized",
+        "query": "How is the SYMM LP case study organized?",
+        "normalizedQuery": "how is the symm lp case study organized",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-document-map",
+        "expectedPageTitle": "SYMM LP Document Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-is-the-symm-lp-case-study-organized",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-scope-boundary-for-the-symm-lp-case-study",
+        "query": "What is the scope boundary for the SYMM LP case study?",
+        "normalizedQuery": "what is the scope boundary for the symm lp case study",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-scope-note",
+        "expectedPageTitle": "SYMM LP Scope Note",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-scope-boundary-for-the-symm-lp-case-study",
         "passes": true
       },
       {
@@ -16279,7 +16321,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 739,
+      "exactRoutes": 741,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -1519,3 +1519,11 @@
 **Reason:** D-187 and D-189 covered the core concepts, abstract, controls, monitoring, innovations, and objective. The remaining generated headings were source-navigation and notation pages that still matter for Ask precision: readers need to know how the derivation is organized, which documents contain which mechanisms, what the symbols mean, and why the analogy is more than decorative language. Finishing these routes makes the Section 15 funding corpus fully addressable without forcing readers into broad overview pages.
 
 **Status:** Accepted for the authored manifesto layer; source-time derivations, example values, notation parameters, optimizer behavior, convex penalties, solver routing, insurance allocations, ADL thresholds, and production guarantees remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-191: Finish SYMM LP Overview Coverage
+
+**Decision:** Add authored Volume 05 protocol-reference pages for the remaining SYMM LP overview headings: document map and scope note.
+
+**Reason:** Existing SYMM LP pages cover setup, unit economics, risk, scaling, reporting, methodology, and reproducibility, but the overview still carries two exact routing questions: how the case-study source is organized and what boundary governs its interpretation. Splitting these pages keeps the case useful as a structured operating example while making the first-pass, non-audited scope explicit before readers reach performance pages.
+
+**Status:** Accepted for the authored protocol-reference layer; audited performance, generalized LP APY, current vault capacity, treasury allocation guidance, data ownership, accounting treatment, and public reporting policy remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
