@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 392
+      "totalGoldenRoutes": 397
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 410,
-    "retrievalEligiblePages": 1202,
+    "publicNavigationPages": 415,
+    "retrievalEligiblePages": 1207,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 410,
+      "candidate": 415,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 392,
-    "exactRouteTestsPassing": 392,
+    "totalExactRouteTests": 397,
+    "exactRouteTestsPassing": 397,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 392
+      "candidate": 397
     },
     "exactRoutesByConfidence": {
-      "Medium": 172,
+      "Medium": 177,
       "High": 44,
       "Low": 176
     },
@@ -8801,6 +8801,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-are-defense-layers-ordered-by-cost",
         "passes": true
+      },
+      {
+        "id": "qr-what-does-the-funding-master-optimization-equation-maximize",
+        "query": "What does the funding master optimization equation maximize?",
+        "normalizedQuery": "what does the funding master optimization equation maximize",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-master-optimization-equation",
+        "expectedPageTitle": "Funding Master Optimization Equation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-does-the-funding-master-optimization-equation-maximize",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-penalize-local-risk",
+        "query": "How does the funding model penalize local risk?",
+        "normalizedQuery": "how does the funding model penalize local risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-local-risk-score-penalties",
+        "expectedPageTitle": "Funding Local Risk Score Penalties",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-does-the-funding-model-penalize-local-risk",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-insurance-spend-have-a-cost-in-the-objective",
+        "query": "Why does insurance spend have a cost in the objective?",
+        "normalizedQuery": "why does insurance spend have a cost in the objective",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-cost-penalty",
+        "expectedPageTitle": "Funding Insurance Cost Penalty",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-does-insurance-spend-have-a-cost-in-the-objective",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-adl-modeled-as-a-convex-penalty",
+        "query": "Why is ADL modeled as a convex penalty?",
+        "normalizedQuery": "why is adl modeled as a convex penalty",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-adl-penalty-function",
+        "expectedPageTitle": "Funding ADL Penalty Function",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-is-adl-modeled-as-a-convex-penalty",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-dynamic-pricing-controls-enter-the-funding-objective",
+        "query": "How do dynamic pricing controls enter the funding objective?",
+        "normalizedQuery": "how do dynamic pricing controls enter the funding objective",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-dynamic-control-loop",
+        "expectedPageTitle": "Funding Dynamic Control Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-dynamic-pricing-controls-enter-the-funding-objective",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8876,7 +8981,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 392,
+      "exactRoutes": 397,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

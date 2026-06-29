@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 411,
+  "totalPages": 416,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 274,
+    "publication-candidate-needs-operator-review": 279,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 198,
+    "manifesto": 203,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 117,
@@ -1891,6 +1891,29 @@
       "excerpt": "The Four Transitions Neelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself. The first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another. The second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order book behavior become more plausible. The third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market maker around naturally matched trader flow. The fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross margin and insurance treatment after their behavior is known. Reader Implication The compend"
     },
     {
+      "id": "authored-funding-adl-penalty-function",
+      "title": "Funding ADL Penalty Function",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#component-4-adl-penalty-c_adla_m"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-11-full-objective",
+        "authored-funding-adl-target-sizing",
+        "authored-funding-adl-priority-ranking"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-adl-penalty-function.md",
+      "bodyMarkdown": "# Funding ADL Penalty Function\n\nNeelo's full objective makes ADL strongly costly:\n\n```\nC_adl(a_m) = c_adl * a_m^p, p >= 2\n```\n\nThe source notes `p = 3` as a typical shape, making ADL increasingly expensive as the ADL fraction grows.\n\nThe interpretation is:\n\n- `a_m = 0`: no ADL penalty;\n- small ADL fraction: smaller penalty;\n- large ADL fraction: large penalty;\n- full ADL fraction: very large penalty.\n\n## Why The Penalty Is Convex\n\nADL can protect solvency, but it damages user experience and trust. A convex penalty encodes that cost directly in the objective. It lets the system acknowledge that small emergency exposure reductions and large forced unwinds are not socially or operationally equivalent.\n\nThis also explains why ADL appears after dynamic pricing, inventory, insurance, and hedging. The source model can allow ADL while still making it expensive enough to remain the last resort.\n\n## Publication Boundary\n\nThis page explains the source-model ADL penalty. It should not publish production penalty coefficients, ADL thresholds, allowed fractions, position-selection rules, compensation semantics, or user-facing emergency guarantees without operator, risk, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"Component 4: ADL Penalty\".\n\n## Related Pages\n\n- `authored-funding-adl-target-sizing`\n- `authored-funding-adl-priority-ranking`\n- `authored-funding-defense-layer-cost-ordering`",
+      "excerpt": "Funding ADL Penalty Function Neelo's full objective makes ADL strongly costly: The source notes p = 3 as a typical shape, making ADL increasingly expensive as the ADL fraction grows. The interpretation is: a m = 0 : no ADL penalty; small ADL fraction: smaller penalty; large ADL fraction: large penalty; full ADL fraction: very large penalty. Why The Penalty Is Convex ADL can protect solvency, but it damages user experience and trust. A convex penalty encodes that cost directly in the objective. It lets the system acknowledge that small emergency exposure reductions and large forced unwinds are not socially or operationally equivalent. This also explains why ADL appears after dynamic pricing, inventory, insurance, and hedging. The source model can allow ADL while still making it expensive enough to remain the last resort. Publication Boundary This page explains the source model ADL penalty. It should not publish production penalty coefficients, ADL thresholds, allowed fractions, position selection rules, compensation semantics, or user facing emergency guarantees without operator, risk, legal, and implementation review. Sources vibe papers : Neelo, \"Full Combined Objective\", \"Compone"
+    },
+    {
       "id": "authored-funding-adl-priority-ranking",
       "title": "Funding ADL Priority Ranking",
       "section": "protocol-reference",
@@ -2194,6 +2217,30 @@
       "excerpt": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplier rises convexly as the market moves closer to exhausting token inventory. The profit deviation response raises borrow when the market is below its target economic state and needs to recover more revenue for the risk it is carrying. The source example is useful because it shows the structure rather than just the symbol. A market at higher inventory utilization and below target profit receives a borrow multiplier from both conditions. The resulting borrow rate is not arbitrary; it is the base borrow rate multiplied by state based pressure. Why Borrow Is Not Funding Borrow is not the same as funding. Funding is a transfer used to pressure crowded directional exposure. Borrow is a continuous cost of carrying position or using scarce risk bearing capacity. In a thin market, those can overlap in the trader's total cost, but they answer "
     },
     {
+      "id": "authored-funding-dynamic-control-loop",
+      "title": "Funding Dynamic Control Loop",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#dynamic-pricing-as-implicit-control",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#order-of-operations"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-11-full-objective",
+        "authored-funding-three-pricing-instruments",
+        "authored-funding-defense-activation-timeline"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-dynamic-control-loop.md",
+      "bodyMarkdown": "# Funding Dynamic Control Loop\n\nNeelo's full objective treats dynamic pricing as implicit control. Funding, spread, and borrow functions respond to state:\n\n```\nf = f(u1, skew, u2)\ns = s(u1, sigma, dev, u2)\nb = b(u1, dev)\n```\n\nThat means spread revenue, funding revenue, and borrow revenue are endogenous. They respond automatically to utilization, skew, insurance stress, volatility, and profit deviation before insurance or ADL has to carry the whole burden.\n\n## Order Of Operations\n\nThe source gives the control loop in seven steps:\n\n1. observe market state: longs, shorts, exposure, utilization, skew, volatility, and profit deviation;\n2. apply dynamic pricing: funding, spread, and borrow respond to state;\n3. compute revenue and stress demand;\n4. apply bell-curve allocation for profit flattening and global stress support;\n5. deploy local and eligible global insurance;\n6. trigger ADL only if insurance is exhausted with residual stress or exposure exceeds safe limits;\n7. update exposure and insurance balances.\n\n## Why This Matters\n\nThis loop is what makes the objective operational. The model is not just a formula on paper. It says which facts are observed, which prices adjust first, when insurance is touched, and when ADL becomes permissible.\n\n## Publication Boundary\n\nThis page explains the source-model control loop. It should not publish live pricing functions, thresholds, update cadence, source data feeds, market-state formulas, or production emergency sequencing without operator, risk, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"Dynamic Pricing as Implicit Control\" and \"Order of Operations\".\n\n## Related Pages\n\n- `authored-funding-three-pricing-instruments`\n- `authored-funding-defense-activation-timeline`\n- `authored-funding-stress-demand-and-insurance-spend`",
+      "excerpt": "Funding Dynamic Control Loop Neelo's full objective treats dynamic pricing as implicit control. Funding, spread, and borrow functions respond to state: That means spread revenue, funding revenue, and borrow revenue are endogenous. They respond automatically to utilization, skew, insurance stress, volatility, and profit deviation before insurance or ADL has to carry the whole burden. Order Of Operations The source gives the control loop in seven steps: 1. observe market state: longs, shorts, exposure, utilization, skew, volatility, and profit deviation; 2. apply dynamic pricing: funding, spread, and borrow respond to state; 3. compute revenue and stress demand; 4. apply bell curve allocation for profit flattening and global stress support; 5. deploy local and eligible global insurance; 6. trigger ADL only if insurance is exhausted with residual stress or exposure exceeds safe limits; 7. update exposure and insurance balances. Why This Matters This loop is what makes the objective operational. The model is not just a formula on paper. It says which facts are observed, which prices adjust first, when insurance is touched, and when ADL becomes permissible. Publication Boundary This pag"
+    },
+    {
       "id": "authored-funding-dynamic-funding-rate",
       "title": "Funding Dynamic Funding Rate",
       "section": "manifesto",
@@ -2404,6 +2451,29 @@
       "excerpt": "Funding Insurance And Buyback Accounting Neelo's LP profit decomposition treats insurance inflows and buybacks as accounting consequences of market operations, not as decorative tokenomics. The local insurance fund receives market specific liquidation profits, a share of positive solver profits, and related protection charges in the broader model. The global insurance fund can receive system level inflows, including retained value from cross market flattening. When market profit is positive, the source model also allows a portion of that profit to be allocated toward buybacks. A stricter variant uses liquidation only buybacks, where liquidation profits are the buyback source. The important point is the direction: trader loss or liquidation events can become USDC denominated revenue that supports protection or token demand rather than forcing base token selling. Why This Matters This accounting supports one of the funding model's core claims: a trader loss event does not automatically require selling the base token into spot markets. If losses are cash settled and the system receives revenue, the flow can be routed into insurance reserves or buyback demand. That makes the model anti"
     },
     {
+      "id": "authored-funding-insurance-cost-penalty",
+      "title": "Funding Insurance Cost Penalty",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#component-3-insurance-cost-c_insx_m"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-11-full-objective",
+        "authored-funding-insurance-spend-caps",
+        "authored-funding-local-insurance-fund"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-cost-penalty.md",
+      "bodyMarkdown": "# Funding Insurance Cost Penalty\n\nNeelo's full objective gives insurance spend its own cost term. The simplest source form is linear:\n\n```\nC_ins(x_m) = c_ins * x_m\n```\n\nThe nonlinear source form adds a quadratic term:\n\n```\nC_ins(x_m) = c_ins * x_m + c_nl * x_m^2\n```\n\nThe quadratic term discourages excessive insurance use.\n\n## Why Insurance Is Not Free\n\nInsurance protects solvency, but it consumes scarce defense budget. If the objective treated insurance as free, weak markets could lean on insurance instead of using dynamic pricing, hedging, local buffers, or market-specific limits.\n\nThe insurance cost term keeps the model honest. It says insurance can be used when it is worth using, but the optimizer should still prefer cheaper, less socialized, and less reserve-consuming controls when they can solve the state.\n\n## Publication Boundary\n\nThis page explains the source-model insurance cost term. It should not publish live insurance cost coefficients, reserve balances, quadratic penalty terms, spend permissions, or production insurance policy without operator, accounting, risk, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"Component 3: Insurance Cost\".\n\n## Related Pages\n\n- `authored-funding-insurance-spend-caps`\n- `authored-funding-total-defense-budget`\n- `authored-funding-local-insurance-fund`",
+      "excerpt": "Funding Insurance Cost Penalty Neelo's full objective gives insurance spend its own cost term. The simplest source form is linear: The nonlinear source form adds a quadratic term: The quadratic term discourages excessive insurance use. Why Insurance Is Not Free Insurance protects solvency, but it consumes scarce defense budget. If the objective treated insurance as free, weak markets could lean on insurance instead of using dynamic pricing, hedging, local buffers, or market specific limits. The insurance cost term keeps the model honest. It says insurance can be used when it is worth using, but the optimizer should still prefer cheaper, less socialized, and less reserve consuming controls when they can solve the state. Publication Boundary This page explains the source model insurance cost term. It should not publish live insurance cost coefficients, reserve balances, quadratic penalty terms, spend permissions, or production insurance policy without operator, accounting, risk, legal, and implementation review. Sources vibe papers : Neelo, \"Full Combined Objective\", \"Component 3: Insurance Cost\". Related Pages authored funding insurance spend caps authored funding total defense budg"
+    },
+    {
       "id": "authored-funding-insurance-fund-utilization-mode",
       "title": "Funding Insurance-Fund Utilization Mode",
       "section": "manifesto",
@@ -2500,6 +2570,29 @@
       "excerpt": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same market; CVA style charges where applicable. The important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted. Why Local Comes Before Global Local insurance keeps loss responsibility close to the market that generated the risk. A permissionless low cap market should build its own runway from its own operations before it asks for shared protection. That also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source model inflows are being counted. Publication Boundary The source model uses example percentages and formulas. Public docs should not present 30% , spend caps"
     },
     {
+      "id": "authored-funding-local-risk-score-penalties",
+      "title": "Funding Local Risk Score Penalties",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#component-2-local-risk-score-r_m"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-11-full-objective",
+        "authored-funding-risk-signals-map",
+        "authored-funding-risk-volatility-parameters"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-local-risk-score-penalties.md",
+      "bodyMarkdown": "# Funding Local Risk Score Penalties\n\nNeelo's full objective turns local market risk into a penalty term:\n\n```\nR_m =\n  w1 * phi(u1)\n+ w2 * phi(u2)\n+ w3 * phi(abs(skew))\n+ w4 * phi(dev)\n+ w5 * phi(sigma)\n+ w6 * phi(D_m_res)\n```\n\nThe input signals are token utilization, insurance utilization, skew, profit deviation, volatility, and residual stress after insurance.\n\n## Why Penalty Shape Matters\n\nThe source names barrier and convex penalty functions. A barrier-style function can grow sharply near a limit:\n\n```\nphi(u) = -ln(1 - u)\n```\n\nConvex functions can also punish worsening states more than linearly:\n\n```\nphi(x) = x^2\nphi(x) = exp(kx) - 1\n```\n\nThe point is not only to identify risk. The point is to make the objective increasingly dislike states that move toward limits, especially when insurance utilization or residual stress is high.\n\n## Publication Boundary\n\nThis page explains the source-model penalty structure. It should not publish live weights, thresholds, volatility windows, target-profit definitions, residual-stress limits, or penalty curves without operator, risk, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"Component 2: Local Risk Score\".\n\n## Related Pages\n\n- `authored-funding-risk-signals-map`\n- `authored-funding-insurance-fund-utilization-mode`\n- `authored-funding-exposure-loss-estimate`",
+      "excerpt": "Funding Local Risk Score Penalties Neelo's full objective turns local market risk into a penalty term: The input signals are token utilization, insurance utilization, skew, profit deviation, volatility, and residual stress after insurance. Why Penalty Shape Matters The source names barrier and convex penalty functions. A barrier style function can grow sharply near a limit: Convex functions can also punish worsening states more than linearly: The point is not only to identify risk. The point is to make the objective increasingly dislike states that move toward limits, especially when insurance utilization or residual stress is high. Publication Boundary This page explains the source model penalty structure. It should not publish live weights, thresholds, volatility windows, target profit definitions, residual stress limits, or penalty curves without operator, risk, and implementation review. Sources vibe papers : Neelo, \"Full Combined Objective\", \"Component 2: Local Risk Score\". Related Pages authored funding risk signals map authored funding insurance fund utilization mode authored funding exposure loss estimate"
+    },
+    {
       "id": "authored-funding-lp-loss-pressure-signal",
       "title": "Funding LP Loss Pressure Signal",
       "section": "manifesto",
@@ -2544,6 +2637,29 @@
       "file": "content/authored/manifesto/funding-lp-master-profit-formula.md",
       "bodyMarkdown": "# Funding LP Master Profit Formula\n\nNeelo's LP-profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form:\n\n```text\nmarket profit = revenue - cost - counterparty_share * trader_pnl + hedge_pnl - shortfall\n```\n\nThat structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance-margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market-level results across markets.\n\n## Why This Matters\n\nThe formula makes Vibe's long-tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough.\n\nThis is also why dynamic pricing, utilization modes, insurance, and ADL belong in the same model as LP profit. They are not separate features. They are control surfaces that try to keep the profit equation inside acceptable bounds before the system reaches harder defense layers.\n\n## Publication Boundary\n\nThis page explains the source-model equation. It does not publish live Vibe LP terms, final fee shares, market-specific rates, hedge venues, accounting treatment, token buyback policy, or a promised vault yield. Those remain operator, implementation, legal, and accounting review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n\n## Related Pages\n\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-funding-revenue-cost-accounting-map`\n- `authored-funding-full-objective`",
       "excerpt": "Funding LP Master Profit Formula Neelo's LP profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form: That structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market level results across markets. Why This Matters The formula makes Vibe's long tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough. This is also why dynamic pricing, utilization"
+    },
+    {
+      "id": "authored-funding-master-optimization-equation",
+      "title": "Funding Master Optimization Equation",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective#the-master-equation"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-11-full-objective",
+        "authored-funding-full-objective",
+        "authored-gradient-flow-market-balancing"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-master-optimization-equation.md",
+      "bodyMarkdown": "# Funding Master Optimization Equation\n\nNeelo's full funding objective expresses the control problem as a single optimization:\n\n```\nmaximize sum_m Pi'_m - lambda * sum_m R_m - sum_m C_ins(x_m) - sum_m C_adl(a_m)\n```\n\nThe source describes this as an optimization over markets subject to insurance budget constraints, global allocation rules, exposure dynamics, and ADL safety constraints.\n\nIn plain English, the system wants high flattened profit, but it subtracts local risk, insurance spend, and ADL cost. That makes the objective different from a naive \"maximize fees\" target.\n\n## What Each Term Means\n\n`Pi'_m` is flattened per-market profit after cross-market tail adjustment. It is the attractor: the system wants durable, risk-adjusted market profit.\n\n`R_m` is local risk score. It captures pressure from utilization, insurance stress, skew, volatility, profit deviation, and residual stress.\n\n`C_ins(x_m)` is insurance cost. It prevents insurance from being treated as free capital.\n\n`C_adl(a_m)` is ADL cost. It makes forced deleveraging an expensive last-resort action rather than a normal balancing tool.\n\n## Publication Boundary\n\nThis page explains the source-model equation. It should not publish live lambda values, objective weights, optimized variables, production solver policy, or operator-approved risk tolerances without risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Full Combined Objective\", \"The Master Equation\".\n\n## Related Pages\n\n- `authored-funding-full-objective`\n- `authored-gradient-flow-market-balancing`\n- `authored-funding-defense-layer-cost-ordering`",
+      "excerpt": "Funding Master Optimization Equation Neelo's full funding objective expresses the control problem as a single optimization: The source describes this as an optimization over markets subject to insurance budget constraints, global allocation rules, exposure dynamics, and ADL safety constraints. In plain English, the system wants high flattened profit, but it subtracts local risk, insurance spend, and ADL cost. That makes the objective different from a naive \"maximize fees\" target. What Each Term Means Pi' m is flattened per market profit after cross market tail adjustment. It is the attractor: the system wants durable, risk adjusted market profit. R m is local risk score. It captures pressure from utilization, insurance stress, skew, volatility, profit deviation, and residual stress. C ins(x m) is insurance cost. It prevents insurance from being treated as free capital. C adl(a m) is ADL cost. It makes forced deleveraging an expensive last resort action rather than a normal balancing tool. Publication Boundary This page explains the source model equation. It should not publish live lambda values, objective weights, optimized variables, production solver policy, or operator approved "
     },
     {
       "id": "authored-funding-math-not-market-solution",

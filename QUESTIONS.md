@@ -398,6 +398,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the total defense budget before ADL? | `authored-funding-total-defense-budget` | Medium | Neelo combines token protection, local insurance capacity, and eligible global allocation into the max loss that can be absorbed before ADL. |
 | How does the defense stack activate as stress rises? | `authored-funding-defense-activation-timeline` | Medium | Neelo's activation timeline moves from netting and token inventory to emergency pricing, local/global insurance, and only then ADL. |
 | Why are defense layers ordered by cost? | `authored-funding-defense-layer-cost-ordering` | Medium | Neelo orders defenses to minimize UX impact, isolate contagion, and use local market buffers before shared insurance or ADL. |
+| What does the funding master optimization equation maximize? | `authored-funding-master-optimization-equation` | Medium | Neelo's full objective maximizes flattened profit while subtracting local risk, insurance cost, and ADL cost. |
+| How does the funding model penalize local risk? | `authored-funding-local-risk-score-penalties` | Medium | Neelo's risk score combines utilization, insurance stress, skew, profit deviation, volatility, and residual stress through weighted penalty functions. |
+| Why does insurance spend have a cost in the objective? | `authored-funding-insurance-cost-penalty` | Medium | Neelo models insurance spend as costly, with possible nonlinear penalties, so insurance is not treated as free operating capital. |
+| Why is ADL modeled as a convex penalty? | `authored-funding-adl-penalty-function` | Medium | Neelo makes ADL increasingly expensive as the deleveraging fraction grows, preserving it as a last-resort solvency tool. |
+| How do dynamic pricing controls enter the funding objective? | `authored-funding-dynamic-control-loop` | Medium | Neelo treats funding, spread, and borrow functions as state-responsive controls before insurance or ADL are deployed. |
 
 ## Prototype Event Log
 

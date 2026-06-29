@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 392,
+  "totalRoutes": 397,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 172,
+    "Medium": 177,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 392
+    "authored": 397
   },
   "answerable": [
     {
@@ -6868,6 +6868,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo orders defenses to minimize UX impact, isolate contagion, and use local market buffers before shared insurance or ADL.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-funding-master-optimization-equation-maximize",
+      "question": "What does the funding master optimization equation maximize?",
+      "normalizedQuestion": "what does the funding master optimization equation maximize",
+      "pageId": "authored-funding-master-optimization-equation",
+      "pageTitle": "Funding Master Optimization Equation",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's full objective maximizes flattened profit while subtracting local risk, insurance cost, and ADL cost.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-funding-model-penalize-local-risk",
+      "question": "How does the funding model penalize local risk?",
+      "normalizedQuestion": "how does the funding model penalize local risk",
+      "pageId": "authored-funding-local-risk-score-penalties",
+      "pageTitle": "Funding Local Risk Score Penalties",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's risk score combines utilization, insurance stress, skew, profit deviation, volatility, and residual stress through weighted penalty functions.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-insurance-spend-have-a-cost-in-the-objective",
+      "question": "Why does insurance spend have a cost in the objective?",
+      "normalizedQuestion": "why does insurance spend have a cost in the objective",
+      "pageId": "authored-funding-insurance-cost-penalty",
+      "pageTitle": "Funding Insurance Cost Penalty",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo models insurance spend as costly, with possible nonlinear penalties, so insurance is not treated as free operating capital.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-adl-modeled-as-a-convex-penalty",
+      "question": "Why is ADL modeled as a convex penalty?",
+      "normalizedQuestion": "why is adl modeled as a convex penalty",
+      "pageId": "authored-funding-adl-penalty-function",
+      "pageTitle": "Funding ADL Penalty Function",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo makes ADL increasingly expensive as the deleveraging fraction grows, preserving it as a last-resort solvency tool.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-dynamic-pricing-controls-enter-the-funding-objective",
+      "question": "How do dynamic pricing controls enter the funding objective?",
+      "normalizedQuestion": "how do dynamic pricing controls enter the funding objective",
+      "pageId": "authored-funding-dynamic-control-loop",
+      "pageTitle": "Funding Dynamic Control Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo treats funding, spread, and borrow functions as state-responsive controls before insurance or ADL are deployed.",
       "sourceKeys": [
         "vibe-papers"
       ],

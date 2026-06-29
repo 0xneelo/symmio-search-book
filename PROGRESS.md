@@ -724,6 +724,12 @@
 - Routed five new Ask questions so solvers, LPs, traders, and risk-review readers can inspect the protection stack beneath the broad hierarchy page.
 - Kept live netting scope, token balances, inventory rights, utilization thresholds, risk fractions, local/global allocation amounts, ramp speeds, spread tables, governance procedures, compensation semantics, and production ADL behavior under operator/risk/legal/accounting/implementation review.
 
+## 2026-06-29 — Full Funding Objective Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Full Combined Objective source: master optimization equation, local risk-score penalties, insurance cost penalty, ADL penalty function, and dynamic-pricing control loop.
+- Routed five new Ask questions so formula, solver, LP, and operator readers can inspect the full objective's terms and order of operations instead of relying on one broad equation page.
+- Kept live lambda values, risk weights, penalty curves, cost coefficients, pricing functions, update cadence, thresholds, source data feeds, and emergency sequencing under operator/risk/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

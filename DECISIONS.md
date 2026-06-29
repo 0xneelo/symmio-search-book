@@ -959,3 +959,11 @@
 **Reason:** The broad defense-hierarchy page explains the five-layer stack, but exact-answer readers need routes for how netting works, when token inventory is enough, how much loss can be absorbed before ADL, how the stack activates as stress worsens, and why the sequence is ordered by economic and UX cost. Splitting these pages makes the defense model inspectable without publishing live parameters as guarantees.
 
 **Status:** Accepted for the authored protocol-reference layer; live netting scope, token balances, inventory rights, utilization thresholds, risk fractions, local/global allocation amounts, ramp speeds, spread tables, governance procedures, compensation semantics, and production ADL behavior remain operator/risk/legal/accounting/implementation review.
+
+## D-121: Split Full Funding Objective Into Exact Control Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the master optimization equation, local risk-score penalties, insurance cost penalty, ADL penalty function, and dynamic-pricing control loop.
+
+**Reason:** The broad full-objective page explains the whole control problem, but answer-engine readers need exact routes for what the objective maximizes, how risk is penalized, why insurance is costly, why ADL is convexly discouraged, and how state-responsive funding, spread, and borrow controls enter the loop before hard defenses. Splitting these pages preserves the source math without converting example parameters into live product commitments.
+
+**Status:** Accepted for the authored manifesto layer; live lambda values, risk weights, penalty curves, cost coefficients, pricing functions, update cadence, thresholds, source data feeds, and emergency sequencing remain operator/risk/legal/accounting/implementation review.
