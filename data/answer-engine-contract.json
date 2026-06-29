@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 372
+      "totalGoldenRoutes": 377
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 390,
-    "retrievalEligiblePages": 1182,
+    "publicNavigationPages": 395,
+    "retrievalEligiblePages": 1187,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 390,
+      "candidate": 395,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 372,
-    "exactRouteTestsPassing": 372,
+    "totalExactRouteTests": 377,
+    "exactRouteTestsPassing": 377,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 372
+      "candidate": 377
     },
     "exactRoutesByConfidence": {
-      "Medium": 157,
+      "Medium": 162,
       "High": 44,
       "Low": 171
     },
@@ -8381,6 +8381,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-vibe-lp-risk-different-from-uniswap-impermanent-loss",
         "passes": true
+      },
+      {
+        "id": "qr-what-are-the-funding-model-s-three-dynamic-pricing-instruments",
+        "query": "What are the funding model's three dynamic pricing instruments?",
+        "normalizedQuery": "what are the funding model s three dynamic pricing instruments",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-three-pricing-instruments",
+        "expectedPageTitle": "Funding Three Pricing Instruments",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-funding-model-s-three-dynamic-pricing-instruments",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-dynamic-borrow-rate-work",
+        "query": "How does the dynamic borrow rate work?",
+        "normalizedQuery": "how does the dynamic borrow rate work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-dynamic-borrow-rate",
+        "expectedPageTitle": "Funding Dynamic Borrow Rate",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-dynamic-borrow-rate-work",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-dynamic-funding-rate-become-aggressive",
+        "query": "How does the dynamic funding rate become aggressive?",
+        "normalizedQuery": "how does the dynamic funding rate become aggressive",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-dynamic-funding-rate",
+        "expectedPageTitle": "Funding Dynamic Funding Rate",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-dynamic-funding-rate-become-aggressive",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-emergency-funding-time-ramp",
+        "query": "What is the emergency funding time ramp?",
+        "normalizedQuery": "what is the emergency funding time ramp",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-emergency-time-ramp",
+        "expectedPageTitle": "Funding Emergency Time Ramp",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-emergency-funding-time-ramp",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-spreads-become-directional-or-even-negative",
+        "query": "Why can spreads become directional or even negative?",
+        "normalizedQuery": "why can spreads become directional or even negative",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-directional-spreads-and-rebates",
+        "expectedPageTitle": "Funding Directional Spreads And Rebates",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-spreads-become-directional-or-even-negative",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8456,7 +8561,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 372,
+      "exactRoutes": 377,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

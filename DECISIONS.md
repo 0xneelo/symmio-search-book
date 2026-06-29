@@ -927,3 +927,11 @@
 **Reason:** The existing LP-profit and revenue/cost pages explain the broad economics, but answer-engine readers need exact routes for the actual accounting questions: how market profit is computed, when trader PnL hits the residual counterparty, what counts as uncovered loss pressure, where insurance and buybacks sit in the accounting, and why Vibe LP risk differs from spot AMM impermanent loss. Splitting these pages improves precision without publishing live rates or yield promises.
 
 **Status:** Accepted for the authored manifesto layer; live LP terms, fee shares, hedge venues, insurance balances, buyback policy, trader-loss assumptions, liquidation accounting, performance claims, and market-specific risk thresholds remain operator/implementation/legal/accounting review.
+
+## D-117: Split Dynamic Pricing Into Instrument-Level Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the three dynamic-pricing instruments, dynamic borrow rate, dynamic funding rate, emergency time ramp, and directional spreads/rebates.
+
+**Reason:** The broad dynamic-pricing pages explain that funding, borrow, and spread are controls, but exact-answer readers will ask what each instrument does, why borrow is not funding, why funding becomes aggressive under insurance stress, why duration matters in emergency, and why spreads can reward exposure-reducing flow. Splitting the source formula sections gives the answer engine precise routes without publishing production pricing parameters.
+
+**Status:** Accepted for the authored manifesto layer; live rates, intervals, base parameters, multiplier curves, grace periods, acceleration caps, spread tables, rebates, market classes, and user-facing execution promises remain operator/implementation/legal/accounting review.

@@ -378,6 +378,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is LP loss pressure? | `authored-funding-lp-loss-pressure-signal` | Medium | Neelo defines LP loss pressure as the uncovered part of trader winnings after market revenue and losing-trader transfers are counted. |
 | How do insurance inflows and buybacks fit the LP profit model? | `authored-funding-insurance-buyback-accounting` | Medium | Neelo's LP-profit section routes liquidation profits, solver profits, insurance reserves, and buyback allocations as separate accounting flows. |
 | Why is Vibe LP risk different from Uniswap impermanent loss? | `authored-funding-vibe-versus-uniswap-lp-risk` | Medium | Neelo contrasts spot AMM price-curve loss with Vibe-style perp exposure to trader PnL, funding, liquidations, hedge PnL, and shortfall risk. |
+| What are the funding model's three dynamic pricing instruments? | `authored-funding-three-pricing-instruments` | Medium | Neelo's dynamic-pricing source separates funding, borrow, and spread by who pays, who receives, and whether the incentive is periodic, continuous, or immediate. |
+| How does the dynamic borrow rate work? | `authored-funding-dynamic-borrow-rate` | Medium | Neelo's borrow formula starts from a base rate and multiplies it by utilization and profit-deviation responses. |
+| How does the dynamic funding rate become aggressive? | `authored-funding-dynamic-funding-rate` | Medium | Neelo's funding formula stacks inventory utilization, long/short skew, and insurance-utilization multipliers, with insurance stress making funding more aggressive. |
+| What is the emergency funding time ramp? | `authored-funding-emergency-time-ramp` | Medium | Neelo's emergency regime adds a time-based ramp that accelerates when high utilization persists and loss intensity rises. |
+| Why can spreads become directional or even negative? | `authored-funding-directional-spreads-and-rebates` | Medium | Neelo's dynamic-spread section uses asymmetric spreads and possible rebates to make exposure-worsening trades expensive and exposure-reducing trades cheaper. |
 
 ## Prototype Event Log
 

@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 391,
+  "totalPages": 396,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 254,
+    "publication-candidate-needs-operator-review": 259,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 193,
+    "manifesto": 198,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 102,
@@ -2030,6 +2030,75 @@
       "excerpt": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The Stack User position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market specific USDC protection from liquidation proceeds, solver profits, and CVA style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system. ADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model. Why This Belongs In The Vision Spine The hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long tail venue, the docs need to show"
     },
     {
+      "id": "authored-funding-directional-spreads-and-rebates",
+      "title": "Funding Directional Spreads And Rebates",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing#asymmetric-spreads-directional"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+        "authored-dynamic-pricing-controls",
+        "authored-residual-counterparty-dynamic-spread"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-directional-spreads-and-rebates.md",
+      "bodyMarkdown": "# Funding Directional Spreads And Rebates\n\nNeelo's dynamic-pricing source makes spread directional. When solver exposure is tilted one way, the model can make trades that worsen that exposure more expensive and trades that reduce it cheaper. In insurance mode, the source even allows negative spreads, meaning a rebate for the side that helps rebalance the market.\n\nIf the solver is long exposed, additional long opens can be charged more because they worsen the same exposure. Short opens can be discounted because they help offset it. If the solver is short exposed, the logic flips. The spread is not only compensation for execution; it becomes a steering mechanism.\n\nThis matters because spread acts immediately. Funding only arrives periodically, and borrow works over holding time. A directional spread can influence the next trade before the market drifts further into a dangerous state.\n\n## Why Rebates Can Be Rational\n\nThe source's negative-spread example is not a marketing gimmick. It is a risk-management tradeoff. If paying a trader to open the exposure-reducing side is cheaper than insurance depletion, forced de-risking, or ADL, then a rebate can be economically rational.\n\nThat does not mean rebates are always live, automatic, or promised. It means the model treats pricing as a control surface. Sometimes the cheapest defense is not \"charge everyone more\"; it is \"pay the flow that fixes the state.\"\n\n## Publication Boundary\n\nThis page explains the source-model directionality. It does not publish live spread tables, rebate availability, rebate size, market classes, solver inventory policy, or final user-facing execution promises. Production docs need implementation and operator review before turning this into public pricing language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Asymmetric Spreads (Directional)\" and \"Negative Spreads (Rebates)\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-residual-counterparty-dynamic-spread`\n- `authored-funding-stress-demand-and-insurance-spend`",
+      "excerpt": "Funding Directional Spreads And Rebates Neelo's dynamic pricing source makes spread directional. When solver exposure is tilted one way, the model can make trades that worsen that exposure more expensive and trades that reduce it cheaper. In insurance mode, the source even allows negative spreads, meaning a rebate for the side that helps rebalance the market. If the solver is long exposed, additional long opens can be charged more because they worsen the same exposure. Short opens can be discounted because they help offset it. If the solver is short exposed, the logic flips. The spread is not only compensation for execution; it becomes a steering mechanism. This matters because spread acts immediately. Funding only arrives periodically, and borrow works over holding time. A directional spread can influence the next trade before the market drifts further into a dangerous state. Why Rebates Can Be Rational The source's negative spread example is not a marketing gimmick. It is a risk management tradeoff. If paying a trader to open the exposure reducing side is cheaper than insurance depletion, forced de risking, or ADL, then a rebate can be economically rational. That does not mean re"
+    },
+    {
+      "id": "authored-funding-dynamic-borrow-rate",
+      "title": "Funding Dynamic Borrow Rate",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing#1-dynamic-borrow-rate"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+        "authored-funding-dynamic-pricing-multipliers",
+        "authored-funding-lp-master-profit-formula"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-dynamic-borrow-rate.md",
+      "bodyMarkdown": "# Funding Dynamic Borrow Rate\n\nThe dynamic borrow rate is the model's continuous capital-usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation.\n\nThe utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplier rises convexly as the market moves closer to exhausting token inventory. The profit-deviation response raises borrow when the market is below its target economic state and needs to recover more revenue for the risk it is carrying.\n\nThe source example is useful because it shows the structure rather than just the symbol. A market at higher inventory utilization and below target profit receives a borrow multiplier from both conditions. The resulting borrow rate is not arbitrary; it is the base borrow rate multiplied by state-based pressure.\n\n## Why Borrow Is Not Funding\n\nBorrow is not the same as funding. Funding is a transfer used to pressure crowded directional exposure. Borrow is a continuous cost of carrying position or using scarce risk-bearing capacity. In a thin market, those can overlap in the trader's total cost, but they answer different control questions.\n\nBorrow asks: is this market consuming inventory or capital in a way that should be more expensive to hold? That is why the source ties it to utilization and profit deviation rather than only long/short skew.\n\n## Publication Boundary\n\nThis page explains the source formula shape. It does not publish live borrow base rates, kink points, amplitudes, convexity values, profit targets, accrual frequency, or user-facing fee policy. Source example values should not be treated as production commitments.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Dynamic Borrow Rate\".\n\n## Related Pages\n\n- `authored-funding-dynamic-pricing-multipliers`\n- `authored-funding-lp-master-profit-formula`\n- `authored-funding-risk-signals-map`",
+      "excerpt": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplier rises convexly as the market moves closer to exhausting token inventory. The profit deviation response raises borrow when the market is below its target economic state and needs to recover more revenue for the risk it is carrying. The source example is useful because it shows the structure rather than just the symbol. A market at higher inventory utilization and below target profit receives a borrow multiplier from both conditions. The resulting borrow rate is not arbitrary; it is the base borrow rate multiplied by state based pressure. Why Borrow Is Not Funding Borrow is not the same as funding. Funding is a transfer used to pressure crowded directional exposure. Borrow is a continuous cost of carrying position or using scarce risk bearing capacity. In a thin market, those can overlap in the trader's total cost, but they answer "
+    },
+    {
+      "id": "authored-funding-dynamic-funding-rate",
+      "title": "Funding Dynamic Funding Rate",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing#2-dynamic-funding-rate"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+        "authored-funding-rate-regime-model",
+        "authored-vibe-funding-payment-direction"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-dynamic-funding-rate.md",
+      "bodyMarkdown": "# Funding Dynamic Funding Rate\n\nThe dynamic funding rate is the model's periodic pressure on crowded exposure. In Neelo's source, funding begins with a base funding rate and then responds to inventory utilization, absolute long/short skew, and insurance utilization.\n\nInventory utilization makes funding steeper when exposure is using too much covered capacity. Skew makes the dominant side more expensive because crowded directionality is the state the market needs to rebalance. Insurance utilization makes funding more aggressive when exposure has moved beyond ordinary inventory pressure and is stressing the defense budget.\n\nThe source's critical behavior is simple: when insurance utilization exceeds capacity, funding becomes much more aggressive. That is a different state from ordinary skew. A market can be imbalanced, but still inside token-inventory mode. Once insurance utilization is above the relevant budget, funding is no longer only an equilibrium signal; it is part of emergency risk reduction.\n\n## How This Helps Readers\n\nUsers often ask who pays funding. That is a product-level question. This page answers the next layer: why might the funding rate move at all? In the source model, it moves because crowded exposure, inventory pressure, and insurance stress are different signals that can stack.\n\nFor solvers and LPs, dynamic funding is one of the softer defenses. It gives traders an economic reason to reduce the side that worsens exposure before the protocol has to spend insurance or consider ADL.\n\n## Publication Boundary\n\nThis page does not publish live funding intervals, base rates, skew curves, insurance multipliers, caps, grace periods, or final production thresholds. It explains the source-model structure that production docs must reconcile with implementation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Dynamic Funding Rate\".\n\n## Related Pages\n\n- `authored-vibe-funding-payment-direction`\n- `authored-funding-rate-regime-model`\n- `authored-funding-insurance-fund-utilization-mode`",
+      "excerpt": "Funding Dynamic Funding Rate The dynamic funding rate is the model's periodic pressure on crowded exposure. In Neelo's source, funding begins with a base funding rate and then responds to inventory utilization, absolute long/short skew, and insurance utilization. Inventory utilization makes funding steeper when exposure is using too much covered capacity. Skew makes the dominant side more expensive because crowded directionality is the state the market needs to rebalance. Insurance utilization makes funding more aggressive when exposure has moved beyond ordinary inventory pressure and is stressing the defense budget. The source's critical behavior is simple: when insurance utilization exceeds capacity, funding becomes much more aggressive. That is a different state from ordinary skew. A market can be imbalanced, but still inside token inventory mode. Once insurance utilization is above the relevant budget, funding is no longer only an equilibrium signal; it is part of emergency risk reduction. How This Helps Readers Users often ask who pays funding. That is a product level question. This page answers the next layer: why might the funding rate move at all? In the source model, it mo"
+    },
+    {
       "id": "authored-funding-dynamic-pricing-multipliers",
       "title": "Funding Dynamic Pricing Multipliers",
       "section": "manifesto",
@@ -2051,6 +2120,29 @@
       "file": "content/authored/manifesto/funding-dynamic-pricing-multipliers.md",
       "bodyMarkdown": "# Funding Dynamic Pricing Multipliers\n\nNeelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state-adjusted version of those costs. The multipliers show how far the market has moved from base.\n\nThat structure is useful because it gives the docs a precise way to explain changing costs without pretending every change is arbitrary. If a market's risk state worsens, the relevant multiplier can rise. If a trade helps rebalance exposure, the model can make that side cheaper. In insurance mode, the source even allows directional incentives strong enough to reward exposure-reducing flow.\n\nThe important idea is that pricing becomes a control surface. Borrow is the cost of carrying position or capital usage. Funding is the recurring transfer that pressures crowded exposure. Spread is the immediate entry or exit cost. All three can become dynamic because they are the least disruptive ways to steer a market before insurance spend or ADL.\n\n## Why Multipliers Matter\n\nA multiplier separates the concept of a normal market cost from the temporary adjustment caused by state. This helps a reader ask better questions. Is the base fee high, or did the market enter a stress regime? Is the spread wide because the market is illiquid, because the dominant side worsens exposure, or because volatility changed? Is funding a steady balancing payment or an emergency pressure signal?\n\nFor the answer engine, these exact distinctions matter. A user asking \"why did my cost change?\" should not land on one generic fee page. They should see that cost can move through borrow, funding, and spread multipliers based on inventory, insurance, skew, volatility, and profit state.\n\n## Publication Boundary\n\nThis page explains the source-model variables only. Public docs should not publish live base rates, multiplier curves, rebates, caps, or market-specific pricing policy until implementation and operator review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Dynamic Pricing Variables\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-rate-regime-model`\n- `authored-vibe-fees-and-funding`",
       "excerpt": "Funding Dynamic Pricing Multipliers Neelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state adjusted version of those costs. The multipliers show how far the market has moved from base. That structure is useful because it gives the docs a precise way to explain changing costs without pretending every change is arbitrary. If a market's risk state worsens, the relevant multiplier can rise. If a trade helps rebalance exposure, the model can make that side cheaper. In insurance mode, the source even allows directional incentives strong enough to reward exposure reducing flow. The important idea is that pricing becomes a control surface. Borrow is the cost of carrying position or capital usage. Funding is the recurring transfer that pressures crowded exposure. Spread is the immediate entry or exit cost. All three can become dynamic because they are the least disruptive ways to steer a market before insurance spend or ADL. Why Multipliers Matter A multiplier separates the concept of a normal market co"
+    },
+    {
+      "id": "authored-funding-emergency-time-ramp",
+      "title": "Funding Emergency Time Ramp",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing#emergency-regime-time-based-ramp"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+        "authored-funding-rate-regime-model",
+        "authored-funding-worked-examples-reading-guide"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-emergency-time-ramp.md",
+      "bodyMarkdown": "# Funding Emergency Time Ramp\n\nThe emergency time ramp is how Neelo's dynamic-pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period.\n\nThe ramp is convex: the longer the market remains in emergency, the more pressure can build. The source also accelerates effective time with loss intensity. A market that is barely noisy should not be treated the same as a market losing equity quickly while exposure remains high. Loss intensity makes the clock run faster.\n\nThis is a critical nuance for long-tail markets. A momentary spike can be handled by ordinary stress pricing. Persistent exposure under loss pressure is different. It tells the system that passive waiting is failing and that the cost of worsening or holding the state should rise.\n\n## Why Time Belongs In The Model\n\nWithout time, the model only sees a state. With time, it sees behavior. A market that enters stress and self-corrects is not the same as one that refuses to clear. The time ramp turns duration into a risk input, which is especially relevant when liquidity is episodic and the market may not rebalance immediately.\n\nFor readers, this explains why the model can become more aggressive even if the headline utilization number looks unchanged. The problem is not just the level; it is how long the level persisted and how much loss intensity accumulated while it persisted.\n\n## Publication Boundary\n\nThis page explains the source-model emergency ramp. It does not publish live grace periods, ramp coefficients, loss-intensity thresholds, acceleration caps, or user-facing emergency policy. Those remain implementation and operator-review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Emergency Regime: Time-Based Ramp\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-worked-examples-reading-guide`\n- `authored-funding-adl-trigger-and-target`",
+      "excerpt": "Funding Emergency Time Ramp The emergency time ramp is how Neelo's dynamic pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period. The ramp is convex: the longer the market remains in emergency, the more pressure can build. The source also accelerates effective time with loss intensity. A market that is barely noisy should not be treated the same as a market losing equity quickly while exposure remains high. Loss intensity makes the clock run faster. This is a critical nuance for long tail markets. A momentary spike can be handled by ordinary stress pricing. Persistent exposure under loss pressure is different. It tells the system that passive waiting is failing and that the cost of worsening or holding the state should rise. Why Time Belongs In The Model Without time, the model only sees a state. With time, it sees behavior. A market that enters stress and self corrects is not the same as one that refuses to clear. The time ramp turns duration into a risk inpu"
     },
     {
       "id": "authored-funding-full-objective",
@@ -2499,6 +2591,29 @@
       "file": "content/authored/reference/funding-stress-demand-and-insurance-spend.md",
       "bodyMarkdown": "# Funding Stress Demand And Insurance Spend\n\nThe funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue.\n\nIn the source model, stress demand is:\n\n```\nD_m = max(0, L(E_usd) - (F_spread + F_fund + F_borrow))\n```\n\nThat says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover.\n\nAfter insurance spend, the remaining residual is:\n\n```\nD_m_res = max(0, D_m - x_m)\n```\n\nwhere `x_m` is combined local plus global insurance spend.\n\n## Why This Matters\n\nThis ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL.\n\nFor docs, the reader-facing question is simple: what is still uncovered after ordinary market revenue and insurance spend?\n\n## Publication Boundary\n\nThe formulas are source-model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Variable Definitions\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-rate-regime-model`\n- `authored-funding-adl-trigger-and-target`",
       "excerpt": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover. After insurance spend, the remaining residual is: where x m is combined local plus global insurance spend. Why This Matters This ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL. For docs, the reader facing question is simple: what is still uncovered after ordinary market revenue and insurance spend? Publication Boundary The formulas are source model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review. Sources vibe pap"
+    },
+    {
+      "id": "authored-funding-three-pricing-instruments",
+      "title": "Funding Three Pricing Instruments",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing#the-three-pricing-instruments"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-07-dynamic-pricing",
+        "authored-dynamic-pricing-controls",
+        "authored-funding-dynamic-pricing-multipliers"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-three-pricing-instruments.md",
+      "bodyMarkdown": "# Funding Three Pricing Instruments\n\nNeelo's dynamic-pricing source separates the market-balancing toolkit into three instruments: funding, borrow, and spread. They all respond to risk state, but they act on different time scales and different user actions.\n\nFunding is periodic. It pressures the dominant side of open interest by making crowded exposure pay the other side. Borrow is continuous. It charges the cost of carrying position or using risk-bearing capital over time. Spread is immediate. It changes the cost of opening or closing a trade at execution time.\n\nThis separation is important because long-tail market stress does not have one shape. A market can be skewed but not yet inventory-exhausted. It can be volatile even if long and short interest are not badly imbalanced. It can be below profit target even while utilization looks tolerable. One blunt fee cannot express all of those states.\n\n## Why The Instruments Are Separate\n\nThe instruments map to different control needs. Funding is good at changing holding incentives over periods. Borrow is good at making capital usage expensive when the market needs to recover cost or conserve capacity. Spread is good at changing marginal behavior right now, before the next funding epoch arrives.\n\nFor the compendium, this gives the answer engine a precise way to explain \"why did my cost change?\" The answer may be funding, borrow, spread, or a combination. The model says all three can increase together in stress, creating compounding pressure to rebalance before insurance spend or ADL becomes necessary.\n\n## Publication Boundary\n\nThis page explains the source-model instrument split. It does not publish live Vibe funding intervals, borrow accrual policy, spread formulas, user-facing fee disclosures, or market-specific rate schedules. Those need implementation and operator review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Three Pricing Instruments\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-dynamic-pricing-multipliers`\n- `authored-vibe-fees-and-funding`",
+      "excerpt": "Funding Three Pricing Instruments Neelo's dynamic pricing source separates the market balancing toolkit into three instruments: funding, borrow, and spread. They all respond to risk state, but they act on different time scales and different user actions. Funding is periodic. It pressures the dominant side of open interest by making crowded exposure pay the other side. Borrow is continuous. It charges the cost of carrying position or using risk bearing capital over time. Spread is immediate. It changes the cost of opening or closing a trade at execution time. This separation is important because long tail market stress does not have one shape. A market can be skewed but not yet inventory exhausted. It can be volatile even if long and short interest are not badly imbalanced. It can be below profit target even while utilization looks tolerable. One blunt fee cannot express all of those states. Why The Instruments Are Separate The instruments map to different control needs. Funding is good at changing holding incentives over periods. Borrow is good at making capital usage expensive when the market needs to recover cost or conserve capacity. Spread is good at changing marginal behavior "
     },
     {
       "id": "authored-funding-token-inventory-utilization-mode",

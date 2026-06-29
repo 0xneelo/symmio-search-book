@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 379,
-  "totalAnswerable": 372,
+  "totalEntries": 384,
+  "totalAnswerable": 377,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 32,
     "Solvers And Settlement": 114,
     "Risk And Markets": 23,
-    "Revenue": 49,
+    "Revenue": 54,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 157,
+    "Medium": 162,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 372
+    "authored": 377
   },
   "byType": {
-    "answerable": 372,
+    "answerable": 377,
     "reconciliation": 7
   },
   "answerable": [
@@ -12378,6 +12378,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-vibe-versus-uniswap-lp-risk",
       "pageTitle": "Funding Vibe Versus Uniswap LP Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-funding-model-s-three-dynamic-pricing-instruments",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are the funding model's three dynamic pricing instruments?",
+      "normalizedQuestion": "what are the funding model s three dynamic pricing instruments",
+      "shortAnswer": "Neelo's dynamic-pricing source separates funding, borrow, and spread by who pays, who receives, and whether the incentive is periodic, continuous, or immediate.",
+      "answerSummary": "Funding Three Pricing Instruments Neelo's dynamic pricing source separates the market balancing toolkit into three instruments: funding, borrow, and spread. They all respond to risk state, but they act on different time scales and different user actions. Funding is periodic. It pressures the dominant side of open interest by making crowded exposure pay th...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-three-pricing-instruments",
+      "pageTitle": "Funding Three Pricing Instruments",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-dynamic-borrow-rate-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the dynamic borrow rate work?",
+      "normalizedQuestion": "how does the dynamic borrow rate work",
+      "shortAnswer": "Neelo's borrow formula starts from a base rate and multiplies it by utilization and profit-deviation responses.",
+      "answerSummary": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplie...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-borrow-rate",
+      "pageTitle": "Funding Dynamic Borrow Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-dynamic-funding-rate-become-aggressive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the dynamic funding rate become aggressive?",
+      "normalizedQuestion": "how does the dynamic funding rate become aggressive",
+      "shortAnswer": "Neelo's funding formula stacks inventory utilization, long/short skew, and insurance-utilization multipliers, with insurance stress making funding more aggressive.",
+      "answerSummary": "Funding Dynamic Funding Rate The dynamic funding rate is the model's periodic pressure on crowded exposure. In Neelo's source, funding begins with a base funding rate and then responds to inventory utilization, absolute long/short skew, and insurance utilization. Inventory utilization makes funding steeper when exposure is using too much covered capacity....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-funding-rate",
+      "pageTitle": "Funding Dynamic Funding Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-emergency-funding-time-ramp",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the emergency funding time ramp?",
+      "normalizedQuestion": "what is the emergency funding time ramp",
+      "shortAnswer": "Neelo's emergency regime adds a time-based ramp that accelerates when high utilization persists and loss intensity rises.",
+      "answerSummary": "Funding Emergency Time Ramp The emergency time ramp is how Neelo's dynamic pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period. T...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-emergency-time-ramp",
+      "pageTitle": "Funding Emergency Time Ramp",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-spreads-become-directional-or-even-negative",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can spreads become directional or even negative?",
+      "normalizedQuestion": "why can spreads become directional or even negative",
+      "shortAnswer": "Neelo's dynamic-spread section uses asymmetric spreads and possible rebates to make exposure-worsening trades expensive and exposure-reducing trades cheaper.",
+      "answerSummary": "Funding Directional Spreads And Rebates Neelo's dynamic pricing source makes spread directional. When solver exposure is tilted one way, the model can make trades that worsen that exposure more expensive and trades that reduce it cheaper. In insurance mode, the source even allows negative spreads, meaning a rebate for the side that helps rebalance the mar...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-directional-spreads-and-rebates",
+      "pageTitle": "Funding Directional Spreads And Rebates",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -25082,6 +25227,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-vibe-versus-uniswap-lp-risk",
       "pageTitle": "Funding Vibe Versus Uniswap LP Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-funding-model-s-three-dynamic-pricing-instruments",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are the funding model's three dynamic pricing instruments?",
+      "normalizedQuestion": "what are the funding model s three dynamic pricing instruments",
+      "shortAnswer": "Neelo's dynamic-pricing source separates funding, borrow, and spread by who pays, who receives, and whether the incentive is periodic, continuous, or immediate.",
+      "answerSummary": "Funding Three Pricing Instruments Neelo's dynamic pricing source separates the market balancing toolkit into three instruments: funding, borrow, and spread. They all respond to risk state, but they act on different time scales and different user actions. Funding is periodic. It pressures the dominant side of open interest by making crowded exposure pay th...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-three-pricing-instruments",
+      "pageTitle": "Funding Three Pricing Instruments",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-dynamic-borrow-rate-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the dynamic borrow rate work?",
+      "normalizedQuestion": "how does the dynamic borrow rate work",
+      "shortAnswer": "Neelo's borrow formula starts from a base rate and multiplies it by utilization and profit-deviation responses.",
+      "answerSummary": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplie...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-borrow-rate",
+      "pageTitle": "Funding Dynamic Borrow Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-dynamic-funding-rate-become-aggressive",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the dynamic funding rate become aggressive?",
+      "normalizedQuestion": "how does the dynamic funding rate become aggressive",
+      "shortAnswer": "Neelo's funding formula stacks inventory utilization, long/short skew, and insurance-utilization multipliers, with insurance stress making funding more aggressive.",
+      "answerSummary": "Funding Dynamic Funding Rate The dynamic funding rate is the model's periodic pressure on crowded exposure. In Neelo's source, funding begins with a base funding rate and then responds to inventory utilization, absolute long/short skew, and insurance utilization. Inventory utilization makes funding steeper when exposure is using too much covered capacity....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-funding-rate",
+      "pageTitle": "Funding Dynamic Funding Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-emergency-funding-time-ramp",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is the emergency funding time ramp?",
+      "normalizedQuestion": "what is the emergency funding time ramp",
+      "shortAnswer": "Neelo's emergency regime adds a time-based ramp that accelerates when high utilization persists and loss intensity rises.",
+      "answerSummary": "Funding Emergency Time Ramp The emergency time ramp is how Neelo's dynamic pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period. T...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-emergency-time-ramp",
+      "pageTitle": "Funding Emergency Time Ramp",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-spreads-become-directional-or-even-negative",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can spreads become directional or even negative?",
+      "normalizedQuestion": "why can spreads become directional or even negative",
+      "shortAnswer": "Neelo's dynamic-spread section uses asymmetric spreads and possible rebates to make exposure-worsening trades expensive and exposure-reducing trades cheaper.",
+      "answerSummary": "Funding Directional Spreads And Rebates Neelo's dynamic pricing source makes spread directional. When solver exposure is tilted one way, the model can make trades that worsen that exposure more expensive and trades that reduce it cheaper. In insurance mode, the source even allows negative spreads, meaning a rebate for the side that helps rebalance the mar...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-directional-spreads-and-rebates",
+      "pageTitle": "Funding Directional Spreads And Rebates",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",

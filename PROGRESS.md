@@ -700,6 +700,12 @@
 - Routed five new Ask questions so LPs, solvers, projects, and operators can inspect the accounting model without collapsing it into one broad yield or dynamic-pricing page.
 - Kept live LP terms, fee shares, hedge venues, insurance balances, buyback policy, trader-loss assumptions, liquidation accounting, performance claims, and market-specific risk thresholds under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Dynamic Pricing Instrument Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's dynamic-pricing source: three pricing instruments, dynamic borrow rate, dynamic funding rate, emergency time ramp, and directional spreads/rebates.
+- Routed five new Ask questions so traders, LPs, solvers, and operators can inspect pricing mechanics by instrument instead of relying on one broad dynamic-pricing overview.
+- Kept live rates, intervals, base parameters, multiplier curves, grace periods, acceleration caps, spread tables, rebates, market classes, and user-facing execution promises under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
