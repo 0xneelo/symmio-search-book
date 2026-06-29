@@ -1623,3 +1623,11 @@
 **Reason:** These remaining source-pages are parent imports, overviews, introductions, diagrams, and conclusion/source-navigation pages whose substantive claims already route into authored manifesto coverage. Mapping them closes source-page companion traceability, improves retrieval coverage, and avoids duplicate pages while keeping the 500-800 page target at the existing 794-page manifest size.
 
 **Status:** Accepted for source-traceability coverage; current market-share examples, venue behavior, LP economics, capital-efficiency ratios, launch-partner counts, solver/backstop details, proof-of-value claims, and Information/Trade verification claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-204: Enforce AMFQ As Legacy Intent Terminology In Generated Artifacts
+
+**Decision:** Make the generated glossary route AMFQ/aMFQ to the authored legacy terminology page first, include `aMFQ` and `Automated Market for Quotes` as aliases, and require the answer-validation fixture for `What was AMFQ?` to expand the phrase, frame it as legacy naming, and translate it to current Intents language.
+
+**Reason:** The authored page and style guide already captured the operator clarification, but generated data still treated AMFQ like a live flow and used the generated source companion as the glossary primary page. The answer engine needs the terminology correction to be machine-enforced so future runtime answers do not imply that AMFQ is a separate product beside Intents.
+
+**Status:** Accepted for glossary, answer-validation, and answer-engine regression tracking. Use `Intent` as the current term; use AMFQ/aMFQ only when translating old Vibe architecture/source language or matching historical search queries.

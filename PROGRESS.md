@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — AMFQ Legacy Intent Terminology Enforcement
+
+- Tightened generated glossary output so AMFQ/aMFQ routes first to the authored legacy terminology page instead of the generated source companion.
+- Added `aMFQ` and `Automated Market for Quotes` as glossary aliases and made the definition explicitly say AMFQ is legacy Vibe naming for current Intents, not a separate live system.
+- Strengthened the answer-validation fixture for `What was AMFQ?` so generated runtime-shape tests require the answer to expand the phrase, preserve the legacy framing, translate to Intents, and negate a separate-system interpretation.
+- Kept current docs language locked to `Intent`, with AMFQ/aMFQ reserved for older source translation and historical search queries.
+
 ## 2026-06-29 — Remaining Vision Parent Source Coverage
 
 - Mapped all 11 remaining Neelo vision generated source-page companions to existing authored manifesto pages instead of duplicating public pages.

@@ -116,15 +116,42 @@
       "id": "term-amfq",
       "term": "AMFQ",
       "aliases": [
-        "Automated market for quotes"
+        "aMFQ",
+        "Automated Market for Quotes"
       ],
       "category": "Trading Flow",
-      "definition": "Vibe's intent-to-quote flow where a trader expresses a desired trade, solvers respond with executable offers, and accepted quotes proceed toward execution.",
+      "definition": "Legacy Vibe naming for the current Intents model. AMFQ/aMFQ expands to Automated Market for Quotes and should translate to intent-based trading in current docs, not a separate live system.",
       "pageIds": [
-        "vibe-architecture-amfq",
-        "authored-vibe-trade-flow"
+        "authored-amfq-legacy-intent-naming",
+        "authored-vibe-intent-architecture",
+        "vibe-architecture-amfq"
       ],
       "pages": [
+        {
+          "id": "authored-amfq-legacy-intent-naming",
+          "title": "AMFQ Is Legacy Naming For Intents",
+          "section": "product-reference",
+          "track": "Trading Flow",
+          "status": "publication-candidate",
+          "sourceKeys": [
+            "vibe-architecture",
+            "symmio-core",
+            "symmio-intent-lifecycle",
+            "styleguide"
+          ]
+        },
+        {
+          "id": "authored-vibe-intent-architecture",
+          "title": "Vibe Intent Architecture",
+          "section": "product-reference",
+          "track": "Trading Flow",
+          "status": "publication-candidate",
+          "sourceKeys": [
+            "vibe-architecture",
+            "symmio-core",
+            "symmio-intent-lifecycle"
+          ]
+        },
         {
           "id": "vibe-architecture-amfq",
           "title": "Vibe AMFQ Architecture",
@@ -134,23 +161,12 @@
           "sourceKeys": [
             "vibe-architecture"
           ]
-        },
-        {
-          "id": "authored-vibe-trade-flow",
-          "title": "Vibe Trade Flow",
-          "section": "product-reference",
-          "track": "Trading Flow",
-          "status": "publication-candidate",
-          "sourceKeys": [
-            "vibe-architecture",
-            "symmio-core",
-            "symmio-intent-lifecycle"
-          ]
         }
       ],
-      "primaryPageId": "vibe-architecture-amfq",
+      "primaryPageId": "authored-amfq-legacy-intent-naming",
       "sourceKeys": [
         "vibe-architecture",
+        "styleguide",
         "authored-pages"
       ],
       "missingPageIds": [],

@@ -7,6 +7,7 @@ This harness validates the answer shapes that the production LLM runtime must em
 - cited answers use an allowed final page state;
 - every citation points to a known page id, source key, source link, and retrieved chunk id;
 - paragraph citation ids resolve to actual citations;
+- the AMFQ/aMFQ terminology fixture expands Automated Market for Quotes, frames it as legacy naming, and translates it to current Intents language;
 - refusals carry the expected refusal reason;
 - refusal and operator-blocked answers create a gap event shape;
 - gap ids and operator item ids resolve to the current gap queue and operator inbox signals.
@@ -17,6 +18,8 @@ The generated report uses two fixture families:
 
 - cited-answer fixtures sampled from the deterministic exact-route golden set;
 - refusal fixtures derived from `data/llm-rag-contract.json` adversarial cases.
+
+The cited-answer set intentionally includes `What was AMFQ?` as a terminology regression fixture. The validator requires that answer shape to treat AMFQ/aMFQ as legacy "Automated Market for Quotes" naming for Intents, not as a separate live system.
 
 The harness does not call an LLM. It proves the response validator and fixture set are ready for the runtime implementation to execute against live answers.
 

@@ -26,11 +26,11 @@ const glossaryDefinitions = [
   },
   {
     term: "AMFQ",
-    aliases: ["Automated market for quotes"],
+    aliases: ["aMFQ", "Automated Market for Quotes"],
     category: "Trading Flow",
-    definition: "Vibe's intent-to-quote flow where a trader expresses a desired trade, solvers respond with executable offers, and accepted quotes proceed toward execution.",
-    pageIds: ["vibe-architecture-amfq", "authored-vibe-trade-flow"],
-    sourceKeys: ["vibe-architecture", "authored-pages"],
+    definition: "Legacy Vibe naming for the current Intents model. AMFQ/aMFQ expands to Automated Market for Quotes and should translate to intent-based trading in current docs, not a separate live system.",
+    pageIds: ["authored-amfq-legacy-intent-naming", "authored-vibe-intent-architecture", "vibe-architecture-amfq"],
+    sourceKeys: ["vibe-architecture", "styleguide", "authored-pages"],
   },
   {
     term: "Barometer",

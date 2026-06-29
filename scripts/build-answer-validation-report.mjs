@@ -80,6 +80,9 @@ function parseOpenInboxItems(markdown) {
 function citedAnswerFixture(route, chunk, sourceByKey) {
   const sourceKey = (chunk.sourceKeys || []).find((key) => sourceByKey[key]?.href);
   const citationId = `${route.id}-citation-1`;
+  const answer = route.expectedPageId === "authored-amfq-legacy-intent-naming"
+    ? "AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes and is legacy naming for the current Intents model, not a separate live system."
+    : `${route.expectedPageTitle} is the cited answer route for this seeded question.`;
   return {
     id: `fixture-${route.id}`,
     type: "cited-answer",
@@ -88,7 +91,7 @@ function citedAnswerFixture(route, chunk, sourceByKey) {
     response: {
       requestId: `req-${route.id}`,
       status: validationPolicy.answeredStatus,
-      answer: `${route.expectedPageTitle} is the cited answer route for this seeded question.`,
+      answer,
       primaryPageId: route.expectedPageId,
       citations: [
         {
@@ -102,7 +105,7 @@ function citedAnswerFixture(route, chunk, sourceByKey) {
       ],
       paragraphs: [
         {
-          text: `${route.expectedPageTitle} is the cited answer route for this seeded question.`,
+          text: answer,
           citationIds: [citationId],
         },
       ],
@@ -177,10 +180,17 @@ function validateAnsweredFixture(fixture, context) {
   const failures = [];
   const response = fixture.response || {};
   const page = context.pageStateById.get(response.primaryPageId);
+  const answerText = `${response.answer || ""} ${(response.paragraphs || []).map((paragraph) => paragraph.text || "").join(" ")}`;
   if (response.status !== validationPolicy.answeredStatus) failures.push("answered-status-invalid");
   if (!response.answer) failures.push("answer-empty");
   if (!page) failures.push("primary-page-missing");
   if (page && !validationPolicy.allowedAnswerPageStates.includes(page.pageState)) failures.push("primary-page-state-disallowed");
+  if (fixture.expectedPageId === "authored-amfq-legacy-intent-naming") {
+    if (!/Automated Market for Quotes/.test(answerText)) failures.push("amfq-expansion-missing");
+    if (!/legacy/i.test(answerText)) failures.push("amfq-legacy-framing-missing");
+    if (!/Intent/i.test(answerText)) failures.push("amfq-intent-translation-missing");
+    if (/separate live system/i.test(answerText) === false) failures.push("amfq-separate-system-negation-missing");
+  }
   if (!(response.citations || []).length) failures.push("citations-missing");
   const citationIds = new Set((response.citations || []).map((citation) => citation.id));
   for (const citation of response.citations || []) failures.push(...validateCitation(citation, fixture, context));
