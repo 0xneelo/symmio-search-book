@@ -796,6 +796,12 @@
 - Routed five new Ask questions so users, builders, rewards reviewers, and market-structure readers can distinguish hypothetical composability from current product policy.
 - Kept live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, and derivative-market support under operator/legal/product/implementation review.
 
+## 2026-06-29 — Referral Baseline Limit Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's referral system-baseline source: referral graph portability limits, mixed accountability boundaries, private deal opacity risk, transferable-points hardening gates, and reliable incentives under scale.
+- Routed five new Ask questions so users, partners, and reviewers can inspect early-stage referral limits without turning them into live portability, transferability, or private-deal policy.
+- Kept live referral-right transferability, attribution migration, private partner terms, point transferability, claim mechanics, abuse controls, and settlement implementation under operator/legal/accounting/product/security/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

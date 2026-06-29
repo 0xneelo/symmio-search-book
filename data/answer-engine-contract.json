@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 452
+      "totalGoldenRoutes": 457
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 470,
-    "retrievalEligiblePages": 1262,
+    "publicNavigationPages": 475,
+    "retrievalEligiblePages": 1267,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 470,
+      "candidate": 475,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 452,
-    "exactRouteTestsPassing": 452,
+    "totalExactRouteTests": 457,
+    "exactRouteTestsPassing": 457,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 452
+      "candidate": 457
     },
     "exactRoutesByConfidence": {
-      "Medium": 232,
+      "Medium": 237,
       "High": 44,
       "Low": 176
     },
@@ -10161,6 +10161,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-are-the-risks-of-tokenized-points-perps",
         "passes": true
+      },
+      {
+        "id": "qr-what-are-referral-graph-portability-limits",
+        "query": "What are referral graph portability limits?",
+        "normalizedQuery": "what are referral graph portability limits",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-graph-portability-limits",
+        "expectedPageTitle": "Referral Graph Portability Limits",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-referral-graph-portability-limits",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-mixed-on-chain-and-off-chain-accountability-risky",
+        "query": "Why is mixed on-chain and off-chain accountability risky?",
+        "normalizedQuery": "why is mixed on chain and off chain accountability risky",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-mixed-accountability-boundary",
+        "expectedPageTitle": "Referral Mixed Accountability Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-mixed-on-chain-and-off-chain-accountability-risky",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-private-referral-deals-obscure-public-economics",
+        "query": "Why can private referral deals obscure public economics?",
+        "normalizedQuery": "why can private referral deals obscure public economics",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-private-deal-opacity-risk",
+        "expectedPageTitle": "Referral Private Deal Opacity Risk",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-private-referral-deals-obscure-public-economics",
+        "passes": true
+      },
+      {
+        "id": "qr-what-must-harden-before-points-become-economically-transferable",
+        "query": "What must harden before points become economically transferable?",
+        "normalizedQuery": "what must harden before points become economically transferable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-transferable-points-hardening-gate",
+        "expectedPageTitle": "Referral Transferable Points Hardening Gate",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-must-harden-before-points-become-economically-transferable",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-features-become-reliable-incentives-under-scale",
+        "query": "How should referral features become reliable incentives under scale?",
+        "normalizedQuery": "how should referral features become reliable incentives under scale",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-reliable-incentives-under-scale",
+        "expectedPageTitle": "Referral Reliable Incentives Under Scale",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-features-become-reliable-incentives-under-scale",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10236,7 +10351,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 452,
+      "exactRoutes": 457,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

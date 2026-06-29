@@ -458,6 +458,11 @@ Questions are grouped by whether the current source set can answer them.
 | How would a fractionalized points wrapper work? | `authored-tokenized-points-fractionalized-wrapper-flow` | Medium | Neelo sketches an independent wrapper that pools packs and mints a fungible ERC-20 claim on the basket, without endorsing that path. |
 | How could a point-linked token become a perp market? | `authored-tokenized-points-third-party-listing-flow` | Medium | Neelo's scenario requires third-party tokenization, spot liquidity, listing criteria, and builders composing derivative rails around the token. |
 | What are the risks of tokenized points perps? | `authored-tokenized-points-market-risk-boundary` | Medium | Neelo names thin-market manipulation, valuation ambiguity, reflexive leverage, legal/disclosure constraints, and official-versus-third-party confusion. |
+| What are referral graph portability limits? | `authored-referral-graph-portability-limits` | Medium | Neelo names ambiguous referral graph portability as a baseline limit; docs should separate original attribution, transfer state, and future economic ownership. |
+| Why is mixed on-chain and off-chain accountability risky? | `authored-referral-mixed-accountability-boundary` | Medium | Neelo flags mixed accountability as a hidden trust assumption unless every user-facing claim names the authoritative layer. |
+| Why can private referral deals obscure public economics? | `authored-referral-private-deal-opacity-risk` | Medium | Neelo says private deal logic can obscure public economics, so docs should describe private terms as overlays rather than hidden public-policy side effects. |
+| What must harden before points become economically transferable? | `authored-referral-transferable-points-hardening-gate` | Medium | Neelo warns against treating points as transferable before accounting, eligibility, finalization, claims, and abuse controls are hardened. |
+| How should referral features become reliable incentives under scale? | `authored-referral-reliable-incentives-under-scale` | Medium | Neelo's design requirement is to move from features that work to incentives that remain reliable under scale and adversarial behavior. |
 
 ## Prototype Event Log
 

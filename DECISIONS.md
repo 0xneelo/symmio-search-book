@@ -1055,3 +1055,11 @@
 **Reason:** The broad tokenized-points-perps page correctly labels the concept as hypothetical, but answer-engine readers need direct routes for whether it is an announced product, how point-linked objects could become composable, how a wrapper might work, how a third-party market could emerge, and what risks prevent this from being treated as endorsed current policy.
 
 **Status:** Accepted for the authored rewards-reference layer; live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, market support, legal disclosures, and derivative product policy remain operator/legal/product/security/accounting/implementation review.
+
+## D-133: Split Referral System-Baseline Limits Into Exact Answers
+
+**Decision:** Add authored rewards-reference pages for referral graph portability limits, mixed on/off-chain accountability, private-deal opacity risk, transferable-points hardening gates, and the requirement that referral features become reliable incentives under scale.
+
+**Reason:** Neelo's system-baseline source does not only describe what works today; it names the early-stage limits that must be resolved before referral economics can scale. Exact answer routes make those limits visible without publishing unresolved portability, transferability, private partner, or settlement policy.
+
+**Status:** Accepted for the authored rewards-reference layer; live referral-right transferability, graph migration, private partner terms, point transferability, source-bucket accounting, claim authorization, anti-abuse review, settlement contracts, and public economic commitments remain operator/legal/accounting/product/security/implementation review.

@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 471,
+  "totalPages": 476,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 334,
+    "publication-candidate-needs-operator-review": 339,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,7 +12,7 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 47,
-    "rewards-referrals": 75,
+    "rewards-referrals": 80,
     "dashboard-reference": 12,
     "protocol-reference": 117,
     "competitive-context": 1,
@@ -6317,6 +6317,31 @@
       "excerpt": "Referral Game Layer KPIs The metrics framework includes game layer KPIs for a future packs and artifacts reward layer. These are not current product promises; they are measurement requirements if that layer becomes economically active. The source names: packs held versus packs opened ratio; artifact trading volume; artifact equip rate by slot type; median embedded point exposure per active wallet. These KPIs exist because packs and artifacts can change user incentives. Users may hold expected value containers, open them for variance, trade artifacts for rarity and exposure, or equip artifacts for boosts. Each behavior has a different economic and abuse profile. Why This Must Stay Separate Game layer metrics should not be mixed with core point accounting. Points are the base reward ledger. Packs and artifacts are optional composability layers. Reporting should show whether game mechanics improve retention and engagement without obscuring supply, demand, or integrity. Publication Boundary The docs should describe these KPIs as future layer requirements. Live pack supply, artifact catalog, equip slots, boost rules, trading support, embedded point valuation, and TGE weighting remain op"
     },
     {
+      "id": "authored-referral-graph-portability-limits",
+      "title": "Referral Graph Portability Limits",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#14-operational-reality",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-4-operational-reality",
+        "authored-referral-identity-anchor"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-graph-portability-limits.md",
+      "bodyMarkdown": "# Referral Graph Portability Limits\n\nNeelo's system-baseline source names ambiguous referral graph portability as an early-stage limit. The problem is not only whether a code can move. It is whether the system can explain which identity, code, market, campaign, or partner relationship owns attribution after movement.\n\nA portable referral graph can be useful if referral rights are represented cleanly. It becomes dangerous when history is mutable, when code ownership changes without versioned policy, or when downstream rewards depend on a graph that users cannot audit.\n\n## What Portability Has To Preserve\n\nThe referral graph needs stable answers to four questions:\n\n- who originally created the referral relationship;\n- whether the relationship is account-bound, object-bound, market-scoped, or policy-scoped;\n- which historical activity stays attached to the old state;\n- which future activity follows the new state.\n\nWithout those boundaries, portability creates attribution disputes. A trader, referrer, partner, and market creator could all believe they own the same economic flow.\n\n## Publication Boundary\n\nThis page explains a baseline limitation, not a live portability policy. The public docs should not claim referral NFTs, referral rights, historical attribution, or market-scoped shares are transferable until operator, legal, accounting, and implementation owners approve the state model and migration rules.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Operational Reality\".\n- `spec-03`: current referral-depth and public rewards caveats.\n\n## Related Pages\n\n- `authored-referral-identity-anchor`\n- `authored-referral-rights-ownership-model`\n- `authored-referral-phase-migration-requirements`",
+      "excerpt": "Referral Graph Portability Limits Neelo's system baseline source names ambiguous referral graph portability as an early stage limit. The problem is not only whether a code can move. It is whether the system can explain which identity, code, market, campaign, or partner relationship owns attribution after movement. A portable referral graph can be useful if referral rights are represented cleanly. It becomes dangerous when history is mutable, when code ownership changes without versioned policy, or when downstream rewards depend on a graph that users cannot audit. What Portability Has To Preserve The referral graph needs stable answers to four questions: who originally created the referral relationship; whether the relationship is account bound, object bound, market scoped, or policy scoped; which historical activity stays attached to the old state; which future activity follows the new state. Without those boundaries, portability creates attribution disputes. A trader, referrer, partner, and market creator could all believe they own the same economic flow. Publication Boundary This page explains a baseline limitation, not a live portability policy. The public docs should not claim "
+    },
+    {
       "id": "authored-referral-growth-funnel-kpis",
       "title": "Referral Growth Funnel KPIs",
       "section": "rewards-referrals",
@@ -6577,6 +6602,32 @@
       "excerpt": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together. KPI Layers The source separates the KPI stack into layers: supply: new listings, active markets, repeat listers, and time to first listing; demand: traders per active market, fee generating volume, turnover concentration, and demand distribution; growth: referral attach rate, code to first trade conversion, code to first listing conversion, and claim conversion; integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected versus realized reward deviations. Security Controls The security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over issuance, and launch phase blind spots. The minimum control set "
     },
     {
+      "id": "authored-referral-mixed-accountability-boundary",
+      "title": "Referral Mixed Accountability Boundary",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#14-operational-reality",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#15-design-requirement",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-4-operational-reality",
+        "section-17-referral-program-17-docs-01-system-baseline-1-5-design-requirement"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-mixed-accountability-boundary.md",
+      "bodyMarkdown": "# Referral Mixed Accountability Boundary\n\nThe referral baseline is functional for early growth, but Neelo flags mixed on-chain and off-chain accountability as a known limit.\n\nThat boundary matters because the two systems answer different questions. On-chain state can anchor identity, settlement, claim consumption, and replay protection. Off-chain systems can iterate on partner terms, eligibility, analytics, monitoring, and campaign policy. A credible architecture needs both, but it cannot let readers guess which layer is authoritative for each fact.\n\n## Where Confusion Appears\n\nMixed accountability becomes risky when the public docs say \"the referral system pays X\" without saying whether X is:\n\n- settled by contract state;\n- computed from a versioned off-chain policy;\n- provisional until reconciliation;\n- subject to a private overlay;\n- or blocked until a claim authorization is issued.\n\nThe source requirement is to reduce hidden trust assumptions. That does not mean every policy has to move on-chain immediately. It means every user-facing claim should name the accountable layer.\n\n## Publication Boundary\n\nThe docs can explain the accountability model at a high level. They should not publish final contract addresses, message schemas, signer powers, off-chain reconciliation logic, or private policy overlays until implementation and security owners approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Operational Reality\" and \"Design Requirement\".\n- `spec-03`: current referral and rewards-publication caveats.\n\n## Related Pages\n\n- `authored-referral-three-plane-architecture`\n- `authored-referral-settlement-security-controls`\n- `authored-referral-public-private-policy-overlays`",
+      "excerpt": "Referral Mixed Accountability Boundary The referral baseline is functional for early growth, but Neelo flags mixed on chain and off chain accountability as a known limit. That boundary matters because the two systems answer different questions. On chain state can anchor identity, settlement, claim consumption, and replay protection. Off chain systems can iterate on partner terms, eligibility, analytics, monitoring, and campaign policy. A credible architecture needs both, but it cannot let readers guess which layer is authoritative for each fact. Where Confusion Appears Mixed accountability becomes risky when the public docs say \"the referral system pays X\" without saying whether X is: settled by contract state; computed from a versioned off chain policy; provisional until reconciliation; subject to a private overlay; or blocked until a claim authorization is issued. The source requirement is to reduce hidden trust assumptions. That does not mean every policy has to move on chain immediately. It means every user facing claim should name the accountable layer. Publication Boundary The docs can explain the accountability model at a high level. They should not publish final contract ad"
+    },
+    {
       "id": "authored-referral-no-market-attachment-no-share",
       "title": "No Market Attachment Means No Market-Level Share",
       "section": "rewards-referrals",
@@ -6805,6 +6856,32 @@
       "excerpt": "Referral Primary Chapter Change Policy The design coverage map gives a simple change policy: when chapter scope changes, update the relevant chapter first, update the map second, and keep links relative so repository and docs site views stay aligned. That is an editorial control, but it is also a product control. Referral policy touches economics, access, security, market creation, dashboards, and future rewards. If a policy change is introduced only in FAQ copy or dashboard text, the docs can drift away from the source of truth. Change Sequence The safe sequence is: 1. Update the owning chapter or authored page for the concept. 2. Update the coverage map if ownership boundaries changed. 3. Regenerate question routes, FAQ entries, answer chunks, volume maps, and validation reports. 4. Let the answer engine route users to the updated source of truth. This sequence keeps the living docs loop from amplifying stale or duplicated policy. Publication Boundary The policy does not decide live referral depth, partner tiers, transferability, TGE weighting, signer controls, or launch dates. It decides how approved changes should enter the compendium once the responsible owner has made them. R"
     },
     {
+      "id": "authored-referral-private-deal-opacity-risk",
+      "title": "Referral Private Deal Opacity Risk",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#14-operational-reality",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#34-public-vs-private-economics",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-4-operational-reality",
+        "authored-referral-public-private-policy-overlays"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-private-deal-opacity-risk.md",
+      "bodyMarkdown": "# Referral Private Deal Opacity Risk\n\nNeelo's system baseline calls out private deal logic that can obscure public economics. The issue is not that partner-specific terms can never exist. The issue is that hidden terms can make the public referral table misleading.\n\nIf a normal user sees one policy while a partner receives a different effective share, boost, eligibility rule, or payout bucket, the docs need to explain the overlay model. Otherwise the referral program looks deterministic in public and discretionary in practice.\n\n## How To Document Private Overlays\n\nThe public docs should separate three layers:\n\n- the default public policy that applies to ordinary users;\n- the existence of any private commercial overlay category;\n- the fact that private terms are not universal.\n\nThat does not require publishing confidential partner terms. It does require avoiding copy that implies every participant receives the same economics when approved overlays can change outcomes.\n\n## Publication Boundary\n\nThis page should not reveal partner names, private rates, custom thresholds, campaign grants, or contract terms. It only establishes the documentation rule: private economics should be disclosed as overlays, not hidden side effects in public policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Operational Reality\".\n- `vibe-papers`: Neelo, \"Section 3: Rakeback Design\", \"Public vs Private Economics\".\n- `spec-03`: current referral and public-economics caveats.\n\n## Related Pages\n\n- `authored-referral-public-private-policy-overlays`\n- `authored-referral-economic-policy-decision-lane`\n- `authored-referral-category-partner-overlays`",
+      "excerpt": "Referral Private Deal Opacity Risk Neelo's system baseline calls out private deal logic that can obscure public economics. The issue is not that partner specific terms can never exist. The issue is that hidden terms can make the public referral table misleading. If a normal user sees one policy while a partner receives a different effective share, boost, eligibility rule, or payout bucket, the docs need to explain the overlay model. Otherwise the referral program looks deterministic in public and discretionary in practice. How To Document Private Overlays The public docs should separate three layers: the default public policy that applies to ordinary users; the existence of any private commercial overlay category; the fact that private terms are not universal. That does not require publishing confidential partner terms. It does require avoiding copy that implies every participant receives the same economics when approved overlays can change outcomes. Publication Boundary This page should not reveal partner names, private rates, custom thresholds, campaign grants, or contract terms. It only establishes the documentation rule: private economics should be disclosed as overlays, not hi"
+    },
+    {
       "id": "authored-referral-public-private-policy-overlays",
       "title": "Referral Public And Private Policy Overlays",
       "section": "rewards-referrals",
@@ -6906,6 +6983,32 @@
       "file": "content/authored/reference/referral-rakeback-policy-model.md",
       "bodyMarkdown": "# Referral Rakeback Policy Model\n\nThe referral paper models rakeback as two separate channels: the user's own trading-fee activity and the referred network's fee-generating activity. Both can be windowed, tiered, and policy-driven, but the docs should not collapse them into a single \"reward\" label.\n\nThe reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling-window calculations, but they have different trust and disclosure requirements.\n\n## Public And Private Policy\n\nThe source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model.\n\nThe source also flags unresolved policy questions: one-level versus multi-level referral depth, uniform versus campaign-specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the system.\n\n## UX Tradeoff\n\nA claim-based model is easier to operate early because claims can be authorized and settled through a constrained path. A net-fee or same-flow rebate model is smoother for users, but it requires stronger real-time determinism and tighter settlement controls.\n\n## Reader Implication\n\nWhen the docs explain rakeback, they should name the channel, the calculation window, the applicable public policy version, and whether a private overlay exists. Until operator inbox item `#3` is resolved, do not publish final depth, stacking, or backfill language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: Rakeback Design\".\n- `vibe-papers`: Neelo, \"Section 10: Open Decisions\".\n- `spec-03`: Referral-depth contradiction and public disclosure caveats.\n\n## Related Pages\n\n- `authored-points-taxonomy`\n- `authored-referral-depth-open-question`\n- `neelo-17-referral-program-17-docs-03-rakeback-design`",
       "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
+    },
+    {
+      "id": "authored-referral-reliable-incentives-under-scale",
+      "title": "Referral Reliable Incentives Under Scale",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#15-design-requirement",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/00-abstract",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-5-design-requirement",
+        "neelo-17-referral-program-17-docs-00-abstract"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-reliable-incentives-under-scale.md",
+      "bodyMarkdown": "# Referral Reliable Incentives Under Scale\n\nThe system-baseline source states the architectural transition plainly: move from \"features that work\" to \"incentives that remain reliable under scale and adversarial behavior.\"\n\nThat is the difference between an early referral feature and a market-formation layer. A feature can work for a controlled cohort because operators can patch policy manually. A scaled incentive has to remain explainable when many users, partners, markets, points, private overlays, and settlement events interact.\n\n## What Scale Changes\n\nScale increases the cost of ambiguity. A hidden trust assumption that is manageable during beta can become a public dispute once the program is open:\n\n- a referral graph becomes harder to reconcile;\n- a private partner overlay can distort public expectations;\n- provisional points can become economically meaningful;\n- reward-eligible code activation can become contested;\n- and weak attribution can turn fee flow into a claims problem.\n\nThat is why the source does not treat reliability as a later polish pass. It is the design requirement for the next architecture.\n\n## Reader Implication\n\nWhen the docs explain referral roadmap, they should not frame the next phase as only adding more perks. The next phase is about preserving speed and flexibility while reducing hidden trust assumptions. More incentives are only credible if attribution, accounting, anti-gaming, settlement, and reporting become more reliable at the same time.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Design Requirement\".\n- `vibe-papers`: Neelo, \"Abstract\".\n- `spec-03`: current referral and rewards-publication caveats.\n\n## Related Pages\n\n- `authored-referral-adversarial-trust-constraints`\n- `authored-referral-sustainable-fee-flow-objective`\n- `authored-referral-phase-version-reporting-rules`",
+      "excerpt": "Referral Reliable Incentives Under Scale The system baseline source states the architectural transition plainly: move from \"features that work\" to \"incentives that remain reliable under scale and adversarial behavior.\" That is the difference between an early referral feature and a market formation layer. A feature can work for a controlled cohort because operators can patch policy manually. A scaled incentive has to remain explainable when many users, partners, markets, points, private overlays, and settlement events interact. What Scale Changes Scale increases the cost of ambiguity. A hidden trust assumption that is manageable during beta can become a public dispute once the program is open: a referral graph becomes harder to reconcile; a private partner overlay can distort public expectations; provisional points can become economically meaningful; reward eligible code activation can become contested; and weak attribution can turn fee flow into a claims problem. That is why the source does not treat reliability as a later polish pass. It is the design requirement for the next architecture. Reader Implication When the docs explain referral roadmap, they should not frame the next ph"
     },
     {
       "id": "authored-referral-replay-safe-claim-authorizations",
@@ -7167,6 +7270,32 @@
       "file": "content/authored/reference/referral-three-plane-architecture.md",
       "bodyMarkdown": "# Referral Three-Plane Architecture\n\nNeelo's referral architecture splits the stack across three planes:\n\n1. on-chain identity and settlement;\n2. off-chain attribution and policy logic;\n3. user-facing access and claims UX.\n\nThat split is the core architecture. Referral programs need policy agility, but value-bearing claims need settlement integrity.\n\n## Deterministic, Policy, And Monitoring State\n\nThe source also splits state into deterministic state, policy state, and monitoring state.\n\nDeterministic state covers identity, claim consumption, and nonces. Policy state covers tier tables, eligibility gates, and private overlays. Monitoring state covers anomaly detection and reconciliation.\n\nThese boundaries prevent a growth-policy change from silently rewriting economic settlement, and they prevent monitoring tools from becoming hidden policy engines.\n\n## Reader Implication\n\nThe docs should not describe the referral system as only an app feature. It is a multi-plane attribution and settlement system. The exact implementation can evolve, but public docs should preserve the distinction between what is deterministic, what is policy-driven, and what is observed for integrity.\n\n## Publication Boundary\n\nThis page explains the source architecture. It should not publish final contract addresses, signer topology, claim paths, policy tables, monitoring thresholds, or incident controls until implementation and operator review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Component Boundaries\" and \"Trust Boundaries\".\n- `spec-03`: Referral and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-settlement-security-controls`\n- `authored-points-claim-bridge-and-vesting`",
       "excerpt": "Referral Three Plane Architecture Neelo's referral architecture splits the stack across three planes: 1. on chain identity and settlement; 2. off chain attribution and policy logic; 3. user facing access and claims UX. That split is the core architecture. Referral programs need policy agility, but value bearing claims need settlement integrity. Deterministic, Policy, And Monitoring State The source also splits state into deterministic state, policy state, and monitoring state. Deterministic state covers identity, claim consumption, and nonces. Policy state covers tier tables, eligibility gates, and private overlays. Monitoring state covers anomaly detection and reconciliation. These boundaries prevent a growth policy change from silently rewriting economic settlement, and they prevent monitoring tools from becoming hidden policy engines. Reader Implication The docs should not describe the referral system as only an app feature. It is a multi plane attribution and settlement system. The exact implementation can evolve, but public docs should preserve the distinction between what is deterministic, what is policy driven, and what is observed for integrity. Publication Boundary This pa"
+    },
+    {
+      "id": "authored-referral-transferable-points-hardening-gate",
+      "title": "Referral Transferable Points Hardening Gate",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#13-points-separation",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#14-operational-reality",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-3-points-separation",
+        "section-17-referral-program-17-docs-01-system-baseline-1-4-operational-reality"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-transferable-points-hardening-gate.md",
+      "bodyMarkdown": "# Referral Transferable Points Hardening Gate\n\nNeelo's baseline separates points from referral NFT state because this lets the product iterate faster. The same source also warns that weak guarantees appear if points are treated as economically transferable before controls are hardened.\n\nThat is the hardening gate: a point can be useful as provisional accounting before it is safe as transferable economic state.\n\n## What Must Harden First\n\nBefore points are documented as transferable, claimable, wrapped, or economically composable, the system needs stronger answers for:\n\n- source buckets and eligibility rules;\n- finalization timing;\n- anti-abuse review;\n- claim authorization;\n- replay protection;\n- and policy-version labeling.\n\nWithout those controls, transferable points can import every provisional-accounting error into a market object. A fake balance, duplicate attribution, late reversal, or hidden campaign adjustment becomes harder to repair once users trade around it.\n\n## Publication Boundary\n\nThis page does not announce transferable referral points, reward packs, artifacts, wrappers, TGE treatment, or point-linked markets. It states the source-backed gate: economic transferability should wait until accounting, eligibility, claims, and abuse controls are explicit.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Points Separation\" and \"Operational Reality\".\n- `spec-03`: current points-publication and reward-policy caveats.\n\n## Related Pages\n\n- `authored-referral-points-economic-state`\n- `authored-points-value-state-lifecycle`\n- `authored-tokenized-points-market-risk-boundary`",
+      "excerpt": "Referral Transferable Points Hardening Gate Neelo's baseline separates points from referral NFT state because this lets the product iterate faster. The same source also warns that weak guarantees appear if points are treated as economically transferable before controls are hardened. That is the hardening gate: a point can be useful as provisional accounting before it is safe as transferable economic state. What Must Harden First Before points are documented as transferable, claimable, wrapped, or economically composable, the system needs stronger answers for: source buckets and eligibility rules; finalization timing; anti abuse review; claim authorization; replay protection; and policy version labeling. Without those controls, transferable points can import every provisional accounting error into a market object. A fake balance, duplicate attribution, late reversal, or hidden campaign adjustment becomes harder to repair once users trade around it. Publication Boundary This page does not announce transferable referral points, reward packs, artifacts, wrappers, TGE treatment, or point linked markets. It states the source backed gate: economic transferability should wait until account"
     },
     {
       "id": "authored-referral-unified-access-identity",
