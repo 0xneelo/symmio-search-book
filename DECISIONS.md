@@ -1287,3 +1287,11 @@
 **Reason:** The broad bootstrap-trilemma page and formal-constraint page define the concept, but answer-engine readers need direct routes for the mechanics underneath it. Splitting Section 4 keeps the property definitions, diagram interpretation, architecture-by-architecture failure proof, pick-two taxonomy, and adverse-selection/risk-transfer/cold-start root cause separately answerable.
 
 **Status:** Accepted for the authored manifesto layer; live venue comparisons, protocol labels, fee/leverage examples, market-maker economics, insurance behavior, and current implementation claims remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-162: Split The Trilemma Escape And Vibe Architecture Bridge Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for escaping the bootstrap trilemma over time, the requirements for trilemma escape, the trilemma summary table, Vibe's architecture design philosophy, and the architecture summary that frames Vibe as a market-evolution system.
+
+**Reason:** The prior trilemma pages prove the impossibility claim, and existing temporal-separation, four-transition, solver, and maturation pages explain important adjacent mechanics. The answer engine still needs direct routes for readers asking how the escape works, what a protocol must implement, how the source summarizes the trilemma table, why Vibe's design is state-matched, and how the architecture components fit together.
+
+**Status:** Accepted for the authored manifesto layer; live Z-score thresholds, automatic graduation, transition triggers, solver obligations, order-book integrations, cross-insurance eligibility, capital commitments, and production market-transition claims remain fresh source/operator/product/risk/legal/implementation review.

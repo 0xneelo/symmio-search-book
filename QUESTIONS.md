@@ -603,6 +603,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why do single-architecture perp protocols fail the bootstrap trilemma? | `authored-single-architecture-failure-matrix` | Medium | The source tests async-netted, collateralized, and synchronous architectures and shows which trilemma property each one gives up. |
 | What is the pick-two reality in perp market design? | `authored-bootstrap-pick-two-reality` | Medium | Neelo's pick-two frame says static designs can optimize two of openness, efficiency, and payout reliability, but the missing third property explains the failure mode. |
 | Why does the bootstrap trilemma exist? | `authored-why-bootstrap-trilemma-exists` | Medium | The source roots the trilemma in adverse selection, risk transfer, and the circular cold-start loop between traders, liquidity, capital, returns, and volume. |
+| How does Vibe escape the bootstrap trilemma? | `authored-trilemma-escape-route` | Medium | Neelo's escape route is temporal: bootstrap prioritizes reliable counterparty, growth improves netting, and maturity moves toward order-book-like efficiency. |
+| What requirements must a protocol satisfy to escape the trilemma? | `authored-trilemma-escape-requirements` | Medium | Neelo says the protocol must start collateralized, enable netting, measure maturity, transition smoothly, and graduate fully. |
+| What is the bootstrap trilemma summary? | `authored-bootstrap-trilemma-summary` | Medium | The summary table shows which property netted async, collateralized, and order-book designs each give up. |
+| What is Vibe's architecture design philosophy? | `authored-vibe-architecture-design-philosophy` | Medium | Vibe is designed as a spectrum system that matches architecture to market state rather than freezing every market in one mode. |
+| Why is Vibe a market-evolution architecture? | `authored-vibe-market-evolution-architecture-summary` | Medium | The architecture summary maps hybrid collateral, solver operations, Z-score measurement, auto-graduation, and order-book integration into a lifecycle system. |
 
 ## Prototype Event Log
 

@@ -8,14 +8,14 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 604,
-  "totalAnswerable": 597,
+  "totalEntries": 609,
+  "totalAnswerable": 602,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 99,
+    "Getting Started": 104,
     "Trading Flow": 32,
     "Solvers And Settlement": 157,
     "Risk And Markets": 68,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 377,
+    "Medium": 382,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 597
+    "authored": 602
   },
   "byType": {
-    "answerable": 597,
+    "answerable": 602,
     "reconciliation": 7
   },
   "answerable": [
@@ -19370,6 +19370,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-escape-the-bootstrap-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Vibe escape the bootstrap trilemma?",
+      "normalizedQuestion": "how does vibe escape the bootstrap trilemma",
+      "shortAnswer": "Neelo's escape route is temporal: bootstrap prioritizes reliable counterparty, growth improves netting, and maturity moves toward order-book-like efficiency.",
+      "answerSummary": "Escaping The Bootstrap Trilemma Over Time The escape route is temporal rather than static. Neelo's trilemma applies to a single architecture operating in one fixed configuration. A protocol escapes by letting the market's architecture evolve with market state. At bootstrap, the market can sacrifice capital efficiency because its urgent need is a reliable...",
+      "confidence": "Medium",
+      "pageId": "authored-trilemma-escape-route",
+      "pageTitle": "Escaping The Bootstrap Trilemma Over Time",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-requirements-must-a-protocol-satisfy-to-escape-the-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What requirements must a protocol satisfy to escape the trilemma?",
+      "normalizedQuestion": "what requirements must a protocol satisfy to escape the trilemma",
+      "shortAnswer": "Neelo says the protocol must start collateralized, enable netting, measure maturity, transition smoothly, and graduate fully.",
+      "answerSummary": "Requirements For Escaping The Bootstrap Trilemma Neelo's requirements for trilemma escape turn the lifecycle thesis into an implementation checklist. The protocol must not merely claim that markets mature. It needs the machinery to start safely, observe maturity, and change architecture without breaking traders. First, the market must start collateralized...",
+      "confidence": "Medium",
+      "pageId": "authored-trilemma-escape-requirements",
+      "pageTitle": "Requirements For Escaping The Bootstrap Trilemma",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-bootstrap-trilemma-summary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the bootstrap trilemma summary?",
+      "normalizedQuestion": "what is the bootstrap trilemma summary",
+      "shortAnswer": "The summary table shows which property netted async, collateralized, and order-book designs each give up.",
+      "answerSummary": "The Bootstrap Trilemma Summary The short version of the bootstrap trilemma is that each static perp architecture gives up one of the three properties a new market wants: permissionless listing, capital efficiency, and reliable counterparty guarantees. Property Netted Async Collateralized Order Book Permissionless Yes Yes No Capital efficient Yes No Yes Re...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-trilemma-summary",
+      "pageTitle": "The Bootstrap Trilemma Summary",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-architecture-design-philosophy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Vibe's architecture design philosophy?",
+      "normalizedQuestion": "what is vibe s architecture design philosophy",
+      "shortAnswer": "Vibe is designed as a spectrum system that matches architecture to market state rather than freezing every market in one mode.",
+      "answerSummary": "Vibe Architecture Design Philosophy Vibe's architecture is designed around market evolution. The design philosophy is that launch markets and mature markets are different systems, so the protocol should not force both into one permanent architecture. The first principle is that markets are dynamic. At launch, the hard problem is making the first credible...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-architecture-design-philosophy",
+      "pageTitle": "Vibe Architecture Design Philosophy",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-a-market-evolution-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe a market-evolution architecture?",
+      "normalizedQuestion": "why is vibe a market evolution architecture",
+      "shortAnswer": "The architecture summary maps hybrid collateral, solver operations, Z-score measurement, auto-graduation, and order-book integration into a lifecycle system.",
+      "answerSummary": "Vibe As A Market Evolution Architecture Neelo's architecture summary frames Vibe as a protocol designed for market evolution, not static operation. Each component exists because a new market and a mature market need different tradeoffs. Hybrid collateral is the adaptive backing layer. It lets the market begin with stronger payout support, then pursue lowe...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-market-evolution-architecture-summary",
+      "pageTitle": "Vibe As A Market-Evolution Architecture",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -39063,6 +39208,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-escape-the-bootstrap-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Vibe escape the bootstrap trilemma?",
+      "normalizedQuestion": "how does vibe escape the bootstrap trilemma",
+      "shortAnswer": "Neelo's escape route is temporal: bootstrap prioritizes reliable counterparty, growth improves netting, and maturity moves toward order-book-like efficiency.",
+      "answerSummary": "Escaping The Bootstrap Trilemma Over Time The escape route is temporal rather than static. Neelo's trilemma applies to a single architecture operating in one fixed configuration. A protocol escapes by letting the market's architecture evolve with market state. At bootstrap, the market can sacrifice capital efficiency because its urgent need is a reliable...",
+      "confidence": "Medium",
+      "pageId": "authored-trilemma-escape-route",
+      "pageTitle": "Escaping The Bootstrap Trilemma Over Time",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-requirements-must-a-protocol-satisfy-to-escape-the-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What requirements must a protocol satisfy to escape the trilemma?",
+      "normalizedQuestion": "what requirements must a protocol satisfy to escape the trilemma",
+      "shortAnswer": "Neelo says the protocol must start collateralized, enable netting, measure maturity, transition smoothly, and graduate fully.",
+      "answerSummary": "Requirements For Escaping The Bootstrap Trilemma Neelo's requirements for trilemma escape turn the lifecycle thesis into an implementation checklist. The protocol must not merely claim that markets mature. It needs the machinery to start safely, observe maturity, and change architecture without breaking traders. First, the market must start collateralized...",
+      "confidence": "Medium",
+      "pageId": "authored-trilemma-escape-requirements",
+      "pageTitle": "Requirements For Escaping The Bootstrap Trilemma",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-bootstrap-trilemma-summary",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the bootstrap trilemma summary?",
+      "normalizedQuestion": "what is the bootstrap trilemma summary",
+      "shortAnswer": "The summary table shows which property netted async, collateralized, and order-book designs each give up.",
+      "answerSummary": "The Bootstrap Trilemma Summary The short version of the bootstrap trilemma is that each static perp architecture gives up one of the three properties a new market wants: permissionless listing, capital efficiency, and reliable counterparty guarantees. Property Netted Async Collateralized Order Book Permissionless Yes Yes No Capital efficient Yes No Yes Re...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-trilemma-summary",
+      "pageTitle": "The Bootstrap Trilemma Summary",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-architecture-design-philosophy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Vibe's architecture design philosophy?",
+      "normalizedQuestion": "what is vibe s architecture design philosophy",
+      "shortAnswer": "Vibe is designed as a spectrum system that matches architecture to market state rather than freezing every market in one mode.",
+      "answerSummary": "Vibe Architecture Design Philosophy Vibe's architecture is designed around market evolution. The design philosophy is that launch markets and mature markets are different systems, so the protocol should not force both into one permanent architecture. The first principle is that markets are dynamic. At launch, the hard problem is making the first credible...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-architecture-design-philosophy",
+      "pageTitle": "Vibe Architecture Design Philosophy",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-a-market-evolution-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is Vibe a market-evolution architecture?",
+      "normalizedQuestion": "why is vibe a market evolution architecture",
+      "shortAnswer": "The architecture summary maps hybrid collateral, solver operations, Z-score measurement, auto-graduation, and order-book integration into a lifecycle system.",
+      "answerSummary": "Vibe As A Market Evolution Architecture Neelo's architecture summary frames Vibe as a protocol designed for market evolution, not static operation. Each component exists because a new market and a mature market need different tradeoffs. Hybrid collateral is the adaptive backing layer. It lets the market begin with stronger payout support, then pursue lowe...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-market-evolution-architecture-summary",
+      "pageTitle": "Vibe As A Market-Evolution Architecture",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

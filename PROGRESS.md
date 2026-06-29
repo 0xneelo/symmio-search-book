@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Trilemma Escape And Vibe Architecture Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score trilemma escape and Vibe architecture source.
+- Split the trilemma-to-architecture bridge into exact answer routes for escaping the trilemma over time, requirements for escape, the trilemma summary table, Vibe's design philosophy, and Vibe as a market-evolution architecture.
+- Extended the question ledger so Ask can route lifecycle and architecture-summary questions without collapsing them into the broad bootstrap-trilemma, temporal-separation, or solver-owned market-maker pages.
+- Kept live graduation thresholds, Z-score policy, auto-graduation behavior, solver obligations, order-book integrations, cross-insurance eligibility, capital commitments, and current market-transition claims marked for fresh source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Bootstrap Trilemma Mechanics Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score bootstrap-trilemma source.

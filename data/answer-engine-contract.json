@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 597
+      "totalGoldenRoutes": 602
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 615,
-    "retrievalEligiblePages": 1407,
+    "publicNavigationPages": 620,
+    "retrievalEligiblePages": 1412,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 615,
+      "candidate": 620,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 597,
-    "exactRouteTestsPassing": 597,
+    "totalExactRouteTests": 602,
+    "exactRouteTestsPassing": 602,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 597
+      "candidate": 602
     },
     "exactRoutesByConfidence": {
-      "Medium": 377,
+      "Medium": 382,
       "High": 44,
       "Low": 176
     },
@@ -13222,6 +13222,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-does-the-bootstrap-trilemma-exist",
         "passes": true
+      },
+      {
+        "id": "qr-how-does-vibe-escape-the-bootstrap-trilemma",
+        "query": "How does Vibe escape the bootstrap trilemma?",
+        "normalizedQuery": "how does vibe escape the bootstrap trilemma",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-trilemma-escape-route",
+        "expectedPageTitle": "Escaping The Bootstrap Trilemma Over Time",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-vibe-escape-the-bootstrap-trilemma",
+        "passes": true
+      },
+      {
+        "id": "qr-what-requirements-must-a-protocol-satisfy-to-escape-the-trilemma",
+        "query": "What requirements must a protocol satisfy to escape the trilemma?",
+        "normalizedQuery": "what requirements must a protocol satisfy to escape the trilemma",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-trilemma-escape-requirements",
+        "expectedPageTitle": "Requirements For Escaping The Bootstrap Trilemma",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-requirements-must-a-protocol-satisfy-to-escape-the-trilemma",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-bootstrap-trilemma-summary",
+        "query": "What is the bootstrap trilemma summary?",
+        "normalizedQuery": "what is the bootstrap trilemma summary",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-trilemma-summary",
+        "expectedPageTitle": "The Bootstrap Trilemma Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-bootstrap-trilemma-summary",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-vibe-s-architecture-design-philosophy",
+        "query": "What is Vibe's architecture design philosophy?",
+        "normalizedQuery": "what is vibe s architecture design philosophy",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-architecture-design-philosophy",
+        "expectedPageTitle": "Vibe Architecture Design Philosophy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-vibe-s-architecture-design-philosophy",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-vibe-a-market-evolution-architecture",
+        "query": "Why is Vibe a market-evolution architecture?",
+        "normalizedQuery": "why is vibe a market evolution architecture",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-market-evolution-architecture-summary",
+        "expectedPageTitle": "Vibe As A Market-Evolution Architecture",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-vibe-a-market-evolution-architecture",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -13297,7 +13402,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 597,
+      "exactRoutes": 602,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

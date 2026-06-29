@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 616,
+  "totalPages": 621,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 449,
-    "publication-candidate": 147,
+    "publication-candidate-needs-operator-review": 452,
+    "publication-candidate": 149,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 338,
+    "manifesto": 343,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -526,6 +526,29 @@
       "file": "content/authored/manifesto/bootstrap-trilemma-formal-constraint.md",
       "bodyMarkdown": "# Formalizing The Bootstrap Trilemma Constraint\n\nNeelo formalizes the bootstrap problem as a constraint on single-architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two.\n\nPermissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes.\n\nThe tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async-netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer.\n\nThe formal constraint matters because it prevents the docs from treating Vibe as a UI preference. The lifecycle thesis is a response to a structural impossibility claim: if no single architecture can hold all three properties at every stage, then the market needs an architecture that changes as the market matures.\n\n## Reader Implication\n\nUse this page for the exact formal answer. Use `authored-bootstrap-trilemma` for the broader narrative, `authored-static-perp-design-failures` for category examples, and Vibe architecture pages for the proposed lifecycle response.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.1 Formalizing the Constraint\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-static-perp-design-failures`\n- `authored-markets-are-dynamic-not-static`",
       "excerpt": "Formalizing The Bootstrap Trilemma Constraint Neelo formalizes the bootstrap problem as a constraint on single architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two. Permissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes. The tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer. The formal constraint matters because it prevents the docs from treating Vibe as a UI prefer"
+    },
+    {
+      "id": "authored-bootstrap-trilemma-summary",
+      "title": "The Bootstrap Trilemma Summary",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-9-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-9-summary",
+        "authored-bootstrap-trilemma-three-properties",
+        "authored-single-architecture-failure-matrix"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-trilemma-summary.md",
+      "bodyMarkdown": "# The Bootstrap Trilemma Summary\n\nThe short version of the bootstrap trilemma is that each static perp architecture gives up one of the three properties a new market wants: permissionless listing, capital efficiency, and reliable counterparty guarantees.\n\n| Property | Netted Async | Collateralized | Order Book |\n| --- | --- | --- | --- |\n| Permissionless | Yes | Yes | No |\n| Capital efficient | Yes | No | Yes |\n| Reliable counterparty | No | Yes | Yes |\n\nThe table is not a ranking of venues. It is a failure map. Netted asynchronous systems can look elegant until a profitable imbalance needs someone to pay. Collateralized systems can make the first trade work, but they do it by locking or charging for risk capital. Order books are efficient once liquidity exists, but they do not manufacture the missing counterparty for unknown markets.\n\nThe source's conclusion is that the solution has to be hybrid. It must traverse the design space as markets mature rather than pretending one static architecture can be best at birth, growth, and maturity.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.9 Summary\".\n\n## Related Pages\n\n- `authored-trilemma-escape-route`\n- `authored-bootstrap-pick-two-reality`\n- `authored-landscape-comparative-analysis`",
+      "excerpt": "The Bootstrap Trilemma Summary The short version of the bootstrap trilemma is that each static perp architecture gives up one of the three properties a new market wants: permissionless listing, capital efficiency, and reliable counterparty guarantees. Property Netted Async Collateralized Order Book Permissionless Yes Yes No Capital efficient Yes No Yes Reliable counterparty No Yes Yes The table is not a ranking of venues. It is a failure map. Netted asynchronous systems can look elegant until a profitable imbalance needs someone to pay. Collateralized systems can make the first trade work, but they do it by locking or charging for risk capital. Order books are efficient once liquidity exists, but they do not manufacture the missing counterparty for unknown markets. The source's conclusion is that the solution has to be hybrid. It must traverse the design space as markets mature rather than pretending one static architecture can be best at birth, growth, and maturity. Sources vibe papers : Neelo, \"Section 4: The Bootstrap Trilemma: 4.9 Summary\". Related Pages authored trilemma escape route authored bootstrap pick two reality authored landscape comparative analysis"
     },
     {
       "id": "authored-bootstrap-trilemma-three-properties",
@@ -12406,6 +12429,52 @@
       "excerpt": "The Trader And Project Value Loop The Proof of Value framework explains Vibe's product value as a loop between traders and projects. For traders, the first value is access. Long tail tokens often have spot markets before they have serious derivative markets. A Vibe market can let traders speculate, hedge, arbitrage, or express a bearish view before the asset earns a mature order book listing. The source also ties execution quality to the lifecycle: early markets may begin with wider solver quotes and improve as flow becomes more balanced. For projects, the value is different. A project may have token inventory but limited productive uses for it. Centralized listings, professional market makers, or single sided spot liquidity can require stablecoin commitments, retainers, operational overhead, or sell pressure tradeoffs. A perp market gives the token more utility and visibility while letting the project support the market with the asset it already holds. The Loop The loop works only if both sides reinforce each other. More project inventory can create more markets. More markets can attract more traders. More trading can create more fees and stronger market evidence. Stronger evidenc"
     },
     {
+      "id": "authored-trilemma-escape-requirements",
+      "title": "Requirements For Escaping The Bootstrap Trilemma",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-8-requirements-for-trilemma-escape"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-8-requirements-for-trilemma-escape",
+        "authored-trilemma-escape-route",
+        "authored-market-maturation-z-score"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/trilemma-escape-requirements.md",
+      "bodyMarkdown": "# Requirements For Escaping The Bootstrap Trilemma\n\nNeelo's requirements for trilemma escape turn the lifecycle thesis into an implementation checklist. The protocol must not merely claim that markets mature. It needs the machinery to start safely, observe maturity, and change architecture without breaking traders.\n\nFirst, the market must start collateralized or otherwise have a defined payout source. Bootstrap reliability comes before efficiency because there is not yet enough natural two-sided flow.\n\nSecond, the system must enable netting. If opposing trader flow begins to appear, the protocol needs a way to shift payout sources from pure collateral support toward natural offsetting exposure.\n\nThird, maturity must be measured. Without an objective maturity signal, \"graduation\" becomes the same discretionary listing committee the source is trying to escape.\n\nFourth, transitions must be smooth. A market cannot ask traders to accept execution, margin, or settlement disruption merely because its architecture is improving.\n\nFifth, a market must be able to graduate fully. If the system can never reach the efficient endpoint, then the bootstrap mode is a permanent tax rather than a path.\n\n## Publication Boundary\n\nThe source states that Vibe is designed to satisfy this checklist. The public compendium should keep live graduation thresholds, production Z-score policy, transition triggers, venue handoff behavior, and any claim that a market has already completed the path under product and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.8 Requirements for Trilemma Escape\".\n\n## Related Pages\n\n- `authored-trilemma-escape-route`\n- `authored-market-maturation-z-score`\n- `authored-four-transitions`",
+      "excerpt": "Requirements For Escaping The Bootstrap Trilemma Neelo's requirements for trilemma escape turn the lifecycle thesis into an implementation checklist. The protocol must not merely claim that markets mature. It needs the machinery to start safely, observe maturity, and change architecture without breaking traders. First, the market must start collateralized or otherwise have a defined payout source. Bootstrap reliability comes before efficiency because there is not yet enough natural two sided flow. Second, the system must enable netting. If opposing trader flow begins to appear, the protocol needs a way to shift payout sources from pure collateral support toward natural offsetting exposure. Third, maturity must be measured. Without an objective maturity signal, \"graduation\" becomes the same discretionary listing committee the source is trying to escape. Fourth, transitions must be smooth. A market cannot ask traders to accept execution, margin, or settlement disruption merely because its architecture is improving. Fifth, a market must be able to graduate fully. If the system can never reach the efficient endpoint, then the bootstrap mode is a permanent tax rather than a path. Public"
+    },
+    {
+      "id": "authored-trilemma-escape-route",
+      "title": "Escaping The Bootstrap Trilemma Over Time",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-7-escape-from-the-trilemma"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-7-escape-from-the-trilemma",
+        "authored-temporal-separation-of-concerns",
+        "authored-bootstrap-trilemma-three-properties"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/trilemma-escape-route.md",
+      "bodyMarkdown": "# Escaping The Bootstrap Trilemma Over Time\n\nThe escape route is temporal rather than static. Neelo's trilemma applies to a single architecture operating in one fixed configuration. A protocol escapes by letting the market's architecture evolve with market state.\n\nAt bootstrap, the market can sacrifice capital efficiency because its urgent need is a reliable counterparty. A new market is not helped by theoretical netting if there is no opposite-side flow when the first profitable trade settles.\n\nDuring growth, the system can begin improving efficiency as more trader flow offsets naturally. The solver still handles residual imbalance, but less of the market depends on purely collateralized support.\n\nAt maturity, the market can aim for order-book-like efficiency because reliability has been earned through sustained flow, depth, and operating history. The goal is not to make the bootstrap state permanent. The goal is to move out of it when the market proves it can survive a thinner safety net.\n\n## Stage Logic\n\n| Stage | Primary Need | Can Temporarily Sacrifice |\n| --- | --- | --- |\n| Bootstrap | Reliable counterparty | Capital efficiency |\n| Growth | Balance between reliability and efficiency | No property fully |\n| Maturity | Maximum efficiency | Bootstrap guarantees already earned |\n\nThe key insight is that a market does not need all three trilemma properties in the same ratio at every moment. It needs the right property at the right stage.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.7 Escape from the Trilemma\".\n\n## Related Pages\n\n- `authored-temporal-separation-of-concerns`\n- `authored-trilemma-escape-requirements`\n- `authored-vibe-architecture-design-philosophy`",
+      "excerpt": "Escaping The Bootstrap Trilemma Over Time The escape route is temporal rather than static. Neelo's trilemma applies to a single architecture operating in one fixed configuration. A protocol escapes by letting the market's architecture evolve with market state. At bootstrap, the market can sacrifice capital efficiency because its urgent need is a reliable counterparty. A new market is not helped by theoretical netting if there is no opposite side flow when the first profitable trade settles. During growth, the system can begin improving efficiency as more trader flow offsets naturally. The solver still handles residual imbalance, but less of the market depends on purely collateralized support. At maturity, the market can aim for order book like efficiency because reliability has been earned through sustained flow, depth, and operating history. The goal is not to make the bootstrap state permanent. The goal is to move out of it when the market proves it can survive a thinner safety net. Stage Logic Stage Primary Need Can Temporarily Sacrifice Bootstrap Reliable counterparty Capital efficiency Growth Balance between reliability and efficiency No property fully Maturity Maximum efficie"
+    },
+    {
       "id": "authored-trust-flows-upstream",
       "title": "Trust Flows Upstream",
       "section": "manifesto",
@@ -13176,6 +13245,29 @@
       "excerpt": "Installing The Vibe PWA On Android The official Android path is also a PWA install flow. The mobile guide says Android users should open Chrome or another browser, visit app.vibe.trading , choose Install PWA App, use the browser menu, and add the app to the home screen. Browser Install Flow The public source does not require a native store listing for this path. It describes adding the browser based PWA to the home screen. That matters for support language: users should be told to install the PWA from the Vibe web app flow, not to search for an unrelated mobile package. The PWA is a convenience and monitoring surface. The same account, funding, margin, order, and liquidation rules still apply after installation. Sources vibe mobile pwa : official Android PWA setup flow. vibe account creation : account setup context for mobile users. Related Pages authored vibe mobile pwa authored vibe ios pwa install authored vibe pwa notification categories"
     },
     {
+      "id": "authored-vibe-architecture-design-philosophy",
+      "title": "Vibe Architecture Design Philosophy",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-1-design-philosophy"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-1-design-philosophy",
+        "authored-trilemma-escape-route",
+        "authored-four-transitions"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/vibe-architecture-design-philosophy.md",
+      "bodyMarkdown": "# Vibe Architecture Design Philosophy\n\nVibe's architecture is designed around market evolution. The design philosophy is that launch markets and mature markets are different systems, so the protocol should not force both into one permanent architecture.\n\nThe first principle is that markets are dynamic. At launch, the hard problem is making the first credible trade possible. At maturity, the hard problem is minimizing friction and capital cost for sustained flow.\n\nThe second principle is that architecture should match state. Bootstrap markets can accept more collateralization, isolated risk, asynchronous operation, and solver involvement. Mature markets should be allowed to move toward netting, synchronous execution, trader-to-trader flow, and more efficient insurance or margin treatment.\n\nThe third principle is that transitions should be automatic or at least objectively governed. If a human committee decides when a market is ready, the system reintroduces the discretion that permissionless market creation was meant to reduce.\n\nThe fourth principle is transparent measurement. A market's maturity should be grounded in observable behavior, not brand, narrative, or listing politics.\n\n## The Spectrum Model\n\nThe source describes Vibe as a spectrum system:\n\n| Bootstrap Side | Mature Side |\n| --- | --- |\n| Fully collateralized | Fully netted |\n| Fully asynchronous | Fully synchronous |\n| Solver-operated | Trader-to-trader |\n| Isolated insurance | Cross insurance |\n\nThe important claim is not that every market instantly reaches the mature side. The important claim is that the protocol is designed to let the market slide along the spectrum as evidence improves.\n\n## Publication Boundary\n\nLive transition rules, automation details, Z-score thresholds, cross-insurance eligibility, order-book integration behavior, and any production claim that a market has already moved between states require product and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.1 Design Philosophy\".\n\n## Related Pages\n\n- `authored-four-transitions`\n- `authored-market-maturation-z-score`\n- `authored-vibe-market-evolution-architecture-summary`",
+      "excerpt": "Vibe Architecture Design Philosophy Vibe's architecture is designed around market evolution. The design philosophy is that launch markets and mature markets are different systems, so the protocol should not force both into one permanent architecture. The first principle is that markets are dynamic. At launch, the hard problem is making the first credible trade possible. At maturity, the hard problem is minimizing friction and capital cost for sustained flow. The second principle is that architecture should match state. Bootstrap markets can accept more collateralization, isolated risk, asynchronous operation, and solver involvement. Mature markets should be allowed to move toward netting, synchronous execution, trader to trader flow, and more efficient insurance or margin treatment. The third principle is that transitions should be automatic or at least objectively governed. If a human committee decides when a market is ready, the system reintroduces the discretion that permissionless market creation was meant to reduce. The fourth principle is transparent measurement. A market's maturity should be grounded in observable behavior, not brand, narrative, or listing politics. The Spec"
+    },
+    {
       "id": "authored-vibe-as-discovery-layer",
       "title": "Vibe As The Discovery Layer",
       "section": "manifesto",
@@ -13560,6 +13652,29 @@
       "file": "content/authored/reference/vibe-login-path-choice.md",
       "bodyMarkdown": "# Choosing A Vibe Login Path\n\nVibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path.\n\nThe EOA path is the self-custody-oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow. The source frames this as the more secure path because the user retains direct wallet control.\n\nThe email or social path optimizes for convenience. The user enters an email, confirms a 6-digit code, deposits USDC into the provided smart-wallet address, waits for the deposit to appear, creates the account, and moves funds into the Vibe account. The official source also carries the important custody caveat: this path is closer to a centralized-exchange security posture because funds are not stored in the user's own wallet.\n\n## Reader Guidance\n\nThe docs should not present the two paths as a purely cosmetic choice. The choice affects custody posture, funding flow, and mobile behavior.\n\nAnswer the user this way:\n\n- choose the EOA path when direct wallet control is the priority;\n- choose email or social login when convenience and portability matter more;\n- understand that the email/social path changes custody assumptions;\n- read deposit mechanics next, because the account is not useful until funds reach the Vibe account.\n\n## Sources\n\n- `vibe-account-creation`: official Vibe EOA wallet account flow, email/social login flow, 6-digit confirmation code, smart-wallet deposit sequence, one-click gas-free trading claim, and custody caveat.\n\n## Related Pages\n\n- `authored-vibe-account-creation-and-login`\n- `authored-vibe-deposits-and-withdrawals`\n- `authored-vibe-mobile-pwa`",
       "excerpt": "Choosing A Vibe Login Path Vibe's official account guide gives users two onboarding paths: an EOA wallet path and an email or social login path. The EOA path is the self custody oriented path. The user connects a compatible wallet, prepares USDC collateral and gas on the chosen chain, creates a Vibe account, deposits USDC, and trades through the Vibe flow. The source frames this as the more secure path because the user retains direct wallet control. The email or social path optimizes for convenience. The user enters an email, confirms a 6 digit code, deposits USDC into the provided smart wallet address, waits for the deposit to appear, creates the account, and moves funds into the Vibe account. The official source also carries the important custody caveat: this path is closer to a centralized exchange security posture because funds are not stored in the user's own wallet. Reader Guidance The docs should not present the two paths as a purely cosmetic choice. The choice affects custody posture, funding flow, and mobile behavior. Answer the user this way: choose the EOA path when direct wallet control is the priority; choose email or social login when convenience and portability matte"
+    },
+    {
+      "id": "authored-vibe-market-evolution-architecture-summary",
+      "title": "Vibe As A Market-Evolution Architecture",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-7-architecture-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-7-architecture-summary",
+        "authored-vibe-architecture-design-philosophy",
+        "authored-solver-owned-market-maker"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/vibe-market-evolution-architecture-summary.md",
+      "bodyMarkdown": "# Vibe As A Market-Evolution Architecture\n\nNeelo's architecture summary frames Vibe as a protocol designed for market evolution, not static operation. Each component exists because a new market and a mature market need different tradeoffs.\n\nHybrid collateral is the adaptive backing layer. It lets the market begin with stronger payout support, then pursue lower-cost structure as natural flow improves.\n\nThe solver is the off-chain complexity layer. It handles quoting, residual counterparty exposure, risk controls, and transition orchestration that would be impractical or brittle if forced entirely on-chain.\n\nThe Z-score is the maturity measurement layer. It turns the transition question into an observable market-state question instead of a discretionary listing decision.\n\nAuto-graduation is the transition layer. The source's architectural goal is movement without manual committees or disruptive resets.\n\nOrder-book integration is the mature endpoint. Vibe does not claim that order books are useless. It claims that order-book efficiency belongs at the stage where the market has earned enough activity and balance to use it well.\n\n## Architecture Table\n\n| Component | Function | Innovation |\n| --- | --- | --- |\n| Hybrid collateral | Adaptive backing | Traverses the collateral spectrum |\n| Solver | Off-chain complexity | Makes derivatives execution operational before natural flow exists |\n| Z-score | Maturity measurement | Creates objective graduation criteria |\n| Auto-graduation | Transition orchestration | Reduces manual listing decisions |\n| Order-book integration | Efficiency at scale | Gives mature markets an endpoint |\n\nThe compendium should use this summary as the bridge from the trilemma to the implementation chapters: Vibe is not just a perp venue, but a lifecycle machine for moving markets from birth to maturity.\n\n## Publication Boundary\n\nThe source summarizes the intended architecture. Public claims about live auto-graduation, exact order-book integrations, current solver obligations, production Z-score use, market thresholds, or completed market transitions need fresh primary-source, product, risk, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.7 Architecture Summary\".\n\n## Related Pages\n\n- `authored-vibe-architecture-design-philosophy`\n- `authored-solver-owned-market-maker`\n- `authored-market-maturation-z-score`",
+      "excerpt": "Vibe As A Market Evolution Architecture Neelo's architecture summary frames Vibe as a protocol designed for market evolution, not static operation. Each component exists because a new market and a mature market need different tradeoffs. Hybrid collateral is the adaptive backing layer. It lets the market begin with stronger payout support, then pursue lower cost structure as natural flow improves. The solver is the off chain complexity layer. It handles quoting, residual counterparty exposure, risk controls, and transition orchestration that would be impractical or brittle if forced entirely on chain. The Z score is the maturity measurement layer. It turns the transition question into an observable market state question instead of a discretionary listing decision. Auto graduation is the transition layer. The source's architectural goal is movement without manual committees or disruptive resets. Order book integration is the mature endpoint. Vibe does not claim that order books are useless. It claims that order book efficiency belongs at the stage where the market has earned enough activity and balance to use it well. Architecture Table Component Function Innovation Hybrid collateral"
     },
     {
       "id": "authored-vibe-mobile-pwa",
