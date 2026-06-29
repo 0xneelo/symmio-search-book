@@ -1791,3 +1791,11 @@
 **Reason:** The product already has focused authored pages for Overview, My invites, My network, Volume, Tasks, FAQ, Settings, estimated revenue, and revenue pulse. A route inventory makes the "every dashboard view is documented" claim auditable while keeping citations narrow and avoiding another large dashboard omnibus page.
 
 **Status:** Accepted for dashboard-reference coverage. The inventory records the current route list and Search Book page mapping; it does not make revenue Phase B, Discord/Lafa FAQ import, the Barometer/subgraph migration, or production frontend deployment complete.
+
+## D-225: Final Report Must Document Parked Production Boundaries
+
+**Decision:** Commit `FINAL-REPORT.md` for the current Search Book dossier state, but require the report to document current status, verification evidence, remaining production work, and every open operator inbox item before the requirement map treats it as complete.
+
+**Reason:** The mission requires a final report, while the production deploy route, Discord/Lafa corpus, Notion ingestion, oldest whitepaper, SSHE identification, and service env remain parked. A report that hides those gaps would be a shortcut; an explicit readiness-boundary report gives future operators the evidence and the unfinished work in one place.
+
+**Status:** Accepted for delivery tracking. The report is a current-state delivery artifact, not proof that the whole Search Book goal is production-complete.

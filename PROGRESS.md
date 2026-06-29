@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Final Report And Readiness Boundary
+
+- Added `FINAL-REPORT.md` as the committed delivery report for the current Search Book dossier/prototype state.
+- Made the report explicit that the compendium, deterministic answer engine, living-docs loop, and live `gpt-4.1-mini` runtime are verified, while source ingestion, Discord/Lafa, production service env, and public deploy route remain parked.
+- Tightened the requirement-map final-report check so the report only counts as complete when it documents current status, verification evidence, remaining production work, and every open operator inbox item.
+- Kept the final report honest: it does not claim the full goal is production-complete or deployed.
+
 ## 2026-06-30 — Dashboard Route Inventory Coverage
 
 - Added `authored-dashboard-route-inventory` as the dashboard-reference coverage map for visible routes `#overview`, `#codes`, `#network`, `#volume`, `#tasks`, `#faq`, and `#settings`, plus the hidden `#revenue` route.

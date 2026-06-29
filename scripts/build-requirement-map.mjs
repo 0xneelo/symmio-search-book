@@ -148,6 +148,7 @@ const openInboxItems = parseOpenInboxItems(readText(args.inbox));
 const frontendPrototype = readText(args.frontendPrototype);
 const packageJson = readJson(args.packageJson, { scripts: {} });
 const finalReportExists = fs.existsSync(args.finalReport);
+const finalReportText = readText(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
@@ -197,6 +198,15 @@ const buildOrchestratorReady =
   fs.existsSync(args.buildOrchestrator) &&
   packageJson.scripts?.["search-book:build"] === "node src/search-book/scripts/build-all.mjs" &&
   packageJson.scripts?.["search-book:verify"] === "node src/search-book/scripts/build-all.mjs --verify";
+const finalReportMentionsOpenItems =
+  finalReportExists &&
+  openInboxItems.every((item) => finalReportText.includes(`OPERATOR-INBOX #${item.id}`));
+const finalReportDocumentsState =
+  finalReportExists &&
+  finalReportText.includes("## Current Status") &&
+  finalReportText.includes("## Verification Evidence") &&
+  finalReportText.includes("## Remaining Production Work") &&
+  finalReportMentionsOpenItems;
 const livingDocsEventContractReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -419,11 +429,17 @@ const requirements = [
   req({
     id: "final-report",
     label: "Final report committed",
-    status: finalReportExists ? "complete" : "missing",
+    status: finalReportDocumentsState ? "complete" : "missing",
     category: "delivery",
     sourceSpecs: ["01", "08"],
-    evidence: finalReportExists ? "FINAL-REPORT.md exists." : "No src/search-book/FINAL-REPORT.md exists yet.",
-    nextAction: "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",
+    evidence: finalReportDocumentsState
+      ? `FINAL-REPORT.md exists and documents ${openInboxItems.length} open operator item(s).`
+      : finalReportExists
+        ? "FINAL-REPORT.md exists but does not document current status, verification evidence, remaining production work, and all open operator items."
+        : "No src/search-book/FINAL-REPORT.md exists yet.",
+    nextAction: finalReportDocumentsState
+      ? "Keep FINAL-REPORT.md current when deploy/source blockers resolve or verification counts change."
+      : "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",
   }),
   req({
     id: "maintained-core-artifacts",
