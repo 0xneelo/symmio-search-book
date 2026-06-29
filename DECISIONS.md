@@ -1159,3 +1159,11 @@
 **Reason:** Section 6 ties Percolator's capital-efficiency critique to historical examples. Exact routes prevent readers from collapsing no-cross-margin, locked collateral, JIT duration, oracle-latency precedent, token-collateral black swans, and inverse-liability retreat into a generic "token margin is risky" claim.
 
 **Status:** Accepted for the authored manifesto layer; third-party historical details, current venue/product states, live Percolator parameters, capital-lock behavior, JIT mechanics, and publication-date claims remain fresh primary-source and operator/security/risk/legal/implementation review.
+
+## D-146: Split Percolator Strengths Into Exact Engineering Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for Percolator's pluggable matcher boundary, clean trust boundaries, balance-sheet safety invariant, fully on-chain keeper model, and the limit of engineering fixes against inverse-token economics.
+
+**Reason:** Section 7 is the fair-critique layer: it credits Percolator before rejecting the token-margined economic model. Exact routes let readers inspect what the system gets right without collapsing engineering strengths into financial robustness or dismissing real technical achievements.
+
+**Status:** Accepted for the authored manifesto layer; live verification scope, deployed program state, matcher implementations, keeper behavior, audit/security status, and current production claims remain fresh primary-source and operator/security/risk/legal/implementation review.

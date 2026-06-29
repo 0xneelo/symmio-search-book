@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Strengths Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 7 strengths source.
+- Split the broad "Percolator gets the engineering right" page into exact answer routes for pluggable matchers, clean trust boundaries, the balance-sheet safety invariant, fully on-chain keeper/minimal-state design, and the limit of engineering fixes against inverse-token economics.
+- Extended the question ledger so Ask can route direct questions about what Percolator does well without weakening the economic critique.
+- Kept live verification scope, deployed program state, current matcher implementations, keeper behavior, and security/audit claims marked for fresh primary-source/operator/security/risk review.
+
 ## 2026-06-29 — Percolator Capital Precedent Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 6 capital-inefficiency and historical-precedent source.

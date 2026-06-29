@@ -523,6 +523,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does Futureswap teach about toxic arbitrage? | `authored-futureswap-toxic-arbitrage-precedent` | Medium | Neelo uses Futureswap V1 as precedent that lagging bonding-curve or oracle pricing can create structurally toxic flow against LPs. |
 | What does Drift V1's LUNA episode teach about token collateral? | `authored-drift-luna-token-collateral-precedent` | Medium | Neelo's Drift/LUNA precedent shows collateral value can collapse while the system still owes winning shorts, turning token margin into correlated stress exposure. |
 | Why did inverse products retreat toward limits or linear stablecoin contracts? | `authored-inverse-product-retreat-precedent` | Medium | Neelo points to Synthetix inverse synth limits and BitMEX's move toward USDC-margined linear contracts as evidence that inverse liability shapes become expensive under volatility. |
+| What is Percolator's pluggable matcher boundary? | `authored-percolator-pluggable-matcher-boundary` | Medium | Neelo credits Percolator's CPI-based matcher modularity while separating execution flexibility from token-margined settlement economics. |
+| What clean trust boundaries does Percolator have? | `authored-percolator-clean-trust-boundaries` | Medium | Neelo separates Percolator's risk engine, validation program, and matcher logic, which helps review even though the risk unit can remain reflexive. |
+| What does Percolator's balance-sheet invariant prove? | `authored-percolator-balance-sheet-safety-invariant` | Medium | Neelo credits the invariant that users cannot withdraw more value than exists on the exchange balance sheet, while separating that from full payout credibility. |
+| Why does Percolator's fully on-chain keeper model matter? | `authored-fully-on-chain-keeper-model` | Medium | Neelo treats full on-chain execution and a permissionless keeper crank as real transparency strengths with adaptive-risk tradeoffs. |
+| Can engineering fixes solve inverse token economics? | `authored-engineering-fix-economics-limit` | Medium | Neelo's Section 7 says the core failures come from the economic model, so implementation quality can mitigate edges but cannot remove inverse-token structural constraints. |
 
 ## Prototype Event Log
 

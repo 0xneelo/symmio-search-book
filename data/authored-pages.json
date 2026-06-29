@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 536,
+  "totalPages": 541,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 387,
+    "publication-candidate-needs-operator-review": 392,
     "publication-candidate": 130,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 258,
+    "manifesto": 263,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -1721,6 +1721,29 @@
       "excerpt": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains why listings become political. A venue evaluates spot volume, community pressure, narrative strength, relationships, auctions, and prior exchange listings. Those signals can be directionally useful, but they are proxies. They do not answer the question the venue really cares about: whether traders will use the perp market enough for it to function. Vibe's vision is to produce the missing signal directly. Let the market exist early in a constrained environment. Let traders express demand. Let solvers quote, hedge, and learn the market. Let the resulting history become evidence for whether the asset deserves deeper execution. This is why \"vibes based listings\" is not just a meme about bad curation. It is a symptom of missing infrastructure. When early derivatives cannot exist, every later venue has to guess. When early derivatives can"
     },
     {
+      "id": "authored-engineering-fix-economics-limit",
+      "title": "Engineering Fixes Cannot Solve Inverse Economics",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "authored-percolator-engineering-vs-economics",
+        "authored-inverse-payoff-trap"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/engineering-fix-economics-limit.md",
+      "bodyMarkdown": "# Engineering Fixes Cannot Solve Inverse Economics\n\nSection 7 is careful: it credits Percolator's engineering, then lists the problems that engineering cannot fully fix. Reflexive collateral risk, negative convexity, LP lose-lose exposure, the one-times leverage constraint, spot-perp manipulation, short-side death spirals, and isolated-slab capital inefficiency all come from the economic model.\n\nThat is the central distinction for the compendium. Some flaws are implementation bugs. Others are design consequences. A bug can be patched. A design consequence can only be accepted, mitigated, bounded, or replaced.\n\nOracle latency is the partial exception in the source's table. Engineering can mitigate it, but the strongest mitigation may require an off-chain signer or active judgment, which weakens the fully on-chain property Section 7 credits. Even the fix creates a tradeoff.\n\n## Why This Page Exists\n\nWithout this page, readers may hear \"formally verified\" and assume \"financially robust.\" Or they may hear \"token margin is risky\" and assume the engineers were careless. The source says neither. It says Percolator can be well engineered while the inverse token-margined model carries structural constraints.\n\nThat nuance matters because Vibe's argument is architectural, not tribal. The target is not to beat a named competitor. The target is to explain why long-tail derivatives need stable settlement, explicit risk acceptance, inventory separation, and solver-managed refusal/repricing in the states where passive inverse mechanics break.\n\n## Reader Implication\n\nWhen a reader asks whether Percolator's issues can be patched away, route here. The answer is: some execution or oracle details can be improved, but the core inverse-token economics remain unless the collateral, settlement, and risk-bearing model changes.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.2 What Engineering Cannot Fix\".\n\n## Related Pages\n\n- `authored-percolator-engineering-vs-economics`\n- `authored-inverse-payoff-trap`\n- `authored-token-margined-reflexivity-risk`",
+      "excerpt": "Engineering Fixes Cannot Solve Inverse Economics Section 7 is careful: it credits Percolator's engineering, then lists the problems that engineering cannot fully fix. Reflexive collateral risk, negative convexity, LP lose lose exposure, the one times leverage constraint, spot perp manipulation, short side death spirals, and isolated slab capital inefficiency all come from the economic model. That is the central distinction for the compendium. Some flaws are implementation bugs. Others are design consequences. A bug can be patched. A design consequence can only be accepted, mitigated, bounded, or replaced. Oracle latency is the partial exception in the source's table. Engineering can mitigate it, but the strongest mitigation may require an off chain signer or active judgment, which weakens the fully on chain property Section 7 credits. Even the fix creates a tradeoff. Why This Page Exists Without this page, readers may hear \"formally verified\" and assume \"financially robust.\" Or they may hear \"token margin is risky\" and assume the engineers were careless. The source says neither. It says Percolator can be well engineered while the inverse token margined model carries structural cons"
+    },
+    {
       "id": "authored-episodic-long-tail-flow",
       "title": "Episodic Long-Tail Flow",
       "section": "manifesto",
@@ -2100,6 +2123,29 @@
       "file": "content/authored/manifesto/four-transitions.md",
       "bodyMarkdown": "# The Four Transitions\n\nNeelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself.\n\nThe first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another.\n\nThe second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order-book behavior become more plausible.\n\nThe third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market-maker around naturally matched trader flow.\n\nThe fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross-margin and insurance treatment after their behavior is known.\n\n## Reader Implication\n\nThe compendium should use the four transitions to explain why a Vibe market can be worse than an order book at launch but still be the right primitive. The point is not to freeze the bootstrap state; the point is to give markets a path out of it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.2 The Four Transitions\".\n\n## Related Pages\n\n- `authored-autonomous-market-creation`\n- `authored-market-maturation-z-score`\n- `authored-solver-owned-market-maker`",
       "excerpt": "The Four Transitions Neelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself. The first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another. The second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order book behavior become more plausible. The third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market maker around naturally matched trader flow. The fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross margin and insurance treatment after their behavior is known. Reader Implication The compend"
+    },
+    {
+      "id": "authored-fully-on-chain-keeper-model",
+      "title": "Fully On-Chain Keeper Model",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "authored-solver-refusal-as-oracle-defense",
+        "authored-capped-oracle-latency-arbitrage"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/fully-on-chain-keeper-model.md",
+      "bodyMarkdown": "# Fully On-Chain Keeper Model\n\nNeelo's Section 7 credits Percolator for being fully on-chain, with no off-chain dependency and a permissionless keeper crank. It also credits a minimal, auditable state machine that is easier to reason about than a sprawling hybrid system.\n\nThat achievement matters. A fully on-chain engine makes execution and state transitions inspectable. It reduces reliance on hidden infrastructure, private risk engines, or discretionary off-chain operators. For some users and builders, that property is a core value.\n\nThe tradeoff is that full on-chain passivity can reduce the system's ability to refuse bad flow, reprice under stress, or incorporate richer off-chain risk judgment before accepting exposure. The source itself notes that some oracle-latency exploitation can only be partially addressed without introducing off-chain signers, which would undermine the fully on-chain premise.\n\n## Transparency Versus Adaptive Risk\n\nThe design question is not whether transparency is good. It is what transparency is asked to do. If the market needs active risk controls, discretionary refusal, external hedging, or richer quote logic to survive low-cap volatility, then a purely on-chain keeper model may be transparent but economically exposed.\n\nVibe's answer should not be \"off-chain is better.\" It should be that durable financial state belongs on-chain, while some pricing, hedging, and risk acceptance can be solver-managed as long as the settlement boundary is explicit and enforceable.\n\n## Reader Implication\n\nWhen readers compare Percolator and Vibe, route here for the honest tradeoff. Percolator maximizes on-chain inspectability. Vibe should justify any hybrid element by showing what economic risk that element controls.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-settlement-state-boundary`\n- `authored-solver-refusal-as-oracle-defense`\n- `authored-active-risk-management-vs-passive-physics`",
+      "excerpt": "Fully On Chain Keeper Model Neelo's Section 7 credits Percolator for being fully on chain, with no off chain dependency and a permissionless keeper crank. It also credits a minimal, auditable state machine that is easier to reason about than a sprawling hybrid system. That achievement matters. A fully on chain engine makes execution and state transitions inspectable. It reduces reliance on hidden infrastructure, private risk engines, or discretionary off chain operators. For some users and builders, that property is a core value. The tradeoff is that full on chain passivity can reduce the system's ability to refuse bad flow, reprice under stress, or incorporate richer off chain risk judgment before accepting exposure. The source itself notes that some oracle latency exploitation can only be partially addressed without introducing off chain signers, which would undermine the fully on chain premise. Transparency Versus Adaptive Risk The design question is not whether transparency is good. It is what transparency is asked to do. If the market needs active risk controls, discretionary refusal, external hedging, or richer quote logic to survive low cap volatility, then a purely on chain"
     },
     {
       "id": "authored-funding-adl-defense-sequence-example",
@@ -5625,6 +5671,52 @@
       "excerpt": "Perceived Versus Actual Listing Interest The listing problem begins with a distinction that is easy to miss: actual interest only exists after a market can be used. Actual interest is real buying, selling, retention, volatility, short demand, hedging demand, and repeat participation. A venue cannot observe that directly before it lists an asset. It can only observe perceived interest: community size, engagement, deposits, relationships, narrative strength, brand credibility, expected volume, prior venues, and modeled safety. Those proxies are not useless. They are often the only inputs a curator has. But once market access depends on them, projects learn to optimize for the proxy instead of the market. The venue is trying to forecast demand. The project is trying to appear forecastable. Neelo's game theory point is that this is structural. Any venue with listing cost, curation responsibility, or reputational downside has to decide before actual interest is revealed. That turns listing from a market discovery process into a prediction process. Reader Implication Readers should understand why Vibe's thesis is not only \"list more assets.\" The stronger claim is that early derivative ma"
     },
     {
+      "id": "authored-percolator-balance-sheet-safety-invariant",
+      "title": "Percolator Balance-Sheet Safety Invariant",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "authored-percolator-formal-verification-boundary",
+        "authored-adl-haircut-controlled-crash"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-balance-sheet-safety-invariant.md",
+      "bodyMarkdown": "# Percolator Balance-Sheet Safety Invariant\n\nNeelo credits Percolator for enforcing a rigorous balance-sheet invariant: no user can withdraw more value than exists on the exchange balance sheet. That is a meaningful protocol-safety property.\n\nThe invariant explains how Percolator can survive technically. The contract can make sure withdrawals do not exceed the locally available balance. It can conserve balances, isolate markets, and avoid impossible token creation.\n\nThe limitation is that a conserved balance can still be economically inadequate. If a winning trader's claim is haircut through ADL, or if the token unit backing the balance has collapsed, the protocol may remain internally consistent while the user experience becomes \"the market did not pay what traders expected.\"\n\n## Technical Solvency Is Not Full Payout Credibility\n\nTechnical solvency asks whether the state machine avoids over-withdrawal. Payout credibility asks whether profitable positions settle in a way traders consider economically final and fair. The Percolator critique turns on that distinction.\n\nThis is why the compendium should avoid lazy language like \"insolvent\" when the precise problem is payout credibility under token-denominated stress. A system can avoid an accounting break by converting some stress into user haircuts, trapped capital, or volatile-unit settlement.\n\n## Reader Implication\n\nWhen a reader asks what the balance-sheet invariant proves, route here. It proves a valuable withdrawal-safety property. It does not prove that all winning positions remain fully credible in dollar terms during volatile inverse-market stress.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-percolator-formal-verification-boundary`\n- `authored-adl-haircut-controlled-crash`\n- `authored-solver-drawdown-not-protocol-insolvency`",
+      "excerpt": "Percolator Balance Sheet Safety Invariant Neelo credits Percolator for enforcing a rigorous balance sheet invariant: no user can withdraw more value than exists on the exchange balance sheet. That is a meaningful protocol safety property. The invariant explains how Percolator can survive technically. The contract can make sure withdrawals do not exceed the locally available balance. It can conserve balances, isolate markets, and avoid impossible token creation. The limitation is that a conserved balance can still be economically inadequate. If a winning trader's claim is haircut through ADL, or if the token unit backing the balance has collapsed, the protocol may remain internally consistent while the user experience becomes \"the market did not pay what traders expected.\" Technical Solvency Is Not Full Payout Credibility Technical solvency asks whether the state machine avoids over withdrawal. Payout credibility asks whether profitable positions settle in a way traders consider economically final and fair. The Percolator critique turns on that distinction. This is why the compendium should avoid lazy language like \"insolvent\" when the precise problem is payout credibility under tok"
+    },
+    {
+      "id": "authored-percolator-clean-trust-boundaries",
+      "title": "Percolator Clean Trust Boundaries",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "authored-percolator-formal-verification-boundary",
+        "authored-percolator-one-market-one-slab-accounting"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-clean-trust-boundaries.md",
+      "bodyMarkdown": "# Percolator Clean Trust Boundaries\n\nNeelo's Section 7 says Percolator gets an important trust-boundary separation right: the risk engine handles accounting, the program handles validation, and the matcher handles LP-scoped execution logic.\n\nThat is a better architecture than a system where every concern is fused into one opaque contract. Clean boundaries make review, testing, formal reasoning, and failure analysis easier. If a matcher is wrong, the question can be separated from whether the core balance-sheet logic conserves state.\n\nThe critique is that clean trust boundaries are not the same as clean economic boundaries. A program can separate accounting from matching while still binding collateral, PnL, fees, insurance, and settlement to the same volatile token unit. The software boundary is clean; the risk unit can remain reflexive.\n\n## Trust Boundary Versus Risk Boundary\n\nA trust boundary says which component is allowed to do what. A risk boundary says who eats loss when the market moves, when the oracle lags, or when winning traders need payment. Percolator's engineering can make the first boundary legible while the token-margined model leaves the second boundary economically fragile.\n\n## Reader Implication\n\nWhen docs describe architecture quality, separate module isolation from risk localization. Clean components are necessary for credible infrastructure, but they do not prove that volatile-asset liabilities are safely assigned.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-percolator-formal-verification-boundary`\n- `authored-token-margin-manipulation-amplifier`\n- `authored-token-inventory-risk-localization`",
+      "excerpt": "Percolator Clean Trust Boundaries Neelo's Section 7 says Percolator gets an important trust boundary separation right: the risk engine handles accounting, the program handles validation, and the matcher handles LP scoped execution logic. That is a better architecture than a system where every concern is fused into one opaque contract. Clean boundaries make review, testing, formal reasoning, and failure analysis easier. If a matcher is wrong, the question can be separated from whether the core balance sheet logic conserves state. The critique is that clean trust boundaries are not the same as clean economic boundaries. A program can separate accounting from matching while still binding collateral, PnL, fees, insurance, and settlement to the same volatile token unit. The software boundary is clean; the risk unit can remain reflexive. Trust Boundary Versus Risk Boundary A trust boundary says which component is allowed to do what. A risk boundary says who eats loss when the market moves, when the oracle lags, or when winning traders need payment. Percolator's engineering can make the first boundary legible while the token margined model leaves the second boundary economically fragile. "
+    },
+    {
       "id": "authored-percolator-engineering-vs-economics",
       "title": "Percolator: Engineering Strength, Economic Limit",
       "section": "manifesto",
@@ -5739,6 +5831,29 @@
       "file": "content/authored/manifesto/percolator-one-market-one-slab-accounting.md",
       "bodyMarkdown": "# Percolator One-Market-One-Slab Accounting\n\nPercolator's basic accounting unit is the slab: one market, one isolated instance.\n\nIn Neelo's source, each market has its own slab account, header and config, in-place risk engine, user accounts, LP accounts, and token collateral vault. The key property is isolation. No cross-margin exists across markets, and each market is locally reasoned about through its own balance sheet.\n\nThat is a strength for auditability. A local market can be inspected without tracing a global tangle of balances. It is also the root of a capital-design question: if every long-tail market needs separately committed collateral and cannot net risk across markets, breadth can become expensive.\n\n## Reader Implication\n\n\"One market, one slab\" should be documented as an accounting boundary, not as a complete liquidity strategy. It answers where balances live and how local safety is checked. It does not by itself answer whether many isolated markets can attract enough capital or pay winners under one-sided flow.\n\n## Publication Boundary\n\nUse the slab model as source-level architecture. Do not infer current vault balances, market count, risk settings, or cross-market netting behavior outside the cited source.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-slab-isolation-capital-inefficiency`\n- `authored-percolator-engineering-vs-economics`\n- `authored-long-tail-perp-model-map`",
       "excerpt": "Percolator One Market One Slab Accounting Percolator's basic accounting unit is the slab: one market, one isolated instance. In Neelo's source, each market has its own slab account, header and config, in place risk engine, user accounts, LP accounts, and token collateral vault. The key property is isolation. No cross margin exists across markets, and each market is locally reasoned about through its own balance sheet. That is a strength for auditability. A local market can be inspected without tracing a global tangle of balances. It is also the root of a capital design question: if every long tail market needs separately committed collateral and cannot net risk across markets, breadth can become expensive. Reader Implication \"One market, one slab\" should be documented as an accounting boundary, not as a complete liquidity strategy. It answers where balances live and how local safety is checked. It does not by itself answer whether many isolated markets can attract enough capital or pay winners under one sided flow. Publication Boundary Use the slab model as source level architecture. Do not infer current vault balances, market count, risk settings, or cross market netting behavior "
+    },
+    {
+      "id": "authored-percolator-pluggable-matcher-boundary",
+      "title": "Percolator Pluggable Matcher Boundary",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-07-percolator-strengths",
+        "authored-percolator-hybrid-risk-execution-model",
+        "authored-passive-matcher-vulnerability"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-pluggable-matcher-boundary.md",
+      "bodyMarkdown": "# Percolator Pluggable Matcher Boundary\n\nNeelo's Section 7 credits Percolator's pluggable matcher architecture as a real engineering achievement. The risk engine can be kept separate from pricing and execution logic, while matchers can be built around AMM, RFQ, or CLOB-style behavior through CPI-based integration.\n\nThat boundary is valuable because it prevents one matcher design from becoming the whole protocol. A market can experiment with execution logic while the core accounting and validation layer remains more stable. In a purely technical comparison, this modularity is a strength.\n\nThe economic caveat is that matcher modularity does not change what the market is margined and settled in. If collateral, fees, funding, profit, and loss are all token-denominated, a better matcher can improve execution quality but cannot remove inverse payoff risk, LP short-volatility exposure, or token-collateral reflexivity.\n\n## Why This Is A Fair-Critique Page\n\nThe point is not to deny Percolator's flexibility. The point is to locate it. Pluggable matchers solve an execution-interface problem. They do not by themselves solve the settlement, collateral, oracle, and payout-credibility problems described elsewhere in the Percolator critique.\n\n## Reader Implication\n\nWhen a reader asks whether Percolator is technically rigid, route here. The source-backed answer is no: the matcher layer is modular. The follow-up is that modular execution still inherits the economic model underneath it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-percolator-hybrid-risk-execution-model`\n- `authored-rfq-before-order-book`\n- `authored-passive-matcher-vulnerability`",
+      "excerpt": "Percolator Pluggable Matcher Boundary Neelo's Section 7 credits Percolator's pluggable matcher architecture as a real engineering achievement. The risk engine can be kept separate from pricing and execution logic, while matchers can be built around AMM, RFQ, or CLOB style behavior through CPI based integration. That boundary is valuable because it prevents one matcher design from becoming the whole protocol. A market can experiment with execution logic while the core accounting and validation layer remains more stable. In a purely technical comparison, this modularity is a strength. The economic caveat is that matcher modularity does not change what the market is margined and settled in. If collateral, fees, funding, profit, and loss are all token denominated, a better matcher can improve execution quality but cannot remove inverse payoff risk, LP short volatility exposure, or token collateral reflexivity. Why This Is A Fair Critique Page The point is not to deny Percolator's flexibility. The point is to locate it. Pluggable matchers solve an execution interface problem. They do not by themselves solve the settlement, collateral, oracle, and payout credibility problems described el"
     },
     {
       "id": "authored-percolator-sov-insurance-deflation-model",

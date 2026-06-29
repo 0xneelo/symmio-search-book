@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 517,
+  "totalRoutes": 522,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 297,
+    "Medium": 302,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 517
+    "authored": 522
   },
   "answerable": [
     {
@@ -9051,6 +9051,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo points to Synthetix inverse synth limits and BitMEX's move toward USDC-margined linear contracts as evidence that inverse liability shapes become expensive under volatility.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-percolator-s-pluggable-matcher-boundary",
+      "question": "What is Percolator's pluggable matcher boundary?",
+      "normalizedQuestion": "what is percolator s pluggable matcher boundary",
+      "pageId": "authored-percolator-pluggable-matcher-boundary",
+      "pageTitle": "Percolator Pluggable Matcher Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo credits Percolator's CPI-based matcher modularity while separating execution flexibility from token-margined settlement economics.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-clean-trust-boundaries-does-percolator-have",
+      "question": "What clean trust boundaries does Percolator have?",
+      "normalizedQuestion": "what clean trust boundaries does percolator have",
+      "pageId": "authored-percolator-clean-trust-boundaries",
+      "pageTitle": "Percolator Clean Trust Boundaries",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo separates Percolator's risk engine, validation program, and matcher logic, which helps review even though the risk unit can remain reflexive.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-percolator-s-balance-sheet-invariant-prove",
+      "question": "What does Percolator's balance-sheet invariant prove?",
+      "normalizedQuestion": "what does percolator s balance sheet invariant prove",
+      "pageId": "authored-percolator-balance-sheet-safety-invariant",
+      "pageTitle": "Percolator Balance-Sheet Safety Invariant",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo credits the invariant that users cannot withdraw more value than exists on the exchange balance sheet, while separating that from full payout credibility.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-percolator-s-fully-on-chain-keeper-model-matter",
+      "question": "Why does Percolator's fully on-chain keeper model matter?",
+      "normalizedQuestion": "why does percolator s fully on chain keeper model matter",
+      "pageId": "authored-fully-on-chain-keeper-model",
+      "pageTitle": "Fully On-Chain Keeper Model",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo treats full on-chain execution and a permissionless keeper crank as real transparency strengths with adaptive-risk tradeoffs.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-can-engineering-fixes-solve-inverse-token-economics",
+      "question": "Can engineering fixes solve inverse token economics?",
+      "normalizedQuestion": "can engineering fixes solve inverse token economics",
+      "pageId": "authored-engineering-fix-economics-limit",
+      "pageTitle": "Engineering Fixes Cannot Solve Inverse Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Section 7 says the core failures come from the economic model, so implementation quality can mitigate edges but cannot remove inverse-token structural constraints.",
       "sourceKeys": [
         "vibe-papers"
       ],
