@@ -40,8 +40,11 @@ const defaults = {
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
   gaps: path.join(searchBookRoot, "GAPS.md"),
   questions: path.join(searchBookRoot, "QUESTIONS.md"),
+  readme: path.join(searchBookRoot, "README.md"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   frontendPrototype: path.join(searchBookRoot, "index.html"),
+  buildOrchestrator: path.join(searchBookRoot, "scripts", "build-all.mjs"),
+  packageJson: path.join(repoRoot, "package.json"),
   generatedDir: path.join(searchBookRoot, "content", "generated"),
   authoredDir: path.join(searchBookRoot, "content", "authored"),
   outJson: path.join(searchBookRoot, "data", "quality-audit.json"),
@@ -236,8 +239,10 @@ const contentStats = readJson(args.contentStats);
 const registryMarkdown = readText(args.sourceRegistry);
 const gapMarkdown = readText(args.gaps);
 const questionMarkdown = readText(args.questions);
+const readmeMarkdown = readText(args.readme);
 const inboxMarkdown = readText(args.operatorInbox);
 const frontendPrototype = readText(args.frontendPrototype);
+const packageJson = fs.existsSync(args.packageJson) ? readJson(args.packageJson) : { scripts: {} };
 
 const manifestPages = manifest.pages || [];
 const authoredPages = authored.pages || [];
@@ -260,6 +265,11 @@ const catalogKeysMissingRegistry = sourceCatalogKeys.filter((key) => !knownSourc
 const unusedRegisteredSourceKeys = [...knownSourceKeys].filter((key) => !usedSourceKeys.includes(key));
 const generatedFiles = listMarkdownFiles(args.generatedDir).length;
 const authoredFiles = listMarkdownFiles(args.authoredDir).length;
+const buildOrchestratorReady =
+  fs.existsSync(args.buildOrchestrator) &&
+  packageJson.scripts?.["search-book:build"] === "node src/search-book/scripts/build-all.mjs" &&
+  packageJson.scripts?.["search-book:verify"] === "node src/search-book/scripts/build-all.mjs --verify" &&
+  readmeMarkdown.includes("node src/search-book/scripts/build-all.mjs --verify");
 const openInboxItems = parseOpenInboxItems(inboxMarkdown);
 const resolvedInboxItems = parseResolvedInboxItems(inboxMarkdown);
 const gaps = parseGapItems(gapMarkdown);
@@ -430,6 +440,14 @@ const gates = [
     label: "Generated files match manifest",
     passed: generatedFiles === manifestPages.length && contentStats.generatedFiles === manifestPages.length,
     detail: `${generatedFiles} markdown files, ${contentStats.generatedFiles} content-stats files, ${manifestPages.length} manifest pages`,
+  },
+  {
+    id: "reproducible-build",
+    label: "Reproducible build orchestrator is available",
+    passed: buildOrchestratorReady,
+    detail: buildOrchestratorReady
+      ? "build-all.mjs plus npm search-book build/verify aliases are available"
+      : "missing build-all.mjs, README verification command, or npm search-book aliases",
   },
   {
     id: "search-index",
@@ -660,6 +678,7 @@ const payload = {
     manifestTargetMaximum,
     manifestWithinTarget: withinTargetRange,
     generatedFiles,
+    buildOrchestratorReady,
     searchIndexEntries: searchIndex.length,
     authoredPublicationCandidates: authoredPages.length,
     authoredFiles,

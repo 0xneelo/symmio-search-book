@@ -94,6 +94,14 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 Focused checks for this package:
 
 ```sh
+node src/search-book/scripts/build-all.mjs --verify
+```
+
+The same check is exposed as `npm run search-book:verify`. Use `node src/search-book/scripts/build-all.mjs --list` to inspect step ids, `--dry-run` to preview commands, and `--from <step-id>` / `--only <step-id>` for resumable focused rebuilds.
+
+Expanded legacy command list, kept for audit only:
+
+```text
 node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
 node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
 node src/search-book/scripts/build-authored-index.mjs

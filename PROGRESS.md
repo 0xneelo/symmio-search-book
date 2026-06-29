@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Reproducible Build Orchestrator
+
+- Added `src/search-book/scripts/build-all.mjs` as the canonical deterministic Search Book build entrypoint.
+- Wrapped the full content/data generation chain with `--verify`, syntax checks, invariant checks, sensitive-pattern review, dry-run/list modes, and `--from` / `--only` resume controls.
+- Exposed root npm aliases `search-book:build` and `search-book:verify` so agents and CI can run the same command without copying the README command block.
+- Added readiness-map and quality-audit coverage for the build orchestrator while keeping source ingestion, Discord import, production frontend deploy, and final report as separate parked production work.
+
 ## 2026-06-30 — Information And Trade Source Navigation Coverage
 
 - Added `authored-information-trade-source-navigation-map` to route Neelo's remaining Information and Trade abstract, overview, hybrid-solver, Thumbs Down visual, and conclusion source-marker fragments into existing authored thesis pages.

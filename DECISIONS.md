@@ -1775,3 +1775,11 @@
 **Reason:** The uncovered items are mostly anthology orientation and source-marker fragments, plus a few focused mechanism stubs already covered by stronger authored pages. Promoting them into standalone public pages would duplicate the Information/Trade spine and make review-bound source examples look like final product claims. A single source map preserves traceability while closing generated companion coverage.
 
 **Status:** Accepted for source-traceability coverage. Lifecycle-control claims, whale-vault economics, bell-curve flattening policy, unapproved LP revenue share, launch-time shorting availability, universal market eligibility, and any claim that Vibe already operates the full described verification layer remain fresh primary-source/operator/product/risk/legal/accounting/implementation review items before publication.
+
+## D-223: Use One Canonical Build And Verification Entrypoint
+
+**Decision:** Add `src/search-book/scripts/build-all.mjs` as the canonical Search Book generation and verification orchestrator, expose it through root npm aliases, and make the first README verification block call `node src/search-book/scripts/build-all.mjs --verify`.
+
+**Reason:** The package had a reliable deterministic build chain, but it lived as a long README command block that agents had to copy exactly. A single entrypoint reduces drift, supports dry-run/list/resume workflows, and lets CI or future agents run the same generation, syntax, invariant, and sensitive-pattern checks from one command.
+
+**Status:** Accepted for production-readiness workflow. The orchestrator does not resolve parked source imports, production service env, frontend deploy route, Discord/Lafa ingestion, or final-report work; those remain separately tracked in the requirement map and operator inbox.

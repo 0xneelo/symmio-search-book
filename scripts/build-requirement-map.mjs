@@ -32,6 +32,8 @@ const defaults = {
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
   frontendPrototype: path.join(searchBookRoot, "index.html"),
+  buildOrchestrator: path.join(searchBookRoot, "scripts", "build-all.mjs"),
+  packageJson: path.join(repoRoot, "package.json"),
   outJson: path.join(searchBookRoot, "data", "requirement-map.json"),
   outJs: path.join(searchBookRoot, "data", "requirement-map.js"),
 };
@@ -144,6 +146,7 @@ const competitiveSweep = readJson(args.competitiveSweep, {
 const crosslinks = readJson(args.crosslinks, { totalPages: 0, missingExplicitRelatedPageIds: [] });
 const openInboxItems = parseOpenInboxItems(readText(args.inbox));
 const frontendPrototype = readText(args.frontendPrototype);
+const packageJson = readJson(args.packageJson, { scripts: {} });
 const finalReportExists = fs.existsSync(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
@@ -190,6 +193,10 @@ const frontendServiceIntegrationImplemented =
     frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
+const buildOrchestratorReady =
+  fs.existsSync(args.buildOrchestrator) &&
+  packageJson.scripts?.["search-book:build"] === "node src/search-book/scripts/build-all.mjs" &&
+  packageJson.scripts?.["search-book:verify"] === "node src/search-book/scripts/build-all.mjs --verify";
 const livingDocsEventContractReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -420,11 +427,11 @@ const requirements = [
   }),
   req({
     id: "maintained-core-artifacts",
-    label: "DECISIONS, SOURCES, STYLEGUIDE, GAPS, QUESTIONS, manifest maintained",
-    status: ["DECISIONS.md", "SOURCES.md", "STYLEGUIDE.md", "GAPS.md", "QUESTIONS.md", "page-manifest.json"].every((file) => fs.existsSync(path.join(searchBookRoot, file))) ? "complete" : "partial",
+    label: "DECISIONS, SOURCES, STYLEGUIDE, GAPS, QUESTIONS, manifest, and build entrypoint maintained",
+    status: ["DECISIONS.md", "SOURCES.md", "STYLEGUIDE.md", "GAPS.md", "QUESTIONS.md", "page-manifest.json"].every((file) => fs.existsSync(path.join(searchBookRoot, file))) && buildOrchestratorReady ? "complete" : "partial",
     category: "delivery",
     sourceSpecs: ["01", "07", "08"],
-    evidence: "Core search-book artifacts exist and have been updated across checkpoints.",
+    evidence: `Core search-book artifacts exist and have been updated across checkpoints; build orchestrator ready=${buildOrchestratorReady}.`,
     nextAction: "Keep these artifacts current as final platform/deploy work proceeds.",
   }),
 ];
