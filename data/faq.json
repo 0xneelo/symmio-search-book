@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 489,
-  "totalAnswerable": 482,
+  "totalEntries": 494,
+  "totalAnswerable": 487,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,8 +17,8 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 137,
-    "Risk And Markets": 26,
+    "Solvers And Settlement": 139,
+    "Risk And Markets": 29,
     "Revenue": 74,
     "Manifesto": 72,
     "Rewards And Referrals": 78,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 262,
+    "Medium": 267,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 482
+    "authored": 487
   },
   "byType": {
-    "answerable": 482,
+    "answerable": 487,
     "reconciliation": 7
   },
   "answerable": [
@@ -16032,6 +16032,151 @@
       "confidence": "Medium",
       "pageId": "authored-stress-correlation-cascade",
       "pageTitle": "Stress Correlation Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-usdc-have-an-opportunity-cost-floor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why does USDC have an opportunity-cost floor?",
+      "normalizedQuestion": "why does usdc have an opportunity cost floor",
+      "shortAnswer": "Neelo starts the required APR with the outside return stablecoin capital can earn elsewhere before adding low-cap tail-risk compensation.",
+      "answerSummary": "USDC Opportunity Cost Floor Neelo's APR derivation starts with a simple floor: stablecoin capital has alternatives. If an LP can deploy USDC into lower risk DeFi strategies, then a low cap perp backstop has to clear that opportunity cost before it even starts compensating for manipulation, bad debt, liquidation failure, or adverse selection. In the source...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-opportunity-cost-floor",
+      "pageTitle": "USDC Opportunity Cost Floor",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-expected-loss-capital-maintenance-rather-than-yield",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is expected loss capital maintenance rather than yield?",
+      "normalizedQuestion": "why is expected loss capital maintenance rather than yield",
+      "shortAnswer": "Neelo treats expected protocol loss as the return needed to keep LP capital whole before any true excess return is earned.",
+      "answerSummary": "Expected Loss As Capital Maintenance The USDC APR derivation treats expected protocol loss as capital maintenance, not as yield. That distinction matters. If a pool earns return while also absorbing predictable losses from manipulation, oracle failure, liquidation failure, backstop depletion, or smart contract events, the first part of the return merely k...",
+      "confidence": "Medium",
+      "pageId": "authored-expected-loss-capital-maintenance",
+      "pageTitle": "Expected Loss As Capital Maintenance",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-usdc-lps-need-an-adverse-selection-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do USDC LPs need an adverse-selection premium?",
+      "normalizedQuestion": "why do usdc lps need an adverse selection premium",
+      "shortAnswer": "Neelo argues that passive LPs face informed or strategic flow and effectively sell tail-risk insurance, so ordinary expected loss is not enough.",
+      "answerSummary": "Adverse Selection Premium For USDC LPs Neelo's required APR model adds an adverse selection premium because low cap perp LPs can be trading against better informed and more strategic flow. The source links this to two ideas. First, an LP can resemble a seller of tail risk insurance: the LP is exposed when the market moves violently or when the system fail...",
+      "confidence": "Medium",
+      "pageId": "authored-adverse-selection-premium-for-usdc-lps",
+      "pageTitle": "Adverse Selection Premium For USDC LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-difference-between-break-even-and-attractive-apr",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What is the difference between break-even and attractive APR?",
+      "normalizedQuestion": "what is the difference between break even and attractive apr",
+      "shortAnswer": "Neelo separates earning enough to cover expected loss and outside USDC yield from earning enough to compensate for tail risk and adverse selection.",
+      "answerSummary": "Break Even Versus Attractive APR The economic interpretation section makes a useful distinction: an LP break even APR is not the same as an attractive APR. In the source model, break even means the LP earns enough to cover expected loss and still match the outside USDC opportunity: That only gets the LP to indifference in expectation. To be attractive, th...",
+      "confidence": "Medium",
+      "pageId": "authored-break-even-versus-attractive-apr",
+      "pageTitle": "Break-Even Versus Attractive APR",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-high-lp-apr-make-low-cap-perps-unsustainable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why can high LP APR make low-cap perps unsustainable?",
+      "normalizedQuestion": "why can high lp apr make low cap perps unsustainable",
+      "shortAnswer": "Neelo says high required USDC LP compensation forces fees, funding, spreads, subsidies, or emissions that can weaken trader participation and market sustainability.",
+      "answerSummary": "High APR Sustainability Pressure Neelo's protocol design implication is that high required LP APR becomes a product and market structure problem. If a USDC backstop needs extreme compensation, the protocol has only a few broad sources to fund it: trading fees, funding transfers, spreads, explicit subsidies, token emissions, or some other value capture. Ea...",
+      "confidence": "Medium",
+      "pageId": "authored-high-apr-sustainability-pressure",
+      "pageTitle": "High APR Sustainability Pressure",
       "pageSection": "manifesto",
       "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -32390,6 +32535,151 @@
       "confidence": "Medium",
       "pageId": "authored-stress-correlation-cascade",
       "pageTitle": "Stress Correlation Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-usdc-have-an-opportunity-cost-floor",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why does USDC have an opportunity-cost floor?",
+      "normalizedQuestion": "why does usdc have an opportunity cost floor",
+      "shortAnswer": "Neelo starts the required APR with the outside return stablecoin capital can earn elsewhere before adding low-cap tail-risk compensation.",
+      "answerSummary": "USDC Opportunity Cost Floor Neelo's APR derivation starts with a simple floor: stablecoin capital has alternatives. If an LP can deploy USDC into lower risk DeFi strategies, then a low cap perp backstop has to clear that opportunity cost before it even starts compensating for manipulation, bad debt, liquidation failure, or adverse selection. In the source...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-opportunity-cost-floor",
+      "pageTitle": "USDC Opportunity Cost Floor",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-expected-loss-capital-maintenance-rather-than-yield",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is expected loss capital maintenance rather than yield?",
+      "normalizedQuestion": "why is expected loss capital maintenance rather than yield",
+      "shortAnswer": "Neelo treats expected protocol loss as the return needed to keep LP capital whole before any true excess return is earned.",
+      "answerSummary": "Expected Loss As Capital Maintenance The USDC APR derivation treats expected protocol loss as capital maintenance, not as yield. That distinction matters. If a pool earns return while also absorbing predictable losses from manipulation, oracle failure, liquidation failure, backstop depletion, or smart contract events, the first part of the return merely k...",
+      "confidence": "Medium",
+      "pageId": "authored-expected-loss-capital-maintenance",
+      "pageTitle": "Expected Loss As Capital Maintenance",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-usdc-lps-need-an-adverse-selection-premium",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do USDC LPs need an adverse-selection premium?",
+      "normalizedQuestion": "why do usdc lps need an adverse selection premium",
+      "shortAnswer": "Neelo argues that passive LPs face informed or strategic flow and effectively sell tail-risk insurance, so ordinary expected loss is not enough.",
+      "answerSummary": "Adverse Selection Premium For USDC LPs Neelo's required APR model adds an adverse selection premium because low cap perp LPs can be trading against better informed and more strategic flow. The source links this to two ideas. First, an LP can resemble a seller of tail risk insurance: the LP is exposed when the market moves violently or when the system fail...",
+      "confidence": "Medium",
+      "pageId": "authored-adverse-selection-premium-for-usdc-lps",
+      "pageTitle": "Adverse Selection Premium For USDC LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-difference-between-break-even-and-attractive-apr",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What is the difference between break-even and attractive APR?",
+      "normalizedQuestion": "what is the difference between break even and attractive apr",
+      "shortAnswer": "Neelo separates earning enough to cover expected loss and outside USDC yield from earning enough to compensate for tail risk and adverse selection.",
+      "answerSummary": "Break Even Versus Attractive APR The economic interpretation section makes a useful distinction: an LP break even APR is not the same as an attractive APR. In the source model, break even means the LP earns enough to cover expected loss and still match the outside USDC opportunity: That only gets the LP to indifference in expectation. To be attractive, th...",
+      "confidence": "Medium",
+      "pageId": "authored-break-even-versus-attractive-apr",
+      "pageTitle": "Break-Even Versus Attractive APR",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-high-lp-apr-make-low-cap-perps-unsustainable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why can high LP APR make low-cap perps unsustainable?",
+      "normalizedQuestion": "why can high lp apr make low cap perps unsustainable",
+      "shortAnswer": "Neelo says high required USDC LP compensation forces fees, funding, spreads, subsidies, or emissions that can weaken trader participation and market sustainability.",
+      "answerSummary": "High APR Sustainability Pressure Neelo's protocol design implication is that high required LP APR becomes a product and market structure problem. If a USDC backstop needs extreme compensation, the protocol has only a few broad sources to fund it: trading fees, funding transfers, spreads, explicit subsidies, token emissions, or some other value capture. Ea...",
+      "confidence": "Medium",
+      "pageId": "authored-high-apr-sustainability-pressure",
+      "pageTitle": "High APR Sustainability Pressure",
       "pageSection": "manifesto",
       "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",

@@ -1103,3 +1103,11 @@
 **Reason:** The broad required-risk-premium page explains that low-cap USDC backstops need high compensation, but answer-engine readers need direct routes for the mechanics underneath that conclusion. Splitting the derivation keeps game-theory attack logic, event-frequency/severity decomposition, liquidation execution risk, and correlated stress from being collapsed into one generic "risk premium" claim.
 
 **Status:** Accepted for the authored manifesto layer; live OI thresholds, manipulation-cost estimates, oracle parameters, liquidation windows, keeper incentives, insurance allocation, loss-waterfall behavior, capital charges, APRs, and market-specific risk weights remain operator/risk/legal/accounting/implementation review.
+
+## D-139: Split USDC Required APR Into Component-Level Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the USDC opportunity-cost floor, expected-loss-as-capital-maintenance component, adverse-selection premium, break-even versus attractive APR distinction, and high-APR sustainability pressure.
+
+**Reason:** The risk-model pages explain why losses can be large, but the answer engine also needs exact routes for how those losses translate into required LP return. Splitting the APR components makes the opportunity-cost floor, loss-maintenance layer, strategic-flow premium, market-equilibrium distinction, and fee/subsidy/emission sustainability pressure independently answerable.
+
+**Status:** Accepted for the authored manifesto layer; live benchmark rates, expected-loss ranges, adverse-selection premium ranges, LP yield targets, fee levels, funding rates, spread policy, token-emission policy, subsidy plans, and token-backed APR claims remain operator/risk/accounting/legal/implementation review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 482
+      "totalGoldenRoutes": 487
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 500,
-    "retrievalEligiblePages": 1292,
+    "publicNavigationPages": 505,
+    "retrievalEligiblePages": 1297,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 500,
+      "candidate": 505,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 482,
-    "exactRouteTestsPassing": 482,
+    "totalExactRouteTests": 487,
+    "exactRouteTestsPassing": 487,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 482
+      "candidate": 487
     },
     "exactRoutesByConfidence": {
-      "Medium": 262,
+      "Medium": 267,
       "High": 44,
       "Low": 176
     },
@@ -10807,6 +10807,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-do-low-cap-perp-stress-events-cascade",
         "passes": true
+      },
+      {
+        "id": "qr-why-does-usdc-have-an-opportunity-cost-floor",
+        "query": "Why does USDC have an opportunity-cost floor?",
+        "normalizedQuery": "why does usdc have an opportunity cost floor",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-opportunity-cost-floor",
+        "expectedPageTitle": "USDC Opportunity Cost Floor",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-does-usdc-have-an-opportunity-cost-floor",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-expected-loss-capital-maintenance-rather-than-yield",
+        "query": "Why is expected loss capital maintenance rather than yield?",
+        "normalizedQuery": "why is expected loss capital maintenance rather than yield",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-expected-loss-capital-maintenance",
+        "expectedPageTitle": "Expected Loss As Capital Maintenance",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-is-expected-loss-capital-maintenance-rather-than-yield",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-usdc-lps-need-an-adverse-selection-premium",
+        "query": "Why do USDC LPs need an adverse-selection premium?",
+        "normalizedQuery": "why do usdc lps need an adverse selection premium",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-adverse-selection-premium-for-usdc-lps",
+        "expectedPageTitle": "Adverse Selection Premium For USDC LPs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-usdc-lps-need-an-adverse-selection-premium",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-difference-between-break-even-and-attractive-apr",
+        "query": "What is the difference between break-even and attractive APR?",
+        "normalizedQuery": "what is the difference between break even and attractive apr",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-break-even-versus-attractive-apr",
+        "expectedPageTitle": "Break-Even Versus Attractive APR",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-the-difference-between-break-even-and-attractive-apr",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-high-lp-apr-make-low-cap-perps-unsustainable",
+        "query": "Why can high LP APR make low-cap perps unsustainable?",
+        "normalizedQuery": "why can high lp apr make low cap perps unsustainable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-high-apr-sustainability-pressure",
+        "expectedPageTitle": "High APR Sustainability Pressure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-high-lp-apr-make-low-cap-perps-unsustainable",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10882,7 +10987,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 482,
+      "exactRoutes": 487,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

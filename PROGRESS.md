@@ -832,6 +832,12 @@
 - Routed five new Ask questions so LPs, solvers, risk reviewers, and market-structure readers can inspect the low-cap USDC backstop model one mechanism at a time.
 - Kept live OI thresholds, manipulation-cost estimates, oracle design, liquidation windows, keeper incentives, insurance allocations, loss-waterfall behavior, and capital charges under operator/risk/legal/accounting/implementation review.
 
+## 2026-06-29 — USDC APR Component Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's required-APR derivation: opportunity-cost floor, expected-loss capital maintenance, adverse-selection premium, break-even versus attractive APR, and high-APR sustainability pressure.
+- Routed five new Ask questions so LPs, protocol designers, and market-structure readers can inspect each APR component instead of treating the required return as one opaque number.
+- Kept live benchmark rates, expected-loss ranges, premium ranges, fee levels, funding rates, spread policy, token-emission policy, subsidy plans, and token-backed APR claims under operator/risk/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

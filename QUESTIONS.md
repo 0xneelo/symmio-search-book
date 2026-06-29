@@ -488,6 +488,11 @@ Questions are grouped by whether the current source set can answer them.
 | When does low-cap perp manipulation become profitable? | `authored-profitable-manipulation-condition` | Medium | Neelo frames manipulation as an economic game: if bad debt extracted exceeds the cost to manipulate price, the attack surface is structurally incentivized. |
 | Why are liquidations and keepers fragile in thin markets? | `authored-liquidation-keeper-fragility` | Medium | Neelo separates liquidation failure from oracle and imbalance risk because knowing a position is unsafe does not guarantee timely, economic closeout. |
 | Why do low-cap perp stress events cascade? | `authored-stress-correlation-cascade` | Medium | Neelo warns that manipulation, oracle movement, liquidation failure, backstop depletion, and market crashes can cluster rather than behave as independent risks. |
+| Why does USDC have an opportunity-cost floor? | `authored-usdc-opportunity-cost-floor` | Medium | Neelo starts the required APR with the outside return stablecoin capital can earn elsewhere before adding low-cap tail-risk compensation. |
+| Why is expected loss capital maintenance rather than yield? | `authored-expected-loss-capital-maintenance` | Medium | Neelo treats expected protocol loss as the return needed to keep LP capital whole before any true excess return is earned. |
+| Why do USDC LPs need an adverse-selection premium? | `authored-adverse-selection-premium-for-usdc-lps` | Medium | Neelo argues that passive LPs face informed or strategic flow and effectively sell tail-risk insurance, so ordinary expected loss is not enough. |
+| What is the difference between break-even and attractive APR? | `authored-break-even-versus-attractive-apr` | Medium | Neelo separates earning enough to cover expected loss and outside USDC yield from earning enough to compensate for tail risk and adverse selection. |
+| Why can high LP APR make low-cap perps unsustainable? | `authored-high-apr-sustainability-pressure` | Medium | Neelo says high required USDC LP compensation forces fees, funding, spreads, subsidies, or emissions that can weaken trader participation and market sustainability. |
 
 ## Prototype Event Log
 
