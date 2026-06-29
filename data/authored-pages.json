@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 641,
+  "totalPages": 646,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 468,
+    "publication-candidate-needs-operator-review": 473,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -15,7 +15,7 @@
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
-    "protocol-reference": 127,
+    "protocol-reference": 132,
     "competitive-context": 1,
     "reference": 1,
     "answer-engine": 1,
@@ -10803,6 +10803,28 @@
       "excerpt": "SYMM LP Beta Report KPI Stack The SYMM LP source gives enough evidence for a proof of mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale. Minimum beta report metrics should include: net ROI versus a token hold benchmark; realized ROI versus total marked ROI; maximum drawdown and recovery time; fee, funding, liquidation, and user PnL attribution; open interest concentration and leverage distribution; capacity stress at higher TVL tiers. Accounting Requirements The report also needs a sign convention dictionary for dashboard fields. Current Debt , Current UPnL , and User Profit are user side fields; negative values are favorable to the LP side only under the stated convention. Realized and unrealized components should stay separate in public tables. The source also calls for vault level time series, day/week realized and unrealized splits, max drawdown duration, and a gross to net bridge. Without those, a single snapshot can look more complete than it is. Reader Implication The KPI stack turns a compelling case study into an operational reporting standard. It lets future L"
     },
     {
+      "id": "authored-symm-lp-bootstrap-collateral-role",
+      "title": "SYMM LP Bootstrap Collateral Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-5-mechanism-design-framing"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-5-mechanism-design-framing",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-bootstrap-collateral-role.md",
+      "bodyMarkdown": "# SYMM LP Bootstrap Collateral Role\n\nThe SYMM LP case frames the LP as bootstrap collateral. In the early phase, LP capital helps initialize the perp market. As the market matures and two-sided trader flow improves, trader-to-trader netting can absorb more of the flow. The LP can still participate in revenue flows even when the intensity of collateral usage declines.\n\nThat mechanism is central to the Vibe thesis. Long-tail markets often cannot start with mature order-book depth. Someone must provide early risk capacity. The SYMM case studies one form of that capacity: token-aligned inventory placed into a structure that can let traders express directional views while the LP bears and prices residual risk.\n\n## Phase Logic\n\nThe source-backed mechanism has two phases:\n\n- **Early phase:** LP collateral is closer to market bootstrapping infrastructure. It helps a market exist before organic two-sided liquidity is reliable.\n- **Mature phase:** as trader flow becomes more balanced, more positions can net against each other, reducing dependence on the LP as the immediate counterparty of last resort.\n\nThe LP does not disappear in the mature phase. The role changes from pure bootstrap capacity toward recurring capacity, risk absorption, and revenue participation, subject to market design and actual terms.\n\n## Publication Boundary\n\nThis is a mechanism-design framing, not a live promise about collateral intensity, fee share, or future yield. Public docs need current product terms, vault constraints, and accounting review before turning this into user-facing LP instructions.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.5, \"Mechanism Design Framing\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-replication-framework`\n- `authored-yield-as-market-survival-constraint`",
+      "excerpt": "SYMM LP Bootstrap Collateral Role The SYMM LP case frames the LP as bootstrap collateral. In the early phase, LP capital helps initialize the perp market. As the market matures and two sided trader flow improves, trader to trader netting can absorb more of the flow. The LP can still participate in revenue flows even when the intensity of collateral usage declines. That mechanism is central to the Vibe thesis. Long tail markets often cannot start with mature order book depth. Someone must provide early risk capacity. The SYMM case studies one form of that capacity: token aligned inventory placed into a structure that can let traders express directional views while the LP bears and prices residual risk. Phase Logic The source backed mechanism has two phases: Early phase: LP collateral is closer to market bootstrapping infrastructure. It helps a market exist before organic two sided liquidity is reliable. Mature phase: as trader flow becomes more balanced, more positions can net against each other, reducing dependence on the LP as the immediate counterparty of last resort. The LP does not disappear in the mature phase. The role changes from pure bootstrap capacity toward recurring cap"
+    },
+    {
       "id": "authored-symm-lp-case-setup",
       "title": "SYMM LP Case Setup",
       "section": "protocol-reference",
@@ -11073,6 +11095,50 @@
       "excerpt": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long biased while the token price declined. Users were net down at the referenced mark, and negative Current Debt plus negative Current UPnL were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user side loss transfer in a one sided regime. Why This Matters That is strategically important for bootstrapping. A young token market may not have mature order book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move. It is also a caution. Low volume profitability is not a guarantee that any low volume market is safe or profitable. If the same low volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse. Reader Implication Do not ask only \"how"
     },
     {
+      "id": "authored-symm-lp-market-context",
+      "title": "SYMM LP Market Context",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-3-market-context"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-3-market-context",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-market-context.md",
+      "bodyMarkdown": "# SYMM LP Market Context\n\nThe SYMM LP case sits inside a specific market regime. Neelo's setup section says the launch phase began in late December, the market was SYMM, the profile was long-tail relative to major assets, and trader positioning was heavily long-biased.\n\nThose details are not background decoration. They explain why the case cannot be reduced to \"LP deposits earn yield.\" A long-biased trader base in a declining token market can create LP-favorable transfers through user losses, funding dynamics, and mark-to-market effects. A different regime can change the outcome.\n\n## What The Context Controls\n\nThe market context affects interpretation in at least four ways:\n\n- long-tail markets can have real but intermittent demand;\n- heavy one-sided positioning can concentrate trader-side losses and LP-side gains;\n- a declining reference price can make token-count growth and dollar wealth diverge;\n- early launch conditions can look different from mature two-sided flow.\n\nThat is why the compendium should route SYMM LP performance questions through context before headline result tables.\n\n## Publication Boundary\n\nThis page supports regime-aware interpretation. It should not be used to claim that current SYMM market state, current Vibe market state, or future LP cases match the same long-skew down-market conditions unless fresh data proves it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.3, \"Market Context\".\n\n## Related Pages\n\n- `authored-symm-lp-regime-dependence`\n- `authored-symm-lp-favorable-regime-caveat`\n- `authored-symm-lp-low-volume-driver`",
+      "excerpt": "SYMM LP Market Context The SYMM LP case sits inside a specific market regime. Neelo's setup section says the launch phase began in late December, the market was SYMM, the profile was long tail relative to major assets, and trader positioning was heavily long biased. Those details are not background decoration. They explain why the case cannot be reduced to \"LP deposits earn yield.\" A long biased trader base in a declining token market can create LP favorable transfers through user losses, funding dynamics, and mark to market effects. A different regime can change the outcome. What The Context Controls The market context affects interpretation in at least four ways: long tail markets can have real but intermittent demand; heavy one sided positioning can concentrate trader side losses and LP side gains; a declining reference price can make token count growth and dollar wealth diverge; early launch conditions can look different from mature two sided flow. That is why the compendium should route SYMM LP performance questions through context before headline result tables. Publication Boundary This page supports regime aware interpretation. It should not be used to claim that current SYM"
+    },
+    {
+      "id": "authored-symm-lp-operational-objective",
+      "title": "SYMM LP Operational Objective",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-4-setup-objective-operational"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-4-setup-objective-operational",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-operational-objective.md",
+      "bodyMarkdown": "# SYMM LP Operational Objective\n\nNeelo frames the SYMM LP setup around three operational objectives: bootstrap perp-market liquidity, hedge existing token exposure, and convert market activity into USDC-denominated returns. That is a different claim from passive staking or generic rewards farming.\n\nThe useful abstraction is inventory productivity. A token holder already bears directional exposure. Vibe's case-study framing asks whether part of that inventory can also help form a perp market and produce cash-like economics from trader activity.\n\n## The Three Objectives\n\nThe source-backed setup is:\n\n- **Market bootstrap:** deposited inventory helps make the early perp market tradable before natural two-sided depth exists.\n- **Exposure management:** the LP role can partially offset existing token exposure, depending on trader skew and market direction.\n- **USDC-denominated returns:** the case watches whether market activity creates cash-denominated economics, not only token-denominated balance changes.\n\nThose three objectives should stay separate in public docs. A case can help bootstrap liquidity without producing attractive returns. It can hedge some exposure without eliminating directional risk. It can generate USDC-denominated profit in one window without proving repeatable yield.\n\n## Publication Boundary\n\nDo not present this objective as a current offer, guaranteed hedge, guaranteed USDC yield, or promise that every project treasury should LP. It is a case-study mechanism that needs product, accounting, risk, and legal review before becoming public operating guidance.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.4, \"Setup Objective (Operational)\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-project-token-inventory-without-stablecoins`\n- `authored-symm-lp-economic-channels`",
+      "excerpt": "SYMM LP Operational Objective Neelo frames the SYMM LP setup around three operational objectives: bootstrap perp market liquidity, hedge existing token exposure, and convert market activity into USDC denominated returns. That is a different claim from passive staking or generic rewards farming. The useful abstraction is inventory productivity. A token holder already bears directional exposure. Vibe's case study framing asks whether part of that inventory can also help form a perp market and produce cash like economics from trader activity. The Three Objectives The source backed setup is: Market bootstrap: deposited inventory helps make the early perp market tradable before natural two sided depth exists. Exposure management: the LP role can partially offset existing token exposure, depending on trader skew and market direction. USDC denominated returns: the case watches whether market activity creates cash denominated economics, not only token denominated balance changes. Those three objectives should stay separate in public docs. A case can help bootstrap liquidity without producing attractive returns. It can hedge some exposure without eliminating directional risk. It can generat"
+    },
+    {
       "id": "authored-symm-lp-pilot-allocation-discipline",
       "title": "SYMM LP Pilot Allocation Discipline",
       "section": "protocol-reference",
@@ -11247,6 +11313,28 @@
       "excerpt": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes. The source highlights several risk vectors: directional reversal, where trader side wins move against the LP; unrealized PnL volatility, where marked profit can disappear before realization; leverage amplification, where small token moves create larger LP exposure; liquidity stress, where liquidation integrity depends on executable markets; concentration, where one token community or one dominant positioning regime shapes the whole case. Edge Cases To Test Before scaling a similar LP program, the docs should ask how the model behaves under several adverse paths: a prolonged uptrend where long biased traders are profitable; a choppy market with low directional edge and weak fee generation; a sudden gap in a thin market where liquidation may be difficult; fading community participation where open interest and turnover decay. These a"
     },
     {
+      "id": "authored-symm-lp-setup-reading-boundary",
+      "title": "SYMM LP Setup Reading Boundary",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-1-objective"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-1-objective",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-setup-reading-boundary.md",
+      "bodyMarkdown": "# SYMM LP Setup Reading Boundary\n\nNeelo's case-context section has a narrow job: it tells the reader how one SYMM LP deployment was set up before interpreting the results. It is not the performance claim itself. The source says the objective is to document the operating setup and define the context needed to read the performance metrics in the later unit-economics section.\n\nThat boundary matters because LP evidence can become misleading when setup, outcome, and generalization are collapsed into one headline. The setup page should answer who supplied the inventory, what was deposited, what market state the case observed, and which economic channels were in scope. The performance pages should then answer what happened during the measured window.\n\n## How To Read This Part Of The Case\n\nRead the setup section as a control surface:\n\n- it defines the participant and deposited inventory;\n- it names the market and period being studied;\n- it frames the deployment as token inventory used for market formation;\n- it separates context from result interpretation.\n\nThe case does not become stronger by hiding that boundary. It becomes stronger because readers can inspect the assumptions before reading the yield, benchmark, and risk pages.\n\n## Publication Boundary\n\nDo not use this setup section as a standalone return claim. It supports case interpretation, not generalized vault APY, audited accounting, or current product terms. Any public version should route from setup to methodology, data guardrails, risk, and replication requirements.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.1, \"Objective\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-data-guardrails`",
+      "excerpt": "SYMM LP Setup Reading Boundary Neelo's case context section has a narrow job: it tells the reader how one SYMM LP deployment was set up before interpreting the results. It is not the performance claim itself. The source says the objective is to document the operating setup and define the context needed to read the performance metrics in the later unit economics section. That boundary matters because LP evidence can become misleading when setup, outcome, and generalization are collapsed into one headline. The setup page should answer who supplied the inventory, what was deposited, what market state the case observed, and which economic channels were in scope. The performance pages should then answer what happened during the measured window. How To Read This Part Of The Case Read the setup section as a control surface: it defines the participant and deposited inventory; it names the market and period being studied; it frames the deployment as token inventory used for market formation; it separates context from result interpretation. The case does not become stronger by hiding that boundary. It becomes stronger because readers can inspect the assumptions before reading the yield, benc"
+    },
+    {
       "id": "authored-symm-lp-steady-state-operating-bounds",
       "title": "SYMM LP Steady-State Operating Bounds",
       "section": "protocol-reference",
@@ -11269,6 +11357,28 @@
       "file": "content/authored/reference/symm-lp-steady-state-operating-bounds.md",
       "bodyMarkdown": "# SYMM LP Steady-State Operating Bounds\n\nThe final phase in the SYMM LP playbook is steady-state operation with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence.\n\nThat is the opposite of \"set and forget.\" Once a vault leaves pilot and validation, the operating question becomes whether it can remain inside known bounds while trader behavior, token price, leverage, and liquidity change.\n\nUtilization bounds tell operators when the vault is being used efficiently versus when it is becoming overstressed. Treasury exposure limits keep the project or insider from unintentionally committing too much of the token stack. Emergency controls define what happens when skew, liquidity, liquidation quality, or marked losses exceed the normal operating range. Reporting cadence keeps LPs from learning about stress only after it matters.\n\n## What Steady State Should Prove\n\nSteady state should prove that the market can repeat useful activity without constantly relying on emergency intervention or favorable regime luck. The reporting layer should still show ROI, realized/marked split, drawdown, attribution, concentration, leverage, and capacity stress.\n\n## Publication Boundary\n\nDo not publish final utilization bands, treasury exposure caps, emergency controls, reporting cadence, or steady-state vault terms until owners approve them. The source-backed requirement is that those bounds exist and are documented before the model is treated as durable.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Practical Deployment Playbook\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases: Governance and Transparency Requirements\".\n\n## Related Pages\n\n- `authored-symm-lp-beta-report-kpis`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-gross-to-net-attribution-bridge`",
       "excerpt": "SYMM LP Steady State Operating Bounds The final phase in the SYMM LP playbook is steady state operation with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence. That is the opposite of \"set and forget.\" Once a vault leaves pilot and validation, the operating question becomes whether it can remain inside known bounds while trader behavior, token price, leverage, and liquidity change. Utilization bounds tell operators when the vault is being used efficiently versus when it is becoming overstressed. Treasury exposure limits keep the project or insider from unintentionally committing too much of the token stack. Emergency controls define what happens when skew, liquidity, liquidation quality, or marked losses exceed the normal operating range. Reporting cadence keeps LPs from learning about stress only after it matters. What Steady State Should Prove Steady state should prove that the market can repeat useful activity without constantly relying on emergency intervention or favorable regime luck. The reporting layer should still show ROI, realized/marked split, drawdown, attribution, concentration, leverage, and capacity stress. Publicatio"
+    },
+    {
+      "id": "authored-symm-lp-test-case-scope",
+      "title": "SYMM LP Test Case Scope",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-2-test-case-scope"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-02-case-context-and-setup-2-2-test-case-scope",
+        "authored-symm-lp-case-setup"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-test-case-scope.md",
+      "bodyMarkdown": "# SYMM LP Test Case Scope\n\nThe SYMM LP case study tracks one participant and one concrete deposit set. The source names LafaChief as the participant and reports `2,271,131` SYMM tokens deposited across three deposits. The same section reports a current token balance of `2,501,328.4` SYMM, a token delta of `+230,197.4` SYMM, an average deposit reference price of `$0.01280`, and a current reference price of `$0.0074`.\n\nThis makes the case auditable as a point-in-time case study. It is not an anonymous benchmark. It is not a synthetic example. The source gives the deposit ledger so later performance claims can be tied back to a defined allocation.\n\n## Deposit Ledger\n\nThe source lists three SYMM deposits:\n\n| Date | Token | Amount | Transaction |\n| --- | --- | ---: | --- |\n| `24/01/2026 12:09:07` | SYMM | `620,000` | `0x02ac33dfaebfd2f07ff35e4202753bdab5825702431200a4dae6c59b3bd075f5` |\n| `06/01/2026 08:12:41` | SYMM | `825,925` | `0x95466e0f334de737971012765849ce5eb0c1965ea3c8967fc8d95d9772fb8e06` |\n| `29/12/2025 11:49:29` | SYMM | `825,206` | `0xaef807a86785d9cf9e670f04dcf52f8bd02bf4fc7187aacd747bf87d4b9b2fe5` |\n\nThe ledger is useful because every downstream return, benchmark, and caveat depends on the starting inventory, deposit timing, reference prices, and final balance convention.\n\n## Publication Boundary\n\nThe docs can cite this ledger as case-study evidence. They should not imply that these deposits are current open balances, current product terms, public treasury instructions, or audited performance statements without fresh source/operator/accounting review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.2, \"Test Case Scope\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-headline-result-shape`\n- `authored-symm-lp-benchmark-reading`",
+      "excerpt": "SYMM LP Test Case Scope The SYMM LP case study tracks one participant and one concrete deposit set. The source names LafaChief as the participant and reports 2,271,131 SYMM tokens deposited across three deposits. The same section reports a current token balance of 2,501,328.4 SYMM, a token delta of +230,197.4 SYMM, an average deposit reference price of $0.01280 , and a current reference price of $0.0074 . This makes the case auditable as a point in time case study. It is not an anonymous benchmark. It is not a synthetic example. The source gives the deposit ledger so later performance claims can be tied back to a defined allocation. Deposit Ledger The source lists three SYMM deposits: Date Token Amount Transaction : 24/01/2026 12:09:07 SYMM 620,000 0x02ac33dfaebfd2f07ff35e4202753bdab5825702431200a4dae6c59b3bd075f5 06/01/2026 08:12:41 SYMM 825,925 0x95466e0f334de737971012765849ce5eb0c1965ea3c8967fc8d95d9772fb8e06 29/12/2025 11:49:29 SYMM 825,206 0xaef807a86785d9cf9e670f04dcf52f8bd02bf4fc7187aacd747bf87d4b9b2fe5 The ledger is useful because every downstream return, benchmark, and caveat depends on the starting inventory, deposit timing, reference prices, and final balance convention."
     },
     {
       "id": "authored-symm-lp-tranche-scale-up-stop-conditions",

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — SYMM LP Setup Exact Pages
+
+- Added 5 authored Volume 05 reference pages from Neelo's SYMM LP case-study setup source.
+- Split uncovered setup sections into exact answer routes for the setup reading boundary, deposit/test-case ledger, market-regime context, operational objective, and bootstrap-collateral mechanism.
+- Extended the question ledger so Ask can route detailed SYMM LP setup questions without collapsing everything into the broad case-setup or performance benchmark pages.
+- Kept current balances, open vault terms, live market state, accounting treatment, public LP instructions, fee-share terms, and generalized yield claims marked for fresh operator/product/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Information Trade Convergence Exact Pages
 
 - Added 5 authored Volume 02/03 manifesto pages from Neelo's Information and Trade Convergence source.

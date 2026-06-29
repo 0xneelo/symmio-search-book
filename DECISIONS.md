@@ -1327,3 +1327,11 @@
 **Reason:** The existing Information/Trade and Proof of Value pages covered the broad thesis, but the generated section map still had uncovered atomic source headings. Answer-engine readers need direct routes for why resolved prediction markets are not enough, why synthetic abundance creates a throughput problem, how market data becomes a verification surface, why lifecycle control changes listing incentives, and what the Thumbs Down is mechanically.
 
 **Status:** Accepted for the authored manifesto layer; exact product UI, eligible assets, leverage, borrow mechanics, solver policy, graduation/listing thresholds, market-cap rules, legal language, and user-risk disclosures remain operator/product/risk/legal/implementation review.
+
+## D-167: Split SYMM LP Setup Into Exact Case-Study Answers
+
+**Decision:** Add authored Volume 05 reference pages for the SYMM LP setup reading boundary, test-case deposit ledger, market-regime context, operational objective, and bootstrap-collateral role.
+
+**Reason:** Existing SYMM LP pages explain the case at the summary, benchmark, risk, and reporting layers, but the generated section map still had uncovered setup headings. Answer-engine readers need direct routes for "what exactly was the case," "which deposits are in scope," "what regime shaped it," "what was the operational objective," and "why LP collateral is described as bootstrap capacity" before they interpret performance.
+
+**Status:** Accepted for the authored reference layer; current balances, live vault terms, LP instructions, generalized yield claims, fee-share terms, accounting treatment, and current market-state claims remain fresh operator/product/risk/legal/accounting/implementation review.

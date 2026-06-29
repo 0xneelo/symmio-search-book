@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 622
+      "totalGoldenRoutes": 627
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 640,
-    "retrievalEligiblePages": 1432,
+    "publicNavigationPages": 645,
+    "retrievalEligiblePages": 1437,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 640,
+      "candidate": 645,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 622,
-    "exactRouteTestsPassing": 622,
+    "totalExactRouteTests": 627,
+    "exactRouteTestsPassing": 627,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 622
+      "candidate": 627
     },
     "exactRoutesByConfidence": {
       "Medium": 402,
       "High": 44,
-      "Low": 176
+      "Low": 181
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4826,6 +4826,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-the-symm-lp-case-study-show",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-reading-boundary-for-the-symm-lp-case-setup",
+        "query": "What is the reading boundary for the SYMM LP case setup?",
+        "normalizedQuery": "what is the reading boundary for the symm lp case setup",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-setup-reading-boundary",
+        "expectedPageTitle": "SYMM LP Setup Reading Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-reading-boundary-for-the-symm-lp-case-setup",
+        "passes": true
+      },
+      {
+        "id": "qr-which-deposits-make-up-the-symm-lp-test-case",
+        "query": "Which deposits make up the SYMM LP test case?",
+        "normalizedQuery": "which deposits make up the symm lp test case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-test-case-scope",
+        "expectedPageTitle": "SYMM LP Test Case Scope",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-deposits-make-up-the-symm-lp-test-case",
+        "passes": true
+      },
+      {
+        "id": "qr-what-market-context-shaped-the-symm-lp-case",
+        "query": "What market context shaped the SYMM LP case?",
+        "normalizedQuery": "what market context shaped the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-market-context",
+        "expectedPageTitle": "SYMM LP Market Context",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-market-context-shaped-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-what-was-the-operational-objective-of-the-symm-lp-setup",
+        "query": "What was the operational objective of the SYMM LP setup?",
+        "normalizedQuery": "what was the operational objective of the symm lp setup",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-operational-objective",
+        "expectedPageTitle": "SYMM LP Operational Objective",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-was-the-operational-objective-of-the-symm-lp-setup",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-symm-lp-case-call-the-lp-bootstrap-collateral",
+        "query": "Why does the SYMM LP case call the LP bootstrap collateral?",
+        "normalizedQuery": "why does the symm lp case call the lp bootstrap collateral",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-bootstrap-collateral-role",
+        "expectedPageTitle": "SYMM LP Bootstrap Collateral Role",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-symm-lp-case-call-the-lp-bootstrap-collateral",
         "passes": true
       },
       {
@@ -13822,7 +13927,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 622,
+      "exactRoutes": 627,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
