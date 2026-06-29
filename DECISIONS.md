@@ -1703,3 +1703,11 @@
 **Reason:** Search Insights needs durable event data, but a production service should not keep user questions forever by accident or expose the editorial queue publicly. The answer-engine service can now prune telemetry, keep local archive mode explicit, and provide editors with gap, low-rating, unanswered, and repeated-question queues without putting moderation data or tokens in public frontend code.
 
 **Status:** Accepted for service operations. This does not mark production ready; production still needs service env installation, selected public route/deploy wiring, reviewer/admin operating procedure, source imports, and deployment QA.
+
+## D-214: Map Proof Of Value Subsection Drafts Through One Source Map
+
+**Decision:** Add `authored-proof-value-source-map` to cover the remaining uncovered generated subsection drafts from Neelo's `02-proof-of-value` corpus and route readers into the existing authored Proof of Value, Beyond Polymarket, NO-button, intent, solver, listing, and Thumbs Down pages.
+
+**Reason:** The uncovered items are mostly extracted subsection headings, table-of-contents/source material, and thesis examples. Turning all of them into standalone public pages would duplicate stronger authored pages and push the public candidate set toward noisy source-companion sprawl. A source map preserves traceability and Ask precision while keeping the manifesto readable.
+
+**Status:** Accepted for source-traceability coverage. AI-solver examples, 70 percent LP pass-through language, continuous fact-checking metaphors, listing-power analogies, and product hooks remain source-model material until reviewed against current product, risk, legal, accounting, and operator-approved publication boundaries.

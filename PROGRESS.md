@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Proof Of Value Source Map Coverage
+
+- Added `authored-proof-value-source-map` to route Neelo's Proof of Value source corpus into the existing authored manifesto spine without duplicating every extracted subsection as public prose.
+- Mapped 31 uncovered generated Proof of Value subsection drafts covering verification, Beyond Polymarket, the missing NO button, intent architecture, hybrid solvers, listing power, the Thumbs Down, conclusion, and source-table material.
+- Routed one new Ask question, "How should the Proof of Value source corpus be read?", to the new source-map page.
+- Kept AI-solver examples, 70 percent LP pass-through language, fact-checking metaphors, and product hooks as source-model material requiring product/risk/legal/accounting/operator review before production claims.
+
 ## 2026-06-29 — Answer-Engine Retention And Moderation Export
 
 - Added configurable retention to the standalone answer-engine service for persisted question, rating, and gap events, with a 180-day default and `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=0` reserved for local archival use.

@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 775
+      "totalGoldenRoutes": 776
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 789,
-    "retrievalEligiblePages": 1581,
+    "publicNavigationPages": 790,
+    "retrievalEligiblePages": 1582,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 789,
+      "candidate": 790,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 775,
-    "exactRouteTestsPassing": 775,
+    "totalExactRouteTests": 776,
+    "exactRouteTestsPassing": 776,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 775
+      "candidate": 776
     },
     "exactRoutesByConfidence": {
       "Medium": 485,
       "High": 44,
-      "Low": 246
+      "Low": 247
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -3051,6 +3051,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-proof-of-value-mean",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-the-proof-of-value-source-corpus-be-read",
+        "query": "How should the Proof of Value source corpus be read?",
+        "normalizedQuery": "how should the proof of value source corpus be read",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-source-map",
+        "expectedPageTitle": "Proof Of Value Source Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-should-the-proof-of-value-source-corpus-be-read",
         "passes": true
       },
       {
@@ -18326,7 +18347,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 775,
+      "exactRoutes": 776,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,
