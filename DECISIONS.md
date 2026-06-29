@@ -1047,3 +1047,11 @@
 **Reason:** The referral conclusion and design coverage map are the coherence layer for the whole referral corpus. Exact answer routes should explain why referrals are not just marketing, what the system optimizes, which constraints preserve trust, and how future docs changes should route through owning chapters instead of fragmenting policy.
 
 **Status:** Accepted for the authored rewards-reference layer; live referral depth, fee-share formulas, partner terms, transferability, TGE weighting, signer controls, launch dates, and chapter ownership changes remain operator/product/security/legal/commercial/accounting/implementation review.
+
+## D-132: Split Tokenized Points Perps Into Hypothetical Scenario Answers
+
+**Decision:** Add authored rewards-reference pages for the tokenized-points product disclaimer, composable point-object chain, fractionalized wrapper flow, third-party listing/perp flow, and market-risk boundary.
+
+**Reason:** The broad tokenized-points-perps page correctly labels the concept as hypothetical, but answer-engine readers need direct routes for whether it is an announced product, how point-linked objects could become composable, how a wrapper might work, how a third-party market could emerge, and what risks prevent this from being treated as endorsed current policy.
+
+**Status:** Accepted for the authored rewards-reference layer; live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, market support, legal disclosures, and derivative product policy remain operator/legal/product/security/accounting/implementation review.

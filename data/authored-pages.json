@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 466,
+  "totalPages": 471,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 329,
+    "publication-candidate-needs-operator-review": 334,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,7 +12,7 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 47,
-    "rewards-referrals": 70,
+    "rewards-referrals": 75,
     "dashboard-reference": 12,
     "protocol-reference": 117,
     "competitive-context": 1,
@@ -9294,6 +9294,82 @@
       "excerpt": "Token Vault Perps Versus USDC Pools Neelo's token margined comparison frames low cap perps as a capital structure problem: who supplies the backstop, what risks they absorb, and whether the yield can compensate them. The USDC pool model asks stablecoin LPs to back markets whose underlying spot liquidity may be thin, manipulable, or highly path dependent. The risk premium derivation argues that low cap perp backstops face manipulation, oracle, imbalance, liquidation, and correlation risks that are not well described by simple random probability models. If an attack is profitable, rational actors should be expected to try it. The token vault model shifts the question. Instead of asking generic USDC to underwrite every long tail market, it uses token specific inventory and solver judgment so the counterparty structure is closer to the market being created. This does not remove risk; it changes which capital bears the risk and what that capital earns. Reader Implication Do not present token vault architecture as risk free. Present it as a different answer to the low cap backstop problem: less generic stablecoin exposure, more market specific inventory, solver pricing, and explicit risk"
     },
     {
+      "id": "authored-tokenized-points-composable-object-chain",
+      "title": "Tokenized Points Composable Object Chain",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-2-why-this-scenario-matters",
+        "authored-points-value-state-lifecycle"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-composable-object-chain.md",
+      "bodyMarkdown": "# Tokenized Points Composable Object Chain\n\nThe tokenized-points thought experiment matters because the rewards architecture can create composable economic objects.\n\nThe source chain is:\n\n1. points are earned;\n2. points can be claimed on-chain after the approved lifecycle;\n3. points can remain direct exposure or convert into packs;\n4. packs can open into artifacts with embedded point exposure;\n5. once value-bearing units exist on-chain, third-party builders can compose around them.\n\nThat chain is not a live policy statement. It is a warning about documentation precision. A displayed off-chain point, a claimable point, an on-chain point, a pack, an artifact, and a wrapped point-linked token are different economic states.\n\n## Why The Chain Matters\n\nOnce an object is on-chain and value-bearing, the design space expands. External builders can create spot liquidity, wrappers, vaults, derivatives, hedges, and market-making strategies around that object. The docs need to explain the state transitions before they explain any hypothetical market.\n\n## Reader Implication\n\nWhen readers ask why points need careful accounting, route them here. The reason is not only TGE settlement. It is that on-chain reward objects can become inputs to additional markets, which magnifies the need for clear state, source buckets, eligibility, and transfer rules.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Why This Scenario Matters\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: points and TGE caveats.\n\n## Related Pages\n\n- `authored-points-value-state-lifecycle`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-artifact-exposure-and-boost-rules`",
+      "excerpt": "Tokenized Points Composable Object Chain The tokenized points thought experiment matters because the rewards architecture can create composable economic objects. The source chain is: 1. points are earned; 2. points can be claimed on chain after the approved lifecycle; 3. points can remain direct exposure or convert into packs; 4. packs can open into artifacts with embedded point exposure; 5. once value bearing units exist on chain, third party builders can compose around them. That chain is not a live policy statement. It is a warning about documentation precision. A displayed off chain point, a claimable point, an on chain point, a pack, an artifact, and a wrapped point linked token are different economic states. Why The Chain Matters Once an object is on chain and value bearing, the design space expands. External builders can create spot liquidity, wrappers, vaults, derivatives, hedges, and market making strategies around that object. The docs need to explain the state transitions before they explain any hypothetical market. Reader Implication When readers ask why points need careful accounting, route them here. The reason is not only TGE settlement. It is that on chain reward ob"
+    },
+    {
+      "id": "authored-tokenized-points-fractionalized-wrapper-flow",
+      "title": "Tokenized Points Fractionalized Wrapper Flow",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-3-base-hypothetical-flow",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-5-hypothetical-case-study"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-fractionalized-wrapper-flow.md",
+      "bodyMarkdown": "# Tokenized Points Fractionalized Wrapper Flow\n\nThe source's base hypothetical flow includes an independent fractionalization contract. In the example, that contract accepts deposited packs, mints an ERC-20 representation of pooled pack exposure, and enables transferable fungible claims on that basket.\n\nThat flow has several distinct states:\n\n- users earn points from trading, referrals, LP activity, or selected programs;\n- points are finalized and claimed on-chain after vesting or authorization rules;\n- points can remain direct exposure or convert into packs and artifacts if future policy permits;\n- an independent wrapper can pool packs;\n- the wrapper can issue a fungible token representing exposure to the pooled basket.\n\n## What The Wrapper Does Not Prove\n\nA hypothetical wrapper does not prove that packs are live, that packs are transferable, that wrappers are endorsed, that wrapper tokens qualify for TGE exposure, or that Vibe will list a resulting market.\n\nThe wrapper example is valuable because it shows how quickly reward objects can become composable once they leave a purely internal ledger. It is not a final product path.\n\n## Reader Implication\n\nWhen users ask whether packs or artifacts can be pooled or tokenized, answer by separating possibility from policy. The source demonstrates a possible third-party wrapper route. It does not approve wrapper contracts, wrapper token economics, custody, eligibility, or redemption semantics.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Base Hypothetical Flow\" and \"Hypothetical Case Study\".\n- `spec-03`: final pack, artifact, transferability, and TGE rules remain owner-review.\n\n## Related Pages\n\n- `authored-reward-pack-ev-supply-policy`\n- `authored-artifact-exposure-and-boost-rules`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "excerpt": "Tokenized Points Fractionalized Wrapper Flow The source's base hypothetical flow includes an independent fractionalization contract. In the example, that contract accepts deposited packs, mints an ERC 20 representation of pooled pack exposure, and enables transferable fungible claims on that basket. That flow has several distinct states: users earn points from trading, referrals, LP activity, or selected programs; points are finalized and claimed on chain after vesting or authorization rules; points can remain direct exposure or convert into packs and artifacts if future policy permits; an independent wrapper can pool packs; the wrapper can issue a fungible token representing exposure to the pooled basket. What The Wrapper Does Not Prove A hypothetical wrapper does not prove that packs are live, that packs are transferable, that wrappers are endorsed, that wrapper tokens qualify for TGE exposure, or that Vibe will list a resulting market. The wrapper example is valuable because it shows how quickly reward objects can become composable once they leave a purely internal ledger. It is not a final product path. Reader Implication When users ask whether packs or artifacts can be pooled "
+    },
+    {
+      "id": "authored-tokenized-points-market-risk-boundary",
+      "title": "Tokenized Points Market Risk Boundary",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-7-major-risks-and-constraints",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-8-final-take"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-market-risk-boundary.md",
+      "bodyMarkdown": "# Tokenized Points Market Risk Boundary\n\nThe tokenized-points source lists the risks before it closes the thought experiment: thin-market manipulation, valuation ambiguity, reflexive leverage loops, legal and disclosure constraints, and user confusion between official and third-party instruments.\n\nThose risks define the publication boundary. A point-linked market can be technically plausible and still be unsafe to describe as an endorsed product.\n\n## Required Guardrails\n\nAny public mention of point-linked derivative scenarios needs:\n\n- strong labeling that separates official product policy from community-built markets;\n- transparent risk communication around liquidity, valuation, leverage, and wrapper mechanics;\n- clear disclosure that reward-object policy, transferability, and TGE treatment are not inferred from a third-party market;\n- avoidance of implied guarantees about listing, support, redemption, price discovery, or eligibility.\n\nThe source's final take is that on-chain state can become a financial primitive, and financial primitives can become derivative markets. That is a composability thesis, not a safety guarantee.\n\n## Reader Implication\n\nWhen a reader asks what could go wrong with tokenized points perps, route here. The short answer is: the market can confuse official rewards with third-party wrappers, amplify thin-liquidity manipulation, and create derivative exposure before the underlying reward policy is fully understood.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Major Risks and Constraints\" and \"Final Take\".\n- `spec-03`: current points and public-disclosure caveats.\n\n## Related Pages\n\n- `authored-tokenized-points-product-disclaimer`\n- `authored-reward-packs-future-facing-status`\n- `authored-referral-public-statement-readiness`",
+      "excerpt": "Tokenized Points Market Risk Boundary The tokenized points source lists the risks before it closes the thought experiment: thin market manipulation, valuation ambiguity, reflexive leverage loops, legal and disclosure constraints, and user confusion between official and third party instruments. Those risks define the publication boundary. A point linked market can be technically plausible and still be unsafe to describe as an endorsed product. Required Guardrails Any public mention of point linked derivative scenarios needs: strong labeling that separates official product policy from community built markets; transparent risk communication around liquidity, valuation, leverage, and wrapper mechanics; clear disclosure that reward object policy, transferability, and TGE treatment are not inferred from a third party market; avoidance of implied guarantees about listing, support, redemption, price discovery, or eligibility. The source's final take is that on chain state can become a financial primitive, and financial primitives can become derivative markets. That is a composability thesis, not a safety guarantee. Reader Implication When a reader asks what could go wrong with tokenized po"
+    },
+    {
       "id": "authored-tokenized-points-perps-hypothetical",
       "title": "Tokenized Points Perps Are A Hypothetical Scenario",
       "section": "rewards-referrals",
@@ -9316,6 +9392,56 @@
       "file": "content/authored/reference/tokenized-points-perps-hypothetical.md",
       "bodyMarkdown": "# Tokenized Points Perps Are A Hypothetical Scenario\n\nThe tokenized-points-perps section is not a product announcement. It is a thought experiment about what could become possible if reward-linked assets become on-chain economic objects and third-party builders compose around them.\n\nThe hypothetical flow is: users earn and claim points, points can be held or converted into packs and artifacts, an independent contract could fractionalize pack exposure, the resulting token could receive spot liquidity, and a permissionless perp venue could list that token if it met market requirements.\n\nThat scenario is useful because it shows why Vibe's reward architecture cannot be documented casually. Once points become transferable or wrapped, they can become financial primitives. Financial primitives can become markets. Markets can then amplify both legitimate hedging and manipulation risk.\n\n## Required Labeling\n\nAny final docs that mention this scenario must preserve three labels:\n\n- hypothetical;\n- third-party or community-built unless explicitly endorsed;\n- not the default intended user flow.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-referral-points-economic-state`\n- `authored-financialized-rejection-thumbs-down`",
       "excerpt": "Tokenized Points Perps Are A Hypothetical Scenario The tokenized points perps section is not a product announcement. It is a thought experiment about what could become possible if reward linked assets become on chain economic objects and third party builders compose around them. The hypothetical flow is: users earn and claim points, points can be held or converted into packs and artifacts, an independent contract could fractionalize pack exposure, the resulting token could receive spot liquidity, and a permissionless perp venue could list that token if it met market requirements. That scenario is useful because it shows why Vibe's reward architecture cannot be documented casually. Once points become transferable or wrapped, they can become financial primitives. Financial primitives can become markets. Markets can then amplify both legitimate hedging and manipulation risk. Required Labeling Any final docs that mention this scenario must preserve three labels: hypothetical; third party or community built unless explicitly endorsed; not the default intended user flow. Sources vibe papers : Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\". vibe papers "
+    },
+    {
+      "id": "authored-tokenized-points-product-disclaimer",
+      "title": "Tokenized Points Product Disclaimer",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-1-scope-and-disclaimer",
+        "authored-tokenized-points-perps-hypothetical"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-product-disclaimer.md",
+      "bodyMarkdown": "# Tokenized Points Product Disclaimer\n\nNeelo's tokenized-points-perps section starts with a hard disclaimer. The scenario is future-facing, hypothetical, not current product policy, and not an endorsed feature announcement.\n\nThat disclaimer has to stay attached to every public answer about point-linked perps. The scenario is useful because it explains how composable reward objects could become financial primitives, but usefulness is not endorsement.\n\n## Required Labels\n\nAny answer about tokenized point markets should preserve four labels:\n\n- hypothetical;\n- not the default intended user flow;\n- third-party or community-built unless explicitly endorsed;\n- not evidence of final team policy for points, packs, transferability, or derivatives support.\n\nThose labels prevent a thought experiment from becoming a user-facing promise.\n\n## Reader Implication\n\nIf a user asks \"can I trade Vibe points as perps?\", the current answer should not say yes. The safe answer is: the docs contain a hypothetical composability scenario, but it is not current product policy or an endorsed live feature.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Scope and Disclaimer\".\n- `spec-03`: current points and reward-policy caveats.\n\n## Related Pages\n\n- `authored-tokenized-points-perps-hypothetical`\n- `authored-reward-packs-future-facing-status`\n- `authored-referral-public-statement-readiness`",
+      "excerpt": "Tokenized Points Product Disclaimer Neelo's tokenized points perps section starts with a hard disclaimer. The scenario is future facing, hypothetical, not current product policy, and not an endorsed feature announcement. That disclaimer has to stay attached to every public answer about point linked perps. The scenario is useful because it explains how composable reward objects could become financial primitives, but usefulness is not endorsement. Required Labels Any answer about tokenized point markets should preserve four labels: hypothetical; not the default intended user flow; third party or community built unless explicitly endorsed; not evidence of final team policy for points, packs, transferability, or derivatives support. Those labels prevent a thought experiment from becoming a user facing promise. Reader Implication If a user asks \"can I trade Vibe points as perps?\", the current answer should not say yes. The safe answer is: the docs contain a hypothetical composability scenario, but it is not current product policy or an endorsed live feature. Sources vibe papers : Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Scope and Disclaimer\". "
+    },
+    {
+      "id": "authored-tokenized-points-third-party-listing-flow",
+      "title": "Tokenized Points Third-Party Listing Flow",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/13-hypothetical-tokenized-points-perps",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-3-base-hypothetical-flow",
+        "section-17-referral-program-17-docs-13-hypothetical-tokenized-points-perps-13-4-what-becomes-possible"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/tokenized-points-third-party-listing-flow.md",
+      "bodyMarkdown": "# Tokenized Points Third-Party Listing Flow\n\nThe source's hypothetical listing path has two external steps before any point-linked perp exists.\n\nFirst, external actors list a wrapper token on a permissionless spot venue, such as a DEX. Second, if the token has a qualifying spot market, independent builders could try to list it as a perp market through a permissionless venue such as Vibe Trading.\n\nThe point-linked perp is therefore not the first step. It depends on prior states:\n\n- claimed or converted reward exposure exists;\n- a third-party wrapper or token represents that exposure;\n- the wrapper token has spot liquidity;\n- listing criteria are met;\n- builders create a derivative market around the token.\n\n## What The Flow Enables\n\nIf that stack exists, the source says participants could trade point-linked exposure, hedge reward inventory, speculate on future demand, make markets around point-linked volatility, or arbitrage spot/perp basis.\n\nThose are possible financial behaviors, not current endorsed user flows. The docs should keep the words \"third-party\", \"hypothetical\", and \"permissionless\" visible.\n\n## Reader Implication\n\nWhen readers ask whether a reward-linked ERC-20 could become a Vibe market, answer conditionally. The source says the architecture makes such a scenario technically plausible, but a live listing would still depend on external tokenization, spot liquidity, listing rules, risk controls, and explicit policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Base Hypothetical Flow\" and \"What Becomes Possible\".\n- `spec-03`: listing, transferability, and reward-policy caveats.\n\n## Related Pages\n\n- `authored-tokenized-points-fractionalized-wrapper-flow`\n- `authored-market-creation-lifecycle`\n- `authored-tokenized-points-perps-hypothetical`",
+      "excerpt": "Tokenized Points Third Party Listing Flow The source's hypothetical listing path has two external steps before any point linked perp exists. First, external actors list a wrapper token on a permissionless spot venue, such as a DEX. Second, if the token has a qualifying spot market, independent builders could try to list it as a perp market through a permissionless venue such as Vibe Trading. The point linked perp is therefore not the first step. It depends on prior states: claimed or converted reward exposure exists; a third party wrapper or token represents that exposure; the wrapper token has spot liquidity; listing criteria are met; builders create a derivative market around the token. What The Flow Enables If that stack exists, the source says participants could trade point linked exposure, hedge reward inventory, speculate on future demand, make markets around point linked volatility, or arbitrage spot/perp basis. Those are possible financial behaviors, not current endorsed user flows. The docs should keep the words \"third party\", \"hypothetical\", and \"permissionless\" visible. Reader Implication When readers ask whether a reward linked ERC 20 could become a Vibe market, answer "
     },
     {
       "id": "authored-tokens-as-information-objects",

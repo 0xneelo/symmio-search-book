@@ -790,6 +790,12 @@
 - Routed five new Ask questions so users, partners, reviewers, and future maintainers can understand what referral growth is optimizing and where each policy should be updated.
 - Kept live referral depth, fee-share formulas, partner terms, transferability, TGE weighting, signer controls, launch dates, and chapter ownership changes under approved owner review.
 
+## 2026-06-29 — Tokenized Points Perps Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's tokenized-points-perps thought experiment: product disclaimer, composable point-object chain, fractionalized wrapper flow, third-party listing/perp flow, and market-risk boundary.
+- Routed five new Ask questions so users, builders, rewards reviewers, and market-structure readers can distinguish hypothetical composability from current product policy.
+- Kept live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, and derivative-market support under operator/legal/product/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

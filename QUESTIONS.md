@@ -453,6 +453,11 @@ Questions are grouped by whether the current source set can answer them.
 | What preserves referral trust under adversarial conditions? | `authored-referral-adversarial-trust-constraints` | Medium | Neelo names identity boundaries, hardened accounting, anti-gaming policy, phased rollout discipline, and KPI governance as the trust constraints. |
 | How should referral docs route topics to owning chapters? | `authored-referral-design-coverage-routing-map` | Medium | Neelo's design coverage map assigns each referral topic to its primary chapter so updates do not fragment policy across the docs. |
 | What is the change policy for referral docs? | `authored-referral-primary-chapter-change-policy` | Medium | Neelo requires updating the relevant chapter first, then the coverage map, while keeping links aligned across repository and docs-site views. |
+| Are tokenized points perps an announced product? | `authored-tokenized-points-product-disclaimer` | Medium | Neelo labels tokenized point perpetual markets as hypothetical, not current policy, not default flow, and not an endorsed feature announcement. |
+| How do points become composable economic objects? | `authored-tokenized-points-composable-object-chain` | Medium | Neelo's hypothetical chain moves from earned points to on-chain claims, packs, artifacts, and possible third-party composition. |
+| How would a fractionalized points wrapper work? | `authored-tokenized-points-fractionalized-wrapper-flow` | Medium | Neelo sketches an independent wrapper that pools packs and mints a fungible ERC-20 claim on the basket, without endorsing that path. |
+| How could a point-linked token become a perp market? | `authored-tokenized-points-third-party-listing-flow` | Medium | Neelo's scenario requires third-party tokenization, spot liquidity, listing criteria, and builders composing derivative rails around the token. |
+| What are the risks of tokenized points perps? | `authored-tokenized-points-market-risk-boundary` | Medium | Neelo names thin-market manipulation, valuation ambiguity, reflexive leverage, legal/disclosure constraints, and official-versus-third-party confusion. |
 
 ## Prototype Event Log
 

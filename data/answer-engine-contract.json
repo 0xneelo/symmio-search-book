@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 447
+      "totalGoldenRoutes": 452
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 465,
-    "retrievalEligiblePages": 1257,
+    "publicNavigationPages": 470,
+    "retrievalEligiblePages": 1262,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 465,
+      "candidate": 470,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 447,
-    "exactRouteTestsPassing": 447,
+    "totalExactRouteTests": 452,
+    "exactRouteTestsPassing": 452,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 447
+      "candidate": 452
     },
     "exactRoutesByConfidence": {
-      "Medium": 227,
+      "Medium": 232,
       "High": 44,
       "Low": 176
     },
@@ -10046,6 +10046,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-change-policy-for-referral-docs",
         "passes": true
+      },
+      {
+        "id": "qr-are-tokenized-points-perps-an-announced-product",
+        "query": "Are tokenized points perps an announced product?",
+        "normalizedQuery": "are tokenized points perps an announced product",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-product-disclaimer",
+        "expectedPageTitle": "Tokenized Points Product Disclaimer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-are-tokenized-points-perps-an-announced-product",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-points-become-composable-economic-objects",
+        "query": "How do points become composable economic objects?",
+        "normalizedQuery": "how do points become composable economic objects",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-composable-object-chain",
+        "expectedPageTitle": "Tokenized Points Composable Object Chain",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-points-become-composable-economic-objects",
+        "passes": true
+      },
+      {
+        "id": "qr-how-would-a-fractionalized-points-wrapper-work",
+        "query": "How would a fractionalized points wrapper work?",
+        "normalizedQuery": "how would a fractionalized points wrapper work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-fractionalized-wrapper-flow",
+        "expectedPageTitle": "Tokenized Points Fractionalized Wrapper Flow",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-would-a-fractionalized-points-wrapper-work",
+        "passes": true
+      },
+      {
+        "id": "qr-how-could-a-point-linked-token-become-a-perp-market",
+        "query": "How could a point-linked token become a perp market?",
+        "normalizedQuery": "how could a point linked token become a perp market",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-third-party-listing-flow",
+        "expectedPageTitle": "Tokenized Points Third-Party Listing Flow",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-could-a-point-linked-token-become-a-perp-market",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-risks-of-tokenized-points-perps",
+        "query": "What are the risks of tokenized points perps?",
+        "normalizedQuery": "what are the risks of tokenized points perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tokenized-points-market-risk-boundary",
+        "expectedPageTitle": "Tokenized Points Market Risk Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-risks-of-tokenized-points-perps",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10121,7 +10236,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 447,
+      "exactRoutes": 452,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
