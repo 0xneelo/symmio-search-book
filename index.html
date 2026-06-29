@@ -1352,6 +1352,12 @@
         display: none;
       }
 
+      body[data-view="classic"] .home-frontdoor {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
       body[data-view="classic"] .hero,
       body[data-view="classic"] #exampleQuestions,
       body[data-view="classic"] .home-actions {
@@ -2219,30 +2225,32 @@
             <div class="meta" id="variantMeta">classic</div>
           </div>
 
-          <section class="hero">
-            <h2>Vibe<span class="pink-dot">.</span></h2>
-            <p>Docs & answers</p>
-          </section>
+          <div class="home-frontdoor">
+            <section class="hero">
+              <h2>Vibe<span class="pink-dot">.</span></h2>
+              <p>Docs & answers</p>
+            </section>
 
-          <form class="ask" id="askForm">
-            <div class="ask-bar">
-              <svg class="s-ic" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.7"></circle>
-                <path d="m13.6 13.6 3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
-              </svg>
-              <input id="queryInput" name="query" autocomplete="off" placeholder="Ask anything — points, invites, revenue, payouts…" />
-              <button type="submit" aria-label="Ask the docs">
-                <span class="ask-label">Ask the docs</span>
-                <svg class="ask-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+            <form class="ask" id="askForm">
+              <div class="ask-bar">
+                <svg class="s-ic" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.7"></circle>
+                  <path d="m13.6 13.6 3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
                 </svg>
-              </button>
+                <input id="queryInput" name="query" autocomplete="off" placeholder="Ask anything — points, invites, revenue, payouts…" />
+                <button type="submit" aria-label="Ask the docs">
+                  <span class="ask-label">Ask the docs</span>
+                  <svg class="ask-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <div class="source-row" id="exampleQuestions"></div>
+            <div class="home-actions">
+              <button type="button" data-nav="browse">Browse the docs</button>
+              <button type="button" data-nav="insights">Search insights</button>
             </div>
-          </form>
-          <div class="source-row" id="exampleQuestions"></div>
-          <div class="home-actions">
-            <button type="button" data-nav="browse">Browse the docs</button>
-            <button type="button" data-nav="insights">Search insights</button>
           </div>
 
           <section class="answer" id="answerBox" aria-live="polite"></section>
