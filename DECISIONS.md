@@ -1471,3 +1471,11 @@
 **Reason:** Existing pages define Proof of Value broadly and cover later framework details, but the introduction establishes the source's evaluation gate. Ask needs direct routes for what is being tested, why each participant class cares, why low-cap perps are structurally difficult, what hybrid design the paper previews, and what the thesis does not prove. This keeps the manifesto rigorous before readers reach detailed economics or Thiel scorecards.
 
 **Status:** Accepted for the authored manifesto layer; source-time APR examples, capital-efficiency magnitude, partner counts, committed value, revenue shares, solver funding, defense hierarchy, security claims, regulatory conclusions, and detailed derivations remain fresh primary-source/operator/product/risk/legal/accounting/security review.
+
+## D-185: Split Proof Of Value Conclusion Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the Proof of Value conclusion: contribution summary, restated thesis, participant and ecosystem implications, future directions, and the ongoing-demonstration closing frame.
+
+**Reason:** The existing Proof of Value pages cover the introduction, framework details, validation, and Thiel analysis, but the conclusion carries the source's final compression of the argument. Ask needs direct routes for what the paper contributed, how the thesis should be stated in one answer, what the implications are by constituency, what future validation remains, and why proof stays ongoing instead of being a one-time launch claim.
+
+**Status:** Accepted for the authored manifesto layer; source-time launch-partner counts, committed token value, revenue-share percentages, capital-efficiency ratios, payout behavior, LP yield, project revenue distribution, trader retention, stress outcomes, solver hedge quality, defense-stack policy, regulatory posture, and security claims remain fresh primary-source/operator/product/risk/legal/accounting/security review.
