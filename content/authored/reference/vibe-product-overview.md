@@ -4,8 +4,8 @@ title: "Vibe Product Overview"
 section: "product-reference"
 track: "Vibe Basics"
 status: "publication-candidate"
-sourceKeys: ["vibe-what-is", "vibe-architecture", "vibe-papers"]
-sourceUrls: ["https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md", "https://docs.vibe.trading/architectural-overview.md", "https://github.com/0xneelo/vibe_docs"]
+sourceKeys: ["vibe-what-is", "vibe-platform", "vibe-architecture", "vibe-papers"]
+sourceUrls: ["https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md", "https://docs.vibe.trading/about-vibe-trading/the-platform.md", "https://docs.vibe.trading/architectural-overview.md", "https://github.com/0xneelo/vibe_docs"]
 relatedGeneratedPages: ["vibe-product-what-is", "vibe-architecture-amfq", "authored-vibe-as-discovery-layer", "authored-market-assembly-line"]
 ---
 
@@ -13,7 +13,9 @@ relatedGeneratedPages: ["vibe-product-what-is", "vibe-architecture-amfq", "autho
 
 Vibe is the product layer for a specific market-structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools.
 
-The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major-market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. The same public page currently claims Binance perp market coverage and "390+ markets." Treat that number as a current source claim, not a timeless fact; it must be refreshed before final publication.
+The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major-market coverage and permissionless lowcap perpetual listings for Solana or EVM pairs. A live public-docs check on 2026-06-30 found the official "What is Vibe Trading?" page still claiming all Binance perp markets, "390+ markets," and Binance-relative liquidity depth. The official platform page separately claims "390+ Markets with up to 60x Leverage (x100 on some)."
+
+Treat those numbers as official public-docs claims, not as timeless live-market-index facts. They are safe to cite as source wording, but the final production page should refresh the count against the intended publication-date product source or live market index before turning it into a current headline.
 
 ## What Vibe Adds
 
@@ -34,9 +36,14 @@ For publication, the safer formulation is: Vibe's public product story is isolat
 
 If a reader asks "what is Vibe?", the answer should not be only a DEX category label. Vibe is a perpetuals product, a permissionless market-creation path, and a demand-discovery layer in the broader Vibe x Symmio thesis.
 
+## Publication Freshness Boundary
+
+For Search Book answers, the stable claim is product shape: Vibe presents itself as both a major-market perps surface and a lowcap perp-listing surface. The exact count belongs in a freshness-sensitive answer: "the current official Vibe docs say 390+ markets," followed by the source link and a note that market counts should be refreshed at publication time.
+
 ## Sources
 
 - `vibe-what-is`: official product positioning, major-market and lowcap-listing claims.
+- `vibe-platform`: official platform feature list, including market-count and leverage wording.
 - `vibe-architecture`: intent-based quotation and execution model.
 - `vibe-papers`: Neelo's market-creation and discovery-layer thesis.
 

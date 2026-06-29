@@ -26,10 +26,10 @@
     "totalFixtures": 27,
     "passingFixtures": 27,
     "failingFixtures": 0,
-    "exactRouteGoldenSet": 787,
+    "exactRouteGoldenSet": 788,
     "adversarialGoldenSet": 15,
     "answerChunkPages": 1611,
-    "answerChunks": 2841,
+    "answerChunks": 2842,
     "sourceCatalogEntries": 124,
     "pageStatePages": 1593,
     "openOperatorItems": 7,
@@ -67,6 +67,46 @@
             "text": "Vibe Product Overview is the cited answer route for this seeded question.",
             "citationIds": [
               "qr-what-is-vibe-trading-citation-1"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "type": "question-answered",
+            "pageId": "authored-vibe-product-overview"
+          }
+        ]
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
+      "id": "fixture-qr-can-i-quote-vibe-s-390-market-count",
+      "type": "cited-answer",
+      "query": "Can I quote Vibe's 390+ market count?",
+      "expectedPageId": "authored-vibe-product-overview",
+      "response": {
+        "requestId": "req-qr-can-i-quote-vibe-s-390-market-count",
+        "status": "answered",
+        "answer": "Vibe Product Overview is the cited answer route for this seeded question.",
+        "primaryPageId": "authored-vibe-product-overview",
+        "citations": [
+          {
+            "id": "qr-can-i-quote-vibe-s-390-market-count-citation-1",
+            "pageId": "authored-vibe-product-overview",
+            "pageTitle": "Vibe Product Overview",
+            "sourceKey": "vibe-what-is",
+            "sourceHref": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+            "chunkIds": [
+              "authored-vibe-product-overview::001"
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "text": "Vibe Product Overview is the cited answer route for this seeded question.",
+            "citationIds": [
+              "qr-can-i-quote-vibe-s-390-market-count-citation-1"
             ]
           }
         ],
@@ -474,46 +514,6 @@
           {
             "type": "question-answered",
             "pageId": "authored-vibe-simple-trade-flow"
-          }
-        ]
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-qr-which-order-types-does-vibe-support",
-      "type": "cited-answer",
-      "query": "Which order types does Vibe support?",
-      "expectedPageId": "authored-vibe-order-types",
-      "response": {
-        "requestId": "req-qr-which-order-types-does-vibe-support",
-        "status": "answered",
-        "answer": "Vibe Order Types is the cited answer route for this seeded question.",
-        "primaryPageId": "authored-vibe-order-types",
-        "citations": [
-          {
-            "id": "qr-which-order-types-does-vibe-support-citation-1",
-            "pageId": "authored-vibe-order-types",
-            "pageTitle": "Vibe Order Types",
-            "sourceKey": "vibe-order-types",
-            "sourceHref": "https://docs.vibe.trading/trading/order-types.md",
-            "chunkIds": [
-              "authored-vibe-order-types::001"
-            ]
-          }
-        ],
-        "paragraphs": [
-          {
-            "text": "Vibe Order Types is the cited answer route for this seeded question.",
-            "citationIds": [
-              "qr-which-order-types-does-vibe-support-citation-1"
-            ]
-          }
-        ],
-        "events": [
-          {
-            "type": "question-answered",
-            "pageId": "authored-vibe-order-types"
           }
         ]
       },

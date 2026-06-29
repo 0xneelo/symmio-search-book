@@ -6,7 +6,8 @@ Questions are grouped by whether the current source set can answer them.
 
 | Question | Routed page | Confidence | Notes |
 | --- | --- | --- | --- |
-| What is Vibe Trading? | `authored-vibe-product-overview` | Medium | Public Vibe docs answer; exact market counts need fresh verification before final publication. |
+| What is Vibe Trading? | `authored-vibe-product-overview` | Medium | Public Vibe docs answer; the current official docs say 390+ markets, but exact market counts still need publication-date verification. |
+| Can I quote Vibe's 390+ market count? | `authored-vibe-product-overview` | Medium | The official What Is and Platform pages currently support the 390+ wording as public-docs text; treat it as freshness-sensitive and refresh against a product source or live market index before final publication. |
 | What is Symmio? | `authored-symmio-clearing-house-layer` | High | Public Symmio docs answer; authored page explains the clearing-house and hybrid settlement model. |
 | What official Symmio whitepaper history is currently available? | `authored-symmio-whitepaper-history-boundary` | Medium | Official GitHub evidence currently starts with protocol-core on 2023-06-13, docs on 2023-08-22, and the SYMMIO paper v0.8 PDF on 2023-11-16; the exact original/oldest artifact remains parked. |
 | What is an intent? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state. |

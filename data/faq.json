@@ -8,14 +8,14 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 789,
-  "totalAnswerable": 787,
+  "totalEntries": 790,
+  "totalAnswerable": 788,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 119,
+    "Getting Started": 120,
     "Trading Flow": 43,
     "Solvers And Settlement": 180,
     "Risk And Markets": 72,
@@ -27,15 +27,15 @@
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 490,
+    "Medium": 491,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 787
+    "authored": 788
   },
   "byType": {
-    "answerable": 787,
+    "answerable": 788,
     "reconciliation": 2
   },
   "answerable": [
@@ -46,7 +46,7 @@
       "category": "Getting Started",
       "question": "What is Vibe Trading?",
       "normalizedQuestion": "what is vibe trading",
-      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification before final publication.",
+      "shortAnswer": "Public Vibe docs answer; the current official docs say 390+ markets, but exact market counts still need publication-date verification.",
       "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
       "confidence": "Medium",
       "pageId": "authored-vibe-product-overview",
@@ -57,6 +57,7 @@
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
+        "vibe-platform",
         "vibe-architecture",
         "vibe-papers"
       ],
@@ -64,8 +65,68 @@
         {
           "key": "vibe-what-is",
           "group": "Public Vibe Sources",
-          "use": "Vibe product positioning and market claims.",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-i-quote-vibe-s-390-market-count",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Can I quote Vibe's 390+ market count?",
+      "normalizedQuestion": "can i quote vibe s 390 market count",
+      "shortAnswer": "The official What Is and Platform pages currently support the 390+ wording as public-docs text; treat it as freshness-sensitive and refresh against a product source or live market index before final publication.",
+      "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-product-overview",
+      "pageTitle": "Vibe Product Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-what-is",
+        "vibe-platform",
+        "vibe-architecture",
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-what-is",
+          "group": "Public Vibe Sources",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
           "missing": false
         },
         {
@@ -2347,14 +2408,14 @@
         {
           "key": "vibe-platform",
           "group": "Public Vibe Sources",
-          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
           "missing": false
         },
         {
           "key": "vibe-what-is",
           "group": "Public Vibe Sources",
-          "use": "Vibe product positioning and market claims.",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
           "missing": false
         },
@@ -25513,7 +25574,7 @@
       "category": "Getting Started",
       "question": "What is Vibe Trading?",
       "normalizedQuestion": "what is vibe trading",
-      "shortAnswer": "Public Vibe docs answer; exact market counts need fresh verification before final publication.",
+      "shortAnswer": "Public Vibe docs answer; the current official docs say 390+ markets, but exact market counts still need publication-date verification.",
       "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
       "confidence": "Medium",
       "pageId": "authored-vibe-product-overview",
@@ -25524,6 +25585,7 @@
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
+        "vibe-platform",
         "vibe-architecture",
         "vibe-papers"
       ],
@@ -25531,8 +25593,68 @@
         {
           "key": "vibe-what-is",
           "group": "Public Vibe Sources",
-          "use": "Vibe product positioning and market claims.",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-i-quote-vibe-s-390-market-count",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Can I quote Vibe's 390+ market count?",
+      "normalizedQuestion": "can i quote vibe s 390 market count",
+      "shortAnswer": "The official What Is and Platform pages currently support the 390+ wording as public-docs text; treat it as freshness-sensitive and refresh against a product source or live market index before final publication.",
+      "answerSummary": "Vibe Product Overview Vibe is the product layer for a specific market structure thesis: perpetual markets should not be limited to the assets that already have deep order books, mature venue listings, or passive liquidity pools. The current public Vibe docs position Vibe Trading as a perpetuals DEX with two headline surfaces: broad major market coverage a...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-product-overview",
+      "pageTitle": "Vibe Product Overview",
+      "pageSection": "product-reference",
+      "pageTrack": "Vibe Basics",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-what-is",
+        "vibe-platform",
+        "vibe-architecture",
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-what-is",
+          "group": "Public Vibe Sources",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-platform",
+          "group": "Public Vibe Sources",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
           "missing": false
         },
         {
@@ -27814,14 +27936,14 @@
         {
           "key": "vibe-platform",
           "group": "Public Vibe Sources",
-          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, market-count, leverage, deposits, points, revenue-share, and rakeback claims.",
+          "use": "Vibe platform overview, accessible trader UX, cross-chain/account-abstraction/SYMMIO positioning, 390+ market-count wording, leverage, deposits, points, revenue-share, and rakeback claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/the-platform.md",
           "missing": false
         },
         {
           "key": "vibe-what-is",
           "group": "Public Vibe Sources",
-          "use": "Vibe product positioning and market claims.",
+          "use": "Vibe product positioning, Binance perp market coverage wording, 390+ market-count claim, and lowcap listing claims.",
           "href": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
           "missing": false
         },

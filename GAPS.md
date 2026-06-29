@@ -54,7 +54,7 @@ Goldsky subgraph and GraphQL endpoint docs are now registered as public citation
 
 Vibe docs claim Binance perp market coverage and 390+ markets. Since market counts change, exact counts should be verified on the intended publication date.
 
-The current official product overview and platform overview were re-fetched during authored Vibe product-reference passes, but the count remains a publication-date verification item rather than a static compendium fact.
+The current official product overview and platform overview were re-fetched during authored Vibe product-reference passes. A 2026-06-30 live public-docs check confirmed the official "What is Vibe Trading?" page still says all Binance perp markets and "390+ markets," while the platform page says "390+ Markets with up to 60x Leverage (x100 on some)." That is enough to cite the public-docs wording, but the count remains a publication-date verification item rather than a static compendium fact.
 
 **Needed:** Current Vibe product source or live market index snapshot.
 

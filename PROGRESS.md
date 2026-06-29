@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Vibe Market Count Freshness Fold-In
+
+- Executed the first demand/gap-driven publication-plan fold-in for `vibe-product-what-is` / G-006.
+- Re-fetched the official Vibe "What is Vibe Trading?" and "The Platform" Markdown pages and folded the current 390+ market-count wording into authored Vibe product-reference pages.
+- Kept the exact market count as a publication-date freshness item instead of treating it as a timeless compendium fact.
+
 ## 2026-06-30 — Publication Authoring Plan
 
 - Added a deterministic publication authoring plan generator for G-002A.

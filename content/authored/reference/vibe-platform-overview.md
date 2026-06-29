@@ -15,7 +15,7 @@ The public platform page explains Vibe as an accessible on-chain derivatives UI 
 
 ## Product Claims
 
-The page says Vibe offers hundreds of markets, high leverage, permissionless lowcap perp listings, email or wallet account creation, deposits from EVM chains and Solana, a pre-TGE points program, revenue-share positioning for `$VIBE` holders, and trading-fee rakeback.
+The page says Vibe offers hundreds of markets, high leverage, permissionless lowcap perp listings, email or wallet account creation, deposits from EVM chains and Solana, a pre-TGE points program, revenue-share positioning for `$VIBE` holders, and trading-fee rakeback. A live public-docs check on 2026-06-30 found the official platform page wording at "390+ Markets with up to 60x Leverage (x100 on some)," while the official "What is Vibe Trading?" page separately says Vibe has all Binance perp markets, "390+ markets," and Binance-relative liquidity depth.
 
 Several of those claims are time-sensitive or owner-controlled. Exact market counts, leverage ceilings, revenue-share wording, and deposit coverage should be re-verified on publication date and aligned with the current product and legal stance before final release.
 

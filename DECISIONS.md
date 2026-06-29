@@ -1815,3 +1815,11 @@
 **Reason:** G-002A is not a missing-page problem anymore; the compendium has hundreds of authored pages plus hundreds of source companions that must either be folded into existing authored pages or promoted into new final prose. A deterministic plan can rank active gap/demand items first, keep source-block requirements attached to every item, and give future agents a reproducible queue without letting generated source material drift into public navigation.
 
 **Status:** Accepted for authoring operations. The plan is not publication approval; candidate pages still need final source/operator/editorial review.
+
+## D-228: Treat Vibe Market Counts As Freshness-Sensitive Public-Docs Claims
+
+**Decision:** For the Vibe product overview, cite the official public-docs wording that currently says `390+ markets`, but keep exact market counts under publication-date freshness review until a current product source or live market index snapshot is checked.
+
+**Reason:** A 2026-06-30 fetch of the official Vibe "What is Vibe Trading?" Markdown page still says Vibe has all Binance perp markets and `390+ markets`; the official platform page says `390+ Markets with up to 60x Leverage (x100 on some)`. Those pages are primary public sources for the wording, but market availability is mutable. Publishing the number as a timeless claim would weaken source integrity.
+
+**Status:** Accepted for v1 wording. G-006 stays open as a publication-date verification item rather than a blocker to routing basic Vibe product questions.

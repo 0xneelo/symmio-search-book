@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 787
+      "totalGoldenRoutes": 788
     },
     {
       "stage": "glossary-route",
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 787,
-    "exactRouteTestsPassing": 787,
+    "totalExactRouteTests": 788,
+    "exactRouteTestsPassing": 788,
     "totalRefusalTests": 2,
     "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 787
+      "candidate": 788
     },
     "exactRoutesByConfidence": {
-      "Medium": 490,
+      "Medium": 491,
       "High": 44,
       "Low": 253
     },
@@ -229,17 +229,46 @@
         "routeSource": "authored",
         "sourceKeys": [
           "vibe-what-is",
+          "vibe-platform",
           "vibe-architecture",
           "vibe-papers"
         ],
         "linkedSourceKeys": [
           "vibe-what-is",
+          "vibe-platform",
           "vibe-architecture",
           "vibe-papers"
         ],
         "unknownSourceKeys": [],
-        "chunkCount": 2,
+        "chunkCount": 3,
         "faqEntryId": "faq-what-is-vibe-trading",
+        "passes": true
+      },
+      {
+        "id": "qr-can-i-quote-vibe-s-390-market-count",
+        "query": "Can I quote Vibe's 390+ market count?",
+        "normalizedQuery": "can i quote vibe s 390 market count",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-product-overview",
+        "expectedPageTitle": "Vibe Product Overview",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-what-is",
+          "vibe-platform",
+          "vibe-architecture",
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-what-is",
+          "vibe-platform",
+          "vibe-architecture",
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-can-i-quote-vibe-s-390-market-count",
         "passes": true
       },
       {
@@ -18591,7 +18620,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 787,
+      "exactRoutes": 788,
       "glossaryRoutes": 32,
       "refusals": 2,
       "lowRatedFeedback": 1,
