@@ -413,6 +413,11 @@ Questions are grouped by whether the current source set can answer them.
 | When does a referral code become reward eligible? | `authored-referral-code-activation-gates` | Medium | Neelo separates onboarding identity from code activation and gives threshold, exception, and pre-beta activation examples; final live policy remains operator-review. |
 | What are the referral architecture's three planes? | `authored-referral-three-plane-architecture` | Medium | Neelo splits the referral stack into on-chain identity/settlement, off-chain attribution/policy, and user-facing access/claims UX. |
 | How should public referral policy handle private partner terms? | `authored-referral-public-private-policy-overlays` | Medium | Neelo expects public default tables plus explicit private overlays, not hidden side effects inside public policy. |
+| What abuse patterns do referral economics need to prevent? | `authored-referral-abuse-patterns` | Medium | Neelo names self-referral loops, code shopping, and attribution disputes as first-class referral threat patterns. |
+| Why use a uniform baseline referee benefit? | `authored-referral-uniform-referee-benefit` | Medium | Uniform baseline referee terms reduce code-shopping arbitrage and make code quality depend on issuer eligibility instead of hidden discount variation. |
+| Why gate reward-eligible referral-code issuance? | `authored-referral-qualified-issuance-gating` | Medium | Neelo favors qualified issuance so economically active referral rights are unlocked by activity, tiers, progressive criteria, or campaign grants instead of unrestricted spam. |
+| What can own referral rights? | `authored-referral-rights-ownership-model` | Medium | Neelo says referral rights can be account-bound, NFT-portable, or market-scoped, but the program must define precedence to avoid economic ambiguity. |
+| Why do early-code cohorts need sunset rules? | `authored-referral-early-code-scarcity-cohorts` | Medium | Early-code scarcity can drive launch velocity, but Neelo says cohort size, enhanced-right duration, propagation limits, and sunset rules must prevent permanent centralization. |
 
 ## Prototype Event Log
 

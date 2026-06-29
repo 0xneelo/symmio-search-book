@@ -983,3 +983,11 @@
 **Reason:** Existing referral pages explain the broad architecture, but answer-engine readers need exact routes for the mechanics they will ask first: what the identity anchor is, why self rakeback and referral rewards are separate, when a code becomes reward eligible, which architecture plane owns which responsibility, and how public policy can coexist with private commercial terms. Splitting these answers improves referral documentation without resolving the parked referral-depth and historical-accounting decision.
 
 **Status:** Accepted for the authored rewards-reference layer; live referral depth, activation thresholds, tier tables, private terms, backfill behavior, transferability, signer topology, settlement contracts, and public economic commitments remain operator/legal/accounting/implementation review.
+
+## D-124: Split Referral Economics Into Exact Anti-Gaming Answers
+
+**Decision:** Add authored rewards-reference pages for referral abuse patterns, uniform baseline referee benefits, qualified issuance gating, referral-right ownership models, and early-code scarcity cohorts.
+
+**Reason:** The broad referral issuance and anti-gaming page explains the economics source, but answer-engine readers need direct routes for why referral programs get gamed, why referee benefits should be uniform, why economically active codes should be gated, what can own referral rights, and why early-code cohorts need explicit sunset rules. Splitting these answers improves precision while preserving the unresolved referral-depth and historical-accounting boundary.
+
+**Status:** Accepted for the authored rewards-reference layer; live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior remain operator/legal/accounting/implementation review.

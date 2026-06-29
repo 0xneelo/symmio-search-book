@@ -742,6 +742,12 @@
 - Routed five new Ask questions so users, partners, and operators can inspect referral identity, reward rails, activation state, architecture boundaries, and private-overlay policy without relying on one broad referral architecture page.
 - Kept live referral depth, activation thresholds, tier tables, private terms, backfill behavior, transferability, signer topology, settlement contracts, and public economic commitments under operator/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Economics Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's referral-economics source: abuse patterns, uniform baseline referee benefits, qualified issuance gating, referral-right ownership models, and early-code scarcity cohorts.
+- Routed five new Ask questions so users, growth operators, and partners can inspect the anti-gaming mechanics and ownership boundaries directly instead of relying on one broad issuance page.
+- Kept live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior under operator/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 407
+      "totalGoldenRoutes": 412
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 425,
-    "retrievalEligiblePages": 1217,
+    "publicNavigationPages": 430,
+    "retrievalEligiblePages": 1222,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 425,
+      "candidate": 430,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 407,
-    "exactRouteTestsPassing": 407,
+    "totalExactRouteTests": 412,
+    "exactRouteTestsPassing": 412,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 407
+      "candidate": 412
     },
     "exactRoutesByConfidence": {
-      "Medium": 187,
+      "Medium": 192,
       "High": 44,
       "Low": 176
     },
@@ -9126,6 +9126,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-public-referral-policy-handle-private-partner-terms",
         "passes": true
+      },
+      {
+        "id": "qr-what-abuse-patterns-do-referral-economics-need-to-prevent",
+        "query": "What abuse patterns do referral economics need to prevent?",
+        "normalizedQuery": "what abuse patterns do referral economics need to prevent",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-abuse-patterns",
+        "expectedPageTitle": "Referral Abuse Patterns",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-abuse-patterns-do-referral-economics-need-to-prevent",
+        "passes": true
+      },
+      {
+        "id": "qr-why-use-a-uniform-baseline-referee-benefit",
+        "query": "Why use a uniform baseline referee benefit?",
+        "normalizedQuery": "why use a uniform baseline referee benefit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-uniform-referee-benefit",
+        "expectedPageTitle": "Referral Uniform Referee Benefit",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-use-a-uniform-baseline-referee-benefit",
+        "passes": true
+      },
+      {
+        "id": "qr-why-gate-reward-eligible-referral-code-issuance",
+        "query": "Why gate reward-eligible referral-code issuance?",
+        "normalizedQuery": "why gate reward eligible referral code issuance",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-qualified-issuance-gating",
+        "expectedPageTitle": "Referral Qualified Issuance Gating",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-gate-reward-eligible-referral-code-issuance",
+        "passes": true
+      },
+      {
+        "id": "qr-what-can-own-referral-rights",
+        "query": "What can own referral rights?",
+        "normalizedQuery": "what can own referral rights",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-rights-ownership-model",
+        "expectedPageTitle": "Referral Rights Ownership Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-can-own-referral-rights",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-early-code-cohorts-need-sunset-rules",
+        "query": "Why do early-code cohorts need sunset rules?",
+        "normalizedQuery": "why do early code cohorts need sunset rules",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-early-code-scarcity-cohorts",
+        "expectedPageTitle": "Referral Early-Code Scarcity Cohorts",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-do-early-code-cohorts-need-sunset-rules",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9201,7 +9316,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 407,
+      "exactRoutes": 412,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
