@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 364,
-  "totalAnswerable": 357,
+  "totalEntries": 369,
+  "totalAnswerable": 362,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 32,
     "Solvers And Settlement": 114,
     "Risk And Markets": 23,
-    "Revenue": 34,
+    "Revenue": 39,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 142,
+    "Medium": 147,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 357
+    "authored": 362
   },
   "byType": {
-    "answerable": 357,
+    "answerable": 362,
     "reconciliation": 7
   },
   "answerable": [
@@ -11943,6 +11943,151 @@
       "confidence": "Medium",
       "pageId": "authored-two-mode-utilization-rationale",
       "pageTitle": "Why The Funding Model Needs Two Utilization Modes",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-risk-signals-feed-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which risk signals feed the funding model?",
+      "normalizedQuestion": "which risk signals feed the funding model",
+      "shortAnswer": "Neelo's variable definitions list inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress as risk-function inputs.",
+      "answerSummary": "Funding Risk Signals Map Neelo's funding model does not read one risk number. It builds a risk function from several signals: inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress. That map is important because each signal describes a different failure mode. Inventory utilization asks whether current exposur...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-risk-signals-map",
+      "pageTitle": "Funding Risk Signals Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-actions-can-the-funding-control-layer-choose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What actions can the funding control layer choose?",
+      "normalizedQuestion": "what actions can the funding control layer choose",
+      "shortAnswer": "Neelo's variable definitions separate observed market state from chosen actions such as insurance spend, hedging, and ADL.",
+      "answerSummary": "Funding Control Actions Map The funding model variable definitions separate market state from system choice. The market reports exposure, utilization, skew, volatility, profit deviation, and residual stress. The control layer chooses what to do about that state. Neelo's source names five control actions: local insurance spend, global insurance spend, tota...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-control-actions-map",
+      "pageTitle": "Funding Control Actions Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-dynamic-pricing-multipliers-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are dynamic pricing multipliers in the funding model?",
+      "normalizedQuestion": "what are dynamic pricing multipliers in the funding model",
+      "shortAnswer": "Neelo's variable definitions distinguish base borrow/funding/spread from state-adjusted dynamic rates and their multipliers.",
+      "answerSummary": "Funding Dynamic Pricing Multipliers Neelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state adjusted version of those costs. The multipliers show how far the market ha...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-pricing-multipliers",
+      "pageTitle": "Funding Dynamic Pricing Multipliers",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-revenue-and-cost-variables-determine-market-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which revenue and cost variables determine market profit?",
+      "normalizedQuestion": "which revenue and cost variables determine market profit",
+      "shortAnswer": "Neelo's funding model tracks fees, spreads, funding, liquidations, borrow revenue, hedge costs, external borrow costs, trader PnL, shortfall, and LP/vault profit.",
+      "answerSummary": "Funding Revenue And Cost Accounting Map The funding model source lists revenue and cost variables because the model is not only trying to avoid loss. It is trying to understand whether the market is being paid enough for the risk it carries. On the revenue side, Neelo names trading fees, spread revenue, funding revenue, liquidation fees, maintenance margi...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-revenue-cost-accounting-map",
+      "pageTitle": "Funding Revenue And Cost Accounting Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-counterparty-share-mean-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does counterparty share mean in the funding model?",
+      "normalizedQuestion": "what does counterparty share mean in the funding model",
+      "shortAnswer": "Neelo's phase parameter describes whether LP/solver capital or offsetting trader flow is acting as the dominant counterparty.",
+      "answerSummary": "Funding Phase And Counterparty Share The funding model source includes a phase parameter: counterparty share, written as alpha in the source. It describes how much LP or solver capital is acting as the effective counterparty. That small variable carries a large product idea. In the early phase, alpha is near one: the LP or solver side is doing most of the...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-phase-counterparty-share",
+      "pageTitle": "Funding Phase And Counterparty Share",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -24212,6 +24357,151 @@
       "confidence": "Medium",
       "pageId": "authored-two-mode-utilization-rationale",
       "pageTitle": "Why The Funding Model Needs Two Utilization Modes",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-risk-signals-feed-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which risk signals feed the funding model?",
+      "normalizedQuestion": "which risk signals feed the funding model",
+      "shortAnswer": "Neelo's variable definitions list inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress as risk-function inputs.",
+      "answerSummary": "Funding Risk Signals Map Neelo's funding model does not read one risk number. It builds a risk function from several signals: inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress. That map is important because each signal describes a different failure mode. Inventory utilization asks whether current exposur...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-risk-signals-map",
+      "pageTitle": "Funding Risk Signals Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-actions-can-the-funding-control-layer-choose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What actions can the funding control layer choose?",
+      "normalizedQuestion": "what actions can the funding control layer choose",
+      "shortAnswer": "Neelo's variable definitions separate observed market state from chosen actions such as insurance spend, hedging, and ADL.",
+      "answerSummary": "Funding Control Actions Map The funding model variable definitions separate market state from system choice. The market reports exposure, utilization, skew, volatility, profit deviation, and residual stress. The control layer chooses what to do about that state. Neelo's source names five control actions: local insurance spend, global insurance spend, tota...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-control-actions-map",
+      "pageTitle": "Funding Control Actions Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-dynamic-pricing-multipliers-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are dynamic pricing multipliers in the funding model?",
+      "normalizedQuestion": "what are dynamic pricing multipliers in the funding model",
+      "shortAnswer": "Neelo's variable definitions distinguish base borrow/funding/spread from state-adjusted dynamic rates and their multipliers.",
+      "answerSummary": "Funding Dynamic Pricing Multipliers Neelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state adjusted version of those costs. The multipliers show how far the market ha...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-pricing-multipliers",
+      "pageTitle": "Funding Dynamic Pricing Multipliers",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-revenue-and-cost-variables-determine-market-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which revenue and cost variables determine market profit?",
+      "normalizedQuestion": "which revenue and cost variables determine market profit",
+      "shortAnswer": "Neelo's funding model tracks fees, spreads, funding, liquidations, borrow revenue, hedge costs, external borrow costs, trader PnL, shortfall, and LP/vault profit.",
+      "answerSummary": "Funding Revenue And Cost Accounting Map The funding model source lists revenue and cost variables because the model is not only trying to avoid loss. It is trying to understand whether the market is being paid enough for the risk it carries. On the revenue side, Neelo names trading fees, spread revenue, funding revenue, liquidation fees, maintenance margi...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-revenue-cost-accounting-map",
+      "pageTitle": "Funding Revenue And Cost Accounting Map",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-counterparty-share-mean-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does counterparty share mean in the funding model?",
+      "normalizedQuestion": "what does counterparty share mean in the funding model",
+      "shortAnswer": "Neelo's phase parameter describes whether LP/solver capital or offsetting trader flow is acting as the dominant counterparty.",
+      "answerSummary": "Funding Phase And Counterparty Share The funding model source includes a phase parameter: counterparty share, written as alpha in the source. It describes how much LP or solver capital is acting as the effective counterparty. That small variable carries a large product idea. In the early phase, alpha is near one: the LP or solver side is doing most of the...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-phase-counterparty-share",
+      "pageTitle": "Funding Phase And Counterparty Share",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",

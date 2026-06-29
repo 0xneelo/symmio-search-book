@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 357
+      "totalGoldenRoutes": 362
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 375,
-    "retrievalEligiblePages": 1167,
+    "publicNavigationPages": 380,
+    "retrievalEligiblePages": 1172,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 375,
+      "candidate": 380,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 357,
-    "exactRouteTestsPassing": 357,
+    "totalExactRouteTests": 362,
+    "exactRouteTestsPassing": 362,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 357
+      "candidate": 362
     },
     "exactRoutesByConfidence": {
-      "Medium": 142,
+      "Medium": 147,
       "High": 44,
       "Low": 171
     },
@@ -8066,6 +8066,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-does-the-funding-model-need-two-utilization-modes",
         "passes": true
+      },
+      {
+        "id": "qr-which-risk-signals-feed-the-funding-model",
+        "query": "Which risk signals feed the funding model?",
+        "normalizedQuery": "which risk signals feed the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-risk-signals-map",
+        "expectedPageTitle": "Funding Risk Signals Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-risk-signals-feed-the-funding-model",
+        "passes": true
+      },
+      {
+        "id": "qr-what-actions-can-the-funding-control-layer-choose",
+        "query": "What actions can the funding control layer choose?",
+        "normalizedQuery": "what actions can the funding control layer choose",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-control-actions-map",
+        "expectedPageTitle": "Funding Control Actions Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-actions-can-the-funding-control-layer-choose",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-dynamic-pricing-multipliers-in-the-funding-model",
+        "query": "What are dynamic pricing multipliers in the funding model?",
+        "normalizedQuery": "what are dynamic pricing multipliers in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-dynamic-pricing-multipliers",
+        "expectedPageTitle": "Funding Dynamic Pricing Multipliers",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-dynamic-pricing-multipliers-in-the-funding-model",
+        "passes": true
+      },
+      {
+        "id": "qr-which-revenue-and-cost-variables-determine-market-profit",
+        "query": "Which revenue and cost variables determine market profit?",
+        "normalizedQuery": "which revenue and cost variables determine market profit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-revenue-cost-accounting-map",
+        "expectedPageTitle": "Funding Revenue And Cost Accounting Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-revenue-and-cost-variables-determine-market-profit",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-counterparty-share-mean-in-the-funding-model",
+        "query": "What does counterparty share mean in the funding model?",
+        "normalizedQuery": "what does counterparty share mean in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-phase-counterparty-share",
+        "expectedPageTitle": "Funding Phase And Counterparty Share",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-counterparty-share-mean-in-the-funding-model",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8141,7 +8246,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 357,
+      "exactRoutes": 362,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1188,
-  "totalChunks": 2064,
-  "pagesWithChunks": 1188,
+  "totalPages": 1193,
+  "totalChunks": 2074,
+  "pagesWithChunks": 1193,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,17 +653,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 376,
+    "authored": 381,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 723,
+    "authored": 733,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 341,
+    "manifesto": 351,
     "product-reference": 89,
     "dashboard-reference": 24,
     "protocol-reference": 208,
@@ -4455,6 +4455,52 @@
       "text": "live values only after operator and implementation review. Sources vibe papers : Neelo, \"Bell Curve Flattening\". vibe papers : Neelo, \"Insurance & ADL Logic\". Related Pages authored cross market risk mutualization authored funding global insurance eligibility authored funding stress demand and insurance spend"
     },
     {
+      "id": "authored-funding-control-actions-map::001",
+      "pageId": "authored-funding-control-actions-map",
+      "chunkIndex": 1,
+      "title": "Funding Control Actions Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#control-variables-what-the-system-chooses"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-control-actions-map.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Control Actions Map The funding model variable definitions separate market state from system choice. The market reports exposure, utilization, skew, volatility, profit deviation, and residual stress. The control layer chooses what to do about that state. Neelo's source names five control actions: local insurance spend, global insurance spend, total insurance spend, hedge action, and ADL action. That distinction should be visible in the docs because it prevents a common mistake: saying a metric \"causes\" an outcome without showing the control choice in between. For example, high utilization does not automatically mean ADL. It can first change spreads, funding, borrow, or hedging. If exposure remains dangerous, the system can spend local insurance. If the market is eligible and the policy permits it, global insurance can support the market. Only when cheaper or less disruptive defenses are insufficient does ADL become the final forced reduction action in the source model. How To Read The Actions Local insurance spend is market specific defense budget. Global insurance spend is shared support that should be governed more carefully because it can socialize risk across markets. Hedge action is an exposure reducing trade or inventory adjustment. ADL action is the fraction of exposure reduced through forced deleveraging. That order is not merely a formula list. It is a governance and user experience story. Spending insurance"
+    },
+    {
+      "id": "authored-funding-control-actions-map::002",
+      "pageId": "authored-funding-control-actions-map",
+      "chunkIndex": 2,
+      "title": "Funding Control Actions Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#control-variables-what-the-system-chooses"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-control-actions-map.md",
+      "wordStart": 185,
+      "wordEnd": 321,
+      "wordCount": 136,
+      "text": "exposure reducing trade or inventory adjustment. ADL action is the fraction of exposure reduced through forced deleveraging. That order is not merely a formula list. It is a governance and user experience story. Spending insurance changes who bears cost. Hedging changes inventory and execution risk. ADL protects solvency but damages user experience and trust. The control map tells readers that risk management is a sequence of increasingly expensive actions, not one hidden black box. Publication Boundary This page does not assert live insurance budgets, hedge venues, ADL fractions, governance authority, or market eligibility. It preserves the source model distinction between observed state and chosen control action. Sources vibe papers : Neelo, \"Control Variables (What the System Chooses)\". Related Pages authored funding defense hierarchy authored funding adl trigger and target authored funding stress demand and insurance spend"
+    },
+    {
       "id": "authored-funding-core-invariant::001",
       "pageId": "authored-funding-core-invariant",
       "chunkIndex": 1,
@@ -4547,6 +4593,52 @@
       "wordEnd": 266,
       "wordCount": 81,
       "text": "need to show readers where losses are absorbed before they ask who gets deleveraged. Publication Note This page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior. Sources vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored economic clarity for permissionless perps authored token margined reflexivity risk neelo 15 funding model 15 docs 10 defense hierarchy"
+    },
+    {
+      "id": "authored-funding-dynamic-pricing-multipliers::001",
+      "pageId": "authored-funding-dynamic-pricing-multipliers",
+      "chunkIndex": 1,
+      "title": "Funding Dynamic Pricing Multipliers",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#dynamic-pricing-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-dynamic-pricing-multipliers.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Dynamic Pricing Multipliers Neelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state adjusted version of those costs. The multipliers show how far the market has moved from base. That structure is useful because it gives the docs a precise way to explain changing costs without pretending every change is arbitrary. If a market's risk state worsens, the relevant multiplier can rise. If a trade helps rebalance exposure, the model can make that side cheaper. In insurance mode, the source even allows directional incentives strong enough to reward exposure reducing flow. The important idea is that pricing becomes a control surface. Borrow is the cost of carrying position or capital usage. Funding is the recurring transfer that pressures crowded exposure. Spread is the immediate entry or exit cost. All three can become dynamic because they are the least disruptive ways to steer a market before insurance spend or ADL. Why Multipliers Matter A multiplier separates the concept of a normal market cost from the temporary adjustment caused by state. This helps a reader ask better questions. Is the base fee high, or did the market enter a stress regime? Is the spread wide"
+    },
+    {
+      "id": "authored-funding-dynamic-pricing-multipliers::002",
+      "pageId": "authored-funding-dynamic-pricing-multipliers",
+      "chunkIndex": 2,
+      "title": "Funding Dynamic Pricing Multipliers",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#dynamic-pricing-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-dynamic-pricing-multipliers.md",
+      "wordStart": 185,
+      "wordEnd": 350,
+      "wordCount": 165,
+      "text": "a normal market cost from the temporary adjustment caused by state. This helps a reader ask better questions. Is the base fee high, or did the market enter a stress regime? Is the spread wide because the market is illiquid, because the dominant side worsens exposure, or because volatility changed? Is funding a steady balancing payment or an emergency pressure signal? For the answer engine, these exact distinctions matter. A user asking \"why did my cost change?\" should not land on one generic fee page. They should see that cost can move through borrow, funding, and spread multipliers based on inventory, insurance, skew, volatility, and profit state. Publication Boundary This page explains the source model variables only. Public docs should not publish live base rates, multiplier curves, rebates, caps, or market specific pricing policy until implementation and operator review confirm them. Sources vibe papers : Neelo, \"Dynamic Pricing Variables\". Related Pages authored dynamic pricing controls authored funding rate regime model authored vibe fees and funding"
     },
     {
       "id": "authored-funding-full-objective::001",
@@ -4813,6 +4905,52 @@
       "text": "intro: what the derivation is for (and what it is not)\". vibe papers : Neelo, \"Abstract\" for the funding model objective and control surface. Related Pages authored funding as market balancing authored lp profit and dynamic pricing authored z score graduation criteria"
     },
     {
+      "id": "authored-funding-phase-counterparty-share::001",
+      "pageId": "authored-funding-phase-counterparty-share",
+      "chunkIndex": 1,
+      "title": "Funding Phase And Counterparty Share",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#phase-parameter"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-phase-counterparty-share.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Phase And Counterparty Share The funding model source includes a phase parameter: counterparty share, written as alpha in the source. It describes how much LP or solver capital is acting as the effective counterparty. That small variable carries a large product idea. In the early phase, alpha is near one: the LP or solver side is doing most of the counterparty work because trader flow is not yet naturally offsetting. In the later phase, alpha is near zero: traders mostly offset each other, and the solver can focus more on pricing, routing, risk controls, and residual stress rather than being the main balance sheet. This is the funding model version of the broader Vibe lifecycle thesis. A new market starts as a managed market, not a mature order book. It becomes more efficient only as real two sided demand, price integrity, inventory, and risk history develop. Why It Matters Counterparty share explains why launch and maturity should not have the same cost structure. When alpha is high, the system must compensate the side carrying residual risk. That can mean wider spreads, higher borrow, conservative leverage, stronger hedging, and tighter capacity. When alpha falls because natural flow offsets more exposure, the same market can support more efficient terms. The parameter also helps users understand why Vibe does not need to"
+    },
+    {
+      "id": "authored-funding-phase-counterparty-share::002",
+      "pageId": "authored-funding-phase-counterparty-share",
+      "chunkIndex": 2,
+      "title": "Funding Phase And Counterparty Share",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#phase-parameter"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-phase-counterparty-share.md",
+      "wordStart": 185,
+      "wordEnd": 323,
+      "wordCount": 138,
+      "text": "leverage, stronger hedging, and tighter capacity. When alpha falls because natural flow offsets more exposure, the same market can support more efficient terms. The parameter also helps users understand why Vibe does not need to choose forever between solver backed markets and trader to trader markets. The source model lets a market move along that spectrum. Solver and LP support can be an ignition layer, while maturity means less balance sheet dependence over time. Publication Boundary This page does not define live phase thresholds, graduation criteria, leverage schedules, or market maker obligations. It explains the source model meaning of counterparty share and why market maturity changes the funding and risk control problem. Sources vibe papers : Neelo, \"Phase Parameter\". Related Pages authored market maturation state map authored ddq systemic leverage ramp authored funding trader ux lp efficiency tradeoff"
+    },
+    {
       "id": "authored-funding-rate-regime-model::001",
       "pageId": "authored-funding-rate-regime-model",
       "chunkIndex": 1,
@@ -4863,6 +5001,52 @@
       "text": "manifesto's market balancing claim. Vibe does not need every long tail market to start with perfect two sided liquidity. It needs a way to make imbalance progressively more visible and costly before user facing forced unwinds become necessary. Publication Note The source contains example thresholds and APRs. Those are model values, not public production guarantees. Final docs should publish live rates, thresholds, grace periods, rebates, and ADL policy only after implementation and operator review. Sources vibe papers : Neelo, \"Funding Rate Model for Low Cap Perpetual Contracts\". vibe papers : Neelo, \"Utilization Modes: Token Inventory vs Insurance Fund\". vibe papers : Neelo, \"Defense Hierarchy: The Complete Protection Stack\". Related Pages authored funding as market balancing authored dynamic pricing controls authored funding defense hierarchy"
     },
     {
+      "id": "authored-funding-revenue-cost-accounting-map::001",
+      "pageId": "authored-funding-revenue-cost-accounting-map",
+      "chunkIndex": 1,
+      "title": "Funding Revenue And Cost Accounting Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#revenue-cost-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-revenue-cost-accounting-map.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Revenue And Cost Accounting Map The funding model source lists revenue and cost variables because the model is not only trying to avoid loss. It is trying to understand whether the market is being paid enough for the risk it carries. On the revenue side, Neelo names trading fees, spread revenue, funding revenue, liquidation fees, maintenance margin fees, borrow revenue, and total revenue. On the cost and outcome side, it names hedge cost, external borrow cost, shortfall or bad debt, aggregate trader PnL, and LP or vault profit. This accounting map matters because a long tail derivatives market can look active while still being economically wrong. Volume alone does not prove health. A market can generate fees but lose money to trader PnL. It can earn spreads but spend too much on hedging. It can collect liquidation penalties but still face shortfall if the unwind was worse than the model assumed. What It Adds To The Manifesto The compendium should teach that market creation is not just a liquidity story. It is an economic accounting story. The system needs to know what it earned, what it spent, who won, who lost, and whether the resulting LP or vault profit justifies the risk. That is why profit deviation appears as a risk signal and why the full objective combines profit"
+    },
+    {
+      "id": "authored-funding-revenue-cost-accounting-map::002",
+      "pageId": "authored-funding-revenue-cost-accounting-map",
+      "chunkIndex": 2,
+      "title": "Funding Revenue And Cost Accounting Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#revenue-cost-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-revenue-cost-accounting-map.md",
+      "wordStart": 185,
+      "wordEnd": 336,
+      "wordCount": 151,
+      "text": "what it spent, who won, who lost, and whether the resulting LP or vault profit justifies the risk. That is why profit deviation appears as a risk signal and why the full objective combines profit with local risk penalties and defense costs. This also keeps the docs honest about yield. If LP or vault profit depends on fees, spreads, funding, liquidations, hedge costs, external borrow costs, trader PnL, and shortfall, then public pages must avoid reducing the model to a single yield number. Publication Boundary This page does not publish live revenue splits, liquidation economics, management fees, LP shares, hedge venues, borrow sources, or accounting treatment. It explains the source model categories that final public revenue and LP pages must reconcile with implementation and accounting review. Sources vibe papers : Neelo, \"Revenue & Cost Variables\". Related Pages authored funding full objective authored funding risk inversion authored lp profit and dynamic pricing"
+    },
+    {
       "id": "authored-funding-risk-inversion::001",
       "pageId": "authored-funding-risk-inversion",
       "chunkIndex": 1,
@@ -4907,6 +5091,52 @@
       "wordEnd": 328,
       "wordCount": 143,
       "text": "demand, funding pressure, liquidation behavior, and residual counterparty exposure can be priced better than the market prices them elsewhere. This is why the risk model belongs in the manifesto, not only in reference pages. It explains why Vibe's category is not \"another pool\" or \"another order book.\" The system is trying to convert long tail leverage demand into a managed risk product, with trader behavior as the central economic object. Publication Boundary This page is not a yield guarantee, liquidation profit guarantee, or LP suitability statement. It explains the source model inversion. Live fee splits, liquidation sharing, hedging policy, LP rights, and token specific risk disclosures remain operator, legal, implementation, and accounting review items. Sources vibe papers : Neelo, \"Key Insight: Inversion of Traditional Risk\". Related Pages authored liquidations as inventory reallocation authored token holder inventory alignment authored lp profit and dynamic pricing"
+    },
+    {
+      "id": "authored-funding-risk-signals-map::001",
+      "pageId": "authored-funding-risk-signals-map",
+      "chunkIndex": 1,
+      "title": "Funding Risk Signals Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#computed-risk-signals-inputs-to-risk-function"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-signals-map.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Risk Signals Map Neelo's funding model does not read one risk number. It builds a risk function from several signals: inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress. That map is important because each signal describes a different failure mode. Inventory utilization asks whether current exposure is large relative to token coverage. Insurance utilization asks whether modeled loss is large relative to the available insurance budget. Skew asks whether the market is one sided. Volatility asks whether prices are unstable enough to make inventory and hedge management harder. Profit deviation asks whether the market is underperforming relative to its target. Residual stress asks whether demand remains uncovered after insurance spend. Together, those signals stop the funding model from treating every problem as the same problem. A market can be skewed but still well covered by inventory. A market can have moderate utilization but severe volatility. A market can be profitable in aggregate but still carry uncovered residual exposure. The control layer needs to know which state it is in before it changes pricing, insurance spend, hedge action, or ADL proximity. Why This Matters For Readers For traders, the risk signal map explains why cost changes can appear before a visible emergency. If skew, volatility, or residual stress is rising, the market can start charging or incentivizing"
+    },
+    {
+      "id": "authored-funding-risk-signals-map::002",
+      "pageId": "authored-funding-risk-signals-map",
+      "chunkIndex": 2,
+      "title": "Funding Risk Signals Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#computed-risk-signals-inputs-to-risk-function"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-signals-map.md",
+      "wordStart": 185,
+      "wordEnd": 369,
+      "wordCount": 184,
+      "text": "This Matters For Readers For traders, the risk signal map explains why cost changes can appear before a visible emergency. If skew, volatility, or residual stress is rising, the market can start charging or incentivizing flow differently before liquidation or ADL is relevant. For LPs and projects, the map explains why \"utilization\" alone is not enough diligence. They need to know whether the market is consuming token inventory, insurance budget, or both, and whether profit is compensating for the risk being carried. For solvers and operators, the map explains why a single static funding rate is too blunt for long tail derivatives. The source model wants the system to respond to state, not merely to charge a default fee. Publication Boundary This page explains source model signals. It should not publish live thresholds, formulas, oracle vendors, volatility windows, profit targets, insurance budgets, or residual stress policy until the production implementation and operator disclosure boundary are confirmed. Sources vibe papers : Neelo, \"Computed Risk Signals (Inputs to Risk Function)\". Related Pages authored funding state variable map authored two mode utilization rationale authored dynamic pricing controls"
     },
     {
       "id": "authored-funding-state-variable-map::001",

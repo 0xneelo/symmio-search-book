@@ -682,6 +682,12 @@
 - Routed five new Ask questions so traders, LPs, projects, and operators can inspect the model's caveats and risk-state transitions instead of relying on one broad funding-control page.
 - Kept live market eligibility, leverage, utilization thresholds, liquidation accounting, insurance allocation, ADL behavior, LP rights, fee shares, and public risk wording under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Funding Variable Definition Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's funding-model variable definitions: risk-signal map, control-action map, dynamic-pricing multipliers, revenue/cost accounting, and phase/counterparty-share semantics.
+- Routed five new Ask questions so formula, LP, solver, and project readers can inspect the model's state, controls, costs, and maturity parameter without relying on one broad variable-map page.
+- Kept live thresholds, base rates, multiplier curves, insurance budgets, hedge venues, accounting treatment, LP/vault profit distribution, phase thresholds, graduation criteria, and production risk policy under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

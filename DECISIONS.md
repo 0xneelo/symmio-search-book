@@ -903,3 +903,11 @@
 **Reason:** Existing funding pages explain the broad control problem, core invariant, gradient-flow frame, and utilization modes, but answer-engine readers will ask narrower questions about what the model does not prove, why launch constraints can feel conservative, why liquidations are not simply bad-debt events, how Vibe LP risk differs from AMM LP risk, and why insurance utilization is not the same as token-inventory utilization. Splitting these answers makes the model more precise without publishing live parameters as guarantees.
 
 **Status:** Accepted for the authored manifesto layer; live market eligibility, leverage, utilization thresholds, liquidation accounting, insurance allocation, ADL behavior, LP rights, fee shares, and public risk wording remain operator/implementation/legal/accounting review.
+
+## D-114: Split Funding Variable Definitions Into Exact State-And-Control Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the funding risk-signal map, control-action map, dynamic pricing multipliers, revenue/cost accounting map, and phase/counterparty-share parameter.
+
+**Reason:** The broad funding state-variable and objective pages make the model legible, but answer-engine readers need exact routes for the variables they will see in formulas and diligence conversations. Splitting these definitions clarifies the difference between observed state, chosen controls, dynamic cost adjustment, market profitability, and maturity phase without turning source-model symbols into live product commitments.
+
+**Status:** Accepted for the authored manifesto layer; live thresholds, base rates, multiplier curves, insurance budgets, hedge venues, accounting treatment, LP/vault profit distribution, phase thresholds, graduation criteria, and production risk policy remain operator/implementation/legal/accounting review.

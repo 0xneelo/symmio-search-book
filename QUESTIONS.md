@@ -363,6 +363,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why are liquidations described as inventory reallocations? | `authored-liquidations-as-inventory-reallocation` | Medium | Neelo's funding-model invariant treats liquidations as inventory/risk movement inside the solver and LP stack, not automatic bad-debt events. |
 | What is the funding risk inversion? | `authored-funding-risk-inversion` | Medium | Neelo's core-concepts source distinguishes Vibe LPs selling leverage and trader behavior from spot AMM LPs selling volatility. |
 | Why does the funding model need two utilization modes? | `authored-two-mode-utilization-rationale` | Medium | Neelo's utilization-mode source separates ordinary token-inventory pressure from insurance-budget tail-risk pressure. |
+| Which risk signals feed the funding model? | `authored-funding-risk-signals-map` | Medium | Neelo's variable definitions list inventory utilization, insurance utilization, skew, volatility, profit deviation, and residual stress as risk-function inputs. |
+| What actions can the funding control layer choose? | `authored-funding-control-actions-map` | Medium | Neelo's variable definitions separate observed market state from chosen actions such as insurance spend, hedging, and ADL. |
+| What are dynamic pricing multipliers in the funding model? | `authored-funding-dynamic-pricing-multipliers` | Medium | Neelo's variable definitions distinguish base borrow/funding/spread from state-adjusted dynamic rates and their multipliers. |
+| Which revenue and cost variables determine market profit? | `authored-funding-revenue-cost-accounting-map` | Medium | Neelo's funding model tracks fees, spreads, funding, liquidations, borrow revenue, hedge costs, external borrow costs, trader PnL, shortfall, and LP/vault profit. |
+| What does counterparty share mean in the funding model? | `authored-funding-phase-counterparty-share` | Medium | Neelo's phase parameter describes whether LP/solver capital or offsetting trader flow is acting as the dominant counterparty. |
 
 ## Prototype Event Log
 
