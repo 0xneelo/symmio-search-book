@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 416,
+  "totalPages": 421,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 279,
+    "publication-candidate-needs-operator-review": 284,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 203,
+    "manifesto": 208,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 117,
@@ -1891,6 +1891,30 @@
       "excerpt": "The Four Transitions Neelo's architecture is a transition system, not a static exchange design. A new market starts in the safest workable state, then moves toward capital efficiency as the market proves itself. The first transition is collateralization. Bootstrap markets need more explicit backing because natural trader flow is thin. Mature markets can rely more on netting because opposing positions increasingly offset one another. The second transition is matching synchronicity. Early execution can be asynchronous because traders need immediate fills before a natural counterparty exists. Later, as the market thickens, synchronous matching and order book behavior become more plausible. The third transition is counterparty mix. At first, the solver is the main counterparty. Over time, the solver becomes less of a directional backstop and more of a market maker around naturally matched trader flow. The fourth transition is insurance topology. Early markets should be isolated because the failure of one experimental market should not contaminate the system. Mature markets can earn better cross margin and insurance treatment after their behavior is known. Reader Implication The compend"
     },
     {
+      "id": "authored-funding-adl-defense-sequence-example",
+      "title": "Funding ADL And Defense Sequence Example",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-6-adl-trigger",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-7-complete-defense-sequence"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-12-worked-examples",
+        "authored-funding-adl-target-sizing",
+        "authored-funding-defense-activation-timeline"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-adl-defense-sequence-example.md",
+      "bodyMarkdown": "# Funding ADL And Defense Sequence Example\n\nNeelo's ADL worked example shows two trigger paths converging: insurance is exhausted with residual stress, and current exposure exceeds the safe exposure target.\n\nThe example uses a `$40,000` defense budget that has already been spent. Modeled stress demand is:\n\n```\nL(E) = 100,000 * (3 - 1) = 200,000\nD_m = max(0, 200,000 - 50,000) = 150,000\nD_res = max(0, 150,000 - 40,000) = 110,000\n```\n\nThat means insurance is exhausted and residual stress remains.\n\n## Safe Exposure Check\n\nThe example safe exposure is:\n\n```\nE_safe = 10 * 5,000 / 3 = 16,667\n```\n\nCurrent exposure is `$100,000`, so current exposure exceeds safe exposure.\n\nThe ADL amount is the fraction needed to return to the safe target:\n\n```\na_m = 1 - (16,667 / 100,000) = 83.3%\n```\n\n## Complete Defense Sequence\n\nThe final source example then narrates the same logic over time:\n\n1. normal exposure starts at `20%` utilization;\n2. shorts close and utilization rises to `60%`;\n3. utilization reaches stress at `90%`, raising funding and spreads;\n4. utilization crosses emergency and switches toward insurance mode;\n5. insurance is deployed while rebates encourage exposure-reducing flow;\n6. insurance is exhausted and ADL reduces winning-side exposure;\n7. post-ADL exposure returns near the safe target while rates remain elevated.\n\n## Reader Implication\n\nThe worked sequence is the funding model's operating philosophy in miniature: net first, price dynamically, spend local defenses, use shared support cautiously, and only then deleverage positions enough to recover safety.\n\n## Publication Boundary\n\nThe defense budget, Aenigma value, revenue assumption, safe exposure, ADL fraction, timing, and sequence amounts are source-model examples. Do not publish them as production emergency policy, user guarantees, or live deleveraging parameters without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 6: ADL Trigger\" and \"Example 7: Complete Defense Sequence\".\n\n## Related Pages\n\n- `authored-funding-adl-target-sizing`\n- `authored-funding-defense-activation-timeline`\n- `authored-funding-defense-layer-cost-ordering`",
+      "excerpt": "Funding ADL And Defense Sequence Example Neelo's ADL worked example shows two trigger paths converging: insurance is exhausted with residual stress, and current exposure exceeds the safe exposure target. The example uses a $40,000 defense budget that has already been spent. Modeled stress demand is: That means insurance is exhausted and residual stress remains. Safe Exposure Check The example safe exposure is: Current exposure is $100,000 , so current exposure exceeds safe exposure. The ADL amount is the fraction needed to return to the safe target: Complete Defense Sequence The final source example then narrates the same logic over time: 1. normal exposure starts at 20% utilization; 2. shorts close and utilization rises to 60% ; 3. utilization reaches stress at 90% , raising funding and spreads; 4. utilization crosses emergency and switches toward insurance mode; 5. insurance is deployed while rebates encourage exposure reducing flow; 6. insurance is exhausted and ADL reduces winning side exposure; 7. post ADL exposure returns near the safe target while rates remain elevated. Reader Implication The worked sequence is the funding model's operating philosophy in miniature: net first"
+    },
+    {
       "id": "authored-funding-adl-penalty-function",
       "title": "Funding ADL Penalty Function",
       "section": "manifesto",
@@ -2005,6 +2029,29 @@
       "file": "content/authored/manifesto/funding-as-market-balancing.md",
       "bodyMarkdown": "# Funding As Market Balancing\n\nFunding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium.\n\nNeelo's market-creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden.\n\nThis matters for the compendium because funding is not just a fee line. It is a market-shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps.\n\n## Publication Note\n\nThis page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue-specific mechanics, and current disclosure policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mechanism\".\n\n## Related Pages\n\n- `authored-hybrid-settlement-solver-stack`\n- `authored-market-maturation-z-score`\n- `authored-estimated-network-revenue`",
       "excerpt": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mec"
+    },
+    {
+      "id": "authored-funding-bell-curve-example",
+      "title": "Funding Bell-Curve Flattening Example",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-5-bell-curve-flattening"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-12-worked-examples",
+        "authored-funding-bell-curve-tail-cutoffs",
+        "authored-funding-proportional-tail-allocation"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-bell-curve-example.md",
+      "bodyMarkdown": "# Funding Bell-Curve Flattening Example\n\nNeelo's bell-curve worked example shows the cross-market flattening arithmetic with five market profit values:\n\n```\nA = +80,000\nB = +20,000\nC =  +5,000\nD = -10,000\nE = -45,000\n```\n\nThe total remains `$50,000`; the mean is `$10,000`.\n\n## Tail Cutoffs\n\nUsing the source example's standard deviation of about `$45,960` and `k = 1.0`, the cutoffs become:\n\n```\nupper = 10,000 + 45,960 = 55,960\nlower = 10,000 - 45,960 = -35,960\n```\n\nMarket A is above the upper cutoff by `$24,040`. Market E is below the lower cutoff by `$9,040`.\n\n## Transfer Pool And Allocation\n\nThe feasible pool is capped by the smaller side of the tail imbalance:\n\n```\nT = 0.8 * min(24,040, 9,040) = 7,232\n```\n\nBecause there is one winner tail and one loser tail in the example, the full `$7,232` comes from A and goes to E.\n\n## Flattened Result\n\nAfter flattening:\n\n```\nA: 80,000 - 7,232 = 72,768\nE: -45,000 + 7,232 = -37,768\n```\n\nThe total before and after remains `$50,000`.\n\n## Reader Implication\n\nFlattening compresses extreme outcomes; it does not create money. It can reduce one market's extreme loss only to the extent there is eligible winner-side excess and the transfer fraction permits it.\n\n## Publication Boundary\n\nThe five-market dataset, standard deviation method, cutoff multiplier, transfer fraction, and allocation amounts are source-model examples. Do not publish them as live cross-market mutualization policy without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 5: Bell-Curve Flattening\".\n\n## Related Pages\n\n- `authored-funding-bell-curve-tail-cutoffs`\n- `authored-funding-transfer-pool-feasibility`\n- `authored-funding-proportional-tail-allocation`",
+      "excerpt": "Funding Bell Curve Flattening Example Neelo's bell curve worked example shows the cross market flattening arithmetic with five market profit values: The total remains $50,000 ; the mean is $10,000 . Tail Cutoffs Using the source example's standard deviation of about $45,960 and k = 1.0 , the cutoffs become: Market A is above the upper cutoff by $24,040 . Market E is below the lower cutoff by $9,040 . Transfer Pool And Allocation The feasible pool is capped by the smaller side of the tail imbalance: Because there is one winner tail and one loser tail in the example, the full $7,232 comes from A and goes to E. Flattened Result After flattening: The total before and after remains $50,000 . Reader Implication Flattening compresses extreme outcomes; it does not create money. It can reduce one market's extreme loss only to the extent there is eligible winner side excess and the transfer fraction permits it. Publication Boundary The five market dataset, standard deviation method, cutoff multiplier, transfer fraction, and allocation amounts are source model examples. Do not publish them as live cross market mutualization policy without operator, risk, legal, accounting, and implementation "
     },
     {
       "id": "authored-funding-bell-curve-tail-cutoffs",
@@ -2287,6 +2334,29 @@
       "excerpt": "Funding Dynamic Pricing Multipliers Neelo's variable definitions split dynamic pricing into base rates and adjusted rates. The base borrow rate, base funding rate, and base spread describe ordinary market cost. Dynamic borrow, dynamic funding, and dynamic spread describe the state adjusted version of those costs. The multipliers show how far the market has moved from base. That structure is useful because it gives the docs a precise way to explain changing costs without pretending every change is arbitrary. If a market's risk state worsens, the relevant multiplier can rise. If a trade helps rebalance exposure, the model can make that side cheaper. In insurance mode, the source even allows directional incentives strong enough to reward exposure reducing flow. The important idea is that pricing becomes a control surface. Borrow is the cost of carrying position or capital usage. Funding is the recurring transfer that pressures crowded exposure. Spread is the immediate entry or exit cost. All three can become dynamic because they are the least disruptive ways to steer a market before insurance spend or ADL. Why Multipliers Matter A multiplier separates the concept of a normal market co"
     },
     {
+      "id": "authored-funding-emergency-acceleration-example",
+      "title": "Funding Emergency Acceleration Example",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-3-emergency-with-acceleration"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-12-worked-examples",
+        "authored-funding-emergency-time-ramp",
+        "authored-funding-dynamic-funding-rate"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-emergency-acceleration-example.md",
+      "bodyMarkdown": "# Funding Emergency Acceleration Example\n\nNeelo's emergency worked example shows why duration and loss intensity matter after utilization has crossed the critical zone.\n\nThe example market has `$120,000` of longs, `$60,000` of shorts, and `$50,000` of token inventory. Residual exposure is:\n\n```\nE_usd = |120,000 - 60,000| = 60,000\nu1 = 60,000 / 50,000 = 120%\n```\n\nBecause utilization is above the critical example threshold for longer than the example grace period, the market enters emergency mode.\n\n## Loss Intensity Accelerates Time\n\nThe source example uses loss intensity to accelerate effective emergency time:\n\n```\nratio = (0.10 - 0.03) / (0.20 - 0.03) = 0.41\nm = 1 + 2.0 * 0.41 = 1.82x\n```\n\nOne real day at that multiplier adds `1.82` effective days. The example's accumulated emergency time moves from `3.0` days to `4.82` days.\n\n## Emergency Funding Result\n\nThe example emergency funding formula then reads:\n\n```\nf = 0.30 + 0.08 * 4.82^1.5 = 115% APR\n```\n\nThe cap check leaves it below the example maximum cap.\n\n## Reader Implication\n\nEmergency pricing is not only a high-utilization switch. It is a persistence and loss-speed problem. A market that briefly touches a stress boundary should not be treated the same as one that remains beyond safe utilization while loss intensity keeps rising.\n\n## Publication Boundary\n\nThe grace period, loss-intensity floor, stress threshold, multiplier, emergency exponent, cap, and APR are source-model examples. Do not publish them as live Vibe market policy without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 3: Emergency with Acceleration\".\n\n## Related Pages\n\n- `authored-funding-emergency-time-ramp`\n- `authored-funding-dynamic-funding-rate`\n- `authored-funding-defense-activation-timeline`",
+      "excerpt": "Funding Emergency Acceleration Example Neelo's emergency worked example shows why duration and loss intensity matter after utilization has crossed the critical zone. The example market has $120,000 of longs, $60,000 of shorts, and $50,000 of token inventory. Residual exposure is: Because utilization is above the critical example threshold for longer than the example grace period, the market enters emergency mode. Loss Intensity Accelerates Time The source example uses loss intensity to accelerate effective emergency time: One real day at that multiplier adds 1.82 effective days. The example's accumulated emergency time moves from 3.0 days to 4.82 days. Emergency Funding Result The example emergency funding formula then reads: The cap check leaves it below the example maximum cap. Reader Implication Emergency pricing is not only a high utilization switch. It is a persistence and loss speed problem. A market that briefly touches a stress boundary should not be treated the same as one that remains beyond safe utilization while loss intensity keeps rising. Publication Boundary The grace period, loss intensity floor, stress threshold, multiplier, emergency exponent, cap, and APR are sou"
+    },
+    {
       "id": "authored-funding-emergency-time-ramp",
       "title": "Funding Emergency Time Ramp",
       "section": "manifesto",
@@ -2498,6 +2568,29 @@
       "excerpt": "Funding Insurance Fund Utilization Mode Insurance fund utilization is the second mode in Neelo's two mode funding model. It activates when exposure exceeds token inventory and the system must ask whether the remaining modeled loss can be absorbed by insurance capacity. The source defines this mode as an exposure loss estimate divided by an insurance budget. The loss estimate can use Aenigma, volatility adjustment, or another reviewed risk horizon. The insurance budget can combine local insurance and any eligible global allocation, subject to risk fractions and spend caps. This mode is more urgent than ordinary token inventory utilization. Once the market is beyond token coverage, the question is no longer only \"how scarce is inventory?\" It becomes \"how much of the defense budget would the modeled stress consume?\" That is why the source treats insurance mode as a zone for aggressive pricing, active insurance use, and proximity to ADL if utilization approaches or exceeds the budget. Why Mode Switching Uses The Binding Constraint The source's mode switching logic uses token inventory utilization while exposure is inside token coverage. Once exposure exceeds coverage, it considers insu"
     },
     {
+      "id": "authored-funding-insurance-mode-spread-example",
+      "title": "Funding Insurance Mode Spread Example",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-4-insurance-mode-activation"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-12-worked-examples",
+        "authored-funding-insurance-fund-utilization-mode",
+        "authored-funding-directional-spreads-and-rebates"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-mode-spread-example.md",
+      "bodyMarkdown": "# Funding Insurance Mode Spread Example\n\nNeelo's insurance-mode worked example begins when residual exposure exceeds token inventory. The example has `$60,000` of residual exposure and `$50,000` of token inventory, leaving:\n\n```\nunhedged = max(0, 60,000 - 50,000) = 10,000\n```\n\nWith an illustrative Aenigma multiplier of `3.0`, the unhedged loss estimate is:\n\n```\nL_unhedged = 10,000 * (3 - 1) = 20,000\n```\n\n## Insurance Budget And Utilization\n\nThe example combines `$100,000` of local insurance with a `30%` local spend fraction and `$10,000` of global allocation:\n\n```\nB_ins = 0.30 * 100,000 + 1.0 * 10,000 = 40,000\nu2 = 20,000 / 40,000 = 50%\n```\n\nThe effective utilization remains the more urgent pressure between token utilization and insurance utilization.\n\n## Why Spreads Become Directional\n\nIn insurance mode, the source example changes spreads asymmetrically:\n\n```\nlong open  = 0.10% * (1 + 2 * 0.50) = 0.20%\nshort open = 0.10% * (1 - 1 * 0.50) = 0.05%\n```\n\nThe exposure-worsening side pays more. The exposure-reducing side pays less.\n\n## Reader Implication\n\nInsurance mode is not only \"insurance pays.\" It is a state where pricing should aggressively favor trades that reduce unhedged exposure, because defense budget is now the binding constraint.\n\n## Publication Boundary\n\nThe Aenigma value, insurance fractions, global allocation, spread table, and market amounts are source-model examples. Do not publish them as deployed market parameters, rebates, or guarantees without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 4: Insurance Mode Activation\".\n\n## Related Pages\n\n- `authored-funding-insurance-fund-utilization-mode`\n- `authored-funding-directional-spreads-and-rebates`\n- `authored-funding-insurance-spend-caps`",
+      "excerpt": "Funding Insurance Mode Spread Example Neelo's insurance mode worked example begins when residual exposure exceeds token inventory. The example has $60,000 of residual exposure and $50,000 of token inventory, leaving: With an illustrative Aenigma multiplier of 3.0 , the unhedged loss estimate is: Insurance Budget And Utilization The example combines $100,000 of local insurance with a 30% local spend fraction and $10,000 of global allocation: The effective utilization remains the more urgent pressure between token utilization and insurance utilization. Why Spreads Become Directional In insurance mode, the source example changes spreads asymmetrically: The exposure worsening side pays more. The exposure reducing side pays less. Reader Implication Insurance mode is not only \"insurance pays.\" It is a state where pricing should aggressively favor trades that reduce unhedged exposure, because defense budget is now the binding constraint. Publication Boundary The Aenigma value, insurance fractions, global allocation, spread table, and market amounts are source model examples. Do not publish them as deployed market parameters, rebates, or guarantees without operator, risk, legal, accounting"
+    },
+    {
       "id": "authored-funding-insurance-safety-budgets",
       "title": "Funding Insurance And Safety Budgets",
       "section": "manifesto",
@@ -2707,6 +2800,30 @@
       "file": "content/authored/manifesto/funding-model-control-problem.md",
       "bodyMarkdown": "# The Funding Model Is A Control Problem\n\nNeelo's funding-model corpus starts with a useful warning: the math is not a claim that one formula can solve long-tail leverage.\n\nThat distinction matters for Vibe. The open problem is not only \"calculate a funding rate.\" It is how to run leveraged markets when flow is thin, information is incomplete, trader demand is asymmetric, and the residual counterparty may need to carry risk before the market matures.\n\nThe model turns that problem into a control surface. Each market has state: open interest, netting, exposure, inventory, volatility, skew, insurance capacity, profit deviation, and residual stress. The protocol then has controls: spread, funding, borrow, buybacks, local insurance, global insurance, and ADL. The point of the derivation is to make the tension visible before the operator or solver chooses a policy.\n\n## What It Controls\n\nAt cold start, the source frames the market as close to z-score zero. Flow is asynchronous, full natural netting may not exist, and a residual solver can sit in the middle. The conservative path is to begin with heavy hedging and lower LP efficiency, then increase effective leverage only as live data supports it.\n\nThat creates a deliberate tradeoff. Traders can receive a more familiar perp-like interface earlier, but the LP and solver side may be less capital efficient until the market proves it can support more netting. Moving \"up\" the spectrum is not a one-way graduation. Stress, ADL, resets, and parameter changes are part of how the system learns.\n\n## Why It Belongs In The Manifesto\n\nThe funding model gives the compendium a language for a hard truth: permissionless derivatives are not made safe by pretending every token already has mature liquidity. They are made legible by naming the risk, exposing the controls, and explaining what happens when the controls are not enough.\n\nThat is why this page should sit near the token-margin and solver-risk material. Funding is not a fee widget. It is one part of a larger market-control loop.\n\n## Publication Note\n\nThis page summarizes the source model. Final public docs need operator and implementation review before turning model parameters, thresholds, or solver policies into product guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Informal intro: what the derivation is for (and what it is not)\".\n- `vibe-papers`: Neelo, \"Abstract\" for the funding model objective and control surface.\n\n## Related Pages\n\n- `authored-funding-as-market-balancing`\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-z-score-graduation-criteria`",
       "excerpt": "The Funding Model Is A Control Problem Neelo's funding model corpus starts with a useful warning: the math is not a claim that one formula can solve long tail leverage. That distinction matters for Vibe. The open problem is not only \"calculate a funding rate.\" It is how to run leveraged markets when flow is thin, information is incomplete, trader demand is asymmetric, and the residual counterparty may need to carry risk before the market matures. The model turns that problem into a control surface. Each market has state: open interest, netting, exposure, inventory, volatility, skew, insurance capacity, profit deviation, and residual stress. The protocol then has controls: spread, funding, borrow, buybacks, local insurance, global insurance, and ADL. The point of the derivation is to make the tension visible before the operator or solver chooses a policy. What It Controls At cold start, the source frames the market as close to z score zero. Flow is asynchronous, full natural netting may not exist, and a residual solver can sit in the middle. The conservative path is to begin with heavy hedging and lower LP efficiency, then increase effective leverage only as live data supports it. T"
+    },
+    {
+      "id": "authored-funding-normal-stress-utilization-example",
+      "title": "Funding Normal And Stress Utilization Example",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-1-normal-operation",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples#example-2-stress-regime"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-12-worked-examples",
+        "authored-funding-rate-regime-model",
+        "authored-funding-token-inventory-utilization-mode"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-normal-stress-utilization-example.md",
+      "bodyMarkdown": "# Funding Normal And Stress Utilization Example\n\nNeelo's first two worked examples show the ordinary token-inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime.\n\nIn the normal example, `$60,000` of longs and `$50,000` of shorts net to `$50,000`, leaving `$10,000` of residual long exposure. With `5,000` tokens at `$10`, token inventory is worth `$50,000`, so token utilization is:\n\n```\nu1 = 10,000 / 50,000 = 20%\n```\n\nThat sits below the source example's optimal utilization threshold, so the market remains in normal funding.\n\n## What Changes In Stress\n\nThe stress example uses `$120,000` longs and `$80,000` shorts. Netting leaves `$40,000` residual exposure against the same `$50,000` token inventory:\n\n```\nu1 = 40,000 / 50,000 = 80%\n```\n\nAt the example boundary, stress pricing begins. If utilization rises to `90%`, the source's normalized stress term becomes:\n\n```\ns = (0.90 - 0.80) / (1 - 0.80) = 0.50\n```\n\nWith the illustrative stress curve, funding moves from `30%` APR to `55%` APR.\n\n## Reader Implication\n\nThe example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back toward balance.\n\n## Publication Boundary\n\nThe percentages, threshold, market name, APRs, and token amounts are source-model examples. Do not publish them as live market parameters without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 1: Normal Operation\" and \"Example 2: Stress Regime\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-token-inventory-utilization-mode`\n- `authored-funding-worked-examples-reading-guide`",
+      "excerpt": "Funding Normal And Stress Utilization Example Neelo's first two worked examples show the ordinary token inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime. In the normal example, $60,000 of longs and $50,000 of shorts net to $50,000 , leaving $10,000 of residual long exposure. With 5,000 tokens at $10 , token inventory is worth $50,000 , so token utilization is: That sits below the source example's optimal utilization threshold, so the market remains in normal funding. What Changes In Stress The stress example uses $120,000 longs and $80,000 shorts. Netting leaves $40,000 residual exposure against the same $50,000 token inventory: At the example boundary, stress pricing begins. If utilization rises to 90% , the source's normalized stress term becomes: With the illustrative stress curve, funding moves from 30% APR to 55% APR. Reader Implication The example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back towar"
     },
     {
       "id": "authored-funding-per-market-state-variables",

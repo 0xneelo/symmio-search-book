@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 404,
-  "totalAnswerable": 397,
+  "totalEntries": 409,
+  "totalAnswerable": 402,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 32,
     "Solvers And Settlement": 126,
     "Risk And Markets": 23,
-    "Revenue": 62,
+    "Revenue": 67,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 177,
+    "Medium": 182,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 397
+    "authored": 402
   },
   "byType": {
-    "answerable": 397,
+    "answerable": 402,
     "reconciliation": 7
   },
   "answerable": [
@@ -13103,6 +13103,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-dynamic-control-loop",
       "pageTitle": "Funding Dynamic Control Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-the-normal-and-stress-funding-examples-calculate-utilization",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do the normal and stress funding examples calculate utilization?",
+      "normalizedQuestion": "how do the normal and stress funding examples calculate utilization",
+      "shortAnswer": "Neelo's worked examples net long and short flow, compare residual exposure with token inventory, then move from normal to stress pricing as utilization rises.",
+      "answerSummary": "Funding Normal And Stress Utilization Example Neelo's first two worked examples show the ordinary token inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime. In the normal example, $60,000 of longs and $50,000 of shorts net to $50,000 , leaving $10,000 of residual long ex...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-normal-stress-utilization-example",
+      "pageTitle": "Funding Normal And Stress Utilization Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-emergency-acceleration-work-in-the-funding-example",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does emergency acceleration work in the funding example?",
+      "normalizedQuestion": "how does emergency acceleration work in the funding example",
+      "shortAnswer": "Neelo's emergency example accelerates effective time when high utilization persists with rising loss intensity.",
+      "answerSummary": "Funding Emergency Acceleration Example Neelo's emergency worked example shows why duration and loss intensity matter after utilization has crossed the critical zone. The example market has $120,000 of longs, $60,000 of shorts, and $50,000 of token inventory. Residual exposure is: Because utilization is above the critical example threshold for longer than...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-emergency-acceleration-example",
+      "pageTitle": "Funding Emergency Acceleration Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-insurance-mode-spread-example-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the insurance-mode spread example work?",
+      "normalizedQuestion": "how does the insurance mode spread example work",
+      "shortAnswer": "Neelo's insurance-mode example estimates unhedged loss, compares it with defense budget, then makes exposure-worsening flow more expensive and exposure-reducing flow cheaper.",
+      "answerSummary": "Funding Insurance Mode Spread Example Neelo's insurance mode worked example begins when residual exposure exceeds token inventory. The example has $60,000 of residual exposure and $50,000 of token inventory, leaving: With an illustrative Aenigma multiplier of 3.0 , the unhedged loss estimate is: Insurance Budget And Utilization The example combines $100,0...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-mode-spread-example",
+      "pageTitle": "Funding Insurance Mode Spread Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-bell-curve-worked-example-prove",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does the bell-curve worked example prove?",
+      "normalizedQuestion": "what does the bell curve worked example prove",
+      "shortAnswer": "Neelo's bell-curve example shows that transfer-pool flattening compresses winner and loser tails while preserving total market profit.",
+      "answerSummary": "Funding Bell Curve Flattening Example Neelo's bell curve worked example shows the cross market flattening arithmetic with five market profit values: The total remains $50,000 ; the mean is $10,000 . Tail Cutoffs Using the source example's standard deviation of about $45,960 and k = 1.0 , the cutoffs become: Market A is above the upper cutoff by $24,040 ....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-bell-curve-example",
+      "pageTitle": "Funding Bell-Curve Flattening Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-worked-adl-defense-sequence-unfold",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the worked ADL defense sequence unfold?",
+      "normalizedQuestion": "how does the worked adl defense sequence unfold",
+      "shortAnswer": "Neelo's ADL and sequence examples move from normal utilization to stress, emergency pricing, insurance deployment, ADL, and recovery.",
+      "answerSummary": "Funding ADL And Defense Sequence Example Neelo's ADL worked example shows two trigger paths converging: insurance is exhausted with residual stress, and current exposure exceeds the safe exposure target. The example uses a $40,000 defense budget that has already been spent. Modeled stress demand is: That means insurance is exhausted and residual stress re...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-defense-sequence-example",
+      "pageTitle": "Funding ADL And Defense Sequence Example",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -26532,6 +26677,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-dynamic-control-loop",
       "pageTitle": "Funding Dynamic Control Loop",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-the-normal-and-stress-funding-examples-calculate-utilization",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do the normal and stress funding examples calculate utilization?",
+      "normalizedQuestion": "how do the normal and stress funding examples calculate utilization",
+      "shortAnswer": "Neelo's worked examples net long and short flow, compare residual exposure with token inventory, then move from normal to stress pricing as utilization rises.",
+      "answerSummary": "Funding Normal And Stress Utilization Example Neelo's first two worked examples show the ordinary token inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime. In the normal example, $60,000 of longs and $50,000 of shorts net to $50,000 , leaving $10,000 of residual long ex...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-normal-stress-utilization-example",
+      "pageTitle": "Funding Normal And Stress Utilization Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-emergency-acceleration-work-in-the-funding-example",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does emergency acceleration work in the funding example?",
+      "normalizedQuestion": "how does emergency acceleration work in the funding example",
+      "shortAnswer": "Neelo's emergency example accelerates effective time when high utilization persists with rising loss intensity.",
+      "answerSummary": "Funding Emergency Acceleration Example Neelo's emergency worked example shows why duration and loss intensity matter after utilization has crossed the critical zone. The example market has $120,000 of longs, $60,000 of shorts, and $50,000 of token inventory. Residual exposure is: Because utilization is above the critical example threshold for longer than...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-emergency-acceleration-example",
+      "pageTitle": "Funding Emergency Acceleration Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-insurance-mode-spread-example-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the insurance-mode spread example work?",
+      "normalizedQuestion": "how does the insurance mode spread example work",
+      "shortAnswer": "Neelo's insurance-mode example estimates unhedged loss, compares it with defense budget, then makes exposure-worsening flow more expensive and exposure-reducing flow cheaper.",
+      "answerSummary": "Funding Insurance Mode Spread Example Neelo's insurance mode worked example begins when residual exposure exceeds token inventory. The example has $60,000 of residual exposure and $50,000 of token inventory, leaving: With an illustrative Aenigma multiplier of 3.0 , the unhedged loss estimate is: Insurance Budget And Utilization The example combines $100,0...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-mode-spread-example",
+      "pageTitle": "Funding Insurance Mode Spread Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-bell-curve-worked-example-prove",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does the bell-curve worked example prove?",
+      "normalizedQuestion": "what does the bell curve worked example prove",
+      "shortAnswer": "Neelo's bell-curve example shows that transfer-pool flattening compresses winner and loser tails while preserving total market profit.",
+      "answerSummary": "Funding Bell Curve Flattening Example Neelo's bell curve worked example shows the cross market flattening arithmetic with five market profit values: The total remains $50,000 ; the mean is $10,000 . Tail Cutoffs Using the source example's standard deviation of about $45,960 and k = 1.0 , the cutoffs become: Market A is above the upper cutoff by $24,040 ....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-bell-curve-example",
+      "pageTitle": "Funding Bell-Curve Flattening Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-worked-adl-defense-sequence-unfold",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the worked ADL defense sequence unfold?",
+      "normalizedQuestion": "how does the worked adl defense sequence unfold",
+      "shortAnswer": "Neelo's ADL and sequence examples move from normal utilization to stress, emergency pricing, insurance deployment, ADL, and recovery.",
+      "answerSummary": "Funding ADL And Defense Sequence Example Neelo's ADL worked example shows two trigger paths converging: insurance is exhausted with residual stress, and current exposure exceeds the safe exposure target. The example uses a $40,000 defense budget that has already been spent. Modeled stress demand is: That means insurance is exhausted and residual stress re...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-defense-sequence-example",
+      "pageTitle": "Funding ADL And Defense Sequence Example",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",

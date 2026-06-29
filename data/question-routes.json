@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 397,
+  "totalRoutes": 402,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 177,
+    "Medium": 182,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 397
+    "authored": 402
   },
   "answerable": [
     {
@@ -6953,6 +6953,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo treats funding, spread, and borrow functions as state-responsive controls before insurance or ADL are deployed.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-the-normal-and-stress-funding-examples-calculate-utilization",
+      "question": "How do the normal and stress funding examples calculate utilization?",
+      "normalizedQuestion": "how do the normal and stress funding examples calculate utilization",
+      "pageId": "authored-funding-normal-stress-utilization-example",
+      "pageTitle": "Funding Normal And Stress Utilization Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's worked examples net long and short flow, compare residual exposure with token inventory, then move from normal to stress pricing as utilization rises.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-emergency-acceleration-work-in-the-funding-example",
+      "question": "How does emergency acceleration work in the funding example?",
+      "normalizedQuestion": "how does emergency acceleration work in the funding example",
+      "pageId": "authored-funding-emergency-acceleration-example",
+      "pageTitle": "Funding Emergency Acceleration Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's emergency example accelerates effective time when high utilization persists with rising loss intensity.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-insurance-mode-spread-example-work",
+      "question": "How does the insurance-mode spread example work?",
+      "normalizedQuestion": "how does the insurance mode spread example work",
+      "pageId": "authored-funding-insurance-mode-spread-example",
+      "pageTitle": "Funding Insurance Mode Spread Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's insurance-mode example estimates unhedged loss, compares it with defense budget, then makes exposure-worsening flow more expensive and exposure-reducing flow cheaper.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-bell-curve-worked-example-prove",
+      "question": "What does the bell-curve worked example prove?",
+      "normalizedQuestion": "what does the bell curve worked example prove",
+      "pageId": "authored-funding-bell-curve-example",
+      "pageTitle": "Funding Bell-Curve Flattening Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's bell-curve example shows that transfer-pool flattening compresses winner and loser tails while preserving total market profit.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-worked-adl-defense-sequence-unfold",
+      "question": "How does the worked ADL defense sequence unfold?",
+      "normalizedQuestion": "how does the worked adl defense sequence unfold",
+      "pageId": "authored-funding-adl-defense-sequence-example",
+      "pageTitle": "Funding ADL And Defense Sequence Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's ADL and sequence examples move from normal utilization to stress, emergency pricing, insurance deployment, ADL, and recovery.",
       "sourceKeys": [
         "vibe-papers"
       ],

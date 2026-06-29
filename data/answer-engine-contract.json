@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 397
+      "totalGoldenRoutes": 402
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 415,
-    "retrievalEligiblePages": 1207,
+    "publicNavigationPages": 420,
+    "retrievalEligiblePages": 1212,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 415,
+      "candidate": 420,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 397,
-    "exactRouteTestsPassing": 397,
+    "totalExactRouteTests": 402,
+    "exactRouteTestsPassing": 402,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 397
+      "candidate": 402
     },
     "exactRoutesByConfidence": {
-      "Medium": 177,
+      "Medium": 182,
       "High": 44,
       "Low": 176
     },
@@ -8906,6 +8906,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-do-dynamic-pricing-controls-enter-the-funding-objective",
         "passes": true
+      },
+      {
+        "id": "qr-how-do-the-normal-and-stress-funding-examples-calculate-utilization",
+        "query": "How do the normal and stress funding examples calculate utilization?",
+        "normalizedQuery": "how do the normal and stress funding examples calculate utilization",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-normal-stress-utilization-example",
+        "expectedPageTitle": "Funding Normal And Stress Utilization Example",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-the-normal-and-stress-funding-examples-calculate-utilization",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-emergency-acceleration-work-in-the-funding-example",
+        "query": "How does emergency acceleration work in the funding example?",
+        "normalizedQuery": "how does emergency acceleration work in the funding example",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-emergency-acceleration-example",
+        "expectedPageTitle": "Funding Emergency Acceleration Example",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-emergency-acceleration-work-in-the-funding-example",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-insurance-mode-spread-example-work",
+        "query": "How does the insurance-mode spread example work?",
+        "normalizedQuery": "how does the insurance mode spread example work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-mode-spread-example",
+        "expectedPageTitle": "Funding Insurance Mode Spread Example",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-does-the-insurance-mode-spread-example-work",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-bell-curve-worked-example-prove",
+        "query": "What does the bell-curve worked example prove?",
+        "normalizedQuery": "what does the bell curve worked example prove",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-bell-curve-example",
+        "expectedPageTitle": "Funding Bell-Curve Flattening Example",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-bell-curve-worked-example-prove",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-worked-adl-defense-sequence-unfold",
+        "query": "How does the worked ADL defense sequence unfold?",
+        "normalizedQuery": "how does the worked adl defense sequence unfold",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-adl-defense-sequence-example",
+        "expectedPageTitle": "Funding ADL And Defense Sequence Example",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-worked-adl-defense-sequence-unfold",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8981,7 +9086,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 397,
+      "exactRoutes": 402,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

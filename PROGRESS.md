@@ -730,6 +730,12 @@
 - Routed five new Ask questions so formula, solver, LP, and operator readers can inspect the full objective's terms and order of operations instead of relying on one broad equation page.
 - Kept live lambda values, risk weights, penalty curves, cost coefficients, pricing functions, update cadence, thresholds, source data feeds, and emergency sequencing under operator/risk/legal/accounting/implementation review.
 
+## 2026-06-29 — Funding Worked Example Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Worked Examples source: normal/stress utilization arithmetic, emergency acceleration, insurance-mode spread response, bell-curve worked arithmetic, and ADL/defense sequence walkthroughs.
+- Routed five new Ask questions so formula, LP, solver, trader, and risk-review readers can inspect the example calculations directly instead of relying on one broad reading guide.
+- Kept live market thresholds, APRs, grace periods, spread tables, insurance fractions, flattening coefficients, ADL fractions, timing, and emergency procedures under operator/risk/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

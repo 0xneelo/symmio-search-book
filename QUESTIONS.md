@@ -403,6 +403,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why does insurance spend have a cost in the objective? | `authored-funding-insurance-cost-penalty` | Medium | Neelo models insurance spend as costly, with possible nonlinear penalties, so insurance is not treated as free operating capital. |
 | Why is ADL modeled as a convex penalty? | `authored-funding-adl-penalty-function` | Medium | Neelo makes ADL increasingly expensive as the deleveraging fraction grows, preserving it as a last-resort solvency tool. |
 | How do dynamic pricing controls enter the funding objective? | `authored-funding-dynamic-control-loop` | Medium | Neelo treats funding, spread, and borrow functions as state-responsive controls before insurance or ADL are deployed. |
+| How do the normal and stress funding examples calculate utilization? | `authored-funding-normal-stress-utilization-example` | Medium | Neelo's worked examples net long and short flow, compare residual exposure with token inventory, then move from normal to stress pricing as utilization rises. |
+| How does emergency acceleration work in the funding example? | `authored-funding-emergency-acceleration-example` | Medium | Neelo's emergency example accelerates effective time when high utilization persists with rising loss intensity. |
+| How does the insurance-mode spread example work? | `authored-funding-insurance-mode-spread-example` | Medium | Neelo's insurance-mode example estimates unhedged loss, compares it with defense budget, then makes exposure-worsening flow more expensive and exposure-reducing flow cheaper. |
+| What does the bell-curve worked example prove? | `authored-funding-bell-curve-example` | Medium | Neelo's bell-curve example shows that transfer-pool flattening compresses winner and loser tails while preserving total market profit. |
+| How does the worked ADL defense sequence unfold? | `authored-funding-adl-defense-sequence-example` | Medium | Neelo's ADL and sequence examples move from normal utilization to stress, emergency pricing, insurance deployment, ADL, and recovery. |
 
 ## Prototype Event Log
 

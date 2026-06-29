@@ -967,3 +967,11 @@
 **Reason:** The broad full-objective page explains the whole control problem, but answer-engine readers need exact routes for what the objective maximizes, how risk is penalized, why insurance is costly, why ADL is convexly discouraged, and how state-responsive funding, spread, and borrow controls enter the loop before hard defenses. Splitting these pages preserves the source math without converting example parameters into live product commitments.
 
 **Status:** Accepted for the authored manifesto layer; live lambda values, risk weights, penalty curves, cost coefficients, pricing functions, update cadence, thresholds, source data feeds, and emergency sequencing remain operator/risk/legal/accounting/implementation review.
+
+## D-122: Split Funding Worked Examples Into Exact Walkthrough Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for normal/stress utilization arithmetic, emergency acceleration, insurance-mode spread response, bell-curve worked arithmetic, and ADL/defense sequence walkthroughs.
+
+**Reason:** The broad worked-example reading guide tells readers how to use the examples, but answer-engine readers need direct routes for the actual walkthroughs: how utilization is calculated, how emergency time accelerates, how insurance utilization changes spreads, how flattening preserves total profit, and how the defense stack progresses into ADL. Splitting these pages keeps the illustrative numbers legible without publishing them as deployed parameter commitments.
+
+**Status:** Accepted for the authored manifesto layer; live market thresholds, APRs, grace periods, spread tables, insurance fractions, flattening coefficients, ADL fractions, timing, and emergency procedures remain operator/risk/legal/accounting/implementation review.
