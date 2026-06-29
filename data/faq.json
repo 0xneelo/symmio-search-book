@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 702,
-  "totalAnswerable": 695,
+  "totalEntries": 707,
+  "totalAnswerable": 700,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 114,
     "Trading Flow": 37,
-    "Solvers And Settlement": 166,
+    "Solvers And Settlement": 170,
     "Risk And Markets": 69,
     "Revenue": 80,
-    "Manifesto": 142,
+    "Manifesto": 143,
     "Rewards And Referrals": 78,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 451,
+    "Medium": 456,
     "High": 44,
     "Low": 200
   },
   "byRouteSource": {
-    "authored": 695
+    "authored": 700
   },
   "byType": {
-    "answerable": 695,
+    "answerable": 700,
     "reconciliation": 7
   },
   "answerable": [
@@ -6705,6 +6705,151 @@
       "pageSection": "manifesto",
       "pageTrack": "06 - Listing Power",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-listing-without-liquidity-incomplete",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is listing without liquidity incomplete?",
+      "normalizedQuestion": "why is listing without liquidity incomplete",
+      "shortAnswer": "Neelo separates instrument existence from market quality: a symbol can exist while still lacking makers, depth, continuity, and usable execution.",
+      "answerSummary": "Listing Without Liquidity Neelo's Section 4Z separates instrument existence from market quality. A venue can list a perpetual, allow broad market creation, or accept user driven proposals, but each new instrument still needs someone to quote it. Until makers provide depth, the market is listed in name while remaining thin, wide, or empty in practice. The...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-without-liquidity",
+      "pageTitle": "Listing Without Liquidity",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-zero-cost-liquidity-generation-mean-in-the-listing-thesis",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does zero-cost liquidity generation mean in the listing thesis?",
+      "normalizedQuestion": "what does zero cost liquidity generation mean in the listing thesis",
+      "shortAnswer": "Neelo uses the Uniswap analogy to mean no bespoke market-maker deal per new market, not free or riskless liquidity.",
+      "answerSummary": "The Zero Cost Liquidity Analogy The Section 4Z Uniswap analogy is about removing the bespoke market maker deal from marginal market creation. \"Zero cost\" does not mean liquidity is free. LP capital still bears risk, and the system still needs a return. The phrase means that a founder does not need to negotiate a separate professional market making mandate...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-zero-cost-liquidity-analogy",
+      "pageTitle": "The Zero-Cost Liquidity Analogy",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-generalized-market-maker-problem",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the generalized market-maker problem?",
+      "normalizedQuestion": "what is the generalized market maker problem",
+      "shortAnswer": "Neelo defines the hard problem as quoting many long-tail perps, bootstrapping usable depth, and resisting toxic flow without a dedicated human desk per symbol.",
+      "answerSummary": "The Generalized Market Maker Problem Section 4Z names the hard part of permissionless perpetuals: generalized liquidity for many derivative markets. Traditional venues can split the job. The venue lists the market; a specialist, market maker, or privileged participant makes it liquid. That model does not scale cleanly to thousands of long tail perps becau...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-generalized-market-maker-problem",
+      "pageTitle": "The Generalized Market-Maker Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-does-durable-advantage-sit-in-listing-plus-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Where does durable advantage sit in listing plus liquidity?",
+      "normalizedQuestion": "where does durable advantage sit in listing plus liquidity",
+      "shortAnswer": "Neelo says the defensible position is the bootstrap layer that repeatedly turns new markets into tradeable markets and gathers maturation evidence.",
+      "answerSummary": "Durable Advantage In The Bootstrap Layer Neelo's durable advantage claim is not that market creation alone is a moat. If the only capability were adding another market row, competition could commoditize it quickly. The more defensible position is the bootstrap layer: the default place where long tail perpetual markets become liquid enough to matter and wh...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-durable-bootstrap-advantage",
+      "pageTitle": "Durable Advantage In The Bootstrap Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-liquidity-and-listings-form-a-flywheel",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do liquidity and listings form a flywheel?",
+      "normalizedQuestion": "how do liquidity and listings form a flywheel",
+      "shortAnswer": "Neelo frames liquidity attracting listings and flow, while listings and flow attract more LPs, solvers, traders, and market creators if the bootstrap mechanism works.",
+      "answerSummary": "The Liquidity And Listings Flywheel The liquidity/listings flywheel is the network effect version of the Section 4Z thesis. Protocols that aggregate useful liquidity attract more listings and flow. More listings and flow make the venue more attractive to LPs, solvers, traders, and market creators. If the loop starts, the venue can become the default Schel...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-liquidity-listings-flywheel",
+      "pageTitle": "The Liquidity And Listings Flywheel",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -29240,6 +29385,151 @@
       "pageSection": "manifesto",
       "pageTrack": "06 - Listing Power",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-listing-without-liquidity-incomplete",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is listing without liquidity incomplete?",
+      "normalizedQuestion": "why is listing without liquidity incomplete",
+      "shortAnswer": "Neelo separates instrument existence from market quality: a symbol can exist while still lacking makers, depth, continuity, and usable execution.",
+      "answerSummary": "Listing Without Liquidity Neelo's Section 4Z separates instrument existence from market quality. A venue can list a perpetual, allow broad market creation, or accept user driven proposals, but each new instrument still needs someone to quote it. Until makers provide depth, the market is listed in name while remaining thin, wide, or empty in practice. The...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-without-liquidity",
+      "pageTitle": "Listing Without Liquidity",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-zero-cost-liquidity-generation-mean-in-the-listing-thesis",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does zero-cost liquidity generation mean in the listing thesis?",
+      "normalizedQuestion": "what does zero cost liquidity generation mean in the listing thesis",
+      "shortAnswer": "Neelo uses the Uniswap analogy to mean no bespoke market-maker deal per new market, not free or riskless liquidity.",
+      "answerSummary": "The Zero Cost Liquidity Analogy The Section 4Z Uniswap analogy is about removing the bespoke market maker deal from marginal market creation. \"Zero cost\" does not mean liquidity is free. LP capital still bears risk, and the system still needs a return. The phrase means that a founder does not need to negotiate a separate professional market making mandate...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-zero-cost-liquidity-analogy",
+      "pageTitle": "The Zero-Cost Liquidity Analogy",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-generalized-market-maker-problem",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the generalized market-maker problem?",
+      "normalizedQuestion": "what is the generalized market maker problem",
+      "shortAnswer": "Neelo defines the hard problem as quoting many long-tail perps, bootstrapping usable depth, and resisting toxic flow without a dedicated human desk per symbol.",
+      "answerSummary": "The Generalized Market Maker Problem Section 4Z names the hard part of permissionless perpetuals: generalized liquidity for many derivative markets. Traditional venues can split the job. The venue lists the market; a specialist, market maker, or privileged participant makes it liquid. That model does not scale cleanly to thousands of long tail perps becau...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-generalized-market-maker-problem",
+      "pageTitle": "The Generalized Market-Maker Problem",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-where-does-durable-advantage-sit-in-listing-plus-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Where does durable advantage sit in listing plus liquidity?",
+      "normalizedQuestion": "where does durable advantage sit in listing plus liquidity",
+      "shortAnswer": "Neelo says the defensible position is the bootstrap layer that repeatedly turns new markets into tradeable markets and gathers maturation evidence.",
+      "answerSummary": "Durable Advantage In The Bootstrap Layer Neelo's durable advantage claim is not that market creation alone is a moat. If the only capability were adding another market row, competition could commoditize it quickly. The more defensible position is the bootstrap layer: the default place where long tail perpetual markets become liquid enough to matter and wh...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-durable-bootstrap-advantage",
+      "pageTitle": "Durable Advantage In The Bootstrap Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-liquidity-and-listings-form-a-flywheel",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do liquidity and listings form a flywheel?",
+      "normalizedQuestion": "how do liquidity and listings form a flywheel",
+      "shortAnswer": "Neelo frames liquidity attracting listings and flow, while listings and flow attract more LPs, solvers, traders, and market creators if the bootstrap mechanism works.",
+      "answerSummary": "The Liquidity And Listings Flywheel The liquidity/listings flywheel is the network effect version of the Section 4Z thesis. Protocols that aggregate useful liquidity attract more listings and flow. More listings and flow make the venue more attractive to LPs, solvers, traders, and market creators. If the loop starts, the venue can become the default Schel...",
+      "confidence": "Medium",
+      "pageId": "authored-listing-liquidity-listings-flywheel",
+      "pageTitle": "The Liquidity And Listings Flywheel",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

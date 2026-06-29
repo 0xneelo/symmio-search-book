@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Liquidity Thesis Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly Section 4Z listing/liquidity thesis.
+- Split the liquidity correction into exact answer pages for listing without liquidity, the Uniswap zero-cost liquidity analogy, the generalized market-maker problem, durable bootstrap advantage, and the liquidity/listings flywheel.
+- Extended the question ledger so Ask can route Section 4Z questions without collapsing every answer into the broad listing-plus-liquidity thesis, static perp design failures, or later permissionless-perps hypothesis pages.
+- Kept venue-specific listing rules, maker incentives, liquidity depth, solver capacity, automated counterparty guarantees, market eligibility, adverse-flow controls, moat claims, and live network effects marked for fresh primary-source/operator/product/risk/legal/market review.
+
 ## 2026-06-29 — Listing Monopoly Thiel Closeout Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from the second half of Neelo's Listing Monopoly Thiel analysis.

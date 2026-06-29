@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 695
+      "totalGoldenRoutes": 700
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 713,
-    "retrievalEligiblePages": 1505,
+    "publicNavigationPages": 718,
+    "retrievalEligiblePages": 1510,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 713,
+      "candidate": 718,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 695,
-    "exactRouteTestsPassing": 695,
+    "totalExactRouteTests": 700,
+    "exactRouteTestsPassing": 700,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 695
+      "candidate": 700
     },
     "exactRoutesByConfidence": {
-      "Medium": 451,
+      "Medium": 456,
       "High": 44,
       "Low": 200
     },
@@ -4486,6 +4486,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-permissionless-listing-not-enough",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-listing-without-liquidity-incomplete",
+        "query": "Why is listing without liquidity incomplete?",
+        "normalizedQuery": "why is listing without liquidity incomplete",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-without-liquidity",
+        "expectedPageTitle": "Listing Without Liquidity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-is-listing-without-liquidity-incomplete",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-zero-cost-liquidity-generation-mean-in-the-listing-thesis",
+        "query": "What does zero-cost liquidity generation mean in the listing thesis?",
+        "normalizedQuery": "what does zero cost liquidity generation mean in the listing thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-zero-cost-liquidity-analogy",
+        "expectedPageTitle": "The Zero-Cost Liquidity Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-zero-cost-liquidity-generation-mean-in-the-listing-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-generalized-market-maker-problem",
+        "query": "What is the generalized market-maker problem?",
+        "normalizedQuery": "what is the generalized market maker problem",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-generalized-market-maker-problem",
+        "expectedPageTitle": "The Generalized Market-Maker Problem",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-generalized-market-maker-problem",
+        "passes": true
+      },
+      {
+        "id": "qr-where-does-durable-advantage-sit-in-listing-plus-liquidity",
+        "query": "Where does durable advantage sit in listing plus liquidity?",
+        "normalizedQuery": "where does durable advantage sit in listing plus liquidity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-durable-bootstrap-advantage",
+        "expectedPageTitle": "Durable Advantage In The Bootstrap Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-where-does-durable-advantage-sit-in-listing-plus-liquidity",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-liquidity-and-listings-form-a-flywheel",
+        "query": "How do liquidity and listings form a flywheel?",
+        "normalizedQuery": "how do liquidity and listings form a flywheel",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-liquidity-listings-flywheel",
+        "expectedPageTitle": "The Liquidity And Listings Flywheel",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-do-liquidity-and-listings-form-a-flywheel",
         "passes": true
       },
       {
@@ -15355,7 +15460,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 695,
+      "exactRoutes": 700,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

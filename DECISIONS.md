@@ -1447,3 +1447,11 @@
 **Reason:** D-180 split the opening Thiel criteria, but the remaining Section 8 headings carry the closeout argument: why the category might become durable, why adjacent venues are complements rather than direct targets, how to read the scorecard, and what the final monopoly-path verdict actually claims. Ask needs direct routes for those questions instead of sending readers to broad Perp Classes Thiel pages or the earlier listing-monopoly summary.
 
 **Status:** Accepted for the authored manifesto layer; last-mover status, competitor timelines, data moats, partner lock-in, switching costs, regulatory favorability, economics, live category control, current product capability, and investment conclusions remain fresh primary-source/operator/product/risk/legal/market review.
+
+## D-182: Split Listing Liquidity Thesis Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for Section 4Z of the Listing Monopoly paper: listing without liquidity, the Uniswap zero-cost liquidity analogy, the generalized market-maker problem, durable bootstrap advantage, and the liquidity/listings flywheel.
+
+**Reason:** The existing listing-plus-liquidity page states the broad correction, but Section 4Z carries several exact questions the answer engine should distinguish. Readers may ask why symbolic listing is insufficient, what "zero-cost" liquidity actually means, why generalized market making is hard, where durable advantage sits, or how liquidity and listings compound. Exact pages preserve those distinctions before routing into the permissionless-perps hypothesis or Thiel monopoly analysis.
+
+**Status:** Accepted for the authored manifesto layer; current venue rules, maker incentives, LP economics, solver capacity, automated counterparty guarantees, market eligibility, adverse-flow controls, liquidity depth, moat claims, and live network effects remain fresh primary-source/operator/product/risk/legal/market review.
