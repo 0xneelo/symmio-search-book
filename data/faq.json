@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 384,
-  "totalAnswerable": 377,
+  "totalEntries": 389,
+  "totalAnswerable": 382,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,9 +17,9 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 114,
+    "Solvers And Settlement": 118,
     "Risk And Markets": 23,
-    "Revenue": 54,
+    "Revenue": 55,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 162,
     "High": 44,
-    "Low": 171
+    "Low": 176
   },
   "byRouteSource": {
-    "authored": 377
+    "authored": 382
   },
   "byType": {
-    "answerable": 377,
+    "answerable": 382,
     "reconciliation": 7
   },
   "answerable": [
@@ -6188,6 +6188,151 @@
       "confidence": "Low",
       "pageId": "authored-funding-bell-curve-transfer-pool",
       "pageTitle": "Funding Bell-Curve Transfer Pool",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-bell-curve-tail-cutoffs-defined",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are bell-curve tail cutoffs defined?",
+      "normalizedQuestion": "how are bell curve tail cutoffs defined",
+      "shortAnswer": "Neelo's bell-curve source defines upper and lower cutoffs from mean market profit, dispersion, and a tail-threshold parameter.",
+      "answerSummary": "Funding Bell Curve Tail Cutoffs Bell curve flattening does not treat every profitable or losing market as a tail event. Neelo's source first calculates the mean market profit and the dispersion around that mean, then uses a threshold parameter to define upper and lower cutoffs. The upper cutoff marks markets that are unusually profitable relative to the r...",
+      "confidence": "Low",
+      "pageId": "authored-funding-bell-curve-tail-cutoffs",
+      "pageTitle": "Funding Bell-Curve Tail Cutoffs",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-winner-surplus-and-loser-shortfall",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What are winner surplus and loser shortfall?",
+      "normalizedQuestion": "what are winner surplus and loser shortfall",
+      "shortAnswer": "Neelo measures right-tail excess above the upper cutoff and left-tail shortfall below the lower cutoff, leaving ordinary middle-band markets out of flattening.",
+      "answerSummary": "Funding Winner Surplus And Loser Shortfall After the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff. In the source notation, right tail excess is the positive distance from the marke...",
+      "confidence": "Low",
+      "pageId": "authored-funding-winner-surplus-loser-shortfall",
+      "pageTitle": "Funding Winner Surplus And Loser Shortfall",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is the bell-curve transfer pool capped by the smaller tail?",
+      "normalizedQuestion": "why is the bell curve transfer pool capped by the smaller tail",
+      "shortAnswer": "Neelo sizes the pool from a flattening intensity times the smaller of total winner excess and total loser shortfall so transfers are feasible.",
+      "answerSummary": "Funding Transfer Pool Feasibility Neelo's bell curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall. That \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is...",
+      "confidence": "Low",
+      "pageId": "authored-funding-transfer-pool-feasibility",
+      "pageTitle": "Funding Transfer Pool Feasibility",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-bell-curve-taxes-and-subsidies-allocated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are bell-curve taxes and subsidies allocated?",
+      "normalizedQuestion": "how are bell curve taxes and subsidies allocated",
+      "shortAnswer": "Neelo allocates the distributed pool proportionally by each winner's excess share and each stressed market's shortfall or demand share.",
+      "answerSummary": "Funding Proportional Tail Allocation Once the transfer pool exists, Neelo's source allocates it proportionally. Winner markets are charged according to their share of total right tail excess. Losing or stressed markets receive according to their share of total left tail shortfall or stress demand. This avoids a flat tax and avoids equal subsidies. The mar...",
+      "confidence": "Low",
+      "pageId": "authored-funding-proportional-tail-allocation",
+      "pageTitle": "Funding Proportional Tail Allocation",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-bell-curve-flattening-conserve-total-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Does bell-curve flattening conserve total profit?",
+      "normalizedQuestion": "does bell curve flattening conserve total profit",
+      "shortAnswer": "Neelo's invariants conserve total market profit when retention is zero and route retained value into insurance reserves when retention is positive.",
+      "answerSummary": "Funding Flattening Conservation And Retention Bell curve flattening is not supposed to manufacture profit. In Neelo's source, if protocol retention is zero, the sum of flattened market profits equals the sum of raw market profits. The distribution changes, but the total is conserved. When retention is positive, part of the transfer pool is retained as an...",
+      "confidence": "Low",
+      "pageId": "authored-funding-flattening-conservation-retention",
+      "pageTitle": "Funding Flattening Conservation And Retention",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -19037,6 +19182,151 @@
       "confidence": "Low",
       "pageId": "authored-funding-bell-curve-transfer-pool",
       "pageTitle": "Funding Bell-Curve Transfer Pool",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-bell-curve-tail-cutoffs-defined",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are bell-curve tail cutoffs defined?",
+      "normalizedQuestion": "how are bell curve tail cutoffs defined",
+      "shortAnswer": "Neelo's bell-curve source defines upper and lower cutoffs from mean market profit, dispersion, and a tail-threshold parameter.",
+      "answerSummary": "Funding Bell Curve Tail Cutoffs Bell curve flattening does not treat every profitable or losing market as a tail event. Neelo's source first calculates the mean market profit and the dispersion around that mean, then uses a threshold parameter to define upper and lower cutoffs. The upper cutoff marks markets that are unusually profitable relative to the r...",
+      "confidence": "Low",
+      "pageId": "authored-funding-bell-curve-tail-cutoffs",
+      "pageTitle": "Funding Bell-Curve Tail Cutoffs",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-winner-surplus-and-loser-shortfall",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What are winner surplus and loser shortfall?",
+      "normalizedQuestion": "what are winner surplus and loser shortfall",
+      "shortAnswer": "Neelo measures right-tail excess above the upper cutoff and left-tail shortfall below the lower cutoff, leaving ordinary middle-band markets out of flattening.",
+      "answerSummary": "Funding Winner Surplus And Loser Shortfall After the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff. In the source notation, right tail excess is the positive distance from the marke...",
+      "confidence": "Low",
+      "pageId": "authored-funding-winner-surplus-loser-shortfall",
+      "pageTitle": "Funding Winner Surplus And Loser Shortfall",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is the bell-curve transfer pool capped by the smaller tail?",
+      "normalizedQuestion": "why is the bell curve transfer pool capped by the smaller tail",
+      "shortAnswer": "Neelo sizes the pool from a flattening intensity times the smaller of total winner excess and total loser shortfall so transfers are feasible.",
+      "answerSummary": "Funding Transfer Pool Feasibility Neelo's bell curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall. That \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is...",
+      "confidence": "Low",
+      "pageId": "authored-funding-transfer-pool-feasibility",
+      "pageTitle": "Funding Transfer Pool Feasibility",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-are-bell-curve-taxes-and-subsidies-allocated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How are bell-curve taxes and subsidies allocated?",
+      "normalizedQuestion": "how are bell curve taxes and subsidies allocated",
+      "shortAnswer": "Neelo allocates the distributed pool proportionally by each winner's excess share and each stressed market's shortfall or demand share.",
+      "answerSummary": "Funding Proportional Tail Allocation Once the transfer pool exists, Neelo's source allocates it proportionally. Winner markets are charged according to their share of total right tail excess. Losing or stressed markets receive according to their share of total left tail shortfall or stress demand. This avoids a flat tax and avoids equal subsidies. The mar...",
+      "confidence": "Low",
+      "pageId": "authored-funding-proportional-tail-allocation",
+      "pageTitle": "Funding Proportional Tail Allocation",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-bell-curve-flattening-conserve-total-profit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Does bell-curve flattening conserve total profit?",
+      "normalizedQuestion": "does bell curve flattening conserve total profit",
+      "shortAnswer": "Neelo's invariants conserve total market profit when retention is zero and route retained value into insurance reserves when retention is positive.",
+      "answerSummary": "Funding Flattening Conservation And Retention Bell curve flattening is not supposed to manufacture profit. In Neelo's source, if protocol retention is zero, the sum of flattened market profits equals the sum of raw market profits. The distribution changes, but the total is conserved. When retention is positive, part of the transfer pool is retained as an...",
+      "confidence": "Low",
+      "pageId": "authored-funding-flattening-conservation-retention",
+      "pageTitle": "Funding Flattening Conservation And Retention",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

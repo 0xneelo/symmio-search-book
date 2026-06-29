@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 377
+      "totalGoldenRoutes": 382
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 395,
-    "retrievalEligiblePages": 1187,
+    "publicNavigationPages": 400,
+    "retrievalEligiblePages": 1192,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 395,
+      "candidate": 400,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 377,
-    "exactRouteTestsPassing": 377,
+    "totalExactRouteTests": 382,
+    "exactRouteTestsPassing": 382,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 377
+      "candidate": 382
     },
     "exactRoutesByConfidence": {
       "Medium": 162,
       "High": 44,
-      "Low": 171
+      "Low": 176
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -4110,6 +4110,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-the-funding-model-transfer-surplus-from-winner-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-how-are-bell-curve-tail-cutoffs-defined",
+        "query": "How are bell-curve tail cutoffs defined?",
+        "normalizedQuery": "how are bell curve tail cutoffs defined",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-bell-curve-tail-cutoffs",
+        "expectedPageTitle": "Funding Bell-Curve Tail Cutoffs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-are-bell-curve-tail-cutoffs-defined",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-winner-surplus-and-loser-shortfall",
+        "query": "What are winner surplus and loser shortfall?",
+        "normalizedQuery": "what are winner surplus and loser shortfall",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-winner-surplus-loser-shortfall",
+        "expectedPageTitle": "Funding Winner Surplus And Loser Shortfall",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-winner-surplus-and-loser-shortfall",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
+        "query": "Why is the bell-curve transfer pool capped by the smaller tail?",
+        "normalizedQuery": "why is the bell curve transfer pool capped by the smaller tail",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-transfer-pool-feasibility",
+        "expectedPageTitle": "Funding Transfer Pool Feasibility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
+        "passes": true
+      },
+      {
+        "id": "qr-how-are-bell-curve-taxes-and-subsidies-allocated",
+        "query": "How are bell-curve taxes and subsidies allocated?",
+        "normalizedQuery": "how are bell curve taxes and subsidies allocated",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-proportional-tail-allocation",
+        "expectedPageTitle": "Funding Proportional Tail Allocation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-are-bell-curve-taxes-and-subsidies-allocated",
+        "passes": true
+      },
+      {
+        "id": "qr-does-bell-curve-flattening-conserve-total-profit",
+        "query": "Does bell-curve flattening conserve total profit?",
+        "normalizedQuery": "does bell curve flattening conserve total profit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-flattening-conservation-retention",
+        "expectedPageTitle": "Funding Flattening Conservation And Retention",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-does-bell-curve-flattening-conserve-total-profit",
         "passes": true
       },
       {
@@ -8561,7 +8666,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 377,
+      "exactRoutes": 382,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

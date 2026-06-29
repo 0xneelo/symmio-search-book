@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 396,
+  "totalPages": 401,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 259,
+    "publication-candidate-needs-operator-review": 264,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -13,7 +13,7 @@
     "manifesto": 198,
     "product-reference": 47,
     "dashboard-reference": 12,
-    "protocol-reference": 102,
+    "protocol-reference": 107,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 25,
@@ -1936,6 +1936,29 @@
       "excerpt": "Funding As Market Balancing Funding is the feedback mechanism that keeps a perpetual market from drifting too far away from spot. In the standard explanation, longs pay shorts when the perp is rich, shorts pay longs when the perp is cheap, and the payment creates pressure back toward equilibrium. Neelo's market creation version adds the solver dimension. During bootstrap, the solver may be carrying residual exposure because natural flow is imbalanced. Funding can then do two jobs at once: anchor the perp to spot and encourage trades that reduce the solver's directional burden. This matters for the compendium because funding is not just a fee line. It is a market shaping instrument. When markets are young, funding can help invite the other side of the trade. When markets mature, funding becomes more like the familiar balancing mechanism in conventional perps. Publication Note This page needs operator review before public release. It summarizes Neelo's model, but final docs must reconcile it with the actual Vibe and Symmio funding implementation, venue specific mechanics, and current disclosure policy. Sources vibe papers : Neelo, \"Section 6: Technical Deep Dive: 6.5 Funding Rate Mec"
     },
     {
+      "id": "authored-funding-bell-curve-tail-cutoffs",
+      "title": "Funding Bell-Curve Tail Cutoffs",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening#threshold-parameters"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "authored-cross-market-risk-mutualization",
+        "authored-funding-bell-curve-transfer-pool"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-bell-curve-tail-cutoffs.md",
+      "bodyMarkdown": "# Funding Bell-Curve Tail Cutoffs\n\nBell-curve flattening does not treat every profitable or losing market as a tail event. Neelo's source first calculates the mean market profit and the dispersion around that mean, then uses a threshold parameter to define upper and lower cutoffs.\n\nThe upper cutoff marks markets that are unusually profitable relative to the rest of the system. The lower cutoff marks markets that are unusually stressed or loss-making. Only values beyond those cutoffs become the right-tail surplus or left-tail shortfall used by the transfer logic.\n\nThat distinction matters because mutualization should not tax ordinary profitable markets or subsidize ordinary losing ones by default. The model is aimed at extreme tails, not daily noise.\n\n## Why The Cutoffs Exist\n\nWithout cutoffs, every market would be pulled toward the average. That would make the system less legible and could punish healthy markets for normal variation. With cutoffs, the model asks a narrower question: which markets are far enough from the distribution that their excess or deficit should enter the cross-market risk layer?\n\nThe threshold parameter controls how wide the protected middle is. A higher threshold means fewer markets count as tails. A lower threshold means more markets can be included in flattening.\n\n## Publication Boundary\n\nThis page explains the source-model cutoff concept. It does not publish live tail thresholds, profit windows, dispersion calculations, market eligibility rules, or production flattening intensity.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", threshold parameters and cutoffs.\n\n## Related Pages\n\n- `authored-cross-market-risk-mutualization`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-funding-global-insurance-eligibility`",
+      "excerpt": "Funding Bell Curve Tail Cutoffs Bell curve flattening does not treat every profitable or losing market as a tail event. Neelo's source first calculates the mean market profit and the dispersion around that mean, then uses a threshold parameter to define upper and lower cutoffs. The upper cutoff marks markets that are unusually profitable relative to the rest of the system. The lower cutoff marks markets that are unusually stressed or loss making. Only values beyond those cutoffs become the right tail surplus or left tail shortfall used by the transfer logic. That distinction matters because mutualization should not tax ordinary profitable markets or subsidize ordinary losing ones by default. The model is aimed at extreme tails, not daily noise. Why The Cutoffs Exist Without cutoffs, every market would be pulled toward the average. That would make the system less legible and could punish healthy markets for normal variation. With cutoffs, the model asks a narrower question: which markets are far enough from the distribution that their excess or deficit should enter the cross market risk layer? The threshold parameter controls how wide the protected middle is. A higher threshold mean"
+    },
+    {
       "id": "authored-funding-bell-curve-transfer-pool",
       "title": "Funding Bell-Curve Transfer Pool",
       "section": "protocol-reference",
@@ -2143,6 +2166,29 @@
       "file": "content/authored/manifesto/funding-emergency-time-ramp.md",
       "bodyMarkdown": "# Funding Emergency Time Ramp\n\nThe emergency time ramp is how Neelo's dynamic-pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period.\n\nThe ramp is convex: the longer the market remains in emergency, the more pressure can build. The source also accelerates effective time with loss intensity. A market that is barely noisy should not be treated the same as a market losing equity quickly while exposure remains high. Loss intensity makes the clock run faster.\n\nThis is a critical nuance for long-tail markets. A momentary spike can be handled by ordinary stress pricing. Persistent exposure under loss pressure is different. It tells the system that passive waiting is failing and that the cost of worsening or holding the state should rise.\n\n## Why Time Belongs In The Model\n\nWithout time, the model only sees a state. With time, it sees behavior. A market that enters stress and self-corrects is not the same as one that refuses to clear. The time ramp turns duration into a risk input, which is especially relevant when liquidity is episodic and the market may not rebalance immediately.\n\nFor readers, this explains why the model can become more aggressive even if the headline utilization number looks unchanged. The problem is not just the level; it is how long the level persisted and how much loss intensity accumulated while it persisted.\n\n## Publication Boundary\n\nThis page explains the source-model emergency ramp. It does not publish live grace periods, ramp coefficients, loss-intensity thresholds, acceleration caps, or user-facing emergency policy. Those remain implementation and operator-review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Emergency Regime: Time-Based Ramp\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-worked-examples-reading-guide`\n- `authored-funding-adl-trigger-and-target`",
       "excerpt": "Funding Emergency Time Ramp The emergency time ramp is how Neelo's dynamic pricing model distinguishes a brief stress touch from a persistent dangerous state. In the source, emergency funding does not only depend on the current utilization snapshot. It can rise with effective time once the market has remained beyond the critical zone for a grace period. The ramp is convex: the longer the market remains in emergency, the more pressure can build. The source also accelerates effective time with loss intensity. A market that is barely noisy should not be treated the same as a market losing equity quickly while exposure remains high. Loss intensity makes the clock run faster. This is a critical nuance for long tail markets. A momentary spike can be handled by ordinary stress pricing. Persistent exposure under loss pressure is different. It tells the system that passive waiting is failing and that the cost of worsening or holding the state should rise. Why Time Belongs In The Model Without time, the model only sees a state. With time, it sees behavior. A market that enters stress and self corrects is not the same as one that refuses to clear. The time ramp turns duration into a risk inpu"
+    },
+    {
+      "id": "authored-funding-flattening-conservation-retention",
+      "title": "Funding Flattening Conservation And Retention",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening#key-invariants"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "authored-funding-proportional-tail-allocation",
+        "authored-cross-market-risk-mutualization"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-flattening-conservation-retention.md",
+      "bodyMarkdown": "# Funding Flattening Conservation And Retention\n\nBell-curve flattening is not supposed to manufacture profit. In Neelo's source, if protocol retention is zero, the sum of flattened market profits equals the sum of raw market profits. The distribution changes, but the total is conserved.\n\nWhen retention is positive, part of the transfer pool is retained as an insurance reserve. In that case, the flattened market-profit total is lower by the retained amount. The value has not disappeared; it has moved into protocol protection.\n\nThis distinction is important for publication. Cross-market mutualization should be explained as distribution compression and reserve formation, not as yield creation.\n\n## How To Say It Publicly\n\nThe clean reader-facing version is: without retention, flattening redistributes tail outcomes; with retention, it also routes a controlled portion into insurance reserves. In both cases, the source model is about risk management, not magic returns.\n\nThat language prevents two mistakes. It avoids implying that losing markets can be subsidized without a funding source. It also avoids implying that retained value is immediately distributable user profit.\n\n## Publication Boundary\n\nThis page explains the source invariants. It does not publish live retention fractions, reserve accounting, buyback policy, accounting treatment, or legal characterization of any retained value.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", key invariants.\n\n## Related Pages\n\n- `authored-funding-proportional-tail-allocation`\n- `authored-funding-insurance-buyback-accounting`\n- `authored-funding-full-objective`",
+      "excerpt": "Funding Flattening Conservation And Retention Bell curve flattening is not supposed to manufacture profit. In Neelo's source, if protocol retention is zero, the sum of flattened market profits equals the sum of raw market profits. The distribution changes, but the total is conserved. When retention is positive, part of the transfer pool is retained as an insurance reserve. In that case, the flattened market profit total is lower by the retained amount. The value has not disappeared; it has moved into protocol protection. This distinction is important for publication. Cross market mutualization should be explained as distribution compression and reserve formation, not as yield creation. How To Say It Publicly The clean reader facing version is: without retention, flattening redistributes tail outcomes; with retention, it also routes a controlled portion into insurance reserves. In both cases, the source model is about risk management, not magic returns. That language prevents two mistakes. It avoids implying that losing markets can be subsidized without a funding source. It also avoids implying that retained value is immediately distributable user profit. Publication Boundary This p"
     },
     {
       "id": "authored-funding-full-objective",
@@ -2427,6 +2473,29 @@
       "excerpt": "Funding Phase And Counterparty Share The funding model source includes a phase parameter: counterparty share, written as alpha in the source. It describes how much LP or solver capital is acting as the effective counterparty. That small variable carries a large product idea. In the early phase, alpha is near one: the LP or solver side is doing most of the counterparty work because trader flow is not yet naturally offsetting. In the later phase, alpha is near zero: traders mostly offset each other, and the solver can focus more on pricing, routing, risk controls, and residual stress rather than being the main balance sheet. This is the funding model version of the broader Vibe lifecycle thesis. A new market starts as a managed market, not a mature order book. It becomes more efficient only as real two sided demand, price integrity, inventory, and risk history develop. Why It Matters Counterparty share explains why launch and maturity should not have the same cost structure. When alpha is high, the system must compensate the side carrying residual risk. That can mean wider spreads, higher borrow, conservative leverage, stronger hedging, and tighter capacity. When alpha falls because "
     },
     {
+      "id": "authored-funding-proportional-tail-allocation",
+      "title": "Funding Proportional Tail Allocation",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening#allocation-rules"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "authored-funding-transfer-pool-feasibility",
+        "authored-funding-bell-curve-transfer-pool"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-proportional-tail-allocation.md",
+      "bodyMarkdown": "# Funding Proportional Tail Allocation\n\nOnce the transfer pool exists, Neelo's source allocates it proportionally. Winner markets are charged according to their share of total right-tail excess. Losing or stressed markets receive according to their share of total left-tail shortfall or stress demand.\n\nThis avoids a flat tax and avoids equal subsidies. The market that is farther into the right tail contributes more. The market that is farther into the left tail receives more, subject to the pool and the relevant caps.\n\nThe flattened market profit is then raw market profit minus the tail tax plus the tail subsidy. The model compresses extremes rather than replacing market-level accounting.\n\n## Why Proportionality Matters\n\nProportional allocation keeps the rule tied to measured tail contribution. A small outlier should not pay the same as a large outlier. A lightly stressed market should not receive the same support as the market creating the largest residual stress.\n\nFor solvers and LPs, this is part of the fairness story. Cross-market support is not arbitrary discretionary rescue. It is modeled as a measured transfer from excess to shortfall.\n\n## Publication Boundary\n\nThis page explains the source allocation rule. It does not publish live charge mechanics, subsidy mechanics, execution timing, accounting treatment, or user-facing claims about production redistribution.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", allocation rules.\n\n## Related Pages\n\n- `authored-funding-transfer-pool-feasibility`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-cross-market-risk-mutualization`",
+      "excerpt": "Funding Proportional Tail Allocation Once the transfer pool exists, Neelo's source allocates it proportionally. Winner markets are charged according to their share of total right tail excess. Losing or stressed markets receive according to their share of total left tail shortfall or stress demand. This avoids a flat tax and avoids equal subsidies. The market that is farther into the right tail contributes more. The market that is farther into the left tail receives more, subject to the pool and the relevant caps. The flattened market profit is then raw market profit minus the tail tax plus the tail subsidy. The model compresses extremes rather than replacing market level accounting. Why Proportionality Matters Proportional allocation keeps the rule tied to measured tail contribution. A small outlier should not pay the same as a large outlier. A lightly stressed market should not receive the same support as the market creating the largest residual stress. For solvers and LPs, this is part of the fairness story. Cross market support is not arbitrary discretionary rescue. It is modeled as a measured transfer from excess to shortfall. Publication Boundary This page explains the source "
+    },
+    {
       "id": "authored-funding-rate-regime-model",
       "title": "Funding Rate Regime Model",
       "section": "manifesto",
@@ -2685,6 +2754,29 @@
       "excerpt": "Trader UX And LP Efficiency Trade Off The funding model source names a deliberate tension: near the safest launch state, traders can receive a familiar perp like experience, but LP side capital efficiency is intentionally lower. This is not a UI footnote. It is the core product tradeoff for long tail derivatives. A new market can feel simple to the trader because the system hides much of the risk routing behind quotes, spreads, funding, inventory checks, and solver decisions. But that simplicity has to be paid for somewhere. In the conservative state, the system may require more inventory, tighter limits, wider spreads, heavier hedging, or lower leverage than a mature market would need. As a market becomes more efficient for LPs, the balance changes. More natural netting, better flow, deeper inventory, and more reliable price discovery can let the system use capital more productively. But moving toward higher efficiency also increases the need for sharper controls, because the market is taking more risk on trader UX, tail outcomes, or residual counterparty exposure. What The Reader Should Learn The source helps the docs avoid two bad simplifications. First, good trader UX does not "
     },
     {
+      "id": "authored-funding-transfer-pool-feasibility",
+      "title": "Funding Transfer Pool Feasibility",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening#transfer-pool"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "authored-funding-winner-surplus-loser-shortfall",
+        "authored-funding-bell-curve-transfer-pool"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-transfer-pool-feasibility.md",
+      "bodyMarkdown": "# Funding Transfer Pool Feasibility\n\nNeelo's bell-curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall.\n\nThat \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail.\n\nThis is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open-ended obligation across all markets.\n\n## Operational Meaning\n\nFeasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically.\n\nFor public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered.\n\n## Publication Boundary\n\nThis page explains the source-model pool sizing. It does not publish live flattening intensity, market inclusion rules, time windows, transfer execution mechanics, or production insurance commitments.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", transfer pool.\n\n## Related Pages\n\n- `authored-funding-winner-surplus-loser-shortfall`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-funding-global-insurance-eligibility`",
+      "excerpt": "Funding Transfer Pool Feasibility Neelo's bell curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall. That \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail. This is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open ended obligation across all markets. Operational Meaning Feasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically. For public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered. Publication Boundary This page explains the source model pool sizing. It"
+    },
+    {
       "id": "authored-funding-vibe-versus-uniswap-lp-risk",
       "title": "Funding Vibe Versus Uniswap LP Risk",
       "section": "manifesto",
@@ -2706,6 +2798,29 @@
       "file": "content/authored/manifesto/funding-vibe-versus-uniswap-lp-risk.md",
       "bodyMarkdown": "# Funding Vibe Versus Uniswap LP Risk\n\nNeelo's LP-profit section contrasts a spot AMM LP with a Vibe-style semi-AMM perp LP. In the spot AMM case, the LP faces impermanent-loss math tied directly to price movement between deposit and withdrawal. In the Vibe-style perp model, the LP result is instead driven by fees, funding, liquidations, trader PnL, hedge PnL, and shortfall risk.\n\nThat does not make Vibe risk-free. It means the risk is different. A Uniswap-style LP is exposed to a price-only curve. A Vibe-style residual counterparty is exposed to trader behavior, market imbalance, hedging execution, liquidation performance, insurance capacity, and the ability of pricing controls to rebalance flow before harder defenses are needed.\n\n## Why This Matters\n\nThe comparison keeps the manifesto precise. Vibe is not simply \"better LP yield\" or \"no risk.\" It is a different risk architecture for a different problem: bootstrapping long-tail derivatives where trader demand may be episodic, two-sided flow may be weak at launch, and residual counterparty capital must be paid for taking the hard side.\n\nThe source argues that if traders lose on average, the LP side can have positive expectancy. The docs must still present that as a model condition, not a universal promise. Actual results depend on market regime, trader composition, fees, funding, liquidations, hedging, and shortfall controls.\n\n## Publication Boundary\n\nThis page explains the source comparison. It does not guarantee positive LP returns, compare live products, publish expected trader-loss rates, or claim that Vibe removes all LP risk. Public LP-performance wording needs operator, accounting, and legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Comparison: Uniswap vs Vibe LP Profit\".\n\n## Related Pages\n\n- `authored-funding-risk-inversion`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-symm-lp-proof-of-possibility`",
       "excerpt": "Funding Vibe Versus Uniswap LP Risk Neelo's LP profit section contrasts a spot AMM LP with a Vibe style semi AMM perp LP. In the spot AMM case, the LP faces impermanent loss math tied directly to price movement between deposit and withdrawal. In the Vibe style perp model, the LP result is instead driven by fees, funding, liquidations, trader PnL, hedge PnL, and shortfall risk. That does not make Vibe risk free. It means the risk is different. A Uniswap style LP is exposed to a price only curve. A Vibe style residual counterparty is exposed to trader behavior, market imbalance, hedging execution, liquidation performance, insurance capacity, and the ability of pricing controls to rebalance flow before harder defenses are needed. Why This Matters The comparison keeps the manifesto precise. Vibe is not simply \"better LP yield\" or \"no risk.\" It is a different risk architecture for a different problem: bootstrapping long tail derivatives where trader demand may be episodic, two sided flow may be weak at launch, and residual counterparty capital must be paid for taking the hard side. The source argues that if traders lose on average, the LP side can have positive expectancy. The docs must"
+    },
+    {
+      "id": "authored-funding-winner-surplus-loser-shortfall",
+      "title": "Funding Winner Surplus And Loser Shortfall",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening#tail-identification"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-08-bell-curve-flattening",
+        "authored-funding-bell-curve-tail-cutoffs",
+        "authored-funding-bell-curve-transfer-pool"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-winner-surplus-loser-shortfall.md",
+      "bodyMarkdown": "# Funding Winner Surplus And Loser Shortfall\n\nAfter the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff.\n\nIn the source notation, right-tail excess is the positive distance from the market's profit to the upper cutoff. Left-tail shortfall is the positive distance from the lower cutoff to the market's profit. If a market is inside the middle band, both values are zero.\n\nThis keeps the flattening layer focused. A market can be profitable without becoming a donor. A market can lose money without receiving cross-market support. The tail measurement is about extreme deviation, not whether the raw number is positive or negative.\n\n## Why This Helps The Answer Engine\n\nReaders may ask whether \"winner markets pay loser markets\" means all gains are pooled. The source model is narrower. It identifies excess and shortfall at the margin, then uses those quantities to size and allocate support.\n\nThat makes the answer more credible for solvers and LPs: the model is not one socialized PnL bucket. It is a tail-risk compression layer with explicit measurements.\n\n## Publication Boundary\n\nThis page explains the source-model tail measurements. It does not publish live profit accounting windows, eligibility rules, cutoff values, or production definitions of which market outcomes count as winner surplus or loser shortfall.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", tail identification.\n\n## Related Pages\n\n- `authored-funding-bell-curve-tail-cutoffs`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-funding-stress-demand-and-insurance-spend`",
+      "excerpt": "Funding Winner Surplus And Loser Shortfall After the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff. In the source notation, right tail excess is the positive distance from the market's profit to the upper cutoff. Left tail shortfall is the positive distance from the lower cutoff to the market's profit. If a market is inside the middle band, both values are zero. This keeps the flattening layer focused. A market can be profitable without becoming a donor. A market can lose money without receiving cross market support. The tail measurement is about extreme deviation, not whether the raw number is positive or negative. Why This Helps The Answer Engine Readers may ask whether \"winner markets pay loser markets\" means all gains are pooled. The source model is narrower. It identifies excess and shortfall at the margin, then uses those quantities to size and allocate support. That makes the answer more credible for solvers and LPs: the model is not one socialized PnL bucket. It is a tail risk compression layer with e"
     },
     {
       "id": "authored-funding-worked-examples-reading-guide",

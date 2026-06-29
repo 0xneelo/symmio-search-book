@@ -706,6 +706,12 @@
 - Routed five new Ask questions so traders, LPs, solvers, and operators can inspect pricing mechanics by instrument instead of relying on one broad dynamic-pricing overview.
 - Kept live rates, intervals, base parameters, multiplier curves, grace periods, acceleration caps, spread tables, rebates, market classes, and user-facing execution promises under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Bell-Curve Flattening Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's bell-curve flattening source: tail cutoffs, winner surplus and loser shortfall, transfer-pool feasibility, proportional tail allocation, and conservation versus protocol retention.
+- Routed five new Ask questions so solvers, LPs, and risk-review readers can inspect the mechanics behind cross-market mutualization instead of relying on one broad transfer-pool page.
+- Kept live cutoff thresholds, profit windows, flattening intensity, retention fractions, eligibility rules, allocation caps, reserve accounting, tax/subsidy execution, and public insurance commitments under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

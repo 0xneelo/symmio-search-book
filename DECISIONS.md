@@ -935,3 +935,11 @@
 **Reason:** The broad dynamic-pricing pages explain that funding, borrow, and spread are controls, but exact-answer readers will ask what each instrument does, why borrow is not funding, why funding becomes aggressive under insurance stress, why duration matters in emergency, and why spreads can reward exposure-reducing flow. Splitting the source formula sections gives the answer engine precise routes without publishing production pricing parameters.
 
 **Status:** Accepted for the authored manifesto layer; live rates, intervals, base parameters, multiplier curves, grace periods, acceleration caps, spread tables, rebates, market classes, and user-facing execution promises remain operator/implementation/legal/accounting review.
+
+## D-118: Split Bell-Curve Flattening Into Exact Mechanics Answers
+
+**Decision:** Add authored protocol-reference pages for bell-curve tail cutoffs, winner surplus and loser shortfall, feasible transfer-pool sizing, proportional tail allocation, and conservation versus protocol retention.
+
+**Reason:** The broad cross-market mutualization and transfer-pool pages explain the idea, but exact-answer readers will ask how tails are identified, what part of each market counts, why the pool is capped, how taxes and subsidies are allocated, and whether flattening creates or merely redistributes value. Splitting the mechanics preserves the source-model formulas without turning them into live insurance commitments.
+
+**Status:** Accepted for the authored protocol-reference layer; live cutoff thresholds, profit windows, flattening intensity, retention fractions, eligibility rules, allocation caps, reserve accounting, tax/subsidy execution, and public insurance commitments remain operator/implementation/legal/accounting review.
