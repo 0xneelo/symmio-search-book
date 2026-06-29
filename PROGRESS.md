@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Strategic Implications Participant Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly strategic-implications participant sections.
+- Split uncovered Section 6 stakeholder routes into exact answer pages for protocol designers, launchpads/DEXs, order-book protocols, centralized exchanges, and traders/LPs.
+- Extended the question ledger so Ask can route participant-specific strategic questions without collapsing every answer into the broad partnership-over-venue-war or permissionless-perps venue relationship pages.
+- Kept current integrations, venue partnerships, regulatory conclusions, CEX strategy, live Z-Score thresholds, LP terms, market eligibility, liquidity capacity, graduation rules, and risk assurances marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Permissionless Perps Closeout Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly permissionless-perps hypothesis close.

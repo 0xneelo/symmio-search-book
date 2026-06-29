@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 672
+      "totalGoldenRoutes": 677
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 690,
-    "retrievalEligiblePages": 1482,
+    "publicNavigationPages": 695,
+    "retrievalEligiblePages": 1487,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 690,
+      "candidate": 695,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 672,
-    "exactRouteTestsPassing": 672,
+    "totalExactRouteTests": 677,
+    "exactRouteTestsPassing": 677,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 672
+      "candidate": 677
     },
     "exactRoutesByConfidence": {
-      "Medium": 434,
+      "Medium": 439,
       "High": 44,
       "Low": 194
     },
@@ -4171,6 +4171,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-neelo-summarize-the-permissionless-perps-hypothesis",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-strategic-implications-for-protocol-designers",
+        "query": "What are the strategic implications for protocol designers?",
+        "normalizedQuery": "what are the strategic implications for protocol designers",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-protocol-designers",
+        "expectedPageTitle": "Strategic Implications For Protocol Designers",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-strategic-implications-for-protocol-designers",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-launchpads-and-dexs-benefit-from-a-gap-filling-layer",
+        "query": "How do launchpads and DEXs benefit from a gap-filling layer?",
+        "normalizedQuery": "how do launchpads and dexs benefit from a gap filling layer",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-launchpads-dexs",
+        "expectedPageTitle": "Strategic Implications For Launchpads And DEXs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-launchpads-and-dexs-benefit-from-a-gap-filling-layer",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-order-book-protocols-relate-to-vibe",
+        "query": "How should order-book protocols relate to Vibe?",
+        "normalizedQuery": "how should order book protocols relate to vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-order-book-protocols",
+        "expectedPageTitle": "Strategic Implications For Order-Book Protocols",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-order-book-protocols-relate-to-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-why-would-centralized-exchanges-care-about-a-gap-filling-perps-layer",
+        "query": "Why would centralized exchanges care about a gap-filling perps layer?",
+        "normalizedQuery": "why would centralized exchanges care about a gap filling perps layer",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-centralized-exchanges",
+        "expectedPageTitle": "Strategic Implications For Centralized Exchanges",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-would-centralized-exchanges-care-about-a-gap-filling-perps-layer",
+        "passes": true
+      },
+      {
+        "id": "qr-what-changes-for-traders-and-lps-if-the-gap-is-filled",
+        "query": "What changes for traders and LPs if the gap is filled?",
+        "normalizedQuery": "what changes for traders and lps if the gap is filled",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strategic-implications-traders-lps",
+        "expectedPageTitle": "Strategic Implications For Traders And LPs",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-changes-for-traders-and-lps-if-the-gap-is-filled",
         "passes": true
       },
       {
@@ -14872,7 +14977,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 672,
+      "exactRoutes": 677,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

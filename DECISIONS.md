@@ -1407,3 +1407,11 @@
 **Reason:** The previous Section 5 pages explain the lifecycle position, thesis, and hypothetical model. The closeout sections add the strategic shape: the protocol complements adjacent venues, starts from a bounded low-cap spot-graduated niche, creates continuity if the gap is filled, and may become a category-defining bridge under a Thiel-style monopoly frame. Ask needs exact routes for those distinctions before routing readers into broader strategic-implication pages.
 
 **Status:** Accepted for the authored manifesto layer; current integrations, venue partnerships, market-cap thresholds, supported chains, launch criteria, leverage policy, liquidity requirements, graduation rules, data moat claims, category-control claims, and production product scope remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-177: Split Strategic Implications Participant Sections Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the strategic implications of a gap-filling perp layer for protocol designers, launchpads/DEXs, order-book protocols, centralized exchanges, and traders/LPs.
+
+**Reason:** The broad partnership-over-venue-war and venue-relationship pages explain complementarity, but Section 6 gives each stakeholder a distinct strategic question. Ask needs direct routes for protocol positioning, upstream venue retention, order-book data pipelines, CEX listing intelligence, and participant risk/opportunity instead of collapsing every stakeholder into one generic partnership answer.
+
+**Status:** Accepted for the authored manifesto layer; live integrations, venue partnerships, regulatory conclusions, CEX strategy, Z-Score thresholds, LP terms, market eligibility, liquidity capacity, graduation rules, data-sharing behavior, and risk assurances remain fresh primary-source/operator/product/risk/legal/implementation review.
