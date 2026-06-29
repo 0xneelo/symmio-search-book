@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 531,
+  "totalPages": 536,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 382,
+    "publication-candidate-needs-operator-review": 387,
     "publication-candidate": 130,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 253,
+    "manifesto": 258,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -1623,6 +1623,29 @@
       "file": "content/authored/reference/distressed-position-buyout-continuity.md",
       "bodyMarkdown": "# Distressed Position Buyout Continuity\n\nThe DDQ's preferred third-party solver-default outcome is continuity, not simply payout-and-close.\n\nIf a third-party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol-owned solver can act as buyer of last resort in that model. In a mature multi-solver environment, the source also describes a competitive auction where active solvers can bid for the positions and inherit the counterparty obligations.\n\nThe user-facing reason is practical. Traders care about their position lifecycle. If every solver default forced position closure, users would inherit timing risk, slippage, and the need to rebuild exposure during a disrupted market. A buyout path can preserve the position, margin, funding, and PnL state while replacing the counterparty behind it.\n\nThe source's continuity design also clarifies why CVA and buyout are complementary. CVA compensates default risk. Buyout keeps the trade alive where a healthy counterparty can take over.\n\n## Publication Boundary\n\nThis page should not publish a live buyout probability, auction rule, discount formula, solver eligibility standard, or guarantee that user positions always continue after a solver default. It documents the DDQ model and requires implementation review before production publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default: Optional continuity mechanism\".\n- `vibe-papers`: Neelo DDQ, \"Trader Compensation - position buyout and auction mechanism\".\n\n## Related Pages\n\n- `authored-trader-compensation-continuity-model`\n- `authored-solver-cva-compensation-buffer`\n- `authored-protocol-owned-solver-depletion-boundary`",
       "excerpt": "Distressed Position Buyout Continuity The DDQ's preferred third party solver default outcome is continuity, not simply payout and close. If a third party solver becomes distressed or liquidatable, the source describes a buyout path where a healthy solver can assume the distressed positions. The protocol owned solver can act as buyer of last resort in that model. In a mature multi solver environment, the source also describes a competitive auction where active solvers can bid for the positions and inherit the counterparty obligations. The user facing reason is practical. Traders care about their position lifecycle. If every solver default forced position closure, users would inherit timing risk, slippage, and the need to rebuild exposure during a disrupted market. A buyout path can preserve the position, margin, funding, and PnL state while replacing the counterparty behind it. The source's continuity design also clarifies why CVA and buyout are complementary. CVA compensates default risk. Buyout keeps the trade alive where a healthy counterparty can take over. Publication Boundary This page should not publish a live buyout probability, auction rule, discount formula, solver eligibi"
+    },
+    {
+      "id": "authored-drift-luna-token-collateral-precedent",
+      "title": "Drift LUNA Token-Collateral Precedent",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "authored-token-margined-reflexivity-risk",
+        "authored-token-margin-manipulation-amplifier"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/drift-luna-token-collateral-precedent.md",
+      "bodyMarkdown": "# Drift LUNA Token-Collateral Precedent\n\nNeelo's historical section uses Drift V1 and the LUNA crash as a concrete token-collateral warning. In the source account, token collateral fell toward zero while the protocol still owed winning shorts, insurance was drained, and Drift later relaunched with USDC-based liquidity.\n\nThe mechanism matters more than the brand example. Token-margined systems can lose backing at the same moment liabilities expand. If the token is the collateral unit and the thing being shorted, a collapse damages the asset side while winners demand payment from the system.\n\nThat is why this source belongs next to the reflexivity pages. The risk is not merely \"collateral price can move.\" It is that collateral quality is correlated with market stress in the exact direction that stresses the payout obligation.\n\n## Why Black Swans Are The Wrong Exception\n\nCalling this a black swan can make the design problem sound external. For long-tail tokens, violent idiosyncratic collapse is part of the product surface. The system is being asked to list tokens whose liquidity, narrative, treasury behavior, and holder base can change quickly.\n\nIf the collateral unit can become nearly worthless while the market owes short-side profits, the venue needs stable settlement capital, active refusal/repricing, loss containment, or some other explicit answer. A local balance-sheet invariant is not enough if the unit of account itself disappears.\n\n## Reader Implication\n\nWhen a reader asks why Vibe separates settlement from token inventory, route here. The source's Drift/LUNA precedent makes the separation legible: market-native inventory can be useful for alignment, but it should not become the only asset backing stress-state payouts.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.2.2 Drift V1 (Solana)\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-token-margin-manipulation-amplifier`",
+      "excerpt": "Drift LUNA Token Collateral Precedent Neelo's historical section uses Drift V1 and the LUNA crash as a concrete token collateral warning. In the source account, token collateral fell toward zero while the protocol still owed winning shorts, insurance was drained, and Drift later relaunched with USDC based liquidity. The mechanism matters more than the brand example. Token margined systems can lose backing at the same moment liabilities expand. If the token is the collateral unit and the thing being shorted, a collapse damages the asset side while winners demand payment from the system. That is why this source belongs next to the reflexivity pages. The risk is not merely \"collateral price can move.\" It is that collateral quality is correlated with market stress in the exact direction that stresses the payout obligation. Why Black Swans Are The Wrong Exception Calling this a black swan can make the design problem sound external. For long tail tokens, violent idiosyncratic collapse is part of the product surface. The system is being asked to list tokens whose liquidity, narrative, treasury behavior, and holder base can change quickly. If the collateral unit can become nearly worthless"
     },
     {
       "id": "authored-dynamic-pricing-controls",
@@ -3503,6 +3526,29 @@
       "excerpt": "Funding Worked Examples Reading Guide The worked examples should be read as model walkthroughs, not as a production parameter sheet. Their value is that they show how the same market can move through normal operation, stress, emergency, insurance mode, bell curve support, and ADL trigger analysis. What The Examples Teach The normal and stress examples show the first calculation path: net longs and shorts, compute solver exposure, compare exposure with token capacity, then apply the appropriate utilization regime. The emergency example adds duration and loss intensity. A market that briefly touches a high utilization state should not be treated the same as one that remains there while losses accumulate. The insurance example shows the second utilization mode. Once exposure exceeds token inventory, the question becomes whether insurance budget can cover estimated unhedged loss and whether pricing should push flow back toward safety. The bell curve and ADL examples show system level consequences. Cross market support can compress extreme outcomes, while ADL appears when insurance and safe exposure limits are no longer enough. Reader Implication Use these examples to teach reasoning or"
     },
     {
+      "id": "authored-futureswap-toxic-arbitrage-precedent",
+      "title": "Futureswap Toxic Arbitrage Precedent",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "authored-capped-oracle-latency-arbitrage",
+        "authored-profitable-manipulation-condition"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/futureswap-toxic-arbitrage-precedent.md",
+      "bodyMarkdown": "# Futureswap Toxic Arbitrage Precedent\n\nNeelo names Futureswap V1 as a historical warning for token-margined and passive-pricing perp designs. In the source summary, LPs deposited ETH, pricing relied on a bonding curve, and bots exploited the lag between real prices and the curve.\n\nThe lesson is not merely that one early protocol failed. The source uses Futureswap to show that oracle or pricing latency can become structural when the venue offers predictable stale execution against volatile collateral.\n\nIf the outside market has moved and the on-chain pricing path has not caught up, informed traders can trade against LPs before the venue adapts. That is toxic arbitrage: the flow is not random demand; it is demand selected precisely because the market is mispriced.\n\n## Why This Belongs In The Percolator Critique\n\nPercolator's later oracle critique focuses on capped updates, latency windows, and attacker incentives. Futureswap supplies the historical analogy: stale or slow pricing in a volatile derivative venue does not need bad intent from the protocol to drain LPs. It only needs a predictable edge.\n\nThe general rule is brutal for low-cap perps. The thinner and more volatile the underlying, the more expensive even small pricing lags become. A mechanism that is safe for calm, deep markets can fail when the market being listed is exactly the kind of token Vibe cares about: early, reflexive, and thin.\n\n## Reader Implication\n\nWhen a reader asks whether oracle latency is theoretical, route here. The source's historical claim is that toxic arbitrage has already punished passive or lagging designs; the docs should not present latency as a parameter that can be tuned away without economic evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.2.1 Futureswap V1 (Ethereum)\".\n\n## Related Pages\n\n- `authored-capped-oracle-latency-arbitrage`\n- `authored-oracle-trilemma`\n- `authored-passive-matcher-adverse-selection`",
+      "excerpt": "Futureswap Toxic Arbitrage Precedent Neelo names Futureswap V1 as a historical warning for token margined and passive pricing perp designs. In the source summary, LPs deposited ETH, pricing relied on a bonding curve, and bots exploited the lag between real prices and the curve. The lesson is not merely that one early protocol failed. The source uses Futureswap to show that oracle or pricing latency can become structural when the venue offers predictable stale execution against volatile collateral. If the outside market has moved and the on chain pricing path has not caught up, informed traders can trade against LPs before the venue adapts. That is toxic arbitrage: the flow is not random demand; it is demand selected precisely because the market is mispriced. Why This Belongs In The Percolator Critique Percolator's later oracle critique focuses on capped updates, latency windows, and attacker incentives. Futureswap supplies the historical analogy: stale or slow pricing in a volatile derivative venue does not need bad intent from the protocol to drain LPs. It only needs a predictable edge. The general rule is brutal for low cap perps. The thinner and more volatile the underlying, the"
+    },
+    {
       "id": "authored-game-theory-of-listings",
       "title": "The Game Theory Of Listings",
       "section": "manifesto",
@@ -3648,6 +3694,29 @@
       "file": "content/authored/manifesto/graduation-data-checklist.md",
       "bodyMarkdown": "# Graduation Data Checklist\n\nProgrammatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two-sided participation, and declining dependence on solver support.\n\nThat list is more important than any one threshold. It says a market should graduate because it has become operationally healthier, not because a committee likes the story.\n\n## How The Checklist Should Be Read\n\nThe checklist has three jobs.\n\nFirst, it tests demand. Volume and trader count show whether the market is repeatedly used by more than one motivated group.\n\nSecond, it tests market quality. Liquidity depth, spread behavior, and liquidation outcomes show whether the market can withstand normal stress without becoming an artificial one-sided casino.\n\nThird, it tests maturity. Declining solver dependence and more two-sided participation show that the market can move toward tighter execution and more order-book-like structure.\n\n## Publication Boundary\n\nThe source gives categories, not final live formulas. This page should not publish production thresholds, weighting, cadence, graduation automation, eligible destination venues, or Z-score formulas until the product layer confirms them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Programmatic Graduation\".\n\n## Related Pages\n\n- `authored-programmatic-market-graduation`\n- `authored-z-score-graduation-criteria`\n- `authored-vibe-as-listing-source-of-truth`\n- `neelo-05-ode-to-the-orderbook-part2-05-docs-06-programmatic-graduation`",
       "excerpt": "Graduation Data Checklist Programmatic graduation only works if the market produces trustworthy data before the next venue decision. The Part II source names the categories a market should be judged by: sustained perp volume, trader count, liquidity depth, healthy liquidation behavior, two sided participation, and declining dependence on solver support. That list is more important than any one threshold. It says a market should graduate because it has become operationally healthier, not because a committee likes the story. How The Checklist Should Be Read The checklist has three jobs. First, it tests demand. Volume and trader count show whether the market is repeatedly used by more than one motivated group. Second, it tests market quality. Liquidity depth, spread behavior, and liquidation outcomes show whether the market can withstand normal stress without becoming an artificial one sided casino. Third, it tests maturity. Declining solver dependence and more two sided participation show that the market can move toward tighter execution and more order book like structure. Publication Boundary The source gives categories, not final live formulas. This page should not publish producti"
+    },
+    {
+      "id": "authored-gross-oi-collateral-lockup",
+      "title": "Gross OI Collateral Lockup",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "authored-slab-isolation-capital-inefficiency",
+        "authored-percolator-one-market-one-slab-accounting"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/gross-oi-collateral-lockup.md",
+      "bodyMarkdown": "# Gross OI Collateral Lockup\n\nNeelo's Percolator capital critique separates two different ideas: whether an LP is economically hedged and whether the on-chain risk engine releases capital. In the source, Percolator can still lock collateral based on gross open interest even when the LP's net position is close to flat.\n\nThat lock is not arbitrary. The source says it is necessary to prevent withdrawal-rug scenarios. If an LP could withdraw backing while user positions remained open, the market might preserve local accounting only by weakening payout credibility. The risk engine therefore keeps capital inside the slab for the lifetime of the obligations.\n\nThe cost is opportunity cost. Capital that is trapped against gross OI cannot be redeployed to stronger markets, other hedges, or higher-return inventory uses. The LP becomes hostage to open interest rather than simply paid for live risk.\n\n## Why This Matters For Long-Tail Markets\n\nLong-tail perp systems need breadth. If every market makes LP capital stay locked against gross exposure, the system may be technically permissionless while economically narrow. Professional liquidity providers care about portfolio turnover, net exposure, and opportunity cost, not only whether a single market's invariant is locally correct.\n\n## Reader Implication\n\nWhen a reader asks why \"hedged\" does not automatically mean \"capital efficient,\" route here. A venue can reduce directional exposure and still consume too much balance sheet if collateral release follows gross obligations rather than net economic risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.1.2 Collateral Lock-Up\".\n\n## Related Pages\n\n- `authored-slab-isolation-capital-inefficiency`\n- `authored-token-margined-lp-lose-lose`\n- `authored-systemic-leverage-comparison`",
+      "excerpt": "Gross OI Collateral Lockup Neelo's Percolator capital critique separates two different ideas: whether an LP is economically hedged and whether the on chain risk engine releases capital. In the source, Percolator can still lock collateral based on gross open interest even when the LP's net position is close to flat. That lock is not arbitrary. The source says it is necessary to prevent withdrawal rug scenarios. If an LP could withdraw backing while user positions remained open, the market might preserve local accounting only by weakening payout credibility. The risk engine therefore keeps capital inside the slab for the lifetime of the obligations. The cost is opportunity cost. Capital that is trapped against gross OI cannot be redeployed to stronger markets, other hedges, or higher return inventory uses. The LP becomes hostage to open interest rather than simply paid for live risk. Why This Matters For Long Tail Markets Long tail perp systems need breadth. If every market makes LP capital stay locked against gross exposure, the system may be technically permissionless while economically narrow. Professional liquidity providers care about portfolio turnover, net exposure, and opport"
     },
     {
       "id": "authored-high-apr-sustainability-pressure",
@@ -4057,6 +4126,29 @@
       "excerpt": "The Inverse Payoff Trap Neelo's Percolator critique separates token margined reflexivity from a sharper payoff problem: inverse settlement can make token liabilities grow non linearly as price falls. In an inverse perpetual, the trader's token denominated PnL depends on the difference between inverse prices. That means a short that is profitable in dollar terms can require more and more tokens to settle as the token approaches zero. Why The Payout Curve Matters The source's example is intentionally simple. A short entered near $1.00 earns almost the same dollar profit whether the token falls to $0.10 , $0.01 , or $0.001 , but the token payout required by the protocol expands dramatically in token terms. That is the inverse payoff trap. The vault is asked to pay the asset that is collapsing. When price falls, each remaining dollar of trader profit consumes more units of the weakening token. The liability curve gets steeper exactly when the vault is least able to absorb it. Linear Settlement Contrast The source contrasts this with USDC margined linear settlement. If a trader shorts $1,000 of notional and the token falls by 99% , the payout is fixed in USDC terms. The liability can st"
     },
     {
+      "id": "authored-inverse-product-retreat-precedent",
+      "title": "Inverse Product Retreat Precedent",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "authored-inverse-payoff-trap",
+        "authored-usdc-settlement-inventory-separation"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/inverse-product-retreat-precedent.md",
+      "bodyMarkdown": "# Inverse Product Retreat Precedent\n\nNeelo's Section 6 pairs two mature-market precedents: Synthetix inverse synths and BitMEX's evolution from originally BTC-margined inverse products toward linear USDC-margined contracts.\n\nThe shared lesson is that inverse payoff structures can become too expensive or brittle even before the market reaches the low-cap tail. In the source, Synthetix inverse synths faced unbounded-liability problems and required hard limits that made the product less useful at extremes. BitMEX, despite centralized risk management, professional market makers, and substantial insurance, still added USDC-margined linear contracts because inverse reflexive risk was costly in high volatility.\n\nThat matters for Percolator because Percolator applies token-denominated inverse mechanics to assets much less stable than BTC. If inverse margining is difficult for deep, mature assets, the burden becomes harsher for memecoins and newly listed tokens.\n\n## The Industry-Vote Argument\n\nThe source's summary is an industry-vote argument: Futureswap, Drift, Synthetix, and BitMEX all point away from token-margined inverse settlement as the general solution. Some systems paused, deprecated, imposed caps, or moved toward stablecoin-based liquidity.\n\nThis does not prove every inverse product is useless. It proves that documentation should treat inverse margining as a specialized risk shape with known historical retreat points, not as a neutral collateral choice.\n\n## Reader Implication\n\nWhen a reader asks why Vibe's stable settlement layer is not just conservative UX, route here. The historical pattern says the industry repeatedly moves toward stable settlement, active risk management, or hard limits when inverse liabilities become too expensive to honor cleanly.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.2.3 Synthetix Inverse Synths (Ethereum)\".\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.2.4 BitMEX (Centralized)\".\n\n## Related Pages\n\n- `authored-inverse-payoff-trap`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-token-margined-reflexivity-risk`",
+      "excerpt": "Inverse Product Retreat Precedent Neelo's Section 6 pairs two mature market precedents: Synthetix inverse synths and BitMEX's evolution from originally BTC margined inverse products toward linear USDC margined contracts. The shared lesson is that inverse payoff structures can become too expensive or brittle even before the market reaches the low cap tail. In the source, Synthetix inverse synths faced unbounded liability problems and required hard limits that made the product less useful at extremes. BitMEX, despite centralized risk management, professional market makers, and substantial insurance, still added USDC margined linear contracts because inverse reflexive risk was costly in high volatility. That matters for Percolator because Percolator applies token denominated inverse mechanics to assets much less stable than BTC. If inverse margining is difficult for deep, mature assets, the burden becomes harsher for memecoins and newly listed tokens. The Industry Vote Argument The source's summary is an industry vote argument: Futureswap, Drift, Synthetix, and BitMEX all point away from token margined inverse settlement as the general solution. Some systems paused, deprecated, impose"
+    },
+    {
       "id": "authored-inverted-market-mode-semantics",
       "title": "Inverted Market Mode Semantics",
       "section": "manifesto",
@@ -4102,6 +4194,29 @@
       "file": "content/authored/manifesto/issuance-abundance-creates-validation-debt.md",
       "bodyMarkdown": "# Issuance Abundance Creates Validation Debt\n\nCrypto made issuance universal in stages: Bitcoin proved digital scarcity, Ethereum made assets programmable, Uniswap made spot trading permissionless, and launchpads made creation cheap.\n\nThat sequence is powerful, but it creates validation debt. Almost anything can become a token before the market has a serious way to decide what the token means. Projects, communities, claims, events, outcomes, and productive capacity can all be wrapped into assets faster than mature markets can evaluate them.\n\nThe source's diagnosis is that issuance is solved ahead of market completeness. The industry can produce assets at internet speed, but most assets still cannot access the tools that make a market self-correcting: shorting, hedging, stress testing, leverage limits, and downstream maturity evidence.\n\n## Why This Matters For Vibe\n\nVibe's role is not to slow issuance down. It is to give issuance a missing market layer. If a token can move from creation to spot to permissionless derivatives, the market has a better chance to distinguish durable demand from temporary attention.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Issuance Revolution\".\n- `vibe-papers`: Neelo, \"Section 4: Why the Industry Is Still Broken\".\n\n## Related Pages\n\n- `authored-universal-issuance-needs-derivatives`\n- `authored-market-creation-gap`\n- `authored-lifecycle-gates-as-market-power`",
       "excerpt": "Issuance Abundance Creates Validation Debt Crypto made issuance universal in stages: Bitcoin proved digital scarcity, Ethereum made assets programmable, Uniswap made spot trading permissionless, and launchpads made creation cheap. That sequence is powerful, but it creates validation debt. Almost anything can become a token before the market has a serious way to decide what the token means. Projects, communities, claims, events, outcomes, and productive capacity can all be wrapped into assets faster than mature markets can evaluate them. The source's diagnosis is that issuance is solved ahead of market completeness. The industry can produce assets at internet speed, but most assets still cannot access the tools that make a market self correcting: shorting, hedging, stress testing, leverage limits, and downstream maturity evidence. Why This Matters For Vibe Vibe's role is not to slow issuance down. It is to give issuance a missing market layer. If a token can move from creation to spot to permissionless derivatives, the market has a better chance to distinguish durable demand from temporary attention. Sources vibe papers : Neelo, \"Section 3: The Issuance Revolution\". vibe papers : Ne"
+    },
+    {
+      "id": "authored-jit-liquidity-duration-mismatch",
+      "title": "JIT Liquidity Duration Mismatch",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-06-capital-and-historical",
+        "authored-rfq-before-order-book",
+        "authored-ddq-request-based-settlement-layer"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/jit-liquidity-duration-mismatch.md",
+      "bodyMarkdown": "# JIT Liquidity Duration Mismatch\n\nPercolator can support atomic deposit-and-trade style liquidity, but Neelo's Section 6 critique says that does not make the capital commitment short-lived. Once the trade creates open positions, capital remains locked in the slab for the duration of those positions.\n\nThat is the duration mismatch. The LP may arrive just in time for execution, but the balance sheet cannot necessarily leave just in time afterward. The execution event is atomic; the obligation is not.\n\nThe source contrasts this with RFQ-style systems such as Symmio, where market makers can keep capital off-chain until needed and commit to a quoted bilateral flow. That does not remove counterparty risk, but it changes when capital is immobilized and who chooses to accept it.\n\n## Why It Is Not Just A UX Difference\n\nFor professional liquidity, duration matters as much as price. A maker can quote aggressively if capital is committed for a defined trade window and repriced as conditions change. If the same capital becomes locked until user positions exit, the maker must charge for duration, liquidity loss, and adverse selection.\n\nThis is why \"JIT liquidity exists\" is not enough. The important question is whether the system offers JIT execution, JIT risk acceptance, or JIT capital release. Percolator's source critique says the third piece remains constrained by slab obligations.\n\n## Reader Implication\n\nWhen docs compare passive on-chain slabs to RFQ or intent systems, do not collapse them into \"both can source liquidity on demand.\" The decisive distinction is how long capital stays committed after demand appears.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.1.3 JIT Limitation\".\n\n## Related Pages\n\n- `authored-rfq-before-order-book`\n- `authored-intents-solver-compact`\n- `authored-solver-owned-market-maker`",
+      "excerpt": "JIT Liquidity Duration Mismatch Percolator can support atomic deposit and trade style liquidity, but Neelo's Section 6 critique says that does not make the capital commitment short lived. Once the trade creates open positions, capital remains locked in the slab for the duration of those positions. That is the duration mismatch. The LP may arrive just in time for execution, but the balance sheet cannot necessarily leave just in time afterward. The execution event is atomic; the obligation is not. The source contrasts this with RFQ style systems such as Symmio, where market makers can keep capital off chain until needed and commit to a quoted bilateral flow. That does not remove counterparty risk, but it changes when capital is immobilized and who chooses to accept it. Why It Is Not Just A UX Difference For professional liquidity, duration matters as much as price. A maker can quote aggressively if capital is committed for a defined trade window and repriced as conditions change. If the same capital becomes locked until user positions exit, the maker must charge for duration, liquidity loss, and adverse selection. This is why \"JIT liquidity exists\" is not enough. The important questi"
     },
     {
       "id": "authored-last-primitive",

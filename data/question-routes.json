@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 512,
+  "totalRoutes": 517,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 292,
+    "Medium": 297,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 512
+    "authored": 517
   },
   "answerable": [
     {
@@ -8966,6 +8966,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo says Percolator ADL can prevent technical insolvency by reducing winning payouts, but that damages trust because the market could not honor obligations.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-gross-oi-lock-lp-collateral-even-when-exposure-is-hedged",
+      "question": "Why can gross OI lock LP collateral even when exposure is hedged?",
+      "normalizedQuestion": "why can gross oi lock lp collateral even when exposure is hedged",
+      "pageId": "authored-gross-oi-collateral-lockup",
+      "pageTitle": "Gross OI Collateral Lockup",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo separates economic hedging from on-chain capital release: Percolator collateral can remain locked against gross obligations for the life of open positions.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-jit-liquidity-different-in-percolator-than-in-rfq-systems",
+      "question": "Why is JIT liquidity different in Percolator than in RFQ systems?",
+      "normalizedQuestion": "why is jit liquidity different in percolator than in rfq systems",
+      "pageId": "authored-jit-liquidity-duration-mismatch",
+      "pageTitle": "JIT Liquidity Duration Mismatch",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo says Percolator can accept atomic deposit-and-trade liquidity, but the resulting slab capital remains committed for position duration rather than only for quote acceptance.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-futureswap-teach-about-toxic-arbitrage",
+      "question": "What does Futureswap teach about toxic arbitrage?",
+      "normalizedQuestion": "what does futureswap teach about toxic arbitrage",
+      "pageId": "authored-futureswap-toxic-arbitrage-precedent",
+      "pageTitle": "Futureswap Toxic Arbitrage Precedent",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo uses Futureswap V1 as precedent that lagging bonding-curve or oracle pricing can create structurally toxic flow against LPs.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-drift-v1-s-luna-episode-teach-about-token-collateral",
+      "question": "What does Drift V1's LUNA episode teach about token collateral?",
+      "normalizedQuestion": "what does drift v1 s luna episode teach about token collateral",
+      "pageId": "authored-drift-luna-token-collateral-precedent",
+      "pageTitle": "Drift LUNA Token-Collateral Precedent",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Drift/LUNA precedent shows collateral value can collapse while the system still owes winning shorts, turning token margin into correlated stress exposure.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-did-inverse-products-retreat-toward-limits-or-linear-stablecoin-contracts",
+      "question": "Why did inverse products retreat toward limits or linear stablecoin contracts?",
+      "normalizedQuestion": "why did inverse products retreat toward limits or linear stablecoin contracts",
+      "pageId": "authored-inverse-product-retreat-precedent",
+      "pageTitle": "Inverse Product Retreat Precedent",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo points to Synthetix inverse synth limits and BitMEX's move toward USDC-margined linear contracts as evidence that inverse liability shapes become expensive under volatility.",
       "sourceKeys": [
         "vibe-papers"
       ],

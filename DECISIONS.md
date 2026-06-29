@@ -1151,3 +1151,11 @@
 **Reason:** The existing oracle-circuit-breaker, passive-matcher, and shorting-death-spiral pages explain the broad critique, but answer-engine readers need direct routes for the source's precise failure mechanics. Splitting Section 5 keeps the oracle tradeoff, deterministic catch-up window, cross-market attack path, margin-unit amplification, and payout-haircut credibility cost independently answerable.
 
 **Status:** Accepted for the authored manifesto layer; live oracle providers, circuit-breaker values, matcher code, spread values, current Percolator deployment state, manipulation feasibility, ADL haircut implementation, and user-facing guarantees remain fresh primary-source and operator/security/risk/legal/implementation review.
+
+## D-145: Split Percolator Capital Precedent Into Exact Efficiency Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for gross-OI collateral lockup, JIT liquidity duration mismatch, Futureswap toxic arbitrage precedent, Drift/LUNA token-collateral precedent, and the inverse-product retreat shown by Synthetix and BitMEX.
+
+**Reason:** Section 6 ties Percolator's capital-efficiency critique to historical examples. Exact routes prevent readers from collapsing no-cross-margin, locked collateral, JIT duration, oracle-latency precedent, token-collateral black swans, and inverse-liability retreat into a generic "token margin is risky" claim.
+
+**Status:** Accepted for the authored manifesto layer; third-party historical details, current venue/product states, live Percolator parameters, capital-lock behavior, JIT mechanics, and publication-date claims remain fresh primary-source and operator/security/risk/legal/implementation review.

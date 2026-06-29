@@ -518,6 +518,11 @@ Questions are grouped by whether the current source set can answer them.
 | How does a spot-perp pump-and-dump attack work? | `authored-spot-perp-pump-dump-attack` | Medium | Neelo describes an attacker coordinating spot buys or sells with leveraged perp positions so oracle movement and derivative PnL reinforce each other. |
 | Why does token margin amplify manipulation? | `authored-token-margin-manipulation-amplifier` | Medium | Neelo contrasts USDC margin with token margin, where collateral, manipulation object, payout unit, and LP balance-sheet base can become the same volatile token. |
 | Why is ADL haircut a controlled crash? | `authored-adl-haircut-controlled-crash` | Medium | Neelo says Percolator ADL can prevent technical insolvency by reducing winning payouts, but that damages trust because the market could not honor obligations. |
+| Why can gross OI lock LP collateral even when exposure is hedged? | `authored-gross-oi-collateral-lockup` | Medium | Neelo separates economic hedging from on-chain capital release: Percolator collateral can remain locked against gross obligations for the life of open positions. |
+| Why is JIT liquidity different in Percolator than in RFQ systems? | `authored-jit-liquidity-duration-mismatch` | Medium | Neelo says Percolator can accept atomic deposit-and-trade liquidity, but the resulting slab capital remains committed for position duration rather than only for quote acceptance. |
+| What does Futureswap teach about toxic arbitrage? | `authored-futureswap-toxic-arbitrage-precedent` | Medium | Neelo uses Futureswap V1 as precedent that lagging bonding-curve or oracle pricing can create structurally toxic flow against LPs. |
+| What does Drift V1's LUNA episode teach about token collateral? | `authored-drift-luna-token-collateral-precedent` | Medium | Neelo's Drift/LUNA precedent shows collateral value can collapse while the system still owes winning shorts, turning token margin into correlated stress exposure. |
+| Why did inverse products retreat toward limits or linear stablecoin contracts? | `authored-inverse-product-retreat-precedent` | Medium | Neelo points to Synthetix inverse synth limits and BitMEX's move toward USDC-margined linear contracts as evidence that inverse liability shapes become expensive under volatility. |
 
 ## Prototype Event Log
 

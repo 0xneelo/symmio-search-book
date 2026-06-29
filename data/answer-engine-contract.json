@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 512
+      "totalGoldenRoutes": 517
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 530,
-    "retrievalEligiblePages": 1322,
+    "publicNavigationPages": 535,
+    "retrievalEligiblePages": 1327,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 530,
+      "candidate": 535,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 512,
-    "exactRouteTestsPassing": 512,
+    "totalExactRouteTests": 517,
+    "exactRouteTestsPassing": 517,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 512
+      "candidate": 517
     },
     "exactRoutesByConfidence": {
-      "Medium": 292,
+      "Medium": 297,
       "High": 44,
       "Low": 176
     },
@@ -11437,6 +11437,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-adl-haircut-a-controlled-crash",
         "passes": true
+      },
+      {
+        "id": "qr-why-can-gross-oi-lock-lp-collateral-even-when-exposure-is-hedged",
+        "query": "Why can gross OI lock LP collateral even when exposure is hedged?",
+        "normalizedQuery": "why can gross oi lock lp collateral even when exposure is hedged",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-gross-oi-collateral-lockup",
+        "expectedPageTitle": "Gross OI Collateral Lockup",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-gross-oi-lock-lp-collateral-even-when-exposure-is-hedged",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-jit-liquidity-different-in-percolator-than-in-rfq-systems",
+        "query": "Why is JIT liquidity different in Percolator than in RFQ systems?",
+        "normalizedQuery": "why is jit liquidity different in percolator than in rfq systems",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-jit-liquidity-duration-mismatch",
+        "expectedPageTitle": "JIT Liquidity Duration Mismatch",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-jit-liquidity-different-in-percolator-than-in-rfq-systems",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-futureswap-teach-about-toxic-arbitrage",
+        "query": "What does Futureswap teach about toxic arbitrage?",
+        "normalizedQuery": "what does futureswap teach about toxic arbitrage",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-futureswap-toxic-arbitrage-precedent",
+        "expectedPageTitle": "Futureswap Toxic Arbitrage Precedent",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-futureswap-teach-about-toxic-arbitrage",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-drift-v1-s-luna-episode-teach-about-token-collateral",
+        "query": "What does Drift V1's LUNA episode teach about token collateral?",
+        "normalizedQuery": "what does drift v1 s luna episode teach about token collateral",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-drift-luna-token-collateral-precedent",
+        "expectedPageTitle": "Drift LUNA Token-Collateral Precedent",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-drift-v1-s-luna-episode-teach-about-token-collateral",
+        "passes": true
+      },
+      {
+        "id": "qr-why-did-inverse-products-retreat-toward-limits-or-linear-stablecoin-contracts",
+        "query": "Why did inverse products retreat toward limits or linear stablecoin contracts?",
+        "normalizedQuery": "why did inverse products retreat toward limits or linear stablecoin contracts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-inverse-product-retreat-precedent",
+        "expectedPageTitle": "Inverse Product Retreat Precedent",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-did-inverse-products-retreat-toward-limits-or-linear-stablecoin-contracts",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11512,7 +11617,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 512,
+      "exactRoutes": 517,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

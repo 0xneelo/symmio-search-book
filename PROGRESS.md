@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Capital Precedent Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 6 capital-inefficiency and historical-precedent source.
+- Split the broad capital-efficiency critique into exact answer routes for gross-OI collateral lockup, JIT liquidity duration mismatch, Futureswap toxic arbitrage, Drift/LUNA token-collateral failure, and the Synthetix/BitMEX inverse-product retreat.
+- Extended the question ledger so Ask can route direct questions about hedged-but-locked capital, JIT execution versus JIT release, oracle-latency precedent, collateral collapse during short payouts, and industry migration away from inverse settlement.
+- Kept third-party historical details, current venue/product states, live Percolator parameters, and publication-date claims marked for fresh primary-source/operator/risk/legal review.
+
 ## 2026-06-29 — Percolator Oracle Manipulation Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 5 oracle/manipulation source.
