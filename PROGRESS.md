@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Bootstrap Trilemma Mechanics Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score bootstrap-trilemma source.
+- Split the trilemma mechanics into exact answer routes for the three properties, the trilemma visualization, single-architecture failure mechanics, the pick-two reality, and why the trilemma exists.
+- Extended the question ledger so Ask can route conceptual and mechanical trilemma questions without collapsing them into the broad bootstrap-trilemma page.
+- Kept live venue comparisons, protocol labels, fee/leverage examples, market-maker economics, insurance behavior, and current implementation claims marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Perp Landscape And Trilemma Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score landscape and bootstrap-trilemma source.

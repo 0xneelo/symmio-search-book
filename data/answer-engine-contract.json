@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 592
+      "totalGoldenRoutes": 597
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 610,
-    "retrievalEligiblePages": 1402,
+    "publicNavigationPages": 615,
+    "retrievalEligiblePages": 1407,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 610,
+      "candidate": 615,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 592,
-    "exactRouteTestsPassing": 592,
+    "totalExactRouteTests": 597,
+    "exactRouteTestsPassing": 597,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 592
+      "candidate": 597
     },
     "exactRoutesByConfidence": {
-      "Medium": 372,
+      "Medium": 377,
       "High": 44,
       "Low": 176
     },
@@ -13117,6 +13117,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-neelo-formalize-the-bootstrap-trilemma",
         "passes": true
+      },
+      {
+        "id": "qr-what-are-the-three-properties-in-the-bootstrap-trilemma",
+        "query": "What are the three properties in the bootstrap trilemma?",
+        "normalizedQuery": "what are the three properties in the bootstrap trilemma",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-trilemma-three-properties",
+        "expectedPageTitle": "The Three Properties In The Bootstrap Trilemma",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-three-properties-in-the-bootstrap-trilemma",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-readers-use-the-bootstrap-trilemma-visualization",
+        "query": "How should readers use the bootstrap trilemma visualization?",
+        "normalizedQuery": "how should readers use the bootstrap trilemma visualization",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-trilemma-visualized",
+        "expectedPageTitle": "How To Read The Bootstrap Trilemma Visualization",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-readers-use-the-bootstrap-trilemma-visualization",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-single-architecture-perp-protocols-fail-the-bootstrap-trilemma",
+        "query": "Why do single-architecture perp protocols fail the bootstrap trilemma?",
+        "normalizedQuery": "why do single architecture perp protocols fail the bootstrap trilemma",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-single-architecture-failure-matrix",
+        "expectedPageTitle": "Why Single-Architecture Perp Designs Fail The Trilemma",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-single-architecture-perp-protocols-fail-the-bootstrap-trilemma",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-pick-two-reality-in-perp-market-design",
+        "query": "What is the pick-two reality in perp market design?",
+        "normalizedQuery": "what is the pick two reality in perp market design",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-pick-two-reality",
+        "expectedPageTitle": "The Pick-Two Reality In Perp Market Design",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-pick-two-reality-in-perp-market-design",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-bootstrap-trilemma-exist",
+        "query": "Why does the bootstrap trilemma exist?",
+        "normalizedQuery": "why does the bootstrap trilemma exist",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-why-bootstrap-trilemma-exists",
+        "expectedPageTitle": "Why The Bootstrap Trilemma Exists",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-bootstrap-trilemma-exist",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -13192,7 +13297,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 592,
+      "exactRoutes": 597,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

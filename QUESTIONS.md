@@ -598,6 +598,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why are hybrid perp approaches only partial solutions? | `authored-hybrid-perp-partial-solutions` | Medium | Neelo treats hybrid labels as incomplete unless the design explains solver capital, residual imbalance, and how the market moves through lifecycle stages. |
 | What does the perp landscape comparison show? | `authored-landscape-comparative-analysis` | Medium | The comparative table shows each architecture trading off permissionless listing, capital efficiency, counterparty guarantees, bootstrap ability, and scale. |
 | How does Neelo formalize the bootstrap trilemma? | `authored-bootstrap-trilemma-formal-constraint` | Medium | The formal constraint says a single static architecture struggles to satisfy permissionless listing, capital efficiency, and reliable counterparty guarantees at the same time. |
+| What are the three properties in the bootstrap trilemma? | `authored-bootstrap-trilemma-three-properties` | Medium | Neelo defines the trilemma around permissionless listing, capital efficiency, and reliable counterparty guarantees. |
+| How should readers use the bootstrap trilemma visualization? | `authored-bootstrap-trilemma-visualized` | Medium | The visualization marks the impossible zone for static bootstrap designs and frames Vibe as a path through the triangle over time. |
+| Why do single-architecture perp protocols fail the bootstrap trilemma? | `authored-single-architecture-failure-matrix` | Medium | The source tests async-netted, collateralized, and synchronous architectures and shows which trilemma property each one gives up. |
+| What is the pick-two reality in perp market design? | `authored-bootstrap-pick-two-reality` | Medium | Neelo's pick-two frame says static designs can optimize two of openness, efficiency, and payout reliability, but the missing third property explains the failure mode. |
+| Why does the bootstrap trilemma exist? | `authored-why-bootstrap-trilemma-exists` | Medium | The source roots the trilemma in adverse selection, risk transfer, and the circular cold-start loop between traders, liquidity, capital, returns, and volume. |
 
 ## Prototype Event Log
 

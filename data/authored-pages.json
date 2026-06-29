@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 611,
+  "totalPages": 616,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 447,
-    "publication-candidate": 144,
+    "publication-candidate-needs-operator-review": 449,
+    "publication-candidate": 147,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 333,
+    "manifesto": 338,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -438,6 +438,29 @@
       "excerpt": "Bootstrap Oracle Risk Tiers Permissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi source feeds can support higher leverage and open interest; thinner or DEX derived feeds require tighter limits. That is the right product lesson. A market can be permissionless without pretending every price source is equally strong. The docs should show that oracle risk is a gating input for leverage, OI, liquidation safety, and solver exposure. Tiered Risk, Not Binary Eligibility The source names price feed properties that matter for Vibe style markets: freshness, accuracy, manipulation resistance, and availability. For new tokens without established feeds, it sketches a DEX derived path using pool queries, TWAP smoothing, liquidity depth validation, and confidence bounds. The important idea is not a specific vendor stack. It is that bootstrap markets need an explicit risk tier. Mature multi source oracle coverage can carry more system capacity. Single source or thin DEX derived pricing should carry less capacity and stricter execution limits. Publication Bo"
     },
     {
+      "id": "authored-bootstrap-pick-two-reality",
+      "title": "The Pick-Two Reality In Perp Market Design",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-5-the-pick-two-reality"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-5-the-pick-two-reality",
+        "authored-bootstrap-trilemma-three-properties",
+        "authored-landscape-comparative-analysis"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-pick-two-reality.md",
+      "bodyMarkdown": "# The Pick-Two Reality In Perp Market Design\n\nThe pick-two section translates the trilemma into the choices existing designs tend to make. A static architecture can look strong because it optimizes two properties clearly. The missing third property explains where it breaks.\n\nPermissionless plus capital efficient gives the cleanest theoretical promise: list anything without heavy collateral. But if the system is netted and the other side is missing, there is no reliable counterparty. The market is open and efficient on paper, but winning traders cannot be paid during the first profitable imbalance.\n\nCapital efficient plus reliable counterparty describes mature order-book-style venues. When both sides exist and insurance or margin systems are in place, the market can be deep and efficient. The missing property is permissionless bootstrap: the design cannot make an unknown market liquid merely by declaring it listed.\n\nPermissionless plus reliable counterparty describes vault or pool-backed bootstrap. A market can trade before two-sided flow exists because capital stands behind it. The missing property is efficiency: the capital taking that risk must be compensated, and the market pays through fees, spreads, caps, leverage limits, or risk budgets.\n\nThe point is not that one corner is morally better. The point is that Vibe's lifecycle architecture has to explain how a market moves between corners as evidence changes.\n\n## Publication Boundary\n\nThe source uses Derp.fun, Hyperliquid, and GMX-style categories as examples. Treat those as source-time architecture examples until current project status, live listing policies, market-maker economics, fee levels, insurance rules, and product behavior are verified from primary sources.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.5 The Pick-Two Reality\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma-three-properties`\n- `authored-landscape-comparative-analysis`\n- `authored-existing-perp-landscape-overview`",
+      "excerpt": "The Pick Two Reality In Perp Market Design The pick two section translates the trilemma into the choices existing designs tend to make. A static architecture can look strong because it optimizes two properties clearly. The missing third property explains where it breaks. Permissionless plus capital efficient gives the cleanest theoretical promise: list anything without heavy collateral. But if the system is netted and the other side is missing, there is no reliable counterparty. The market is open and efficient on paper, but winning traders cannot be paid during the first profitable imbalance. Capital efficient plus reliable counterparty describes mature order book style venues. When both sides exist and insurance or margin systems are in place, the market can be deep and efficient. The missing property is permissionless bootstrap: the design cannot make an unknown market liquid merely by declaring it listed. Permissionless plus reliable counterparty describes vault or pool backed bootstrap. A market can trade before two sided flow exists because capital stands behind it. The missing property is efficiency: the capital taking that risk must be compensated, and the market pays throu"
+    },
+    {
       "id": "authored-bootstrap-thesis-statement",
       "title": "The Bootstrap Thesis Statement",
       "section": "manifesto",
@@ -503,6 +526,52 @@
       "file": "content/authored/manifesto/bootstrap-trilemma-formal-constraint.md",
       "bodyMarkdown": "# Formalizing The Bootstrap Trilemma Constraint\n\nNeelo formalizes the bootstrap problem as a constraint on single-architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two.\n\nPermissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes.\n\nThe tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async-netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer.\n\nThe formal constraint matters because it prevents the docs from treating Vibe as a UI preference. The lifecycle thesis is a response to a structural impossibility claim: if no single architecture can hold all three properties at every stage, then the market needs an architecture that changes as the market matures.\n\n## Reader Implication\n\nUse this page for the exact formal answer. Use `authored-bootstrap-trilemma` for the broader narrative, `authored-static-perp-design-failures` for category examples, and Vibe architecture pages for the proposed lifecycle response.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.1 Formalizing the Constraint\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-static-perp-design-failures`\n- `authored-markets-are-dynamic-not-static`",
       "excerpt": "Formalizing The Bootstrap Trilemma Constraint Neelo formalizes the bootstrap problem as a constraint on single architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two. Permissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes. The tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer. The formal constraint matters because it prevents the docs from treating Vibe as a UI prefer"
+    },
+    {
+      "id": "authored-bootstrap-trilemma-three-properties",
+      "title": "The Three Properties In The Bootstrap Trilemma",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-2-the-three-properties"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-2-the-three-properties",
+        "authored-bootstrap-trilemma-formal-constraint",
+        "authored-bootstrap-trilemma"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-trilemma-three-properties.md",
+      "bodyMarkdown": "# The Three Properties In The Bootstrap Trilemma\n\nNeelo's bootstrap trilemma is built from three properties: permissionless listing, capital efficiency, and reliable counterparty guarantee. Each property is attractive on its own. The trilemma appears when a new perpetual market asks for all three at the same time.\n\nPermissionless listing means any asset can have a perp market without a listing committee, auction, existing volume threshold, or pre-arranged market maker. It is the property that makes the long tail possible. Without it, a protocol can still serve established majors, but it does not solve market creation for thousands of assets.\n\nCapital efficiency means the market can offer competitive fees, spreads, leverage, and LP or maker economics without forcing some party to overcollateralize every possible payout. This is the property that lets a market compete after it exists. A market can be technically available but commercially unattractive if the capital cost is too high.\n\nReliable counterparty guarantee means winning traders know who pays them. The source is precise here: a market is not credible if payout depends on a future counterparty appearing after the winning position already exists. Every accepted trade needs a defined, solvent path for settlement.\n\nThe three-property frame is useful because it stops the compendium from treating \"permissionless\" as the whole product. A market must be open, efficient enough to use, and credible enough to settle.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.2 The Three Properties\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma-formal-constraint`\n- `authored-bootstrap-trilemma`\n- `authored-collateralization-payout-source`",
+      "excerpt": "The Three Properties In The Bootstrap Trilemma Neelo's bootstrap trilemma is built from three properties: permissionless listing, capital efficiency, and reliable counterparty guarantee. Each property is attractive on its own. The trilemma appears when a new perpetual market asks for all three at the same time. Permissionless listing means any asset can have a perp market without a listing committee, auction, existing volume threshold, or pre arranged market maker. It is the property that makes the long tail possible. Without it, a protocol can still serve established majors, but it does not solve market creation for thousands of assets. Capital efficiency means the market can offer competitive fees, spreads, leverage, and LP or maker economics without forcing some party to overcollateralize every possible payout. This is the property that lets a market compete after it exists. A market can be technically available but commercially unattractive if the capital cost is too high. Reliable counterparty guarantee means winning traders know who pays them. The source is precise here: a market is not credible if payout depends on a future counterparty appearing after the winning position a"
+    },
+    {
+      "id": "authored-bootstrap-trilemma-visualized",
+      "title": "How To Read The Bootstrap Trilemma Visualization",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-3-the-trilemma-visualized"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-3-the-trilemma-visualized",
+        "authored-bootstrap-trilemma-three-properties",
+        "authored-temporal-separation-of-concerns"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-trilemma-visualized.md",
+      "bodyMarkdown": "# How To Read The Bootstrap Trilemma Visualization\n\nThe trilemma diagram places permissionless listing, capital efficiency, and reliable counterparty guarantee as corners of the same design space. The center is marked as the impossible zone for single-architecture protocols.\n\nThat image should not be read as a claim that the center is permanently impossible for every market state. It is a claim about static designs at bootstrap. A new market does not yet have thick two-sided flow, reliable market-maker participation, enough price history, or enough risk data. Asking one fixed architecture to be open, cheap, and fully reliable under those conditions creates a contradiction.\n\nVibe appears in the diagram \"over time\" because the proposed escape is temporal rather than magical. The market can begin near the permissionless-and-reliable side, accepting higher capital costs and conservative limits. If real flow and balance appear, the market can move toward efficiency. If it never earns that move, the system should not pretend it is mature.\n\nFor readers, the diagram is the shortest version of the lifecycle thesis. The product is not merely an interface around perps. It is a path through the triangle as evidence accumulates.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.3 The Trilemma Visualized\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma-three-properties`\n- `authored-temporal-separation-of-concerns`\n- `authored-market-maturation-state-map`",
+      "excerpt": "How To Read The Bootstrap Trilemma Visualization The trilemma diagram places permissionless listing, capital efficiency, and reliable counterparty guarantee as corners of the same design space. The center is marked as the impossible zone for single architecture protocols. That image should not be read as a claim that the center is permanently impossible for every market state. It is a claim about static designs at bootstrap. A new market does not yet have thick two sided flow, reliable market maker participation, enough price history, or enough risk data. Asking one fixed architecture to be open, cheap, and fully reliable under those conditions creates a contradiction. Vibe appears in the diagram \"over time\" because the proposed escape is temporal rather than magical. The market can begin near the permissionless and reliable side, accepting higher capital costs and conservative limits. If real flow and balance appear, the market can move toward efficiency. If it never earns that move, the system should not pretend it is mature. For readers, the diagram is the shortest version of the lifecycle thesis. The product is not merely an interface around perps. It is a path through the tria"
     },
     {
       "id": "authored-break-even-versus-attractive-apr",
@@ -9588,6 +9657,29 @@
       "excerpt": "Shorting Death Spiral The shorting death spiral is the inverse payoff trap under market stress. In the source model, traders open large shorts, price falls, and the protocol must pay winning shorts in tokens. As price drops, each dollar of profit requires more token units. The vault drains faster, remaining LPs face pressure, liquidation can add selling, and the feedback loop deepens. Why ADL Is Not A Full Answer Percolator's source level defense is auto deleveraging through a haircut model. That can prevent a purely technical insolvency by reducing winning traders' payouts. But the source is clear about the credibility cost. If winning traders cannot receive full profit when the trade worked, the market has admitted that payout certainty is conditional on vault health. That may be acceptable as a last resort emergency control, but it cannot be the normal economic answer for serious long tail derivatives. Why This Matters For Vibe The Vibe comparison source argues for a defense stack before ADL: netting, token inventory, local insurance, global insurance, dynamic pricing, and solver managed risk controls. The important distinction is not that Vibe can promise no stress. It is that "
     },
     {
+      "id": "authored-single-architecture-failure-matrix",
+      "title": "Why Single-Architecture Perp Designs Fail The Trilemma",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-4-why-single-architectures-fail"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-4-why-single-architectures-fail",
+        "authored-static-perp-design-failures",
+        "authored-async-netted-no-payer-failure"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/single-architecture-failure-matrix.md",
+      "bodyMarkdown": "# Why Single-Architecture Perp Designs Fail The Trilemma\n\nNeelo's failure matrix tests the same question three ways: what happens when a single architecture tries to hold all three bootstrap properties at once?\n\nThe async-netted attempt fails on counterparty guarantee. Netted accounting says one side pays the other. Asynchronous execution says one side can exist before the other. Put together, a winning long can appear before any short exists. The market has recorded profitable exposure without a payer.\n\nThe fully collateralized attempt fails on capital efficiency. A vault or pool can list the market and stand behind payouts, but every unit of open interest forces capital to bear directional risk. Fees, spreads, leverage, and limits must compensate that capital. The market may be safe enough to trade, but it is not as efficient as a mature netted venue.\n\nThe synchronous order-book attempt fails on permissionless bootstrap. An order book needs bids and asks at the same time. If a new market has no natural two-sided liquidity, adding a backstop reintroduces the collateralized-capital problem. The architecture is strong for mature markets, not for empty ones.\n\nThis page is the mechanical proof underneath the broad trilemma story. The failure is not aesthetic. Each static form gives up one of the required properties for a specific reason.\n\n## Publication Boundary\n\nThe source includes simplified equations and venue-style comparisons to illustrate the mechanism. Keep those examples as source-model explanations until current venue parameters, fee levels, leverage, backstop rules, and market-maker economics are refreshed from primary sources.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.4 Why Single Architectures Fail\".\n\n## Related Pages\n\n- `authored-static-perp-design-failures`\n- `authored-async-netted-no-payer-failure`\n- `authored-collateralized-vault-protocols`",
+      "excerpt": "Why Single Architecture Perp Designs Fail The Trilemma Neelo's failure matrix tests the same question three ways: what happens when a single architecture tries to hold all three bootstrap properties at once? The async netted attempt fails on counterparty guarantee. Netted accounting says one side pays the other. Asynchronous execution says one side can exist before the other. Put together, a winning long can appear before any short exists. The market has recorded profitable exposure without a payer. The fully collateralized attempt fails on capital efficiency. A vault or pool can list the market and stand behind payouts, but every unit of open interest forces capital to bear directional risk. Fees, spreads, leverage, and limits must compensate that capital. The market may be safe enough to trade, but it is not as efficient as a mature netted venue. The synchronous order book attempt fails on permissionless bootstrap. An order book needs bids and asks at the same time. If a new market has no natural two sided liquidity, adding a backstop reintroduces the collateralized capital problem. The architecture is strong for mature markets, not for empty ones. This page is the mechanical pro"
+    },
+    {
       "id": "authored-single-pillar-optimization-failure",
       "title": "Single-Pillar Optimization Failure",
       "section": "manifesto",
@@ -14801,6 +14893,29 @@
       "file": "content/authored/manifesto/whale-vault-risk-tranching.md",
       "bodyMarkdown": "# Whale Vaults And Risk Tranching\n\nThe proof-of-value source introduces whale vaults as a way to separate who is best positioned to bear which risk.\n\nIn the source model, large holders or project-side inventory providers contribute token inventory. The solver contributes execution, pricing, stable settlement capacity, and backstop logic. That division matters because a token holder already bears directional exposure to the asset, while a generic stablecoin LP may demand a much higher premium to underwrite the same low-cap tail risk.\n\nThe vault concept is therefore not only \"more collateral.\" It is risk tranching. Token-side inventory absorbs market-specific directional risk. Solver and settlement infrastructure handle execution and cashflow boundaries. External solvers can still compete when they can hedge or price the flow better.\n\n## Publication Boundary\n\nThe source also discusses covered-perp language and perpetual fee sharing. Those are not final public commitments until current vault terms, revenue disclosure, LP rights, inventory custody, and loss allocation are operator-approved. The publishable principle is narrower: use the capital source that naturally owns the risk, and keep settlement risk distinct from token inventory risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.3 Whale Vaults: Risk Tranching\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-risk-adjusted-capital-efficiency`",
       "excerpt": "Whale Vaults And Risk Tranching The proof of value source introduces whale vaults as a way to separate who is best positioned to bear which risk. In the source model, large holders or project side inventory providers contribute token inventory. The solver contributes execution, pricing, stable settlement capacity, and backstop logic. That division matters because a token holder already bears directional exposure to the asset, while a generic stablecoin LP may demand a much higher premium to underwrite the same low cap tail risk. The vault concept is therefore not only \"more collateral.\" It is risk tranching. Token side inventory absorbs market specific directional risk. Solver and settlement infrastructure handle execution and cashflow boundaries. External solvers can still compete when they can hedge or price the flow better. Publication Boundary The source also discusses covered perp language and perpetual fee sharing. Those are not final public commitments until current vault terms, revenue disclosure, LP rights, inventory custody, and loss allocation are operator approved. The publishable principle is narrower: use the capital source that naturally owns the risk, and keep settl"
+    },
+    {
+      "id": "authored-why-bootstrap-trilemma-exists",
+      "title": "Why The Bootstrap Trilemma Exists",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-6-why-the-trilemma-exists"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-6-why-the-trilemma-exists",
+        "authored-bootstrap-trilemma-formal-constraint",
+        "authored-proof-value-four-constituencies"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/why-bootstrap-trilemma-exists.md",
+      "bodyMarkdown": "# Why The Bootstrap Trilemma Exists\n\nThe trilemma is not just a protocol-design inconvenience. Neelo traces it to market economics.\n\nFirst, new markets are adverse-selection environments. The first traders may know more about the asset than outside counterparties. If everyone can see that the early flow is informed or one-sided, an uninformed counterparty will not volunteer to lose. Someone can still take the risk, but they must be paid.\n\nSecond, risk cannot be removed by naming a different mechanism. Netted systems keep risk among traders when there is balance. Collateralized systems transfer residual risk to LPs or vaults. Solver systems transfer it to a capitalized pricing and risk layer. During bootstrap, there is not enough natural offset, so residual risk has to go somewhere.\n\nThird, the cold-start loop is circular. Traders want liquidity. Liquidity needs capital. Capital wants returns. Returns need volume. Volume needs traders. A static system breaks the circle either by assuming an existing trader base or by injecting capital. The former weakens permissionless bootstrap; the latter weakens capital efficiency.\n\nThis root-cause page is useful because it keeps the docs honest. Vibe is not trying to make the trilemma disappear. It is trying to price and stage the risk transfer until the market earns a more efficient form.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.6 Why the Trilemma Exists\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma-formal-constraint`\n- `authored-proof-value-four-constituencies`\n- `authored-solver-as-initial-network-effect`",
+      "excerpt": "Why The Bootstrap Trilemma Exists The trilemma is not just a protocol design inconvenience. Neelo traces it to market economics. First, new markets are adverse selection environments. The first traders may know more about the asset than outside counterparties. If everyone can see that the early flow is informed or one sided, an uninformed counterparty will not volunteer to lose. Someone can still take the risk, but they must be paid. Second, risk cannot be removed by naming a different mechanism. Netted systems keep risk among traders when there is balance. Collateralized systems transfer residual risk to LPs or vaults. Solver systems transfer it to a capitalized pricing and risk layer. During bootstrap, there is not enough natural offset, so residual risk has to go somewhere. Third, the cold start loop is circular. Traders want liquidity. Liquidity needs capital. Capital wants returns. Returns need volume. Volume needs traders. A static system breaks the circle either by assuming an existing trader base or by injecting capital. The former weakens permissionless bootstrap; the latter weakens capital efficiency. This root cause page is useful because it keeps the docs honest. Vibe i"
     },
     {
       "id": "authored-why-derivatives-matter",

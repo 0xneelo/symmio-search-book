@@ -1279,3 +1279,11 @@
 **Reason:** The broad landscape, static-design failure, and bootstrap-trilemma pages explain the category-level argument, but answer-engine readers need direct routes into each source heading. Splitting the landscape keeps vault-stage fit, async-netted no-payer mechanics, hybrid incompleteness, comparative-table interpretation, and the formal three-property constraint separately answerable.
 
 **Status:** Accepted for the authored manifesto layer; live protocol details, venue metrics, fee/cap parameters, funding mechanics, project status labels, current implementations, and production guarantees remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-161: Split The Bootstrap Trilemma Mechanics Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the three bootstrap-trilemma properties, the trilemma visualization, the single-architecture failure matrix, the pick-two reality, and why the trilemma exists.
+
+**Reason:** The broad bootstrap-trilemma page and formal-constraint page define the concept, but answer-engine readers need direct routes for the mechanics underneath it. Splitting Section 4 keeps the property definitions, diagram interpretation, architecture-by-architecture failure proof, pick-two taxonomy, and adverse-selection/risk-transfer/cold-start root cause separately answerable.
+
+**Status:** Accepted for the authored manifesto layer; live venue comparisons, protocol labels, fee/leverage examples, market-maker economics, insurance behavior, and current implementation claims remain fresh primary-source/operator/product/risk/legal/implementation review.
