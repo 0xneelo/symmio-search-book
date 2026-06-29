@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 756,
+  "totalRoutes": 757,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 477,
     "High": 44,
-    "Low": 235
+    "Low": 236
   },
   "byRouteSource": {
-    "authored": 756
+    "authored": 757
   },
   "answerable": [
     {
@@ -1485,6 +1485,24 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's security-controls and architecture sources support signer isolation, replay-safe claims, audit trails, anomaly monitoring, cooldowns, and fail-closed settlement.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-failure-modes-must-referral-architecture-design-against",
+      "question": "What failure modes must referral architecture design against?",
+      "normalizedQuestion": "what failure modes must referral architecture design against",
+      "pageId": "authored-referral-architecture-failure-modes",
+      "pageTitle": "Referral Architecture Failure Modes",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's architecture source names signer compromise, stale index data, unaudited graph mutation, claim replay, and double-credit paths as core referral failure modes.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"

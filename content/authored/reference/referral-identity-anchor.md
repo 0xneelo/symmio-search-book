@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#11-referral-identity", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#23-referral-code-activation-policy", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-01-system-baseline", "neelo-17-referral-program-17-docs-02-architecture", "authored-referral-identity-and-claim-flow"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-1-referral-identity", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-3-referral-code-activation-policy", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-01-system-baseline", "section-17-referral-program-17-docs-01-system-baseline-1-1-referral-identity", "neelo-17-referral-program-17-docs-02-architecture", "section-17-referral-program-17-docs-02-architecture-2-3-referral-code-activation-policy", "authored-referral-identity-and-claim-flow"]
 ---
 
 # Referral Identity Anchor

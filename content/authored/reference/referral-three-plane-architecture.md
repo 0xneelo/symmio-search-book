@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#21-component-boundaries", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#24-trust-boundaries", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-02-architecture", "authored-referral-identity-and-claim-flow", "authored-referral-settlement-security-controls"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-1-component-boundaries", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-4-trust-boundaries", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-02-architecture", "section-17-referral-program-17-docs-02-architecture-2-1-component-boundaries", "section-17-referral-program-17-docs-02-architecture-2-4-trust-boundaries", "authored-referral-identity-and-claim-flow", "authored-referral-settlement-security-controls"]
 ---
 
 # Referral Three-Plane Architecture

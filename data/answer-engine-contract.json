@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 756
+      "totalGoldenRoutes": 757
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 774,
-    "retrievalEligiblePages": 1566,
+    "publicNavigationPages": 775,
+    "retrievalEligiblePages": 1567,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 774,
+      "candidate": 775,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 756,
-    "exactRouteTestsPassing": 756,
+    "totalExactRouteTests": 757,
+    "exactRouteTestsPassing": 757,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 756
+      "candidate": 757
     },
     "exactRoutesByConfidence": {
       "Medium": 477,
       "High": 44,
-      "Low": 235
+      "Low": 236
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -2105,6 +2105,29 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-security-controls-protect-referral-settlement",
+        "passes": true
+      },
+      {
+        "id": "qr-what-failure-modes-must-referral-architecture-design-against",
+        "query": "What failure modes must referral architecture design against?",
+        "normalizedQuery": "what failure modes must referral architecture design against",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-architecture-failure-modes",
+        "expectedPageTitle": "Referral Architecture Failure Modes",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-failure-modes-must-referral-architecture-design-against",
         "passes": true
       },
       {
@@ -16666,7 +16689,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 756,
+      "exactRoutes": 757,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

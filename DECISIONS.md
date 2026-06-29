@@ -1551,3 +1551,11 @@
 **Reason:** Existing broad referral policy pages explain the dual-channel rakeback model and open governance lanes, but the generated source still contains exact questions a user, partner, or operator would ask before trusting referral economics. Splitting these routes lets Ask answer tier-boundary, settlement-UX, private-overlay, policy-clarity, and objective questions without converting unresolved economics into live commitments.
 
 **Status:** Accepted for the authored rewards-reference layer; live tier tables, threshold timing, private partner terms, claim or in-flow rebate mode, signer controls, referral depth, referee benefits, referrer stacking, caps, payout cadence, and economics disclosure remain fresh operator/product/risk/legal/accounting/implementation review.
+
+## D-195: Tighten Referral Baseline Architecture Exact Coverage
+
+**Decision:** Map existing referral identity, dual-rail incentive, and three-plane architecture authored pages to their exact generated Section 17 headings, and add one focused authored rewards-reference page for referral architecture failure modes.
+
+**Reason:** Several uncovered Section 17 headings already had strong authored coverage but lacked exact `relatedGeneratedPages` links, while the architecture failure-mode heading still needed a direct Ask route. This slice improves source traceability without duplicating already-authored broad pages, and adds the missing failure-mode answer for signer compromise, stale indexes, unaudited graph mutation, replay, and double-credit risks.
+
+**Status:** Accepted for the authored rewards-reference layer; signer topology, indexer SLAs, graph-edit permissions, admin override rules, nonce schemas, dispute windows, incident thresholds, referral depth, and public economics remain fresh operator/security/legal/accounting/implementation review.

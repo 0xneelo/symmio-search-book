@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#12-two-incentive-rails", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#31-dual-channel-model", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-01-system-baseline", "neelo-17-referral-program-17-docs-03-rakeback-design", "authored-referral-rakeback-policy-model"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-2-two-incentive-rails", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#3-1-dual-channel-model", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-01-system-baseline", "section-17-referral-program-17-docs-01-system-baseline-1-2-two-incentive-rails", "neelo-17-referral-program-17-docs-03-rakeback-design", "section-17-referral-program-17-docs-03-rakeback-design-3-1-dual-channel-model", "authored-referral-rakeback-policy-model"]
 ---
 
 # Referral Dual Incentive Rails

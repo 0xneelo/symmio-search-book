@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 775,
+  "totalPages": 776,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 602,
+    "publication-candidate-needs-operator-review": 603,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -13,7 +13,7 @@
   "bySection": {
     "manifesto": 470,
     "product-reference": 47,
-    "rewards-referrals": 95,
+    "rewards-referrals": 96,
     "dashboard-reference": 12,
     "protocol-reference": 139,
     "competitive-context": 1,
@@ -10267,6 +10267,32 @@
       "excerpt": "Referral Architecture As Market Formation Neelo's referral architecture paper treats referrals as market formation infrastructure, not just campaign growth copy. The design objective is to increase high quality market listings while preserving fee integrity and limiting abuse. That means the referral layer has to balance on chain identity, configurable partner economics, rakeback, points, reward abstractions, issuance policy, and operational safeguards. The referral economics section highlights why this is hard. Self referrals, code shopping, and attribution disputes can turn a growth program into extraction if benefits are unequal or issuance is unconstrained. A durable system needs clear issuer eligibility, uniform referee benefits where possible, and explicit ownership rules for referral rights. Reader Implication This page should link the dashboard referral mechanics back to the bigger market formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility, but operator inbox item 3 still controls final public depth and historical accounting language. Sources vibe papers : Neelo, \"Referral Program Architecture\". vibe papers : Neelo, \"Sectio"
     },
     {
+      "id": "authored-referral-architecture-failure-modes",
+      "title": "Referral Architecture Failure Modes",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-5-failure-modes-to-design-against",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-02-architecture",
+        "section-17-referral-program-17-docs-02-architecture-2-5-failure-modes-to-design-against",
+        "authored-referral-three-plane-architecture",
+        "authored-referral-settlement-security-controls"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-architecture-failure-modes.md",
+      "bodyMarkdown": "# Referral Architecture Failure Modes\n\nNeelo's referral architecture names the failure modes the system has to design against before referral economics become public, value-bearing, or transferable.\n\nThe list is concrete: signer key compromise, stale or inconsistent index data, referral graph mutation without audit trails, and claim replay or double-credit paths. Those are not edge cases around a marketing campaign. They are the basic ways an attribution and rewards system can lose economic credibility.\n\n## Why These Failures Are Architectural\n\nSigner compromise turns an authorization path into an over-issuance path. Stale index data turns a dashboard or claim calculation into a disputed source of truth. Referral graph mutation without audit trails lets policy changes rewrite history. Claim replay and double-credit paths let a valid reward event become more than one payout.\n\nThe three-plane architecture exists to narrow those failures. Deterministic settlement state should own nonces, claim consumption, and identity anchors. Policy state should own tier tables, eligibility rules, and private overlays. Monitoring state should detect anomalies and reconciliation breaks without silently changing either settlement or policy history.\n\n## Reader Implication\n\nWhen the docs explain referral safety, they should name these failure modes directly. A credible referral program is not only generous; it is auditable under compromised signers, delayed data, disputed graph changes, and repeated claim attempts.\n\n## Publication Boundary\n\nThis page explains the source-level threat model. It should not publish final signer topology, indexer SLAs, graph-edit permissions, admin override rules, nonce schemas, dispute windows, or incident thresholds until implementation, security, legal, accounting, and operator review approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Failure Modes to Design Against\".\n- `spec-03`: referral-depth and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-three-plane-architecture`\n- `authored-referral-settlement-security-controls`\n- `authored-referral-replay-safe-claim-authorizations`",
+      "excerpt": "Referral Architecture Failure Modes Neelo's referral architecture names the failure modes the system has to design against before referral economics become public, value bearing, or transferable. The list is concrete: signer key compromise, stale or inconsistent index data, referral graph mutation without audit trails, and claim replay or double credit paths. Those are not edge cases around a marketing campaign. They are the basic ways an attribution and rewards system can lose economic credibility. Why These Failures Are Architectural Signer compromise turns an authorization path into an over issuance path. Stale index data turns a dashboard or claim calculation into a disputed source of truth. Referral graph mutation without audit trails lets policy changes rewrite history. Claim replay and double credit paths let a valid reward event become more than one payout. The three plane architecture exists to narrow those failures. Deterministic settlement state should own nonces, claim consumption, and identity anchors. Policy state should own tier tables, eligibility rules, and private overlays. Monitoring state should detect anomalies and reconciliation breaks without silently changin"
+    },
+    {
       "id": "authored-referral-category-partner-overlays",
       "title": "Referral Category Partner Overlays",
       "section": "rewards-referrals",
@@ -10468,13 +10494,15 @@
         "spec-03"
       ],
       "sourceUrls": [
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#12-two-incentive-rails",
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#31-dual-channel-model",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-2-two-incentive-rails",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#3-1-dual-channel-model",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-2-two-incentive-rails",
         "neelo-17-referral-program-17-docs-03-rakeback-design",
+        "section-17-referral-program-17-docs-03-rakeback-design-3-1-dual-channel-model",
         "authored-referral-rakeback-policy-model"
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
@@ -10673,13 +10701,15 @@
         "spec-03"
       ],
       "sourceUrls": [
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#11-referral-identity",
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#23-referral-code-activation-policy",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-1-referral-identity",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-3-referral-code-activation-policy",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-01-system-baseline",
+        "section-17-referral-program-17-docs-01-system-baseline-1-1-referral-identity",
         "neelo-17-referral-program-17-docs-02-architecture",
+        "section-17-referral-program-17-docs-02-architecture-2-3-referral-code-activation-policy",
         "authored-referral-identity-and-claim-flow"
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
@@ -11756,12 +11786,14 @@
         "spec-03"
       ],
       "sourceUrls": [
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#21-component-boundaries",
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#24-trust-boundaries",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-1-component-boundaries",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-4-trust-boundaries",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-02-architecture",
+        "section-17-referral-program-17-docs-02-architecture-2-1-component-boundaries",
+        "section-17-referral-program-17-docs-02-architecture-2-4-trust-boundaries",
         "authored-referral-identity-and-claim-flow",
         "authored-referral-settlement-security-controls"
       ],

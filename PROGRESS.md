@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Referral Baseline Architecture Exact Coverage
+
+- Tightened exact generated-heading coverage for existing referral identity, dual-rail incentive, and three-plane architecture pages.
+- Added 1 focused Volume 06 rewards-reference page for referral architecture failure modes: signer compromise, stale index data, unaudited graph mutation, claim replay, and double-credit paths.
+- Extended the question ledger so Ask can route referral failure-mode questions directly without turning implementation controls into public security promises.
+- Kept signer topology, indexer SLAs, graph-edit permissions, admin override rules, nonce schemas, dispute windows, incident thresholds, referral depth, and public economics marked for operator/security/legal/accounting/implementation review.
+
 ## 2026-06-29 — Referral Rakeback Economics Exact Pages
 
 - Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo rakeback/economics headings.
