@@ -951,3 +951,11 @@
 **Reason:** The broad stress-demand, defense-hierarchy, and ADL trigger pages explain the ordering, but exact-answer readers will ask how exposure becomes a loss estimate, why insurance cannot spend without caps, when hedging can be funded, whether ADL always zeroes exposure, and which positions are selected first. Splitting these mechanics gives the answer engine precise routes while keeping live safety parameters and emergency procedures out of public commitments.
 
 **Status:** Accepted for the authored protocol-reference layer; live Aenigma values, volatility windows, safety quantiles, spend budgets, hedge venues, ADL thresholds, ranking fields, tie-breakers, compensation semantics, and production emergency behavior remain operator/risk/legal/implementation/accounting review.
+
+## D-120: Split Defense Hierarchy Into Layer-Level Answers
+
+**Decision:** Add authored protocol-reference pages for user position netting, solver token inventory coverage, total pre-ADL defense budget, defense activation timeline, and defense-layer cost ordering.
+
+**Reason:** The broad defense-hierarchy page explains the five-layer stack, but exact-answer readers need routes for how netting works, when token inventory is enough, how much loss can be absorbed before ADL, how the stack activates as stress worsens, and why the sequence is ordered by economic and UX cost. Splitting these pages makes the defense model inspectable without publishing live parameters as guarantees.
+
+**Status:** Accepted for the authored protocol-reference layer; live netting scope, token balances, inventory rights, utilization thresholds, risk fractions, local/global allocation amounts, ramp speeds, spread tables, governance procedures, compensation semantics, and production ADL behavior remain operator/risk/legal/accounting/implementation review.

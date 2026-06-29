@@ -393,6 +393,11 @@ Questions are grouped by whether the current source set can answer them.
 | When can insurance pay for a hedge action? | `authored-funding-hedge-cost-coverage` | Medium | Neelo allows hedging to reduce exposure only if hedge cost fits inside combined local and global insurance spend. |
 | Does ADL always close exposure to zero? | `authored-funding-adl-target-sizing` | Medium | Neelo's ADL sizing chooses the minimum fraction needed to bring exposure back to a safe target rather than assuming full zeroing. |
 | Who gets deleveraged first in ADL? | `authored-funding-adl-priority-ranking` | Medium | Neelo prioritizes largest winners, then oldest equal-profit positions, then proportional treatment if needed. |
+| Why is user position netting the first defense layer? | `authored-funding-user-position-netting-defense` | Medium | Neelo's defense hierarchy treats opposing long and short user flow as free protection before capital, insurance, or ADL is used. |
+| How does solver token inventory protect a market? | `authored-funding-solver-token-inventory-defense` | Medium | Neelo's defense hierarchy uses actual token holdings to cover residual exposure until exposure exceeds inventory value. |
+| What is the total defense budget before ADL? | `authored-funding-total-defense-budget` | Medium | Neelo combines token protection, local insurance capacity, and eligible global allocation into the max loss that can be absorbed before ADL. |
+| How does the defense stack activate as stress rises? | `authored-funding-defense-activation-timeline` | Medium | Neelo's activation timeline moves from netting and token inventory to emergency pricing, local/global insurance, and only then ADL. |
+| Why are defense layers ordered by cost? | `authored-funding-defense-layer-cost-ordering` | Medium | Neelo orders defenses to minimize UX impact, isolate contagion, and use local market buffers before shared insurance or ADL. |
 
 ## Prototype Event Log
 

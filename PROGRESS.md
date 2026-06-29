@@ -718,6 +718,12 @@
 - Routed five new Ask questions so solvers, LPs, and risk-review readers can inspect the mechanics beneath stress demand and ADL without relying on one broad defense-stack page.
 - Kept live Aenigma values, volatility windows, safety quantiles, spend budgets, hedge venues, ADL thresholds, ranking fields, tie-breakers, compensation semantics, and production emergency behavior under operator/risk/legal/implementation/accounting review.
 
+## 2026-06-29 — Defense Hierarchy Layer Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's Defense Hierarchy source: user position netting, solver token inventory coverage, total pre-ADL defense budget, defense activation timeline, and defense-layer cost ordering.
+- Routed five new Ask questions so solvers, LPs, traders, and risk-review readers can inspect the protection stack beneath the broad hierarchy page.
+- Kept live netting scope, token balances, inventory rights, utilization thresholds, risk fractions, local/global allocation amounts, ramp speeds, spread tables, governance procedures, compensation semantics, and production ADL behavior under operator/risk/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

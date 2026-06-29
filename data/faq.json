@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 394,
-  "totalAnswerable": 387,
+  "totalEntries": 399,
+  "totalAnswerable": 392,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 121,
+    "Solvers And Settlement": 126,
     "Risk And Markets": 23,
     "Revenue": 57,
     "Manifesto": 66,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 167,
+    "Medium": 172,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 387
+    "authored": 392
   },
   "byType": {
-    "answerable": 387,
+    "answerable": 392,
     "reconciliation": 7
   },
   "answerable": [
@@ -12813,6 +12813,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-adl-priority-ranking",
       "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-user-position-netting-the-first-defense-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is user position netting the first defense layer?",
+      "normalizedQuestion": "why is user position netting the first defense layer",
+      "shortAnswer": "Neelo's defense hierarchy treats opposing long and short user flow as free protection before capital, insurance, or ADL is used.",
+      "answerSummary": "Funding User Position Netting Defense Neelo's defense hierarchy starts with user position netting. Long and short exposure can offset naturally before the solver spends capital, deploys insurance, or considers ADL. The source writes the netted amount as: and the protection amount as: The source example uses $120,000 of longs and $80,000 of shorts. $80,000...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-user-position-netting-defense",
+      "pageTitle": "Funding User Position Netting Defense",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-solver-token-inventory-protect-a-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does solver token inventory protect a market?",
+      "normalizedQuestion": "how does solver token inventory protect a market",
+      "shortAnswer": "Neelo's defense hierarchy uses actual token holdings to cover residual exposure until exposure exceeds inventory value.",
+      "answerSummary": "Funding Solver Token Inventory Defense After user netting, Neelo's defense hierarchy uses solver token inventory. The solver's actual token holdings can cover net exposure before the model spends insurance. The source defines covered amount as: and the token protection amount as: The source example uses 5,000 tokens at $10 , giving $50,000 of token protec...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-solver-token-inventory-defense",
+      "pageTitle": "Funding Solver Token Inventory Defense",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-total-defense-budget-before-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the total defense budget before ADL?",
+      "normalizedQuestion": "what is the total defense budget before adl",
+      "shortAnswer": "Neelo combines token protection, local insurance capacity, and eligible global allocation into the max loss that can be absorbed before ADL.",
+      "answerSummary": "Funding Total Defense Budget Neelo's defense hierarchy combines local and global insurance into a per market defense budget: That budget sits inside a broader protection sequence. For a given exposure, the source orders absorption as: 1. user netting absorbs min(L, S) ; 2. token inventory absorbs min(E remaining, P T) ; 3. local insurance absorbs min(D re...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-total-defense-budget",
+      "pageTitle": "Funding Total Defense Budget",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-defense-stack-activate-as-stress-rises",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does the defense stack activate as stress rises?",
+      "normalizedQuestion": "how does the defense stack activate as stress rises",
+      "shortAnswer": "Neelo's activation timeline moves from netting and token inventory to emergency pricing, local/global insurance, and only then ADL.",
+      "answerSummary": "Funding Defense Activation Timeline Neelo's defense hierarchy presents a staged activation timeline. The model moves from ordinary netting to increasingly forceful controls only as utilization and uncovered exposure worsen. The source sequence is: normal operation: netting is active and status is green; rising utilization: netting and token inventory are...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-defense-activation-timeline",
+      "pageTitle": "Funding Defense Activation Timeline",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-defense-layers-ordered-by-cost",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why are defense layers ordered by cost?",
+      "normalizedQuestion": "why are defense layers ordered by cost",
+      "shortAnswer": "Neelo orders defenses to minimize UX impact, isolate contagion, and use local market buffers before shared insurance or ADL.",
+      "answerSummary": "Funding Defense Layer Cost Ordering Neelo's defense hierarchy orders defenses by cost. The source comparison says netting has no capital cost, no operational cost, and no UX cost. Token inventory has holding and management cost. Local insurance consumes market earnings and accounting capacity. Global insurance introduces shared pool governance. ADL has hi...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-defense-layer-cost-ordering",
+      "pageTitle": "Funding Defense Layer Cost Ordering",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -25952,6 +26097,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-adl-priority-ranking",
       "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-user-position-netting-the-first-defense-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is user position netting the first defense layer?",
+      "normalizedQuestion": "why is user position netting the first defense layer",
+      "shortAnswer": "Neelo's defense hierarchy treats opposing long and short user flow as free protection before capital, insurance, or ADL is used.",
+      "answerSummary": "Funding User Position Netting Defense Neelo's defense hierarchy starts with user position netting. Long and short exposure can offset naturally before the solver spends capital, deploys insurance, or considers ADL. The source writes the netted amount as: and the protection amount as: The source example uses $120,000 of longs and $80,000 of shorts. $80,000...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-user-position-netting-defense",
+      "pageTitle": "Funding User Position Netting Defense",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-solver-token-inventory-protect-a-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does solver token inventory protect a market?",
+      "normalizedQuestion": "how does solver token inventory protect a market",
+      "shortAnswer": "Neelo's defense hierarchy uses actual token holdings to cover residual exposure until exposure exceeds inventory value.",
+      "answerSummary": "Funding Solver Token Inventory Defense After user netting, Neelo's defense hierarchy uses solver token inventory. The solver's actual token holdings can cover net exposure before the model spends insurance. The source defines covered amount as: and the token protection amount as: The source example uses 5,000 tokens at $10 , giving $50,000 of token protec...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-solver-token-inventory-defense",
+      "pageTitle": "Funding Solver Token Inventory Defense",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-total-defense-budget-before-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the total defense budget before ADL?",
+      "normalizedQuestion": "what is the total defense budget before adl",
+      "shortAnswer": "Neelo combines token protection, local insurance capacity, and eligible global allocation into the max loss that can be absorbed before ADL.",
+      "answerSummary": "Funding Total Defense Budget Neelo's defense hierarchy combines local and global insurance into a per market defense budget: That budget sits inside a broader protection sequence. For a given exposure, the source orders absorption as: 1. user netting absorbs min(L, S) ; 2. token inventory absorbs min(E remaining, P T) ; 3. local insurance absorbs min(D re...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-total-defense-budget",
+      "pageTitle": "Funding Total Defense Budget",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-defense-stack-activate-as-stress-rises",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How does the defense stack activate as stress rises?",
+      "normalizedQuestion": "how does the defense stack activate as stress rises",
+      "shortAnswer": "Neelo's activation timeline moves from netting and token inventory to emergency pricing, local/global insurance, and only then ADL.",
+      "answerSummary": "Funding Defense Activation Timeline Neelo's defense hierarchy presents a staged activation timeline. The model moves from ordinary netting to increasingly forceful controls only as utilization and uncovered exposure worsen. The source sequence is: normal operation: netting is active and status is green; rising utilization: netting and token inventory are...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-defense-activation-timeline",
+      "pageTitle": "Funding Defense Activation Timeline",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-defense-layers-ordered-by-cost",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why are defense layers ordered by cost?",
+      "normalizedQuestion": "why are defense layers ordered by cost",
+      "shortAnswer": "Neelo orders defenses to minimize UX impact, isolate contagion, and use local market buffers before shared insurance or ADL.",
+      "answerSummary": "Funding Defense Layer Cost Ordering Neelo's defense hierarchy orders defenses by cost. The source comparison says netting has no capital cost, no operational cost, and no UX cost. Token inventory has holding and management cost. Local insurance consumes market earnings and accounting capacity. Global insurance introduces shared pool governance. ADL has hi...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-defense-layer-cost-ordering",
+      "pageTitle": "Funding Defense Layer Cost Ordering",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

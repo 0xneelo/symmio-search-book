@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 406,
+  "totalPages": 411,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 269,
+    "publication-candidate-needs-operator-review": 274,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -13,7 +13,7 @@
     "manifesto": 198,
     "product-reference": 47,
     "dashboard-reference": 12,
-    "protocol-reference": 112,
+    "protocol-reference": 117,
     "competitive-context": 1,
     "reference": 1,
     "rewards-referrals": 25,
@@ -2078,6 +2078,29 @@
       "excerpt": "The Funding Model Core Invariant Neelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad debt events. That does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leave system debt behind. In the source framing, a solver or LP stack can receive collateral, rebalance token inventory, earn fees and funding, and still manage exposure through dynamic prices before the system reaches insurance or ADL. Why The Invariant Matters Traditional AMM and lending analogies can mislead readers. If the docs say only \"volatility is risk,\" users miss the difference between selling spot inventory, lending against collateral, and running a perp market where trader PnL, liquidation revenue, funding, spread, borrow, hedge cost, and shortfall risk all enter the same control loop. The invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic "
     },
     {
+      "id": "authored-funding-defense-activation-timeline",
+      "title": "Funding Defense Activation Timeline",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#defense-activation-timeline"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "authored-funding-rate-regime-model",
+        "authored-funding-emergency-time-ramp"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-defense-activation-timeline.md",
+      "bodyMarkdown": "# Funding Defense Activation Timeline\n\nNeelo's defense hierarchy presents a staged activation timeline. The model moves from ordinary netting to increasingly forceful controls only as utilization and uncovered exposure worsen.\n\nThe source sequence is:\n\n- normal operation: netting is active and status is green;\n- rising utilization: netting and token inventory are active, with elevated funding and spreads;\n- high utilization: the emergency funding ramp appears;\n- unhedged exposure: local insurance can deploy, spreads become aggressive, and rebalancing-side spreads can become negative;\n- local insurance depleted: global insurance can deploy and the system prepares for possible ADL;\n- all insurance exhausted: ADL triggers to deleverage toward a safe level and reset to a sustainable state.\n\n## Why The Timeline Matters\n\nThe timeline makes the defense stack operational. It shows that ADL is not a switch beside normal operation. It is reached after softer incentives, inventory coverage, local insurance, and capped global insurance have failed to restore safety.\n\nIt also explains why traders can see different kinds of pressure before an emergency. Funding, borrow costs, spread widening, rebates, insurance deployment, and ADL are not interchangeable. They belong to different points in the stress path.\n\n## Publication Boundary\n\nThis page explains the source-model timeline. It should not publish live utilization thresholds, colors, timing, ramp speeds, spread tables, rebate guarantees, insurance deployment rules, or production ADL procedures without operator, risk, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy\", \"Defense Activation Timeline\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-emergency-time-ramp`\n- `authored-funding-directional-spreads-and-rebates`",
+      "excerpt": "Funding Defense Activation Timeline Neelo's defense hierarchy presents a staged activation timeline. The model moves from ordinary netting to increasingly forceful controls only as utilization and uncovered exposure worsen. The source sequence is: normal operation: netting is active and status is green; rising utilization: netting and token inventory are active, with elevated funding and spreads; high utilization: the emergency funding ramp appears; unhedged exposure: local insurance can deploy, spreads become aggressive, and rebalancing side spreads can become negative; local insurance depleted: global insurance can deploy and the system prepares for possible ADL; all insurance exhausted: ADL triggers to deleverage toward a safe level and reset to a sustainable state. Why The Timeline Matters The timeline makes the defense stack operational. It shows that ADL is not a switch beside normal operation. It is reached after softer incentives, inventory coverage, local insurance, and capped global insurance have failed to restore safety. It also explains why traders can see different kinds of pressure before an emergency. Funding, borrow costs, spread widening, rebates, insurance deploy"
+    },
+    {
       "id": "authored-funding-defense-hierarchy",
       "title": "Funding Defense Hierarchy",
       "section": "manifesto",
@@ -2099,6 +2122,30 @@
       "file": "content/authored/manifesto/funding-defense-hierarchy.md",
       "bodyMarkdown": "# Funding Defense Hierarchy\n\nNeelo's funding model frames ADL as the last resort, not the first line of defense. Before auto-deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL.\n\nThat order matters because each layer has a different cost.\n\n## The Stack\n\nUser position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market-specific USDC protection from liquidation proceeds, solver profits, and CVA-style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system.\n\nADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model.\n\n## Why This Belongs In The Vision Spine\n\nThe hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long-tail venue, the docs need to show readers where losses are absorbed before they ask who gets deleveraged.\n\n## Publication Note\n\nThis page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy: The Complete Protection Stack\".\n\n## Related Pages\n\n- `authored-funding-as-market-balancing`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-token-margined-reflexivity-risk`\n- `neelo-15-funding-model-15-docs-10-defense-hierarchy`",
       "excerpt": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The Stack User position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market specific USDC protection from liquidation proceeds, solver profits, and CVA style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system. ADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model. Why This Belongs In The Vision Spine The hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long tail venue, the docs need to show"
+    },
+    {
+      "id": "authored-funding-defense-layer-cost-ordering",
+      "title": "Funding Defense Layer Cost Ordering",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#comparison-what-each-layer-costs",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#why-this-order"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "authored-funding-defense-hierarchy",
+        "authored-funding-full-objective"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-defense-layer-cost-ordering.md",
+      "bodyMarkdown": "# Funding Defense Layer Cost Ordering\n\nNeelo's defense hierarchy orders defenses by cost. The source comparison says netting has no capital cost, no operational cost, and no UX cost. Token inventory has holding and management cost. Local insurance consumes market earnings and accounting capacity. Global insurance introduces shared-pool governance. ADL has high UX cost.\n\nThat is why the hierarchy is not arbitrary. It minimizes user impact, isolates contagion, and aligns incentives:\n\n- netting comes first because it is free and invisible to users;\n- token inventory comes next because capital was already committed;\n- local insurance comes before global insurance because the market should use its own buffer first;\n- global insurance is capped because shared capital can create contagion;\n- ADL is last because forced deleveraging protects solvency at the cost of trust and user experience.\n\n## How To Explain It\n\nThe defense stack is a cost ladder. A healthy market should spend the cheapest forms of protection first. A stressed market should not jump directly to socialized insurance or ADL while cheaper, more local, and less disruptive layers remain available.\n\nThis is also why poor markets have less runway. Good markets build local buffers from liquidations and profits. Weak markets, suspicious markets, or manipulated markets should not automatically inherit unlimited global protection.\n\n## Publication Boundary\n\nThis page explains the source-model cost ordering. It should not publish live profit shares, liquidation routing, global eligibility rules, risk fractions, governance procedures, user-compensation semantics, or production ADL guarantees without operator, legal, risk, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy\", \"Comparison: What Each Layer Costs\" and \"Why This Order?\"\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-funding-full-objective`\n- `authored-funding-adl-priority-ranking`",
+      "excerpt": "Funding Defense Layer Cost Ordering Neelo's defense hierarchy orders defenses by cost. The source comparison says netting has no capital cost, no operational cost, and no UX cost. Token inventory has holding and management cost. Local insurance consumes market earnings and accounting capacity. Global insurance introduces shared pool governance. ADL has high UX cost. That is why the hierarchy is not arbitrary. It minimizes user impact, isolates contagion, and aligns incentives: netting comes first because it is free and invisible to users; token inventory comes next because capital was already committed; local insurance comes before global insurance because the market should use its own buffer first; global insurance is capped because shared capital can create contagion; ADL is last because forced deleveraging protects solvency at the cost of trust and user experience. How To Explain It The defense stack is a cost ladder. A healthy market should spend the cheapest forms of protection first. A stressed market should not jump directly to socialized insurance or ADL while cheaper, more local, and less disruptive layers remain available. This is also why poor markets have less runway. G"
     },
     {
       "id": "authored-funding-directional-spreads-and-rebates",
@@ -2733,6 +2780,29 @@
       "excerpt": "Funding Risk And Volatility Parameters Neelo's funding model uses risk and volatility variables to estimate how far a market can move before ordinary inventory assumptions stop being enough. The source names volatility, profit deviation, market max pump, average user max pump, max market drawdown, and max deposit drawdown. Those variables connect price behavior, user behavior, and inventory management. A market with high volatility or large pump potential is not equivalent to a quiet, mature market even if both have the same current open interest. The source also defines Aenigma as a worst case exposure multiplier before positions are assumed to unwind. It takes the maximum of market pump, user pump, and drawdown style parameters. The purpose is to estimate where the system becomes fully exposed because token inventory is no longer enough to cover positions under the modeled stress. Why This Belongs In The Docs Long tail assets can move violently, and user behavior can make that movement worse. A price pump can make short exposure dangerous. A drawdown can make token sales or inventory unwinds costly. Profit deviation can show that the market is not being compensated for the risk i"
     },
     {
+      "id": "authored-funding-solver-token-inventory-defense",
+      "title": "Funding Solver Token Inventory Defense",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#layer-2-solver-token-inventory"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "authored-funding-defense-hierarchy",
+        "authored-funding-token-inventory-utilization-mode"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-solver-token-inventory-defense.md",
+      "bodyMarkdown": "# Funding Solver Token Inventory Defense\n\nAfter user netting, Neelo's defense hierarchy uses solver token inventory. The solver's actual token holdings can cover net exposure before the model spends insurance.\n\nThe source defines covered amount as:\n\n```\nCovered Amount = min(E_usd, P * T_holdings)\n```\n\nand the token protection amount as:\n\n```\nProtection_tokens = P * T_holdings\n```\n\nThe source example uses `5,000` tokens at `$10`, giving `$50,000` of token protection. If net exposure is `$40,000`, the exposure is fully covered by token inventory.\n\n## When Inventory Is Exhausted\n\nThe source says that if:\n\n```\nE_usd > P * T_holdings\n```\n\nthen unhedged exposure emerges, the system switches toward insurance mode, and dynamic pricing becomes more aggressive.\n\nThat transition is important for readers. Token inventory is a real defense layer, but it is not infinite. Once exposure exceeds inventory value, the market stops being only an inventory-utilization problem and starts becoming an insurance-budget problem.\n\n## Publication Boundary\n\nThis page explains the source-model inventory layer. It should not publish live token balances, custody rights, inventory management policy, market-specific coverage levels, utilization thresholds, or production insurance-mode triggers without operator, accounting, risk, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy\", \"Layer 2: Solver Token Inventory\".\n\n## Related Pages\n\n- `authored-funding-token-inventory-utilization-mode`\n- `authored-project-token-inventory-without-stablecoin`\n- `authored-token-holder-incremental-risk-alignment`",
+      "excerpt": "Funding Solver Token Inventory Defense After user netting, Neelo's defense hierarchy uses solver token inventory. The solver's actual token holdings can cover net exposure before the model spends insurance. The source defines covered amount as: and the token protection amount as: The source example uses 5,000 tokens at $10 , giving $50,000 of token protection. If net exposure is $40,000 , the exposure is fully covered by token inventory. When Inventory Is Exhausted The source says that if: then unhedged exposure emerges, the system switches toward insurance mode, and dynamic pricing becomes more aggressive. That transition is important for readers. Token inventory is a real defense layer, but it is not infinite. Once exposure exceeds inventory value, the market stops being only an inventory utilization problem and starts becoming an insurance budget problem. Publication Boundary This page explains the source model inventory layer. It should not publish live token balances, custody rights, inventory management policy, market specific coverage levels, utilization thresholds, or production insurance mode triggers without operator, accounting, risk, and implementation review. Sources v"
+    },
+    {
       "id": "authored-funding-state-variable-map",
       "title": "Funding State Variable Map",
       "section": "manifesto",
@@ -2827,6 +2897,29 @@
       "excerpt": "Funding Token Inventory Utilization Mode Token inventory utilization is the first mode in Neelo's two mode funding model. It asks how much un netted exposure exists relative to the token inventory available to cover it. In the source, this mode applies while exposure remains inside token inventory. If the market has enough token coverage, the system is in ordinary inventory management rather than insurance mode. That does not mean the market is always calm. It can still move from normal to stress to critical as utilization approaches the edge of token coverage. The important idea is that token inventory is the first constraint. When exposure is small relative to covered amount, base rates can be enough. As exposure approaches a kink or critical zone, dynamic pricing can become more aggressive. If exposure moves beyond token coverage, the model shifts toward insurance fund utilization. Reader Implication For traders, token inventory mode explains why a market can become more expensive before any insurance or ADL language appears. The market is still within token coverage, but additional same direction flow consumes scarce inventory and can be priced accordingly. For LPs and projects"
     },
     {
+      "id": "authored-funding-total-defense-budget",
+      "title": "Funding Total Defense Budget",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#total-defense-budget"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "authored-funding-insurance-spend-caps",
+        "authored-funding-adl-trigger-and-target"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-total-defense-budget.md",
+      "bodyMarkdown": "# Funding Total Defense Budget\n\nNeelo's defense hierarchy combines local and global insurance into a per-market defense budget:\n\n```\nB_m_def = B_m_loc + B_m_glob\n```\n\nThat budget sits inside a broader protection sequence. For a given exposure, the source orders absorption as:\n\n1. user netting absorbs `min(L, S)`;\n2. token inventory absorbs `min(E_remaining, P * T)`;\n3. local insurance absorbs `min(D_remaining, eta_loc * I_loc)`;\n4. global insurance absorbs `min(D_remaining, eta_glob * I_m_glob)`;\n5. ADL absorbs everything else.\n\n## Max Loss Before ADL\n\nThe source writes the max loss before ADL as:\n\n```\nMax_Loss_Before_ADL =\n    (P * T_holdings)\n  + (eta_loc * I_loc)\n  + (eta_glob * I_m_glob)\n```\n\nThe example combines `$50,000` of token protection, `$30,000` of local insurance capacity, and `$10,000` of global allocation into `$90,000` of pre-ADL protection.\n\n## Why This Matters\n\nThis formula prevents vague claims like \"insurance protects the market.\" The exact question is which layer is available, how much of it can be used, and whether the remaining modeled loss exceeds the pre-ADL defense budget.\n\n## Publication Boundary\n\nThis page explains the source-model budget structure. It should not publish live insurance balances, risk fractions, global allocations, token holdings, max-loss guarantees, or production ADL thresholds without operator, accounting, risk, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy\", \"Total Defense Budget\".\n\n## Related Pages\n\n- `authored-funding-insurance-spend-caps`\n- `authored-funding-exposure-loss-estimate`\n- `authored-funding-adl-trigger-and-target`",
+      "excerpt": "Funding Total Defense Budget Neelo's defense hierarchy combines local and global insurance into a per market defense budget: That budget sits inside a broader protection sequence. For a given exposure, the source orders absorption as: 1. user netting absorbs min(L, S) ; 2. token inventory absorbs min(E remaining, P T) ; 3. local insurance absorbs min(D remaining, eta loc I loc) ; 4. global insurance absorbs min(D remaining, eta glob I m glob) ; 5. ADL absorbs everything else. Max Loss Before ADL The source writes the max loss before ADL as: The example combines $50,000 of token protection, $30,000 of local insurance capacity, and $10,000 of global allocation into $90,000 of pre ADL protection. Why This Matters This formula prevents vague claims like \"insurance protects the market.\" The exact question is which layer is available, how much of it can be used, and whether the remaining modeled loss exceeds the pre ADL defense budget. Publication Boundary This page explains the source model budget structure. It should not publish live insurance balances, risk fractions, global allocations, token holdings, max loss guarantees, or production ADL thresholds without operator, accounting, ri"
+    },
+    {
       "id": "authored-funding-trader-pnl-phase-exposure",
       "title": "Funding Trader PnL Phase Exposure",
       "section": "manifesto",
@@ -2894,6 +2987,29 @@
       "file": "content/authored/reference/funding-transfer-pool-feasibility.md",
       "bodyMarkdown": "# Funding Transfer Pool Feasibility\n\nNeelo's bell-curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall.\n\nThat \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail.\n\nThis is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open-ended obligation across all markets.\n\n## Operational Meaning\n\nFeasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically.\n\nFor public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered.\n\n## Publication Boundary\n\nThis page explains the source-model pool sizing. It does not publish live flattening intensity, market inclusion rules, time windows, transfer execution mechanics, or production insurance commitments.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Bell Curve Flattening\", transfer pool.\n\n## Related Pages\n\n- `authored-funding-winner-surplus-loser-shortfall`\n- `authored-funding-bell-curve-transfer-pool`\n- `authored-funding-global-insurance-eligibility`",
       "excerpt": "Funding Transfer Pool Feasibility Neelo's bell curve source sizes the transfer pool conservatively. The pool is a flattening intensity times the smaller of total winner excess and total loser shortfall. That \"smaller of the two\" rule is the feasibility check. If winner excess is limited, the model cannot distribute more than exists. If loser shortfall is limited, the model should not collect more than can be used for flattening. The pool is bounded by both sides of the tail. This is why the transfer pool is different from an uncapped shared insurance promise. It is a constrained amount derived from current tail conditions, not an open ended obligation across all markets. Operational Meaning Feasible pool sizing gives the system a way to support stressed markets while preserving accounting discipline. It can compress extremes, but it does not let the left tail demand unlimited capital or the right tail lose all profits automatically. For public docs, this is the right answer to \"can one bad market drain the winners?\" The source model says no by construction, before operator eligibility caps are even considered. Publication Boundary This page explains the source model pool sizing. It"
+    },
+    {
+      "id": "authored-funding-user-position-netting-defense",
+      "title": "Funding User Position Netting Defense",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy#layer-1-user-position-netting"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-10-defense-hierarchy",
+        "authored-funding-defense-hierarchy",
+        "authored-ddq-execution-netting-risk-split"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/funding-user-position-netting-defense.md",
+      "bodyMarkdown": "# Funding User Position Netting Defense\n\nNeelo's defense hierarchy starts with user position netting. Long and short exposure can offset naturally before the solver spends capital, deploys insurance, or considers ADL.\n\nThe source writes the netted amount as:\n\n```\nNetted Amount = min(L, S)\n```\n\nand the protection amount as:\n\n```\nProtection_netting = min(L, S)\n```\n\nThe source example uses `$120,000` of longs and `$80,000` of shorts. `$80,000` nets internally, leaving `$40,000` of net exposure.\n\n## Why This Is The First Layer\n\nNetting is the cheapest protection in the stack. It requires no new capital, no insurance draw, no governance decision, and no forced close. It is just the economic result of opposing user flow.\n\nThis is why the compendium should not jump straight from open interest to insurance risk. The first question is whether opposing traders already absorb each other. Only residual exposure moves down the defense stack.\n\n## Publication Boundary\n\nThis page explains the source-model netting layer. It should not publish final production netting cadence, netting pools, account-scope rules, cross-market offsets, or settlement guarantees without operator, risk, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy\", \"Layer 1: User Position Netting\".\n\n## Related Pages\n\n- `authored-ddq-execution-netting-risk-split`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-funding-defense-hierarchy`",
+      "excerpt": "Funding User Position Netting Defense Neelo's defense hierarchy starts with user position netting. Long and short exposure can offset naturally before the solver spends capital, deploys insurance, or considers ADL. The source writes the netted amount as: and the protection amount as: The source example uses $120,000 of longs and $80,000 of shorts. $80,000 nets internally, leaving $40,000 of net exposure. Why This Is The First Layer Netting is the cheapest protection in the stack. It requires no new capital, no insurance draw, no governance decision, and no forced close. It is just the economic result of opposing user flow. This is why the compendium should not jump straight from open interest to insurance risk. The first question is whether opposing traders already absorb each other. Only residual exposure moves down the defense stack. Publication Boundary This page explains the source model netting layer. It should not publish final production netting cadence, netting pools, account scope rules, cross market offsets, or settlement guarantees without operator, risk, and implementation review. Sources vibe papers : Neelo, \"Defense Hierarchy\", \"Layer 1: User Position Netting\". Relate"
     },
     {
       "id": "authored-funding-vibe-versus-uniswap-lp-risk",
