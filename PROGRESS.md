@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Technical Deep-Dive Exact Pages
+
+- Added 5 authored Volume 05 manifesto pages from Neelo's Perp Classes / Z-Score technical-deep-dive source.
+- Split the technical model into exact answer routes for Vibe's layer map, settlement contract responsibilities, solver quote/risk engines, technical security model, and capability summary.
+- Extended the question ledger so Ask can route architecture, settlement, solver-risk, security, and technical-capability questions without collapsing them into the broad hybrid stack, settlement boundary, or solver operating-loop pages.
+- Kept live contract ABIs, access controls, upgrade mechanisms, solver policies, quote formulas, margin parameters, oracle thresholds, audit scope, and production security guarantees marked for fresh source/operator/product/risk/security/legal/implementation review.
+
 ## 2026-06-29 — Trilemma Escape And Vibe Architecture Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score trilemma escape and Vibe architecture source.

@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 621,
+  "totalPages": 626,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 452,
-    "publication-candidate": 149,
+    "publication-candidate-needs-operator-review": 456,
+    "publication-candidate": 150,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 343,
+    "manifesto": 348,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -9585,6 +9585,29 @@
       "excerpt": "The Self Correcting Token Market Stack The final stack in Neelo's corpus is simple: programmable issuance, permissionless spot trading, and permissionless derivatives. The third layer is what makes the stack self correcting. Issuance lets assets appear. Spot trading lets buyers form a market. Derivatives let the market express both belief and skepticism, hedge risk, and mature through pressure rather than only narrative momentum. This is where Vibe and Symmio are paired in the source. Symmio supplies derivatives infrastructure and settlement machinery. Vibe supplies the product and permissionless market layer that can bring perps to the long tail of tokens. What This Does Not Mean It does not mean every token deserves reckless leverage or permanent support. It means every meaningful token should have a path to being tested. Some markets will prove themselves and graduate. Others will fail earlier because the negative side can finally act. Publication Note The source supports the strategic division between Vibe and Symmio. Final production docs still need platform, product, and operator review before making promises about exact market creation workflow, graduation policy, solver res"
     },
     {
+      "id": "authored-settlement-contract-responsibility-map",
+      "title": "Settlement Contract Responsibility Map",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-2-settlement-layer-on-chain",
+        "authored-settlement-state-boundary",
+        "authored-technical-architecture-layer-map"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/settlement-contract-responsibility-map.md",
+      "bodyMarkdown": "# Settlement Contract Responsibility Map\n\nThe on-chain settlement layer is where durable financial state belongs. Neelo's source describes three core responsibility areas: vault capital, position state, and insurance reserves.\n\nThe vault contract manages capital that backs solver operation. Its model responsibilities are deposit, withdrawal, utilization tracking, and available capacity. The position contract tracks open positions, margin changes, and close state. The insurance fund contract manages risk reserves, claims, balances, and utilization.\n\n## What The Settlement Layer Owns\n\nThe settlement layer should own facts that cannot be left to a private service:\n\n- position ownership;\n- collateral balances;\n- vault shares;\n- insurance fund balances;\n- settlement records.\n\nThe solver can validate, quote, and submit settlement information, but the final balance and position updates need an enforceable state transition.\n\n## Trade Settlement Flow\n\nThe source's model flow is intent, solver validation, settlement proof, contract verification, and final position or balance update. That flow keeps execution flexible while preserving a contract-side record of the resulting financial state.\n\n## Publication Boundary\n\nThe source includes illustrative function names and a TODO for final smart-contract architecture, access controls, and upgrade mechanisms. Treat the contract names here as responsibility buckets, not confirmed production ABI, access-control, or upgrade-policy documentation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.2 Settlement Layer (On-Chain)\".\n\n## Related Pages\n\n- `authored-settlement-state-boundary`\n- `authored-technical-security-model`\n- `authored-symmio-clearing-house-layer`",
+      "excerpt": "Settlement Contract Responsibility Map The on chain settlement layer is where durable financial state belongs. Neelo's source describes three core responsibility areas: vault capital, position state, and insurance reserves. The vault contract manages capital that backs solver operation. Its model responsibilities are deposit, withdrawal, utilization tracking, and available capacity. The position contract tracks open positions, margin changes, and close state. The insurance fund contract manages risk reserves, claims, balances, and utilization. What The Settlement Layer Owns The settlement layer should own facts that cannot be left to a private service: position ownership; collateral balances; vault shares; insurance fund balances; settlement records. The solver can validate, quote, and submit settlement information, but the final balance and position updates need an enforceable state transition. Trade Settlement Flow The source's model flow is intent, solver validation, settlement proof, contract verification, and final position or balance update. That flow keeps execution flexible while preserving a contract side record of the resulting financial state. Publication Boundary The so"
+    },
+    {
       "id": "authored-settlement-state-boundary",
       "title": "Settlement State Boundary",
       "section": "manifesto",
@@ -10141,6 +10164,29 @@
       "file": "content/authored/manifesto/solver-owned-market-maker.md",
       "bodyMarkdown": "# The Solver As Protocol-Owned Market Maker\n\nThe solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time-sensitive, or state-heavy to run purely on-chain.\n\nIn the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol-owned market maker during bootstrap rather than a passive matching engine.\n\nThe strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path-dependent calculations, risk decisions, and execution quality are managed.\n\n## Liquidity Waterfall\n\nNeelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol-owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.3 The Solver: Protocol-Owned Market Maker\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-intents-and-solvers`\n- `authored-symmio-party-a-party-b`\n- `authored-hybrid-settlement-solver-stack`",
       "excerpt": "The Solver As Protocol Owned Market Maker The solver is the bridge between \"a market should exist\" and \"the market has enough natural flow to sustain itself.\" It handles the operations that are too computationally complex, time sensitive, or state heavy to run purely on chain. In the Neelo architecture, the solver can quote, absorb residual imbalance, manage risk parameters, coordinate hedges, trigger liquidation logic, and decide when a market is ready for a more efficient state. That makes it a protocol owned market maker during bootstrap rather than a passive matching engine. The strongest way to document this is as a responsibility boundary. The settlement layer should be where durable state and enforceable outcomes live. The solver layer is where path dependent calculations, risk decisions, and execution quality are managed. Liquidity Waterfall Neelo's hybrid solver model also introduces a routing order. External solvers can fill flow first when the trade is attractive. If they do not, the protocol owned solver can step in as the safety net. This keeps niche markets open without forcing every trade to be protocol risk. Sources vibe papers : Neelo, \"Section 5: Vibe Trading Arch"
+    },
+    {
+      "id": "authored-solver-quote-risk-engines",
+      "title": "Solver Quote And Risk Engines",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-solver-layer-off-chain"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-3-solver-layer-off-chain",
+        "authored-solver-engine-operating-loop",
+        "authored-oracle-reference-solver-quote-layer"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/solver-quote-risk-engines.md",
+      "bodyMarkdown": "# Solver Quote And Risk Engines\n\nThe solver quote engine turns market state into executable prices. In Neelo's technical model, it starts from oracle price, current solver inventory, volatility, utilization, and market maturity. The quote is not only a mid-price. It is a risk-adjusted offer.\n\nThe risk engine decides whether the trade is acceptable at all and under what constraints. It models position limits, margin requirements, current exposure, volatility, and maturity state. This is why the solver is infrastructure: it is not just answering \"what is the price?\" It is also answering \"can this market safely absorb this exposure now?\"\n\n## Quote Inputs\n\nThe source model names five quote inputs:\n\n- oracle price feed;\n- current solver inventory;\n- market volatility;\n- utilization rate;\n- Z-score or market maturity.\n\nIt then frames spread as base spread plus inventory adjustment plus volatility premium. That makes the spread a risk signal, not merely a fee.\n\n## Risk Inputs\n\nThe risk engine constrains maximum position size and margin requirements by vault capacity, market liquidity, volatility, Z-score, current exposure, asset class, account risk, and position size. Those variables let a young market trade without pretending it has mature liquidity.\n\n## Publication Boundary\n\nThe formulas, multipliers, margin rates, and Z-score thresholds in the source are model values. Do not publish them as live parameters until implementation owners confirm the production quote engine, risk engine, and disclosure policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.3 Solver Layer (Off-Chain)\".\n\n## Related Pages\n\n- `authored-solver-engine-operating-loop`\n- `authored-bootstrap-oracle-risk-tiers`\n- `authored-market-maturation-z-score`",
+      "excerpt": "Solver Quote And Risk Engines The solver quote engine turns market state into executable prices. In Neelo's technical model, it starts from oracle price, current solver inventory, volatility, utilization, and market maturity. The quote is not only a mid price. It is a risk adjusted offer. The risk engine decides whether the trade is acceptable at all and under what constraints. It models position limits, margin requirements, current exposure, volatility, and maturity state. This is why the solver is infrastructure: it is not just answering \"what is the price?\" It is also answering \"can this market safely absorb this exposure now?\" Quote Inputs The source model names five quote inputs: oracle price feed; current solver inventory; market volatility; utilization rate; Z score or market maturity. It then frames spread as base spread plus inventory adjustment plus volatility premium. That makes the spread a risk signal, not merely a fee. Risk Inputs The risk engine constrains maximum position size and margin requirements by vault capacity, market liquidity, volatility, Z score, current exposure, asset class, account risk, and position size. Those variables let a young market trade witho"
     },
     {
       "id": "authored-solver-refusal-as-oracle-defense",
@@ -11492,6 +11538,75 @@
       "file": "content/authored/reference/tail-event-profit-cap-emergency-brake.md",
       "bodyMarkdown": "# Tail-Event Profit Caps As Emergency Brakes\n\nThe DDQ treats profit caps as emergency brakes, not ordinary product behavior.\n\nThe source introduces a tail-event cap for catastrophic gaps, clear manipulation, discontinuous pricing, or states where normal liquidation and hedging cannot safely clear. In that state, the maximum realizable payout is bounded by the resources actually available to the affected market: LP liquidity, local insurance, and any pro-rata global insurance allocation.\n\nThat framing is important for permissionless low-cap markets. A market can be open to creation without promising unlimited payout from unrelated capital. If the market is thin, adversarial, or has little trusted insurance allocation, then the system should have a hard stop before one market drains the whole protocol.\n\n## Normal UX Versus Emergency Mode\n\nThe source is explicit that the solver's ordinary objective is better user experience: tighter spreads, higher usable open interest, fewer interventions, and normal PnL realization. A cap appears only when the event has exceeded the normal defense stack.\n\nThat means documentation should not make tail caps sound like routine settlement. The more accurate wording is: a cap is a final safety valve when standard hedging, margining, liquidation, and insurance cannot clear the event safely.\n\n## Publication Boundary\n\nDo not publish exact cap formulas, cap percentages, supported scenarios, or current production enforcement until operator and implementation review confirm them. The public-ready concept is the bounded-loss principle.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Bearer of Losses\".\n- `vibe-papers`: Neelo DDQ, \"Balancing UX vs Risk\".\n\n## Related Pages\n\n- `authored-loss-waterfall-and-profit-caps`\n- `authored-conditional-global-insurance-allocation`\n- `authored-funding-defense-hierarchy`",
       "excerpt": "Tail Event Profit Caps As Emergency Brakes The DDQ treats profit caps as emergency brakes, not ordinary product behavior. The source introduces a tail event cap for catastrophic gaps, clear manipulation, discontinuous pricing, or states where normal liquidation and hedging cannot safely clear. In that state, the maximum realizable payout is bounded by the resources actually available to the affected market: LP liquidity, local insurance, and any pro rata global insurance allocation. That framing is important for permissionless low cap markets. A market can be open to creation without promising unlimited payout from unrelated capital. If the market is thin, adversarial, or has little trusted insurance allocation, then the system should have a hard stop before one market drains the whole protocol. Normal UX Versus Emergency Mode The source is explicit that the solver's ordinary objective is better user experience: tighter spreads, higher usable open interest, fewer interventions, and normal PnL realization. A cap appears only when the event has exceeded the normal defense stack. That means documentation should not make tail caps sound like routine settlement. The more accurate wordin"
+    },
+    {
+      "id": "authored-technical-architecture-layer-map",
+      "title": "The Technical Architecture Layer Map",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-1-system-architecture-overview"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-1-system-architecture-overview",
+        "authored-hybrid-settlement-solver-stack",
+        "authored-settlement-state-boundary"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/technical-architecture-layer-map.md",
+      "bodyMarkdown": "# The Technical Architecture Layer Map\n\nNeelo's technical deep dive maps Vibe as a multi-layer system. The user interface and API collect intent. The solver layer performs quote generation, risk checks, matching, liquidation decisions, hedging, and graduation monitoring. The settlement layer records enforceable financial state. The oracle layer supplies external price and market data.\n\nThat map is the operational version of the lifecycle thesis. A new market needs more than a frontend and a contract. It needs a quoting surface, a risk engine, a settlement boundary, and price references that can be constrained by market quality.\n\n## Layer Responsibilities\n\n| Layer | Responsibility |\n| --- | --- |\n| User interface / API / integrations | Let users and integrations express trade intent |\n| Solver layer | Quote, risk-check, match, hedge, liquidate, and monitor graduation |\n| Settlement layer | Maintain smart-contract state for vaults, positions, insurance, and final settlement |\n| Oracle layer | Provide reference prices and external data used by the solver and settlement rules |\n\nThe important boundary is not \"on-chain good, off-chain bad.\" The boundary is which facts must be enforceable and which calculations must be fast enough for live derivatives operation. Vibe's source architecture uses both.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.1 System Architecture Overview\".\n\n## Related Pages\n\n- `authored-hybrid-settlement-solver-stack`\n- `authored-settlement-contract-responsibility-map`\n- `authored-technical-capability-map`",
+      "excerpt": "The Technical Architecture Layer Map Neelo's technical deep dive maps Vibe as a multi layer system. The user interface and API collect intent. The solver layer performs quote generation, risk checks, matching, liquidation decisions, hedging, and graduation monitoring. The settlement layer records enforceable financial state. The oracle layer supplies external price and market data. That map is the operational version of the lifecycle thesis. A new market needs more than a frontend and a contract. It needs a quoting surface, a risk engine, a settlement boundary, and price references that can be constrained by market quality. Layer Responsibilities Layer Responsibility User interface / API / integrations Let users and integrations express trade intent Solver layer Quote, risk check, match, hedge, liquidate, and monitor graduation Settlement layer Maintain smart contract state for vaults, positions, insurance, and final settlement Oracle layer Provide reference prices and external data used by the solver and settlement rules The important boundary is not \"on chain good, off chain bad.\" The boundary is which facts must be enforceable and which calculations must be fast enough for live "
+    },
+    {
+      "id": "authored-technical-capability-map",
+      "title": "Technical Capability Map",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-8-technical-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-8-technical-summary",
+        "authored-technical-architecture-layer-map",
+        "authored-vibe-market-evolution-architecture-summary"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/technical-capability-map.md",
+      "bodyMarkdown": "# Technical Capability Map\n\nThe technical summary compresses Vibe's architecture into five enabled capabilities: permissionless listing, bootstrap liquidity, market maturation, efficient operation, and security.\n\nThe point of the map is that none of those capabilities comes from a single component. Permissionless listing needs price-source options and market isolation. Bootstrap liquidity needs a solver and backing capital. Market maturation needs measurement and graduation logic. Efficient operation needs a path toward netting and order books. Security needs a hybrid on-chain/off-chain structure with bounded solver power.\n\n## Capability Table\n\n| Capability | How the source says it is achieved |\n| --- | --- |\n| Permissionless listing | DEX-derived oracles and isolated markets |\n| Bootstrap liquidity | Solver as counterparty and LP vault backing |\n| Market maturation | Z-score tracking and graduation engine |\n| Efficient operation | Transition to netting and order books |\n| Security | Hybrid on/off-chain architecture and bounded solver |\n\nThis is the technical counterpart to the manifesto. The thesis says markets should evolve; the capability map lists the machinery that makes evolution possible.\n\n## Publication Boundary\n\nThe source is an architecture summary. Live claims about DEX-derived oracle availability, LP vault terms, Z-score deployment, graduation automation, order-book integrations, and solver-bound enforcement need current product, risk, security, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.8 Technical Summary\".\n\n## Related Pages\n\n- `authored-technical-architecture-layer-map`\n- `authored-vibe-market-evolution-architecture-summary`\n- `authored-trilemma-escape-requirements`",
+      "excerpt": "Technical Capability Map The technical summary compresses Vibe's architecture into five enabled capabilities: permissionless listing, bootstrap liquidity, market maturation, efficient operation, and security. The point of the map is that none of those capabilities comes from a single component. Permissionless listing needs price source options and market isolation. Bootstrap liquidity needs a solver and backing capital. Market maturation needs measurement and graduation logic. Efficient operation needs a path toward netting and order books. Security needs a hybrid on chain/off chain structure with bounded solver power. Capability Table Capability How the source says it is achieved Permissionless listing DEX derived oracles and isolated markets Bootstrap liquidity Solver as counterparty and LP vault backing Market maturation Z score tracking and graduation engine Efficient operation Transition to netting and order books Security Hybrid on/off chain architecture and bounded solver This is the technical counterpart to the manifesto. The thesis says markets should evolve; the capability map lists the machinery that makes evolution possible. Publication Boundary The source is an archite"
+    },
+    {
+      "id": "authored-technical-security-model",
+      "title": "The Technical Security Model",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-7-security-model"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-7-security-model",
+        "authored-settlement-state-boundary",
+        "authored-bootstrap-oracle-risk-tiers"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/manifesto/technical-security-model.md",
+      "bodyMarkdown": "# The Technical Security Model\n\nNeelo's technical security model separates trustless settlement facts from solver-operated market functions. On-chain state handles position ownership, collateral custody, settlement finality, and insurance fund access. The solver is trusted for quote fairness, execution quality, risk parameter setting, and graduation decisions, but its power is supposed to be bounded.\n\nThat distinction should be visible in the docs. The system is not \"trust the solver with everything.\" It is \"let the solver do the fast derivatives work, then constrain what the solver can do to funds, prices, and past settlements.\"\n\n## Solver Powers And Limits\n\nThe source frames the solver as able to set spreads within bounds, adjust risk parameters within bounds, execute trades at oracle-derived prices, and trigger liquidations that are verifiable on-chain.\n\nIt also states what the solver should not be able to do: steal user funds, execute at arbitrary prices, prevent withdrawals, or modify past settlements.\n\n## Risk Mitigation Map\n\n| Risk | Source mitigation |\n| --- | --- |\n| Oracle manipulation | Multi-source aggregation and circuit breakers |\n| Solver misconduct | On-chain verification and bounded parameters |\n| Smart-contract bugs | Audits, formal verification, and gradual rollout |\n| Economic attacks | Position limits, OI caps, and insurance fund |\n\n## Publication Boundary\n\nThis is a source-backed threat-model summary, not a final audit report. Public claims about live audits, formal verification scope, circuit-breaker behavior, withdrawal guarantees, access controls, or exact solver constraints require current security and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.7 Security Model\".\n\n## Related Pages\n\n- `authored-settlement-state-boundary`\n- `authored-vibe-security-and-audits`\n- `authored-bootstrap-oracle-risk-tiers`",
+      "excerpt": "The Technical Security Model Neelo's technical security model separates trustless settlement facts from solver operated market functions. On chain state handles position ownership, collateral custody, settlement finality, and insurance fund access. The solver is trusted for quote fairness, execution quality, risk parameter setting, and graduation decisions, but its power is supposed to be bounded. That distinction should be visible in the docs. The system is not \"trust the solver with everything.\" It is \"let the solver do the fast derivatives work, then constrain what the solver can do to funds, prices, and past settlements.\" Solver Powers And Limits The source frames the solver as able to set spreads within bounds, adjust risk parameters within bounds, execute trades at oracle derived prices, and trigger liquidations that are verifiable on chain. It also states what the solver should not be able to do: steal user funds, execute at arbitrary prices, prevent withdrawals, or modify past settlements. Risk Mitigation Map Risk Source mitigation Oracle manipulation Multi source aggregation and circuit breakers Solver misconduct On chain verification and bounded parameters Smart contract "
     },
     {
       "id": "authored-technically-async-economically-sync",

@@ -608,6 +608,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the bootstrap trilemma summary? | `authored-bootstrap-trilemma-summary` | Medium | The summary table shows which property netted async, collateralized, and order-book designs each give up. |
 | What is Vibe's architecture design philosophy? | `authored-vibe-architecture-design-philosophy` | Medium | Vibe is designed as a spectrum system that matches architecture to market state rather than freezing every market in one mode. |
 | Why is Vibe a market-evolution architecture? | `authored-vibe-market-evolution-architecture-summary` | Medium | The architecture summary maps hybrid collateral, solver operations, Z-score measurement, auto-graduation, and order-book integration into a lifecycle system. |
+| What are the layers in Vibe's technical architecture? | `authored-technical-architecture-layer-map` | Medium | Neelo's technical deep dive maps user interfaces, solver operations, on-chain settlement, and oracles as distinct layers with different responsibilities. |
+| What does the on-chain settlement layer own? | `authored-settlement-contract-responsibility-map` | Medium | The settlement layer owns durable financial state such as positions, collateral, vault shares, insurance balances, and settlement records. |
+| What inputs do the solver quote and risk engines use? | `authored-solver-quote-risk-engines` | Medium | The source models quotes and risk limits from oracle price, inventory, volatility, utilization, Z-score, liquidity, capacity, and account risk. |
+| What is Vibe's technical security model? | `authored-technical-security-model` | Medium | Neelo separates trustless settlement facts from solver-operated market functions and lists the solver powers that should be bounded. |
+| What capabilities does Vibe's technical architecture enable? | `authored-technical-capability-map` | Medium | The technical summary maps permissionless listing, bootstrap liquidity, maturation, efficient operation, and security to architecture components. |
 
 ## Prototype Event Log
 

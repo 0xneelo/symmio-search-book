@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 602
+      "totalGoldenRoutes": 607
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 620,
-    "retrievalEligiblePages": 1412,
+    "publicNavigationPages": 625,
+    "retrievalEligiblePages": 1417,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 620,
+      "candidate": 625,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 602,
-    "exactRouteTestsPassing": 602,
+    "totalExactRouteTests": 607,
+    "exactRouteTestsPassing": 607,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 602
+      "candidate": 607
     },
     "exactRoutesByConfidence": {
-      "Medium": 382,
+      "Medium": 387,
       "High": 44,
       "Low": 176
     },
@@ -13327,6 +13327,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-vibe-a-market-evolution-architecture",
         "passes": true
+      },
+      {
+        "id": "qr-what-are-the-layers-in-vibe-s-technical-architecture",
+        "query": "What are the layers in Vibe's technical architecture?",
+        "normalizedQuery": "what are the layers in vibe s technical architecture",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-technical-architecture-layer-map",
+        "expectedPageTitle": "The Technical Architecture Layer Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-are-the-layers-in-vibe-s-technical-architecture",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-on-chain-settlement-layer-own",
+        "query": "What does the on-chain settlement layer own?",
+        "normalizedQuery": "what does the on chain settlement layer own",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-settlement-contract-responsibility-map",
+        "expectedPageTitle": "Settlement Contract Responsibility Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-on-chain-settlement-layer-own",
+        "passes": true
+      },
+      {
+        "id": "qr-what-inputs-do-the-solver-quote-and-risk-engines-use",
+        "query": "What inputs do the solver quote and risk engines use?",
+        "normalizedQuery": "what inputs do the solver quote and risk engines use",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-quote-risk-engines",
+        "expectedPageTitle": "Solver Quote And Risk Engines",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-inputs-do-the-solver-quote-and-risk-engines-use",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-vibe-s-technical-security-model",
+        "query": "What is Vibe's technical security model?",
+        "normalizedQuery": "what is vibe s technical security model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-technical-security-model",
+        "expectedPageTitle": "The Technical Security Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-vibe-s-technical-security-model",
+        "passes": true
+      },
+      {
+        "id": "qr-what-capabilities-does-vibe-s-technical-architecture-enable",
+        "query": "What capabilities does Vibe's technical architecture enable?",
+        "normalizedQuery": "what capabilities does vibe s technical architecture enable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-technical-capability-map",
+        "expectedPageTitle": "Technical Capability Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-capabilities-does-vibe-s-technical-architecture-enable",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -13402,7 +13507,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 602,
+      "exactRoutes": 607,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

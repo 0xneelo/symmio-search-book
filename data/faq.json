@@ -8,16 +8,16 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 609,
-  "totalAnswerable": 602,
+  "totalEntries": 614,
+  "totalAnswerable": 607,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 104,
+    "Getting Started": 107,
     "Trading Flow": 32,
-    "Solvers And Settlement": 157,
+    "Solvers And Settlement": 159,
     "Risk And Markets": 68,
     "Revenue": 75,
     "Manifesto": 79,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 382,
+    "Medium": 387,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 602
+    "authored": 607
   },
   "byType": {
-    "answerable": 602,
+    "answerable": 607,
     "reconciliation": 7
   },
   "answerable": [
@@ -19514,6 +19514,151 @@
       "pageTitle": "Vibe As A Market-Evolution Architecture",
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-layers-in-vibe-s-technical-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What are the layers in Vibe's technical architecture?",
+      "normalizedQuestion": "what are the layers in vibe s technical architecture",
+      "shortAnswer": "Neelo's technical deep dive maps user interfaces, solver operations, on-chain settlement, and oracles as distinct layers with different responsibilities.",
+      "answerSummary": "The Technical Architecture Layer Map Neelo's technical deep dive maps Vibe as a multi layer system. The user interface and API collect intent. The solver layer performs quote generation, risk checks, matching, liquidation decisions, hedging, and graduation monitoring. The settlement layer records enforceable financial state. The oracle layer supplies exte...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-architecture-layer-map",
+      "pageTitle": "The Technical Architecture Layer Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-on-chain-settlement-layer-own",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the on-chain settlement layer own?",
+      "normalizedQuestion": "what does the on chain settlement layer own",
+      "shortAnswer": "The settlement layer owns durable financial state such as positions, collateral, vault shares, insurance balances, and settlement records.",
+      "answerSummary": "Settlement Contract Responsibility Map The on chain settlement layer is where durable financial state belongs. Neelo's source describes three core responsibility areas: vault capital, position state, and insurance reserves. The vault contract manages capital that backs solver operation. Its model responsibilities are deposit, withdrawal, utilization track...",
+      "confidence": "Medium",
+      "pageId": "authored-settlement-contract-responsibility-map",
+      "pageTitle": "Settlement Contract Responsibility Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-inputs-do-the-solver-quote-and-risk-engines-use",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What inputs do the solver quote and risk engines use?",
+      "normalizedQuestion": "what inputs do the solver quote and risk engines use",
+      "shortAnswer": "The source models quotes and risk limits from oracle price, inventory, volatility, utilization, Z-score, liquidity, capacity, and account risk.",
+      "answerSummary": "Solver Quote And Risk Engines The solver quote engine turns market state into executable prices. In Neelo's technical model, it starts from oracle price, current solver inventory, volatility, utilization, and market maturity. The quote is not only a mid price. It is a risk adjusted offer. The risk engine decides whether the trade is acceptable at all and...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-quote-risk-engines",
+      "pageTitle": "Solver Quote And Risk Engines",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-technical-security-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Vibe's technical security model?",
+      "normalizedQuestion": "what is vibe s technical security model",
+      "shortAnswer": "Neelo separates trustless settlement facts from solver-operated market functions and lists the solver powers that should be bounded.",
+      "answerSummary": "The Technical Security Model Neelo's technical security model separates trustless settlement facts from solver operated market functions. On chain state handles position ownership, collateral custody, settlement finality, and insurance fund access. The solver is trusted for quote fairness, execution quality, risk parameter setting, and graduation decision...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-security-model",
+      "pageTitle": "The Technical Security Model",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-capabilities-does-vibe-s-technical-architecture-enable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What capabilities does Vibe's technical architecture enable?",
+      "normalizedQuestion": "what capabilities does vibe s technical architecture enable",
+      "shortAnswer": "The technical summary maps permissionless listing, bootstrap liquidity, maturation, efficient operation, and security to architecture components.",
+      "answerSummary": "Technical Capability Map The technical summary compresses Vibe's architecture into five enabled capabilities: permissionless listing, bootstrap liquidity, market maturation, efficient operation, and security. The point of the map is that none of those capabilities comes from a single component. Permissionless listing needs price source options and market...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-capability-map",
+      "pageTitle": "Technical Capability Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -39352,6 +39497,151 @@
       "pageTitle": "Vibe As A Market-Evolution Architecture",
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-layers-in-vibe-s-technical-architecture",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What are the layers in Vibe's technical architecture?",
+      "normalizedQuestion": "what are the layers in vibe s technical architecture",
+      "shortAnswer": "Neelo's technical deep dive maps user interfaces, solver operations, on-chain settlement, and oracles as distinct layers with different responsibilities.",
+      "answerSummary": "The Technical Architecture Layer Map Neelo's technical deep dive maps Vibe as a multi layer system. The user interface and API collect intent. The solver layer performs quote generation, risk checks, matching, liquidation decisions, hedging, and graduation monitoring. The settlement layer records enforceable financial state. The oracle layer supplies exte...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-architecture-layer-map",
+      "pageTitle": "The Technical Architecture Layer Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-on-chain-settlement-layer-own",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the on-chain settlement layer own?",
+      "normalizedQuestion": "what does the on chain settlement layer own",
+      "shortAnswer": "The settlement layer owns durable financial state such as positions, collateral, vault shares, insurance balances, and settlement records.",
+      "answerSummary": "Settlement Contract Responsibility Map The on chain settlement layer is where durable financial state belongs. Neelo's source describes three core responsibility areas: vault capital, position state, and insurance reserves. The vault contract manages capital that backs solver operation. Its model responsibilities are deposit, withdrawal, utilization track...",
+      "confidence": "Medium",
+      "pageId": "authored-settlement-contract-responsibility-map",
+      "pageTitle": "Settlement Contract Responsibility Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-inputs-do-the-solver-quote-and-risk-engines-use",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What inputs do the solver quote and risk engines use?",
+      "normalizedQuestion": "what inputs do the solver quote and risk engines use",
+      "shortAnswer": "The source models quotes and risk limits from oracle price, inventory, volatility, utilization, Z-score, liquidity, capacity, and account risk.",
+      "answerSummary": "Solver Quote And Risk Engines The solver quote engine turns market state into executable prices. In Neelo's technical model, it starts from oracle price, current solver inventory, volatility, utilization, and market maturity. The quote is not only a mid price. It is a risk adjusted offer. The risk engine decides whether the trade is acceptable at all and...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-quote-risk-engines",
+      "pageTitle": "Solver Quote And Risk Engines",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-technical-security-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is Vibe's technical security model?",
+      "normalizedQuestion": "what is vibe s technical security model",
+      "shortAnswer": "Neelo separates trustless settlement facts from solver-operated market functions and lists the solver powers that should be bounded.",
+      "answerSummary": "The Technical Security Model Neelo's technical security model separates trustless settlement facts from solver operated market functions. On chain state handles position ownership, collateral custody, settlement finality, and insurance fund access. The solver is trusted for quote fairness, execution quality, risk parameter setting, and graduation decision...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-security-model",
+      "pageTitle": "The Technical Security Model",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-capabilities-does-vibe-s-technical-architecture-enable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What capabilities does Vibe's technical architecture enable?",
+      "normalizedQuestion": "what capabilities does vibe s technical architecture enable",
+      "shortAnswer": "The technical summary maps permissionless listing, bootstrap liquidity, maturation, efficient operation, and security to architecture components.",
+      "answerSummary": "Technical Capability Map The technical summary compresses Vibe's architecture into five enabled capabilities: permissionless listing, bootstrap liquidity, market maturation, efficient operation, and security. The point of the map is that none of those capabilities comes from a single component. Permissionless listing needs price source options and market...",
+      "confidence": "Medium",
+      "pageId": "authored-technical-capability-map",
+      "pageTitle": "Technical Capability Map",
+      "pageSection": "manifesto",
+      "pageTrack": "07 — Technical Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

@@ -1295,3 +1295,11 @@
 **Reason:** The prior trilemma pages prove the impossibility claim, and existing temporal-separation, four-transition, solver, and maturation pages explain important adjacent mechanics. The answer engine still needs direct routes for readers asking how the escape works, what a protocol must implement, how the source summarizes the trilemma table, why Vibe's design is state-matched, and how the architecture components fit together.
 
 **Status:** Accepted for the authored manifesto layer; live Z-score thresholds, automatic graduation, transition triggers, solver obligations, order-book integrations, cross-insurance eligibility, capital commitments, and production market-transition claims remain fresh source/operator/product/risk/legal/implementation review.
+
+## D-163: Split The Technical Deep Dive Into Exact Architecture Answers
+
+**Decision:** Add authored Volume 05 manifesto pages for the technical architecture layer map, settlement contract responsibility map, solver quote and risk engines, technical security model, and technical capability map.
+
+**Reason:** Existing pages explain the broad hybrid settlement/solver stack and several important technical boundaries, but answer-engine readers also need narrower routes for the raw Section 6 questions: what the layers are, what the settlement contracts own, what inputs the quote/risk engines use, what the security trust model says, and what capabilities the technical architecture enables.
+
+**Status:** Accepted for the authored manifesto layer; live contract ABIs, access controls, upgrade mechanisms, solver policies, quote formulas, margin parameters, oracle thresholds, audit scope, circuit breakers, and production security guarantees remain fresh source/operator/product/risk/security/legal/implementation review.
