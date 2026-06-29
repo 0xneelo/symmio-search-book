@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 753,
-  "totalAnswerable": 746,
+  "totalEntries": 758,
+  "totalAnswerable": 751,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 69,
     "Revenue": 96,
     "Manifesto": 157,
-    "Rewards And Referrals": 82,
+    "Rewards And Referrals": 87,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 467,
+    "Medium": 472,
     "High": 44,
     "Low": 235
   },
   "byRouteSource": {
-    "authored": 746
+    "authored": 751
   },
   "byType": {
-    "answerable": 746,
+    "answerable": 751,
     "reconciliation": 7
   },
   "answerable": [
@@ -18212,6 +18212,191 @@
       "confidence": "Medium",
       "pageId": "authored-tge-qualifying-exposure-across-rewards",
       "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-separate-points-from-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why separate points from packs and artifacts?",
+      "normalizedQuestion": "why separate points from packs and artifacts",
+      "shortAnswer": "Neelo separates the points ledger from gamified reward objects so accounting remains auditable while future packs/artifacts can add engagement only under approved policy.",
+      "answerSummary": "Reward Ledger And Game Layer Boundary The rewards pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger. That boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE eligibility i...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-ledger-game-layer-boundary",
+      "pageTitle": "Reward Ledger And Game Layer Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-rewards-pack-end-to-end-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the rewards-pack end-to-end loop?",
+      "normalizedQuestion": "what is the rewards pack end to end loop",
+      "shortAnswer": "Neelo's source model moves from off-chain points to claim, pack conversion, artifact creation, secondary holding/trading, and qualifying exposure accounting.",
+      "answerSummary": "Reward Pack End To End Loop The source model describes a seven step reward loop. It starts with off chain point earning and ends with TGE accounting across whichever reward forms qualify. The loop is: users earn points off chain; points are claimed on chain through a delayed claim path; claimed points can be held directly or converted into packs; packs ca...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-end-to-end-loop",
+      "pageTitle": "Reward Pack End-To-End Loop",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-hypothetical-rewards-pack-user-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the hypothetical rewards-pack user flow?",
+      "normalizedQuestion": "what is the hypothetical rewards pack user flow",
+      "shortAnswer": "Neelo's user flow covers earn, claim, vest, and manage exposure, but claim delays and conversion terms remain source-model details rather than live policy.",
+      "answerSummary": "Reward Pack User Flow The source's user flow has four stages: earn, claim, vest, then convert or manage exposure. Users can earn through trading activity, LP participation, and referral contribution. Points are finalized off chain first, then a claim path can move approved balances into an on chain economically active state. The source sketches a vesting...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-user-flow",
+      "pageTitle": "Reward Pack User Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-could-artifact-secondary-markets-affect-rewards",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How could artifact secondary markets affect rewards?",
+      "normalizedQuestion": "how could artifact secondary markets affect rewards",
+      "shortAnswer": "Neelo sketches packs as EV containers and artifacts as rarity-plus-exposure assets while keeping market support, transferability, and TGE treatment policy-bound.",
+      "answerSummary": "Artifact Secondary Market Boundary The artifact source sketches a pre TGE market structure, but it should be framed as hypothetical design infrastructure rather than an endorsed live market. In that model, points can represent direct exposure once transferable, unopened packs can trade as expected value containers, and artifacts can trade as rarity plus e...",
+      "confidence": "Medium",
+      "pageId": "authored-artifact-secondary-market-boundary",
+      "pageTitle": "Artifact Secondary Market Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-referral-rewards-integrate-with-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do referral rewards integrate with packs and artifacts?",
+      "normalizedQuestion": "how do referral rewards integrate with packs and artifacts",
+      "shortAnswer": "Neelo connects referral contribution to point accumulation and possible pack/artifact access while separating fee share, point share, and milestone rewards.",
+      "answerSummary": "Referral Reward Pack Integration The rewards pack source connects referrals to the same reward object loop by making referral contribution a way to accelerate point accumulation. More points can increase access to future packs or artifacts if the program approves those surfaces. The source names three potential reward surfaces: fee share, point share, and...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-reward-pack-integration",
+      "pageTitle": "Referral Reward Pack Integration",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -42266,6 +42451,191 @@
       "confidence": "Medium",
       "pageId": "authored-tge-qualifying-exposure-across-rewards",
       "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-separate-points-from-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why separate points from packs and artifacts?",
+      "normalizedQuestion": "why separate points from packs and artifacts",
+      "shortAnswer": "Neelo separates the points ledger from gamified reward objects so accounting remains auditable while future packs/artifacts can add engagement only under approved policy.",
+      "answerSummary": "Reward Ledger And Game Layer Boundary The rewards pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger. That boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE eligibility i...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-ledger-game-layer-boundary",
+      "pageTitle": "Reward Ledger And Game Layer Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-rewards-pack-end-to-end-loop",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the rewards-pack end-to-end loop?",
+      "normalizedQuestion": "what is the rewards pack end to end loop",
+      "shortAnswer": "Neelo's source model moves from off-chain points to claim, pack conversion, artifact creation, secondary holding/trading, and qualifying exposure accounting.",
+      "answerSummary": "Reward Pack End To End Loop The source model describes a seven step reward loop. It starts with off chain point earning and ends with TGE accounting across whichever reward forms qualify. The loop is: users earn points off chain; points are claimed on chain through a delayed claim path; claimed points can be held directly or converted into packs; packs ca...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-end-to-end-loop",
+      "pageTitle": "Reward Pack End-To-End Loop",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-hypothetical-rewards-pack-user-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is the hypothetical rewards-pack user flow?",
+      "normalizedQuestion": "what is the hypothetical rewards pack user flow",
+      "shortAnswer": "Neelo's user flow covers earn, claim, vest, and manage exposure, but claim delays and conversion terms remain source-model details rather than live policy.",
+      "answerSummary": "Reward Pack User Flow The source's user flow has four stages: earn, claim, vest, then convert or manage exposure. Users can earn through trading activity, LP participation, and referral contribution. Points are finalized off chain first, then a claim path can move approved balances into an on chain economically active state. The source sketches a vesting...",
+      "confidence": "Medium",
+      "pageId": "authored-reward-pack-user-flow",
+      "pageTitle": "Reward Pack User Flow",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-could-artifact-secondary-markets-affect-rewards",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How could artifact secondary markets affect rewards?",
+      "normalizedQuestion": "how could artifact secondary markets affect rewards",
+      "shortAnswer": "Neelo sketches packs as EV containers and artifacts as rarity-plus-exposure assets while keeping market support, transferability, and TGE treatment policy-bound.",
+      "answerSummary": "Artifact Secondary Market Boundary The artifact source sketches a pre TGE market structure, but it should be framed as hypothetical design infrastructure rather than an endorsed live market. In that model, points can represent direct exposure once transferable, unopened packs can trade as expected value containers, and artifacts can trade as rarity plus e...",
+      "confidence": "Medium",
+      "pageId": "authored-artifact-secondary-market-boundary",
+      "pageTitle": "Artifact Secondary Market Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-referral-rewards-integrate-with-packs-and-artifacts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do referral rewards integrate with packs and artifacts?",
+      "normalizedQuestion": "how do referral rewards integrate with packs and artifacts",
+      "shortAnswer": "Neelo connects referral contribution to point accumulation and possible pack/artifact access while separating fee share, point share, and milestone rewards.",
+      "answerSummary": "Referral Reward Pack Integration The rewards pack source connects referrals to the same reward object loop by making referral contribution a way to accelerate point accumulation. More points can increase access to future packs or artifacts if the program approves those surfaces. The source names three potential reward surfaces: fee share, point share, and...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-reward-pack-integration",
+      "pageTitle": "Referral Reward Pack Integration",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

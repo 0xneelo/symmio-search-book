@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 746
+      "totalGoldenRoutes": 751
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 764,
-    "retrievalEligiblePages": 1556,
+    "publicNavigationPages": 769,
+    "retrievalEligiblePages": 1561,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 764,
+      "candidate": 769,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 746,
-    "exactRouteTestsPassing": 746,
+    "totalExactRouteTests": 751,
+    "exactRouteTestsPassing": 751,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 746
+      "candidate": 751
     },
     "exactRoutesByConfidence": {
-      "Medium": 467,
+      "Medium": 472,
       "High": 44,
       "Low": 235
     },
@@ -12511,6 +12511,121 @@
         "passes": true
       },
       {
+        "id": "qr-why-separate-points-from-packs-and-artifacts",
+        "query": "Why separate points from packs and artifacts?",
+        "normalizedQuery": "why separate points from packs and artifacts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-ledger-game-layer-boundary",
+        "expectedPageTitle": "Reward Ledger And Game Layer Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-separate-points-from-packs-and-artifacts",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-rewards-pack-end-to-end-loop",
+        "query": "What is the rewards-pack end-to-end loop?",
+        "normalizedQuery": "what is the rewards pack end to end loop",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-pack-end-to-end-loop",
+        "expectedPageTitle": "Reward Pack End-To-End Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-rewards-pack-end-to-end-loop",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-hypothetical-rewards-pack-user-flow",
+        "query": "What is the hypothetical rewards-pack user flow?",
+        "normalizedQuery": "what is the hypothetical rewards pack user flow",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-pack-user-flow",
+        "expectedPageTitle": "Reward Pack User Flow",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-hypothetical-rewards-pack-user-flow",
+        "passes": true
+      },
+      {
+        "id": "qr-how-could-artifact-secondary-markets-affect-rewards",
+        "query": "How could artifact secondary markets affect rewards?",
+        "normalizedQuery": "how could artifact secondary markets affect rewards",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-artifact-secondary-market-boundary",
+        "expectedPageTitle": "Artifact Secondary Market Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-could-artifact-secondary-markets-affect-rewards",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-referral-rewards-integrate-with-packs-and-artifacts",
+        "query": "How do referral rewards integrate with packs and artifacts?",
+        "normalizedQuery": "how do referral rewards integrate with packs and artifacts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-reward-pack-integration",
+        "expectedPageTitle": "Referral Reward Pack Integration",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-referral-rewards-integrate-with-packs-and-artifacts",
+        "passes": true
+      },
+      {
         "id": "qr-why-isolate-referral-settlement-signers",
         "query": "Why isolate referral settlement signers?",
         "normalizedQuery": "why isolate referral settlement signers",
@@ -16436,7 +16551,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 746,
+      "exactRoutes": 751,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

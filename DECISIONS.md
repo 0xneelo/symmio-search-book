@@ -1535,3 +1535,11 @@
 **Reason:** Existing referral metrics pages explain market-creation velocity, supply and demand KPIs, and dashboard reporting standards, but the product-metrics source still contains exact reader questions that should not collapse into one broad dashboard page. Readers need to know which phase a metric belongs to, which KPIs support the north star, why target bands are illustrative, what guardrails prevent metric gaming, and which adjacent chapters own the policy beneath a metric.
 
 **Status:** Accepted for the authored rewards-reference layer; target bands, release timing, final formulas, referral depth, anti-gaming thresholds, dispute tooling, payout rules, public dashboard metrics, and economics disclosures remain fresh operator/product/risk/legal/accounting review.
+
+## D-193: Split Rewards Pack Loop Into Exact Answers
+
+**Decision:** Add authored Volume 06 rewards-reference pages for the rewards-pack/artifact loop: ledger versus game-layer boundary, end-to-end loop, user flow, artifact secondary-market boundary, and referral integration.
+
+**Reason:** Existing rewards-pack pages document future-facing status, EV/supply policy, artifact exposure, and TGE exposure accounting, but the generated source still contains exact lifecycle questions the answer engine should distinguish. Readers may ask why points are separated from packs, what the full loop is, what a user would do, how secondary markets could form, or how referrals feed the pack/artifact layer. Splitting these routes preserves the source's structure while keeping future mechanics caveated.
+
+**Status:** Accepted for the authored rewards-reference layer; live pack launch, claim delays, vesting windows, transferability, supply, expected value, rarity tables, boost rules, market support, referral fee share, point share, milestone unlocks, snapshot treatment, and TGE accounting remain fresh operator/product/risk/legal/accounting/implementation review.

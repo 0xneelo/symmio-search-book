@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Rewards Pack Loop Exact Pages
+
+- Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo rewards-pack/artifact headings.
+- Split the source into exact answer pages for ledger/game-layer separation, the end-to-end pack loop, the user flow, artifact secondary-market boundaries, and referral integration.
+- Extended the question ledger so Ask can answer rewards-pack lifecycle and integration questions without presenting future-facing pack, artifact, vesting, transferability, or TGE mechanics as live policy.
+- Kept supply, expected value, rarity, boost rules, claim delays, secondary-market support, referral economics, milestone unlocks, transferability, and TGE accounting marked for operator/product/risk/legal/accounting review.
+
 ## 2026-06-29 — Referral Product Metrics Exact Pages
 
 - Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo Referral Program product-metrics headings.
