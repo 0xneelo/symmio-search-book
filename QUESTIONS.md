@@ -573,6 +573,11 @@ Questions are grouped by whether the current source set can answer them.
 | Is Vibe competing with existing perp venues? | `authored-thiel-category-creation-not-competition` | Medium | Neelo frames Vibe as creating early perp markets where none currently exist, complementing mature venues instead of replacing every order book. |
 | What risks can break the Thiel monopoly thesis? | `authored-thiel-risk-analysis-checklist` | Medium | Neelo names fee compression, limited market expansion, insufficient 10x advantage, a better last mover, and durability failure as risks to the thesis. |
 | How should readers use the Thiel scorecard? | `authored-thiel-scorecard-interpretation` | Medium | Neelo's scorecard is an argument checklist mapping strategy criteria to evidence, not audited proof of dominance or an investment conclusion. |
+| What did Neelo's perp bootstrap paper contribute? | `authored-perp-paper-contribution-map` | Medium | Neelo's conclusion summarizes the framework, bootstrap trilemma, and hybrid architecture path as the paper's core contribution map. |
+| Why should perp markets be treated as dynamic? | `authored-markets-are-dynamic-not-static` | Medium | Neelo's conclusion says new and mature markets need different counterparty, execution, capital, and risk treatment, so static architecture misprices the lifecycle. |
+| What does the market lifecycle change for exchanges and LPs? | `authored-market-lifecycle-industry-implications` | Medium | Neelo maps the lifecycle thesis to protocol designers, exchanges, traders, LPs, and the broader ecosystem while live integrations remain review-bound. |
+| What research still remains for Vibe's lifecycle model? | `authored-market-lifecycle-future-directions` | Medium | Neelo names transition parameters, solver optimization, cross-protocol dynamics, product phases, tooling, partnerships, and standards as future work. |
+| What is the permissionless perps vision in one page? | `authored-permissionless-perps-vision-restated` | Medium | Neelo restates the vision as completing the token lifecycle with evidence-producing derivatives, while live market counts and automatic graduation remain review-bound. |
 
 ## Prototype Event Log
 

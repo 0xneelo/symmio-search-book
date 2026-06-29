@@ -1239,3 +1239,11 @@
 **Reason:** The prior Thiel split handled proprietary technology, scale, brand, last-mover framing, and monopoly verdict boundaries. The remaining sections need direct Ask routes so readers can inspect what would make the thesis durable, how the lifecycle integration model works, why the competitive frame is category creation, which risks could falsify the thesis, and how to read the scorecard as evidence checklist rather than a dominance claim.
 
 **Status:** Accepted for the authored manifesto layer; long-term cash-flow ladders, revenue/licensing claims, live integrations, automatic graduation promises, market share, competitor-specific judgments, regulatory conclusions, and final investment/dominance claims remain operator/product/risk/legal/implementation review.
+
+## D-156: Split The Perp Bootstrap Conclusion Into Exact Summary Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for Neelo's contribution map, the dynamic-market insight, industry implications, future directions, and restated permissionless-perps vision.
+
+**Reason:** The conclusion is where executive readers ask compressed questions: what the paper contributed, what the central insight is, what changes for exchanges/LPs/protocol designers, what still needs research, and what the final vision is. Splitting those sections gives the answer engine precise routes without forcing every summary question back to the broad bootstrap-trilemma page.
+
+**Status:** Accepted for the authored manifesto layer; roadmap phases, Z-score thresholds, automatic graduation, partner/integration status, venue-specific behavior, live market counts, and universal availability remain operator/product/risk/legal/implementation review.

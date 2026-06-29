@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 567
+      "totalGoldenRoutes": 572
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 585,
-    "retrievalEligiblePages": 1377,
+    "publicNavigationPages": 590,
+    "retrievalEligiblePages": 1382,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 585,
+      "candidate": 590,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 567,
-    "exactRouteTestsPassing": 567,
+    "totalExactRouteTests": 572,
+    "exactRouteTestsPassing": 572,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 567
+      "candidate": 572
     },
     "exactRoutesByConfidence": {
-      "Medium": 347,
+      "Medium": 352,
       "High": 44,
       "Low": 176
     },
@@ -12592,6 +12592,111 @@
         "chunkCount": 1,
         "faqEntryId": "faq-how-should-readers-use-the-thiel-scorecard",
         "passes": true
+      },
+      {
+        "id": "qr-what-did-neelo-s-perp-bootstrap-paper-contribute",
+        "query": "What did Neelo's perp bootstrap paper contribute?",
+        "normalizedQuery": "what did neelo s perp bootstrap paper contribute",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-paper-contribution-map",
+        "expectedPageTitle": "The Perp Paper Contribution Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-did-neelo-s-perp-bootstrap-paper-contribute",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-perp-markets-be-treated-as-dynamic",
+        "query": "Why should perp markets be treated as dynamic?",
+        "normalizedQuery": "why should perp markets be treated as dynamic",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-markets-are-dynamic-not-static",
+        "expectedPageTitle": "Markets Are Dynamic, Not Static",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-should-perp-markets-be-treated-as-dynamic",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-market-lifecycle-change-for-exchanges-and-lps",
+        "query": "What does the market lifecycle change for exchanges and LPs?",
+        "normalizedQuery": "what does the market lifecycle change for exchanges and lps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-lifecycle-industry-implications",
+        "expectedPageTitle": "Market Lifecycle Implications For The Industry",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-market-lifecycle-change-for-exchanges-and-lps",
+        "passes": true
+      },
+      {
+        "id": "qr-what-research-still-remains-for-vibe-s-lifecycle-model",
+        "query": "What research still remains for Vibe's lifecycle model?",
+        "normalizedQuery": "what research still remains for vibe s lifecycle model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-market-lifecycle-future-directions",
+        "expectedPageTitle": "Future Directions For Market Lifecycle Infrastructure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-research-still-remains-for-vibe-s-lifecycle-model",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-permissionless-perps-vision-in-one-page",
+        "query": "What is the permissionless perps vision in one page?",
+        "normalizedQuery": "what is the permissionless perps vision in one page",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-perps-vision-restated",
+        "expectedPageTitle": "The Permissionless Perps Vision Restated",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-permissionless-perps-vision-in-one-page",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12667,7 +12772,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 567,
+      "exactRoutes": 572,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

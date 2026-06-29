@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Conclusion Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score conclusion source.
+- Split the conclusion into exact answer routes for the paper's contribution map, dynamic-market insight, industry implications, future research/product directions, and restated permissionless-perps vision.
+- Extended the question ledger so Ask can route summary and executive-level questions without collapsing the conclusion into one broad bootstrap-trilemma page.
+- Kept roadmap phases, Z-score thresholds, automatic graduation, partner/integration status, venue-specific behavior, live market counts, and universal availability marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Thiel Durability Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Thiel-monopoly source.
