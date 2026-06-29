@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 02 Reading Order Overview
+
+- Expanded `authored-volume-02-bootstrap-and-proof-of-value` from a short volume stub into a book-level reading order for the bootstrap trilemma, Perp Classes / Z-Score mechanism path, Perp Bootstrap source-navigation map, Proof of Value source maps, and validation/sustainability bridge.
+- Routed one new Ask question, "How should I read Volume 02 on bootstrap and Proof of Value?", to the Volume 02 overview so broad reader-orientation demand lands on the compendium entry point rather than a narrow source companion.
+- Kept Z-score thresholds, automatic graduation, solver obligations, LP revenue shares, insurance/ADL behavior, risk waterfalls, and monopoly/structural-superiority verdicts under current-source/operator/product/risk/legal/accounting/security review.
+
 ## 2026-06-30 — Symmio Whitepaper Source-Boundary Fold-In
 
 - Executed the next demand/gap-driven publication-plan fold-in for `symmio-whitepaper` / G-007.

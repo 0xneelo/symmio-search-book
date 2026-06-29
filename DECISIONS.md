@@ -1831,3 +1831,11 @@
 **Reason:** A 2026-06-30 fetch of the current official Symmio whitepaper page confirms it still points to the GitHub-hosted v0.8 PDF and frames the whitepaper/protocol as evolving work. Existing official Git evidence shows that v0.8 PDF entering the public docs repo on 2023-11-16. None of that proves the original/oldest artifact or a 2021 origin document, so the answer engine must keep original/oldest/2021-whitepaper questions parked under G-007 and OPERATOR-INBOX #6.
 
 **Status:** Accepted for source-boundary wording. This improves answerability for current evidence without closing the source-ingestion blocker.
+
+## D-230: Use Volume Overviews As Book-Level Reading Orders
+
+**Decision:** Expand `authored-volume-02-bootstrap-and-proof-of-value` into the canonical book-level entry point for the bootstrap trilemma, Perp Classes / Z-Score, Perp Bootstrap source navigation, Proof of Value, and validation/sustainability path.
+
+**Reason:** The exact Volume 02 source maps already exist, but readers still need a high-level route through the book part before choosing a narrow source family. A volume overview should answer the broad "how do I read this?" question, then send readers into exact authored pages and source-navigation maps without turning review-bound source markers into final product claims.
+
+**Status:** Accepted for compendium authoring. Z-score thresholds, automatic graduation, solver obligations, LP revenue shares, insurance or ADL behavior, risk-waterfall details, and monopoly or structural-superiority verdicts remain current-source/operator/product/risk/legal/accounting/security review items before publication.
