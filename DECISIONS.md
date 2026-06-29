@@ -871,3 +871,11 @@
 **Reason:** The broad DDQ architecture-stack page and primitive pages explain what is in the stack, but diligence readers also need exact routes for why the stack exists. Splitting these mechanics makes the risk argument inspectable: request-based settlement supports pre-acceptance risk review, near 1:1 backing can become too capital hungry, generic USDC vaults can be attacked in thin markets, the hybrid model assigns capital by risk type, and asynchronous matching bridges time-mismatched flow without pretending a mature book exists.
 
 **Status:** Accepted for the authored protocol-reference layer; quote validity, collateral ratios, attack thresholds, vault exposure caps, LP terms, funding formulas, netting priority, and residual-exposure limits remain operator/risk/security/implementation/accounting review.
+
+## D-110: Split DDQ Market Lifecycle Into Stage-Level Answers
+
+**Decision:** Add authored protocol-reference pages for the DDQ bootstrapped market stage, maturing market stage, mature market stage, systemic leverage ramp, and derivatives lifecycle expansion.
+
+**Reason:** The LP-attractiveness source explains Vibe as a lifecycle system, not a static vault or static exchange. Exact stage-level answers help partners, LPs, solvers, and project teams understand why launch conditions can be conservative, how two-sided flow changes the solver's role, why capital efficiency should improve only with evidence, and why more complex derivatives belong later in the lifecycle.
+
+**Status:** Accepted for the authored protocol-reference layer; launch criteria, graduation thresholds, leverage schedules, collateralization ratios, options availability, covered-call examples, revenue share, and market-support terms remain operator/product/risk/implementation/accounting review.

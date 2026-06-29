@@ -658,6 +658,12 @@
 - Routed five new Ask questions so partner, LP, solver, and risk-review readers can inspect why Vibe's stack exists rather than only what primitives it names.
 - Kept quote-validity windows, collateral ratios, attack thresholds, vault exposure caps, LP terms, funding formulas, netting priority, and residual-exposure limits under operator/risk/security/implementation/accounting review.
 
+## 2026-06-29 — DDQ Market Lifecycle Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ Attractiveness for LPs source: the bootstrapped stage, maturing stage, mature stage, systemic leverage ramp, and derivatives lifecycle expansion.
+- Routed five new Ask questions so partner, LP, solver, and project readers can inspect how market support evolves from launch safety toward trader-to-trader maturity.
+- Kept launch criteria, graduation thresholds, leverage schedules, collateralization ratios, options availability, covered-call examples, revenue share, and market-support terms under operator/product/risk/implementation/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

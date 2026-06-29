@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1168,
-  "totalChunks": 2024,
-  "pagesWithChunks": 1168,
+  "totalPages": 1173,
+  "totalChunks": 2034,
+  "pagesWithChunks": 1173,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 356,
+    "authored": 361,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 683,
+    "authored": 693,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 178,
+    "protocol-reference": 188,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2430,6 +2430,102 @@
       "text": "pretends there is deeper liquidity than actually exists. How It Fits With Symmio Language Symmio's core vocabulary helps make the DDQ primitive precise. PartyA is the requester or trader side. PartyB is the counterparty or solver side. The protocol can track collateral, margin, CVA, quote lifecycle, close requests, force close paths, and liquidation state without needing a central order book to match every trade synchronously. That is why the docs should teach \"bilateral\" as a protocol property, not as a private dealing metaphor. The trade is still rule bound; it is just not born from a public book's crossing event. Publication Boundary Do not publish final PartyA/PartyB permissions, OTC eligibility rules, whitelisting rules, quote lifecycle timing, or enforceability claims beyond the confirmed protocol documentation. The source backed claim is that bilateral OTC primitives let Vibe model long tail derivatives as accepted counterparty relationships. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". symmio core : PartyA/PartyB and bilateral settlement vocabulary. symmio intent lifecycle : intent submission, solver monitoring, locking, and lifecycle events. Related Pages authored bilateral intent lifecycle authored symmio party a party b authored intent otc long tail verification neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
     },
     {
+      "id": "authored-ddq-bootstrapped-market-stage::001",
+      "pageId": "authored-ddq-bootstrapped-market-stage",
+      "chunkIndex": 1,
+      "title": "DDQ Bootstrapped Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-bootstrapped-market-stage.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Bootstrapped Market Stage The DDQ Attractiveness for LPs source describes the first market phase as the bootstrapped stage: fully asynchronous execution supported by LP deposits and conservative risk limits. This is the phase where a market is real enough to quote, but not mature enough to assume deep two sided flow. The solver and LP capacity carry more of the market formation burden because natural longs and shorts may not yet arrive at the same time, size, and price. What LP Deposits Do Here At launch, LP deposits provide initial liquidity and hedging capacity. They are not merely passive yield assets. They help the solver make the first market safely enough to collect trade history, observe liquidity behavior, test hedge routes, and discover whether demand is durable. The source frames this as ignition capital. LP deposits help a market start. The long term goal is not permanent dependence on LP balance sheet, but a transition toward more trader to trader netting as the market proves itself. Reader Implication For traders, the bootstrapped stage can mean tighter limits, wider spreads, lower leverage, or more conservative quote behavior. Those constraints are part of launch safety, not necessarily a sign that the market failed. For projects and LPs, the practical question is whether the market can produce the evidence needed to move"
+    },
+    {
+      "id": "authored-ddq-bootstrapped-market-stage::002",
+      "pageId": "authored-ddq-bootstrapped-market-stage",
+      "chunkIndex": 2,
+      "title": "DDQ Bootstrapped Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-bootstrapped-market-stage.md",
+      "wordStart": 185,
+      "wordEnd": 328,
+      "wordCount": 143,
+      "text": "quote behavior. Those constraints are part of launch safety, not necessarily a sign that the market failed. For projects and LPs, the practical question is whether the market can produce the evidence needed to move out of this stage: real flow, healthier liquidity, fewer manipulation signals, and enough netting that the solver's residual role can shrink over time. Publication Boundary Do not publish final launch stage deposit requirements, leverage bands, open interest caps, vault utilization targets, or market opening criteria without operator and implementation review. The source backed claim is stage level: early markets use LP deposits and conservative risk limits to bootstrap asynchronous trading. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored lp ignition capital lifecycle authored conservative launch collateralization authored ddq asynchronous matching engine neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
+    },
+    {
+      "id": "authored-ddq-derivatives-lifecycle-expansion::001",
+      "pageId": "authored-ddq-derivatives-lifecycle-expansion",
+      "chunkIndex": 1,
+      "title": "DDQ Derivatives Lifecycle Expansion",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-options-docs"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-derivatives-lifecycle-expansion.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Derivatives Lifecycle Expansion The DDQ Attractiveness for LPs source frames Vibe as a bootstrapping engine for permissionless perpetuals and derivatives. It explicitly leaves room for more sophisticated markets over time, including long/short leverage and potentially more complex derivatives such as options, as solver data and risk models improve. This should be documented as lifecycle expansion, not as a promise that every new market immediately supports every derivative type. A market first needs the machinery to quote, hedge, settle, observe, and manage risk. Why More Complex Products Come Later More complex derivatives require more precise risk models. Options, structured payoff products, or other derivative forms can add volatility, expiry, path dependency, liquidity, and hedge complexity beyond a basic perp. The DDQ's staged market model gives the right sequencing. First, create a safe bootstrap path. Then gather data, improve solver confidence, increase netting, and mature the market. Only then can the system consider whether the market can support more complex derivative products without misallocating risk. Reader Implication For projects, the first objective is not to launch every product at once. It is to create a reliable market path that can prove demand and build risk history. For solvers and LPs, lifecycle expansion depends on whether the market's liquidity and risk behavior justify the next product layer. The Symmio options documentation gives"
+    },
+    {
+      "id": "authored-ddq-derivatives-lifecycle-expansion::002",
+      "pageId": "authored-ddq-derivatives-lifecycle-expansion",
+      "chunkIndex": 2,
+      "title": "DDQ Derivatives Lifecycle Expansion",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-options-docs"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-derivatives-lifecycle-expansion.md",
+      "wordStart": 185,
+      "wordEnd": 337,
+      "wordCount": 152,
+      "text": "market path that can prove demand and build risk history. For solvers and LPs, lifecycle expansion depends on whether the market's liquidity and risk behavior justify the next product layer. The Symmio options documentation gives the compendium a protocol vocabulary for options intent lifecycle, but Vibe specific options examples still need product owner review. The public page should distinguish confirmed protocol capability from unconfirmed Vibe product packaging. Publication Boundary Do not publish final Vibe options availability, covered call vault examples, supported derivative types, market graduation rules, or product launch timelines without operator and implementation review. The source backed claim is directional: the market lifecycle can support increasingly sophisticated derivatives as data and risk models improve. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". symmio options docs : current Symmio options documentation index. Related Pages authored options intent lifecycle authored market maturation state map authored ddq mature market stage symmio options contracts"
+    },
+    {
       "id": "authored-ddq-hybrid-liquidity-model::001",
       "pageId": "authored-ddq-hybrid-liquidity-model",
       "chunkIndex": 1,
@@ -2570,6 +2666,98 @@
       "wordEnd": 367,
       "wordCount": 182,
       "text": "scale. Margin has to be combined with solver risk checks, token inventory, and perpetual market mechanics. Reader Implication When a reader asks \"is this margin trading or perps?\", the answer should not force a false binary. The margin layer supplies collateral and liquidation semantics. The perpetuals layer supplies ongoing position lifecycle. The solver and vault stack decide whether residual exposure can be quoted safely. For user facing docs, margin pages should therefore explain account health, locked collateral, CVA or buffer concepts where relevant, liquidation distance, and withdrawal constraints. They should not imply that margin collateral by itself solves long tail market bootstrapping. Publication Boundary Do not publish final margin formulas, maintenance thresholds, CVA sizing, liquidation fees, account isolation rules, or contract level enforcement details without operator and implementation review. The source backed claim is architectural: margin discipline is one primitive in a hybrid system, not the whole system. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored ddq architecture stack authored vibe collateral and margining authored collateral margin cva neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-mature-market-stage::001",
+      "pageId": "authored-ddq-mature-market-stage",
+      "chunkIndex": 1,
+      "title": "DDQ Mature Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-mature-market-stage.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Mature Market Stage The DDQ Attractiveness for LPs source defines the mature stage as a predominantly trader to trader market that approaches a low protocol side collateral model. In that state, the solver primarily provides pricing, matching, and risk controls rather than acting as the balance sheet for every fill. This is the desired direction of travel for a successful market. The solver remains important, but its role changes. It no longer needs to warehouse the same amount of residual exposure because natural flow, liquidity, and market history can carry more of the market. Why Mature Does Not Mean Unmanaged A mature market is not a risk free market. It still needs margin rules, funding, liquidation, price integrity, solver monitoring, and backstops for stress. The difference is that ordinary flow is less dependent on protocol side capital. That is why the DDQ compares the end state to a more orderbook like equilibrium. Longs and shorts are predominantly matched against each other, minimizing the need for the solver to stand in as residual counterparty. Reader Implication For traders, maturity should mean better execution quality and a more familiar perp experience. For LPs and solvers, it means capital can be used more efficiently because the market itself is doing more of the matching work. For projects, this clarifies the listing objective."
+    },
+    {
+      "id": "authored-ddq-mature-market-stage::002",
+      "pageId": "authored-ddq-mature-market-stage",
+      "chunkIndex": 2,
+      "title": "DDQ Mature Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-mature-market-stage.md",
+      "wordStart": 185,
+      "wordEnd": 343,
+      "wordCount": 158,
+      "text": "a more familiar perp experience. For LPs and solvers, it means capital can be used more efficiently because the market itself is doing more of the matching work. For projects, this clarifies the listing objective. Launch is not the finish line. The healthier objective is to help the market mature until it needs less support and can justify deeper integrations or order book like behavior. Publication Boundary Do not publish final order book graduation criteria, cross margin eligibility, exact solver role changes, market maker obligations, or capital efficiency ratios without operator and implementation review. The source backed claim is lifecycle level: mature markets should rely more on trader to trader PnL and less on solver balance sheet support. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored order books as graduation layer authored market maturation state map authored ddq maturing market stage neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
+    },
+    {
+      "id": "authored-ddq-maturing-market-stage::001",
+      "pageId": "authored-ddq-maturing-market-stage",
+      "chunkIndex": 1,
+      "title": "DDQ Maturing Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-maturing-market-stage.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Maturing Market Stage The DDQ Attractiveness for LPs source describes the maturing stage as increasing trader to trader netting, improving liquidity, and gradually reduced protocol side collateralization. This is the bridge between launch safety and mature market efficiency. The market has enough evidence to loosen some constraints, but it is not yet safe to treat the solver as only a lightweight pricing service. What Changes During Maturation The key change is counterparty mix. More opposing flow means longs and shorts can offset each other more often. Each successful netting path reduces the amount of residual exposure that the solver, LP vaults, or insurance budget must carry. The solver can also learn from the market. More trade history, more liquidations, better liquidity conditions, and fewer manipulation signals can support tighter spreads, more open interest, better execution quality, and lower protocol side collateralization. Reader Implication For traders, this stage should feel like improving market quality. Capacity can become less restrictive as the market earns it. For LPs, maturation is the path from ignition capital toward more efficient use of inventory. The market is still risky, but risk is increasingly informed by live data rather than by launch assumptions. For docs, maturation prevents a false binary. A market is not simply \"new and constrained\" or \"mature and efficient.\" It can pass through"
+    },
+    {
+      "id": "authored-ddq-maturing-market-stage::002",
+      "pageId": "authored-ddq-maturing-market-stage",
+      "chunkIndex": 2,
+      "title": "DDQ Maturing Market Stage",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-maturing-market-stage.md",
+      "wordStart": 185,
+      "wordEnd": 313,
+      "wordCount": 128,
+      "text": "risk is increasingly informed by live data rather than by launch assumptions. For docs, maturation prevents a false binary. A market is not simply \"new and constrained\" or \"mature and efficient.\" It can pass through intermediate states where the solver adapts parameters as evidence accumulates. Publication Boundary Do not publish final graduation metrics, netting thresholds, spread schedules, collateralization reductions, or automated classification rules without operator and implementation review. The source backed claim is the staged direction: more netting and better liquidity can reduce protocol side backing needs over time. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored market maturation risk posture authored netting state risk transfer authored ddq systemic leverage ramp neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
     },
     {
       "id": "authored-ddq-one-to-one-backing-limit::001",
@@ -2772,6 +2960,54 @@
       "wordEnd": 387,
       "wordCount": 202,
       "text": "rather than pretending a market has mature order book depth. Reader Implication For traders, \"intent\" means the trade still needs a counterparty decision. The product can feel immediate when quotes are available, but the economic guarantee comes from accepted bilateral settlement, not from a passive order sitting in a public queue. For solvers and LPs, the request layer is where per trade risk discipline enters the flow. It is the place to explain quote validity, last look style controls, collateral lock, solver acceptance, and why some requests may be refused or repriced when conditions change. Publication Boundary Do not publish final quote validity windows, solver acceptance rules, request cancellation semantics, collateral lock timing, front end last look language, or production settlement guarantees without operator and implementation review. The source backed claim is architectural: request based settlement lets solver risk review happen before exposure is accepted. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". vibe architecture : Vibe intent quotation and solver acceptance context. symmio intent lifecycle : intent monitoring, locking, and lifecycle event context. Related Pages authored vibe intent architecture authored bilateral intent lifecycle authored soft quote last look risk gating neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-systemic-leverage-ramp::001",
+      "pageId": "authored-ddq-systemic-leverage-ramp",
+      "chunkIndex": 1,
+      "title": "DDQ Systemic Leverage Ramp",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-systemic-leverage-ramp.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Systemic Leverage Ramp The DDQ Attractiveness for LPs source says the solver can reduce reliance on LP capital and increase systemic leverage in a controlled manner as participation and liquidity improve. Systemic leverage here means the system can support more trading activity relative to protocol side collateral and LP inventory because more of the market's PnL clears through trader to trader netting and better risk data. It is not a promise of higher user leverage in every market. Why The Ramp Has To Be Controlled At launch, the market has little history. The solver should assume more uncertainty, more manipulation risk, and less reliable exit liquidity. As the market matures, the solver can observe whether spreads, funding, liquidations, netting, and hedge routes behave well enough to loosen constraints. The ramp is therefore a risk process, not a marketing slogan. More systemic leverage should follow evidence: deeper liquidity, more balanced flow, healthier price formation, and buffers that can absorb tail states. Reader Implication For LPs, controlled systemic leverage is the path to better capital efficiency. The same inventory can support more useful market activity when the solver no longer has to treat every unit of exposure as fully isolated and fully backed. For traders, the ramp can show up as improved capacity or execution quality. It should still be explained"
+    },
+    {
+      "id": "authored-ddq-systemic-leverage-ramp::002",
+      "pageId": "authored-ddq-systemic-leverage-ramp",
+      "chunkIndex": 2,
+      "title": "DDQ Systemic Leverage Ramp",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-systemic-leverage-ramp.md",
+      "wordStart": 185,
+      "wordEnd": 338,
+      "wordCount": 153,
+      "text": "the solver no longer has to treat every unit of exposure as fully isolated and fully backed. For traders, the ramp can show up as improved capacity or execution quality. It should still be explained with caveats: a market earns better terms as it proves itself, and the solver can tighten terms again if risk conditions worsen. Publication Boundary Do not publish final leverage schedules, collateral ratios, risk score formulas, market classifications, or user leverage claims without operator and implementation review. The source backed claim is directional: participation and liquidity can allow the solver to reduce reliance on LP capital and increase capital efficiency over time. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". vibe papers : Neelo DDQ, \"Balancing UX vs Risk\". Related Pages authored market maturation risk posture authored ddq maturing market stage authored conservative launch collateralization neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
     },
     {
       "id": "authored-ddq-token-vault-liquidity-role::001",

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 337
+      "totalGoldenRoutes": 342
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 355,
-    "retrievalEligiblePages": 1147,
+    "publicNavigationPages": 360,
+    "retrievalEligiblePages": 1152,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 355,
+      "candidate": 360,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 337,
-    "exactRouteTestsPassing": 337,
+    "totalExactRouteTests": 342,
+    "exactRouteTestsPassing": 342,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 337
+      "candidate": 342
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 156
+      "Low": 161
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -7180,6 +7180,113 @@
         "passes": true
       },
       {
+        "id": "qr-what-happens-in-the-ddq-bootstrapped-market-stage",
+        "query": "What happens in the DDQ bootstrapped market stage?",
+        "normalizedQuery": "what happens in the ddq bootstrapped market stage",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-bootstrapped-market-stage",
+        "expectedPageTitle": "DDQ Bootstrapped Market Stage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-happens-in-the-ddq-bootstrapped-market-stage",
+        "passes": true
+      },
+      {
+        "id": "qr-what-changes-in-the-ddq-maturing-market-stage",
+        "query": "What changes in the DDQ maturing market stage?",
+        "normalizedQuery": "what changes in the ddq maturing market stage",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-maturing-market-stage",
+        "expectedPageTitle": "DDQ Maturing Market Stage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-changes-in-the-ddq-maturing-market-stage",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-a-ddq-mature-market-look-like",
+        "query": "What does a DDQ mature market look like?",
+        "normalizedQuery": "what does a ddq mature market look like",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-mature-market-stage",
+        "expectedPageTitle": "DDQ Mature Market Stage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-a-ddq-mature-market-look-like",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-vibe-increase-systemic-leverage-safely",
+        "query": "How does Vibe increase systemic leverage safely?",
+        "normalizedQuery": "how does vibe increase systemic leverage safely",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-systemic-leverage-ramp",
+        "expectedPageTitle": "DDQ Systemic Leverage Ramp",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-vibe-increase-systemic-leverage-safely",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-the-ddq-lifecycle-expand-beyond-perps",
+        "query": "How can the DDQ lifecycle expand beyond perps?",
+        "normalizedQuery": "how can the ddq lifecycle expand beyond perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-derivatives-lifecycle-expansion",
+        "expectedPageTitle": "DDQ Derivatives Lifecycle Expansion",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-options-docs"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-options-docs"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-the-ddq-lifecycle-expand-beyond-perps",
+        "passes": true
+      },
+      {
         "id": "qr-how-is-force-close-different-from-a-general-escape-hatch",
         "query": "How is Force Close different from a general escape hatch?",
         "normalizedQuery": "how is force close different from a general escape hatch",
@@ -7719,7 +7826,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 337,
+      "exactRoutes": 342,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
