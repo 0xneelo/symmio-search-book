@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 412
+      "totalGoldenRoutes": 417
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 430,
-    "retrievalEligiblePages": 1222,
+    "publicNavigationPages": 435,
+    "retrievalEligiblePages": 1227,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 430,
+      "candidate": 435,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 412,
-    "exactRouteTestsPassing": 412,
+    "totalExactRouteTests": 417,
+    "exactRouteTestsPassing": 417,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 412
+      "candidate": 417
     },
     "exactRoutesByConfidence": {
-      "Medium": 192,
+      "Medium": 197,
       "High": 44,
       "Low": 176
     },
@@ -9241,6 +9241,121 @@
         "chunkCount": 1,
         "faqEntryId": "faq-why-do-early-code-cohorts-need-sunset-rules",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-an-access-gated-referral-launch",
+        "query": "What is an access-gated referral launch?",
+        "normalizedQuery": "what is an access gated referral launch",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-access-gated-launch",
+        "expectedPageTitle": "Referral Access-Gated Launch",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-an-access-gated-referral-launch",
+        "passes": true
+      },
+      {
+        "id": "qr-why-unify-access-and-referral-identity",
+        "query": "Why unify access and referral identity?",
+        "normalizedQuery": "why unify access and referral identity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-unified-access-identity",
+        "expectedPageTitle": "Referral Unified Access And Identity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-unify-access-and-referral-identity",
+        "passes": true
+      },
+      {
+        "id": "qr-what-happens-when-referral-participation-opens",
+        "query": "What happens when referral participation opens?",
+        "normalizedQuery": "what happens when referral participation opens",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-open-participation-benefits",
+        "expectedPageTitle": "Referral Open Participation With Optional Benefits",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-happens-when-referral-participation-opens",
+        "passes": true
+      },
+      {
+        "id": "qr-what-must-happen-during-a-referral-phase-migration",
+        "query": "What must happen during a referral phase migration?",
+        "normalizedQuery": "what must happen during a referral phase migration",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-phase-migration-requirements",
+        "expectedPageTitle": "Referral Phase Migration Requirements",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-must-happen-during-a-referral-phase-migration",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-launch-sequencing-unfold",
+        "query": "How should referral launch sequencing unfold?",
+        "normalizedQuery": "how should referral launch sequencing unfold",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-launch-sequencing",
+        "expectedPageTitle": "Referral Launch Sequencing",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-launch-sequencing-unfold",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9316,7 +9431,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 412,
+      "exactRoutes": 417,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

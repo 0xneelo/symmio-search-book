@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 431,
+  "totalPages": 436,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 294,
+    "publication-candidate-needs-operator-review": 299,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -16,7 +16,7 @@
     "protocol-reference": 117,
     "competitive-context": 1,
     "reference": 1,
-    "rewards-referrals": 35,
+    "rewards-referrals": 40,
     "answer-engine": 1,
     "solver-reference": 1,
     "compendium": 8
@@ -5818,6 +5818,31 @@
       "excerpt": "Referral Abuse Patterns Neelo's referral economics source names three abuse patterns that referral docs should treat as first class design constraints: self referral loops; code shopping for better referee terms; attribution disputes after downstream growth. Those are not edge cases. They are the predictable result of attaching economic value to social attribution without clear issuance, benefit, and ownership rules. Why The Abuse Frame Matters If the system optimizes for maximum code count, it can produce many low quality codes and still fail at durable distribution. The source goal is different: fee producing referral attribution that can scale without collapsing into self directed extraction. That means anti gaming controls are part of the product architecture, not an afterthought. Referral docs should explain why some users may see eligibility gates, monitoring, or claim review before the system opens broader reward routing. Publication Boundary This page explains the source threat model. It should not publish final sybil rules, abuse thresholds, penalty rules, attribution dispute process, monitoring signals, or enforcement procedures until operator, security, legal, and implem"
     },
     {
+      "id": "authored-referral-access-gated-launch",
+      "title": "Referral Access-Gated Launch",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-1-phase-a-access-gated-launch",
+        "authored-referral-access-phasing-operating-model"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-access-gated-launch.md",
+      "bodyMarkdown": "# Referral Access-Gated Launch\n\nNeelo's access-phasing source starts with an access-gated launch. In this phase, codes are required for high-sensitivity actions such as trading and listing.\n\nThe point is launch control, not permanent exclusion. The source says gating keeps launch risk bounded while infrastructure hardens.\n\n## What The Gate Protects\n\nEarly trading, listing, attribution, reward accounting, and monitoring are all sensitive surfaces. Opening them all at once gives abuse patterns more room before the system has enough observed behavior.\n\nAccess gating lets operators stage real usage, observe failure modes, and keep sensitive flows tied to known code paths while the referral and reward stack matures.\n\n## Publication Boundary\n\nThis page explains the source launch phase. It should not publish live beta access criteria, supported sensitive actions, code distribution lists, listing eligibility, trading limits, launch dates, or capacity commitments until operator and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Phase A - Access-Gated Launch\".\n- `spec-03`: Current referral-depth and product-state caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-abuse-patterns`\n- `authored-referral-qualified-issuance-gating`",
+      "excerpt": "Referral Access Gated Launch Neelo's access phasing source starts with an access gated launch. In this phase, codes are required for high sensitivity actions such as trading and listing. The point is launch control, not permanent exclusion. The source says gating keeps launch risk bounded while infrastructure hardens. What The Gate Protects Early trading, listing, attribution, reward accounting, and monitoring are all sensitive surfaces. Opening them all at once gives abuse patterns more room before the system has enough observed behavior. Access gating lets operators stage real usage, observe failure modes, and keep sensitive flows tied to known code paths while the referral and reward stack matures. Publication Boundary This page explains the source launch phase. It should not publish live beta access criteria, supported sensitive actions, code distribution lists, listing eligibility, trading limits, launch dates, or capacity commitments until operator and implementation review confirm them. Sources vibe papers : Neelo, \"Section 6: Access Phasing\", \"Phase A Access Gated Launch\". spec 03 : Current referral depth and product state caveats. Related Pages authored referral access pha"
+    },
+    {
       "id": "authored-referral-access-phasing-operating-model",
       "title": "Referral Access Phasing Operating Model",
       "section": "rewards-referrals",
@@ -6089,6 +6114,32 @@
       "excerpt": "Referral Issuance And Anti Gaming Neelo's referral economics section is blunt about the failure modes: self referral loops, code shopping, and attribution disputes can turn a growth system into extraction. The design goal is not maximum code count. It is durable, fee producing attribution that can survive adversarial behavior. Qualified issuance is the main control. Instead of giving every user reward eligible code issuance immediately, the source proposes activity thresholds, tier thresholds, curated campaign grants, or progressive unlock criteria. That preserves referral signal quality and makes early cohorts accountable. Uniform Referee Benefit The source's anti gaming logic favors uniform baseline referee benefits. If every valid code gives the same baseline benefit to the new user, code quality depends on issuer eligibility rather than discount magnitude. That reduces \"best code\" arbitrage and keeps social referrals viable. Phasing The access phasing section describes a controlled path: access gated launch, where codes bound high sensitivity actions such as trading and listing; unified access and referral identity, where onboarding and attribution become one surface; open part"
     },
     {
+      "id": "authored-referral-launch-sequencing",
+      "title": "Referral Launch Sequencing",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-6-launch-sequencing-notes",
+        "authored-rewards-packs-and-artifacts"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-launch-sequencing.md",
+      "bodyMarkdown": "# Referral Launch Sequencing\n\nNeelo's launch-sequencing notes describe a staged rollout:\n\n1. an access-code beta window for controlled onboarding;\n2. referral-code activation;\n3. broader reward-layer expansion, including on-chain transferability, packs, and an artifact economy.\n\nThe sequence supports two goals at once: early growth through scarcity and clear onboarding logic, and reduced abuse risk while the accounting stack hardens.\n\n## Why Sequencing Beats One Big Switch\n\nThe source treats access, referral activation, and reward expansion as different risk levels. Access controls who can enter sensitive flows. Referral activation controls who can route reward-eligible attribution. Reward-layer expansion controls how economic state becomes more transferable or composable.\n\nDoing those at once would make it harder to isolate problems. Sequencing gives the system clearer evidence about which layer created a problem and which layer can safely expand next.\n\n## Publication Boundary\n\nThis page explains the source sequencing model. It should not publish launch dates, beta duration, activation order, transferability timing, pack mechanics, artifact eligibility, or reward-layer commitments until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Launch Sequencing Notes\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Current referral-depth and public-economics caveats.\n\n## Related Pages\n\n- `authored-referral-access-gated-launch`\n- `authored-referral-qualified-issuance-gating`\n- `authored-rewards-packs-and-artifacts`",
+      "excerpt": "Referral Launch Sequencing Neelo's launch sequencing notes describe a staged rollout: 1. an access code beta window for controlled onboarding; 2. referral code activation; 3. broader reward layer expansion, including on chain transferability, packs, and an artifact economy. The sequence supports two goals at once: early growth through scarcity and clear onboarding logic, and reduced abuse risk while the accounting stack hardens. Why Sequencing Beats One Big Switch The source treats access, referral activation, and reward expansion as different risk levels. Access controls who can enter sensitive flows. Referral activation controls who can route reward eligible attribution. Reward layer expansion controls how economic state becomes more transferable or composable. Doing those at once would make it harder to isolate problems. Sequencing gives the system clearer evidence about which layer created a problem and which layer can safely expand next. Publication Boundary This page explains the source sequencing model. It should not publish launch dates, beta duration, activation order, transferability timing, pack mechanics, artifact eligibility, or reward layer commitments until operator,"
+    },
+    {
       "id": "authored-referral-market-creation-velocity",
       "title": "Referral Market Creation Velocity",
       "section": "rewards-referrals",
@@ -6142,6 +6193,56 @@
       "file": "content/authored/reference/referral-metrics-and-integrity.md",
       "bodyMarkdown": "# Referral Metrics And Integrity\n\nThe referral program's north star is not raw signups. Neelo's metrics framework names high-quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation.\n\nThat framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together.\n\n## KPI Layers\n\nThe source separates the KPI stack into layers:\n\n- supply: new listings, active markets, repeat listers, and time-to-first-listing;\n- demand: traders per active market, fee-generating volume, turnover concentration, and demand distribution;\n- growth: referral attach rate, code-to-first-trade conversion, code-to-first-listing conversion, and claim conversion;\n- integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected-versus-realized reward deviations.\n\n## Security Controls\n\nThe security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over-issuance, and launch-phase blind spots. The minimum control set includes signer isolation, key rotation, replay-safe claims, nonces, expiry, tier/admin audit trails, and anomaly monitoring.\n\nThe design principle is simple: incentive systems should fail closed on settlement. Growth can recover after verification. Credibility cannot recover easily after silent reward inflation.\n\n## Reader Implication\n\nThe docs should report referral growth with phase labels, formula versions, and organic-versus-campaign separation. They should also expose the integrity frame so users understand that anti-gaming controls are part of the product, not friction added after the fact.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `vibe-papers`: Neelo, \"Product Metrics Framework\".\n- `spec-03`: Current product metrics and points caveats.\n\n## Related Pages\n\n- `authored-referral-issuance-and-anti-gaming`\n- `authored-points-taxonomy`\n- `neelo-17-referral-program-17-docs-09-metrics-framework`",
       "excerpt": "Referral Metrics And Integrity The referral program's north star is not raw signups. Neelo's metrics framework names high quality listings created and sustained over time as the core business metric. Listings attract trader attention, and trader attention drives fee generation. That framing prevents a common growth mistake: celebrating referral volume while market quality deteriorates. A referral system can only be considered healthy if it improves supply, demand, conversion, and integrity together. KPI Layers The source separates the KPI stack into layers: supply: new listings, active markets, repeat listers, and time to first listing; demand: traders per active market, fee generating volume, turnover concentration, and demand distribution; growth: referral attach rate, code to first trade conversion, code to first listing conversion, and claim conversion; integrity: suspicious volume incidence, disputes, claim anomalies, vesting anomalies, and expected versus realized reward deviations. Security Controls The security section names the core risk surfaces: points ledger tampering, signer compromise, claim replay, over issuance, and launch phase blind spots. The minimum control set "
+    },
+    {
+      "id": "authored-referral-open-participation-benefits",
+      "title": "Referral Open Participation With Optional Benefits",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-3-phase-c-open-participation-with-optional-benefits",
+        "authored-referral-access-phasing-operating-model"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-open-participation-benefits.md",
+      "bodyMarkdown": "# Referral Open Participation With Optional Benefits\n\nNeelo's long-term access phase removes hard code requirements for core participation. Codes become optional accelerators rather than mandatory gates.\n\nThat target matters because a referral program should not permanently block the product's base network effects. Gating is useful while infrastructure hardens; open participation is the eventual usability goal.\n\n## Optional Does Not Mean Economically Irrelevant\n\nWhen codes stop being mandatory, they can still route benefits, attribution, partner economics, or campaign acceleration. The difference is that a user can participate in the core product without first finding a code.\n\nThe docs should therefore avoid two misleading claims: that all code gates are permanent, or that optional codes have no economic role. The source model is phase-based.\n\n## Publication Boundary\n\nThis page explains the source long-term target. It should not publish the exact date when code gates end, which actions become open first, which benefits remain code-linked, or whether historical users receive backfill until operator and implementation review confirm the public policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Phase C - Open Participation with Optional Benefits\".\n- `spec-03`: Current referral-depth and product-state caveats.\n\n## Related Pages\n\n- `authored-referral-access-gated-launch`\n- `authored-referral-uniform-referee-benefit`\n- `authored-referral-depth-open-question`",
+      "excerpt": "Referral Open Participation With Optional Benefits Neelo's long term access phase removes hard code requirements for core participation. Codes become optional accelerators rather than mandatory gates. That target matters because a referral program should not permanently block the product's base network effects. Gating is useful while infrastructure hardens; open participation is the eventual usability goal. Optional Does Not Mean Economically Irrelevant When codes stop being mandatory, they can still route benefits, attribution, partner economics, or campaign acceleration. The difference is that a user can participate in the core product without first finding a code. The docs should therefore avoid two misleading claims: that all code gates are permanent, or that optional codes have no economic role. The source model is phase based. Publication Boundary This page explains the source long term target. It should not publish the exact date when code gates end, which actions become open first, which benefits remain code linked, or whether historical users receive backfill until operator and implementation review confirm the public policy. Sources vibe papers : Neelo, \"Section 6: Access"
+    },
+    {
+      "id": "authored-referral-phase-migration-requirements",
+      "title": "Referral Phase Migration Requirements",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-5-migration-requirements",
+        "authored-referral-access-phasing-operating-model"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-phase-migration-requirements.md",
+      "bodyMarkdown": "# Referral Phase Migration Requirements\n\nNeelo's access-phasing source says every phase transition should include three migration controls:\n\n- backward compatibility windows;\n- code format migration rules;\n- transparent communication to traders, listers, and partners.\n\nThose controls are the difference between a controlled rollout and a support incident.\n\n## Why Migration Is Economic\n\nReferral access state can become economic state. If a code unlocks trading, attribution, benefits, or claims, then a phase transition can affect who receives credit and what users believe they are eligible for.\n\nBackward compatibility protects existing users and partners from abrupt semantic changes. Format rules prevent old and new code systems from colliding. Transparent communication prevents users from mistaking a migration for a loss of rights.\n\n## Publication Boundary\n\nThis page explains the source migration requirements. It should not publish final migration dates, compatibility windows, old-code treatment, account-merge behavior, partner migration rules, or historical credit treatment until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Migration Requirements\".\n- `spec-03`: Current referral-depth and historical-accounting caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-rights-ownership-model`\n- `authored-referral-policy-governance`",
+      "excerpt": "Referral Phase Migration Requirements Neelo's access phasing source says every phase transition should include three migration controls: backward compatibility windows; code format migration rules; transparent communication to traders, listers, and partners. Those controls are the difference between a controlled rollout and a support incident. Why Migration Is Economic Referral access state can become economic state. If a code unlocks trading, attribution, benefits, or claims, then a phase transition can affect who receives credit and what users believe they are eligible for. Backward compatibility protects existing users and partners from abrupt semantic changes. Format rules prevent old and new code systems from colliding. Transparent communication prevents users from mistaking a migration for a loss of rights. Publication Boundary This page explains the source migration requirements. It should not publish final migration dates, compatibility windows, old code treatment, account merge behavior, partner migration rules, or historical credit treatment until operator, legal, accounting, and implementation review confirm them. Sources vibe papers : Neelo, \"Section 6: Access Phasing\","
     },
     {
       "id": "authored-referral-points-economic-state",
@@ -6377,6 +6478,32 @@
       "file": "content/authored/reference/referral-three-plane-architecture.md",
       "bodyMarkdown": "# Referral Three-Plane Architecture\n\nNeelo's referral architecture splits the stack across three planes:\n\n1. on-chain identity and settlement;\n2. off-chain attribution and policy logic;\n3. user-facing access and claims UX.\n\nThat split is the core architecture. Referral programs need policy agility, but value-bearing claims need settlement integrity.\n\n## Deterministic, Policy, And Monitoring State\n\nThe source also splits state into deterministic state, policy state, and monitoring state.\n\nDeterministic state covers identity, claim consumption, and nonces. Policy state covers tier tables, eligibility gates, and private overlays. Monitoring state covers anomaly detection and reconciliation.\n\nThese boundaries prevent a growth-policy change from silently rewriting economic settlement, and they prevent monitoring tools from becoming hidden policy engines.\n\n## Reader Implication\n\nThe docs should not describe the referral system as only an app feature. It is a multi-plane attribution and settlement system. The exact implementation can evolve, but public docs should preserve the distinction between what is deterministic, what is policy-driven, and what is observed for integrity.\n\n## Publication Boundary\n\nThis page explains the source architecture. It should not publish final contract addresses, signer topology, claim paths, policy tables, monitoring thresholds, or incident controls until implementation and operator review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Component Boundaries\" and \"Trust Boundaries\".\n- `spec-03`: Referral and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-settlement-security-controls`\n- `authored-points-claim-bridge-and-vesting`",
       "excerpt": "Referral Three Plane Architecture Neelo's referral architecture splits the stack across three planes: 1. on chain identity and settlement; 2. off chain attribution and policy logic; 3. user facing access and claims UX. That split is the core architecture. Referral programs need policy agility, but value bearing claims need settlement integrity. Deterministic, Policy, And Monitoring State The source also splits state into deterministic state, policy state, and monitoring state. Deterministic state covers identity, claim consumption, and nonces. Policy state covers tier tables, eligibility gates, and private overlays. Monitoring state covers anomaly detection and reconciliation. These boundaries prevent a growth policy change from silently rewriting economic settlement, and they prevent monitoring tools from becoming hidden policy engines. Reader Implication The docs should not describe the referral system as only an app feature. It is a multi plane attribution and settlement system. The exact implementation can evolve, but public docs should preserve the distinction between what is deterministic, what is policy driven, and what is observed for integrity. Publication Boundary This pa"
+    },
+    {
+      "id": "authored-referral-unified-access-identity",
+      "title": "Referral Unified Access And Identity",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-2-phase-b-unified-access-and-referral-identity",
+        "authored-referral-identity-anchor"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-unified-access-identity.md",
+      "bodyMarkdown": "# Referral Unified Access And Identity\n\nNeelo's second access phase converges access and referral into one identity surface.\n\nThe source gives three reasons for the convergence:\n\n- lower user confusion;\n- cleaner attribution;\n- stronger growth instrumentation.\n\n## Why A Single Surface Helps\n\nIf access codes, referral identity, and reward-eligible referral state are presented as unrelated systems, users will not know which code did what. Support will also struggle to explain which action created attribution and which action unlocked rewards.\n\nA unified identity surface lets the docs explain access, attribution, and growth telemetry in one flow while still keeping reward eligibility as a separate policy state.\n\n## Publication Boundary\n\nThis page explains the source convergence model. It should not publish final account-schema details, identity-token metadata, referral-code migration behavior, activation timing, analytics fields, or user-visible wording until operator and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\", \"Phase B - Unified Access and Referral Identity\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\".\n- `spec-03`: Current referral-depth and product-state caveats.\n\n## Related Pages\n\n- `authored-referral-identity-anchor`\n- `authored-referral-three-plane-architecture`\n- `authored-referral-code-activation-gates`",
+      "excerpt": "Referral Unified Access And Identity Neelo's second access phase converges access and referral into one identity surface. The source gives three reasons for the convergence: lower user confusion; cleaner attribution; stronger growth instrumentation. Why A Single Surface Helps If access codes, referral identity, and reward eligible referral state are presented as unrelated systems, users will not know which code did what. Support will also struggle to explain which action created attribution and which action unlocked rewards. A unified identity surface lets the docs explain access, attribution, and growth telemetry in one flow while still keeping reward eligibility as a separate policy state. Publication Boundary This page explains the source convergence model. It should not publish final account schema details, identity token metadata, referral code migration behavior, activation timing, analytics fields, or user visible wording until operator and implementation review confirm them. Sources vibe papers : Neelo, \"Section 6: Access Phasing\", \"Phase B Unified Access and Referral Identity\". vibe papers : Neelo, \"Section 2: Architecture\". spec 03 : Current referral depth and product sta"
     },
     {
       "id": "authored-referral-uniform-referee-benefit",

@@ -991,3 +991,11 @@
 **Reason:** The broad referral issuance and anti-gaming page explains the economics source, but answer-engine readers need direct routes for why referral programs get gamed, why referee benefits should be uniform, why economically active codes should be gated, what can own referral rights, and why early-code cohorts need explicit sunset rules. Splitting these answers improves precision while preserving the unresolved referral-depth and historical-accounting boundary.
 
 **Status:** Accepted for the authored rewards-reference layer; live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior remain operator/legal/accounting/implementation review.
+
+## D-125: Split Referral Access Phasing Into Exact Phase Answers
+
+**Decision:** Add authored rewards-reference pages for access-gated launch, unified access and referral identity, open participation with optional benefits, phase migration requirements, and referral launch sequencing.
+
+**Reason:** The broad access-phasing page explains the operating model, but answer-engine readers need direct routes for the actual phase states and transition requirements. Splitting these answers makes launch-state questions answerable without turning the source model into live public commitments.
+
+**Status:** Accepted for the authored rewards-reference layer; live beta gates, launch dates, supported sensitive actions, migration windows, code formats, activation timing, transferability, packs, artifacts, partner commitments, and historical credit behavior remain operator/legal/accounting/implementation review.

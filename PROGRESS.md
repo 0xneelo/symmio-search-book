@@ -748,6 +748,12 @@
 - Routed five new Ask questions so users, growth operators, and partners can inspect the anti-gaming mechanics and ownership boundaries directly instead of relying on one broad issuance page.
 - Kept live sybil thresholds, referee benefits, issuance thresholds, campaign grants, transferability, precedence rules, cohort size, propagation depth, sunset timing, and backfill behavior under operator/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Access Phasing Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's access-phasing source: access-gated launch, unified access and referral identity, open participation with optional benefits, phase migration requirements, and referral launch sequencing.
+- Routed five new Ask questions so users, listers, partners, and operators can inspect phase state and transition requirements without treating the source model as final live policy.
+- Kept live beta gates, launch dates, supported sensitive actions, migration windows, code formats, activation timing, transferability, packs, artifacts, partner commitments, and historical credit behavior under operator/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

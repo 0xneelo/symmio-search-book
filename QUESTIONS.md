@@ -418,6 +418,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why gate reward-eligible referral-code issuance? | `authored-referral-qualified-issuance-gating` | Medium | Neelo favors qualified issuance so economically active referral rights are unlocked by activity, tiers, progressive criteria, or campaign grants instead of unrestricted spam. |
 | What can own referral rights? | `authored-referral-rights-ownership-model` | Medium | Neelo says referral rights can be account-bound, NFT-portable, or market-scoped, but the program must define precedence to avoid economic ambiguity. |
 | Why do early-code cohorts need sunset rules? | `authored-referral-early-code-scarcity-cohorts` | Medium | Early-code scarcity can drive launch velocity, but Neelo says cohort size, enhanced-right duration, propagation limits, and sunset rules must prevent permanent centralization. |
+| What is an access-gated referral launch? | `authored-referral-access-gated-launch` | Medium | Neelo's Phase A uses codes for sensitive trading and listing flows so launch risk stays bounded while infrastructure hardens. |
+| Why unify access and referral identity? | `authored-referral-unified-access-identity` | Medium | Neelo's Phase B converges access and referral into one identity surface to reduce confusion, clean attribution, and improve growth instrumentation. |
+| What happens when referral participation opens? | `authored-referral-open-participation-benefits` | Medium | Neelo's Phase C removes hard code requirements for core participation while keeping codes as optional benefit and acceleration layers. |
+| What must happen during a referral phase migration? | `authored-referral-phase-migration-requirements` | Medium | Neelo requires backward compatibility windows, code-format migration rules, and transparent communication for traders, listers, and partners. |
+| How should referral launch sequencing unfold? | `authored-referral-launch-sequencing` | Medium | Neelo sequences access-code beta, referral-code activation, and broader reward-layer expansion so growth can proceed while accounting and abuse controls harden. |
 
 ## Prototype Event Log
 
