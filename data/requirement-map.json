@@ -4,10 +4,9 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 10,
+    "complete": 11,
     "partial": 3,
-    "parked": 4,
-    "missing": 1
+    "parked": 4
   },
   "byCategory": {
     "content": 3,
@@ -20,10 +19,6 @@
     "delivery": 2
   },
   "openOperatorItems": [
-    {
-      "id": 14,
-      "title": "Checkpoint staging approval timed out for Volume 01 reading-order pass"
-    },
     {
       "id": 12,
       "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
@@ -181,7 +176,7 @@
         "06",
         "09"
       ],
-      "evidence": "12 generated gap items, 8 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, localStorage prototype still present for static preview",
+      "evidence": "12 generated gap items, 7 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, localStorage prototype still present for static preview",
       "blocks": [],
       "nextAction": "Install production env, deploy the service plus selected public frontend route, and operate the reviewer workflow against the gated moderation export."
     },
@@ -295,15 +290,15 @@
     {
       "id": "final-report",
       "label": "Final report committed",
-      "status": "missing",
+      "status": "complete",
       "category": "delivery",
       "sourceSpecs": [
         "01",
         "08"
       ],
-      "evidence": "FINAL-REPORT.md exists but does not document current status, verification evidence, remaining production work, and all open operator items.",
+      "evidence": "FINAL-REPORT.md exists and documents 7 open operator item(s).",
       "blocks": [],
-      "nextAction": "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented."
+      "nextAction": "Keep FINAL-REPORT.md current when deploy/source blockers resolve or verification counts change."
     },
     {
       "id": "maintained-core-artifacts",
@@ -373,12 +368,6 @@
       "blocks": [
         "OPERATOR-INBOX #4"
       ]
-    },
-    {
-      "id": "final-report",
-      "status": "missing",
-      "nextAction": "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",
-      "blocks": []
     }
   ]
 }

@@ -26,7 +26,7 @@
     "localFaqCategories": 10,
     "gapQueueItems": 12,
     "gapQueueQuestionSignals": 2,
-    "gapQueueOperatorSignals": 8,
+    "gapQueueOperatorSignals": 7,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
     "answerEngineExactRouteTests": 797,
@@ -99,15 +99,15 @@
     "publicationPlanCandidateReviewPages": 639,
     "publicationPlanStages": 4,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 10,
+    "completionRequirementsComplete": 11,
     "completionRequirementsPartial": 3,
     "completionRequirementsParked": 4,
-    "completionRequirementsMissing": 1,
+    "completionRequirementsMissing": 0,
     "completionReady": false,
     "sourceRegistryKeys": 124,
     "usedSourceKeys": 100,
-    "openOperatorItems": 8,
-    "resolvedOperatorItems": 6,
+    "openOperatorItems": 7,
+    "resolvedOperatorItems": 7,
     "trackedGaps": 12,
     "answerablePrototypeQuestions": 797,
     "reconciliationQuestions": 2
@@ -207,7 +207,7 @@
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
       "passed": true,
-      "detail": "12 queue items, 2 question signals, 8 operator signals, 2 parked pages"
+      "detail": "12 queue items, 2 question signals, 7 operator signals, 2 parked pages"
     },
     {
       "id": "deterministic-answer-engine",
@@ -279,13 +279,13 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "10/18 complete, 3 partial, 4 parked, 1 missing"
+      "detail": "11/18 complete, 3 partial, 4 parked, 0 missing"
     },
     {
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "8 open operator items, 6 resolved"
+      "detail": "7 open operator items, 7 resolved"
     },
     {
       "id": "discord",
@@ -584,10 +584,6 @@
     },
     "openOperatorItems": [
       {
-        "id": 14,
-        "title": "Checkpoint staging approval timed out for Volume 01 reading-order pass"
-      },
-      {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
       },
@@ -830,7 +826,7 @@
     "status": "prototype-gap-queue",
     "totalItems": 12,
     "totalQuestionSignals": 2,
-    "totalOperatorSignals": 8,
+    "totalOperatorSignals": 7,
     "totalParkedPageSignals": 2,
     "byPriority": {
       "P0": 4,
@@ -1348,7 +1344,7 @@
       "internalDraftPages": 3,
       "sourceCatalogEntries": 124,
       "linkedSourceCatalogEntries": 110,
-      "openOperatorItems": 8,
+      "openOperatorItems": 7,
       "gapQueueItems": 12,
       "unknownContextSourceKeys": []
     },
@@ -1417,7 +1413,7 @@
       "answerChunks": 2861,
       "sourceCatalogEntries": 124,
       "pageStatePages": 1593,
-      "openOperatorItems": 8,
+      "openOperatorItems": 7,
       "gapQueueItems": 12
     },
     "failureSummary": {
@@ -1600,8 +1596,8 @@
       "gapQueueItems": 12,
       "questionRouteCount": 797,
       "reconciliationQuestionCount": 2,
-      "operatorSignals": 8,
-      "openOperatorItems": 8,
+      "operatorSignals": 7,
+      "openOperatorItems": 7,
       "byEventType": {
         "question": 5,
         "rating": 3,
@@ -3262,10 +3258,9 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 10,
+      "complete": 11,
       "partial": 3,
-      "parked": 4,
-      "missing": 1
+      "parked": 4
     },
     "byCategory": {
       "content": 3,
@@ -3278,10 +3273,6 @@
       "delivery": 2
     },
     "openOperatorItems": [
-      {
-        "id": 14,
-        "title": "Checkpoint staging approval timed out for Volume 01 reading-order pass"
-      },
       {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
@@ -3364,12 +3355,6 @@
         "blocks": [
           "OPERATOR-INBOX #4"
         ]
-      },
-      {
-        "id": "final-report",
-        "status": "missing",
-        "nextAction": "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",
-        "blocks": []
       }
     ],
     "duplicateRequirementIds": [],
@@ -3377,10 +3362,6 @@
   },
   "unresolved": {
     "operatorInbox": [
-      {
-        "id": 14,
-        "title": "Checkpoint staging approval timed out for Volume 01 reading-order pass"
-      },
       {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
@@ -3605,12 +3586,6 @@
           "OPERATOR-INBOX #4"
         ],
         "nextAction": "Deploy preview after the operator selects platform/repo ownership."
-      },
-      {
-        "id": "final-report",
-        "status": "missing",
-        "blocks": [],
-        "nextAction": "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented."
       }
     ],
     "reconciliationQuestions": [
