@@ -652,6 +652,12 @@
 - Routed five new Ask questions so partner and diligence readers can inspect each primitive beneath the broad architecture-stack answer.
 - Kept live margin formulas, funding/closeout rules, PartyA/PartyB permissions, solver algorithms, vault rights, custody, fee share, and LP loss ordering under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — DDQ Hybrid Liquidity Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ General Introduction source: request-based settlement, near one-to-one backing limits, the USDC vault supply-attack pattern, the hybrid margin/perps liquidity model, and solver-managed asynchronous matching.
+- Routed five new Ask questions so partner, LP, solver, and risk-review readers can inspect why Vibe's stack exists rather than only what primitives it names.
+- Kept quote-validity windows, collateral ratios, attack thresholds, vault exposure caps, LP terms, funding formulas, netting priority, and residual-exposure limits under operator/risk/security/implementation/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

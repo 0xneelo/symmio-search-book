@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 332
+      "totalGoldenRoutes": 337
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 350,
-    "retrievalEligiblePages": 1142,
+    "publicNavigationPages": 355,
+    "retrievalEligiblePages": 1147,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 350,
+      "candidate": 355,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 332,
-    "exactRouteTestsPassing": 332,
+    "totalExactRouteTests": 337,
+    "exactRouteTestsPassing": 337,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 332
+      "candidate": 337
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 151
+      "Low": 156
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -6924,6 +6924,115 @@
         "passes": true
       },
       {
+        "id": "qr-what-role-does-request-based-settlement-play-in-the-ddq-stack",
+        "query": "What role does request-based settlement play in the DDQ stack?",
+        "normalizedQuery": "what role does request based settlement play in the ddq stack",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-request-based-settlement-layer",
+        "expectedPageTitle": "DDQ Request-Based Settlement Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-role-does-request-based-settlement-play-in-the-ddq-stack",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-ddq-criticize-near-one-to-one-backing",
+        "query": "Why does the DDQ criticize near one-to-one backing?",
+        "normalizedQuery": "why does the ddq criticize near one to one backing",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-one-to-one-backing-limit",
+        "expectedPageTitle": "DDQ One-To-One Backing Limit",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-ddq-criticize-near-one-to-one-backing",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-usdc-vault-supply-attack-pattern-in-the-ddq",
+        "query": "What is the USDC vault supply-attack pattern in the DDQ?",
+        "normalizedQuery": "what is the usdc vault supply attack pattern in the ddq",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-usdc-vault-supply-attack",
+        "expectedPageTitle": "DDQ USDC Vault Supply Attack Pattern",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-usdc-vault-supply-attack-pattern-in-the-ddq",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-vibe-s-hybrid-liquidity-model-in-the-ddq",
+        "query": "What is Vibe's hybrid liquidity model in the DDQ?",
+        "normalizedQuery": "what is vibe s hybrid liquidity model in the ddq",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-hybrid-liquidity-model",
+        "expectedPageTitle": "DDQ Hybrid Liquidity Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-vibe-s-hybrid-liquidity-model-in-the-ddq",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-ddq-describe-the-solver-as-an-asynchronous-matching-engine",
+        "query": "Why does the DDQ describe the solver as an asynchronous matching engine?",
+        "normalizedQuery": "why does the ddq describe the solver as an asynchronous matching engine",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-asynchronous-matching-engine",
+        "expectedPageTitle": "DDQ Asynchronous Matching Engine",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-ddq-describe-the-solver-as-an-asynchronous-matching-engine",
+        "passes": true
+      },
+      {
         "id": "qr-who-holds-risk-when-a-trade-is-netted-or-un-netted",
         "query": "Who holds risk when a trade is netted or un-netted?",
         "normalizedQuery": "who holds risk when a trade is netted or un netted",
@@ -7610,7 +7719,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 332,
+      "exactRoutes": 337,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

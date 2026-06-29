@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 339,
-  "totalAnswerable": 332,
+  "totalEntries": 344,
+  "totalAnswerable": 337,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 95,
+    "Solvers And Settlement": 100,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 151
+    "Low": 156
   },
   "byRouteSource": {
-    "authored": 332
+    "authored": 337
   },
   "byType": {
-    "answerable": 332,
+    "answerable": 337,
     "reconciliation": 7
   },
   "answerable": [
@@ -10337,6 +10337,167 @@
       "confidence": "Low",
       "pageId": "authored-ddq-token-vault-liquidity-role",
       "pageTitle": "DDQ Token Vault Liquidity Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-request-based-settlement-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does request-based settlement play in the DDQ stack?",
+      "normalizedQuestion": "what role does request based settlement play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ treats the intent/request layer as the place where solver risk review can happen before a bilateral exposure is accepted.",
+      "answerSummary": "DDQ Request Based Settlement Layer The DDQ introduction names a request based, or intent, settlement layer as one of the six primitives in the Vibe architecture stack. Its role is to make execution conditional on current risk review instead of forcing every trade through a continuously available public book. In this model, a trader submits a request for e...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-request-based-settlement-layer",
+      "pageTitle": "DDQ Request-Based Settlement Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-criticize-near-one-to-one-backing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ criticize near one-to-one backing?",
+      "normalizedQuestion": "why does the ddq criticize near one to one backing",
+      "shortAnswer": "Neelo's DDQ says near 1:1 backing can constrain depth, widen spreads, and limit the scalability of permissionless leverage markets.",
+      "answerSummary": "DDQ One To One Backing Limit The DDQ introduction criticizes earlier on chain permissionless margin designs for requiring near one to one backing at execution time. The problem is not that collateral is bad. The problem is that full backing can turn leverage into a capital heavy product that loses the economic advantage users expect from derivatives. When...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-one-to-one-backing-limit",
+      "pageTitle": "DDQ One-To-One Backing Limit",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-usdc-vault-supply-attack-pattern-in-the-ddq",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the USDC vault supply-attack pattern in the DDQ?",
+      "normalizedQuestion": "what is the usdc vault supply attack pattern in the ddq",
+      "shortAnswer": "Neelo's DDQ warns that generic USDC-backed margin vaults can be stressed when a trader combines spot accumulation, leveraged exposure, and spot selling in thin markets.",
+      "answerSummary": "DDQ USDC Vault Supply Attack Pattern The DDQ introduction names a concrete risk in simple USDC backed permissionless margin vaults. A trader can build a large spot position in a thin asset, open leveraged exposure through the margin protocol, and then use the spot position to push the market against the vault. The source's point is not that every vault wi...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-usdc-vault-supply-attack",
+      "pageTitle": "DDQ USDC Vault Supply Attack Pattern",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-hybrid-liquidity-model-in-the-ddq",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is Vibe's hybrid liquidity model in the DDQ?",
+      "normalizedQuestion": "what is vibe s hybrid liquidity model in the ddq",
+      "shortAnswer": "Neelo's DDQ blends margin mechanics, perpetual lifecycle, solver risk checks, and token inventory instead of relying only on static full backing.",
+      "answerSummary": "DDQ Hybrid Liquidity Model The DDQ introduction describes Vibe's solution as a hybrid liquidity model that blends margin mechanics with perpetuals mechanics. The goal is to improve capital efficiency for LPs while supporting lower trading costs for traders. That hybrid framing matters because it prevents two oversimplifications. Vibe is not just a margin...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-hybrid-liquidity-model",
+      "pageTitle": "DDQ Hybrid Liquidity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-describe-the-solver-as-an-asynchronous-matching-engine",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ describe the solver as an asynchronous matching engine?",
+      "normalizedQuestion": "why does the ddq describe the solver as an asynchronous matching engine",
+      "shortAnswer": "Neelo's DDQ says the solver can bridge time-mismatched long-tail flow, net opposing positions when available, and temporarily act as residual counterparty when necessary.",
+      "answerSummary": "DDQ Asynchronous Matching Engine The DDQ introduction says the solver manages the perpetuals layer as an asynchronous matching engine. It tries to match long and short trader flow without requiring both sides to arrive at the same moment in an order book. When opposing flow exists, exposure can be netted between traders. When opposing flow is missing, the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-asynchronous-matching-engine",
+      "pageTitle": "DDQ Asynchronous Matching Engine",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -21857,6 +22018,167 @@
       "confidence": "Low",
       "pageId": "authored-ddq-token-vault-liquidity-role",
       "pageTitle": "DDQ Token Vault Liquidity Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-request-based-settlement-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does request-based settlement play in the DDQ stack?",
+      "normalizedQuestion": "what role does request based settlement play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ treats the intent/request layer as the place where solver risk review can happen before a bilateral exposure is accepted.",
+      "answerSummary": "DDQ Request Based Settlement Layer The DDQ introduction names a request based, or intent, settlement layer as one of the six primitives in the Vibe architecture stack. Its role is to make execution conditional on current risk review instead of forcing every trade through a continuously available public book. In this model, a trader submits a request for e...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-request-based-settlement-layer",
+      "pageTitle": "DDQ Request-Based Settlement Layer",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-criticize-near-one-to-one-backing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ criticize near one-to-one backing?",
+      "normalizedQuestion": "why does the ddq criticize near one to one backing",
+      "shortAnswer": "Neelo's DDQ says near 1:1 backing can constrain depth, widen spreads, and limit the scalability of permissionless leverage markets.",
+      "answerSummary": "DDQ One To One Backing Limit The DDQ introduction criticizes earlier on chain permissionless margin designs for requiring near one to one backing at execution time. The problem is not that collateral is bad. The problem is that full backing can turn leverage into a capital heavy product that loses the economic advantage users expect from derivatives. When...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-one-to-one-backing-limit",
+      "pageTitle": "DDQ One-To-One Backing Limit",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-usdc-vault-supply-attack-pattern-in-the-ddq",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the USDC vault supply-attack pattern in the DDQ?",
+      "normalizedQuestion": "what is the usdc vault supply attack pattern in the ddq",
+      "shortAnswer": "Neelo's DDQ warns that generic USDC-backed margin vaults can be stressed when a trader combines spot accumulation, leveraged exposure, and spot selling in thin markets.",
+      "answerSummary": "DDQ USDC Vault Supply Attack Pattern The DDQ introduction names a concrete risk in simple USDC backed permissionless margin vaults. A trader can build a large spot position in a thin asset, open leveraged exposure through the margin protocol, and then use the spot position to push the market against the vault. The source's point is not that every vault wi...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-usdc-vault-supply-attack",
+      "pageTitle": "DDQ USDC Vault Supply Attack Pattern",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-vibe-s-hybrid-liquidity-model-in-the-ddq",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is Vibe's hybrid liquidity model in the DDQ?",
+      "normalizedQuestion": "what is vibe s hybrid liquidity model in the ddq",
+      "shortAnswer": "Neelo's DDQ blends margin mechanics, perpetual lifecycle, solver risk checks, and token inventory instead of relying only on static full backing.",
+      "answerSummary": "DDQ Hybrid Liquidity Model The DDQ introduction describes Vibe's solution as a hybrid liquidity model that blends margin mechanics with perpetuals mechanics. The goal is to improve capital efficiency for LPs while supporting lower trading costs for traders. That hybrid framing matters because it prevents two oversimplifications. Vibe is not just a margin...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-hybrid-liquidity-model",
+      "pageTitle": "DDQ Hybrid Liquidity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-describe-the-solver-as-an-asynchronous-matching-engine",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ describe the solver as an asynchronous matching engine?",
+      "normalizedQuestion": "why does the ddq describe the solver as an asynchronous matching engine",
+      "shortAnswer": "Neelo's DDQ says the solver can bridge time-mismatched long-tail flow, net opposing positions when available, and temporarily act as residual counterparty when necessary.",
+      "answerSummary": "DDQ Asynchronous Matching Engine The DDQ introduction says the solver manages the perpetuals layer as an asynchronous matching engine. It tries to match long and short trader flow without requiring both sides to arrive at the same moment in an order book. When opposing flow exists, exposure can be netted between traders. When opposing flow is missing, the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-asynchronous-matching-engine",
+      "pageTitle": "DDQ Asynchronous Matching Engine",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

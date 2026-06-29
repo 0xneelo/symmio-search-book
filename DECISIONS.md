@@ -863,3 +863,11 @@
 **Reason:** The broad DDQ architecture-stack page names the six primitives, but partner and diligence readers need exact answers for what each primitive contributes. Splitting the stack makes it easier to explain why Vibe is not merely a margin vault, not merely a perp UI, and not merely an LP pool: collateral discipline, perpetual lifecycle, bilateral counterparty formation, solver risk operation, and token inventory each do different work.
 
 **Status:** Accepted for the authored protocol-reference layer; live margin formulas, funding/closeout rules, PartyA/PartyB permissions, solver algorithms, vault rights, custody, fee share, and LP loss ordering remain operator/implementation/legal/accounting review.
+
+## D-109: Split DDQ Hybrid Liquidity Mechanics Into Exact Answers
+
+**Decision:** Add authored protocol-reference pages for the DDQ request-based settlement layer, near one-to-one backing limit, USDC vault supply-attack pattern, hybrid liquidity model, and asynchronous matching engine.
+
+**Reason:** The broad DDQ architecture-stack page and primitive pages explain what is in the stack, but diligence readers also need exact routes for why the stack exists. Splitting these mechanics makes the risk argument inspectable: request-based settlement supports pre-acceptance risk review, near 1:1 backing can become too capital hungry, generic USDC vaults can be attacked in thin markets, the hybrid model assigns capital by risk type, and asynchronous matching bridges time-mismatched flow without pretending a mature book exists.
+
+**Status:** Accepted for the authored protocol-reference layer; quote validity, collateral ratios, attack thresholds, vault exposure caps, LP terms, funding formulas, netting priority, and residual-exposure limits remain operator/risk/security/implementation/accounting review.
