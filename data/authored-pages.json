@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 551,
+  "totalPages": 556,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 402,
+    "publication-candidate-needs-operator-review": 407,
     "publication-candidate": 130,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 273,
+    "manifesto": 278,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -3981,6 +3981,29 @@
       "excerpt": "Attack Risk Is Incentive Based The risk premium source rejects a weak framing of low cap perp attacks: \"what is the probability of a strange price move?\" The stronger framing is economic: what does it cost to move the market, and what can be extracted from the resulting bad debt? That matters because rational attackers do not need a rare random event. They need a profitable trade. If open interest, leverage, oracle design, and spot market depth create a path where expected extraction exceeds manipulation cost, the risk becomes structural. For docs, this changes the risk vocabulary. Thin liquidity, fast blocks, delayed liquidation, and net long/short imbalance are not independent footnotes. They can combine into one incentive surface. A market can be unsafe precisely when its headline growth metrics look exciting. Why It Belongs In The Compendium Permissionless market creation only works if the docs teach adversarial economics. A reader should understand that \"long tail\" means more than smaller assets. It means lower manipulation cost, weaker liquidation depth, more concentrated inventory, and more path dependent risk. Publication Note The source uses stylized examples and aggressiv"
     },
     {
+      "id": "authored-industry-migration-stable-settlement",
+      "title": "Industry Migration Toward Stable Settlement",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "authored-inverse-product-retreat-precedent",
+        "authored-drift-luna-token-collateral-precedent"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/industry-migration-stable-settlement.md",
+      "bodyMarkdown": "# Industry Migration Toward Stable Settlement\n\nNeelo's conclusion frames the historical pattern as an industry vote: systems that encounter inverse or token-collateral stress tend to move toward stable settlement, active risk management, hard limits, or product deprecation.\n\nThe source names BitMEX's move toward USDC-margined linear contracts, Drift's movement after LUNA, and Synthetix's inverse-synth deprecation as part of the same trajectory. The point is not that every venue made the same design. The point is that inverse reflexive risk becomes expensive enough that mature systems route away from it or box it in.\n\n## How To Use The Precedent\n\nThis page should be used as directional evidence, not as a substitute for fresh venue histories. Each example needs current primary-source review before final public publication. But as a pattern, it supports the compendium's core claim: token-margined inverse exposure is not merely hard for immature systems. Even stronger systems tend to limit or replace it when volatility makes the liability shape too costly.\n\nVibe's architecture aligns with that direction by making settlement linear, keeping inventory separate, and using active controls before forced deleveraging.\n\n## Reader Implication\n\nWhen a reader asks whether Vibe is over-engineering by avoiding inverse token settlement, route here. The historical pattern says stable settlement and active risk controls are not extra caution; they are where derivatives systems tend to move after inverse stress teaches the lesson.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.4 The Market Has Voted\".\n\n## Related Pages\n\n- `authored-inverse-product-retreat-precedent`\n- `authored-drift-luna-token-collateral-precedent`\n- `authored-futureswap-toxic-arbitrage-precedent`",
+      "excerpt": "Industry Migration Toward Stable Settlement Neelo's conclusion frames the historical pattern as an industry vote: systems that encounter inverse or token collateral stress tend to move toward stable settlement, active risk management, hard limits, or product deprecation. The source names BitMEX's move toward USDC margined linear contracts, Drift's movement after LUNA, and Synthetix's inverse synth deprecation as part of the same trajectory. The point is not that every venue made the same design. The point is that inverse reflexive risk becomes expensive enough that mature systems route away from it or box it in. How To Use The Precedent This page should be used as directional evidence, not as a substitute for fresh venue histories. Each example needs current primary source review before final public publication. But as a pattern, it supports the compendium's core claim: token margined inverse exposure is not merely hard for immature systems. Even stronger systems tend to limit or replace it when volatility makes the liability shape too costly. Vibe's architecture aligns with that direction by making settlement linear, keeping inventory separate, and using active controls before for"
+    },
+    {
       "id": "authored-information-systems-need-market-validation",
       "title": "Information Systems Need Market Validation",
       "section": "manifesto",
@@ -5923,6 +5946,52 @@
       "file": "content/authored/manifesto/percolator-pluggable-matcher-boundary.md",
       "bodyMarkdown": "# Percolator Pluggable Matcher Boundary\n\nNeelo's Section 7 credits Percolator's pluggable matcher architecture as a real engineering achievement. The risk engine can be kept separate from pricing and execution logic, while matchers can be built around AMM, RFQ, or CLOB-style behavior through CPI-based integration.\n\nThat boundary is valuable because it prevents one matcher design from becoming the whole protocol. A market can experiment with execution logic while the core accounting and validation layer remains more stable. In a purely technical comparison, this modularity is a strength.\n\nThe economic caveat is that matcher modularity does not change what the market is margined and settled in. If collateral, fees, funding, profit, and loss are all token-denominated, a better matcher can improve execution quality but cannot remove inverse payoff risk, LP short-volatility exposure, or token-collateral reflexivity.\n\n## Why This Is A Fair-Critique Page\n\nThe point is not to deny Percolator's flexibility. The point is to locate it. Pluggable matchers solve an execution-interface problem. They do not by themselves solve the settlement, collateral, oracle, and payout-credibility problems described elsewhere in the Percolator critique.\n\n## Reader Implication\n\nWhen a reader asks whether Percolator is technically rigid, route here. The source-backed answer is no: the matcher layer is modular. The follow-up is that modular execution still inherits the economic model underneath it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\", \"7.1 Engineering Achievements\".\n\n## Related Pages\n\n- `authored-percolator-hybrid-risk-execution-model`\n- `authored-rfq-before-order-book`\n- `authored-passive-matcher-vulnerability`",
       "excerpt": "Percolator Pluggable Matcher Boundary Neelo's Section 7 credits Percolator's pluggable matcher architecture as a real engineering achievement. The risk engine can be kept separate from pricing and execution logic, while matchers can be built around AMM, RFQ, or CLOB style behavior through CPI based integration. That boundary is valuable because it prevents one matcher design from becoming the whole protocol. A market can experiment with execution logic while the core accounting and validation layer remains more stable. In a purely technical comparison, this modularity is a strength. The economic caveat is that matcher modularity does not change what the market is margined and settled in. If collateral, fees, funding, profit, and loss are all token denominated, a better matcher can improve execution quality but cannot remove inverse payoff risk, LP short volatility exposure, or token collateral reflexivity. Why This Is A Fair Critique Page The point is not to deny Percolator's flexibility. The point is to locate it. Pluggable matchers solve an execution interface problem. They do not by themselves solve the settlement, collateral, oracle, and payout credibility problems described el"
+    },
+    {
+      "id": "authored-percolator-proof-of-concept-boundary",
+      "title": "Percolator Proof Of Concept Boundary",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "authored-percolator-formal-verification-boundary",
+        "authored-fully-on-chain-keeper-model"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-proof-of-concept-boundary.md",
+      "bodyMarkdown": "# Percolator Proof Of Concept Boundary\n\nNeelo's conclusion gives Percolator a precise place: it is a strong technology demonstration of a fully on-chain, formally verified derivatives engine with pluggable execution and clean accounting.\n\nThat credit matters. Percolator shows that an on-chain risk engine can enforce local balance-sheet rules and expose execution to inspection. It is not dismissed as unserious engineering.\n\nThe boundary is financial product suitability. The source argues that for volatile assets, especially low-cap or meme assets, the token-margined model remains structurally unsound even if the program is elegant.\n\n## Engineering Validity Versus Product Robustness\n\nA proof of concept can prove that a mechanism can run. It does not automatically prove that the mechanism creates sustainable markets for the assets users most want to trade.\n\nThis distinction keeps the critique fair. The compendium should not claim that formal verification is irrelevant. It should say formal verification answers one question: does the system enforce the rules it wrote down? The economic critique asks another: are those rules the right balance-sheet rules for volatile long-tail perps?\n\n## Reader Implication\n\nWhen a reader asks whether Percolator is a failure, route here. The answer is more precise: as a technology demonstration, it is significant; as a general low-cap perp product model, the source argues the token-margined architecture is the wrong economic foundation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.2 Percolator's Place\".\n\n## Related Pages\n\n- `authored-percolator-formal-verification-boundary`\n- `authored-fully-on-chain-keeper-model`\n- `authored-engineering-fix-economics-limit`",
+      "excerpt": "Percolator Proof Of Concept Boundary Neelo's conclusion gives Percolator a precise place: it is a strong technology demonstration of a fully on chain, formally verified derivatives engine with pluggable execution and clean accounting. That credit matters. Percolator shows that an on chain risk engine can enforce local balance sheet rules and expose execution to inspection. It is not dismissed as unserious engineering. The boundary is financial product suitability. The source argues that for volatile assets, especially low cap or meme assets, the token margined model remains structurally unsound even if the program is elegant. Engineering Validity Versus Product Robustness A proof of concept can prove that a mechanism can run. It does not automatically prove that the mechanism creates sustainable markets for the assets users most want to trade. This distinction keeps the critique fair. The compendium should not claim that formal verification is irrelevant. It should say formal verification answers one question: does the system enforce the rules it wrote down? The economic critique asks another: are those rules the right balance sheet rules for volatile long tail perps? Reader Implic"
+    },
+    {
+      "id": "authored-percolator-seven-failure-mode-synthesis",
+      "title": "Percolator Seven Failure Mode Synthesis",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "authored-token-margined-reflexivity-risk",
+        "authored-linear-pnl-versus-hyperbolic-payout"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-seven-failure-mode-synthesis.md",
+      "bodyMarkdown": "# Percolator Seven Failure Mode Synthesis\n\nNeelo's conclusion compresses the Percolator critique into seven model-level failures: reflexive collateral, inverse negative convexity, LP lose-lose economics, near one-to-one collateral requirements, oracle paradoxes, manipulation amplification, and death-spiral payout behavior.\n\nThe important phrase is model-level. The conclusion does not argue that every failure comes from sloppy code. It argues that a token-margined inverse design makes the same volatile asset carry too many jobs at once: collateral, exposure, inventory, payout, fees, and insurance.\n\n## Why The Failures Reinforce\n\nEach failure is easier to understand alone, but the risk becomes dangerous because they cluster. Reflexive collateral weakens when the market moves. Negative convexity expands the token-denominated payout obligation. LPs are short volatility. Oracle defenses can create latency arbitrage or open flash-manipulation paths. If the system then uses ADL, it preserves accounting by weakening payout credibility.\n\nThat is why this conclusion page should route readers into the detailed mechanics rather than replace them. The list is a map of the failure stack.\n\n## Reader Implication\n\nWhen a reader asks for the short version of the Percolator critique, route here. The answer is that the failure modes are not seven disconnected bugs; they are seven consequences of concentrating low-cap perp risk in a token-margined inverse architecture.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.1 Summary of Failure Modes\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-linear-pnl-versus-hyperbolic-payout`\n- `authored-adl-haircut-controlled-crash`",
+      "excerpt": "Percolator Seven Failure Mode Synthesis Neelo's conclusion compresses the Percolator critique into seven model level failures: reflexive collateral, inverse negative convexity, LP lose lose economics, near one to one collateral requirements, oracle paradoxes, manipulation amplification, and death spiral payout behavior. The important phrase is model level. The conclusion does not argue that every failure comes from sloppy code. It argues that a token margined inverse design makes the same volatile asset carry too many jobs at once: collateral, exposure, inventory, payout, fees, and insurance. Why The Failures Reinforce Each failure is easier to understand alone, but the risk becomes dangerous because they cluster. Reflexive collateral weakens when the market moves. Negative convexity expands the token denominated payout obligation. LPs are short volatility. Oracle defenses can create latency arbitrage or open flash manipulation paths. If the system then uses ADL, it preserves accounting by weakening payout credibility. That is why this conclusion page should route readers into the detailed mechanics rather than replace them. The list is a map of the failure stack. Reader Implicatio"
     },
     {
       "id": "authored-percolator-sov-insurance-deflation-model",
@@ -11170,6 +11239,29 @@
       "excerpt": "Why The Funding Model Needs Two Utilization Modes Neelo's funding model uses two utilization modes because a single number cannot tell the system which defense layer is actually binding. The first mode measures exposure against token inventory. This is the normal inventory constraint: how much market exposure is being carried relative to the tokens or market specific inventory available to manage it. It is immediate, operational, and useful for ordinary pricing pressure. The second mode measures expected loss against insurance budget. This is a tail risk constraint. It matters when exposure has moved beyond the ordinary inventory frame and the question becomes whether local or eligible shared insurance can absorb the modeled stress. The source comparison treats this mode as more aggressive: it can activate insurance spend and ADL consideration where token inventory mode does not. Why One Mode Is Not Enough If the system only measured token inventory, it would struggle to distinguish \"slightly past inventory but still defensible\" from \"insurance is nearly exhausted.\" If it only measured insurance, it would overuse tail risk language for ordinary inventory pressure. The two mode desi"
     },
     {
+      "id": "authored-two-questions-permissionless-perps",
+      "title": "Two Questions For Permissionless Perps",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "authored-vibe-percolator-trustlessness-tradeoff",
+        "authored-usdc-hybrid-path-forward"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/two-questions-permissionless-perps.md",
+      "bodyMarkdown": "# Two Questions For Permissionless Perps\n\nNeelo's conclusion reduces the Vibe-versus-Percolator debate to two different questions.\n\nPercolator asks whether a fully on-chain, formally verified, trustless derivatives engine can be built. The source's answer is yes. The engineering is impressive, but the token-margined economic model is structurally unsuitable for volatile assets.\n\nVibe asks whether permissionless perpetuals can be economically sustainable, LP-friendly, and safe for low-cap assets. The source's answer is also yes, but only through a different architecture: separate settlement from inventory, introduce active risk management, use defense-in-depth, and mutualize risk across markets.\n\n## Why This Framing Matters\n\nThe two systems optimize for different truths. Percolator proves a mechanical possibility. Vibe tries to solve the market-design problem that remains after mechanical possibility is achieved.\n\nThat is why the comparison should not be flattened into \"trustless versus centralized\" or \"on-chain versus off-chain.\" The more useful question is what each architecture can guarantee under low-cap stress.\n\n## Reader Implication\n\nWhen a reader wants the final takeaway from the Percolator sequence, route here. The answer is that Percolator solves the trustless-engine question better, while Vibe is designed around the harder economic question of making permissionless long-tail perps survive.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.5 Two Questions, Two Answers\".\n\n## Related Pages\n\n- `authored-vibe-percolator-trustlessness-tradeoff`\n- `authored-usdc-hybrid-path-forward`\n- `authored-percolator-proof-of-concept-boundary`",
+      "excerpt": "Two Questions For Permissionless Perps Neelo's conclusion reduces the Vibe versus Percolator debate to two different questions. Percolator asks whether a fully on chain, formally verified, trustless derivatives engine can be built. The source's answer is yes. The engineering is impressive, but the token margined economic model is structurally unsuitable for volatile assets. Vibe asks whether permissionless perpetuals can be economically sustainable, LP friendly, and safe for low cap assets. The source's answer is also yes, but only through a different architecture: separate settlement from inventory, introduce active risk management, use defense in depth, and mutualize risk across markets. Why This Framing Matters The two systems optimize for different truths. Percolator proves a mechanical possibility. Vibe tries to solve the market design problem that remains after mechanical possibility is achieved. That is why the comparison should not be flattened into \"trustless versus centralized\" or \"on chain versus off chain.\" The more useful question is what each architecture can guarantee under low cap stress. Reader Implication When a reader wants the final takeaway from the Percolator "
+    },
+    {
       "id": "authored-universal-issuance-needs-derivatives",
       "title": "Universal Issuance Needs Derivatives",
       "section": "manifesto",
@@ -11239,6 +11331,29 @@
       "file": "content/authored/manifesto/usdc-expected-loss-decomposition.md",
       "bodyMarkdown": "# USDC Expected Loss Decomposition\n\nThe risk-premium source decomposes expected annual protocol loss into event frequency and event severity:\n\n```\nEL_I = sum_j (p_j * L_j)\n```\n\nIn that frame, a USDC LP is not exposed to one generic \"protocol risk.\" The LP can be exposed to price-manipulation attacks, oracle manipulation, net-position imbalance, liquidation failure, backstop correlation, and smart-contract exploits. Each event has a different cause, frequency model, and severity profile.\n\nThis decomposition prevents the docs from collapsing all loss into trader PnL. Directional trader PnL is zero-sum inside the trading relationship. The expected-loss model is about protocol-level tail and design risk: bad debt, failed liquidations, backstop depletion, correlated stress, and other losses that can reach capital providers.\n\n## How To Use It\n\nFor public docs, the useful answer is the structure: name the event, identify whether it is economic, operational, correlation-based, or technical, and separate frequency from severity. The exact percentages in the source should remain model outputs until reviewed against current implementation, live market data, and approved publication language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Expected Annual Protocol Loss Model.\n\n## Related Pages\n\n- `authored-usdc-lp-backstop-cascade`\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-stress-correlation-cascade`",
       "excerpt": "USDC Expected Loss Decomposition The risk premium source decomposes expected annual protocol loss into event frequency and event severity: In that frame, a USDC LP is not exposed to one generic \"protocol risk.\" The LP can be exposed to price manipulation attacks, oracle manipulation, net position imbalance, liquidation failure, backstop correlation, and smart contract exploits. Each event has a different cause, frequency model, and severity profile. This decomposition prevents the docs from collapsing all loss into trader PnL. Directional trader PnL is zero sum inside the trading relationship. The expected loss model is about protocol level tail and design risk: bad debt, failed liquidations, backstop depletion, correlated stress, and other losses that can reach capital providers. How To Use It For public docs, the useful answer is the structure: name the event, identify whether it is economic, operational, correlation based, or technical, and separate frequency from severity. The exact percentages in the source should remain model outputs until reviewed against current implementation, live market data, and approved publication language. Sources vibe papers : Neelo, \"Required APR D"
+    },
+    {
+      "id": "authored-usdc-hybrid-path-forward",
+      "title": "USDC Hybrid Path Forward",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-10-conclusion",
+        "authored-usdc-settlement-inventory-separation",
+        "authored-vibe-percolator-defense-hierarchy-comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-hybrid-path-forward.md",
+      "bodyMarkdown": "# USDC Hybrid Path Forward\n\nNeelo's conclusion says the path forward for permissionless low-cap perpetuals is a USDC-margined hybrid architecture with active risk management.\n\nThe path has four parts. First, separate inventory providers from the settlement layer. Token holders can provide market-specific inventory, while USDC reserves support linear settlement. Second, use solvers to manage pricing, funding, and insurance. Third, put defense-in-depth before ADL. Fourth, mutualize risk across markets when policy allows it instead of forcing every market to survive alone.\n\n## Why \"Hybrid\" Is The Point\n\nThe source is not arguing for a generic passive USDC vault. Earlier USDC-risk pages explain why generic stablecoin backstops can become expensive for low-cap markets. The conclusion argues for a hybrid design: stable settlement plus market-specific inventory plus active solver controls plus governed insurance layers.\n\nThat hybrid shape matters because each resource has a different natural job. USDC makes PnL legible. Token inventory aligns market-specific risk. Solvers price and hedge. Local and global protection layers decide what absorbs stress before ADL.\n\n## Reader Implication\n\nWhen a reader asks what architecture replaces token-margined inverse perps, route here. The answer is not simply \"use USDC.\" It is separate settlement from inventory, add active solver control, build defense-in-depth, and mutualize risk carefully.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\", \"10.3 The Path Forward\".\n\n## Related Pages\n\n- `authored-usdc-settlement-inventory-separation`\n- `authored-vibe-percolator-defense-hierarchy-comparison`\n- `authored-cross-market-risk-mutualization`",
+      "excerpt": "USDC Hybrid Path Forward Neelo's conclusion says the path forward for permissionless low cap perpetuals is a USDC margined hybrid architecture with active risk management. The path has four parts. First, separate inventory providers from the settlement layer. Token holders can provide market specific inventory, while USDC reserves support linear settlement. Second, use solvers to manage pricing, funding, and insurance. Third, put defense in depth before ADL. Fourth, mutualize risk across markets when policy allows it instead of forcing every market to survive alone. Why \"Hybrid\" Is The Point The source is not arguing for a generic passive USDC vault. Earlier USDC risk pages explain why generic stablecoin backstops can become expensive for low cap markets. The conclusion argues for a hybrid design: stable settlement plus market specific inventory plus active solver controls plus governed insurance layers. That hybrid shape matters because each resource has a different natural job. USDC makes PnL legible. Token inventory aligns market specific risk. Solvers price and hedge. Local and global protection layers decide what absorbs stress before ADL. Reader Implication When a reader asks"
     },
     {
       "id": "authored-usdc-lp-backstop-cascade",

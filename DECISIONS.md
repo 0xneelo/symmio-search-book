@@ -1056,6 +1056,14 @@
 
 **Status:** Accepted for the authored rewards-reference layer; live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, market support, legal disclosures, and derivative product policy remain operator/legal/product/security/accounting/implementation review.
 
+## D-149: Split Percolator Conclusion Into Exact Synthesis Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the seven-failure-mode synthesis, Percolator proof-of-concept boundary, USDC-hybrid path forward, industry migration toward stable settlement, and the two-question framing for permissionless perps.
+
+**Reason:** Section 10 is the conclusion layer for the Percolator sequence. Exact summary routes let answer-engine readers ask for the takeaway without losing the fair distinction between technical proof, economic suitability, historical precedent, and Vibe's positive architecture claim.
+
+**Status:** Accepted for the authored manifesto layer; third-party historical examples, live Vibe/Percolator implementation details, solver policy, insurance policy, cross-market mutualization, LP terms, and final comparative public claims remain fresh primary-source/operator/security/risk/legal/implementation review.
+
 ## D-148: Split Percolator Full Comparison Into Exact Head-To-Head Answers
 
 **Decision:** Add authored Volume 04 manifesto pages for Vibe-versus-Percolator settlement/collateral architecture, LP-versus-solver economics, defense hierarchy, oracle execution, and the trustlessness/economic-design tradeoff.

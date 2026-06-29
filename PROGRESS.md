@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Conclusion Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 10 conclusion source.
+- Split the conclusion into exact answer routes for the seven-failure-mode synthesis, Percolator's proof-of-concept boundary, the USDC-hybrid path forward, industry migration toward stable settlement, and the two-question framing for Percolator versus Vibe.
+- Extended the question ledger so Ask can route summary questions that ask for the conclusion, not only the earlier detailed mechanics.
+- Kept third-party historical examples, live Vibe/Percolator implementation details, solver policy, insurance policy, cross-market mutualization, LP terms, and final public comparative claims marked for fresh primary-source/operator/security/risk/legal/implementation review.
+
 ## 2026-06-29 — Percolator Comparison Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 9 full-comparison source.
