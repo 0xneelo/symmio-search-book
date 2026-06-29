@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 534,
-  "totalAnswerable": 527,
+  "totalEntries": 539,
+  "totalAnswerable": 532,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,8 +17,8 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 150,
-    "Risk And Markets": 57,
+    "Solvers And Settlement": 152,
+    "Risk And Markets": 60,
     "Revenue": 75,
     "Manifesto": 72,
     "Rewards And Referrals": 78,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 307,
+    "Medium": 312,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 527
+    "authored": 532
   },
   "byType": {
-    "answerable": 527,
+    "answerable": 532,
     "reconciliation": 7
   },
   "answerable": [
@@ -17337,6 +17337,151 @@
       "confidence": "Medium",
       "pageId": "authored-cross-margin-capital-fungibility",
       "pageTitle": "Cross-Margin Capital Fungibility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-on-settlement-and-collateral",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe and Percolator differ on settlement and collateral?",
+      "normalizedQuestion": "how do vibe and percolator differ on settlement and collateral",
+      "shortAnswer": "Neelo's Section 9 contrasts token-settled, token-collateralized Percolator with Vibe's USDC settlement and separated token inventory.",
+      "answerSummary": "Vibe And Percolator Settlement Collateral Comparison Neelo's full comparison starts with the settlement unit because it controls the whole stress path. Percolator is described as token settled and token collateralized. The traded asset, trader collateral, inventory vault, fee unit, payout unit, and insurance denomination can all collapse toward the same v...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-settlement-collateral-comparison",
+      "pageTitle": "Vibe And Percolator Settlement Collateral Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-for-lps-and-solvers",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe and Percolator differ for LPs and solvers?",
+      "normalizedQuestion": "how do vibe and percolator differ for lps and solvers",
+      "shortAnswer": "Neelo's comparison separates Percolator LPs as full counterparties from Vibe's solver-managed counterparty and market-specific inventory model.",
+      "answerSummary": "Vibe And Percolator LP Solver Economics Comparison Neelo's comparison separates the Percolator LP role from the Vibe solver and inventory provider roles. In Percolator, LPs are framed as direct counterparties to trader PnL. They provide token inventory and absorb the short volatility profile of the market. If the token pumps, LPs can lose tokens and under...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-lp-solver-economics-comparison",
+      "pageTitle": "Vibe And Percolator LP Solver Economics Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-s-defense-hierarchy-compare-with-percolator-s-adl-path",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does Vibe's defense hierarchy compare with Percolator's ADL path?",
+      "normalizedQuestion": "how does vibe s defense hierarchy compare with percolator s adl path",
+      "shortAnswer": "Neelo's Section 9 contrasts Percolator's passive margin-to-ADL path with Vibe's netting, inventory, local insurance, global insurance, and last-resort ADL hierarchy.",
+      "answerSummary": "Vibe And Percolator Defense Hierarchy Comparison Neelo's Section 9 compares passive invariant checking with active defense hierarchy. Percolator's defense path is narrow. Margin is checked, local accounting is conserved, and when imbalance or stress exceeds what the market can handle, ADL or payout haircut becomes the safety valve. The market can remain f...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-defense-hierarchy-comparison",
+      "pageTitle": "Vibe And Percolator Defense Hierarchy Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-on-oracle-execution",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How do Vibe and Percolator differ on oracle execution?",
+      "normalizedQuestion": "how do vibe and percolator differ on oracle execution",
+      "shortAnswer": "Neelo frames Percolator as oracle-driven deterministic execution and Vibe as solver-quoted execution where the oracle is a reference input.",
+      "answerSummary": "Vibe And Percolator Oracle Execution Comparison Neelo's comparison treats oracle design as an execution design problem, not only as a data source problem. Percolator is described as depending on an on chain oracle and deterministic matcher logic. That gives clear state transitions, but it can also create predictable latency windows. If the oracle lags or...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-oracle-execution-comparison",
+      "pageTitle": "Vibe And Percolator Oracle Execution Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-tradeoff-does-vibe-accept-compared-with-percolator-s-trustlessness",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What tradeoff does Vibe accept compared with Percolator's trustlessness?",
+      "normalizedQuestion": "what tradeoff does vibe accept compared with percolator s trustlessness",
+      "shortAnswer": "Neelo credits Percolator's trustlessness, verification, and fully on-chain simplicity while arguing Vibe accepts hybrid complexity to solve economic and risk-management failure modes.",
+      "answerSummary": "Vibe And Percolator Trustlessness Tradeoff Neelo's head to head matrix does not say Percolator has no strengths. It says Percolator wins on trustlessness, formal verification, simplicity, and fully on chain execution, while Vibe wins on the economic and risk management dimensions needed for volatile long tail perps. That is the honest comparison. Percolat...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-trustlessness-tradeoff",
+      "pageTitle": "Vibe And Percolator Trustlessness Tradeoff",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -35000,6 +35145,151 @@
       "confidence": "Medium",
       "pageId": "authored-cross-margin-capital-fungibility",
       "pageTitle": "Cross-Margin Capital Fungibility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-on-settlement-and-collateral",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe and Percolator differ on settlement and collateral?",
+      "normalizedQuestion": "how do vibe and percolator differ on settlement and collateral",
+      "shortAnswer": "Neelo's Section 9 contrasts token-settled, token-collateralized Percolator with Vibe's USDC settlement and separated token inventory.",
+      "answerSummary": "Vibe And Percolator Settlement Collateral Comparison Neelo's full comparison starts with the settlement unit because it controls the whole stress path. Percolator is described as token settled and token collateralized. The traded asset, trader collateral, inventory vault, fee unit, payout unit, and insurance denomination can all collapse toward the same v...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-settlement-collateral-comparison",
+      "pageTitle": "Vibe And Percolator Settlement Collateral Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-for-lps-and-solvers",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do Vibe and Percolator differ for LPs and solvers?",
+      "normalizedQuestion": "how do vibe and percolator differ for lps and solvers",
+      "shortAnswer": "Neelo's comparison separates Percolator LPs as full counterparties from Vibe's solver-managed counterparty and market-specific inventory model.",
+      "answerSummary": "Vibe And Percolator LP Solver Economics Comparison Neelo's comparison separates the Percolator LP role from the Vibe solver and inventory provider roles. In Percolator, LPs are framed as direct counterparties to trader PnL. They provide token inventory and absorb the short volatility profile of the market. If the token pumps, LPs can lose tokens and under...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-lp-solver-economics-comparison",
+      "pageTitle": "Vibe And Percolator LP Solver Economics Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-vibe-s-defense-hierarchy-compare-with-percolator-s-adl-path",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does Vibe's defense hierarchy compare with Percolator's ADL path?",
+      "normalizedQuestion": "how does vibe s defense hierarchy compare with percolator s adl path",
+      "shortAnswer": "Neelo's Section 9 contrasts Percolator's passive margin-to-ADL path with Vibe's netting, inventory, local insurance, global insurance, and last-resort ADL hierarchy.",
+      "answerSummary": "Vibe And Percolator Defense Hierarchy Comparison Neelo's Section 9 compares passive invariant checking with active defense hierarchy. Percolator's defense path is narrow. Margin is checked, local accounting is conserved, and when imbalance or stress exceeds what the market can handle, ADL or payout haircut becomes the safety valve. The market can remain f...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-defense-hierarchy-comparison",
+      "pageTitle": "Vibe And Percolator Defense Hierarchy Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-and-percolator-differ-on-oracle-execution",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How do Vibe and Percolator differ on oracle execution?",
+      "normalizedQuestion": "how do vibe and percolator differ on oracle execution",
+      "shortAnswer": "Neelo frames Percolator as oracle-driven deterministic execution and Vibe as solver-quoted execution where the oracle is a reference input.",
+      "answerSummary": "Vibe And Percolator Oracle Execution Comparison Neelo's comparison treats oracle design as an execution design problem, not only as a data source problem. Percolator is described as depending on an on chain oracle and deterministic matcher logic. That gives clear state transitions, but it can also create predictable latency windows. If the oracle lags or...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-oracle-execution-comparison",
+      "pageTitle": "Vibe And Percolator Oracle Execution Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-tradeoff-does-vibe-accept-compared-with-percolator-s-trustlessness",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What tradeoff does Vibe accept compared with Percolator's trustlessness?",
+      "normalizedQuestion": "what tradeoff does vibe accept compared with percolator s trustlessness",
+      "shortAnswer": "Neelo credits Percolator's trustlessness, verification, and fully on-chain simplicity while arguing Vibe accepts hybrid complexity to solve economic and risk-management failure modes.",
+      "answerSummary": "Vibe And Percolator Trustlessness Tradeoff Neelo's head to head matrix does not say Percolator has no strengths. It says Percolator wins on trustlessness, formal verification, simplicity, and fully on chain execution, while Vibe wins on the economic and risk management dimensions needed for volatile long tail perps. That is the honest comparison. Percolat...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-percolator-trustlessness-tradeoff",
+      "pageTitle": "Vibe And Percolator Trustlessness Tradeoff",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",

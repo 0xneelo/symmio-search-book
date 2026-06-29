@@ -533,6 +533,11 @@ Questions are grouped by whether the current source set can answer them.
 | How does stable margin change manipulation economics? | `authored-stable-margin-manipulation-cost` | Medium | Neelo says USDC margin forces attacks to spend stable capital and prevents the manipulated token from also being the collateral and payout unit. |
 | Why should an oracle be a reference rather than an execution mandate? | `authored-oracle-reference-solver-quote-layer` | Medium | Neelo's Section 8 gives the solver quote layer room to treat the oracle as a reference input while widening, capping, or refusing unsafe flow. |
 | How does cross-margin capital fungibility improve long-tail perps? | `authored-cross-margin-capital-fungibility` | Medium | Neelo says USDC-margined hybrid design can net and allocate stable settlement capital across markets instead of trapping capital in isolated token slabs. |
+| How do Vibe and Percolator differ on settlement and collateral? | `authored-vibe-percolator-settlement-collateral-comparison` | Medium | Neelo's Section 9 contrasts token-settled, token-collateralized Percolator with Vibe's USDC settlement and separated token inventory. |
+| How do Vibe and Percolator differ for LPs and solvers? | `authored-vibe-percolator-lp-solver-economics-comparison` | Medium | Neelo's comparison separates Percolator LPs as full counterparties from Vibe's solver-managed counterparty and market-specific inventory model. |
+| How does Vibe's defense hierarchy compare with Percolator's ADL path? | `authored-vibe-percolator-defense-hierarchy-comparison` | Medium | Neelo's Section 9 contrasts Percolator's passive margin-to-ADL path with Vibe's netting, inventory, local insurance, global insurance, and last-resort ADL hierarchy. |
+| How do Vibe and Percolator differ on oracle execution? | `authored-vibe-percolator-oracle-execution-comparison` | Medium | Neelo frames Percolator as oracle-driven deterministic execution and Vibe as solver-quoted execution where the oracle is a reference input. |
+| What tradeoff does Vibe accept compared with Percolator's trustlessness? | `authored-vibe-percolator-trustlessness-tradeoff` | Medium | Neelo credits Percolator's trustlessness, verification, and fully on-chain simplicity while arguing Vibe accepts hybrid complexity to solve economic and risk-management failure modes. |
 
 ## Prototype Event Log
 

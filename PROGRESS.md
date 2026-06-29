@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Comparison Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 9 full-comparison source.
+- Split the head-to-head comparison into exact answer routes for settlement/collateral architecture, LP-versus-solver economics, defense hierarchy, oracle execution, and the trustlessness/economic-design tradeoff.
+- Extended the question ledger so Ask can route direct questions about how Vibe and Percolator differ rather than only routing broad Percolator critique pages.
+- Kept live solver policy, insurance allocation, cross-market limits, quote rules, LP economics, trust assumptions, deployed implementation details, and final public claims marked for operator/security/risk/legal/implementation review.
+
 ## 2026-06-29 — Percolator USDC Alternative Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 8 structurally-superior-alternative source.

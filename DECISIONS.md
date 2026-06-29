@@ -1056,6 +1056,14 @@
 
 **Status:** Accepted for the authored rewards-reference layer; live pack launch, wrapper endorsement, transferability, listing eligibility, TGE treatment, redemption semantics, market support, legal disclosures, and derivative product policy remain operator/legal/product/security/accounting/implementation review.
 
+## D-148: Split Percolator Full Comparison Into Exact Head-To-Head Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for Vibe-versus-Percolator settlement/collateral architecture, LP-versus-solver economics, defense hierarchy, oracle execution, and the trustlessness/economic-design tradeoff.
+
+**Reason:** Section 9 is a matrix-style comparison. Exact answer routes keep each axis independently answerable so the docs can credit Percolator's trustless on-chain strengths while showing why Vibe's active USDC-margined architecture is designed for the economic failure modes that dominate low-cap perpetuals.
+
+**Status:** Accepted for the authored manifesto layer; live solver policy, LP terms, insurance allocation, cross-market risk limits, quote/refusal rules, trust assumptions, current deployed implementations, and final comparative public claims remain operator/security/risk/legal/implementation review.
+
 ## D-133: Split Referral System-Baseline Limits Into Exact Answers
 
 **Decision:** Add authored rewards-reference pages for referral graph portability limits, mixed on/off-chain accountability, private-deal opacity risk, transferable-points hardening gates, and the requirement that referral features become reliable incentives under scale.

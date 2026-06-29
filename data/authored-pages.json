@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 546,
+  "totalPages": 551,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 397,
+    "publication-candidate-needs-operator-review": 402,
     "publication-candidate": 130,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 268,
+    "manifesto": 273,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -12217,6 +12217,121 @@
       "file": "content/authored/reference/vibe-order-types.md",
       "bodyMarkdown": "# Vibe Order Types\n\nVibe's current order-type guide separates execution timing from exit automation.\n\nMarket orders are for immediate execution at the current market price. Limit orders are for execution at the selected limit price or better. TP/SL orders are closing instructions that activate when a specified profit or loss condition is reached.\n\n## Triggered Orders\n\nThe same guide also documents stop-market and stop-limit behavior. A stop-market order activates when price reaches a stop level and then behaves as a market order. A stop-limit order activates at the stop level but constrains execution to a preset limit price.\n\nThose distinctions matter because \"stop\" describes the trigger, while \"market\" or \"limit\" describes how the order executes after the trigger.\n\n## Pending Advanced Types\n\nScale and TWAP are marked as coming soon in the current official guide. Scale is described as multiple limit orders across a range, with possible even or skewed distribution. TWAP is described as a larger order split into smaller time-based suborders with a stated maximum slippage rule.\n\nUntil those types are live and confirmed, final docs should label them as planned or coming soon rather than presenting them as active workflows.\n\n## Reader Implication\n\nOrder-type docs should help traders choose the execution primitive:\n\n- Use Market when immediacy matters most.\n- Use Limit when the entry or exit price matters most.\n- Use Stop Market when the trigger level matters and execution certainty matters more than price control.\n- Use Stop Limit when both trigger level and price bounds matter.\n- Treat Scale and TWAP as planned advanced workflows unless current product state confirms they are live.\n\n## Sources\n\n- `vibe-order-types`: official order-type list and coming-soon labels.\n- `vibe-tpsl`: TP/SL closing-order behavior.\n- `vibe-simple-trade`: where Market and Limit appear in the simple trade flow.\n\n## Related Pages\n\n- `authored-vibe-simple-trade-flow`\n- `authored-vibe-tpsl`\n- `authored-vibe-trade-flow`\n- `symmio-market-limit-orders`",
       "excerpt": "Vibe Order Types Vibe's current order type guide separates execution timing from exit automation. Market orders are for immediate execution at the current market price. Limit orders are for execution at the selected limit price or better. TP/SL orders are closing instructions that activate when a specified profit or loss condition is reached. Triggered Orders The same guide also documents stop market and stop limit behavior. A stop market order activates when price reaches a stop level and then behaves as a market order. A stop limit order activates at the stop level but constrains execution to a preset limit price. Those distinctions matter because \"stop\" describes the trigger, while \"market\" or \"limit\" describes how the order executes after the trigger. Pending Advanced Types Scale and TWAP are marked as coming soon in the current official guide. Scale is described as multiple limit orders across a range, with possible even or skewed distribution. TWAP is described as a larger order split into smaller time based suborders with a stated maximum slippage rule. Until those types are live and confirmed, final docs should label them as planned or coming soon rather than presenting the"
+    },
+    {
+      "id": "authored-vibe-percolator-defense-hierarchy-comparison",
+      "title": "Vibe And Percolator Defense Hierarchy Comparison",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-funding-defense-hierarchy",
+        "authored-adl-haircut-controlled-crash"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/vibe-percolator-defense-hierarchy-comparison.md",
+      "bodyMarkdown": "# Vibe And Percolator Defense Hierarchy Comparison\n\nNeelo's Section 9 compares passive invariant checking with active defense hierarchy.\n\nPercolator's defense path is narrow. Margin is checked, local accounting is conserved, and when imbalance or stress exceeds what the market can handle, ADL or payout haircut becomes the safety valve. The market can remain formally consistent, but the user-facing guarantee can degrade quickly.\n\nVibe's source model inserts multiple layers before ADL: netting, token inventory, local insurance, global insurance, and only then forced loss socialization. It also adds active controls such as spread widening, funding changes, borrow pricing, size caps, and quote refusal.\n\n## Why Layers Matter\n\nThe number of layers matters because long-tail markets fail through clusters, not isolated variables. A volatile token can move fast, oracle confidence can fall, one side of flow can dominate, liquidity can vanish, and hedge execution can degrade at the same time.\n\nA passive system waits for invariant failure or liquidation eligibility. An active defense stack can reduce exposure earlier, make toxic flow more expensive, and decide which resource should absorb the next unit of risk.\n\n## The Caveat\n\nMore layers also mean more policy. Docs must eventually explain which layer is used first, which capital belongs to which market, when global insurance can be touched, and when a market is isolated or halted. Until those production rules are approved, this page should stay at the architecture-comparison level.\n\n## Reader Implication\n\nWhen a reader asks why Vibe treats ADL as last resort, route here. The answer is that ADL is not a primary risk strategy in the Vibe thesis; it is what remains after active pricing, netting, inventory, and insurance fail to absorb the stress.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator - Full Comparison\", \"9.5 Risk Management and Defense\" and \"9.7 Capital Efficiency and Liquidation\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-adl-haircut-controlled-crash`\n- `authored-cross-market-risk-mutualization`",
+      "excerpt": "Vibe And Percolator Defense Hierarchy Comparison Neelo's Section 9 compares passive invariant checking with active defense hierarchy. Percolator's defense path is narrow. Margin is checked, local accounting is conserved, and when imbalance or stress exceeds what the market can handle, ADL or payout haircut becomes the safety valve. The market can remain formally consistent, but the user facing guarantee can degrade quickly. Vibe's source model inserts multiple layers before ADL: netting, token inventory, local insurance, global insurance, and only then forced loss socialization. It also adds active controls such as spread widening, funding changes, borrow pricing, size caps, and quote refusal. Why Layers Matter The number of layers matters because long tail markets fail through clusters, not isolated variables. A volatile token can move fast, oracle confidence can fall, one side of flow can dominate, liquidity can vanish, and hedge execution can degrade at the same time. A passive system waits for invariant failure or liquidation eligibility. An active defense stack can reduce exposure earlier, make toxic flow more expensive, and decide which resource should absorb the next unit of"
+    },
+    {
+      "id": "authored-vibe-percolator-lp-solver-economics-comparison",
+      "title": "Vibe And Percolator LP Solver Economics Comparison",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-token-margined-short-volatility-profile",
+        "authored-token-holder-inventory-alignment"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/vibe-percolator-lp-solver-economics-comparison.md",
+      "bodyMarkdown": "# Vibe And Percolator LP Solver Economics Comparison\n\nNeelo's comparison separates the Percolator LP role from the Vibe solver and inventory-provider roles.\n\nIn Percolator, LPs are framed as direct counterparties to trader PnL. They provide token inventory and absorb the short-volatility profile of the market. If the token pumps, LPs can lose tokens and underperform simply holding. If the token dumps, LPs can be left with a weaker token balance and a less valuable insurance base.\n\nIn Vibe, the source model separates counterparty operation from token inventory provision. The solver manages pricing, hedging, settlement, and residual exposure, while token holders or projects can provide market-specific inventory. That inventory can earn market yield, but it is not the same as asking passive token LPs to be the entire risk engine.\n\n## The Economic Design Claim\n\nThe comparison's strongest claim is that LP capital should not be forced into the wrong job. A passive token LP is a fragile counterparty when the market's payoff shape is inverse and volatile. A solver-managed market can price risk, limit size, refuse bad flow, and use inventory as one resource inside a broader defense stack.\n\nThis does not turn solver economics into a free lunch. The solver can draw down, hedge poorly, or price too tightly. Public docs should therefore describe the source model as an economic design claim, not as a live yield promise.\n\n## Reader Implication\n\nWhen a reader asks why Vibe's LP model is not just another vault, route here. The source's answer is that Percolator puts LPs in the full counterparty seat, while Vibe splits the jobs: active solver operation, stable settlement, market-specific token inventory, and governed protection layers.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator - Full Comparison\", \"9.4 LP / Solver Economics\".\n\n## Related Pages\n\n- `authored-token-margined-short-volatility-profile`\n- `authored-token-holder-inventory-alignment`\n- `authored-solver-drawdown-not-protocol-insolvency`",
+      "excerpt": "Vibe And Percolator LP Solver Economics Comparison Neelo's comparison separates the Percolator LP role from the Vibe solver and inventory provider roles. In Percolator, LPs are framed as direct counterparties to trader PnL. They provide token inventory and absorb the short volatility profile of the market. If the token pumps, LPs can lose tokens and underperform simply holding. If the token dumps, LPs can be left with a weaker token balance and a less valuable insurance base. In Vibe, the source model separates counterparty operation from token inventory provision. The solver manages pricing, hedging, settlement, and residual exposure, while token holders or projects can provide market specific inventory. That inventory can earn market yield, but it is not the same as asking passive token LPs to be the entire risk engine. The Economic Design Claim The comparison's strongest claim is that LP capital should not be forced into the wrong job. A passive token LP is a fragile counterparty when the market's payoff shape is inverse and volatile. A solver managed market can price risk, limit size, refuse bad flow, and use inventory as one resource inside a broader defense stack. This does n"
+    },
+    {
+      "id": "authored-vibe-percolator-oracle-execution-comparison",
+      "title": "Vibe And Percolator Oracle Execution Comparison",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-oracle-reference-solver-quote-layer",
+        "authored-capped-oracle-latency-arbitrage"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/vibe-percolator-oracle-execution-comparison.md",
+      "bodyMarkdown": "# Vibe And Percolator Oracle Execution Comparison\n\nNeelo's comparison treats oracle design as an execution-design problem, not only as a data-source problem.\n\nPercolator is described as depending on an on-chain oracle and deterministic matcher logic. That gives clear state transitions, but it can also create predictable latency windows. If the oracle lags or moves through capped increments, a trader can sometimes know where the mark is going before the market fully reflects it.\n\nVibe is described as solver-quoted. The oracle remains a reference input, but the solver's quote is the execution surface. The solver can widen, cap, refuse, or delay exposure when the reference price is suspect or when market conditions are too unstable.\n\n## The Core Difference\n\nThe passive design asks whether the oracle value permits execution. The active design asks whether accepting the trade at that price and size is economically coherent.\n\nThat second question is essential for low-cap markets because the reference price itself may be easier to manipulate than in mature BTC or ETH markets. If the market must execute deterministically at a lagging reference, the oracle becomes a tradeable target.\n\n## Reader Implication\n\nWhen a reader asks why Vibe does not simply execute every oracle-priced trade, route here. The answer is that the oracle is not the whole market. It is one input into solver judgment, and solver judgment exists precisely to avoid turning stale or manipulable references into guaranteed fills.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator - Full Comparison\", \"9.6 Oracle and Manipulation\".\n\n## Related Pages\n\n- `authored-oracle-reference-solver-quote-layer`\n- `authored-capped-oracle-latency-arbitrage`\n- `authored-solver-refusal-as-oracle-defense`",
+      "excerpt": "Vibe And Percolator Oracle Execution Comparison Neelo's comparison treats oracle design as an execution design problem, not only as a data source problem. Percolator is described as depending on an on chain oracle and deterministic matcher logic. That gives clear state transitions, but it can also create predictable latency windows. If the oracle lags or moves through capped increments, a trader can sometimes know where the mark is going before the market fully reflects it. Vibe is described as solver quoted. The oracle remains a reference input, but the solver's quote is the execution surface. The solver can widen, cap, refuse, or delay exposure when the reference price is suspect or when market conditions are too unstable. The Core Difference The passive design asks whether the oracle value permits execution. The active design asks whether accepting the trade at that price and size is economically coherent. That second question is essential for low cap markets because the reference price itself may be easier to manipulate than in mature BTC or ETH markets. If the market must execute deterministically at a lagging reference, the oracle becomes a tradeable target. Reader Implicatio"
+    },
+    {
+      "id": "authored-vibe-percolator-settlement-collateral-comparison",
+      "title": "Vibe And Percolator Settlement Collateral Comparison",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-usdc-margin-breaks-double-hit",
+        "authored-linear-pnl-versus-hyperbolic-payout"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/vibe-percolator-settlement-collateral-comparison.md",
+      "bodyMarkdown": "# Vibe And Percolator Settlement Collateral Comparison\n\nNeelo's full comparison starts with the settlement unit because it controls the whole stress path.\n\nPercolator is described as token-settled and token-collateralized. The traded asset, trader collateral, inventory vault, fee unit, payout unit, and insurance denomination can all collapse toward the same volatile token. That creates maximum correlation between exposure and protection.\n\nVibe is described as separating the roles. Traders settle and margin in USDC, while token inventory remains a market-specific resource rather than the unit used to settle every trader PnL obligation. The result is not risk removal. It is risk separation.\n\n## Why The Difference Matters\n\nIn Percolator's model, a token crash can attack the margin base and the obligation base together. A winning short is owed value at the same time the unit backing the market is weakening. The system can stay technically conserved and still become less credible to traders because the payout unit and insurance unit are under stress.\n\nIn Vibe's model, the underlying token can still be volatile, illiquid, or hard to hedge. But trader PnL is legible in a stable unit. That lets the solver, insurance layer, and market limits reason about dollar-denominated liabilities instead of inverse token obligations.\n\n## Reader Implication\n\nWhen a reader asks whether the difference is only \"USDC versus token UX,\" route here. The difference is structural: Percolator concentrates settlement, collateral, inventory, and insurance risk in the same asset; Vibe separates settlement from inventory so the market can manage each risk explicitly.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator - Full Comparison\", \"9.3 Settlement and Collateral\".\n\n## Related Pages\n\n- `authored-usdc-margin-breaks-double-hit`\n- `authored-linear-pnl-versus-hyperbolic-payout`\n- `authored-usdc-settlement-inventory-separation`",
+      "excerpt": "Vibe And Percolator Settlement Collateral Comparison Neelo's full comparison starts with the settlement unit because it controls the whole stress path. Percolator is described as token settled and token collateralized. The traded asset, trader collateral, inventory vault, fee unit, payout unit, and insurance denomination can all collapse toward the same volatile token. That creates maximum correlation between exposure and protection. Vibe is described as separating the roles. Traders settle and margin in USDC, while token inventory remains a market specific resource rather than the unit used to settle every trader PnL obligation. The result is not risk removal. It is risk separation. Why The Difference Matters In Percolator's model, a token crash can attack the margin base and the obligation base together. A winning short is owed value at the same time the unit backing the market is weakening. The system can stay technically conserved and still become less credible to traders because the payout unit and insurance unit are under stress. In Vibe's model, the underlying token can still be volatile, illiquid, or hard to hedge. But trader PnL is legible in a stable unit. That lets the s"
+    },
+    {
+      "id": "authored-vibe-percolator-trustlessness-tradeoff",
+      "title": "Vibe And Percolator Trustlessness Tradeoff",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-09-vibe-vs-percolator",
+        "authored-fully-on-chain-keeper-model",
+        "authored-active-risk-management-vs-passive-physics"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/vibe-percolator-trustlessness-tradeoff.md",
+      "bodyMarkdown": "# Vibe And Percolator Trustlessness Tradeoff\n\nNeelo's head-to-head matrix does not say Percolator has no strengths. It says Percolator wins on trustlessness, formal verification, simplicity, and fully on-chain execution, while Vibe wins on the economic and risk-management dimensions needed for volatile long-tail perps.\n\nThat is the honest comparison. Percolator's architecture is easier to inspect. Its state machine can be reasoned about more locally. Its keeper model and on-chain execution reduce reliance on an off-chain solver operator.\n\nVibe accepts more system complexity. It relies on active pricing, solver agency, cross-market risk views, insurance policy, and hybrid settlement. Those choices lower pure trustlessness, but they add the tools needed to keep fragile markets open without forcing every failure into immediate liquidation or haircut.\n\n## What The Tradeoff Means\n\nThe hard problem is not just writing correct code. It is designing a market that can pay, hedge, price, and survive under adversarial volatility. Percolator proves that a clean on-chain risk engine is possible. The source argues that this is not enough if the collateral and payout model turns market stress into reflexive failure.\n\nVibe's thesis is that some off-chain or hybrid risk intelligence is justified when it controls a concrete economic failure mode: oracle latency, toxic flow, short-volatility LP exposure, cross-market capital fragmentation, or forced ADL.\n\n## Reader Implication\n\nWhen a reader asks whether Vibe is \"less trustless\" than Percolator, route here. The answer is yes in a narrow architectural sense, and that is the tradeoff. Vibe gives up some mechanical simplicity to gain active defense, stable settlement, and risk-aware market operation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator - Full Comparison\", \"9.8 Head-to-Head Matrix\" and \"9.10 Trade-off Summary\".\n\n## Related Pages\n\n- `authored-fully-on-chain-keeper-model`\n- `authored-active-risk-management-vs-passive-physics`\n- `authored-engineering-fix-economics-limit`",
+      "excerpt": "Vibe And Percolator Trustlessness Tradeoff Neelo's head to head matrix does not say Percolator has no strengths. It says Percolator wins on trustlessness, formal verification, simplicity, and fully on chain execution, while Vibe wins on the economic and risk management dimensions needed for volatile long tail perps. That is the honest comparison. Percolator's architecture is easier to inspect. Its state machine can be reasoned about more locally. Its keeper model and on chain execution reduce reliance on an off chain solver operator. Vibe accepts more system complexity. It relies on active pricing, solver agency, cross market risk views, insurance policy, and hybrid settlement. Those choices lower pure trustlessness, but they add the tools needed to keep fragile markets open without forcing every failure into immediate liquidation or haircut. What The Tradeoff Means The hard problem is not just writing correct code. It is designing a market that can pay, hedge, price, and survive under adversarial volatility. Percolator proves that a clean on chain risk engine is possible. The source argues that this is not enough if the collateral and payout model turns market stress into reflexiv"
     },
     {
       "id": "authored-vibe-pillars",
