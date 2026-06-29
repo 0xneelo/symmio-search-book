@@ -26,13 +26,13 @@
     "totalFixtures": 27,
     "passingFixtures": 27,
     "failingFixtures": 0,
-    "exactRouteGoldenSet": 796,
+    "exactRouteGoldenSet": 797,
     "adversarialGoldenSet": 15,
     "answerChunkPages": 1611,
-    "answerChunks": 2859,
+    "answerChunks": 2861,
     "sourceCatalogEntries": 124,
     "pageStatePages": 1593,
-    "openOperatorItems": 7,
+    "openOperatorItems": 8,
     "gapQueueItems": 12
   },
   "failureSummary": {
@@ -401,6 +401,46 @@
       "failures": []
     },
     {
+      "id": "fixture-qr-how-should-i-read-volume-01-on-orientation-and-the-core-thesis",
+      "type": "cited-answer",
+      "query": "How should I read Volume 01 on orientation and the core thesis?",
+      "expectedPageId": "authored-volume-01-orientation-and-thesis",
+      "response": {
+        "requestId": "req-qr-how-should-i-read-volume-01-on-orientation-and-the-core-thesis",
+        "status": "answered",
+        "answer": "Volume 01: Orientation And Core Thesis is the cited answer route for this seeded question.",
+        "primaryPageId": "authored-volume-01-orientation-and-thesis",
+        "citations": [
+          {
+            "id": "qr-how-should-i-read-volume-01-on-orientation-and-the-core-thesis-citation-1",
+            "pageId": "authored-volume-01-orientation-and-thesis",
+            "pageTitle": "Volume 01: Orientation And Core Thesis",
+            "sourceKey": "spec-01",
+            "sourceHref": "../../_specs/app-docs/01-mission.md",
+            "chunkIds": [
+              "authored-volume-01-orientation-and-thesis::001"
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "text": "Volume 01: Orientation And Core Thesis is the cited answer route for this seeded question.",
+            "citationIds": [
+              "qr-how-should-i-read-volume-01-on-orientation-and-the-core-thesis-citation-1"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "type": "question-answered",
+            "pageId": "authored-volume-01-orientation-and-thesis"
+          }
+        ]
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
       "id": "fixture-qr-how-should-i-read-volume-02-on-bootstrap-and-proof-of-value",
       "type": "cited-answer",
       "query": "How should I read Volume 02 on bootstrap and Proof of Value?",
@@ -474,46 +514,6 @@
           {
             "type": "question-answered",
             "pageId": "authored-volume-03-listing-power-and-orderbooks"
-          }
-        ]
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-qr-how-should-i-read-volume-04-on-token-margin-and-funding-systems",
-      "type": "cited-answer",
-      "query": "How should I read Volume 04 on token margin and funding systems?",
-      "expectedPageId": "authored-volume-04-token-margin-and-funding-systems",
-      "response": {
-        "requestId": "req-qr-how-should-i-read-volume-04-on-token-margin-and-funding-systems",
-        "status": "answered",
-        "answer": "Volume 04: Token Margin, Pillars, And Funding Systems is the cited answer route for this seeded question.",
-        "primaryPageId": "authored-volume-04-token-margin-and-funding-systems",
-        "citations": [
-          {
-            "id": "qr-how-should-i-read-volume-04-on-token-margin-and-funding-systems-citation-1",
-            "pageId": "authored-volume-04-token-margin-and-funding-systems",
-            "pageTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-            "sourceKey": "vibe-papers",
-            "sourceHref": "https://github.com/0xneelo/vibe_docs",
-            "chunkIds": [
-              "authored-volume-04-token-margin-and-funding-systems::001"
-            ]
-          }
-        ],
-        "paragraphs": [
-          {
-            "text": "Volume 04: Token Margin, Pillars, And Funding Systems is the cited answer route for this seeded question.",
-            "citationIds": [
-              "qr-how-should-i-read-volume-04-on-token-margin-and-funding-systems-citation-1"
-            ]
-          }
-        ],
-        "events": [
-          {
-            "type": "question-answered",
-            "pageId": "authored-volume-04-token-margin-and-funding-systems"
           }
         ]
       },

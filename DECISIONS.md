@@ -1887,3 +1887,11 @@
 **Reason:** The dashboard and answer-engine pages are the user's operational front door, but broad questions should not route directly to one view or one event-loop page. A volume overview lets readers start from route coverage, then move into view-specific answers, economics/points semantics, FAQ/source boundaries, and production living-docs requirements.
 
 **Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, and current backend volume snapshots are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
+
+## D-237: Use Volume 01 As The Thesis Orientation Reading Order
+
+**Decision:** Expand `authored-volume-01-orientation-and-thesis` into the canonical book-level entry point for the mission, information/trade thesis, permissionless-perps vision, bootstrap bridge, intents/order-book bridge, discovery-layer framing, and product bridge into later volumes.
+
+**Reason:** Volumes 02 through 08 now have direct broad reading-order routes, but Volume 01 still lacked the same route and still compressed the opening thesis into a short stub. The first volume should orient the reader before they encounter the more specialized market, architecture, product, dashboard, and living-docs volumes.
+
+**Status:** Accepted for compendium authoring. Original/oldest Symmio whitepaper history, exact market counts, HIP-3 outcomes, downstream venue routing, automatic graduation behavior, global reputation protocol claims, product availability, and final public deployment details remain source-completeness, current-source, product, legal, risk, accounting, security, and operator review items before publication.

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 01 Reading Order Overview
+
+- Expanded `authored-volume-01-orientation-and-thesis` from a short orientation stub into a book-level reading order for the mission, information/trade thesis, permissionless-perps vision, bootstrap bridge, intents/order-book bridge, discovery-layer framing, and product bridge into later volumes.
+- Routed one new Ask question, "How should I read Volume 01 on orientation and the core thesis?", to the Volume 01 overview so every compendium volume now has a direct broad reading-order route.
+- Kept original/oldest Symmio whitepaper history, exact market counts, HIP-3 outcomes, downstream venue routing, automatic graduation behavior, global reputation protocol claims, product availability, and final public deployment details under source-completeness/current-source/product/legal/risk/accounting/security/operator review.
+
 ## 2026-06-30 — Volume 08 Reading Order Overview
 
 - Expanded `authored-volume-08-dashboard-faq-and-living-docs` from a short volume stub into a book-level reading order for dashboard route coverage, revenue/volume/points semantics, local FAQ boundaries, Discord/Lafa ingestion status, and the Search insights living-docs loop.
