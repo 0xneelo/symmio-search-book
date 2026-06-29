@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Competitive Barriers Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score competitive-analysis source.
+- Split the moat thesis into exact answer routes for why hybrid retrofit is effectively a new protocol, why live state migration is risky, why solver competence is hard to copy, why static protocols face capital-efficiency traps, and how data/integration network effects compound.
+- Extended the question ledger so Ask can route direct competitive-strategy questions without relying on one broad replication-barriers page.
+- Kept live integrations, solver obligations, capital commitments, partner claims, venue-specific competitor judgments, and production economics marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Perp Taxonomy Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score source.

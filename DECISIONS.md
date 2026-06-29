@@ -1215,3 +1215,11 @@
 **Reason:** The existing framework and bootstrap-trilemma pages explain the design space broadly, but answer-engine readers need direct routes into the atomic mechanics: timing, payer identity, risk sharing, why one impossible quadrant fails, and how the solver starts the market before natural network effects exist.
 
 **Status:** Accepted for the authored manifesto layer; live solver obligations, capital commitments, cross-margin eligibility, shared-insurance policy, market graduation thresholds, quote uptime, fee capture, and current production implementation remain operator/risk/implementation review.
+
+## D-153: Split Competitive Barriers Into Exact Strategy Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for hybrid retrofit as a new-protocol problem, incumbent state migration risk, solver complexity as a replication barrier, the capital-efficiency trap, and integration/data network effects.
+
+**Reason:** The existing replication-barriers page gives the broad moat thesis, but Ask needs narrower routes for operator, investor, partner, and researcher questions about why competitors cannot simply bolt on the model, what makes migration hard, what makes solvers scarce, why static architectures get trapped, and how data/integration effects compound.
+
+**Status:** Accepted for the authored manifesto layer; live integrations, partner status, solver obligations, capital commitments, fee capture, competitor-specific judgments, timeline claims, and production economics remain operator/product/risk/legal/implementation review.

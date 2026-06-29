@@ -558,6 +558,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why should insurance topology follow market maturity? | `authored-insurance-topology-maturity-path` | Medium | Neelo's insurance-topology axis says new markets benefit from isolated containment while proven markets can earn cross-margin or shared-insurance efficiency. |
 | Why does asynchronous netted architecture fail at bootstrap? | `authored-async-netted-no-payer-failure` | Medium | Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists. |
 | How does the solver solve the network-effect cold start? | `authored-solver-as-initial-network-effect` | Medium | Neelo's architecture and Thielian analysis frame the solver as the first functional network: it quotes and absorbs residual flow before natural trader/LP/project/data flywheels form. |
+| Why can't existing perp protocols just bolt on Vibe's hybrid model? | `authored-hybrid-retrofit-is-new-protocol` | Medium | Neelo's competitive analysis says order-book-first and vault-first systems would need foundational new mechanisms to traverse bootstrap and maturity states. |
+| Why is state migration a barrier to copying Vibe? | `authored-state-migration-replication-risk` | Medium | Neelo identifies user positions, LP capital, and smart-contract upgrades as migration surfaces that make incumbent hybrid transitions risky. |
+| Why is the solver hard to replicate? | `authored-solver-complexity-replication-barrier` | Medium | Neelo says a competent solver requires derivatives pricing, risk, low-latency systems, market making, operations, live data, and capital discipline. |
+| What is the capital efficiency trap for existing perp protocols? | `authored-capital-efficiency-trap` | Medium | Neelo says vault-first protocols risk losing LP protection when moving to efficiency, while order-book-first protocols risk losing efficiency when adding bootstrap support. |
+| What network effects compound around Vibe's market-creation layer? | `authored-integration-data-network-effects` | Medium | Neelo frames Vibe's compounding effects as market data, LP learning, and integrations with launchpads, lending protocols, data providers, and downstream venues. |
 
 ## Prototype Event Log
 

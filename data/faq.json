@@ -8,16 +8,16 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 559,
-  "totalAnswerable": 552,
+  "totalEntries": 564,
+  "totalAnswerable": 557,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 63,
+    "Getting Started": 67,
     "Trading Flow": 32,
-    "Solvers And Settlement": 154,
+    "Solvers And Settlement": 155,
     "Risk And Markets": 64,
     "Revenue": 75,
     "Manifesto": 77,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 332,
+    "Medium": 337,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 552
+    "authored": 557
   },
   "byType": {
-    "answerable": 552,
+    "answerable": 557,
     "reconciliation": 7
   },
   "answerable": [
@@ -18062,6 +18062,151 @@
       "confidence": "Medium",
       "pageId": "authored-solver-as-initial-network-effect",
       "pageTitle": "The Solver As The Initial Network Effect",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-existing-perp-protocols-just-bolt-on-vibe-s-hybrid-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can't existing perp protocols just bolt on Vibe's hybrid model?",
+      "normalizedQuestion": "why can t existing perp protocols just bolt on vibe s hybrid model",
+      "shortAnswer": "Neelo's competitive analysis says order-book-first and vault-first systems would need foundational new mechanisms to traverse bootstrap and maturity states.",
+      "answerSummary": "Hybrid Retrofit Is A New Protocol Neelo's competitive analysis says the strongest replication barrier is architectural lock in. A protocol optimized for one point in the design space cannot simply toggle into a bootstrap to graduation system. An order book first protocol would need more than a new listing screen. To serve bootstrap markets, it would need...",
+      "confidence": "Medium",
+      "pageId": "authored-hybrid-retrofit-is-new-protocol",
+      "pageTitle": "Hybrid Retrofit Is A New Protocol",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-state-migration-a-barrier-to-copying-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is state migration a barrier to copying Vibe?",
+      "normalizedQuestion": "why is state migration a barrier to copying vibe",
+      "shortAnswer": "Neelo identifies user positions, LP capital, and smart-contract upgrades as migration surfaces that make incumbent hybrid transitions risky.",
+      "answerSummary": "State Migration Is A Replication Risk Even if an incumbent protocol decides to rebuild toward a hybrid architecture, it still has to migrate live state. That is a different problem from writing a new whitepaper. Existing user positions may live in formats designed for a different matching and collateral model. Existing LP capital was deposited under a par...",
+      "confidence": "Medium",
+      "pageId": "authored-state-migration-replication-risk",
+      "pageTitle": "State Migration Is A Replication Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-the-solver-hard-to-replicate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is the solver hard to replicate?",
+      "normalizedQuestion": "why is the solver hard to replicate",
+      "shortAnswer": "Neelo says a competent solver requires derivatives pricing, risk, low-latency systems, market making, operations, live data, and capital discipline.",
+      "answerSummary": "Solver Complexity Is A Replication Barrier The solver is not a background script. In Neelo's competitive analysis, it is a specialized operating system for early derivative markets. The source names several capabilities that have to work together: derivatives pricing, risk management, market microstructure, liquidation mechanics, low latency infrastructur...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-complexity-replication-barrier",
+      "pageTitle": "Solver Complexity Is A Replication Barrier",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-capital-efficiency-trap-for-existing-perp-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the capital efficiency trap for existing perp protocols?",
+      "normalizedQuestion": "what is the capital efficiency trap for existing perp protocols",
+      "shortAnswer": "Neelo says vault-first protocols risk losing LP protection when moving to efficiency, while order-book-first protocols risk losing efficiency when adding bootstrap support.",
+      "answerSummary": "The Capital Efficiency Trap The capital efficiency trap is why existing protocols struggle to move out of their original architecture. Vault first protocols can bootstrap because LP capital stands behind early flow. But if they try to become more efficient by reducing LP protection or moving toward netting, they may undermine the LP base that made bootstr...",
+      "confidence": "Medium",
+      "pageId": "authored-capital-efficiency-trap",
+      "pageTitle": "The Capital Efficiency Trap",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-network-effects-compound-around-vibe-s-market-creation-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What network effects compound around Vibe's market-creation layer?",
+      "normalizedQuestion": "what network effects compound around vibe s market creation layer",
+      "shortAnswer": "Neelo frames Vibe's compounding effects as market data, LP learning, and integrations with launchpads, lending protocols, data providers, and downstream venues.",
+      "answerSummary": "Integration And Data Network Effects Vibe's network effects are not only user count effects. Neelo's source frames them as data, LP, and integration effects that compound as more markets run through the system. Market data improves the operating loop. Each market can teach demand patterns, risk profiles, maturation trajectories, liquidation behavior, and...",
+      "confidence": "Medium",
+      "pageId": "authored-integration-data-network-effects",
+      "pageTitle": "Integration And Data Network Effects",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -36450,6 +36595,151 @@
       "confidence": "Medium",
       "pageId": "authored-solver-as-initial-network-effect",
       "pageTitle": "The Solver As The Initial Network Effect",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-existing-perp-protocols-just-bolt-on-vibe-s-hybrid-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why can't existing perp protocols just bolt on Vibe's hybrid model?",
+      "normalizedQuestion": "why can t existing perp protocols just bolt on vibe s hybrid model",
+      "shortAnswer": "Neelo's competitive analysis says order-book-first and vault-first systems would need foundational new mechanisms to traverse bootstrap and maturity states.",
+      "answerSummary": "Hybrid Retrofit Is A New Protocol Neelo's competitive analysis says the strongest replication barrier is architectural lock in. A protocol optimized for one point in the design space cannot simply toggle into a bootstrap to graduation system. An order book first protocol would need more than a new listing screen. To serve bootstrap markets, it would need...",
+      "confidence": "Medium",
+      "pageId": "authored-hybrid-retrofit-is-new-protocol",
+      "pageTitle": "Hybrid Retrofit Is A New Protocol",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-state-migration-a-barrier-to-copying-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is state migration a barrier to copying Vibe?",
+      "normalizedQuestion": "why is state migration a barrier to copying vibe",
+      "shortAnswer": "Neelo identifies user positions, LP capital, and smart-contract upgrades as migration surfaces that make incumbent hybrid transitions risky.",
+      "answerSummary": "State Migration Is A Replication Risk Even if an incumbent protocol decides to rebuild toward a hybrid architecture, it still has to migrate live state. That is a different problem from writing a new whitepaper. Existing user positions may live in formats designed for a different matching and collateral model. Existing LP capital was deposited under a par...",
+      "confidence": "Medium",
+      "pageId": "authored-state-migration-replication-risk",
+      "pageTitle": "State Migration Is A Replication Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-the-solver-hard-to-replicate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is the solver hard to replicate?",
+      "normalizedQuestion": "why is the solver hard to replicate",
+      "shortAnswer": "Neelo says a competent solver requires derivatives pricing, risk, low-latency systems, market making, operations, live data, and capital discipline.",
+      "answerSummary": "Solver Complexity Is A Replication Barrier The solver is not a background script. In Neelo's competitive analysis, it is a specialized operating system for early derivative markets. The source names several capabilities that have to work together: derivatives pricing, risk management, market microstructure, liquidation mechanics, low latency infrastructur...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-complexity-replication-barrier",
+      "pageTitle": "Solver Complexity Is A Replication Barrier",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-capital-efficiency-trap-for-existing-perp-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the capital efficiency trap for existing perp protocols?",
+      "normalizedQuestion": "what is the capital efficiency trap for existing perp protocols",
+      "shortAnswer": "Neelo says vault-first protocols risk losing LP protection when moving to efficiency, while order-book-first protocols risk losing efficiency when adding bootstrap support.",
+      "answerSummary": "The Capital Efficiency Trap The capital efficiency trap is why existing protocols struggle to move out of their original architecture. Vault first protocols can bootstrap because LP capital stands behind early flow. But if they try to become more efficient by reducing LP protection or moving toward netting, they may undermine the LP base that made bootstr...",
+      "confidence": "Medium",
+      "pageId": "authored-capital-efficiency-trap",
+      "pageTitle": "The Capital Efficiency Trap",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-network-effects-compound-around-vibe-s-market-creation-layer",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What network effects compound around Vibe's market-creation layer?",
+      "normalizedQuestion": "what network effects compound around vibe s market creation layer",
+      "shortAnswer": "Neelo frames Vibe's compounding effects as market data, LP learning, and integrations with launchpads, lending protocols, data providers, and downstream venues.",
+      "answerSummary": "Integration And Data Network Effects Vibe's network effects are not only user count effects. Neelo's source frames them as data, LP, and integration effects that compound as more markets run through the system. Market data improves the operating loop. Each market can teach demand patterns, risk profiles, maturation trajectories, liquidation behavior, and...",
+      "confidence": "Medium",
+      "pageId": "authored-integration-data-network-effects",
+      "pageTitle": "Integration And Data Network Effects",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

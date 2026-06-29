@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 571,
+  "totalPages": 576,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 413,
+    "publication-candidate-needs-operator-review": 418,
     "publication-candidate": 139,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 293,
+    "manifesto": 298,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -457,6 +457,30 @@
       "file": "content/authored/manifesto/break-even-versus-attractive-apr.md",
       "bodyMarkdown": "# Break-Even Versus Attractive APR\n\nThe economic interpretation section makes a useful distinction: an LP break-even APR is not the same as an attractive APR.\n\nIn the source model, break-even means the LP earns enough to cover expected loss and still match the outside USDC opportunity:\n\n```\nr_I >= E[Loss] + r_f\n```\n\nThat only gets the LP to indifference in expectation. To be attractive, the return must also compensate for tail risk, volatility of losses, and adverse selection. A rational LP does not supply fragile backstop capital merely to expect the same outcome as a simpler USDC strategy after absorbing more complicated risk.\n\n## Reader Implication\n\nWhen documentation discusses LP incentives, it should not treat \"positive expected return\" as enough. The capital has to be worth deploying after expected loss, opportunity cost, tail risk, and operational complexity.\n\n## Publication Boundary\n\nThe source's break-even and attractive-APR ranges are model outputs. They should not become live Vibe LP marketing copy, target yields, or promises of capital availability without operator, accounting, legal, and implementation approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Economic Interpretation.\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-usdc-opportunity-cost-floor`\n- `authored-adverse-selection-premium-for-usdc-lps`",
       "excerpt": "Break Even Versus Attractive APR The economic interpretation section makes a useful distinction: an LP break even APR is not the same as an attractive APR. In the source model, break even means the LP earns enough to cover expected loss and still match the outside USDC opportunity: That only gets the LP to indifference in expectation. To be attractive, the return must also compensate for tail risk, volatility of losses, and adverse selection. A rational LP does not supply fragile backstop capital merely to expect the same outcome as a simpler USDC strategy after absorbing more complicated risk. Reader Implication When documentation discusses LP incentives, it should not treat \"positive expected return\" as enough. The capital has to be worth deploying after expected loss, opportunity cost, tail risk, and operational complexity. Publication Boundary The source's break even and attractive APR ranges are model outputs. They should not become live Vibe LP marketing copy, target yields, or promises of capital availability without operator, accounting, legal, and implementation approval. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Economic Inter"
+    },
+    {
+      "id": "authored-capital-efficiency-trap",
+      "title": "The Capital Efficiency Trap",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-4-the-capital-efficiency-trap",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-4-the-capital-efficiency-trap",
+        "neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma",
+        "authored-bootstrap-trilemma"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/capital-efficiency-trap.md",
+      "bodyMarkdown": "# The Capital Efficiency Trap\n\nThe capital efficiency trap is why existing protocols struggle to move out of their original architecture.\n\nVault-first protocols can bootstrap because LP capital stands behind early flow. But if they try to become more efficient by reducing LP protection or moving toward netting, they may undermine the LP base that made bootstrap possible. Capital leaves, the market becomes thin, and the protocol loses its original advantage.\n\nOrder-book-first protocols have the mirror-image trap. They are efficient because mature traders and market makers supply both sides. If they add bootstrap mechanics, they need collateralization, solver support, isolated-market treatment, and wider risk pricing. That can erode the low-cost efficiency that made the venue attractive in the first place.\n\nNeelo's source uses this to justify building for hybrid traversal from the beginning. The system has to expect that bootstrap and maturity need different mechanics. If it starts as only one of those systems, moving later can require sacrificing the reason users joined.\n\n## Publication Boundary\n\nThis is a structural model, not a final public ranking of named venues. Do not publish live fee comparisons, LP return claims, or competitor-specific viability judgments without fresh primary-source review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Capital Efficiency Trap\".\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-collateralization-payout-source`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "The Capital Efficiency Trap The capital efficiency trap is why existing protocols struggle to move out of their original architecture. Vault first protocols can bootstrap because LP capital stands behind early flow. But if they try to become more efficient by reducing LP protection or moving toward netting, they may undermine the LP base that made bootstrap possible. Capital leaves, the market becomes thin, and the protocol loses its original advantage. Order book first protocols have the mirror image trap. They are efficient because mature traders and market makers supply both sides. If they add bootstrap mechanics, they need collateralization, solver support, isolated market treatment, and wider risk pricing. That can erode the low cost efficiency that made the venue attractive in the first place. Neelo's source uses this to justify building for hybrid traversal from the beginning. The system has to expect that bootstrap and maturity need different mechanics. If it starts as only one of those systems, moving later can require sacrificing the reason users joined. Publication Boundary This is a structural model, not a final public ranking of named venues. Do not publish live fee co"
     },
     {
       "id": "authored-capped-oracle-latency-arbitrage",
@@ -4027,6 +4051,29 @@
       "excerpt": "Hybrid Perps Comparative Advantage Neelo's comparative advantage section tests Vibe against two alternative low cap perp designs: external USDC vaults and token margined inverse markets. The USDC vault problem is risk pricing. If stablecoin LPs must back volatile, thin, manipulable assets, they will demand compensation for counterparty risk, oracle risk, imbalance risk, liquidation risk, and operational risk. The source argues that this can make low cap markets economically unattractive before they ever find durable flow. The token margined problem is reflexivity. If collateral, PnL, and the traded asset are the same volatile token, a falling price can weaken collateral at the same time liabilities become harder to satisfy. That is the same economic failure mode the token margin pages explain in more detail. The Hybrid Claim The hybrid claim is that Vibe separates the roles. Traders post and settle in USDC. Token holders or projects provide token inventory. The solver operates the risk layer, quotes according to market state, pre hedges when needed, and uses dynamic pricing plus insurance and ADL rules to control residual exposure. The design is meant to avoid both external USDC yi"
     },
     {
+      "id": "authored-hybrid-retrofit-is-new-protocol",
+      "title": "Hybrid Retrofit Is A New Protocol",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-2-architectural-lock-in"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-2-architectural-lock-in",
+        "authored-replication-barriers-and-data-moats",
+        "authored-perp-protocol-framework"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/hybrid-retrofit-is-new-protocol.md",
+      "bodyMarkdown": "# Hybrid Retrofit Is A New Protocol\n\nNeelo's competitive analysis says the strongest replication barrier is architectural lock-in. A protocol optimized for one point in the design space cannot simply toggle into a bootstrap-to-graduation system.\n\nAn order-book-first protocol would need more than a new listing screen. To serve bootstrap markets, it would need LP vaults, solver infrastructure, asynchronous execution, isolated-market risk treatment, and collateralization logic. Those are the mechanisms it did not need when it focused on mature, netted, synchronous markets.\n\nA vault-first protocol has the opposite problem. It already has capitalized counterparty support, but it would need trader-to-trader matching, netting accounting, order-book infrastructure, and transition logic to become efficient at maturity.\n\nThat is why \"just copy Vibe\" understates the work. The source frames hybrid traversal as a foundational design choice. If the existing protocol was not built to move across market states, copying the idea means rebuilding the protocol around a different lifecycle model.\n\n## Publication Boundary\n\nThis page should not claim that specific competitors cannot or will not respond. The source supports a narrower claim: retrofitting hybrid lifecycle behavior is structurally harder than adding a market, UI, or rewards feature.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Architectural Lock-In\".\n\n## Related Pages\n\n- `authored-replication-barriers-and-data-moats`\n- `authored-perp-protocol-framework`\n- `authored-temporal-separation-of-concerns`",
+      "excerpt": "Hybrid Retrofit Is A New Protocol Neelo's competitive analysis says the strongest replication barrier is architectural lock in. A protocol optimized for one point in the design space cannot simply toggle into a bootstrap to graduation system. An order book first protocol would need more than a new listing screen. To serve bootstrap markets, it would need LP vaults, solver infrastructure, asynchronous execution, isolated market risk treatment, and collateralization logic. Those are the mechanisms it did not need when it focused on mature, netted, synchronous markets. A vault first protocol has the opposite problem. It already has capitalized counterparty support, but it would need trader to trader matching, netting accounting, order book infrastructure, and transition logic to become efficient at maturity. That is why \"just copy Vibe\" understates the work. The source frames hybrid traversal as a foundational design choice. If the existing protocol was not built to move across market states, copying the idea means rebuilding the protocol around a different lifecycle model. Publication Boundary This page should not claim that specific competitors cannot or will not respond. The source"
+    },
+    {
       "id": "authored-hybrid-settlement-solver-stack",
       "title": "Hybrid Settlement And Solver Stack",
       "section": "manifesto",
@@ -4266,6 +4313,30 @@
       "file": "content/authored/manifesto/insurance-topology-maturity-path.md",
       "bodyMarkdown": "# Insurance Topology Should Follow Market Maturity\n\nInsurance topology asks whether market risk is isolated or shared. In Neelo's framework, cross-margin or global-insurance systems improve capital efficiency for proven markets, but they also couple outcomes across markets. A weak market can contaminate stronger markets if shared protection is available too early or too loosely.\n\nFor bootstrap markets, isolation is the safer default. A new token can have conservative parameters, its own risk boundary, and its own failure containment. If that market is manipulated, one-sided, or simply uninteresting, it should not drain the resources that support established markets.\n\nAs markets mature, the tradeoff changes. Traders want unified capital, portfolio effects, and less fragmented liquidity. If a market has enough history, balance, liquidation data, and two-sided demand, it may become eligible for cross-margin or shared-insurance treatment.\n\nThe important point is sequencing. Isolation is not a permanent ideal, and cross-margin is not a launch right. Insurance topology should follow evidence.\n\n## Publication Boundary\n\nThis page describes the source's architecture thesis. It should not publish final Vibe eligibility rules, insurance caps, cross-margin onboarding criteria, allocation formulas, or live market-status claims until implementation and risk owners confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Insurance Topology\".\n- `vibe-papers`: Neelo, \"Section 5: The Four Transitions\".\n\n## Related Pages\n\n- `authored-four-transitions`\n- `authored-market-maturation-state-map`\n- `authored-funding-global-insurance-eligibility`",
       "excerpt": "Insurance Topology Should Follow Market Maturity Insurance topology asks whether market risk is isolated or shared. In Neelo's framework, cross margin or global insurance systems improve capital efficiency for proven markets, but they also couple outcomes across markets. A weak market can contaminate stronger markets if shared protection is available too early or too loosely. For bootstrap markets, isolation is the safer default. A new token can have conservative parameters, its own risk boundary, and its own failure containment. If that market is manipulated, one sided, or simply uninteresting, it should not drain the resources that support established markets. As markets mature, the tradeoff changes. Traders want unified capital, portfolio effects, and less fragmented liquidity. If a market has enough history, balance, liquidation data, and two sided demand, it may become eligible for cross margin or shared insurance treatment. The important point is sequencing. Isolation is not a permanent ideal, and cross margin is not a launch right. Insurance topology should follow evidence. Publication Boundary This page describes the source's architecture thesis. It should not publish final"
+    },
+    {
+      "id": "authored-integration-data-network-effects",
+      "title": "Integration And Data Network Effects",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-5-network-effects-and-ecosystem-position",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications#7-3-ecosystem-synergies"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-5-network-effects-and-ecosystem-position",
+        "section-01-perp-classes-zscore-01-docs-07-industry-implications-7-3-ecosystem-synergies",
+        "authored-replication-barriers-and-data-moats"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/integration-data-network-effects.md",
+      "bodyMarkdown": "# Integration And Data Network Effects\n\nVibe's network effects are not only user-count effects. Neelo's source frames them as data, LP, and integration effects that compound as more markets run through the system.\n\nMarket data improves the operating loop. Each market can teach demand patterns, risk profiles, maturation trajectories, liquidation behavior, and balance between long and short flow. Better data can improve solver pricing, risk models, and graduation decisions.\n\nIntegrations can deepen the loop. Launchpads can route newly created tokens into early perp markets. Lending protocols can use hedging availability to support more sophisticated long-tail strategies. Data providers can package real demand indicators, risk metrics, and price-discovery quality scores.\n\nOnce those integrations exist, switching costs appear. Partners build flows around the market-creation layer, LPs learn how to underwrite its stages, and downstream venues can use Vibe history as listing evidence.\n\n## Publication Boundary\n\nThis page describes the strategic network-effects thesis. It should not claim live launchpad, lending, data-provider, or order-book partnerships unless those integrations are confirmed by public source or operator approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Network Effects and Ecosystem Position\".\n- `vibe-papers`: Neelo, \"Section 7: Ecosystem Synergies\".\n\n## Related Pages\n\n- `authored-replication-barriers-and-data-moats`\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-listing-data-product`",
+      "excerpt": "Integration And Data Network Effects Vibe's network effects are not only user count effects. Neelo's source frames them as data, LP, and integration effects that compound as more markets run through the system. Market data improves the operating loop. Each market can teach demand patterns, risk profiles, maturation trajectories, liquidation behavior, and balance between long and short flow. Better data can improve solver pricing, risk models, and graduation decisions. Integrations can deepen the loop. Launchpads can route newly created tokens into early perp markets. Lending protocols can use hedging availability to support more sophisticated long tail strategies. Data providers can package real demand indicators, risk metrics, and price discovery quality scores. Once those integrations exist, switching costs appear. Partners build flows around the market creation layer, LPs learn how to underwrite its stages, and downstream venues can use Vibe history as listing evidence. Publication Boundary This page describes the strategic network effects thesis. It should not claim live launchpad, lending, data provider, or order book partnerships unless those integrations are confirmed by pub"
     },
     {
       "id": "authored-intent-otc-long-tail-verification",
@@ -9168,6 +9239,30 @@
       "excerpt": "The Solver As The Initial Network Effect Network effects are normally hard to start because the first user arrives before the network is useful. In a new perp market, the problem is sharper: the first trader needs liquidity, LPs need volume, and volume needs traders. Without an initial counterparty, the loop never begins. Neelo's Vibe architecture assigns that starting role to the solver. The solver can quote, absorb residual imbalance, manage risk, hedge, and make a market usable before natural two sided flow exists. In the Thielian analysis source, this is why Vibe's network effects are not purely aspirational: the solver acts as the first functional network while trader, LP, project, and data flywheels are still forming. That does not make the solver magic. It moves the cold start burden into pricing, risk controls, capital allocation, and operational competence. But it gives the market a first usable state. Once the market has real flow, the same data can improve solver pricing, graduation decisions, LP confidence, and downstream listing evidence. Publication Boundary This page supports a strategic and architectural claim, not a guarantee of durable monopoly. Do not publish exa"
     },
     {
+      "id": "authored-solver-complexity-replication-barrier",
+      "title": "Solver Complexity Is A Replication Barrier",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-3-the-solver-complexity-barrier",
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-3-the-solver-protocol-owned-market-maker"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-3-the-solver-complexity-barrier",
+        "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-3-the-solver-protocol-owned-market-maker",
+        "authored-solver-owned-market-maker"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/solver-complexity-replication-barrier.md",
+      "bodyMarkdown": "# Solver Complexity Is A Replication Barrier\n\nThe solver is not a background script. In Neelo's competitive analysis, it is a specialized operating system for early derivative markets.\n\nThe source names several capabilities that have to work together: derivatives pricing, risk management, market microstructure, liquidation mechanics, low-latency infrastructure, venue connectivity, monitoring, incident response, parameter tuning, and continuous optimization. A team can copy terminology faster than it can build those capabilities.\n\nThe harder point is learning. A competent solver needs market data, operational experience, and capital discipline. New entrants face a cold start on the solver itself: without markets there is less data, without data the solver prices worse, and with worse pricing the markets are less attractive.\n\nThat is why solver complexity is part of the moat. It is not only code complexity. It is accumulated judgment under live market stress.\n\n## Publication Boundary\n\nThis page should not publish production uptime guarantees, venue connections, solver ownership, quote obligations, staffing claims, or capital commitments without operator confirmation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Solver Complexity Barrier\".\n- `vibe-papers`: Neelo, \"Section 5: The Solver: Protocol-Owned Market Maker\".\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-solver-engine-operating-loop`\n- `authored-solver-as-initial-network-effect`",
+      "excerpt": "Solver Complexity Is A Replication Barrier The solver is not a background script. In Neelo's competitive analysis, it is a specialized operating system for early derivative markets. The source names several capabilities that have to work together: derivatives pricing, risk management, market microstructure, liquidation mechanics, low latency infrastructure, venue connectivity, monitoring, incident response, parameter tuning, and continuous optimization. A team can copy terminology faster than it can build those capabilities. The harder point is learning. A competent solver needs market data, operational experience, and capital discipline. New entrants face a cold start on the solver itself: without markets there is less data, without data the solver prices worse, and with worse pricing the markets are less attractive. That is why solver complexity is part of the moat. It is not only code complexity. It is accumulated judgment under live market stress. Publication Boundary This page should not publish production uptime guarantees, venue connections, solver ownership, quote obligations, staffing claims, or capital commitments without operator confirmation. Sources vibe papers : Neelo"
+    },
+    {
       "id": "authored-solver-cva-compensation-buffer",
       "title": "Solver CVA Compensation Buffer",
       "section": "protocol-reference",
@@ -9558,6 +9653,29 @@
       "file": "content/authored/manifesto/stable-margin-manipulation-cost.md",
       "bodyMarkdown": "# Stable Margin Makes Manipulation Cost Real Capital\n\nNeelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC-margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated.\n\nThat changes the attack arithmetic. In a token-margined design, the attacker may use the token's own reflexivity against the market: the collateral, payout unit, LP balance sheet, and manipulated asset can all move together. In the USDC-margined model, the attacker must spend real stable capital and extract against bounded USDC obligations.\n\nThis does not mean manipulation disappears. It means the feedback loop is less self-amplifying. The market can combine stable margin with solver quote controls, OI limits, dynamic spreads, funding, and refusal rather than relying on passive token-denominated mechanics.\n\n## Bounded Liability Is A Control Surface\n\nManipulation defense begins with economics. If the cost to push the reference market is lower than the payout extracted from the perp, the attack can be rational. Stable margin helps by making the payout legible in USDC and by preventing the manipulated token from simultaneously weakening the collateral unit.\n\nThe defense is strongest when the solver can also notice bad market states and refuse or reprice. Stable margin is the base; active risk management is the response.\n\n## Reader Implication\n\nWhen a reader asks why USDC margin helps manipulation defense, route here. The answer is not that USDC makes spot liquidity deep. The answer is that stable margin removes one reflexive amplifier and makes the attacker's economics easier to bound.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.2 How This Fixes Each Problem\".\n\n## Related Pages\n\n- `authored-token-margin-manipulation-amplifier`\n- `authored-profitable-manipulation-condition`\n- `authored-solver-refusal-as-oracle-defense`",
       "excerpt": "Stable Margin Makes Manipulation Cost Real Capital Neelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated. That changes the attack arithmetic. In a token margined design, the attacker may use the token's own reflexivity against the market: the collateral, payout unit, LP balance sheet, and manipulated asset can all move together. In the USDC margined model, the attacker must spend real stable capital and extract against bounded USDC obligations. This does not mean manipulation disappears. It means the feedback loop is less self amplifying. The market can combine stable margin with solver quote controls, OI limits, dynamic spreads, funding, and refusal rather than relying on passive token denominated mechanics. Bounded Liability Is A Control Surface Manipulation defense begins with economics. If the cost to push the reference market is lower than the payout extracted from the perp, the attack can be rational. Stable margin helps by making the payout legible "
+    },
+    {
+      "id": "authored-state-migration-replication-risk",
+      "title": "State Migration Is A Replication Risk",
+      "section": "manifesto",
+      "track": "08 — Competitive Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-2-architectural-lock-in"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-08-competitive-analysis-8-2-architectural-lock-in",
+        "authored-hybrid-retrofit-is-new-protocol",
+        "authored-replication-barriers-and-data-moats"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/state-migration-replication-risk.md",
+      "bodyMarkdown": "# State Migration Is A Replication Risk\n\nEven if an incumbent protocol decides to rebuild toward a hybrid architecture, it still has to migrate live state. That is a different problem from writing a new whitepaper.\n\nExisting user positions may live in formats designed for a different matching and collateral model. Existing LP capital was deposited under a particular risk promise. Existing contracts, governance processes, audits, and upgrade paths constrain what can change without creating trust risk.\n\nThe source identifies three migration surfaces: user positions, LP capital, and smart-contract infrastructure. Each one can turn a strategic pivot into a coordination problem. Users may not consent to a new position format. LPs may withdraw if the new model changes their risk profile. Contract changes require audits, governance, and renewed confidence.\n\nThis makes incumbency double-edged. Existing protocols have users and capital, but that state is attached to the old architecture. Vibe's advantage, in the source's framing, is designing for traversal before the state becomes too large to move cleanly.\n\n## Publication Boundary\n\nThis page is not a security claim about any named protocol. It documents the general migration barrier in Neelo's competitive analysis and should avoid speculation about specific governance votes, audits, or upgrade timelines.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The State Migration Problem\".\n\n## Related Pages\n\n- `authored-hybrid-retrofit-is-new-protocol`\n- `authored-replication-barriers-and-data-moats`\n- `authored-protocol-defined-market-lifecycle`",
+      "excerpt": "State Migration Is A Replication Risk Even if an incumbent protocol decides to rebuild toward a hybrid architecture, it still has to migrate live state. That is a different problem from writing a new whitepaper. Existing user positions may live in formats designed for a different matching and collateral model. Existing LP capital was deposited under a particular risk promise. Existing contracts, governance processes, audits, and upgrade paths constrain what can change without creating trust risk. The source identifies three migration surfaces: user positions, LP capital, and smart contract infrastructure. Each one can turn a strategic pivot into a coordination problem. Users may not consent to a new position format. LPs may withdraw if the new model changes their risk profile. Contract changes require audits, governance, and renewed confidence. This makes incumbency double edged. Existing protocols have users and capital, but that state is attached to the old architecture. Vibe's advantage, in the source's framing, is designing for traversal before the state becomes too large to move cleanly. Publication Boundary This page is not a security claim about any named protocol. It docume"
     },
     {
       "id": "authored-static-perp-design-failures",
