@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1158,
-  "totalChunks": 2004,
-  "pagesWithChunks": 1158,
+  "totalPages": 1163,
+  "totalChunks": 2014,
+  "pagesWithChunks": 1163,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 346,
+    "authored": 351,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 663,
+    "authored": 673,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 158,
+    "protocol-reference": 168,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2328,6 +2328,60 @@
       "text": "exposure, opens leverage, then stresses the backing pool through spot selling. Vibe's proposed answer is a hybrid liquidity model: token inventory, solver funded stablecoin operations, quote by quote risk checks, and market controls that tighten when the market is immature or stressed. Reader Implication This page should be the first DDQ route for partners. It explains why Vibe is not simply \"a perp UI\" or \"a vault.\" The product claim is an integrated market creation stack: intents, solvers, LP inventory, and settlement are designed to make long tail leveraged markets possible before a normal order book can support them. Publication Note The DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored residual counterparty hedge first authored token lp attractiveness model authored solver default and continuity neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
     },
     {
+      "id": "authored-ddq-bilateral-otc-primitive::001",
+      "pageId": "authored-ddq-bilateral-otc-primitive",
+      "chunkIndex": 1,
+      "title": "DDQ Bilateral OTC Derivatives Primitive",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-bilateral-otc-primitive.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Bilateral OTC Derivatives Primitive The DDQ introduction names bilateral OTC derivatives primitives as part of the Vibe stack. That phrase is important because it explains how a long tail market can begin before it has a deep public order book. In a bilateral model, a trader expresses a desired derivative exposure and a counterparty evaluates whether to accept the other side. The first trade does not require a full pool or synchronous matching venue. It requires a priced relationship between PartyA and PartyB under enforceable settlement rules. Why Bilateral Matters For Long Tail Markets Long tail assets often do not have enough immediate flow for an order book to be useful. A bilateral OTC primitive lowers the minimum viable market: one trader can request exposure, and one solver can decide whether the terms are acceptable. This does not remove risk. It names the counterparty path. If the solver accepts, it becomes responsible for the other side of the position subject to collateral, lifecycle, and risk rules. If the solver cannot price or hedge the request, it can refuse or widen terms before the market pretends there is deeper liquidity than actually exists. How It Fits With Symmio Language Symmio's core vocabulary helps make the DDQ primitive precise. PartyA is the requester or trader side. PartyB is the counterparty or"
+    },
+    {
+      "id": "authored-ddq-bilateral-otc-primitive::002",
+      "pageId": "authored-ddq-bilateral-otc-primitive",
+      "chunkIndex": 2,
+      "title": "DDQ Bilateral OTC Derivatives Primitive",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://docs.symm.io/getting-started/core-concepts.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-bilateral-otc-primitive.md",
+      "wordStart": 185,
+      "wordEnd": 385,
+      "wordCount": 200,
+      "text": "pretends there is deeper liquidity than actually exists. How It Fits With Symmio Language Symmio's core vocabulary helps make the DDQ primitive precise. PartyA is the requester or trader side. PartyB is the counterparty or solver side. The protocol can track collateral, margin, CVA, quote lifecycle, close requests, force close paths, and liquidation state without needing a central order book to match every trade synchronously. That is why the docs should teach \"bilateral\" as a protocol property, not as a private dealing metaphor. The trade is still rule bound; it is just not born from a public book's crossing event. Publication Boundary Do not publish final PartyA/PartyB permissions, OTC eligibility rules, whitelisting rules, quote lifecycle timing, or enforceability claims beyond the confirmed protocol documentation. The source backed claim is that bilateral OTC primitives let Vibe model long tail derivatives as accepted counterparty relationships. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". symmio core : PartyA/PartyB and bilateral settlement vocabulary. symmio intent lifecycle : intent submission, solver monitoring, locking, and lifecycle events. Related Pages authored bilateral intent lifecycle authored symmio party a party b authored intent otc long tail verification neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
       "id": "authored-ddq-local-insurance-tail-buffer::001",
       "pageId": "authored-ddq-local-insurance-tail-buffer",
       "chunkIndex": 1,
@@ -2374,6 +2428,202 @@
       "wordEnd": 331,
       "wordCount": 146,
       "text": "event. It is a tail buffer in a waterfall whose earlier layers are trader margin and solver resources. For LPs and project teams, it is evidence that the market is developing its own risk budget. A healthier local fund can support better terms over time, while a new or suspicious market may remain tighter because it has not built enough local protection. Publication Boundary Do not publish live local insurance inflows, liquidation routing percentages, spend caps, withdrawal effects, governance controls, or per market fund balances without implementation and operator review. The source backed claim is that local insurance is market specific and comes before global insurance in the DDQ waterfall. Sources vibe papers : Neelo DDQ, \"Bearer of Losses\". vibe papers : Neelo DDQ, \"Balancing UX vs Risk\". Related Pages authored funding local insurance fund authored conditional global insurance allocation authored loss waterfall and profit caps"
+    },
+    {
+      "id": "authored-ddq-margin-protocol-role::001",
+      "pageId": "authored-ddq-margin-protocol-role",
+      "chunkIndex": 1,
+      "title": "DDQ Margin Protocol Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-margin-protocol-role.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Margin Protocol Role The DDQ introduction names margin trading as one of the six primitives in the Vibe architecture stack. Its role is collateral discipline: define what backs a position, what can be lost, and when a position becomes unsafe. That does not mean Vibe should be explained as a simple on chain margin vault. The same source criticizes earlier permissionless margin experiments for needing near 1:1 backing at execution time. That model can make leverage expensive, reduce market depth, and widen spreads. It can also expose stablecoin vaults to attacks where a trader builds spot exposure, opens leverage, and then stresses the backing pool through spot selling. Why Margin Still Matters Margin mechanics are still necessary because leveraged markets need enforceable downside boundaries. Traders need collateral, accounts need health checks, and the system needs a way to decide when exposure should be reduced or liquidated. The DDQ's point is that margin alone is not enough for permissionless long tail perps. If every market requires full stablecoin backing from generic LPs, then the system may become safe only by becoming too capital hungry to scale. Margin has to be combined with solver risk checks, token inventory, and perpetual market mechanics. Reader Implication When a reader asks \"is this margin trading or perps?\", the answer should not force a false"
+    },
+    {
+      "id": "authored-ddq-margin-protocol-role::002",
+      "pageId": "authored-ddq-margin-protocol-role",
+      "chunkIndex": 2,
+      "title": "DDQ Margin Protocol Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-margin-protocol-role.md",
+      "wordStart": 185,
+      "wordEnd": 367,
+      "wordCount": 182,
+      "text": "scale. Margin has to be combined with solver risk checks, token inventory, and perpetual market mechanics. Reader Implication When a reader asks \"is this margin trading or perps?\", the answer should not force a false binary. The margin layer supplies collateral and liquidation semantics. The perpetuals layer supplies ongoing position lifecycle. The solver and vault stack decide whether residual exposure can be quoted safely. For user facing docs, margin pages should therefore explain account health, locked collateral, CVA or buffer concepts where relevant, liquidation distance, and withdrawal constraints. They should not imply that margin collateral by itself solves long tail market bootstrapping. Publication Boundary Do not publish final margin formulas, maintenance thresholds, CVA sizing, liquidation fees, account isolation rules, or contract level enforcement details without operator and implementation review. The source backed claim is architectural: margin discipline is one primitive in a hybrid system, not the whole system. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored ddq architecture stack authored vibe collateral and margining authored collateral margin cva neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-perpetuals-layer-role::001",
+      "pageId": "authored-ddq-perpetuals-layer-role",
+      "chunkIndex": 1,
+      "title": "DDQ Perpetuals Layer Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-perpetuals-layer-role.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Perpetuals Layer Role The DDQ introduction names a perpetuals protocol as a separate primitive from margin trading. Its job is to make the position lifecycle continuous: open exposure, mark it, fund it, close it, liquidate it, and route PnL through the correct counterparty path. The source then explains the key execution shape: the solver manages the perpetuals layer as an asynchronous matching engine. It looks for long and short trader flow that can offset internally. When opposing flow exists, traders pay each other. When opposing flow is missing, the solver may temporarily act as residual counterparty under defined constraints. Why It Is Not Just A Margin Loan A simple margin loan can define collateral, but it does not automatically create a durable derivatives market. A perpetual position needs ongoing risk transfer. The price can move after entry, funding can shift incentives, and closeout may need either internal netting or executable external liquidity. That is why the DDQ pairs margin mechanics with perpetual mechanics. Margin constrains the trader's solvency. The perpetuals layer defines who bears PnL at each state and how the system tries to keep the market close to balanced. Reader Implication For traders, the practical question is \"who am I economically facing right now?\" If the flow is netted, the answer is another trader. If the flow is"
+    },
+    {
+      "id": "authored-ddq-perpetuals-layer-role::002",
+      "pageId": "authored-ddq-perpetuals-layer-role",
+      "chunkIndex": 2,
+      "title": "DDQ Perpetuals Layer Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-perpetuals-layer-role.md",
+      "wordStart": 185,
+      "wordEnd": 359,
+      "wordCount": 174,
+      "text": "keep the market close to balanced. Reader Implication For traders, the practical question is \"who am I economically facing right now?\" If the flow is netted, the answer is another trader. If the flow is un netted, the answer is the solver and the liquidity resources backing that residual exposure. For LPs and solvers, the perpetuals layer is where market maturity becomes visible. More netting means less balance sheet burden. Less netting means more reliance on solver inventory, hedging, spreads, funding, limits, and tail controls. Publication Boundary Do not publish final mark price rules, funding formulas, closeout mechanics, liquidation thresholds, or netting guarantees without operator and implementation review. The source backed claim is the layer's role: perpetual mechanics define the ongoing lifecycle and PnL routing that margin alone cannot provide. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". vibe papers : Neelo DDQ, \"Risk Walkthrough\". Related Pages authored netting state risk transfer authored internal netting before external execution authored executable closeout pricing neelo 08 due diligence questionnaire 08 docs risk walkthrough risk walthrough"
+    },
+    {
+      "id": "authored-ddq-proprietary-solver-role::001",
+      "pageId": "authored-ddq-proprietary-solver-role",
+      "chunkIndex": 1,
+      "title": "DDQ Proprietary Solver Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-proprietary-solver-role.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Proprietary Solver Role The DDQ introduction names proprietary solver technology as one of the stack primitives. The solver is not only a price widget. It is the actor that turns an intent into a risk reviewed quote and, when accepted, into a managed bilateral position. The source lists three responsibilities directly: pricing, risk assessment and management, and per quote parameter setting. That means spreads, execution prices, inventory exposure, hedge feasibility, funding controls, and other risk parameters are solver work. Why The Solver Is Central Permissionless long tail markets have a cold start problem. There may be no order book, little stable depth, and fragile external liquidity. A passive matching system can only wait for both sides to appear. The DDQ's solver model can do more: evaluate a request, check inventory, decide whether residual exposure can be backed, and set terms before final commitment. That is why the same stack needs intents, margin, vault inventory, and perpetual lifecycle rules. The solver coordinates between them. It prices the request, checks whether the backing path exists, and decides whether to accept, refuse, or tighten terms. Reader Implication For traders, solver quality affects UX: quote availability, spread, refusal, max size, closeout behavior, and recovery handling. For LPs, solver quality affects whether inventory is used conservatively or exposed to avoidable risk. For projects, solver"
+    },
+    {
+      "id": "authored-ddq-proprietary-solver-role::002",
+      "pageId": "authored-ddq-proprietary-solver-role",
+      "chunkIndex": 2,
+      "title": "DDQ Proprietary Solver Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://docs.vibe.trading/architectural-overview.md",
+        "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-proprietary-solver-role.md",
+      "wordStart": 185,
+      "wordEnd": 369,
+      "wordCount": 184,
+      "text": "For traders, solver quality affects UX: quote availability, spread, refusal, max size, closeout behavior, and recovery handling. For LPs, solver quality affects whether inventory is used conservatively or exposed to avoidable risk. For projects, solver quality is what turns token inventory into a tradable market rather than a static deposit. The docs should therefore avoid describing \"the solver\" as a black box. It should be presented as the risk engine, quote engine, and lifecycle operator that makes the rest of the architecture usable. Publication Boundary Do not publish proprietary solver algorithms, hedge venues, inventory thresholds, spread formulas, model signals, per quote parameter rules, or operational controls without operator and implementation review. The source backed claim is role level: the solver prices, risk checks, and manages per quote parameters. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". vibe architecture : Vibe intent quotation and solver acceptance context. symmio intent lifecycle : solver monitoring, locking, and lifecycle responsibilities. Related Pages authored solver event monitoring authored rfq risk tuning authored soft quote last look risk gating neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-token-vault-liquidity-role::001",
+      "pageId": "authored-ddq-token-vault-liquidity-role",
+      "chunkIndex": 1,
+      "title": "DDQ Token Vault Liquidity Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-token-vault-liquidity-role.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Token Vault Liquidity Role The DDQ introduction names user vaults for liquidity tokens as a core primitive. These vaults provide token side assets that the solver can draw on, subject to protocol rules and risk parameters, to support liquidity and hedging for leveraged markets. That role is narrower than \"LPs provide all liquidity.\" The DDQ separates token side inventory from stablecoin settlement operations. Token vaults are market specific inventory. They help a long tail market quote, hedge, and settle early exposure before natural two sided flow is deep enough to carry more of the market. Why Token Vaults Are In The Stack Long tail projects and holders often have token inventory but do not want to spend scarce stablecoins just to bootstrap a derivatives market. Token vaults let that inventory become useful market infrastructure. The solver can use supported liquidity tokens as backing or hedge material under defined constraints. This also aligns risk. A token holder already has directional exposure to the asset. Providing some of that inventory to a market specific vault can be a more natural risk allocation than asking outside USDC LPs to underwrite a low cap leveraged market they do not otherwise support. Reader Implication For projects, the token vault role answers \"how can my asset support a perp market without first buying stablecoin depth?\""
+    },
+    {
+      "id": "authored-ddq-token-vault-liquidity-role::002",
+      "pageId": "authored-ddq-token-vault-liquidity-role",
+      "chunkIndex": 2,
+      "title": "DDQ Token Vault Liquidity Role",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton",
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-token-vault-liquidity-role.md",
+      "wordStart": 185,
+      "wordEnd": 381,
+      "wordCount": 196,
+      "text": "LPs to underwrite a low cap leveraged market they do not otherwise support. Reader Implication For projects, the token vault role answers \"how can my asset support a perp market without first buying stablecoin depth?\" For LPs, it clarifies that inventory risk is market specific and should be disclosed through vault terms. For traders, it explains why early market capacity may depend on available token inventory and solver risk policy. Token vaults are therefore not a generic yield pool. They are part of the market creation machinery: inventory that makes quote and hedge paths possible while the market matures. Publication Boundary Do not publish final supported token rules, vault withdrawal rights, rehypothecation rights, custody structure, solver borrowing rights, fee share, or LP loss ordering without operator, accounting, legal, and implementation review. The source backed claim is the role: token vaults supply market specific liquidity tokens for solver managed liquidity and hedging. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored token lp attractiveness model authored lp ignition capital lifecycle authored token holder incremental risk alignment neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
     },
     {
       "id": "authored-derivatives-venue-term::001",

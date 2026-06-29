@@ -855,3 +855,11 @@
 **Reason:** The broad solver-hedging failure page explains the overall risk model, but diligence readers need exact routes for why low-cap markets are hedge-first, how the RFQ/intent structure avoids forced unhedgeable fills, what a liquidity collapse changes, why discontinuous markets need mode switches, and when unhedged solver exposure is a strategic maturity choice rather than a failure.
 
 **Status:** Accepted for the authored protocol-reference layer; live hedge tests, quote-validity behavior, liquidity thresholds, market-freeze rules, discontinuity support, solver inventory limits, and maturity criteria remain operator/implementation/legal review.
+
+## D-108: Split DDQ Architecture Stack Into Primitive-Level Answers
+
+**Decision:** Add authored protocol-reference pages for the DDQ margin protocol role, perpetuals layer role, bilateral OTC derivatives primitive, proprietary solver role, and token-vault liquidity role.
+
+**Reason:** The broad DDQ architecture-stack page names the six primitives, but partner and diligence readers need exact answers for what each primitive contributes. Splitting the stack makes it easier to explain why Vibe is not merely a margin vault, not merely a perp UI, and not merely an LP pool: collateral discipline, perpetual lifecycle, bilateral counterparty formation, solver risk operation, and token inventory each do different work.
+
+**Status:** Accepted for the authored protocol-reference layer; live margin formulas, funding/closeout rules, PartyA/PartyB permissions, solver algorithms, vault rights, custody, fee share, and LP loss ordering remain operator/implementation/legal/accounting review.

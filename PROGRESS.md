@@ -646,6 +646,12 @@
 - Routed five new Ask questions so trader, LP, solver, and risk-review readers can inspect the control surfaces beneath the broad "what if the solver cannot hedge?" answer.
 - Kept live hedge tests, quote-validity behavior, liquidity thresholds, market-freeze rules, discontinuity support, solver inventory limits, and maturity criteria under operator/implementation/legal review.
 
+## 2026-06-29 — DDQ Architecture Primitive Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ General Introduction source: the margin protocol role, perpetuals layer role, bilateral OTC derivatives primitive, proprietary solver role, and token-vault liquidity role.
+- Routed five new Ask questions so partner and diligence readers can inspect each primitive beneath the broad architecture-stack answer.
+- Kept live margin formulas, funding/closeout rules, PartyA/PartyB permissions, solver algorithms, vault rights, custody, fee share, and LP loss ordering under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

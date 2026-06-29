@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 334,
-  "totalAnswerable": 327,
+  "totalEntries": 339,
+  "totalAnswerable": 332,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 90,
+    "Solvers And Settlement": 95,
     "Risk And Markets": 23,
     "Revenue": 29,
     "Manifesto": 66,
@@ -29,13 +29,13 @@
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 146
+    "Low": 151
   },
   "byRouteSource": {
-    "authored": 327
+    "authored": 332
   },
   "byType": {
-    "answerable": 327,
+    "answerable": 332,
     "reconciliation": 7
   },
   "answerable": [
@@ -10160,6 +10160,183 @@
       "confidence": "Low",
       "pageId": "authored-ddq-architecture-stack",
       "pageTitle": "DDQ Architecture Stack",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-the-margin-protocol-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does the margin protocol play in the DDQ stack?",
+      "normalizedQuestion": "what role does the margin protocol play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ treats margin mechanics as collateral discipline inside a broader hybrid architecture, not as the whole permissionless leverage model.",
+      "answerSummary": "DDQ Margin Protocol Role The DDQ introduction names margin trading as one of the six primitives in the Vibe architecture stack. Its role is collateral discipline: define what backs a position, what can be lost, and when a position becomes unsafe. That does not mean Vibe should be explained as a simple on chain margin vault. The same source criticizes earl...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-margin-protocol-role",
+      "pageTitle": "DDQ Margin Protocol Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-the-perpetuals-layer-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does the perpetuals layer play in the DDQ stack?",
+      "normalizedQuestion": "what role does the perpetuals layer play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ separates perpetual lifecycle and PnL routing from margin collateral, especially across netted and un-netted exposure.",
+      "answerSummary": "DDQ Perpetuals Layer Role The DDQ introduction names a perpetuals protocol as a separate primitive from margin trading. Its job is to make the position lifecycle continuous: open exposure, mark it, fund it, close it, liquidate it, and route PnL through the correct counterparty path. The source then explains the key execution shape: the solver manages the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-perpetuals-layer-role",
+      "pageTitle": "DDQ Perpetuals Layer Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-include-bilateral-otc-derivatives-primitives",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ include bilateral OTC derivatives primitives?",
+      "normalizedQuestion": "why does the ddq include bilateral otc derivatives primitives",
+      "shortAnswer": "Neelo's DDQ and Symmio vocabulary support bilateral PartyA/PartyB trades as a way for long-tail markets to begin before an order book exists.",
+      "answerSummary": "DDQ Bilateral OTC Derivatives Primitive The DDQ introduction names bilateral OTC derivatives primitives as part of the Vibe stack. That phrase is important because it explains how a long tail market can begin before it has a deep public order book. In a bilateral model, a trader expresses a desired derivative exposure and a counterparty evaluates whether...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-bilateral-otc-primitive",
+      "pageTitle": "DDQ Bilateral OTC Derivatives Primitive",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-proprietary-solver-do-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the proprietary solver do in the DDQ stack?",
+      "normalizedQuestion": "what does the proprietary solver do in the ddq stack",
+      "shortAnswer": "Neelo's DDQ assigns pricing, risk assessment, hedge feasibility, and per-quote parameters to the solver layer.",
+      "answerSummary": "DDQ Proprietary Solver Role The DDQ introduction names proprietary solver technology as one of the stack primitives. The solver is not only a price widget. It is the actor that turns an intent into a risk reviewed quote and, when accepted, into a managed bilateral position. The source lists three responsibilities directly: pricing, risk assessment and man...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-proprietary-solver-role",
+      "pageTitle": "DDQ Proprietary Solver Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-do-token-vaults-play-in-ddq-liquidity-sourcing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role do token vaults play in DDQ liquidity sourcing?",
+      "normalizedQuestion": "what role do token vaults play in ddq liquidity sourcing",
+      "shortAnswer": "Neelo's DDQ frames user vaults for liquidity tokens as market-specific inventory for solver-managed liquidity and hedging.",
+      "answerSummary": "DDQ Token Vault Liquidity Role The DDQ introduction names user vaults for liquidity tokens as a core primitive. These vaults provide token side assets that the solver can draw on, subject to protocol rules and risk parameters, to support liquidity and hedging for leveraged markets. That role is narrower than \"LPs provide all liquidity.\" The DDQ separates...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-token-vault-liquidity-role",
+      "pageTitle": "DDQ Token Vault Liquidity Role",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -21503,6 +21680,183 @@
       "confidence": "Low",
       "pageId": "authored-ddq-architecture-stack",
       "pageTitle": "DDQ Architecture Stack",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-the-margin-protocol-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does the margin protocol play in the DDQ stack?",
+      "normalizedQuestion": "what role does the margin protocol play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ treats margin mechanics as collateral discipline inside a broader hybrid architecture, not as the whole permissionless leverage model.",
+      "answerSummary": "DDQ Margin Protocol Role The DDQ introduction names margin trading as one of the six primitives in the Vibe architecture stack. Its role is collateral discipline: define what backs a position, what can be lost, and when a position becomes unsafe. That does not mean Vibe should be explained as a simple on chain margin vault. The same source criticizes earl...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-margin-protocol-role",
+      "pageTitle": "DDQ Margin Protocol Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-does-the-perpetuals-layer-play-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role does the perpetuals layer play in the DDQ stack?",
+      "normalizedQuestion": "what role does the perpetuals layer play in the ddq stack",
+      "shortAnswer": "Neelo's DDQ separates perpetual lifecycle and PnL routing from margin collateral, especially across netted and un-netted exposure.",
+      "answerSummary": "DDQ Perpetuals Layer Role The DDQ introduction names a perpetuals protocol as a separate primitive from margin trading. Its job is to make the position lifecycle continuous: open exposure, mark it, fund it, close it, liquidate it, and route PnL through the correct counterparty path. The source then explains the key execution shape: the solver manages the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-perpetuals-layer-role",
+      "pageTitle": "DDQ Perpetuals Layer Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-the-ddq-include-bilateral-otc-derivatives-primitives",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does the DDQ include bilateral OTC derivatives primitives?",
+      "normalizedQuestion": "why does the ddq include bilateral otc derivatives primitives",
+      "shortAnswer": "Neelo's DDQ and Symmio vocabulary support bilateral PartyA/PartyB trades as a way for long-tail markets to begin before an order book exists.",
+      "answerSummary": "DDQ Bilateral OTC Derivatives Primitive The DDQ introduction names bilateral OTC derivatives primitives as part of the Vibe stack. That phrase is important because it explains how a long tail market can begin before it has a deep public order book. In a bilateral model, a trader expresses a desired derivative exposure and a counterparty evaluates whether...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-bilateral-otc-primitive",
+      "pageTitle": "DDQ Bilateral OTC Derivatives Primitive",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-proprietary-solver-do-in-the-ddq-stack",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does the proprietary solver do in the DDQ stack?",
+      "normalizedQuestion": "what does the proprietary solver do in the ddq stack",
+      "shortAnswer": "Neelo's DDQ assigns pricing, risk assessment, hedge feasibility, and per-quote parameters to the solver layer.",
+      "answerSummary": "DDQ Proprietary Solver Role The DDQ introduction names proprietary solver technology as one of the stack primitives. The solver is not only a price widget. It is the actor that turns an intent into a risk reviewed quote and, when accepted, into a managed bilateral position. The source lists three responsibilities directly: pricing, risk assessment and man...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-proprietary-solver-role",
+      "pageTitle": "DDQ Proprietary Solver Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-role-do-token-vaults-play-in-ddq-liquidity-sourcing",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What role do token vaults play in DDQ liquidity sourcing?",
+      "normalizedQuestion": "what role do token vaults play in ddq liquidity sourcing",
+      "shortAnswer": "Neelo's DDQ frames user vaults for liquidity tokens as market-specific inventory for solver-managed liquidity and hedging.",
+      "answerSummary": "DDQ Token Vault Liquidity Role The DDQ introduction names user vaults for liquidity tokens as a core primitive. These vaults provide token side assets that the solver can draw on, subject to protocol rules and risk parameters, to support liquidity and hedging for leveraged markets. That role is narrower than \"LPs provide all liquidity.\" The DDQ separates...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-token-vault-liquidity-role",
+      "pageTitle": "DDQ Token Vault Liquidity Role",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 327,
+  "totalRoutes": 332,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 146
+    "Low": 151
   },
   "byRouteSource": {
-    "authored": 327
+    "authored": 332
   },
   "answerable": [
     {
@@ -5261,6 +5261,95 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's DDQ introduction names the margin, perpetual, intent, OTC, solver, and token-vault primitives while production parameters remain review-bound.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-role-does-the-margin-protocol-play-in-the-ddq-stack",
+      "question": "What role does the margin protocol play in the DDQ stack?",
+      "normalizedQuestion": "what role does the margin protocol play in the ddq stack",
+      "pageId": "authored-ddq-margin-protocol-role",
+      "pageTitle": "DDQ Margin Protocol Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ treats margin mechanics as collateral discipline inside a broader hybrid architecture, not as the whole permissionless leverage model.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-role-does-the-perpetuals-layer-play-in-the-ddq-stack",
+      "question": "What role does the perpetuals layer play in the DDQ stack?",
+      "normalizedQuestion": "what role does the perpetuals layer play in the ddq stack",
+      "pageId": "authored-ddq-perpetuals-layer-role",
+      "pageTitle": "DDQ Perpetuals Layer Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ separates perpetual lifecycle and PnL routing from margin collateral, especially across netted and un-netted exposure.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-the-ddq-include-bilateral-otc-derivatives-primitives",
+      "question": "Why does the DDQ include bilateral OTC derivatives primitives?",
+      "normalizedQuestion": "why does the ddq include bilateral otc derivatives primitives",
+      "pageId": "authored-ddq-bilateral-otc-primitive",
+      "pageTitle": "DDQ Bilateral OTC Derivatives Primitive",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ and Symmio vocabulary support bilateral PartyA/PartyB trades as a way for long-tail markets to begin before an order book exists.",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-proprietary-solver-do-in-the-ddq-stack",
+      "question": "What does the proprietary solver do in the DDQ stack?",
+      "normalizedQuestion": "what does the proprietary solver do in the ddq stack",
+      "pageId": "authored-ddq-proprietary-solver-role",
+      "pageTitle": "DDQ Proprietary Solver Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ assigns pricing, risk assessment, hedge feasibility, and per-quote parameters to the solver layer.",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-role-do-token-vaults-play-in-ddq-liquidity-sourcing",
+      "question": "What role do token vaults play in DDQ liquidity sourcing?",
+      "normalizedQuestion": "what role do token vaults play in ddq liquidity sourcing",
+      "pageId": "authored-ddq-token-vault-liquidity-role",
+      "pageTitle": "DDQ Token Vault Liquidity Role",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ frames user vaults for liquidity tokens as market-specific inventory for solver-managed liquidity and hedging.",
       "sourceKeys": [
         "vibe-papers"
       ],
