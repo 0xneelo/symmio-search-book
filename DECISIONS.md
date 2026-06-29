@@ -1079,3 +1079,11 @@
 **Reason:** The broad SYMM LP KPI and data-guardrail pages explain that the case is a proof of mechanism rather than a yield promise, but exact-answer readers need direct routes for the reporting controls that make that boundary enforceable. Splitting the source's measurement gaps turns them into operational requirements before future LP performance claims are generalized.
 
 **Status:** Accepted for the authored protocol-reference layer; live vault charts, accounting labels, withdrawal semantics, data ownership, gross-to-net allocation, fee/expense treatment, drawdown history, benchmark refresh cadence, and public yield wording remain operator/accounting/legal/implementation review.
+
+## D-136: Split SYMM LP Scaling Playbook Into Phase-Level Exact Answers
+
+**Decision:** Add authored protocol-reference pages for community replication readiness, pilot allocation discipline, validation phase reporting, tranche scale-up stop conditions, and steady-state operating bounds.
+
+**Reason:** The broad SYMM LP replication page explains the playbook, but answer-engine readers need direct routes for each operational phase and gate. Splitting the source's replication and deployment requirements prevents the case study from being read as immediately scalable yield and turns it into a staged market-operations checklist.
+
+**Status:** Accepted for the authored protocol-reference layer; live community eligibility, pilot sizes, treasury participation, validation cadence, tranche thresholds, stop conditions, utilization bands, emergency controls, reporting cadence, and public vault terms remain operator/risk/accounting/legal/implementation review.

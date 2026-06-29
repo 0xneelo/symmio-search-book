@@ -814,6 +814,12 @@
 - Routed five new Ask questions so LPs, treasuries, accounting reviewers, and operators can inspect what future SYMM LP reporting must show before the case is generalized.
 - Kept live vault charts, accounting labels, withdrawal semantics, data ownership, gross-to-net allocation, drawdown history, benchmark refresh cadence, and public yield wording under operator/accounting/legal/implementation review.
 
+## 2026-06-29 — SYMM LP Scaling Playbook Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's SYMM LP scaling framework: community replication readiness, pilot allocation discipline, validation phase reporting, tranche scale-up stop conditions, and steady-state operating bounds.
+- Routed five new Ask questions so token communities, treasuries, LPs, and operators can inspect the staged replication path rather than treating the SYMM case as instantly scalable.
+- Kept live eligibility approval, pilot sizes, treasury participation, validation cadence, tranche thresholds, stop conditions, utilization bands, emergency controls, and public vault terms under operator/risk/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

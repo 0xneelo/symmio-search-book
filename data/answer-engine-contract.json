@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 467
+      "totalGoldenRoutes": 472
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 485,
-    "retrievalEligiblePages": 1277,
+    "publicNavigationPages": 490,
+    "retrievalEligiblePages": 1282,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 485,
+      "candidate": 490,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 467,
-    "exactRouteTestsPassing": 467,
+    "totalExactRouteTests": 472,
+    "exactRouteTestsPassing": 472,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 467
+      "candidate": 472
     },
     "exactRoutesByConfidence": {
-      "Medium": 247,
+      "Medium": 252,
       "High": 44,
       "Low": 176
     },
@@ -5128,6 +5128,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-update-symm-lp-benchmarks-across-market-regimes",
+        "passes": true
+      },
+      {
+        "id": "qr-when-is-a-token-community-ready-to-replicate-the-symm-lp-model",
+        "query": "When is a token community ready to replicate the SYMM LP model?",
+        "normalizedQuery": "when is a token community ready to replicate the symm lp model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-community-replication-readiness",
+        "expectedPageTitle": "SYMM LP Community Replication Readiness",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-is-a-token-community-ready-to-replicate-the-symm-lp-model",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-a-symm-lp-pilot-start-with-small-treasury-or-insider-allocation",
+        "query": "Why should a SYMM LP pilot start with small treasury or insider allocation?",
+        "normalizedQuery": "why should a symm lp pilot start with small treasury or insider allocation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-pilot-allocation-discipline",
+        "expectedPageTitle": "SYMM LP Pilot Allocation Discipline",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-should-a-symm-lp-pilot-start-with-small-treasury-or-insider-allocation",
+        "passes": true
+      },
+      {
+        "id": "qr-what-should-a-symm-lp-validation-phase-report",
+        "query": "What should a SYMM LP validation phase report?",
+        "normalizedQuery": "what should a symm lp validation phase report",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-validation-phase-reporting",
+        "expectedPageTitle": "SYMM LP Validation Phase Reporting",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-should-a-symm-lp-validation-phase-report",
+        "passes": true
+      },
+      {
+        "id": "qr-what-stop-conditions-should-control-symm-lp-scale-up",
+        "query": "What stop conditions should control SYMM LP scale-up?",
+        "normalizedQuery": "what stop conditions should control symm lp scale up",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-tranche-scale-up-stop-conditions",
+        "expectedPageTitle": "SYMM LP Tranche Scale-Up Stop Conditions",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-stop-conditions-should-control-symm-lp-scale-up",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-steady-state-operating-bounds-for-a-symm-lp-vault",
+        "query": "What are steady-state operating bounds for a SYMM LP vault?",
+        "normalizedQuery": "what are steady state operating bounds for a symm lp vault",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-steady-state-operating-bounds",
+        "expectedPageTitle": "SYMM LP Steady-State Operating Bounds",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-steady-state-operating-bounds-for-a-symm-lp-vault",
         "passes": true
       },
       {
@@ -10567,7 +10672,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 467,
+      "exactRoutes": 472,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

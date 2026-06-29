@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 486,
+  "totalPages": 491,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 344,
+    "publication-candidate-needs-operator-review": 349,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -14,7 +14,7 @@
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
-    "protocol-reference": 122,
+    "protocol-reference": 127,
     "competitive-context": 1,
     "reference": 1,
     "answer-engine": 1,
@@ -8547,6 +8547,30 @@
       "excerpt": "SYMM LP Case Setup Neelo's SYMM LP case study tracks one liquidity provider deployment on Vibe: three SYMM deposits by LafaChief totaling 2,271,131 tokens. The source frames the test as a way to evaluate whether a project aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposure. The context matters. This was a young SYMM market with a heavily long biased trader base and a falling token price during the measured window. The LP was not simply earning passive yield from high turnover. It was backing early market activity while trader positioning, funding transfers, fees, and mark to market losses created an LP favorable data cut. What Was Being Tested The operational question was whether token inventory could do more than sit idle. In the case study framing, a treasury, insider, or large holder can allocate a limited share of inventory into a Vibe LP role, keep the majority of the stack for directional upside, and let the deposited portion participate in market making economics. That does not mean the LP role is risk free. In bootstrap mode, LP collateral is closer to the market backstop. As a market matu"
     },
     {
+      "id": "authored-symm-lp-community-replication-readiness",
+      "title": "SYMM LP Community Replication Readiness",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-2-replication-conditions-for-other-communities",
+        "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-4-edge-cases-to-test-before-scaling",
+        "authored-symm-lp-replication-framework"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-community-replication-readiness.md",
+      "bodyMarkdown": "# SYMM LP Community Replication Readiness\n\nThe SYMM LP source does not say every token community can copy the case study immediately. It names readiness conditions that should exist before a community tries to replicate the model.\n\nThe first condition is trader demand. The market needs an active base willing to express views through perps. Without recurring trader participation, the LP may have inventory but no useful market to support.\n\nThe second condition is narrative and participation quality. A token community needs enough credible market attention that recurring positions, funding transfer, and turnover can be observed. Pure announcement interest is not enough.\n\nThe third condition is liquidation integrity. The market needs liquidity and risk controls that let the system close, hedge, or manage positions under stress. Otherwise the case can look attractive in calm conditions and fail when profitable traders, gaps, or thin liquidity appear.\n\nThe fourth condition is transparent LP reporting. Depositors need to understand realized versus marked PnL, drawdown, attribution, utilization, and benchmark performance before capital expands.\n\n## Reader Implication\n\nReplication readiness is a filter. It keeps the SYMM case from becoming a generic pitch to every community and turns it into a checklist: demand, narrative, liquidation quality, and reporting discipline must exist before scaling.\n\n## Publication Boundary\n\nDo not publish a token community as \"replication-ready\" until product, risk, accounting, and market-operations owners confirm the criteria and evidence. The source-backed claim is the readiness checklist, not a live eligibility approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Replication Conditions for Other Communities\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n\n## Related Pages\n\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-regime-dependence`\n- `authored-symm-lp-data-guardrails`",
+      "excerpt": "SYMM LP Community Replication Readiness The SYMM LP source does not say every token community can copy the case study immediately. It names readiness conditions that should exist before a community tries to replicate the model. The first condition is trader demand. The market needs an active base willing to express views through perps. Without recurring trader participation, the LP may have inventory but no useful market to support. The second condition is narrative and participation quality. A token community needs enough credible market attention that recurring positions, funding transfer, and turnover can be observed. Pure announcement interest is not enough. The third condition is liquidation integrity. The market needs liquidity and risk controls that let the system close, hedge, or manage positions under stress. Otherwise the case can look attractive in calm conditions and fail when profitable traders, gaps, or thin liquidity appear. The fourth condition is transparent LP reporting. Depositors need to understand realized versus marked PnL, drawdown, attribution, utilization, and benchmark performance before capital expands. Reader Implication Replication readiness is a filter"
+    },
+    {
       "id": "authored-symm-lp-current-debt-and-upnl",
       "title": "SYMM LP Current Debt And UPnL",
       "section": "protocol-reference",
@@ -8768,6 +8792,30 @@
       "excerpt": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long biased while the token price declined. Users were net down at the referenced mark, and negative Current Debt plus negative Current UPnL were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user side loss transfer in a one sided regime. Why This Matters That is strategically important for bootstrapping. A young token market may not have mature order book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move. It is also a caution. Low volume profitability is not a guarantee that any low volume market is safe or profitable. If the same low volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse. Reader Implication Do not ask only \"how"
     },
     {
+      "id": "authored-symm-lp-pilot-allocation-discipline",
+      "title": "SYMM LP Pilot Allocation Discipline",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook",
+        "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-3-hedge-logic-and-residual-exposure",
+        "authored-symm-lp-proof-of-possibility"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-pilot-allocation-discipline.md",
+      "bodyMarkdown": "# SYMM LP Pilot Allocation Discipline\n\nThe first deployment phase in the SYMM LP playbook is a small pilot allocation from a treasury or insider group.\n\nThat size discipline is not cosmetic. The case-study source treats token inventory as bootstrap market capital, but it also says outcomes could change if traders win, liquidity thins, leverage amplifies losses, or unrealized PnL reverses. Starting small lets the community observe those risks before turning a pilot into a large treasury program.\n\nThe pilot should monitor directional skew, funding transfer, turnover quality, and whether the market attracts real two-sided activity. These are the basic signals that determine whether the LP allocation is learning something useful or merely sitting behind a thin, one-sided market.\n\n## Why Treasury Or Insider Capital Comes First\n\nThe source points to treasury and insider allocations because those holders already carry token exposure. A small LP allocation can monetize activity while the holder keeps most of the stack uncommitted. That does not eliminate risk, but it aligns the first test with actors who understand the token and can tolerate limited experimental exposure.\n\n## Publication Boundary\n\nDo not publish pilot size, insider participation, treasury allocation, or user-facing vault access as live policy without operator approval. The source-backed rule is staged allocation discipline: start small, observe market behavior, and treat early capital as a test.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Practical Deployment Playbook\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases: Hedge Logic and Residual Exposure\".\n\n## Related Pages\n\n- `authored-symm-lp-proof-of-possibility`\n- `authored-symm-lp-risk-and-edge-cases`\n- `authored-token-holder-incremental-risk-alignment`",
+      "excerpt": "SYMM LP Pilot Allocation Discipline The first deployment phase in the SYMM LP playbook is a small pilot allocation from a treasury or insider group. That size discipline is not cosmetic. The case study source treats token inventory as bootstrap market capital, but it also says outcomes could change if traders win, liquidity thins, leverage amplifies losses, or unrealized PnL reverses. Starting small lets the community observe those risks before turning a pilot into a large treasury program. The pilot should monitor directional skew, funding transfer, turnover quality, and whether the market attracts real two sided activity. These are the basic signals that determine whether the LP allocation is learning something useful or merely sitting behind a thin, one sided market. Why Treasury Or Insider Capital Comes First The source points to treasury and insider allocations because those holders already carry token exposure. A small LP allocation can monetize activity while the holder keeps most of the stack uncommitted. That does not eliminate risk, but it aligns the first test with actors who understand the token and can tolerate limited experimental exposure. Publication Boundary Do not"
+    },
+    {
       "id": "authored-symm-lp-proof-of-possibility",
       "title": "SYMM LP Proof Of Possibility",
       "section": "protocol-reference",
@@ -8918,6 +8966,54 @@
       "excerpt": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes. The source highlights several risk vectors: directional reversal, where trader side wins move against the LP; unrealized PnL volatility, where marked profit can disappear before realization; leverage amplification, where small token moves create larger LP exposure; liquidity stress, where liquidation integrity depends on executable markets; concentration, where one token community or one dominant positioning regime shapes the whole case. Edge Cases To Test Before scaling a similar LP program, the docs should ask how the model behaves under several adverse paths: a prolonged uptrend where long biased traders are profitable; a choppy market with low directional edge and weak fee generation; a sudden gap in a thin market where liquidation may be difficult; fading community participation where open interest and turnover decay. These a"
     },
     {
+      "id": "authored-symm-lp-steady-state-operating-bounds",
+      "title": "SYMM LP Steady-State Operating Bounds",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook",
+        "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-5-governance-and-transparency-requirements",
+        "authored-symm-lp-beta-report-kpis"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-steady-state-operating-bounds.md",
+      "bodyMarkdown": "# SYMM LP Steady-State Operating Bounds\n\nThe final phase in the SYMM LP playbook is steady-state operation with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence.\n\nThat is the opposite of \"set and forget.\" Once a vault leaves pilot and validation, the operating question becomes whether it can remain inside known bounds while trader behavior, token price, leverage, and liquidity change.\n\nUtilization bounds tell operators when the vault is being used efficiently versus when it is becoming overstressed. Treasury exposure limits keep the project or insider from unintentionally committing too much of the token stack. Emergency controls define what happens when skew, liquidity, liquidation quality, or marked losses exceed the normal operating range. Reporting cadence keeps LPs from learning about stress only after it matters.\n\n## What Steady State Should Prove\n\nSteady state should prove that the market can repeat useful activity without constantly relying on emergency intervention or favorable regime luck. The reporting layer should still show ROI, realized/marked split, drawdown, attribution, concentration, leverage, and capacity stress.\n\n## Publication Boundary\n\nDo not publish final utilization bands, treasury exposure caps, emergency controls, reporting cadence, or steady-state vault terms until owners approve them. The source-backed requirement is that those bounds exist and are documented before the model is treated as durable.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Practical Deployment Playbook\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases: Governance and Transparency Requirements\".\n\n## Related Pages\n\n- `authored-symm-lp-beta-report-kpis`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-gross-to-net-attribution-bridge`",
+      "excerpt": "SYMM LP Steady State Operating Bounds The final phase in the SYMM LP playbook is steady state operation with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence. That is the opposite of \"set and forget.\" Once a vault leaves pilot and validation, the operating question becomes whether it can remain inside known bounds while trader behavior, token price, leverage, and liquidity change. Utilization bounds tell operators when the vault is being used efficiently versus when it is becoming overstressed. Treasury exposure limits keep the project or insider from unintentionally committing too much of the token stack. Emergency controls define what happens when skew, liquidity, liquidation quality, or marked losses exceed the normal operating range. Reporting cadence keeps LPs from learning about stress only after it matters. What Steady State Should Prove Steady state should prove that the market can repeat useful activity without constantly relying on emergency intervention or favorable regime luck. The reporting layer should still show ROI, realized/marked split, drawdown, attribution, concentration, leverage, and capacity stress. Publicatio"
+    },
+    {
+      "id": "authored-symm-lp-tranche-scale-up-stop-conditions",
+      "title": "SYMM LP Tranche Scale-Up Stop Conditions",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook",
+        "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-2-principal-risk-vectors",
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-5-replication-risk"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-tranche-scale-up-stop-conditions.md",
+      "bodyMarkdown": "# SYMM LP Tranche Scale-Up Stop Conditions\n\nThe SYMM LP playbook says scale-up should happen in predefined tranches, not one large capital jump.\n\nTranches make the experiment reversible. If a market looks strong at a small allocation, the next question is whether it still behaves well with more inventory, larger open interest, more leverage, and higher liquidation pressure. A predefined tranche gives the operator a measurement point before adding the next layer of capital.\n\nThe source names stop conditions tied to drawdown, skew instability, liquidity quality, and replication risk. Those conditions matter because a bigger vault can make losses larger, liquidations harder, and crowding more dangerous if market quality does not keep up.\n\n## Stop Conditions To Watch\n\nA scale-up should pause or reverse if:\n\n- drawdown breaches the approved limit or recovery time becomes too long;\n- directional skew remains extreme without compensating funding or demand quality;\n- utilization stress shows the vault is carrying too much residual risk;\n- liquidation or slippage quality deteriorates during fast moves;\n- open interest concentrates in too few accounts or too much leverage.\n\n## Publication Boundary\n\nDo not publish final tranche sizes, stop thresholds, or automated scale-up rules without operator and risk approval. The source-backed claim is the method: scale in measured increments and stop when drawdown, skew, utilization, liquidity, or concentration evidence weakens.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Practical Deployment Playbook\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n\n## Related Pages\n\n- `authored-symm-lp-regime-dependence`\n- `authored-symm-lp-drawdown-recovery-reporting`\n- `authored-symm-lp-regime-updated-benchmarks`",
+      "excerpt": "SYMM LP Tranche Scale Up Stop Conditions The SYMM LP playbook says scale up should happen in predefined tranches, not one large capital jump. Tranches make the experiment reversible. If a market looks strong at a small allocation, the next question is whether it still behaves well with more inventory, larger open interest, more leverage, and higher liquidation pressure. A predefined tranche gives the operator a measurement point before adding the next layer of capital. The source names stop conditions tied to drawdown, skew instability, liquidity quality, and replication risk. Those conditions matter because a bigger vault can make losses larger, liquidations harder, and crowding more dangerous if market quality does not keep up. Stop Conditions To Watch A scale up should pause or reverse if: drawdown breaches the approved limit or recovery time becomes too long; directional skew remains extreme without compensating funding or demand quality; utilization stress shows the vault is carrying too much residual risk; liquidation or slippage quality deteriorates during fast moves; open interest concentrates in too few accounts or too much leverage. Publication Boundary Do not publish fin"
+    },
+    {
       "id": "authored-symm-lp-unit-economics",
       "title": "SYMM LP Unit Economics",
       "section": "protocol-reference",
@@ -8941,6 +9037,30 @@
       "file": "content/authored/reference/symm-lp-unit-economics.md",
       "bodyMarkdown": "# SYMM LP Unit Economics\n\nThe SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was `2,271,131` SYMM at an average input price of `$0.01280`, or `$29,070.4768` of deposit-time notional. At the data cut, the LP token balance had increased to `2,501,328.4` SYMM, a gain of `230,197.4` tokens.\n\nThe cash-denominated comparison is the sharper result. The source reports `$5,895.90` of realized LP profit and `$7,999.32` of unrealized LP profit, for `$13,895.22` combined against the original notional. Over the same window, passive SYMM holding is reported as negative because the token price declined from the case input price to the current price reference.\n\n## How To Read The Sign Convention\n\nThe source's critical accounting rule is that negative user-side debt or PnL is favorable to the LP side:\n\n- `Current Debt` is treated as realized user debt to the LP, so a negative value maps to realized LP profit.\n- `Current UPnL` is current unrealized user PnL, so a negative value maps to unrealized LP profit at mark.\n- `User Profit` is the aggregate user-side profitability field, so negative user profit means the LP side is up at that data cut.\n\nDo not collapse realized and unrealized profit into one promise. Realized debt is closer to withdrawable performance. Unrealized PnL is path-dependent and can move before settlement.\n\n## Why Volume Was Not The Main Driver\n\nThe case reports roughly `$100,000` of total notional volume and about `$1,000` average daily volume. That means the headline economics are not explained by high turnover alone. The more important drivers were directional imbalance, adverse price movement for long-biased users, funding transfers, fees, and possible liquidation cashflows.\n\n## Reader Implication\n\nThe unit-economics page is useful because it forces the docs to distinguish token return, USDC-denominated return, realized profit, unrealized mark, and passive benchmarks. It should not be used as an APR promise without audited attribution, drawdown history, and regime-diverse evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-data-guardrails`\n- `neelo-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics`",
       "excerpt": "SYMM LP Unit Economics The SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was 2,271,131 SYMM at an average input price of $0.01280 , or $29,070.4768 of deposit time notional. At the data cut, the LP token balance had increased to 2,501,328.4 SYMM, a gain of 230,197.4 tokens. The cash denominated comparison is the sharper result. The source reports $5,895.90 of realized LP profit and $7,999.32 of unrealized LP profit, for $13,895.22 combined against the original notional. Over the same window, passive SYMM holding is reported as negative because the token price declined from the case input price to the current price reference. How To Read The Sign Convention The source's critical accounting rule is that negative user side debt or PnL is favorable to the LP side: Current Debt is treated as realized user debt to the LP, so a negative value maps to realized LP profit. Current UPnL is current unrealized user PnL, so a negative value maps to unrealized LP profit at mark. User Profit is the aggregate user side profitability field, so negative user profit means the LP side is up at that data cut. Do no"
+    },
+    {
+      "id": "authored-symm-lp-validation-phase-reporting",
+      "title": "SYMM LP Validation Phase Reporting",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook",
+        "section-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics-3-7-measurement-gaps-to-close",
+        "authored-symm-lp-beta-report-kpis"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-validation-phase-reporting.md",
+      "bodyMarkdown": "# SYMM LP Validation Phase Reporting\n\nThe validation phase begins after the pilot has enough activity to produce weekly PnL attribution and drawdown reports.\n\nThe source's question is direct: did returns come from repeatable market structure or one lucky directional window? A validation report should answer that before more capital enters. It should show whether realized profit, marked profit, funding, fees, liquidations, trader-side losses, and token price movement are recurring or concentrated in one event.\n\nWeekly cadence matters because it turns the case from a final screenshot into an operating record. A reader can see whether the strategy survived multiple market states, whether drawdowns recovered, and whether attribution changed as trader behavior changed.\n\n## Minimum Validation Packet\n\nA validation report should include:\n\n- realized versus marked PnL split;\n- drawdown and recovery time;\n- gross-to-net attribution;\n- open-interest concentration and leverage distribution;\n- benchmark update versus token hold and full sell;\n- notes on any liquidity, liquidation, or data-quality issue.\n\n## Publication Boundary\n\nDo not move from pilot to public scale using only endpoint profit. The source-backed validation rule is that weekly attribution and drawdown evidence should exist before the case is treated as more than an observed pilot.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: Practical Deployment Playbook\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics: Measurement Gaps to Close\".\n\n## Related Pages\n\n- `authored-symm-lp-beta-report-kpis`\n- `authored-symm-lp-realized-marked-pnl-split`\n- `authored-symm-lp-drawdown-recovery-reporting`",
+      "excerpt": "SYMM LP Validation Phase Reporting The validation phase begins after the pilot has enough activity to produce weekly PnL attribution and drawdown reports. The source's question is direct: did returns come from repeatable market structure or one lucky directional window? A validation report should answer that before more capital enters. It should show whether realized profit, marked profit, funding, fees, liquidations, trader side losses, and token price movement are recurring or concentrated in one event. Weekly cadence matters because it turns the case from a final screenshot into an operating record. A reader can see whether the strategy survived multiple market states, whether drawdowns recovered, and whether attribution changed as trader behavior changed. Minimum Validation Packet A validation report should include: realized versus marked PnL split; drawdown and recovery time; gross to net attribution; open interest concentration and leverage distribution; benchmark update versus token hold and full sell; notes on any liquidity, liquidation, or data quality issue. Publication Boundary Do not move from pilot to public scale using only endpoint profit. The source backed validatio"
     },
     {
       "id": "authored-symm-lp-vault-nav-time-series",
