@@ -1380,10 +1380,12 @@
       }
 
       .hero h2 {
+        width: 154.516px;
         max-width: none;
         color: var(--ink);
         font-family: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
         font-size: clamp(64px, 7vw, 92px);
+        font-size-adjust: 0.59355;
         font-weight: 800;
         letter-spacing: -0.05em;
         line-height: 1;
@@ -1391,7 +1393,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        transform: scaleX(1.13784546);
+        transform: none;
         transform-origin: center;
       }
 
@@ -1404,7 +1406,8 @@
 
       @media (min-width: 861px) {
         body[data-view="classic"] .hero h2 {
-          transform: scaleX(1.13775915);
+          width: 222.094px;
+          font-size-adjust: 0.5935;
         }
 
         body[data-view="classic"] .nav-link {
