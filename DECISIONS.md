@@ -1767,3 +1767,11 @@
 **Reason:** The uncovered items are orientation and provenance fragments, not independent claims. Promoting them into standalone public pages would duplicate the already-authored Part II spine and make transcript source markers look like final product claims. A single source map preserves traceability while keeping graduation and integration language review-bound.
 
 **Status:** Accepted for source-traceability coverage. HIP-3 outcomes, direct Hyperliquid routing, automatic graduation rules, maturity thresholds, market-score formulas, launchpad partnerships, order-book listing policy, and admission automation remain fresh primary-source/operator/product/market/risk/legal review items before publication.
+
+## D-222: Map Information And Trade Navigation Fragments Through One Source Map
+
+**Decision:** Add `authored-information-trade-source-navigation-map` to cover the remaining uncovered generated section fragments from Neelo's Information and Trade abstract, overview, hybrid-solver, Thumbs Down visual, and conclusion source-marker material, routing readers into existing authored pages for market verification, costly market signals, hybrid solver/vault mechanics, Thumbs Down mechanics, and the Strait Gate thesis.
+
+**Reason:** The uncovered items are mostly anthology orientation and source-marker fragments, plus a few focused mechanism stubs already covered by stronger authored pages. Promoting them into standalone public pages would duplicate the Information/Trade spine and make review-bound source examples look like final product claims. A single source map preserves traceability while closing generated companion coverage.
+
+**Status:** Accepted for source-traceability coverage. Lifecycle-control claims, whale-vault economics, bell-curve flattening policy, unapproved LP revenue share, launch-time shorting availability, universal market eligibility, and any claim that Vibe already operates the full described verification layer remain fresh primary-source/operator/product/risk/legal/accounting/implementation review items before publication.

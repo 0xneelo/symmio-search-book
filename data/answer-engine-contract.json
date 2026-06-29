@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 783
+      "totalGoldenRoutes": 784
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 796,
-    "retrievalEligiblePages": 1588,
+    "publicNavigationPages": 797,
+    "retrievalEligiblePages": 1589,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 796,
+      "candidate": 797,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 783,
-    "exactRouteTestsPassing": 783,
+    "totalExactRouteTests": 784,
+    "exactRouteTestsPassing": 784,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 783
+      "candidate": 784
     },
     "exactRoutesByConfidence": {
       "Medium": 487,
       "High": 44,
-      "Low": 252
+      "Low": 253
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -3576,6 +3576,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-information-and-trade-convergence",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-information-and-trade-source-set",
+        "query": "How should I read the Information and Trade source set?",
+        "normalizedQuery": "how should i read the information and trade source set",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-information-trade-source-navigation-map",
+        "expectedPageTitle": "Information Trade Source Navigation Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-read-the-information-and-trade-source-set",
         "passes": true
       },
       {
@@ -18494,7 +18515,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 783,
+      "exactRoutes": 784,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

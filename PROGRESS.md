@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Information And Trade Source Navigation Coverage
+
+- Added `authored-information-trade-source-navigation-map` to route Neelo's remaining Information and Trade abstract, overview, hybrid-solver, Thumbs Down visual, and conclusion source-marker fragments into existing authored thesis pages.
+- Mapped 10 uncovered generated section companions covering the abstract, keywords, dissertation overview, table of contents, key themes, source marker, whale-vault risk tranching, bell-curve flattening, Thumbs Down visual, and conclusion source marker.
+- Routed one new Ask question, "How should I read the Information and Trade source set?", to the new source-navigation page.
+- Kept lifecycle-control claims, whale-vault economics, bell-curve flattening policy, unapproved LP revenue share, and launch-time shorting availability under fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Ode To OrderBooks Part II Source Navigation Coverage
 
 - Added `authored-ode-part-ii-source-navigation-map` to route Neelo's remaining Ode to OrderBooks Part II abstract, overview, table-of-contents, core-thesis, and source-marker fragments into existing authored order-book admission and Hyperliquid-gap pages.
