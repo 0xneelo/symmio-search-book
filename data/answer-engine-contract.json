@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 652
+      "totalGoldenRoutes": 657
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 670,
-    "retrievalEligiblePages": 1462,
+    "publicNavigationPages": 675,
+    "retrievalEligiblePages": 1467,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 670,
+      "candidate": 675,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 652,
-    "exactRouteTestsPassing": 652,
+    "totalExactRouteTests": 657,
+    "exactRouteTestsPassing": 657,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 652
+      "candidate": 657
     },
     "exactRoutesByConfidence": {
-      "Medium": 419,
+      "Medium": 422,
       "High": 44,
-      "Low": 189
+      "Low": 191
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3751,6 +3751,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-does-neelo-call-pumpfun-the-early-stage-monopoly",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-neelo-treat-uniswap-as-permissionless-swapping-infrastructure",
+        "query": "Why does Neelo treat Uniswap as permissionless swapping infrastructure?",
+        "normalizedQuery": "why does neelo treat uniswap as permissionless swapping infrastructure",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-uniswap-permissionless-swapping",
+        "expectedPageTitle": "Uniswap As Permissionless Swapping Infrastructure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-neelo-treat-uniswap-as-permissionless-swapping-infrastructure",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-hyperliquid-fit-the-listing-controller-landscape",
+        "query": "How does Hyperliquid fit the listing-controller landscape?",
+        "normalizedQuery": "how does hyperliquid fit the listing controller landscape",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-hyperliquid-perp-infrastructure",
+        "expectedPageTitle": "Hyperliquid As Perp Infrastructure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-hyperliquid-fit-the-listing-controller-landscape",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-listing-controller-comparison-show",
+        "query": "What does the listing-controller comparison show?",
+        "normalizedQuery": "what does the listing controller comparison show",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-landscape-comparative-summary",
+        "expectedPageTitle": "Listing Controller Comparative Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-listing-controller-comparison-show",
+        "passes": true
+      },
+      {
+        "id": "qr-how-are-listing-controller-boundaries-blurring",
+        "query": "How are listing-controller boundaries blurring?",
+        "normalizedQuery": "how are listing controller boundaries blurring",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-boundaries-blurring",
+        "expectedPageTitle": "How Listing Controller Boundaries Blur",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-are-listing-controller-boundaries-blurring",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-lifecycle-gap",
+        "query": "What is the lifecycle gap?",
+        "normalizedQuery": "what is the lifecycle gap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lifecycle-gap-definition",
+        "expectedPageTitle": "Defining The Lifecycle Gap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-lifecycle-gap",
         "passes": true
       },
       {
@@ -14452,7 +14557,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 652,
+      "exactRoutes": 657,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

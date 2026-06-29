@@ -1375,3 +1375,11 @@
 **Reason:** The framework pages defined the lifecycle and barbell, but the source then turns to controller case studies. Ask needs precise routes for the power-loop summary and the first landscape examples before routing readers to later Uniswap, Hyperliquid, comparative-summary, or boundary-blurring pages.
 
 **Status:** Accepted for the authored manifesto layer; current market share, venue volume, listing-policy, token-performance, graduation-rule, compliance, chain-coverage, and live platform-position claims remain fresh primary-source/operator/product/risk/legal review.
+
+## D-173: Split Listing Landscape Gap Bridge Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for Uniswap as permissionless swapping infrastructure, Hyperliquid as perp infrastructure, the listing-controller comparative summary, boundary blurring, and the lifecycle gap definition.
+
+**Reason:** The previous landscape pages introduced the controller map and its early/late poles, but the remaining source headings bridge the map into the lifecycle-gap thesis. Ask needs exact routes for why Uniswap matters as spot access, how Hyperliquid fits as late-stage perp infrastructure, what the comparative table proves, why adjacent expansion does not erase the gap, and what "lifecycle gap" means before deeper gap-filling and permissionless-perps pages.
+
+**Status:** Accepted for the authored manifesto layer; source-time market share, venue volumes, HIP-3 auction details, platform expansions, market-cap bands, listing eligibility, product coverage, and live Vibe positioning remain fresh primary-source/operator/product/risk/legal/implementation review.

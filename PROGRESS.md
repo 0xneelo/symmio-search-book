@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Landscape Gap Bridge Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly landscape close and lifecycle-gap opening.
+- Split uncovered source sections into exact answer routes for Uniswap as permissionless swapping infrastructure, Hyperliquid as perp infrastructure, the listing-controller comparative summary, boundary blurring across lifecycle stages, and the lifecycle gap definition.
+- Extended the question ledger so Ask can route readers from landscape case studies into the gap thesis without collapsing Uniswap, Hyperliquid, comparative table, boundary-blurring, and lifecycle-gap questions into broader overview pages.
+- Kept source-time market share, venue volume, auction/listing mechanism, spot/perp coverage, market-cap band, eligibility, and live product-position claims marked for fresh primary-source/operator/product/risk/legal review.
+
 ## 2026-06-29 — Listing Landscape Power Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly framework close and landscape opening.
