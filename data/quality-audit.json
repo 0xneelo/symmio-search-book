@@ -94,6 +94,10 @@
     "pageStateInternalDraftPages": 3,
     "pageStatePublicNavigationPages": 798,
     "pageStateRetrievalEligiblePages": 1590,
+    "publicationPlanReady": true,
+    "publicationPlanQueuedSourceCompanions": 792,
+    "publicationPlanCandidateReviewPages": 639,
+    "publicationPlanStages": 4,
     "completionRequirements": 18,
     "completionRequirementsComplete": 11,
     "completionRequirementsPartial": 3,
@@ -264,6 +268,12 @@
       "label": "Reader pages have launch states",
       "passed": true,
       "detail": "1593/1593 reader pages classified; 798 public candidates, 792 source companions, 3 internal drafts"
+    },
+    {
+      "id": "publication-plan",
+      "label": "Source companions have a publication authoring plan",
+      "passed": true,
+      "detail": "792/792 source companions queued, 639 candidate review pages, 4 stages"
     },
     {
       "id": "requirement-map",
@@ -2109,6 +2119,1140 @@
       "792 source companion pages should support retrieval/authoring but not final public navigation."
     ]
   },
+  "publicationPlanCoverage": {
+    "status": "prototype-publication-authoring-plan",
+    "planReady": true,
+    "contractVersion": "2026-06-30.v1",
+    "sourceBlockRequiredFields": [
+      "sourceKey",
+      "sourceHref",
+      "sourceGroup"
+    ],
+    "totals": {
+      "sourceCompanionsAvailable": 792,
+      "sourceCompanionsQueued": 792,
+      "candidateReviewPages": 639,
+      "queueStages": 4,
+      "topPriorityScore": 88
+    },
+    "byStage": {
+      "1-demand-and-gap-driven": 2,
+      "2-fold-into-existing-authored-pages": 768,
+      "3-promote-remaining-source-companions": 22
+    },
+    "byTemplate": {
+      "source-companion-fold-in": 32,
+      "reference-page": 31,
+      "source-navigation-map": 188,
+      "section-derived-authored-page": 541
+    },
+    "bySuggestedAction": {
+      "fold-into-existing-authored-page": 770,
+      "create-authored-source-map-or-reference-page": 22
+    },
+    "byVolume": {
+      "volume-01-orientation-and-thesis": {
+        "title": "Orientation And Core Thesis",
+        "sourceCompanionsQueued": 7,
+        "authoredPages": 12,
+        "generatedPages": 8,
+        "topPageIds": [
+          "hyperliquid-hip3",
+          "linear-subgraph-volume",
+          "vibe-architecture-amfq",
+          "vibe-system-visualization",
+          "linear-network-depth-question",
+          "linear-phase-b-revenue",
+          "linear-usd-counter"
+        ]
+      },
+      "volume-02-bootstrap-and-proof-of-value": {
+        "title": "Bootstrap Trilemma And Proof Of Value",
+        "sourceCompanionsQueued": 238,
+        "authoredPages": 143,
+        "generatedPages": 238,
+        "topPageIds": [
+          "neelo-01-perp-classes-zscore-01-docs-00-abstract",
+          "neelo-01-perp-classes-zscore-01-docs-01-introduction",
+          "neelo-01-perp-classes-zscore-01-docs-02-framework",
+          "neelo-01-perp-classes-zscore-01-docs-03-landscape",
+          "neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma",
+          "neelo-01-perp-classes-zscore-01-docs-05-vibe-architecture",
+          "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+          "neelo-01-perp-classes-zscore-01-docs-07-industry-implications",
+          "neelo-01-perp-classes-zscore-01-docs-08-competitive-analysis",
+          "neelo-01-perp-classes-zscore-01-docs-09-conclusion"
+        ]
+      },
+      "volume-03-listing-power-and-orderbooks": {
+        "title": "Listing Power And Orderbook Alternatives",
+        "sourceCompanionsQueued": 155,
+        "authoredPages": 145,
+        "generatedPages": 155,
+        "topPageIds": [
+          "neelo-03-listing-monopoly-03-docs-00-abstract",
+          "neelo-03-listing-monopoly-03-docs-01-introduction",
+          "neelo-03-listing-monopoly-03-docs-02-framework",
+          "neelo-03-listing-monopoly-03-docs-03-landscape",
+          "neelo-03-listing-monopoly-03-docs-04-the-lifecycle-gap",
+          "neelo-03-listing-monopoly-03-docs-04z-listing-and-liquidity-thesis",
+          "neelo-03-listing-monopoly-03-docs-05-permissionless-perps-hypothesis",
+          "neelo-03-listing-monopoly-03-docs-06-strategic-implications",
+          "neelo-03-listing-monopoly-03-docs-07-conclusion",
+          "neelo-03-listing-monopoly-03-docs-08-thiel-monopoly-analysis"
+        ]
+      },
+      "volume-04-token-margin-and-funding-systems": {
+        "title": "Token Margin, Pillars, And Funding Systems",
+        "sourceCompanionsQueued": 172,
+        "authoredPages": 170,
+        "generatedPages": 172,
+        "topPageIds": [
+          "neelo-06-usdc-token-perps-06-docs-figure1",
+          "neelo-06-usdc-token-perps-06-docs-figure2",
+          "neelo-06-usdc-token-perps-06-docs-figure3",
+          "neelo-06-usdc-token-perps-06-docs-figure4",
+          "neelo-06-usdc-token-perps-06-docs-figure5",
+          "neelo-06-usdc-token-perps-06-docs-overview",
+          "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+          "neelo-07-token-margined-issues-perculator-07-docs-00-abstract",
+          "neelo-07-token-margined-issues-perculator-07-docs-01-introduction",
+          "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture"
+        ]
+      },
+      "volume-05-solver-lp-and-protocol-operations": {
+        "title": "Solver, LP, And Protocol Operations",
+        "sourceCompanionsQueued": 75,
+        "authoredPages": 161,
+        "generatedPages": 75,
+        "topPageIds": [
+          "neelo-08-due-diligence-questionnaire-08-docs-attractiveness-for-lps-attractiveness-for-lps",
+          "neelo-08-due-diligence-questionnaire-08-docs-ddq-general-introduciton",
+          "neelo-08-due-diligence-questionnaire-08-docs-overview",
+          "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-i-bearer-of-losses",
+          "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-ii-balancing-ux-vs-risk",
+          "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-risk-walthrough",
+          "neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty",
+          "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-i-operational-failure",
+          "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-ii-comparsion-to-other-protocols",
+          "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-iii-operation-failure-aftermath"
+        ]
+      },
+      "volume-06-referrals-and-market-formation": {
+        "title": "Referrals And Market Formation",
+        "sourceCompanionsQueued": 109,
+        "authoredPages": 104,
+        "generatedPages": 109,
+        "topPageIds": [
+          "neelo-17-referral-program-17-docs-00-abstract",
+          "neelo-17-referral-program-17-docs-01-system-baseline",
+          "neelo-17-referral-program-17-docs-02-architecture",
+          "neelo-17-referral-program-17-docs-03-rakeback-design",
+          "neelo-17-referral-program-17-docs-04-points-and-rewards",
+          "neelo-17-referral-program-17-docs-05-referral-economics",
+          "neelo-17-referral-program-17-docs-06-access-phasing",
+          "neelo-17-referral-program-17-docs-07-lp-and-category-layer",
+          "neelo-17-referral-program-17-docs-08-security-controls",
+          "neelo-17-referral-program-17-docs-09-metrics-framework"
+        ]
+      },
+      "volume-07-product-trading-and-risk": {
+        "title": "Product, Trading, And Risk Guides",
+        "sourceCompanionsQueued": 30,
+        "authoredPages": 47,
+        "generatedPages": 30,
+        "topPageIds": [
+          "symmio-whitepaper",
+          "vibe-product-what-is",
+          "vibe-account-creation",
+          "vibe-account-health-liquidations",
+          "vibe-account-portfolio",
+          "vibe-add-token-info",
+          "vibe-collateral-margining",
+          "vibe-deposits-withdrawals",
+          "vibe-fees",
+          "vibe-funding"
+        ]
+      },
+      "volume-08-dashboard-faq-and-living-docs": {
+        "title": "Dashboard, FAQ, And Living Docs",
+        "sourceCompanionsQueued": 6,
+        "authoredPages": 17,
+        "generatedPages": 7,
+        "topPageIds": [
+          "local-dashboard-faq",
+          "local-network-revenue",
+          "local-revenue-pulse",
+          "local-volume-snapshots",
+          "local-volume-source",
+          "symmio-glossary"
+        ]
+      }
+    },
+    "nextAuthoringBatch": [
+      {
+        "pageId": "symmio-whitepaper",
+        "title": "Symmio Whitepaper",
+        "volumeId": "volume-07-product-trading-and-risk",
+        "volumeTitle": "Product, Trading, And Risk Guides",
+        "section": "security",
+        "track": "security",
+        "granularity": "companion-page",
+        "status": "source-mapped",
+        "sourceKeys": [
+          "symmio-whitepaper"
+        ],
+        "sources": [
+          {
+            "sourceKey": "symmio-whitepaper",
+            "sourceHref": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+            "sourceGroup": "Public Symmio Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [
+          "G-007"
+        ],
+        "gapTitles": [
+          "Symmio Whitepaper History Is Not Fully Mined"
+        ],
+        "relatedCandidatePageIds": [
+          "authored-symmio-whitepaper-history-boundary",
+          "authored-symmio-clearing-house-layer"
+        ],
+        "suggestedTargetPageId": "authored-symmio-whitepaper-history-boundary",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-companion-fold-in",
+        "priorityScore": 38,
+        "rationale": [
+          "1 linked gap(s)",
+          "has nearby authored target",
+          "companion-page companion"
+        ],
+        "stage": "1-demand-and-gap-driven"
+      },
+      {
+        "pageId": "vibe-product-what-is",
+        "title": "What is Vibe Trading?",
+        "volumeId": "volume-07-product-trading-and-risk",
+        "volumeTitle": "Product, Trading, And Risk Guides",
+        "section": "product-reference",
+        "track": "product-reference",
+        "granularity": "companion-page",
+        "status": "source-mapped",
+        "sourceKeys": [
+          "vibe-what-is"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-what-is",
+            "sourceHref": "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [
+          "G-006"
+        ],
+        "gapTitles": [
+          "Exact Vibe Market Counts Need Fresh Verification Before Publication"
+        ],
+        "relatedCandidatePageIds": [
+          "authored-vibe-platform-overview",
+          "authored-vibe-product-overview"
+        ],
+        "suggestedTargetPageId": "authored-vibe-platform-overview",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "reference-page",
+        "priorityScore": 38,
+        "rationale": [
+          "1 linked gap(s)",
+          "has nearby authored target",
+          "companion-page companion"
+        ],
+        "stage": "1-demand-and-gap-driven"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-00-abstract",
+        "title": "Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-01-introduction",
+        "title": "Section 1: Introduction",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-02-framework",
+        "title": "Section 2: A Framework for Categorizing Perpetual Protocols",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-03-landscape",
+        "title": "Section 3: The Landscape of Existing Protocols",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma",
+        "title": "Section 4: The Bootstrap Trilemma",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-05-vibe-architecture",
+        "title": "Section 5: Vibe Trading Architecture",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-06-technical-deep-dive",
+        "title": "Section 6: Technical Deep Dive",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-07-industry-implications",
+        "title": "Section 7: Industry Implications",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-08-competitive-analysis",
+        "title": "Section 8: Competitive Analysis and Barriers to Replication",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-09-conclusion",
+        "title": "Section 9: Conclusion",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-10-thiel-monopoly-analysis",
+        "title": "Vibe Trading: A Thielian Monopoly Analysis",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-01-perp-classes-zscore-01-docs-overview",
+        "title": "Vibe Trading: Solving the Market Bootstrap Problem in Permissionless Perpetuals",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "01 — Perps Categories & Bootstrap Trilemma",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-00-abstract",
+        "title": "Proof of Value: Information, Trade, and the Verification Layer",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-01-introduction",
+        "title": "Section 1: Introduction",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-02-crisis-of-verification",
+        "title": "Section 2: The Crisis of Verification",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-03-beyond-polymarket",
+        "title": "Section 3: Beyond Polymarket",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-04-the-missing-no-button",
+        "title": "Section 4: The Missing NO Button",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-05-intent-based-architecture",
+        "title": "Section 5: Intent-Based Architecture",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-06-hybrid-solver-model",
+        "title": "Section 6: The Hybrid Solver Model",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-07-game-theory-of-listings",
+        "title": "Section 7: The Game Theory of Listings",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-08-the-thumbs-down",
+        "title": "Section 8: The Thumbs Down",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-09-conclusion",
+        "title": "Section 9: Conclusion",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      },
+      {
+        "pageId": "neelo-02-proof-of-value-02-docs-overview",
+        "title": "Proof of Value: Information, Trade, and the Verification Layer",
+        "volumeId": "volume-02-bootstrap-and-proof-of-value",
+        "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+        "section": "vision-papers",
+        "track": "02 — Proof of Value",
+        "granularity": "source-page",
+        "status": "draft-imported-from-primary-source",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "sources": [
+          {
+            "sourceKey": "vibe-papers",
+            "sourceHref": "https://github.com/0xneelo/vibe_docs",
+            "sourceGroup": "Public Vibe Sources"
+          }
+        ],
+        "questionRouteCount": 0,
+        "gapIds": [],
+        "gapTitles": [],
+        "relatedCandidatePageIds": [
+          "authored-volume-01-orientation-and-thesis",
+          "authored-volume-02-bootstrap-and-proof-of-value",
+          "authored-volume-03-listing-power-and-orderbooks",
+          "authored-volume-04-token-margin-and-funding-systems"
+        ],
+        "suggestedTargetPageId": "authored-volume-01-orientation-and-thesis",
+        "suggestedAction": "fold-into-existing-authored-page",
+        "authoringTemplate": "source-navigation-map",
+        "priorityScore": 88,
+        "rationale": [
+          "has nearby authored target",
+          "source-page companion"
+        ],
+        "stage": "2-fold-into-existing-authored-pages"
+      }
+    ],
+    "warnings": [
+      "This plan is an authoring queue, not a publication approval.",
+      "Source companions must remain out of public navigation until promoted into authored pages and reviewed.",
+      "Candidate pages still need final source/operator/deploy review before the production site marks them published."
+    ]
+  },
   "requirementCoverage": {
     "status": "completion-coverage-map",
     "completionReady": false,
@@ -2162,7 +3306,7 @@
       {
         "id": "manifesto-and-reference",
         "status": "partial",
-        "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages.",
+        "nextAction": "Use data/publication-plan.json to promote source companions into authored pages in demand/gap order.",
         "blocks": []
       },
       {
@@ -2394,7 +3538,7 @@
         "id": "manifesto-and-reference",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages."
+        "nextAction": "Use data/publication-plan.json to promote source companions into authored pages in demand/gap order."
       },
       {
         "id": "answer-engine-front-door",
@@ -2462,6 +3606,7 @@
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
+    "Use the publication plan to promote source companions into authored pages in demand/gap order.",
     "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Implement the LLM RAG runtime behind the API contract, then execute citation validation and adversarial evals against live answers.",
     "Run answer validation fixtures against live runtime answers before production launch.",

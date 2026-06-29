@@ -74,6 +74,7 @@ function buildSteps(args) {
     ["build-crosslink-map", ["scripts/build-crosslink-map.mjs"]],
     ["build-volume-map", ["scripts/build-volume-map.mjs"]],
     ["build-page-state-registry", ["scripts/build-page-state-registry.mjs"]],
+    ["build-publication-plan", ["scripts/build-publication-plan.mjs"]],
     ["build-glossary", ["scripts/build-glossary.mjs"]],
     ["build-answer-engine-contract", ["scripts/build-answer-engine-contract.mjs"]],
     ["build-living-docs-events", ["scripts/build-living-docs-events.mjs"]],
@@ -240,6 +241,12 @@ function runInvariants() {
   const pageState = readJson("data/page-state-registry.json");
   assert(!pageState.duplicatePageIds.length && !pageState.unclassifiedPageIds.length && !pageState.missingVolumeIds.length, "page-state registry has unresolved pages");
   assert(pageState.totalPages >= 900 && pageState.byState.candidate && pageState.byState["source-companion"], "page-state registry coverage is too low");
+
+  const publicationPlan = readJson("data/publication-plan.json");
+  assert(publicationPlan.planReady, "publication authoring plan is not ready");
+  assert(publicationPlan.totals.sourceCompanionsQueued === pageState.sourceCompanionPages, "publication plan does not queue every source companion");
+  assert(publicationPlan.sourceCompanionQueue.length === publicationPlan.totals.sourceCompanionsQueued, "publication queue count mismatch");
+  assert(publicationPlan.sourceBlockRequiredFields.includes("sourceKey") && publicationPlan.sourceBlockRequiredFields.includes("sourceHref"), "publication plan source block contract is incomplete");
 
   const glossary = readJson("data/glossary.json");
   assert(!glossary.missingPageIds.length && !glossary.missingSourceKeys.length && glossary.totalTerms >= 25, "glossary routes are incomplete");

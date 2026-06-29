@@ -1807,3 +1807,11 @@
 **Reason:** Several old gap rows still carried "needs reconciliation" language after operator decisions had already resolved the v1 public stance: Phase A revenue is approved, referral depth is 15 levels, current volume source is backend REST plus snapshots with Barometer as the tracked upgrade, and the point taxonomy is canonical while the public TGE formula is deferred/not public for v1. Keeping those rows open made the readiness map understate completed publication work and blurred it with genuine production blockers.
 
 **Status:** Accepted for readiness accounting. This does not claim the Search Book is deployed or source-complete.
+
+## D-227: Make The Remaining Authoring Queue Deterministic
+
+**Decision:** Track the remaining source-companion-to-publication work with `build-publication-plan.mjs` and generated `data/publication-plan.*` instead of a hand-maintained backlog.
+
+**Reason:** G-002A is not a missing-page problem anymore; the compendium has hundreds of authored pages plus hundreds of source companions that must either be folded into existing authored pages or promoted into new final prose. A deterministic plan can rank active gap/demand items first, keep source-block requirements attached to every item, and give future agents a reproducible queue without letting generated source material drift into public navigation.
+
+**Status:** Accepted for authoring operations. The plan is not publication approval; candidate pages still need final source/operator/editorial review.

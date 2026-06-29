@@ -14,6 +14,7 @@ const defaults = {
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
+  publicationPlan: path.join(searchBookRoot, "data", "publication-plan.json"),
   journeys: path.join(searchBookRoot, "data", "journeys.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   faq: path.join(searchBookRoot, "data", "faq.json"),
@@ -98,6 +99,11 @@ const manifest = readJson(args.manifest, { pages: [], compendiumTarget: {} });
 const searchIndex = readJson(args.searchIndex, []);
 const authored = readJson(args.authoredIndex, { pages: [], totalPages: 0, bySection: {}, byStatus: {} });
 const volumeMap = readJson(args.volumeMap, { totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0, volumes: [] });
+const publicationPlan = readJson(args.publicationPlan, {
+  planReady: false,
+  totals: { sourceCompanionsQueued: 0, candidateReviewPages: 0 },
+  byStage: {},
+});
 const journeys = readJson(args.journeys, { totalJourneys: 0, totalSteps: 0, missingPageIds: [] });
 const questionRoutes = readJson(args.questionRoutes, { totalRoutes: 0, totalReconciliationQuestions: 0, missingRouteIds: [] });
 const faq = readJson(args.faq, { totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0 });
@@ -296,8 +302,10 @@ const requirements = [
     status: (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8 ? "partial" : "missing",
     category: "content",
     sourceSpecs: ["01", "02", "03", "05"],
-    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters`,
-    nextAction: "Continue converting generated source pages into publication-quality authored manifesto/reference pages.",
+    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued and ${publicationPlan.totals?.candidateReviewPages || 0} candidate review pages`,
+    nextAction: publicationPlan.planReady
+      ? "Use data/publication-plan.json to promote source companions into authored pages in demand/gap order."
+      : "Create a deterministic publication authoring plan, then continue converting generated source pages into publication-quality authored manifesto/reference pages.",
   }),
   req({
     id: "volume-orientation",

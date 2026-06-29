@@ -37,6 +37,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated answer retrieval chunks: `data/answer-chunks.js`
 - Generated compendium volume map: `data/volume-map.js`
 - Generated page-state registry: `data/page-state-registry.js`
+- Generated publication authoring plan: `data/publication-plan.js`
 - Generated routed glossary: `data/glossary.js`
 - Generated source catalog: `data/source-catalog.js`
 - Generated required-source ingestion map: `data/source-ingestion.js`
@@ -116,6 +117,7 @@ node src/search-book/scripts/build-answer-chunks.mjs
 node src/search-book/scripts/build-crosslink-map.mjs
 node src/search-book/scripts/build-volume-map.mjs
 node src/search-book/scripts/build-page-state-registry.mjs
+node src/search-book/scripts/build-publication-plan.mjs
 node src/search-book/scripts/build-glossary.mjs
 node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
@@ -143,6 +145,7 @@ node --check src/search-book/scripts/build-answer-validation-report.mjs
 node --check src/search-book/scripts/build-answer-chunks.mjs
 node --check src/search-book/scripts/build-volume-map.mjs
 node --check src/search-book/scripts/build-page-state-registry.mjs
+node --check src/search-book/scripts/build-publication-plan.mjs
 node --check src/search-book/scripts/build-glossary.mjs
 node --check src/search-book/scripts/build-source-catalog.mjs
 node --check src/search-book/scripts/build-competitive-sweep.mjs
@@ -166,6 +169,7 @@ node --check src/search-book/data/answer-validation-report.js
 node --check src/search-book/data/answer-chunks.js
 node --check src/search-book/data/volume-map.js
 node --check src/search-book/data/page-state-registry.js
+node --check src/search-book/data/publication-plan.js
 node --check src/search-book/data/glossary.js
 node --check src/search-book/data/source-catalog.js
 node --check src/search-book/data/competitive-sweep.js

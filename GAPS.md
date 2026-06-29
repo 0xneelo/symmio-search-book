@@ -20,7 +20,9 @@ The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol
 
 The latest Symmio contract-builder pass also adds authored coverage for the protocol contract surface, Account Layer and Virtual Accounts, contract quote lifecycle, withdrawal/provider system, and frontend-builder/audit posture.
 
-**Needed:** Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.
+The repo now has `src/search-book/scripts/build-publication-plan.mjs` and generated `data/publication-plan.*`, which turn the page-state registry, volume map, route ledger, gap queue, crosslinks, and source catalog into a progressive authoring queue. It queues all source-companion pages, carries source-block requirements, suggests whether to fold material into existing authored pages or create new authored source maps/reference pages, and separates candidate pages that still need source/operator/editorial review.
+
+**Needed:** Execute the publication plan: promote the queued source companions into final authored prose where needed, run final source/operator/editorial review on candidate pages, and keep generated companions out of public navigation until promoted.
 
 ## G-003: Referral Depth Was Contradictory, Now Resolved
 

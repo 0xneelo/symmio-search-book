@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Publication Authoring Plan
+
+- Added a deterministic publication authoring plan generator for G-002A.
+- Generated `data/publication-plan.*` now queues all source-companion pages, ranks active gap/demand items first, suggests fold-in versus new-page actions, carries source-block requirements, and lists candidate pages that still need final review.
+- Wired the plan into the canonical `build-all --verify` path, requirement-map evidence, and quality-audit gates without marking the full compendium production-complete.
+
 ## 2026-06-30 — Resolved Publication-Stance Readiness Alignment
 
 - Moved the network-volume source and onboarding-versus-Vibe-points questions from reconciliation gaps into authored answer routes.

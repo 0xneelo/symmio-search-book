@@ -29,6 +29,7 @@ const defaults = {
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   volumeMap: path.join(searchBookRoot, "data", "volume-map.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
+  publicationPlan: path.join(searchBookRoot, "data", "publication-plan.json"),
   requirementMap: path.join(searchBookRoot, "data", "requirement-map.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
@@ -216,6 +217,17 @@ const volumeMap = fs.existsSync(args.volumeMap)
 const pageStateRegistry = fs.existsSync(args.pageStateRegistry)
   ? readJson(args.pageStateRegistry)
   : { totalPages: 0, byState: {}, pages: [], duplicatePageIds: [], unclassifiedPageIds: [], missingVolumeIds: [], internalDraftPageIds: [], warnings: [] };
+const publicationPlan = fs.existsSync(args.publicationPlan)
+  ? readJson(args.publicationPlan)
+  : {
+      planReady: false,
+      totals: { sourceCompanionsAvailable: 0, sourceCompanionsQueued: 0, candidateReviewPages: 0, queueStages: 0 },
+      sourceBlockRequiredFields: [],
+      sourceCompanionQueue: [],
+      byStage: {},
+      byTemplate: {},
+      bySuggestedAction: {},
+    };
 const requirementMap = fs.existsSync(args.requirementMap)
   ? readJson(args.requirementMap)
   : { totalRequirements: 0, byStatus: {}, byCategory: {}, completionReady: false, duplicateRequirementIds: [], invalidParkedRequirements: [], requirements: [], nextFocus: [] };
@@ -387,6 +399,13 @@ const pageStateRegistryReady =
   readerIdsMissingPageState.length === 0 &&
   pageStateIdsMissingReader.length === 0 &&
   Object.keys(pageStateRegistry.byState || {}).length > 0;
+const publicationPlanReady =
+  publicationPlan.planReady === true &&
+  (publicationPlan.totals?.sourceCompanionsQueued || 0) === (pageStateRegistry.sourceCompanionPages || 0) &&
+  (publicationPlan.sourceCompanionQueue || []).length === (publicationPlan.totals?.sourceCompanionsQueued || 0) &&
+  (publicationPlan.totals?.queueStages || 0) >= 4 &&
+  (publicationPlan.sourceBlockRequiredFields || []).includes("sourceKey") &&
+  (publicationPlan.sourceBlockRequiredFields || []).includes("sourceHref");
 const authoredVolumeCounts = (volumeMap.volumes || []).map((volume) => ({
   id: volume.id,
   title: volume.title,
@@ -643,6 +662,12 @@ const gates = [
     detail: `${pageStateRegistry.totalPages || 0}/${readerPageIds.size} reader pages classified; ${pageStateRegistry.publicCandidatePages || 0} public candidates, ${pageStateRegistry.sourceCompanionPages || 0} source companions, ${pageStateRegistry.internalDraftPages || 0} internal drafts`,
   },
   {
+    id: "publication-plan",
+    label: "Source companions have a publication authoring plan",
+    passed: publicationPlanReady,
+    detail: `${publicationPlan.totals?.sourceCompanionsQueued || 0}/${pageStateRegistry.sourceCompanionPages || 0} source companions queued, ${publicationPlan.totals?.candidateReviewPages || 0} candidate review pages, ${publicationPlan.totals?.queueStages || 0} stages`,
+  },
+  {
     id: "requirement-map",
     label: "Definition-of-done requirements are tracked",
     passed:
@@ -762,6 +787,10 @@ const payload = {
     pageStateInternalDraftPages: pageStateRegistry.internalDraftPages || 0,
     pageStatePublicNavigationPages: pageStateRegistry.publicNavigationPages || 0,
     pageStateRetrievalEligiblePages: pageStateRegistry.retrievalEligiblePages || 0,
+    publicationPlanReady,
+    publicationPlanQueuedSourceCompanions: publicationPlan.totals?.sourceCompanionsQueued || 0,
+    publicationPlanCandidateReviewPages: publicationPlan.totals?.candidateReviewPages || 0,
+    publicationPlanStages: publicationPlan.totals?.queueStages || 0,
     completionRequirements: requirementMap.totalRequirements || 0,
     completionRequirementsComplete: requirementMap.byStatus?.complete || 0,
     completionRequirementsPartial: requirementMap.byStatus?.partial || 0,
@@ -1037,6 +1066,19 @@ const payload = {
     internalDraftPageIds: pageStateRegistry.internalDraftPageIds || [],
     warnings: pageStateRegistry.warnings || [],
   },
+  publicationPlanCoverage: {
+    status: publicationPlan.status || "missing",
+    planReady: publicationPlan.planReady || false,
+    contractVersion: publicationPlan.contractVersion || "",
+    sourceBlockRequiredFields: publicationPlan.sourceBlockRequiredFields || [],
+    totals: publicationPlan.totals || {},
+    byStage: publicationPlan.byStage || {},
+    byTemplate: publicationPlan.byTemplate || {},
+    bySuggestedAction: publicationPlan.bySuggestedAction || {},
+    byVolume: publicationPlan.byVolume || {},
+    nextAuthoringBatch: publicationPlan.nextAuthoringBatch || [],
+    warnings: publicationPlan.warnings || [],
+  },
   requirementCoverage: {
     status: requirementMap.status || "missing",
     completionReady: requirementMap.completionReady || false,
@@ -1113,6 +1155,7 @@ const payload = {
     "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
+    "Use the publication plan to promote source companions into authored pages in demand/gap order.",
     "Use the deterministic answer-engine contract as the fallback and golden set before adding LLM synthesis.",
     "Implement the LLM RAG runtime behind the API contract, then execute citation validation and adversarial evals against live answers.",
     "Run answer validation fixtures against live runtime answers before production launch.",
