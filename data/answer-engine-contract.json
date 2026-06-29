@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 537
+      "totalGoldenRoutes": 542
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 555,
-    "retrievalEligiblePages": 1347,
+    "publicNavigationPages": 560,
+    "retrievalEligiblePages": 1352,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 555,
+      "candidate": 560,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 537,
-    "exactRouteTestsPassing": 537,
+    "totalExactRouteTests": 542,
+    "exactRouteTestsPassing": 542,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 537
+      "candidate": 542
     },
     "exactRoutesByConfidence": {
-      "Medium": 317,
+      "Medium": 322,
       "High": 44,
       "Low": 176
     },
@@ -4469,6 +4469,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-why-are-the-vibe-pillars-coupled",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-leverage-make-exploit-resistance-non-negotiable",
+        "query": "Why does leverage make exploit resistance non-negotiable?",
+        "normalizedQuery": "why does leverage make exploit resistance non negotiable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-leverage-makes-exploit-resistance-non-negotiable",
+        "expectedPageTitle": "Leverage Makes Exploit Resistance Non-Negotiable",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-leverage-make-exploit-resistance-non-negotiable",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-it-mean-to-make-a-market-tradable-before-continuous-flow-exists",
+        "query": "What does it mean to make a market tradable before continuous flow exists?",
+        "normalizedQuery": "what does it mean to make a market tradable before continuous flow exists",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-tradable-before-continuous-flow",
+        "expectedPageTitle": "Tradable Before Continuous Flow",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-it-mean-to-make-a-market-tradable-before-continuous-flow-exists",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-yield-an-architecture-survival-proof",
+        "query": "Why is yield an architecture survival proof?",
+        "normalizedQuery": "why is yield an architecture survival proof",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-yield-as-architecture-survival-proof",
+        "expectedPageTitle": "Yield As Architecture Survival Proof",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-yield-an-architecture-survival-proof",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-order-books-solve-the-mature-version-but-not-the-bootstrap-version",
+        "query": "Why do order books solve the mature version but not the bootstrap version?",
+        "normalizedQuery": "why do order books solve the mature version but not the bootstrap version",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-order-books-solve-mature-version",
+        "expectedPageTitle": "Order Books Solve The Mature Version",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-order-books-solve-the-mature-version-but-not-the-bootstrap-version",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-vibe-defined-by-constraints-rather-than-listings-alone",
+        "query": "Why is Vibe defined by constraints rather than listings alone?",
+        "normalizedQuery": "why is vibe defined by constraints rather than listings alone",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-architecture-defined-by-constraint-set",
+        "expectedPageTitle": "Architecture Defined By The Constraint Set",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-is-vibe-defined-by-constraints-rather-than-listings-alone",
         "passes": true
       },
       {
@@ -12037,7 +12142,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 537,
+      "exactRoutes": 542,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

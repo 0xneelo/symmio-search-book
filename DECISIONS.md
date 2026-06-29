@@ -1191,3 +1191,11 @@
 **Reason:** Section 8 is the mechanism bridge from the Percolator critique to Vibe's hybrid alternative. Exact routes keep stable margin, linear settlement, solver discretion, and cross-market capital use distinct instead of presenting "USDC margin" as one vague fix.
 
 **Status:** Accepted for the authored manifesto layer; live margin parameters, solver quote rules, cross-margin implementation, insurance allocation, risk limits, supported assets, and current production claims remain operator/security/risk/legal/implementation review.
+
+## D-150: Split Vibe Pillars Into Constraint-Level Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for leverage making exploit resistance non-negotiable, markets becoming tradable before continuous flow exists, yield as architecture survival proof, order books solving the mature version, and Vibe being defined by its constraint set rather than listings alone.
+
+**Reason:** The existing Vibe Pillars pages cover the overview, each broad pillar, and the coupled-design problem. The answer engine still benefits from narrower routes that translate the source's architecture thesis into the exact questions readers ask: why leverage changes the safety bar, why asynchronous flow matters, why capital must be paid, why order books are still the endpoint for mature markets, and why Vibe's product surface follows from constraints rather than from generic market breadth.
+
+**Status:** Accepted for the authored manifesto layer; live listing eligibility, solver obligations, vault exposure, insurance policy, graduation criteria, risk limits, LP terms, fee routing, and market parameters remain operator/risk/legal/accounting/implementation review.

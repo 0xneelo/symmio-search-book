@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 556,
+  "totalPages": 561,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 407,
-    "publication-candidate": 130,
+    "publication-candidate-needs-operator-review": 409,
+    "publication-candidate": 133,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 278,
+    "manifesto": 283,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -191,6 +191,30 @@
       "file": "content/authored/reference/amfq-legacy-intent-naming.md",
       "bodyMarkdown": "# AMFQ Is Legacy Naming For Intents\n\nAMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model.\n\nThe current reader-facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote-market shape of that same product idea; it should not be documented as a separate live system beside Intents.\n\n## How To Use The Terms\n\nUse intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language.\n\nThe distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent-based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state.\n\n## Reader Implication\n\nIf a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should translate the legacy name into current terms before explaining trade flow. That prevents duplicate vocabulary and keeps older source material searchable.\n\n## Sources\n\n- `vibe-architecture`: AMFQ/aMFQ naming, trade intention, solver offers, request-to-trade flow, collateral, and bilateral agreement.\n- `symmio-core`: PartyA, PartyB, intent, collateral, and margin vocabulary.\n- `symmio-intent-lifecycle`: quote events, solver monitoring, locking, and lifecycle state.\n- `styleguide`: local terminology lock for current docs language.\n\n## Related Pages\n\n- `authored-vibe-intent-architecture`\n- `authored-intents-and-solvers`\n- `authored-bilateral-intent-lifecycle`\n- `authored-solver-event-monitoring`",
       "excerpt": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves through collateral, counterparty acceptance, and protocol lifecycle state. AMFQ describes the quote market shape of that same product idea; it should not be documented as a separate live system beside Intents. How To Use The Terms Use intent when explaining current Vibe and Symmio behavior. Use AMFQ only when a reader is searching older docs, older diagrams, source labels, or archived architecture language. The distinction matters because \"Automated Market for Quotes\" sounds like a standalone product category. The compendium's canonical framing is narrower and more durable: an intent based derivatives flow where solvers compete to satisfy a requested outcome and Symmio records the accepted bilateral state. Reader Implication If a user asks \"what is AMFQ?\", route them here first, then to Vibe Intent Architecture. The answer should transla"
+    },
+    {
+      "id": "authored-architecture-defined-by-constraint-set",
+      "title": "Architecture Defined By The Constraint Set",
+      "section": "manifesto",
+      "track": "07 - Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/00-abstract",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/06-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-00-abstract",
+        "neelo-10-vibe-pillars-10-docs-06-conclusion",
+        "authored-vibe-pillars"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/architecture-defined-by-constraint-set.md",
+      "bodyMarkdown": "# Architecture Defined By The Constraint Set\n\nNeelo's conclusion reframes Vibe away from a simple listing story. Vibe is not defined only by what it lists. It is defined by the constraint set it tries to solve.\n\nThe source names three required conditions: the market must be hard to exploit, tradable before continuous two-sided flow exists, and economically attractive enough for risk capital to stay. Each pillar is necessary. None is sufficient alone.\n\n## Why This Framing Matters\n\nIf the docs describe Vibe only as \"permissionless perps for more tokens,\" the architecture can sound arbitrary. Readers may miss why the product needs solvers, risk controls, funding, vaults, insurance boundaries, and staged market maturity.\n\nThe constraint-set framing makes the design legible. Low-cap perps are difficult because leverage, thin flow, and capital incentives collide. Vibe's architecture is the answer to that collision, not a loose bundle of features.\n\n## Publication Boundary\n\nThis page supports the strategic architecture thesis. It does not finalize listing eligibility, solver obligations, vault exposure, insurance policy, graduation criteria, or live market parameters.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Pillars\".\n- `vibe-papers`: Neelo, \"Conclusion\" in Vibe Pillars.\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-coupled-design-problem`\n- `authored-market-maturation-state-map`",
+      "excerpt": "Architecture Defined By The Constraint Set Neelo's conclusion reframes Vibe away from a simple listing story. Vibe is not defined only by what it lists. It is defined by the constraint set it tries to solve. The source names three required conditions: the market must be hard to exploit, tradable before continuous two sided flow exists, and economically attractive enough for risk capital to stay. Each pillar is necessary. None is sufficient alone. Why This Framing Matters If the docs describe Vibe only as \"permissionless perps for more tokens,\" the architecture can sound arbitrary. Readers may miss why the product needs solvers, risk controls, funding, vaults, insurance boundaries, and staged market maturity. The constraint set framing makes the design legible. Low cap perps are difficult because leverage, thin flow, and capital incentives collide. Vibe's architecture is the answer to that collision, not a loose bundle of features. Publication Boundary This page supports the strategic architecture thesis. It does not finalize listing eligibility, solver obligations, vault exposure, insurance policy, graduation criteria, or live market parameters. Sources vibe papers : Neelo, \"Vibe P"
     },
     {
       "id": "authored-artifact-exposure-and-boost-rules",
@@ -4382,6 +4406,30 @@
       "excerpt": "Leverage As Truth Amplifier The missing no button thesis is not only about shorting. It is also about force. Neelo's source argues that truth may sit with a minority: one expert, one skeptical trader, one participant who has better information than a larger crowd. In a long only or one dollar one vote market, that minority can be overwhelmed by broader low conviction hype. Leverage changes the expression of conviction. A smaller participant with stronger evidence can apply more market pressure than their cash balance alone would allow. That is the philosophical claim behind \"permissionless shorting with leverage.\" The source wants capital to punish falsehood faster than social commentary can. In product docs, this has to be translated carefully. Leverage is also risk. The compendium should explain the mechanism without implying that live Vibe markets will expose unlimited leverage or identical limits across every asset. Publication Boundary Exact leverage ceilings, eligible assets, margin rules, liquidation rules, and user facing risk warnings must come from current product and protocol sources. This page documents the thesis: leverage can amplify high conviction negative informati"
     },
     {
+      "id": "authored-leverage-makes-exploit-resistance-non-negotiable",
+      "title": "Leverage Makes Exploit Resistance Non-Negotiable",
+      "section": "manifesto",
+      "track": "07 - Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/02-pillar-one-exploit-resistance"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-01-introduction",
+        "neelo-10-vibe-pillars-10-docs-02-pillar-one-exploit-resistance",
+        "authored-exploit-resistance-pillar"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/leverage-makes-exploit-resistance-non-negotiable.md",
+      "bodyMarkdown": "# Leverage Makes Exploit Resistance Non-Negotiable\n\nNeelo's Vibe Pillars source starts from a hard premise: a perpetual market is a credit system. A trader posts margin and receives larger exposure than the collateral alone would buy.\n\nThat leverage makes exploit resistance non-negotiable. The design has to stop value from leaving the system faster than collateral, liquidation, oracle, execution, and tail-risk controls can defend it. Otherwise the venue may be live in a technical sense while being economically unsafe.\n\n## Beyond Contract Security\n\nExploit resistance is broader than \"the contract was not hacked.\" The source names market-structure failure modes: bad debt, delayed liquidation, manipulation, insolvency, and tail events that can push losses into the protocol or residual risk-takers.\n\nThis matters most in thin markets. Mature order books reduce some residual exposure because natural counterparties often meet at execution time. Long-tail assets often lack that synchronous liquidity, so Vibe has to preserve defense while still making early markets possible.\n\n## Reader Implication\n\nWhen readers ask why Vibe needs margin rules, liquidation logic, oracle discipline, quote refusal, or risk containment, route them here. Those controls are not optional product clutter. They are the floor that lets bootstrap and LP yield become real instead of dangerous.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Introduction\" in Vibe Pillars.\n- `vibe-papers`: Neelo, \"Pillar One: Exploit Resistance\".\n\n## Related Pages\n\n- `authored-exploit-resistance-pillar`\n- `authored-perp-market-as-credit-system`\n- `authored-collateral-margin-cva`",
+      "excerpt": "Leverage Makes Exploit Resistance Non Negotiable Neelo's Vibe Pillars source starts from a hard premise: a perpetual market is a credit system. A trader posts margin and receives larger exposure than the collateral alone would buy. That leverage makes exploit resistance non negotiable. The design has to stop value from leaving the system faster than collateral, liquidation, oracle, execution, and tail risk controls can defend it. Otherwise the venue may be live in a technical sense while being economically unsafe. Beyond Contract Security Exploit resistance is broader than \"the contract was not hacked.\" The source names market structure failure modes: bad debt, delayed liquidation, manipulation, insolvency, and tail events that can push losses into the protocol or residual risk takers. This matters most in thin markets. Mature order books reduce some residual exposure because natural counterparties often meet at execution time. Long tail assets often lack that synchronous liquidity, so Vibe has to preserve defense while still making early markets possible. Reader Implication When readers ask why Vibe needs margin rules, liquidation logic, oracle discipline, quote refusal, or risk c"
+    },
+    {
       "id": "authored-lifecycle-gates-as-market-power",
       "title": "Lifecycle Gates As Market Power",
       "section": "manifesto",
@@ -5666,6 +5714,30 @@
       "file": "content/authored/manifesto/order-books-as-mature-end-state.md",
       "bodyMarkdown": "# Order Books Are The Mature End State\n\nNeelo's Ode to OrderBooks source is deliberately not anti-order-book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough.\n\nThe mistake is treating the best endpoint as the best beginning.\n\nA mature BTC, SOL, or major-perp market has continuous flow and enough market makers to make an order book useful. A newborn long-tail asset does not. Its demand is sparse, inventory is concentrated, volatility is high, and the market may not yet have a credible set of professional counterparties.\n\nThat is why Vibe should be framed as complementary. Vibe handles market discovery and early derivatives access before the book is ready. Order books absorb the markets that prove they deserve deeper execution.\n\n## Reader Implication\n\nDo not describe Vibe as \"order books are bad.\" The stronger claim is that order books should not be forced to solve every market phase. Vibe discovers demand; order books scale efficiency.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Ode to OrderBooks\".\n- `vibe-papers`: Neelo, \"Section 6: Ode to OrderBooks\".\n\n## Related Pages\n\n- `authored-order-books-as-graduation-layer`\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`",
       "excerpt": "Order Books Are The Mature End State Neelo's Ode to OrderBooks source is deliberately not anti order book. It praises order books as the natural endpoint for mature markets: transparent queues, competitive quoting, synchronous matching, tight spreads, and scalable execution when participation is dense enough. The mistake is treating the best endpoint as the best beginning. A mature BTC, SOL, or major perp market has continuous flow and enough market makers to make an order book useful. A newborn long tail asset does not. Its demand is sparse, inventory is concentrated, volatility is high, and the market may not yet have a credible set of professional counterparties. That is why Vibe should be framed as complementary. Vibe handles market discovery and early derivatives access before the book is ready. Order books absorb the markets that prove they deserve deeper execution. Reader Implication Do not describe Vibe as \"order books are bad.\" The stronger claim is that order books should not be forced to solve every market phase. Vibe discovers demand; order books scale efficiency. Sources vibe papers : Neelo, \"Ode to OrderBooks\". vibe papers : Neelo, \"Section 6: Ode to OrderBooks\". Rela"
+    },
+    {
+      "id": "authored-order-books-solve-mature-version",
+      "title": "Order Books Solve The Mature Version",
+      "section": "manifesto",
+      "track": "07 - Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/05-the-coupled-design-problem"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-01-introduction",
+        "neelo-10-vibe-pillars-10-docs-05-the-coupled-design-problem",
+        "authored-coupled-design-problem"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/order-books-solve-mature-version.md",
+      "bodyMarkdown": "# Order Books Solve The Mature Version\n\nThe Vibe Pillars source is not anti-order-book. It is precise about where order books are strongest.\n\nFor mature assets, order books solve part of the problem through synchronous matching. A buyer and seller arrive together, liquidity is deep enough to quote competitively, and the venue avoids warehousing much residual exposure itself.\n\nThat is the mature version of the market design problem.\n\n## Why The Long Tail Is Different\n\nLow-cap and newly launched assets sit earlier on the maturity curve. Flow is thinner, more fragmented, and less continuous. The same market may have real demand over time while still failing to produce an executable opposite side at a specific moment.\n\nThat is why copying a mature-market architecture into the long tail can fail. The book is not wrong; it is early. Before a book can become the efficient endpoint, the market may need an asynchronous counterparty path, stricter defense, wider risk pricing, and a way to pay residual capital.\n\n## Reader Implication\n\nVibe should be explained as an upstream market-formation layer, not as a claim that order books are obsolete. The better thesis is staged: bootstrap first, mature later, and let proven markets move toward deeper synchronous liquidity when the evidence supports it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Introduction\" in Vibe Pillars.\n- `vibe-papers`: Neelo, \"The Coupled Design Problem\".\n\n## Related Pages\n\n- `authored-coupled-design-problem`\n- `authored-order-books-as-mature-end-state`\n- `authored-programmatic-market-graduation`",
+      "excerpt": "Order Books Solve The Mature Version The Vibe Pillars source is not anti order book. It is precise about where order books are strongest. For mature assets, order books solve part of the problem through synchronous matching. A buyer and seller arrive together, liquidity is deep enough to quote competitively, and the venue avoids warehousing much residual exposure itself. That is the mature version of the market design problem. Why The Long Tail Is Different Low cap and newly launched assets sit earlier on the maturity curve. Flow is thinner, more fragmented, and less continuous. The same market may have real demand over time while still failing to produce an executable opposite side at a specific moment. That is why copying a mature market architecture into the long tail can fail. The book is not wrong; it is early. Before a book can become the efficient endpoint, the market may need an asynchronous counterparty path, stricter defense, wider risk pricing, and a way to pay residual capital. Reader Implication Vibe should be explained as an upstream market formation layer, not as a claim that order books are obsolete. The better thesis is staged: bootstrap first, mature later, and le"
     },
     {
       "id": "authored-partnership-over-venue-war",
@@ -11049,6 +11121,30 @@
       "excerpt": "Tokens Are Information Objects The one primitive corpus treats tokens as more than ownership wrappers. A token can contain information about a project, community, claim, event, outcome, or productive capacity. That is why token issuance matters. Crypto did not only make financial assets easier to create; it made information easier to financialize. Once something can become a token, it can attract capital, attention, speculation, and coordination. But an information object needs a validation path. Spot trading tells the market who wants exposure. Derivatives tell the market how much conviction survives pressure, hedge demand, short interest, and maturity. A token without that second layer remains partially legible. Reader Implication Readers should understand why Vibe's market surface matters even for nontraditional assets. If tokens are information objects, then permissionless derivatives are one way to test the information with capital. Sources vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". vibe papers : Neelo, \"Section 3: The Issuance Revolution\". Related Pages authored information validation crisis authored beyond polymarket continuous truth markets authored market pr"
     },
     {
+      "id": "authored-tradable-before-continuous-flow",
+      "title": "Tradable Before Continuous Flow",
+      "section": "manifesto",
+      "track": "07 - Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-01-introduction",
+        "neelo-10-vibe-pillars-10-docs-03-pillar-two-bootstrap-and-counterparty",
+        "authored-bootstrap-counterparty-pillar"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/tradable-before-continuous-flow.md",
+      "bodyMarkdown": "# Tradable Before Continuous Flow\n\nThe second Vibe pillar asks how a market becomes tradable before it already has continuous two-sided flow.\n\nIn a mature book, a long and a short can often meet at the same time. In a low-cap market, demand may be real but sparse. Interest can be path-dependent, episodic, and separated across time. Aggregate demand over a week does not guarantee a counterparty at the exact moment a trader wants exposure.\n\n## The Bootstrap Requirement\n\nNeelo's source argues that this is why a solver or designated risk-taker may need to intermediate the early market. The role is not to pretend depth exists. It is to provide a counterparty path while the market is too thin for synchronous matching to work reliably.\n\nThat path changes the problem. The venue is no longer only matching orders. It is managing risk, balance sheet, inventory, hedge feasibility, and counterparty continuity until natural flow improves.\n\n## Reader Implication\n\n\"Tradable before continuous flow\" is the practical form of the long-tail thesis. Vibe is not valuable because every early market already looks mature. It is valuable if the architecture can make a market usable before maturity while still respecting defense and capital constraints.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Introduction\" in Vibe Pillars.\n- `vibe-papers`: Neelo, \"Pillar Two: Bootstrap and Counterparty\".\n\n## Related Pages\n\n- `authored-bootstrap-counterparty-pillar`\n- `authored-episodic-long-tail-flow`\n- `authored-residual-counterparty-balance-sheet-problem`",
+      "excerpt": "Tradable Before Continuous Flow The second Vibe pillar asks how a market becomes tradable before it already has continuous two sided flow. In a mature book, a long and a short can often meet at the same time. In a low cap market, demand may be real but sparse. Interest can be path dependent, episodic, and separated across time. Aggregate demand over a week does not guarantee a counterparty at the exact moment a trader wants exposure. The Bootstrap Requirement Neelo's source argues that this is why a solver or designated risk taker may need to intermediate the early market. The role is not to pretend depth exists. It is to provide a counterparty path while the market is too thin for synchronous matching to work reliably. That path changes the problem. The venue is no longer only matching orders. It is managing risk, balance sheet, inventory, hedge feasibility, and counterparty continuity until natural flow improves. Reader Implication \"Tradable before continuous flow\" is the practical form of the long tail thesis. Vibe is not valuable because every early market already looks mature. It is valuable if the architecture can make a market usable before maturity while still respecting de"
+    },
+    {
       "id": "authored-trader-compensation-continuity-model",
       "title": "Trader Compensation And Continuity Model",
       "section": "protocol-reference",
@@ -13609,6 +13705,30 @@
       "file": "content/authored/manifesto/why-derivatives-matter.md",
       "bodyMarkdown": "# Why Derivatives Matter\n\nSpot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value.\n\nThat second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure.\n\nNeelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path.\n\nThe key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is not finished.\n\n## Reader Implication\n\nWhen a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two-sided, stress-tested market information.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Why Derivatives Matter\".\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n\n## Related Pages\n\n- `authored-truth-markets-no-button`\n- `authored-liquidity-as-trader-experience`\n- `authored-proof-of-value`",
       "excerpt": "Why Derivatives Matter Spot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value. That second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure. Neelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path. The key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is n"
+    },
+    {
+      "id": "authored-yield-as-architecture-survival-proof",
+      "title": "Yield As Architecture Survival Proof",
+      "section": "manifesto",
+      "track": "07 - Architecture Thesis",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency",
+        "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/06-conclusion"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-10-vibe-pillars-10-docs-04-pillar-three-lp-yield-and-capital-efficiency",
+        "neelo-10-vibe-pillars-10-docs-06-conclusion",
+        "authored-lp-yield-capital-efficiency-pillar"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/yield-as-architecture-survival-proof.md",
+      "bodyMarkdown": "# Yield As Architecture Survival Proof\n\nIn the Vibe Pillars source, yield is not a marketing surface. It is survival proof.\n\nOnce an early market relies on a solver, market maker, vault, or designated residual counterparty, that capital is taking risk. It may warehouse inventory, fund stable collateral, support quotes, or absorb one-sided exposure while the market is immature.\n\nIf the return on that capital is too weak for the risk, the architecture does not survive. Capital leaves, spreads widen, capacity shrinks, and the market becomes technically possible but economically unavailable.\n\n## The Risk-Adjusted Question\n\nThe relevant question is not \"can LPs earn yield?\" It is whether they can earn enough risk-adjusted yield for thin, volatile, adverse-selection-prone markets.\n\nThat ties the third pillar back to the first two. A safe system that cannot pay risk-takers will not scale. A bootstrappable system that consumes too much idle capital per market will not persist.\n\n## Publication Boundary\n\nThis page documents the architectural claim from Neelo's source. It does not publish final Vibe LP rates, fee routing, solver compensation, vault rights, or Phase B economics. Those remain operator/accounting/legal/risk/implementation review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Pillar Three: LP Yield and Capital Efficiency\".\n- `vibe-papers`: Neelo, \"Conclusion\" in Vibe Pillars.\n\n## Related Pages\n\n- `authored-lp-yield-capital-efficiency-pillar`\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-required-risk-premium-for-usdc-lps`",
+      "excerpt": "Yield As Architecture Survival Proof In the Vibe Pillars source, yield is not a marketing surface. It is survival proof. Once an early market relies on a solver, market maker, vault, or designated residual counterparty, that capital is taking risk. It may warehouse inventory, fund stable collateral, support quotes, or absorb one sided exposure while the market is immature. If the return on that capital is too weak for the risk, the architecture does not survive. Capital leaves, spreads widen, capacity shrinks, and the market becomes technically possible but economically unavailable. The Risk Adjusted Question The relevant question is not \"can LPs earn yield?\" It is whether they can earn enough risk adjusted yield for thin, volatile, adverse selection prone markets. That ties the third pillar back to the first two. A safe system that cannot pay risk takers will not scale. A bootstrappable system that consumes too much idle capital per market will not persist. Publication Boundary This page documents the architectural claim from Neelo's source. It does not publish final Vibe LP rates, fee routing, solver compensation, vault rights, or Phase B economics. Those remain operator/accounti"
     },
     {
       "id": "authored-yield-as-market-survival-constraint",

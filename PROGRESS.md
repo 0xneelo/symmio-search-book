@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Vibe Pillars Constraint Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Vibe Pillars source.
+- Split the pillar thesis into exact answer routes for leverage-driven exploit resistance, tradability before continuous flow, yield as architecture survival proof, order books as the mature-market solution, and Vibe being defined by constraints rather than listings alone.
+- Extended the question ledger so Ask can route direct questions about why Vibe needs defense, asynchronous counterparty formation, and risk-adjusted capital economics before mature order-book depth exists.
+- Kept live listing eligibility, solver obligations, vault exposure, insurance policy, graduation criteria, LP terms, and market parameters marked for operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Percolator Conclusion Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 10 conclusion source.

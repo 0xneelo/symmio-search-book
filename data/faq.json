@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 544,
-  "totalAnswerable": 537,
+  "totalEntries": 549,
+  "totalAnswerable": 542,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,22 +20,22 @@
     "Solvers And Settlement": 153,
     "Risk And Markets": 64,
     "Revenue": 75,
-    "Manifesto": 72,
+    "Manifesto": 77,
     "Rewards And Referrals": 78,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 317,
+    "Medium": 322,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 537
+    "authored": 542
   },
   "byType": {
-    "answerable": 537,
+    "answerable": 542,
     "reconciliation": 7
   },
   "answerable": [
@@ -6692,6 +6692,151 @@
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-leverage-make-exploit-resistance-non-negotiable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does leverage make exploit resistance non-negotiable?",
+      "normalizedQuestion": "why does leverage make exploit resistance non negotiable",
+      "shortAnswer": "Neelo's Vibe Pillars source frames a perp market as a credit system, so collateral, liquidation, oracle, execution, and tail-risk defense are prerequisites.",
+      "answerSummary": "Leverage Makes Exploit Resistance Non Negotiable Neelo's Vibe Pillars source starts from a hard premise: a perpetual market is a credit system. A trader posts margin and receives larger exposure than the collateral alone would buy. That leverage makes exploit resistance non negotiable. The design has to stop value from leaving the system faster than colla...",
+      "confidence": "Medium",
+      "pageId": "authored-leverage-makes-exploit-resistance-non-negotiable",
+      "pageTitle": "Leverage Makes Exploit Resistance Non-Negotiable",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-it-mean-to-make-a-market-tradable-before-continuous-flow-exists",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What does it mean to make a market tradable before continuous flow exists?",
+      "normalizedQuestion": "what does it mean to make a market tradable before continuous flow exists",
+      "shortAnswer": "Neelo's bootstrap pillar explains that long-tail demand can be real but asynchronous, requiring a counterparty path before mature book depth appears.",
+      "answerSummary": "Tradable Before Continuous Flow The second Vibe pillar asks how a market becomes tradable before it already has continuous two sided flow. In a mature book, a long and a short can often meet at the same time. In a low cap market, demand may be real but sparse. Interest can be path dependent, episodic, and separated across time. Aggregate demand over a wee...",
+      "confidence": "Medium",
+      "pageId": "authored-tradable-before-continuous-flow",
+      "pageTitle": "Tradable Before Continuous Flow",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-yield-an-architecture-survival-proof",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is yield an architecture survival proof?",
+      "normalizedQuestion": "why is yield an architecture survival proof",
+      "shortAnswer": "Neelo's third pillar treats risk-adjusted yield as the evidence that residual counterparty capital can remain in the system.",
+      "answerSummary": "Yield As Architecture Survival Proof In the Vibe Pillars source, yield is not a marketing surface. It is survival proof. Once an early market relies on a solver, market maker, vault, or designated residual counterparty, that capital is taking risk. It may warehouse inventory, fund stable collateral, support quotes, or absorb one sided exposure while the m...",
+      "confidence": "Medium",
+      "pageId": "authored-yield-as-architecture-survival-proof",
+      "pageTitle": "Yield As Architecture Survival Proof",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-order-books-solve-the-mature-version-but-not-the-bootstrap-version",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why do order books solve the mature version but not the bootstrap version?",
+      "normalizedQuestion": "why do order books solve the mature version but not the bootstrap version",
+      "shortAnswer": "Neelo's coupled-design source says order books work well once synchronous matching and dense flow exist, while early markets need a different bootstrap structure.",
+      "answerSummary": "Order Books Solve The Mature Version The Vibe Pillars source is not anti order book. It is precise about where order books are strongest. For mature assets, order books solve part of the problem through synchronous matching. A buyer and seller arrive together, liquidity is deep enough to quote competitively, and the venue avoids warehousing much residual...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-solve-mature-version",
+      "pageTitle": "Order Books Solve The Mature Version",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-defined-by-constraints-rather-than-listings-alone",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is Vibe defined by constraints rather than listings alone?",
+      "normalizedQuestion": "why is vibe defined by constraints rather than listings alone",
+      "shortAnswer": "Neelo's Vibe Pillars conclusion defines Vibe by exploit resistance, pre-depth tradability, and durable risk-capital economics, not only by market breadth.",
+      "answerSummary": "Architecture Defined By The Constraint Set Neelo's conclusion reframes Vibe away from a simple listing story. Vibe is not defined only by what it lists. It is defined by the constraint set it tries to solve. The source names three required conditions: the market must be hard to exploit, tradable before continuous two sided flow exists, and economically at...",
+      "confidence": "Medium",
+      "pageId": "authored-architecture-defined-by-constraint-set",
+      "pageTitle": "Architecture Defined By The Constraint Set",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -24645,6 +24790,151 @@
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
       "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-leverage-make-exploit-resistance-non-negotiable",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does leverage make exploit resistance non-negotiable?",
+      "normalizedQuestion": "why does leverage make exploit resistance non negotiable",
+      "shortAnswer": "Neelo's Vibe Pillars source frames a perp market as a credit system, so collateral, liquidation, oracle, execution, and tail-risk defense are prerequisites.",
+      "answerSummary": "Leverage Makes Exploit Resistance Non Negotiable Neelo's Vibe Pillars source starts from a hard premise: a perpetual market is a credit system. A trader posts margin and receives larger exposure than the collateral alone would buy. That leverage makes exploit resistance non negotiable. The design has to stop value from leaving the system faster than colla...",
+      "confidence": "Medium",
+      "pageId": "authored-leverage-makes-exploit-resistance-non-negotiable",
+      "pageTitle": "Leverage Makes Exploit Resistance Non-Negotiable",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-it-mean-to-make-a-market-tradable-before-continuous-flow-exists",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What does it mean to make a market tradable before continuous flow exists?",
+      "normalizedQuestion": "what does it mean to make a market tradable before continuous flow exists",
+      "shortAnswer": "Neelo's bootstrap pillar explains that long-tail demand can be real but asynchronous, requiring a counterparty path before mature book depth appears.",
+      "answerSummary": "Tradable Before Continuous Flow The second Vibe pillar asks how a market becomes tradable before it already has continuous two sided flow. In a mature book, a long and a short can often meet at the same time. In a low cap market, demand may be real but sparse. Interest can be path dependent, episodic, and separated across time. Aggregate demand over a wee...",
+      "confidence": "Medium",
+      "pageId": "authored-tradable-before-continuous-flow",
+      "pageTitle": "Tradable Before Continuous Flow",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-yield-an-architecture-survival-proof",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is yield an architecture survival proof?",
+      "normalizedQuestion": "why is yield an architecture survival proof",
+      "shortAnswer": "Neelo's third pillar treats risk-adjusted yield as the evidence that residual counterparty capital can remain in the system.",
+      "answerSummary": "Yield As Architecture Survival Proof In the Vibe Pillars source, yield is not a marketing surface. It is survival proof. Once an early market relies on a solver, market maker, vault, or designated residual counterparty, that capital is taking risk. It may warehouse inventory, fund stable collateral, support quotes, or absorb one sided exposure while the m...",
+      "confidence": "Medium",
+      "pageId": "authored-yield-as-architecture-survival-proof",
+      "pageTitle": "Yield As Architecture Survival Proof",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-order-books-solve-the-mature-version-but-not-the-bootstrap-version",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why do order books solve the mature version but not the bootstrap version?",
+      "normalizedQuestion": "why do order books solve the mature version but not the bootstrap version",
+      "shortAnswer": "Neelo's coupled-design source says order books work well once synchronous matching and dense flow exist, while early markets need a different bootstrap structure.",
+      "answerSummary": "Order Books Solve The Mature Version The Vibe Pillars source is not anti order book. It is precise about where order books are strongest. For mature assets, order books solve part of the problem through synchronous matching. A buyer and seller arrive together, liquidity is deep enough to quote competitively, and the venue avoids warehousing much residual...",
+      "confidence": "Medium",
+      "pageId": "authored-order-books-solve-mature-version",
+      "pageTitle": "Order Books Solve The Mature Version",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-vibe-defined-by-constraints-rather-than-listings-alone",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is Vibe defined by constraints rather than listings alone?",
+      "normalizedQuestion": "why is vibe defined by constraints rather than listings alone",
+      "shortAnswer": "Neelo's Vibe Pillars conclusion defines Vibe by exploit resistance, pre-depth tradability, and durable risk-capital economics, not only by market breadth.",
+      "answerSummary": "Architecture Defined By The Constraint Set Neelo's conclusion reframes Vibe away from a simple listing story. Vibe is not defined only by what it lists. It is defined by the constraint set it tries to solve. The source names three required conditions: the market must be hard to exploit, tradable before continuous two sided flow exists, and economically at...",
+      "confidence": "Medium",
+      "pageId": "authored-architecture-defined-by-constraint-set",
+      "pageTitle": "Architecture Defined By The Constraint Set",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Architecture Thesis",
+      "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
