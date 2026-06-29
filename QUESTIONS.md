@@ -503,6 +503,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does systemic leverage compare? | `authored-systemic-leverage-comparison` | Medium | Neelo's Figure4 and Figure5 compare gross open interest against structural capital so readers can distinguish headline activity from credible capital support. |
 | How does the risk-adjusted efficiency multiplier work? | `authored-risk-adjusted-efficiency-multiplier` | Medium | Neelo's Figure5 combines the structural leverage ratio with the USDC-versus-token risk-premium ratio to show why risk-adjusted capital efficiency can diverge sharply. |
 | Why is solver drawdown different from protocol insolvency? | `authored-solver-drawdown-not-protocol-insolvency` | Medium | Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss. |
+| How does Percolator combine risk and execution? | `authored-percolator-hybrid-risk-execution-model` | Medium | Neelo's architecture source frames Percolator as synthetics-style balance-sheet risk plus LP-provided matcher execution. |
+| What does one market, one slab mean? | `authored-percolator-one-market-one-slab-accounting` | Medium | Neelo's architecture source says each Percolator market is an isolated slab with its own risk engine, accounts, and token collateral vault. |
+| What changes in Percolator's inverted market mode? | `authored-inverted-market-mode-semantics` | Medium | Neelo explains that inverted mode represents price as inverse price, changing long/short semantics while collateral, fees, funding, and PnL remain token-denominated. |
+| Why is SOV insurance still token-denominated risk? | `authored-percolator-sov-insurance-deflation-model` | Medium | Neelo's SOV model accumulates trading fees into an insurance fund denominated in PERC, so the protection unit can weaken with the market it is meant to protect. |
+| What does formal verification not prove for Percolator? | `authored-percolator-formal-verification-boundary` | Medium | Neelo credits Percolator's proofs and balance-sheet invariant while separating software correctness from inverse-market economic robustness. |
 
 ## Prototype Event Log
 

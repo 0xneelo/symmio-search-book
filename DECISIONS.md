@@ -1127,3 +1127,11 @@
 **Reason:** Neelo's Figure 3-5 sources carry the core capital-structure mechanics behind the USDC-versus-token-inventory argument. Exact answer routes keep the equations, leverage comparison, RCE multiplier, and loss-localization claim separate, so readers do not confuse source-model examples with live Vibe capital limits or protocol solvency guarantees.
 
 **Status:** Accepted for the authored manifesto layer; live leverage limits, capital charges, token-inventory eligibility, solver capital requirements, hedge venues, loss waterfalls, vault rights, RCE multipliers, public economics, and final legal/risk/accounting interpretation remain operator/security/risk/accounting/legal/implementation review.
+
+## D-142: Split Percolator Section 2 Architecture Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for Percolator's hybrid risk/execution model, one-market-one-slab accounting, inverted market-mode semantics, SOV insurance and deflation model, and formal-verification economic boundary.
+
+**Reason:** The broad Percolator critique already explains that correct code can still instantiate fragile economics, but answer-engine readers need direct routes into the architecture terms. Splitting Section 2 keeps matcher execution, slab isolation, inverse market semantics, token-denominated insurance, and proof scope distinct before readers reach the later reflexivity and capital-efficiency critique.
+
+**Status:** Accepted for the authored manifesto layer; live deployed Percolator parameters, matcher safety, SOV balances, market count, fee and circuit-breaker values, verification scope, audit status, current repository state, and security claims remain fresh primary-source and publication-date review.

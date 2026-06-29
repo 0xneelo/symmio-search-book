@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 516,
+  "totalPages": 521,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 374,
+    "publication-candidate-needs-operator-review": 379,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 238,
+    "manifesto": 243,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -4010,6 +4010,29 @@
       "excerpt": "The Inverse Payoff Trap Neelo's Percolator critique separates token margined reflexivity from a sharper payoff problem: inverse settlement can make token liabilities grow non linearly as price falls. In an inverse perpetual, the trader's token denominated PnL depends on the difference between inverse prices. That means a short that is profitable in dollar terms can require more and more tokens to settle as the token approaches zero. Why The Payout Curve Matters The source's example is intentionally simple. A short entered near $1.00 earns almost the same dollar profit whether the token falls to $0.10 , $0.01 , or $0.001 , but the token payout required by the protocol expands dramatically in token terms. That is the inverse payoff trap. The vault is asked to pay the asset that is collapsing. When price falls, each remaining dollar of trader profit consumes more units of the weakening token. The liability curve gets steeper exactly when the vault is least able to absorb it. Linear Settlement Contrast The source contrasts this with USDC margined linear settlement. If a trader shorts $1,000 of notional and the token falls by 99% , the payout is fixed in USDC terms. The liability can st"
     },
     {
+      "id": "authored-inverted-market-mode-semantics",
+      "title": "Inverted Market Mode Semantics",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "section-07-token-margined-issues-perculator-07-docs-02-percolator-architecture-2-3-the-inverted-market-mode",
+        "authored-inverse-payoff-trap"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/inverted-market-mode-semantics.md",
+      "bodyMarkdown": "# Inverted Market Mode Semantics\n\nPercolator's inverted mode changes what long and short mean because the market represents price internally as `1 / price`.\n\nThe source gives the SOL/USD example collateralized in SOL: going long is effectively long USD exposure, which profits if SOL falls; going short is effectively short USD exposure, which profits if SOL rises. Collateral, fees, funding, and PnL are all denominated in the token itself.\n\nThat semantic inversion is not just a UI detail. It is the gateway into token-denominated payoff risk. If the market's unit of account, collateral, fees, funding, and payouts are all the same volatile token, readers must understand which side receives which exposure before they can understand liquidation, payout, and LP risk.\n\n## Reader Implication\n\nDocs should not describe inverted markets with ordinary linear long/short intuition. They should state the collateral unit, the internal price representation, the PnL unit, and what each side actually profits from.\n\n## Publication Boundary\n\nThis page explains the source's architecture semantics. It should not publish live Percolator market guidance, trading advice, margin settings, or production payoff guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-inverse-payoff-trap`\n- `authored-token-margined-reflexivity-risk`\n- `authored-usdc-settlement-inventory-separation`",
+      "excerpt": "Inverted Market Mode Semantics Percolator's inverted mode changes what long and short mean because the market represents price internally as 1 / price . The source gives the SOL/USD example collateralized in SOL: going long is effectively long USD exposure, which profits if SOL falls; going short is effectively short USD exposure, which profits if SOL rises. Collateral, fees, funding, and PnL are all denominated in the token itself. That semantic inversion is not just a UI detail. It is the gateway into token denominated payoff risk. If the market's unit of account, collateral, fees, funding, and payouts are all the same volatile token, readers must understand which side receives which exposure before they can understand liquidation, payout, and LP risk. Reader Implication Docs should not describe inverted markets with ordinary linear long/short intuition. They should state the collateral unit, the internal price representation, the PnL unit, and what each side actually profits from. Publication Boundary This page explains the source's architecture semantics. It should not publish live Percolator market guidance, trading advice, margin settings, or production payoff guarantees. Sou"
+    },
+    {
       "id": "authored-issuance-abundance-creates-validation-debt",
       "title": "Issuance Abundance Creates Validation Debt",
       "section": "manifesto",
@@ -5439,6 +5462,98 @@
       "file": "content/authored/manifesto/percolator-engineering-vs-economics.md",
       "bodyMarkdown": "# Percolator: Engineering Strength, Economic Limit\n\nThe Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance-sheet safety, full on-chain execution, and a minimal state machine.\n\nThat distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token-denominated insurance, passive oracle execution, and slab-level capital lockup are not implementation bugs. They follow from the design constraints.\n\nAuto-deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on-chain and dead economically.\n\nThe compendium should use Percolator as a serious comparison point. It proves that fully on-chain derivatives engines can be elegant and verifiable. It also proves that permissionless perps need economic architecture, not only correct settlement code.\n\n## Reader Implication\n\nEngineers should separate software correctness from market solvency. LPs and traders should ask whether the economic model pays winners during stress, not only whether the smart contract conserves balances.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: What Percolator Gets Right\".\n- `vibe-papers`: Neelo, \"Section 10: Conclusion\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-economic-clarity-for-permissionless-perps`",
       "excerpt": "Percolator: Engineering Strength, Economic Limit The Percolator critique is strongest when it refuses to caricature the system. Neelo's source explicitly credits Percolator for formal verification, pluggable matchers, clean trust boundaries, balance sheet safety, full on chain execution, and a minimal state machine. That distinction matters for Vibe's docs. The argument is not \"Percolator is sloppy.\" The argument is that correct code can still instantiate a structurally fragile economic model. Reflexive collateral, inverse payoff convexity, token denominated insurance, passive oracle execution, and slab level capital lockup are not implementation bugs. They follow from the design constraints. Auto deleveraging shows the split between technical survival and market credibility. A protocol can avoid technical insolvency by haircutting winning traders, but that does not mean the market worked. If traders cannot trust that profitable positions will be paid, the market may be live on chain and dead economically. The compendium should use Percolator as a serious comparison point. It proves that fully on chain derivatives engines can be elegant and verifiable. It also proves that permissio"
+    },
+    {
+      "id": "authored-percolator-formal-verification-boundary",
+      "title": "Percolator Formal Verification Boundary",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "authored-percolator-engineering-vs-economics",
+        "authored-active-risk-management-vs-passive-physics"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-formal-verification-boundary.md",
+      "bodyMarkdown": "# Percolator Formal Verification Boundary\n\nThe Percolator critique should credit the engineering before it criticizes the economics.\n\nNeelo's architecture source says Percolator has formal verification around conservation, isolation, and no-teleport properties, with 118 of 118 proofs passing. It also credits pluggable matchers, clean trust boundaries, and the balance-sheet invariant that no user can withdraw more value than exists on the exchange balance sheet.\n\nThose are meaningful achievements. They prove important properties about the program and risk engine. They do not prove that token-margined inverse markets are economically robust for volatile assets. Formal verification can show that balances are conserved while the conserved balances still fail to pay winners in credible economic terms.\n\n## Reader Implication\n\nDocs should separate code correctness from market design. A verified state machine can still instantiate reflexive collateral, inverse payoff convexity, token-denominated insurance, passive oracle exposure, and ADL haircuts. The question is not only \"does the program conserve balances?\" It is also \"does the market remain economically useful under stress?\"\n\n## Publication Boundary\n\nDo not generalize this source into a full security audit of Percolator or Vibe. Verification scope, proof targets, current repository state, deployed programs, and audit status need fresh primary-source confirmation before publication as security documentation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-percolator-engineering-vs-economics`\n- `authored-active-risk-management-vs-passive-physics`\n- `authored-oracle-circuit-breaker-paradox`",
+      "excerpt": "Percolator Formal Verification Boundary The Percolator critique should credit the engineering before it criticizes the economics. Neelo's architecture source says Percolator has formal verification around conservation, isolation, and no teleport properties, with 118 of 118 proofs passing. It also credits pluggable matchers, clean trust boundaries, and the balance sheet invariant that no user can withdraw more value than exists on the exchange balance sheet. Those are meaningful achievements. They prove important properties about the program and risk engine. They do not prove that token margined inverse markets are economically robust for volatile assets. Formal verification can show that balances are conserved while the conserved balances still fail to pay winners in credible economic terms. Reader Implication Docs should separate code correctness from market design. A verified state machine can still instantiate reflexive collateral, inverse payoff convexity, token denominated insurance, passive oracle exposure, and ADL haircuts. The question is not only \"does the program conserve balances?\" It is also \"does the market remain economically useful under stress?\" Publication Boundary"
+    },
+    {
+      "id": "authored-percolator-hybrid-risk-execution-model",
+      "title": "Percolator Hybrid Risk And Execution Model",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "authored-percolator-engineering-vs-economics",
+        "authored-slab-isolation-capital-inefficiency"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-hybrid-risk-execution-model.md",
+      "bodyMarkdown": "# Percolator Hybrid Risk And Execution Model\n\nNeelo's architecture section frames Percolator as a hybrid: synthetics-style risk with orderbook-style execution.\n\nThe synthetics side is the shared balance sheet. Users trade against LP accounts, and the engine enforces margin, liquidation, ADL or socialization, and withdrawal safety. The orderbook-style side is execution: LPs can provide a matcher program over CPI, including passive AMM-style pricing, RFQ logic, or custom market-making logic.\n\nThat distinction matters because Percolator is not simply an AMM and not simply a CLOB. It is a risk engine plus a pluggable execution surface. The system can make local accounting legible while leaving pricing logic to LP-scoped matcher programs.\n\n## Reader Implication\n\nWhen docs compare Percolator to Vibe, the fair comparison is not \"on-chain AMM versus solver.\" It is \"local on-chain risk engine plus matcher\" versus \"intent, solver, inventory, and settlement architecture.\" The first can be technically elegant while still inheriting token-margined economic constraints.\n\n## Publication Boundary\n\nDo not turn this architecture description into claims about current Percolator deployments, matcher safety, liquidity quality, or production parameters beyond the cited source without fresh primary-source review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-percolator-engineering-vs-economics`\n- `authored-slab-isolation-capital-inefficiency`\n- `authored-active-risk-management-vs-passive-physics`",
+      "excerpt": "Percolator Hybrid Risk And Execution Model Neelo's architecture section frames Percolator as a hybrid: synthetics style risk with orderbook style execution. The synthetics side is the shared balance sheet. Users trade against LP accounts, and the engine enforces margin, liquidation, ADL or socialization, and withdrawal safety. The orderbook style side is execution: LPs can provide a matcher program over CPI, including passive AMM style pricing, RFQ logic, or custom market making logic. That distinction matters because Percolator is not simply an AMM and not simply a CLOB. It is a risk engine plus a pluggable execution surface. The system can make local accounting legible while leaving pricing logic to LP scoped matcher programs. Reader Implication When docs compare Percolator to Vibe, the fair comparison is not \"on chain AMM versus solver.\" It is \"local on chain risk engine plus matcher\" versus \"intent, solver, inventory, and settlement architecture.\" The first can be technically elegant while still inheriting token margined economic constraints. Publication Boundary Do not turn this architecture description into claims about current Percolator deployments, matcher safety, liquidit"
+    },
+    {
+      "id": "authored-percolator-one-market-one-slab-accounting",
+      "title": "Percolator One-Market-One-Slab Accounting",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "authored-slab-isolation-capital-inefficiency",
+        "authored-percolator-engineering-vs-economics"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-one-market-one-slab-accounting.md",
+      "bodyMarkdown": "# Percolator One-Market-One-Slab Accounting\n\nPercolator's basic accounting unit is the slab: one market, one isolated instance.\n\nIn Neelo's source, each market has its own slab account, header and config, in-place risk engine, user accounts, LP accounts, and token collateral vault. The key property is isolation. No cross-margin exists across markets, and each market is locally reasoned about through its own balance sheet.\n\nThat is a strength for auditability. A local market can be inspected without tracing a global tangle of balances. It is also the root of a capital-design question: if every long-tail market needs separately committed collateral and cannot net risk across markets, breadth can become expensive.\n\n## Reader Implication\n\n\"One market, one slab\" should be documented as an accounting boundary, not as a complete liquidity strategy. It answers where balances live and how local safety is checked. It does not by itself answer whether many isolated markets can attract enough capital or pay winners under one-sided flow.\n\n## Publication Boundary\n\nUse the slab model as source-level architecture. Do not infer current vault balances, market count, risk settings, or cross-market netting behavior outside the cited source.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-slab-isolation-capital-inefficiency`\n- `authored-percolator-engineering-vs-economics`\n- `authored-long-tail-perp-model-map`",
+      "excerpt": "Percolator One Market One Slab Accounting Percolator's basic accounting unit is the slab: one market, one isolated instance. In Neelo's source, each market has its own slab account, header and config, in place risk engine, user accounts, LP accounts, and token collateral vault. The key property is isolation. No cross margin exists across markets, and each market is locally reasoned about through its own balance sheet. That is a strength for auditability. A local market can be inspected without tracing a global tangle of balances. It is also the root of a capital design question: if every long tail market needs separately committed collateral and cannot net risk across markets, breadth can become expensive. Reader Implication \"One market, one slab\" should be documented as an accounting boundary, not as a complete liquidity strategy. It answers where balances live and how local safety is checked. It does not by itself answer whether many isolated markets can attract enough capital or pay winners under one sided flow. Publication Boundary Use the slab model as source level architecture. Do not infer current vault balances, market count, risk settings, or cross market netting behavior "
+    },
+    {
+      "id": "authored-percolator-sov-insurance-deflation-model",
+      "title": "Percolator SOV Insurance And Deflation Model",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/02-percolator-architecture"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-02-percolator-architecture",
+        "authored-token-margined-reflexivity-risk",
+        "authored-inverse-payoff-trap"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/percolator-sov-insurance-deflation-model.md",
+      "bodyMarkdown": "# Percolator SOV Insurance And Deflation Model\n\nNeelo's Percolator SOV section is useful because it makes the token-margined design concrete.\n\nIn the source, Percolator SOV uses PERC as collateral token, traded asset, and settlement currency. Trading fees accumulate into an on-chain insurance fund denominated in PERC. The source also notes the burned-admin-key and deflationary narrative: every trade is framed as shrinking circulating PERC supply.\n\nThe documentation risk is that an insurance fund can sound stable when its unit is the same volatile token that the market trades. A token-denominated insurance fund may grow in token count while still weakening in dollar terms during the exact market state where winners need to be paid. The deflationary narrative also does not remove the economic question of whether the vault can satisfy token-denominated liabilities during stress.\n\n## Reader Implication\n\nWhen a market says fees build insurance, docs must name the insurance unit. Token-denominated insurance can be valuable, but it is not the same thing as stable settlement capital. The unit of protection determines what stress states it can actually absorb.\n\n## Publication Boundary\n\nKeep SOV parameters, vault balance, open interest, fee rate, circuit breaker, and utilization figures as source-context examples unless refreshed against current primary sources. Do not present them as live numbers or legal/economic assurances.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Percolator Architecture\".\n\n## Related Pages\n\n- `authored-token-margined-reflexivity-risk`\n- `authored-inverse-payoff-trap`\n- `authored-usdc-settlement-inventory-separation`",
+      "excerpt": "Percolator SOV Insurance And Deflation Model Neelo's Percolator SOV section is useful because it makes the token margined design concrete. In the source, Percolator SOV uses PERC as collateral token, traded asset, and settlement currency. Trading fees accumulate into an on chain insurance fund denominated in PERC. The source also notes the burned admin key and deflationary narrative: every trade is framed as shrinking circulating PERC supply. The documentation risk is that an insurance fund can sound stable when its unit is the same volatile token that the market trades. A token denominated insurance fund may grow in token count while still weakening in dollar terms during the exact market state where winners need to be paid. The deflationary narrative also does not remove the economic question of whether the vault can satisfy token denominated liabilities during stress. Reader Implication When a market says fees build insurance, docs must name the insurance unit. Token denominated insurance can be valuable, but it is not the same thing as stable settlement capital. The unit of protection determines what stress states it can actually absorb. Publication Boundary Keep SOV parameters"
     },
     {
       "id": "authored-percolator-wave-settlement-reality",

@@ -850,6 +850,12 @@
 - Routed five new Ask questions so LPs, solvers, protocol designers, and market-structure readers can inspect Figure 3-5 mechanics without collapsing structural capital, leverage, risk premium, and loss localization into one broad efficiency claim.
 - Kept live leverage limits, capital charges, token-inventory eligibility, solver capital requirements, loss waterfalls, hedge venues, vault rights, RCE multipliers, and current public economics under operator/risk/security/accounting/legal/implementation review.
 
+## 2026-06-29 — Percolator Architecture Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's Percolator Section 2 architecture source: hybrid risk/execution model, one-market-one-slab accounting, inverted market-mode semantics, SOV insurance/deflation model, and formal-verification economic boundary.
+- Routed five new Ask questions so builders, LPs, traders, and protocol reviewers can inspect Percolator architecture without confusing software correctness, local accounting, token-denominated insurance, and economic robustness.
+- Kept live deployed Percolator parameters, matcher safety, SOV balances, market count, fee/circuit-breaker values, verification scope, audit status, and current production security claims under fresh primary-source review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

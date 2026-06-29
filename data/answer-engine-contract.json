@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 497
+      "totalGoldenRoutes": 502
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 515,
-    "retrievalEligiblePages": 1307,
+    "publicNavigationPages": 520,
+    "retrievalEligiblePages": 1312,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 515,
+      "candidate": 520,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 497,
-    "exactRouteTestsPassing": 497,
+    "totalExactRouteTests": 502,
+    "exactRouteTestsPassing": 502,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 497
+      "candidate": 502
     },
     "exactRoutesByConfidence": {
-      "Medium": 277,
+      "Medium": 282,
       "High": 44,
       "Low": 176
     },
@@ -11122,6 +11122,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-is-solver-drawdown-different-from-protocol-insolvency",
         "passes": true
+      },
+      {
+        "id": "qr-how-does-percolator-combine-risk-and-execution",
+        "query": "How does Percolator combine risk and execution?",
+        "normalizedQuery": "how does percolator combine risk and execution",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-hybrid-risk-execution-model",
+        "expectedPageTitle": "Percolator Hybrid Risk And Execution Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-does-percolator-combine-risk-and-execution",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-one-market-one-slab-mean",
+        "query": "What does one market, one slab mean?",
+        "normalizedQuery": "what does one market one slab mean",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-one-market-one-slab-accounting",
+        "expectedPageTitle": "Percolator One-Market-One-Slab Accounting",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-one-market-one-slab-mean",
+        "passes": true
+      },
+      {
+        "id": "qr-what-changes-in-percolator-s-inverted-market-mode",
+        "query": "What changes in Percolator's inverted market mode?",
+        "normalizedQuery": "what changes in percolator s inverted market mode",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-inverted-market-mode-semantics",
+        "expectedPageTitle": "Inverted Market Mode Semantics",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-changes-in-percolator-s-inverted-market-mode",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-sov-insurance-still-token-denominated-risk",
+        "query": "Why is SOV insurance still token-denominated risk?",
+        "normalizedQuery": "why is sov insurance still token denominated risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-sov-insurance-deflation-model",
+        "expectedPageTitle": "Percolator SOV Insurance And Deflation Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-sov-insurance-still-token-denominated-risk",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-formal-verification-not-prove-for-percolator",
+        "query": "What does formal verification not prove for Percolator?",
+        "normalizedQuery": "what does formal verification not prove for percolator",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-percolator-formal-verification-boundary",
+        "expectedPageTitle": "Percolator Formal Verification Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-formal-verification-not-prove-for-percolator",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11197,7 +11302,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 497,
+      "exactRoutes": 502,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

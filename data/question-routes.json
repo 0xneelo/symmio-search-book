@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 497,
+  "totalRoutes": 502,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 277,
+    "Medium": 282,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 497
+    "authored": 502
   },
   "answerable": [
     {
@@ -8711,6 +8711,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-percolator-combine-risk-and-execution",
+      "question": "How does Percolator combine risk and execution?",
+      "normalizedQuestion": "how does percolator combine risk and execution",
+      "pageId": "authored-percolator-hybrid-risk-execution-model",
+      "pageTitle": "Percolator Hybrid Risk And Execution Model",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's architecture source frames Percolator as synthetics-style balance-sheet risk plus LP-provided matcher execution.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-one-market-one-slab-mean",
+      "question": "What does one market, one slab mean?",
+      "normalizedQuestion": "what does one market one slab mean",
+      "pageId": "authored-percolator-one-market-one-slab-accounting",
+      "pageTitle": "Percolator One-Market-One-Slab Accounting",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's architecture source says each Percolator market is an isolated slab with its own risk engine, accounts, and token collateral vault.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-changes-in-percolator-s-inverted-market-mode",
+      "question": "What changes in Percolator's inverted market mode?",
+      "normalizedQuestion": "what changes in percolator s inverted market mode",
+      "pageId": "authored-inverted-market-mode-semantics",
+      "pageTitle": "Inverted Market Mode Semantics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo explains that inverted mode represents price as inverse price, changing long/short semantics while collateral, fees, funding, and PnL remain token-denominated.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-sov-insurance-still-token-denominated-risk",
+      "question": "Why is SOV insurance still token-denominated risk?",
+      "normalizedQuestion": "why is sov insurance still token denominated risk",
+      "pageId": "authored-percolator-sov-insurance-deflation-model",
+      "pageTitle": "Percolator SOV Insurance And Deflation Model",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's SOV model accumulates trading fees into an insurance fund denominated in PERC, so the protection unit can weaken with the market it is meant to protect.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-formal-verification-not-prove-for-percolator",
+      "question": "What does formal verification not prove for Percolator?",
+      "normalizedQuestion": "what does formal verification not prove for percolator",
+      "pageId": "authored-percolator-formal-verification-boundary",
+      "pageTitle": "Percolator Formal Verification Boundary",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo credits Percolator's proofs and balance-sheet invariant while separating software correctness from inverse-market economic robustness.",
       "sourceKeys": [
         "vibe-papers"
       ],
