@@ -1,6 +1,6 @@
 ---
 id: "authored-referral-depth-open-question"
-title: "Referral Depth Is An Open Product Decision"
+title: "Referral Depth Historical Reconciliation Note"
 section: "rewards-referrals"
 track: "Referral Depth"
 status: "needs-reconciliation"
@@ -9,21 +9,21 @@ sourceUrls: ["server/points.js", "server/routes/me.js", "src/dashboard/faq.jsx",
 relatedGeneratedPages: ["local-network-depth", "linear-network-depth-question", "linear-referral-depth-rollout"]
 ---
 
-# Referral Depth Is An Open Product Decision
+# Referral Depth Historical Reconciliation Note
 
-This page intentionally does not publish a final referral-depth answer.
+This page intentionally remains an internal reconciliation note, not a public answer source.
 
-The current evidence is contradictory. Local code supports configurable depth and has evidence around a 5-level default. Dashboard FAQ copy and rollout work point toward 15 levels. Older product language and current volume surfaces may still carry 5-level wording. Publishing one number without reconciliation would mislead users about rewards, network volume, and historical crediting.
+The historical evidence was contradictory. Local code supported configurable depth and carried evidence around a 5-level default, while dashboard FAQ copy and rollout work pointed toward 15 levels. That conflict has now been resolved by operator decision.
 
-Until the operator resolves the public stance, every final referral, rewards, network-volume, and revenue page should use guarded language such as "configured referral network" or "multi-level network" and link here for the open decision.
+The public stance is fifteen levels. Historical backfill is additive and never lowers an existing balance. Older 5-level wording should be treated as stale historical context and should not be used as current public copy.
 
 ## Reader Implication
 
-If a user's question is "how many levels count?", the correct current answer is that the docs are waiting for a product decision. This is better than hiding the conflict behind confident copy.
+If a user's question is "how many levels count?", the answer engine should not route here. It should route to `authored-dashboard-network`, which carries the current public answer and backfill rule.
 
-## Required Resolution
+## Resolution
 
-Operator inbox item `#3` must decide whether public docs say 5 levels, 15 levels, configurable/current-depth language, and how historical backfill should be described.
+Operator inbox item `#3` resolved the question: public referral depth is fifteen levels; historical backfill is additive and never lowers a balance.
 
 ## Sources
 

@@ -174,6 +174,7 @@ const symmioPublicKeys = [
 ];
 const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
 const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];
+const superflowKeys = ["superflow-she-openapi"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
 
@@ -186,6 +187,7 @@ const vibeStatus = requiredKeysStatus(keys, vibePublicKeys);
 const symmioStatus = requiredKeysStatus(keys, symmioPublicKeys);
 const symmioWhitepaperHistoryStatus = requiredKeysStatus(keys, symmioWhitepaperHistoryKeys);
 const symmioGithubStatus = requiredKeysStatus(keys, symmioGithubKeys);
+const superflowStatus = requiredKeysStatus(keys, superflowKeys);
 const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
 const competitiveSweepSourceStatus = requiredKeysStatus(keys, competitiveSweepKeys);
 const competitiveSweepHasBatch =
@@ -242,7 +244,7 @@ const requirements = [
     presentKeys: revenueStatus.present,
     missingKeys: revenueStatus.missing,
     evidence: `${revenueStatus.present.length}/${revenueKeys.length} revenue/volume implementation sources registered.`,
-    nextAction: "Keep final public wording parked behind revenue-disclosure and referral-depth operator decisions.",
+    nextAction: "Keep Phase A revenue and fifteen-level referral-depth wording aligned with the operator-approved public stance; leave Phase B economics out of v1.",
   }),
   sourceReq({
     id: "neelo-vibe-docs",
@@ -327,14 +329,21 @@ const requirements = [
   sourceReq({
     id: "superflow-sshe",
     label: "SuperFlow / SSHE docs",
-    status: /SuperFlow|SSHE/i.test(registryMarkdown) ? "partial" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
+    status: superflowStatus.complete ? "partial" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
     category: "protocol-reference",
     sourceSpecs: ["04", "07"],
-    presentKeys: [],
-    missingKeys: ["superflow-sshe"],
-    evidence: "No SuperFlow or SSHE source key is registered.",
+    presentKeys: superflowStatus.present,
+    missingKeys: [
+      ...superflowStatus.missing,
+      ...(inboxHas(openInboxItems, 7) ? ["sshe-source-family"] : []),
+    ],
+    evidence: superflowStatus.complete
+      ? "SuperFlow/SHE OpenAPI source is registered; fetched title is SYMMIO Hybrid Exchange(SHE), while SSHE remains unidentified."
+      : "No SuperFlow or SSHE source key is registered.",
     blocks: inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : [],
-    nextAction: "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims.",
+    nextAction: superflowStatus.complete
+      ? "Identify or exclude the remaining SSHE source family before final source-completeness claims."
+      : "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims.",
   }),
   sourceReq({
     id: "hyperliquid-goldsky",

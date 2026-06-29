@@ -19,7 +19,7 @@ The reason is accounting clarity. A self channel answers "what did this trader e
 
 The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model.
 
-The source also flags unresolved policy questions: one-level versus multi-level referral depth, uniform versus campaign-specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the system.
+The source also flags policy questions: one-level versus multi-level referral depth, uniform versus campaign-specific referee benefits, and stacking or cap behavior for referrer rewards. The current operator-approved depth stance is fifteen levels, so the remaining caution here is about benefit variation, stacking, caps, private overlays, and settlement implementation.
 
 ## UX Tradeoff
 
@@ -27,7 +27,7 @@ A claim-based model is easier to operate early because claims can be authorized 
 
 ## Reader Implication
 
-When the docs explain rakeback, they should name the channel, the calculation window, the applicable public policy version, and whether a private overlay exists. Until operator inbox item `#3` is resolved, do not publish final depth, stacking, or backfill language.
+When the docs explain rakeback, they should name the channel, the calculation window, the applicable public policy version, and whether a private overlay exists. Public depth is fifteen levels and historical backfill is additive; final stacking, cap, private-overlay, and settlement details still need their own approved policy pages.
 
 ## Sources
 
@@ -38,5 +38,5 @@ When the docs explain rakeback, they should name the channel, the calculation wi
 ## Related Pages
 
 - `authored-points-taxonomy`
-- `authored-referral-depth-open-question`
+- `authored-dashboard-network`
 - `neelo-17-referral-program-17-docs-03-rakeback-design`

@@ -30,7 +30,7 @@ The same caveat applies to downstream metrics. Estimated network revenue and net
 
 It is safe to say that the current dashboard uses backend wallet-volume readings, local cache, and daily snapshots. It is also safe to say that the UI exposes staleness rather than hiding it.
 
-It is not safe to publish a final referral-depth statement from this page. The route aggregates to the configured referral depth, but the public 5-versus-15 wording remains parked under the referral-depth operator decision.
+It is also safe to publish the resolved depth stance: public referral-depth accounting uses fifteen levels, and historical backfill is additive without lowering existing balances. This page should not re-open older 5-level wording as current policy.
 
 ## Sources
 

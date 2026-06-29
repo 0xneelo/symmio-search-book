@@ -19,7 +19,7 @@ The tracked implementation keeps the v1 revenue derivation deliberately local:
 referrer revenue = network volume x platform fee rate x referrer platform share
 ```
 
-The pulse module reads platform fee and referrer-share inputs from server configuration at call time, with code defaults if those values are absent. It intentionally excludes Phase B solver/LP terms.
+The pulse module reads platform fee and referrer-share inputs from server configuration at call time, with code defaults if those values are absent. The v1 defaults are `0.05%` (`5 bps`) platform fee and `30%` referrer platform share. It intentionally excludes Phase B solver/LP terms.
 
 ## Why The Number Moves
 
@@ -36,7 +36,7 @@ That means the counter can move for two reasons:
 
 The pulse does not prove a final payout, per-trade fee attribution, liquidation revenue, funding revenue, or LP profit share. The code comment is explicit that pro-rata solver/LP terms are Phase B and intentionally absent.
 
-This is why the page should stay paired with the broader estimated-revenue page and the operator revenue-disclosure gap. The pulse explains display behavior; it does not settle the public economics boundary.
+This is why the page should stay paired with the broader estimated-revenue page. The pulse explains display behavior and Phase A defaults; it does not make Phase B economics live.
 
 ## Reader Implication
 

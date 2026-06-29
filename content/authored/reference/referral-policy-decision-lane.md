@@ -14,7 +14,7 @@ relatedGeneratedPages: ["neelo-17-referral-program-17-docs-10-open-decisions", "
 
 Neelo's open-decisions section separates referral policy from the rest of the program because these questions directly shape what users believe they are earning.
 
-The source names three policy decisions:
+The source names three policy decision lanes:
 
 - whether referral depth remains one-level or expands to multi-level;
 - whether referee benefits are always uniform or can vary by campaign;
@@ -22,15 +22,15 @@ The source names three policy decisions:
 
 Those decisions are not cosmetic. Referral depth changes the meaning of network volume. Benefit variation changes whether users compare codes by relationship or by hidden discount. Attachment changes can create support and accounting disputes if users think their economic history can be rewritten.
 
+The current operator-approved referral-depth stance is no longer open: public docs use fifteen levels, and historical backfill is additive and never lowers a balance. The remaining decision-lane value is to keep referee-benefit variation and referral-attachment mutability clearly owner-approved before they become public promises.
+
 ## Publication Rule
 
-The compendium can document the decision lane before the final answers are approved, but it should not publish a final-looking depth, benefit, or reattachment rule from this source alone.
-
-The current public stance on referral depth is already parked as an operator decision because local code, dashboard copy, and rollout notes carry conflicting evidence. This page gives that open item a home inside the referral architecture: depth, benefit uniformity, and attachment mutability need owner-approved policy before they become public promises.
+The compendium can document the decision lane, but it should not publish benefit-variation or reattachment rules from this source alone. For depth questions, route to the operator-approved dashboard-network page rather than the historical open-decision source.
 
 ## Reader Implication
 
-When users ask "how many levels count?", "can another code give me better terms?", or "can I change who referred me?", the answer engine should route to the specific owner-approved policy once it exists. Until then, it should state that these are open referral-policy decisions and link to the broader governance checklist.
+When users ask "how many levels count?", the answer engine should route to the fifteen-level policy. When they ask "can another code give me better terms?" or "can I change who referred me?", the answer engine should keep those as owner-review policy topics unless a more specific approved page exists.
 
 ## Sources
 

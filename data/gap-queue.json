@@ -9,7 +9,7 @@
   ],
   "status": "prototype-gap-queue",
   "totalItems": 13,
-  "totalQuestionSignals": 7,
+  "totalQuestionSignals": 5,
   "totalOperatorSignals": 8,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
@@ -22,32 +22,95 @@
     "P2": 4
   },
   "byCategory": {
+    "Production Answer Engine": 1,
     "Discord Import": 1,
     "Rewards And Referrals": 1,
-    "Production Answer Engine": 1,
     "Revenue": 1,
+    "Origin And Whitepapers": 1,
     "Data And Volume": 1,
     "Options And Settlement": 1,
     "Terminology": 1,
     "Editorial Production": 1,
-    "Origin And Whitepapers": 1,
     "General": 2,
     "Research Sweep": 1,
     "Publication Freshness": 1
   },
   "byStatus": {
-    "operator-parked": 2,
-    "open": 11
+    "operator-parked": 5,
+    "open": 8
   },
   "topItems": [
+    "queue-g-010",
     "queue-g-001",
     "queue-g-003",
-    "queue-g-010",
     "queue-g-004",
-    "queue-g-005",
-    "queue-g-008"
+    "queue-g-007",
+    "queue-g-005"
   ],
   "items": [
+    {
+      "id": "queue-g-010",
+      "gapId": "G-010",
+      "title": "Production Answer Engine Needs A Build/Buy Decision",
+      "type": "documented-gap",
+      "status": "operator-parked",
+      "priority": "P0",
+      "priorityScore": 124,
+      "category": "Production Answer Engine",
+      "summary": "The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.",
+      "needed": "Platform decision and implementation plan.",
+      "sourceKeys": [
+        "spec-06",
+        "spec-08"
+      ],
+      "sources": [
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-08",
+          "group": "Local Specs",
+          "use": "Session 2 implementation gate.",
+          "href": "../../_specs/app-docs/08-implementation-session.md",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-search-insights-loop"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-search-insights-loop",
+          "title": "The Living Docs Loop",
+          "section": "answer-engine",
+          "track": "Search Insights",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [
+        {
+          "id": 11,
+          "title": "Production LLM provider, model, and API credentials for answer synthesis",
+          "need": "Provide the production `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` in the service environment.",
+          "blocks": "Live model-backed answer synthesis, production prompt-injection execution against real model responses, and marking `llmProductionReady` true."
+        },
+        {
+          "id": 4,
+          "title": "Final docs platform and repository owner decision",
+          "need": "Decide the public frontend platform/repo and deploy route for production docs.",
+          "blocks": "Final production frontend scaffold, deploy automation, and public preview URL."
+        }
+      ],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
     {
       "id": "queue-g-001",
       "gapId": "G-001",
@@ -135,7 +198,7 @@
       "type": "documented-gap",
       "status": "open",
       "priority": "P0",
-      "priorityScore": 113,
+      "priorityScore": 108,
       "category": "Rewards And Referrals",
       "summary": "Evidence found:",
       "needed": "Product decision on what a public user sees today, what the system currently runs in production, and how historical points are treated.",
@@ -210,7 +273,7 @@
       "relatedPages": [
         {
           "id": "authored-referral-depth-open-question",
-          "title": "Referral Depth Is An Open Product Decision",
+          "title": "Referral Depth Historical Reconciliation Note",
           "section": "rewards-referrals",
           "track": "Referral Depth",
           "status": "needs-reconciliation",
@@ -257,13 +320,7 @@
           "routeSource": "authored"
         }
       ],
-      "linkedQuestions": [
-        {
-          "id": "gap-does-referral-depth-count-5-or-15-levels",
-          "question": "Does referral depth count 5 or 15 levels?",
-          "notes": "Do not publish a single final answer until production state and copy are aligned."
-        }
-      ],
+      "linkedQuestions": [],
       "linkedOperatorItems": [],
       "linkedParkedPages": [
         {
@@ -289,70 +346,13 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-010",
-      "gapId": "G-010",
-      "title": "Production Answer Engine Needs A Build/Buy Decision",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P0",
-      "priorityScore": 112,
-      "category": "Production Answer Engine",
-      "summary": "The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.",
-      "needed": "Platform decision and implementation plan.",
-      "sourceKeys": [
-        "spec-06",
-        "spec-08"
-      ],
-      "sources": [
-        {
-          "key": "spec-06",
-          "group": "Local Specs",
-          "use": "Ask/rate/ask-again loop.",
-          "href": "../../_specs/app-docs/06-answer-engine.md",
-          "missing": false
-        },
-        {
-          "key": "spec-08",
-          "group": "Local Specs",
-          "use": "Session 2 implementation gate.",
-          "href": "../../_specs/app-docs/08-implementation-session.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "authored-search-insights-loop"
-      ],
-      "relatedPages": [
-        {
-          "id": "authored-search-insights-loop",
-          "title": "The Living Docs Loop",
-          "section": "answer-engine",
-          "track": "Search Insights",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [
-        {
-          "id": 4,
-          "title": "Final docs platform and repository owner decision",
-          "need": "Decide the public frontend platform/repo and deploy route for production docs.",
-          "blocks": "Final production frontend scaffold, deploy automation, and public preview URL."
-        }
-      ],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
       "id": "queue-g-004",
       "gapId": "G-004",
       "title": "Revenue Phase A Versus Phase B Needs Public Wording",
       "type": "documented-gap",
       "status": "open",
       "priority": "P0",
-      "priorityScore": 105,
+      "priorityScore": 100,
       "category": "Revenue",
       "summary": "Phase A is implemented as estimated revenue from network volume, configurable platform fee, and referrer share. Phase B issues describe per-venue platform revenue, VibeCaps LP profit share, liquidation display, funding, solver data, and points farmed.",
       "needed": "Decide which Phase B items are public roadmap, internal roadmap, or already live but not surfaced.",
@@ -440,14 +440,74 @@
           "routeSource": "authored"
         }
       ],
-      "linkedQuestions": [
+      "linkedQuestions": [],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
+      "id": "queue-g-007",
+      "gapId": "G-007",
+      "title": "Symmio Whitepaper History Is Not Fully Mined",
+      "type": "documented-gap",
+      "status": "operator-parked",
+      "priority": "P1",
+      "priorityScore": 82,
+      "category": "Origin And Whitepapers",
+      "summary": "The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is now registered as a history/source-control starting point. A full oldest-to-current whitepaper comparison was not completed in this pass.",
+      "needed": "Exact original whitepaper artifact, version-history comparison, relevant GitHub commits, and any archived docs.",
+      "sourceKeys": [
+        "spec-02",
+        "symmio-whitepaper"
+      ],
+      "sources": [
         {
-          "id": "gap-which-revenue-sources-are-live-today",
-          "question": "Which revenue sources are live today?",
-          "notes": "Phase A versus Phase B needs public wording."
+          "key": "spec-02",
+          "group": "Local Specs",
+          "use": "Narrative thesis and required topics.",
+          "href": "../../_specs/app-docs/02-narrative-thesis.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Whitepaper pointer and protocol status note.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "missing": false
         }
       ],
-      "linkedOperatorItems": [],
+      "relatedPageIds": [
+        "symmio-whitepaper",
+        "authored-symmio-party-a-party-b"
+      ],
+      "relatedPages": [
+        {
+          "id": "symmio-whitepaper",
+          "title": "Symmio Whitepaper",
+          "section": "security",
+          "track": "security",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        },
+        {
+          "id": "authored-symmio-party-a-party-b",
+          "title": "PartyA And PartyB",
+          "section": "protocol-reference",
+          "track": "Symmio Core",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [
+        {
+          "id": 6,
+          "title": "Original/oldest Symmio whitepaper artifact",
+          "need": "Scrape or otherwise recover the exact original/oldest Symmio whitepaper and any archived earliest-docs source that should support the origin-story section.",
+          "blocks": "Final source-completeness claim for the Symmio origin story and any oldest-to-current whitepaper comparison."
+        }
+      ],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []
@@ -849,72 +909,13 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-007",
-      "gapId": "G-007",
-      "title": "Symmio Whitepaper History Is Not Fully Mined",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P1",
-      "priorityScore": 70,
-      "category": "Origin And Whitepapers",
-      "summary": "The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is now registered as a history/source-control starting point. A full oldest-to-current whitepaper comparison was not completed in this pass.",
-      "needed": "Exact original whitepaper artifact, version-history comparison, relevant GitHub commits, and any archived docs.",
-      "sourceKeys": [
-        "spec-02",
-        "symmio-whitepaper"
-      ],
-      "sources": [
-        {
-          "key": "spec-02",
-          "group": "Local Specs",
-          "use": "Narrative thesis and required topics.",
-          "href": "../../_specs/app-docs/02-narrative-thesis.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-whitepaper",
-          "group": "Public Symmio Sources",
-          "use": "Whitepaper pointer and protocol status note.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "symmio-whitepaper",
-        "authored-symmio-party-a-party-b"
-      ],
-      "relatedPages": [
-        {
-          "id": "symmio-whitepaper",
-          "title": "Symmio Whitepaper",
-          "section": "security",
-          "track": "security",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        },
-        {
-          "id": "authored-symmio-party-a-party-b",
-          "title": "PartyA And PartyB",
-          "section": "protocol-reference",
-          "track": "Symmio Core",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
       "id": "queue-g-012",
       "gapId": "G-012",
       "title": "Vibe Add Token Info Source Fetch Is Parked",
       "type": "documented-gap",
-      "status": "open",
+      "status": "operator-parked",
       "priority": "P2",
-      "priorityScore": 45,
+      "priorityScore": 57,
       "category": "General",
       "summary": "The generated companion page maps vibe-add-token-info to https://docs.vibe.trading/more-info/add-token-info.md, but two network-escalated fetch attempts timed out during approval review before execution. The page should not be authored from the one-line companion brief because it likely governs project-managed token metadata and branding details.",
       "needed": "Official Markdown contents for the Add Token Info page, or a reachable canonical replacement URL from the operator.",
@@ -929,7 +930,42 @@
           "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text."
         }
       ],
-      "linkedOperatorItems": [],
+      "linkedOperatorItems": [
+        {
+          "id": 9,
+          "title": "Vibe add-token-info source fetch approval/access",
+          "need": "Fetch the official Markdown contents for `https://docs.vibe.trading/more-info/add-token-info.md`, or confirm a reachable canonical replacement URL for the Add Token Info page.",
+          "blocks": "Authored Add Token Info / project-managed token metadata page and final source-completeness claim for that official Vibe utility guide."
+        }
+      ],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
+      "id": "queue-g-011",
+      "gapId": "G-011",
+      "title": "Vibe Trading Notion Is Not Ingested",
+      "type": "documented-gap",
+      "status": "operator-parked",
+      "priority": "P2",
+      "priorityScore": 52,
+      "category": "General",
+      "summary": "The source spec names the Vibe Trading Notion workspace as a required working source. This repository has public Vibe docs, Neelo's GitHub corpus, local code, and Linear-derived facts, but no Notion export or readable local copy.",
+      "needed": "Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.",
+      "sourceKeys": [],
+      "sources": [],
+      "relatedPageIds": [],
+      "relatedPages": [],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [
+        {
+          "id": 5,
+          "title": "Vibe Trading Notion export or read access",
+          "need": "Ingest the provided Vibe Trading Notion workspace link at `https://vibe-trading.notion.site/?pvs=73`, plus record whether its content may be quoted publicly, paraphrased, or used only for internal synthesis.",
+          "blocks": "Final Vibe product narrative, roadmap-sensitive reference pages, and any final source-completeness claim."
+        }
+      ],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []
@@ -1037,27 +1073,6 @@
           "routeSource": "generated"
         }
       ],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-011",
-      "gapId": "G-011",
-      "title": "Vibe Trading Notion Is Not Ingested",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P2",
-      "priorityScore": 40,
-      "category": "General",
-      "summary": "The source spec names the Vibe Trading Notion workspace as a required working source. This repository has public Vibe docs, Neelo's GitHub corpus, local code, and Linear-derived facts, but no Notion export or readable local copy.",
-      "needed": "Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.",
-      "sourceKeys": [],
-      "sources": [],
-      "relatedPageIds": [],
-      "relatedPages": [],
       "linkedQuestions": [],
       "linkedOperatorItems": [],
       "linkedParkedPages": [],

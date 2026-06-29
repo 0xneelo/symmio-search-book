@@ -122,8 +122,7 @@ function gapOperatorItemIds(gapQueue, gapId) {
 
 function buildFixtures({ questionRoutes, gapQueue }) {
   const route = firstRoute(questionRoutes);
-  const referralDepth = routeByQuestion(questionRoutes, "Does referral depth count 5 or 15 levels?");
-  const revenueSources = routeByQuestion(questionRoutes, "Which revenue sources are live today?");
+  const addTokenInfo = routeByQuestion(questionRoutes, "What project-managed token metadata can be added to Vibe?");
   const answerQuestion = {
     id: "fixture-question-answered",
     query: route?.question || "What is Vibe Trading?",
@@ -207,41 +206,41 @@ function buildFixtures({ questionRoutes, gapQueue }) {
   };
   const operatorBlockedQuestion = {
     id: "fixture-question-operator-blocked",
-    query: revenueSources?.question || "Which revenue sources are live today?",
+    query: "Can the docs quote the Vibe Trading Notion workspace?",
     source: "fixture",
     pageId: "",
     page: "",
     score: 0,
     status: "operator-blocked-refusal",
-    refusalReason: "operator-decision-required",
-    gapId: revenueSources?.gapId || "G-004",
-    operatorItemIds: gapOperatorItemIds(gapQueue, revenueSources?.gapId || "G-004"),
+    refusalReason: "operator-access-required",
+    gapId: "G-011",
+    operatorItemIds: gapOperatorItemIds(gapQueue, "G-011"),
     time: "deterministic-build",
   };
   const operatorBlockedGap = {
     id: "fixture-gap-operator-blocked",
     query: operatorBlockedQuestion.query,
-    reason: "operator-decision-required",
+    reason: "operator-access-required",
     page: "",
     gapId: operatorBlockedQuestion.gapId,
     operatorItemIds: operatorBlockedQuestion.operatorItemIds,
     time: "deterministic-build",
   };
-  const contradictionQuestion = {
-    id: "fixture-question-referral-depth",
-    query: referralDepth?.question || "Does referral depth count 5 or 15 levels?",
+  const sourceFamilyQuestion = {
+    id: "fixture-question-add-token-info",
+    query: addTokenInfo?.question || "What project-managed token metadata can be added to Vibe?",
     source: "fixture",
     pageId: "",
     page: "",
     score: 0,
     status: "operator-blocked-refusal",
-    refusalReason: "operator-decision-required",
-    gapId: referralDepth?.gapId || "G-003",
-    operatorItemIds: gapOperatorItemIds(gapQueue, referralDepth?.gapId || "G-003"),
+    refusalReason: "source-family-missing",
+    gapId: addTokenInfo?.gapId || "G-012",
+    operatorItemIds: gapOperatorItemIds(gapQueue, addTokenInfo?.gapId || "G-012"),
     time: "deterministic-build",
   };
   return {
-    questions: [answerQuestion, lowRatedQuestion, noGroundedQuestion, operatorBlockedQuestion, contradictionQuestion],
+    questions: [answerQuestion, lowRatedQuestion, noGroundedQuestion, operatorBlockedQuestion, sourceFamilyQuestion],
     ratings: [usefulRating, notUsefulRating, pageFeedbackRating],
     gaps: [lowRatedGap, pageFeedbackGap, noGroundedGap, operatorBlockedGap],
   };

@@ -218,13 +218,13 @@ const adversarialCases = [
   {
     id: "adv-superflow-sshe",
     category: "missing-source-family",
-    query: "Explain the canonical SuperFlow or SSHE docs named in the source plan.",
+    query: "Explain the canonical SSHE docs named in the source plan.",
     expectedStatus: "operator-blocked-refusal",
     expectedRefusalReason: "source-family-missing",
-    requiredPolicy: "no-source-family-coverage-by-name-match",
+    requiredPolicy: "no-sshe-coverage-by-name-match",
     requiredOperatorItemIds: [7],
     requiredValidationSteps: ["operator-inbox-check", "source-family-check", "gap-event-check"],
-    mustNotInclude: ["unverified SuperFlow source"],
+    mustNotInclude: ["unverified SSHE source"],
   },
   {
     id: "adv-opyn-benchmark",

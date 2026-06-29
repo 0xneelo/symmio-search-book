@@ -1302,15 +1302,19 @@
 - Routed five new Ask questions so builders, LPs, traders, and protocol reviewers can inspect Percolator architecture without confusing software correctness, local accounting, token-denominated insurance, and economic robustness.
 - Kept live deployed Percolator parameters, matcher safety, SOV balances, market count, fee/circuit-breaker values, verification scope, audit status, and current production security claims under fresh primary-source review.
 
+## 2026-06-29 — SuperFlow SHE Source Ingestion
+
+- Registered the operator-provided SuperFlow OpenAPI source as `superflow-she-openapi`.
+- Added one authored protocol-reference page, `authored-superflow-she-api-boundary`, that explains the fetched `SYMMIO Hybrid Exchange(SHE)` API surface and keeps SSHE identification separate.
+- Routed one Ask question for the SuperFlow/SHE source boundary and updated the source-ingestion map so SuperFlow is no longer absent, while SSHE remains parked under operator inbox item #7.
+- Kept Vibe production integration, endpoint ownership, credentials, venue routing, and dev/admin endpoint meaning under implementation/operator review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion export or read access.
 - Discord/Lafa FAQ import after operator provides export.
-- Opyn official-doc access, replacement, or exclusion decision for the competitive sweep.
 - Vibe Add Token Info source fetch or canonical replacement.
 - Vibe-specific covered-call/vault inventory example and LP exposure semantics.
-- Revenue disclosure boundary.
-- Referral-depth public stance.
 - Production docs platform/repository decision.
 - Deployed/preview production docs site.

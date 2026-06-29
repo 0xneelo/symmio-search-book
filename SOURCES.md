@@ -134,6 +134,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `symm-io-options-core` | https://github.com/SYMM-IO/options-core | Options protocol repository for implementation-level options references. |
 | `symm-io-subgraphs` | https://github.com/SYMM-IO/subgraphs | Subgraph repository for Symmio indexing/reference data context. |
 | `symm-io-analytics` | https://github.com/SYMM-IO/analytics | Analytics repository for Symmio/Vibe data pipeline context. |
+| `superflow-she-openapi` | https://dev.superflow.exchange/openapi.json | Operator-provided SuperFlow Redoc/OpenAPI spec titled SYMMIO Hybrid Exchange (SHE), covering REST and WebSocket market, order, account, position, funding, auth, and dev/admin endpoint surfaces. |
 
 ## Competitive Context
 

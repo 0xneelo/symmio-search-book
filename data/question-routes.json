@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 767,
-  "totalReconciliationQuestions": 7,
+  "totalRoutes": 771,
+  "totalReconciliationQuestions": 5,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 478,
+    "Medium": 481,
     "High": 44,
-    "Low": 245
+    "Low": 246
   },
   "byRouteSource": {
-    "authored": 767
+    "authored": 771
   },
   "answerable": [
     {
@@ -964,7 +964,7 @@
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked.",
+      "notes": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting is fifteen levels under the operator-approved stance.",
       "sourceKeys": [
         "vibe-referral-program",
         "vibe-referral-codes",
@@ -1059,7 +1059,47 @@
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Local implementation supports formula; label as estimate and keep disclosure caveat.",
+      "notes": "Local implementation supports the Phase A formula with 0.05% / 5 bps platform fee and 30% referrer platform share defaults; label as estimate and keep Phase B out of v1.",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-exact-phase-a-revenue-formula-fee-rate-and-referrer-share-should-users-expe",
+      "question": "What exact Phase-A revenue formula, fee rate, and referrer share should users expect in production payouts?",
+      "normalizedQuestion": "what exact phase a revenue formula fee rate and referrer share should users expect in production payouts",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Phase A is networkVolume × platformFeeRate × referrerPlatformShare, defaulting to 0.05% / 5 bps platform fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-revenue-sources-are-live-today",
+      "question": "Which revenue sources are live today?",
+      "normalizedQuestion": "which revenue sources are live today",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Live v1 revenue is the Phase A network-volume platform-fee-share estimate; Phase B sources such as spread, liquidations, funding, LP profit, and points farmed are out of scope for v1.",
       "sourceKeys": [
         "local-revenue-doc",
         "dashboard-revenue-doc",
@@ -1097,7 +1137,7 @@
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats.",
+      "notes": "Local dashboard code supports the route and cards; Phase A revenue and fifteen-level referral depth now have operator-approved wording.",
       "sourceKeys": [
         "dashboard-app",
         "dashboard-overview",
@@ -1137,7 +1177,28 @@
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Local graph/tree behavior is sourced; final public depth language remains unresolved.",
+      "notes": "Local graph/tree behavior is sourced; public referral depth is fifteen levels and historical backfill is additive without lowering balances.",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-network",
+        "server-me",
+        "server-points",
+        "dashboard-volume"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-does-referral-depth-count-5-or-15-levels",
+      "question": "Does referral depth count 5 or 15 levels?",
+      "normalizedQuestion": "does referral depth count 5 or 15 levels",
+      "pageId": "authored-dashboard-network",
+      "pageTitle": "Dashboard My Network",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Public referral depth is fifteen levels; historical backfill is additive and never lowers a balance.",
       "sourceKeys": [
         "dashboard-app",
         "dashboard-network",
@@ -10514,7 +10575,7 @@
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Neelo's open-decisions source keeps referral depth, referee benefit variants, and attachment changes under owner-approved policy review.",
+      "notes": "Neelo's open-decisions source keeps referee benefit variants and referral attachment changes under owner-approved policy review; depth is resolved at fifteen levels.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -13328,26 +13389,32 @@
         "vibe-papers"
       ],
       "missing": false
+    },
+    {
+      "id": "qr-what-does-the-superflow-she-openapi-source-prove",
+      "question": "What does the SuperFlow SHE OpenAPI source prove?",
+      "normalizedQuestion": "what does the superflow she openapi source prove",
+      "pageId": "authored-superflow-she-api-boundary",
+      "pageTitle": "SuperFlow SHE API Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Source Ingestion",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration.",
+      "sourceKeys": [
+        "superflow-she-openapi",
+        "spec-04"
+      ],
+      "missing": false
     }
   ],
   "reconciliation": [
-    {
-      "id": "gap-does-referral-depth-count-5-or-15-levels",
-      "question": "Does referral depth count 5 or 15 levels?",
-      "gapId": "G-003",
-      "notes": "Do not publish a single final answer until production state and copy are aligned."
-    },
     {
       "id": "gap-are-onboarding-points-the-same-as-vibe-trading-points",
       "question": "Are onboarding points the same as Vibe trading points?",
       "gapId": "G-009",
       "notes": "Local dashboard distinguishes them; public docs need canonical naming."
-    },
-    {
-      "id": "gap-which-revenue-sources-are-live-today",
-      "question": "Which revenue sources are live today?",
-      "gapId": "G-004",
-      "notes": "Phase A versus Phase B needs public wording."
     },
     {
       "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",

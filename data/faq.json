@@ -8,18 +8,18 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 774,
-  "totalAnswerable": 767,
-  "totalUnresolved": 7,
+  "totalEntries": 776,
+  "totalAnswerable": 771,
+  "totalUnresolved": 5,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 114,
+    "Getting Started": 115,
     "Trading Flow": 41,
     "Solvers And Settlement": 180,
     "Risk And Markets": 70,
-    "Revenue": 96,
+    "Revenue": 97,
     "Manifesto": 157,
     "Rewards And Referrals": 100,
     "Dashboard": 10,
@@ -27,16 +27,16 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 478,
+    "Medium": 481,
     "High": 44,
-    "Low": 245
+    "Low": 246
   },
   "byRouteSource": {
-    "authored": 767
+    "authored": 771
   },
   "byType": {
-    "answerable": 767,
-    "reconciliation": 7
+    "answerable": 771,
+    "reconciliation": 5
   },
   "answerable": [
     {
@@ -2109,7 +2109,7 @@
       "category": "Rewards And Referrals",
       "question": "How does Vibe referral commission work?",
       "normalizedQuestion": "how does vibe referral commission work",
-      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked.",
+      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting is fifteen levels under the operator-approved stance.",
       "answerSummary": "Vibe Referral Commission Program The public referral program page says referrers are rewarded through two rails: referral commission and pre TGE points. The safest documentation shape is to keep those rails separate. Referral Commission The commission rail is based on the total aggregated volume of referred traders over the previous rolling 30 days. The p...",
       "confidence": "Medium",
       "pageId": "authored-vibe-referral-commission-program",
@@ -2334,8 +2334,114 @@
       "category": "Revenue",
       "question": "How is estimated network revenue calculated?",
       "normalizedQuestion": "how is estimated network revenue calculated",
-      "shortAnswer": "Local implementation supports formula; label as estimate and keep disclosure caveat.",
-      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, a configurable platform fee input, and a configurable referrer share input. The reference formula is: This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every fut...",
+      "shortAnswer": "Local implementation supports the Phase A formula with 0.05% / 5 bps platform fee and 30% referrer platform share defaults; label as estimate and keep Phase B out of v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
+      "confidence": "Medium",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "local-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Phase A and Phase B revenue model explanation.",
+          "href": "../../docs/network-revenue.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-exact-phase-a-revenue-formula-fee-rate-and-referrer-share-should-users-expect-in-prod",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What exact Phase-A revenue formula, fee rate, and referrer share should users expect in production payouts?",
+      "normalizedQuestion": "what exact phase a revenue formula fee rate and referrer share should users expect in production payouts",
+      "shortAnswer": "Phase A is networkVolume × platformFeeRate × referrerPlatformShare, defaulting to 0.05% / 5 bps platform fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
+      "confidence": "Medium",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "local-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Phase A and Phase B revenue model explanation.",
+          "href": "../../docs/network-revenue.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-revenue-sources-are-live-today",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which revenue sources are live today?",
+      "normalizedQuestion": "which revenue sources are live today",
+      "shortAnswer": "Live v1 revenue is the Phase A network-volume platform-fee-share estimate; Phase B sources such as spread, liquidations, funding, LP profit, and points farmed are out of scope for v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
       "confidence": "Medium",
       "pageId": "authored-estimated-network-revenue",
       "pageTitle": "Estimated Network Revenue",
@@ -2424,7 +2530,7 @@
       "category": "Dashboard",
       "question": "What does the Dashboard Overview show?",
       "normalizedQuestion": "what does the dashboard overview show",
-      "shortAnswer": "Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats.",
+      "shortAnswer": "Local dashboard code supports the route and cards; Phase A revenue and fifteen-level referral depth now have operator-approved wording.",
       "answerSummary": "Dashboard Overview The Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab. The shell routes overview to DashOverview . That view loads /api/me , renders the revenue hero, shows the core task che...",
       "confidence": "Medium",
       "pageId": "authored-dashboard-overview",
@@ -2530,8 +2636,69 @@
       "category": "Dashboard",
       "question": "What does My network show?",
       "normalizedQuestion": "what does my network show",
-      "shortAnswer": "Local graph/tree behavior is sourced; final public depth language remains unresolved.",
-      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders the referral tree in graph or tree mode. The graph mode includes orientation controls, zoom, free or fixed ca...",
+      "shortAnswer": "Local graph/tree behavior is sourced; public referral depth is fifteen levels and historical backfill is additive without lowering balances.",
+      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. Public referral depth is 15 levels, and historical backfill is additive and never lowers an existing balance. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-network",
+      "pageTitle": "Dashboard My Network",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-network",
+        "server-me",
+        "server-points",
+        "dashboard-volume"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-network",
+          "group": "Local Product And Code",
+          "use": "My network graph/tree view, depth controls, focus drawer, and node-level display.",
+          "href": "../../src/dashboard/network.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-referral-depth-count-5-or-15-levels",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Does referral depth count 5 or 15 levels?",
+      "normalizedQuestion": "does referral depth count 5 or 15 levels",
+      "shortAnswer": "Public referral depth is fifteen levels; historical backfill is additive and never lowers a balance.",
+      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. Public referral depth is 15 levels, and historical backfill is additive and never lowers an existing balance. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders...",
       "confidence": "Medium",
       "pageId": "authored-dashboard-network",
       "pageTitle": "Dashboard My Network",
@@ -19552,8 +19719,8 @@
       "category": "Rewards And Referrals",
       "question": "Which referral policy decisions remain open?",
       "normalizedQuestion": "which referral policy decisions remain open",
-      "shortAnswer": "Neelo's open-decisions source keeps referral depth, referee benefit variants, and attachment changes under owner-approved policy review.",
-      "answerSummary": "Referral Policy Decision Lane Neelo's open decisions section separates referral policy from the rest of the program because these questions directly shape what users believe they are earning. The source names three policy decisions: whether referral depth remains one level or expands to multi level; whether referee benefits are always uniform or can vary...",
+      "shortAnswer": "Neelo's open-decisions source keeps referee benefit variants and referral attachment changes under owner-approved policy review; depth is resolved at fifteen levels.",
+      "answerSummary": "Referral Policy Decision Lane Neelo's open decisions section separates referral policy from the rest of the program because these questions directly shape what users believe they are earning. The source names three policy decision lanes: whether referral depth remains one level or expands to multi level; whether referee benefits are always uniform or can...",
       "confidence": "Medium",
       "pageId": "authored-referral-policy-decision-lane",
       "pageTitle": "Referral Policy Decision Lane",
@@ -24497,81 +24664,46 @@
           "missing": false
         }
       ]
-    }
-  ],
-  "unresolved": [
+    },
     {
-      "id": "faq-gap-does-referral-depth-count-5-or-15-levels",
-      "type": "reconciliation",
+      "id": "faq-what-does-the-superflow-she-openapi-source-prove",
+      "type": "answerable",
       "seedSource": "local-question-ledger",
-      "category": "Rewards And Referrals",
-      "question": "Does referral depth count 5 or 15 levels?",
-      "gapId": "G-003",
-      "gapTitle": "Referral Depth Is Contradictory",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Do not publish a single final answer until production state and copy are aligned.",
-      "confidence": "Needs Reconciliation",
+      "category": "Getting Started",
+      "question": "What does the SuperFlow SHE OpenAPI source prove?",
+      "normalizedQuestion": "what does the superflow she openapi source prove",
+      "shortAnswer": "The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration.",
+      "answerSummary": "SuperFlow SHE API Boundary The operator provided SuperFlow Redoc URL resolves to an OpenAPI document titled SYMMIO Hybrid Exchange(SHE) , version 1.0 . Treat this as a source for the SHE API surface, not as proof that the still named SSHE source family has been identified. That distinction matters. The source proves that there is a SuperFlow/SHE style exc...",
+      "confidence": "Low",
+      "pageId": "authored-superflow-she-api-boundary",
+      "pageTitle": "SuperFlow SHE API Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Source Ingestion",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "spec-03",
-        "server-points",
-        "server-me",
-        "dashboard-faq",
-        "dashboard-volume",
-        "syn-172",
-        "syn-118"
+        "superflow-she-openapi",
+        "spec-04"
       ],
       "sources": [
         {
-          "key": "spec-03",
+          "key": "superflow-she-openapi",
+          "group": "Public Symmio Sources",
+          "use": "Operator-provided SuperFlow Redoc/OpenAPI spec titled SYMMIO Hybrid Exchange (SHE), covering REST and WebSocket market, order, account, position, funding, auth, and dev/admin endpoint surfaces.",
+          "href": "https://dev.superflow.exchange/openapi.json",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
           "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "server-points",
-          "group": "Local Product And Code",
-          "use": "Referral depth config and percentages.",
-          "href": "../../server/points.js",
-          "missing": false
-        },
-        {
-          "key": "server-me",
-          "group": "Local Product And Code",
-          "use": "Network, volume, pulse, and configured depth behavior.",
-          "href": "../../server/routes/me.js",
-          "missing": false
-        },
-        {
-          "key": "dashboard-faq",
-          "group": "Local Product And Code",
-          "use": "User-facing FAQ copy, including 15-level wording.",
-          "href": "../../src/dashboard/faq.jsx",
-          "missing": false
-        },
-        {
-          "key": "dashboard-volume",
-          "group": "Local Product And Code",
-          "use": "Dashboard network-volume UI and 5-level remnants.",
-          "href": "../../src/dashboard/volume.jsx",
-          "missing": false
-        },
-        {
-          "key": "syn-172",
-          "group": "Linear Research",
-          "use": "Referral-depth rollout and percentage schedule.",
-          "href": "",
-          "missing": false
-        },
-        {
-          "key": "syn-118",
-          "group": "Linear Research",
-          "use": "Historical product question about aggregation depth.",
-          "href": "",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
           "missing": false
         }
       ]
-    },
+    }
+  ],
+  "unresolved": [
     {
       "id": "faq-gap-are-onboarding-points-the-same-as-vibe-trading-points",
       "type": "reconciliation",
@@ -24616,62 +24748,6 @@
           "group": "Local Product And Code",
           "use": "Referral depth config and percentages.",
           "href": "../../server/points.js",
-          "missing": false
-        }
-      ]
-    },
-    {
-      "id": "faq-gap-which-revenue-sources-are-live-today",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Revenue",
-      "question": "Which revenue sources are live today?",
-      "gapId": "G-004",
-      "gapTitle": "Revenue Phase A Versus Phase B Needs Public Wording",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Phase A versus Phase B needs public wording.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "local-revenue-doc",
-        "dashboard-revenue-doc",
-        "server-pulse",
-        "syn-203"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "local-revenue-doc",
-          "group": "Local Product And Code",
-          "use": "Phase A and Phase B revenue model explanation.",
-          "href": "../../docs/network-revenue.md",
-          "missing": false
-        },
-        {
-          "key": "dashboard-revenue-doc",
-          "group": "Local Product And Code",
-          "use": "Dashboard copy for revenue model.",
-          "href": "../../src/dashboard/revenue-doc.jsx",
-          "missing": false
-        },
-        {
-          "key": "server-pulse",
-          "group": "Local Product And Code",
-          "use": "Current estimated revenue formula and defaults.",
-          "href": "../../server/pulse.js",
-          "missing": false
-        },
-        {
-          "key": "syn-203",
-          "group": "Linear Research",
-          "use": "Future revenue components and data dependencies.",
-          "href": "",
           "missing": false
         }
       ]
@@ -26916,7 +26992,7 @@
       "category": "Rewards And Referrals",
       "question": "How does Vibe referral commission work?",
       "normalizedQuestion": "how does vibe referral commission work",
-      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked.",
+      "shortAnswer": "Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting is fifteen levels under the operator-approved stance.",
       "answerSummary": "Vibe Referral Commission Program The public referral program page says referrers are rewarded through two rails: referral commission and pre TGE points. The safest documentation shape is to keep those rails separate. Referral Commission The commission rail is based on the total aggregated volume of referred traders over the previous rolling 30 days. The p...",
       "confidence": "Medium",
       "pageId": "authored-vibe-referral-commission-program",
@@ -27141,8 +27217,114 @@
       "category": "Revenue",
       "question": "How is estimated network revenue calculated?",
       "normalizedQuestion": "how is estimated network revenue calculated",
-      "shortAnswer": "Local implementation supports formula; label as estimate and keep disclosure caveat.",
-      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, a configurable platform fee input, and a configurable referrer share input. The reference formula is: This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every fut...",
+      "shortAnswer": "Local implementation supports the Phase A formula with 0.05% / 5 bps platform fee and 30% referrer platform share defaults; label as estimate and keep Phase B out of v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
+      "confidence": "Medium",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "local-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Phase A and Phase B revenue model explanation.",
+          "href": "../../docs/network-revenue.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-exact-phase-a-revenue-formula-fee-rate-and-referrer-share-should-users-expect-in-prod",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What exact Phase-A revenue formula, fee rate, and referrer share should users expect in production payouts?",
+      "normalizedQuestion": "what exact phase a revenue formula fee rate and referrer share should users expect in production payouts",
+      "shortAnswer": "Phase A is networkVolume × platformFeeRate × referrerPlatformShare, defaulting to 0.05% / 5 bps platform fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
+      "confidence": "Medium",
+      "pageId": "authored-estimated-network-revenue",
+      "pageTitle": "Estimated Network Revenue",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Revenue",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "local-revenue-doc",
+        "dashboard-revenue-doc",
+        "server-pulse",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "local-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Phase A and Phase B revenue model explanation.",
+          "href": "../../docs/network-revenue.md",
+          "missing": false
+        },
+        {
+          "key": "dashboard-revenue-doc",
+          "group": "Local Product And Code",
+          "use": "Dashboard copy for revenue model.",
+          "href": "../../src/dashboard/revenue-doc.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-pulse",
+          "group": "Local Product And Code",
+          "use": "Current estimated revenue formula and defaults.",
+          "href": "../../server/pulse.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-revenue-sources-are-live-today",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which revenue sources are live today?",
+      "normalizedQuestion": "which revenue sources are live today",
+      "shortAnswer": "Live v1 revenue is the Phase A network-volume platform-fee-share estimate; Phase B sources such as spread, liquidations, funding, LP profit, and points farmed are out of scope for v1.",
+      "answerSummary": "Estimated Network Revenue The current dashboard model estimates network revenue from descendant trading volume, the platform fee rate, and the referrer platform share. The Phase A formula is: In words: Phase A estimated referrer revenue equals networkVolume × platformFeeRate × referrerPlatformShare . The v1 defaults are a 0.05% platform fee ( 5 bps ) and...",
       "confidence": "Medium",
       "pageId": "authored-estimated-network-revenue",
       "pageTitle": "Estimated Network Revenue",
@@ -27231,7 +27413,7 @@
       "category": "Dashboard",
       "question": "What does the Dashboard Overview show?",
       "normalizedQuestion": "what does the dashboard overview show",
-      "shortAnswer": "Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats.",
+      "shortAnswer": "Local dashboard code supports the route and cards; Phase A revenue and fifteen-level referral depth now have operator-approved wording.",
       "answerSummary": "Dashboard Overview The Overview view is the dashboard's compression layer: estimated network revenue, onboarding progress, referral link sharing, invite inventory, and points ledger all appear before the user drills into a dedicated tab. The shell routes overview to DashOverview . That view loads /api/me , renders the revenue hero, shows the core task che...",
       "confidence": "Medium",
       "pageId": "authored-dashboard-overview",
@@ -27337,8 +27519,69 @@
       "category": "Dashboard",
       "question": "What does My network show?",
       "normalizedQuestion": "what does my network show",
-      "shortAnswer": "Local graph/tree behavior is sourced; final public depth language remains unresolved.",
-      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders the referral tree in graph or tree mode. The graph mode includes orientation controls, zoom, free or fixed ca...",
+      "shortAnswer": "Local graph/tree behavior is sourced; public referral depth is fifteen levels and historical backfill is additive without lowering balances.",
+      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. Public referral depth is 15 levels, and historical backfill is additive and never lowers an existing balance. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-network",
+      "pageTitle": "Dashboard My Network",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-network",
+        "server-me",
+        "server-points",
+        "dashboard-volume"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-network",
+          "group": "Local Product And Code",
+          "use": "My network graph/tree view, depth controls, focus drawer, and node-level display.",
+          "href": "../../src/dashboard/network.jsx",
+          "missing": false
+        },
+        {
+          "key": "server-me",
+          "group": "Local Product And Code",
+          "use": "Network, volume, pulse, and configured depth behavior.",
+          "href": "../../server/routes/me.js",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-volume",
+          "group": "Local Product And Code",
+          "use": "Dashboard network-volume UI and 5-level remnants.",
+          "href": "../../src/dashboard/volume.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-referral-depth-count-5-or-15-levels",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Does referral depth count 5 or 15 levels?",
+      "normalizedQuestion": "does referral depth count 5 or 15 levels",
+      "shortAnswer": "Public referral depth is fifteen levels; historical backfill is additive and never lowers a balance.",
+      "answerSummary": "Dashboard My Network My network visualizes the referral tree and the points attached to each visible account. Public referral depth is 15 levels, and historical backfill is additive and never lowers an existing balance. The dashboard shell routes network to DashNetwork , which loads /api/me/network plus /api/me , builds a synthetic \"you\" root, and renders...",
       "confidence": "Medium",
       "pageId": "authored-dashboard-network",
       "pageTitle": "Dashboard My Network",
@@ -44359,8 +44602,8 @@
       "category": "Rewards And Referrals",
       "question": "Which referral policy decisions remain open?",
       "normalizedQuestion": "which referral policy decisions remain open",
-      "shortAnswer": "Neelo's open-decisions source keeps referral depth, referee benefit variants, and attachment changes under owner-approved policy review.",
-      "answerSummary": "Referral Policy Decision Lane Neelo's open decisions section separates referral policy from the rest of the program because these questions directly shape what users believe they are earning. The source names three policy decisions: whether referral depth remains one level or expands to multi level; whether referee benefits are always uniform or can vary...",
+      "shortAnswer": "Neelo's open-decisions source keeps referee benefit variants and referral attachment changes under owner-approved policy review; depth is resolved at fifteen levels.",
+      "answerSummary": "Referral Policy Decision Lane Neelo's open decisions section separates referral policy from the rest of the program because these questions directly shape what users believe they are earning. The source names three policy decision lanes: whether referral depth remains one level or expands to multi level; whether referee benefits are always uniform or can...",
       "confidence": "Medium",
       "pageId": "authored-referral-policy-decision-lane",
       "pageTitle": "Referral Policy Decision Lane",
@@ -49306,73 +49549,38 @@
       ]
     },
     {
-      "id": "faq-gap-does-referral-depth-count-5-or-15-levels",
-      "type": "reconciliation",
+      "id": "faq-what-does-the-superflow-she-openapi-source-prove",
+      "type": "answerable",
       "seedSource": "local-question-ledger",
-      "category": "Rewards And Referrals",
-      "question": "Does referral depth count 5 or 15 levels?",
-      "gapId": "G-003",
-      "gapTitle": "Referral Depth Is Contradictory",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Do not publish a single final answer until production state and copy are aligned.",
-      "confidence": "Needs Reconciliation",
+      "category": "Getting Started",
+      "question": "What does the SuperFlow SHE OpenAPI source prove?",
+      "normalizedQuestion": "what does the superflow she openapi source prove",
+      "shortAnswer": "The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration.",
+      "answerSummary": "SuperFlow SHE API Boundary The operator provided SuperFlow Redoc URL resolves to an OpenAPI document titled SYMMIO Hybrid Exchange(SHE) , version 1.0 . Treat this as a source for the SHE API surface, not as proof that the still named SSHE source family has been identified. That distinction matters. The source proves that there is a SuperFlow/SHE style exc...",
+      "confidence": "Low",
+      "pageId": "authored-superflow-she-api-boundary",
+      "pageTitle": "SuperFlow SHE API Boundary",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Source Ingestion",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
       "sourceKeys": [
-        "spec-03",
-        "server-points",
-        "server-me",
-        "dashboard-faq",
-        "dashboard-volume",
-        "syn-172",
-        "syn-118"
+        "superflow-she-openapi",
+        "spec-04"
       ],
       "sources": [
         {
-          "key": "spec-03",
+          "key": "superflow-she-openapi",
+          "group": "Public Symmio Sources",
+          "use": "Operator-provided SuperFlow Redoc/OpenAPI spec titled SYMMIO Hybrid Exchange (SHE), covering REST and WebSocket market, order, account, position, funding, auth, and dev/admin endpoint surfaces.",
+          "href": "https://dev.superflow.exchange/openapi.json",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
           "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "server-points",
-          "group": "Local Product And Code",
-          "use": "Referral depth config and percentages.",
-          "href": "../../server/points.js",
-          "missing": false
-        },
-        {
-          "key": "server-me",
-          "group": "Local Product And Code",
-          "use": "Network, volume, pulse, and configured depth behavior.",
-          "href": "../../server/routes/me.js",
-          "missing": false
-        },
-        {
-          "key": "dashboard-faq",
-          "group": "Local Product And Code",
-          "use": "User-facing FAQ copy, including 15-level wording.",
-          "href": "../../src/dashboard/faq.jsx",
-          "missing": false
-        },
-        {
-          "key": "dashboard-volume",
-          "group": "Local Product And Code",
-          "use": "Dashboard network-volume UI and 5-level remnants.",
-          "href": "../../src/dashboard/volume.jsx",
-          "missing": false
-        },
-        {
-          "key": "syn-172",
-          "group": "Linear Research",
-          "use": "Referral-depth rollout and percentage schedule.",
-          "href": "",
-          "missing": false
-        },
-        {
-          "key": "syn-118",
-          "group": "Linear Research",
-          "use": "Historical product question about aggregation depth.",
-          "href": "",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
           "missing": false
         }
       ]
@@ -49421,62 +49629,6 @@
           "group": "Local Product And Code",
           "use": "Referral depth config and percentages.",
           "href": "../../server/points.js",
-          "missing": false
-        }
-      ]
-    },
-    {
-      "id": "faq-gap-which-revenue-sources-are-live-today",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Revenue",
-      "question": "Which revenue sources are live today?",
-      "gapId": "G-004",
-      "gapTitle": "Revenue Phase A Versus Phase B Needs Public Wording",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Phase A versus Phase B needs public wording.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "local-revenue-doc",
-        "dashboard-revenue-doc",
-        "server-pulse",
-        "syn-203"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "local-revenue-doc",
-          "group": "Local Product And Code",
-          "use": "Phase A and Phase B revenue model explanation.",
-          "href": "../../docs/network-revenue.md",
-          "missing": false
-        },
-        {
-          "key": "dashboard-revenue-doc",
-          "group": "Local Product And Code",
-          "use": "Dashboard copy for revenue model.",
-          "href": "../../src/dashboard/revenue-doc.jsx",
-          "missing": false
-        },
-        {
-          "key": "server-pulse",
-          "group": "Local Product And Code",
-          "use": "Current estimated revenue formula and defaults.",
-          "href": "../../server/pulse.js",
-          "missing": false
-        },
-        {
-          "key": "syn-203",
-          "group": "Linear Research",
-          "use": "Future revenue components and data dependencies.",
-          "href": "",
           "missing": false
         }
       ]

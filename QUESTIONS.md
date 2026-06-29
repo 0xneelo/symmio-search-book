@@ -57,16 +57,19 @@ Questions are grouped by whether the current source set can answer them.
 | How are project tokens custodied for Vibe listings? | `authored-vibe-project-token-custody-boundary` | Medium | Official listing terms describe client-asset accounting, custody-risk disclaimers, and a non-guaranteed discretionary security-fund concept. |
 | Can a project audit records or exit a Vibe listing? | `authored-vibe-project-audit-and-exit-rights` | Medium | Official listing terms describe audit access, third-party auditor/confidentiality/cost rules, termination, delisting wind-down, and final reporting. |
 | How do Vibe referral codes work? | `authored-vibe-referral-code-flow` | Medium | Official Vibe referral-code docs support friend-code entry, account NFT/code minting, sharing paths, QR/link flow, and referee rakeback benefits; some paths remain coming soon. |
-| How does Vibe referral commission work? | `authored-vibe-referral-commission-program` | Medium | Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting remains parked. |
+| How does Vibe referral commission work? | `authored-vibe-referral-commission-program` | Medium | Official Vibe referral docs support rolling 30-day referred-volume tiers and daily pre-TGE points; dashboard referral-depth accounting is fifteen levels under the operator-approved stance. |
 | How does Vibe trading-fee rakeback work? | `authored-vibe-rakeback-trading-fees` | High | Official Vibe rakeback docs support progressive volume-based rakeback for users who sign up with a friend's referral code. |
 | How does the Vibe trading program award points? | `authored-vibe-trading-program-points` | Medium | Official Vibe trading-program docs support a daily pre-TGE leaderboard points pool and reset timing; final TGE settlement remains owner-review. |
 | What does the Vibe platform offer? | `authored-vibe-platform-overview` | Medium | Official Vibe platform docs support accessible UX, cross-chain/account-abstraction/SYMMIO positioning, markets, deposits, points, revenue-share, and rakeback claims; exact counts need publication-date verification. |
 | How are Vibe points earned? | `authored-vibe-points-program` | Medium | Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic. |
-| How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports formula; label as estimate and keep disclosure caveat. |
+| How is estimated network revenue calculated? | `authored-estimated-network-revenue` | Medium | Local implementation supports the Phase A formula with 0.05% / 5 bps platform fee and 30% referrer platform share defaults; label as estimate and keep Phase B out of v1. |
+| What exact Phase-A revenue formula, fee rate, and referrer share should users expect in production payouts? | `authored-estimated-network-revenue` | Medium | Phase A is networkVolume × platformFeeRate × referrerPlatformShare, defaulting to 0.05% / 5 bps platform fee and 30% referrer platform share; Phase B economics are out of scope for v1. |
+| Which revenue sources are live today? | `authored-estimated-network-revenue` | Medium | Live v1 revenue is the Phase A network-volume platform-fee-share estimate; Phase B sources such as spread, liquidations, funding, LP profit, and points farmed are out of scope for v1. |
 | Why does the dashboard revenue number move? | `authored-dashboard-revenue-pulse` | Medium | Local pulse code derives a non-negative rate from recent revenue history or cold-start account age; keep it distinct from settled payout. |
-| What does the Dashboard Overview show? | `authored-dashboard-overview` | Medium | Local dashboard code supports the route and cards; revenue and depth wording still carry operator caveats. |
+| What does the Dashboard Overview show? | `authored-dashboard-overview` | Medium | Local dashboard code supports the route and cards; Phase A revenue and fifteen-level referral depth now have operator-approved wording. |
 | Where do I see my invite statuses? | `authored-dashboard-invites` | High | Local My invites view shows masked invites, status, follow-up, dashboard-opened state, and referee progress. |
-| What does My network show? | `authored-dashboard-network` | Medium | Local graph/tree behavior is sourced; final public depth language remains unresolved. |
+| What does My network show? | `authored-dashboard-network` | Medium | Local graph/tree behavior is sourced; public referral depth is fifteen levels and historical backfill is additive without lowering balances. |
+| Does referral depth count 5 or 15 levels? | `authored-dashboard-network` | Medium | Public referral depth is fifteen levels; historical backfill is additive and never lowers a balance. |
 | Where does network volume come from? | `authored-dashboard-volume` | Medium | Current code uses backend wallet-volume snapshots; planned subgraph migration remains a tracked gap. |
 | Why does network volume use daily snapshots? | `authored-volume-snapshot-cadence` | Medium | Local volume code supports cache, stale-while-revalidate, daily snapshots, and stale UI markers. |
 | What is the Barometer volume upgrade? | `authored-barometer-subgraph-upgrade` | Medium | Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review. |
@@ -608,7 +611,7 @@ Questions are grouped by whether the current source set can answer them.
 | Why model market referral share as LP-side accounting? | `authored-referral-lp-side-bounded-accounting` | Medium | Neelo frames market-scoped referral share as a bounded slice of LP-side economics to keep accounting predictable and market-specific. |
 | What are referral category partner overlays? | `authored-referral-category-partner-overlays` | Medium | Neelo allows strategic partner overlays on tagged market groups with uplift split separately from ordinary user-level referral policy. |
 | Why do market referrals need precedence and payout buckets? | `authored-referral-market-precedence-payout-buckets` | Medium | Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket. |
-| Which referral policy decisions remain open? | `authored-referral-policy-decision-lane` | Medium | Neelo's open-decisions source keeps referral depth, referee benefit variants, and attachment changes under owner-approved policy review. |
+| Which referral policy decisions remain open? | `authored-referral-policy-decision-lane` | Medium | Neelo's open-decisions source keeps referee benefit variants and referral attachment changes under owner-approved policy review; depth is resolved at fifteen levels. |
 | Which referral economic policy decisions remain open? | `authored-referral-economic-policy-decision-lane` | Medium | Neelo separates private commercial tiers, transferability, and TGE-linked point weighting as economic decisions that need approved public statements. |
 | Which referral settlement and security decisions remain open? | `authored-referral-settlement-security-decision-lane` | Medium | Neelo asks whether rebates are in-flow or claim-based, which signer/custody controls are mandatory, and what freeze or rollback scope is acceptable. |
 | Which referral rollout capacity decisions remain open? | `authored-referral-rollout-capacity-decision-lane` | Medium | Neelo keeps listing throughput, month-one/month-three feature scope, and partner sequencing as launch-capacity decisions. |
@@ -773,6 +776,7 @@ Questions are grouped by whether the current source set can answer them.
 | What is the ticker-tape verification layer? | `authored-ticker-tape-verification-layer` | Medium | Neelo's crisis-of-verification source treats price, liquidity, persistence, and market pressure as running signals rather than perfect truth. |
 | Why does controlling the token lifecycle matter? | `authored-token-lifecycle-control-thesis` | Medium | Neelo's listing-game source argues that the layer producing credible pre-listing market evidence can influence downstream listing decisions. |
 | What does the Thumbs Down mean in Vibe's thesis? | `authored-thumbs-down-market-position` | Medium | Neelo's Thumbs Down section frames negative conviction as a market position, not merely a dislike reaction; product details remain review-bound. |
+| What does the SuperFlow SHE OpenAPI source prove? | `authored-superflow-she-api-boundary` | Low | The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration. |
 
 ## Prototype Event Log
 
@@ -782,9 +786,7 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 
 | Question | Gap | Notes |
 | --- | --- | --- |
-| Does referral depth count 5 or 15 levels? | `G-003` | Do not publish a single final answer until production state and copy are aligned. |
 | Are onboarding points the same as Vibe trading points? | `G-009` | Local dashboard distinguishes them; public docs need canonical naming. |
-| Which revenue sources are live today? | `G-004` | Phase A versus Phase B needs public wording. |
 | Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |

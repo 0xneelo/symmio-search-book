@@ -1647,3 +1647,11 @@
 **Reason:** The contract already named a glossary-route stage, but the executable harness was only using exact question routes and chunk scoring. Definition queries such as `Define AMFQ` or `Explain PartyA` should deterministically land on the canonical term page before broad retrieval or LLM synthesis. The generated glossary also includes source-companion and internal-draft primaries, so the runtime needs an explicit public-route boundary instead of blindly treating a glossary `primaryPageId` as reader-facing.
 
 **Status:** Accepted for deterministic runtime and generated answer-engine proof. The contract now validates 32/32 glossary route tests: 26 public-routable terms, 5 retrieval-context-only terms, and 1 internal/blocked term.
+
+## D-207: Treat SuperFlow As SHE Source Ingested, Keep SSHE Parked
+
+**Decision:** Register the operator-provided SuperFlow Redoc/OpenAPI source as `superflow-she-openapi`, add a narrow authored page for the `SYMMIO Hybrid Exchange(SHE)` API boundary, and keep the broader `SSHE` source-family question parked under operator inbox item #7.
+
+**Reason:** Fetching `https://dev.superflow.exchange/redoc` showed a Redoc shell pointing to `/openapi.json`. The OpenAPI document is titled `SYMMIO Hybrid Exchange(SHE)`, version `1.0`, and exposes 46 paths across market data, order flow, account, position, funding, auth, developer/admin, and health surfaces. That is enough to cite SuperFlow/SHE source context, but not enough to assert that `SSHE` is identified or that Vibe uses this API in production.
+
+**Status:** Accepted for source-ingestion coverage and answer routing. Publish only the source-boundary claim until SSHE is identified or explicitly excluded, and until implementation evidence proves any Vibe production integration.

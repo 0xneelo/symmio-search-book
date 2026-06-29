@@ -176,30 +176,34 @@
       },
       {
         "id": "fixture-question-operator-blocked",
-        "query": "Which revenue sources are live today?",
+        "query": "Can the docs quote the Vibe Trading Notion workspace?",
         "source": "fixture",
         "pageId": "",
         "page": "",
         "score": 0,
         "status": "operator-blocked-refusal",
-        "refusalReason": "operator-decision-required",
-        "gapId": "G-004",
-        "operatorItemIds": [],
+        "refusalReason": "operator-access-required",
+        "gapId": "G-011",
+        "operatorItemIds": [
+          5
+        ],
         "time": "deterministic-build",
         "passes": true,
         "failures": []
       },
       {
-        "id": "fixture-question-referral-depth",
-        "query": "Does referral depth count 5 or 15 levels?",
+        "id": "fixture-question-add-token-info",
+        "query": "What project-managed token metadata can be added to Vibe?",
         "source": "fixture",
         "pageId": "",
         "page": "",
         "score": 0,
         "status": "operator-blocked-refusal",
-        "refusalReason": "operator-decision-required",
-        "gapId": "G-003",
-        "operatorItemIds": [],
+        "refusalReason": "source-family-missing",
+        "gapId": "G-012",
+        "operatorItemIds": [
+          9
+        ],
         "time": "deterministic-build",
         "passes": true,
         "failures": []
@@ -274,11 +278,13 @@
       },
       {
         "id": "fixture-gap-operator-blocked",
-        "query": "Which revenue sources are live today?",
-        "reason": "operator-decision-required",
+        "query": "Can the docs quote the Vibe Trading Notion workspace?",
+        "reason": "operator-access-required",
         "page": "",
-        "gapId": "G-004",
-        "operatorItemIds": [],
+        "gapId": "G-011",
+        "operatorItemIds": [
+          5
+        ],
         "time": "deterministic-build",
         "passes": true,
         "failures": []
@@ -293,8 +299,8 @@
     "ratingFixtures": 3,
     "gapFixtures": 4,
     "gapQueueItems": 13,
-    "questionRouteCount": 767,
-    "reconciliationQuestionCount": 7,
+    "questionRouteCount": 771,
+    "reconciliationQuestionCount": 5,
     "operatorSignals": 8,
     "openOperatorItems": 8,
     "byEventType": {
@@ -311,7 +317,7 @@
       "low-rated-answer": 1,
       "page-feedback-needs-work": 1,
       "no-grounded-page": 1,
-      "operator-decision-required": 1
+      "operator-access-required": 1
     }
   },
   "failureSummary": {

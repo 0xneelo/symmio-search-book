@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 767
+      "totalGoldenRoutes": 771
     },
     {
       "stage": "glossary-route",
@@ -80,9 +80,9 @@
       "behavior": "If a query asks for a term or alias, route to the term's public primary page when one exists; otherwise use retrieval context only and fail closed if no public answer page is available.",
       "sourceData": "data/glossary.json",
       "totalGoldenRoutes": 32,
-      "publicRoutableTerms": 26,
+      "publicRoutableTerms": 27,
       "contextOnlyTerms": 5,
-      "internalOnlyTerms": 1
+      "internalOnlyTerms": 0
     },
     {
       "stage": "chunk-retrieval",
@@ -106,7 +106,7 @@
         "data/gap-queue.json",
         "QUESTIONS.md"
       ],
-      "totalGoldenRefusals": 7
+      "totalGoldenRefusals": 5
     }
   ],
   "citationPolicy": {
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 785,
-    "retrievalEligiblePages": 1577,
+    "publicNavigationPages": 786,
+    "retrievalEligiblePages": 1578,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 785,
+      "candidate": 786,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,32 +186,30 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 767,
-    "exactRouteTestsPassing": 767,
-    "totalRefusalTests": 7,
-    "refusalTestsPassing": 7,
+    "totalExactRouteTests": 771,
+    "exactRouteTestsPassing": 771,
+    "totalRefusalTests": 5,
+    "refusalTestsPassing": 5,
     "totalGlossaryRouteTests": 32,
     "glossaryRouteTestsPassing": 32,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 767
+      "candidate": 771
     },
     "exactRoutesByConfidence": {
-      "Medium": 478,
+      "Medium": 481,
       "High": 44,
-      "Low": 245
+      "Low": 246
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
-      "route-to-public-page": 26,
-      "fail-closed-internal-or-missing": 1
+      "route-to-public-page": 27
     },
     "glossaryRoutesBySourcePrimaryPageState": {
       "source-companion": 12,
-      "candidate": 19,
-      "internal-draft": 1
+      "candidate": 20
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1589,6 +1587,60 @@
         "passes": true
       },
       {
+        "id": "qr-what-exact-phase-a-revenue-formula-fee-rate-and-referrer-share-should-users-expe",
+        "query": "What exact Phase-A revenue formula, fee rate, and referrer share should users expect in production payouts?",
+        "normalizedQuery": "what exact phase a revenue formula fee rate and referrer share should users expect in production payouts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-estimated-network-revenue",
+        "expectedPageTitle": "Estimated Network Revenue",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-exact-phase-a-revenue-formula-fee-rate-and-referrer-share-should-users-expect-in-prod",
+        "passes": true
+      },
+      {
+        "id": "qr-which-revenue-sources-are-live-today",
+        "query": "Which revenue sources are live today?",
+        "normalizedQuery": "which revenue sources are live today",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-estimated-network-revenue",
+        "expectedPageTitle": "Estimated Network Revenue",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-revenue-sources-are-live-today",
+        "passes": true
+      },
+      {
         "id": "qr-why-does-the-dashboard-revenue-number-move",
         "query": "Why does the dashboard revenue number move?",
         "normalizedQuery": "why does the dashboard revenue number move",
@@ -1695,6 +1747,35 @@
         "passes": true
       },
       {
+        "id": "qr-does-referral-depth-count-5-or-15-levels",
+        "query": "Does referral depth count 5 or 15 levels?",
+        "normalizedQuery": "does referral depth count 5 or 15 levels",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-dashboard-network",
+        "expectedPageTitle": "Dashboard My Network",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "dashboard-app",
+          "dashboard-network",
+          "server-me",
+          "server-points",
+          "dashboard-volume"
+        ],
+        "linkedSourceKeys": [
+          "dashboard-app",
+          "dashboard-network",
+          "server-me",
+          "server-points",
+          "dashboard-volume"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-does-referral-depth-count-5-or-15-levels",
+        "passes": true
+      },
+      {
         "id": "qr-where-does-network-volume-come-from",
         "query": "Where does network volume come from?",
         "normalizedQuery": "where does network volume come from",
@@ -1750,7 +1831,7 @@
           "spec-03"
         ],
         "unknownSourceKeys": [],
-        "chunkCount": 2,
+        "chunkCount": 3,
         "faqEntryId": "faq-why-does-network-volume-use-daily-snapshots",
         "passes": true
       },
@@ -16878,6 +16959,29 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-the-thumbs-down-mean-in-vibe-s-thesis",
         "passes": true
+      },
+      {
+        "id": "qr-what-does-the-superflow-she-openapi-source-prove",
+        "query": "What does the SuperFlow SHE OpenAPI source prove?",
+        "normalizedQuery": "what does the superflow she openapi source prove",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-superflow-she-api-boundary",
+        "expectedPageTitle": "SuperFlow SHE API Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "superflow-she-openapi",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "superflow-she-openapi",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-what-does-the-superflow-she-openapi-source-prove",
+        "passes": true
       }
     ],
     "glossaryRouteTests": [
@@ -17402,10 +17506,12 @@
         "sourcePrimaryPageState": "candidate",
         "runtimeAction": "route-to-public-page",
         "publicPageIds": [
-          "authored-network-volume"
+          "authored-network-volume",
+          "authored-dashboard-network"
         ],
         "retrievalPageIds": [
-          "authored-network-volume"
+          "authored-network-volume",
+          "authored-dashboard-network"
         ],
         "sourceKeys": [
           "server-volume",
@@ -17419,8 +17525,8 @@
           "spec-03"
         ],
         "unknownSourceKeys": [],
-        "retrievalChunkCount": 2,
-        "publicChunkCount": 2,
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 4,
         "internalOnly": false,
         "passes": true
       },
@@ -17730,13 +17836,17 @@
           "Network depth"
         ],
         "category": "Rewards",
-        "expectedPrimaryPageId": "",
-        "expectedPrimaryPageState": "",
-        "sourcePrimaryPageId": "authored-referral-depth-open-question",
-        "sourcePrimaryPageState": "internal-draft",
-        "runtimeAction": "fail-closed-internal-or-missing",
-        "publicPageIds": [],
-        "retrievalPageIds": [],
+        "expectedPrimaryPageId": "authored-dashboard-network",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-dashboard-network",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-dashboard-network"
+        ],
+        "retrievalPageIds": [
+          "authored-dashboard-network"
+        ],
         "sourceKeys": [
           "server-points",
           "server-me",
@@ -17751,9 +17861,9 @@
           "dashboard-faq"
         ],
         "unknownSourceKeys": [],
-        "retrievalChunkCount": 0,
-        "publicChunkCount": 0,
-        "internalOnly": true,
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 2,
+        "internalOnly": false,
         "passes": true
       },
       {
@@ -18060,30 +18170,12 @@
     ],
     "refusalTests": [
       {
-        "id": "gap-does-referral-depth-count-5-or-15-levels",
-        "query": "Does referral depth count 5 or 15 levels?",
-        "normalizedQuery": "does referral depth count 5 or 15 levels",
-        "expectedStage": "gap-refusal",
-        "gapId": "G-003",
-        "notes": "Do not publish a single final answer until production state and copy are aligned.",
-        "passes": true
-      },
-      {
         "id": "gap-are-onboarding-points-the-same-as-vibe-trading-points",
         "query": "Are onboarding points the same as Vibe trading points?",
         "normalizedQuery": "are onboarding points the same as vibe trading points",
         "expectedStage": "gap-refusal",
         "gapId": "G-009",
         "notes": "Local dashboard distinguishes them; public docs need canonical naming.",
-        "passes": true
-      },
-      {
-        "id": "gap-which-revenue-sources-are-live-today",
-        "query": "Which revenue sources are live today?",
-        "normalizedQuery": "which revenue sources are live today",
-        "expectedStage": "gap-refusal",
-        "gapId": "G-004",
-        "notes": "Phase A versus Phase B needs public wording.",
         "passes": true
       },
       {
@@ -18131,9 +18223,9 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 767,
+      "exactRoutes": 771,
       "glossaryRoutes": 32,
-      "refusals": 7,
+      "refusals": 5,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
       "adversarialMinimumRequiredBeforeProduction": 12
@@ -18141,7 +18233,7 @@
   },
   "gapSignals": {
     "totalGapQueueItems": 13,
-    "questionSignals": 7,
+    "questionSignals": 5,
     "operatorSignals": 8,
     "parkedPageSignals": 2
   },

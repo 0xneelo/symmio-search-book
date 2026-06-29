@@ -11,29 +11,29 @@ relatedGeneratedPages: ["local-network-revenue", "local-revenue-pulse"]
 
 # Estimated Network Revenue
 
-The current dashboard model estimates network revenue from descendant trading volume, a configurable platform-fee input, and a configurable referrer-share input. The reference formula is:
+The current dashboard model estimates network revenue from descendant trading volume, the platform-fee rate, and the referrer platform share. The Phase A formula is:
 
 ```text
-estimated referrer revenue = network volume x platform fee rate x referrer share
+networkVolume × platformFeeRate × referrerPlatformShare
 ```
 
-This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. They do not prove that every future revenue stream is live, final, or publicly discloseable. Phase B items such as spread, liquidations, funding, solver/LP splits, venue-specific accounting, and points farmed are tracked as roadmap or designed economics until the operator resolves the public disclosure boundary.
+In words: Phase A estimated referrer revenue equals `networkVolume × platformFeeRate × referrerPlatformShare`.
+
+The v1 defaults are a `0.05%` platform fee (`5 bps`) and a `30%` referrer platform share. These are Phase A defaults for the estimated dashboard model, not a claim that every possible future revenue stream is already live.
+
+This page must remain explicit about status. The local implementation and app docs support a Phase A estimate. Phase B economics are out of scope for v1. Items such as spread, liquidations, funding, solver/LP splits, venue-specific accounting, and points farmed should stay labeled as roadmap or designed economics until they have separate source and implementation support.
 
 The live counter should also be documented as a display model, not as a settlement guarantee. The dashboard pulse uses volume history and monotonic display behavior to make earning motion legible. That helps users understand direction and participation, but final accounting still depends on the revenue model and data sources the product owner approves for publication.
 
 ## Reader Implication
 
-Users should read the counter as an estimate of current network economics, not as an immutable protocol balance. Builders and operators should keep formula inputs, venue coverage, and Phase B components separately labeled.
-
-## Open Gap
-
-Operator inbox item `#1` must resolve the public revenue disclosure boundary before this page becomes final.
+Users should read the counter as an estimate of current Phase A network economics, not as an immutable protocol balance. Builders and operators should keep formula inputs, venue coverage, and Phase B components separately labeled.
 
 ## Sources
 
 - `local-revenue-doc`: Local network revenue document.
 - `dashboard-revenue-doc`: In-app dashboard revenue page.
-- `server-pulse`: Current pulse/revenue implementation.
+- `server-pulse`: Current pulse/revenue implementation, formula, and defaults.
 - `spec-03`: Grounding matrix and revenue-status guidance.
 
 ## Related Pages

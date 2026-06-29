@@ -103,7 +103,11 @@ const operatorGapMap = {
   2: "G-001",
   3: "G-003",
   4: "G-010",
+  5: "G-011",
+  6: "G-007",
   8: "G-002",
+  9: "G-012",
+  11: "G-010",
 };
 
 const priorityScores = {

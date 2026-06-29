@@ -15,15 +15,11 @@ Network volume is the trading volume attributed to wallets in a user's referral 
 
 The product roadmap separates this current source from the planned Barometer/Goldsky subgraph direction. The docs should describe the current implementation as current, then describe subgraph-based volume as the intended accuracy upgrade only where that status is supported by product research.
 
-Depth remains the unresolved part of this page. The same source set contains evidence for 5-level language, 15-level rollout work, and configurable depth behavior. Until the operator resolves the public stance, this authored page should avoid a final numeric depth claim and route readers to the referral-depth gap.
+Depth is no longer an unresolved publication question. The public referral depth is fifteen levels, and historical backfill is additive without lowering existing balances. Older 5-level evidence should be treated as historical implementation context, not current public policy.
 
 ## Reader Implication
 
-If a user's revenue or points depend on volume, they need to know three separate things: which wallets are included, which trading source supplies the numbers, and which depth policy is currently public. Only the first two are safe to explain now.
-
-## Open Gap
-
-Operator inbox item `#3` must resolve referral-depth language before this page becomes final.
+If a user's revenue or points depend on volume, they need to know three separate things: which wallets are included, which trading source supplies the numbers, and which depth policy is currently public. The current public stance is fifteen levels; the Barometer/subgraph path remains a source-accuracy upgrade, not a depth-policy change.
 
 ## Sources
 
@@ -36,5 +32,5 @@ Operator inbox item `#3` must resolve referral-depth language before this page b
 ## Related Pages
 
 - `authored-estimated-network-revenue`
-- `authored-referral-depth-open-question`
+- `authored-dashboard-network`
 - `local-volume-source`

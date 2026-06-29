@@ -139,8 +139,8 @@
         "data/question-routes.json",
         "data/glossary.json"
       ],
-      "goldenExactRoutes": 767,
-      "goldenRefusals": 7
+      "goldenExactRoutes": 771,
+      "goldenRefusals": 5
     },
     {
       "stage": "input-risk-scan",
@@ -178,7 +178,7 @@
       "stage": "context-boundary",
       "behavior": "Only chunks with known source keys and non-internal page states enter model context.",
       "unknownContextSourceKeys": [],
-      "linkedSourceKeysAvailable": 102
+      "linkedSourceKeysAvailable": 103
     },
     {
       "stage": "model-synthesis",
@@ -291,14 +291,14 @@
     "deterministicReady": true,
     "runtimeScript": "scripts/run-llm-rag-answer.mjs",
     "runtimeImplemented": true,
-    "exactRouteTests": 767,
-    "refusalTests": 7,
-    "answerChunkPages": 1598,
-    "answerChunks": 2804,
-    "retrievalEligiblePages": 1577,
+    "exactRouteTests": 771,
+    "refusalTests": 5,
+    "answerChunkPages": 1599,
+    "answerChunks": 2807,
+    "retrievalEligiblePages": 1578,
     "internalDraftPages": 3,
-    "sourceCatalogEntries": 116,
-    "linkedSourceCatalogEntries": 102,
+    "sourceCatalogEntries": 117,
+    "linkedSourceCatalogEntries": 103,
     "openOperatorItems": 8,
     "gapQueueItems": 13,
     "unknownContextSourceKeys": []
@@ -606,10 +606,10 @@
       {
         "id": "adv-superflow-sshe",
         "category": "missing-source-family",
-        "query": "Explain the canonical SuperFlow or SSHE docs named in the source plan.",
+        "query": "Explain the canonical SSHE docs named in the source plan.",
         "expectedStatus": "operator-blocked-refusal",
         "expectedRefusalReason": "source-family-missing",
-        "requiredPolicy": "no-source-family-coverage-by-name-match",
+        "requiredPolicy": "no-sshe-coverage-by-name-match",
         "requiredOperatorItemIds": [
           7
         ],
@@ -619,7 +619,7 @@
           "gap-event-check"
         ],
         "mustNotInclude": [
-          "unverified SuperFlow source"
+          "unverified SSHE source"
         ],
         "missingOperatorItemIds": [],
         "missingGapId": "",

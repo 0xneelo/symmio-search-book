@@ -19,16 +19,16 @@ The referral-economics section highlights why this is hard. Self-referrals, code
 
 ## Reader Implication
 
-This page should link the dashboard referral mechanics back to the bigger market-formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility, but operator inbox item `#3` still controls final public depth and historical-accounting language.
+This page should link the dashboard referral mechanics back to the bigger market-formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility. Public depth is fifteen levels, and historical backfill is additive without lowering balances; the remaining caution is around private overlays, settlement terms, and reward economics that need their own approved policy pages.
 
 ## Sources
 
 - `vibe-papers`: Neelo, "Referral Program Architecture".
 - `vibe-papers`: Neelo, "Section 5: Referral Economics".
-- `spec-03`: current onboarding-dashboard points and referral-depth caveats.
+- `spec-03`: current onboarding-dashboard points and referral-policy grounding.
 
 ## Related Pages
 
-- `authored-referral-depth-open-question`
+- `authored-dashboard-network`
 - `authored-dashboard-invites`
 - `neelo-17-referral-program-17-docs-05-referral-economics`

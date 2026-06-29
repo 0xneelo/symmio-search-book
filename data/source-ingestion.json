@@ -5,8 +5,8 @@
   "totalSourceRequirements": 17,
   "byStatus": {
     "complete": 11,
-    "parked": 5,
-    "partial": 1
+    "parked": 4,
+    "partial": 2
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -170,7 +170,7 @@
       "missingKeys": [],
       "evidence": "6/6 revenue/volume implementation sources registered.",
       "blocks": [],
-      "nextAction": "Keep final public wording parked behind revenue-disclosure and referral-depth operator decisions."
+      "nextAction": "Keep Phase A revenue and fifteen-level referral-depth wording aligned with the operator-approved public stance; leave Phase B economics out of v1."
     },
     {
       "id": "neelo-vibe-docs",
@@ -333,21 +333,23 @@
     {
       "id": "superflow-sshe",
       "label": "SuperFlow / SSHE docs",
-      "status": "parked",
+      "status": "partial",
       "category": "protocol-reference",
       "sourceSpecs": [
         "04",
         "07"
       ],
-      "presentKeys": [],
-      "missingKeys": [
-        "superflow-sshe"
+      "presentKeys": [
+        "superflow-she-openapi"
       ],
-      "evidence": "No SuperFlow or SSHE source key is registered.",
+      "missingKeys": [
+        "sshe-source-family"
+      ],
+      "evidence": "SuperFlow/SHE OpenAPI source is registered; fetched title is SYMMIO Hybrid Exchange(SHE), while SSHE remains unidentified.",
       "blocks": [
         "OPERATOR-INBOX #7"
       ],
-      "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
+      "nextAction": "Identify or exclude the remaining SSHE source family before final source-completeness claims."
     },
     {
       "id": "hyperliquid-goldsky",
@@ -426,7 +428,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "786 authored pages generated from registered sources across 10 sections.",
+      "evidence": "787 authored pages generated from registered sources across 10 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -478,6 +480,7 @@
         "spec-09",
         "spec-prompt",
         "styleguide",
+        "superflow-she-openapi",
         "symm-io-analytics",
         "symm-io-github",
         "symm-io-options-core",
@@ -559,7 +562,7 @@
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "116 registered source keys; 0 duplicate keys.",
+      "evidence": "117 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
@@ -600,14 +603,14 @@
     },
     {
       "id": "superflow-sshe",
-      "status": "parked",
+      "status": "partial",
       "missingKeys": [
-        "superflow-sshe"
+        "sshe-source-family"
       ],
       "blocks": [
         "OPERATOR-INBOX #7"
       ],
-      "nextAction": "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims."
+      "nextAction": "Identify or exclude the remaining SSHE source family before final source-completeness claims."
     },
     {
       "id": "discord-lafa-corpus",
