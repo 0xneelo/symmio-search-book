@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 389,
-  "totalAnswerable": 382,
+  "totalEntries": 394,
+  "totalAnswerable": 387,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,9 +17,9 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 118,
+    "Solvers And Settlement": 121,
     "Risk And Markets": 23,
-    "Revenue": 55,
+    "Revenue": 57,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 162,
+    "Medium": 167,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 382
+    "authored": 387
   },
   "byType": {
-    "answerable": 382,
+    "answerable": 387,
     "reconciliation": 7
   },
   "answerable": [
@@ -12670,6 +12670,151 @@
       "pageTitle": "Funding Directional Spreads And Rebates",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-funding-model-estimate-exposure-loss",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the funding model estimate exposure loss?",
+      "normalizedQuestion": "how does the funding model estimate exposure loss",
+      "shortAnswer": "Neelo's insurance source estimates loss from solver exposure using Aenigma or a volatility-aware risk horizon before calculating stress demand.",
+      "answerSummary": "Funding Exposure Loss Estimate Neelo's insurance and ADL source starts the stress calculation with an exposure loss estimate. It does not treat open interest alone as the loss. It asks how much the solver's net exposure could lose under a modeled adverse move. The simple source formula is: where E usd is solver exposure in USDC notional and A is the Aenig...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-exposure-loss-estimate",
+      "pageTitle": "Funding Exposure Loss Estimate",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-caps-insurance-spend-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What caps insurance spend in the funding model?",
+      "normalizedQuestion": "what caps insurance spend in the funding model",
+      "shortAnswer": "Neelo separates local spend, global spend, and total defense budget so one market cannot silently consume unlimited reserves.",
+      "answerSummary": "Funding Insurance Spend Caps Insurance spend in Neelo's funding model is capped. The model separates local spend, global spend, and total defense budget so a single stressed market cannot silently consume every available reserve. The source names three spend constraints: with: x m loc is spend from the market's local insurance fund. x m glob is spend from...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-spend-caps",
+      "pageTitle": "Funding Insurance Spend Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-insurance-pay-for-a-hedge-action",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can insurance pay for a hedge action?",
+      "normalizedQuestion": "when can insurance pay for a hedge action",
+      "shortAnswer": "Neelo allows hedging to reduce exposure only if hedge cost fits inside combined local and global insurance spend.",
+      "answerSummary": "Funding Hedge Cost Coverage Neelo's insurance and ADL source treats hedging as an active exposure reduction control. Before ADL reduces user positions, the system can use a hedge or trade action to bring exposure down. The source writes the hedge action as: where h m(t) is the hedge or trade action in base units. The hedge has a cost: That cost must fit i...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-hedge-cost-coverage",
+      "pageTitle": "Funding Hedge Cost Coverage",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-adl-always-close-exposure-to-zero",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Does ADL always close exposure to zero?",
+      "normalizedQuestion": "does adl always close exposure to zero",
+      "shortAnswer": "Neelo's ADL sizing chooses the minimum fraction needed to bring exposure back to a safe target rather than assuming full zeroing.",
+      "answerSummary": "Funding ADL Target Sizing ADL in Neelo's funding model is not defined as \"always close everything.\" The source chooses the minimum ADL fraction that brings exposure back to a safe target. The exposure update is: where a m is the ADL fraction and h m(t) is any hedge action. The target rule is to choose the minimum a m such that: The simplified source formu...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-target-sizing",
+      "pageTitle": "Funding ADL Target Sizing",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-gets-deleveraged-first-in-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who gets deleveraged first in ADL?",
+      "normalizedQuestion": "who gets deleveraged first in adl",
+      "shortAnswer": "Neelo prioritizes largest winners, then oldest equal-profit positions, then proportional treatment if needed.",
+      "answerSummary": "Funding ADL Priority Ranking When Neelo's source reaches ADL, it also names a ranking rule for which positions are touched first. The stated priority is: 1. Largest winners first. 2. Oldest positions if profits are equal. 3. Proportional treatment if needed for fairness. The rationale is that deleveraging winners is less harmful than deleveraging losers,...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-priority-ranking",
+      "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [
@@ -25664,6 +25809,151 @@
       "pageTitle": "Funding Directional Spreads And Rebates",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-funding-model-estimate-exposure-loss",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does the funding model estimate exposure loss?",
+      "normalizedQuestion": "how does the funding model estimate exposure loss",
+      "shortAnswer": "Neelo's insurance source estimates loss from solver exposure using Aenigma or a volatility-aware risk horizon before calculating stress demand.",
+      "answerSummary": "Funding Exposure Loss Estimate Neelo's insurance and ADL source starts the stress calculation with an exposure loss estimate. It does not treat open interest alone as the loss. It asks how much the solver's net exposure could lose under a modeled adverse move. The simple source formula is: where E usd is solver exposure in USDC notional and A is the Aenig...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-exposure-loss-estimate",
+      "pageTitle": "Funding Exposure Loss Estimate",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-caps-insurance-spend-in-the-funding-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What caps insurance spend in the funding model?",
+      "normalizedQuestion": "what caps insurance spend in the funding model",
+      "shortAnswer": "Neelo separates local spend, global spend, and total defense budget so one market cannot silently consume unlimited reserves.",
+      "answerSummary": "Funding Insurance Spend Caps Insurance spend in Neelo's funding model is capped. The model separates local spend, global spend, and total defense budget so a single stressed market cannot silently consume every available reserve. The source names three spend constraints: with: x m loc is spend from the market's local insurance fund. x m glob is spend from...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-spend-caps",
+      "pageTitle": "Funding Insurance Spend Caps",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-can-insurance-pay-for-a-hedge-action",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When can insurance pay for a hedge action?",
+      "normalizedQuestion": "when can insurance pay for a hedge action",
+      "shortAnswer": "Neelo allows hedging to reduce exposure only if hedge cost fits inside combined local and global insurance spend.",
+      "answerSummary": "Funding Hedge Cost Coverage Neelo's insurance and ADL source treats hedging as an active exposure reduction control. Before ADL reduces user positions, the system can use a hedge or trade action to bring exposure down. The source writes the hedge action as: where h m(t) is the hedge or trade action in base units. The hedge has a cost: That cost must fit i...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-hedge-cost-coverage",
+      "pageTitle": "Funding Hedge Cost Coverage",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-adl-always-close-exposure-to-zero",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Does ADL always close exposure to zero?",
+      "normalizedQuestion": "does adl always close exposure to zero",
+      "shortAnswer": "Neelo's ADL sizing chooses the minimum fraction needed to bring exposure back to a safe target rather than assuming full zeroing.",
+      "answerSummary": "Funding ADL Target Sizing ADL in Neelo's funding model is not defined as \"always close everything.\" The source chooses the minimum ADL fraction that brings exposure back to a safe target. The exposure update is: where a m is the ADL fraction and h m(t) is any hedge action. The target rule is to choose the minimum a m such that: The simplified source formu...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-target-sizing",
+      "pageTitle": "Funding ADL Target Sizing",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-who-gets-deleveraged-first-in-adl",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Who gets deleveraged first in ADL?",
+      "normalizedQuestion": "who gets deleveraged first in adl",
+      "shortAnswer": "Neelo prioritizes largest winners, then oldest equal-profit positions, then proportional treatment if needed.",
+      "answerSummary": "Funding ADL Priority Ranking When Neelo's source reaches ADL, it also names a ranking rule for which positions are touched first. The stated priority is: 1. Largest winners first. 2. Oldest positions if profits are equal. 3. Proportional treatment if needed for fairness. The rationale is that deleveraging winners is less harmful than deleveraging losers,...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-priority-ranking",
+      "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
       "pageStatus": "publication-candidate-needs-operator-review",
       "routeSource": "authored",
       "sourceKeys": [

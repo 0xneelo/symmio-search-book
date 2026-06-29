@@ -712,6 +712,12 @@
 - Routed five new Ask questions so solvers, LPs, and risk-review readers can inspect the mechanics behind cross-market mutualization instead of relying on one broad transfer-pool page.
 - Kept live cutoff thresholds, profit windows, flattening intensity, retention fractions, eligibility rules, allocation caps, reserve accounting, tax/subsidy execution, and public insurance commitments under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Insurance And ADL Mechanics Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's Insurance & ADL Logic source: exposure-loss estimates, insurance spend caps, hedge-cost coverage, ADL target sizing, and ADL priority ranking.
+- Routed five new Ask questions so solvers, LPs, and risk-review readers can inspect the mechanics beneath stress demand and ADL without relying on one broad defense-stack page.
+- Kept live Aenigma values, volatility windows, safety quantiles, spend budgets, hedge venues, ADL thresholds, ranking fields, tie-breakers, compensation semantics, and production emergency behavior under operator/risk/legal/implementation/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

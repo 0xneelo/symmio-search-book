@@ -943,3 +943,11 @@
 **Reason:** The broad cross-market mutualization and transfer-pool pages explain the idea, but exact-answer readers will ask how tails are identified, what part of each market counts, why the pool is capped, how taxes and subsidies are allocated, and whether flattening creates or merely redistributes value. Splitting the mechanics preserves the source-model formulas without turning them into live insurance commitments.
 
 **Status:** Accepted for the authored protocol-reference layer; live cutoff thresholds, profit windows, flattening intensity, retention fractions, eligibility rules, allocation caps, reserve accounting, tax/subsidy execution, and public insurance commitments remain operator/implementation/legal/accounting review.
+
+## D-119: Split Insurance And ADL Mechanics Into Exact Answers
+
+**Decision:** Add authored protocol-reference pages for the exposure-loss estimate, insurance spend caps, hedge-cost coverage, ADL target sizing, and ADL priority ranking.
+
+**Reason:** The broad stress-demand, defense-hierarchy, and ADL trigger pages explain the ordering, but exact-answer readers will ask how exposure becomes a loss estimate, why insurance cannot spend without caps, when hedging can be funded, whether ADL always zeroes exposure, and which positions are selected first. Splitting these mechanics gives the answer engine precise routes while keeping live safety parameters and emergency procedures out of public commitments.
+
+**Status:** Accepted for the authored protocol-reference layer; live Aenigma values, volatility windows, safety quantiles, spend budgets, hedge venues, ADL thresholds, ranking fields, tie-breakers, compensation semantics, and production emergency behavior remain operator/risk/legal/implementation/accounting review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 382
+      "totalGoldenRoutes": 387
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 400,
-    "retrievalEligiblePages": 1192,
+    "publicNavigationPages": 405,
+    "retrievalEligiblePages": 1197,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 400,
+      "candidate": 405,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 382,
-    "exactRouteTestsPassing": 382,
+    "totalExactRouteTests": 387,
+    "exactRouteTestsPassing": 387,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 382
+      "candidate": 387
     },
     "exactRoutesByConfidence": {
-      "Medium": 162,
+      "Medium": 167,
       "High": 44,
       "Low": 176
     },
@@ -8591,6 +8591,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-can-spreads-become-directional-or-even-negative",
         "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-estimate-exposure-loss",
+        "query": "How does the funding model estimate exposure loss?",
+        "normalizedQuery": "how does the funding model estimate exposure loss",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-exposure-loss-estimate",
+        "expectedPageTitle": "Funding Exposure Loss Estimate",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-funding-model-estimate-exposure-loss",
+        "passes": true
+      },
+      {
+        "id": "qr-what-caps-insurance-spend-in-the-funding-model",
+        "query": "What caps insurance spend in the funding model?",
+        "normalizedQuery": "what caps insurance spend in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-spend-caps",
+        "expectedPageTitle": "Funding Insurance Spend Caps",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-caps-insurance-spend-in-the-funding-model",
+        "passes": true
+      },
+      {
+        "id": "qr-when-can-insurance-pay-for-a-hedge-action",
+        "query": "When can insurance pay for a hedge action?",
+        "normalizedQuery": "when can insurance pay for a hedge action",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-hedge-cost-coverage",
+        "expectedPageTitle": "Funding Hedge Cost Coverage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-can-insurance-pay-for-a-hedge-action",
+        "passes": true
+      },
+      {
+        "id": "qr-does-adl-always-close-exposure-to-zero",
+        "query": "Does ADL always close exposure to zero?",
+        "normalizedQuery": "does adl always close exposure to zero",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-adl-target-sizing",
+        "expectedPageTitle": "Funding ADL Target Sizing",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-does-adl-always-close-exposure-to-zero",
+        "passes": true
+      },
+      {
+        "id": "qr-who-gets-deleveraged-first-in-adl",
+        "query": "Who gets deleveraged first in ADL?",
+        "normalizedQuery": "who gets deleveraged first in adl",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-adl-priority-ranking",
+        "expectedPageTitle": "Funding ADL Priority Ranking",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-gets-deleveraged-first-in-adl",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8666,7 +8771,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 382,
+      "exactRoutes": 387,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

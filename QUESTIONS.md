@@ -388,6 +388,11 @@ Questions are grouped by whether the current source set can answer them.
 | How does the dynamic funding rate become aggressive? | `authored-funding-dynamic-funding-rate` | Medium | Neelo's funding formula stacks inventory utilization, long/short skew, and insurance-utilization multipliers, with insurance stress making funding more aggressive. |
 | What is the emergency funding time ramp? | `authored-funding-emergency-time-ramp` | Medium | Neelo's emergency regime adds a time-based ramp that accelerates when high utilization persists and loss intensity rises. |
 | Why can spreads become directional or even negative? | `authored-funding-directional-spreads-and-rebates` | Medium | Neelo's dynamic-spread section uses asymmetric spreads and possible rebates to make exposure-worsening trades expensive and exposure-reducing trades cheaper. |
+| How does the funding model estimate exposure loss? | `authored-funding-exposure-loss-estimate` | Medium | Neelo's insurance source estimates loss from solver exposure using Aenigma or a volatility-aware risk horizon before calculating stress demand. |
+| What caps insurance spend in the funding model? | `authored-funding-insurance-spend-caps` | Medium | Neelo separates local spend, global spend, and total defense budget so one market cannot silently consume unlimited reserves. |
+| When can insurance pay for a hedge action? | `authored-funding-hedge-cost-coverage` | Medium | Neelo allows hedging to reduce exposure only if hedge cost fits inside combined local and global insurance spend. |
+| Does ADL always close exposure to zero? | `authored-funding-adl-target-sizing` | Medium | Neelo's ADL sizing chooses the minimum fraction needed to bring exposure back to a safe target rather than assuming full zeroing. |
+| Who gets deleveraged first in ADL? | `authored-funding-adl-priority-ranking` | Medium | Neelo prioritizes largest winners, then oldest equal-profit positions, then proportional treatment if needed. |
 
 ## Prototype Event Log
 
