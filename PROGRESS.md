@@ -1309,12 +1309,20 @@
 - Routed one Ask question for the SuperFlow/SHE source boundary and updated the source-ingestion map so SuperFlow is no longer absent, while SSHE remains parked under operator inbox item #7.
 - Kept Vibe production integration, endpoint ownership, credentials, venue routing, and dev/admin endpoint meaning under implementation/operator review.
 
+## 2026-06-29 — Symmio Whitepaper History Boundary
+
+- Registered official Symmio history evidence from `SYMM-IO/protocol-core` and `SYMM-IO/docs`: protocol-core initial commit `e40c16ddedff545e0cb51bc137102e835dcb8753` on 2023-06-13, docs initial commit `3e6e9687248cb48952d89cf7616b158d94373c54` on 2023-08-22, and `SYMMIO_paper_0_8.pdf` introduced by commit `e1715f85768b7f06933e91e41568422591729e16` on 2023-11-16.
+- Added one authored protocol-reference page, `authored-symmio-whitepaper-history-boundary`, that answers what official whitepaper history is currently available without claiming the missing original artifact.
+- Routed one Ask question for the Symmio whitepaper-history boundary and updated the source-ingestion evidence so OPERATOR-INBOX #6 remains parked only for the exact original/oldest artifact and any archived pre-v0.8 history.
+- Kept the 2021/origin-story comparison, oldest-to-current version history, and archived docs outside current official repositories under source-ingestion review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
-- Vibe Trading Notion export or read access.
-- Discord/Lafa FAQ import after operator provides export.
-- Vibe Add Token Info source fetch or canonical replacement.
+- Vibe Trading Notion ingestion and public-use boundary.
+- Discord/Lafa scraper and FAQ import.
+- Exact original/oldest Symmio whitepaper or archived pre-v0.8 history.
+- SuperFlow SSHE identification or explicit exclusion.
 - Vibe-specific covered-call/vault inventory example and LP exposure semantics.
 - Production docs platform/repository decision.
 - Deployed/preview production docs site.

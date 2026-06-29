@@ -8,6 +8,7 @@ Questions are grouped by whether the current source set can answer them.
 | --- | --- | --- | --- |
 | What is Vibe Trading? | `authored-vibe-product-overview` | Medium | Public Vibe docs answer; exact market counts need fresh verification before final publication. |
 | What is Symmio? | `authored-symmio-clearing-house-layer` | High | Public Symmio docs answer; authored page explains the clearing-house and hybrid settlement model. |
+| What official Symmio whitepaper history is currently available? | `authored-symmio-whitepaper-history-boundary` | Medium | Official GitHub evidence currently starts with protocol-core on 2023-06-13, docs on 2023-08-22, and the SYMMIO paper v0.8 PDF on 2023-11-16; the exact original/oldest artifact remains parked. |
 | What is an intent? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain intent as requested trade outcome plus protocol state. |
 | What was AMFQ? | `authored-amfq-legacy-intent-naming` | High | Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model. |
 | Who are PartyA and PartyB? | `authored-symmio-party-a-party-b` | High | Symmio core docs support the role distinction. |

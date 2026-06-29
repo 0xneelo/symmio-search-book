@@ -130,8 +130,13 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `symmio-options-partyb-close` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md | PartyB close-intent fills, partial fills, favorable-price checks, and cancellation acknowledgement. |
 | `symmio-options-instant-layer` | https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md | Instant Layer signed operations, replay protection, template execution, PartyB and MultiAccount registration. |
 | `symmio-earliest-docs` | https://github.com/SYMM-IO/docs | SYMM-IO docs repository and Whitepaper folder; starting point for earliest-docs and version-history review. |
+| `symmio-docs-initial-commit` | https://github.com/SYMM-IO/docs/commit/3e6e9687248cb48952d89cf7616b158d94373c54 | Official docs repository initial commit evidence from 2023-08-22, adding hedger documentation but not the original whitepaper artifact. |
+| `symmio-whitepaper-0-8-pdf` | https://github.com/SYMM-IO/docs/blob/main/Whitepaper/SYMMIO_paper_0_8.pdf | Official SYMMIO paper v0.8 PDF tracked in the SYMM-IO docs repository. |
+| `symmio-whitepaper-0-8-commit` | https://github.com/SYMM-IO/docs/commit/e1715f85768b7f06933e91e41568422591729e16 | Official Git history showing `Whitepaper/SYMMIO_paper_0_8.pdf` introduced on 2023-11-16 by Lafachief. |
 | `symm-io-github` | https://github.com/SYMM-IO | Official SYMM-IO GitHub organization and repository index. |
 | `symm-io-protocol-core` | https://github.com/SYMM-IO/protocol-core | Protocol core repository for on-chain settlement and contract implementation evidence. |
+| `symm-io-protocol-core-readme` | https://github.com/SYMM-IO/protocol-core/blob/main/README.md | Current protocol-core README framing SYMMIO as a trustless hybrid clearing house and intent-centric meta-derivatives engine. |
+| `symm-io-protocol-core-initial-commit` | https://github.com/SYMM-IO/protocol-core/commit/e40c16ddedff545e0cb51bc137102e835dcb8753 | Official protocol-core initial commit evidence from 2023-06-13. |
 | `symm-io-options-core` | https://github.com/SYMM-IO/options-core | Options protocol repository for implementation-level options references. |
 | `symm-io-subgraphs` | https://github.com/SYMM-IO/subgraphs | Subgraph repository for Symmio indexing/reference data context. |
 | `symm-io-analytics` | https://github.com/SYMM-IO/analytics | Analytics repository for Symmio/Vibe data pipeline context. |

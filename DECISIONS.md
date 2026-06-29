@@ -1655,3 +1655,11 @@
 **Reason:** Fetching `https://dev.superflow.exchange/redoc` showed a Redoc shell pointing to `/openapi.json`. The OpenAPI document is titled `SYMMIO Hybrid Exchange(SHE)`, version `1.0`, and exposes 46 paths across market data, order flow, account, position, funding, auth, developer/admin, and health surfaces. That is enough to cite SuperFlow/SHE source context, but not enough to assert that `SSHE` is identified or that Vibe uses this API in production.
 
 **Status:** Accepted for source-ingestion coverage and answer routing. Publish only the source-boundary claim until SSHE is identified or explicitly excluded, and until implementation evidence proves any Vibe production integration.
+
+## D-208: Treat Symmio 2023 Git History As Boundary Evidence, Not The Original Whitepaper
+
+**Decision:** Register the located official Symmio Git history as source-boundary evidence: `SYMM-IO/protocol-core` initial commit on 2023-06-13, `SYMM-IO/docs` initial commit on 2023-08-22, and `SYMMIO_paper_0_8.pdf` added to the official docs repo on 2023-11-16. Add `authored-symmio-whitepaper-history-boundary` for questions about what history is currently available, while keeping `symmio-original-whitepaper` and OPERATOR-INBOX #6 open.
+
+**Reason:** These official commits are stronger evidence than a generic repository link, and they let the answer engine give a useful cited answer about the current source boundary. They still do not prove a 2021/original whitepaper artifact or a complete oldest-to-current comparison, so closing the source family would overstate the evidence.
+
+**Status:** Accepted for source-ingestion coverage and answer routing. Publish the 2023 official GitHub evidence as the current boundary; do not use "original whitepaper" or 2021 origin-story wording until the exact artifact or archived source is recovered or explicitly excluded.

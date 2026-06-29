@@ -26,12 +26,12 @@
     "totalFixtures": 27,
     "passingFixtures": 27,
     "failingFixtures": 0,
-    "exactRouteGoldenSet": 773,
+    "exactRouteGoldenSet": 774,
     "adversarialGoldenSet": 15,
-    "answerChunkPages": 1600,
-    "answerChunks": 2810,
-    "sourceCatalogEntries": 118,
-    "pageStatePages": 1582,
+    "answerChunkPages": 1601,
+    "answerChunks": 2813,
+    "sourceCatalogEntries": 123,
+    "pageStatePages": 1583,
     "openOperatorItems": 7,
     "gapQueueItems": 12
   },
@@ -114,6 +114,46 @@
           {
             "type": "question-answered",
             "pageId": "authored-symmio-clearing-house-layer"
+          }
+        ]
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
+      "id": "fixture-qr-what-official-symmio-whitepaper-history-is-currently-available",
+      "type": "cited-answer",
+      "query": "What official Symmio whitepaper history is currently available?",
+      "expectedPageId": "authored-symmio-whitepaper-history-boundary",
+      "response": {
+        "requestId": "req-qr-what-official-symmio-whitepaper-history-is-currently-available",
+        "status": "answered",
+        "answer": "Symmio Whitepaper History Boundary is the cited answer route for this seeded question.",
+        "primaryPageId": "authored-symmio-whitepaper-history-boundary",
+        "citations": [
+          {
+            "id": "qr-what-official-symmio-whitepaper-history-is-currently-available-citation-1",
+            "pageId": "authored-symmio-whitepaper-history-boundary",
+            "pageTitle": "Symmio Whitepaper History Boundary",
+            "sourceKey": "symm-io-protocol-core-initial-commit",
+            "sourceHref": "https://github.com/SYMM-IO/protocol-core/commit/e40c16ddedff545e0cb51bc137102e835dcb8753",
+            "chunkIds": [
+              "authored-symmio-whitepaper-history-boundary::001"
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "text": "Symmio Whitepaper History Boundary is the cited answer route for this seeded question.",
+            "citationIds": [
+              "qr-what-official-symmio-whitepaper-history-is-currently-available-citation-1"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "type": "question-answered",
+            "pageId": "authored-symmio-whitepaper-history-boundary"
           }
         ]
       },
@@ -474,46 +514,6 @@
           {
             "type": "question-answered",
             "pageId": "authored-vibe-order-types"
-          }
-        ]
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-qr-how-do-tp-sl-orders-work-on-vibe",
-      "type": "cited-answer",
-      "query": "How do TP/SL orders work on Vibe?",
-      "expectedPageId": "authored-vibe-tpsl",
-      "response": {
-        "requestId": "req-qr-how-do-tp-sl-orders-work-on-vibe",
-        "status": "answered",
-        "answer": "Vibe Take Profit And Stop Loss is the cited answer route for this seeded question.",
-        "primaryPageId": "authored-vibe-tpsl",
-        "citations": [
-          {
-            "id": "qr-how-do-tp-sl-orders-work-on-vibe-citation-1",
-            "pageId": "authored-vibe-tpsl",
-            "pageTitle": "Vibe Take Profit And Stop Loss",
-            "sourceKey": "vibe-tpsl",
-            "sourceHref": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md",
-            "chunkIds": [
-              "authored-vibe-tpsl::001"
-            ]
-          }
-        ],
-        "paragraphs": [
-          {
-            "text": "Vibe Take Profit And Stop Loss is the cited answer route for this seeded question.",
-            "citationIds": [
-              "qr-how-do-tp-sl-orders-work-on-vibe-citation-1"
-            ]
-          }
-        ],
-        "events": [
-          {
-            "type": "question-answered",
-            "pageId": "authored-vibe-tpsl"
           }
         ]
       },

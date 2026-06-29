@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 773
+      "totalGoldenRoutes": 774
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 787,
-    "retrievalEligiblePages": 1579,
+    "publicNavigationPages": 788,
+    "retrievalEligiblePages": 1580,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 787,
+      "candidate": 788,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 773,
-    "exactRouteTestsPassing": 773,
+    "totalExactRouteTests": 774,
+    "exactRouteTestsPassing": 774,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 773
+      "candidate": 774
     },
     "exactRoutesByConfidence": {
-      "Medium": 483,
+      "Medium": 484,
       "High": 44,
       "Low": 246
     },
@@ -265,6 +265,41 @@
         "unknownSourceKeys": [],
         "chunkCount": 3,
         "faqEntryId": "faq-what-is-symmio",
+        "passes": true
+      },
+      {
+        "id": "qr-what-official-symmio-whitepaper-history-is-currently-available",
+        "query": "What official Symmio whitepaper history is currently available?",
+        "normalizedQuery": "what official symmio whitepaper history is currently available",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symmio-whitepaper-history-boundary",
+        "expectedPageTitle": "Symmio Whitepaper History Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "symm-io-protocol-core-initial-commit",
+          "symm-io-protocol-core-readme",
+          "symmio-docs-initial-commit",
+          "symmio-whitepaper-0-8-commit",
+          "symmio-whitepaper-0-8-pdf",
+          "symmio-earliest-docs",
+          "symmio-whitepaper",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "symm-io-protocol-core-initial-commit",
+          "symm-io-protocol-core-readme",
+          "symmio-docs-initial-commit",
+          "symmio-whitepaper-0-8-commit",
+          "symmio-whitepaper-0-8-pdf",
+          "symmio-earliest-docs",
+          "symmio-whitepaper",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-what-official-symmio-whitepaper-history-is-currently-available",
         "passes": true
       },
       {
@@ -18264,7 +18299,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 773,
+      "exactRoutes": 774,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

@@ -172,8 +172,24 @@ const symmioPublicKeys = [
   "symmio-options-partyb-close",
   "symmio-options-instant-layer",
 ];
-const symmioWhitepaperHistoryKeys = ["symmio-whitepaper", "symmio-earliest-docs", "symmio-original-whitepaper"];
-const symmioGithubKeys = ["symm-io-github", "symm-io-protocol-core", "symm-io-options-core", "symm-io-subgraphs", "symm-io-analytics"];
+const symmioWhitepaperHistoryKeys = [
+  "symmio-whitepaper",
+  "symmio-earliest-docs",
+  "symmio-docs-initial-commit",
+  "symmio-whitepaper-0-8-pdf",
+  "symmio-whitepaper-0-8-commit",
+  "symm-io-protocol-core-initial-commit",
+  "symmio-original-whitepaper",
+];
+const symmioGithubKeys = [
+  "symm-io-github",
+  "symm-io-protocol-core",
+  "symm-io-protocol-core-readme",
+  "symm-io-protocol-core-initial-commit",
+  "symm-io-options-core",
+  "symm-io-subgraphs",
+  "symm-io-analytics",
+];
 const superflowKeys = ["superflow-she-openapi"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
@@ -315,9 +331,9 @@ const requirements = [
     sourceSpecs: ["02", "04", "07"],
     presentKeys: symmioWhitepaperHistoryStatus.present,
     missingKeys: symmioWhitepaperHistoryStatus.missing,
-    evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} whitepaper/history source keys registered; original whitepaper/version comparison remains open until the exact original artifact is located.`,
+    evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} whitepaper/history source keys registered. Official Git evidence now covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; the exact original/oldest artifact remains open.`,
     blocks: !symmioWhitepaperHistoryStatus.complete && inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : [],
-    nextAction: "Locate and register the oldest whitepaper, archived docs, or Git history before publishing the origin story.",
+    nextAction: "Locate and register the exact original/oldest whitepaper or archived docs before publishing a 2021/origin-story comparison.",
   }),
   sourceReq({
     id: "symm-io-github",

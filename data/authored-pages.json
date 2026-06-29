@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 788,
+  "totalPages": 789,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 615,
+    "publication-candidate-needs-operator-review": 616,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -15,7 +15,7 @@
     "product-reference": 48,
     "rewards-referrals": 103,
     "dashboard-reference": 12,
-    "protocol-reference": 142,
+    "protocol-reference": 143,
     "competitive-context": 1,
     "reference": 1,
     "answer-engine": 1,
@@ -14981,6 +14981,43 @@
       "file": "content/authored/reference/symmio-solver-operations-and-hedging.md",
       "bodyMarkdown": "# Symmio Solver Operations And Hedging\n\nSymmio's solver docs define a solver as the PartyB side of the protocol. Traders send intents or quotes. Solver infrastructure listens for those events, checks whether the symbol is supported, whether the account is allowed, whether collateral is sufficient, and whether the price fits the solver's strategy. If the checks pass, the solver can lock the quote and open the position on-chain.\n\nThat makes a solver more than a passive liquidity label. The official role page says solvers manage capital allocation, market open-interest limits, settlement timing, API data for frontends, instant-trading delegation, and conditional-order services such as take-profit and stop-loss monitoring.\n\n## Hedging Is A Solver Policy, Not A Protocol Dependency\n\nThe hedging-strategies page describes a spectrum. A solver can try to remain close to delta-neutral by hedging elsewhere, or it can run partially hedged or unhedged like a market maker or prop desk. Symmio does not enforce one hedging style. The protocol enforces solvency rules.\n\nThe solving guide adds an important caveat for publication: off-chain hedging actions do not control on-chain contract behavior. The contracts operate independently of centralized exchanges, desks, or other hedging systems. Off-chain hedging can affect a solver's business risk, but the protocol's on-chain settlement rules remain separate.\n\n## Publication Boundary\n\nOlder solver materials include historical opportunity and APR language. This compendium should not reuse those as current claims. The source-backed operating claim is role and boundary: PartyB listens, validates, locks, opens, settles, provides frontend data, may hedge externally, and must stay solvent under protocol rules.\n\n## Sources\n\n- `symmio-solver-role`: official role of a liquidity provider/solver.\n- `symmio-hedging-strategies`: official hedging strategy overview.\n- `symmio-solving`: official solver-section caveats and protocol-isolation clarification.\n- `symmio-build-solver`: official solver-builder documentation index.\n\n## Related Pages\n\n- `authored-solver-event-monitoring`\n- `authored-solver-engine-operating-loop`\n- `authored-residual-counterparty-hedge-first`",
       "excerpt": "Symmio Solver Operations And Hedging Symmio's solver docs define a solver as the PartyB side of the protocol. Traders send intents or quotes. Solver infrastructure listens for those events, checks whether the symbol is supported, whether the account is allowed, whether collateral is sufficient, and whether the price fits the solver's strategy. If the checks pass, the solver can lock the quote and open the position on chain. That makes a solver more than a passive liquidity label. The official role page says solvers manage capital allocation, market open interest limits, settlement timing, API data for frontends, instant trading delegation, and conditional order services such as take profit and stop loss monitoring. Hedging Is A Solver Policy, Not A Protocol Dependency The hedging strategies page describes a spectrum. A solver can try to remain close to delta neutral by hedging elsewhere, or it can run partially hedged or unhedged like a market maker or prop desk. Symmio does not enforce one hedging style. The protocol enforces solvency rules. The solving guide adds an important caveat for publication: off chain hedging actions do not control on chain contract behavior. The contract"
+    },
+    {
+      "id": "authored-symmio-whitepaper-history-boundary",
+      "title": "Symmio Whitepaper History Boundary",
+      "section": "protocol-reference",
+      "track": "Source Ingestion",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "symm-io-protocol-core-initial-commit",
+        "symm-io-protocol-core-readme",
+        "symmio-docs-initial-commit",
+        "symmio-whitepaper-0-8-commit",
+        "symmio-whitepaper-0-8-pdf",
+        "symmio-earliest-docs",
+        "symmio-whitepaper",
+        "spec-04"
+      ],
+      "sourceUrls": [
+        "https://github.com/SYMM-IO/protocol-core/commit/e40c16ddedff545e0cb51bc137102e835dcb8753",
+        "https://github.com/SYMM-IO/protocol-core/blob/main/README.md",
+        "https://github.com/SYMM-IO/docs/commit/3e6e9687248cb48952d89cf7616b158d94373c54",
+        "https://github.com/SYMM-IO/docs/commit/e1715f85768b7f06933e91e41568422591729e16",
+        "https://github.com/SYMM-IO/docs/blob/main/Whitepaper/SYMMIO_paper_0_8.pdf",
+        "https://github.com/SYMM-IO/docs",
+        "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+        "_specs/app-docs/04-sources.md"
+      ],
+      "relatedGeneratedPages": [
+        "symmio-whitepaper",
+        "authored-symmio-clearing-house-layer",
+        "authored-bilateral-intent-lifecycle"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/symmio-whitepaper-history-boundary.md",
+      "bodyMarkdown": "# Symmio Whitepaper History Boundary\n\nThe current source map has useful official Symmio history evidence, but it still does not contain the exact original or oldest whitepaper artifact requested for the origin-story section.\n\nThe strongest confirmed lower bound is the official `SYMM-IO/protocol-core` repository. Its initial public commit is dated 2023-06-13 and added a small README for version 0.8 of the protocol implementation. The current protocol-core README frames SYMMIO as a trustless hybrid clearing house and intent-centric meta-derivatives engine, which supports the present-day protocol description.\n\nThe official `SYMM-IO/docs` repository starts later. Its initial public commit is dated 2023-08-22 and added hedger documentation. The first located whitepaper file in that repository is `Whitepaper/SYMMIO_paper_0_8.pdf`, introduced by commit `e1715f85768b7f06933e91e41568422591729e16` on 2023-11-16. The file then appears again in the repo history on 2024-01-30 through a follow-up bug-fix commit.\n\n## What This Proves\n\nThis proves that official GitHub history currently available in the source map includes:\n\n- a public protocol-core implementation starting on 2023-06-13;\n- a public docs repository starting on 2023-08-22;\n- a tracked SYMMIO paper v0.8 PDF introduced on 2023-11-16;\n- a current README that supports the hybrid clearing-house and intent-centric protocol framing.\n\n## What It Does Not Prove\n\nThis does not prove the exact original whitepaper, a 2021 artifact, a complete oldest-to-current version comparison, or any archived docs outside the current official repositories. Those claims remain parked under `G-007` and `OPERATOR-INBOX #6`.\n\nThe docs should therefore avoid saying \"the original whitepaper says...\" unless the original artifact is later recovered. The safer wording is: \"the earliest official GitHub evidence currently registered starts in 2023, and the first located whitepaper PDF in the official docs repo is SYMMIO paper v0.8.\"\n\n## Reader Implication\n\nWhen a reader asks for Symmio whitepaper history, route them here first. The answer should separate confirmed official repository evidence from the unresolved origin-story artifact. Current Symmio mechanics can still be cited from present docs and the current protocol-core README; historical claims should remain bounded until the missing artifact is supplied or excluded.\n\n## Sources\n\n- `symm-io-protocol-core-initial-commit`: protocol-core initial public commit from 2023-06-13.\n- `symm-io-protocol-core-readme`: current protocol-core README.\n- `symmio-docs-initial-commit`: official docs repository initial commit from 2023-08-22.\n- `symmio-whitepaper-0-8-commit`: commit introducing the v0.8 PDF on 2023-11-16.\n- `symmio-whitepaper-0-8-pdf`: official `SYMMIO_paper_0_8.pdf` in the docs repository.\n- `symmio-earliest-docs`: official SYMM-IO docs repository.\n- `symmio-whitepaper`: current Symmio whitepaper pointer.\n- `spec-04`: required source-family list naming the whitepaper/history gap.\n\n## Related Pages\n\n- `authored-symmio-clearing-house-layer`\n- `authored-bilateral-intent-lifecycle`\n- `symmio-whitepaper`",
+      "excerpt": "Symmio Whitepaper History Boundary The current source map has useful official Symmio history evidence, but it still does not contain the exact original or oldest whitepaper artifact requested for the origin story section. The strongest confirmed lower bound is the official SYMM IO/protocol core repository. Its initial public commit is dated 2023 06 13 and added a small README for version 0.8 of the protocol implementation. The current protocol core README frames SYMMIO as a trustless hybrid clearing house and intent centric meta derivatives engine, which supports the present day protocol description. The official SYMM IO/docs repository starts later. Its initial public commit is dated 2023 08 22 and added hedger documentation. The first located whitepaper file in that repository is Whitepaper/SYMMIO paper 0 8.pdf , introduced by commit e1715f85768b7f06933e91e41568422591729e16 on 2023 11 16. The file then appears again in the repo history on 2024 01 30 through a follow up bug fix commit. What This Proves This proves that official GitHub history currently available in the source map includes: a public protocol core implementation starting on 2023 06 13; a public docs repository start"
     },
     {
       "id": "authored-symmio-withdrawal-provider-system",
