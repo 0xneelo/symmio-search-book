@@ -1095,3 +1095,11 @@
 **Reason:** The broad Proof of Value and LP value-proposition pages explain why permissionless perps can create value, but answer-engine readers need exact routes for how the capital structure works. Splitting these pages makes the distinction between stable settlement capital and token inventory explicit, shows why generic USDC vaults can become too expensive, requires a gross-to-net LP economics bridge, explains project motives beyond fee share, and turns the flywheel into a testable alignment condition rather than a growth slogan.
 
 **Status:** Accepted for the authored manifesto layer; live revenue shares, vault rights, solver funding sources, reserve requirements, rehypothecation policy, hedge PnL ownership, loss ordering, partner claims, market eligibility, and graduation thresholds remain operator/accounting/legal/risk/implementation review.
+
+## D-138: Split USDC Risk Premium Derivation Into Exact Risk-Model Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the USDC risk methodology stack, expected-loss decomposition, profitable manipulation condition, liquidation/keeper fragility, and stress-correlation cascade.
+
+**Reason:** The broad required-risk-premium page explains that low-cap USDC backstops need high compensation, but answer-engine readers need direct routes for the mechanics underneath that conclusion. Splitting the derivation keeps game-theory attack logic, event-frequency/severity decomposition, liquidation execution risk, and correlated stress from being collapsed into one generic "risk premium" claim.
+
+**Status:** Accepted for the authored manifesto layer; live OI thresholds, manipulation-cost estimates, oracle parameters, liquidation windows, keeper incentives, insurance allocation, loss-waterfall behavior, capital charges, APRs, and market-specific risk weights remain operator/risk/legal/accounting/implementation review.

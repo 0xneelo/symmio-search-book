@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1290,
+  "readerPages": 1295,
   "totalVolumes": 8,
   "totalChapters": 99,
-  "pagesAssigned": 1290,
+  "pagesAssigned": 1295,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -3928,29 +3928,29 @@
       "title": "Token Margin, Pillars, And Funding Systems",
       "premise": "Collect token-margined perps, Vibe pillars, information/trade convergence, and funding model architecture.",
       "readerPromise": "Understand the infrastructure mechanics that make inventory-backed markets economically legible.",
-      "totalPages": 256,
+      "totalPages": 261,
       "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
       "overviewTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-      "authoredPages": 84,
+      "authoredPages": 89,
       "generatedPages": 172,
       "statusCounts": {
         "draft-extracted-from-primary-source": 118,
         "draft-imported-from-primary-source": 54,
         "publication-candidate": 15,
-        "publication-candidate-needs-operator-review": 69
+        "publication-candidate-needs-operator-review": 74
       },
       "granularityCounts": {
-        "authored-page": 84,
+        "authored-page": 89,
         "section-page": 118,
         "source-page": 54
       },
       "routeSourceCounts": {
-        "authored": 84,
+        "authored": 89,
         "generated": 172
       },
       "sectionCounts": {
         "compendium": 1,
-        "manifesto": 82,
+        "manifesto": 87,
         "protocol-reference": 1,
         "vision-papers": 54,
         "vision-sections": 118
@@ -3966,19 +3966,24 @@
         "authored-economic-clarity-for-permissionless-perps",
         "authored-incentive-based-attack-risk",
         "authored-risk-adjusted-capital-efficiency",
+        "authored-liquidation-keeper-fragility",
+        "authored-profitable-manipulation-condition",
         "authored-required-risk-premium-for-usdc-lps",
-        "authored-usdc-lp-backstop-cascade",
-        "authored-token-inventory-risk-localization",
-        "authored-active-risk-management-vs-passive-physics"
+        "authored-stress-correlation-cascade"
       ],
       "pageIds": [
         "authored-volume-04-token-margin-and-funding-systems",
         "authored-economic-clarity-for-permissionless-perps",
         "authored-incentive-based-attack-risk",
         "authored-risk-adjusted-capital-efficiency",
+        "authored-liquidation-keeper-fragility",
+        "authored-profitable-manipulation-condition",
         "authored-required-risk-premium-for-usdc-lps",
+        "authored-stress-correlation-cascade",
         "authored-usdc-lp-backstop-cascade",
         "authored-token-inventory-risk-localization",
+        "authored-usdc-expected-loss-decomposition",
+        "authored-usdc-risk-methodology-stack",
         "authored-active-risk-management-vs-passive-physics",
         "authored-passive-matcher-vulnerability",
         "authored-percolator-engineering-vs-economics",
@@ -4315,16 +4320,16 @@
           "title": "06 - USDC vs Token-Margined Perpetuals",
           "section": "manifesto",
           "track": "06 - USDC vs Token-Margined Perpetuals",
-          "totalPages": 21,
-          "authoredPages": 5,
+          "totalPages": 26,
+          "authoredPages": 10,
           "generatedPages": 16,
           "statusCounts": {
             "draft-extracted-from-primary-source": 9,
             "draft-imported-from-primary-source": 7,
-            "publication-candidate-needs-operator-review": 5
+            "publication-candidate-needs-operator-review": 10
           },
           "granularityCounts": {
-            "authored-page": 5,
+            "authored-page": 10,
             "section-page": 9,
             "source-page": 7
           },
@@ -4335,9 +4340,14 @@
           "pageIds": [
             "authored-incentive-based-attack-risk",
             "authored-risk-adjusted-capital-efficiency",
+            "authored-liquidation-keeper-fragility",
+            "authored-profitable-manipulation-condition",
             "authored-required-risk-premium-for-usdc-lps",
+            "authored-stress-correlation-cascade",
             "authored-usdc-lp-backstop-cascade",
             "authored-token-inventory-risk-localization",
+            "authored-usdc-expected-loss-decomposition",
+            "authored-usdc-risk-methodology-stack",
             "neelo-06-usdc-token-perps-06-docs-overview",
             "neelo-06-usdc-token-perps-06-docs-figure1",
             "neelo-06-usdc-token-perps-06-docs-figure2",
@@ -4383,6 +4393,32 @@
               ]
             },
             {
+              "id": "authored-liquidation-keeper-fragility",
+              "title": "Liquidation And Keeper Fragility",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-profitable-manipulation-condition",
+              "title": "Profitable Manipulation Condition",
+              "section": "manifesto",
+              "track": "06 - USDC vs Token-Margined Perpetuals",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
               "id": "authored-required-risk-premium-for-usdc-lps",
               "title": "Required Risk Premium For USDC LPs",
               "section": "manifesto",
@@ -4396,40 +4432,14 @@
               ]
             },
             {
-              "id": "authored-usdc-lp-backstop-cascade",
-              "title": "The USDC LP Backstop Cascade",
+              "id": "authored-stress-correlation-cascade",
+              "title": "Stress Correlation Cascade",
               "section": "manifesto",
               "track": "06 - USDC vs Token-Margined Perpetuals",
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
               "routeSource": "authored",
               "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-token-inventory-risk-localization",
-              "title": "Token Inventory Localizes Risk",
-              "section": "manifesto",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "neelo-06-usdc-token-perps-06-docs-overview",
-              "title": "01 — USDC vs Token-Margined Perpetuals",
-              "section": "vision-papers",
-              "track": "06 - USDC vs Token-Margined Perpetuals",
-              "granularity": "source-page",
-              "status": "draft-imported-from-primary-source",
-              "routeSource": "generated",
-              "volumeId": "",
               "sourceKeys": [
                 "vibe-papers"
               ]
@@ -10900,9 +10910,14 @@
     "authored-economic-clarity-for-permissionless-perps": "volume-04-token-margin-and-funding-systems",
     "authored-incentive-based-attack-risk": "volume-04-token-margin-and-funding-systems",
     "authored-risk-adjusted-capital-efficiency": "volume-04-token-margin-and-funding-systems",
+    "authored-liquidation-keeper-fragility": "volume-04-token-margin-and-funding-systems",
+    "authored-profitable-manipulation-condition": "volume-04-token-margin-and-funding-systems",
     "authored-required-risk-premium-for-usdc-lps": "volume-04-token-margin-and-funding-systems",
+    "authored-stress-correlation-cascade": "volume-04-token-margin-and-funding-systems",
     "authored-usdc-lp-backstop-cascade": "volume-04-token-margin-and-funding-systems",
     "authored-token-inventory-risk-localization": "volume-04-token-margin-and-funding-systems",
+    "authored-usdc-expected-loss-decomposition": "volume-04-token-margin-and-funding-systems",
+    "authored-usdc-risk-methodology-stack": "volume-04-token-margin-and-funding-systems",
     "authored-active-risk-management-vs-passive-physics": "volume-04-token-margin-and-funding-systems",
     "authored-passive-matcher-vulnerability": "volume-04-token-margin-and-funding-systems",
     "authored-percolator-engineering-vs-economics": "volume-04-token-margin-and-funding-systems",

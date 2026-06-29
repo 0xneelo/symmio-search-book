@@ -483,6 +483,11 @@ Questions are grouped by whether the current source set can answer them.
 | How should LP profit be decomposed? | `authored-lp-profit-decomposition-map` | Medium | Neelo's LP profit formula bridges gross market revenue to net risk-bearing result by naming costs, trader PnL share, hedge PnL, and shortfall. |
 | Why would projects participate beyond revenue share? | `authored-project-participation-beyond-revenue` | Medium | Neelo's trader/project value section says projects also seek token utility, community support, market visibility, and treasury productivity. |
 | What is the value reciprocity flywheel? | `authored-value-reciprocity-flywheel` | Medium | Neelo's source links projects, markets, traders, fee flow, LP revenue, and further project participation, but only if risk and value remain aligned. |
+| Why does USDC risk modeling need a methodology stack? | `authored-usdc-risk-methodology-stack` | Medium | Neelo combines game theory, tail-risk analysis, CAPM/Sharpe opportunity-cost logic, and option-pricing analogy because each answers a different part of low-cap LP risk. |
+| How should expected loss be decomposed for USDC LPs? | `authored-usdc-expected-loss-decomposition` | Medium | Neelo decomposes expected annual protocol loss into event frequency and severity across manipulation, oracle, imbalance, liquidation, correlation, and smart-contract risk. |
+| When does low-cap perp manipulation become profitable? | `authored-profitable-manipulation-condition` | Medium | Neelo frames manipulation as an economic game: if bad debt extracted exceeds the cost to manipulate price, the attack surface is structurally incentivized. |
+| Why are liquidations and keepers fragile in thin markets? | `authored-liquidation-keeper-fragility` | Medium | Neelo separates liquidation failure from oracle and imbalance risk because knowing a position is unsafe does not guarantee timely, economic closeout. |
+| Why do low-cap perp stress events cascade? | `authored-stress-correlation-cascade` | Medium | Neelo warns that manipulation, oracle movement, liquidation failure, backstop depletion, and market crashes can cluster rather than behave as independent risks. |
 
 ## Prototype Event Log
 

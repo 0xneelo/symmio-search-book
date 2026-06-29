@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 477
+      "totalGoldenRoutes": 482
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 495,
-    "retrievalEligiblePages": 1287,
+    "publicNavigationPages": 500,
+    "retrievalEligiblePages": 1292,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 495,
+      "candidate": 500,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 477,
-    "exactRouteTestsPassing": 477,
+    "totalExactRouteTests": 482,
+    "exactRouteTestsPassing": 482,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 477
+      "candidate": 482
     },
     "exactRoutesByConfidence": {
-      "Medium": 257,
+      "Medium": 262,
       "High": 44,
       "Low": 176
     },
@@ -10702,6 +10702,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-value-reciprocity-flywheel",
         "passes": true
+      },
+      {
+        "id": "qr-why-does-usdc-risk-modeling-need-a-methodology-stack",
+        "query": "Why does USDC risk modeling need a methodology stack?",
+        "normalizedQuery": "why does usdc risk modeling need a methodology stack",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-risk-methodology-stack",
+        "expectedPageTitle": "USDC Risk Methodology Stack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-usdc-risk-modeling-need-a-methodology-stack",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-expected-loss-be-decomposed-for-usdc-lps",
+        "query": "How should expected loss be decomposed for USDC LPs?",
+        "normalizedQuery": "how should expected loss be decomposed for usdc lps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-expected-loss-decomposition",
+        "expectedPageTitle": "USDC Expected Loss Decomposition",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-expected-loss-be-decomposed-for-usdc-lps",
+        "passes": true
+      },
+      {
+        "id": "qr-when-does-low-cap-perp-manipulation-become-profitable",
+        "query": "When does low-cap perp manipulation become profitable?",
+        "normalizedQuery": "when does low cap perp manipulation become profitable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-profitable-manipulation-condition",
+        "expectedPageTitle": "Profitable Manipulation Condition",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-does-low-cap-perp-manipulation-become-profitable",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-liquidations-and-keepers-fragile-in-thin-markets",
+        "query": "Why are liquidations and keepers fragile in thin markets?",
+        "normalizedQuery": "why are liquidations and keepers fragile in thin markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-liquidation-keeper-fragility",
+        "expectedPageTitle": "Liquidation And Keeper Fragility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-liquidations-and-keepers-fragile-in-thin-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-low-cap-perp-stress-events-cascade",
+        "query": "Why do low-cap perp stress events cascade?",
+        "normalizedQuery": "why do low cap perp stress events cascade",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-stress-correlation-cascade",
+        "expectedPageTitle": "Stress Correlation Cascade",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-low-cap-perp-stress-events-cascade",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10777,7 +10882,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 477,
+      "exactRoutes": 482,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

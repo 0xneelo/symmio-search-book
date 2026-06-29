@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 496,
+  "totalPages": 501,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 354,
+    "publication-candidate-needs-operator-review": 359,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 218,
+    "manifesto": 223,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -4061,6 +4061,29 @@
       "excerpt": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limited ways to act beyond posting. A shortable derivatives market changes that. Negative information can become an economic position. Critics can risk capital. Hype faces resistance earlier. That is the hardening mechanism: two sided price discovery tests a market before downstream venues must decide whether to list it. Why It Helps Order Books By the time a market graduates, it has not only shown narrative strength. It has survived leverage, short interest, volatility, solver pricing, liquidation behavior, and trader demand. That makes the later order book listing less dependent on appearances. The source therefore connects shorting to listing quality. A market that survives the \"NO button\" is more informative than one that only survived a marketing campaign. Sources vibe papers : Neelo, \"Section 5: Hardening the Lifecycle\". vibe pap"
     },
     {
+      "id": "authored-liquidation-keeper-fragility",
+      "title": "Liquidation And Keeper Fragility",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+        "authored-usdc-lp-backstop-cascade"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/liquidation-keeper-fragility.md",
+      "bodyMarkdown": "# Liquidation And Keeper Fragility\n\nNeelo's USDC risk model treats liquidation failure as its own risk event because correct pricing is not enough if the system cannot close unsafe exposure in time.\n\nIn thin markets, liquidation can fail for practical reasons: the reference market moves too quickly, a manipulation happens within a short block window, available liquidity is too shallow, or keeper economics do not justify fast execution during stress. The source therefore separates liquidation failure from oracle manipulation and from net-position imbalance. They can interact, but they are not the same failure.\n\nFor USDC LPs, this distinction matters. A pool can be exposed to bad debt even if the system knows a position is unsafe. If no reliable actor can execute the liquidation at an economically coherent price before losses exceed margin and backstop resources, the residual loss can move toward LP capital.\n\n## Documentation Rule\n\nDo not describe liquidation as a magic cleanup step. In low-cap markets, liquidation quality depends on executable liquidity, keeper incentives, timing, collateral, oracle behavior, and stress coordination.\n\n## Publication Boundary\n\nCurrent keeper incentives, liquidation thresholds, block timing assumptions, force-close behavior, and Vibe/Symmio implementation details require implementation and risk review. This page captures the source-model fragility, not a final live liquidation spec.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Risk Event Decomposition and Other Risk Events.\n\n## Related Pages\n\n- `authored-usdc-lp-backstop-cascade`\n- `authored-symmio-cross-margin-liquidations`\n- `authored-tail-event-profit-cap-emergency-brake`",
+      "excerpt": "Liquidation And Keeper Fragility Neelo's USDC risk model treats liquidation failure as its own risk event because correct pricing is not enough if the system cannot close unsafe exposure in time. In thin markets, liquidation can fail for practical reasons: the reference market moves too quickly, a manipulation happens within a short block window, available liquidity is too shallow, or keeper economics do not justify fast execution during stress. The source therefore separates liquidation failure from oracle manipulation and from net position imbalance. They can interact, but they are not the same failure. For USDC LPs, this distinction matters. A pool can be exposed to bad debt even if the system knows a position is unsafe. If no reliable actor can execute the liquidation at an economically coherent price before losses exceed margin and backstop resources, the residual loss can move toward LP capital. Documentation Rule Do not describe liquidation as a magic cleanup step. In low cap markets, liquidation quality depends on executable liquidity, keeper incentives, timing, collateral, oracle behavior, and stress coordination. Publication Boundary Current keeper incentives, liquidation"
+    },
+    {
       "id": "authored-liquidations-as-inventory-reallocation",
       "title": "Liquidations As Inventory Reallocation",
       "section": "manifesto",
@@ -5675,6 +5698,29 @@
       "file": "content/authored/manifesto/profitable-fact-checking-loop.md",
       "bodyMarkdown": "# Profitable Fact-Checking Loop\n\nThe source makes a sharp incentive claim: fact-checking becomes more scalable when it can be profitable.\n\nTraditional fact-checking often depends on reputation, duty, moderation, or public service. Those can matter, but they do not always move as fast as synthetic content and tokenized attention. A market can add another incentive: if a participant finds a false claim early and prices it correctly, they can earn from the correction.\n\nThat is the profitable fact-checking loop. Detect weak evidence. Express the negative view through a short. Let the market test the claim. If the claim breaks, the skeptic earns because they improved the price signal.\n\nThe docs should also state the boundary. Profit motive does not guarantee truth. Short sellers can be wrong, manipulative, or overlevered. The value of the loop is that it introduces an adversary to hype, not that it makes every adversary right.\n\n## Reader Implication\n\nVibe's short-side thesis is strongest when it is treated as an incentive system. The market pays participants who find and price fragile claims, while risk controls limit how destructive that process can become.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Missing NO Button: 4.2 The NO Button as Filter\".\n\n## Related Pages\n\n- `authored-short-sellers-as-fact-checkers`\n- `authored-ai-solver-verification-thesis`\n- `authored-market-price-as-verification`",
       "excerpt": "Profitable Fact Checking Loop The source makes a sharp incentive claim: fact checking becomes more scalable when it can be profitable. Traditional fact checking often depends on reputation, duty, moderation, or public service. Those can matter, but they do not always move as fast as synthetic content and tokenized attention. A market can add another incentive: if a participant finds a false claim early and prices it correctly, they can earn from the correction. That is the profitable fact checking loop. Detect weak evidence. Express the negative view through a short. Let the market test the claim. If the claim breaks, the skeptic earns because they improved the price signal. The docs should also state the boundary. Profit motive does not guarantee truth. Short sellers can be wrong, manipulative, or overlevered. The value of the loop is that it introduces an adversary to hype, not that it makes every adversary right. Reader Implication Vibe's short side thesis is strongest when it is treated as an incentive system. The market pays participants who find and price fragile claims, while risk controls limit how destructive that process can become. Sources vibe papers : Neelo, \"Section 4"
+    },
+    {
+      "id": "authored-profitable-manipulation-condition",
+      "title": "Profitable Manipulation Condition",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+        "authored-incentive-based-attack-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/profitable-manipulation-condition.md",
+      "bodyMarkdown": "# Profitable Manipulation Condition\n\nThe source's sharpest risk argument is that manipulation should not always be modeled as a random event.\n\nFor low-cap perp markets, the relevant question is whether manipulation is profitable:\n\n```\nExpected Profit = Bad Debt Extracted - Cost to Manipulate Price\n```\n\nIf expected profit is positive, rational attackers have an incentive to execute. Thin spot liquidity lowers the cost to move the reference market. High open interest raises the value of bad debt that can be created. Net-position imbalance determines which side becomes vulnerable. Oracle latency and liquidation infeasibility decide whether the system can react before the loss lands.\n\nThat is why the source treats \"probability\" differently for manipulation than for ordinary operational incidents. A profitable attack surface is a standing incentive, not a weather event.\n\n## Reader Implication\n\nDocs should teach low-cap market readers to compare open interest, spot liquidity, oracle design, imbalance, and liquidation feasibility. They should not imply that a thin market is safe because an historical probability estimate looks small.\n\n## Publication Boundary\n\nDo not publish live OI thresholds, manipulation-cost estimates, oracle details, liquidation windows, or market-specific attack profitability without current risk and implementation review. This page documents the source-model condition.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Attack Economics.\n\n## Related Pages\n\n- `authored-incentive-based-attack-risk`\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-usdc-expected-loss-decomposition`",
+      "excerpt": "Profitable Manipulation Condition The source's sharpest risk argument is that manipulation should not always be modeled as a random event. For low cap perp markets, the relevant question is whether manipulation is profitable: If expected profit is positive, rational attackers have an incentive to execute. Thin spot liquidity lowers the cost to move the reference market. High open interest raises the value of bad debt that can be created. Net position imbalance determines which side becomes vulnerable. Oracle latency and liquidation infeasibility decide whether the system can react before the loss lands. That is why the source treats \"probability\" differently for manipulation than for ordinary operational incidents. A profitable attack surface is a standing incentive, not a weather event. Reader Implication Docs should teach low cap market readers to compare open interest, spot liquidity, oracle design, imbalance, and liquidation feasibility. They should not imply that a thin market is safe because an historical probability estimate looks small. Publication Boundary Do not publish live OI thresholds, manipulation cost estimates, oracle details, liquidation windows, or market specifi"
     },
     {
       "id": "authored-programmatic-market-graduation",
@@ -8491,6 +8537,29 @@
       "excerpt": "Strategic Unhedged Exposure Boundary The DDQ source separates two ideas that should not be collapsed: a solver failing to hedge, and a solver intentionally carrying limited exposure. Failure means the solver is trapped in risk it cannot safely back, price, or unwind. Strategic unhedged exposure means the solver chooses, inside defined limits, to warehouse some risk because the market is mature enough, inventory is sufficient, or expected PnL justifies the balance sheet use. Why It Is Not The VibeCap Baseline The source is clear that newly listed low cap markets are hedge first. The solver should price risk, establish backing inventory, or refuse before accepting residual exposure. Strategic unhedged exposure belongs, if anywhere, in higher integrity markets where the solver has stronger data and explicit risk limits. This is also how the collateralization mental model fits. A market can begin closer to fully backed protocol side exposure and then become more capital efficient as liquidity, liquidation history, price integrity, and confidence improve. Unhedged exposure is a maturity privilege, not an early market default. Reader Implication For LPs, the boundary prevents a false gua"
     },
     {
+      "id": "authored-stress-correlation-cascade",
+      "title": "Stress Correlation Cascade",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+        "authored-usdc-expected-loss-decomposition"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/stress-correlation-cascade.md",
+      "bodyMarkdown": "# Stress Correlation Cascade\n\nThe risk-premium derivation warns that low-cap perp failures are not independent coins being flipped one at a time.\n\nMarket stress can cluster failures. A manipulation event can disturb the oracle, produce liquidation failures, drain local backstops, and leave LP capital with residual losses. A token crash can increase imbalance, make hedging harder, reduce backstop value, and worsen liquidation execution at the same time. This is the source's stress-correlation point: the combined loss can be larger than a simple sum of isolated event estimates.\n\nThat framing is why the source adds a cascade premium to the expected-loss calculation. The point is not only that each risk exists. The point is that the risks become more dangerous together, especially in low-liquidity markets where the same external shock affects price, execution, incentives, and available defense capital.\n\n## Reader Implication\n\nWhen docs explain low-cap USDC backstops, they should avoid a checklist tone where each risk appears solved independently. The user-facing question is whether the whole defense stack works during the same stress window.\n\n## Publication Boundary\n\nThe source's aggregate expected-loss ranges and cascade add-ons are model claims. Public docs can teach the correlation mechanism, but final capital charges, insurance allocation, loss waterfall behavior, and market-specific stress assumptions need operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Correlation and Cascading Effects.\n\n## Related Pages\n\n- `authored-usdc-expected-loss-decomposition`\n- `authored-usdc-lp-backstop-cascade`\n- `authored-loss-waterfall-and-profit-caps`",
+      "excerpt": "Stress Correlation Cascade The risk premium derivation warns that low cap perp failures are not independent coins being flipped one at a time. Market stress can cluster failures. A manipulation event can disturb the oracle, produce liquidation failures, drain local backstops, and leave LP capital with residual losses. A token crash can increase imbalance, make hedging harder, reduce backstop value, and worsen liquidation execution at the same time. This is the source's stress correlation point: the combined loss can be larger than a simple sum of isolated event estimates. That framing is why the source adds a cascade premium to the expected loss calculation. The point is not only that each risk exists. The point is that the risks become more dangerous together, especially in low liquidity markets where the same external shock affects price, execution, incentives, and available defense capital. Reader Implication When docs explain low cap USDC backstops, they should avoid a checklist tone where each risk appears solved independently. The user facing question is whether the whole defense stack works during the same stress window. Publication Boundary The source's aggregate expected l"
+    },
+    {
       "id": "authored-strict-listing-depth-policy",
       "title": "Strict Listing Policy Protects Depth",
       "section": "manifesto",
@@ -10269,6 +10338,29 @@
       "excerpt": "Universal Perp Wedge The Information/Trade source does not jump directly from verification crisis to every possible niche information market. It names a practical wedge first: the universal perp. That wedge matters because perps are already legible to crypto traders, market makers, and listing venues. If Vibe can make early derivatives markets possible for assets that do not yet have mature order books, it can collect the first serious evidence of demand, risk, volatility, solver appetite, and short side pressure. The source frames the long tail aggressively: any DEX token, any market cap, any liquidity. The publication safe version should keep the ambition while caveating the implementation. The compendium can say the wedge is broader long tail perp access. It should not promise literal support for every token or every liquidity condition until eligibility, oracle, solver, margin, and risk filters are confirmed. The strategic order is important. Universal perps are the wedge because they are a familiar derivatives primitive. More specialized information or reputation markets can come later if the system proves that solvers, vaults, and risk controls can price the long tail. Reader"
     },
     {
+      "id": "authored-usdc-expected-loss-decomposition",
+      "title": "USDC Expected Loss Decomposition",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-2-expected-annual-protocol-loss-model",
+        "authored-required-risk-premium-for-usdc-lps"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-expected-loss-decomposition.md",
+      "bodyMarkdown": "# USDC Expected Loss Decomposition\n\nThe risk-premium source decomposes expected annual protocol loss into event frequency and event severity:\n\n```\nEL_I = sum_j (p_j * L_j)\n```\n\nIn that frame, a USDC LP is not exposed to one generic \"protocol risk.\" The LP can be exposed to price-manipulation attacks, oracle manipulation, net-position imbalance, liquidation failure, backstop correlation, and smart-contract exploits. Each event has a different cause, frequency model, and severity profile.\n\nThis decomposition prevents the docs from collapsing all loss into trader PnL. Directional trader PnL is zero-sum inside the trading relationship. The expected-loss model is about protocol-level tail and design risk: bad debt, failed liquidations, backstop depletion, correlated stress, and other losses that can reach capital providers.\n\n## How To Use It\n\nFor public docs, the useful answer is the structure: name the event, identify whether it is economic, operational, correlation-based, or technical, and separate frequency from severity. The exact percentages in the source should remain model outputs until reviewed against current implementation, live market data, and approved publication language.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Expected Annual Protocol Loss Model.\n\n## Related Pages\n\n- `authored-usdc-lp-backstop-cascade`\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-stress-correlation-cascade`",
+      "excerpt": "USDC Expected Loss Decomposition The risk premium source decomposes expected annual protocol loss into event frequency and event severity: In that frame, a USDC LP is not exposed to one generic \"protocol risk.\" The LP can be exposed to price manipulation attacks, oracle manipulation, net position imbalance, liquidation failure, backstop correlation, and smart contract exploits. Each event has a different cause, frequency model, and severity profile. This decomposition prevents the docs from collapsing all loss into trader PnL. Directional trader PnL is zero sum inside the trading relationship. The expected loss model is about protocol level tail and design risk: bad debt, failed liquidations, backstop depletion, correlated stress, and other losses that can reach capital providers. How To Use It For public docs, the useful answer is the structure: name the event, identify whether it is economic, operational, correlation based, or technical, and separate frequency from severity. The exact percentages in the source should remain model outputs until reviewed against current implementation, live market data, and approved publication language. Sources vibe papers : Neelo, \"Required APR D"
+    },
+    {
       "id": "authored-usdc-lp-backstop-cascade",
       "title": "The USDC LP Backstop Cascade",
       "section": "manifesto",
@@ -10292,6 +10384,29 @@
       "file": "content/authored/manifesto/usdc-lp-backstop-cascade.md",
       "bodyMarkdown": "# The USDC LP Backstop Cascade\n\nNeelo's USDC-versus-token-vault source starts with a simple cascade: generic USDC LP capital sits behind a low-cap perp engine, while the underlying market may be thin, fast-moving, and easy to manipulate.\n\nThe important point is not that USDC is a bad settlement asset. Vibe's trader-facing collateral and settlement story still relies on USDC in the current product-reference pages. The problem is asking external stablecoin LPs to be the first generalized backstop for every long-tail market.\n\nIn the source model, trader leverage, thin spot liquidity, oracle manipulation, net-position imbalance, liquidation latency, and backstop correlation can all route into bad debt. The backstop fund absorbs the first loss, but residual losses reach the USDC LP pool. That means the LP is not just earning passive pool yield; the LP is underwriting market-structure failures.\n\n## Reader Implication\n\nWhen the docs compare USDC pools with token-vault or inventory-backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not \"USDC bad, token good.\" It is: stable settlement and generalized loss absorption are different jobs.\n\n## Publication Note\n\nThis page summarizes Neelo's source model. Final public docs need operator and implementation review before naming live market parameters, loss order, vault rights, or current Vibe/Symmio backstop guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"USDC vs Token-Margined Perpetuals\".\n- `vibe-papers`: Neelo, \"Figure1\".\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-funding-defense-hierarchy`",
       "excerpt": "The USDC LP Backstop Cascade Neelo's USDC versus token vault source starts with a simple cascade: generic USDC LP capital sits behind a low cap perp engine, while the underlying market may be thin, fast moving, and easy to manipulate. The important point is not that USDC is a bad settlement asset. Vibe's trader facing collateral and settlement story still relies on USDC in the current product reference pages. The problem is asking external stablecoin LPs to be the first generalized backstop for every long tail market. In the source model, trader leverage, thin spot liquidity, oracle manipulation, net position imbalance, liquidation latency, and backstop correlation can all route into bad debt. The backstop fund absorbs the first loss, but residual losses reach the USDC LP pool. That means the LP is not just earning passive pool yield; the LP is underwriting market structure failures. Reader Implication When the docs compare USDC pools with token vault or inventory backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not \"USDC bad, token good.\" It is: stable settlement and generalized loss absorption are different jobs. Public"
+    },
+    {
+      "id": "authored-usdc-risk-methodology-stack",
+      "title": "USDC Risk Methodology Stack",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-1-methodology-and-first-principles",
+        "authored-required-risk-premium-for-usdc-lps"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-risk-methodology-stack.md",
+      "bodyMarkdown": "# USDC Risk Methodology Stack\n\nNeelo's USDC risk-premium derivation is strongest when read as a stack of methods, not as one universal spreadsheet model.\n\nThe source uses rational-choice and game-theory logic for deliberate attacks: if the payoff from creating bad debt exceeds the cost of manipulation, the attack should be treated as economically likely rather than as a tiny random probability. It uses extreme-value thinking for tail risks because standard deviation can understate loss distributions where rare failures can be total. It uses CAPM and Sharpe-ratio language to ask whether stablecoin capital is receiving a competitive risk-adjusted return. It uses an option-pricing analogy because a passive LP can resemble a seller of tail-risk insurance.\n\nThat matters for documentation because each method answers a different question. Game theory asks whether an exploit is profitable. Tail-risk analysis asks how bad failure can become. CAPM asks what the capital could earn elsewhere. Option pricing asks what premium an LP should receive for absorbing volatility and adverse selection.\n\n## Publication Boundary\n\nThe source-model stack is useful for teaching why low-cap USDC backstops can be expensive. It should not be published as an audited risk model, live Vibe pricing system, or final LP-yield promise without operator, risk, accounting, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Methodology and First Principles.\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "USDC Risk Methodology Stack Neelo's USDC risk premium derivation is strongest when read as a stack of methods, not as one universal spreadsheet model. The source uses rational choice and game theory logic for deliberate attacks: if the payoff from creating bad debt exceeds the cost of manipulation, the attack should be treated as economically likely rather than as a tiny random probability. It uses extreme value thinking for tail risks because standard deviation can understate loss distributions where rare failures can be total. It uses CAPM and Sharpe ratio language to ask whether stablecoin capital is receiving a competitive risk adjusted return. It uses an option pricing analogy because a passive LP can resemble a seller of tail risk insurance. That matters for documentation because each method answers a different question. Game theory asks whether an exploit is profitable. Tail risk analysis asks how bad failure can become. CAPM asks what the capital could earn elsewhere. Option pricing asks what premium an LP should receive for absorbing volatility and adverse selection. Publication Boundary The source model stack is useful for teaching why low cap USDC backstops can be expens"
     },
     {
       "id": "authored-usdc-settlement-inventory-separation",

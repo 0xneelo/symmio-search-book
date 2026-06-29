@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 477,
+  "totalRoutes": 482,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 257,
+    "Medium": 262,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 477
+    "authored": 482
   },
   "answerable": [
     {
@@ -8371,6 +8371,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's source links projects, markets, traders, fee flow, LP revenue, and further project participation, but only if risk and value remain aligned.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-usdc-risk-modeling-need-a-methodology-stack",
+      "question": "Why does USDC risk modeling need a methodology stack?",
+      "normalizedQuestion": "why does usdc risk modeling need a methodology stack",
+      "pageId": "authored-usdc-risk-methodology-stack",
+      "pageTitle": "USDC Risk Methodology Stack",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo combines game theory, tail-risk analysis, CAPM/Sharpe opportunity-cost logic, and option-pricing analogy because each answers a different part of low-cap LP risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-should-expected-loss-be-decomposed-for-usdc-lps",
+      "question": "How should expected loss be decomposed for USDC LPs?",
+      "normalizedQuestion": "how should expected loss be decomposed for usdc lps",
+      "pageId": "authored-usdc-expected-loss-decomposition",
+      "pageTitle": "USDC Expected Loss Decomposition",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo decomposes expected annual protocol loss into event frequency and severity across manipulation, oracle, imbalance, liquidation, correlation, and smart-contract risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-when-does-low-cap-perp-manipulation-become-profitable",
+      "question": "When does low-cap perp manipulation become profitable?",
+      "normalizedQuestion": "when does low cap perp manipulation become profitable",
+      "pageId": "authored-profitable-manipulation-condition",
+      "pageTitle": "Profitable Manipulation Condition",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo frames manipulation as an economic game: if bad debt extracted exceeds the cost to manipulate price, the attack surface is structurally incentivized.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-liquidations-and-keepers-fragile-in-thin-markets",
+      "question": "Why are liquidations and keepers fragile in thin markets?",
+      "normalizedQuestion": "why are liquidations and keepers fragile in thin markets",
+      "pageId": "authored-liquidation-keeper-fragility",
+      "pageTitle": "Liquidation And Keeper Fragility",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo separates liquidation failure from oracle and imbalance risk because knowing a position is unsafe does not guarantee timely, economic closeout.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-low-cap-perp-stress-events-cascade",
+      "question": "Why do low-cap perp stress events cascade?",
+      "normalizedQuestion": "why do low cap perp stress events cascade",
+      "pageId": "authored-stress-correlation-cascade",
+      "pageTitle": "Stress Correlation Cascade",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo warns that manipulation, oracle movement, liquidation failure, backstop depletion, and market crashes can cluster rather than behave as independent risks.",
       "sourceKeys": [
         "vibe-papers"
       ],

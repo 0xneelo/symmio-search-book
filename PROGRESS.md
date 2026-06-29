@@ -826,6 +826,12 @@
 - Routed five new Ask questions so LPs, projects, traders, and operators can inspect the capital-structure and market-formation logic behind the broad Proof of Value thesis.
 - Kept live revenue shares, vault rights, solver funding sources, reserve policy, loss ordering, partner claims, eligibility, and graduation thresholds under operator/accounting/legal/risk/implementation review.
 
+## 2026-06-29 — USDC Risk Premium Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's USDC risk-premium derivation: methodology stack, expected-loss decomposition, profitable manipulation condition, liquidation/keeper fragility, and stress-correlation cascades.
+- Routed five new Ask questions so LPs, solvers, risk reviewers, and market-structure readers can inspect the low-cap USDC backstop model one mechanism at a time.
+- Kept live OI thresholds, manipulation-cost estimates, oracle design, liquidation windows, keeper incentives, insurance allocations, loss-waterfall behavior, and capital charges under operator/risk/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
