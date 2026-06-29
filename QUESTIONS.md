@@ -593,6 +593,11 @@ Questions are grouped by whether the current source set can answer them.
 | What is the short summary of the perp categorization framework? | `authored-perp-framework-summary` | Medium | The source summary compresses the framework into matching, collateralization, and insurance tradeoffs. |
 | How does Neelo map the existing perp protocol landscape? | `authored-existing-perp-landscape-overview` | Medium | The landscape section groups protocols by architecture cluster and uses those clusters to expose the market-bootstrap gap. |
 | Why do synchronous fully netted order-book protocols struggle with unknown markets? | `authored-synchronous-netted-order-book-protocols` | Medium | The source says order books are efficient when counterparties already exist, but an empty book cannot create the missing opposite side at bootstrap. |
+| What are asynchronous fully collateralized vault protocols? | `authored-collateralized-vault-protocols` | Medium | Neelo's landscape source says vault protocols can serve one-sided flow by making LP capital the counterparty, but that pushes cost and risk into caps, fees, spreads, and collateral requirements. |
+| Why do async-netted perp experiments fail at bootstrap? | `authored-async-netted-failed-experiments` | Medium | The source says async-netted systems can create profitable exposure before any defined payer exists, and funding incentives cannot force the missing counterparty to appear. |
+| Why are hybrid perp approaches only partial solutions? | `authored-hybrid-perp-partial-solutions` | Medium | Neelo treats hybrid labels as incomplete unless the design explains solver capital, residual imbalance, and how the market moves through lifecycle stages. |
+| What does the perp landscape comparison show? | `authored-landscape-comparative-analysis` | Medium | The comparative table shows each architecture trading off permissionless listing, capital efficiency, counterparty guarantees, bootstrap ability, and scale. |
+| How does Neelo formalize the bootstrap trilemma? | `authored-bootstrap-trilemma-formal-constraint` | Medium | The formal constraint says a single static architecture struggles to satisfy permissionless listing, capital efficiency, and reliable counterparty guarantees at the same time. |
 
 ## Prototype Event Log
 

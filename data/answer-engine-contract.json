@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 587
+      "totalGoldenRoutes": 592
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 605,
-    "retrievalEligiblePages": 1397,
+    "publicNavigationPages": 610,
+    "retrievalEligiblePages": 1402,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 605,
+      "candidate": 610,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 587,
-    "exactRouteTestsPassing": 587,
+    "totalExactRouteTests": 592,
+    "exactRouteTestsPassing": 592,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 587
+      "candidate": 592
     },
     "exactRoutesByConfidence": {
-      "Medium": 367,
+      "Medium": 372,
       "High": 44,
       "Low": 176
     },
@@ -13012,6 +13012,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-do-synchronous-fully-netted-order-book-protocols-struggle-with-unknown-markets",
         "passes": true
+      },
+      {
+        "id": "qr-what-are-asynchronous-fully-collateralized-vault-protocols",
+        "query": "What are asynchronous fully collateralized vault protocols?",
+        "normalizedQuery": "what are asynchronous fully collateralized vault protocols",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-collateralized-vault-protocols",
+        "expectedPageTitle": "Asynchronous Fully Collateralized Vault Protocols",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-asynchronous-fully-collateralized-vault-protocols",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-async-netted-perp-experiments-fail-at-bootstrap",
+        "query": "Why do async-netted perp experiments fail at bootstrap?",
+        "normalizedQuery": "why do async netted perp experiments fail at bootstrap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-async-netted-failed-experiments",
+        "expectedPageTitle": "Async-Netted Perp Experiments Fail At The Payer Question",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-async-netted-perp-experiments-fail-at-bootstrap",
+        "passes": true
+      },
+      {
+        "id": "qr-why-are-hybrid-perp-approaches-only-partial-solutions",
+        "query": "Why are hybrid perp approaches only partial solutions?",
+        "normalizedQuery": "why are hybrid perp approaches only partial solutions",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-hybrid-perp-partial-solutions",
+        "expectedPageTitle": "Hybrid Perp Approaches Are Partial Solutions",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-hybrid-perp-approaches-only-partial-solutions",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-perp-landscape-comparison-show",
+        "query": "What does the perp landscape comparison show?",
+        "normalizedQuery": "what does the perp landscape comparison show",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-landscape-comparative-analysis",
+        "expectedPageTitle": "The Landscape Comparative Analysis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-perp-landscape-comparison-show",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-neelo-formalize-the-bootstrap-trilemma",
+        "query": "How does Neelo formalize the bootstrap trilemma?",
+        "normalizedQuery": "how does neelo formalize the bootstrap trilemma",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-trilemma-formal-constraint",
+        "expectedPageTitle": "Formalizing The Bootstrap Trilemma Constraint",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-neelo-formalize-the-bootstrap-trilemma",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -13087,7 +13192,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 587,
+      "exactRoutes": 592,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -8,16 +8,16 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 594,
-  "totalAnswerable": 587,
+  "totalEntries": 599,
+  "totalAnswerable": 592,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 90,
+    "Getting Started": 94,
     "Trading Flow": 32,
-    "Solvers And Settlement": 156,
+    "Solvers And Settlement": 157,
     "Risk And Markets": 68,
     "Revenue": 75,
     "Manifesto": 79,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 367,
+    "Medium": 372,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 587
+    "authored": 592
   },
   "byType": {
-    "answerable": 587,
+    "answerable": 592,
     "reconciliation": 7
   },
   "answerable": [
@@ -19080,6 +19080,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-asynchronous-fully-collateralized-vault-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What are asynchronous fully collateralized vault protocols?",
+      "normalizedQuestion": "what are asynchronous fully collateralized vault protocols",
+      "shortAnswer": "Neelo's landscape source says vault protocols can serve one-sided flow by making LP capital the counterparty, but that pushes cost and risk into caps, fees, spreads, and collateral requirements.",
+      "answerSummary": "Asynchronous Fully Collateralized Vault Protocols Neelo's second landscape category is the vault backed perp design: traders execute asynchronously against a collateral pool instead of waiting for another trader to appear at the same time. That design is useful at bootstrap. If a new market has only long demand, the vault can be the short side. If it has...",
+      "confidence": "Medium",
+      "pageId": "authored-collateralized-vault-protocols",
+      "pageTitle": "Asynchronous Fully Collateralized Vault Protocols",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-async-netted-perp-experiments-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why do async-netted perp experiments fail at bootstrap?",
+      "normalizedQuestion": "why do async netted perp experiments fail at bootstrap",
+      "shortAnswer": "The source says async-netted systems can create profitable exposure before any defined payer exists, and funding incentives cannot force the missing counterparty to appear.",
+      "answerSummary": "Async Netted Perp Experiments Fail At The Payer Question The async netted category looks like the most elegant answer to long tail perps. It promises asynchronous execution for permissionless listing and netted accounting for capital efficiency. In the abstract, that sounds like the best parts of vaults and order books. Neelo's landscape critique says the...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-failed-experiments",
+      "pageTitle": "Async-Netted Perp Experiments Fail At The Payer Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-hybrid-perp-approaches-only-partial-solutions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why are hybrid perp approaches only partial solutions?",
+      "normalizedQuestion": "why are hybrid perp approaches only partial solutions",
+      "shortAnswer": "Neelo treats hybrid labels as incomplete unless the design explains solver capital, residual imbalance, and how the market moves through lifecycle stages.",
+      "answerSummary": "Hybrid Perp Approaches Are Partial Solutions The hybrid category is where the landscape starts to point toward Vibe, but Neelo treats existing hybrids carefully. A hybrid label alone is not enough. The question is what the design actually combines, which lifecycle stage it serves, and whether it solves the counterparty, capital, and execution problems tog...",
+      "confidence": "Medium",
+      "pageId": "authored-hybrid-perp-partial-solutions",
+      "pageTitle": "Hybrid Perp Approaches Are Partial Solutions",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-perp-landscape-comparison-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does the perp landscape comparison show?",
+      "normalizedQuestion": "what does the perp landscape comparison show",
+      "shortAnswer": "The comparative table shows each architecture trading off permissionless listing, capital efficiency, counterparty guarantees, bootstrap ability, and scale.",
+      "answerSummary": "The Landscape Comparative Analysis The comparative table turns Neelo's protocol taxonomy into an audit checklist. It asks the same questions of each architecture: how does matching happen, who provides collateral, where does insurance sit, can the market bootstrap, can it scale, and what is the source time status? The important lesson is not a static leag...",
+      "confidence": "Medium",
+      "pageId": "authored-landscape-comparative-analysis",
+      "pageTitle": "The Landscape Comparative Analysis",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-neelo-formalize-the-bootstrap-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Neelo formalize the bootstrap trilemma?",
+      "normalizedQuestion": "how does neelo formalize the bootstrap trilemma",
+      "shortAnswer": "The formal constraint says a single static architecture struggles to satisfy permissionless listing, capital efficiency, and reliable counterparty guarantees at the same time.",
+      "answerSummary": "Formalizing The Bootstrap Trilemma Constraint Neelo formalizes the bootstrap problem as a constraint on single architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at mos...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-trilemma-formal-constraint",
+      "pageTitle": "Formalizing The Bootstrap Trilemma Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -38483,6 +38628,151 @@
       "pageSection": "manifesto",
       "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
       "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-asynchronous-fully-collateralized-vault-protocols",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What are asynchronous fully collateralized vault protocols?",
+      "normalizedQuestion": "what are asynchronous fully collateralized vault protocols",
+      "shortAnswer": "Neelo's landscape source says vault protocols can serve one-sided flow by making LP capital the counterparty, but that pushes cost and risk into caps, fees, spreads, and collateral requirements.",
+      "answerSummary": "Asynchronous Fully Collateralized Vault Protocols Neelo's second landscape category is the vault backed perp design: traders execute asynchronously against a collateral pool instead of waiting for another trader to appear at the same time. That design is useful at bootstrap. If a new market has only long demand, the vault can be the short side. If it has...",
+      "confidence": "Medium",
+      "pageId": "authored-collateralized-vault-protocols",
+      "pageTitle": "Asynchronous Fully Collateralized Vault Protocols",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-async-netted-perp-experiments-fail-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why do async-netted perp experiments fail at bootstrap?",
+      "normalizedQuestion": "why do async netted perp experiments fail at bootstrap",
+      "shortAnswer": "The source says async-netted systems can create profitable exposure before any defined payer exists, and funding incentives cannot force the missing counterparty to appear.",
+      "answerSummary": "Async Netted Perp Experiments Fail At The Payer Question The async netted category looks like the most elegant answer to long tail perps. It promises asynchronous execution for permissionless listing and netted accounting for capital efficiency. In the abstract, that sounds like the best parts of vaults and order books. Neelo's landscape critique says the...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-failed-experiments",
+      "pageTitle": "Async-Netted Perp Experiments Fail At The Payer Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-are-hybrid-perp-approaches-only-partial-solutions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why are hybrid perp approaches only partial solutions?",
+      "normalizedQuestion": "why are hybrid perp approaches only partial solutions",
+      "shortAnswer": "Neelo treats hybrid labels as incomplete unless the design explains solver capital, residual imbalance, and how the market moves through lifecycle stages.",
+      "answerSummary": "Hybrid Perp Approaches Are Partial Solutions The hybrid category is where the landscape starts to point toward Vibe, but Neelo treats existing hybrids carefully. A hybrid label alone is not enough. The question is what the design actually combines, which lifecycle stage it serves, and whether it solves the counterparty, capital, and execution problems tog...",
+      "confidence": "Medium",
+      "pageId": "authored-hybrid-perp-partial-solutions",
+      "pageTitle": "Hybrid Perp Approaches Are Partial Solutions",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-perp-landscape-comparison-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What does the perp landscape comparison show?",
+      "normalizedQuestion": "what does the perp landscape comparison show",
+      "shortAnswer": "The comparative table shows each architecture trading off permissionless listing, capital efficiency, counterparty guarantees, bootstrap ability, and scale.",
+      "answerSummary": "The Landscape Comparative Analysis The comparative table turns Neelo's protocol taxonomy into an audit checklist. It asks the same questions of each architecture: how does matching happen, who provides collateral, where does insurance sit, can the market bootstrap, can it scale, and what is the source time status? The important lesson is not a static leag...",
+      "confidence": "Medium",
+      "pageId": "authored-landscape-comparative-analysis",
+      "pageTitle": "The Landscape Comparative Analysis",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-neelo-formalize-the-bootstrap-trilemma",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How does Neelo formalize the bootstrap trilemma?",
+      "normalizedQuestion": "how does neelo formalize the bootstrap trilemma",
+      "shortAnswer": "The formal constraint says a single static architecture struggles to satisfy permissionless listing, capital efficiency, and reliable counterparty guarantees at the same time.",
+      "answerSummary": "Formalizing The Bootstrap Trilemma Constraint Neelo formalizes the bootstrap problem as a constraint on single architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at mos...",
+      "confidence": "Medium",
+      "pageId": "authored-bootstrap-trilemma-formal-constraint",
+      "pageTitle": "Formalizing The Bootstrap Trilemma Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

@@ -1,9 +1,9 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 606,
+  "totalPages": 611,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 443,
-    "publication-candidate": 143,
+    "publication-candidate-needs-operator-review": 447,
+    "publication-candidate": 144,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 328,
+    "manifesto": 333,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -242,6 +242,29 @@
       "excerpt": "Artifact Exposure And Boost Rules The artifact model turns opened packs into persistent assets. Each artifact can carry embedded point value, rarity, and optional boost fields. Those properties are economically sensitive. Embedded point value affects future exposure. Rarity affects secondary market pricing. Boosts affect user behavior if they change earning rates, eligibility, or utility. The docs should not present any boost as live until policy defines what the boost does, when it applies, whether it stacks, and how it is audited. The source also separates equipped and unequipped artifacts. Unequipped artifacts still retain embedded point exposure, while equipped artifacts may apply boosts under explicit policy rules. That distinction should be preserved because it changes how users reason about inventory. Publication Boundary Artifacts can be described as a possible reward object layer, not as a current rewards guarantee. A final page needs an artifact catalog, rarity classes, embedded point values, slot rules, boost formulas, stacking rules, transferability, and audit trail before users can treat artifacts as production economics. Sources vibe papers : Neelo, \"Section 12: Rewar"
     },
     {
+      "id": "authored-async-netted-failed-experiments",
+      "title": "Async-Netted Perp Experiments Fail At The Payer Question",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-4-category-3-asynchronous-fully-netted-the-failed-experiments"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-4-category-3-asynchronous-fully-netted-the-failed-experiments",
+        "authored-async-netted-no-payer-failure",
+        "authored-collateralization-payout-source"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/async-netted-failed-experiments.md",
+      "bodyMarkdown": "# Async-Netted Perp Experiments Fail At The Payer Question\n\nThe async-netted category looks like the most elegant answer to long-tail perps. It promises asynchronous execution for permissionless listing and netted accounting for capital efficiency. In the abstract, that sounds like the best parts of vaults and order books.\n\nNeelo's landscape critique says the combination breaks at market birth. Netted systems pay winners from losers. Asynchronous execution lets a trader enter before the opposite side exists. If the first trader is profitable before any offsetting counterparty appears, the market has created an obligation without a payer.\n\nDynamic funding does not remove that obligation. Funding can encourage balance after a market has participants, but it cannot force a rational short to arrive during a fast one-sided pump, and it cannot retroactively create collateral for a winning long that already needs to be paid. The system still needs a defined capitalized counterparty path before it accepts the trade.\n\nThe landscape version of this point is harsher than the broad trilemma summary: \"execute without matching, but pay only from matches\" is incoherent for a cold-start market. It may describe a balanced market after liquidity exists. It does not bootstrap the first profitable imbalance.\n\n## Publication Boundary\n\nThe source names Derp.fun, Imperial-style experiments, virtual counterparties, and community-backed variants as examples. Current project status, implementation details, market outcomes, and any public failure claims must be verified from current primary sources before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.4 Category 3: Asynchronous + Fully Netted (The Failed Experiments)\".\n\n## Related Pages\n\n- `authored-async-netted-no-payer-failure`\n- `authored-collateralization-payout-source`\n- `authored-static-perp-design-failures`",
+      "excerpt": "Async Netted Perp Experiments Fail At The Payer Question The async netted category looks like the most elegant answer to long tail perps. It promises asynchronous execution for permissionless listing and netted accounting for capital efficiency. In the abstract, that sounds like the best parts of vaults and order books. Neelo's landscape critique says the combination breaks at market birth. Netted systems pay winners from losers. Asynchronous execution lets a trader enter before the opposite side exists. If the first trader is profitable before any offsetting counterparty appears, the market has created an obligation without a payer. Dynamic funding does not remove that obligation. Funding can encourage balance after a market has participants, but it cannot force a rational short to arrive during a fast one sided pump, and it cannot retroactively create collateral for a winning long that already needs to be paid. The system still needs a defined capitalized counterparty path before it accepts the trade. The landscape version of this point is harsher than the broad trilemma summary: \"execute without matching, but pay only from matches\" is incoherent for a cold start market. It may d"
+    },
+    {
       "id": "authored-async-netted-no-payer-failure",
       "title": "The Async-Netted No-Payer Failure",
       "section": "manifesto",
@@ -457,6 +480,29 @@
       "file": "content/authored/manifesto/bootstrap-trilemma.md",
       "bodyMarkdown": "# The Bootstrap Trilemma\n\nThe central market-formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order-book conditions are present.\n\nNeelo's Vibe papers frame this as a three-way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it.\n\nVibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order-book-like liquidity once real flow proves itself.\n\n## Reader Implication\n\nFor a project, the question changes from \"can I persuade a venue to list me?\" to \"can I create enough credible trading demand that the market earns its next layer of liquidity?\" For a solver or LP, the question becomes whether the market's risk is priced well enough to justify carrying inventory or taking the other side.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma\".\n\n## Related Pages\n\n- `authored-intents-complete-order-books`\n- `authored-vibe-as-discovery-layer`\n- `neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma`",
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
+    },
+    {
+      "id": "authored-bootstrap-trilemma-formal-constraint",
+      "title": "Formalizing The Bootstrap Trilemma Constraint",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-1-formalizing-the-constraint"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma-4-1-formalizing-the-constraint",
+        "authored-bootstrap-trilemma",
+        "authored-static-perp-design-failures"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-trilemma-formal-constraint.md",
+      "bodyMarkdown": "# Formalizing The Bootstrap Trilemma Constraint\n\nNeelo formalizes the bootstrap problem as a constraint on single-architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two.\n\nPermissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes.\n\nThe tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async-netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer.\n\nThe formal constraint matters because it prevents the docs from treating Vibe as a UI preference. The lifecycle thesis is a response to a structural impossibility claim: if no single architecture can hold all three properties at every stage, then the market needs an architecture that changes as the market matures.\n\n## Reader Implication\n\nUse this page for the exact formal answer. Use `authored-bootstrap-trilemma` for the broader narrative, `authored-static-perp-design-failures` for category examples, and Vibe architecture pages for the proposed lifecycle response.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Bootstrap Trilemma: 4.1 Formalizing the Constraint\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-static-perp-design-failures`\n- `authored-markets-are-dynamic-not-static`",
+      "excerpt": "Formalizing The Bootstrap Trilemma Constraint Neelo formalizes the bootstrap problem as a constraint on single architecture perpetual protocols. At market birth, the protocol wants three properties at once: permissionless listing, capital efficiency, and reliable counterparty guarantees. The claim is that a static architecture can generally achieve at most two. Permissionless listing means a market can appear before a centralized venue or liquidity committee has already blessed it. Capital efficiency means the system does not lock excessive collateral for every possible payout. Reliable counterparty guarantees mean a winning trader can actually be paid when the trade closes. The tension is easiest to see by category. Order books can be efficient and reliable when counterparties exist, but they cannot guarantee execution when no opposite side is present. Vault systems can list and guarantee payouts earlier, but they pay for that guarantee with heavy LP capital and risk premiums. Async netted systems try to list and stay efficient, but the first profitable imbalance exposes the missing payer. The formal constraint matters because it prevents the docs from treating Vibe as a UI prefer"
     },
     {
       "id": "authored-break-even-versus-attractive-apr",
@@ -695,6 +741,29 @@
       "file": "content/authored/manifesto/collateralized-pools-finite-long-tail.md",
       "bodyMarkdown": "# Collateralized Pools Have A Finite Long Tail\n\nPool-style perp venues solve one part of the long-tail problem by making liquidity a protocol object. A trader does not need to wait for a fully populated order book if a pool can quote against oracle prices and absorb the other side.\n\nThat helps bootstrap some markets. It does not create an unlimited long tail. The same pooled collateral that gives a market a counterparty also creates risk concentration, oracle exposure, backstop mismatch, and TVL fragmentation. As the market list grows, capital either concentrates in majors or becomes too thin across tail assets to feel reliable.\n\nThe source frames this as \"listing outruns liquidity\" in another form. A pool can make a market appear earlier than a CLOB could, but the user still has to ask what backs PnL, how much tail TVL exists, what asset supplies the backstop, and whether the pool's collateral matches the token narrative being traded.\n\n## Why This Matters For Vibe\n\nVibe's token-inventory and solver-risk thesis should be read against this pool limitation. The goal is not merely to create a pool for every token. It is to match market-specific inventory, stable settlement, solver pricing, and risk controls to the phase of the market.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Collateralized Pools (GMX-style) and Finite Long Tails\".\n- `vibe-papers`: Neelo, \"Section 6: Summary - Model Map and Where the Gap Remains\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-hybrid-perps-comparative-advantage`",
       "excerpt": "Collateralized Pools Have A Finite Long Tail Pool style perp venues solve one part of the long tail problem by making liquidity a protocol object. A trader does not need to wait for a fully populated order book if a pool can quote against oracle prices and absorb the other side. That helps bootstrap some markets. It does not create an unlimited long tail. The same pooled collateral that gives a market a counterparty also creates risk concentration, oracle exposure, backstop mismatch, and TVL fragmentation. As the market list grows, capital either concentrates in majors or becomes too thin across tail assets to feel reliable. The source frames this as \"listing outruns liquidity\" in another form. A pool can make a market appear earlier than a CLOB could, but the user still has to ask what backs PnL, how much tail TVL exists, what asset supplies the backstop, and whether the pool's collateral matches the token narrative being traded. Why This Matters For Vibe Vibe's token inventory and solver risk thesis should be read against this pool limitation. The goal is not merely to create a pool for every token. It is to match market specific inventory, stable settlement, solver pricing, and "
+    },
+    {
+      "id": "authored-collateralized-vault-protocols",
+      "title": "Asynchronous Fully Collateralized Vault Protocols",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-3-category-2-asynchronous-fully-collateralized-vault-protocols"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-3-category-2-asynchronous-fully-collateralized-vault-protocols",
+        "authored-existing-perp-landscape-overview",
+        "authored-static-perp-design-failures"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/collateralized-vault-protocols.md",
+      "bodyMarkdown": "# Asynchronous Fully Collateralized Vault Protocols\n\nNeelo's second landscape category is the vault-backed perp design: traders execute asynchronously against a collateral pool instead of waiting for another trader to appear at the same time.\n\nThat design is useful at bootstrap. If a new market has only long demand, the vault can be the short side. If it has only short demand, the vault can be the long side. Oracle-based pricing and a capitalized liquidity pool make the market feel immediately tradable in a way an empty order book cannot.\n\nThe cost is that the counterparty guarantee becomes an LP balance-sheet problem. The pool has to stand behind winning trader PnL, absorb directional risk, and price that risk through fees, spreads, leverage limits, open-interest caps, asset mix, or other controls. The source's GMX-style example shows the core tradeoff: a vault can make execution available before two-sided flow exists, but it must reserve enough capital to survive the trader side winning.\n\nThis is why the vault category should not be described as a failure. It is a stage-fit solution. It can make one-sided markets tradeable earlier. It struggles to become the dominant long-tail model because every new market asks LP capital to accept asset-specific risk before the market has proved depth, hedging demand, and balanced flow.\n\n## Publication Boundary\n\nThe source uses GMX v1, Gains, and Wasabi as examples. Current fee schedules, vault composition, open-interest caps, supported assets, keeper models, product status, and exact venue comparisons must be refreshed from primary sources before publishing live protocol comparisons.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.3 Category 2: Asynchronous + Fully Collateralized (Vault Protocols)\".\n\n## Related Pages\n\n- `authored-existing-perp-landscape-overview`\n- `authored-static-perp-design-failures`\n- `authored-collateralized-pools-finite-long-tail`",
+      "excerpt": "Asynchronous Fully Collateralized Vault Protocols Neelo's second landscape category is the vault backed perp design: traders execute asynchronously against a collateral pool instead of waiting for another trader to appear at the same time. That design is useful at bootstrap. If a new market has only long demand, the vault can be the short side. If it has only short demand, the vault can be the long side. Oracle based pricing and a capitalized liquidity pool make the market feel immediately tradable in a way an empty order book cannot. The cost is that the counterparty guarantee becomes an LP balance sheet problem. The pool has to stand behind winning trader PnL, absorb directional risk, and price that risk through fees, spreads, leverage limits, open interest caps, asset mix, or other controls. The source's GMX style example shows the core tradeoff: a vault can make execution available before two sided flow exists, but it must reserve enough capital to survive the trader side winning. This is why the vault category should not be described as a failure. It is a stage fit solution. It can make one sided markets tradeable earlier. It struggles to become the dominant long tail model be"
     },
     {
       "id": "authored-competitive-docs-benchmark",
@@ -4071,6 +4140,29 @@
       "excerpt": "The House Of All Finance Needs A Proving Ground The Part II conclusion turns the order book praise into a systems claim: order books are the final layer, but they should not be forced to guess which markets deserve final layer infrastructure. If a venue wants to become the house of all finance, it needs more than a powerful top layer. It needs a proving ground beneath that top layer where early markets can reveal demand, survive risk, and produce evidence before admission. From Political Listing To Market Question The source's strongest sentence is conceptual: Vibe turns listing from a political question into a market question. That is the whole compendium thesis in market structure form. Instead of asking whether a token has enough narrative force to win a listing, the system can ask whether the market has shown enough real trading behavior to move upward. This is why Vibe's docs should not position the product as a terminal replacement for mature markets. The stronger stance is contrarian but cooperative: Vibe gives immature markets a place to prove themselves, then the mature execution layer can do what it does best. Reader Implication For readers coming from Hyperliquid, Binanc"
     },
     {
+      "id": "authored-hybrid-perp-partial-solutions",
+      "title": "Hybrid Perp Approaches Are Partial Solutions",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-5-category-4-hybrid-approaches-partial-solutions"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-5-category-4-hybrid-approaches-partial-solutions",
+        "authored-bootstrap-thesis-statement",
+        "authored-markets-are-dynamic-not-static"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/hybrid-perp-partial-solutions.md",
+      "bodyMarkdown": "# Hybrid Perp Approaches Are Partial Solutions\n\nThe hybrid category is where the landscape starts to point toward Vibe, but Neelo treats existing hybrids carefully. A hybrid label alone is not enough. The question is what the design actually combines, which lifecycle stage it serves, and whether it solves the counterparty, capital, and execution problems together.\n\nVirtual AMM designs are one partial answer. They can offer continuous pricing without a traditional order book, but AMM formulas built for spot assets can become awkward when used for perpetual exposure, funding, oracle alignment, and manipulation resistance.\n\nIntent-based systems are the more relevant partial answer. A trader can express the desired outcome, and solvers can compete or coordinate to fill it. That creates an asynchronous interface and can allow batching or netting behind the scenes. But the solver still needs capital, risk controls, pricing discipline, and a path for imbalanced flow.\n\nThe source's point is that hybrid is not a magic word. A useful hybrid architecture must specify when the market is vault-like, when it is solver-backed, when it can become netted, when it can graduate toward order-book efficiency, and who pays when the market is still one-sided.\n\n## Publication Boundary\n\nThe source mentions Perpetual Protocol v1-style virtual AMMs and intent-based perpetual systems as category examples. Current implementation state, launch status, solver design, market outcomes, and any comparison to live Vibe infrastructure require fresh primary-source and operator/product/risk review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.5 Category 4: Hybrid Approaches (Partial Solutions)\".\n\n## Related Pages\n\n- `authored-bootstrap-thesis-statement`\n- `authored-markets-are-dynamic-not-static`\n- `authored-hybrid-retrofit-is-new-protocol`",
+      "excerpt": "Hybrid Perp Approaches Are Partial Solutions The hybrid category is where the landscape starts to point toward Vibe, but Neelo treats existing hybrids carefully. A hybrid label alone is not enough. The question is what the design actually combines, which lifecycle stage it serves, and whether it solves the counterparty, capital, and execution problems together. Virtual AMM designs are one partial answer. They can offer continuous pricing without a traditional order book, but AMM formulas built for spot assets can become awkward when used for perpetual exposure, funding, oracle alignment, and manipulation resistance. Intent based systems are the more relevant partial answer. A trader can express the desired outcome, and solvers can compete or coordinate to fill it. That creates an asynchronous interface and can allow batching or netting behind the scenes. But the solver still needs capital, risk controls, pricing discipline, and a path for imbalanced flow. The source's point is that hybrid is not a magic word. A useful hybrid architecture must specify when the market is vault like, when it is solver backed, when it can become netted, when it can graduate toward order book efficiency"
+    },
+    {
       "id": "authored-hybrid-perps-comparative-advantage",
       "title": "Hybrid Perps Comparative Advantage",
       "section": "manifesto",
@@ -4616,6 +4708,29 @@
       "file": "content/authored/manifesto/jit-liquidity-duration-mismatch.md",
       "bodyMarkdown": "# JIT Liquidity Duration Mismatch\n\nPercolator can support atomic deposit-and-trade style liquidity, but Neelo's Section 6 critique says that does not make the capital commitment short-lived. Once the trade creates open positions, capital remains locked in the slab for the duration of those positions.\n\nThat is the duration mismatch. The LP may arrive just in time for execution, but the balance sheet cannot necessarily leave just in time afterward. The execution event is atomic; the obligation is not.\n\nThe source contrasts this with RFQ-style systems such as Symmio, where market makers can keep capital off-chain until needed and commit to a quoted bilateral flow. That does not remove counterparty risk, but it changes when capital is immobilized and who chooses to accept it.\n\n## Why It Is Not Just A UX Difference\n\nFor professional liquidity, duration matters as much as price. A maker can quote aggressively if capital is committed for a defined trade window and repriced as conditions change. If the same capital becomes locked until user positions exit, the maker must charge for duration, liquidity loss, and adverse selection.\n\nThis is why \"JIT liquidity exists\" is not enough. The important question is whether the system offers JIT execution, JIT risk acceptance, or JIT capital release. Percolator's source critique says the third piece remains constrained by slab obligations.\n\n## Reader Implication\n\nWhen docs compare passive on-chain slabs to RFQ or intent systems, do not collapse them into \"both can source liquidity on demand.\" The decisive distinction is how long capital stays committed after demand appears.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Capital Inefficiency and Historical Precedent\", \"6.1.3 JIT Limitation\".\n\n## Related Pages\n\n- `authored-rfq-before-order-book`\n- `authored-intents-solver-compact`\n- `authored-solver-owned-market-maker`",
       "excerpt": "JIT Liquidity Duration Mismatch Percolator can support atomic deposit and trade style liquidity, but Neelo's Section 6 critique says that does not make the capital commitment short lived. Once the trade creates open positions, capital remains locked in the slab for the duration of those positions. That is the duration mismatch. The LP may arrive just in time for execution, but the balance sheet cannot necessarily leave just in time afterward. The execution event is atomic; the obligation is not. The source contrasts this with RFQ style systems such as Symmio, where market makers can keep capital off chain until needed and commit to a quoted bilateral flow. That does not remove counterparty risk, but it changes when capital is immobilized and who chooses to accept it. Why It Is Not Just A UX Difference For professional liquidity, duration matters as much as price. A maker can quote aggressively if capital is committed for a defined trade window and repriced as conditions change. If the same capital becomes locked until user positions exit, the maker must charge for duration, liquidity loss, and adverse selection. This is why \"JIT liquidity exists\" is not enough. The important questi"
+    },
+    {
+      "id": "authored-landscape-comparative-analysis",
+      "title": "The Landscape Comparative Analysis",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-6-comparative-analysis-table"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-03-landscape-3-6-comparative-analysis-table",
+        "authored-existing-perp-landscape-overview",
+        "authored-perp-framework-summary"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/landscape-comparative-analysis.md",
+      "bodyMarkdown": "# The Landscape Comparative Analysis\n\nThe comparative table turns Neelo's protocol taxonomy into an audit checklist. It asks the same questions of each architecture: how does matching happen, who provides collateral, where does insurance sit, can the market bootstrap, can it scale, and what is the source-time status?\n\nThe important lesson is not a static league table. It is the pattern underneath the table. Synchronous netted systems score well on scale once two-sided liquidity exists, but poorly on bootstrap. Asynchronous fully collateralized systems score well on bootstrap, but poorly on scale because LP capital bears the residual risk. Async-netted systems appear to solve both, but fail the payout guarantee. Hybrid systems are promising only if they define how the market changes stage over time.\n\nFor the compendium, this table should become a reader-facing diagnostic. When someone asks why Vibe needs a lifecycle model, the answer is visible in the columns: no single static row gives permissionless listing, capital efficiency, and reliable counterparty guarantees across the whole market lifecycle.\n\n## Publication Boundary\n\nThe source-time table includes protocols such as Hyperliquid, dYdX, GMX v1, Gains, Derp.fun, and Vibe. Current market leadership, status labels, matching architecture, collateral treatment, insurance behavior, supported assets, and scale/bootstrapping outcomes must be verified from current primary sources before publication as live comparison.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Landscape of Existing Protocols: 3.6 Comparative Analysis Table\".\n\n## Related Pages\n\n- `authored-existing-perp-landscape-overview`\n- `authored-perp-framework-summary`\n- `authored-bootstrap-trilemma`",
+      "excerpt": "The Landscape Comparative Analysis The comparative table turns Neelo's protocol taxonomy into an audit checklist. It asks the same questions of each architecture: how does matching happen, who provides collateral, where does insurance sit, can the market bootstrap, can it scale, and what is the source time status? The important lesson is not a static league table. It is the pattern underneath the table. Synchronous netted systems score well on scale once two sided liquidity exists, but poorly on bootstrap. Asynchronous fully collateralized systems score well on bootstrap, but poorly on scale because LP capital bears the residual risk. Async netted systems appear to solve both, but fail the payout guarantee. Hybrid systems are promising only if they define how the market changes stage over time. For the compendium, this table should become a reader facing diagnostic. When someone asks why Vibe needs a lifecycle model, the answer is visible in the columns: no single static row gives permissionless listing, capital efficiency, and reliable counterparty guarantees across the whole market lifecycle. Publication Boundary The source time table includes protocols such as Hyperliquid, dYdX,"
     },
     {
       "id": "authored-last-primitive",

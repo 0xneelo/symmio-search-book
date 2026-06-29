@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 587,
+  "totalRoutes": 592,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 367,
+    "Medium": 372,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 587
+    "authored": 592
   },
   "answerable": [
     {
@@ -10241,6 +10241,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "The source says order books are efficient when counterparties already exist, but an empty book cannot create the missing opposite side at bootstrap.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-are-asynchronous-fully-collateralized-vault-protocols",
+      "question": "What are asynchronous fully collateralized vault protocols?",
+      "normalizedQuestion": "what are asynchronous fully collateralized vault protocols",
+      "pageId": "authored-collateralized-vault-protocols",
+      "pageTitle": "Asynchronous Fully Collateralized Vault Protocols",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's landscape source says vault protocols can serve one-sided flow by making LP capital the counterparty, but that pushes cost and risk into caps, fees, spreads, and collateral requirements.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-async-netted-perp-experiments-fail-at-bootstrap",
+      "question": "Why do async-netted perp experiments fail at bootstrap?",
+      "normalizedQuestion": "why do async netted perp experiments fail at bootstrap",
+      "pageId": "authored-async-netted-failed-experiments",
+      "pageTitle": "Async-Netted Perp Experiments Fail At The Payer Question",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The source says async-netted systems can create profitable exposure before any defined payer exists, and funding incentives cannot force the missing counterparty to appear.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-are-hybrid-perp-approaches-only-partial-solutions",
+      "question": "Why are hybrid perp approaches only partial solutions?",
+      "normalizedQuestion": "why are hybrid perp approaches only partial solutions",
+      "pageId": "authored-hybrid-perp-partial-solutions",
+      "pageTitle": "Hybrid Perp Approaches Are Partial Solutions",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo treats hybrid labels as incomplete unless the design explains solver capital, residual imbalance, and how the market moves through lifecycle stages.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-perp-landscape-comparison-show",
+      "question": "What does the perp landscape comparison show?",
+      "normalizedQuestion": "what does the perp landscape comparison show",
+      "pageId": "authored-landscape-comparative-analysis",
+      "pageTitle": "The Landscape Comparative Analysis",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The comparative table shows each architecture trading off permissionless listing, capital efficiency, counterparty guarantees, bootstrap ability, and scale.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-neelo-formalize-the-bootstrap-trilemma",
+      "question": "How does Neelo formalize the bootstrap trilemma?",
+      "normalizedQuestion": "how does neelo formalize the bootstrap trilemma",
+      "pageId": "authored-bootstrap-trilemma-formal-constraint",
+      "pageTitle": "Formalizing The Bootstrap Trilemma Constraint",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The formal constraint says a single static architecture struggles to satisfy permissionless listing, capital efficiency, and reliable counterparty guarantees at the same time.",
       "sourceKeys": [
         "vibe-papers"
       ],

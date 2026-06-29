@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Landscape And Trilemma Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score landscape and bootstrap-trilemma source.
+- Split the incumbent landscape and formal constraint into exact answer routes for collateralized vault protocols, async-netted failed experiments, partial hybrid approaches, comparative landscape analysis, and the formal bootstrap trilemma.
+- Extended the question ledger so Ask can route vault, async-netted, hybrid, landscape-table, and formal-trilemma questions without collapsing them into the broad bootstrap-trilemma page.
+- Kept live protocol details, venue metrics, fee/cap parameters, project status labels, funding mechanics, failure examples, current implementations, and production guarantees marked for fresh source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Perp Framework Landscape Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score framework and landscape source.

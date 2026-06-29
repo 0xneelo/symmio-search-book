@@ -1271,3 +1271,11 @@
 **Reason:** The broad framework and trilemma pages explain the axes, but answer-engine readers also need direct routes for why the vocabulary exists, what it implies for lifecycle design, how to remember the table, how the source maps incumbent categories, and why order-book systems are mature-market endpoints rather than bootstrap engines.
 
 **Status:** Accepted for the authored manifesto layer; live venue metrics, HIP-3 auction data, current dYdX/Hyperliquid/CEX architecture details, market counts, listing policies, insurance behavior, and production graduation rules remain fresh source/operator/product/risk review.
+
+## D-160: Split The Perp Landscape And Trilemma Constraint Into Exact Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for asynchronous fully collateralized vault protocols, async-netted failed experiments, hybrid partial solutions, the landscape comparative analysis table, and formalizing the bootstrap trilemma constraint.
+
+**Reason:** The broad landscape, static-design failure, and bootstrap-trilemma pages explain the category-level argument, but answer-engine readers need direct routes into each source heading. Splitting the landscape keeps vault-stage fit, async-netted no-payer mechanics, hybrid incompleteness, comparative-table interpretation, and the formal three-property constraint separately answerable.
+
+**Status:** Accepted for the authored manifesto layer; live protocol details, venue metrics, fee/cap parameters, funding mechanics, project status labels, current implementations, and production guarantees remain fresh source/operator/product/risk/legal/implementation review.
