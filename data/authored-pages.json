@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 681,
+  "totalPages": 686,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 508,
+    "publication-candidate-needs-operator-review": 513,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 398,
+    "manifesto": 403,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -4654,6 +4654,29 @@
       "excerpt": "Hyperliquid As Perp Infrastructure Neelo uses Hyperliquid to show how permissionless listing can move closer to derivatives while still serving a later lifecycle stage. The source frames Hyperliquid as high performance perp infrastructure: a custom L1, on chain order book, and large daily volume at source time. Its importance is not just performance. It also shows that perp listing is becoming more programmable. HIP 3 As A Listing Mechanism The source reads HIP 3 as a permissionless listing mechanism with a financial barrier. Anyone can bid, but not every project can afford to win or sustain the market. That makes HIP 3 more open than a purely manual committee process, yet still biased toward tokens with capital, community, and enough established demand to justify the listing effort. This is why Neelo places Hyperliquid near Binance in the late stage part of the lifecycle. The form of access changes, but order book markets still need liquidity, depth, maker participation, and credible demand. Spot Markets And The Middle Hyperliquid also has spot markets, but the source keeps the same lifecycle distinction. Smaller projects may find DEX spot easier because a pool can exist without t"
     },
     {
+      "id": "authored-hypothetical-permissionless-perps-model",
+      "title": "The Hypothetical Permissionless Perps Model",
+      "section": "manifesto",
+      "track": "03 - Listing Monopoly",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis#5-3-what-the-hypothetical-solution-would-look-like"
+      ],
+      "relatedGeneratedPages": [
+        "section-03-listing-monopoly-03-docs-05-permissionless-perps-hypothesis-5-3-what-the-hypothetical-solution-would-look-like",
+        "authored-gap-filling-perps-protocol",
+        "authored-permissionless-perps-lifecycle-position"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/hypothetical-permissionless-perps-model.md",
+      "bodyMarkdown": "# The Hypothetical Permissionless Perps Model\n\nNeelo's hypothetical model has three phases: bootstrap, maturation, and graduation.\n\nThe problem is the same lifecycle discontinuity: tokens can reach DEX spot early, while perp markets usually appear much later. In the middle, spot can trade but derivatives are absent.\n\nThe bootstrap phase gives the market an initial counterparty or liquidity path so the perp can exist before natural two-sided liquidity forms. The maturation phase measures whether the market is becoming real: volume, spread behavior, open interest, liquidation performance, persistence, and other quality signals. The graduation phase lets sufficiently mature markets move toward deeper order-book venues or coexist with later-stage perp listings.\n\n## Lifecycle Continuity\n\nThe model creates a continuous path:\n\nfair launch -> DEX spot -> permissionless perp bootstrap -> mature perp venue.\n\nThat path is complementary to later venues. A permissionless bootstrap layer can create evidence before the order book arrives. Later venues can then list markets with better information, or the bootstrap market can keep serving assets that never become large enough for the deepest venues.\n\n## Publication Boundary\n\nThis is explicitly a source model and hypothesis. Do not publish it as final Vibe product mechanics, a confirmed automatic graduation pipeline, a current listing policy, a guaranteed solver obligation, or an approved venue integration without operator/product/risk/legal/implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: A Hypothetical Permissionless Perps Protocol: 5.3 What the Hypothetical Solution Would Look Like\".\n\n## Related Pages\n\n- `authored-gap-filling-perps-protocol`\n- `authored-permissionless-perps-lifecycle-position`\n- `authored-listing-plus-liquidity-thesis`",
+      "excerpt": "The Hypothetical Permissionless Perps Model Neelo's hypothetical model has three phases: bootstrap, maturation, and graduation. The problem is the same lifecycle discontinuity: tokens can reach DEX spot early, while perp markets usually appear much later. In the middle, spot can trade but derivatives are absent. The bootstrap phase gives the market an initial counterparty or liquidity path so the perp can exist before natural two sided liquidity forms. The maturation phase measures whether the market is becoming real: volume, spread behavior, open interest, liquidation performance, persistence, and other quality signals. The graduation phase lets sufficiently mature markets move toward deeper order book venues or coexist with later stage perp listings. Lifecycle Continuity The model creates a continuous path: fair launch DEX spot permissionless perp bootstrap mature perp venue. That path is complementary to later venues. A permissionless bootstrap layer can create evidence before the order book arrives. Later venues can then list markets with better information, or the bootstrap market can keep serving assets that never become large enough for the deepest venues. Publication Bounda"
+    },
+    {
       "id": "authored-improve-before-replacing",
       "title": "Improve Before Replacing",
       "section": "manifesto",
@@ -5220,6 +5243,29 @@
       "excerpt": "Leverage Makes Exploit Resistance Non Negotiable Neelo's Vibe Pillars source starts from a hard premise: a perpetual market is a credit system. A trader posts margin and receives larger exposure than the collateral alone would buy. That leverage makes exploit resistance non negotiable. The design has to stop value from leaving the system faster than collateral, liquidation, oracle, execution, and tail risk controls can defend it. Otherwise the venue may be live in a technical sense while being economically unsafe. Beyond Contract Security Exploit resistance is broader than \"the contract was not hacked.\" The source names market structure failure modes: bad debt, delayed liquidation, manipulation, insolvency, and tail events that can push losses into the protocol or residual risk takers. This matters most in thin markets. Mature order books reduce some residual exposure because natural counterparties often meet at execution time. Long tail assets often lack that synchronous liquidity, so Vibe has to preserve defense while still making early markets possible. Reader Implication When readers ask why Vibe needs margin rules, liquidation logic, oracle discipline, quote refusal, or risk c"
     },
     {
+      "id": "authored-lifecycle-gap-as-opportunity",
+      "title": "The Lifecycle Gap As Opportunity",
+      "section": "manifesto",
+      "track": "03 - Listing Monopoly",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-7-the-gap-as-opportunity"
+      ],
+      "relatedGeneratedPages": [
+        "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-7-the-gap-as-opportunity",
+        "authored-lifecycle-gap-consequences",
+        "authored-gap-filling-perps-protocol"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/lifecycle-gap-as-opportunity.md",
+      "bodyMarkdown": "# The Lifecycle Gap As Opportunity\n\nNeelo's opportunity claim follows directly from the gap diagnosis.\n\nIf tokens can graduate into DEX spot long before they receive perp access, then the missing interval is not only a market defect. It is a strategic opening for a protocol that can make derivatives tradeable before conventional venues are ready.\n\nThe source names four parts of that opening: an underserved asset band, clear demand for exposure and protection, strategic value in connecting early and late stages, and first-mover advantage because incumbents do not naturally serve the segment.\n\n## What The Opportunity Is\n\nThe opportunity is not \"list every token forever.\"\n\nIt is to provide a bridge where spot demand already exists but mature derivatives are absent. Traders want leverage or short expression. Holders want hedges. Projects want market validation. Later venues want evidence. A protocol that can serve that interval can become the layer where derivative demand is first observed.\n\n## Publication Boundary\n\nThe source uses approximate market-cap bands and first-mover language. Treat those as strategic framework claims, not current Vibe eligibility, market-size promises, live demand proof, or investment claims. Exact addressable market and product thresholds need operator/product/risk/legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.7 The Gap as Opportunity\".\n\n## Related Pages\n\n- `authored-lifecycle-gap-consequences`\n- `authored-gap-filling-perps-protocol`\n- `authored-permissionless-perps-lifecycle-position`",
+      "excerpt": "The Lifecycle Gap As Opportunity Neelo's opportunity claim follows directly from the gap diagnosis. If tokens can graduate into DEX spot long before they receive perp access, then the missing interval is not only a market defect. It is a strategic opening for a protocol that can make derivatives tradeable before conventional venues are ready. The source names four parts of that opening: an underserved asset band, clear demand for exposure and protection, strategic value in connecting early and late stages, and first mover advantage because incumbents do not naturally serve the segment. What The Opportunity Is The opportunity is not \"list every token forever.\" It is to provide a bridge where spot demand already exists but mature derivatives are absent. Traders want leverage or short expression. Holders want hedges. Projects want market validation. Later venues want evidence. A protocol that can serve that interval can become the layer where derivative demand is first observed. Publication Boundary The source uses approximate market cap bands and first mover language. Treat those as strategic framework claims, not current Vibe eligibility, market size promises, live demand proof, or "
+    },
+    {
       "id": "authored-lifecycle-gap-consequences",
       "title": "Consequences Of The Lifecycle Gap",
       "section": "manifesto",
@@ -5288,6 +5334,29 @@
       "file": "content/authored/manifesto/lifecycle-gap-scale-problem.md",
       "bodyMarkdown": "# The Scale Of The Lifecycle Gap\n\nNeelo's scale argument is simple: token creation is abundant, but perp market creation is scarce.\n\nThe source contrasts daily token launches and large launchpad throughput with the much smaller number of tokens that ever receive perpetual markets on major venues. Even if the exact counts change, the structural ratio is the important claim. Permissionless issuance created far more assets than existing derivative infrastructure can serve.\n\nThe same gap is even sharper in lending. Long-tail tokens rarely have liquid borrowing markets unless they use isolated designs, and those designs still need collateral, risk controls, and users willing to supply liquidity.\n\n## What Scale Changes\n\nScale changes the problem from listing review to infrastructure design.\n\nIf there were only a few new assets, manual venue selection could be enough. When thousands of assets appear and only a tiny fraction can receive mature derivatives, the market needs a filtering and bootstrap layer. Otherwise, price discovery stays concentrated in spot markets and late-stage venues inherit only the already-obvious survivors.\n\n## Publication Boundary\n\nDo not publish the source's launch counts, venue counts, or ratios as current live facts without fresh primary-source review. The source supports the directional scale mismatch: token issuance massively outpaces perp and lending market availability.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.4 Scale of the Problem\".\n\n## Related Pages\n\n- `authored-valley-of-death-lifecycle-gap`\n- `authored-market-creation-gap`\n- `authored-why-lifecycle-gap-exists`",
       "excerpt": "The Scale Of The Lifecycle Gap Neelo's scale argument is simple: token creation is abundant, but perp market creation is scarce. The source contrasts daily token launches and large launchpad throughput with the much smaller number of tokens that ever receive perpetual markets on major venues. Even if the exact counts change, the structural ratio is the important claim. Permissionless issuance created far more assets than existing derivative infrastructure can serve. The same gap is even sharper in lending. Long tail tokens rarely have liquid borrowing markets unless they use isolated designs, and those designs still need collateral, risk controls, and users willing to supply liquidity. What Scale Changes Scale changes the problem from listing review to infrastructure design. If there were only a few new assets, manual venue selection could be enough. When thousands of assets appear and only a tiny fraction can receive mature derivatives, the market needs a filtering and bootstrap layer. Otherwise, price discovery stays concentrated in spot markets and late stage venues inherit only the already obvious survivors. Publication Boundary Do not publish the source's launch counts, venue "
+    },
+    {
+      "id": "authored-lifecycle-gap-summary",
+      "title": "Lifecycle Gap Summary",
+      "section": "manifesto",
+      "track": "03 - Listing Monopoly",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-8-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-8-summary",
+        "authored-lifecycle-gap-definition",
+        "authored-listing-plus-liquidity-thesis"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/lifecycle-gap-summary.md",
+      "bodyMarkdown": "# Lifecycle Gap Summary\n\nNeelo's lifecycle-gap summary reduces Section 4 to one claim: the distance from DEX graduation to perp availability is a structural inefficiency in crypto markets.\n\nThat inefficiency disconnects early fair-launch and DEX ecosystems from later institutional infrastructure. It leaves spot markets to carry speculative demand without the derivative instruments that support hedging, shorting, leverage, and richer price discovery.\n\nThe summary also sets up the next move in the paper. If the gap is real, then the next question is not just whether markets can be listed. The question is whether a protocol can turn an early listing into a tradeable, measured, maturing derivatives market.\n\n## Bridge To Section 5\n\nSection 4 diagnoses the gap. Section 4Z sharpens the liquidity requirement. Section 5 asks what a permissionless perp protocol would need to do if it tried to fill the missing lifecycle stage.\n\nThat sequence matters for the compendium. It prevents the reader from mistaking permissionless perps for a symbol-creation feature. The thesis is lifecycle continuity plus bootstrap liquidity.\n\n## Publication Boundary\n\nUse this as a source-backed summary of Neelo's lifecycle-gap argument. Do not treat it as final evidence that any current product has fully solved the gap, integrated with later venues, or created approved graduation paths.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: The Lifecycle Gap: 4.8 Summary\".\n\n## Related Pages\n\n- `authored-lifecycle-gap-definition`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-permissionless-perps-lifecycle-position`",
+      "excerpt": "Lifecycle Gap Summary Neelo's lifecycle gap summary reduces Section 4 to one claim: the distance from DEX graduation to perp availability is a structural inefficiency in crypto markets. That inefficiency disconnects early fair launch and DEX ecosystems from later institutional infrastructure. It leaves spot markets to carry speculative demand without the derivative instruments that support hedging, shorting, leverage, and richer price discovery. The summary also sets up the next move in the paper. If the gap is real, then the next question is not just whether markets can be listed. The question is whether a protocol can turn an early listing into a tradeable, measured, maturing derivatives market. Bridge To Section 5 Section 4 diagnoses the gap. Section 4Z sharpens the liquidity requirement. Section 5 asks what a permissionless perp protocol would need to do if it tried to fill the missing lifecycle stage. That sequence matters for the compendium. It prevents the reader from mistaking permissionless perps for a symbol creation feature. The thesis is lifecycle continuity plus bootstrap liquidity. Publication Boundary Use this as a source backed summary of Neelo's lifecycle gap argum"
     },
     {
       "id": "authored-lifecycle-gates-as-market-power",
@@ -7620,6 +7689,29 @@
       "excerpt": "The Percolator Wave Meets Settlement Reality The listing notes treat the Percolator wave as a serious attempt to reopen permissionless perp listing. The interesting part is not whether the contracts can create markets quickly. It is whether the markets have an economic path to pay winners when flow is one sided. Percolator style systems can make entry asynchronous: a trader can open exposure before a deep book exists. But settlement still requires an economic counterparty. If many traders are long and there are no shorts, no deep LP layer, and no inventory path sized for the risk, then open interest can exist while payout reliability remains fragile. That is the settlement reality. The UI may show a market. The contract may accept positions. The trader may think they bought exposure to the underlying. The economic object can still be a claim on future contra flow or a thin internal balance sheet. Reader Implication The docs should separate permissionless market creation from permissionless market solvency. Fast listing is valuable only if the design also explains who pays, what collateral backs the payout, how imbalance is priced, and what happens when the other side never arrives."
     },
     {
+      "id": "authored-permissionless-derivatives-thesis",
+      "title": "The Permissionless Derivatives Thesis",
+      "section": "manifesto",
+      "track": "03 - Listing Monopoly",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis#5-2-the-permissionless-derivatives-thesis"
+      ],
+      "relatedGeneratedPages": [
+        "section-03-listing-monopoly-03-docs-05-permissionless-perps-hypothesis-5-2-the-permissionless-derivatives-thesis",
+        "authored-permissionless-infrastructure-evolution",
+        "authored-uniswap-permissionless-swapping"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/permissionless-derivatives-thesis.md",
+      "bodyMarkdown": "# The Permissionless Derivatives Thesis\n\nNeelo's permissionless derivatives thesis extends the history of crypto infrastructure.\n\nBitcoin made value transfer permissionless. Ethereum made contracts permissionless. Uniswap made swapping permissionless. PumpFun-style launchpads made token creation dramatically cheaper and more open. The next logical layer is permissionless derivatives: markets that let risk transfer, leverage, hedging, and short exposure become available without a manual listing gate.\n\nThe thesis is not that derivatives are merely another trading product. Derivatives complete the expressive range of a market. Spot lets participants buy or sell the asset. Perps can add leverage, short exposure, hedging, funding, liquidation discipline, and a more demanding form of price discovery.\n\n## Why This Belongs In Listing Monopoly\n\nListing control is strongest where access is scarce. Spot access became more open through DEXs, but derivative access remains comparatively gated.\n\nThat is why the permissionless derivatives thesis belongs inside a listing-monopoly argument. The unfinished permissionless frontier is not token creation or spot swapping. It is systematic derivatives access for assets that already have visible demand but no mature perp venue.\n\n## Publication Boundary\n\nThis page supports the infrastructure-sequence thesis. It does not claim that all derivatives can be safely permissionless today, that every token is eligible for production markets, or that leverage/shorting/hedging are universally available under current Vibe policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: A Hypothetical Permissionless Perps Protocol: 5.2 The Permissionless Derivatives Thesis\".\n\n## Related Pages\n\n- `authored-permissionless-infrastructure-evolution`\n- `authored-permissionless-perps-lifecycle-position`\n- `authored-hypothetical-permissionless-perps-model`",
+      "excerpt": "The Permissionless Derivatives Thesis Neelo's permissionless derivatives thesis extends the history of crypto infrastructure. Bitcoin made value transfer permissionless. Ethereum made contracts permissionless. Uniswap made swapping permissionless. PumpFun style launchpads made token creation dramatically cheaper and more open. The next logical layer is permissionless derivatives: markets that let risk transfer, leverage, hedging, and short exposure become available without a manual listing gate. The thesis is not that derivatives are merely another trading product. Derivatives complete the expressive range of a market. Spot lets participants buy or sell the asset. Perps can add leverage, short exposure, hedging, funding, liquidation discipline, and a more demanding form of price discovery. Why This Belongs In Listing Monopoly Listing control is strongest where access is scarce. Spot access became more open through DEXs, but derivative access remains comparatively gated. That is why the permissionless derivatives thesis belongs inside a listing monopoly argument. The unfinished permissionless frontier is not token creation or spot swapping. It is systematic derivatives access for as"
+    },
+    {
       "id": "authored-permissionless-infrastructure-evolution",
       "title": "The Evolution Of Permissionless Infrastructure",
       "section": "manifesto",
@@ -7665,6 +7757,29 @@
       "file": "content/authored/manifesto/permissionless-perps-as-market-infrastructure.md",
       "bodyMarkdown": "# Permissionless Perps As Market Infrastructure\n\nThe closing move of Section 7 is that permissionless perps are infrastructure, not only a new trading feature.\n\nFor crypto markets, the infrastructure claim is market completeness. If every token can develop a derivative surface, traders get more ways to express long and short views, hedge holdings, discover price, and test demand before a mature venue listing exists.\n\nFor DeFi, the infrastructure claim is composability. Perp positions, funding behavior, hedges, and risk metrics can become inputs to lending, yield strategies, risk management, research, and market-quality scoring.\n\nFor the industry, the infrastructure claim is fairness and transparency. Market access can move away from opaque gatekeeping and toward observed activity, risk, and maturation data. That does not remove judgment, but it gives judgment a better evidence base.\n\n## Stakeholder Summary\n\n| Stakeholder | Infrastructure effect |\n| --- | --- |\n| Traders | Access to long, short, leveraged, and hedged exposure earlier |\n| LPs / inventory providers | New stage-specific yield and risk-bearing roles |\n| Projects | A market-creation path that can prove demand |\n| Exchanges | De-risked downstream listing evidence |\n| Ecosystem | A more continuous token lifecycle |\n| Industry | More transparent, rule-based market development |\n\n## Publication Boundary\n\nThis page should be published as a thesis summary, not a claim that every token currently has a Vibe perp, every venue consumes Vibe data, or every DeFi integration exists. Those live status claims require current product and partner evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications: 7.6 Broader Implications\".\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications: 7.7 Summary\".\n\n## Related Pages\n\n- `authored-permissionless-perps-vision-restated`\n- `authored-market-lifecycle-industry-implications`\n- `authored-vibe-market-evolution-architecture-summary`",
       "excerpt": "Permissionless Perps As Market Infrastructure The closing move of Section 7 is that permissionless perps are infrastructure, not only a new trading feature. For crypto markets, the infrastructure claim is market completeness. If every token can develop a derivative surface, traders get more ways to express long and short views, hedge holdings, discover price, and test demand before a mature venue listing exists. For DeFi, the infrastructure claim is composability. Perp positions, funding behavior, hedges, and risk metrics can become inputs to lending, yield strategies, risk management, research, and market quality scoring. For the industry, the infrastructure claim is fairness and transparency. Market access can move away from opaque gatekeeping and toward observed activity, risk, and maturation data. That does not remove judgment, but it gives judgment a better evidence base. Stakeholder Summary Stakeholder Infrastructure effect Traders Access to long, short, leveraged, and hedged exposure earlier LPs / inventory providers New stage specific yield and risk bearing roles Projects A market creation path that can prove demand Exchanges De risked downstream listing evidence Ecosystem "
+    },
+    {
+      "id": "authored-permissionless-perps-lifecycle-position",
+      "title": "Where Permissionless Perps Sit In The Lifecycle",
+      "section": "manifesto",
+      "track": "03 - Listing Monopoly",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis#5-1-position-in-the-lifecycle"
+      ],
+      "relatedGeneratedPages": [
+        "section-03-listing-monopoly-03-docs-05-permissionless-perps-hypothesis-5-1-position-in-the-lifecycle",
+        "authored-listing-plus-liquidity-thesis",
+        "authored-lifecycle-gap-summary"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/permissionless-perps-lifecycle-position.md",
+      "bodyMarkdown": "# Where Permissionless Perps Sit In The Lifecycle\n\nNeelo positions permissionless perps in the missing middle of the token lifecycle.\n\nThe protocol class is not aimed at brand-new tokens before any spot trading exists. It is also not aimed at the deepest mature markets that already qualify for major order-book or CEX derivatives venues. It sits between those poles: tokens already trading on DEXs, but not yet served by serious perp infrastructure.\n\nSection 4Z is important here. The source says \"permissionless perpetuals\" cannot mean only that anyone can open a market. The market also needs tradeable liquidity. Without a bootstrap path, a permissionless perp is only an empty listing object.\n\n## The Lifecycle Slot\n\nThe lifecycle slot is:\n\nlaunch or fair launch -> DEX spot -> permissionless perp bootstrap -> mature order-book or CEX derivative venue.\n\nThat slot gives Vibe's thesis a disciplined shape. It is not trying to replace every downstream venue. It is trying to create the missing layer that lets demand become measurable before a downstream venue can justify deeper execution.\n\n## Publication Boundary\n\nThis page supports a strategic lifecycle position. It does not confirm current Vibe eligibility, universal market creation, automatic graduation, downstream venue handoff, or exact bootstrap liquidity obligations.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: A Hypothetical Permissionless Perps Protocol: 5.1 Position in the Lifecycle\".\n\n## Related Pages\n\n- `authored-listing-plus-liquidity-thesis`\n- `authored-hypothetical-permissionless-perps-model`\n- `authored-gap-filling-perps-protocol`",
+      "excerpt": "Where Permissionless Perps Sit In The Lifecycle Neelo positions permissionless perps in the missing middle of the token lifecycle. The protocol class is not aimed at brand new tokens before any spot trading exists. It is also not aimed at the deepest mature markets that already qualify for major order book or CEX derivatives venues. It sits between those poles: tokens already trading on DEXs, but not yet served by serious perp infrastructure. Section 4Z is important here. The source says \"permissionless perpetuals\" cannot mean only that anyone can open a market. The market also needs tradeable liquidity. Without a bootstrap path, a permissionless perp is only an empty listing object. The Lifecycle Slot The lifecycle slot is: launch or fair launch DEX spot permissionless perp bootstrap mature order book or CEX derivative venue. That slot gives Vibe's thesis a disciplined shape. It is not trying to replace every downstream venue. It is trying to create the missing layer that lets demand become measurable before a downstream venue can justify deeper execution. Publication Boundary This page supports a strategic lifecycle position. It does not confirm current Vibe eligibility, universa"
     },
     {
       "id": "authored-permissionless-perps-vision-restated",

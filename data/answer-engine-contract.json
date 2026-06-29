@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 662
+      "totalGoldenRoutes": 667
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 680,
-    "retrievalEligiblePages": 1472,
+    "publicNavigationPages": 685,
+    "retrievalEligiblePages": 1477,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 680,
+      "candidate": 685,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 662,
-    "exactRouteTestsPassing": 662,
+    "totalExactRouteTests": 667,
+    "exactRouteTestsPassing": 667,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 662
+      "candidate": 667
     },
     "exactRoutesByConfidence": {
-      "Medium": 426,
+      "Medium": 430,
       "High": 44,
-      "Low": 192
+      "Low": 193
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3961,6 +3961,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-are-the-consequences-of-the-lifecycle-gap",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-the-lifecycle-gap-an-opportunity",
+        "query": "Why is the lifecycle gap an opportunity?",
+        "normalizedQuery": "why is the lifecycle gap an opportunity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lifecycle-gap-as-opportunity",
+        "expectedPageTitle": "The Lifecycle Gap As Opportunity",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-the-lifecycle-gap-an-opportunity",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-neelo-s-lifecycle-gap-summary-conclude",
+        "query": "What does Neelo's lifecycle-gap summary conclude?",
+        "normalizedQuery": "what does neelo s lifecycle gap summary conclude",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lifecycle-gap-summary",
+        "expectedPageTitle": "Lifecycle Gap Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-neelo-s-lifecycle-gap-summary-conclude",
+        "passes": true
+      },
+      {
+        "id": "qr-where-would-permissionless-perps-sit-in-the-token-lifecycle",
+        "query": "Where would permissionless perps sit in the token lifecycle?",
+        "normalizedQuery": "where would permissionless perps sit in the token lifecycle",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-perps-lifecycle-position",
+        "expectedPageTitle": "Where Permissionless Perps Sit In The Lifecycle",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-where-would-permissionless-perps-sit-in-the-token-lifecycle",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-permissionless-derivatives-thesis",
+        "query": "What is the permissionless derivatives thesis?",
+        "normalizedQuery": "what is the permissionless derivatives thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-permissionless-derivatives-thesis",
+        "expectedPageTitle": "The Permissionless Derivatives Thesis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-permissionless-derivatives-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-what-would-a-hypothetical-permissionless-perps-model-include",
+        "query": "What would a hypothetical permissionless perps model include?",
+        "normalizedQuery": "what would a hypothetical permissionless perps model include",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-hypothetical-permissionless-perps-model",
+        "expectedPageTitle": "The Hypothetical Permissionless Perps Model",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-would-a-hypothetical-permissionless-perps-model-include",
         "passes": true
       },
       {
@@ -14662,7 +14767,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 662,
+      "exactRoutes": 667,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

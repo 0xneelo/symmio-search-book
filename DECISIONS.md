@@ -1391,3 +1391,11 @@
 **Reason:** The lifecycle-gap definition page gives Ask the concept, but Section 4 then turns the concept into mechanics. Exact routes are needed for readers asking how the trench model works, what the gap diagram shows, how large the mismatch is, which architectural/economic/incentive forces cause it, and what market-structure consequences follow.
 
 **Status:** Accepted for the authored manifesto layer; approximate market-cap bands, token-launch counts, perp-market counts, lending-market claims, venue economics, current protocol capabilities, and live Vibe thresholds remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-175: Split The Permissionless Perps Bridge Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the gap as opportunity, the lifecycle-gap summary, permissionless perps' lifecycle position, the permissionless derivatives thesis, and the hypothetical permissionless perps model.
+
+**Reason:** The previous lifecycle-gap pages diagnose the missing derivatives interval, while Section 5 begins the solution hypothesis. Ask needs direct routes for why the gap is attractive, how Section 4 summarizes the problem, where a permissionless perp layer would sit, why derivatives are the next permissionless infrastructure frontier, and what bootstrap/maturation/graduation would mean before routing to broader gap-filling, liquidity, or monopoly-strategy pages.
+
+**Status:** Accepted for the authored manifesto layer; source-time market-cap bands, first-mover claims, current Vibe eligibility, solver obligations, bootstrap liquidity mechanics, objective maturation criteria, graduation rules, and downstream venue integrations remain fresh primary-source/operator/product/risk/legal/implementation review.

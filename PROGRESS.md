@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Permissionless Perps Bridge Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly gap-opportunity close and permissionless-perps hypothesis opening.
+- Split uncovered source sections into exact answer routes for the gap as opportunity, lifecycle-gap summary, permissionless perps' lifecycle position, the permissionless derivatives thesis, and the hypothetical three-phase model.
+- Extended the question ledger so Ask can route readers from the lifecycle-gap diagnosis into Section 5's permissionless-perps hypothesis without collapsing every answer into the broad gap-filling perps page.
+- Kept source-time market-cap bands, first-mover claims, current Vibe eligibility, solver obligations, bootstrap liquidity mechanics, graduation rules, and downstream venue integrations marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Lifecycle Gap Mechanics Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly lifecycle-gap mechanics source.
