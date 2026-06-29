@@ -1711,3 +1711,11 @@
 **Reason:** The uncovered items are mostly extracted subsection headings, table-of-contents/source material, and thesis examples. Turning all of them into standalone public pages would duplicate stronger authored pages and push the public candidate set toward noisy source-companion sprawl. A source map preserves traceability and Ask precision while keeping the manifesto readable.
 
 **Status:** Accepted for source-traceability coverage. AI-solver examples, 70 percent LP pass-through language, continuous fact-checking metaphors, listing-power analogies, and product hooks remain source-model material until reviewed against current product, risk, legal, accounting, and operator-approved publication boundaries.
+
+## D-215: Map Proof Of Value Framework Fragments Through One Source Map
+
+**Decision:** Add `authored-proof-value-framework-source-map` to cover the remaining uncovered generated source companions from Neelo's `13-framework-value-permissionless-perps` corpus and route readers into existing authored pages for constituencies, LP value, trader/project value, economic clarity, comparative advantage, validation, sustainability, and Thiel durability.
+
+**Reason:** The uncovered items are mostly abstract, source-table, value-metric, summary, comparison, stress, and conclusion fragments. Promoting each one into a standalone public page would duplicate the already-authored Proof of Value Framework spine while making the compendium noisier. A source map preserves traceability and exact Ask routing while keeping review-sensitive metrics and claims in their proper boundary.
+
+**Status:** Accepted for source-traceability coverage. The 70 percent revenue-share language, source-time partner and committed-token metrics, capital-efficiency comparisons, stress-resilience claims, risk-waterfall details, insurance/ADL behavior, and structural-superiority conclusions remain source-model material until current product, risk, legal, accounting, security, and operator review approves public wording.

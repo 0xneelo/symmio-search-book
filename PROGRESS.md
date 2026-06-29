@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Proof Of Value Framework Source Map Coverage
+
+- Added `authored-proof-value-framework-source-map` to route Neelo's `13-framework-value-permissionless-perps` evaluation corpus into existing authored Proof of Value Framework pages.
+- Mapped 31 uncovered generated source companions covering abstract material, the four constituencies, value metrics, LP value, economic clarity, comparative advantage, validation/sustainability, conclusion, Thiel analysis, and source-table material.
+- Routed one new Ask question, "How should the Proof of Value framework source be read?", to the new source-map page.
+- Kept 70 percent revenue-share language, source-time metrics, stress-resilience claims, risk-waterfall details, comparative superiority, insurance/ADL behavior, and production guarantees under current product/risk/legal/accounting/security/operator review.
+
 ## 2026-06-29 — Proof Of Value Source Map Coverage
 
 - Added `authored-proof-value-source-map` to route Neelo's Proof of Value source corpus into the existing authored manifesto spine without duplicating every extracted subsection as public prose.

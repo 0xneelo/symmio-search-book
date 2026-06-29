@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 776
+      "totalGoldenRoutes": 777
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 790,
-    "retrievalEligiblePages": 1582,
+    "publicNavigationPages": 791,
+    "retrievalEligiblePages": 1583,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 790,
+      "candidate": 791,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 776,
-    "exactRouteTestsPassing": 776,
+    "totalExactRouteTests": 777,
+    "exactRouteTestsPassing": 777,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 776
+      "candidate": 777
     },
     "exactRoutesByConfidence": {
       "Medium": 485,
       "High": 44,
-      "Low": 247
+      "Low": 248
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -3072,6 +3072,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 3,
         "faqEntryId": "faq-how-should-the-proof-of-value-source-corpus-be-read",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-the-proof-of-value-framework-source-be-read",
+        "query": "How should the Proof of Value framework source be read?",
+        "normalizedQuery": "how should the proof of value framework source be read",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-framework-source-map",
+        "expectedPageTitle": "Proof Of Value Framework Source Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 4,
+        "faqEntryId": "faq-how-should-the-proof-of-value-framework-source-be-read",
         "passes": true
       },
       {
@@ -18347,7 +18368,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 776,
+      "exactRoutes": 777,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,
