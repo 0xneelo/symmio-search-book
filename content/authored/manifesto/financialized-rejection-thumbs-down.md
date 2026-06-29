@@ -6,8 +6,8 @@ track: "14 - Information and Trade Convergence"
 status: "publication-candidate"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"]
-relatedGeneratedPages: ["neelo-14-information-trade-convergence-14-docs-08-the-thumbs-down", "neelo-14-information-trade-convergence-14-docs-04-the-missing-no-button", "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-2-introducing-the-thumbs-down"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"]
+relatedGeneratedPages: ["neelo-02-proof-of-value-02-docs-08-the-thumbs-down", "neelo-14-information-trade-convergence-14-docs-08-the-thumbs-down", "neelo-14-information-trade-convergence-14-docs-04-the-missing-no-button", "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-2-introducing-the-thumbs-down"]
 ---
 
 # Financialized Rejection And The Thumbs Down

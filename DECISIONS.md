@@ -1599,3 +1599,11 @@
 **Reason:** The Percolator parent imports are source-navigation and thesis-orientation pages. The exact mechanics already have authored coverage across reflexivity, inverse payoff, LP economics, oracle risk, manipulation, engineering boundaries, and USDC-hybrid settlement. A single source map closes traceability for the parent imports while routing readers into those precise pages instead of duplicating the failure-mode corpus.
 
 **Status:** Accepted for source-traceability coverage; Percolator SOV parameters, vault balances, open interest, fee rates, oracle caps, proof counts, repository state, deployed programs, current market behavior, comparative production claims, and Vibe guarantees remain fresh primary-source/operator/product/risk/legal/security/implementation review.
+
+## D-201: Map Proof Of Value Parent Source Companions To Existing Authored Pages
+
+**Decision:** Map five remaining Proof of Value generated parent source-pages to existing authored manifesto pages: the overview to `authored-proof-of-value`, the introduction to `authored-proof-authority-to-proof-value`, Game Theory of Listings to `authored-strait-gate-market-filter`, Thumbs Down to `authored-financialized-rejection-thumbs-down`, and the conclusion to `authored-global-reputation-protocol-thesis`.
+
+**Reason:** These source-page companions are parent imports and narrative source routes, not missing concepts. The compendium already has stronger authored pages for the thesis, verification break, Strait Gate, financialized rejection, and global reputation endgame. Mapping the parents improves retrieval/source traceability and avoids adding duplicate public pages while the manifest is already near the 800-page upper bound.
+
+**Status:** Accepted for source-traceability coverage; market-cap-as-truth framing, example graduation thresholds, short-interface details, solver/vault mechanics, LP-share examples, downstream listing integrations, and global reputation protocol claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

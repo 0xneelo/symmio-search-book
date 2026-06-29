@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Proof Of Value Parent Source Coverage
+
+- Mapped 5 remaining Proof of Value generated source-page companions to existing authored manifesto pages instead of duplicating content.
+- Closed parent source-page coverage for the Proof of Value overview, introduction, Game Theory of Listings, Thumbs Down, and conclusion imports.
+- Preserved existing exact answer pages while improving traceability from parent source imports into the authored Proof of Value, authority-to-value, Strait Gate, Thumbs Down, and global reputation thesis pages.
+- Kept market-cap-as-truth rhetoric, graduation thresholds, short-interface mechanics, solver/vault behavior, LP share examples, and global reputation protocol claims marked for fresh primary-source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Percolator Parent Source Coverage
 
 - Added 1 authored Volume 04 manifesto source-map page for the remaining Percolator/token-margined parent source companions.

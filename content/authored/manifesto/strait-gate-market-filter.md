@@ -6,8 +6,8 @@ track: "14 - Information and Trade Convergence"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion"]
-relatedGeneratedPages: ["section-14-information-trade-convergence-14-docs-07-game-theory-of-listings-7-5-the-strait-gate-matthew-7-1314", "neelo-14-information-trade-convergence-14-docs-09-conclusion", "authored-vibe-as-listing-source-of-truth"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion"]
+relatedGeneratedPages: ["neelo-02-proof-of-value-02-docs-07-game-theory-of-listings", "section-14-information-trade-convergence-14-docs-07-game-theory-of-listings-7-5-the-strait-gate-matthew-7-1314", "neelo-14-information-trade-convergence-14-docs-09-conclusion", "authored-vibe-as-listing-source-of-truth"]
 ---
 
 # The Strait Gate Is A Market Filter

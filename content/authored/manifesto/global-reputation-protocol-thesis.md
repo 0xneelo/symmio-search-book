@@ -6,8 +6,8 @@ track: "14 - Information and Trade Convergence"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down"]
-relatedGeneratedPages: ["section-14-information-trade-convergence-14-docs-09-conclusion-9-2-the-final-vision", "section-14-information-trade-convergence-14-docs-09-conclusion-9-1-full-thesis-summary", "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-5-the-philosophy"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/09-conclusion", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down"]
+relatedGeneratedPages: ["neelo-02-proof-of-value-02-docs-09-conclusion", "section-14-information-trade-convergence-14-docs-09-conclusion-9-2-the-final-vision", "section-14-information-trade-convergence-14-docs-09-conclusion-9-1-full-thesis-summary", "section-14-information-trade-convergence-14-docs-08-the-thumbs-down-8-5-the-philosophy"]
 ---
 
 # The Global Reputation Protocol Thesis

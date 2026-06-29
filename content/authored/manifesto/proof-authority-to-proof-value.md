@@ -6,8 +6,8 @@ track: "05 — Proof Of Value"
 status: "publication-candidate"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/01-introduction#1-3-the-breaking-point", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-1-the-death-of-free-truth", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-4-the-new-verification-layer"]
-relatedGeneratedPages: ["section-02-proof-of-value-02-docs-01-introduction-1-3-the-breaking-point", "section-02-proof-of-value-02-docs-02-crisis-of-verification-2-1-the-death-of-free-truth", "section-02-proof-of-value-02-docs-02-crisis-of-verification-2-4-the-new-verification-layer"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/01-introduction#1-3-the-breaking-point", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-1-the-death-of-free-truth", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-4-the-new-verification-layer"]
+relatedGeneratedPages: ["neelo-02-proof-of-value-02-docs-01-introduction", "section-02-proof-of-value-02-docs-01-introduction-1-3-the-breaking-point", "section-02-proof-of-value-02-docs-02-crisis-of-verification-2-1-the-death-of-free-truth", "section-02-proof-of-value-02-docs-02-crisis-of-verification-2-4-the-new-verification-layer"]
 ---
 
 # From Proof Of Authority To Proof Of Value
