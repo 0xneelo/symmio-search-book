@@ -1349,8 +1349,19 @@
         font-weight: 800;
         letter-spacing: -0.05em;
         line-height: 1;
+        background: linear-gradient(108deg, var(--ink) 0%, #cfd8ea 60%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         transform: scaleX(0.9203);
         transform-origin: center;
+      }
+
+      .hero h2 .pink-dot {
+        background: none;
+        background-clip: border-box;
+        -webkit-background-clip: border-box;
+        -webkit-text-fill-color: var(--pink);
       }
 
       .hero p {
