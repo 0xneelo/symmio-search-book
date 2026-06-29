@@ -493,6 +493,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why do USDC LPs need an adverse-selection premium? | `authored-adverse-selection-premium-for-usdc-lps` | Medium | Neelo argues that passive LPs face informed or strategic flow and effectively sell tail-risk insurance, so ordinary expected loss is not enough. |
 | What is the difference between break-even and attractive APR? | `authored-break-even-versus-attractive-apr` | Medium | Neelo separates earning enough to cover expected loss and outside USDC yield from earning enough to compensate for tail risk and adverse selection. |
 | Why can high LP APR make low-cap perps unsustainable? | `authored-high-apr-sustainability-pressure` | Medium | Neelo says high required USDC LP compensation forces fees, funding, spreads, subsidies, or emissions that can weaken trader participation and market sustainability. |
+| What does LP total-loss perception signal? | `authored-lp-total-loss-perception-signal` | Medium | Neelo uses potential-LP perception as evidence that generic USDC capital may price low-cap backstop risk as severe or total-loss-like rather than ordinary yield. |
+| What does the USDC risk-premium ratio diagnose? | `authored-usdc-risk-premium-ratio-diagnostic` | Medium | Neelo uses the ratio between token-provider and USDC-LP required return to diagnose how unnatural generic stablecoin backstop capital can become for low-cap markets. |
+| Why compare USDC LPs to unsecured creditors? | `authored-usdc-lp-unsecured-creditor-analogy` | Medium | Neelo's credit-risk analogy shows that USDC LPs need compensation for backstop repayment risk, not just passive pool participation. |
+| Why compare USDC LPs to catastrophe underwriters? | `authored-usdc-lp-catastrophe-underwriter-analogy` | Medium | Neelo's insurance analogy explains why severe, correlated, hard-to-price tail states require a premium beyond ordinary expected-loss arithmetic. |
+| Why compare USDC LPs to illiquid market makers? | `authored-usdc-lp-illiquid-market-maker-analogy` | Medium | Neelo's market-maker analogy highlights adverse selection, hard exits, and thin-liquidity spread requirements in low-cap perp markets. |
 
 ## Prototype Event Log
 

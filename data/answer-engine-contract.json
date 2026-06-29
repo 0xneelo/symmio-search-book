@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 487
+      "totalGoldenRoutes": 492
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 505,
-    "retrievalEligiblePages": 1297,
+    "publicNavigationPages": 510,
+    "retrievalEligiblePages": 1302,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 505,
+      "candidate": 510,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 487,
-    "exactRouteTestsPassing": 487,
+    "totalExactRouteTests": 492,
+    "exactRouteTestsPassing": 492,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 487
+      "candidate": 492
     },
     "exactRoutesByConfidence": {
-      "Medium": 267,
+      "Medium": 272,
       "High": 44,
       "Low": 176
     },
@@ -10912,6 +10912,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-can-high-lp-apr-make-low-cap-perps-unsustainable",
         "passes": true
+      },
+      {
+        "id": "qr-what-does-lp-total-loss-perception-signal",
+        "query": "What does LP total-loss perception signal?",
+        "normalizedQuery": "what does lp total loss perception signal",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lp-total-loss-perception-signal",
+        "expectedPageTitle": "LP Total-Loss Perception Signal",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-does-lp-total-loss-perception-signal",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-usdc-risk-premium-ratio-diagnose",
+        "query": "What does the USDC risk-premium ratio diagnose?",
+        "normalizedQuery": "what does the usdc risk premium ratio diagnose",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-risk-premium-ratio-diagnostic",
+        "expectedPageTitle": "USDC Risk-Premium Ratio Diagnostic",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-does-the-usdc-risk-premium-ratio-diagnose",
+        "passes": true
+      },
+      {
+        "id": "qr-why-compare-usdc-lps-to-unsecured-creditors",
+        "query": "Why compare USDC LPs to unsecured creditors?",
+        "normalizedQuery": "why compare usdc lps to unsecured creditors",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-lp-unsecured-creditor-analogy",
+        "expectedPageTitle": "USDC LP Unsecured-Creditor Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-compare-usdc-lps-to-unsecured-creditors",
+        "passes": true
+      },
+      {
+        "id": "qr-why-compare-usdc-lps-to-catastrophe-underwriters",
+        "query": "Why compare USDC LPs to catastrophe underwriters?",
+        "normalizedQuery": "why compare usdc lps to catastrophe underwriters",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-lp-catastrophe-underwriter-analogy",
+        "expectedPageTitle": "USDC LP Catastrophe-Underwriter Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-compare-usdc-lps-to-catastrophe-underwriters",
+        "passes": true
+      },
+      {
+        "id": "qr-why-compare-usdc-lps-to-illiquid-market-makers",
+        "query": "Why compare USDC LPs to illiquid market makers?",
+        "normalizedQuery": "why compare usdc lps to illiquid market makers",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-lp-illiquid-market-maker-analogy",
+        "expectedPageTitle": "USDC LP Illiquid-Market-Maker Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-compare-usdc-lps-to-illiquid-market-makers",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10987,7 +11092,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 487,
+      "exactRoutes": 492,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

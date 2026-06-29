@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 506,
+  "totalPages": 511,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 364,
+    "publication-candidate-needs-operator-review": 369,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 228,
+    "manifesto": 233,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -4578,6 +4578,29 @@
       "file": "content/authored/manifesto/lp-profit-decomposition-map.md",
       "bodyMarkdown": "# LP Profit Needs A Decomposition Map\n\nNeelo's LP value proposition includes a technical profit decomposition because LP yield cannot be explained as one undifferentiated number.\n\nThe source formula starts from market revenue, subtracts operating and hedge costs, accounts for the trader PnL share the LP effectively bears, adds solver hedge PnL, and subtracts bad debt or liquidation shortfall. In plain language, LP economics are a bridge from gross market activity to net risk-bearing result.\n\nThat bridge matters because two markets can show similar fee revenue while having very different quality. One market may have balanced flow, low hedge cost, and manageable residual exposure. Another may have high fees only because it is stressed, one-sided, or expensive to hedge.\n\n## What Readers Should Ask\n\nThe useful LP question is not \"what is the APY?\" It is:\n\n- which cashflows counted as revenue;\n- which costs were netted before LP share;\n- how trader PnL is allocated during bootstrap versus mature phases;\n- whether hedge PnL belongs to the solver, LPs, protocol, or another bucket;\n- how shortfall, bad debt, liquidation effects, and insurance spend are reported.\n\nThose questions are also why the SYMM LP reporting pages require gross-to-net attribution. Yield claims become credible only when the bridge is visible.\n\n## Publication Boundary\n\nDo not publish final formula coefficients, counterparty-share schedules, hedge PnL ownership, bad-debt allocation, LP accounting treatment, or public yield displays without operator, accounting, legal, risk, and implementation review. This page documents the source-backed need for decomposition.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\", \"LP Profit Decomposition (Technical)\".\n\n## Related Pages\n\n- `authored-funding-lp-master-profit-formula`\n- `authored-symm-lp-gross-to-net-attribution-bridge`\n- `authored-funding-revenue-cost-accounting-map`",
       "excerpt": "LP Profit Needs A Decomposition Map Neelo's LP value proposition includes a technical profit decomposition because LP yield cannot be explained as one undifferentiated number. The source formula starts from market revenue, subtracts operating and hedge costs, accounts for the trader PnL share the LP effectively bears, adds solver hedge PnL, and subtracts bad debt or liquidation shortfall. In plain language, LP economics are a bridge from gross market activity to net risk bearing result. That bridge matters because two markets can show similar fee revenue while having very different quality. One market may have balanced flow, low hedge cost, and manageable residual exposure. Another may have high fees only because it is stressed, one sided, or expensive to hedge. What Readers Should Ask The useful LP question is not \"what is the APY?\" It is: which cashflows counted as revenue; which costs were netted before LP share; how trader PnL is allocated during bootstrap versus mature phases; whether hedge PnL belongs to the solver, LPs, protocol, or another bucket; how shortfall, bad debt, liquidation effects, and insurance spend are reported. Those questions are also why the SYMM LP reporti"
+    },
+    {
+      "id": "authored-lp-total-loss-perception-signal",
+      "title": "LP Total-Loss Perception Signal",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#4-empirical-validation"
+      ],
+      "relatedGeneratedPages": [
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-4-empirical-validation",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "authored-required-risk-premium-for-usdc-lps"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/lp-total-loss-perception-signal.md",
+      "bodyMarkdown": "# LP Total-Loss Perception Signal\n\nNeelo's empirical-validation section adds a useful qualitative signal: potential LPs may perceive the USDC backstop as carrying very high loss risk.\n\nThat matters even before a final quantitative model is approved. If sophisticated capital providers believe they are being asked to supply stablecoin collateral against a high chance of severe or total loss, then ordinary yield language will not clear the market. The docs should explain that LP perception is part of the capital-formation problem.\n\nThis is not a final user-facing statistic. It is evidence that generic USDC capital may price low-cap perp backstop risk very differently from token holders who already own the underlying asset.\n\n## Documentation Rule\n\nUse LP perception as a diagnostic, not as an audited probability. It should explain why the required-return discussion exists, not become a standalone live risk disclosure number.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Empirical Validation.\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-usdc-vault-negative-feedback-loop`\n- `authored-break-even-versus-attractive-apr`",
+      "excerpt": "LP Total Loss Perception Signal Neelo's empirical validation section adds a useful qualitative signal: potential LPs may perceive the USDC backstop as carrying very high loss risk. That matters even before a final quantitative model is approved. If sophisticated capital providers believe they are being asked to supply stablecoin collateral against a high chance of severe or total loss, then ordinary yield language will not clear the market. The docs should explain that LP perception is part of the capital formation problem. This is not a final user facing statistic. It is evidence that generic USDC capital may price low cap perp backstop risk very differently from token holders who already own the underlying asset. Documentation Rule Use LP perception as a diagnostic, not as an audited probability. It should explain why the required return discussion exists, not become a standalone live risk disclosure number. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Empirical Validation. Related Pages authored required risk premium for usdc lps authored usdc vault negative feedback loop authored break even versus attractive apr"
     },
     {
       "id": "authored-lp-vault-capacity-exposure-boundary",
@@ -10478,6 +10501,75 @@
       "excerpt": "The USDC LP Backstop Cascade Neelo's USDC versus token vault source starts with a simple cascade: generic USDC LP capital sits behind a low cap perp engine, while the underlying market may be thin, fast moving, and easy to manipulate. The important point is not that USDC is a bad settlement asset. Vibe's trader facing collateral and settlement story still relies on USDC in the current product reference pages. The problem is asking external stablecoin LPs to be the first generalized backstop for every long tail market. In the source model, trader leverage, thin spot liquidity, oracle manipulation, net position imbalance, liquidation latency, and backstop correlation can all route into bad debt. The backstop fund absorbs the first loss, but residual losses reach the USDC LP pool. That means the LP is not just earning passive pool yield; the LP is underwriting market structure failures. Reader Implication When the docs compare USDC pools with token vault or inventory backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not \"USDC bad, token good.\" It is: stable settlement and generalized loss absorption are different jobs. Public"
     },
     {
+      "id": "authored-usdc-lp-catastrophe-underwriter-analogy",
+      "title": "USDC LP Catastrophe-Underwriter Analogy",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#5-comparison-with-traditional-finance"
+      ],
+      "relatedGeneratedPages": [
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-5-comparison-with-traditional-finance",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "authored-stress-correlation-cascade"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-lp-catastrophe-underwriter-analogy.md",
+      "bodyMarkdown": "# USDC LP Catastrophe-Underwriter Analogy\n\nThe catastrophe-underwriter analogy explains the tail-risk part of the USDC LP problem.\n\nIn ordinary states, the backstop may look quiet. In stress states, however, losses can arrive suddenly and in clusters: manipulation, oracle movement, liquidation failure, backstop depletion, and market crash dynamics can all compound. That resembles an insurance problem more than a simple fee-yield problem.\n\nAn underwriter charges for severity, correlation, and uncertainty. The source's point is that a low-cap perp backstop can be underwriting rare but severe market-structure failures, so a small ordinary yield is not adequate compensation.\n\n## Documentation Rule\n\nDocs should use this analogy to explain why tail-risk premium is separate from expected-loss arithmetic. Expected loss is the average maintenance layer; underwriting premium compensates for severe, correlated, hard-to-price states.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance.\n\n## Related Pages\n\n- `authored-stress-correlation-cascade`\n- `authored-adverse-selection-premium-for-usdc-lps`\n- `authored-tail-event-profit-cap-emergency-brake`",
+      "excerpt": "USDC LP Catastrophe Underwriter Analogy The catastrophe underwriter analogy explains the tail risk part of the USDC LP problem. In ordinary states, the backstop may look quiet. In stress states, however, losses can arrive suddenly and in clusters: manipulation, oracle movement, liquidation failure, backstop depletion, and market crash dynamics can all compound. That resembles an insurance problem more than a simple fee yield problem. An underwriter charges for severity, correlation, and uncertainty. The source's point is that a low cap perp backstop can be underwriting rare but severe market structure failures, so a small ordinary yield is not adequate compensation. Documentation Rule Docs should use this analogy to explain why tail risk premium is separate from expected loss arithmetic. Expected loss is the average maintenance layer; underwriting premium compensates for severe, correlated, hard to price states. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance. Related Pages authored stress correlation cascade authored adverse selection premium for usdc lps authored tail event profit cap emergency brake"
+    },
+    {
+      "id": "authored-usdc-lp-illiquid-market-maker-analogy",
+      "title": "USDC LP Illiquid-Market-Maker Analogy",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#5-comparison-with-traditional-finance"
+      ],
+      "relatedGeneratedPages": [
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-5-comparison-with-traditional-finance",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "authored-active-risk-management-vs-passive-physics"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-lp-illiquid-market-maker-analogy.md",
+      "bodyMarkdown": "# USDC LP Illiquid-Market-Maker Analogy\n\nNeelo's third finance analogy treats the USDC LP like a market maker in an illiquid, volatile asset.\n\nThat analogy matters because low-cap perp exposure is not only about default probability or tail insurance. It is also about adverse selection, inventory, executable exits, and quote quality. A market maker in a thin market charges wider spreads because each trade can move the market, reveal toxic information, or leave inventory that is hard to unwind.\n\nA passive USDC pool has less agency than an active market maker. It cannot always widen, refuse, hedge, or update as quickly as a solver. That is exactly why the source argues that generic USDC backstop capital can demand a high premium, while active solver and token-inventory designs can be more natural fits for early markets.\n\n## Publication Boundary\n\nDo not publish market-making fee examples or live spread policy from this analogy. Use it to explain why illiquid low-cap exposure requires active pricing, inventory control, and explicit risk compensation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance.\n\n## Related Pages\n\n- `authored-active-risk-management-vs-passive-physics`\n- `authored-rfq-risk-tuning`\n- `authored-token-holder-inventory-alignment`",
+      "excerpt": "USDC LP Illiquid Market Maker Analogy Neelo's third finance analogy treats the USDC LP like a market maker in an illiquid, volatile asset. That analogy matters because low cap perp exposure is not only about default probability or tail insurance. It is also about adverse selection, inventory, executable exits, and quote quality. A market maker in a thin market charges wider spreads because each trade can move the market, reveal toxic information, or leave inventory that is hard to unwind. A passive USDC pool has less agency than an active market maker. It cannot always widen, refuse, hedge, or update as quickly as a solver. That is exactly why the source argues that generic USDC backstop capital can demand a high premium, while active solver and token inventory designs can be more natural fits for early markets. Publication Boundary Do not publish market making fee examples or live spread policy from this analogy. Use it to explain why illiquid low cap exposure requires active pricing, inventory control, and explicit risk compensation. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance. Related Pages authored "
+    },
+    {
+      "id": "authored-usdc-lp-unsecured-creditor-analogy",
+      "title": "USDC LP Unsecured-Creditor Analogy",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#5-comparison-with-traditional-finance"
+      ],
+      "relatedGeneratedPages": [
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-5-comparison-with-traditional-finance",
+        "neelo-06-usdc-token-perps-06-docs-riskpremiumcalcs",
+        "authored-usdc-expected-loss-decomposition"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-lp-unsecured-creditor-analogy.md",
+      "bodyMarkdown": "# USDC LP Unsecured-Creditor Analogy\n\nNeelo compares a generic USDC LP in a fragile low-cap perp backstop to an unsecured creditor of a risky borrower.\n\nThe analogy is useful because it shifts the reader away from \"passive yield\" language. The LP is not only lending into a neutral pool. The LP is exposed if the market structure creates bad debt, if liquidations fail, if the backstop is depleted, or if stress events cluster faster than defenses can respond.\n\nAn unsecured-creditor lens asks whether the borrower-like system can repay through stress. If repayment depends on volatile low-cap markets, oracle integrity, keeper execution, and external subsidies, then the LP needs a high spread over safer alternatives.\n\n## Documentation Rule\n\nUse this analogy to explain why USDC backstop capital asks for credit-risk compensation. Do not imply that Vibe is issuing debt or that any current vault is legally structured as unsecured credit without legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance.\n\n## Related Pages\n\n- `authored-expected-loss-capital-maintenance`\n- `authored-usdc-expected-loss-decomposition`\n- `authored-usdc-lp-backstop-cascade`",
+      "excerpt": "USDC LP Unsecured Creditor Analogy Neelo compares a generic USDC LP in a fragile low cap perp backstop to an unsecured creditor of a risky borrower. The analogy is useful because it shifts the reader away from \"passive yield\" language. The LP is not only lending into a neutral pool. The LP is exposed if the market structure creates bad debt, if liquidations fail, if the backstop is depleted, or if stress events cluster faster than defenses can respond. An unsecured creditor lens asks whether the borrower like system can repay through stress. If repayment depends on volatile low cap markets, oracle integrity, keeper execution, and external subsidies, then the LP needs a high spread over safer alternatives. Documentation Rule Use this analogy to explain why USDC backstop capital asks for credit risk compensation. Do not imply that Vibe is issuing debt or that any current vault is legally structured as unsecured credit without legal review. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance. Related Pages authored expected loss capital maintenance authored usdc expected loss decomposition authored usdc lp backsto"
+    },
+    {
       "id": "authored-usdc-opportunity-cost-floor",
       "title": "USDC Opportunity Cost Floor",
       "section": "manifesto",
@@ -10522,6 +10614,29 @@
       "file": "content/authored/manifesto/usdc-risk-methodology-stack.md",
       "bodyMarkdown": "# USDC Risk Methodology Stack\n\nNeelo's USDC risk-premium derivation is strongest when read as a stack of methods, not as one universal spreadsheet model.\n\nThe source uses rational-choice and game-theory logic for deliberate attacks: if the payoff from creating bad debt exceeds the cost of manipulation, the attack should be treated as economically likely rather than as a tiny random probability. It uses extreme-value thinking for tail risks because standard deviation can understate loss distributions where rare failures can be total. It uses CAPM and Sharpe-ratio language to ask whether stablecoin capital is receiving a competitive risk-adjusted return. It uses an option-pricing analogy because a passive LP can resemble a seller of tail-risk insurance.\n\nThat matters for documentation because each method answers a different question. Game theory asks whether an exploit is profitable. Tail-risk analysis asks how bad failure can become. CAPM asks what the capital could earn elsewhere. Option pricing asks what premium an LP should receive for absorbing volatility and adverse selection.\n\n## Publication Boundary\n\nThe source-model stack is useful for teaching why low-cap USDC backstops can be expensive. It should not be published as an audited risk model, live Vibe pricing system, or final LP-yield promise without operator, risk, accounting, legal, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Methodology and First Principles.\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-risk-adjusted-capital-efficiency`",
       "excerpt": "USDC Risk Methodology Stack Neelo's USDC risk premium derivation is strongest when read as a stack of methods, not as one universal spreadsheet model. The source uses rational choice and game theory logic for deliberate attacks: if the payoff from creating bad debt exceeds the cost of manipulation, the attack should be treated as economically likely rather than as a tiny random probability. It uses extreme value thinking for tail risks because standard deviation can understate loss distributions where rare failures can be total. It uses CAPM and Sharpe ratio language to ask whether stablecoin capital is receiving a competitive risk adjusted return. It uses an option pricing analogy because a passive LP can resemble a seller of tail risk insurance. That matters for documentation because each method answers a different question. Game theory asks whether an exploit is profitable. Tail risk analysis asks how bad failure can become. CAPM asks what the capital could earn elsewhere. Option pricing asks what premium an LP should receive for absorbing volatility and adverse selection. Publication Boundary The source model stack is useful for teaching why low cap USDC backstops can be expens"
+    },
+    {
+      "id": "authored-usdc-risk-premium-ratio-diagnostic",
+      "title": "USDC Risk-Premium Ratio Diagnostic",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#4-empirical-validation"
+      ],
+      "relatedGeneratedPages": [
+        "section-06-usdc-token-perps-06-docs-riskpremiumcalcs-4-empirical-validation",
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-3-why-usdc-vault-protocols-face-100x-capital-efficiency-disadvantage",
+        "authored-usdc-vault-negative-feedback-loop"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-risk-premium-ratio-diagnostic.md",
+      "bodyMarkdown": "# USDC Risk-Premium Ratio Diagnostic\n\nThe risk-premium ratio is a diagnostic for how differently two kinds of capital price the same market.\n\nIn Neelo's example, token providers may accept very low APR because they already hold the asset and want market utility, while generic USDC LPs may require much higher compensation for tail risk, opportunity cost, and adverse selection. The source uses that contrast to show why the ratio can become extreme.\n\nThe key lesson is not the exact multiplier. It is the direction of the mismatch. If one capital source already wants the underlying exposure and another capital source is being asked to underwrite unfamiliar low-cap risk, the second source can become prohibitively expensive.\n\n## Publication Boundary\n\nKeep the ratio as a source-model comparison until current vault terms, token-provider economics, USDC backstop terms, and market eligibility are approved. Do not publish it as final Vibe capital efficiency, guaranteed LP behavior, or a live pricing claim.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Updated Risk-Premium Calculation.\n- `vibe-papers`: Neelo, \"LP Value Proposition\", USDC-vault capital-efficiency discussion.\n\n## Related Pages\n\n- `authored-usdc-vault-negative-feedback-loop`\n- `authored-token-holder-inventory-alignment`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "USDC Risk Premium Ratio Diagnostic The risk premium ratio is a diagnostic for how differently two kinds of capital price the same market. In Neelo's example, token providers may accept very low APR because they already hold the asset and want market utility, while generic USDC LPs may require much higher compensation for tail risk, opportunity cost, and adverse selection. The source uses that contrast to show why the ratio can become extreme. The key lesson is not the exact multiplier. It is the direction of the mismatch. If one capital source already wants the underlying exposure and another capital source is being asked to underwrite unfamiliar low cap risk, the second source can become prohibitively expensive. Publication Boundary Keep the ratio as a source model comparison until current vault terms, token provider economics, USDC backstop terms, and market eligibility are approved. Do not publish it as final Vibe capital efficiency, guaranteed LP behavior, or a live pricing claim. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Updated Risk Premium Calculation. vibe papers : Neelo, \"LP Value Proposition\", USDC vault capital efficiency dis"
     },
     {
       "id": "authored-usdc-settlement-inventory-separation",

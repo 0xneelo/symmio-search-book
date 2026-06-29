@@ -838,6 +838,12 @@
 - Routed five new Ask questions so LPs, protocol designers, and market-structure readers can inspect each APR component instead of treating the required return as one opaque number.
 - Kept live benchmark rates, expected-loss ranges, premium ranges, fee levels, funding rates, spread policy, token-emission policy, subsidy plans, and token-backed APR claims under operator/risk/accounting/legal/implementation review.
 
+## 2026-06-29 — USDC Empirical And Finance-Analogy Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's empirical-validation and traditional-finance comparison sections: LP total-loss perception signal, USDC risk-premium ratio diagnostic, unsecured-creditor analogy, catastrophe-underwriter analogy, and illiquid-market-maker analogy.
+- Routed five new Ask questions so LPs, market-structure readers, and protocol designers can understand why generic USDC backstop capital resembles credit, insurance, and market-making risk rather than ordinary passive yield.
+- Kept live LP survey evidence, risk-premium ratios, comparative APRs, yield-spread examples, insurance-premium examples, market-making fee examples, legal characterization, and current vault terms under operator/risk/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

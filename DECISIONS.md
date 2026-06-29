@@ -1111,3 +1111,11 @@
 **Reason:** The risk-model pages explain why losses can be large, but the answer engine also needs exact routes for how those losses translate into required LP return. Splitting the APR components makes the opportunity-cost floor, loss-maintenance layer, strategic-flow premium, market-equilibrium distinction, and fee/subsidy/emission sustainability pressure independently answerable.
 
 **Status:** Accepted for the authored manifesto layer; live benchmark rates, expected-loss ranges, adverse-selection premium ranges, LP yield targets, fee levels, funding rates, spread policy, token-emission policy, subsidy plans, and token-backed APR claims remain operator/risk/accounting/legal/implementation review.
+
+## D-140: Split USDC Empirical Validation And Finance Analogies Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for LP total-loss perception signals, USDC risk-premium-ratio diagnostics, unsecured-creditor analogy, catastrophe-underwriter analogy, and illiquid-market-maker analogy.
+
+**Reason:** The APR derivation uses both empirical LP perception and finance analogies to make the required-return argument legible. Exact pages prevent those supports from being buried in a broad risk-premium page and let answer-engine readers distinguish credit risk, insurance tail risk, and illiquid market-making risk.
+
+**Status:** Accepted for the authored manifesto layer; live LP survey evidence, risk-premium ratios, comparative APRs, yield-spread examples, insurance-premium examples, market-making fee examples, legal characterization, current vault terms, and final public economics remain operator/risk/accounting/legal/implementation review.
