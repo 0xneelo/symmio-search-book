@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 779
+      "totalGoldenRoutes": 780
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 793,
-    "retrievalEligiblePages": 1585,
+    "publicNavigationPages": 794,
+    "retrievalEligiblePages": 1586,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 793,
+      "candidate": 794,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 779,
-    "exactRouteTestsPassing": 779,
+    "totalExactRouteTests": 780,
+    "exactRouteTestsPassing": 780,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 779
+      "candidate": 780
     },
     "exactRoutesByConfidence": {
       "Medium": 487,
       "High": 44,
-      "Low": 248
+      "Low": 249
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -4248,6 +4248,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-i-navigate-the-listing-monopoly-paper",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-listing-monopoly-source-set",
+        "query": "How should I read the Listing Monopoly source set?",
+        "normalizedQuery": "how should i read the listing monopoly source set",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-source-navigation-map",
+        "expectedPageTitle": "Listing Monopoly Source Navigation Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-should-i-read-the-listing-monopoly-source-set",
         "passes": true
       },
       {
@@ -18410,7 +18431,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 779,
+      "exactRoutes": 780,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

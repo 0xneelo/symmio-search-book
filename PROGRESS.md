@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Monopoly Source Navigation Coverage
+
+- Added `authored-listing-monopoly-source-navigation-map` to route Neelo's remaining Listing Monopoly overview, 4Z summary, conclusion-reference, acknowledgment, and version-history source fragments into existing authored Listing Monopoly pages.
+- Mapped 8 uncovered generated section companions covering paper overview, table of contents, key themes, reading order, version history, listing-plus-liquidity summary, acknowledgments, and references.
+- Routed one new Ask question, "How should I read the Listing Monopoly source set?", to the new source-navigation page.
+- Kept source-time market-share claims, venue-listing histories, PumpFun graduation metrics, Uniswap dominance figures, Hyperliquid HIP-3 details, DEX-to-perp threshold bands, downstream listing influence, and monopoly verdicts under fresh primary-source/operator/product/market/risk/legal/accounting review.
+
 ## 2026-06-29 — Perp Bootstrap Source Navigation Coverage
 
 - Added `authored-perp-bootstrap-source-navigation-map` to route Neelo's remaining Perp Classes / Z-Score overview, conclusion, and Thiel-analysis source fragments into existing authored Bootstrap Trilemma pages.

@@ -1735,3 +1735,11 @@
 **Reason:** The uncovered items are mostly reading-order, table-of-contents, source TODO, references, appendix, conclusion, and Thiel framing fragments. Promoting each fragment into a standalone public page would duplicate stronger authored pages and publish placeholders as if they were finished claims. A single source map preserves traceability while making the review boundary explicit.
 
 **Status:** Accepted for source-traceability coverage. HIP-3 data, fee comparisons, lifecycle-gap sizing, smart-contract details, hedging algorithms, threat model, Z-score thresholds, roadmap milestones, author acknowledgments, comprehensive references, formal proofs, protocol comparison tables, solver specs, value-capture surfaces, and monopoly verdicts remain fresh primary-source/operator/product/research/risk/legal/security/accounting review items before publication.
+
+## D-218: Map Listing Monopoly Navigation Fragments Through One Source Map
+
+**Decision:** Add `authored-listing-monopoly-source-navigation-map` to cover the remaining uncovered generated section fragments from Neelo's Listing Monopoly overview, 4Z listing/liquidity summary, conclusion acknowledgments, conclusion references, and version-history material, routing readers into existing authored pages for the paper roadmap, lifecycle-control thesis, listing-plus-liquidity thesis, generalized market-maker problem, conclusion map, and Thiel scorecard.
+
+**Reason:** The uncovered items are mostly paper overview, table-of-contents, reading-order, source-reference, acknowledgment, version-history, and summary fragments. Promoting them into standalone public pages would duplicate the already-authored Listing Monopoly spine and risk publishing placeholder source TODOs as final claims. A single source map preserves traceability while keeping review-sensitive metrics and examples in their proper boundary.
+
+**Status:** Accepted for source-traceability coverage. Source-time market-share claims, venue-listing histories, PumpFun graduation metrics, Uniswap dominance figures, Hyperliquid HIP-3 details, DEX-to-perp threshold bands, low-cap perp wedge sizing, downstream listing influence, and monopoly verdicts remain fresh primary-source/operator/product/market/risk/legal/accounting review items before publication.
