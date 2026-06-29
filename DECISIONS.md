@@ -1343,3 +1343,11 @@
 **Reason:** Existing funding pages cover many detailed variables, controls, defenses, examples, and optimization terms. The source still needed exact introductory routes that prevent readers from mistaking the model for a static production promise. Splitting the intro gives Ask precise answers for what the derivation is, what it is not, how the system learns, and how to interpret the master formula before reading lower-level mechanics.
 
 **Status:** Accepted for the authored manifesto layer; live weights, caps, rates, z-score thresholds, solver obligations, ADL policy, external-solver competition, insurance eligibility, and public product parameters remain fresh operator/product/risk/legal/implementation review.
+
+## D-169: Split Listing Monopoly Intro Into Exact Orientation Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the Listing Monopoly abstract map, keyword map, paper roadmap, historical sea-lanes analogy, and thesis statement.
+
+**Reason:** Existing listing pages explain lifecycle gates, market power, the lifecycle gap, and the Thielian strategy, but the generated source still had uncovered introductory sections. Ask needs precise routes for "what is this paper arguing," "which concepts matter," "how do I read it," "why the historical analogy," and "what is the thesis statement" before routing readers into deeper gap-filling and monopoly-durability pages.
+
+**Status:** Accepted for the authored manifesto layer; source market-share examples, market-cap thresholds, live dominance, partnership claims, integrations, and product roadmap language remain publication-date/operator/product review.

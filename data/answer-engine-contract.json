@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 632
+      "totalGoldenRoutes": 637
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 650,
-    "retrievalEligiblePages": 1442,
+    "publicNavigationPages": 655,
+    "retrievalEligiblePages": 1447,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 650,
+      "candidate": 655,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 632,
-    "exactRouteTestsPassing": 632,
+    "totalExactRouteTests": 637,
+    "exactRouteTestsPassing": 637,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 632
+      "candidate": 637
     },
     "exactRoutesByConfidence": {
-      "Medium": 406,
+      "Medium": 409,
       "High": 44,
-      "Low": 182
+      "Low": 184
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -3331,6 +3331,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-listing-monopoly",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-listing-monopoly-paper-argue-in-its-abstract",
+        "query": "What does the Listing Monopoly paper argue in its abstract?",
+        "normalizedQuery": "what does the listing monopoly paper argue in its abstract",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-abstract-map",
+        "expectedPageTitle": "Listing Monopoly Abstract Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-listing-monopoly-paper-argue-in-its-abstract",
+        "passes": true
+      },
+      {
+        "id": "qr-which-concepts-define-the-listing-monopoly-thesis",
+        "query": "Which concepts define the listing-monopoly thesis?",
+        "normalizedQuery": "which concepts define the listing monopoly thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-keyword-map",
+        "expectedPageTitle": "Listing Monopoly Keyword Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-concepts-define-the-listing-monopoly-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-navigate-the-listing-monopoly-paper",
+        "query": "How should I navigate the Listing Monopoly paper?",
+        "normalizedQuery": "how should i navigate the listing monopoly paper",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-paper-roadmap",
+        "expectedPageTitle": "Listing Monopoly Paper Roadmap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-navigate-the-listing-monopoly-paper",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-listing-thesis-use-a-sea-lanes-analogy",
+        "query": "Why does the listing thesis use a sea-lanes analogy?",
+        "normalizedQuery": "why does the listing thesis use a sea lanes analogy",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-historical-sea-lanes-analogy",
+        "expectedPageTitle": "Listing Historical Sea-Lanes Analogy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-the-listing-thesis-use-a-sea-lanes-analogy",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-listing-monopoly-thesis-statement",
+        "query": "What is the listing-monopoly thesis statement?",
+        "normalizedQuery": "what is the listing monopoly thesis statement",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-monopoly-thesis-statement",
+        "expectedPageTitle": "Listing Monopoly Thesis Statement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-listing-monopoly-thesis-statement",
         "passes": true
       },
       {
@@ -14032,7 +14137,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 632,
+      "exactRoutes": 637,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Monopoly Intro Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from Neelo's Listing Monopoly abstract and introduction source.
+- Split the source into exact answer routes for the abstract map, keyword map, paper roadmap, historical sea-lanes analogy, and listing-monopoly thesis statement.
+- Extended the question ledger so Ask can orient readers before routing them into lifecycle-gate mechanics, gap-filling perps, listing-plus-liquidity, or Thiel monopoly analysis.
+- Kept market-share numbers, market-cap thresholds, live dominance, integrations, and product roadmap claims marked for publication-date/operator/product review.
+
 ## 2026-06-29 — Funding Model Reading-Guide Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's funding-model informal intro and abstract source.
