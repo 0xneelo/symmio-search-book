@@ -41,6 +41,7 @@ const defaults = {
   gaps: path.join(searchBookRoot, "GAPS.md"),
   questions: path.join(searchBookRoot, "QUESTIONS.md"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
+  frontendPrototype: path.join(searchBookRoot, "index.html"),
   generatedDir: path.join(searchBookRoot, "content", "generated"),
   authoredDir: path.join(searchBookRoot, "content", "authored"),
   outJson: path.join(searchBookRoot, "data", "quality-audit.json"),
@@ -236,6 +237,7 @@ const registryMarkdown = readText(args.sourceRegistry);
 const gapMarkdown = readText(args.gaps);
 const questionMarkdown = readText(args.questions);
 const inboxMarkdown = readText(args.operatorInbox);
+const frontendPrototype = readText(args.frontendPrototype);
 
 const manifestPages = manifest.pages || [];
 const authoredPages = authored.pages || [];
@@ -323,6 +325,13 @@ const answerValidationReportReady =
   answerValidationFailingFixtureIds.length === 0;
 const livingDocsEventCoverage = livingDocsEvents.coverage || {};
 const livingDocsFailingEventIds = livingDocsEvents.failureSummary?.failingEventIds || [];
+const frontendServiceIntegrationImplemented =
+  livingDocsEvents.frontendServiceIntegrationImplemented === true ||
+  (frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
+    frontendPrototype.includes('"/api/search-book/answer"') &&
+    frontendPrototype.includes('"/api/search-book/rating"') &&
+    frontendPrototype.includes('"/api/search-book/insights"') &&
+    frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const livingDocsEventsReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -546,7 +555,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -687,6 +696,7 @@ const payload = {
     answerValidationReportReady: answerValidationReport.reportReady || false,
     livingDocsEventContractReady: livingDocsEvents.eventContractReady || false,
     livingDocsDatastoreImplemented: livingDocsEvents.datastoreImplemented || false,
+    livingDocsFrontendServiceIntegrationImplemented: frontendServiceIntegrationImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     livingDocsEventFixtures: livingDocsEventCoverage.totalFixtures || 0,
     livingDocsEventFixturesPassing: livingDocsEventCoverage.passingFixtures || 0,
@@ -906,6 +916,7 @@ const payload = {
     contractVersion: livingDocsEvents.contractVersion || "",
     eventContractReady: livingDocsEvents.eventContractReady || false,
     datastoreImplemented: livingDocsEvents.datastoreImplemented || false,
+    frontendServiceIntegrationImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     reasonLivingDocsProductionReadyIsFalse: livingDocsEvents.reasonLivingDocsProductionReadyIsFalse || "",
     storage: livingDocsEvents.storage || {},

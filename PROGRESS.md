@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Static Frontend Service Bridge
+
+- Wired `src/search-book/index.html` to use the standalone answer-engine service when configured with `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`.
+- Routed Ask submissions to `POST /api/search-book/answer`, answer ratings to `POST /api/search-book/rating`, and Search Insights to `GET /api/search-book/insights`.
+- Preserved the existing deterministic browser router and `localStorage` question/rating/gap loop as fallback for static preview, direct page opens, and service outages.
+- Kept production readiness false until the selected public frontend route, production service env, retention/moderation policy, deployment checks, and remaining source imports are complete.
+
 ## 2026-06-29 — Standalone Answer-Engine Service Boundary
 
 - Exported the validated Search Book answer runtime so the CLI, live eval, and service can share the same retrieval, refusal, LLM, and citation-validation path.

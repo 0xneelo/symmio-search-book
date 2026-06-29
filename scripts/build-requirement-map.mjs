@@ -31,6 +31,7 @@ const defaults = {
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
+  frontendPrototype: path.join(searchBookRoot, "index.html"),
   outJson: path.join(searchBookRoot, "data", "requirement-map.json"),
   outJs: path.join(searchBookRoot, "data", "requirement-map.js"),
 };
@@ -142,6 +143,7 @@ const competitiveSweep = readJson(args.competitiveSweep, {
 });
 const crosslinks = readJson(args.crosslinks, { totalPages: 0, missingExplicitRelatedPageIds: [] });
 const openInboxItems = parseOpenInboxItems(readText(args.inbox));
+const frontendPrototype = readText(args.frontendPrototype);
 const finalReportExists = fs.existsSync(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
@@ -179,6 +181,13 @@ const sqliteAnswerServiceImplemented =
   livingDocsEvents.serviceRuntimeImplemented === true &&
   livingDocsEvents.sqliteDatastoreImplemented === true &&
   livingDocsEvents.datastoreImplemented === true;
+const frontendServiceIntegrationImplemented =
+  livingDocsEvents.frontendServiceIntegrationImplemented === true ||
+  (frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
+    frontendPrototype.includes('"/api/search-book/answer"') &&
+    frontendPrototype.includes('"/api/search-book/rating"') &&
+    frontendPrototype.includes('"/api/search-book/insights"') &&
+    frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const livingDocsEventContractReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -270,9 +279,11 @@ const requirements = [
     status: deterministicAnswerEngineReady && answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "05", "06", "09"],
-    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}, SQLite service implemented=${sqliteAnswerServiceImplemented}`,
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}`,
     nextAction: sqliteAnswerServiceImplemented
-      ? "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
+      ? frontendServiceIntegrationImplemented
+        ? "Install production service env, define retention/moderation policy, and deploy behind the selected public frontend route."
+        : "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
       : "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
   }),
   req({
@@ -293,9 +304,11 @@ const requirements = [
         : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "06", "09"],
-    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, SQLite service implemented=${sqliteAnswerServiceImplemented}, localStorage prototype still present for static preview`,
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}, localStorage prototype still present for static preview`,
     nextAction: sqliteAnswerServiceImplemented
-      ? "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."
+      ? frontendServiceIntegrationImplemented
+        ? "Define retention/moderation policy, install production env, and deploy the service plus selected public frontend route."
+        : "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."
       : "Implement the production datastore service behind Search Insights after platform/backend selection.",
   }),
   req({

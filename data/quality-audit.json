@@ -48,6 +48,7 @@
     "answerValidationReportReady": true,
     "livingDocsEventContractReady": true,
     "livingDocsDatastoreImplemented": true,
+    "livingDocsFrontendServiceIntegrationImplemented": true,
     "livingDocsProductionReady": false,
     "livingDocsEventFixtures": 12,
     "livingDocsEventFixturesPassing": 12,
@@ -217,7 +218,7 @@
       "id": "living-docs-events",
       "label": "Living-docs question, rating, and gap events validate",
       "passed": true,
-      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, production ready no"
+      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, frontend service bridge yes, production ready no"
     },
     {
       "id": "glossary-routes",
@@ -1405,8 +1406,9 @@
     "contractVersion": "2026-06-29.v2",
     "eventContractReady": true,
     "datastoreImplemented": true,
+    "frontendServiceIntegrationImplemented": true,
     "livingDocsProductionReady": false,
-    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete.",
+    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete.",
     "storage": {
       "localPrototype": {
         "questionsKey": "searchBookPrototype.questions",
@@ -1474,7 +1476,8 @@
           "search_book_questions",
           "search_book_ratings",
           "search_book_gaps"
-        ]
+        ],
+        "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
       }
     },
     "schemas": {
@@ -1544,6 +1547,7 @@
       "Create a no-grounded-page gap when retrieval cannot cite a grounded page.",
       "Attach operator item ids and known gap ids for parked decisions.",
       "Expose the aggregated event stream in Search Insights for editorial triage.",
+      "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
       "Keep API keys in process environment only; never persist or print them."
     ],
     "coverage": {
@@ -1582,7 +1586,8 @@
     "productionBoundary": {
       "localPrototype": "The current static prototype uses localStorage with these same event shapes.",
       "sqliteService": "The standalone service persists equivalent event shapes to SQLite and exposes Search Insights data over HTTP.",
-      "requiredNextStep": "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+      "frontendIntegration": "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints.",
+      "requiredNextStep": "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
       "blockedBy": [
         "OPERATOR-INBOX #4",
         "OPERATOR-INBOX #11",
@@ -2148,13 +2153,13 @@
       {
         "id": "answer-engine-front-door",
         "status": "partial",
-        "nextAction": "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route.",
+        "nextAction": "Install production service env, define retention/moderation policy, and deploy behind the selected public frontend route.",
         "blocks": []
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
-        "nextAction": "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy.",
+        "nextAction": "Define retention/moderation policy, install production env, and deploy the service plus selected public frontend route.",
         "blocks": []
       },
       {
@@ -2398,13 +2403,13 @@
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
+        "nextAction": "Install production service env, define retention/moderation policy, and deploy behind the selected public frontend route."
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."
+        "nextAction": "Define retention/moderation policy, install production env, and deploy the service plus selected public frontend route."
       },
       {
         "id": "discord-seeded-faq",

@@ -17,6 +17,7 @@ const defaults = {
   outJson: path.join(searchBookRoot, "data", "living-docs-events.json"),
   outJs: path.join(searchBookRoot, "data", "living-docs-events.js"),
   serviceScript: path.join(searchBookRoot, "scripts", "serve-answer-engine.mjs"),
+  frontendPrototype: path.join(searchBookRoot, "index.html"),
 };
 
 const schemas = {
@@ -291,6 +292,7 @@ const questionRoutes = readJson(args.questionRoutes);
 const gapQueue = readJson(args.gapQueue);
 const pageStateRegistry = readJson(args.pageStateRegistry);
 const openInboxItems = parseOpenInboxItems(readText(args.operatorInbox));
+const frontendPrototype = readText(args.frontendPrototype);
 const fixtures = buildFixtures({ questionRoutes, gapQueue });
 const context = {
   pageById: new Map((pageStateRegistry.pages || []).map((page) => [page.id, page])),
@@ -340,6 +342,12 @@ const eventContractReady =
   (questionRoutes.totalRoutes || 0) > 0;
 const serviceRuntimeImplemented = fs.existsSync(args.serviceScript);
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
+const frontendServiceIntegrationImplemented =
+  frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
+  frontendPrototype.includes('"/api/search-book/answer"') &&
+  frontendPrototype.includes('"/api/search-book/rating"') &&
+  frontendPrototype.includes('"/api/search-book/insights"') &&
+  frontendPrototype.includes("searchBookPrototype.serviceUrl");
 
 const payload = {
   generatedAt: "deterministic-build",
@@ -348,10 +356,13 @@ const payload = {
   eventContractReady,
   serviceRuntimeImplemented,
   sqliteDatastoreImplemented,
+  frontendServiceIntegrationImplemented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
-    ? "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
+    ? frontendServiceIntegrationImplemented
+      ? "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
+      : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
   storage: {
     ...storage,
@@ -367,6 +378,9 @@ const payload = {
         "GET /api/search-book/insights",
       ],
       tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
+      frontendIntegration: frontendServiceIntegrationImplemented
+        ? "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
+        : "No public frontend is wired to the service yet.",
     },
   },
   schemas,
@@ -378,6 +392,7 @@ const payload = {
     "Create a no-grounded-page gap when retrieval cannot cite a grounded page.",
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
+    "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
     "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
@@ -410,7 +425,12 @@ const payload = {
     sqliteService: sqliteDatastoreImplemented
       ? "The standalone service persists equivalent event shapes to SQLite and exposes Search Insights data over HTTP."
       : "The standalone SQLite service is not implemented yet.",
-    requiredNextStep: "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+    frontendIntegration: frontendServiceIntegrationImplemented
+      ? "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints."
+      : "The static prototype is not wired to the standalone service.",
+    requiredNextStep: frontendServiceIntegrationImplemented
+      ? "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
+      : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
   },
 };
@@ -423,5 +443,6 @@ console.log(JSON.stringify({
   eventContractReady: payload.eventContractReady,
   fixtures: `${payload.coverage.passingFixtures}/${payload.coverage.totalFixtures}`,
   datastoreImplemented: payload.datastoreImplemented,
+  frontendServiceIntegrationImplemented: payload.frontendServiceIntegrationImplemented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));

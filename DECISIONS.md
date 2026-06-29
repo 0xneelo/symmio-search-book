@@ -1686,4 +1686,12 @@
 
 **Reason:** The answer-engine requirement is not just a CLI or localStorage prototype. Production needs a server boundary that can call the exact same strict citation/refusal runtime, record Search Insights events durably, accept ratings, and generate low-rated-answer gaps without exposing API keys or weakening validation.
 
-**Status:** Accepted as the standalone service boundary. Production readiness still requires service environment installation, public frontend integration, retention/moderation policy, deployment, and remaining source imports.
+**Status:** Accepted as the standalone service boundary. Production readiness still requires service environment installation, selected public frontend route/deploy wiring, retention/moderation policy, deployment, and remaining source imports.
+
+## D-212: Let The Static Search Book Use The Standalone Service When Configured
+
+**Decision:** Add an optional configured-service bridge to `src/search-book/index.html` so the static Ask front door calls `POST /api/search-book/answer`, ratings call `POST /api/search-book/rating`, and Search Insights reads `GET /api/search-book/insights` when `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL` is present.
+
+**Reason:** The static prototype still needs to work as a file/local preview with no backend, but production readiness requires proving that the same UI can hand questions, ratings, and gap signals to the SQLite-backed service without exposing LLM credentials. Keeping `localStorage` fallback avoids platform lock-in while the public frontend route remains open.
+
+**Status:** Accepted for frontend-service integration. This does not mark production ready; service env, deploy route, retention/moderation policy, and remaining source imports are still open.

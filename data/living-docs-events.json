@@ -5,9 +5,10 @@
   "eventContractReady": true,
   "serviceRuntimeImplemented": true,
   "sqliteDatastoreImplemented": true,
+  "frontendServiceIntegrationImplemented": true,
   "datastoreImplemented": true,
   "livingDocsProductionReady": false,
-  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete.",
+  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete.",
   "storage": {
     "localPrototype": {
       "questionsKey": "searchBookPrototype.questions",
@@ -75,7 +76,8 @@
         "search_book_questions",
         "search_book_ratings",
         "search_book_gaps"
-      ]
+      ],
+      "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
     }
   },
   "schemas": {
@@ -145,6 +147,7 @@
     "Create a no-grounded-page gap when retrieval cannot cite a grounded page.",
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
+    "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
     "Keep API keys in process environment only; never persist or print them."
   ],
   "fixtures": {
@@ -347,7 +350,8 @@
   "productionBoundary": {
     "localPrototype": "The current static prototype uses localStorage with these same event shapes.",
     "sqliteService": "The standalone service persists equivalent event shapes to SQLite and exposes Search Insights data over HTTP.",
-    "requiredNextStep": "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+    "frontendIntegration": "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints.",
+    "requiredNextStep": "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     "blockedBy": [
       "OPERATOR-INBOX #4",
       "OPERATOR-INBOX #11",

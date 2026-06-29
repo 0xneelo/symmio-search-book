@@ -57,7 +57,7 @@ Run the standalone answer-engine service locally:
 SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
 ```
 
-It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, and `GET /health`. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
+It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, and Search Insights will use the service while keeping `localStorage` fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
 
 ## Prototype Question
 
@@ -74,7 +74,7 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 ## Non-Goals
 
 - This is not the final authored documentation site.
-- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary; production service env, frontend wiring, retention/moderation policy, and deploy wiring remain production work.
+- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary plus static frontend bridge; production service env, selected public frontend route, retention/moderation policy, and deploy wiring remain production work.
 - This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
 - This does not expose private API URLs, tokens, admin endpoints, or operator-only credentials.
 

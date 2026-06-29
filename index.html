@@ -2457,6 +2457,20 @@
         questions: "searchBookPrototype.questions",
         ratings: "searchBookPrototype.ratings",
         gaps: "searchBookPrototype.gaps",
+        serviceUrl: "searchBookPrototype.serviceUrl",
+        serviceMode: "searchBookPrototype.serviceMode",
+      };
+      const configuredParams = new URLSearchParams(window.location.search);
+      const configuredServiceUrl = configuredParams.get("service") || window.SEARCH_BOOK_ANSWER_ENGINE_URL || "";
+      const configuredServiceMode = configuredParams.get("serviceMode") || "";
+      if (configuredParams.has("service")) localStorage.setItem(storageKeys.serviceUrl, configuredServiceUrl);
+      if (configuredParams.has("serviceMode")) localStorage.setItem(storageKeys.serviceMode, configuredServiceMode);
+      const serviceState = {
+        url: (configuredServiceUrl || localStorage.getItem(storageKeys.serviceUrl) || "").replace(/\/+$/u, ""),
+        mode: configuredServiceMode || localStorage.getItem(storageKeys.serviceMode) || "",
+        insights: null,
+        online: false,
+        lastError: "",
       };
       const fallbackExampleQuestions = [
         "When do referral points credit?",
@@ -2507,6 +2521,136 @@
 
       function saveList(key, value, limit = 200) {
         localStorage.setItem(key, JSON.stringify(value.slice(0, limit)));
+      }
+
+      function serviceEnabled() {
+        return Boolean(serviceState.url && window.fetch);
+      }
+
+      async function serviceRequest(path, options = {}) {
+        const response = await fetch(`${serviceState.url}${path}`, {
+          ...options,
+          headers: {
+            "content-type": "application/json",
+            ...(options.headers || {}),
+          },
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(payload.message || `Search Book service returned HTTP ${response.status}`);
+        }
+        return payload;
+      }
+
+      function mapServiceQuestion(item) {
+        return {
+          id: item.id,
+          query: item.query,
+          source: item.source,
+          pageId: item.pageId || null,
+          page: item.pageTitle || (item.status === "answered" ? item.pageId : "No grounded page"),
+          score: item.confidence || item.mode || item.status,
+          status: item.status || "unknown",
+          time: item.createdAt,
+          requestId: item.requestId,
+          refusalReason: item.refusalReason,
+          gapId: item.gapId,
+          operatorItemIds: item.operatorItemIds || [],
+        };
+      }
+
+      function serviceEventLists() {
+        const recent = serviceState.insights?.recent || {};
+        return {
+          questions: (recent.questions || []).map(mapServiceQuestion),
+          ratings: (recent.ratings || []).map((item) => ({
+            id: item.id,
+            rating: item.rating,
+            query: item.query,
+            page: item.pageTitle || "No grounded page",
+            pageId: item.pageId || null,
+            eventId: item.eventId,
+            time: item.createdAt,
+            note: item.note,
+          })),
+          gaps: (recent.gaps || []).map((item) => ({
+            id: item.id,
+            query: item.query,
+            reason: item.reason,
+            page: item.pageTitle || "No grounded page",
+            pageId: item.pageId || null,
+            time: item.createdAt,
+            eventId: item.eventId,
+            gapId: item.gapId,
+            operatorItemIds: item.operatorItemIds || [],
+          })),
+        };
+      }
+
+      function localEventLists() {
+        return {
+          questions: loadList(storageKeys.questions),
+          ratings: loadList(storageKeys.ratings),
+          gaps: loadList(storageKeys.gaps),
+        };
+      }
+
+      function mergeEvents(primary, fallback) {
+        const seen = new Set(primary.map((item) => item.id || item.eventId));
+        return [...primary, ...fallback.filter((item) => !seen.has(item.id || item.eventId))];
+      }
+
+      function currentEventLists() {
+        if (!serviceState.insights) return localEventLists();
+        const serviceEvents = serviceEventLists();
+        const localEvents = localEventLists();
+        return {
+          questions: mergeEvents(serviceEvents.questions, localEvents.questions),
+          ratings: mergeEvents(serviceEvents.ratings, localEvents.ratings),
+          gaps: mergeEvents(serviceEvents.gaps, localEvents.gaps),
+        };
+      }
+
+      function findQuestionEvent(eventId) {
+        const current = currentEventLists().questions.find((item) => item.id === eventId);
+        if (current) return current;
+        return loadList(storageKeys.questions).find((item) => item.id === eventId) || null;
+      }
+
+      function renderServiceStatus() {
+        const status = document.getElementById("eventLogStatus");
+        if (!status) return;
+        if (!serviceEnabled()) {
+          status.textContent = "Stored in this browser for the prototype.";
+          return;
+        }
+        if (serviceState.online) {
+          status.textContent = `Service connected: ${serviceState.url}`;
+          return;
+        }
+        status.textContent = serviceState.lastError
+          ? `Service unavailable; using local fallback. ${serviceState.lastError}`
+          : `Service configured: ${serviceState.url}`;
+      }
+
+      async function refreshServiceInsights() {
+        if (!serviceEnabled()) {
+          renderServiceStatus();
+          return null;
+        }
+        try {
+          const insights = await serviceRequest("/api/search-book/insights");
+          serviceState.insights = insights;
+          serviceState.online = true;
+          serviceState.lastError = "";
+          return insights;
+        } catch (error) {
+          serviceState.online = false;
+          serviceState.lastError = error.message || "Could not reach answer-engine service.";
+          return null;
+        } finally {
+          renderServiceStatus();
+        }
       }
 
       function escapeHtml(value) {
@@ -2684,6 +2828,41 @@
           .join("");
       }
 
+      function answerTextHtml(text) {
+        const paragraphs = String(text || "")
+          .split(/\n{2,}/u)
+          .map((item) => item.trim())
+          .filter(Boolean);
+        return paragraphs.length
+          ? paragraphs.map((item) => `<p>${escapeHtml(item)}</p>`).join("")
+          : "<p>No answer text returned.</p>";
+      }
+
+      function serviceCitationChips(citations) {
+        return (citations || [])
+          .slice(0, 8)
+          .map((citation) => {
+            const label = citation.sourceKey || citation.pageTitle || citation.pageId || "source";
+            const chunkLabel = (citation.chunkIds || []).slice(0, 2).join(", ");
+            const title = [citation.pageTitle, chunkLabel].filter(Boolean).join(" / ");
+            if (citation.sourceHref) {
+              return `<a class="source-chip" href="${escapeHtml(citation.sourceHref)}" title="${escapeHtml(title)}">${escapeHtml(label)}</a>`;
+            }
+            return `<span class="source-chip" title="${escapeHtml(title)}">${escapeHtml(label)}</span>`;
+          })
+          .join("");
+      }
+
+      function resultFromServiceResponse(response) {
+        const citationPage = (response.citations || []).find((citation) => pageById.has(citation.pageId));
+        const page = pageById.get(response.primaryPageId) || (citationPage ? pageById.get(citationPage.pageId) : null);
+        return {
+          page,
+          score: `service:${response.confidence || response.status || "unknown"}`,
+          serviceResponse: response,
+        };
+      }
+
       function inlineMarkdown(text) {
         return escapeHtml(text)
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="source-chip" href="$2">$1</a>')
@@ -2813,6 +2992,36 @@
       function renderAnswer(result, query, eventId) {
         const box = document.getElementById("answerBox");
         box.classList.add("is-visible");
+        if (result.serviceResponse) {
+          const response = result.serviceResponse;
+          const page = result.page;
+          const isAnswered = response.status === "answered";
+          const title = page?.title || response.citations?.[0]?.pageTitle || (isAnswered ? "Cited answer" : "Answer unavailable");
+          const meta = isAnswered
+            ? `service answer / ${escapeHtml(response.confidence || "grounded")}`
+            : `service refusal / ${escapeHtml(response.refusalReason || response.status || "not answered")}`;
+          box.innerHTML = `
+            <div class="meta">${meta}</div>
+            <h3>${escapeHtml(title)}</h3>
+            ${
+              isAnswered
+                ? answerTextHtml(response.answer)
+                : `<p>${escapeHtml(response.message || response.refusalReason || "The service could not produce a grounded answer for this question.")}</p>`
+            }
+            ${response.gapEvent ? `<p><strong>Gap:</strong> ${escapeHtml(response.gapEvent.reason || response.refusalReason || "recorded")}</p>` : ""}
+            <div class="source-row">
+              ${serviceCitationChips(response.citations)}
+              ${page ? sourceChips(page) : ""}
+              ${page ? sourceUrlChips(page) : ""}
+            </div>
+            <div class="rating">
+              <button type="button" data-rate="yes" data-event="${escapeHtml(eventId)}">Useful</button>
+              <button type="button" data-rate="no" data-event="${escapeHtml(eventId)}">Needs work</button>
+              ${page ? `<a class="source-chip" href="${escapeHtml(routeFor(page))}" data-open-page="${escapeHtml(page.id)}">Open exact page</a>` : ""}
+            </div>
+          `;
+          return;
+        }
         if (!result.page) {
           box.innerHTML = `
             <div class="meta">No grounded route / recorded gap</div>
@@ -2881,7 +3090,33 @@
         return event;
       }
 
-      function handleAsk(query, source = "ask") {
+      async function handleAsk(query, source = "ask") {
+        if (serviceEnabled()) {
+          const box = document.getElementById("answerBox");
+          box.classList.add("is-visible");
+          box.innerHTML = `
+            <div class="meta">Service answer-engine</div>
+            <h3>Scanning cited context</h3>
+            <p>Waiting for the configured Search Book answer service.</p>
+          `;
+          try {
+            const payload = { query, source };
+            if (serviceState.mode === "extractive" || serviceState.mode === "llm") payload.mode = serviceState.mode;
+            const response = await serviceRequest("/api/search-book/answer", {
+              method: "POST",
+              body: JSON.stringify(payload),
+            });
+            await refreshServiceInsights();
+            const eventId = response.persisted?.id || response.requestId || "";
+            renderAnswer(resultFromServiceResponse(response), query, eventId);
+            renderInsights();
+            return;
+          } catch (error) {
+            serviceState.online = false;
+            serviceState.lastError = error.message || "Could not reach answer-engine service.";
+            renderServiceStatus();
+          }
+        }
         const result = findAnswer(query);
         const event = recordQuestion(query, result, source);
         renderAnswer(result, query, event.id);
@@ -3177,8 +3412,8 @@
       }
 
       function renderGaps() {
-        const localGaps = loadList(storageKeys.gaps);
-        const localRows = localGaps
+        const eventLists = currentEventLists();
+        const eventRows = eventLists.gaps
           .slice(0, 8)
           .map(
             (gap) => `
@@ -3216,7 +3451,7 @@
             `;
           })
           .join("");
-        const rows = [localRows, queueRows].filter(Boolean).join("");
+        const rows = [eventRows, queueRows].filter(Boolean).join("");
         document.getElementById("gapList").innerHTML = rows.length
           ? rows
           : '<div class="gap-row"><p>No local or generated gaps recorded yet.</p></div>';
@@ -3227,7 +3462,7 @@
       }
 
       function renderRecent() {
-        const recent = loadList(storageKeys.questions);
+        const recent = currentEventLists().questions;
         const html = recent.length ? recent.slice(0, 12).map(formatQuestion).join("") : "<li>No questions recorded yet.</li>";
         const insights = document.getElementById("recentQuestions");
         const journeys = document.getElementById("journeyRecentQuestions");
@@ -3236,7 +3471,7 @@
       }
 
       function renderRatings() {
-        const ratings = loadList(storageKeys.ratings);
+        const ratings = currentEventLists().ratings;
         document.getElementById("ratingsList").innerHTML = ratings.length
           ? ratings
               .slice(0, 12)
@@ -3246,16 +3481,22 @@
       }
 
       function renderMetrics() {
-        const questions = loadList(storageKeys.questions);
-        const ratings = loadList(storageKeys.ratings);
-        const gaps = loadList(storageKeys.gaps);
-        const answered = questions.filter((item) => item.status === "answered").length;
+        const eventLists = currentEventLists();
+        const questions = eventLists.questions;
+        const ratings = eventLists.ratings;
+        const gaps = eventLists.gaps;
+        const serviceTotals = serviceState.insights?.totals || null;
+        const localEvents = serviceTotals ? localEventLists() : { questions: [], ratings: [], gaps: [] };
+        const serviceAnswered = serviceState.insights?.byQuestionStatus?.answered || 0;
+        const localAnswered = localEvents.questions.filter((item) => item.status === "answered").length;
+        const answered = serviceTotals ? serviceAnswered + localAnswered : questions.filter((item) => item.status === "answered").length;
         document.getElementById("insightMetrics").innerHTML = `
-          <div class="stat-card"><span class="stat-label">Questions</span><strong>${questions.length}</strong></div>
+          <div class="stat-card"><span class="stat-label">Questions</span><strong>${serviceTotals ? serviceTotals.questions + localEvents.questions.length : questions.length}</strong></div>
           <div class="stat-card"><span class="stat-label">Answered</span><strong>${answered}</strong></div>
-          <div class="stat-card"><span class="stat-label">Gaps</span><strong>${gaps.length + (gapQueue.totalItems || 0)}</strong></div>
-          <div class="stat-card"><span class="stat-label">Ratings</span><strong>${ratings.length}</strong></div>
+          <div class="stat-card"><span class="stat-label">Gaps</span><strong>${(serviceTotals ? serviceTotals.gaps + localEvents.gaps.length : gaps.length) + (gapQueue.totalItems || 0)}</strong></div>
+          <div class="stat-card"><span class="stat-label">Ratings</span><strong>${serviceTotals ? serviceTotals.ratings + localEvents.ratings.length : ratings.length}</strong></div>
         `;
+        renderServiceStatus();
       }
 
       function renderQualityAudit() {
@@ -3385,9 +3626,26 @@
         renderRatings();
       }
 
-      function recordRating(rate) {
-        const questions = loadList(storageKeys.questions);
-        const event = questions.find((item) => item.id === rate.dataset.event);
+      async function recordRating(rate) {
+        const event = findQuestionEvent(rate.dataset.event);
+        if (serviceEnabled() && rate.dataset.event) {
+          try {
+            await serviceRequest("/api/search-book/rating", {
+              method: "POST",
+              body: JSON.stringify({
+                eventId: rate.dataset.event,
+                rating: rate.dataset.rate,
+              }),
+            });
+            await refreshServiceInsights();
+            renderInsights();
+            return;
+          } catch (error) {
+            serviceState.online = false;
+            serviceState.lastError = error.message || "Could not record service rating.";
+            renderServiceStatus();
+          }
+        }
         const rating = {
           rating: rate.dataset.rate,
           query: event ? event.query : "Unknown query",
@@ -3411,10 +3669,12 @@
       }
 
       function exportEventLog() {
+        const events = currentEventLists();
         const payload = {
-          questions: loadList(storageKeys.questions),
-          ratings: loadList(storageKeys.ratings),
-          gaps: loadList(storageKeys.gaps),
+          source: serviceState.insights ? "service-plus-localStorage-fallback" : "localStorage",
+          questions: events.questions,
+          ratings: events.ratings,
+          gaps: events.gaps,
         };
         const text = JSON.stringify(payload, null, 2);
         const status = document.getElementById("eventLogStatus");
@@ -3436,8 +3696,12 @@
         localStorage.removeItem(storageKeys.questions);
         localStorage.removeItem(storageKeys.ratings);
         localStorage.removeItem(storageKeys.gaps);
-        document.getElementById("eventLogStatus").textContent = "Cleared.";
         renderInsights();
+        if (!serviceState.insights) {
+          document.getElementById("eventLogStatus").textContent = "Cleared local event log.";
+        } else {
+          document.getElementById("eventLogStatus").textContent = "Cleared local fallback only; service data remains on the server.";
+        }
       }
 
       function getActivePageId() {
@@ -3643,6 +3907,11 @@
         renderFaq();
         renderInsights();
         renderVariant();
+        if (serviceEnabled()) {
+          refreshServiceInsights().then(() => {
+            renderInsights();
+          });
+        }
       }
 
       document.getElementById("askForm").addEventListener("submit", (event) => {
