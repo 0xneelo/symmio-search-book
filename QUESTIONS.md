@@ -578,6 +578,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does the market lifecycle change for exchanges and LPs? | `authored-market-lifecycle-industry-implications` | Medium | Neelo maps the lifecycle thesis to protocol designers, exchanges, traders, LPs, and the broader ecosystem while live integrations remain review-bound. |
 | What research still remains for Vibe's lifecycle model? | `authored-market-lifecycle-future-directions` | Medium | Neelo names transition parameters, solver optimization, cross-protocol dynamics, product phases, tooling, partnerships, and standards as future work. |
 | What is the permissionless perps vision in one page? | `authored-permissionless-perps-vision-restated` | Medium | Neelo restates the vision as completing the token lifecycle with evidence-producing derivatives, while live market counts and automatic graduation remain review-bound. |
+| Why did perpetual futures become the key crypto derivative? | `authored-perpetual-futures-rise` | Medium | Neelo's introduction frames perps as continuous, no-expiry exposure and core market infrastructure; current volume/share claims need fresh verification. |
+| Why do existing perp solutions fail to bootstrap new markets? | `authored-why-existing-perp-solutions-fail-bootstrap` | Medium | Neelo says order books, vaults, and async-netted designs each give up one of permissionless listing, capital efficiency, or reliable counterparty at bootstrap. |
+| What is the listing decision problem? | `authored-listing-decision-problem` | Medium | Neelo frames listing decisions as data-poor and proxy-heavy until markets produce objective demand and risk evidence. |
+| What is the bootstrap thesis statement? | `authored-bootstrap-thesis-statement` | Medium | Neelo argues a hybrid lifecycle architecture can accept bootstrap costs, measure maturity, and move toward efficient structures when earned. |
+| What are the scope and limits of the perp bootstrap paper? | `authored-perp-bootstrap-scope-and-limits` | Medium | Neelo scopes the paper to crypto perpetual futures market design, not live implementation proof, legal conclusions, options, or prediction markets. |
 
 ## Prototype Event Log
 

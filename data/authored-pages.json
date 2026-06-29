@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 591,
+  "totalPages": 596,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 433,
+    "publication-candidate-needs-operator-review": 438,
     "publication-candidate": 139,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 313,
+    "manifesto": 318,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -413,6 +413,29 @@
       "file": "content/authored/manifesto/bootstrap-oracle-risk-tiers.md",
       "bodyMarkdown": "# Bootstrap Oracle Risk Tiers\n\nPermissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi-source feeds can support higher leverage and open interest; thinner or DEX-derived feeds require tighter limits.\n\nThat is the right product lesson. A market can be permissionless without pretending every price source is equally strong. The docs should show that oracle risk is a gating input for leverage, OI, liquidation safety, and solver exposure.\n\n## Tiered Risk, Not Binary Eligibility\n\nThe source names price-feed properties that matter for Vibe-style markets: freshness, accuracy, manipulation resistance, and availability. For new tokens without established feeds, it sketches a DEX-derived path using pool queries, TWAP smoothing, liquidity-depth validation, and confidence bounds.\n\nThe important idea is not a specific vendor stack. It is that bootstrap markets need an explicit risk tier. Mature multi-source oracle coverage can carry more system capacity. Single-source or thin DEX-derived pricing should carry less capacity and stricter execution limits.\n\n## Publication Boundary\n\nThe source's tables include illustrative freshness, leverage, and OI limits. Those should not be published as live product values unless confirmed by implementation owners. The compendium should instead teach the invariant: weaker price evidence must reduce allowed risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.4 Oracle Layer\".\n- `vibe-papers`: Neelo, \"Section 6: Technical Deep Dive: 6.7 Security Model\".\n\n## Related Pages\n\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-incentive-based-attack-risk`\n- `authored-perps-for-the-trenches`",
       "excerpt": "Bootstrap Oracle Risk Tiers Permissionless perps need a way to price markets before every asset has mature institutional data coverage. Neelo's technical source treats oracle quality as a tiered risk constraint: robust multi source feeds can support higher leverage and open interest; thinner or DEX derived feeds require tighter limits. That is the right product lesson. A market can be permissionless without pretending every price source is equally strong. The docs should show that oracle risk is a gating input for leverage, OI, liquidation safety, and solver exposure. Tiered Risk, Not Binary Eligibility The source names price feed properties that matter for Vibe style markets: freshness, accuracy, manipulation resistance, and availability. For new tokens without established feeds, it sketches a DEX derived path using pool queries, TWAP smoothing, liquidity depth validation, and confidence bounds. The important idea is not a specific vendor stack. It is that bootstrap markets need an explicit risk tier. Mature multi source oracle coverage can carry more system capacity. Single source or thin DEX derived pricing should carry less capacity and stricter execution limits. Publication Bo"
+    },
+    {
+      "id": "authored-bootstrap-thesis-statement",
+      "title": "The Bootstrap Thesis Statement",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-7-thesis-statement"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-7-thesis-statement",
+        "authored-bootstrap-trilemma",
+        "authored-market-maturation-state-map"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/bootstrap-thesis-statement.md",
+      "bodyMarkdown": "# The Bootstrap Thesis Statement\n\nThe introduction states the paper's central thesis directly: permissionless perpetual markets need a hybrid architecture that can move from fully collateralized asynchronous operation toward fully netted synchronous operation.\n\nThat sentence carries the whole paper. Early markets need asynchronous access because demand does not arrive in perfectly matched pairs. They need collateralized or solver-backed payout reliability because a winning trader needs a real counterparty. Later markets should not stay trapped in the expensive bootstrap mode forever; as flow deepens, they should be able to move toward more netted, capital-efficient structure.\n\nThe paper then supports that thesis through a protocol taxonomy, a critique of existing architectures, the bootstrap trilemma, Vibe's hybrid architecture, implementation requirements, and industry implications.\n\nThe important word is \"traversing.\" Vibe is not framed as one static market design. It is framed as a lifecycle system: accept the cost of early availability, measure maturity, and graduate toward efficiency when the market earns it.\n\n## Publication Boundary\n\nThis is a thesis statement, not production proof. Live graduation thresholds, production solver obligations, integration behavior, exact collateral modes, and any claim that a market has already completed the full lifecycle require product and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.7 Thesis Statement\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-market-maturation-state-map`\n- `authored-temporal-separation-of-concerns`",
+      "excerpt": "The Bootstrap Thesis Statement The introduction states the paper's central thesis directly: permissionless perpetual markets need a hybrid architecture that can move from fully collateralized asynchronous operation toward fully netted synchronous operation. That sentence carries the whole paper. Early markets need asynchronous access because demand does not arrive in perfectly matched pairs. They need collateralized or solver backed payout reliability because a winning trader needs a real counterparty. Later markets should not stay trapped in the expensive bootstrap mode forever; as flow deepens, they should be able to move toward more netted, capital efficient structure. The paper then supports that thesis through a protocol taxonomy, a critique of existing architectures, the bootstrap trilemma, Vibe's hybrid architecture, implementation requirements, and industry implications. The important word is \"traversing.\" Vibe is not framed as one static market design. It is framed as a lifecycle system: accept the cost of early availability, measure maturity, and graduate toward efficiency when the market earns it. Publication Boundary This is a thesis statement, not production proof. Liv"
     },
     {
       "id": "authored-bootstrap-trilemma",
@@ -4881,6 +4904,29 @@
       "excerpt": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and internal judgment. Those signals can be useful, but they are proxies. They can be noisy, gameable, late, or biased toward connected projects. A Vibe market can produce a different kind of evidence: solver dependency, daily derivative volume, unique trader breadth, position duration, liquidation behavior, funding history, spread quality, and whether flow stays active after the first attention wave. That evidence can inform whether a market is ready for deeper execution. This turns data itself into a product. Exchanges can use it for listing decisions. Projects can use it to prove market quality. LPs and solvers can use it to price risk. Data providers can package it into demand indicators, quality scores, and research surfaces. Publication Boundary The source includes example threshold rules. Those should not become public product claims"
     },
     {
+      "id": "authored-listing-decision-problem",
+      "title": "The Listing Decision Problem",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-5-the-listing-decision-problem"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-5-the-listing-decision-problem",
+        "authored-vibe-as-listing-source-of-truth",
+        "authored-programmatic-market-graduation"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/listing-decision-problem.md",
+      "bodyMarkdown": "# The Listing Decision Problem\n\nNeelo's introduction separates market creation into two problems: architecture and information. Even if a venue can technically list a market, it still has to decide whether the market deserves scarce attention, liquidity, risk, and operational support.\n\nToday that decision is usually made from proxies. The source names spot volume, social metrics, community pressure, internal judgment, and business relationships. Each proxy can help, but each can also be noisy, gameable, biased, subjective, or conflicted.\n\nThat is the sense in which listing can become \"vibes-based.\" The issue is not that every listing team is careless. The issue is that before a derivatives market exists, venues lack objective derivatives evidence. They are guessing future market quality from signals adjacent to the market.\n\nVibe's strategic role is to turn that guess into evidence. If early perp intent, solver pricing, position behavior, liquidation behavior, funding pressure, and market maturity can be observed before a mature order-book listing, then downstream venues can make listing decisions from market history rather than proxy theater.\n\n## Publication Boundary\n\nDo not claim any specific exchange uses Vibe data, any Z-score threshold is final, or any listing process is fully automated from this section alone. The source supports the problem statement and the direction of travel: early derivatives evidence can make listing decisions more objective.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.5 The Listing Decision Problem\".\n\n## Related Pages\n\n- `authored-vibe-as-listing-source-of-truth`\n- `authored-listing-data-product`\n- `authored-programmatic-market-graduation`",
+      "excerpt": "The Listing Decision Problem Neelo's introduction separates market creation into two problems: architecture and information. Even if a venue can technically list a market, it still has to decide whether the market deserves scarce attention, liquidity, risk, and operational support. Today that decision is usually made from proxies. The source names spot volume, social metrics, community pressure, internal judgment, and business relationships. Each proxy can help, but each can also be noisy, gameable, biased, subjective, or conflicted. That is the sense in which listing can become \"vibes based.\" The issue is not that every listing team is careless. The issue is that before a derivatives market exists, venues lack objective derivatives evidence. They are guessing future market quality from signals adjacent to the market. Vibe's strategic role is to turn that guess into evidence. If early perp intent, solver pricing, position behavior, liquidation behavior, funding pressure, and market maturity can be observed before a mature order book listing, then downstream venues can make listing decisions from market history rather than proxy theater. Publication Boundary Do not claim any specifi"
+    },
+    {
       "id": "authored-listing-is-not-vault-liquidity",
       "title": "Listing Is Not Vault Liquidity",
       "section": "manifesto",
@@ -6444,6 +6490,29 @@
       "excerpt": "The Permissionless Perps Vision Restated Neelo's conclusion restates the vision in its most direct form: permissionless perpetual markets are not only a product feature. They are a missing layer of market infrastructure. The source contrasts today's lifecycle with the desired one. Today, tokens can be launched easily, but only a small subset earn deep derivatives markets. Listing decisions are still often relationship driven, opaque, or delayed until demand is already obvious. That leaves a gap between token creation, spot access, and credible derivatives. The Vibe thesis is that this gap should become continuous. A token should be able to express derivative demand earlier, produce market data, mature under risk controls, and graduate when objective evidence supports it. This page is the concise answer to why the compendium exists. The goal is not to make every token look safe or valuable. The goal is to make market creation legible enough that good markets can prove themselves and weak markets can be tested rather than narrated into legitimacy. Publication Boundary Do not publish exact live market counts, universal availability, automatic graduation, or relationship free listing o"
     },
     {
+      "id": "authored-perp-bootstrap-scope-and-limits",
+      "title": "The Perp Bootstrap Paper's Scope And Limits",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-9-scope-and-limitations"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-9-scope-and-limitations",
+        "authored-thiel-risk-analysis-checklist",
+        "authored-market-lifecycle-future-directions"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perp-bootstrap-scope-and-limits.md",
+      "bodyMarkdown": "# The Perp Bootstrap Paper's Scope And Limits\n\nThe Perp Classes / Z-Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market.\n\nThat matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction-market design, regulatory treatment, or traditional-finance applicability.\n\nThe source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain.\n\nThe page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make.\n\n## Publication Boundary\n\nUse this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options-market applicability, prediction-market applicability, traditional-finance portability, or live implementation guarantees from the introduction alone.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.9 Scope and Limitations\".\n\n## Related Pages\n\n- `authored-perp-paper-contribution-map`\n- `authored-market-lifecycle-future-directions`\n- `authored-thiel-risk-analysis-checklist`",
+      "excerpt": "The Perp Bootstrap Paper's Scope And Limits The Perp Classes / Z Score paper is deliberately scoped. It focuses on perpetual futures markets in crypto, not every derivative product and not every financial market. That matters for publication discipline. The paper can support claims about perp market bootstrap, matching architecture, collateralization, insurance topology, and market lifecycle. It does not by itself settle options design, prediction market design, regulatory treatment, or traditional finance applicability. The source also assumes a technically literate reader: basic derivatives, DeFi primitives, smart contracts, and oracle concepts. The compendium should make those ideas navigable, but the paper's own claims sit inside that domain. The page is therefore a guardrail for the rest of the manifesto. It lets the docs say, with conviction, what the source argues, while refusing to smuggle in broader promises the source did not make. Publication Boundary Use this page whenever a reader asks how far the bootstrap thesis reaches. Do not infer legal conclusions, options market applicability, prediction market applicability, traditional finance portability, or live implementati"
+    },
+    {
       "id": "authored-perp-market-as-credit-system",
       "title": "Perp Market As Credit System",
       "section": "manifesto",
@@ -6513,6 +6582,29 @@
       "file": "content/authored/manifesto/perp-protocol-framework.md",
       "bodyMarkdown": "# The Three Axes Of Perp Protocol Design\n\nNeelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology.\n\nThe first axis is matching architecture. Synchronous systems require both sides to be present at execution time; order books are the canonical example. Asynchronous systems let a trader execute against a persistent counterparty such as a vault, AMM, or solver.\n\nThe second axis is collateralization. Fully netted systems let longs and shorts pay each other. Fully collateralized systems rely on a vault or LP side to pay winning traders. The source's core point is that netted systems are efficient only when flow is balanced, while collateralized systems can serve one-sided flow only by tying up capital.\n\nThe third axis is insurance topology. Cross-market insurance and cross-margining improve capital efficiency for proven markets, but they couple risk across markets. Isolated markets are less efficient, but a bad new listing cannot drain established markets.\n\n## Reader Implication\n\nThis framework should appear early in the compendium because it explains why Vibe is not merely another perp venue. Vibe is positioned as a system that can move across these axes as a market matures, rather than choosing one static point forever.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Categorizing Perpetual Protocols\".\n- `vibe-papers`: Neelo, \"Section 9: Conclusion\".\n\n## Related Pages\n\n- `authored-bootstrap-trilemma`\n- `authored-perpetual-protocol-design-space`\n- `neelo-01-perp-classes-zscore-01-docs-02-framework`",
       "excerpt": "The Three Axes Of Perp Protocol Design Neelo's framework gives the compendium a vocabulary for comparing perpetual protocols without reducing them to brand names. A perp protocol is not just \"an order book\" or \"a pool.\" It makes choices across three axes: matching, collateralization, and insurance topology. The first axis is matching architecture. Synchronous systems require both sides to be present at execution time; order books are the canonical example. Asynchronous systems let a trader execute against a persistent counterparty such as a vault, AMM, or solver. The second axis is collateralization. Fully netted systems let longs and shorts pay each other. Fully collateralized systems rely on a vault or LP side to pay winning traders. The source's core point is that netted systems are efficient only when flow is balanced, while collateralized systems can serve one sided flow only by tying up capital. The third axis is insurance topology. Cross market insurance and cross margining improve capital efficiency for proven markets, but they couple risk across markets. Isolated markets are less efficient, but a bad new listing cannot drain established markets. Reader Implication This fra"
+    },
+    {
+      "id": "authored-perpetual-futures-rise",
+      "title": "The Rise Of Perpetual Futures",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-1-the-rise-of-perpetual-futures"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-1-the-rise-of-perpetual-futures",
+        "authored-perp-protocol-framework",
+        "authored-vibe-as-discovery-layer"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/perpetual-futures-rise.md",
+      "bodyMarkdown": "# The Rise Of Perpetual Futures\n\nNeelo's introduction starts from a simple market fact: perpetual futures became the crypto derivative primitive because they give continuous leveraged exposure without an expiry date.\n\nThe mechanism matters. A traditional future expires. A perpetual keeps the contract alive and uses funding to keep the perp price anchored to the underlying spot market. That turns the product into ongoing market infrastructure for speculation, hedging, arbitrage, and yield-seeking liquidity.\n\nThe paper's first move is therefore not \"Vibe needs more markets.\" It is \"perps are already central, but new perp market creation remains unsolved.\" Mature venues can process large flows once a market exists. The harder question is what happens before there is a liquid book, reliable two-sided flow, and enough market evidence to justify listing.\n\n## Publication Boundary\n\nThe source includes source-time examples for daily volume, spot-versus-perp ratios, open interest, and Hyperliquid activity. Do not publish those numbers as current without fresh market-data verification. The durable claim is the product-structure claim: no-expiry perps became core crypto market infrastructure, which makes the missing market-creation layer strategically important.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.1 The Rise of Perpetual Futures\".\n\n## Related Pages\n\n- `authored-perp-protocol-framework`\n- `authored-bootstrap-trilemma`\n- `authored-vibe-as-discovery-layer`",
+      "excerpt": "The Rise Of Perpetual Futures Neelo's introduction starts from a simple market fact: perpetual futures became the crypto derivative primitive because they give continuous leveraged exposure without an expiry date. The mechanism matters. A traditional future expires. A perpetual keeps the contract alive and uses funding to keep the perp price anchored to the underlying spot market. That turns the product into ongoing market infrastructure for speculation, hedging, arbitrage, and yield seeking liquidity. The paper's first move is therefore not \"Vibe needs more markets.\" It is \"perps are already central, but new perp market creation remains unsolved.\" Mature venues can process large flows once a market exists. The harder question is what happens before there is a liquid book, reliable two sided flow, and enough market evidence to justify listing. Publication Boundary The source includes source time examples for daily volume, spot versus perp ratios, open interest, and Hyperliquid activity. Do not publish those numbers as current without fresh market data verification. The durable claim is the product structure claim: no expiry perps became core crypto market infrastructure, which make"
     },
     {
       "id": "authored-perpetual-protocol-design-space",
@@ -14409,6 +14501,29 @@
       "file": "content/authored/manifesto/why-derivatives-matter.md",
       "bodyMarkdown": "# Why Derivatives Matter\n\nSpot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value.\n\nThat second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure.\n\nNeelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path.\n\nThe key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is not finished.\n\n## Reader Implication\n\nWhen a reader asks why Vibe is about derivatives rather than only spot trading, this page should answer from first principles: derivatives are the layer that turns issuance into two-sided, stress-tested market information.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Why Derivatives Matter\".\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n\n## Related Pages\n\n- `authored-truth-markets-no-button`\n- `authored-liquidity-as-trader-experience`\n- `authored-proof-of-value`",
       "excerpt": "Why Derivatives Matter Spot markets let participants buy and sell ownership. Derivatives let participants express a fuller view of risk: long, short, hedge, basis trade, yield capture, or conviction that an asset deserves sustained value. That second layer changes what a token is. Without derivatives, a token is mostly an ownership object and a narrative object. With derivatives, it becomes an object of full price discovery. The market can reward belief, punish overstatement, hedge existing holders, and discover whether demand survives leverage and short pressure. Neelo's source makes the trader value concrete: derivatives create markets where none existed, allow hedging and arbitrage, and give traders a way to \"vote no\" instead of only buying or leaving. The project value is just as important. A project can turn idle inventory into market infrastructure, add token utility, create visibility, and support a market without immediately depending on a centralized listing path. The key point is not that every token should have reckless leverage. The point is that complete market structure includes instruments for both positive and negative expression. A market that can only say yes is n"
+    },
+    {
+      "id": "authored-why-existing-perp-solutions-fail-bootstrap",
+      "title": "Why Existing Perp Solutions Fail Bootstrap",
+      "section": "manifesto",
+      "track": "01 - Perps Categories & Bootstrap Trilemma",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-4-why-existing-solutions-fail"
+      ],
+      "relatedGeneratedPages": [
+        "section-01-perp-classes-zscore-01-docs-01-introduction-1-4-why-existing-solutions-fail",
+        "authored-static-perp-design-failures",
+        "authored-bootstrap-trilemma"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/why-existing-perp-solutions-fail-bootstrap.md",
+      "bodyMarkdown": "# Why Existing Perp Solutions Fail Bootstrap\n\nThe introduction gives the short version of the bootstrap problem: existing perp architectures solve different parts of the lifecycle, but none of the static forms solves new-market creation cleanly.\n\nOrder-book protocols can be excellent once a market has buyers, sellers, market makers, and continuous flow. They do not create the missing side of a brand-new market. A new asset can have one-sided demand before there is enough synchronous liquidity to make a book useful.\n\nCollateralized vault or pool protocols can make a market available earlier, but they do it by making LP capital stand behind payouts. That is the source of the fee, spread, leverage, and capacity limits that make the model hard to scale across thousands of long-tail assets.\n\nAsync-netted hybrid attempts promise a tempting combination: permissionless access and better capital efficiency. The source's critique is that the payer question returns at bootstrap. If a trader wins before the opposing side exists, a netted design still needs a defined counterparty.\n\n## Publication Boundary\n\nUse this page as the introduction-level answer. Deeper architecture claims should route to the landscape, bootstrap-trilemma, and framework pages. Current venue behavior, third-party protocol status, capital limits, and failure examples require publication-date primary-source review before final public comparisons.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Introduction: 1.4 Why Existing Solutions Fail\".\n\n## Related Pages\n\n- `authored-static-perp-design-failures`\n- `authored-bootstrap-trilemma`\n- `authored-async-netted-no-payer-failure`",
+      "excerpt": "Why Existing Perp Solutions Fail Bootstrap The introduction gives the short version of the bootstrap problem: existing perp architectures solve different parts of the lifecycle, but none of the static forms solves new market creation cleanly. Order book protocols can be excellent once a market has buyers, sellers, market makers, and continuous flow. They do not create the missing side of a brand new market. A new asset can have one sided demand before there is enough synchronous liquidity to make a book useful. Collateralized vault or pool protocols can make a market available earlier, but they do it by making LP capital stand behind payouts. That is the source of the fee, spread, leverage, and capacity limits that make the model hard to scale across thousands of long tail assets. Async netted hybrid attempts promise a tempting combination: permissionless access and better capital efficiency. The source's critique is that the payer question returns at bootstrap. If a trader wins before the opposing side exists, a netted design still needs a defined counterparty. Publication Boundary Use this page as the introduction level answer. Deeper architecture claims should route to the lands"
     },
     {
       "id": "authored-yield-as-architecture-survival-proof",

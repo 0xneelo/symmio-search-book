@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 572
+      "totalGoldenRoutes": 577
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 590,
-    "retrievalEligiblePages": 1382,
+    "publicNavigationPages": 595,
+    "retrievalEligiblePages": 1387,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 590,
+      "candidate": 595,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 572,
-    "exactRouteTestsPassing": 572,
+    "totalExactRouteTests": 577,
+    "exactRouteTestsPassing": 577,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 572
+      "candidate": 577
     },
     "exactRoutesByConfidence": {
-      "Medium": 352,
+      "Medium": 357,
       "High": 44,
       "Low": 176
     },
@@ -12697,6 +12697,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-permissionless-perps-vision-in-one-page",
         "passes": true
+      },
+      {
+        "id": "qr-why-did-perpetual-futures-become-the-key-crypto-derivative",
+        "query": "Why did perpetual futures become the key crypto derivative?",
+        "normalizedQuery": "why did perpetual futures become the key crypto derivative",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perpetual-futures-rise",
+        "expectedPageTitle": "The Rise Of Perpetual Futures",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-did-perpetual-futures-become-the-key-crypto-derivative",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-existing-perp-solutions-fail-to-bootstrap-new-markets",
+        "query": "Why do existing perp solutions fail to bootstrap new markets?",
+        "normalizedQuery": "why do existing perp solutions fail to bootstrap new markets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-why-existing-perp-solutions-fail-bootstrap",
+        "expectedPageTitle": "Why Existing Perp Solutions Fail Bootstrap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-existing-perp-solutions-fail-to-bootstrap-new-markets",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-listing-decision-problem",
+        "query": "What is the listing decision problem?",
+        "normalizedQuery": "what is the listing decision problem",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-decision-problem",
+        "expectedPageTitle": "The Listing Decision Problem",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-listing-decision-problem",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-bootstrap-thesis-statement",
+        "query": "What is the bootstrap thesis statement?",
+        "normalizedQuery": "what is the bootstrap thesis statement",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-bootstrap-thesis-statement",
+        "expectedPageTitle": "The Bootstrap Thesis Statement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-bootstrap-thesis-statement",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-scope-and-limits-of-the-perp-bootstrap-paper",
+        "query": "What are the scope and limits of the perp bootstrap paper?",
+        "normalizedQuery": "what are the scope and limits of the perp bootstrap paper",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-perp-bootstrap-scope-and-limits",
+        "expectedPageTitle": "The Perp Bootstrap Paper's Scope And Limits",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-are-the-scope-and-limits-of-the-perp-bootstrap-paper",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -12772,7 +12877,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 572,
+      "exactRoutes": 577,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

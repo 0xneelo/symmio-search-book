@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Perp Introduction Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score introduction source.
+- Split the introduction into exact answer routes for why perps matter, why existing designs fail new-market bootstrap, the listing-decision problem, the thesis statement, and scope/limitations.
+- Extended the question ledger so Ask can route foundation questions before readers reach the framework, trilemma, conclusion, or Thiel strategy pages.
+- Kept live market-size claims, venue-specific comparisons, current implementation state, graduation thresholds, integrations, regulatory conclusions, and universal listing claims marked for fresh source/operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Perp Conclusion Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score conclusion source.

@@ -1247,3 +1247,11 @@
 **Reason:** The conclusion is where executive readers ask compressed questions: what the paper contributed, what the central insight is, what changes for exchanges/LPs/protocol designers, what still needs research, and what the final vision is. Splitting those sections gives the answer engine precise routes without forcing every summary question back to the broad bootstrap-trilemma page.
 
 **Status:** Accepted for the authored manifesto layer; roadmap phases, Z-score thresholds, automatic graduation, partner/integration status, venue-specific behavior, live market counts, and universal availability remain operator/product/risk/legal/implementation review.
+
+## D-157: Split The Perp Bootstrap Introduction Into Exact Foundation Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for the rise of perpetual futures, why existing perp solutions fail bootstrap, the listing-decision problem, the paper's thesis statement, and scope/limitations.
+
+**Reason:** The existing framework, trilemma, conclusion, and Thiel pages answer deeper strategy questions, but answer-engine readers also need foundation routes from the introduction: why perps matter, why current architectures leave a bootstrap gap, why listing decisions need better evidence, what Vibe's thesis claims, and where the source stops short.
+
+**Status:** Accepted for the authored manifesto layer; live market-size/share claims, venue-specific comparisons, current implementation state, graduation thresholds, integrations, regulatory conclusions, and universal listing claims remain fresh source/operator/product/risk/legal/implementation review.
