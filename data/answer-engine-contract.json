@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 342
+      "totalGoldenRoutes": 347
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 360,
-    "retrievalEligiblePages": 1152,
+    "publicNavigationPages": 365,
+    "retrievalEligiblePages": 1157,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 360,
+      "candidate": 365,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 342,
-    "exactRouteTestsPassing": 342,
+    "totalExactRouteTests": 347,
+    "exactRouteTestsPassing": 347,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 342
+      "candidate": 347
     },
     "exactRoutesByConfidence": {
       "Medium": 137,
       "High": 44,
-      "Low": 161
+      "Low": 166
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -7054,6 +7054,111 @@
         "passes": true
       },
       {
+        "id": "qr-who-holds-risk-when-i-submit-a-perp-order",
+        "query": "Who holds risk when I submit a perp order?",
+        "normalizedQuery": "who holds risk when i submit a perp order",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-order-submission-risk-holder",
+        "expectedPageTitle": "DDQ Order Submission Risk Holder",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-holds-risk-when-i-submit-a-perp-order",
+        "passes": true
+      },
+      {
+        "id": "qr-what-changes-at-execution-and-netting-in-the-ddq-lifecycle",
+        "query": "What changes at execution and netting in the DDQ lifecycle?",
+        "normalizedQuery": "what changes at execution and netting in the ddq lifecycle",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-execution-netting-risk-split",
+        "expectedPageTitle": "DDQ Execution And Netting Risk Split",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-changes-at-execution-and-netting-in-the-ddq-lifecycle",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-solver-do-when-flow-is-imbalanced",
+        "query": "What does the solver do when flow is imbalanced?",
+        "normalizedQuery": "what does the solver do when flow is imbalanced",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-imbalance-management-hedging-step",
+        "expectedPageTitle": "DDQ Imbalance Management And Hedging Step",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-solver-do-when-flow-is-imbalanced",
+        "passes": true
+      },
+      {
+        "id": "qr-who-holds-risk-while-a-position-is-open",
+        "query": "Who holds risk while a position is open?",
+        "normalizedQuery": "who holds risk while a position is open",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-ongoing-position-lifecycle-risk",
+        "expectedPageTitle": "DDQ Ongoing Position Lifecycle Risk",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-holds-risk-while-a-position-is-open",
+        "passes": true
+      },
+      {
+        "id": "qr-who-holds-risk-at-closeout-and-settlement",
+        "query": "Who holds risk at closeout and settlement?",
+        "normalizedQuery": "who holds risk at closeout and settlement",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-closeout-settlement-risk-holder",
+        "expectedPageTitle": "DDQ Closeout And Settlement Risk Holder",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-who-holds-risk-at-closeout-and-settlement",
+        "passes": true
+      },
+      {
         "id": "qr-why-would-token-holders-lp-instead-of-usdc-lps",
         "query": "Why would token holders LP instead of USDC LPs?",
         "normalizedQuery": "why would token holders lp instead of usdc lps",
@@ -7826,7 +7931,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 342,
+      "exactRoutes": 347,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 342,
+  "totalRoutes": 347,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
     "Medium": 137,
     "High": 44,
-    "Low": 161
+    "Low": 166
   },
   "byRouteSource": {
-    "authored": 342
+    "authored": 347
   },
   "answerable": [
     {
@@ -5454,6 +5454,91 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's DDQ economic-outcomes and risk-walkthrough pages explain trader-to-trader PnL for netted flow and solver/LP-backed residual exposure for un-netted flow.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-holds-risk-when-i-submit-a-perp-order",
+      "question": "Who holds risk when I submit a perp order?",
+      "normalizedQuestion": "who holds risk when i submit a perp order",
+      "pageId": "authored-ddq-order-submission-risk-holder",
+      "pageTitle": "DDQ Order Submission Risk Holder",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ economic-outcomes walkthrough starts with trader-chosen direction, size, leverage, and posted margin before solver residual exposure is determined.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-changes-at-execution-and-netting-in-the-ddq-lifecycle",
+      "question": "What changes at execution and netting in the DDQ lifecycle?",
+      "normalizedQuestion": "what changes at execution and netting in the ddq lifecycle",
+      "pageId": "authored-ddq-execution-netting-risk-split",
+      "pageTitle": "DDQ Execution And Netting Risk Split",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ splits execution into trader-to-trader netted exposure and solver-to-trader residual exposure until the solver hedges or rebalances.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-solver-do-when-flow-is-imbalanced",
+      "question": "What does the solver do when flow is imbalanced?",
+      "normalizedQuestion": "what does the solver do when flow is imbalanced",
+      "pageId": "authored-ddq-imbalance-management-hedging-step",
+      "pageTitle": "DDQ Imbalance Management And Hedging Step",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says the solver can use vault capacity, external hedges, spreads, funding, and incentives to reduce residual imbalance before tail buffers are used.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-holds-risk-while-a-position-is-open",
+      "question": "Who holds risk while a position is open?",
+      "normalizedQuestion": "who holds risk while a position is open",
+      "pageId": "authored-ddq-ongoing-position-lifecycle-risk",
+      "pageTitle": "DDQ Ongoing Position Lifecycle Risk",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ puts ordinary mark-to-market, funding, and liquidation risk primarily on traders, with solver/LP exposure limited to residual hedge and tail states.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-who-holds-risk-at-closeout-and-settlement",
+      "question": "Who holds risk at closeout and settlement?",
+      "normalizedQuestion": "who holds risk at closeout and settlement",
+      "pageId": "authored-ddq-closeout-settlement-risk-holder",
+      "pageTitle": "DDQ Closeout And Settlement Risk Holder",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ says settlement traces to the party or resource stack that held the effective offsetting exposure: other traders for netted flow and solver-side resources for residual flow.",
       "sourceKeys": [
         "vibe-papers"
       ],

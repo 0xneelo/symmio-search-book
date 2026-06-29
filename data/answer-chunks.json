@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1173,
-  "totalChunks": 2034,
-  "pagesWithChunks": 1173,
+  "totalPages": 1178,
+  "totalChunks": 2044,
+  "pagesWithChunks": 1178,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,12 +653,12 @@
     }
   },
   "byRouteSource": {
-    "authored": 361,
+    "authored": 366,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 693,
+    "authored": 703,
     "curated": 20,
     "generated": 1321
   },
@@ -666,7 +666,7 @@
     "manifesto": 331,
     "product-reference": 89,
     "dashboard-reference": 24,
-    "protocol-reference": 188,
+    "protocol-reference": 198,
     "competitive-context": 6,
     "reference": 2,
     "rewards-referrals": 50,
@@ -2476,6 +2476,52 @@
       "text": "quote behavior. Those constraints are part of launch safety, not necessarily a sign that the market failed. For projects and LPs, the practical question is whether the market can produce the evidence needed to move out of this stage: real flow, healthier liquidity, fewer manipulation signals, and enough netting that the solver's residual role can shrink over time. Publication Boundary Do not publish final launch stage deposit requirements, leverage bands, open interest caps, vault utilization targets, or market opening criteria without operator and implementation review. The source backed claim is stage level: early markets use LP deposits and conservative risk limits to bootstrap asynchronous trading. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored lp ignition capital lifecycle authored conservative launch collateralization authored ddq asynchronous matching engine neelo 08 due diligence questionnaire 08 docs attractiveness for lps attractiveness for lps"
     },
     {
+      "id": "authored-ddq-closeout-settlement-risk-holder::001",
+      "pageId": "authored-ddq-closeout-settlement-risk-holder",
+      "chunkIndex": 1,
+      "title": "DDQ Closeout And Settlement Risk Holder",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-closeout-settlement-risk-holder.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Closeout And Settlement Risk Holder The DDQ walkthrough ends with closeout and settlement. When a trader closes or is liquidated, PnL is realized. The solver unwinds or rebalances hedges, repays LP vault borrow usage where applicable, and fees or hedging PnL are distributed according to the relevant vault or venue terms. The risk holder at settlement is the party that held the effective offsetting exposure during the life of the position. Netted Versus Residual Settlement For netted flow, the effective offsetting exposure came from other traders. Settlement realizes trader to trader PnL. The long side and short side clear against each other through the venue's lifecycle. For un netted residual flow, the effective offsetting exposure came from the solver and whatever liquidity resources supported its hedge. In that case, settlement depends on hedge effectiveness, execution costs, vault usage, and the risk waterfall if the move exceeded ordinary margin and hedge protection. Reader Implication This page should answer a common closeout question: \"who paid my PnL?\" The best answer is state dependent. If the position was netted, other traders were the economic counterparty. If the position was residual, the solver side hedge stack carried the offsetting exposure until closeout. That state dependent answer is more accurate than saying the solver always pays or that traders always pay. It also explains"
+    },
+    {
+      "id": "authored-ddq-closeout-settlement-risk-holder::002",
+      "pageId": "authored-ddq-closeout-settlement-risk-holder",
+      "chunkIndex": 2,
+      "title": "DDQ Closeout And Settlement Risk Holder",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-closeout-settlement-risk-holder.md",
+      "wordStart": 185,
+      "wordEnd": 325,
+      "wordCount": 140,
+      "text": "position was residual, the solver side hedge stack carried the offsetting exposure until closeout. That state dependent answer is more accurate than saying the solver always pays or that traders always pay. It also explains why closeout pricing can reflect executable liquidity and why tail outcomes need disclosed waterfall rules. Publication Boundary Do not publish final closeout pricing formulas, liquidation routing, vault repayment terms, fee distribution, hedge PnL sharing, settlement timing, or waterfall implementation details without operator and implementation review. The source backed claim is the settlement principle: realized PnL traces back to the party or resource stack that held the offsetting exposure. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". Related Pages authored executable closeout pricing authored symmio settlement profit realization authored loss waterfall and profit caps neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
+    },
+    {
       "id": "authored-ddq-derivatives-lifecycle-expansion::001",
       "pageId": "authored-ddq-derivatives-lifecycle-expansion",
       "chunkIndex": 1,
@@ -2526,6 +2572,52 @@
       "text": "market path that can prove demand and build risk history. For solvers and LPs, lifecycle expansion depends on whether the market's liquidity and risk behavior justify the next product layer. The Symmio options documentation gives the compendium a protocol vocabulary for options intent lifecycle, but Vibe specific options examples still need product owner review. The public page should distinguish confirmed protocol capability from unconfirmed Vibe product packaging. Publication Boundary Do not publish final Vibe options availability, covered call vault examples, supported derivative types, market graduation rules, or product launch timelines without operator and implementation review. The source backed claim is directional: the market lifecycle can support increasingly sophisticated derivatives as data and risk models improve. Sources vibe papers : Neelo DDQ, \"Attractiveness for LPs\". symmio options docs : current Symmio options documentation index. Related Pages authored options intent lifecycle authored market maturation state map authored ddq mature market stage symmio options contracts"
     },
     {
+      "id": "authored-ddq-execution-netting-risk-split::001",
+      "pageId": "authored-ddq-execution-netting-risk-split",
+      "chunkIndex": 1,
+      "title": "DDQ Execution And Netting Risk Split",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-execution-netting-risk-split.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Execution And Netting Risk Split After order submission, the DDQ walkthrough moves to execution and netting. The solver fills the order and attempts to match it against opposing trader flow. This is where the risk split becomes visible. The netted portion is trader to trader risk: a winning long is paid by a losing short, or a winning short is paid by a losing long. The un netted portion is temporarily solver to trader risk until the solver hedges, rebalances, or attracts offsetting flow. Partial Netting Is Normal The source does not require a market to be only 100 percent netted or 0 percent netted. Real flow can be a blend. A fill may be partly matched by existing opposing interest and partly warehoused by the solver while the market matures. That is why the solver is described elsewhere as an asynchronous matching engine. It can bridge time mismatched flow without forcing every market to behave like a mature order book from day one. Reader Implication When a reader asks what changes at execution, route them to the risk split: netted exposure means directional PnL moves between traders; un netted exposure means the solver is the effective counterparty for the residual until risk is hedged or rebalanced; most live states are blends, so the answer is often proportional rather"
+    },
+    {
+      "id": "authored-ddq-execution-netting-risk-split::002",
+      "pageId": "authored-ddq-execution-netting-risk-split",
+      "chunkIndex": 2,
+      "title": "DDQ Execution And Netting Risk Split",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-execution-netting-risk-split.md",
+      "wordStart": 185,
+      "wordEnd": 348,
+      "wordCount": 163,
+      "text": "PnL moves between traders; un netted exposure means the solver is the effective counterparty for the residual until risk is hedged or rebalanced; most live states are blends, so the answer is often proportional rather than binary. This is also the clean way to explain why a solver can be essential without saying \"the solver always takes the other side.\" The solver operates the matching and residual risk layer. The amount of residual exposure depends on current flow. Publication Boundary Do not publish final netting priority, matching formulas, hedge timing, allocation rules, or per market residual exposure limits without operator and implementation review. The source backed claim is the lifecycle distinction between netted trader to trader exposure and un netted solver to trader residual exposure. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". Related Pages authored netting state risk transfer authored ddq asynchronous matching engine authored internal netting before external execution neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
+    },
+    {
       "id": "authored-ddq-hybrid-liquidity-model::001",
       "pageId": "authored-ddq-hybrid-liquidity-model",
       "chunkIndex": 1,
@@ -2572,6 +2664,52 @@
       "wordEnd": 371,
       "wordCount": 186,
       "text": "Reader Implication For LPs, the hybrid model is the core risk allocation argument. Capital should be used where it is most aligned: token inventory for market specific exposure, solver or protocol stablecoin operations for settlement and hedging, and insurance or buffers for tail states. For traders, the model explains why capacity, spreads, and closeout behavior may change across market maturity. A newly listed market can be more conservative because the solver must protect the backing path. A mature market can become more efficient as two sided flow and risk data improve. Publication Boundary Do not publish final LP yield targets, fee splits, vault terms, collateral ratios, funding formulas, stablecoin balances, or exact market maturity triggers without operator, accounting, risk, and implementation review. The source backed claim is structural: Vibe blends margin and perpetual mechanics to reduce reliance on static full backing. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". vibe papers : Neelo DDQ, \"Attractiveness for LPs\". Related Pages authored token lp attractiveness model authored lp ignition capital lifecycle authored ddq token vault liquidity role neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-imbalance-management-hedging-step::001",
+      "pageId": "authored-ddq-imbalance-management-hedging-step",
+      "chunkIndex": 1,
+      "title": "DDQ Imbalance Management And Hedging Step",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-imbalance-management-hedging-step.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Imbalance Management And Hedging Step The third step in the DDQ economic outcomes walkthrough is imbalance management. If one side of the market is heavier than the other, the solver uses its toolbox to reduce residual exposure. The source names several tools: accessing LP vault liquidity or credit capacity where terms allow it, hedging on external venues, and adjusting incentives such as dynamic spreads or funding to attract offsetting flow. Who Holds Risk During This Step While the solver is carrying residual exposure, risk sits with the solver. If the solver uses LP vault capacity to support the hedge, LP vaults can become economically exposed under the venue's disclosed risk terms. Once a hedge is established, the dominant risk changes. The question is no longer only \"who is long and who is short?\" It becomes \"how good is the hedge?\" The DDQ calls attention to basis, liquidity, and execution risk: a hedge may not track perfectly, may slip, or may be hard to execute during fast market movement. Reader Implication This page is the operational bridge between netting and the loss waterfall. A market does not jump from an un netted fill straight to insurance. First, the solver should try to manage the imbalance with matching, inventory, vault capacity, external hedge routes, and pricing incentives. For LPs, the key"
+    },
+    {
+      "id": "authored-ddq-imbalance-management-hedging-step::002",
+      "pageId": "authored-ddq-imbalance-management-hedging-step",
+      "chunkIndex": 2,
+      "title": "DDQ Imbalance Management And Hedging Step",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-imbalance-management-hedging-step.md",
+      "wordStart": 185,
+      "wordEnd": 344,
+      "wordCount": 159,
+      "text": "does not jump from an un netted fill straight to insurance. First, the solver should try to manage the imbalance with matching, inventory, vault capacity, external hedge routes, and pricing incentives. For LPs, the key diligence point is conditional exposure. LP vault capacity is not automatically exposed to every trade. It becomes relevant when the solver relies on that capacity to support residual risk, and only according to the documented terms. Publication Boundary Do not publish final LP vault borrowing rights, hedge venues, inventory custody, dynamic spread formulas, funding adjustments, hedge effectiveness guarantees, or LP exposure terms without operator and implementation review. The source backed claim is the sequence: residual imbalance is managed by solver tools before tail buffers are considered. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". Related Pages authored solver hedging resource buffer authored residual counterparty hedge first authored lp vault capacity exposure boundary neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
     },
     {
       "id": "authored-ddq-local-insurance-tail-buffer::001",
@@ -2804,6 +2942,98 @@
       "wordEnd": 359,
       "wordCount": 174,
       "text": "partners and LPs, this page answers why Vibe cannot simply copy a generic margin vault model. The DDQ points toward a hybrid structure where margin, perpetual lifecycle, solver risk checks, token inventory, netting, and market controls all reduce the need for static one to one backing. For traders, the practical effect is cost. A capital heavy design usually appears as lower capacity, wider spread, or higher fees. A more efficient design should still preserve solvency controls, but it should not require every early market to rent generic stablecoin capital at punitive rates. Publication Boundary Do not publish final collateral ratios, leverage limits, vault utilization targets, capital efficiency claims, or comparative cost estimates without operator, risk, and implementation review. The source backed claim is directional: near one to one backing can constrain depth, widen spreads, and limit permissionless leverage scalability. Sources vibe papers : Neelo DDQ, \"DDQ General Introduction\". Related Pages authored ddq architecture stack authored slab isolation capital inefficiency authored one x leverage ceiling neelo 08 due diligence questionnaire 08 docs ddq general introduciton"
+    },
+    {
+      "id": "authored-ddq-ongoing-position-lifecycle-risk::001",
+      "pageId": "authored-ddq-ongoing-position-lifecycle-risk",
+      "chunkIndex": 1,
+      "title": "DDQ Ongoing Position Lifecycle Risk",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-ongoing-position-lifecycle-risk.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Ongoing Position Lifecycle Risk After execution and imbalance management, the DDQ walkthrough describes the ongoing position lifecycle: mark to market, funding, liquidations, and extreme condition controls. During normal operation, risk is primarily with traders through margin, account balance, funding payments, and liquidation. A position that moves against the trader consumes margin. If it breaches maintenance requirements, liquidation can reduce or close the exposure. Solver And LP Exposure Is Residual The source is careful not to say the solver or LPs are always bearing every live position. Solver and LP exposure is tied to residual hedge imperfections and system tail events. That means ongoing risk has two layers: ordinary position risk, where traders' margin and liquidation rules handle directional PnL; residual system risk, where imperfect hedges, liquidity gaps, discontinuities, or tail events can reach solver resources, LP capacity used for hedging, insurance, or last resort exposure controls. This framing is important for public docs because it avoids both extremes. It does not pretend that traders are insulated from their own leverage, and it does not hide that a permissionless long tail market needs backstops for abnormal states. Reader Implication When readers ask who holds risk while a trade is open, answer by state. If the position is ordinary and margin is sufficient, the trader is the primary risk holder. If"
+    },
+    {
+      "id": "authored-ddq-ongoing-position-lifecycle-risk::002",
+      "pageId": "authored-ddq-ongoing-position-lifecycle-risk",
+      "chunkIndex": 2,
+      "title": "DDQ Ongoing Position Lifecycle Risk",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-ongoing-position-lifecycle-risk.md",
+      "wordStart": 185,
+      "wordEnd": 329,
+      "wordCount": 144,
+      "text": "abnormal states. Reader Implication When readers ask who holds risk while a trade is open, answer by state. If the position is ordinary and margin is sufficient, the trader is the primary risk holder. If the market has residual imbalances, hedge imperfections, or tail stress, the solver/LP/waterfall layers matter according to the documented risk model. Publication Boundary Do not publish final mark price formulas, funding cadence, liquidation thresholds, ADL availability, insurance triggers, hedge quality metrics, or position lifecycle automation without operator and implementation review. The source backed claim is the allocation of ordinary position risk to traders and residual system risk to the solver side risk stack. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". Related Pages authored vibe account health and liquidations authored funding defense hierarchy authored market tier loss limits neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
+    },
+    {
+      "id": "authored-ddq-order-submission-risk-holder::001",
+      "pageId": "authored-ddq-order-submission-risk-holder",
+      "chunkIndex": 1,
+      "title": "DDQ Order Submission Risk Holder",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-order-submission-risk-holder.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "DDQ Order Submission Risk Holder The DDQ economic outcomes walkthrough starts the trade lifecycle with order submission and margining. A trader chooses direction, size, and leverage, posts margin, and opens at an execution price shaped by the venue's spreads and fees. At this first step, the risk holder is the trader. The trader is the party choosing directional exposure. Long or short, leveraged or conservative, the account has accepted that price movement can create profit or loss against posted margin. Why This Matters This sounds obvious, but it prevents two common misunderstandings. First, solver involvement does not erase trader directional risk. A solver may quote, net, hedge, or temporarily warehouse residual exposure after execution, but the trader still owns the directional bet created by the order. Second, margin is not a fee. It is the account resource that supports the position while the trade lifecycle runs. If the position moves against the trader and maintenance requirements are breached, the trader's margin is the first risk buffer before any wider solver, LP, or insurance layer becomes relevant. Reader Implication When answering \"who holds risk when I submit an order?\", the precise answer is: the trader holds the initial directional risk, while the solver has not yet become the residual counterparty until the execution and netting step determines whether any portion is"
+    },
+    {
+      "id": "authored-ddq-order-submission-risk-holder::002",
+      "pageId": "authored-ddq-order-submission-risk-holder",
+      "chunkIndex": 2,
+      "title": "DDQ Order Submission Risk Holder",
+      "section": "protocol-reference",
+      "track": "Solver And LP Operations",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/ddq-order-submission-risk-holder.md",
+      "wordStart": 185,
+      "wordEnd": 342,
+      "wordCount": 157,
+      "text": "submit an order?\", the precise answer is: the trader holds the initial directional risk, while the solver has not yet become the residual counterparty until the execution and netting step determines whether any portion is un netted. That distinction keeps onboarding language clean. The user can understand their own account level exposure before learning the deeper system question: what happens after the solver fills and tries to net the trade. Publication Boundary Do not publish final margin percentages, leverage bands, maintenance thresholds, spread formulas, fee rates, liquidation distance math, or market specific order restrictions here without operator and implementation review. This page documents the source backed lifecycle step: order submission begins with trader chosen directional exposure and posted margin. Sources vibe papers : Neelo DDQ, \"TL;DR economic outcomes\". Related Pages authored vibe simple trade flow authored netting state risk transfer authored ddq execution netting risk split neelo 08 due diligence questionnaire 08 docs tl dr economic outcomes"
     },
     {
       "id": "authored-ddq-perpetuals-layer-role::001",

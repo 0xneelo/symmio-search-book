@@ -879,3 +879,11 @@
 **Reason:** The LP-attractiveness source explains Vibe as a lifecycle system, not a static vault or static exchange. Exact stage-level answers help partners, LPs, solvers, and project teams understand why launch conditions can be conservative, how two-sided flow changes the solver's role, why capital efficiency should improve only with evidence, and why more complex derivatives belong later in the lifecycle.
 
 **Status:** Accepted for the authored protocol-reference layer; launch criteria, graduation thresholds, leverage schedules, collateralization ratios, options availability, covered-call examples, revenue share, and market-support terms remain operator/product/risk/implementation/accounting review.
+
+## D-111: Split DDQ Trade Risk Lifecycle Into Step-Level Answers
+
+**Decision:** Add authored protocol-reference pages for DDQ order-submission risk ownership, execution/netting risk split, imbalance management and hedging, ongoing position lifecycle risk, and closeout/settlement risk ownership.
+
+**Reason:** The broad netting-state and loss-waterfall pages explain the overall model, but trader, LP, and diligence readers need exact routes for each lifecycle step. Splitting the walkthrough makes the answer-engine precise about when risk starts with the trader, when it becomes trader-to-trader versus solver-to-trader, when LP capacity can become relevant, how ordinary position risk differs from residual system risk, and how settlement traces back to the party or resource stack that held the offsetting exposure.
+
+**Status:** Accepted for the authored protocol-reference layer; final margin thresholds, netting rules, hedge venues, vault exposure terms, funding/liquidation formulas, closeout pricing, settlement timing, and waterfall implementation remain operator/risk/legal/accounting/implementation review.

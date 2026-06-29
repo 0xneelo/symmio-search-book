@@ -664,6 +664,12 @@
 - Routed five new Ask questions so partner, LP, solver, and project readers can inspect how market support evolves from launch safety toward trader-to-trader maturity.
 - Kept launch criteria, graduation thresholds, leverage schedules, collateralization ratios, options availability, covered-call examples, revenue share, and market-support terms under operator/product/risk/implementation/accounting review.
 
+## 2026-06-29 — DDQ Trade Risk Lifecycle Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's DDQ TL;DR economic outcomes walkthrough: order-submission risk ownership, execution/netting risk split, imbalance management and hedging, ongoing position lifecycle risk, and closeout/settlement risk ownership.
+- Routed five new Ask questions so trader, LP, solver, and diligence readers can inspect who holds risk at each lifecycle step rather than relying only on the broad netting/waterfall summary.
+- Kept final margin thresholds, netting rules, hedge venues, vault exposure terms, funding/liquidation formulas, closeout pricing, settlement timing, and waterfall implementation under operator/risk/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
