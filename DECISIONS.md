@@ -1231,3 +1231,11 @@
 **Reason:** The existing Thielian listing-monopoly, small-market wedge, and replication-barrier pages explain the broad strategy, but answer-engine readers also ask direct questions about specific Thiel criteria. Splitting the source prevents the docs from overloading "monopoly" as a slogan and gives precise routes for what is source-backed, what is conditional on execution, and what must remain review-bound before publication.
 
 **Status:** Accepted for the authored manifesto layer; live monopoly/dominance claims, solver performance, graduation outcomes, integration status, market share, data-moat strength, public brand claims, production economics, and competitor-specific judgments remain operator/product/risk/legal/implementation review.
+
+## D-155: Split Thiel Durability Analysis Into Exact Strategy Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for durability and long-term value, vertical integration of the market lifecycle, category creation versus feature competition, the Thiel risk checklist, and final scorecard interpretation.
+
+**Reason:** The prior Thiel split handled proprietary technology, scale, brand, last-mover framing, and monopoly verdict boundaries. The remaining sections need direct Ask routes so readers can inspect what would make the thesis durable, how the lifecycle integration model works, why the competitive frame is category creation, which risks could falsify the thesis, and how to read the scorecard as evidence checklist rather than a dominance claim.
+
+**Status:** Accepted for the authored manifesto layer; long-term cash-flow ladders, revenue/licensing claims, live integrations, automatic graduation promises, market share, competitor-specific judgments, regulatory conclusions, and final investment/dominance claims remain operator/product/risk/legal/implementation review.

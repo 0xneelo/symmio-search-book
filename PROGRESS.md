@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Thiel Durability Exact Pages
+
+- Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Thiel-monopoly source.
+- Split the remaining Thielian strategy source into exact answer routes for durability, vertical integration, category creation versus competition, risk checklist, and scorecard interpretation.
+- Extended the question ledger so Ask can route direct strategy-check questions without treating "monopoly" as a slogan.
+- Kept long-term cash-flow ladders, revenue/licensing claims, live integrations, graduation promises, market share, competitor-specific judgments, regulatory conclusions, and investment/dominance claims marked for operator/product/risk/legal/implementation review.
+
 ## 2026-06-29 — Thiel Monopoly Exact Pages
 
 - Added 5 authored Volume 02 manifesto pages from Neelo's Perp Classes / Z-Score Thiel-monopoly source.

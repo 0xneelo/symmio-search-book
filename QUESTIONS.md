@@ -568,6 +568,11 @@ Questions are grouped by whether the current source set can answer them.
 | Is Vibe's brand already a moat? | `authored-thiel-brand-as-earned-signal` | Medium | Neelo scores brand as potential but early; the docs should frame brand as an earned market signal after repeated operating proof. |
 | What is the last-mover question for Vibe? | `authored-thiel-last-mover-question` | Medium | Neelo's last-mover frame asks whether Vibe can become the durable standard for permissionless perpetual market creation, not whether it shipped the first perp interface. |
 | Is Vibe a monopoly? | `authored-thiel-monopoly-verdict-boundary` | Medium | Neelo's source supports a Thielian monopoly thesis and moat map, while live dominance remains an execution claim requiring product and market evidence. |
+| Why does Vibe's durability matter more than short-term growth? | `authored-thiel-durability-long-term-value` | Medium | Neelo's durability section says long-term value depends on repeated market creation, compounding data, and integration depth, while live cash-flow and revenue claims need review. |
+| What does Vibe vertically integrate? | `authored-thiel-vertical-integration-lifecycle-control` | Medium | Neelo frames Vibe as integrating market creation, initial liquidity, risk management, maturation tracking, graduation decisions, and order-book transition logic as a lifecycle model. |
+| Is Vibe competing with existing perp venues? | `authored-thiel-category-creation-not-competition` | Medium | Neelo frames Vibe as creating early perp markets where none currently exist, complementing mature venues instead of replacing every order book. |
+| What risks can break the Thiel monopoly thesis? | `authored-thiel-risk-analysis-checklist` | Medium | Neelo names fee compression, limited market expansion, insufficient 10x advantage, a better last mover, and durability failure as risks to the thesis. |
+| How should readers use the Thiel scorecard? | `authored-thiel-scorecard-interpretation` | Medium | Neelo's scorecard is an argument checklist mapping strategy criteria to evidence, not audited proof of dominance or an investment conclusion. |
 
 ## Prototype Event Log
 
