@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Reading Order Overview
+
+- Expanded `authored-volume-04-token-margin-and-funding-systems` from a short volume stub into a book-level reading order for the Vibe pillars, collateral/USDC risk-premium path, Percolator critique, and funding-control path.
+- Routed one new Ask question, "How should I read Volume 04 on token margin and funding systems?", to the Volume 04 overview so broad reader-orientation demand lands on the compendium entry point rather than a narrow mechanism page.
+- Kept exact APR ranges, expected-loss ranges, adverse-selection premiums, live LP terms, fee levels, funding rates, spread/borrow policy, insurance budgets, ADL thresholds, Percolator live parameters, Vibe vault rights, solver funding sources, loss ordering, reserve policy, partner claims, market eligibility, and graduation thresholds under current-source/operator/product/risk/legal/accounting/security review.
+
 ## 2026-06-30 — Volume 03 Reading Order Overview
 
 - Expanded `authored-volume-03-listing-power-and-orderbooks` from a short volume stub into a book-level reading order for the Listing Monopoly path, order-book complementarity path, Ode source-navigation maps, and HIP-3/discovery-layer bridge.

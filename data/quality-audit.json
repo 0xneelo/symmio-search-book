@@ -17,11 +17,11 @@
     "readerRoutablePages": 1593,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 791,
-    "seededAuthoredQuestionRoutes": 791,
+    "seededQuestionRoutes": 792,
+    "seededAuthoredQuestionRoutes": 792,
     "seededReconciliationQuestions": 2,
-    "localFaqEntries": 793,
-    "localFaqAnswerable": 791,
+    "localFaqEntries": 794,
+    "localFaqAnswerable": 792,
     "localFaqUnresolved": 2,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -29,8 +29,8 @@
     "gapQueueOperatorSignals": 7,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
-    "answerEngineExactRouteTests": 791,
-    "answerEngineExactRouteTestsPassing": 791,
+    "answerEngineExactRouteTests": 792,
+    "answerEngineExactRouteTestsPassing": 792,
     "answerEngineRefusalTests": 2,
     "answerEngineRefusalTestsPassing": 2,
     "answerEngineDeterministicReady": true,
@@ -78,7 +78,7 @@
     "readerPagesWithNext": 1592,
     "readerPagesWithRelated": 1593,
     "answerChunkPages": 1611,
-    "answerChunks": 2847,
+    "answerChunks": 2849,
     "answerChunkSourceKeys": 100,
     "compendiumVolumes": 8,
     "compendiumChapters": 104,
@@ -109,7 +109,7 @@
     "openOperatorItems": 7,
     "resolvedOperatorItems": 6,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 791,
+    "answerablePrototypeQuestions": 792,
     "reconciliationQuestions": 2
   },
   "gates": [
@@ -189,19 +189,19 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "791 generated routes, 791 answerable ledger rows, 0 missing page ids"
+      "detail": "792 generated routes, 792 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "authored-question-routes",
       "label": "Answerable seed questions use authored pages",
       "passed": true,
-      "detail": "791/791 seed routes use authored pages, 0 generated/curated fallbacks"
+      "detail": "792/792 seed routes use authored pages, 0 generated/curated fallbacks"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "791 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "792 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -213,7 +213,7 @@
       "id": "deterministic-answer-engine",
       "label": "Deterministic answer engine contract resolves",
       "passed": true,
-      "detail": "791/791 exact routes, 2/2 refusal tests, LLM production ready no"
+      "detail": "792/792 exact routes, 2/2 refusal tests, LLM production ready no"
     },
     {
       "id": "llm-rag-contract",
@@ -249,7 +249,7 @@
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "1611 pages, 2847 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "1611 pages, 2849 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
@@ -778,15 +778,15 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 791,
+    "totalRoutes": 792,
     "totalReconciliationQuestions": 2,
     "byConfidence": {
-      "Medium": 494,
+      "Medium": 495,
       "High": 44,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 791
+      "authored": 792
     },
     "missingRouteIds": [],
     "nonAuthoredQuestionRoutes": []
@@ -794,8 +794,8 @@
   "faqCoverage": {
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
-    "totalEntries": 793,
-    "totalAnswerable": 791,
+    "totalEntries": 794,
+    "totalAnswerable": 792,
     "totalUnresolved": 2,
     "totalCategories": 10,
     "byCategory": {
@@ -803,20 +803,20 @@
       "Trading Flow": 44,
       "Solvers And Settlement": 180,
       "Data And Volume": 6,
+      "Revenue": 98,
       "Risk And Markets": 72,
-      "Revenue": 97,
       "Manifesto": 160,
       "Rewards And Referrals": 100,
       "Dashboard": 12,
       "Discord Import": 2
     },
     "byConfidence": {
-      "Medium": 494,
+      "Medium": 495,
       "High": 44,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 791
+      "authored": 792
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -871,15 +871,15 @@
     "contractVersion": "2026-06-28.v1",
     "deterministicReady": true,
     "llmProductionReady": false,
-    "exactRouteTests": 791,
-    "exactRouteTestsPassing": 791,
+    "exactRouteTests": 792,
+    "exactRouteTestsPassing": 792,
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "candidate": 791
+      "candidate": 792
     },
     "exactRoutesByConfidence": {
-      "Medium": 494,
+      "Medium": 495,
       "High": 44,
       "Low": 253
     },
@@ -956,7 +956,7 @@
           "candidate",
           "published"
         ],
-        "totalGoldenRoutes": 791
+        "totalGoldenRoutes": 792
       },
       {
         "stage": "glossary-route",
@@ -1053,7 +1053,7 @@
       "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
       "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
       "evaluationSet": {
-        "exactRoutes": 791,
+        "exactRoutes": 792,
         "glossaryRoutes": 32,
         "refusals": 2,
         "lowRatedFeedback": 1,
@@ -1184,7 +1184,7 @@
           "data/question-routes.json",
           "data/glossary.json"
         ],
-        "goldenExactRoutes": 791,
+        "goldenExactRoutes": 792,
         "goldenRefusals": 2
       },
       {
@@ -1336,10 +1336,10 @@
       "deterministicReady": true,
       "runtimeScript": "scripts/run-llm-rag-answer.mjs",
       "runtimeImplemented": true,
-      "exactRouteTests": 791,
+      "exactRouteTests": 792,
       "refusalTests": 2,
       "answerChunkPages": 1611,
-      "answerChunks": 2847,
+      "answerChunks": 2849,
       "retrievalEligiblePages": 1590,
       "internalDraftPages": 3,
       "sourceCatalogEntries": 124,
@@ -1407,10 +1407,10 @@
       "totalFixtures": 27,
       "passingFixtures": 27,
       "failingFixtures": 0,
-      "exactRouteGoldenSet": 791,
+      "exactRouteGoldenSet": 792,
       "adversarialGoldenSet": 15,
       "answerChunkPages": 1611,
-      "answerChunks": 2847,
+      "answerChunks": 2849,
       "sourceCatalogEntries": 124,
       "pageStatePages": 1593,
       "openOperatorItems": 7,
@@ -1594,7 +1594,7 @@
       "ratingFixtures": 3,
       "gapFixtures": 4,
       "gapQueueItems": 12,
-      "questionRouteCount": 791,
+      "questionRouteCount": 792,
       "reconciliationQuestionCount": 2,
       "operatorSignals": 7,
       "openOperatorItems": 7,
@@ -1765,7 +1765,7 @@
       "overlapWords": 35
     },
     "totalPages": 1611,
-    "totalChunks": 2847,
+    "totalChunks": 2849,
     "pagesWithChunks": 1611,
     "byRouteSource": {
       "authored": 799,
@@ -1773,7 +1773,7 @@
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 1506,
+      "authored": 1508,
       "curated": 20,
       "generated": 1321
     },
@@ -1787,7 +1787,7 @@
       "answer-engine": 4,
       "reference": 2,
       "solver-reference": 9,
-      "compendium": 20,
+      "compendium": 22,
       "Dashboard": 2,
       "Competitive": 1,
       "Protocol": 4,
@@ -2102,7 +2102,7 @@
     "internalDraftPages": 3,
     "publicNavigationPages": 798,
     "retrievalEligiblePages": 1590,
-    "exactQuestionRoutedPages": 780,
+    "exactQuestionRoutedPages": 781,
     "duplicatePageIds": [],
     "unclassifiedPageIds": [],
     "missingVolumeIds": [],

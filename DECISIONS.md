@@ -1847,3 +1847,11 @@
 **Reason:** The exact Volume 03 authored pages and source maps already exist, but readers still need one overview that explains how listing power, liquidity, order-book maturity, admission bottlenecks, and discovery-layer claims fit together. A volume overview should answer the broad "how do I read this?" question, then route into exact pages without republishing source TODOs, transcript markers, or review-bound venue examples as final claims.
 
 **Status:** Accepted for compendium authoring. HIP-3 outcomes, direct Hyperliquid routing, SSHE mechanics, automatic graduation rules, market-maturity thresholds, market-score formulas, source-time venue examples, launchpad partnerships, order-book listing policies, downstream listing influence, and monopoly or structural-superiority verdicts remain fresh primary-source/operator/product/market/risk/legal/accounting/security review items before publication.
+
+## D-232: Use Volume 04 As The Collateral And Funding Reading Order
+
+**Decision:** Expand `authored-volume-04-token-margin-and-funding-systems` into the canonical book-level entry point for the Vibe pillars, collateral/USDC risk-premium path, Percolator critique, and funding-control path.
+
+**Reason:** The exact Volume 04 mechanism pages already exist, but readers still need one overview that explains how collateral form, token inventory, USDC backstop economics, inverse token-margin risk, funding controls, insurance, and ADL fit together. A volume overview should answer the broad "how do I read this?" question, then route into exact mechanism pages and source maps without turning model examples or review-bound parameter tables into current product claims.
+
+**Status:** Accepted for compendium authoring. Exact APR ranges, expected-loss ranges, adverse-selection premiums, live LP terms, fee levels, funding rates, spread policy, borrow policy, insurance budgets, ADL thresholds, Percolator live parameters, Vibe vault rights, solver funding sources, loss ordering, reserve policy, partner claims, market eligibility, and graduation thresholds remain source-model, implementation, risk, legal, accounting, security, and operator review items before publication.
