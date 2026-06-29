@@ -1583,3 +1583,11 @@
 **Reason:** These source companions were not missing concepts. Their substantive section-level claims already had authored coverage. Adding duplicate pages would make Ask less precise, while mapping the parent companions strengthens traceability from the imported source pages into the authored compendium. The Listing Additional transcript is rough source material, so its safest parent route is the model-map page that already translates the raw comparison into publication-quality categories.
 
 **Status:** Accepted for source-traceability coverage; current third-party venue behavior, live market counts, audited LP outcomes, funding formula production status, solver controls, and venue-specific economic claims remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-199: Add DDQ Parent Source Maps
+
+**Decision:** Add authored Volume 05 protocol-reference source-map pages for the two remaining DDQ parent source companions: the DDQ overview and the solver worst-case-scenarios overview.
+
+**Reason:** The remaining DDQ unmapped source-pages were parent navigation pages, not missing atomic mechanics. A DDQ table of contents and a solver worst-case source map preserve the source structure, route readers into existing exact pages, and prevent Ask from flattening operational failure, hedging constraints, solver default, and loss-absorption questions into one broad answer.
+
+**Status:** Accepted for source-traceability coverage; Force Close timers, proof networks, hedge venues, risk thresholds, market freeze rules, solver liquidation flags, buyout mechanics, compensation percentages, insurance allocations, ADL triggers, production solver guarantees, and restart rules remain fresh operator/product/risk/legal/accounting/security/implementation review.

@@ -12,6 +12,8 @@ Questions are grouped by whether the current source set can answer them.
 | What was AMFQ? | `authored-amfq-legacy-intent-naming` | High | Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model. |
 | Who are PartyA and PartyB? | `authored-symmio-party-a-party-b` | High | Symmio core docs support the role distinction. |
 | What does a solver do? | `authored-vibe-intent-architecture` | High | Vibe architecture and Symmio lifecycle docs explain solver quote, collateral, hedging, and lifecycle responsibilities. |
+| How should I read the Vibe DDQ source set? | `authored-ddq-source-table-of-contents` | Low | Neelo's DDQ overview maps introduction, economic outcomes, risk walkthrough, residual counterparty, worst-case scenarios, and LP attractiveness sources into authored routes. |
+| Which DDQ pages cover solver worst-case scenarios? | `authored-solver-worst-case-scenarios-source-map` | Low | Neelo's parent worst-case source separates operational failure, hedging constraints, solver default, and loss-absorption routes; production parameters remain operator review. |
 | How does VibeCaps margin work? | `authored-vibecaps-margin-management` | High | Public Vibe margin page explains add/remove behavior, liquidation-distance effects, and removal constraints. |
 | How do I place a simple Vibe trade? | `authored-vibe-simple-trade-flow` | High | Public Vibe simple-trade docs support the ticket sequence, with architecture docs covering the intent layer. |
 | Which order types does Vibe support? | `authored-vibe-order-types` | High | Public Vibe order-type docs support market, limit, TP/SL, stop-market, stop-limit, and coming-soon advanced types. |

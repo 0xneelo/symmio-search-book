@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — DDQ Parent Source Coverage
+
+- Added 2 authored Volume 05 protocol-reference source-map pages for the remaining DDQ parent source companions.
+- Split the DDQ parent overview into a source table of contents and the solver worst-case parent into a routing map for operational failure, hedging failure, solver default, and loss absorption.
+- Extended the question ledger so Ask can route DDQ source-navigation questions without duplicating child mechanics pages.
+- Kept Force Close timers, proof sources, hedge venues, risk thresholds, liquidation flags, buyout mechanics, compensation percentages, insurance allocations, ADL triggers, and restart rules marked for operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Singleton Parent Source Coverage
 
 - Mapped 4 remaining singleton generated parent source-pages to existing authored pages instead of duplicating content.

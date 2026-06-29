@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 764
+      "totalGoldenRoutes": 766
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 782,
-    "retrievalEligiblePages": 1574,
+    "publicNavigationPages": 784,
+    "retrievalEligiblePages": 1576,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 782,
+      "candidate": 784,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 764,
-    "exactRouteTestsPassing": 764,
+    "totalExactRouteTests": 766,
+    "exactRouteTestsPassing": 766,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 764
+      "candidate": 766
     },
     "exactRoutesByConfidence": {
       "Medium": 477,
       "High": 44,
-      "Low": 243
+      "Low": 245
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -327,6 +327,48 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-a-solver-do",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-the-vibe-ddq-source-set",
+        "query": "How should I read the Vibe DDQ source set?",
+        "normalizedQuery": "how should i read the vibe ddq source set",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-ddq-source-table-of-contents",
+        "expectedPageTitle": "DDQ Source Table Of Contents",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-should-i-read-the-vibe-ddq-source-set",
+        "passes": true
+      },
+      {
+        "id": "qr-which-ddq-pages-cover-solver-worst-case-scenarios",
+        "query": "Which DDQ pages cover solver worst-case scenarios?",
+        "normalizedQuery": "which ddq pages cover solver worst case scenarios",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-worst-case-scenarios-source-map",
+        "expectedPageTitle": "Solver Worst-Case Scenarios Source Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-which-ddq-pages-cover-solver-worst-case-scenarios",
         "passes": true
       },
       {
@@ -16850,7 +16892,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 764,
+      "exactRoutes": 766,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
