@@ -1759,3 +1759,11 @@
 **Reason:** The uncovered items are not independent source sections; they are the overview and summary of the same APR derivation already represented by the canonical required-risk-premium page and its component pages. Metadata mapping preserves traceability while avoiding another public page that would duplicate the risk-premium argument.
 
 **Status:** Accepted for source-traceability coverage. Exact APR ranges, expected-loss ranges, adverse-selection premium ranges, current LP terms, fee levels, funding rates, spread policy, token-emission policy, subsidies, and token-backed APR claims remain operator/risk/accounting/legal/implementation review items before publication.
+
+## D-221: Map Ode Part II Navigation Fragments Through One Source Map
+
+**Decision:** Add `authored-ode-part-ii-source-navigation-map` to cover the remaining uncovered generated section fragments from Neelo's Ode to OrderBooks Part II overview, abstract, table of contents, core thesis, and conclusion source markers, routing readers into existing authored pages for order-book admission, narrative-listing limits, the Hyperliquid gap, launchpad-to-order-book path, graduation data, and programmatic graduation.
+
+**Reason:** The uncovered items are orientation and provenance fragments, not independent claims. Promoting them into standalone public pages would duplicate the already-authored Part II spine and make transcript source markers look like final product claims. A single source map preserves traceability while keeping graduation and integration language review-bound.
+
+**Status:** Accepted for source-traceability coverage. HIP-3 outcomes, direct Hyperliquid routing, automatic graduation rules, maturity thresholds, market-score formulas, launchpad partnerships, order-book listing policy, and admission automation remain fresh primary-source/operator/product/market/risk/legal review items before publication.

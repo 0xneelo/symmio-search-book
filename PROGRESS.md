@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Ode To OrderBooks Part II Source Navigation Coverage
+
+- Added `authored-ode-part-ii-source-navigation-map` to route Neelo's remaining Ode to OrderBooks Part II abstract, overview, table-of-contents, core-thesis, and source-marker fragments into existing authored order-book admission and Hyperliquid-gap pages.
+- Mapped 6 uncovered generated section companions covering the abstract, dissertation overview, table of contents, core thesis, overview source marker, and conclusion source marker.
+- Routed one new Ask question, "How should I read the Ode to OrderBooks Part II source set?", to the new source-navigation page.
+- Kept HIP-3 outcomes, direct Hyperliquid routing, automatic graduation rules, maturity thresholds, market-score formulas, launchpad partnerships, order-book listing policy, and admission automation under fresh primary-source/operator/product/market/risk/legal review.
+
 ## 2026-06-29 — USDC Risk-Premium Source Navigation Coverage
 
 - Mapped the remaining USDC required-APR overview and summary generated fragments into `authored-required-risk-premium-for-usdc-lps` instead of creating duplicate public pages.
