@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 462,
+  "totalRoutes": 467,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 242,
+    "Medium": 247,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 462
+    "authored": 467
   },
   "answerable": [
     {
@@ -3840,6 +3840,93 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's setup and data-snapshot pages tie the case to a specific dashboard state, sign convention, and metric list rather than a continuously audited time series.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-should-a-symm-lp-vault-nav-time-series-show",
+      "question": "What should a SYMM LP vault NAV time series show?",
+      "normalizedQuestion": "what should a symm lp vault nav time series show",
+      "pageId": "authored-symm-lp-vault-nav-time-series",
+      "pageTitle": "SYMM LP Vault NAV Time Series",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's measurement-gap section requires vault-level NAV and PnL time series so a favorable endpoint does not hide path risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-split-realized-roi-from-marked-roi-in-symm-lp-reports",
+      "question": "Why split realized ROI from marked ROI in SYMM LP reports?",
+      "normalizedQuestion": "why split realized roi from marked roi in symm lp reports",
+      "pageId": "authored-symm-lp-realized-marked-pnl-split",
+      "pageTitle": "SYMM LP Realized And Marked PnL Split",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's KPI stack and sign convention separate realized debt from unrealized mark-to-market edge; public tables should preserve that boundary.",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-should-symm-lp-reports-include-drawdown-and-recovery-time",
+      "question": "Why should SYMM LP reports include drawdown and recovery time?",
+      "normalizedQuestion": "why should symm lp reports include drawdown and recovery time",
+      "pageId": "authored-symm-lp-drawdown-recovery-reporting",
+      "pageTitle": "SYMM LP Drawdown And Recovery Reporting",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's beta-report requirements include max drawdown, duration, and recovery because endpoint profit alone cannot prove tolerable path risk.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-a-gross-to-net-attribution-bridge-for-symm-lps",
+      "question": "What is a gross-to-net attribution bridge for SYMM LPs?",
+      "normalizedQuestion": "what is a gross to net attribution bridge for symm lps",
+      "pageId": "authored-symm-lp-gross-to-net-attribution-bridge",
+      "pageTitle": "SYMM LP Gross-To-Net Attribution Bridge",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's attribution and measurement-gap sections require a bridge from trader PnL, funding, fees, liquidations, and costs into final LP results.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-update-symm-lp-benchmarks-across-market-regimes",
+      "question": "Why update SYMM LP benchmarks across market regimes?",
+      "normalizedQuestion": "why update symm lp benchmarks across market regimes",
+      "pageId": "authored-symm-lp-regime-updated-benchmarks",
+      "pageTitle": "SYMM LP Regime-Updated Benchmarks",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's benchmark comparison worked in one favorable regime, while the risk section requires uptrend, chop, gap, and activity-decay retests before scaling claims.",
       "sourceKeys": [
         "vibe-papers"
       ],

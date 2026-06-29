@@ -808,6 +808,12 @@
 - Routed five new Ask questions so readers can compare order books, pool-backed systems, strict listing venues, and Percolator-family settlement limits without treating any venue example as a live audited claim.
 - Kept third-party venue parameters, live market counts, lockups, auction cadence, TVL figures, payout behavior, and code-lineage claims under current-source and publication-date review.
 
+## 2026-06-29 — SYMM LP Reporting Exact Pages
+
+- Added five authored protocol-reference pages from Neelo's SYMM LP measurement-gap and beta-report sections: vault NAV time series, realized/marked PnL splitting, drawdown and recovery reporting, gross-to-net attribution bridge, and regime-updated benchmarks.
+- Routed five new Ask questions so LPs, treasuries, accounting reviewers, and operators can inspect what future SYMM LP reporting must show before the case is generalized.
+- Kept live vault charts, accounting labels, withdrawal semantics, data ownership, gross-to-net allocation, drawdown history, benchmark refresh cadence, and public yield wording under operator/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

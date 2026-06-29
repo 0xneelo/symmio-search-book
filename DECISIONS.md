@@ -1071,3 +1071,11 @@
 **Reason:** The broad listing-annex pages explain the model map, but answer-engine readers need direct routes for the operational vocabulary used to compare order books, vault rails, pool-backed perps, and Percolator-family systems. Splitting these answers improves market-structure precision without presenting third-party field observations as current venue documentation.
 
 **Status:** Accepted for the authored manifesto layer; third-party venue parameters, market counts, lockups, auction cadence, TVL figures, payout behavior, and implementation/code-lineage claims remain current-source and publication-date review.
+
+## D-135: Split SYMM LP Reporting Requirements Into Exact Operational Answers
+
+**Decision:** Add authored protocol-reference pages for SYMM LP vault NAV time series, realized versus marked PnL splitting, drawdown and recovery reporting, gross-to-net attribution, and regime-updated benchmark retesting.
+
+**Reason:** The broad SYMM LP KPI and data-guardrail pages explain that the case is a proof of mechanism rather than a yield promise, but exact-answer readers need direct routes for the reporting controls that make that boundary enforceable. Splitting the source's measurement gaps turns them into operational requirements before future LP performance claims are generalized.
+
+**Status:** Accepted for the authored protocol-reference layer; live vault charts, accounting labels, withdrawal semantics, data ownership, gross-to-net allocation, fee/expense treatment, drawdown history, benchmark refresh cadence, and public yield wording remain operator/accounting/legal/implementation review.

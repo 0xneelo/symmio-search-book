@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 462
+      "totalGoldenRoutes": 467
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 480,
-    "retrievalEligiblePages": 1272,
+    "publicNavigationPages": 485,
+    "retrievalEligiblePages": 1277,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 480,
+      "candidate": 485,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 462,
-    "exactRouteTestsPassing": 462,
+    "totalExactRouteTests": 467,
+    "exactRouteTestsPassing": 467,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 462
+      "candidate": 467
     },
     "exactRoutesByConfidence": {
-      "Medium": 242,
+      "Medium": 247,
       "High": 44,
       "Low": 176
     },
@@ -5019,6 +5019,115 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-dashboard-data-cut-supports-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-what-should-a-symm-lp-vault-nav-time-series-show",
+        "query": "What should a SYMM LP vault NAV time series show?",
+        "normalizedQuery": "what should a symm lp vault nav time series show",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-vault-nav-time-series",
+        "expectedPageTitle": "SYMM LP Vault NAV Time Series",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-should-a-symm-lp-vault-nav-time-series-show",
+        "passes": true
+      },
+      {
+        "id": "qr-why-split-realized-roi-from-marked-roi-in-symm-lp-reports",
+        "query": "Why split realized ROI from marked ROI in SYMM LP reports?",
+        "normalizedQuery": "why split realized roi from marked roi in symm lp reports",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-realized-marked-pnl-split",
+        "expectedPageTitle": "SYMM LP Realized And Marked PnL Split",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-settlement",
+          "symmio-profit-realization"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-settlement",
+          "symmio-profit-realization"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-split-realized-roi-from-marked-roi-in-symm-lp-reports",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-symm-lp-reports-include-drawdown-and-recovery-time",
+        "query": "Why should SYMM LP reports include drawdown and recovery time?",
+        "normalizedQuery": "why should symm lp reports include drawdown and recovery time",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-drawdown-recovery-reporting",
+        "expectedPageTitle": "SYMM LP Drawdown And Recovery Reporting",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-should-symm-lp-reports-include-drawdown-and-recovery-time",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-a-gross-to-net-attribution-bridge-for-symm-lps",
+        "query": "What is a gross-to-net attribution bridge for SYMM LPs?",
+        "normalizedQuery": "what is a gross to net attribution bridge for symm lps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-gross-to-net-attribution-bridge",
+        "expectedPageTitle": "SYMM LP Gross-To-Net Attribution Bridge",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-a-gross-to-net-attribution-bridge-for-symm-lps",
+        "passes": true
+      },
+      {
+        "id": "qr-why-update-symm-lp-benchmarks-across-market-regimes",
+        "query": "Why update SYMM LP benchmarks across market regimes?",
+        "normalizedQuery": "why update symm lp benchmarks across market regimes",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-regime-updated-benchmarks",
+        "expectedPageTitle": "SYMM LP Regime-Updated Benchmarks",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-update-symm-lp-benchmarks-across-market-regimes",
         "passes": true
       },
       {
@@ -10458,7 +10567,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 462,
+      "exactRoutes": 467,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

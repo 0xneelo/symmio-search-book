@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 469,
-  "totalAnswerable": 462,
+  "totalEntries": 474,
+  "totalAnswerable": 467,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,7 +17,7 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 126,
+    "Solvers And Settlement": 131,
     "Risk And Markets": 23,
     "Revenue": 69,
     "Manifesto": 71,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 242,
+    "Medium": 247,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 462
+    "authored": 467
   },
   "byType": {
-    "answerable": 462,
+    "answerable": 467,
     "reconciliation": 7
   },
   "answerable": [
@@ -7459,6 +7459,167 @@
       "confidence": "Low",
       "pageId": "authored-symm-lp-dashboard-data-cut",
       "pageTitle": "SYMM LP Dashboard Data Cut",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-should-a-symm-lp-vault-nav-time-series-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What should a SYMM LP vault NAV time series show?",
+      "normalizedQuestion": "what should a symm lp vault nav time series show",
+      "shortAnswer": "Neelo's measurement-gap section requires vault-level NAV and PnL time series so a favorable endpoint does not hide path risk.",
+      "answerSummary": "SYMM LP Vault NAV Time Series The SYMM LP case study is useful as a data cut, but the source says a production grade case study should add a vault level time series of NAV and PnL attribution. That requirement exists because a single dashboard state can hide path risk. A vault can look profitable at the final mark while having experienced large interim dr...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-vault-nav-time-series",
+      "pageTitle": "SYMM LP Vault NAV Time Series",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-split-realized-roi-from-marked-roi-in-symm-lp-reports",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why split realized ROI from marked ROI in SYMM LP reports?",
+      "normalizedQuestion": "why split realized roi from marked roi in symm lp reports",
+      "shortAnswer": "Neelo's KPI stack and sign convention separate realized debt from unrealized mark-to-market edge; public tables should preserve that boundary.",
+      "answerSummary": "SYMM LP Realized And Marked PnL Split The SYMM LP report must split realized ROI from total marked ROI. The case study source already separates the two components. Current Debt is treated as realized user debt to the LP under the stated sign convention. Current UPnL is the current unrealized user profit and loss at the mark. Negative values in those user...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-realized-marked-pnl-split",
+      "pageTitle": "SYMM LP Realized And Marked PnL Split",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-settlement",
+          "group": "Public Symmio Sources",
+          "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-profit-realization",
+          "group": "Public Symmio Sources",
+          "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-symm-lp-reports-include-drawdown-and-recovery-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why should SYMM LP reports include drawdown and recovery time?",
+      "normalizedQuestion": "why should symm lp reports include drawdown and recovery time",
+      "shortAnswer": "Neelo's beta-report requirements include max drawdown, duration, and recovery because endpoint profit alone cannot prove tolerable path risk.",
+      "answerSummary": "SYMM LP Drawdown And Recovery Reporting The SYMM LP source names max drawdown, drawdown duration, and recovery time as required beta report fields. That is the right standard because LP performance is not only about ending profit. A vault can finish positive while exposing depositors to large interim losses, long recovery periods, or stress that would hav...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-drawdown-recovery-reporting",
+      "pageTitle": "SYMM LP Drawdown And Recovery Reporting",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-gross-to-net-attribution-bridge-for-symm-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a gross-to-net attribution bridge for SYMM LPs?",
+      "normalizedQuestion": "what is a gross to net attribution bridge for symm lps",
+      "shortAnswer": "Neelo's attribution and measurement-gap sections require a bridge from trader PnL, funding, fees, liquidations, and costs into final LP results.",
+      "answerSummary": "SYMM LP Gross To Net Attribution Bridge A gross to net attribution bridge explains where LP profit came from and what reduced it before the final net result. The SYMM LP source says the dominant revenue share came from trader side losses in a long skew down price regime, with additional contributions from funding, fees, and liquidation related cashflows....",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-gross-to-net-attribution-bridge",
+      "pageTitle": "SYMM LP Gross-To-Net Attribution Bridge",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-update-symm-lp-benchmarks-across-market-regimes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why update SYMM LP benchmarks across market regimes?",
+      "normalizedQuestion": "why update symm lp benchmarks across market regimes",
+      "shortAnswer": "Neelo's benchmark comparison worked in one favorable regime, while the risk section requires uptrend, chop, gap, and activity-decay retests before scaling claims.",
+      "answerSummary": "SYMM LP Regime Updated Benchmarks The SYMM LP benchmark table should be refreshed across regimes, not treated as a permanent spread. The source compares three scenarios for the same starting notional: full hold, Vibe deposit, and full sell. In the observed window, the Vibe deposit outperformed both alternatives. The source also states why that spread is r...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-regime-updated-benchmarks",
+      "pageTitle": "SYMM LP Regime-Updated Benchmarks",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -23221,6 +23382,167 @@
       "confidence": "Low",
       "pageId": "authored-symm-lp-dashboard-data-cut",
       "pageTitle": "SYMM LP Dashboard Data Cut",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-should-a-symm-lp-vault-nav-time-series-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What should a SYMM LP vault NAV time series show?",
+      "normalizedQuestion": "what should a symm lp vault nav time series show",
+      "shortAnswer": "Neelo's measurement-gap section requires vault-level NAV and PnL time series so a favorable endpoint does not hide path risk.",
+      "answerSummary": "SYMM LP Vault NAV Time Series The SYMM LP case study is useful as a data cut, but the source says a production grade case study should add a vault level time series of NAV and PnL attribution. That requirement exists because a single dashboard state can hide path risk. A vault can look profitable at the final mark while having experienced large interim dr...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-vault-nav-time-series",
+      "pageTitle": "SYMM LP Vault NAV Time Series",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-split-realized-roi-from-marked-roi-in-symm-lp-reports",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why split realized ROI from marked ROI in SYMM LP reports?",
+      "normalizedQuestion": "why split realized roi from marked roi in symm lp reports",
+      "shortAnswer": "Neelo's KPI stack and sign convention separate realized debt from unrealized mark-to-market edge; public tables should preserve that boundary.",
+      "answerSummary": "SYMM LP Realized And Marked PnL Split The SYMM LP report must split realized ROI from total marked ROI. The case study source already separates the two components. Current Debt is treated as realized user debt to the LP under the stated sign convention. Current UPnL is the current unrealized user profit and loss at the mark. Negative values in those user...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-realized-marked-pnl-split",
+      "pageTitle": "SYMM LP Realized And Marked PnL Split",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "symmio-settlement",
+        "symmio-profit-realization"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "symmio-settlement",
+          "group": "Public Symmio Sources",
+          "use": "Settlement converting unrealized PnL into allocated balance, Muon-signed price/PnL checks, solvency protections, and funding-fee handling in newer versions.",
+          "href": "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-profit-realization",
+          "group": "Public Symmio Sources",
+          "use": "Solver-side settlement and profit-realization context for avoiding profitable accounts getting stuck with insufficient realized balance.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-symm-lp-reports-include-drawdown-and-recovery-time",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why should SYMM LP reports include drawdown and recovery time?",
+      "normalizedQuestion": "why should symm lp reports include drawdown and recovery time",
+      "shortAnswer": "Neelo's beta-report requirements include max drawdown, duration, and recovery because endpoint profit alone cannot prove tolerable path risk.",
+      "answerSummary": "SYMM LP Drawdown And Recovery Reporting The SYMM LP source names max drawdown, drawdown duration, and recovery time as required beta report fields. That is the right standard because LP performance is not only about ending profit. A vault can finish positive while exposing depositors to large interim losses, long recovery periods, or stress that would hav...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-drawdown-recovery-reporting",
+      "pageTitle": "SYMM LP Drawdown And Recovery Reporting",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-a-gross-to-net-attribution-bridge-for-symm-lps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is a gross-to-net attribution bridge for SYMM LPs?",
+      "normalizedQuestion": "what is a gross to net attribution bridge for symm lps",
+      "shortAnswer": "Neelo's attribution and measurement-gap sections require a bridge from trader PnL, funding, fees, liquidations, and costs into final LP results.",
+      "answerSummary": "SYMM LP Gross To Net Attribution Bridge A gross to net attribution bridge explains where LP profit came from and what reduced it before the final net result. The SYMM LP source says the dominant revenue share came from trader side losses in a long skew down price regime, with additional contributions from funding, fees, and liquidation related cashflows....",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-gross-to-net-attribution-bridge",
+      "pageTitle": "SYMM LP Gross-To-Net Attribution Bridge",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-update-symm-lp-benchmarks-across-market-regimes",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why update SYMM LP benchmarks across market regimes?",
+      "normalizedQuestion": "why update symm lp benchmarks across market regimes",
+      "shortAnswer": "Neelo's benchmark comparison worked in one favorable regime, while the risk section requires uptrend, chop, gap, and activity-decay retests before scaling claims.",
+      "answerSummary": "SYMM LP Regime Updated Benchmarks The SYMM LP benchmark table should be refreshed across regimes, not treated as a permanent spread. The source compares three scenarios for the same starting notional: full hold, Vibe deposit, and full sell. In the observed window, the Vibe deposit outperformed both alternatives. The source also states why that spread is r...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-regime-updated-benchmarks",
+      "pageTitle": "SYMM LP Regime-Updated Benchmarks",
       "pageSection": "protocol-reference",
       "pageTrack": "Solver And LP Economics",
       "pageStatus": "publication-candidate-needs-operator-review",
