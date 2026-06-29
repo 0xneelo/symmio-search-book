@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 758,
-  "totalAnswerable": 751,
+  "totalEntries": 763,
+  "totalAnswerable": 756,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 69,
     "Revenue": 96,
     "Manifesto": 157,
-    "Rewards And Referrals": 87,
+    "Rewards And Referrals": 92,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 472,
+    "Medium": 477,
     "High": 44,
     "Low": 235
   },
   "byRouteSource": {
-    "authored": 751
+    "authored": 756
   },
   "byType": {
-    "answerable": 751,
+    "answerable": 756,
     "reconciliation": 7
   },
   "answerable": [
@@ -18027,6 +18027,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-launch-sequencing",
       "pageTitle": "Referral Launch Sequencing",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-constraints-should-referral-tiers-satisfy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What constraints should referral tiers satisfy?",
+      "normalizedQuestion": "what constraints should referral tiers satisfy",
+      "shortAnswer": "Neelo requires transparent public tables, clean private overlays, and unambiguous threshold-boundary behavior before tier economics can be trusted.",
+      "answerSummary": "Referral Tiering Constraint Boundaries The rakeback source gives three constraints for a tiered referral system: public default tables, a clean private overlay model, and unambiguous behavior at threshold edges. Public tables make the baseline readable. Private overlays allow commercial agreements without pretending that every partner receives the same ec...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-tiering-constraint-boundaries",
+      "pageTitle": "Referral Tiering Constraint Boundaries",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-should-referral-rebates-be-claimed-or-applied-in-the-trading-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Should referral rebates be claimed or applied in the trading flow?",
+      "normalizedQuestion": "should referral rebates be claimed or applied in the trading flow",
+      "shortAnswer": "Neelo frames claim-based rebates as simpler early but higher-friction, while same-flow rebates need stronger real-time determinism and settlement controls.",
+      "answerSummary": "Referral Claim Versus In Flow Rebate UX The rakeback source frames rebate UX as a tradeoff between operational simplicity and user immediacy. A claim based model is simpler early because reward settlement can be authorized, checked, and consumed through a constrained claim path. That makes rollout easier, but it adds user friction and concentrates risk ar...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-claim-versus-in-flow-rebate-ux",
+      "pageTitle": "Referral Claim Versus In-Flow Rebate UX",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-public-and-private-referral-economics-be-separated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should public and private referral economics be separated?",
+      "normalizedQuestion": "how should public and private referral economics be separated",
+      "shortAnswer": "Neelo allows private commercial overlays but says they should be explicit overlays, not hidden side effects in public policy.",
+      "answerSummary": "Referral Public And Private Economics Boundary The rakeback source treats private partner terms as a practical requirement in some growth phases. The control is not to forbid private economics; it is to keep them as explicit overlays rather than hidden side effects inside the public policy. That distinction matters for trust. A user reading the public tab...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-public-private-economics-boundary",
+      "pageTitle": "Referral Public And Private Economics Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-referral-policies-must-be-clear-before-launch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What referral policies must be clear before launch?",
+      "normalizedQuestion": "what referral policies must be clear before launch",
+      "shortAnswer": "Neelo names referral depth, referee-benefit uniformity, and referrer stacking/caps as required policy answers before economics are legible.",
+      "answerSummary": "Referral Policy Clarity Requirements The rakeback source names three questions that must be answered before referral economics can be treated as clear policy: whether referral depth is one level or multi level; whether referee benefits are uniform; whether referrer benefits stack additively or with caps. These questions are not optional appendices. They d...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-policy-clarity-requirements",
+      "pageTitle": "Referral Policy Clarity Requirements",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-referral-policy-trying-to-optimize",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is referral policy trying to optimize?",
+      "normalizedQuestion": "what is referral policy trying to optimize",
+      "shortAnswer": "Neelo says the objective is durable fee-producing attribution, not maximum code count or self-directed extraction.",
+      "answerSummary": "Referral Durable Fee Producing Attribution The referral economics source gives the policy objective in negative and positive form: the goal is not maximum code count; the goal is durable, fee producing referral attribution that scales without collapsing into self directed extraction. Maximum code count is easy to game. It can increase surface area while a...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-durable-fee-producing-attribution",
+      "pageTitle": "Referral Durable Fee-Producing Attribution",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -42266,6 +42451,191 @@
       "confidence": "Medium",
       "pageId": "authored-referral-launch-sequencing",
       "pageTitle": "Referral Launch Sequencing",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-constraints-should-referral-tiers-satisfy",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What constraints should referral tiers satisfy?",
+      "normalizedQuestion": "what constraints should referral tiers satisfy",
+      "shortAnswer": "Neelo requires transparent public tables, clean private overlays, and unambiguous threshold-boundary behavior before tier economics can be trusted.",
+      "answerSummary": "Referral Tiering Constraint Boundaries The rakeback source gives three constraints for a tiered referral system: public default tables, a clean private overlay model, and unambiguous behavior at threshold edges. Public tables make the baseline readable. Private overlays allow commercial agreements without pretending that every partner receives the same ec...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-tiering-constraint-boundaries",
+      "pageTitle": "Referral Tiering Constraint Boundaries",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-should-referral-rebates-be-claimed-or-applied-in-the-trading-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Should referral rebates be claimed or applied in the trading flow?",
+      "normalizedQuestion": "should referral rebates be claimed or applied in the trading flow",
+      "shortAnswer": "Neelo frames claim-based rebates as simpler early but higher-friction, while same-flow rebates need stronger real-time determinism and settlement controls.",
+      "answerSummary": "Referral Claim Versus In Flow Rebate UX The rakeback source frames rebate UX as a tradeoff between operational simplicity and user immediacy. A claim based model is simpler early because reward settlement can be authorized, checked, and consumed through a constrained claim path. That makes rollout easier, but it adds user friction and concentrates risk ar...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-claim-versus-in-flow-rebate-ux",
+      "pageTitle": "Referral Claim Versus In-Flow Rebate UX",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-public-and-private-referral-economics-be-separated",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should public and private referral economics be separated?",
+      "normalizedQuestion": "how should public and private referral economics be separated",
+      "shortAnswer": "Neelo allows private commercial overlays but says they should be explicit overlays, not hidden side effects in public policy.",
+      "answerSummary": "Referral Public And Private Economics Boundary The rakeback source treats private partner terms as a practical requirement in some growth phases. The control is not to forbid private economics; it is to keep them as explicit overlays rather than hidden side effects inside the public policy. That distinction matters for trust. A user reading the public tab...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-public-private-economics-boundary",
+      "pageTitle": "Referral Public And Private Economics Boundary",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-referral-policies-must-be-clear-before-launch",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What referral policies must be clear before launch?",
+      "normalizedQuestion": "what referral policies must be clear before launch",
+      "shortAnswer": "Neelo names referral depth, referee-benefit uniformity, and referrer stacking/caps as required policy answers before economics are legible.",
+      "answerSummary": "Referral Policy Clarity Requirements The rakeback source names three questions that must be answered before referral economics can be treated as clear policy: whether referral depth is one level or multi level; whether referee benefits are uniform; whether referrer benefits stack additively or with caps. These questions are not optional appendices. They d...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-policy-clarity-requirements",
+      "pageTitle": "Referral Policy Clarity Requirements",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-referral-policy-trying-to-optimize",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What is referral policy trying to optimize?",
+      "normalizedQuestion": "what is referral policy trying to optimize",
+      "shortAnswer": "Neelo says the objective is durable fee-producing attribution, not maximum code count or self-directed extraction.",
+      "answerSummary": "Referral Durable Fee Producing Attribution The referral economics source gives the policy objective in negative and positive form: the goal is not maximum code count; the goal is durable, fee producing referral attribution that scales without collapsing into self directed extraction. Maximum code count is easy to game. It can increase surface area while a...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-durable-fee-producing-attribution",
+      "pageTitle": "Referral Durable Fee-Producing Attribution",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

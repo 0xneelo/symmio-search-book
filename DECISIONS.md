@@ -1543,3 +1543,11 @@
 **Reason:** Existing rewards-pack pages document future-facing status, EV/supply policy, artifact exposure, and TGE exposure accounting, but the generated source still contains exact lifecycle questions the answer engine should distinguish. Readers may ask why points are separated from packs, what the full loop is, what a user would do, how secondary markets could form, or how referrals feed the pack/artifact layer. Splitting these routes preserves the source's structure while keeping future mechanics caveated.
 
 **Status:** Accepted for the authored rewards-reference layer; live pack launch, claim delays, vesting windows, transferability, supply, expected value, rarity tables, boost rules, market support, referral fee share, point share, milestone unlocks, snapshot treatment, and TGE accounting remain fresh operator/product/risk/legal/accounting/implementation review.
+
+## D-194: Split Referral Rakeback Economics Into Exact Answers
+
+**Decision:** Add authored Volume 06 rewards-reference pages for the remaining referral rakeback/economics headings: tiering constraints, claim versus in-flow rebate UX, public/private economics, policy clarity, and durable fee-producing attribution.
+
+**Reason:** Existing broad referral policy pages explain the dual-channel rakeback model and open governance lanes, but the generated source still contains exact questions a user, partner, or operator would ask before trusting referral economics. Splitting these routes lets Ask answer tier-boundary, settlement-UX, private-overlay, policy-clarity, and objective questions without converting unresolved economics into live commitments.
+
+**Status:** Accepted for the authored rewards-reference layer; live tier tables, threshold timing, private partner terms, claim or in-flow rebate mode, signer controls, referral depth, referee benefits, referrer stacking, caps, payout cadence, and economics disclosure remain fresh operator/product/risk/legal/accounting/implementation review.

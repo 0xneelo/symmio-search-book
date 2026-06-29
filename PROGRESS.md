@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Referral Rakeback Economics Exact Pages
+
+- Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo rakeback/economics headings.
+- Split the source into exact answer pages for tiering constraints, claim versus in-flow rebate UX, public/private economics, policy clarity, and durable fee-producing attribution.
+- Extended the question ledger so Ask can route referral economics questions without turning unresolved depth, tier, cap, private-overlay, or payout decisions into final policy.
+- Kept live tier tables, threshold rules, rebate settlement mode, private partner terms, referral depth, referee benefits, referrer stacking/caps, payout cadence, and public economics marked for operator/product/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Rewards Pack Loop Exact Pages
 
 - Added 5 authored Volume 06 rewards-reference pages from uncovered Neelo rewards-pack/artifact headings.

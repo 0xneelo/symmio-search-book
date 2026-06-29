@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 751
+      "totalGoldenRoutes": 756
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 769,
-    "retrievalEligiblePages": 1561,
+    "publicNavigationPages": 774,
+    "retrievalEligiblePages": 1566,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 769,
+      "candidate": 774,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 751,
-    "exactRouteTestsPassing": 751,
+    "totalExactRouteTests": 756,
+    "exactRouteTestsPassing": 756,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 751
+      "candidate": 756
     },
     "exactRoutesByConfidence": {
-      "Medium": 472,
+      "Medium": 477,
       "High": 44,
       "Low": 235
     },
@@ -12396,6 +12396,121 @@
         "passes": true
       },
       {
+        "id": "qr-what-constraints-should-referral-tiers-satisfy",
+        "query": "What constraints should referral tiers satisfy?",
+        "normalizedQuery": "what constraints should referral tiers satisfy",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-tiering-constraint-boundaries",
+        "expectedPageTitle": "Referral Tiering Constraint Boundaries",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-constraints-should-referral-tiers-satisfy",
+        "passes": true
+      },
+      {
+        "id": "qr-should-referral-rebates-be-claimed-or-applied-in-the-trading-flow",
+        "query": "Should referral rebates be claimed or applied in the trading flow?",
+        "normalizedQuery": "should referral rebates be claimed or applied in the trading flow",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-claim-versus-in-flow-rebate-ux",
+        "expectedPageTitle": "Referral Claim Versus In-Flow Rebate UX",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-should-referral-rebates-be-claimed-or-applied-in-the-trading-flow",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-public-and-private-referral-economics-be-separated",
+        "query": "How should public and private referral economics be separated?",
+        "normalizedQuery": "how should public and private referral economics be separated",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-public-private-economics-boundary",
+        "expectedPageTitle": "Referral Public And Private Economics Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-public-and-private-referral-economics-be-separated",
+        "passes": true
+      },
+      {
+        "id": "qr-what-referral-policies-must-be-clear-before-launch",
+        "query": "What referral policies must be clear before launch?",
+        "normalizedQuery": "what referral policies must be clear before launch",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-policy-clarity-requirements",
+        "expectedPageTitle": "Referral Policy Clarity Requirements",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-referral-policies-must-be-clear-before-launch",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-referral-policy-trying-to-optimize",
+        "query": "What is referral policy trying to optimize?",
+        "normalizedQuery": "what is referral policy trying to optimize",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-durable-fee-producing-attribution",
+        "expectedPageTitle": "Referral Durable Fee-Producing Attribution",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-is-referral-policy-trying-to-optimize",
+        "passes": true
+      },
+      {
         "id": "qr-are-reward-packs-current-product-policy",
         "query": "Are reward packs current product policy?",
         "normalizedQuery": "are reward packs current product policy",
@@ -16551,7 +16666,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 751,
+      "exactRoutes": 756,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
