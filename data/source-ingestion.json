@@ -5,7 +5,8 @@
   "totalSourceRequirements": 17,
   "byStatus": {
     "complete": 11,
-    "parked": 6
+    "parked": 5,
+    "partial": 1
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -27,16 +28,8 @@
       "title": "Production LLM provider, model, and API credentials for answer synthesis"
     },
     {
-      "id": 10,
-      "title": "Linear issue creation approval for private repo handoffs"
-    },
-    {
       "id": 9,
       "title": "Vibe add-token-info source fetch approval/access"
-    },
-    {
-      "id": 8,
-      "title": "Opyn official docs access or exclusion decision"
     },
     {
       "id": 7,
@@ -55,16 +48,8 @@
       "title": "Final docs platform and repository owner decision"
     },
     {
-      "id": 3,
-      "title": "Public stance on referral depth and historical accounting"
-    },
-    {
       "id": 2,
       "title": "Discord export and Lafa answer corpus"
-    },
-    {
-      "id": 1,
-      "title": "Current public revenue disclosure boundary"
     }
   ],
   "duplicateRequirementIds": [],
@@ -411,7 +396,7 @@
     {
       "id": "competitive-sweep",
       "label": "25-sub-agent competitive documentation sweep",
-      "status": "parked",
+      "status": "partial",
       "category": "competitive-reference",
       "sourceSpecs": [
         "07"
@@ -424,9 +409,7 @@
         "opyn-docs-official-review"
       ],
       "evidence": "50 target docs across 25 lanes; 5 explorer batches returned; 49/50 docs verified, 1 unverified.",
-      "blocks": [
-        "OPERATOR-INBOX #8"
-      ],
+      "blocks": [],
       "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
     },
     {
@@ -639,13 +622,11 @@
     },
     {
       "id": "competitive-sweep",
-      "status": "parked",
+      "status": "partial",
       "missingKeys": [
         "opyn-docs-official-review"
       ],
-      "blocks": [
-        "OPERATOR-INBOX #8"
-      ],
+      "blocks": [],
       "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
     }
   ]

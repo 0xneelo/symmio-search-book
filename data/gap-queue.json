@@ -10,7 +10,7 @@
   "status": "prototype-gap-queue",
   "totalItems": 13,
   "totalQuestionSignals": 7,
-  "totalOperatorSignals": 12,
+  "totalOperatorSignals": 8,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
   "missingOperatorGapIds": [],
@@ -22,40 +22,120 @@
     "P2": 4
   },
   "byCategory": {
-    "Rewards And Referrals": 1,
     "Discord Import": 1,
-    "Revenue": 1,
+    "Rewards And Referrals": 1,
     "Production Answer Engine": 1,
+    "Revenue": 1,
     "Data And Volume": 1,
     "Options And Settlement": 1,
     "Terminology": 1,
     "Editorial Production": 1,
     "Origin And Whitepapers": 1,
-    "Research Sweep": 1,
     "General": 2,
+    "Research Sweep": 1,
     "Publication Freshness": 1
   },
   "byStatus": {
-    "operator-parked": 5,
-    "open": 8
+    "operator-parked": 2,
+    "open": 11
   },
   "topItems": [
-    "queue-g-003",
     "queue-g-001",
-    "queue-g-004",
+    "queue-g-003",
     "queue-g-010",
+    "queue-g-004",
     "queue-g-005",
     "queue-g-008"
   ],
   "items": [
     {
+      "id": "queue-g-001",
+      "gapId": "G-001",
+      "title": "Discord Source Mining Is Blocked",
+      "type": "documented-gap",
+      "status": "operator-parked",
+      "priority": "P0",
+      "priorityScore": 117,
+      "category": "Discord Import",
+      "summary": "The prompt asks to mine Discord, especially Lafa answers and repeated support questions. This environment does not have Discord export access. The prototype seeds a question list from local FAQ and source docs only.",
+      "needed": "Discord export, channel list, date range, and permission to cite or paraphrase.",
+      "sourceKeys": [
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-dashboard-faq",
+        "authored-search-insights-loop"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-dashboard-faq",
+          "title": "Dashboard FAQ",
+          "section": "dashboard-reference",
+          "track": "Dashboard Views",
+          "status": "publication-candidate-needs-operator-review",
+          "routeSource": "authored"
+        },
+        {
+          "id": "authored-search-insights-loop",
+          "title": "The Living Docs Loop",
+          "section": "answer-engine",
+          "track": "Search Insights",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [
+        {
+          "id": "gap-which-discord-answers-are-authoritative",
+          "question": "Which Discord answers are authoritative?",
+          "notes": "Discord export missing."
+        }
+      ],
+      "linkedOperatorItems": [
+        {
+          "id": 2,
+          "title": "Discord export and Lafa answer corpus",
+          "need": "Build the Discord scraper/export path for relevant Vibe/Symmio channels, especially repeated user questions and Lafa answers; include whether answers may be cited, paraphrased, or only used for internal synthesis.",
+          "blocks": "Discord-derived FAQ pages, support-question clustering, and final gap report."
+        }
+      ],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
       "id": "queue-g-003",
       "gapId": "G-003",
       "title": "Referral Depth Is Contradictory",
       "type": "documented-gap",
-      "status": "operator-parked",
+      "status": "open",
       "priority": "P0",
-      "priorityScore": 125,
+      "priorityScore": 113,
       "category": "Rewards And Referrals",
       "summary": "Evidence found:",
       "needed": "Product decision on what a public user sees today, what the system currently runs in production, and how historical points are treated.",
@@ -184,14 +264,7 @@
           "notes": "Do not publish a single final answer until production state and copy are aligned."
         }
       ],
-      "linkedOperatorItems": [
-        {
-          "id": 3,
-          "title": "Public stance on referral depth and historical accounting",
-          "need": "Confirm the public answer for referral depth today: whether users should see 5 levels, 15 levels, configurable/current-depth language, and how historical backfill should be described.",
-          "blocks": "Final referral, rewards, network-volume, and FAQ pages."
-        }
-      ],
+      "linkedOperatorItems": [],
       "linkedParkedPages": [
         {
           "id": "linear-referral-depth-rollout",
@@ -216,29 +289,21 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-001",
-      "gapId": "G-001",
-      "title": "Discord Source Mining Is Blocked",
+      "id": "queue-g-010",
+      "gapId": "G-010",
+      "title": "Production Answer Engine Needs A Build/Buy Decision",
       "type": "documented-gap",
       "status": "operator-parked",
       "priority": "P0",
-      "priorityScore": 117,
-      "category": "Discord Import",
-      "summary": "The prompt asks to mine Discord, especially Lafa answers and repeated support questions. This environment does not have Discord export access. The prototype seeds a question list from local FAQ and source docs only.",
-      "needed": "Discord export, channel list, date range, and permission to cite or paraphrase.",
+      "priorityScore": 112,
+      "category": "Production Answer Engine",
+      "summary": "The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.",
+      "needed": "Platform decision and implementation plan.",
       "sourceKeys": [
-        "spec-04",
         "spec-06",
-        "spec-07"
+        "spec-08"
       ],
       "sources": [
-        {
-          "key": "spec-04",
-          "group": "Local Specs",
-          "use": "Required source families.",
-          "href": "../../_specs/app-docs/04-sources.md",
-          "missing": false
-        },
         {
           "key": "spec-06",
           "group": "Local Specs",
@@ -247,26 +312,17 @@
           "missing": false
         },
         {
-          "key": "spec-07",
+          "key": "spec-08",
           "group": "Local Specs",
-          "use": "Session 1 research gate.",
-          "href": "../../_specs/app-docs/07-research-session.md",
+          "use": "Session 2 implementation gate.",
+          "href": "../../_specs/app-docs/08-implementation-session.md",
           "missing": false
         }
       ],
       "relatedPageIds": [
-        "authored-dashboard-faq",
         "authored-search-insights-loop"
       ],
       "relatedPages": [
-        {
-          "id": "authored-dashboard-faq",
-          "title": "Dashboard FAQ",
-          "section": "dashboard-reference",
-          "track": "Dashboard Views",
-          "status": "publication-candidate-needs-operator-review",
-          "routeSource": "authored"
-        },
         {
           "id": "authored-search-insights-loop",
           "title": "The Living Docs Loop",
@@ -276,19 +332,13 @@
           "routeSource": "authored"
         }
       ],
-      "linkedQuestions": [
-        {
-          "id": "gap-which-discord-answers-are-authoritative",
-          "question": "Which Discord answers are authoritative?",
-          "notes": "Discord export missing."
-        }
-      ],
+      "linkedQuestions": [],
       "linkedOperatorItems": [
         {
-          "id": 2,
-          "title": "Discord export and Lafa answer corpus",
-          "need": "Provide Discord export or accessible transcript source for the relevant Vibe/Symmio channels, especially repeated user questions and Lafa answers; include whether answers may be cited, paraphrased, or only used for internal synthesis.",
-          "blocks": "Discord-derived FAQ pages, support-question clustering, and final gap report."
+          "id": 4,
+          "title": "Final docs platform and repository owner decision",
+          "need": "Decide the public frontend platform/repo and deploy route for production docs.",
+          "blocks": "Final production frontend scaffold, deploy automation, and public preview URL."
         }
       ],
       "linkedParkedPages": [],
@@ -300,9 +350,9 @@
       "gapId": "G-004",
       "title": "Revenue Phase A Versus Phase B Needs Public Wording",
       "type": "documented-gap",
-      "status": "operator-parked",
+      "status": "open",
       "priority": "P0",
-      "priorityScore": 117,
+      "priorityScore": 105,
       "category": "Revenue",
       "summary": "Phase A is implemented as estimated revenue from network volume, configurable platform fee, and referrer share. Phase B issues describe per-venue platform revenue, VibeCaps LP profit share, liquidation display, funding, solver data, and points farmed.",
       "needed": "Decide which Phase B items are public roadmap, internal roadmap, or already live but not surfaced.",
@@ -397,71 +447,7 @@
           "notes": "Phase A versus Phase B needs public wording."
         }
       ],
-      "linkedOperatorItems": [
-        {
-          "id": 1,
-          "title": "Current public revenue disclosure boundary",
-          "need": "Confirm which current and planned revenue inputs can be published: Phase A estimated network revenue formula, fee/share defaults, Phase B components, per-venue revenue, VibeCaps LP profit share, liquidations, funding, and points farmed.",
-          "blocks": "Final revenue, dashboard counter, calculator, and solver economics pages."
-        }
-      ],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-010",
-      "gapId": "G-010",
-      "title": "Production Answer Engine Needs A Build/Buy Decision",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P0",
-      "priorityScore": 112,
-      "category": "Production Answer Engine",
-      "summary": "The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.",
-      "needed": "Platform decision and implementation plan.",
-      "sourceKeys": [
-        "spec-06",
-        "spec-08"
-      ],
-      "sources": [
-        {
-          "key": "spec-06",
-          "group": "Local Specs",
-          "use": "Ask/rate/ask-again loop.",
-          "href": "../../_specs/app-docs/06-answer-engine.md",
-          "missing": false
-        },
-        {
-          "key": "spec-08",
-          "group": "Local Specs",
-          "use": "Session 2 implementation gate.",
-          "href": "../../_specs/app-docs/08-implementation-session.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "authored-search-insights-loop"
-      ],
-      "relatedPages": [
-        {
-          "id": "authored-search-insights-loop",
-          "title": "The Living Docs Loop",
-          "section": "answer-engine",
-          "track": "Search Insights",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [
-        {
-          "id": 4,
-          "title": "Final docs platform and repository owner decision",
-          "need": "Decide whether the production compendium lives in this repo, a dedicated docs repo, Mintlify, GitBook, Fumadocs/Next, or another platform; include deploy owner/access expectations.",
-          "blocks": "Production implementation architecture and final Session 2 scaffold."
-        }
-      ],
+      "linkedOperatorItems": [],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []
@@ -922,13 +908,40 @@
       "missingSourceKeys": []
     },
     {
+      "id": "queue-g-012",
+      "gapId": "G-012",
+      "title": "Vibe Add Token Info Source Fetch Is Parked",
+      "type": "documented-gap",
+      "status": "open",
+      "priority": "P2",
+      "priorityScore": 45,
+      "category": "General",
+      "summary": "The generated companion page maps vibe-add-token-info to https://docs.vibe.trading/more-info/add-token-info.md, but two network-escalated fetch attempts timed out during approval review before execution. The page should not be authored from the one-line companion brief because it likely governs project-managed token metadata and branding details.",
+      "needed": "Official Markdown contents for the Add Token Info page, or a reachable canonical replacement URL from the operator.",
+      "sourceKeys": [],
+      "sources": [],
+      "relatedPageIds": [],
+      "relatedPages": [],
+      "linkedQuestions": [
+        {
+          "id": "gap-what-project-managed-token-metadata-can-be-added-to-vibe",
+          "question": "What project-managed token metadata can be added to Vibe?",
+          "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text."
+        }
+      ],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
       "id": "queue-g-002",
       "gapId": "G-002",
       "title": "25-Agent Competitive Sweep Is Not Complete",
       "type": "documented-gap",
-      "status": "operator-parked",
+      "status": "open",
       "priority": "P2",
-      "priorityScore": 52,
+      "priorityScore": 40,
       "category": "Research Sweep",
       "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. It is still not complete because the official Opyn docs URL was not crawlable in the returned batch or the follow-up web check.",
       "needed": "Operator-provided official Opyn source access, replacement target, or exclusion decision without relying on mirrors or third-party snippets.",
@@ -983,40 +996,6 @@
         }
       ],
       "linkedQuestions": [],
-      "linkedOperatorItems": [
-        {
-          "id": 8,
-          "title": "Opyn official docs access or exclusion decision",
-          "need": "Provide an accessible official Opyn docs source for the competitive documentation sweep, or confirm Opyn should be excluded/replaced in the final benchmark set.",
-          "blocks": "Final competitive-sweep completeness claim and the `opyn-docs-official-review` source-ingestion item."
-        }
-      ],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-012",
-      "gapId": "G-012",
-      "title": "Vibe Add Token Info Source Fetch Is Parked",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P2",
-      "priorityScore": 45,
-      "category": "General",
-      "summary": "The generated companion page maps vibe-add-token-info to https://docs.vibe.trading/more-info/add-token-info.md, but two network-escalated fetch attempts timed out during approval review before execution. The page should not be authored from the one-line companion brief because it likely governs project-managed token metadata and branding details.",
-      "needed": "Official Markdown contents for the Add Token Info page, or a reachable canonical replacement URL from the operator.",
-      "sourceKeys": [],
-      "sources": [],
-      "relatedPageIds": [],
-      "relatedPages": [],
-      "linkedQuestions": [
-        {
-          "id": "gap-what-project-managed-token-metadata-can-be-added-to-vibe",
-          "question": "What project-managed token metadata can be added to Vibe?",
-          "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text."
-        }
-      ],
       "linkedOperatorItems": [],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],

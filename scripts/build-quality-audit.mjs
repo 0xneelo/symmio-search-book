@@ -193,7 +193,7 @@ const llmRagContract = fs.existsSync(args.llmRagContract)
   : { apiContractReady: false, evalHarnessReady: false, runtimeImplemented: false, llmProductionReady: false, adversarialEvaluation: { totalCases: 0, passingCases: 0, minimumRequiredBeforeProduction: 12, missingRequiredCategories: [], failingCaseIds: [] }, coverage: { unknownContextSourceKeys: [] } };
 const answerValidationReport = fs.existsSync(args.answerValidationReport)
   ? readJson(args.answerValidationReport)
-  : { reportReady: false, coverage: { totalFixtures: 0, passingFixtures: 0, citedAnswerFixtures: 0, refusalFixtures: 0, failingFixtures: 0 }, failureSummary: { failingFixtureIds: [], failuresByKind: {} } };
+  : { reportReady: false, coverage: { totalFixtures: 0, passingFixtures: 0, citedAnswerFixtures: 0, groundedAdversarialFixtures: 0, refusalFixtures: 0, failingFixtures: 0 }, failureSummary: { failingFixtureIds: [], failuresByKind: {} } };
 const livingDocsEvents = fs.existsSync(args.livingDocsEvents)
   ? readJson(args.livingDocsEvents)
   : {
@@ -311,12 +311,14 @@ const llmRagContractReady =
   llmRagUnknownContextSourceKeys.length === 0;
 const answerValidationCoverage = answerValidationReport.coverage || {};
 const answerValidationFailingFixtureIds = answerValidationReport.failureSummary?.failingFixtureIds || [];
+const answerValidationAdversarialFixtures =
+  (answerValidationCoverage.groundedAdversarialFixtures || 0) + (answerValidationCoverage.refusalFixtures || 0);
 const answerValidationReportReady =
   answerValidationReport.reportReady === true &&
   (answerValidationCoverage.totalFixtures || 0) >= 20 &&
   (answerValidationCoverage.passingFixtures || 0) === (answerValidationCoverage.totalFixtures || 0) &&
   (answerValidationCoverage.citedAnswerFixtures || 0) >= 12 &&
-  (answerValidationCoverage.refusalFixtures || 0) === (llmRagAdversarial.totalCases || 0) &&
+  answerValidationAdversarialFixtures === (llmRagAdversarial.totalCases || 0) &&
   (answerValidationCoverage.failingFixtures || 0) === 0 &&
   answerValidationFailingFixtureIds.length === 0;
 const livingDocsEventCoverage = livingDocsEvents.coverage || {};
@@ -539,7 +541,7 @@ const gates = [
     id: "answer-validation-harness",
     label: "Answer validation harness resolves cited and refusal fixtures",
     passed: answerValidationReportReady,
-    detail: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0} fixtures, ${answerValidationCoverage.citedAnswerFixtures || 0} cited answers, ${answerValidationCoverage.refusalFixtures || 0} refusals, ${answerValidationCoverage.failingFixtures || 0} failing`,
+    detail: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0} fixtures, ${answerValidationCoverage.citedAnswerFixtures || 0} cited answers, ${answerValidationCoverage.groundedAdversarialFixtures || 0} grounded adversarial answers, ${answerValidationCoverage.refusalFixtures || 0} refusals, ${answerValidationCoverage.failingFixtures || 0} failing`,
   },
   {
     id: "living-docs-events",
@@ -681,6 +683,7 @@ const payload = {
     answerValidationFixtures: answerValidationCoverage.totalFixtures || 0,
     answerValidationFixturesPassing: answerValidationCoverage.passingFixtures || 0,
     answerValidationCitedAnswerFixtures: answerValidationCoverage.citedAnswerFixtures || 0,
+    answerValidationGroundedAdversarialFixtures: answerValidationCoverage.groundedAdversarialFixtures || 0,
     answerValidationRefusalFixtures: answerValidationCoverage.refusalFixtures || 0,
     answerValidationReportReady: answerValidationReport.reportReady || false,
     livingDocsEventContractReady: livingDocsEvents.eventContractReady || false,

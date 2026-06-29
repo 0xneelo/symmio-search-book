@@ -69,6 +69,13 @@ function firstMatchingChunk(route, chunksByPageId, sourceByKey) {
   ) || chunks.find((chunk) => (chunk.sourceKeys || []).some((key) => sourceByKey[key]?.href));
 }
 
+function firstMatchingAdversarialChunk(test, chunksByPageId, sourceByKey) {
+  const chunks = chunksByPageId.get(test.expectedAnswerPageId) || [];
+  return chunks.find((chunk) =>
+    (chunk.sourceKeys || []).some((key) => (test.expectedSourceKeys || []).includes(key) && sourceByKey[key]?.href),
+  ) || chunks.find((chunk) => (chunk.sourceKeys || []).some((key) => sourceByKey[key]?.href));
+}
+
 function parseOpenInboxItems(markdown) {
   const openSection = markdown.split("## Open")[1]?.split("## Resolved")[0] || "";
   return [...openSection.matchAll(/^### \[OPEN\] #(\d+) — (.+)$/gm)].map((match) => ({
@@ -113,6 +120,50 @@ function citedAnswerFixture(route, chunk, sourceByKey) {
         {
           type: "question-answered",
           pageId: route.expectedPageId,
+        },
+      ],
+    },
+  };
+}
+
+function groundedAdversarialAnswerFixture(test, chunk, sourceByKey) {
+  const sourceKey = (test.expectedSourceKeys || []).find((key) =>
+    (chunk.sourceKeys || []).includes(key) && sourceByKey[key]?.href,
+  ) || (chunk.sourceKeys || []).find((key) => sourceByKey[key]?.href);
+  const citationId = `${test.id}-citation-1`;
+  const answer = test.expectedAnswer;
+  return {
+    id: `fixture-${test.id}`,
+    type: "cited-answer",
+    query: test.query,
+    expectedPageId: test.expectedAnswerPageId,
+    requiredAnswerIncludes: test.requiredAnswerIncludes || [],
+    mustNotInclude: test.mustNotInclude || [],
+    response: {
+      requestId: `req-${test.id}`,
+      status: validationPolicy.answeredStatus,
+      answer,
+      primaryPageId: test.expectedAnswerPageId,
+      citations: [
+        {
+          id: citationId,
+          pageId: test.expectedAnswerPageId,
+          pageTitle: test.expectedPageTitle,
+          sourceKey,
+          sourceHref: sourceByKey[sourceKey]?.href || "",
+          chunkIds: [chunk.id],
+        },
+      ],
+      paragraphs: [
+        {
+          text: answer,
+          citationIds: [citationId],
+        },
+      ],
+      events: [
+        {
+          type: "question-answered",
+          pageId: test.expectedAnswerPageId,
         },
       ],
     },
@@ -181,6 +232,7 @@ function validateAnsweredFixture(fixture, context) {
   const response = fixture.response || {};
   const page = context.pageStateById.get(response.primaryPageId);
   const answerText = `${response.answer || ""} ${(response.paragraphs || []).map((paragraph) => paragraph.text || "").join(" ")}`;
+  const normalizedAnswerText = answerText.toLowerCase();
   if (response.status !== validationPolicy.answeredStatus) failures.push("answered-status-invalid");
   if (!response.answer) failures.push("answer-empty");
   if (!page) failures.push("primary-page-missing");
@@ -190,6 +242,12 @@ function validateAnsweredFixture(fixture, context) {
     if (!/legacy/i.test(answerText)) failures.push("amfq-legacy-framing-missing");
     if (!/Intent/i.test(answerText)) failures.push("amfq-intent-translation-missing");
     if (/separate live system/i.test(answerText) === false) failures.push("amfq-separate-system-negation-missing");
+  }
+  for (const requiredText of fixture.requiredAnswerIncludes || []) {
+    if (!normalizedAnswerText.includes(String(requiredText).toLowerCase())) failures.push("required-answer-text-missing");
+  }
+  for (const disallowedText of fixture.mustNotInclude || []) {
+    if (normalizedAnswerText.includes(String(disallowedText).toLowerCase())) failures.push("disallowed-answer-text-present");
   }
   if (!(response.citations || []).length) failures.push("citations-missing");
   const citationIds = new Set((response.citations || []).map((citation) => citation.id));
@@ -254,8 +312,16 @@ const citedAnswerFixtures = (answerEngineContract.evaluation?.exactRouteTests ||
   .filter((item) => item.chunk)
   .slice(0, 12)
   .map((item) => citedAnswerFixture(item.route, item.chunk, sourceByKey));
-const refusalFixtures = (llmRagContract.adversarialEvaluation?.cases || []).map(refusalFixture);
-const fixtures = [...citedAnswerFixtures, ...refusalFixtures];
+const adversarialCases = llmRagContract.adversarialEvaluation?.cases || [];
+const groundedAdversarialFixtures = adversarialCases
+  .filter((test) => test.expectedStatus === validationPolicy.answeredStatus)
+  .map((test) => ({ test, chunk: firstMatchingAdversarialChunk(test, chunksByPageId, sourceByKey) }))
+  .filter((item) => item.chunk)
+  .map((item) => groundedAdversarialAnswerFixture(item.test, item.chunk, sourceByKey));
+const refusalFixtures = adversarialCases
+  .filter((test) => test.expectedStatus !== validationPolicy.answeredStatus)
+  .map(refusalFixture);
+const fixtures = [...citedAnswerFixtures, ...groundedAdversarialFixtures, ...refusalFixtures];
 const validatedFixtures = fixtures.map((fixture) => {
   const failures = fixture.type === "cited-answer"
     ? validateAnsweredFixture(fixture, context)
@@ -274,7 +340,7 @@ for (const fixture of failingFixtures) {
 }
 const reportReady =
   citedAnswerFixtures.length >= 12 &&
-  refusalFixtures.length === (llmRagContract.adversarialEvaluation?.totalCases || 0) &&
+  refusalFixtures.length + groundedAdversarialFixtures.length === (llmRagContract.adversarialEvaluation?.totalCases || 0) &&
   validatedFixtures.length >= 20 &&
   failingFixtures.length === 0;
 
@@ -286,6 +352,7 @@ const payload = {
   validationPolicy,
   coverage: {
     citedAnswerFixtures: citedAnswerFixtures.length,
+    groundedAdversarialFixtures: groundedAdversarialFixtures.length,
     refusalFixtures: refusalFixtures.length,
     totalFixtures: validatedFixtures.length,
     passingFixtures: validatedFixtures.length - failingFixtures.length,
