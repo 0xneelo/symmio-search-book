@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-06-access-phasing", "section-17-referral-program-17-docs-06-access-phasing-6-5-migration-requirements", "section-17-referral-program-17-docs-06-access-phasing-6-6-launch-sequencing-notes", "section-17-referral-program-17-docs-02-architecture-2-3-referral-code-activation-policy"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#6-4-why-phasing-matters", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-06-access-phasing", "section-17-referral-program-17-docs-06-access-phasing-6-4-why-phasing-matters", "section-17-referral-program-17-docs-06-access-phasing-6-5-migration-requirements", "section-17-referral-program-17-docs-06-access-phasing-6-6-launch-sequencing-notes", "section-17-referral-program-17-docs-02-architecture-2-3-referral-code-activation-policy"]
 ---
 
 # Referral Access Phasing Operating Model

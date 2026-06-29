@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 776,
+  "totalPages": 778,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 603,
+    "publication-candidate-needs-operator-review": 605,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -13,7 +13,7 @@
   "bySection": {
     "manifesto": 470,
     "product-reference": 47,
-    "rewards-referrals": 96,
+    "rewards-referrals": 98,
     "dashboard-reference": 12,
     "protocol-reference": 139,
     "competitive-context": 1,
@@ -10147,12 +10147,13 @@
         "spec-03"
       ],
       "sourceUrls": [
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#6-4-why-phasing-matters",
         "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-06-access-phasing",
+        "section-17-referral-program-17-docs-06-access-phasing-6-4-why-phasing-matters",
         "section-17-referral-program-17-docs-06-access-phasing-6-5-migration-requirements",
         "section-17-referral-program-17-docs-06-access-phasing-6-6-launch-sequencing-notes",
         "section-17-referral-program-17-docs-02-architecture-2-3-referral-code-activation-policy"
@@ -10291,6 +10292,32 @@
       "file": "content/authored/reference/referral-architecture-failure-modes.md",
       "bodyMarkdown": "# Referral Architecture Failure Modes\n\nNeelo's referral architecture names the failure modes the system has to design against before referral economics become public, value-bearing, or transferable.\n\nThe list is concrete: signer key compromise, stale or inconsistent index data, referral graph mutation without audit trails, and claim replay or double-credit paths. Those are not edge cases around a marketing campaign. They are the basic ways an attribution and rewards system can lose economic credibility.\n\n## Why These Failures Are Architectural\n\nSigner compromise turns an authorization path into an over-issuance path. Stale index data turns a dashboard or claim calculation into a disputed source of truth. Referral graph mutation without audit trails lets policy changes rewrite history. Claim replay and double-credit paths let a valid reward event become more than one payout.\n\nThe three-plane architecture exists to narrow those failures. Deterministic settlement state should own nonces, claim consumption, and identity anchors. Policy state should own tier tables, eligibility rules, and private overlays. Monitoring state should detect anomalies and reconciliation breaks without silently changing either settlement or policy history.\n\n## Reader Implication\n\nWhen the docs explain referral safety, they should name these failure modes directly. A credible referral program is not only generous; it is auditable under compromised signers, delayed data, disputed graph changes, and repeated claim attempts.\n\n## Publication Boundary\n\nThis page explains the source-level threat model. It should not publish final signer topology, indexer SLAs, graph-edit permissions, admin override rules, nonce schemas, dispute windows, or incident thresholds until implementation, security, legal, accounting, and operator review approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Failure Modes to Design Against\".\n- `spec-03`: referral-depth and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-three-plane-architecture`\n- `authored-referral-settlement-security-controls`\n- `authored-referral-replay-safe-claim-authorizations`",
       "excerpt": "Referral Architecture Failure Modes Neelo's referral architecture names the failure modes the system has to design against before referral economics become public, value bearing, or transferable. The list is concrete: signer key compromise, stale or inconsistent index data, referral graph mutation without audit trails, and claim replay or double credit paths. Those are not edge cases around a marketing campaign. They are the basic ways an attribution and rewards system can lose economic credibility. Why These Failures Are Architectural Signer compromise turns an authorization path into an over issuance path. Stale index data turns a dashboard or claim calculation into a disputed source of truth. Referral graph mutation without audit trails lets policy changes rewrite history. Claim replay and double credit paths let a valid reward event become more than one payout. The three plane architecture exists to narrow those failures. Deterministic settlement state should own nonces, claim consumption, and identity anchors. Policy state should own tier tables, eligibility rules, and private overlays. Monitoring state should detect anomalies and reconciliation breaks without silently changin"
+    },
+    {
+      "id": "authored-referral-architecture-target-principle",
+      "title": "Referral Architecture Target Principle",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-6-target-principle",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-02-architecture",
+        "section-17-referral-program-17-docs-02-architecture-2-6-target-principle",
+        "authored-referral-three-plane-architecture",
+        "authored-referral-architecture-failure-modes"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-architecture-target-principle.md",
+      "bodyMarkdown": "# Referral Architecture Target Principle\n\nNeelo's referral architecture compresses into one target principle: keep policy agility off-chain where needed, but make settlement integrity on-chain by default.\n\nThe principle matters because referral systems need both speed and constraint. Growth teams need room to change tiers, campaign grants, eligibility windows, private overlays, and rollout rules. Users and partners need confidence that value-bearing claims cannot be rewritten by the same mutable policy layer.\n\n## The Two Rules\n\nThe source gives two rules for drawing that boundary.\n\nIf a rule can change quickly, it must be transparently versioned. That applies to tier tables, eligibility gates, campaign overlays, issuer qualification, and other policy that may need iteration.\n\nIf value can be claimed, it must be cryptographically constrained. That applies to claim authorizations, nonces, expiry, recipient scope, amount scope, and one-time consumption.\n\n## Reader Implication\n\nWhen the docs explain referral flexibility, they should not imply arbitrary operator discretion over settled value. Flexibility belongs in versioned policy. Integrity belongs in constrained claim and settlement paths.\n\n## Publication Boundary\n\nThis page explains the source target principle. It should not publish final contract interfaces, signer topology, versioning schema, claim-message format, approval process, or policy-change governance until implementation, security, legal, accounting, and operator review approve them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Target Principle\".\n- `spec-03`: referral-depth and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-three-plane-architecture`\n- `authored-referral-architecture-failure-modes`\n- `authored-referral-replay-safe-claim-authorizations`",
+      "excerpt": "Referral Architecture Target Principle Neelo's referral architecture compresses into one target principle: keep policy agility off chain where needed, but make settlement integrity on chain by default. The principle matters because referral systems need both speed and constraint. Growth teams need room to change tiers, campaign grants, eligibility windows, private overlays, and rollout rules. Users and partners need confidence that value bearing claims cannot be rewritten by the same mutable policy layer. The Two Rules The source gives two rules for drawing that boundary. If a rule can change quickly, it must be transparently versioned. That applies to tier tables, eligibility gates, campaign overlays, issuer qualification, and other policy that may need iteration. If value can be claimed, it must be cryptographically constrained. That applies to claim authorizations, nonces, expiry, recipient scope, amount scope, and one time consumption. Reader Implication When the docs explain referral flexibility, they should not imply arbitrary operator discretion over settled value. Flexibility belongs in versioned policy. Integrity belongs in constrained claim and settlement paths. Publicati"
     },
     {
       "id": "authored-referral-category-partner-overlays",
@@ -11395,13 +11422,14 @@
         "spec-03"
       ],
       "sourceUrls": [
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#53-issuance-gating",
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#67-referral-code-issuance-policy",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#5-3-issuance-gating",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#6-7-referral-code-issuance-policy",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-05-referral-economics",
         "section-17-referral-program-17-docs-05-referral-economics-5-3-issuance-gating",
+        "section-17-referral-program-17-docs-06-access-phasing-6-7-referral-code-issuance-policy",
         "authored-referral-code-activation-gates"
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
@@ -12032,6 +12060,32 @@
       "excerpt": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance. That makes \"hedge first\" a core design idea for permissionless low cap perps. The solver should establish backing inventory, a hedge, or a risk adjusted quote before it becomes responsible for the residual exposure. Internal And External Hedge Sources For low cap markets, the DDQ source emphasizes internal inventory or vault controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP style routing to reduce price impact. Opposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity. Reader Implication The "
     },
     {
+      "id": "authored-reward-composability-integrity-requirement",
+      "title": "Reward Composability Integrity Requirement",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-5-integrity-requirement",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-04-points-and-rewards",
+        "section-17-referral-program-17-docs-04-points-and-rewards-4-5-integrity-requirement",
+        "authored-rewards-packs-and-artifacts",
+        "authored-points-value-state-lifecycle"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/reward-composability-integrity-requirement.md",
+      "bodyMarkdown": "# Reward Composability Integrity Requirement\n\nNeelo's points-and-rewards source makes reward composability conditional: packs, artifacts, and other reward objects are useful only if users trust supply and attribution.\n\nThat is the integrity requirement. A game layer can make rewards more engaging, but it cannot become a black box that hides where value came from, how much exists, who earned it, or how it will be counted at TGE.\n\n## Source-Of-Truth Path\n\nEvery reward layer should map back to a verifiable source-of-truth path:\n\n- the original earning event or eligible activity;\n- the source bucket that produced the points;\n- the policy version that finalized or converted them;\n- the supply, rarity, and expected-value rule for any pack or artifact;\n- and the approved accounting treatment for direct points, unopened packs, and embedded artifact exposure.\n\nWithout that path, reward composability becomes opacity. Users may see an exciting object, but they cannot audit whether it represents real qualifying exposure or only provisional state.\n\n## Reader Implication\n\nThe docs should treat reward objects as accounting surfaces, not only retention mechanics. If a pack or artifact can affect value, allocation, boost treatment, or market behavior, the page describing it must also describe the source path and review status.\n\n## Publication Boundary\n\nThis page explains the source integrity requirement. It should not publish final supply, rarity, probabilities, expected value, TGE weighting, boost policy, transferability, or secondary-market support until product, risk, legal, accounting, and operator review approve those values.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\", \"Integrity Requirement\".\n- `spec-03`: points, rewards, and TGE settlement caveats.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-points-value-state-lifecycle`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "excerpt": "Reward Composability Integrity Requirement Neelo's points and rewards source makes reward composability conditional: packs, artifacts, and other reward objects are useful only if users trust supply and attribution. That is the integrity requirement. A game layer can make rewards more engaging, but it cannot become a black box that hides where value came from, how much exists, who earned it, or how it will be counted at TGE. Source Of Truth Path Every reward layer should map back to a verifiable source of truth path: the original earning event or eligible activity; the source bucket that produced the points; the policy version that finalized or converted them; the supply, rarity, and expected value rule for any pack or artifact; and the approved accounting treatment for direct points, unopened packs, and embedded artifact exposure. Without that path, reward composability becomes opacity. Users may see an exciting object, but they cannot audit whether it represents real qualifying exposure or only provisional state. Reader Implication The docs should treat reward objects as accounting surfaces, not only retention mechanics. If a pack or artifact can affect value, allocation, boost tr"
+    },
+    {
       "id": "authored-reward-ledger-game-layer-boundary",
       "title": "Reward Ledger And Game Layer Boundary",
       "section": "rewards-referrals",
@@ -12172,13 +12226,16 @@
       ],
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
-        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-4-packs-and-artifacts",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-6-extended-model",
         "_specs/app-docs/03-grounding.md"
       ],
       "relatedGeneratedPages": [
         "neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system",
         "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-5-pack-system",
-        "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-6-artifact-system"
+        "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-6-artifact-system",
+        "section-17-referral-program-17-docs-04-points-and-rewards-4-4-packs-and-artifacts",
+        "section-17-referral-program-17-docs-04-points-and-rewards-4-6-extended-model"
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/rewards-packs-and-artifacts.md",

@@ -1559,3 +1559,11 @@
 **Reason:** Several uncovered Section 17 headings already had strong authored coverage but lacked exact `relatedGeneratedPages` links, while the architecture failure-mode heading still needed a direct Ask route. This slice improves source traceability without duplicating already-authored broad pages, and adds the missing failure-mode answer for signer compromise, stale indexes, unaudited graph mutation, replay, and double-credit risks.
 
 **Status:** Accepted for the authored rewards-reference layer; signer topology, indexer SLAs, graph-edit permissions, admin override rules, nonce schemas, dispute windows, incident thresholds, referral depth, and public economics remain fresh operator/security/legal/accounting/implementation review.
+
+## D-196: Tighten Referral Rewards And Phasing Exact Coverage
+
+**Decision:** Add authored Volume 06 rewards-reference pages for the referral architecture target principle and reward composability integrity requirement, and map existing rewards/phasing pages to their exact Section 17 generated headings.
+
+**Reason:** The remaining uncovered Section 17 headings included two concepts that deserved direct Ask routes: policy agility versus settlement integrity, and the requirement that every composable reward object map back to verifiable source-of-truth state. Other headings already had strong authored coverage but lacked exact generated-heading links, so the right move was to tighten metadata for packs/artifacts, extended model routing, access-phasing rationale, and qualified referral-code issuance rather than duplicating pages.
+
+**Status:** Accepted for the authored rewards-reference layer; contract interfaces, signer topology, claim schema, policy governance, supply, rarity, probabilities, expected value, TGE weighting, boost policy, transferability, secondary-market support, code issuance thresholds, campaign grants, progressive unlock criteria, and public referral economics remain fresh operator/security/legal/accounting/product/implementation review.

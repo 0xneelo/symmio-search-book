@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Referral Rewards And Phasing Exact Coverage
+
+- Added 2 authored Volume 06 rewards-reference pages from uncovered Neelo architecture and points/rewards headings.
+- Split the source into exact answer pages for the referral architecture target principle and the reward composability integrity requirement.
+- Tightened exact generated-heading coverage for rewards packs/artifacts, extended rewards model routing, access-phasing rationale, and qualified referral-code issuance policy on existing authored pages.
+- Kept contract interfaces, signer topology, claim schema, policy governance, supply, rarity, probabilities, expected value, TGE weighting, transferability, code issuance thresholds, campaign grants, and public referral economics marked for operator/security/legal/accounting/product/implementation review.
+
 ## 2026-06-29 — Referral Baseline Architecture Exact Coverage
 
 - Tightened exact generated-heading coverage for existing referral identity, dual-rail incentive, and three-plane architecture pages.

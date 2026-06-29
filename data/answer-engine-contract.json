@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 757
+      "totalGoldenRoutes": 759
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 775,
-    "retrievalEligiblePages": 1567,
+    "publicNavigationPages": 777,
+    "retrievalEligiblePages": 1569,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 775,
+      "candidate": 777,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 757,
-    "exactRouteTestsPassing": 757,
+    "totalExactRouteTests": 759,
+    "exactRouteTestsPassing": 759,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 757
+      "candidate": 759
     },
     "exactRoutesByConfidence": {
       "Medium": 477,
       "High": 44,
-      "Low": 236
+      "Low": 238
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -1903,6 +1903,29 @@
         "passes": true
       },
       {
+        "id": "qr-why-does-reward-composability-need-source-of-truth-integrity",
+        "query": "Why does reward composability need source-of-truth integrity?",
+        "normalizedQuery": "why does reward composability need source of truth integrity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-reward-composability-integrity-requirement",
+        "expectedPageTitle": "Reward Composability Integrity Requirement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-reward-composability-need-source-of-truth-integrity",
+        "passes": true
+      },
+      {
         "id": "qr-could-point-linked-assets-become-perp-markets",
         "query": "Could point-linked assets become perp markets?",
         "normalizedQuery": "could point linked assets become perp markets",
@@ -1967,6 +1990,29 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-referral-identity-in-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-what-principle-should-referral-architecture-preserve",
+        "query": "What principle should referral architecture preserve?",
+        "normalizedQuery": "what principle should referral architecture preserve",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-architecture-target-principle",
+        "expectedPageTitle": "Referral Architecture Target Principle",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-principle-should-referral-architecture-preserve",
         "passes": true
       },
       {
@@ -16689,7 +16735,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 757,
+      "exactRoutes": 759,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

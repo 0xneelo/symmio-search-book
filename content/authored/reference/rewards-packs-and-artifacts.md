@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-5-pack-system", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-6-artifact-system"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-4-packs-and-artifacts", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-6-extended-model", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-12-rewards-packs-artifact-system", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-5-pack-system", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-6-artifact-system", "section-17-referral-program-17-docs-04-points-and-rewards-4-4-packs-and-artifacts", "section-17-referral-program-17-docs-04-points-and-rewards-4-6-extended-model"]
 ---
 
 # Rewards Packs And Artifacts

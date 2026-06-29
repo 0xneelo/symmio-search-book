@@ -6,8 +6,8 @@ track: "Referral Architecture"
 status: "publication-candidate-needs-operator-review"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
-sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#53-issuance-gating", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#67-referral-code-issuance-policy", "_specs/app-docs/03-grounding.md"]
-relatedGeneratedPages: ["neelo-17-referral-program-17-docs-05-referral-economics", "section-17-referral-program-17-docs-05-referral-economics-5-3-issuance-gating", "authored-referral-code-activation-gates"]
+sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#5-3-issuance-gating", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing#6-7-referral-code-issuance-policy", "_specs/app-docs/03-grounding.md"]
+relatedGeneratedPages: ["neelo-17-referral-program-17-docs-05-referral-economics", "section-17-referral-program-17-docs-05-referral-economics-5-3-issuance-gating", "section-17-referral-program-17-docs-06-access-phasing-6-7-referral-code-issuance-policy", "authored-referral-code-activation-gates"]
 ---
 
 # Referral Qualified Issuance Gating
