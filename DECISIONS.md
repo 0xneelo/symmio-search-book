@@ -1495,3 +1495,11 @@
 **Reason:** The existing broad gradient-flow, control-problem, full-objective, and utilization-mode pages explain the funding model at a high level. The source still contains exact core-concept headings that answer different reader questions: why magnets are the right analogy, how the math map works, how the model avoids local traps, how the preview objective compresses the system, and when token-inventory mode gives way to insurance-fund mode. Splitting these routes improves Ask precision without turning model parameters into production guarantees.
 
 **Status:** Accepted for the authored manifesto layer; live field weights, potential functions, penalty weights, utilization thresholds, pricing ramps, risk scores, insurance budgets, ADL mechanics, solver quote functions, and production parameter values remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-188: Split SYMM LP Executive And Methodology Headings Into Exact Answers
+
+**Decision:** Add authored Volume 05 protocol-reference pages for uncovered SYMM LP case-study headings: what happened, executive interpretation, yield methodology, scaling hypothesis, and source/reproducibility notes.
+
+**Reason:** The existing SYMM LP pages cover the setup, headline result shape, proof-of-possibility framing, risk caveat, replication framework, and reporting requirements. The remaining executive and methodology headings answer different diligence questions: what the observed case was, how to interpret it, how yield was annualized, what scaling depends on, and which source/window conventions make the case reproducible. Splitting these routes keeps the case useful as mechanism evidence while reducing the chance that one favorable data cut becomes a generalized yield claim.
+
+**Status:** Accepted for the authored protocol-reference layer; live LP APY, vault capacity, treasury allocation recommendations, audited accounting, source ownership, current market state, scale-up thresholds, and public reporting policy remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

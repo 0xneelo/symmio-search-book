@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — SYMM LP Executive Methodology Exact Pages
+
+- Added 5 authored Volume 05 protocol-reference pages from uncovered Neelo SYMM LP case-study headings.
+- Split the case into exact answer pages for what happened, executive interpretation, yield methodology, scaling hypothesis, and source/reproducibility notes.
+- Extended the question ledger so LP, treasury, and operator readers can inspect case facts, interpretation limits, methodology, scaling assumptions, and reproducibility before treating the SYMM LP case as proof of mechanism.
+- Kept live LP APY, vault capacity, treasury allocation guidance, audited accounting, source ownership, current market state, and scale-up policy marked for fresh operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Funding Core Concepts Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from uncovered Neelo Funding Model core-concepts and utilization-mode headings.

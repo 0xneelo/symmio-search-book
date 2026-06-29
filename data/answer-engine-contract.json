@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 725
+      "totalGoldenRoutes": 730
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 743,
-    "retrievalEligiblePages": 1535,
+    "publicNavigationPages": 748,
+    "retrievalEligiblePages": 1540,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 743,
+      "candidate": 748,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,19 +160,19 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 725,
-    "exactRouteTestsPassing": 725,
+    "totalExactRouteTests": 730,
+    "exactRouteTestsPassing": 730,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 725
+      "candidate": 730
     },
     "exactRoutesByConfidence": {
       "Medium": 458,
       "High": 44,
-      "Low": 223
+      "Low": 228
     },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
@@ -7101,6 +7101,48 @@
         "passes": true
       },
       {
+        "id": "qr-what-happened-in-the-symm-lp-executive-summary",
+        "query": "What happened in the SYMM LP executive summary?",
+        "normalizedQuery": "what happened in the symm lp executive summary",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-executive-what-happened",
+        "expectedPageTitle": "SYMM LP Executive What Happened",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-happened-in-the-symm-lp-executive-summary",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-interpret-the-symm-lp-executive-summary",
+        "query": "How should I interpret the SYMM LP executive summary?",
+        "normalizedQuery": "how should i interpret the symm lp executive summary",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-executive-interpretation-boundary",
+        "expectedPageTitle": "SYMM LP Executive Interpretation Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-i-interpret-the-symm-lp-executive-summary",
+        "passes": true
+      },
+      {
         "id": "qr-why-is-the-symm-lp-case-proof-of-possibility-instead-of-a-yield-promise",
         "query": "Why is the SYMM LP case proof of possibility instead of a yield promise?",
         "normalizedQuery": "why is the symm lp case proof of possibility instead of a yield promise",
@@ -7182,6 +7224,69 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-dashboard-data-cut-supports-the-symm-lp-case",
+        "passes": true
+      },
+      {
+        "id": "qr-how-did-the-symm-lp-case-annualize-yield",
+        "query": "How did the SYMM LP case annualize yield?",
+        "normalizedQuery": "how did the symm lp case annualize yield",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-yield-methodology",
+        "expectedPageTitle": "SYMM LP Yield Methodology",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-did-the-symm-lp-case-annualize-yield",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-symm-lp-scaling-hypothesis",
+        "query": "What is the SYMM LP scaling hypothesis?",
+        "normalizedQuery": "what is the symm lp scaling hypothesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-scaling-hypothesis",
+        "expectedPageTitle": "SYMM LP Scaling Hypothesis",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-symm-lp-scaling-hypothesis",
+        "passes": true
+      },
+      {
+        "id": "qr-which-sources-and-reproducibility-notes-support-the-symm-lp-case",
+        "query": "Which sources and reproducibility notes support the SYMM LP case?",
+        "normalizedQuery": "which sources and reproducibility notes support the symm lp case",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symm-lp-source-and-reproducibility-notes",
+        "expectedPageTitle": "SYMM LP Source And Reproducibility Notes",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-sources-and-reproducibility-notes-support-the-symm-lp-case",
         "passes": true
       },
       {
@@ -15985,7 +16090,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 725,
+      "exactRoutes": 730,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

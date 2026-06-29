@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 744,
+  "totalPages": 749,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 571,
+    "publication-candidate-needs-operator-review": 576,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -15,7 +15,7 @@
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
-    "protocol-reference": 132,
+    "protocol-reference": 137,
     "competitive-context": 1,
     "reference": 1,
     "answer-engine": 1,
@@ -13103,6 +13103,54 @@
       "excerpt": "SYMM LP Economic Channels The SYMM LP case study setup names four economic channels in scope: trader directional losses, funding transfers from persistent long positioning, trading fees from activity, and liquidation related cashflows. The important point is that the case is not only a fee volume story. The source reports low total volume relative to the headline result, so the reader has to understand skew, funding, and user side PnL transfer as part of the mechanism. Channel By Channel Trader directional losses are the dominant case study intuition. In a long skew market where price declines, long traders can lose and the LP side can benefit. Funding transfers matter when positioning is persistent. A crowded side can pay the other side or the solver side system depending on the funding design and market state. Trading fees still matter, but the source warns against explaining this case only through high turnover. Activity was not large enough to make simple fee volume the full story. Liquidation related cashflows can matter when leveraged positions cross thresholds, but final public wording needs implementation and accounting review before treating liquidation revenue as a settle"
     },
     {
+      "id": "authored-symm-lp-executive-interpretation-boundary",
+      "title": "SYMM LP Executive Interpretation Boundary",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary#interpretation"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-interpretation",
+        "authored-symm-lp-proof-of-possibility",
+        "authored-symm-lp-low-volume-driver",
+        "authored-symm-lp-regime-dependence"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-executive-interpretation-boundary.md",
+      "bodyMarkdown": "# SYMM LP Executive Interpretation Boundary\n\nNeelo's executive-summary interpretation is explicit: the results are concrete point-in-time results from one case and one regime. They show strong potential for treasury or holder collateral deployment on Vibe, but they are not a guaranteed steady-state yield.\n\nThat boundary is central to the compendium. The case is useful because it demonstrates a real mechanism: token inventory can function as market backstop capacity, and directional crowding can create LP-favorable economics. It is not enough to prove that every token community should deploy large LP inventory or expect the same result.\n\n## Low Volume Does Not Mean No Signal\n\nThe source calls out a second important interpretation: the outcome was achieved in a low-volume environment. The core driver was directional crowding, not high churn from frequent opens and closes.\n\nThat matters because an LP case can work for reasons other than fee volume. Funding, trader PnL transfer, liquidation-related flows, and marked exposure can dominate in a thin market when one side is crowded and wrong.\n\n## Reader Implication\n\nWhen a reader asks \"what should I conclude?\", route here before scaling pages. The safe conclusion is proof of potential under an observed regime. The unsafe conclusion is a permanent yield promise.\n\n## Publication Boundary\n\nDo not publish future LP yield, general treasury advice, vault suitability, or scaling capacity from this interpretation without operator, accounting, legal, risk, and implementation review. The source supports a potential-and-boundary claim, not a guarantee.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\", \"Interpretation\".\n\n## Related Pages\n\n- `authored-symm-lp-proof-of-possibility`\n- `authored-symm-lp-low-volume-driver`\n- `authored-symm-lp-regime-dependence`",
+      "excerpt": "SYMM LP Executive Interpretation Boundary Neelo's executive summary interpretation is explicit: the results are concrete point in time results from one case and one regime. They show strong potential for treasury or holder collateral deployment on Vibe, but they are not a guaranteed steady state yield. That boundary is central to the compendium. The case is useful because it demonstrates a real mechanism: token inventory can function as market backstop capacity, and directional crowding can create LP favorable economics. It is not enough to prove that every token community should deploy large LP inventory or expect the same result. Low Volume Does Not Mean No Signal The source calls out a second important interpretation: the outcome was achieved in a low volume environment. The core driver was directional crowding, not high churn from frequent opens and closes. That matters because an LP case can work for reasons other than fee volume. Funding, trader PnL transfer, liquidation related flows, and marked exposure can dominate in a thin market when one side is crowded and wrong. Reader Implication When a reader asks \"what should I conclude?\", route here before scaling pages. The safe "
+    },
+    {
+      "id": "authored-symm-lp-executive-what-happened",
+      "title": "SYMM LP Executive What Happened",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary#what-happened"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-01-executive-summary-what-happened",
+        "authored-symm-lp-headline-result-shape",
+        "authored-symm-lp-market-context",
+        "authored-symm-lp-favorable-regime-caveat"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-executive-what-happened.md",
+      "bodyMarkdown": "# SYMM LP Executive What Happened\n\nThe SYMM LP executive summary starts with a narrow factual frame: one SYMM LP deployment on Vibe, by LafaChief, was observed during a strongly long-biased market regime while the token price declined.\n\nThat combination produced LP-favorable conditions. Many traders were positioned long. The market moved against that crowd. Under the source's sign convention, user-side losses, debt, and marked PnL can become LP-side profit or LP-favorable marks.\n\n## Why This Is The First Answer\n\nThis page should be the first route when a reader asks what the case study was. It answers the basic event before asking readers to interpret the result, methodology, or replication path.\n\nThe source does not begin with a universal vault promise. It begins with a case: one participant, one market, one observed regime, and one data cut. That makes the evidence concrete, but it also limits the claim.\n\n## Publication Boundary\n\nDo not publish this as live SYMM LP performance, a current APY, a generalized treasury recommendation, or a guarantee that long-skew down-market conditions will repeat. The source-backed claim is only the observed case setup and regime direction.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\", \"What Happened\".\n\n## Related Pages\n\n- `authored-symm-lp-headline-result-shape`\n- `authored-symm-lp-market-context`\n- `authored-symm-lp-favorable-regime-caveat`",
+      "excerpt": "SYMM LP Executive What Happened The SYMM LP executive summary starts with a narrow factual frame: one SYMM LP deployment on Vibe, by LafaChief, was observed during a strongly long biased market regime while the token price declined. That combination produced LP favorable conditions. Many traders were positioned long. The market moved against that crowd. Under the source's sign convention, user side losses, debt, and marked PnL can become LP side profit or LP favorable marks. Why This Is The First Answer This page should be the first route when a reader asks what the case study was. It answers the basic event before asking readers to interpret the result, methodology, or replication path. The source does not begin with a universal vault promise. It begins with a case: one participant, one market, one observed regime, and one data cut. That makes the evidence concrete, but it also limits the claim. Publication Boundary Do not publish this as live SYMM LP performance, a current APY, a generalized treasury recommendation, or a guarantee that long skew down market conditions will repeat. The source backed claim is only the observed case setup and regime direction. Sources vibe papers : "
+    },
+    {
       "id": "authored-symm-lp-favorable-regime-caveat",
       "title": "SYMM LP Favorable Regime Caveat",
       "section": "protocol-reference",
@@ -13417,6 +13465,30 @@
       "excerpt": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes. The source highlights several risk vectors: directional reversal, where trader side wins move against the LP; unrealized PnL volatility, where marked profit can disappear before realization; leverage amplification, where small token moves create larger LP exposure; liquidity stress, where liquidation integrity depends on executable markets; concentration, where one token community or one dominant positioning regime shapes the whole case. Edge Cases To Test Before scaling a similar LP program, the docs should ask how the model behaves under several adverse paths: a prolonged uptrend where long biased traders are profitable; a choppy market with low directional edge and weak fee generation; a sudden gap in a thin market where liquidation may be difficult; fading community participation where open interest and turnover decay. These a"
     },
     {
+      "id": "authored-symm-lp-scaling-hypothesis",
+      "title": "SYMM LP Scaling Hypothesis",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework#5-1-scaling-hypothesis"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-1-scaling-hypothesis",
+        "authored-symm-lp-replication-framework",
+        "authored-symm-lp-pilot-allocation-discipline",
+        "authored-symm-lp-tranche-scale-up-stop-conditions"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-scaling-hypothesis.md",
+      "bodyMarkdown": "# SYMM LP Scaling Hypothesis\n\nThe SYMM LP scaling section presents a hypothesis, not a completed scale proof. It suggests the model may scale from tens of thousands of dollars of notional LP size to higher notional sizes, conditional on trader appetite, leverage usage, and sustained market activity.\n\nThe key word is conditional. More LP inventory does not automatically create more useful flow. Scaling only helps if traders continue to express demand, leverage remains within controlled bounds, liquidations and funding behave as expected, and reporting can show whether returns came from repeatable structure rather than one favorable episode.\n\n## Why Phased Scaling Is Required\n\nThe source says the idea is plausible, but should be tested through phased scaling instead of one-step capital expansion.\n\nThat means the practical path is not \"case worked, scale immediately.\" It is pilot, observe, validate, increase in tranches, and stop if drawdown, skew instability, utilization stress, liquidity quality, or data quality breaks the thesis.\n\n## Reader Implication\n\nFor token communities, the scaling hypothesis is an invitation to test Vibe's LP mechanism with discipline. For LPs and treasuries, it is a warning that capacity is empirical. It must be discovered from real trader behavior and real risk reporting.\n\n## Publication Boundary\n\nDo not publish a live capital capacity, target vault size, treasury allocation recommendation, leverage band, or scale-up schedule from this source alone. Final scaling language needs operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\", \"5.1 Scaling Hypothesis\".\n\n## Related Pages\n\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-pilot-allocation-discipline`\n- `authored-symm-lp-tranche-scale-up-stop-conditions`",
+      "excerpt": "SYMM LP Scaling Hypothesis The SYMM LP scaling section presents a hypothesis, not a completed scale proof. It suggests the model may scale from tens of thousands of dollars of notional LP size to higher notional sizes, conditional on trader appetite, leverage usage, and sustained market activity. The key word is conditional. More LP inventory does not automatically create more useful flow. Scaling only helps if traders continue to express demand, leverage remains within controlled bounds, liquidations and funding behave as expected, and reporting can show whether returns came from repeatable structure rather than one favorable episode. Why Phased Scaling Is Required The source says the idea is plausible, but should be tested through phased scaling instead of one step capital expansion. That means the practical path is not \"case worked, scale immediately.\" It is pilot, observe, validate, increase in tranches, and stop if drawdown, skew instability, utilization stress, liquidity quality, or data quality breaks the thesis. Reader Implication For token communities, the scaling hypothesis is an invitation to test Vibe's LP mechanism with discipline. For LPs and treasuries, it is a warni"
+    },
+    {
       "id": "authored-symm-lp-setup-reading-boundary",
       "title": "SYMM LP Setup Reading Boundary",
       "section": "protocol-reference",
@@ -13437,6 +13509,31 @@
       "file": "content/authored/reference/symm-lp-setup-reading-boundary.md",
       "bodyMarkdown": "# SYMM LP Setup Reading Boundary\n\nNeelo's case-context section has a narrow job: it tells the reader how one SYMM LP deployment was set up before interpreting the results. It is not the performance claim itself. The source says the objective is to document the operating setup and define the context needed to read the performance metrics in the later unit-economics section.\n\nThat boundary matters because LP evidence can become misleading when setup, outcome, and generalization are collapsed into one headline. The setup page should answer who supplied the inventory, what was deposited, what market state the case observed, and which economic channels were in scope. The performance pages should then answer what happened during the measured window.\n\n## How To Read This Part Of The Case\n\nRead the setup section as a control surface:\n\n- it defines the participant and deposited inventory;\n- it names the market and period being studied;\n- it frames the deployment as token inventory used for market formation;\n- it separates context from result interpretation.\n\nThe case does not become stronger by hiding that boundary. It becomes stronger because readers can inspect the assumptions before reading the yield, benchmark, and risk pages.\n\n## Publication Boundary\n\nDo not use this setup section as a standalone return claim. It supports case interpretation, not generalized vault APY, audited accounting, or current product terms. Any public version should route from setup to methodology, data guardrails, risk, and replication requirements.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Case Context and Setup\", Section 2.1, \"Objective\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-data-guardrails`",
       "excerpt": "SYMM LP Setup Reading Boundary Neelo's case context section has a narrow job: it tells the reader how one SYMM LP deployment was set up before interpreting the results. It is not the performance claim itself. The source says the objective is to document the operating setup and define the context needed to read the performance metrics in the later unit economics section. That boundary matters because LP evidence can become misleading when setup, outcome, and generalization are collapsed into one headline. The setup page should answer who supplied the inventory, what was deposited, what market state the case observed, and which economic channels were in scope. The performance pages should then answer what happened during the measured window. How To Read This Part Of The Case Read the setup section as a control surface: it defines the participant and deposited inventory; it names the market and period being studied; it frames the deployment as token inventory used for market formation; it separates context from result interpretation. The case does not become stronger by hiding that boundary. It becomes stronger because readers can inspect the assumptions before reading the yield, benc"
+    },
+    {
+      "id": "authored-symm-lp-source-and-reproducibility-notes",
+      "title": "SYMM LP Source And Reproducibility Notes",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions#7-1-sources-used",
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions#7-5-reproducibility-notes"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-1-sources-used",
+        "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-5-reproducibility-notes",
+        "authored-symm-lp-data-guardrails",
+        "authored-symm-lp-yield-methodology"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-source-and-reproducibility-notes.md",
+      "bodyMarkdown": "# SYMM LP Source And Reproducibility Notes\n\nThe SYMM LP data-snapshot section names the source set behind the case study: `../16_data.md` and provided dashboard screenshots from the same SYMM session. The reproducibility notes then define the analysis window and annualization convention.\n\nThe analysis window starts at the first deposit timestamp, `29/12/2025 11:49:29`, and runs through the referenced dashboard snapshot data cut, `20:48:23`. The daily series uses the same case-study source set. Annualization uses average per-day yield times `365`, without compounding.\n\n## Why This Page Exists\n\nSource and reproducibility notes are not administrative detail. They are what prevent a strong case study from becoming vague yield marketing.\n\nIf a reader cannot see which data cut was used, where the daily series came from, when the window began and ended, and how annualization was computed, they cannot reproduce or audit the case. They also cannot compare it safely against later LP reports.\n\n## Publication Boundary\n\nDo not treat this source list as a complete audit trail. It identifies the case-study sources named in Neelo's document, but final public reporting needs durable source files, ownership, refresh cadence, raw trade or accounting records where available, and a reviewer-approved reconciliation process.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\", \"7.1 Sources Used\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\", \"7.5 Reproducibility Notes\".\n\n## Related Pages\n\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-yield-methodology`\n- `authored-symm-lp-dashboard-data-cut`",
+      "excerpt": "SYMM LP Source And Reproducibility Notes The SYMM LP data snapshot section names the source set behind the case study: ../16 data.md and provided dashboard screenshots from the same SYMM session. The reproducibility notes then define the analysis window and annualization convention. The analysis window starts at the first deposit timestamp, 29/12/2025 11:49:29 , and runs through the referenced dashboard snapshot data cut, 20:48:23 . The daily series uses the same case study source set. Annualization uses average per day yield times 365 , without compounding. Why This Page Exists Source and reproducibility notes are not administrative detail. They are what prevent a strong case study from becoming vague yield marketing. If a reader cannot see which data cut was used, where the daily series came from, when the window began and ended, and how annualization was computed, they cannot reproduce or audit the case. They also cannot compare it safely against later LP reports. Publication Boundary Do not treat this source list as a complete audit trail. It identifies the case study sources named in Neelo's document, but final public reporting needs durable source files, ownership, refresh ca"
     },
     {
       "id": "authored-symm-lp-steady-state-operating-bounds",
@@ -13580,6 +13677,30 @@
       "file": "content/authored/reference/symm-lp-vault-nav-time-series.md",
       "bodyMarkdown": "# SYMM LP Vault NAV Time Series\n\nThe SYMM LP case study is useful as a data cut, but the source says a production-grade case study should add a vault-level time series of NAV and PnL attribution.\n\nThat requirement exists because a single dashboard state can hide path risk. A vault can look profitable at the final mark while having experienced large interim drawdowns, unstable utilization, concentrated exposure, or an unrealized gain that later reverses. A NAV time series makes the path inspectable instead of asking readers to trust only the endpoint.\n\nThe minimum time series should show the vault's starting notional, token balance, USDC balance, realized PnL, marked PnL, total NAV, and benchmark NAV across the same timestamps. It should also state the price source, timestamp policy, deposit and withdrawal treatment, and whether the reported NAV is pre-fee, post-fee, gross, or net.\n\n## Why The Source Asks For This\n\nThe performance source reports a favorable endpoint: token balance increased, realized and unrealized LP components were positive, and the Vibe deposit benchmark beat both full hold and full sell for the observed window. The measurement-gap section then makes the publication standard stricter. The next version should not only report what the endpoint showed; it should show how the vault got there.\n\n## Publication Boundary\n\nDo not publish a live vault NAV chart until data ownership, accounting treatment, token pricing, fee treatment, and refresh cadence are confirmed. The source-backed requirement is that future public reporting needs this time-series layer before the case is used as repeatable LP evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Performance and Unit Economics: Measurement Gaps to Close\".\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework: KPI Stack for a Beta Report\".\n\n## Related Pages\n\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-beta-report-kpis`\n- `authored-symm-lp-benchmark-reading`",
       "excerpt": "SYMM LP Vault NAV Time Series The SYMM LP case study is useful as a data cut, but the source says a production grade case study should add a vault level time series of NAV and PnL attribution. That requirement exists because a single dashboard state can hide path risk. A vault can look profitable at the final mark while having experienced large interim drawdowns, unstable utilization, concentrated exposure, or an unrealized gain that later reverses. A NAV time series makes the path inspectable instead of asking readers to trust only the endpoint. The minimum time series should show the vault's starting notional, token balance, USDC balance, realized PnL, marked PnL, total NAV, and benchmark NAV across the same timestamps. It should also state the price source, timestamp policy, deposit and withdrawal treatment, and whether the reported NAV is pre fee, post fee, gross, or net. Why The Source Asks For This The performance source reports a favorable endpoint: token balance increased, realized and unrealized LP components were positive, and the Vibe deposit benchmark beat both full hold and full sell for the observed window. The measurement gap section then makes the publication standa"
+    },
+    {
+      "id": "authored-symm-lp-yield-methodology",
+      "title": "SYMM LP Yield Methodology",
+      "section": "protocol-reference",
+      "track": "Solver And LP Economics",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics#3-2-methodology"
+      ],
+      "relatedGeneratedPages": [
+        "section-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics-3-2-methodology",
+        "authored-symm-lp-unit-economics",
+        "authored-symm-lp-data-guardrails",
+        "authored-symm-lp-realized-marked-pnl-split"
+      ],
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "file": "content/authored/reference/symm-lp-yield-methodology.md",
+      "bodyMarkdown": "# SYMM LP Yield Methodology\n\nThe SYMM LP methodology section explains how the source computes daily and annualized yield. It does not use a compounding model. It computes average per-day profit relative to active token or USDC notional, averages the daily series over the analysis window, then annualizes by multiplying by `365`.\n\nThe source formulas are:\n\n```text\ntokenYield_day = avgTokenProfitPerDay / tokenAmountThatDay\nusdcYield_day = avgUsdcProfitPerDay / activeUsdNotionalThatDay\navgYield_day = mean(yield_day over analysis window)\navgYield_year = avgYield_day * 365\n```\n\n## Window Assumptions\n\nThe source window begins at the first deposit, `29/12/2025`, and ends at the referenced dashboard snapshot data cut. The daily series uses the same case-study source set documented in the data-snapshot section.\n\nThis means the annualized number is a convention applied to the observed window. It is not the same as a full-year realized return, and it does not prove compounding behavior.\n\n## Reader Implication\n\nWhenever the compendium uses SYMM LP annualized yield language, it should show the methodology. The right public phrasing is \"annualized from an observed daily average over this window,\" not \"the LP earns this APY.\"\n\n## Publication Boundary\n\nDo not publish this methodology as audited accounting, tax treatment, live vault APY, or a guaranteed annual return. Final public reporting needs operator/accounting review of source ownership, time window, compounding convention, realized versus marked treatment, and current data availability.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\", \"3.2 Methodology\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-realized-marked-pnl-split`",
+      "excerpt": "SYMM LP Yield Methodology The SYMM LP methodology section explains how the source computes daily and annualized yield. It does not use a compounding model. It computes average per day profit relative to active token or USDC notional, averages the daily series over the analysis window, then annualizes by multiplying by 365 . The source formulas are: Window Assumptions The source window begins at the first deposit, 29/12/2025 , and ends at the referenced dashboard snapshot data cut. The daily series uses the same case study source set documented in the data snapshot section. This means the annualized number is a convention applied to the observed window. It is not the same as a full year realized return, and it does not prove compounding behavior. Reader Implication Whenever the compendium uses SYMM LP annualized yield language, it should show the methodology. The right public phrasing is \"annualized from an observed daily average over this window,\" not \"the LP earns this APY.\" Publication Boundary Do not publish this methodology as audited accounting, tax treatment, live vault APY, or a guaranteed annual return. Final public reporting needs operator/accounting review of source owner"
     },
     {
       "id": "authored-symmio-account-layer-virtual-accounts",
