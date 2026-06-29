@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 511,
+  "totalPages": 516,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 369,
+    "publication-candidate-needs-operator-review": 374,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 233,
+    "manifesto": 238,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -7953,6 +7953,30 @@
       "excerpt": "Capital Efficiency Must Be Risk Adjusted The USDC versus token vault source makes a useful distinction: gross leverage is not the same thing as useful capital efficiency. A system can report open interest against deposited capital, but if the capital is expensive, fragile, or exposed to adverse selection, the headline ratio misleads. For low cap perps, the cost of backstop capital can be the constraint. A USDC LP pool may need conservative leverage and a high risk premium. Token inventory may support more market specific exposure because the holder already bears the asset risk. Figure4 compares structural leverage. Figure5 then adds the risk premium multiplier. The resulting source model claim is that VibeCaps style token inventory can be far more risk adjusted capital efficient than an external USDC LP design. What The Docs Should Teach Capital efficiency has to answer three questions: 1. How much market exposure can the capital safely support? 2. What return does that capital require to participate? 3. Who absorbs the loss when the market moves through the model? Without those questions, \"more leverage\" and \"more OI\" can hide a worse design. Publication Note The source's numeric "
     },
     {
+      "id": "authored-risk-adjusted-efficiency-multiplier",
+      "title": "Risk-Adjusted Efficiency Multiplier",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure5",
+        "authored-systemic-leverage-comparison",
+        "authored-usdc-risk-premium-ratio-diagnostic",
+        "authored-risk-adjusted-capital-efficiency"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/risk-adjusted-efficiency-multiplier.md",
+      "bodyMarkdown": "# Risk-Adjusted Efficiency Multiplier\n\nFigure5 combines two comparisons into one risk-adjusted-capital-efficiency model.\n\nFirst, it compares structural leverage: the source example uses `sysLev_I ~= 0.80x` for the USDC design and `sysLev_V = 5x` for the token-inventory design, yielding a capital-efficiency ratio of roughly `6.22x`. Second, it compares required risk premium: `r_I / r_V ~= 15x`, meaning the USDC backstop capital is modeled as requiring far more compensation than token-native inventory capital.\n\nThe overall RCE ratio multiplies those terms: `6.22 * 15 ~= 93.36`. The point is not to turn `93.36x` into marketing copy. The point is to teach that capital efficiency must include both exposure capacity and the price of the capital bearing that exposure.\n\n## Reader Implication\n\nIf USDC capital supports less exposure and demands more compensation, the design can be inefficient twice: it supports less market per unit of capital, and the capital it uses is more expensive. Token-inventory designs become compelling when they improve both sides of that equation.\n\n## Publication Boundary\n\nKeep the multiplier as a source-model teaching artifact. Final docs must not call it a live Vibe efficiency claim, audited ratio, or guaranteed advantage without current market parameters, vault data, realized risk premiums, and legal/risk review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure5\".\n\n## Related Pages\n\n- `authored-systemic-leverage-comparison`\n- `authored-usdc-risk-premium-ratio-diagnostic`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "Risk Adjusted Efficiency Multiplier Figure5 combines two comparisons into one risk adjusted capital efficiency model. First, it compares structural leverage: the source example uses sysLev I = 0.80x for the USDC design and sysLev V = 5x for the token inventory design, yielding a capital efficiency ratio of roughly 6.22x . Second, it compares required risk premium: r I / r V = 15x , meaning the USDC backstop capital is modeled as requiring far more compensation than token native inventory capital. The overall RCE ratio multiplies those terms: 6.22 15 = 93.36 . The point is not to turn 93.36x into marketing copy. The point is to teach that capital efficiency must include both exposure capacity and the price of the capital bearing that exposure. Reader Implication If USDC capital supports less exposure and demands more compensation, the design can be inefficient twice: it supports less market per unit of capital, and the capital it uses is more expensive. Token inventory designs become compelling when they improve both sides of that equation. Publication Boundary Keep the multiplier as a source model teaching artifact. Final docs must not call it a live Vibe efficiency claim, audited "
+    },
+    {
       "id": "authored-risk-alignment-matrix",
       "title": "The Risk Alignment Matrix",
       "section": "manifesto",
@@ -8308,6 +8332,30 @@
       "file": "content/authored/reference/solver-default-and-continuity.md",
       "bodyMarkdown": "# Solver Default And Trade Continuity\n\nSolver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity.\n\nFor standard or third-party solvers, the model includes strict liquidation, CVA-style buffers, maintenance margin, and optional position buyout by another solver. For higher-reputation solvers, the DDQ describes a softer margin-call style path that can de-risk progressively before full liquidation.\n\n## Protocol-Operated Solver\n\nThe same DDQ distinguishes the bootstrapping protocol-operated solver from ordinary third-party solvers. In that configuration, the protocol-operated solver may be treated as not liquidatable in the conventional account-level sense. That does not mean users are ignored; it means the shortfall is handled through protocol-level buffers, insurance, ADL, and ultimately system-level settlement if every layer is exhausted.\n\nThe publication-safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit-default payout narrative.\n\n## Third-Party Solver Continuity\n\nFor third-party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol-operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible.\n\n## Publication Note\n\nThis page is source-backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default\" and \"Trader Compensation - Solver default\".\n- `symmio-core`: protocol vocabulary for solvers, collateral, margin, and CVA.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-solver-owned-market-maker`\n- `authored-funding-defense-hierarchy`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default`",
       "excerpt": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, maintenance margin, and optional position buyout by another solver. For higher reputation solvers, the DDQ describes a softer margin call style path that can de risk progressively before full liquidation. Protocol Operated Solver The same DDQ distinguishes the bootstrapping protocol operated solver from ordinary third party solvers. In that configuration, the protocol operated solver may be treated as not liquidatable in the conventional account level sense. That does not mean users are ignored; it means the shortfall is handled through protocol level buffers, insurance, ADL, and ultimately system level settlement if every layer is exhausted. The publication safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit default payout narrative. Third Party Solver Continuity For third party solver defa"
+    },
+    {
+      "id": "authored-solver-drawdown-not-protocol-insolvency",
+      "title": "Solver Drawdown Is Not Protocol Insolvency",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure3"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure3",
+        "authored-token-inventory-risk-localization",
+        "authored-token-holder-inventory-alignment",
+        "authored-residual-counterparty-hedge-first"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/solver-drawdown-not-protocol-insolvency.md",
+      "bodyMarkdown": "# Solver Drawdown Is Not Protocol Insolvency\n\nFigure3 separates solver-level PnL volatility from protocol-wide insolvency.\n\nIn the source flow, order-flow imbalance, model/spread/funding error, and external hedge execution risk route into solver PnL volatility. That volatility can become solver capital drawdown. The diagram explicitly labels that outcome as \"not protocol-wide insolvency.\"\n\nThis distinction is central to token-inventory market design. A solver or market maker can lose money managing inventory, hedges, funding, and spreads. That is real operating risk. But it is different from a design where generic USDC LP capital is the broad backstop for every market's bad debt and therefore where a market failure can become a pool-wide solvency problem.\n\nFigure3 also separates protocol or smart-contract risk from SIM market risk. Protocol risk can still create systemic protocol loss. Token repricing is borne by the same holders who already held the token. The documentation should keep those buckets separate instead of saying \"risk is gone.\"\n\n## Reader Implication\n\nThe right claim is risk localization, not risk elimination. Docs should explain whether a loss hits solver capital, token inventory holders, protocol contracts, settlement capital, or users. Those are different questions with different mitigations.\n\n## Publication Boundary\n\nDo not publish this as a guarantee that solver losses can never affect users, vaults, or protocol operation. Live loss waterfalls, solver capital requirements, liquidation rules, hedge venues, insurance policy, and smart-contract risk controls need operator/risk/security/legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure3\".\n\n## Related Pages\n\n- `authored-token-inventory-risk-localization`\n- `authored-token-holder-inventory-alignment`\n- `authored-residual-counterparty-hedge-first`",
+      "excerpt": "Solver Drawdown Is Not Protocol Insolvency Figure3 separates solver level PnL volatility from protocol wide insolvency. In the source flow, order flow imbalance, model/spread/funding error, and external hedge execution risk route into solver PnL volatility. That volatility can become solver capital drawdown. The diagram explicitly labels that outcome as \"not protocol wide insolvency.\" This distinction is central to token inventory market design. A solver or market maker can lose money managing inventory, hedges, funding, and spreads. That is real operating risk. But it is different from a design where generic USDC LP capital is the broad backstop for every market's bad debt and therefore where a market failure can become a pool wide solvency problem. Figure3 also separates protocol or smart contract risk from SIM market risk. Protocol risk can still create systemic protocol loss. Token repricing is borne by the same holders who already held the token. The documentation should keep those buckets separate instead of saying \"risk is gone.\" Reader Implication The right claim is risk localization, not risk elimination. Docs should explain whether a loss hits solver capital, token invent"
     },
     {
       "id": "authored-solver-engine-operating-loop",
@@ -9676,6 +9724,31 @@
       "excerpt": "Synthetic Abundance Creates A Verification Crisis The verification crisis starts when convincing information becomes cheaper to produce than to evaluate. A fake source can look polished. A bot narrative can look popular. A synthetic paper, video, or project page can borrow the surface area of credibility without paying the old cost of production. Neelo's source argues that this breaks the old filter. Before AI, making complex false information required time, craft, and coordination. After AI, the marginal cost can approach zero. The result is asymmetric cost: producing noise is cheap, but proving what deserves trust remains expensive. Markets add cost back into belief. They do not create perfect truth. They make belief more expensive, observable, and contestable. Someone who wants to defend a claim can buy, LP, quote, or build around it. Someone who rejects a claim can short, refuse to quote, hedge, or pressure the market over time. That negative side is essential. Long only markets can amplify excitement even when skepticism is widespread. Two sided markets force the claim to face both enthusiasm and rejection. In the Information/Trade thesis, Vibe's short side is the mechanism th"
     },
     {
+      "id": "authored-systemic-leverage-comparison",
+      "title": "Systemic Leverage Comparison",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure4",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure4",
+        "neelo-06-usdc-token-perps-06-docs-figure5",
+        "authored-usdc-structural-capital-burden",
+        "authored-token-inventory-structural-capital"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/systemic-leverage-comparison.md",
+      "bodyMarkdown": "# Systemic Leverage Comparison\n\nThe systemic leverage comparison asks how much open interest a capital structure can support per unit of structural capital.\n\nIn Figure4, the USDC-side equation is `sysLev_I = Q / K_I`, with the example landing near `0.80x`. The token-inventory side is `sysLev_V = Q_V / K_V = lambda`. Figure5 then uses a sample `sysLev_V = 5x`, producing a capital-efficiency ratio of about `6.22x` versus the USDC-side example.\n\nThe comparison is useful because it separates gross open interest from the denominator that makes that open interest credible. A system can look active while being capital-constrained if the backstop capital is expensive, fragile, or structurally misaligned with the market. Conversely, token inventory can support higher market-specific exposure when the risk is held by capital that already wanted the underlying asset.\n\n## Reader Implication\n\nDocs should present systemic leverage as a comparative model, not as a leaderboard number. The important question is what kind of capital sits behind the exposure and whether that capital is naturally aligned with the market being listed.\n\n## Publication Boundary\n\nThe `0.80x`, `5x`, and `6.22x` values are source-model examples. Do not publish them as current Vibe leverage, final vault limits, or live solvency metrics without current risk parameters, exposure caps, accounting definitions, and operator approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure4\".\n- `vibe-papers`: Neelo, \"Figure5\".\n\n## Related Pages\n\n- `authored-usdc-structural-capital-burden`\n- `authored-token-inventory-structural-capital`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "Systemic Leverage Comparison The systemic leverage comparison asks how much open interest a capital structure can support per unit of structural capital. In Figure4, the USDC side equation is sysLev I = Q / K I , with the example landing near 0.80x . The token inventory side is sysLev V = Q V / K V = lambda . Figure5 then uses a sample sysLev V = 5x , producing a capital efficiency ratio of about 6.22x versus the USDC side example. The comparison is useful because it separates gross open interest from the denominator that makes that open interest credible. A system can look active while being capital constrained if the backstop capital is expensive, fragile, or structurally misaligned with the market. Conversely, token inventory can support higher market specific exposure when the risk is held by capital that already wanted the underlying asset. Reader Implication Docs should present systemic leverage as a comparative model, not as a leaderboard number. The important question is what kind of capital sits behind the exposure and whether that capital is naturally aligned with the market being listed. Publication Boundary The 0.80x , 5x , and 6.22x values are source model examples. Do"
+    },
+    {
       "id": "authored-tail-event-profit-cap-emergency-brake",
       "title": "Tail-Event Profit Caps As Emergency Brakes",
       "section": "protocol-reference",
@@ -9943,6 +10016,30 @@
       "file": "content/authored/manifesto/token-inventory-risk-localization.md",
       "bodyMarkdown": "# Token Inventory Localizes Risk\n\nThe VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location.\n\nProject treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or market maker can then manage order-flow imbalance, spreads, funding, and hedging around that inventory.\n\nFigure3 separates this from protocol-wide insolvency. Order-flow imbalance, model error, and hedge execution can create solver PnL volatility or capital drawdown. Token repricing affects the token holders who already held the asset. That is still real risk, but it is not the same as asking unrelated USDC LPs to absorb every long-tail market's bad debt.\n\n## Reader Implication\n\nDocs should describe token inventory as localized market support, not as a magical backstop. The key question is whether the risk is borne by capital that understands and already owns the asset, with stable settlement obligations kept separate.\n\n## Publication Note\n\nExact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, and loss ordering still need operator and implementation review before publication as product guarantees.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"USDC vs Token-Margined Perpetuals\".\n- `vibe-papers`: Neelo, \"Figure3\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-residual-counterparty-hedge-first`",
       "excerpt": "Token Inventory Localizes Risk The VibeCaps side of Neelo's comparison is not \"no one takes risk.\" It is a different risk location. Project treasuries, whales, or committed token holders already carry exposure to the asset. When some of that inventory supports a perp market, the marginal risk is closer to the risk they already chose to hold. A solver or market maker can then manage order flow imbalance, spreads, funding, and hedging around that inventory. Figure3 separates this from protocol wide insolvency. Order flow imbalance, model error, and hedge execution can create solver PnL volatility or capital drawdown. Token repricing affects the token holders who already held the asset. That is still real risk, but it is not the same as asking unrelated USDC LPs to absorb every long tail market's bad debt. Reader Implication Docs should describe token inventory as localized market support, not as a magical backstop. The key question is whether the risk is borne by capital that understands and already owns the asset, with stable settlement obligations kept separate. Publication Note Exact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, and loss ordering stil"
+    },
+    {
+      "id": "authored-token-inventory-structural-capital",
+      "title": "Token Inventory As Structural Capital",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure4"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure4",
+        "authored-token-holder-inventory-alignment",
+        "authored-token-inventory-risk-localization",
+        "authored-risk-adjusted-capital-efficiency"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-inventory-structural-capital.md",
+      "bodyMarkdown": "# Token Inventory As Structural Capital\n\nFigure4 gives the token-inventory design a simpler structural-capital equation: `K_V = T`.\n\n`T` is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is `Q_V = lambda * T`, so systemic leverage becomes `sysLev_V = Q_V / K_V = lambda`. The capital base is the inventory itself because the asset holders already own the risk that the market is trying to organize.\n\nThat does not remove risk. It changes the capital source. Instead of asking generic USDC LPs to underwrite every low-cap market, the system starts from market-native inventory whose holders may want token utility, liquidity, hedging, and fee flow around the asset they already hold.\n\n## Reader Implication\n\nToken inventory should be documented as structural market capital, not as decorative staking. It becomes useful when solver operations, settlement rules, risk limits, and loss allocation make that inventory available to support real market exposure.\n\n## Publication Boundary\n\nKeep `K_V = T` and `sysLev_V = lambda` as source-model notation until live inventory eligibility, withdrawal rights, rehypothecation limits, solver access, risk limits, loss ordering, and accounting treatment are approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure4\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-token-inventory-risk-localization`\n- `authored-risk-adjusted-capital-efficiency`",
+      "excerpt": "Token Inventory As Structural Capital Figure4 gives the token inventory design a simpler structural capital equation: K V = T . T is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is Q V = lambda T , so systemic leverage becomes sysLev V = Q V / K V = lambda . The capital base is the inventory itself because the asset holders already own the risk that the market is trying to organize. That does not remove risk. It changes the capital source. Instead of asking generic USDC LPs to underwrite every low cap market, the system starts from market native inventory whose holders may want token utility, liquidity, hedging, and fee flow around the asset they already hold. Reader Implication Token inventory should be documented as structural market capital, not as decorative staking. It becomes useful when solver operations, settlement rules, risk limits, and loss allocation make that inventory available to support real market exposure. Publication Boundary Keep K V = T and sysLev V = lambda as source model notation until live inventory eligibility, withdrawal rights, rehypothecation limits, solver access, risk limits, loss or"
     },
     {
       "id": "authored-token-lp-attractiveness-model",
@@ -10661,6 +10758,30 @@
       "file": "content/authored/manifesto/usdc-settlement-inventory-separation.md",
       "bodyMarkdown": "# USDC Settlement Separates Inventory From Solvency\n\nThe alternative in Neelo's Percolator source is not \"remove token inventory.\" It is to separate token inventory from the unit of settlement.\n\nIn the USDC-margined hybrid model, traders post and settle in USDC. Token holders or project treasuries can still provide inventory, but that inventory is not the same thing as the trader's margin base or the final settlement currency. The solver can use inventory as one defense layer while USDC obligations remain linear and dollar-denominated.\n\nThat separation removes the worst same-asset feedback. A falling token can still damage inventory value, but it does not make every trader payout expand in token terms, and it does not make the settlement currency collapse at the moment claims must be paid. Inventory risk is accepted and priced. Solvency risk is kept in a more stable unit.\n\nThe source also connects this to active risk management: dynamic spreads, funding, local insurance, global insurance, and ADL only after other defenses fail. Exact production parameters, fee shares, vault rights, and liquidation behavior need operator and implementation review before publication. The architectural principle is already clear enough to teach: inventory providers and settlement guarantees are different roles.\n\n## Reader Implication\n\nLPs should ask whether they are providing inventory, settlement capital, or both. Traders should ask what unit pays their PnL. Docs should never blur token inventory yield with stable settlement solvency.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\".\n- `vibe-papers`: Neelo, \"Section 9: Vibe vs. Percolator\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "USDC Settlement Separates Inventory From Solvency The alternative in Neelo's Percolator source is not \"remove token inventory.\" It is to separate token inventory from the unit of settlement. In the USDC margined hybrid model, traders post and settle in USDC. Token holders or project treasuries can still provide inventory, but that inventory is not the same thing as the trader's margin base or the final settlement currency. The solver can use inventory as one defense layer while USDC obligations remain linear and dollar denominated. That separation removes the worst same asset feedback. A falling token can still damage inventory value, but it does not make every trader payout expand in token terms, and it does not make the settlement currency collapse at the moment claims must be paid. Inventory risk is accepted and priced. Solvency risk is kept in a more stable unit. The source also connects this to active risk management: dynamic spreads, funding, local insurance, global insurance, and ADL only after other defenses fail. Exact production parameters, fee shares, vault rights, and liquidation behavior need operator and implementation review before publication. The architectural prin"
+    },
+    {
+      "id": "authored-usdc-structural-capital-burden",
+      "title": "USDC Structural Capital Burden",
+      "section": "manifesto",
+      "track": "06 - USDC vs Token-Margined Perpetuals",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure4"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-06-usdc-token-perps-06-docs-figure4",
+        "authored-risk-adjusted-capital-efficiency",
+        "authored-usdc-vault-negative-feedback-loop",
+        "authored-usdc-opportunity-cost-floor"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-structural-capital-burden.md",
+      "bodyMarkdown": "# USDC Structural Capital Burden\n\nFigure4 treats a USDC LP design as carrying more structural capital than the visible LP deposit alone.\n\nIn the Imperial side of the source model, USDC LP deposit `L = 1,000,000` supports gross open interest `Q = 830,000`, but total structural capital is written as `K_I = L + 0.04 * Q`. That formula matters because the market does not only need passive deposited dollars. It also needs risk capital, reserves, or required backing attached to the open interest it creates.\n\nThat extra term is the burden. A low-cap USDC backstop has to compensate capital that did not naturally want the asset exposure, while also maintaining enough buffer for adverse selection, liquidation failure, bad debt, and stress states. The structural-capital denominator therefore expands before the system can claim efficiency.\n\n## Reader Implication\n\nWhen a docs page compares a USDC vault to token-inventory support, it should not ask only \"how many dollars are deposited?\" It should ask what total capital structure is needed for the market to remain credible when open interest grows.\n\n## Publication Boundary\n\nUse `K_I = L + 0.04 * Q` as a source-model equation, not as a live Vibe or Imperial parameter. Final publication needs current vault terms, capital charges, reserve assumptions, margin policy, loss waterfall, and legal/accounting review before this becomes a product metric.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Figure4\".\n\n## Related Pages\n\n- `authored-risk-adjusted-capital-efficiency`\n- `authored-usdc-vault-negative-feedback-loop`\n- `authored-usdc-opportunity-cost-floor`",
+      "excerpt": "USDC Structural Capital Burden Figure4 treats a USDC LP design as carrying more structural capital than the visible LP deposit alone. In the Imperial side of the source model, USDC LP deposit L = 1,000,000 supports gross open interest Q = 830,000 , but total structural capital is written as K I = L + 0.04 Q . That formula matters because the market does not only need passive deposited dollars. It also needs risk capital, reserves, or required backing attached to the open interest it creates. That extra term is the burden. A low cap USDC backstop has to compensate capital that did not naturally want the asset exposure, while also maintaining enough buffer for adverse selection, liquidation failure, bad debt, and stress states. The structural capital denominator therefore expands before the system can claim efficiency. Reader Implication When a docs page compares a USDC vault to token inventory support, it should not ask only \"how many dollars are deposited?\" It should ask what total capital structure is needed for the market to remain credible when open interest grows. Publication Boundary Use K I = L + 0.04 Q as a source model equation, not as a live Vibe or Imperial parameter. Fin"
     },
     {
       "id": "authored-usdc-vault-negative-feedback-loop",

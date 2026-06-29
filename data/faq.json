@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 499,
-  "totalAnswerable": 492,
+  "totalEntries": 504,
+  "totalAnswerable": 497,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,8 +17,8 @@
   "byCategory": {
     "Getting Started": 54,
     "Trading Flow": 32,
-    "Solvers And Settlement": 143,
-    "Risk And Markets": 30,
+    "Solvers And Settlement": 145,
+    "Risk And Markets": 33,
     "Revenue": 74,
     "Manifesto": 72,
     "Rewards And Referrals": 78,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 272,
+    "Medium": 277,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 492
+    "authored": 497
   },
   "byType": {
-    "answerable": 492,
+    "answerable": 497,
     "reconciliation": 7
   },
   "answerable": [
@@ -16322,6 +16322,151 @@
       "confidence": "Medium",
       "pageId": "authored-usdc-lp-illiquid-market-maker-analogy",
       "pageTitle": "USDC LP Illiquid-Market-Maker Analogy",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-usdc-structural-capital-include-more-than-lp-deposit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does USDC structural capital include more than LP deposit?",
+      "normalizedQuestion": "why does usdc structural capital include more than lp deposit",
+      "shortAnswer": "Neelo's Figure4 models USDC structural capital as LP deposit plus open-interest-linked backing, so the denominator is larger than visible deposits alone.",
+      "answerSummary": "USDC Structural Capital Burden Figure4 treats a USDC LP design as carrying more structural capital than the visible LP deposit alone. In the Imperial side of the source model, USDC LP deposit L = 1,000,000 supports gross open interest Q = 830,000 , but total structural capital is written as K I = L + 0.04 Q . That formula matters because the market does n...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-structural-capital-burden",
+      "pageTitle": "USDC Structural Capital Burden",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-token-inventory-become-structural-capital",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does token inventory become structural capital?",
+      "normalizedQuestion": "how does token inventory become structural capital",
+      "shortAnswer": "Neelo's Figure4 treats market-native token inventory as the structural capital base because holders already own the asset risk being organized into market support.",
+      "answerSummary": "Token Inventory As Structural Capital Figure4 gives the token inventory design a simpler structural capital equation: K V = T . T is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is Q V = lambda T , so systemic leverage becomes sysLev V = Q V / K V = lambda . The capital base is the inven...",
+      "confidence": "Medium",
+      "pageId": "authored-token-inventory-structural-capital",
+      "pageTitle": "Token Inventory As Structural Capital",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-systemic-leverage-compare",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What does systemic leverage compare?",
+      "normalizedQuestion": "what does systemic leverage compare",
+      "shortAnswer": "Neelo's Figure4 and Figure5 compare gross open interest against structural capital so readers can distinguish headline activity from credible capital support.",
+      "answerSummary": "Systemic Leverage Comparison The systemic leverage comparison asks how much open interest a capital structure can support per unit of structural capital. In Figure4, the USDC side equation is sysLev I = Q / K I , with the example landing near 0.80x . The token inventory side is sysLev V = Q V / K V = lambda . Figure5 then uses a sample sysLev V = 5x , pro...",
+      "confidence": "Medium",
+      "pageId": "authored-systemic-leverage-comparison",
+      "pageTitle": "Systemic Leverage Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-risk-adjusted-efficiency-multiplier-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does the risk-adjusted efficiency multiplier work?",
+      "normalizedQuestion": "how does the risk adjusted efficiency multiplier work",
+      "shortAnswer": "Neelo's Figure5 combines the structural leverage ratio with the USDC-versus-token risk-premium ratio to show why risk-adjusted capital efficiency can diverge sharply.",
+      "answerSummary": "Risk Adjusted Efficiency Multiplier Figure5 combines two comparisons into one risk adjusted capital efficiency model. First, it compares structural leverage: the source example uses sysLev I = 0.80x for the USDC design and sysLev V = 5x for the token inventory design, yielding a capital efficiency ratio of roughly 6.22x . Second, it compares required risk...",
+      "confidence": "Medium",
+      "pageId": "authored-risk-adjusted-efficiency-multiplier",
+      "pageTitle": "Risk-Adjusted Efficiency Multiplier",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-solver-drawdown-different-from-protocol-insolvency",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is solver drawdown different from protocol insolvency?",
+      "normalizedQuestion": "why is solver drawdown different from protocol insolvency",
+      "shortAnswer": "Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss.",
+      "answerSummary": "Solver Drawdown Is Not Protocol Insolvency Figure3 separates solver level PnL volatility from protocol wide insolvency. In the source flow, order flow imbalance, model/spread/funding error, and external hedge execution risk route into solver PnL volatility. That volatility can become solver capital drawdown. The diagram explicitly labels that outcome as \"...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-drawdown-not-protocol-insolvency",
+      "pageTitle": "Solver Drawdown Is Not Protocol Insolvency",
       "pageSection": "manifesto",
       "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -32970,6 +33115,151 @@
       "confidence": "Medium",
       "pageId": "authored-usdc-lp-illiquid-market-maker-analogy",
       "pageTitle": "USDC LP Illiquid-Market-Maker Analogy",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-usdc-structural-capital-include-more-than-lp-deposit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why does USDC structural capital include more than LP deposit?",
+      "normalizedQuestion": "why does usdc structural capital include more than lp deposit",
+      "shortAnswer": "Neelo's Figure4 models USDC structural capital as LP deposit plus open-interest-linked backing, so the denominator is larger than visible deposits alone.",
+      "answerSummary": "USDC Structural Capital Burden Figure4 treats a USDC LP design as carrying more structural capital than the visible LP deposit alone. In the Imperial side of the source model, USDC LP deposit L = 1,000,000 supports gross open interest Q = 830,000 , but total structural capital is written as K I = L + 0.04 Q . That formula matters because the market does n...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-structural-capital-burden",
+      "pageTitle": "USDC Structural Capital Burden",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-token-inventory-become-structural-capital",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does token inventory become structural capital?",
+      "normalizedQuestion": "how does token inventory become structural capital",
+      "shortAnswer": "Neelo's Figure4 treats market-native token inventory as the structural capital base because holders already own the asset risk being organized into market support.",
+      "answerSummary": "Token Inventory As Structural Capital Figure4 gives the token inventory design a simpler structural capital equation: K V = T . T is the SIM inventory contributed by projects, whales, or committed holders. In the source model, gross open interest is Q V = lambda T , so systemic leverage becomes sysLev V = Q V / K V = lambda . The capital base is the inven...",
+      "confidence": "Medium",
+      "pageId": "authored-token-inventory-structural-capital",
+      "pageTitle": "Token Inventory As Structural Capital",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-systemic-leverage-compare",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "What does systemic leverage compare?",
+      "normalizedQuestion": "what does systemic leverage compare",
+      "shortAnswer": "Neelo's Figure4 and Figure5 compare gross open interest against structural capital so readers can distinguish headline activity from credible capital support.",
+      "answerSummary": "Systemic Leverage Comparison The systemic leverage comparison asks how much open interest a capital structure can support per unit of structural capital. In Figure4, the USDC side equation is sysLev I = Q / K I , with the example landing near 0.80x . The token inventory side is sysLev V = Q V / K V = lambda . Figure5 then uses a sample sysLev V = 5x , pro...",
+      "confidence": "Medium",
+      "pageId": "authored-systemic-leverage-comparison",
+      "pageTitle": "Systemic Leverage Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-the-risk-adjusted-efficiency-multiplier-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does the risk-adjusted efficiency multiplier work?",
+      "normalizedQuestion": "how does the risk adjusted efficiency multiplier work",
+      "shortAnswer": "Neelo's Figure5 combines the structural leverage ratio with the USDC-versus-token risk-premium ratio to show why risk-adjusted capital efficiency can diverge sharply.",
+      "answerSummary": "Risk Adjusted Efficiency Multiplier Figure5 combines two comparisons into one risk adjusted capital efficiency model. First, it compares structural leverage: the source example uses sysLev I = 0.80x for the USDC design and sysLev V = 5x for the token inventory design, yielding a capital efficiency ratio of roughly 6.22x . Second, it compares required risk...",
+      "confidence": "Medium",
+      "pageId": "authored-risk-adjusted-efficiency-multiplier",
+      "pageTitle": "Risk-Adjusted Efficiency Multiplier",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-solver-drawdown-different-from-protocol-insolvency",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is solver drawdown different from protocol insolvency?",
+      "normalizedQuestion": "why is solver drawdown different from protocol insolvency",
+      "shortAnswer": "Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss.",
+      "answerSummary": "Solver Drawdown Is Not Protocol Insolvency Figure3 separates solver level PnL volatility from protocol wide insolvency. In the source flow, order flow imbalance, model/spread/funding error, and external hedge execution risk route into solver PnL volatility. That volatility can become solver capital drawdown. The diagram explicitly labels that outcome as \"...",
+      "confidence": "Medium",
+      "pageId": "authored-solver-drawdown-not-protocol-insolvency",
+      "pageTitle": "Solver Drawdown Is Not Protocol Insolvency",
       "pageSection": "manifesto",
       "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
       "pageStatus": "publication-candidate-needs-operator-review",

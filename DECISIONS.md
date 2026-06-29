@@ -1119,3 +1119,11 @@
 **Reason:** The APR derivation uses both empirical LP perception and finance analogies to make the required-return argument legible. Exact pages prevent those supports from being buried in a broad risk-premium page and let answer-engine readers distinguish credit risk, insurance tail risk, and illiquid market-making risk.
 
 **Status:** Accepted for the authored manifesto layer; live LP survey evidence, risk-premium ratios, comparative APRs, yield-spread examples, insurance-premium examples, market-making fee examples, legal characterization, current vault terms, and final public economics remain operator/risk/accounting/legal/implementation review.
+
+## D-141: Split USDC Structural Capital And RCE Figures Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for USDC structural capital burden, token-inventory structural capital, systemic leverage comparison, risk-adjusted efficiency multiplier, and solver drawdown versus protocol insolvency.
+
+**Reason:** Neelo's Figure 3-5 sources carry the core capital-structure mechanics behind the USDC-versus-token-inventory argument. Exact answer routes keep the equations, leverage comparison, RCE multiplier, and loss-localization claim separate, so readers do not confuse source-model examples with live Vibe capital limits or protocol solvency guarantees.
+
+**Status:** Accepted for the authored manifesto layer; live leverage limits, capital charges, token-inventory eligibility, solver capital requirements, hedge venues, loss waterfalls, vault rights, RCE multipliers, public economics, and final legal/risk/accounting interpretation remain operator/security/risk/accounting/legal/implementation review.

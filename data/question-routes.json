@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 492,
+  "totalRoutes": 497,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 272,
+    "Medium": 277,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 492
+    "authored": 497
   },
   "answerable": [
     {
@@ -8626,6 +8626,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's market-maker analogy highlights adverse selection, hard exits, and thin-liquidity spread requirements in low-cap perp markets.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-usdc-structural-capital-include-more-than-lp-deposit",
+      "question": "Why does USDC structural capital include more than LP deposit?",
+      "normalizedQuestion": "why does usdc structural capital include more than lp deposit",
+      "pageId": "authored-usdc-structural-capital-burden",
+      "pageTitle": "USDC Structural Capital Burden",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Figure4 models USDC structural capital as LP deposit plus open-interest-linked backing, so the denominator is larger than visible deposits alone.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-token-inventory-become-structural-capital",
+      "question": "How does token inventory become structural capital?",
+      "normalizedQuestion": "how does token inventory become structural capital",
+      "pageId": "authored-token-inventory-structural-capital",
+      "pageTitle": "Token Inventory As Structural Capital",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Figure4 treats market-native token inventory as the structural capital base because holders already own the asset risk being organized into market support.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-systemic-leverage-compare",
+      "question": "What does systemic leverage compare?",
+      "normalizedQuestion": "what does systemic leverage compare",
+      "pageId": "authored-systemic-leverage-comparison",
+      "pageTitle": "Systemic Leverage Comparison",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Figure4 and Figure5 compare gross open interest against structural capital so readers can distinguish headline activity from credible capital support.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-risk-adjusted-efficiency-multiplier-work",
+      "question": "How does the risk-adjusted efficiency multiplier work?",
+      "normalizedQuestion": "how does the risk adjusted efficiency multiplier work",
+      "pageId": "authored-risk-adjusted-efficiency-multiplier",
+      "pageTitle": "Risk-Adjusted Efficiency Multiplier",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Figure5 combines the structural leverage ratio with the USDC-versus-token risk-premium ratio to show why risk-adjusted capital efficiency can diverge sharply.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-solver-drawdown-different-from-protocol-insolvency",
+      "question": "Why is solver drawdown different from protocol insolvency?",
+      "normalizedQuestion": "why is solver drawdown different from protocol insolvency",
+      "pageId": "authored-solver-drawdown-not-protocol-insolvency",
+      "pageTitle": "Solver Drawdown Is Not Protocol Insolvency",
+      "pageSection": "manifesto",
+      "pageTrack": "06 - USDC vs Token-Margined Perpetuals",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss.",
       "sourceKeys": [
         "vibe-papers"
       ],

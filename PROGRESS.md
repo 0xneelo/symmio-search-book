@@ -844,6 +844,12 @@
 - Routed five new Ask questions so LPs, market-structure readers, and protocol designers can understand why generic USDC backstop capital resembles credit, insurance, and market-making risk rather than ordinary passive yield.
 - Kept live LP survey evidence, risk-premium ratios, comparative APRs, yield-spread examples, insurance-premium examples, market-making fee examples, legal characterization, and current vault terms under operator/risk/accounting/legal/implementation review.
 
+## 2026-06-29 — USDC Structural Capital Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's USDC Figure 3-5 source pages: USDC structural capital burden, token-inventory structural capital, systemic leverage comparison, risk-adjusted efficiency multiplier, and solver drawdown versus protocol insolvency.
+- Routed five new Ask questions so LPs, solvers, protocol designers, and market-structure readers can inspect Figure 3-5 mechanics without collapsing structural capital, leverage, risk premium, and loss localization into one broad efficiency claim.
+- Kept live leverage limits, capital charges, token-inventory eligibility, solver capital requirements, loss waterfalls, hedge venues, vault rights, RCE multipliers, and current public economics under operator/risk/security/accounting/legal/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

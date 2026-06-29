@@ -498,6 +498,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why compare USDC LPs to unsecured creditors? | `authored-usdc-lp-unsecured-creditor-analogy` | Medium | Neelo's credit-risk analogy shows that USDC LPs need compensation for backstop repayment risk, not just passive pool participation. |
 | Why compare USDC LPs to catastrophe underwriters? | `authored-usdc-lp-catastrophe-underwriter-analogy` | Medium | Neelo's insurance analogy explains why severe, correlated, hard-to-price tail states require a premium beyond ordinary expected-loss arithmetic. |
 | Why compare USDC LPs to illiquid market makers? | `authored-usdc-lp-illiquid-market-maker-analogy` | Medium | Neelo's market-maker analogy highlights adverse selection, hard exits, and thin-liquidity spread requirements in low-cap perp markets. |
+| Why does USDC structural capital include more than LP deposit? | `authored-usdc-structural-capital-burden` | Medium | Neelo's Figure4 models USDC structural capital as LP deposit plus open-interest-linked backing, so the denominator is larger than visible deposits alone. |
+| How does token inventory become structural capital? | `authored-token-inventory-structural-capital` | Medium | Neelo's Figure4 treats market-native token inventory as the structural capital base because holders already own the asset risk being organized into market support. |
+| What does systemic leverage compare? | `authored-systemic-leverage-comparison` | Medium | Neelo's Figure4 and Figure5 compare gross open interest against structural capital so readers can distinguish headline activity from credible capital support. |
+| How does the risk-adjusted efficiency multiplier work? | `authored-risk-adjusted-efficiency-multiplier` | Medium | Neelo's Figure5 combines the structural leverage ratio with the USDC-versus-token risk-premium ratio to show why risk-adjusted capital efficiency can diverge sharply. |
+| Why is solver drawdown different from protocol insolvency? | `authored-solver-drawdown-not-protocol-insolvency` | Medium | Neelo's Figure3 routes order-flow, model, funding, and hedge errors into solver PnL volatility and drawdown, while separating that from smart-contract/systemic protocol loss. |
 
 ## Prototype Event Log
 

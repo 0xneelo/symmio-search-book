@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 492
+      "totalGoldenRoutes": 497
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 510,
-    "retrievalEligiblePages": 1302,
+    "publicNavigationPages": 515,
+    "retrievalEligiblePages": 1307,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 510,
+      "candidate": 515,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 492,
-    "exactRouteTestsPassing": 492,
+    "totalExactRouteTests": 497,
+    "exactRouteTestsPassing": 497,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 492
+      "candidate": 497
     },
     "exactRoutesByConfidence": {
-      "Medium": 272,
+      "Medium": 277,
       "High": 44,
       "Low": 176
     },
@@ -11017,6 +11017,111 @@
         "chunkCount": 1,
         "faqEntryId": "faq-why-compare-usdc-lps-to-illiquid-market-makers",
         "passes": true
+      },
+      {
+        "id": "qr-why-does-usdc-structural-capital-include-more-than-lp-deposit",
+        "query": "Why does USDC structural capital include more than LP deposit?",
+        "normalizedQuery": "why does usdc structural capital include more than lp deposit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-structural-capital-burden",
+        "expectedPageTitle": "USDC Structural Capital Burden",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-usdc-structural-capital-include-more-than-lp-deposit",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-token-inventory-become-structural-capital",
+        "query": "How does token inventory become structural capital?",
+        "normalizedQuery": "how does token inventory become structural capital",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-inventory-structural-capital",
+        "expectedPageTitle": "Token Inventory As Structural Capital",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-token-inventory-become-structural-capital",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-systemic-leverage-compare",
+        "query": "What does systemic leverage compare?",
+        "normalizedQuery": "what does systemic leverage compare",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-systemic-leverage-comparison",
+        "expectedPageTitle": "Systemic Leverage Comparison",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-systemic-leverage-compare",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-risk-adjusted-efficiency-multiplier-work",
+        "query": "How does the risk-adjusted efficiency multiplier work?",
+        "normalizedQuery": "how does the risk adjusted efficiency multiplier work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-risk-adjusted-efficiency-multiplier",
+        "expectedPageTitle": "Risk-Adjusted Efficiency Multiplier",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-risk-adjusted-efficiency-multiplier-work",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-solver-drawdown-different-from-protocol-insolvency",
+        "query": "Why is solver drawdown different from protocol insolvency?",
+        "normalizedQuery": "why is solver drawdown different from protocol insolvency",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-solver-drawdown-not-protocol-insolvency",
+        "expectedPageTitle": "Solver Drawdown Is Not Protocol Insolvency",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-solver-drawdown-different-from-protocol-insolvency",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11092,7 +11197,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 492,
+      "exactRoutes": 497,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
