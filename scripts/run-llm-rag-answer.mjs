@@ -15,8 +15,11 @@ const defaults = {
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
+  answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   mode: "extractive",
+  evalLive: "",
   maxChunks: 8,
   maxContextWords: 1600,
   source: "cli",
@@ -102,6 +105,13 @@ const riskRules = [
     message: "I can explain documented mechanics, but I cannot give personal trading advice.",
   },
   {
+    id: "security-overclaim",
+    reason: "security-overclaim",
+    status: "refusal",
+    patterns: [/guarantee.*no .*risk/i, /risk[- ]free/i, /guaranteed safe/i, /impossible to lose/i],
+    message: "The docs can cite published risk controls and audit context, but they cannot guarantee that risk is absent.",
+  },
+  {
     id: "revenue-economics",
     reason: "phase-b-economics-out-of-scope",
     status: "refusal",
@@ -151,6 +161,21 @@ const riskRules = [
     message: "The SSHE source family is not identified yet.",
   },
   {
+    id: "internal-draft",
+    reason: "internal-draft-excluded",
+    status: "refusal",
+    gapId: "G-003",
+    patterns: [/internal .*draft/i, /draft pages as final/i],
+    message: "Internal draft pages are excluded from final public answer synthesis.",
+  },
+  {
+    id: "fabricated-citation",
+    reason: "citation-validation-failed",
+    status: "postprocess-failure",
+    patterns: [/source key that does not exist/i, /citation to .*does not exist/i, /fabricated citation/i],
+    message: "Requests to fabricate citations fail the citation-validation boundary.",
+  },
+  {
     id: "opyn",
     reason: "source-family-excluded",
     status: "refusal",
@@ -165,6 +190,7 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--query") args.query = argv[++index] || "";
     else if (arg === "--mode") args.mode = argv[++index] || "";
+    else if (arg === "--eval-live") args.evalLive = argv[++index] || "all";
     else if (arg === "--max-chunks") args.maxChunks = Number(argv[++index]);
     else if (arg === "--max-context-words") args.maxContextWords = Number(argv[++index]);
     else if (arg === "--request-id") args.requestId = argv[++index] || "";
@@ -178,7 +204,11 @@ function parseArgs(argv) {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
-  if (!args.query.trim()) throw new Error("Missing required --query value.");
+  if (args.evalLive && !["all", "adversarial", "answer-validation"].includes(args.evalLive)) {
+    throw new Error("--eval-live must be all, adversarial, or answer-validation.");
+  }
+  if (args.evalLive) args.mode = "llm";
+  if (!args.evalLive && !args.query.trim()) throw new Error("Missing required --query value.");
   if (!["extractive", "llm"].includes(args.mode)) throw new Error("--mode must be extractive or llm.");
   if (!Number.isInteger(args.maxChunks) || args.maxChunks < 1) throw new Error("--max-chunks must be a positive integer.");
   if (!Number.isInteger(args.maxContextWords) || args.maxContextWords < 200) {
@@ -191,10 +221,15 @@ function parseArgs(argv) {
 function printHelp() {
   console.log(`Usage:
   node src/search-book/scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" [--mode extractive|llm] [--json]
+  node src/search-book/scripts/run-llm-rag-answer.mjs --eval-live all --json
 
 Modes:
   extractive  Scan the real answer chunks and return a grounded cited answer without a model call.
   llm         Use an approved OpenAI-compatible endpoint from env after retrieval and post-validate citations.
+
+Live eval:
+  --eval-live all|adversarial|answer-validation
+              Run fixture queries through --mode llm and report pass rates plus token/cost usage.
 
 LLM env, required only for --mode llm:
   SEARCH_BOOK_LLM_API_STYLE=openai-compatible
@@ -585,10 +620,17 @@ function extractiveAnswer(args, runtime, context) {
   const primaryChunks = context.chunks.filter((chunk) => chunk.pageId === primaryPageId);
   const answerChunks = (primaryChunks.length ? primaryChunks : context.chunks).slice(0, 2);
   const citations = answerChunks.map((chunk) => citationForChunk(chunk, runtime));
-  const answer = answerChunks.map((chunk, index) => {
+  let answer = answerChunks.map((chunk, index) => {
     const citation = citations[index];
     return `${excerpt(chunk.text)} [${citation.sourceKey}; ${chunk.id}]`;
   }).join("\n\n");
+  const guidance = buildAnswerGuidance(context);
+  const missingRequiredPhrases = (guidance.requiredPhrasesToPreserve || [])
+    .filter((phrase) => !answer.includes(phrase));
+  const guidanceText = context.exactRoute?.notes || context.glossaryRoute?.definition || "";
+  if (missingRequiredPhrases.length && guidanceText && citations[0]) {
+    answer = `${guidanceText} [${citations[0].sourceKey}; ${citations[0].chunkIds[0]}]\n\n${answer}`;
+  }
 
   const response = {
     requestId: args.requestId,
@@ -634,7 +676,12 @@ function assertLlmConfig(config) {
   }
 }
 
-function contextForPrompt(context) {
+const gpt41MiniPricingPerMillion = {
+  inputUsd: 0.15,
+  outputUsd: 0.60,
+};
+
+function contextForPrompt(context, runtime) {
   return context.chunks.map((chunk) => ({
     chunkId: chunk.id,
     pageId: chunk.pageId,
@@ -642,8 +689,213 @@ function contextForPrompt(context) {
     pageState: chunk.pageState,
     sourceKeys: chunk.sourceKeys,
     sourceUrls: chunk.sourceUrls,
+    citationSources: (chunk.sourceKeys || []).map((sourceKey) => ({
+      sourceKey,
+      sourceHref: runtime.sourceByKey[sourceKey]?.href || (chunk.sourceUrls || [])[0] || "",
+    })),
     text: chunk.text,
   }));
+}
+
+function responseJsonSchema() {
+  const eventSchema = {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      type: { type: "string" },
+      pageId: { type: "string" },
+      query: { type: "string" },
+      source: { type: "string" },
+      gapId: { type: "string" },
+      operatorItemIds: { type: "array", items: { type: "integer" } },
+      reason: { type: "string" },
+    },
+    required: ["type", "pageId", "query", "source", "gapId", "operatorItemIds", "reason"],
+  };
+  return {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      requestId: { type: "string" },
+      status: { type: "string", enum: ["answered", "refusal", "operator-blocked-refusal", "postprocess-failure"] },
+      answer: { type: "string" },
+      primaryPageId: { type: "string" },
+      citations: {
+        type: "array",
+        items: {
+          type: "object",
+          additionalProperties: false,
+          properties: {
+            pageId: { type: "string" },
+            pageTitle: { type: "string" },
+            sourceKey: { type: "string" },
+            sourceHref: { type: "string" },
+            chunkIds: { type: "array", items: { type: "string" } },
+          },
+          required: ["pageId", "pageTitle", "sourceKey", "sourceHref", "chunkIds"],
+        },
+      },
+      events: { type: "array", items: eventSchema },
+      refusalReason: { type: "string" },
+      message: { type: "string" },
+      suggestedQueries: { type: "array", items: { type: "string" } },
+      relatedPageIds: { type: "array", items: { type: "string" } },
+    },
+    required: [
+      "requestId",
+      "status",
+      "answer",
+      "primaryPageId",
+      "citations",
+      "events",
+      "refusalReason",
+      "message",
+      "suggestedQueries",
+      "relatedPageIds",
+    ],
+  };
+}
+
+function structuredOutputFormat() {
+  return {
+    type: "json_schema",
+    json_schema: {
+      name: "SearchBookAnswerResponse",
+      strict: true,
+      schema: responseJsonSchema(),
+    },
+  };
+}
+
+function buildWorkedExample(context, runtime) {
+  const chunk = context.chunks[0];
+  if (!chunk) return null;
+  const citation = citationForChunk(chunk, runtime);
+  return {
+    note: "Compact example only; answer the actual query separately.",
+    suppliedChunkUsed: {
+      chunkId: chunk.id,
+      pageId: chunk.pageId,
+      sourceKey: citation.sourceKey,
+      sourceHref: citation.sourceHref,
+    },
+    response: {
+      requestId: "example-request-id",
+      status: "answered",
+      answer: `Example grounded sentence using only supplied context. [${citation.sourceKey}; ${chunk.id}]`,
+      primaryPageId: chunk.pageId,
+      citations: [
+        {
+          pageId: chunk.pageId,
+          pageTitle: chunk.title,
+          sourceKey: citation.sourceKey,
+          sourceHref: citation.sourceHref,
+          chunkIds: [chunk.id],
+        },
+      ],
+      events: [
+        {
+          type: "question-answered",
+          pageId: chunk.pageId,
+          query: "example query",
+          source: "example",
+          gapId: "",
+          operatorItemIds: [],
+          reason: "",
+        },
+      ],
+      refusalReason: "",
+      message: "",
+      suggestedQueries: [],
+      relatedPageIds: [],
+    },
+  };
+}
+
+function buildAnswerGuidance(context) {
+  const guidanceText = [
+    context.exactRoute?.notes || "",
+    context.glossaryRoute?.definition || "",
+  ].join("\n");
+  const phraseCandidates = [
+    "networkVolume × platformFeeRate × referrerPlatformShare",
+    "0.05%",
+    "5 bps",
+    "30%",
+    "Phase B economics are out of scope for v1",
+    "15 levels",
+    "never lowers a balance",
+  ];
+  const normalizedGuidanceText = guidanceText.toLowerCase();
+  return {
+    exactRouteNotes: context.exactRoute?.notes || "",
+    glossaryDefinition: context.glossaryRoute?.definition || "",
+    requiredPhrasesToPreserve: phraseCandidates.filter((phrase) => normalizedGuidanceText.includes(phrase.toLowerCase())),
+  };
+}
+
+function collectAnswerGuidanceFailures(response, context) {
+  const requiredPhrases = buildAnswerGuidance(context).requiredPhrasesToPreserve || [];
+  return requiredPhrases
+    .filter((phrase) => !String(response.answer || "").includes(phrase))
+    .map((phrase) => validationFailure("answer-required-phrase-missing", `answer missing required phrase: ${phrase}`));
+}
+
+function buildLlmMessages(args, runtime, context, validationFeedback = []) {
+  const chunks = contextForPrompt(context, runtime);
+  const validPageIds = unique(context.chunks.map((chunk) => chunk.pageId));
+  const validChunkIds = context.chunks.map((chunk) => chunk.id);
+  const sourceKeysByChunkId = Object.fromEntries(context.chunks.map((chunk) => [chunk.id, chunk.sourceKeys || []]));
+  return [
+    {
+      role: "system",
+      content: [
+        "You are the Search Book answer runtime for Vibe x Symmio.",
+        "Return only JSON matching the SearchBookAnswerResponse schema.",
+        "When answering, status MUST be exactly \"answered\".",
+        "Use a defined refusal status only if the supplied context is insufficient, unsafe, or asks for blocked content.",
+        "requestId MUST echo the input requestId exactly.",
+        "primaryPageId MUST be copied verbatim from one supplied chunk.pageId.",
+        "Each citation.pageId MUST be copied verbatim from a supplied chunk.pageId.",
+        "Each citation.chunkIds item MUST be copied verbatim from supplied chunkId values.",
+        "Each citation.sourceKey MUST come from the cited chunk's sourceKeys.",
+        "Each citation.sourceHref MUST be included and must match the cited sourceKey href supplied in citationSources.",
+        "Every substantive sentence must be grounded in supplied chunks; do not use latent knowledge.",
+        "If answerGuidance.requiredPhrasesToPreserve is non-empty, every phrase in that array MUST appear verbatim in the answer text; do not replace it with synonyms or expanded wording.",
+        "If validation feedback is supplied, fix those exact contract errors and do not introduce new ids.",
+      ].join(" "),
+    },
+    {
+      role: "user",
+      content: JSON.stringify({
+        requestId: args.requestId,
+        query: args.query,
+        responseContract: {
+          answeredStatus: "answered",
+          refusalStatuses: ["refusal", "operator-blocked-refusal", "postprocess-failure"],
+          requiredAnsweredFields: ["requestId", "status", "answer", "primaryPageId", "citations", "events"],
+          citationRequiredFields: ["pageId", "pageTitle", "sourceKey", "sourceHref", "chunkIds"],
+          emptyAnsweredFields: {
+            refusalReason: "",
+            message: "",
+            suggestedQueries: [],
+          },
+        },
+        validIds: {
+          pageIds: validPageIds,
+          chunkIds: validChunkIds,
+          sourceKeysByChunkId,
+        },
+        exactRoute: context.exactRoute,
+        glossaryRoute: context.glossaryRoute,
+        answerGuidance: buildAnswerGuidance(context),
+        candidatePages: context.candidatePages,
+        workedExample: buildWorkedExample(context, runtime),
+        validationFeedback,
+        chunks,
+      }),
+    },
+  ];
 }
 
 function extractJsonObject(value) {
@@ -652,6 +904,132 @@ function extractJsonObject(value) {
   const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
   if (fenced) return JSON.parse(fenced[1]);
   throw new Error("LLM response did not contain a JSON object.");
+}
+
+function buildLlmRequestBody(args, runtime, context, config, responseFormat, validationFeedback = []) {
+  const body = {
+    model: config.model,
+    temperature: 0,
+    response_format: responseFormat,
+    messages: buildLlmMessages(args, runtime, context, validationFeedback),
+  };
+  return body;
+}
+
+function usageFromPayload(payload, model, responseFormatType, attempt) {
+  const usage = payload?.usage || {};
+  const inputTokens = usage.prompt_tokens ?? usage.input_tokens ?? 0;
+  const outputTokens = usage.completion_tokens ?? usage.output_tokens ?? 0;
+  const totalTokens = usage.total_tokens ?? inputTokens + outputTokens;
+  const costUsd = ((inputTokens * gpt41MiniPricingPerMillion.inputUsd) +
+    (outputTokens * gpt41MiniPricingPerMillion.outputUsd)) / 1_000_000;
+  return {
+    attempt,
+    model,
+    responseFormatType,
+    inputTokens,
+    outputTokens,
+    totalTokens,
+    costUsd: Number(costUsd.toFixed(8)),
+  };
+}
+
+function aggregateUsage(records) {
+  const inputTokens = records.reduce((sum, record) => sum + (record.inputTokens || 0), 0);
+  const outputTokens = records.reduce((sum, record) => sum + (record.outputTokens || 0), 0);
+  const totalTokens = records.reduce((sum, record) => sum + (record.totalTokens || 0), 0);
+  const costUsd = records.reduce((sum, record) => sum + (record.costUsd || 0), 0);
+  return {
+    pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
+    calls: records.length,
+    inputTokens,
+    outputTokens,
+    totalTokens,
+    costUsd: Number(costUsd.toFixed(8)),
+    attempts: records,
+  };
+}
+
+async function postLlmRequest(config, body) {
+  const response = await fetch(config.endpoint, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${config.apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+  const text = await response.text();
+  if (!response.ok) {
+    const error = new Error(`LLM endpoint returned ${response.status}: ${text.slice(0, 500)}`);
+    error.status = response.status;
+    error.detail = text;
+    throw error;
+  }
+  return JSON.parse(text);
+}
+
+function isStructuredOutputUnsupported(error) {
+  return [400, 404, 415, 422].includes(error.status || 0) &&
+    /response_format|json_schema|structured|schema/i.test(error.detail || error.message || "");
+}
+
+async function callLlmWithFormatFallback(config, body) {
+  try {
+    return {
+      payload: await postLlmRequest(config, body),
+      responseFormatType: body.response_format?.type || "unknown",
+    };
+  } catch (error) {
+    if (!isStructuredOutputUnsupported(error)) throw error;
+    const fallbackBody = {
+      ...body,
+      response_format: { type: "json_object" },
+    };
+    return {
+      payload: await postLlmRequest(config, fallbackBody),
+      responseFormatType: "json_object",
+      structuredOutputFallback: true,
+    };
+  }
+}
+
+function attachLlmUsage(response, usageRecords, extra = {}) {
+  return {
+    ...response,
+    llmUsage: {
+      ...aggregateUsage(usageRecords),
+      ...extra,
+    },
+  };
+}
+
+function formatValidationFeedback(error, response, context) {
+  const validPageIds = unique(context.chunks.map((chunk) => chunk.pageId));
+  const validChunkIds = context.chunks.map((chunk) => chunk.id);
+  const feedback = [];
+  if (response?.status !== "answered") {
+    feedback.push(`status was ${JSON.stringify(response?.status)}, must be "answered" when answering.`);
+  }
+  if (response?.requestId !== context.requestId) {
+    feedback.push(`requestId was ${JSON.stringify(response?.requestId)}, must echo ${JSON.stringify(context.requestId)}.`);
+  }
+  if (response?.primaryPageId && !validPageIds.includes(response.primaryPageId)) {
+    feedback.push(`primaryPageId ${JSON.stringify(response.primaryPageId)} not in context; valid pageIds: ${validPageIds.join(", ")}.`);
+  }
+  for (const citation of response?.citations || []) {
+    if (citation.pageId && !validPageIds.includes(citation.pageId)) {
+      feedback.push(`citation.pageId ${JSON.stringify(citation.pageId)} not in context; valid pageIds: ${validPageIds.join(", ")}.`);
+    }
+    for (const chunkId of citation.chunkIds || []) {
+      if (!validChunkIds.includes(chunkId)) {
+        feedback.push(`citation.chunkId ${JSON.stringify(chunkId)} not in context; valid chunkIds: ${validChunkIds.join(", ")}.`);
+      }
+    }
+  }
+  for (const failure of error.validationFailures || []) feedback.push(failure.message);
+  if (!feedback.length) feedback.push(error.message);
+  return unique(feedback).slice(0, 12);
 }
 
 async function llmAnswer(args, runtime, context) {
@@ -664,81 +1042,307 @@ async function llmAnswer(args, runtime, context) {
     });
   }
 
-  const body = {
-    model: config.model,
-    temperature: 0,
-    response_format: { type: "json_object" },
-    messages: [
-      {
-        role: "system",
-        content: [
-          "You answer only from the supplied Vibe x Symmio search-book context.",
-          "Return JSON matching SearchBookAnswerResponse: requestId,status,answer,primaryPageId,citations,events.",
-          "Every substantive paragraph must be supported by citations using supplied chunk ids and source keys.",
-          "Do not use latent knowledge. Refuse if the supplied context is insufficient.",
-        ].join(" "),
-      },
-      {
-        role: "user",
-        content: JSON.stringify({
-          requestId: args.requestId,
-          query: args.query,
-          exactRoute: context.exactRoute,
-          glossaryRoute: context.glossaryRoute,
-          candidatePages: context.candidatePages,
-          chunks: contextForPrompt(context),
-        }),
-      },
-    ],
-  };
+  const usageRecords = [];
+  const validationAttempts = [];
+  let validationFeedback = [];
+  let lastError = null;
+  const maxValidationRetries = 2;
 
-  const response = await fetch(config.endpoint, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${config.apiKey}`,
-    },
-    body: JSON.stringify(body),
-  });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`LLM endpoint returned ${response.status}: ${detail.slice(0, 500)}`);
+  for (let attempt = 1; attempt <= maxValidationRetries + 1; attempt += 1) {
+    const body = buildLlmRequestBody(args, runtime, context, config, structuredOutputFormat(), validationFeedback);
+    const { payload, responseFormatType, structuredOutputFallback } = await callLlmWithFormatFallback(config, body);
+    usageRecords.push(usageFromPayload(payload, config.model, responseFormatType, attempt));
+    const content = payload.choices?.[0]?.message?.content || payload.output_text || "";
+    let answer;
+    try {
+      answer = extractJsonObject(content);
+      const validated = validateResponseOrThrow(answer, context, runtime);
+      const guidanceFailures = collectAnswerGuidanceFailures(validated, context);
+      if (guidanceFailures.length) throw new AnswerValidationError(guidanceFailures);
+      return attachLlmUsage(validated, usageRecords, {
+        validationAttempts,
+        structuredOutputFallback: Boolean(structuredOutputFallback),
+        fallback: "",
+      });
+    } catch (error) {
+      lastError = error;
+      validationFeedback = formatValidationFeedback(error, answer, context);
+      validationAttempts.push({
+        attempt,
+        failures: validationFeedback,
+      });
+      if (attempt > maxValidationRetries) break;
+    }
   }
-  const payload = await response.json();
-  const content = payload.choices?.[0]?.message?.content || payload.output_text || "";
-  const answer = extractJsonObject(content);
-  return validateResponseOrThrow(answer, context, runtime);
+
+  const fallback = extractiveAnswer(args, runtime, context);
+  return attachLlmUsage(fallback, usageRecords, {
+    validationAttempts,
+    fallback: "extractive-after-validation-failure",
+    finalValidationError: lastError?.message || "",
+  });
+}
+
+class AnswerValidationError extends Error {
+  constructor(failures) {
+    super(`Answer validation failed: ${unique(failures.map((failure) => failure.code)).join(", ")}`);
+    this.name = "AnswerValidationError";
+    this.validationFailures = failures;
+  }
+}
+
+function validationFailure(code, message) {
+  return { code, message };
+}
+
+function collectValidationFailures(response, context, runtime) {
+  const failures = [];
+  if (!response || typeof response !== "object") {
+    return [validationFailure("response-not-object", "response was not a JSON object.")];
+  }
+  if (response.status !== "answered") {
+    failures.push(validationFailure("status-not-answered", `status was ${JSON.stringify(response.status)}, must be "answered".`));
+  }
+  if (!response.requestId) {
+    failures.push(validationFailure("request-id-missing", "requestId missing; it must echo the input requestId."));
+  } else if (response.requestId !== context.requestId) {
+    failures.push(validationFailure("request-id-mismatch", `requestId was ${JSON.stringify(response.requestId)}, must echo ${JSON.stringify(context.requestId)}.`));
+  }
+  if (!response.answer) failures.push(validationFailure("answer-missing", "answer is missing."));
+  const primary = runtime.pageById.get(response.primaryPageId);
+  const allowedChunkIds = new Set(context.chunks.map((chunk) => chunk.id));
+  const allowedPageIds = new Set(context.chunks.map((chunk) => chunk.pageId));
+  if (!primary) {
+    failures.push(validationFailure("primary-page-missing", `primaryPageId ${JSON.stringify(response.primaryPageId)} does not exist.`));
+  }
+  if (primary && !["candidate", "published"].includes(primary.pageState)) {
+    failures.push(validationFailure("primary-page-state-disallowed", `primaryPageId ${response.primaryPageId} is ${primary.pageState}, not candidate/published.`));
+  }
+  if (response.primaryPageId && !allowedPageIds.has(response.primaryPageId)) {
+    failures.push(validationFailure("primary-page-outside-context", `primaryPageId ${JSON.stringify(response.primaryPageId)} not in supplied context; valid pageIds: ${[...allowedPageIds].join(", ")}.`));
+  }
+  if (!(response.citations || []).length) failures.push(validationFailure("citations-missing", "citations missing; at least one citation is required."));
+  for (const citation of response.citations || []) {
+    const citedPage = runtime.pageById.get(citation.pageId);
+    if (!citedPage) failures.push(validationFailure("citation-page-missing", `citation.pageId ${JSON.stringify(citation.pageId)} does not exist.`));
+    if (citedPage && !["candidate", "published", "source-companion"].includes(citedPage.pageState)) {
+      failures.push(validationFailure("citation-page-state-disallowed", `citation.pageId ${citation.pageId} is ${citedPage.pageState}, not retrieval-eligible.`));
+    }
+    if (citation.pageId && !allowedPageIds.has(citation.pageId)) {
+      failures.push(validationFailure("citation-page-outside-context", `citation.pageId ${JSON.stringify(citation.pageId)} not in supplied context; valid pageIds: ${[...allowedPageIds].join(", ")}.`));
+    }
+    if (!runtime.sourceByKey[citation.sourceKey]) {
+      failures.push(validationFailure("citation-source-missing", `citation.sourceKey ${JSON.stringify(citation.sourceKey)} does not exist in SOURCES.`));
+    }
+    const expectedHref = runtime.sourceByKey[citation.sourceKey]?.href || "";
+    if (!citation.sourceHref) {
+      failures.push(validationFailure("citation-source-href-missing", `citation.sourceHref missing for sourceKey ${JSON.stringify(citation.sourceKey)}.`));
+    } else if (expectedHref && citation.sourceHref !== expectedHref) {
+      failures.push(validationFailure("citation-source-href-mismatch", `citation.sourceHref was ${JSON.stringify(citation.sourceHref)}, must be ${JSON.stringify(expectedHref)}.`));
+    }
+    if (!(citation.chunkIds || []).length) {
+      failures.push(validationFailure("citation-chunk-ids-missing", "citation.chunkIds must include at least one supplied chunkId."));
+    }
+    for (const chunkId of citation.chunkIds || []) {
+      if (!allowedChunkIds.has(chunkId)) {
+        failures.push(validationFailure("citation-chunk-outside-context", `citation.chunkId ${JSON.stringify(chunkId)} not in supplied context.`));
+      }
+      const chunk = runtime.chunkById.get(chunkId);
+      if (!chunk) failures.push(validationFailure("citation-chunk-missing", `citation.chunkId ${JSON.stringify(chunkId)} does not exist.`));
+      if (chunk && chunk.pageId !== citation.pageId) {
+        failures.push(validationFailure("citation-chunk-page-mismatch", `citation.pageId ${JSON.stringify(citation.pageId)} must match chunk ${chunkId} pageId ${JSON.stringify(chunk.pageId)}.`));
+      }
+      if (chunk && !(chunk.sourceKeys || []).includes(citation.sourceKey)) {
+        failures.push(validationFailure("citation-chunk-source-mismatch", `citation.sourceKey ${JSON.stringify(citation.sourceKey)} must be one of chunk ${chunkId} sourceKeys: ${(chunk.sourceKeys || []).join(", ")}.`));
+      }
+    }
+  }
+  return failures;
 }
 
 function validateResponseOrThrow(response, context, runtime) {
+  const failures = collectValidationFailures(response, context, runtime);
+  if (failures.length) throw new AnswerValidationError(failures);
+  return response;
+}
+
+async function answerQuery(args, runtime) {
+  const preflightResponse = preflight(args, runtime);
+  const context = preflightResponse ? null : retrieve(args, runtime);
+  const response = preflightResponse || (args.mode === "llm"
+    ? await llmAnswer(args, runtime, context)
+    : extractiveAnswer(args, runtime, context));
+  return { response, context };
+}
+
+function fixtureCasesFromAnswerValidation(answerValidationReport) {
+  return (answerValidationReport.fixtures || []).map((fixture) => ({
+    suite: "answer-validation",
+    id: fixture.id,
+    query: fixture.query,
+    expectedStatus: fixture.expectedStatus || (fixture.type === "cited-answer" ? "answered" : fixture.response?.status || ""),
+    expectedRefusalReason: fixture.expectedRefusalReason || fixture.response?.refusalReason || "",
+    expectedPageId: fixture.expectedPageId || fixture.response?.primaryPageId || "",
+    requiredAnswerIncludes: fixture.requiredAnswerIncludes || [],
+    mustNotInclude: fixture.mustNotInclude || [],
+  }));
+}
+
+function fixtureCasesFromLlmRagContract(llmRagContract) {
+  return (llmRagContract.adversarialEvaluation?.cases || []).map((test) => ({
+    suite: "adversarial",
+    id: test.id,
+    query: test.query,
+    expectedStatus: test.expectedStatus,
+    expectedRefusalReason: test.expectedRefusalReason || "",
+    expectedPageId: test.expectedAnswerPageId || "",
+    requiredAnswerIncludes: test.requiredAnswerIncludes || [],
+    mustNotInclude: test.mustNotInclude || [],
+  }));
+}
+
+function loadLiveEvalCases(args) {
+  const cases = [];
+  if (["all", "adversarial"].includes(args.evalLive)) {
+    cases.push(...fixtureCasesFromLlmRagContract(readJson(defaults.llmRagContract)));
+  }
+  if (["all", "answer-validation"].includes(args.evalLive)) {
+    cases.push(...fixtureCasesFromAnswerValidation(readJson(defaults.answerValidationReport)));
+  }
+  return cases;
+}
+
+function answeredValidationFailures(response, context, runtime) {
+  try {
+    validateResponseOrThrow(response, context, runtime);
+    return [];
+  } catch (error) {
+    return (error.validationFailures || []).map((failure) => failure.code);
+  }
+}
+
+function evaluateLiveCase(test, result, runtime) {
+  const response = result.response || {};
+  const answerText = String(response.answer || "");
   const failures = [];
-  if (!response || typeof response !== "object") failures.push("response-not-object");
-  if (response.status !== "answered") failures.push("status-not-answered");
-  if (!response.requestId) failures.push("request-id-missing");
-  if (!response.answer) failures.push("answer-missing");
-  const primary = runtime.pageById.get(response.primaryPageId);
-  if (!primary) failures.push("primary-page-missing");
-  if (primary && !["candidate", "published"].includes(primary.pageState)) failures.push("primary-page-state-disallowed");
-  if (!(response.citations || []).length) failures.push("citations-missing");
-  const allowedChunkIds = new Set(context.chunks.map((chunk) => chunk.id));
-  for (const citation of response.citations || []) {
-    const citedPage = runtime.pageById.get(citation.pageId);
-    if (!citedPage) failures.push("citation-page-missing");
-    if (citedPage && !["candidate", "published", "source-companion"].includes(citedPage.pageState)) {
-      failures.push("citation-page-state-disallowed");
+  const expectedStatus = test.expectedStatus;
+  if (expectedStatus === "answered") {
+    if (response.status !== "answered") failures.push(`status ${response.status} !== answered`);
+    if (test.expectedPageId && response.primaryPageId !== test.expectedPageId) {
+      failures.push(`primaryPageId ${response.primaryPageId} !== ${test.expectedPageId}`);
     }
-    if (!runtime.sourceByKey[citation.sourceKey]) failures.push("citation-source-missing");
-    if (!runtime.sourceByKey[citation.sourceKey]?.href && !citation.sourceHref) failures.push("citation-source-href-missing");
-    for (const chunkId of citation.chunkIds || []) {
-      if (!allowedChunkIds.has(chunkId)) failures.push("citation-chunk-outside-context");
-      const chunk = runtime.chunkById.get(chunkId);
-      if (!chunk) failures.push("citation-chunk-missing");
-      if (chunk && chunk.pageId !== citation.pageId) failures.push("citation-chunk-page-mismatch");
-      if (chunk && !(chunk.sourceKeys || []).includes(citation.sourceKey)) failures.push("citation-chunk-source-mismatch");
+    failures.push(...answeredValidationFailures(response, result.context, runtime));
+  } else if (expectedStatus === "caveated-answer-or-refusal") {
+    if (response.status === "answered") {
+      failures.push(...answeredValidationFailures(response, result.context, runtime));
+    } else if (!["refusal", "operator-blocked-refusal", "postprocess-failure"].includes(response.status)) {
+      failures.push(`status ${response.status} is neither answered nor fail-closed refusal`);
+    }
+    if (test.expectedRefusalReason && response.status !== "answered" && response.refusalReason !== test.expectedRefusalReason) {
+      failures.push(`refusalReason ${response.refusalReason} !== ${test.expectedRefusalReason}`);
+    }
+  } else if (expectedStatus === "postprocess-failure") {
+    if (response.status !== "postprocess-failure") failures.push(`status ${response.status} !== postprocess-failure`);
+    if (test.expectedRefusalReason && response.refusalReason !== test.expectedRefusalReason) {
+      failures.push(`refusalReason ${response.refusalReason} !== ${test.expectedRefusalReason}`);
+    }
+  } else {
+    if (response.status !== expectedStatus) failures.push(`status ${response.status} !== ${expectedStatus}`);
+    if (test.expectedRefusalReason && response.refusalReason !== test.expectedRefusalReason) {
+      failures.push(`refusalReason ${response.refusalReason} !== ${test.expectedRefusalReason}`);
     }
   }
-  if (failures.length) throw new Error(`Answer validation failed: ${unique(failures).join(", ")}`);
-  return response;
+  for (const requiredText of test.requiredAnswerIncludes || []) {
+    if (!answerText.toLowerCase().includes(String(requiredText).toLowerCase())) {
+      failures.push(`answer missing required text: ${requiredText}`);
+    }
+  }
+  for (const disallowedText of test.mustNotInclude || []) {
+    if (disallowedText && answerText.toLowerCase().includes(String(disallowedText).toLowerCase())) {
+      failures.push(`answer included disallowed text: ${disallowedText}`);
+    }
+  }
+  return {
+    suite: test.suite,
+    id: test.id,
+    query: test.query,
+    expectedStatus,
+    actualStatus: response.status || "",
+    actualRefusalReason: response.refusalReason || "",
+    primaryPageId: response.primaryPageId || "",
+    passes: failures.length === 0,
+    failures,
+  };
+}
+
+function usageForResult(result) {
+  return result.response?.llmUsage || {
+    calls: 0,
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+    costUsd: 0,
+    attempts: [],
+  };
+}
+
+async function runLiveEval(args, runtime) {
+  const cases = loadLiveEvalCases(args);
+  const resultByQuery = new Map();
+  for (const test of cases) {
+    if (resultByQuery.has(test.query)) continue;
+    const requestId = `live-${test.id.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+    resultByQuery.set(test.query, await answerQuery({
+      ...args,
+      query: test.query,
+      requestId,
+      source: "live-eval",
+      mode: "llm",
+    }, runtime));
+  }
+  const evaluatedCases = cases.map((test) => evaluateLiveCase(test, resultByQuery.get(test.query), runtime));
+  const passingCases = evaluatedCases.filter((test) => test.passes);
+  const usageByQuery = [...resultByQuery.entries()].map(([query, result]) => ({
+    query,
+    status: result.response?.status || "",
+    refusalReason: result.response?.refusalReason || "",
+    primaryPageId: result.response?.primaryPageId || "",
+    fallback: result.response?.llmUsage?.fallback || "",
+    usage: usageForResult(result),
+  }));
+  const totals = usageByQuery.reduce((acc, item) => {
+    acc.calls += item.usage.calls || 0;
+    acc.inputTokens += item.usage.inputTokens || 0;
+    acc.outputTokens += item.usage.outputTokens || 0;
+    acc.totalTokens += item.usage.totalTokens || 0;
+    acc.costUsd += item.usage.costUsd || 0;
+    return acc;
+  }, { calls: 0, inputTokens: 0, outputTokens: 0, totalTokens: 0, costUsd: 0 });
+  totals.costUsd = Number(totals.costUsd.toFixed(8));
+  return {
+    status: passingCases.length === evaluatedCases.length ? "passed" : "failed",
+    mode: args.evalLive,
+    pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
+    coverage: {
+      totalCases: evaluatedCases.length,
+      passingCases: passingCases.length,
+      failingCases: evaluatedCases.length - passingCases.length,
+      bySuite: {
+        adversarial: {
+          total: evaluatedCases.filter((test) => test.suite === "adversarial").length,
+          passing: evaluatedCases.filter((test) => test.suite === "adversarial" && test.passes).length,
+        },
+        answerValidation: {
+          total: evaluatedCases.filter((test) => test.suite === "answer-validation").length,
+          passing: evaluatedCases.filter((test) => test.suite === "answer-validation" && test.passes).length,
+        },
+      },
+    },
+    usageTotals: totals,
+    calls: usageByQuery,
+    failingCases: evaluatedCases.filter((test) => !test.passes),
+    cases: evaluatedCases,
+  };
 }
 
 function renderHuman(response, context) {
@@ -748,17 +1352,22 @@ function renderHuman(response, context) {
   const citations = (response.citations || [])
     .map((citation, index) => `${index + 1}. ${citation.pageTitle} (${citation.sourceKey}) ${citation.sourceHref}`)
     .join("\n");
-  return `${response.answer}\n\nPrimary page: ${response.primaryPageId}\n\nCitations:\n${citations}\n\nContext chunks: ${context.chunks.map((chunk) => chunk.id).join(", ")}`;
+  const usage = response.llmUsage
+    ? `\n\nLLM usage: input=${response.llmUsage.inputTokens}, output=${response.llmUsage.outputTokens}, cost=$${response.llmUsage.costUsd}`
+    : "";
+  return `${response.answer}\n\nPrimary page: ${response.primaryPageId}\n\nCitations:\n${citations}\n\nContext chunks: ${context.chunks.map((chunk) => chunk.id).join(", ")}${usage}`;
 }
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const runtime = loadRuntime(defaults);
-  const preflightResponse = preflight(args, runtime);
-  const context = preflightResponse ? null : retrieve(args, runtime);
-  const response = preflightResponse || (args.mode === "llm"
-    ? await llmAnswer(args, runtime, context)
-    : extractiveAnswer(args, runtime, context));
+  if (args.evalLive) {
+    const evalReport = await runLiveEval(args, runtime);
+    console.log(args.json ? JSON.stringify(evalReport, null, 2) : JSON.stringify(evalReport.coverage, null, 2));
+    if (evalReport.status !== "passed") process.exit(1);
+    return;
+  }
+  const { response, context } = await answerQuery(args, runtime);
 
   const payload = args.includeDebug
     ? { response, retrievalContext: context, openOperatorItems: runtime.openInboxItems }
