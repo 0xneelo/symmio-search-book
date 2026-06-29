@@ -4,7 +4,7 @@ This contract defines the non-LLM fallback that every production answer flow mus
 
 ## Pipeline
 
-1. Normalize the query: lowercase, strip non-alphanumeric characters, collapse whitespace, and tokenize without common stop words.
+1. Normalize the query: lowercase, strip non-alphanumeric characters, collapse whitespace, and tokenize without common stop words, including auxiliary verbs that should not drive retrieval.
 2. Try exact seeded routes from `data/question-routes.json`.
 3. Try glossary routing for term-definition questions.
 4. Search retrieval chunks from `data/answer-chunks.json`, limited by `data/page-state-registry.json`.
@@ -49,6 +49,6 @@ node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 ```
 
-The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 186 seeded exact-route tests and 7 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
+The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 767 seeded exact-route tests and 7 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
 
 The LLM synthesis layer is specified separately in `LLM-RAG-CONTRACT.md`. It must preserve this deterministic contract as its fallback and golden set.

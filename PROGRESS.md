@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Answer Retrieval Stop-Word Tightening
+
+- Expanded the deterministic answer-engine stop-word list so auxiliary words like `was`, `were`, `has`, `have`, `should`, `could`, `which`, and `with` do not drive chunk retrieval.
+- Kept the executable runtime and generated answer-engine contract stop-word lists aligned.
+- Verified `What was AMFQ?` still answers through the exact AMFQ route while related context stays in the AMFQ/intent architecture neighborhood instead of pulling unrelated low-score pages.
+- Updated the answer-engine contract note to the current 767 exact-route tests and 7 refusal tests.
+
 ## 2026-06-29 — AMFQ Legacy Intent Terminology Enforcement
 
 - Tightened generated glossary output so AMFQ/aMFQ routes first to the authored legacy terminology page instead of the generated source companion.

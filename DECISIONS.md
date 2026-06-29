@@ -1631,3 +1631,11 @@
 **Reason:** The authored page and style guide already captured the operator clarification, but generated data still treated AMFQ like a live flow and used the generated source companion as the glossary primary page. The answer engine needs the terminology correction to be machine-enforced so future runtime answers do not imply that AMFQ is a separate product beside Intents.
 
 **Status:** Accepted for glossary, answer-validation, and answer-engine regression tracking. Use `Intent` as the current term; use AMFQ/aMFQ only when translating old Vibe architecture/source language or matching historical search queries.
+
+## D-205: Treat Auxiliary Verbs As Retrieval Stop Words
+
+**Decision:** Expand the deterministic answer-engine stop-word list to include auxiliary and glue words such as `was`, `were`, `has`, `have`, `should`, `could`, `which`, `with`, and related variants.
+
+**Reason:** Exact-route answering can still assemble retrieval context and related-page suggestions. When a terminology query like `What was AMFQ?` keeps `was` as a scoring token, low-value pages that merely contain "was" can enter the context even though the exact route is correct. The runtime should let substantive terms such as `AMFQ`, `intent`, `solver`, `funding`, or `referral` drive retrieval, not grammatical filler.
+
+**Status:** Accepted for deterministic answer-engine runtime and contract generation. Continue to keep the stop-word lists in `run-llm-rag-answer.mjs` and `build-answer-engine-contract.mjs` aligned until they are factored into a shared module.
