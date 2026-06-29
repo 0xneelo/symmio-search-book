@@ -368,6 +368,11 @@ Questions are grouped by whether the current source set can answer them.
 | What are dynamic pricing multipliers in the funding model? | `authored-funding-dynamic-pricing-multipliers` | Medium | Neelo's variable definitions distinguish base borrow/funding/spread from state-adjusted dynamic rates and their multipliers. |
 | Which revenue and cost variables determine market profit? | `authored-funding-revenue-cost-accounting-map` | Medium | Neelo's funding model tracks fees, spreads, funding, liquidations, borrow revenue, hedge costs, external borrow costs, trader PnL, shortfall, and LP/vault profit. |
 | What does counterparty share mean in the funding model? | `authored-funding-phase-counterparty-share` | Medium | Neelo's phase parameter describes whether LP/solver capital or offsetting trader flow is acting as the dominant counterparty. |
+| Which per-market variables does funding read first? | `authored-funding-per-market-state-variables` | Medium | Neelo's variable definitions start from market-specific inventory, open interest, exposure, utilization, skew, and non-covered exposure. |
+| What are the funding model's insurance and safety budgets? | `authored-funding-insurance-safety-budgets` | Medium | Neelo's variable definitions separate local insurance, global allocation, spend caps, and total defense budget. |
+| Which volatility and pump parameters affect funding risk? | `authored-funding-risk-volatility-parameters` | Medium | Neelo's risk variables include volatility, profit deviation, market/user pump estimates, drawdown assumptions, and the Aenigma exposure multiplier. |
+| What is token-inventory utilization mode? | `authored-funding-token-inventory-utilization-mode` | Medium | Neelo's utilization-mode source uses token inventory mode while exposure remains within token coverage and rates can move from normal to stress. |
+| What is insurance-fund utilization mode? | `authored-funding-insurance-fund-utilization-mode` | Medium | Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget. |
 
 ## Prototype Event Log
 

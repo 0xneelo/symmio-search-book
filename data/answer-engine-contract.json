@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 362
+      "totalGoldenRoutes": 367
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 380,
-    "retrievalEligiblePages": 1172,
+    "publicNavigationPages": 385,
+    "retrievalEligiblePages": 1177,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 380,
+      "candidate": 385,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 362,
-    "exactRouteTestsPassing": 362,
+    "totalExactRouteTests": 367,
+    "exactRouteTestsPassing": 367,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 362
+      "candidate": 367
     },
     "exactRoutesByConfidence": {
-      "Medium": 147,
+      "Medium": 152,
       "High": 44,
       "Low": 171
     },
@@ -8171,6 +8171,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-does-counterparty-share-mean-in-the-funding-model",
         "passes": true
+      },
+      {
+        "id": "qr-which-per-market-variables-does-funding-read-first",
+        "query": "Which per-market variables does funding read first?",
+        "normalizedQuery": "which per market variables does funding read first",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-per-market-state-variables",
+        "expectedPageTitle": "Funding Per-Market State Variables",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-per-market-variables-does-funding-read-first",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-funding-model-s-insurance-and-safety-budgets",
+        "query": "What are the funding model's insurance and safety budgets?",
+        "normalizedQuery": "what are the funding model s insurance and safety budgets",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-safety-budgets",
+        "expectedPageTitle": "Funding Insurance And Safety Budgets",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-funding-model-s-insurance-and-safety-budgets",
+        "passes": true
+      },
+      {
+        "id": "qr-which-volatility-and-pump-parameters-affect-funding-risk",
+        "query": "Which volatility and pump parameters affect funding risk?",
+        "normalizedQuery": "which volatility and pump parameters affect funding risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-risk-volatility-parameters",
+        "expectedPageTitle": "Funding Risk And Volatility Parameters",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-volatility-and-pump-parameters-affect-funding-risk",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-token-inventory-utilization-mode",
+        "query": "What is token-inventory utilization mode?",
+        "normalizedQuery": "what is token inventory utilization mode",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-token-inventory-utilization-mode",
+        "expectedPageTitle": "Funding Token-Inventory Utilization Mode",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-token-inventory-utilization-mode",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-insurance-fund-utilization-mode",
+        "query": "What is insurance-fund utilization mode?",
+        "normalizedQuery": "what is insurance fund utilization mode",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-fund-utilization-mode",
+        "expectedPageTitle": "Funding Insurance-Fund Utilization Mode",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-insurance-fund-utilization-mode",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8246,7 +8351,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 362,
+      "exactRoutes": 367,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 362,
+  "totalRoutes": 367,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 147,
+    "Medium": 152,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 362
+    "authored": 367
   },
   "answerable": [
     {
@@ -6358,6 +6358,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's phase parameter describes whether LP/solver capital or offsetting trader flow is acting as the dominant counterparty.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-per-market-variables-does-funding-read-first",
+      "question": "Which per-market variables does funding read first?",
+      "normalizedQuestion": "which per market variables does funding read first",
+      "pageId": "authored-funding-per-market-state-variables",
+      "pageTitle": "Funding Per-Market State Variables",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's variable definitions start from market-specific inventory, open interest, exposure, utilization, skew, and non-covered exposure.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-are-the-funding-model-s-insurance-and-safety-budgets",
+      "question": "What are the funding model's insurance and safety budgets?",
+      "normalizedQuestion": "what are the funding model s insurance and safety budgets",
+      "pageId": "authored-funding-insurance-safety-budgets",
+      "pageTitle": "Funding Insurance And Safety Budgets",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's variable definitions separate local insurance, global allocation, spend caps, and total defense budget.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-volatility-and-pump-parameters-affect-funding-risk",
+      "question": "Which volatility and pump parameters affect funding risk?",
+      "normalizedQuestion": "which volatility and pump parameters affect funding risk",
+      "pageId": "authored-funding-risk-volatility-parameters",
+      "pageTitle": "Funding Risk And Volatility Parameters",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's risk variables include volatility, profit deviation, market/user pump estimates, drawdown assumptions, and the Aenigma exposure multiplier.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-token-inventory-utilization-mode",
+      "question": "What is token-inventory utilization mode?",
+      "normalizedQuestion": "what is token inventory utilization mode",
+      "pageId": "authored-funding-token-inventory-utilization-mode",
+      "pageTitle": "Funding Token-Inventory Utilization Mode",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's utilization-mode source uses token inventory mode while exposure remains within token coverage and rates can move from normal to stress.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-insurance-fund-utilization-mode",
+      "question": "What is insurance-fund utilization mode?",
+      "normalizedQuestion": "what is insurance fund utilization mode",
+      "pageId": "authored-funding-insurance-fund-utilization-mode",
+      "pageTitle": "Funding Insurance-Fund Utilization Mode",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget.",
       "sourceKeys": [
         "vibe-papers"
       ],

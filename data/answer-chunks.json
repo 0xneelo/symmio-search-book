@@ -12,9 +12,9 @@
     "maxWords": 220,
     "overlapWords": 35
   },
-  "totalPages": 1193,
-  "totalChunks": 2074,
-  "pagesWithChunks": 1193,
+  "totalPages": 1198,
+  "totalChunks": 2084,
+  "pagesWithChunks": 1198,
   "pagesMissingChunks": [],
   "duplicateChunkIds": [],
   "unknownSourceKeys": [],
@@ -653,17 +653,17 @@
     }
   },
   "byRouteSource": {
-    "authored": 381,
+    "authored": 386,
     "curated": 20,
     "generated": 792
   },
   "chunksByRouteSource": {
-    "authored": 733,
+    "authored": 743,
     "curated": 20,
     "generated": 1321
   },
   "chunksBySection": {
-    "manifesto": 351,
+    "manifesto": 361,
     "product-reference": 89,
     "dashboard-reference": 24,
     "protocol-reference": 208,
@@ -4739,6 +4739,100 @@
       "text": "or per token examples as live policy until operator review confirms them. The source backed claim is the architecture principle: shared insurance is conditional and capped. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Defense Hierarchy\". Related Pages authored conditional global insurance allocation authored cross market risk mutualization authored funding local insurance fund"
     },
     {
+      "id": "authored-funding-insurance-fund-utilization-mode::001",
+      "pageId": "authored-funding-insurance-fund-utilization-mode",
+      "chunkIndex": 1,
+      "title": "Funding Insurance-Fund Utilization Mode",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-2-insurance-fund-utilization",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-switching-logic"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-fund-utilization-mode.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Insurance Fund Utilization Mode Insurance fund utilization is the second mode in Neelo's two mode funding model. It activates when exposure exceeds token inventory and the system must ask whether the remaining modeled loss can be absorbed by insurance capacity. The source defines this mode as an exposure loss estimate divided by an insurance budget. The loss estimate can use Aenigma, volatility adjustment, or another reviewed risk horizon. The insurance budget can combine local insurance and any eligible global allocation, subject to risk fractions and spend caps. This mode is more urgent than ordinary token inventory utilization. Once the market is beyond token coverage, the question is no longer only \"how scarce is inventory?\" It becomes \"how much of the defense budget would the modeled stress consume?\" That is why the source treats insurance mode as a zone for aggressive pricing, active insurance use, and proximity to ADL if utilization approaches or exceeds the budget. Why Mode Switching Uses The Binding Constraint The source's mode switching logic uses token inventory utilization while exposure is inside token coverage. Once exposure exceeds coverage, it considers insurance fund utilization and uses the more urgent constraint for pricing. This prevents the system from underpricing stress simply because one metric still looks manageable. For traders, insurance mode explains why terms can become sharply directional"
+    },
+    {
+      "id": "authored-funding-insurance-fund-utilization-mode::002",
+      "pageId": "authored-funding-insurance-fund-utilization-mode",
+      "chunkIndex": 2,
+      "title": "Funding Insurance-Fund Utilization Mode",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-2-insurance-fund-utilization",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-switching-logic"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-fund-utilization-mode.md",
+      "wordStart": 185,
+      "wordEnd": 335,
+      "wordCount": 150,
+      "text": "fund utilization and uses the more urgent constraint for pricing. This prevents the system from underpricing stress simply because one metric still looks manageable. For traders, insurance mode explains why terms can become sharply directional after inventory coverage is exceeded. For LPs, it explains why insurance is not a guarantee of normal operation; it is a scarce defense layer. For operators, it identifies the state where public risk language needs to be especially careful. Publication Boundary This page should not publish live insurance fractions, loss estimate formulas, safety quantiles, eligible global allocation rules, or ADL thresholds without operator and implementation review. It explains the source model state transition from inventory pressure to defense budget pressure. Sources vibe papers : Neelo, \"Mode 2: Insurance Fund Utilization\". vibe papers : Neelo, \"Mode Switching Logic\". Related Pages authored utilization modes inventory insurance authored funding insurance safety budgets authored funding adl trigger and target"
+    },
+    {
+      "id": "authored-funding-insurance-safety-budgets::001",
+      "pageId": "authored-funding-insurance-safety-budgets",
+      "chunkIndex": 1,
+      "title": "Funding Insurance And Safety Budgets",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#insurance-safety-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-safety-budgets.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Insurance And Safety Budgets Neelo's variable definitions separate local insurance, global insurance allocation, local spend caps, global spend caps, and total defense budget. That separation is the accounting backbone of the defense hierarchy. Local insurance is the market specific protection fund. It is tied to the market that generated or needs the protection, so it can be spent before any shared pool is touched. Global insurance is different. It is a shared or allocated resource, so the source model treats it as capped and policy bound rather than freely available to every stressed market. Spend caps matter as much as balances. A market can have an insurance fund but still be limited in how much can be spent per period. That keeps one event or one market from consuming too much protection at once and gives the system time to price, hedge, reduce exposure, or escalate. Why The Budget Split Matters The source model prevents a false binary. A market is not simply \"insured\" or \"not insured.\" It has a local budget, possible global allocation, spend caps, and a combined defense budget. Those budget layers determine whether dynamic pricing is enough, whether local protection can absorb stress, whether shared support is eligible, and whether ADL is nearing the edge. For LPs and projects, this explains why insurance should be"
+    },
+    {
+      "id": "authored-funding-insurance-safety-budgets::002",
+      "pageId": "authored-funding-insurance-safety-budgets",
+      "chunkIndex": 2,
+      "title": "Funding Insurance And Safety Budgets",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#insurance-safety-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-safety-budgets.md",
+      "wordStart": 185,
+      "wordEnd": 310,
+      "wordCount": 125,
+      "text": "layers determine whether dynamic pricing is enough, whether local protection can absorb stress, whether shared support is eligible, and whether ADL is nearing the edge. For LPs and projects, this explains why insurance should be documented as capacity with rules, not as a blanket guarantee. For traders, it explains why a stressed market can still have constrained terms even when an insurance fund exists. Publication Boundary This page should not publish live insurance balances, allocation percentages, spend caps, governance rights, or user claim language. It documents the source model distinction between local funds, global allocations, and defense budget limits. Sources vibe papers : Neelo, \"Insurance & Safety Variables\". Related Pages authored funding local insurance fund authored funding global insurance eligibility authored funding control actions map"
+    },
+    {
       "id": "authored-funding-local-insurance-fund::001",
       "pageId": "authored-funding-local-insurance-fund",
       "chunkIndex": 1,
@@ -4903,6 +4997,52 @@
       "wordEnd": 412,
       "wordCount": 42,
       "text": "intro: what the derivation is for (and what it is not)\". vibe papers : Neelo, \"Abstract\" for the funding model objective and control surface. Related Pages authored funding as market balancing authored lp profit and dynamic pricing authored z score graduation criteria"
+    },
+    {
+      "id": "authored-funding-per-market-state-variables::001",
+      "pageId": "authored-funding-per-market-state-variables",
+      "chunkIndex": 1,
+      "title": "Funding Per-Market State Variables",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#per-market-state-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-per-market-state-variables.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Per Market State Variables Neelo's funding model begins from per market state, not global averages. Each market needs its own inventory, exposure, utilization, and skew picture before the system can choose rates or defenses. The state map starts with inventory and balances: initial token deposit, USDC held, token price, covered notional, remaining tokens, obtainable tokens, and total token capacity. These variables answer a basic question: what resources can this specific market use to absorb or hedge exposure? It then reads open interest: total long exposure, total short exposure, netted amount, solver exposure, token denominated exposure, and exposure direction. These variables answer a second question: how much of the market is naturally offsetting, and how much is still sitting on the solver or LP side? Finally, it derives utilization and imbalance: exposure relative to covered amount, exposure relative to absolute token capacity, theoretical overexposure, max overexposure, skew, non covered exposure, and non covered ratio. These variables answer the question that matters for pricing: is this market balanced, merely inventory constrained, or already beyond its covered zone? Why Per Market State Matters Long tail derivatives cannot be governed by a single \"platform utilization\" number. One market may be healthy while another is skewed, inventory constrained, or exposed beyond its token coverage. The source model treats those as local facts because funding,"
+    },
+    {
+      "id": "authored-funding-per-market-state-variables::002",
+      "pageId": "authored-funding-per-market-state-variables",
+      "chunkIndex": 2,
+      "title": "Funding Per-Market State Variables",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#per-market-state-variables"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-per-market-state-variables.md",
+      "wordStart": 185,
+      "wordEnd": 337,
+      "wordCount": 152,
+      "text": "be governed by a single \"platform utilization\" number. One market may be healthy while another is skewed, inventory constrained, or exposed beyond its token coverage. The source model treats those as local facts because funding, spreads, insurance, and ADL should respond to the market actually carrying the risk. For traders, this means costs can differ by market even when the UI looks similar. For LPs and projects, it means market support is not just a deposit size; it is a relation between token inventory, price, open interest, netting, and exposure direction. Publication Boundary This page explains the source model variables. Final public docs should not publish live token capacity, max overexposure limits, covered amount formulas, inventory rights, or market specific state without implementation and operator review. Sources vibe papers : Neelo, \"Per Market State Variables\". Related Pages authored funding state variable map authored funding risk signals map authored market maturation state map"
     },
     {
       "id": "authored-funding-phase-counterparty-share::001",
@@ -5139,6 +5279,54 @@
       "text": "This Matters For Readers For traders, the risk signal map explains why cost changes can appear before a visible emergency. If skew, volatility, or residual stress is rising, the market can start charging or incentivizing flow differently before liquidation or ADL is relevant. For LPs and projects, the map explains why \"utilization\" alone is not enough diligence. They need to know whether the market is consuming token inventory, insurance budget, or both, and whether profit is compensating for the risk being carried. For solvers and operators, the map explains why a single static funding rate is too blunt for long tail derivatives. The source model wants the system to respond to state, not merely to charge a default fee. Publication Boundary This page explains source model signals. It should not publish live thresholds, formulas, oracle vendors, volatility windows, profit targets, insurance budgets, or residual stress policy until the production implementation and operator disclosure boundary are confirmed. Sources vibe papers : Neelo, \"Computed Risk Signals (Inputs to Risk Function)\". Related Pages authored funding state variable map authored two mode utilization rationale authored dynamic pricing controls"
     },
     {
+      "id": "authored-funding-risk-volatility-parameters::001",
+      "pageId": "authored-funding-risk-volatility-parameters",
+      "chunkIndex": 1,
+      "title": "Funding Risk And Volatility Parameters",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#risk-volatility-variables",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#aenigma-the-adl-exposure-threshold"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-volatility-parameters.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Risk And Volatility Parameters Neelo's funding model uses risk and volatility variables to estimate how far a market can move before ordinary inventory assumptions stop being enough. The source names volatility, profit deviation, market max pump, average user max pump, max market drawdown, and max deposit drawdown. Those variables connect price behavior, user behavior, and inventory management. A market with high volatility or large pump potential is not equivalent to a quiet, mature market even if both have the same current open interest. The source also defines Aenigma as a worst case exposure multiplier before positions are assumed to unwind. It takes the maximum of market pump, user pump, and drawdown style parameters. The purpose is to estimate where the system becomes fully exposed because token inventory is no longer enough to cover positions under the modeled stress. Why This Belongs In The Docs Long tail assets can move violently, and user behavior can make that movement worse. A price pump can make short exposure dangerous. A drawdown can make token sales or inventory unwinds costly. Profit deviation can show that the market is not being compensated for the risk it is carrying. These parameters help the docs explain why the same position size can be acceptable in one market and dangerous in another. The risk model is not"
+    },
+    {
+      "id": "authored-funding-risk-volatility-parameters::002",
+      "pageId": "authored-funding-risk-volatility-parameters",
+      "chunkIndex": 2,
+      "title": "Funding Risk And Volatility Parameters",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#risk-volatility-variables",
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions#aenigma-the-adl-exposure-threshold"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-risk-volatility-parameters.md",
+      "wordStart": 185,
+      "wordEnd": 314,
+      "wordCount": 129,
+      "text": "not being compensated for the risk it is carrying. These parameters help the docs explain why the same position size can be acceptable in one market and dangerous in another. The risk model is not only reading present exposure; it is asking how bad the next move could be before the system can unwind. Publication Boundary This page does not publish live volatility windows, pump assumptions, drawdown assumptions, safety quantiles, Aenigma values, or ADL exposure thresholds. It explains the source model's categories so production docs can later map them to reviewed implementation parameters. Sources vibe papers : Neelo, \"Risk & Volatility Variables\". vibe papers : Neelo, \"Aenigma: The ADL Exposure Threshold\". Related Pages authored funding risk signals map authored funding adl trigger and target authored funding rate regime model"
+    },
+    {
       "id": "authored-funding-state-variable-map::001",
       "pageId": "authored-funding-state-variable-map",
       "chunkIndex": 1,
@@ -5209,6 +5397,52 @@
       "wordEnd": 211,
       "wordCount": 211,
       "text": "Funding Stress Demand And Insurance Spend The funding model does not spend insurance just because a market is volatile. It first estimates uncovered stress: the exposure loss that remains after the market's own dynamic revenue. In the source model, stress demand is: That says spread, funding, and borrow revenue are the first economic defense. Insurance is for the residual that dynamic pricing cannot cover. After insurance spend, the remaining residual is: where x m is combined local plus global insurance spend. Why This Matters This ordering makes insurance a defense budget, not ordinary yield. If pricing can rebalance the market, the model should prefer pricing. If pricing cannot cover the exposure loss, local and eligible global insurance can be deployed. If insurance spend is exhausted and stress remains, the system moves toward ADL. For docs, the reader facing question is simple: what is still uncovered after ordinary market revenue and insurance spend? Publication Boundary The formulas are source model mechanics. Production docs should publish live inputs, safety multipliers, volatility horizons, and spend budgets only after implementation and operator review. Sources vibe papers : Neelo, \"Insurance & ADL Logic\". vibe papers : Neelo, \"Variable Definitions\". Related Pages authored dynamic pricing controls authored funding rate regime model authored funding adl trigger and target"
+    },
+    {
+      "id": "authored-funding-token-inventory-utilization-mode::001",
+      "pageId": "authored-funding-token-inventory-utilization-mode",
+      "chunkIndex": 1,
+      "title": "Funding Token-Inventory Utilization Mode",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-1-token-inventory-utilization"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-token-inventory-utilization-mode.md",
+      "wordStart": 0,
+      "wordEnd": 220,
+      "wordCount": 220,
+      "text": "Funding Token Inventory Utilization Mode Token inventory utilization is the first mode in Neelo's two mode funding model. It asks how much un netted exposure exists relative to the token inventory available to cover it. In the source, this mode applies while exposure remains inside token inventory. If the market has enough token coverage, the system is in ordinary inventory management rather than insurance mode. That does not mean the market is always calm. It can still move from normal to stress to critical as utilization approaches the edge of token coverage. The important idea is that token inventory is the first constraint. When exposure is small relative to covered amount, base rates can be enough. As exposure approaches a kink or critical zone, dynamic pricing can become more aggressive. If exposure moves beyond token coverage, the model shifts toward insurance fund utilization. Reader Implication For traders, token inventory mode explains why a market can become more expensive before any insurance or ADL language appears. The market is still within token coverage, but additional same direction flow consumes scarce inventory and can be priced accordingly. For LPs and projects, this mode clarifies what their token inventory is doing. It is not a passive display number. It defines the ordinary coverage zone where the market can support exposure before tail risk"
+    },
+    {
+      "id": "authored-funding-token-inventory-utilization-mode::002",
+      "pageId": "authored-funding-token-inventory-utilization-mode",
+      "chunkIndex": 2,
+      "title": "Funding Token-Inventory Utilization Mode",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes#mode-1-token-inventory-utilization"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-token-inventory-utilization-mode.md",
+      "wordStart": 185,
+      "wordEnd": 295,
+      "wordCount": 110,
+      "text": "For LPs and projects, this mode clarifies what their token inventory is doing. It is not a passive display number. It defines the ordinary coverage zone where the market can support exposure before tail risk budgets become the binding constraint. Publication Boundary This page should not publish live kink points, utilization thresholds, critical levels, or exact rate ramps without operator and implementation review. It documents the source model concept: token inventory utilization is the normal/stress mode while exposure remains within token coverage. Sources vibe papers : Neelo, \"Mode 1: Token Inventory Utilization\". Related Pages authored utilization modes inventory insurance authored funding per market state variables authored two mode utilization rationale"
     },
     {
       "id": "authored-funding-trader-ux-lp-efficiency-tradeoff::001",

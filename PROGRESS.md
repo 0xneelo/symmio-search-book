@@ -688,6 +688,12 @@
 - Routed five new Ask questions so formula, LP, solver, and project readers can inspect the model's state, controls, costs, and maturity parameter without relying on one broad variable-map page.
 - Kept live thresholds, base rates, multiplier curves, insurance budgets, hedge venues, accounting treatment, LP/vault profit distribution, phase thresholds, graduation criteria, and production risk policy under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Funding State And Utilization Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's funding-model state and utilization sections: per-market state variables, insurance/safety budgets, risk/volatility parameters, token-inventory utilization mode, and insurance-fund utilization mode.
+- Routed five new Ask questions so formula, LP, project, and operator readers can inspect the market state and utilization-mode transitions behind dynamic funding and defense decisions.
+- Kept covered amount, inventory rights, volatility windows, Aenigma values, insurance balances, spend caps, utilization thresholds, rate ramps, loss-estimate formulas, global allocation rules, and ADL thresholds under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

@@ -911,3 +911,11 @@
 **Reason:** The broad funding state-variable and objective pages make the model legible, but answer-engine readers need exact routes for the variables they will see in formulas and diligence conversations. Splitting these definitions clarifies the difference between observed state, chosen controls, dynamic cost adjustment, market profitability, and maturity phase without turning source-model symbols into live product commitments.
 
 **Status:** Accepted for the authored manifesto layer; live thresholds, base rates, multiplier curves, insurance budgets, hedge venues, accounting treatment, LP/vault profit distribution, phase thresholds, graduation criteria, and production risk policy remain operator/implementation/legal/accounting review.
+
+## D-115: Split Funding State And Utilization Modes Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for per-market state variables, insurance/safety budgets, risk and volatility parameters, token-inventory utilization mode, and insurance-fund utilization mode.
+
+**Reason:** The funding variable map and utilization overview are useful orientation pages, but they still hide the practical distinctions readers will ask about: what a market-specific state snapshot contains, what insurance resources are actually budgeted, which volatility/pump assumptions shape modeled stress, why inventory mode can become expensive before emergency, and why insurance mode is a different tail-risk state. Splitting these pages keeps the model inspectable while preserving review boundaries around live numbers.
+
+**Status:** Accepted for the authored manifesto layer; covered amount, inventory rights, volatility windows, Aenigma values, insurance balances, spend caps, utilization thresholds, rate ramps, loss-estimate formulas, global allocation rules, and ADL thresholds remain operator/implementation/legal/accounting review.

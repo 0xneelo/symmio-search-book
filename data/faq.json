@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 369,
-  "totalAnswerable": 362,
+  "totalEntries": 374,
+  "totalAnswerable": 367,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -19,7 +19,7 @@
     "Trading Flow": 32,
     "Solvers And Settlement": 114,
     "Risk And Markets": 23,
-    "Revenue": 39,
+    "Revenue": 44,
     "Manifesto": 66,
     "Rewards And Referrals": 25,
     "Dashboard": 10,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 147,
+    "Medium": 152,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 362
+    "authored": 367
   },
   "byType": {
-    "answerable": 362,
+    "answerable": 367,
     "reconciliation": 7
   },
   "answerable": [
@@ -12088,6 +12088,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-phase-counterparty-share",
       "pageTitle": "Funding Phase And Counterparty Share",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-per-market-variables-does-funding-read-first",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which per-market variables does funding read first?",
+      "normalizedQuestion": "which per market variables does funding read first",
+      "shortAnswer": "Neelo's variable definitions start from market-specific inventory, open interest, exposure, utilization, skew, and non-covered exposure.",
+      "answerSummary": "Funding Per Market State Variables Neelo's funding model begins from per market state, not global averages. Each market needs its own inventory, exposure, utilization, and skew picture before the system can choose rates or defenses. The state map starts with inventory and balances: initial token deposit, USDC held, token price, covered notional, remaining...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-per-market-state-variables",
+      "pageTitle": "Funding Per-Market State Variables",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-funding-model-s-insurance-and-safety-budgets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are the funding model's insurance and safety budgets?",
+      "normalizedQuestion": "what are the funding model s insurance and safety budgets",
+      "shortAnswer": "Neelo's variable definitions separate local insurance, global allocation, spend caps, and total defense budget.",
+      "answerSummary": "Funding Insurance And Safety Budgets Neelo's variable definitions separate local insurance, global insurance allocation, local spend caps, global spend caps, and total defense budget. That separation is the accounting backbone of the defense hierarchy. Local insurance is the market specific protection fund. It is tied to the market that generated or needs...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-safety-budgets",
+      "pageTitle": "Funding Insurance And Safety Budgets",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-volatility-and-pump-parameters-affect-funding-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which volatility and pump parameters affect funding risk?",
+      "normalizedQuestion": "which volatility and pump parameters affect funding risk",
+      "shortAnswer": "Neelo's risk variables include volatility, profit deviation, market/user pump estimates, drawdown assumptions, and the Aenigma exposure multiplier.",
+      "answerSummary": "Funding Risk And Volatility Parameters Neelo's funding model uses risk and volatility variables to estimate how far a market can move before ordinary inventory assumptions stop being enough. The source names volatility, profit deviation, market max pump, average user max pump, max market drawdown, and max deposit drawdown. Those variables connect price be...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-risk-volatility-parameters",
+      "pageTitle": "Funding Risk And Volatility Parameters",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-token-inventory-utilization-mode",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is token-inventory utilization mode?",
+      "normalizedQuestion": "what is token inventory utilization mode",
+      "shortAnswer": "Neelo's utilization-mode source uses token inventory mode while exposure remains within token coverage and rates can move from normal to stress.",
+      "answerSummary": "Funding Token Inventory Utilization Mode Token inventory utilization is the first mode in Neelo's two mode funding model. It asks how much un netted exposure exists relative to the token inventory available to cover it. In the source, this mode applies while exposure remains inside token inventory. If the market has enough token coverage, the system is in...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-token-inventory-utilization-mode",
+      "pageTitle": "Funding Token-Inventory Utilization Mode",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-insurance-fund-utilization-mode",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is insurance-fund utilization mode?",
+      "normalizedQuestion": "what is insurance fund utilization mode",
+      "shortAnswer": "Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget.",
+      "answerSummary": "Funding Insurance Fund Utilization Mode Insurance fund utilization is the second mode in Neelo's two mode funding model. It activates when exposure exceeds token inventory and the system must ask whether the remaining modeled loss can be absorbed by insurance capacity. The source defines this mode as an exposure loss estimate divided by an insurance budge...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-fund-utilization-mode",
+      "pageTitle": "Funding Insurance-Fund Utilization Mode",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -24502,6 +24647,151 @@
       "confidence": "Medium",
       "pageId": "authored-funding-phase-counterparty-share",
       "pageTitle": "Funding Phase And Counterparty Share",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-per-market-variables-does-funding-read-first",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which per-market variables does funding read first?",
+      "normalizedQuestion": "which per market variables does funding read first",
+      "shortAnswer": "Neelo's variable definitions start from market-specific inventory, open interest, exposure, utilization, skew, and non-covered exposure.",
+      "answerSummary": "Funding Per Market State Variables Neelo's funding model begins from per market state, not global averages. Each market needs its own inventory, exposure, utilization, and skew picture before the system can choose rates or defenses. The state map starts with inventory and balances: initial token deposit, USDC held, token price, covered notional, remaining...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-per-market-state-variables",
+      "pageTitle": "Funding Per-Market State Variables",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-are-the-funding-model-s-insurance-and-safety-budgets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What are the funding model's insurance and safety budgets?",
+      "normalizedQuestion": "what are the funding model s insurance and safety budgets",
+      "shortAnswer": "Neelo's variable definitions separate local insurance, global allocation, spend caps, and total defense budget.",
+      "answerSummary": "Funding Insurance And Safety Budgets Neelo's variable definitions separate local insurance, global insurance allocation, local spend caps, global spend caps, and total defense budget. That separation is the accounting backbone of the defense hierarchy. Local insurance is the market specific protection fund. It is tied to the market that generated or needs...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-safety-budgets",
+      "pageTitle": "Funding Insurance And Safety Budgets",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-volatility-and-pump-parameters-affect-funding-risk",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Which volatility and pump parameters affect funding risk?",
+      "normalizedQuestion": "which volatility and pump parameters affect funding risk",
+      "shortAnswer": "Neelo's risk variables include volatility, profit deviation, market/user pump estimates, drawdown assumptions, and the Aenigma exposure multiplier.",
+      "answerSummary": "Funding Risk And Volatility Parameters Neelo's funding model uses risk and volatility variables to estimate how far a market can move before ordinary inventory assumptions stop being enough. The source names volatility, profit deviation, market max pump, average user max pump, max market drawdown, and max deposit drawdown. Those variables connect price be...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-risk-volatility-parameters",
+      "pageTitle": "Funding Risk And Volatility Parameters",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-token-inventory-utilization-mode",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is token-inventory utilization mode?",
+      "normalizedQuestion": "what is token inventory utilization mode",
+      "shortAnswer": "Neelo's utilization-mode source uses token inventory mode while exposure remains within token coverage and rates can move from normal to stress.",
+      "answerSummary": "Funding Token Inventory Utilization Mode Token inventory utilization is the first mode in Neelo's two mode funding model. It asks how much un netted exposure exists relative to the token inventory available to cover it. In the source, this mode applies while exposure remains inside token inventory. If the market has enough token coverage, the system is in...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-token-inventory-utilization-mode",
+      "pageTitle": "Funding Token-Inventory Utilization Mode",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-insurance-fund-utilization-mode",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What is insurance-fund utilization mode?",
+      "normalizedQuestion": "what is insurance fund utilization mode",
+      "shortAnswer": "Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget.",
+      "answerSummary": "Funding Insurance Fund Utilization Mode Insurance fund utilization is the second mode in Neelo's two mode funding model. It activates when exposure exceeds token inventory and the system must ask whether the remaining modeled loss can be absorbed by insurance capacity. The source defines this mode as an exposure loss estimate divided by an insurance budge...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-insurance-fund-utilization-mode",
+      "pageTitle": "Funding Insurance-Fund Utilization Mode",
       "pageSection": "manifesto",
       "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "publication-candidate-needs-operator-review",
