@@ -478,6 +478,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why can strict listing policy be honest for order books? | `authored-strict-listing-depth-policy` | Medium | Neelo treats Hyperliquid-style listing discipline as a coherent response to CLOB depth limits, while leaving a lower discovery layer for long-tail assets. |
 | Why does pooled-collateral TVL fragment on the long tail? | `authored-pool-tail-tvl-fragmentation` | Medium | Neelo's GMX-style pool notes explain that pooled liquidity can bootstrap some markets, but risk and capital spread thinly as the market universe grows. |
 | Can open interest exist without reliable payouts? | `authored-open-interest-without-payout-reliability` | Medium | Neelo's Percolator-wave notes warn that OI can appear while one-sided flow still lacks a credible settlement or payout path. |
+| Why does Proof of Value split liquidity into two jobs? | `authored-proof-value-liquidity-role-separation` | Medium | Neelo's LP value proposition separates stablecoin settlement liquidity from market-specific token inventory so the docs can explain who bears which risk. |
+| What is the USDC vault negative feedback loop? | `authored-usdc-vault-negative-feedback-loop` | Medium | Neelo's Proof of Value framework says external USDC vaults can face high perceived risk, high yield demand, wider costs, weaker trader experience, and lower market sustainability. |
+| How should LP profit be decomposed? | `authored-lp-profit-decomposition-map` | Medium | Neelo's LP profit formula bridges gross market revenue to net risk-bearing result by naming costs, trader PnL share, hedge PnL, and shortfall. |
+| Why would projects participate beyond revenue share? | `authored-project-participation-beyond-revenue` | Medium | Neelo's trader/project value section says projects also seek token utility, community support, market visibility, and treasury productivity. |
+| What is the value reciprocity flywheel? | `authored-value-reciprocity-flywheel` | Medium | Neelo's source links projects, markets, traders, fee flow, LP revenue, and further project participation, but only if risk and value remain aligned. |
 
 ## Prototype Event Log
 

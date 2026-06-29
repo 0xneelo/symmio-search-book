@@ -1087,3 +1087,11 @@
 **Reason:** The broad SYMM LP replication page explains the playbook, but answer-engine readers need direct routes for each operational phase and gate. Splitting the source's replication and deployment requirements prevents the case study from being read as immediately scalable yield and turns it into a staged market-operations checklist.
 
 **Status:** Accepted for the authored protocol-reference layer; live community eligibility, pilot sizes, treasury participation, validation cadence, tranche thresholds, stop conditions, utilization bands, emergency controls, reporting cadence, and public vault terms remain operator/risk/accounting/legal/implementation review.
+
+## D-137: Split Proof Of Value LP Framework Into Exact Capital-Structure Answers
+
+**Decision:** Add authored Volume 02 manifesto pages for liquidity-role separation, USDC-vault negative feedback loops, LP profit decomposition, project participation beyond revenue, and the value-reciprocity flywheel.
+
+**Reason:** The broad Proof of Value and LP value-proposition pages explain why permissionless perps can create value, but answer-engine readers need exact routes for how the capital structure works. Splitting these pages makes the distinction between stable settlement capital and token inventory explicit, shows why generic USDC vaults can become too expensive, requires a gross-to-net LP economics bridge, explains project motives beyond fee share, and turns the flywheel into a testable alignment condition rather than a growth slogan.
+
+**Status:** Accepted for the authored manifesto layer; live revenue shares, vault rights, solver funding sources, reserve requirements, rehypothecation policy, hedge PnL ownership, loss ordering, partner claims, market eligibility, and graduation thresholds remain operator/accounting/legal/risk/implementation review.

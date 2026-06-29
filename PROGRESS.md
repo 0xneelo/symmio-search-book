@@ -820,6 +820,12 @@
 - Routed five new Ask questions so token communities, treasuries, LPs, and operators can inspect the staged replication path rather than treating the SYMM case as instantly scalable.
 - Kept live eligibility approval, pilot sizes, treasury participation, validation cadence, tranche thresholds, stop conditions, utilization bands, emergency controls, and public vault terms under operator/risk/accounting/legal/implementation review.
 
+## 2026-06-29 — Proof Of Value LP Exact Pages
+
+- Added five authored manifesto pages from Neelo's Proof of Value LP and trader/project framework: liquidity-role separation, USDC-vault negative feedback loops, LP profit decomposition, project participation beyond revenue, and the value-reciprocity flywheel.
+- Routed five new Ask questions so LPs, projects, traders, and operators can inspect the capital-structure and market-formation logic behind the broad Proof of Value thesis.
+- Kept live revenue shares, vault rights, solver funding sources, reserve policy, loss ordering, partner claims, eligibility, and graduation thresholds under operator/accounting/legal/risk/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

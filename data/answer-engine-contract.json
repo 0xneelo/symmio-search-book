@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 472
+      "totalGoldenRoutes": 477
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 490,
-    "retrievalEligiblePages": 1282,
+    "publicNavigationPages": 495,
+    "retrievalEligiblePages": 1287,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 490,
+      "candidate": 495,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 472,
-    "exactRouteTestsPassing": 472,
+    "totalExactRouteTests": 477,
+    "exactRouteTestsPassing": 477,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 472
+      "candidate": 477
     },
     "exactRoutesByConfidence": {
-      "Medium": 252,
+      "Medium": 257,
       "High": 44,
       "Low": 176
     },
@@ -10597,6 +10597,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-can-open-interest-exist-without-reliable-payouts",
         "passes": true
+      },
+      {
+        "id": "qr-why-does-proof-of-value-split-liquidity-into-two-jobs",
+        "query": "Why does Proof of Value split liquidity into two jobs?",
+        "normalizedQuery": "why does proof of value split liquidity into two jobs",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-proof-value-liquidity-role-separation",
+        "expectedPageTitle": "Liquidity Is Two Jobs, Not One",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-proof-of-value-split-liquidity-into-two-jobs",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-usdc-vault-negative-feedback-loop",
+        "query": "What is the USDC vault negative feedback loop?",
+        "normalizedQuery": "what is the usdc vault negative feedback loop",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-vault-negative-feedback-loop",
+        "expectedPageTitle": "The USDC Vault Negative Feedback Loop",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-usdc-vault-negative-feedback-loop",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-lp-profit-be-decomposed",
+        "query": "How should LP profit be decomposed?",
+        "normalizedQuery": "how should lp profit be decomposed",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-lp-profit-decomposition-map",
+        "expectedPageTitle": "LP Profit Needs A Decomposition Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-lp-profit-be-decomposed",
+        "passes": true
+      },
+      {
+        "id": "qr-why-would-projects-participate-beyond-revenue-share",
+        "query": "Why would projects participate beyond revenue share?",
+        "normalizedQuery": "why would projects participate beyond revenue share",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-project-participation-beyond-revenue",
+        "expectedPageTitle": "Project Participation Is Not Only Revenue",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-would-projects-participate-beyond-revenue-share",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-value-reciprocity-flywheel",
+        "query": "What is the value reciprocity flywheel?",
+        "normalizedQuery": "what is the value reciprocity flywheel",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-value-reciprocity-flywheel",
+        "expectedPageTitle": "The Value Reciprocity Flywheel",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-value-reciprocity-flywheel",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10672,7 +10777,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 472,
+      "exactRoutes": 477,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

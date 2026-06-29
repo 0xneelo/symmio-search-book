@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 491,
+  "totalPages": 496,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 349,
+    "publication-candidate-needs-operator-review": 354,
     "publication-candidate": 125,
     "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 213,
+    "manifesto": 218,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -4442,6 +4442,29 @@
       "excerpt": "LP Profit And Dynamic Pricing The funding model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed. The LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure. Dynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes. Reader Implication This page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item 1 still controls which current and planned revenue inputs can be published as product promises. Sources vibe papers : Neelo, \"06. LP Profit Decomposition\". vibe "
     },
     {
+      "id": "authored-lp-profit-decomposition-map",
+      "title": "LP Profit Needs A Decomposition Map",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-7-lp-profit-decomposition-technical",
+        "authored-funding-lp-master-profit-formula",
+        "authored-symm-lp-gross-to-net-attribution-bridge"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/lp-profit-decomposition-map.md",
+      "bodyMarkdown": "# LP Profit Needs A Decomposition Map\n\nNeelo's LP value proposition includes a technical profit decomposition because LP yield cannot be explained as one undifferentiated number.\n\nThe source formula starts from market revenue, subtracts operating and hedge costs, accounts for the trader PnL share the LP effectively bears, adds solver hedge PnL, and subtracts bad debt or liquidation shortfall. In plain language, LP economics are a bridge from gross market activity to net risk-bearing result.\n\nThat bridge matters because two markets can show similar fee revenue while having very different quality. One market may have balanced flow, low hedge cost, and manageable residual exposure. Another may have high fees only because it is stressed, one-sided, or expensive to hedge.\n\n## What Readers Should Ask\n\nThe useful LP question is not \"what is the APY?\" It is:\n\n- which cashflows counted as revenue;\n- which costs were netted before LP share;\n- how trader PnL is allocated during bootstrap versus mature phases;\n- whether hedge PnL belongs to the solver, LPs, protocol, or another bucket;\n- how shortfall, bad debt, liquidation effects, and insurance spend are reported.\n\nThose questions are also why the SYMM LP reporting pages require gross-to-net attribution. Yield claims become credible only when the bridge is visible.\n\n## Publication Boundary\n\nDo not publish final formula coefficients, counterparty-share schedules, hedge PnL ownership, bad-debt allocation, LP accounting treatment, or public yield displays without operator, accounting, legal, risk, and implementation review. This page documents the source-backed need for decomposition.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\", \"LP Profit Decomposition (Technical)\".\n\n## Related Pages\n\n- `authored-funding-lp-master-profit-formula`\n- `authored-symm-lp-gross-to-net-attribution-bridge`\n- `authored-funding-revenue-cost-accounting-map`",
+      "excerpt": "LP Profit Needs A Decomposition Map Neelo's LP value proposition includes a technical profit decomposition because LP yield cannot be explained as one undifferentiated number. The source formula starts from market revenue, subtracts operating and hedge costs, accounts for the trader PnL share the LP effectively bears, adds solver hedge PnL, and subtracts bad debt or liquidation shortfall. In plain language, LP economics are a bridge from gross market activity to net risk bearing result. That bridge matters because two markets can show similar fee revenue while having very different quality. One market may have balanced flow, low hedge cost, and manageable residual exposure. Another may have high fees only because it is stressed, one sided, or expensive to hedge. What Readers Should Ask The useful LP question is not \"what is the APY?\" It is: which cashflows counted as revenue; which costs were netted before LP share; how trader PnL is allocated during bootstrap versus mature phases; whether hedge PnL belongs to the solver, LPs, protocol, or another bucket; how shortfall, bad debt, liquidation effects, and insurance spend are reported. Those questions are also why the SYMM LP reporti"
+    },
+    {
       "id": "authored-lp-vault-capacity-exposure-boundary",
       "title": "LP Vault Capacity Exposure Boundary",
       "section": "protocol-reference",
@@ -5701,6 +5724,29 @@
       "excerpt": "The Project Alternative Cost Stack Vibe's project side value proposition should be documented as an alternative cost problem, not only as a promise of a new market. The source names the usual choices available to projects and token treasuries. A centralized exchange listing can require applications, compliance review, fees, stablecoin commitments, and relationships. A professional market maker can require retainers, spread agreements, inventory policy, and stablecoin allocations. Single sided spot liquidity can create sell pressure and impermanent loss tradeoffs. Doing nothing preserves inventory, but it also leaves the token without a derivative market, hedging path, or short side signal. That stack is important because it explains why token inventory can be attractive. Many projects have the asset they issued or manage. They may not have abundant stablecoins, and they may not want to spend scarce treasury liquidity before the market has proven demand. If Vibe lets a project support a perp market with the asset it already holds, the cost profile changes. What Vibe Is Trying To Remove The project does not get a free market. It still accepts custody, market, inventory, disclosure, a"
     },
     {
+      "id": "authored-project-participation-beyond-revenue",
+      "title": "Project Participation Is Not Only Revenue",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-2-project-value",
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-4-value-reciprocity",
+        "authored-project-token-utility-without-stablecoin"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/project-participation-beyond-revenue.md",
+      "bodyMarkdown": "# Project Participation Is Not Only Revenue\n\nThe trader/project value source says project participation is not reducible to a fee-share offer.\n\nA project may support a Vibe-style market because it gives the token utility, gives holders a hedging and speculation surface, creates visibility, signals seriousness to the community, and turns idle inventory into market infrastructure. Revenue share can strengthen the deal, but the source's stronger point is alignment: the market is valuable to the project even before it is treated as a pure yield product.\n\nThat matters for documentation. If the docs sell participation only as \"deposit tokens, earn fees,\" they make the market sound like a passive vault. The better framing is market formation. A project is helping create a derivatives surface for its own asset while accepting bounded incremental exposure on inventory it already holds.\n\n## The Safer Public Framing\n\nThe source includes example economics and partner-context claims. Public docs should avoid turning those into live guarantees until reviewed. The publishable principle is still useful:\n\nProject-side token inventory can be rational when it adds utility, market access, price discovery, community signaling, and treasury productivity without requiring the project to spend scarce stablecoins upfront.\n\n## Publication Boundary\n\nKeep final revenue-share rates, partner counts, market eligibility, vault rights, deposit minimums, withdrawal terms, treasury-accounting treatment, and live launch commitments under operator, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\", \"Project Motivations (Beyond Revenue)\".\n\n## Related Pages\n\n- `authored-project-token-utility-without-stablecoin`\n- `authored-token-holder-inventory-alignment`\n- `authored-trader-project-value-loop`",
+      "excerpt": "Project Participation Is Not Only Revenue The trader/project value source says project participation is not reducible to a fee share offer. A project may support a Vibe style market because it gives the token utility, gives holders a hedging and speculation surface, creates visibility, signals seriousness to the community, and turns idle inventory into market infrastructure. Revenue share can strengthen the deal, but the source's stronger point is alignment: the market is valuable to the project even before it is treated as a pure yield product. That matters for documentation. If the docs sell participation only as \"deposit tokens, earn fees,\" they make the market sound like a passive vault. The better framing is market formation. A project is helping create a derivatives surface for its own asset while accepting bounded incremental exposure on inventory it already holds. The Safer Public Framing The source includes example economics and partner context claims. Public docs should avoid turning those into live guarantees until reviewed. The publishable principle is still useful: Project side token inventory can be rational when it adds utility, market access, price discovery, commun"
+    },
+    {
       "id": "authored-project-token-inventory-without-stablecoins",
       "title": "Project Token Inventory Without Stablecoins",
       "section": "protocol-reference",
@@ -5818,6 +5864,29 @@
       "file": "content/authored/manifesto/proof-value-four-constituencies.md",
       "bodyMarkdown": "# Proof Of Value Needs Four Constituencies\n\nNeelo's Proof of Value framework makes the thesis harder to hand-wave. A permissionless perp market is not valuable just because it can create a new trading symbol. It has to create value for four constituencies at once: LPs or token depositors, traders, projects, and the broader ecosystem.\n\nEach group wants a different thing. LPs want risk-adjusted yield on capital they are willing to deploy. Traders want market access, execution, leverage, hedging, and confidence that winning positions can settle. Projects want utility, visibility, treasury productivity, and a market path that does not begin with expensive centralized gatekeeping. The ecosystem wants better capital efficiency, price discovery, and lifecycle continuity.\n\nThe source's important claim is alignment. If one participant class benefits only because another is being quietly mispriced, the market is brittle. If more traders create more fees, more LP revenue, deeper markets, stronger project incentives, and better downstream listing evidence, the design becomes positive-sum.\n\n## Risk Alignment\n\nValue alignment also requires risk alignment. Token inventory risk should sit with parties that already hold or support the token. Execution and hedge risk should sit with the solver that is built to manage it. Trader directional PnL should sit with traders when flow is netted. Tail outcomes need a documented waterfall rather than hidden socialization.\n\nThat is why this framework belongs early in Volume 02. Proof of Value is not only \"demand exists.\" It is \"demand, risk, and reward are arranged so the market can keep existing.\"\n\n## Publication Note\n\nThis page uses the source's value-framework structure. Exact economics, revenue shares, eligibility policy, and launch-partner metrics still require operator review before final public release.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Trading: Proof of Value\".\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Value Dimensions\".\n\n## Related Pages\n\n- `authored-proof-of-value`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-market-price-as-verification`",
       "excerpt": "Proof Of Value Needs Four Constituencies Neelo's Proof of Value framework makes the thesis harder to hand wave. A permissionless perp market is not valuable just because it can create a new trading symbol. It has to create value for four constituencies at once: LPs or token depositors, traders, projects, and the broader ecosystem. Each group wants a different thing. LPs want risk adjusted yield on capital they are willing to deploy. Traders want market access, execution, leverage, hedging, and confidence that winning positions can settle. Projects want utility, visibility, treasury productivity, and a market path that does not begin with expensive centralized gatekeeping. The ecosystem wants better capital efficiency, price discovery, and lifecycle continuity. The source's important claim is alignment. If one participant class benefits only because another is being quietly mispriced, the market is brittle. If more traders create more fees, more LP revenue, deeper markets, stronger project incentives, and better downstream listing evidence, the design becomes positive sum. Risk Alignment Value alignment also requires risk alignment. Token inventory risk should sit with parties that "
+    },
+    {
+      "id": "authored-proof-value-liquidity-role-separation",
+      "title": "Liquidity Is Two Jobs, Not One",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-1-the-core-design-insight",
+        "authored-solver-funded-usdc-capital-loop",
+        "authored-token-holder-inventory-alignment"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/proof-value-liquidity-role-separation.md",
+      "bodyMarkdown": "# Liquidity Is Two Jobs, Not One\n\nNeelo's Proof of Value framework starts the LP argument by separating two roles that are often collapsed into one word: stablecoin liquidity and token inventory.\n\nStablecoin liquidity supports settlement, hedging, cross-chain operations, and short operational capital cycles. Token inventory supports the specific market being created. Those roles have different risk profiles, different natural providers, and different failure paths.\n\nThat distinction is the core design insight. If a protocol asks one generic pool to do every job, the documentation may look simpler, but the risk explanation becomes worse. Readers cannot tell whether capital is settling trades, absorbing bad debt, providing inventory, funding hedges, or warehousing directional exposure.\n\n## Why The Split Matters\n\nIn the source model, solver- or protocol-funded stablecoin capital handles the settlement and hedging side. Token holders, projects, whales, and treasuries provide inventory for the asset they already hold. The point is not that either role is risk-free. The point is that each role is assigned to the participant best positioned to understand and bear it.\n\nThis helps the compendium avoid a lazy liquidity story. \"More liquidity\" is not enough. A permissionless perp market needs the right type of capital in the right place: stable settlement capital for realized obligations, market-specific inventory for exposure management, and solver judgment for quote acceptance and hedging.\n\n## Publication Boundary\n\nThis page documents the source-backed role separation. Do not publish final solver funding sources, token-vault rights, reserve requirements, rehypothecation policy, fee split, or loss-ordering semantics until operator, accounting, legal, and implementation review approve the live wording.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\", \"The Core Design Insight\".\n\n## Related Pages\n\n- `authored-solver-funded-usdc-capital-loop`\n- `authored-token-holder-inventory-alignment`\n- `authored-usdc-settlement-inventory-separation`",
+      "excerpt": "Liquidity Is Two Jobs, Not One Neelo's Proof of Value framework starts the LP argument by separating two roles that are often collapsed into one word: stablecoin liquidity and token inventory. Stablecoin liquidity supports settlement, hedging, cross chain operations, and short operational capital cycles. Token inventory supports the specific market being created. Those roles have different risk profiles, different natural providers, and different failure paths. That distinction is the core design insight. If a protocol asks one generic pool to do every job, the documentation may look simpler, but the risk explanation becomes worse. Readers cannot tell whether capital is settling trades, absorbing bad debt, providing inventory, funding hedges, or warehousing directional exposure. Why The Split Matters In the source model, solver or protocol funded stablecoin capital handles the settlement and hedging side. Token holders, projects, whales, and treasuries provide inventory for the asset they already hold. The point is not that either role is risk free. The point is that each role is assigned to the participant best positioned to understand and bear it. This helps the compendium avoid "
     },
     {
       "id": "authored-proof-value-shadow-side",
@@ -10249,6 +10318,30 @@
       "excerpt": "USDC Settlement Separates Inventory From Solvency The alternative in Neelo's Percolator source is not \"remove token inventory.\" It is to separate token inventory from the unit of settlement. In the USDC margined hybrid model, traders post and settle in USDC. Token holders or project treasuries can still provide inventory, but that inventory is not the same thing as the trader's margin base or the final settlement currency. The solver can use inventory as one defense layer while USDC obligations remain linear and dollar denominated. That separation removes the worst same asset feedback. A falling token can still damage inventory value, but it does not make every trader payout expand in token terms, and it does not make the settlement currency collapse at the moment claims must be paid. Inventory risk is accepted and priced. Solvency risk is kept in a more stable unit. The source also connects this to active risk management: dynamic spreads, funding, local insurance, global insurance, and ADL only after other defenses fail. Exact production parameters, fee shares, vault rights, and liquidation behavior need operator and implementation review before publication. The architectural prin"
     },
     {
+      "id": "authored-usdc-vault-negative-feedback-loop",
+      "title": "The USDC Vault Negative Feedback Loop",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition",
+        "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-03-lp-value-proposition-3-3-why-usdc-vault-protocols-face-100x-capital-efficiency-disadvantage",
+        "authored-required-risk-premium-for-usdc-lps",
+        "authored-usdc-lp-backstop-cascade"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/usdc-vault-negative-feedback-loop.md",
+      "bodyMarkdown": "# The USDC Vault Negative Feedback Loop\n\nThe Proof of Value LP section argues that external USDC vaults can create a negative feedback loop for low-cap perpetual markets.\n\nThe loop starts with perceived risk. A stablecoin LP that does not naturally hold the listed token is being asked to support leveraged exposure on a volatile, thin, and hard-to-hedge asset. That LP needs compensation for manipulation risk, liquidation failure, bad debt, opportunity cost, and adverse selection.\n\nThe compensation then becomes a product problem. Higher yield demand forces the protocol to raise fees, widen spreads, reduce leverage, subsidize losses, or accept lower safety. Each response can weaken the trader experience. Weaker trader experience reduces volume. Lower volume makes the market less sustainable, which reinforces the LP's risk concern.\n\n## What The Source Is Really Saying\n\nThe claim is not that USDC is a bad settlement unit. The broader Vibe and Symmio stack still uses stable collateral and settlement semantics. The claim is narrower: generic external USDC backstop capital is poorly matched to early, low-cap, one-sided market risk.\n\nThat is why the source compares it with token-side inventory. A project or holder may already bear the token's directional risk and may accept lower incremental compensation because the market creates utility, visibility, and potential fee flow for the asset they hold.\n\n## Publication Boundary\n\nThe source uses strong comparative language about yield demand and capital-efficiency disadvantage. Keep those as source-model arguments until final public economics, vault terms, market eligibility, fee policy, and LP disclosure language are approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\", \"Why USDC-Vault Protocols Face ~100x Capital Efficiency Disadvantage\".\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\".\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-external-usdc-lp-risk-premium-mismatch`",
+      "excerpt": "The USDC Vault Negative Feedback Loop The Proof of Value LP section argues that external USDC vaults can create a negative feedback loop for low cap perpetual markets. The loop starts with perceived risk. A stablecoin LP that does not naturally hold the listed token is being asked to support leveraged exposure on a volatile, thin, and hard to hedge asset. That LP needs compensation for manipulation risk, liquidation failure, bad debt, opportunity cost, and adverse selection. The compensation then becomes a product problem. Higher yield demand forces the protocol to raise fees, widen spreads, reduce leverage, subsidize losses, or accept lower safety. Each response can weaken the trader experience. Weaker trader experience reduces volume. Lower volume makes the market less sustainable, which reinforces the LP's risk concern. What The Source Is Really Saying The claim is not that USDC is a bad settlement unit. The broader Vibe and Symmio stack still uses stable collateral and settlement semantics. The claim is narrower: generic external USDC backstop capital is poorly matched to early, low cap, one sided market risk. That is why the source compares it with token side inventory. A proj"
+    },
+    {
       "id": "authored-utilization-modes-inventory-insurance",
       "title": "Utilization Modes: Inventory And Insurance",
       "section": "manifesto",
@@ -10318,6 +10411,30 @@
       "file": "content/authored/manifesto/value-capture-durability-scorecard.md",
       "bodyMarkdown": "# Value Capture Needs Durability\n\nThe Thiel-style scorecard in Neelo's Proof of Value paper is useful because it separates excitement from business durability.\n\nCreating value is not enough. Vibe can create value by opening perp markets for gap tokens, giving projects a better use for inventory, giving traders long and short exposure, and producing listing evidence for downstream venues. Those are value-creation claims.\n\nCapture is a different question. The protocol, solver, and operating stack must keep enough economics to remain active. The source names several possible capture surfaces: trading fees, spread revenue, protocol share, data products, and graduation or integration paths. The compendium should not collapse those into one vague \"revenue\" story. Each capture path has a different dependency.\n\n## The Durability Test\n\nDurability is the hard part. A market can grow quickly and still be fragile if it depends on subsidies, one-time attention, unpriced solver risk, or partner optics. A durable market should show repeated use, improving execution, declining residual exposure, sustained project participation, and defensible data advantages.\n\nThat is why the docs need a scorecard instead of a slogan:\n\n- What value is created for each constituency?\n- What value is captured by the protocol and solver?\n- Does capture come from usage rather than extraction?\n- Does the market become less fragile as it matures?\n- Does the data compound into better listings, better pricing, and better trust?\n\nIf those questions are not answered, \"Proof of Value\" is only a narrative. If they are answered with source-backed metrics, it becomes a falsifiable operating thesis.\n\n## Publication Note\n\nProtocol share, live fee routing, solver spread economics, data-products strategy, and launch-partner metrics remain operator-review items. This page keeps the strategy logic while avoiding unaudited capture claims.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Proof of Value: A Thielian Analysis\".\n\n## Related Pages\n\n- `authored-thiel-value-creation-capture`\n- `authored-no-ponzi-market-revenue-test`\n- `authored-proof-value-validation-sustainability`",
       "excerpt": "Value Capture Needs Durability The Thiel style scorecard in Neelo's Proof of Value paper is useful because it separates excitement from business durability. Creating value is not enough. Vibe can create value by opening perp markets for gap tokens, giving projects a better use for inventory, giving traders long and short exposure, and producing listing evidence for downstream venues. Those are value creation claims. Capture is a different question. The protocol, solver, and operating stack must keep enough economics to remain active. The source names several possible capture surfaces: trading fees, spread revenue, protocol share, data products, and graduation or integration paths. The compendium should not collapse those into one vague \"revenue\" story. Each capture path has a different dependency. The Durability Test Durability is the hard part. A market can grow quickly and still be fragile if it depends on subsidies, one time attention, unpriced solver risk, or partner optics. A durable market should show repeated use, improving execution, declining residual exposure, sustained project participation, and defensible data advantages. That is why the docs need a scorecard instead of"
+    },
+    {
+      "id": "authored-value-reciprocity-flywheel",
+      "title": "The Value Reciprocity Flywheel",
+      "section": "manifesto",
+      "track": "13 — Proof of Value Framework",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value",
+        "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"
+      ],
+      "relatedGeneratedPages": [
+        "section-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value-4-4-value-reciprocity",
+        "section-13-framework-value-permissionless-perps-13-docs-07-validation-and-sustainability-7-4-conditions-for-long-term-sustainability",
+        "authored-trader-project-value-loop"
+      ],
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "file": "content/authored/manifesto/value-reciprocity-flywheel.md",
+      "bodyMarkdown": "# The Value Reciprocity Flywheel\n\nNeelo's trader/project value source ends with a reciprocity loop: more projects deposit inventory, more markets exist, more traders arrive, more fee flow appears, more LP revenue becomes possible, and more projects are attracted.\n\nThat loop is useful, but only if the docs state its condition: it depends on structural alignment. If projects provide inventory but traders get poor execution, the loop breaks. If traders arrive but winners cannot be paid, the loop breaks. If LPs or projects bear hidden tail risk, the loop breaks. If the solver cannot price and hedge residual exposure, the loop breaks.\n\nThe flywheel is therefore not a growth slogan. It is a test of whether the system assigns value and risk coherently across projects, token holders, traders, solvers, and the protocol.\n\n## How The Compendium Should Use It\n\nThe reciprocity loop belongs near Proof of Value because it explains why Vibe is more than a listing interface. The product has to create feedback between market creation and market evidence:\n\n- inventory makes a market possible;\n- trading creates price and demand signals;\n- fee flow tests whether the market is economically real;\n- reporting shows whether the market is sustainable;\n- successful markets can mature toward deeper venue integrations.\n\nThat is the bridge from bootstrap to proof. A market that cannot sustain the loop should not be dressed up as validated.\n\n## Publication Boundary\n\nDo not publish the flywheel as an assurance that every market will attract traders, generate yield, or graduate. Live eligibility, reporting thresholds, revenue allocation, market-retirement rules, and graduation criteria remain operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\", \"Value Reciprocity\".\n- `vibe-papers`: Neelo, \"Section 7: Validation and Sustainability\".\n\n## Related Pages\n\n- `authored-trader-project-value-loop`\n- `authored-proof-value-validation-sustainability`\n- `authored-z-score-graduation-criteria`",
+      "excerpt": "The Value Reciprocity Flywheel Neelo's trader/project value source ends with a reciprocity loop: more projects deposit inventory, more markets exist, more traders arrive, more fee flow appears, more LP revenue becomes possible, and more projects are attracted. That loop is useful, but only if the docs state its condition: it depends on structural alignment. If projects provide inventory but traders get poor execution, the loop breaks. If traders arrive but winners cannot be paid, the loop breaks. If LPs or projects bear hidden tail risk, the loop breaks. If the solver cannot price and hedge residual exposure, the loop breaks. The flywheel is therefore not a growth slogan. It is a test of whether the system assigns value and risk coherently across projects, token holders, traders, solvers, and the protocol. How The Compendium Should Use It The reciprocity loop belongs near Proof of Value because it explains why Vibe is more than a listing interface. The product has to create feedback between market creation and market evidence: inventory makes a market possible; trading creates price and demand signals; fee flow tests whether the market is economically real; reporting shows whether "
     },
     {
       "id": "authored-verified-on-vibe-stress-test",
