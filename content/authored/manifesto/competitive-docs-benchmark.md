@@ -11,7 +11,7 @@ relatedGeneratedPages: ["authored-volume-01-orientation-and-thesis", "authored-s
 
 # What Vibe x Symmio Should Borrow From The Best Docs
 
-The competitive benchmark is useful only if it changes the shape of the compendium. The first official-docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn remains an official-source access gap; mirrors and third-party copies were not used.
+The competitive benchmark is useful only if it changes the shape of the compendium. The first official-docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn is the single excluded target because the operator marked it shut down; mirrors and third-party copies were not used.
 
 The result is not "copy a docs platform." It is a sharper product requirement: Vibe x Symmio should behave like a source-cited answer engine wrapped around a serious derivatives reference.
 
@@ -85,7 +85,7 @@ If a page does none of those things, it is filler. If it does one of them with e
 
 ## Sources
 
-- `competitive-sweep-batch-01`: generated official-docs benchmark over 50 targets, 25 lanes, five explorer batches, 49 verified official docs, and one Opyn access gap.
+- `competitive-sweep-batch-01`: generated official-docs benchmark over 50 targets, 25 lanes, five explorer batches, 49 verified official docs, and one documented Opyn exclusion.
 - `spec-05`: answer-first IA and guided journey requirements.
 - `spec-06`: answer engine, citations, rating, and living-docs loop requirements.
 - `spec-07`: research-session competitive sweep requirement.

@@ -1,8 +1,8 @@
 # Vibe x Symmio Search Book
 
-Session 1 research package and throwaway answer-engine prototype for the Vibe x Symmio documentation compendium.
+Session 1 research package, static docs prototype, and validated answer-engine runtime harness for the Vibe x Symmio documentation compendium.
 
-This directory is intentionally isolated from the existing dashboard. It is not the production docs implementation yet.
+This directory is intentionally isolated from the existing dashboard. It is not the deployed production docs implementation yet.
 
 ## Current State
 
@@ -65,7 +65,7 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 ## Non-Goals
 
 - This is not the final authored documentation site.
-- This is not a production vector search or Claude-backed answer engine.
+- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists and has passed live `gpt-4.1-mini` citation validation, but persistence, rate limits, service env, and deploy wiring remain production work.
 - This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
 - This does not expose private API URLs, tokens, admin endpoints, or operator-only credentials.
 

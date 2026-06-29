@@ -151,7 +151,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `hyperliquid-hip3` | https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md | Builder-deployed perps, staking, deployer duties, independent margin/order books. |
 | `goldsky-subgraphs` | https://docs.goldsky.com/subgraphs/introduction | Goldsky subgraph product docs for indexing and subgraph-backed data access. |
 | `goldsky-graphql-endpoints` | https://docs.goldsky.com/subgraphs/graph-endpoints | Goldsky GraphQL endpoint documentation for querying indexed subgraph data. |
-| `competitive-sweep-batch-01` | `src/search-book/data/competitive-sweep.json` | Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, and the unresolved Opyn access gap. |
+| `competitive-sweep-batch-01` | `src/search-book/data/competitive-sweep.json` | Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion. |
 | `competitive-sweep-synthesis` | `src/search-book/content/authored/manifesto/competitive-docs-benchmark.md` | Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid. |
 
 ## Authored Publication Candidates

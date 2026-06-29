@@ -57,8 +57,8 @@
     "sourceCatalogEntries": 124,
     "linkedSourceCatalogEntries": 110,
     "sourceIngestionRequirements": 17,
-    "sourceIngestionComplete": 12,
-    "sourceIngestionPartial": 2,
+    "sourceIngestionComplete": 13,
+    "sourceIngestionPartial": 1,
     "sourceIngestionParked": 3,
     "sourceIngestionMissing": 0,
     "sourceIngestionReady": false,
@@ -68,7 +68,7 @@
     "competitiveSweepPlannedLanes": 25,
     "competitiveSweepCompletedLanes": 25,
     "competitiveSweepCompletedBatches": 5,
-    "competitiveSweepReady": false,
+    "competitiveSweepReady": true,
     "crosslinkedReaderPages": 1584,
     "readerPagesWithPrevious": 1583,
     "readerPagesWithNext": 1583,
@@ -91,8 +91,8 @@
     "pageStatePublicNavigationPages": 789,
     "pageStateRetrievalEligiblePages": 1581,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 6,
-    "completionRequirementsPartial": 7,
+    "completionRequirementsComplete": 8,
+    "completionRequirementsPartial": 5,
     "completionRequirementsParked": 4,
     "completionRequirementsMissing": 1,
     "completionReady": false,
@@ -139,7 +139,7 @@
       "id": "source-ingestion",
       "label": "Required source families are ingested",
       "passed": false,
-      "detail": "12/17 complete, 2 partial, 3 parked, 0 missing"
+      "detail": "13/17 complete, 1 partial, 3 parked, 0 missing"
     },
     {
       "id": "competitive-sweep",
@@ -259,7 +259,7 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "6/18 complete, 7 partial, 4 parked, 1 missing"
+      "detail": "8/18 complete, 5 partial, 4 parked, 1 missing"
     },
     {
       "id": "operator-inbox",
@@ -548,9 +548,9 @@
     "sourceCompletionReady": false,
     "totalSourceRequirements": 17,
     "byStatus": {
-      "complete": 12,
+      "complete": 13,
       "parked": 3,
-      "partial": 2
+      "partial": 1
     },
     "byCategory": {
       "competitive-reference": 2,
@@ -636,15 +636,6 @@
           "OPERATOR-INBOX #2"
         ],
         "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
-      },
-      {
-        "id": "competitive-sweep",
-        "status": "partial",
-        "missingKeys": [
-          "opyn-docs-official-review"
-        ],
-        "blocks": [],
-        "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
       }
     ],
     "duplicateRequirementIds": [],
@@ -652,8 +643,8 @@
   },
   "competitiveSweepCoverage": {
     "status": "competitive-sweep-batch-01",
-    "completionReady": false,
-    "completionStatusReason": "The official-docs batch has an authored synthesis page, but Opyn remains unresolved because the official URL was not crawlable and no operator exclusion/replacement decision has been recorded.",
+    "completionReady": true,
+    "completionStatusReason": "The official-docs batch has an authored synthesis page. Opyn remains 1/50 unreviewed from official docs, but the operator excluded Opyn because it shut down, so the launch benchmark is complete at 49/50 with the exclusion documented.",
     "targetDocs": 50,
     "targetDocsReviewed": 49,
     "targetDocsUnverified": 1,
@@ -1060,7 +1051,7 @@
     "evalHarnessReady": true,
     "runtimeImplemented": true,
     "llmProductionReady": false,
-    "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented and the OpenAI-compatible provider policy is approved, but model/API key installation, live model response validation, server persistence, remaining operator source decisions, and Discord/Lafa import are not complete.",
+    "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, OpenAI-compatible provider policy is approved, and a recorded gpt-4.1-mini live eval passed; production readiness remains false until service-environment model/API-key installation, server persistence, remaining operator source decisions, and Discord/Lafa import are complete.",
     "provider": {
       "policy": "openai-compatible",
       "runtimeSelection": "Use OpenAI through the OpenAI-compatible chat-completions runtime. Model id and API key must come from service environment variables.",
@@ -1365,7 +1356,7 @@
       }
     },
     "warnings": [
-      "LLM production readiness is intentionally false until model credentials, live validation, persistence, and remaining source-ingestion decisions are complete."
+      "LLM production readiness is intentionally false until service credentials are installed in the production environment, persistence is wired, remaining source-ingestion decisions are complete, and Discord/Lafa import is complete."
     ]
   },
   "answerValidationCoverage": {
@@ -2070,8 +2061,8 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 6,
-      "partial": 7,
+      "complete": 8,
+      "partial": 5,
       "parked": 4,
       "missing": 1
     },
@@ -2131,19 +2122,13 @@
       {
         "id": "revenue-volume-points-reference",
         "status": "partial",
-        "nextAction": "Resume final revenue/economics wording when the operator fills inbox item #1.",
-        "blocks": []
-      },
-      {
-        "id": "referral-depth-reconciliation",
-        "status": "partial",
-        "nextAction": "Resume final referral/rewards wording when the operator fills inbox item #3.",
+        "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
         "blocks": []
       },
       {
         "id": "answer-engine-front-door",
         "status": "partial",
-        "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
+        "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
         "blocks": []
       },
       {
@@ -2170,12 +2155,6 @@
           "OPERATOR-INBOX #6",
           "OPERATOR-INBOX #7"
         ]
-      },
-      {
-        "id": "competitive-docs-sweep",
-        "status": "partial",
-        "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
-        "blocks": []
       },
       {
         "id": "phase-zero-platform",
@@ -2241,7 +2220,7 @@
       },
       {
         "id": "G-002",
-        "title": "25-Agent Competitive Sweep Is Not Complete"
+        "title": "Competitive Sweep Opyn Target Is Excluded"
       },
       {
         "id": "G-002A",
@@ -2249,11 +2228,11 @@
       },
       {
         "id": "G-003",
-        "title": "Referral Depth Is Contradictory"
+        "title": "Referral Depth Was Contradictory, Now Resolved"
       },
       {
         "id": "G-004",
-        "title": "Revenue Phase A Versus Phase B Needs Public Wording"
+        "title": "Revenue Phase A Versus Phase B Public Wording Is Resolved For v1"
       },
       {
         "id": "G-005",
@@ -2277,7 +2256,7 @@
       },
       {
         "id": "G-010",
-        "title": "Production Answer Engine Needs A Build/Buy Decision"
+        "title": "Production Answer Engine Build Decision Is Resolved; Service Hardening Remains"
       },
       {
         "id": "G-011",
@@ -2352,15 +2331,6 @@
           "OPERATOR-INBOX #2"
         ],
         "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
-      },
-      {
-        "id": "competitive-sweep",
-        "status": "partial",
-        "missingKeys": [
-          "opyn-docs-official-review"
-        ],
-        "blocks": [],
-        "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
       }
     ],
     "crosslinkMissingExplicitRelatedPageIds": [],
@@ -2402,19 +2372,13 @@
         "id": "revenue-volume-points-reference",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Resume final revenue/economics wording when the operator fills inbox item #1."
-      },
-      {
-        "id": "referral-depth-reconciliation",
-        "status": "partial",
-        "blocks": [],
-        "nextAction": "Resume final referral/rewards wording when the operator fills inbox item #3."
+        "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1."
       },
       {
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection."
+        "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform."
       },
       {
         "id": "living-docs-loop",
@@ -2440,12 +2404,6 @@
           "OPERATOR-INBOX #7"
         ],
         "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
-      },
-      {
-        "id": "competitive-docs-sweep",
-        "status": "partial",
-        "blocks": [],
-        "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete."
       },
       {
         "id": "phase-zero-platform",

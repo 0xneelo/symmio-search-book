@@ -36,7 +36,7 @@ The LLM must refuse or create a gap event when:
 - no grounded context exists;
 - the question asks for secrets, private credentials, personal trading advice, or unsupported economics;
 - a topic is parked in `OPERATOR-INBOX.md`;
-- a source family such as Discord, Notion, SuperFlow/SSHE, Opyn, or the original whitepaper is missing;
+- a source family such as Discord, Notion, SuperFlow/SSHE, or the original whitepaper is missing, or a source family such as Opyn has been explicitly excluded;
 - the answer would depend on internal-draft pages.
 
 ## Generated Proof
@@ -47,9 +47,9 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-29 live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, at an estimated cost of $0.0188763. `llmProductionReady` intentionally remains false until service-environment credentials, server persistence, remaining operator source decisions, and Discord/Lafa import are complete.
 
-The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should run those checks against actual model responses before production launch.
+The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 
 ## Runtime Harness
 
@@ -59,7 +59,7 @@ Run a grounded local answer without a model call:
 node src/search-book/scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --json
 ```
 
-Run model-backed synthesis only after OPERATOR-INBOX item #11 is resolved and these environment variables are set:
+Run model-backed synthesis only when these environment variables are set in the runtime environment:
 
 ```sh
 SEARCH_BOOK_LLM_API_STYLE=openai-compatible
@@ -69,4 +69,4 @@ SEARCH_BOOK_LLM_API_KEY=<approved key>
 SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
 ```
 
-Without that approved runtime configuration, `--mode llm` fails closed instead of sending private source context to an unapproved provider.
+Without that approved runtime configuration, `--mode llm` fails closed instead of sending private source context to an unapproved provider. Local live credentials may exist in a gitignored env file for evaluation; production still needs the same values installed in the service environment.

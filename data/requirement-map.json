@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 6,
-    "partial": 7,
+    "complete": 8,
+    "partial": 5,
     "parked": 4,
     "missing": 1
   },
@@ -120,23 +120,23 @@
         "08",
         "09"
       ],
-      "evidence": "Authored revenue, network-volume, points, and dashboard pages exist; public revenue disclosure boundary remains open.",
+      "evidence": "Authored revenue, network-volume, points, and dashboard pages exist; operator-approved v1 public revenue is Phase A only: networkVolume × platformFeeRate × referrerPlatformShare, defaults 0.05% / 5 bps fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
       "blocks": [],
-      "nextAction": "Resume final revenue/economics wording when the operator fills inbox item #1."
+      "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1."
     },
     {
       "id": "referral-depth-reconciliation",
       "label": "Referral-depth contradiction reconciled",
-      "status": "partial",
+      "status": "complete",
       "category": "reference",
       "sourceSpecs": [
         "01",
         "03",
         "08"
       ],
-      "evidence": "Referral-depth evidence is logged and an authored open-question page exists; public stance remains unresolved.",
+      "evidence": "Referral-depth public stance is resolved: public depth is 15 levels, and historical backfill is additive and never lowers a balance.",
       "blocks": [],
-      "nextAction": "Resume final referral/rewards wording when the operator fills inbox item #3."
+      "nextAction": "Keep generated routes, dashboard copy, and validation fixtures aligned to 15-level additive-backfill wording."
     },
     {
       "id": "answer-engine-front-door",
@@ -149,9 +149,9 @@
         "06",
         "09"
       ],
-      "evidence": "775 seeded routes, 2816 retrieval chunks, 775/775 exact-route tests, 4/4 refusal tests, static Ask UI routes to exact pages",
+      "evidence": "775 seeded routes, 2816 retrieval chunks, 775/775 exact-route tests, 4/4 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true",
       "blocks": [],
-      "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection."
+      "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform."
     },
     {
       "id": "answer-engine-contracts-and-evals",
@@ -163,9 +163,9 @@
         "08",
         "11"
       ],
-      "evidence": "deterministicReady=true; LLM API contract ready; adversarial cases 15/15; answer-validation fixtures 27/27",
+      "evidence": "deterministicReady=true; LLM API contract ready; adversarial cases 15/15; answer-validation fixtures 27/27; recorded live LLM eval 42/42 on gpt-4.1-mini",
       "blocks": [],
-      "nextAction": "Run the validation harness against actual model responses once the runtime endpoint exists."
+      "nextAction": "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict."
     },
     {
       "id": "living-docs-loop",
@@ -237,7 +237,7 @@
         "07",
         "08"
       ],
-      "evidence": "124 registered sources; 100 source keys used in retrieval chunks; source-ingestion coverage 12/17 complete, 2 partial, 3 parked, 0 missing",
+      "evidence": "124 registered sources; 100 source keys used in retrieval chunks; source-ingestion coverage 13/17 complete, 1 partial, 3 parked, 0 missing",
       "blocks": [
         "OPERATOR-INBOX #2",
         "OPERATOR-INBOX #5",
@@ -249,14 +249,14 @@
     {
       "id": "competitive-docs-sweep",
       "label": "25-lane competitive docs sweep synthesized",
-      "status": "partial",
+      "status": "complete",
       "category": "sourcing",
       "sourceSpecs": [
         "07"
       ],
       "evidence": "49/50 official docs verified, 1 unverified, 5 explorer batches, 25/25 lanes",
       "blocks": [],
-      "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete."
+      "nextAction": "Keep the 49/50 sweep plus Opyn exclusion documented; rerun the benchmark periodically after launch."
     },
     {
       "id": "phase-zero-platform",
@@ -267,7 +267,7 @@
         "08",
         "10"
       ],
-      "evidence": "Operator inbox still carries production platform/repo and public economics transparency decisions.",
+      "evidence": "Backend architecture and economics transparency are decided, but the public frontend platform/repo/deploy route remains open.",
       "blocks": [
         "OPERATOR-INBOX #4"
       ],
@@ -332,19 +332,13 @@
     {
       "id": "revenue-volume-points-reference",
       "status": "partial",
-      "nextAction": "Resume final revenue/economics wording when the operator fills inbox item #1.",
-      "blocks": []
-    },
-    {
-      "id": "referral-depth-reconciliation",
-      "status": "partial",
-      "nextAction": "Resume final referral/rewards wording when the operator fills inbox item #3.",
+      "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
       "blocks": []
     },
     {
       "id": "answer-engine-front-door",
       "status": "partial",
-      "nextAction": "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
+      "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
       "blocks": []
     },
     {
@@ -371,12 +365,6 @@
         "OPERATOR-INBOX #6",
         "OPERATOR-INBOX #7"
       ]
-    },
-    {
-      "id": "competitive-docs-sweep",
-      "status": "partial",
-      "nextAction": "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
-      "blocks": []
     },
     {
       "id": "phase-zero-platform",

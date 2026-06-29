@@ -75,17 +75,17 @@ Local implementation currently supports:
 
 ### Referral Depth
 
-The docs cannot yet publish one final answer for referral depth.
+The docs can publish the resolved v1 answer for referral depth.
 
 Evidence:
 
 - `server/points.js` default config is 5 levels and supports 15.
 - `server/routes/me.js` uses configured depth for network and volume aggregation.
-- `src/dashboard/volume.jsx` still has 5-level language.
+- Older `src/dashboard/volume.jsx` copy had 5-level language.
 - `src/dashboard/faq.jsx` says rewards count across 15 levels.
 - Linear rollout notes describe a 15-level rollout and append-only backfill.
 
-Current handling: all referral-depth pages are marked `needs-reconciliation` or tied to `G-003`.
+Current handling: public copy says referral depth is 15 levels. Historical backfill is additive and never lowers a balance. Older 5-level references remain useful only as evidence of the resolved contradiction.
 
 ### Revenue
 

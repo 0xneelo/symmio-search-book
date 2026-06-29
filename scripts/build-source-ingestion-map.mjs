@@ -219,9 +219,12 @@ const competitiveSweepHasBatch =
   (competitiveSweep.targetDocs || 0) >= 50 &&
   (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
   (competitiveSweep.completedExplorerBatches || 0) >= 5;
+const competitiveSweepExcludedTargetIds = new Set(competitiveSweep.excludedTargetIds || []);
+const competitiveSweepReviewedOrExcluded =
+  (competitiveSweep.targetDocsReviewed || 0) + competitiveSweepExcludedTargetIds.size;
 const competitiveSweepMissingKeys = [
   ...competitiveSweepSourceStatus.missing,
-  ...((competitiveSweep.targetDocsReviewed || 0) < (competitiveSweep.targetDocs || 0) ? ["opyn-docs-official-review"] : []),
+  ...(competitiveSweepReviewedOrExcluded < (competitiveSweep.targetDocs || 0) ? ["opyn-docs-official-review"] : []),
 ];
 const competitiveSweepBlockedByOperator =
   competitiveSweepMissingKeys.includes("opyn-docs-official-review") && inboxHas(openInboxItems, 8);
@@ -413,12 +416,15 @@ const requirements = [
     presentKeys: competitiveSweepSourceStatus.present,
     missingKeys: competitiveSweepMissingKeys,
     evidence: competitiveSweepHasBatch
-      ? `${competitiveSweep.targetDocs || 0} target docs across ${competitiveSweep.plannedAgentLanes || 0} lanes; ${competitiveSweep.completedExplorerBatches || 0} explorer batches returned; ${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} docs verified, ${competitiveSweep.targetDocsUnverified || 0} unverified.`
+      ? `${competitiveSweep.targetDocs || 0} target docs across ${competitiveSweep.plannedAgentLanes || 0} lanes; ${competitiveSweep.completedExplorerBatches || 0} explorer batches returned; ${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} docs verified, ${competitiveSweep.targetDocsExcluded || 0} excluded, ${competitiveSweep.targetDocsUnverified || 0} unverified.`
       : hasGap(gapMarkdown, "G-002")
         ? "G-002 records that the competitive sweep is not complete."
         : "No competitive-sweep gap is registered.",
     blocks: competitiveSweepBlockedByOperator ? ["OPERATOR-INBOX #8"] : [],
-    nextAction: "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete.",
+    nextAction:
+      competitiveSweep.completionReady && competitiveSweepSourceStatus.complete
+        ? "Keep the 49/50 competitive sweep and Opyn exclusion documented; rerun the benchmark after major source or positioning changes."
+        : "Resolve any unreviewed competitive target or record an operator exclusion/replacement decision before claiming the sweep complete.",
   }),
   sourceReq({
     id: "authored-derived-pages",

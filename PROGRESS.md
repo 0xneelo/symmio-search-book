@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Production Readiness State Alignment
+
+- Updated the production-readiness roadmap and generated completion logic to match the current Search Book state after live OpenAI-backed RAG validation.
+- Recorded the 2026-06-29 live `gpt-4.1-mini` eval in the LLM RAG contract: 42/42 total fixtures passed, 15/15 adversarial cases, 27/27 answer-validation cases, 19 measured calls, 92,842 input tokens, 8,250 output tokens, and $0.0188763 estimated cost.
+- Marked the competitive sweep as launch-complete at 49/50 with Opyn explicitly excluded because it shut down, without using mirrors or third-party snippets.
+- Updated the requirement map wording so Phase A revenue and 15-level referral depth are no longer treated as unresolved operator decisions, while production service persistence, public frontend deploy route, Discord/Lafa import, Notion ingestion, oldest whitepaper recovery, and SSHE identification remain open.
+
 ## 2026-06-29 — Runtime Glossary Routing
 
 - Added executable glossary lookup to the answer-engine runtime so definition-style term and alias queries use `data/glossary.json` before broad retrieval.

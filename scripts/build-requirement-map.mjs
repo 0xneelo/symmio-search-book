@@ -163,6 +163,12 @@ const llmContractReady =
   llmRagContract.llmProductionReady === false &&
   (llmRagAdversarial.totalCases || 0) >= 12 &&
   (llmRagAdversarial.passingCases || 0) === (llmRagAdversarial.totalCases || 0);
+const liveLlmEvaluation = llmRagContract.liveEvaluation || {};
+const liveLlmValidationReady =
+  liveLlmEvaluation.status === "passed" &&
+  (liveLlmEvaluation.suites?.total?.passing || 0) === (liveLlmEvaluation.suites?.total?.total || 0) &&
+  (liveLlmEvaluation.suites?.total?.total || 0) >=
+    (llmRagAdversarial.totalCases || 0) + (answerValidationCoverage.totalFixtures || 0);
 const answerValidationReady =
   answerValidationReport.reportReady === true &&
   (answerValidationCoverage.totalFixtures || 0) >= 20 &&
@@ -233,19 +239,27 @@ const requirements = [
     status: inboxHas(openInboxItems, 1) ? "parked" : "partial",
     category: "reference",
     sourceSpecs: ["01", "03", "08", "09"],
-    evidence: "Authored revenue, network-volume, points, and dashboard pages exist; public revenue disclosure boundary remains open.",
+    evidence: inboxHas(openInboxItems, 1)
+      ? "Authored revenue, network-volume, points, and dashboard pages exist; public revenue disclosure boundary would need operator input before publication."
+      : "Authored revenue, network-volume, points, and dashboard pages exist; operator-approved v1 public revenue is Phase A only: networkVolume × platformFeeRate × referrerPlatformShare, defaults 0.05% / 5 bps fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
     blocks: inboxHas(openInboxItems, 1) ? ["OPERATOR-INBOX #1"] : [],
-    nextAction: "Resume final revenue/economics wording when the operator fills inbox item #1.",
+    nextAction: inboxHas(openInboxItems, 1)
+      ? "Resume final revenue/economics wording when the operator fills inbox item #1."
+      : "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
   }),
   req({
     id: "referral-depth-reconciliation",
     label: "Referral-depth contradiction reconciled",
-    status: inboxHas(openInboxItems, 3) ? "parked" : "partial",
+    status: inboxHas(openInboxItems, 3) ? "parked" : "complete",
     category: "reference",
     sourceSpecs: ["01", "03", "08"],
-    evidence: "Referral-depth evidence is logged and an authored open-question page exists; public stance remains unresolved.",
+    evidence: inboxHas(openInboxItems, 3)
+      ? "Referral-depth evidence is logged and an authored open-question page exists; public stance would need operator input before publication."
+      : "Referral-depth public stance is resolved: public depth is 15 levels, and historical backfill is additive and never lowers a balance.",
     blocks: inboxHas(openInboxItems, 3) ? ["OPERATOR-INBOX #3"] : [],
-    nextAction: "Resume final referral/rewards wording when the operator fills inbox item #3.",
+    nextAction: inboxHas(openInboxItems, 3)
+      ? "Resume final referral/rewards wording when the operator fills inbox item #3."
+      : "Keep generated routes, dashboard copy, and validation fixtures aligned to 15-level additive-backfill wording.",
   }),
   req({
     id: "answer-engine-front-door",
@@ -253,17 +267,17 @@ const requirements = [
     status: deterministicAnswerEngineReady && answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "05", "06", "09"],
-    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages`,
-    nextAction: "Implement the production runtime behind the LLM RAG contract after platform/backend selection.",
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}`,
+    nextAction: "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
   }),
   req({
     id: "answer-engine-contracts-and-evals",
     label: "Answer-engine contracts, adversarial evals, and response validator",
-    status: deterministicAnswerEngineReady && llmContractReady && answerValidationReady ? "complete" : "partial",
+    status: deterministicAnswerEngineReady && llmContractReady && answerValidationReady && liveLlmValidationReady ? "complete" : "partial",
     category: "answer-engine",
     sourceSpecs: ["06", "08", "11"],
-    evidence: `deterministicReady=${answerEngineContract.deterministicReady === true}; LLM API contract ${llmRagContract.apiContractReady === true ? "ready" : "not-ready"}; adversarial cases ${llmRagAdversarial.passingCases || 0}/${llmRagAdversarial.totalCases || 0}; answer-validation fixtures ${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0}`,
-    nextAction: "Run the validation harness against actual model responses once the runtime endpoint exists.",
+    evidence: `deterministicReady=${answerEngineContract.deterministicReady === true}; LLM API contract ${llmRagContract.apiContractReady === true ? "ready" : "not-ready"}; adversarial cases ${llmRagAdversarial.passingCases || 0}/${llmRagAdversarial.totalCases || 0}; answer-validation fixtures ${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0}; recorded live LLM eval ${liveLlmEvaluation.suites?.total?.passing || 0}/${liveLlmEvaluation.suites?.total?.total || 0} on ${liveLlmEvaluation.model || "unrecorded-model"}`,
+    nextAction: "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict.",
   }),
   req({
     id: "living-docs-loop",
@@ -343,16 +357,20 @@ const requirements = [
     sourceSpecs: ["07"],
     evidence: `${competitiveSweep.targetDocsReviewed || 0}/${competitiveSweep.targetDocs || 0} official docs verified, ${competitiveSweep.targetDocsUnverified || 0} unverified, ${competitiveSweep.completedExplorerBatches || 0} explorer batches, ${competitiveSweep.completedLaneReviews || 0}/${competitiveSweep.plannedAgentLanes || 0} lanes`,
     blocks: inboxHas(openInboxItems, 8) && !competitiveSweep.completionReady ? ["OPERATOR-INBOX #8"] : [],
-    nextAction: "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
+    nextAction: competitiveSweep.completionReady
+      ? "Keep the 49/50 sweep plus Opyn exclusion documented; rerun the benchmark periodically after launch."
+      : "Resolve or explicitly exclude the unverified Opyn target before claiming the competitive sweep complete.",
   }),
   req({
     id: "phase-zero-platform",
     label: "Platform, repository, and transparency decisions locked",
-    status: inboxHas(openInboxItems, 4) || inboxHas(openInboxItems, 1) ? "parked" : "partial",
+    status: inboxHas(openInboxItems, 4) ? "parked" : "partial",
     category: "production",
     sourceSpecs: ["08", "10"],
-    evidence: "Operator inbox still carries production platform/repo and public economics transparency decisions.",
-    blocks: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #1"].filter((label) => openInboxItems.some((item) => label.endsWith(`#${item.id}`))),
+    evidence: inboxHas(openInboxItems, 4)
+      ? "Backend architecture and economics transparency are decided, but the public frontend platform/repo/deploy route remains open."
+      : "Backend architecture, economics transparency, and public frontend platform/repo/deploy route are decided.",
+    blocks: inboxHas(openInboxItems, 4) ? ["OPERATOR-INBOX #4"] : [],
     nextAction: "Resume final scaffold/deploy implementation when platform/repo and transparency items are resolved.",
   }),
   req({

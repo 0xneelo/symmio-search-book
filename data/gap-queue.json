@@ -51,14 +51,14 @@
     {
       "id": "queue-g-010",
       "gapId": "G-010",
-      "title": "Production Answer Engine Needs A Build/Buy Decision",
+      "title": "Production Answer Engine Build Decision Is Resolved; Service Hardening Remains",
       "type": "documented-gap",
       "status": "operator-parked",
       "priority": "P0",
       "priorityScore": 124,
       "category": "Production Answer Engine",
-      "summary": "The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.",
-      "needed": "Platform decision and implementation plan.",
+      "summary": "The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, and live gpt-4.1-mini evaluation are implemented in the current runtime harness. Production still needs service deployment, persistence, rate limits, abuse controls, analytics retention, and gap triage workflow.",
+      "needed": "Public frontend platform/deploy route, production service environment, datastore integration, and operational hardening.",
       "sourceKeys": [
         "spec-06",
         "spec-08"
@@ -194,14 +194,14 @@
     {
       "id": "queue-g-003",
       "gapId": "G-003",
-      "title": "Referral Depth Is Contradictory",
+      "title": "Referral Depth Was Contradictory, Now Resolved",
       "type": "documented-gap",
       "status": "open",
       "priority": "P0",
       "priorityScore": 108,
       "category": "Rewards And Referrals",
       "summary": "Evidence found:",
-      "needed": "Product decision on what a public user sees today, what the system currently runs in production, and how historical points are treated.",
+      "needed": "",
       "sourceKeys": [
         "spec-03",
         "server-points",
@@ -348,14 +348,14 @@
     {
       "id": "queue-g-004",
       "gapId": "G-004",
-      "title": "Revenue Phase A Versus Phase B Needs Public Wording",
+      "title": "Revenue Phase A Versus Phase B Public Wording Is Resolved For v1",
       "type": "documented-gap",
       "status": "open",
       "priority": "P0",
       "priorityScore": 100,
       "category": "Revenue",
       "summary": "Phase A is implemented as estimated revenue from network volume, configurable platform fee, and referrer share. Phase B issues describe per-venue platform revenue, VibeCaps LP profit share, liquidation display, funding, solver data, and points farmed.",
-      "needed": "Decide which Phase B items are public roadmap, internal roadmap, or already live but not surfaced.",
+      "needed": "",
       "sourceKeys": [
         "spec-03",
         "local-revenue-doc",
@@ -939,14 +939,14 @@
     {
       "id": "queue-g-002",
       "gapId": "G-002",
-      "title": "25-Agent Competitive Sweep Is Not Complete",
+      "title": "Competitive Sweep Opyn Target Is Excluded",
       "type": "documented-gap",
       "status": "open",
       "priority": "P2",
       "priorityScore": 40,
       "category": "Research Sweep",
-      "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. It is still not complete because the official Opyn docs URL was not crawlable in the returned batch or the follow-up web check.",
-      "needed": "Operator-provided official Opyn source access, replacement target, or exclusion decision without relying on mirrors or third-party snippets.",
+      "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. The only unreviewed official-doc target is Opyn; the operator excluded Opyn because it shut down, so the launch benchmark remains a documented 49/50 sweep rather than using mirrors or third-party snippets.",
+      "needed": "",
       "sourceKeys": [
         "spec-07",
         "competitive-sweep-batch-01",
@@ -963,7 +963,7 @@
         {
           "key": "competitive-sweep-batch-01",
           "group": "Competitive Context",
-          "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, and the unresolved Opyn access gap.",
+          "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
           "href": "../../src/search-book/data/competitive-sweep.json",
           "missing": false
         },

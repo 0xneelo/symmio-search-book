@@ -250,19 +250,19 @@
 
 ## D-032: Track The Competitive Sweep As Batch Evidence Until Synthesized
 
-**Decision:** Generate `data/competitive-sweep.*` as the source of truth for the official-docs benchmark: 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one Opyn access gap. Do not mark the competitive sweep complete until the final sourced synthesis is written and the unverified official-doc target is resolved or explicitly excluded.
+**Decision:** Generate `data/competitive-sweep.*` as the source of truth for the official-docs benchmark: 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one Opyn exclusion. The sweep can be launch-complete at 49/50 because the operator explicitly excluded Opyn after it shut down; do not use mirrors or third-party snippets to fill that slot.
 
 **Reason:** The prompt requires a broad competitive sweep, but the compendium should not pretend that a target list or returned notes equal a publication-ready synthesis. The batch artifact preserves real progress and exact gaps while keeping source ingestion honest.
 
-**Status:** Accepted for research completeness tracking.
+**Status:** Accepted for research completeness tracking; updated 2026-06-29 after Opyn exclusion.
 
 ## D-033: Promote Competitive Benchmark Findings Into Authored Guidance
 
-**Decision:** Add `authored-competitive-docs-benchmark` as the publication-candidate synthesis of the verified competitive docs batch, and register `competitive-sweep-synthesis` as a local source artifact. Keep Opyn parked behind `OPERATOR-INBOX #8` instead of using unofficial substitutes.
+**Decision:** Add `authored-competitive-docs-benchmark` as the publication-candidate synthesis of the verified competitive docs batch, and register `competitive-sweep-synthesis` as a local source artifact. Keep the Opyn exclusion explicit instead of using unofficial substitutes.
 
-**Reason:** The compendium needs the benchmark to change the IA and answer-engine requirements, not just sit as raw research data. The authored page turns the sweep into concrete guidance while preserving source honesty around the one inaccessible official target.
+**Reason:** The compendium needs the benchmark to change the IA and answer-engine requirements, not just sit as raw research data. The authored page turns the sweep into concrete guidance while preserving source honesty around the one excluded target.
 
-**Status:** Accepted for the authored layer and research completeness tracking.
+**Status:** Accepted for the authored layer and research completeness tracking; updated 2026-06-29 after Opyn exclusion.
 
 ## D-034: Separate Options Lifecycle Mechanics From Vibe Vault Claims
 
@@ -1671,3 +1671,11 @@
 **Reason:** The docs need Discord-seeded FAQ and Lafa answers, but guessing community answers would violate the primary-source rule. Tooling can be built now without pretending the corpus exists. The importer supports export JSON/JSONL and Discord REST fetches, but generated public artifacts omit message text unless a citation/paraphrase mode is explicitly approved.
 
 **Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord must still refuse until the corpus is imported and reviewed.
+
+## D-210: Treat Live LLM Eval As Runtime Evidence, Not Production Readiness
+
+**Decision:** Record the 2026-06-29 OpenAI `gpt-4.1-mini` live eval in the LLM RAG contract and requirement map, while keeping `llmProductionReady=false` until production service environment, persistence, source-ingestion, and deployment work are complete.
+
+**Reason:** The runtime has now proven real model-backed cited answers against the strict validator: 42/42 total live fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases. That should remove the stale "live validation pending" blocker. It must not imply the public service is launched, because the standalone answer-engine service, SQLite event persistence, rate limits, production env installation, public frontend platform, and Discord/Lafa source import are still open.
+
+**Status:** Accepted for production-readiness tracking. Future provider/model changes must rerun the same live eval suite before deployment.

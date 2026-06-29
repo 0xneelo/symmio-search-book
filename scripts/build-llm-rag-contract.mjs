@@ -333,6 +333,27 @@ const apiContractReady =
   linkedSourceKeys.length > 0 &&
   unknownContextSourceKeys.length === 0 &&
   evalHarnessReady;
+const recordedLiveEvaluation = {
+  status: "passed",
+  verifiedAt: "2026-06-29",
+  issueId: "SYN-215",
+  provider: "OpenAI",
+  model: "gpt-4.1-mini",
+  suites: {
+    adversarial: { passing: 15, total: 15 },
+    answerValidation: { passing: 27, total: 27 },
+    total: { passing: 42, total: 42 },
+  },
+  measuredUsage: {
+    calls: 19,
+    inputTokens: 92842,
+    outputTokens: 8250,
+    estimatedCostUsd: 0.0188763,
+    pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
+  },
+  notes:
+    "Live eval exercised the OpenAI-compatible runtime with structured JSON outputs, citation validation, adversarial refusals, and answer-validation fixtures. This is runtime evidence, not a deployed-service readiness claim.",
+};
 
 const payload = {
   generatedAt: "deterministic-build",
@@ -343,8 +364,9 @@ const payload = {
   runtimeImplemented,
   llmProductionReady: false,
   reasonLlmProductionReadyIsFalse: runtimeImplemented
-    ? "Runtime harness is implemented and the OpenAI-compatible provider policy is approved, but model/API key installation, live model response validation, server persistence, remaining operator source decisions, and Discord/Lafa import are not complete."
+    ? "Runtime harness is implemented, OpenAI-compatible provider policy is approved, and a recorded gpt-4.1-mini live eval passed; production readiness remains false until service-environment model/API-key installation, server persistence, remaining operator source decisions, and Discord/Lafa import are complete."
     : "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, remaining operator source decisions, and Discord/Lafa import are not complete.",
+  liveEvaluation: recordedLiveEvaluation,
   provider: {
     policy: "openai-compatible",
     runtimeSelection: "Use OpenAI through the OpenAI-compatible chat-completions runtime. Model id and API key must come from service environment variables.",
@@ -491,7 +513,7 @@ const payload = {
   },
   warnings: [
     ...(apiContractReady ? [] : ["LLM RAG API contract is not ready; inspect coverage and adversarial failures."]),
-    "LLM production readiness is intentionally false until model credentials, live validation, persistence, and remaining source-ingestion decisions are complete.",
+    "LLM production readiness is intentionally false until service credentials are installed in the production environment, persistence is wired, remaining source-ingestion decisions are complete, and Discord/Lafa import is complete.",
   ],
 };
 

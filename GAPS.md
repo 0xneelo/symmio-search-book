@@ -8,11 +8,11 @@ The repository now has `src/search-book/scripts/build-discord-corpus.mjs` and ge
 
 **Needed:** Discord export or channel/API access, channel list, date range, Lafa author identity, and permission to cite, paraphrase, use internally, or exclude the corpus.
 
-## G-002: 25-Agent Competitive Sweep Is Not Complete
+## G-002: Competitive Sweep Opyn Target Is Excluded
 
-The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. It is still not complete because the official Opyn docs URL was not crawlable in the returned batch or the follow-up web check.
+The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. The only unreviewed official-doc target is Opyn; the operator excluded Opyn because it shut down, so the launch benchmark remains a documented 49/50 sweep rather than using mirrors or third-party snippets.
 
-**Needed:** Operator-provided official Opyn source access, replacement target, or exclusion decision without relying on mirrors or third-party snippets.
+**Disposition:** Resolved for v1 by documented exclusion. Keep the 49/50 benchmark and exclusion visible; replace or rerun this lane only in a future benchmark refresh.
 
 ## G-002A: 500-800 Page Manifest Is Mapped, Not Fully Authored
 
@@ -22,23 +22,23 @@ The latest Symmio contract-builder pass also adds authored coverage for the prot
 
 **Needed:** Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.
 
-## G-003: Referral Depth Is Contradictory
+## G-003: Referral Depth Was Contradictory, Now Resolved
 
 Evidence found:
 
 - `server/points.js` has a default referral depth of 5 and supports config values up to 15.
 - `server/routes/me.js` uses configured depth for network and volume aggregation.
-- `src/dashboard/volume.jsx` still carries 5-level language.
+- Older dashboard copy carried 5-level language.
 - `src/dashboard/faq.jsx` says referral points and rewards count across 15 levels.
 - Linear rollout notes describe a 15-level schedule and backfill.
 
-**Needed:** Product decision on what a public user sees today, what the system currently runs in production, and how historical points are treated.
+**Disposition:** Resolved for v1. Public referral depth is 15 levels. Historical backfill is additive and never lowers a balance.
 
-## G-004: Revenue Phase A Versus Phase B Needs Public Wording
+## G-004: Revenue Phase A Versus Phase B Public Wording Is Resolved For v1
 
 Phase A is implemented as estimated revenue from network volume, configurable platform fee, and referrer share. Phase B issues describe per-venue platform revenue, VibeCaps LP profit share, liquidation display, funding, solver data, and points farmed.
 
-**Needed:** Decide which Phase B items are public roadmap, internal roadmap, or already live but not surfaced.
+**Disposition:** Resolved for v1. Publish the Phase A formula `networkVolume × platformFeeRate × referrerPlatformShare` with defaults `0.05%` / `5 bps` platform fee and `30%` referrer platform share. Phase B economics are out of scope for v1 and should continue to refuse in answer validation.
 
 ## G-005: Subgraph Migration Is Not Implemented In This Repo
 
@@ -78,11 +78,11 @@ Terms like VibeCaps, network revenue, referral commission, Vibe points, trading 
 
 **Needed:** Canonical glossary approval.
 
-## G-010: Production Answer Engine Needs A Build/Buy Decision
+## G-010: Production Answer Engine Build Decision Is Resolved; Service Hardening Remains
 
-The prototype proves the interaction pattern only. Production still needs retrieval strategy, source chunking, answer citations, rate limits, abuse controls, analytics retention, and gap triage workflow.
+The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, and live `gpt-4.1-mini` evaluation are implemented in the current runtime harness. Production still needs service deployment, persistence, rate limits, abuse controls, analytics retention, and gap triage workflow.
 
-**Needed:** Platform decision and implementation plan.
+**Needed:** Public frontend platform/deploy route, production service environment, datastore integration, and operational hardening.
 
 ## G-011: Vibe Trading Notion Is Not Ingested
 

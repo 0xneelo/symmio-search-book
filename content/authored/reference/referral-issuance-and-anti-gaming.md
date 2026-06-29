@@ -37,7 +37,7 @@ The docs should frame referral-code scarcity as a quality-control mechanism, not
 
 - `vibe-papers`: Neelo, "Section 5: Referral Economics".
 - `vibe-papers`: Neelo, "Section 6: Access Phasing".
-- `spec-03`: Referral public stance remains unresolved.
+- `spec-03`: Historical referral-depth contradiction; public v1 stance is now 15 levels with additive backfill.
 
 ## Related Pages
 

@@ -4,9 +4,9 @@
   "sourceCompletionReady": false,
   "totalSourceRequirements": 17,
   "byStatus": {
-    "complete": 12,
+    "complete": 13,
     "parked": 3,
-    "partial": 2
+    "partial": 1
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -400,7 +400,7 @@
     {
       "id": "competitive-sweep",
       "label": "25-sub-agent competitive documentation sweep",
-      "status": "partial",
+      "status": "complete",
       "category": "competitive-reference",
       "sourceSpecs": [
         "07"
@@ -409,12 +409,10 @@
         "competitive-sweep-batch-01",
         "competitive-sweep-synthesis"
       ],
-      "missingKeys": [
-        "opyn-docs-official-review"
-      ],
-      "evidence": "50 target docs across 25 lanes; 5 explorer batches returned; 49/50 docs verified, 1 unverified.",
+      "missingKeys": [],
+      "evidence": "50 target docs across 25 lanes; 5 explorer batches returned; 49/50 docs verified, 1 excluded, 1 unverified.",
       "blocks": [],
-      "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
+      "nextAction": "Keep the 49/50 competitive sweep and Opyn exclusion documented; rerun the benchmark after major source or positioning changes."
     },
     {
       "id": "authored-derived-pages",
@@ -620,15 +618,6 @@
         "OPERATOR-INBOX #2"
       ],
       "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
-    },
-    {
-      "id": "competitive-sweep",
-      "status": "partial",
-      "missingKeys": [
-        "opyn-docs-official-review"
-      ],
-      "blocks": [],
-      "nextAction": "Resolve the Opyn official-doc access gap or record an operator exclusion/replacement decision before claiming the sweep complete."
     }
   ]
 }
