@@ -325,7 +325,6 @@ const livingDocsEventCoverage = livingDocsEvents.coverage || {};
 const livingDocsFailingEventIds = livingDocsEvents.failureSummary?.failingEventIds || [];
 const livingDocsEventsReady =
   livingDocsEvents.eventContractReady === true &&
-  livingDocsEvents.datastoreImplemented === false &&
   livingDocsEvents.livingDocsProductionReady === false &&
   (livingDocsEventCoverage.totalFixtures || 0) >= 8 &&
   (livingDocsEventCoverage.passingFixtures || 0) === (livingDocsEventCoverage.totalFixtures || 0) &&

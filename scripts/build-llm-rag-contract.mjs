@@ -364,8 +364,8 @@ const payload = {
   runtimeImplemented,
   llmProductionReady: false,
   reasonLlmProductionReadyIsFalse: runtimeImplemented
-    ? "Runtime harness is implemented, OpenAI-compatible provider policy is approved, and a recorded gpt-4.1-mini live eval passed; production readiness remains false until service-environment model/API-key installation, server persistence, remaining operator source decisions, and Discord/Lafa import are complete."
-    : "Runtime model call, server persistence, citation validation execution, prompt-injection test execution, remaining operator source decisions, and Discord/Lafa import are not complete.",
+    ? "Runtime harness is implemented, OpenAI-compatible provider policy is approved, a recorded gpt-4.1-mini live eval passed, and the standalone SQLite service boundary exists; production readiness remains false until service-environment model/API-key installation, public frontend/deploy wiring, remaining operator source decisions, and Discord/Lafa import are complete."
+    : "Runtime model call, service endpoint, SQLite persistence, citation validation execution, prompt-injection test execution, remaining operator source decisions, and Discord/Lafa import are not complete.",
   liveEvaluation: recordedLiveEvaluation,
   provider: {
     policy: "openai-compatible",
@@ -513,7 +513,7 @@ const payload = {
   },
   warnings: [
     ...(apiContractReady ? [] : ["LLM RAG API contract is not ready; inspect coverage and adversarial failures."]),
-    "LLM production readiness is intentionally false until service credentials are installed in the production environment, persistence is wired, remaining source-ingestion decisions are complete, and Discord/Lafa import is complete.",
+    "LLM production readiness is intentionally false until service credentials are installed in the production environment, the public frontend/deploy route is wired, remaining source-ingestion decisions are complete, and Discord/Lafa import is complete.",
   ],
 };
 

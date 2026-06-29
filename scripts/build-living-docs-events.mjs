@@ -16,6 +16,7 @@ const defaults = {
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   outJson: path.join(searchBookRoot, "data", "living-docs-events.json"),
   outJs: path.join(searchBookRoot, "data", "living-docs-events.js"),
+  serviceScript: path.join(searchBookRoot, "scripts", "serve-answer-engine.mjs"),
 };
 
 const schemas = {
@@ -337,16 +338,37 @@ const eventContractReady =
   failingEvents.length === 0 &&
   (gapQueue.totalItems || 0) > 0 &&
   (questionRoutes.totalRoutes || 0) > 0;
+const serviceRuntimeImplemented = fs.existsSync(args.serviceScript);
+const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 
 const payload = {
   generatedAt: "deterministic-build",
-  status: "prototype-living-docs-event-contract",
-  contractVersion: "2026-06-28.v1",
+  status: "sqlite-backed-living-docs-event-contract",
+  contractVersion: "2026-06-29.v2",
   eventContractReady,
-  datastoreImplemented: false,
+  serviceRuntimeImplemented,
+  sqliteDatastoreImplemented,
+  datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
-  reasonLivingDocsProductionReadyIsFalse: "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
-  storage,
+  reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
+    ? "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
+    : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
+  storage: {
+    ...storage,
+    productionService: {
+      script: "src/search-book/scripts/serve-answer-engine.mjs",
+      adapter: "node:sqlite",
+      defaultDbEnv: "SEARCH_BOOK_ANSWER_ENGINE_DB",
+      defaultModeEnv: "SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE",
+      endpoints: [
+        "GET /health",
+        "POST /api/search-book/answer",
+        "POST /api/search-book/rating",
+        "GET /api/search-book/insights",
+      ],
+      tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
+    },
+  },
   schemas,
   requiredRuntimeBehaviors: [
     "Persist every asked question as a question event.",
@@ -356,6 +378,7 @@ const payload = {
     "Create a no-grounded-page gap when retrieval cannot cite a grounded page.",
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
+    "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
     questions: validatedQuestions,
@@ -384,8 +407,11 @@ const payload = {
   },
   productionBoundary: {
     localPrototype: "The current static prototype uses localStorage with these same event shapes.",
-    requiredNextStep: "Move events to the production datastore selected with the final docs platform/backend.",
-    blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #2"],
+    sqliteService: sqliteDatastoreImplemented
+      ? "The standalone service persists equivalent event shapes to SQLite and exposes Search Insights data over HTTP."
+      : "The standalone SQLite service is not implemented yet.",
+    requiredNextStep: "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+    blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
   },
 };
 

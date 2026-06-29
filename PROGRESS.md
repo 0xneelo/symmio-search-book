@@ -1,11 +1,18 @@
 # Progress
 
+## 2026-06-29 — Standalone Answer-Engine Service Boundary
+
+- Exported the validated Search Book answer runtime so the CLI, live eval, and service can share the same retrieval, refusal, LLM, and citation-validation path.
+- Added `src/search-book/scripts/serve-answer-engine.mjs`, a dependency-free Node HTTP service backed by SQLite tables for questions, ratings, and gaps.
+- Added service endpoints for health, answers, ratings, and Search Insights: `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, and `GET /api/search-book/insights`.
+- Kept production readiness false until the service is deployed, the public frontend is wired to it, production LLM env is installed, retention/moderation policy is defined, and Discord/Lafa plus remaining source imports are resolved.
+
 ## 2026-06-29 — Production Readiness State Alignment
 
 - Updated the production-readiness roadmap and generated completion logic to match the current Search Book state after live OpenAI-backed RAG validation.
 - Recorded the 2026-06-29 live `gpt-4.1-mini` eval in the LLM RAG contract: 42/42 total fixtures passed, 15/15 adversarial cases, 27/27 answer-validation cases, 19 measured calls, 92,842 input tokens, 8,250 output tokens, and $0.0188763 estimated cost.
 - Marked the competitive sweep as launch-complete at 49/50 with Opyn explicitly excluded because it shut down, without using mirrors or third-party snippets.
-- Updated the requirement map wording so Phase A revenue and 15-level referral depth are no longer treated as unresolved operator decisions, while production service persistence, public frontend deploy route, Discord/Lafa import, Notion ingestion, oldest whitepaper recovery, and SSHE identification remain open.
+- Updated the requirement map wording so Phase A revenue and 15-level referral depth are no longer treated as unresolved operator decisions, while public frontend deploy route, production service env/wiring, Discord/Lafa import, Notion ingestion, oldest whitepaper recovery, and SSHE identification remain open.
 
 ## 2026-06-29 — Runtime Glossary Routing
 

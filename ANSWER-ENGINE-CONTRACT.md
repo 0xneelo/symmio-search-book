@@ -38,7 +38,7 @@ Production must persist equivalent event shapes behind Search Insights. A low ra
 
 `data/living-docs-events.json` turns the feedback rules into executable fixtures for question, rating, and gap events. It validates answered questions, no-grounded-page refusals, operator-blocked refusals, low ratings, linked gap ids, and linked operator inbox ids.
 
-This proves the prototype event contract is ready while keeping `datastoreImplemented` and `livingDocsProductionReady` false until the production docs platform/backend and Discord import are resolved.
+This proves the event contract is ready. The standalone service now persists equivalent event shapes to SQLite, while `livingDocsProductionReady` remains false until deployment, frontend integration, retention/moderation policy, production LLM service env, and Discord import are resolved.
 
 ## Generated Proof
 
@@ -49,7 +49,7 @@ node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 ```
 
-The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 775 seeded exact-route tests and 4 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false even though runtime citation validation and live `gpt-4.1-mini` evals have passed, because production service persistence, source-ingestion decisions, and Discord/Lafa import are still open.
+The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 775 seeded exact-route tests and 4 refusal tests. The living-docs event contract validates 12 event fixtures across question, rating, and gap events, and `scripts/serve-answer-engine.mjs` persists the same shapes to SQLite. `llmProductionReady` intentionally remains false even though runtime citation validation and live `gpt-4.1-mini` evals have passed, because production service env, public frontend/deploy wiring, source-ingestion decisions, and Discord/Lafa import are still open.
 
 Glossary routing is now executable in the runtime harness and generated proof: 32/32 glossary route tests pass. Of those terms, 26 route to a public candidate page, 5 are retrieval-context-only until a public page is selected by chunk retrieval, and 1 is internal/blocked and must fail closed through the existing operator/refusal path.
 

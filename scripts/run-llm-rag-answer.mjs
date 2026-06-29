@@ -1378,7 +1378,18 @@ async function main() {
   console.log(args.json ? JSON.stringify(payload, null, 2) : renderHuman(response, context || { chunks: [] }));
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+export {
+  answerQuery,
+  defaults,
+  loadRuntime,
+  parseArgs,
+};
+
+if (isCli) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}

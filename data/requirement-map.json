@@ -149,9 +149,9 @@
         "06",
         "09"
       ],
-      "evidence": "775 seeded routes, 2816 retrieval chunks, 775/775 exact-route tests, 4/4 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true",
+      "evidence": "775 seeded routes, 2816 retrieval chunks, 775/775 exact-route tests, 4/4 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true, SQLite service implemented=true",
       "blocks": [],
-      "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform."
+      "nextAction": "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
     },
     {
       "id": "answer-engine-contracts-and-evals",
@@ -177,9 +177,9 @@
         "06",
         "09"
       ],
-      "evidence": "12 generated gap items, 7 operator signals, 4 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, localStorage prototype for live questions/ratings",
+      "evidence": "12 generated gap items, 7 operator signals, 4 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, localStorage prototype still present for static preview",
       "blocks": [],
-      "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection."
+      "nextAction": "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."
     },
     {
       "id": "discord-seeded-faq",
@@ -338,13 +338,13 @@
     {
       "id": "answer-engine-front-door",
       "status": "partial",
-      "nextAction": "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
+      "nextAction": "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route.",
       "blocks": []
     },
     {
       "id": "living-docs-loop",
       "status": "partial",
-      "nextAction": "Replace browser-local event storage with a production datastore after platform/backend selection.",
+      "nextAction": "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy.",
       "blocks": []
     },
     {

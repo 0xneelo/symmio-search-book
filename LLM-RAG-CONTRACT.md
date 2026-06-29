@@ -47,7 +47,7 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-29 live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, at an estimated cost of $0.0188763. `llmProductionReady` intentionally remains false until service-environment credentials, server persistence, remaining operator source decisions, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-29 live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, at an estimated cost of $0.0188763. `llmProductionReady` intentionally remains false until service-environment credentials, public frontend/deploy wiring, remaining operator source decisions, and Discord/Lafa import are complete.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 
@@ -70,3 +70,11 @@ SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
 ```
 
 Without that approved runtime configuration, `--mode llm` fails closed instead of sending private source context to an unapproved provider. Local live credentials may exist in a gitignored env file for evaluation; production still needs the same values installed in the service environment.
+
+The standalone service entrypoint is:
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
+```
+
+It calls the same runtime path as the CLI and persists question, rating, and gap events to SQLite. LLM API keys remain process environment values and are not printed or persisted.

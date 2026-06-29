@@ -1674,8 +1674,16 @@
 
 ## D-210: Treat Live LLM Eval As Runtime Evidence, Not Production Readiness
 
-**Decision:** Record the 2026-06-29 OpenAI `gpt-4.1-mini` live eval in the LLM RAG contract and requirement map, while keeping `llmProductionReady=false` until production service environment, persistence, source-ingestion, and deployment work are complete.
+**Decision:** Record the 2026-06-29 OpenAI `gpt-4.1-mini` live eval in the LLM RAG contract and requirement map, while keeping `llmProductionReady=false` until production service environment, public frontend/deploy wiring, source-ingestion, and deployment work are complete.
 
-**Reason:** The runtime has now proven real model-backed cited answers against the strict validator: 42/42 total live fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases. That should remove the stale "live validation pending" blocker. It must not imply the public service is launched, because the standalone answer-engine service, SQLite event persistence, rate limits, production env installation, public frontend platform, and Discord/Lafa source import are still open.
+**Reason:** The runtime has now proven real model-backed cited answers against the strict validator: 42/42 total live fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases. That should remove the stale "live validation pending" blocker. It must not imply the public service is launched, because production env installation, public frontend platform/deploy wiring, and Discord/Lafa source import are still open.
 
 **Status:** Accepted for production-readiness tracking. Future provider/model changes must rerun the same live eval suite before deployment.
+
+## D-211: Serve The Answer Runtime Through A SQLite-Backed Service
+
+**Decision:** Export the validated Search Book answer runtime and wrap it with `src/search-book/scripts/serve-answer-engine.mjs`, a standalone HTTP service that persists question, rating, and gap events to SQLite.
+
+**Reason:** The answer-engine requirement is not just a CLI or localStorage prototype. Production needs a server boundary that can call the exact same strict citation/refusal runtime, record Search Insights events durably, accept ratings, and generate low-rated-answer gaps without exposing API keys or weakening validation.
+
+**Status:** Accepted as the standalone service boundary. Production readiness still requires service environment installation, public frontend integration, retention/moderation policy, deployment, and remaining source imports.

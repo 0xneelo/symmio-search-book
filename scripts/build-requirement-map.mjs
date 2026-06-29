@@ -175,9 +175,12 @@ const answerValidationReady =
   (answerValidationCoverage.passingFixtures || 0) === (answerValidationCoverage.totalFixtures || 0) &&
   (answerValidationCoverage.failingFixtures || 0) === 0;
 const livingDocsCoverage = livingDocsEvents.coverage || {};
+const sqliteAnswerServiceImplemented =
+  livingDocsEvents.serviceRuntimeImplemented === true &&
+  livingDocsEvents.sqliteDatastoreImplemented === true &&
+  livingDocsEvents.datastoreImplemented === true;
 const livingDocsEventContractReady =
   livingDocsEvents.eventContractReady === true &&
-  livingDocsEvents.datastoreImplemented === false &&
   livingDocsEvents.livingDocsProductionReady === false &&
   (livingDocsCoverage.totalFixtures || 0) >= 8 &&
   (livingDocsCoverage.passingFixtures || 0) === (livingDocsCoverage.totalFixtures || 0) &&
@@ -267,8 +270,10 @@ const requirements = [
     status: deterministicAnswerEngineReady && answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "05", "06", "09"],
-    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}`,
-    nextAction: "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}, SQLite service implemented=${sqliteAnswerServiceImplemented}`,
+    nextAction: sqliteAnswerServiceImplemented
+      ? "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
+      : "Promote the proven runtime into the standalone service, wire persistence/rate-limit/abuse controls, and carry the front door into the selected production platform.",
   }),
   req({
     id: "answer-engine-contracts-and-evals",
@@ -288,8 +293,10 @@ const requirements = [
         : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "06", "09"],
-    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, localStorage prototype for live questions/ratings`,
-    nextAction: "Replace browser-local event storage with a production datastore after platform/backend selection.",
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, SQLite service implemented=${sqliteAnswerServiceImplemented}, localStorage prototype still present for static preview`,
+    nextAction: sqliteAnswerServiceImplemented
+      ? "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."
+      : "Implement the production datastore service behind Search Insights after platform/backend selection.",
   }),
   req({
     id: "discord-seeded-faq",
