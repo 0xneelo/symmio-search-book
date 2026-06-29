@@ -1439,3 +1439,11 @@
 **Reason:** The existing `authored-thielian-listing-monopoly` page gives the broad strategy, while the Perp Classes Thiel pages explain a related but separate source. Section 8 of the Listing Monopoly paper asks more exact questions about whether the gap-filling bridge satisfies individual Thiel criteria. Ask needs direct routes for those criteria so readers can inspect what is source-backed and what remains conditional on execution.
 
 **Status:** Accepted for the authored manifesto layer; current category ownership, exact market-cap eligibility, dominance, fee/spread economics, data moats, partner lock-in, solver capacity, current product capability, and regulatory claims remain fresh primary-source/operator/product/risk/legal/implementation review.
+
+## D-181: Split Listing Monopoly Thiel Closeout Into Exact Answers
+
+**Decision:** Add authored Volume 03 manifesto pages for the second half of the Listing Monopoly Thiel analysis: last-mover potential, competition assessment, durability factors, the summary scorecard, and listing control as a monopoly path.
+
+**Reason:** D-180 split the opening Thiel criteria, but the remaining Section 8 headings carry the closeout argument: why the category might become durable, why adjacent venues are complements rather than direct targets, how to read the scorecard, and what the final monopoly-path verdict actually claims. Ask needs direct routes for those questions instead of sending readers to broad Perp Classes Thiel pages or the earlier listing-monopoly summary.
+
+**Status:** Accepted for the authored manifesto layer; last-mover status, competitor timelines, data moats, partner lock-in, switching costs, regulatory favorability, economics, live category control, current product capability, and investment conclusions remain fresh primary-source/operator/product/risk/legal/market review.

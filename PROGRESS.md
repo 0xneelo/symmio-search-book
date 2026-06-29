@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Listing Monopoly Thiel Closeout Exact Pages
+
+- Added 5 authored Volume 03 manifesto pages from the second half of Neelo's Listing Monopoly Thiel analysis.
+- Split the closeout criteria into exact answer pages for last-mover potential, competition assessment, durability, the summary scorecard, and listing control as a monopoly path.
+- Extended the question ledger so Ask can route Thiel closeout questions without collapsing them into broader Perp Classes Thiel pages, the broad Thielian listing-monopoly page, or the previous criteria split.
+- Kept last-mover status, competitor timelines, data moats, partner lock-in, switching costs, regulatory favorability, economics, live category control, product capability, and investment conclusions marked for fresh primary-source/operator/product/risk/legal/market review.
+
 ## 2026-06-29 — Listing Monopoly Thiel Criteria Exact Pages
 
 - Added 5 authored Volume 03 manifesto pages from the first half of Neelo's Listing Monopoly Thiel analysis.

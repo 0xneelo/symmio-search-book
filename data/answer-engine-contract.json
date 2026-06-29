@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 690
+      "totalGoldenRoutes": 695
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 708,
-    "retrievalEligiblePages": 1500,
+    "publicNavigationPages": 713,
+    "retrievalEligiblePages": 1505,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 708,
+      "candidate": 713,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 690,
-    "exactRouteTestsPassing": 690,
+    "totalExactRouteTests": 695,
+    "exactRouteTestsPassing": 695,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 690
+      "candidate": 695
     },
     "exactRoutesByConfidence": {
-      "Medium": 446,
+      "Medium": 451,
       "High": 44,
       "Low": 200
     },
@@ -4654,6 +4654,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-do-network-effects-start-for-a-gap-filling-protocol",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-last-mover-potential-in-the-listing-monopoly-thesis",
+        "query": "What is the last-mover potential in the Listing Monopoly thesis?",
+        "normalizedQuery": "what is the last mover potential in the listing monopoly thesis",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-last-mover-potential",
+        "expectedPageTitle": "Listing Monopoly Last-Mover Potential",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-last-mover-potential-in-the-listing-monopoly-thesis",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-the-listing-monopoly-paper-assess-competition",
+        "query": "How does the Listing Monopoly paper assess competition?",
+        "normalizedQuery": "how does the listing monopoly paper assess competition",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-competition-assessment",
+        "expectedPageTitle": "Listing Monopoly Competition Assessment",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-does-the-listing-monopoly-paper-assess-competition",
+        "passes": true
+      },
+      {
+        "id": "qr-what-makes-the-listing-monopoly-thesis-durable",
+        "query": "What makes the Listing Monopoly thesis durable?",
+        "normalizedQuery": "what makes the listing monopoly thesis durable",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-durability-factors",
+        "expectedPageTitle": "Listing Monopoly Durability Factors",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-makes-the-listing-monopoly-thesis-durable",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-readers-use-the-listing-monopoly-thiel-scorecard",
+        "query": "How should readers use the Listing Monopoly Thiel scorecard?",
+        "normalizedQuery": "how should readers use the listing monopoly thiel scorecard",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-summary-scorecard",
+        "expectedPageTitle": "Listing Monopoly Thiel Summary Scorecard",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-should-readers-use-the-listing-monopoly-thiel-scorecard",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-listing-control-a-monopoly-path",
+        "query": "Why is listing control a monopoly path?",
+        "normalizedQuery": "why is listing control a monopoly path",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-listing-thiel-monopoly-path-verdict",
+        "expectedPageTitle": "Listing Control As A Monopoly Path",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-listing-control-a-monopoly-path",
         "passes": true
       },
       {
@@ -15250,7 +15355,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 690,
+      "exactRoutes": 695,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
