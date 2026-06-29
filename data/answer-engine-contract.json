@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 785
+      "totalGoldenRoutes": 787
     },
     {
       "stage": "glossary-route",
@@ -106,7 +106,7 @@
         "data/gap-queue.json",
         "QUESTIONS.md"
       ],
-      "totalGoldenRefusals": 4
+      "totalGoldenRefusals": 2
     }
   ],
   "citationPolicy": {
@@ -186,20 +186,20 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 785,
-    "exactRouteTestsPassing": 785,
-    "totalRefusalTests": 4,
-    "refusalTestsPassing": 4,
+    "totalExactRouteTests": 787,
+    "exactRouteTestsPassing": 787,
+    "totalRefusalTests": 2,
+    "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
     "glossaryRouteTestsPassing": 32,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 785
+      "candidate": 787
     },
     "exactRoutesByConfidence": {
-      "Medium": 488,
+      "Medium": 490,
       "High": 44,
       "Low": 253
     },
@@ -2046,6 +2046,31 @@
         "passes": true
       },
       {
+        "id": "qr-are-onboarding-points-the-same-as-vibe-trading-points",
+        "query": "Are onboarding points the same as Vibe trading points?",
+        "normalizedQuery": "are onboarding points the same as vibe trading points",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-points-and-vibe-points",
+        "expectedPageTitle": "Onboarding Points And Vibe Points",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "dashboard-app",
+          "vibe-points",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "dashboard-app",
+          "vibe-points",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-are-onboarding-points-the-same-as-vibe-trading-points",
+        "passes": true
+      },
+      {
         "id": "qr-how-do-onboarding-points-settle-at-tge",
         "query": "How do onboarding points settle at TGE?",
         "normalizedQuery": "how do onboarding points settle at tge",
@@ -2070,6 +2095,34 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-do-onboarding-points-settle-at-tge",
+        "passes": true
+      },
+      {
+        "id": "qr-is-network-volume-sourced-from-backend-rest-or-subgraphs",
+        "query": "Is network volume sourced from backend REST or subgraphs?",
+        "normalizedQuery": "is network volume sourced from backend rest or subgraphs",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-barometer-subgraph-upgrade",
+        "expectedPageTitle": "Barometer Subgraph Upgrade",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "syn-200",
+          "goldsky-subgraphs",
+          "goldsky-graphql-endpoints",
+          "server-volume",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "goldsky-subgraphs",
+          "goldsky-graphql-endpoints",
+          "server-volume",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-is-network-volume-sourced-from-backend-rest-or-subgraphs",
         "passes": true
       },
       {
@@ -18512,24 +18565,6 @@
     ],
     "refusalTests": [
       {
-        "id": "gap-are-onboarding-points-the-same-as-vibe-trading-points",
-        "query": "Are onboarding points the same as Vibe trading points?",
-        "normalizedQuery": "are onboarding points the same as vibe trading points",
-        "expectedStage": "gap-refusal",
-        "gapId": "G-009",
-        "notes": "Local dashboard distinguishes them; public docs need canonical naming.",
-        "passes": true
-      },
-      {
-        "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
-        "query": "Is network volume sourced from backend REST or subgraphs?",
-        "normalizedQuery": "is network volume sourced from backend rest or subgraphs",
-        "expectedStage": "gap-refusal",
-        "gapId": "G-005",
-        "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path.",
-        "passes": true
-      },
-      {
         "id": "gap-can-a-vault-lp-see-exact-covered-call-exposure",
         "query": "Can a vault LP see exact covered-call exposure?",
         "normalizedQuery": "can a vault lp see exact covered call exposure",
@@ -18556,9 +18591,9 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 785,
+      "exactRoutes": 787,
       "glossaryRoutes": 32,
-      "refusals": 4,
+      "refusals": 2,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
       "adversarialMinimumRequiredBeforeProduction": 12
@@ -18566,7 +18601,7 @@
   },
   "gapSignals": {
     "totalGapQueueItems": 12,
-    "questionSignals": 4,
+    "questionSignals": 2,
     "operatorSignals": 7,
     "parkedPageSignals": 2
   },

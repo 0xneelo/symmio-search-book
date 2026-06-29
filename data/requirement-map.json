@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 9,
-    "partial": 5,
+    "complete": 11,
+    "partial": 3,
     "parked": 4
   },
   "byCategory": {
@@ -96,7 +96,7 @@
     {
       "id": "dashboard-reference",
       "label": "Every dashboard view documented",
-      "status": "partial",
+      "status": "complete",
       "category": "reference",
       "sourceSpecs": [
         "01",
@@ -104,14 +104,14 @@
         "05",
         "09"
       ],
-      "evidence": "13 authored dashboard-reference pages; statuses {\"publication-candidate-needs-operator-review\":624,\"publication-candidate\":154,\"publication-candidate-needs-current-source-review\":8,\"publication-candidate-needs-editorial-review\":3,\"publication-candidate-needs-fresh-source-review\":1,\"needs-reconciliation\":1,\"publication-candidate-needs-publication-date-review\":8}",
+      "evidence": "Current dashboard route inventory plus 9 required dashboard/revenue pages cover visible routes and hidden #revenue; route question mapped=true.",
       "blocks": [],
-      "nextAction": "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication."
+      "nextAction": "Keep the route inventory synchronized with dashboard shell changes."
     },
     {
       "id": "revenue-volume-points-reference",
       "label": "Revenue, volume, points, and Vibe-points reference",
-      "status": "partial",
+      "status": "complete",
       "category": "reference",
       "sourceSpecs": [
         "01",
@@ -119,9 +119,9 @@
         "08",
         "09"
       ],
-      "evidence": "Authored revenue, network-volume, points, and dashboard pages exist; operator-approved v1 public revenue is Phase A only: networkVolume × platformFeeRate × referrerPlatformShare, defaults 0.05% / 5 bps fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
+      "evidence": "Required v1 revenue, volume, Barometer, points-taxonomy, Vibe-points, and TGE-boundary pages exist; 8/8 required questions route to authored pages. Phase A formula and 15-level depth are approved; public TGE formula is deferred/not public for v1.",
       "blocks": [],
-      "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1."
+      "nextAction": "Keep Phase A public copy aligned with the approved formula, keep Barometer as a tracked upgrade, and keep the public TGE formula deferred/not public for v1."
     },
     {
       "id": "referral-depth-reconciliation",
@@ -148,7 +148,7 @@
         "06",
         "09"
       ],
-      "evidence": "785 seeded routes, 2841 retrieval chunks, 785/785 exact-route tests, 4/4 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true",
+      "evidence": "787 seeded routes, 2841 retrieval chunks, 787/787 exact-route tests, 2/2 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true",
       "blocks": [],
       "nextAction": "Install production service env, configure production retention/admin moderation access, and deploy behind the selected public frontend route."
     },
@@ -176,7 +176,7 @@
         "06",
         "09"
       ],
-      "evidence": "12 generated gap items, 7 operator signals, 4 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, localStorage prototype still present for static preview",
+      "evidence": "12 generated gap items, 7 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, localStorage prototype still present for static preview",
       "blocks": [],
       "nextAction": "Install production env, deploy the service plus selected public frontend route, and operate the reviewer workflow against the gated moderation export."
     },
@@ -320,18 +320,6 @@
       "id": "manifesto-and-reference",
       "status": "partial",
       "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages.",
-      "blocks": []
-    },
-    {
-      "id": "dashboard-reference",
-      "status": "partial",
-      "nextAction": "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication.",
-      "blocks": []
-    },
-    {
-      "id": "revenue-volume-points-reference",
-      "status": "partial",
-      "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
       "blocks": []
     },
     {

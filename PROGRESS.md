@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Resolved Publication-Stance Readiness Alignment
+
+- Moved the network-volume source and onboarding-versus-Vibe-points questions from reconciliation gaps into authored answer routes.
+- Updated points and Barometer pages so they reflect the operator-resolved v1 stance: point taxonomy is canonical, public TGE formula is deferred/not public for v1, current volume source is backend REST plus snapshots, and Barometer/Goldsky is the tracked upgrade.
+- Updated gap-queue generation so resolved publication-stance gaps are marked `resolved` unless an open operator item still parks them.
+- Tightened requirement-map evidence so dashboard-reference and revenue/volume/points coverage can be counted complete from required authored pages and routed questions, while production env, deployment, Discord, Notion, whitepaper, and SSHE items remain parked elsewhere.
+
 ## 2026-06-30 — Final Report And Readiness Boundary
 
 - Added `FINAL-REPORT.md` as the committed delivery report for the current Search Book dossier/prototype state.

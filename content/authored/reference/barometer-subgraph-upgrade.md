@@ -3,7 +3,7 @@ id: "authored-barometer-subgraph-upgrade"
 title: "Barometer Subgraph Upgrade"
 section: "dashboard-reference"
 track: "Volume"
-status: "publication-candidate-needs-operator-review"
+status: "publication-candidate"
 sourceKeys: ["syn-200", "goldsky-subgraphs", "goldsky-graphql-endpoints", "server-volume", "spec-03"]
 sourceUrls: ["Linear SYN-200", "https://docs.goldsky.com/subgraphs/introduction", "https://docs.goldsky.com/subgraphs/graph-endpoints", "server/volume.js", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["linear-subgraph-volume", "local-volume-source", "local-volume-snapshots"]
@@ -23,7 +23,7 @@ The target direction in the grounding spec and Linear research is subgraph-backe
 
 ## What Must Stay Parked
 
-This page should not invent a final Vibe subgraph endpoint, schema, chain mapping, or venue mapping. The docs can say the intended upgrade is subgraph-backed and that Goldsky-style GraphQL subgraphs are the cited infrastructure pattern. Final publication still needs the exact Vibe subgraph identifiers and the product decision about which venue/chain rows are included in each public metric.
+This page should not invent a final Vibe subgraph endpoint, schema, chain mapping, or venue mapping. The docs can say the intended upgrade is subgraph-backed and that Goldsky-style GraphQL subgraphs are the cited infrastructure pattern. For v1, the public stance is simple: current production source is backend REST wallet totals plus snapshots; Barometer/Goldsky subgraphs are the tracked upgrade.
 
 ## Reader Implication
 

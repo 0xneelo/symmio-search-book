@@ -180,6 +180,13 @@ function parseGaps(markdown) {
   });
 }
 
+function parseResolvedGapIds(markdown) {
+  const section = markdown.split("## Resolutions & Dispositions")[1] || "";
+  return new Set(
+    [...section.matchAll(/^\s*-\s+\*\*(G-[0-9A-Z]+)[^*]*\*\*\s+—\s+✅ RESOLVED/gm)].map((match) => match[1]),
+  );
+}
+
 function parseOpenInboxItems(markdown) {
   const openSection = markdown.split("## Open")[1]?.split("## Resolved")[0] || "";
   const matches = [...openSection.matchAll(/^### \[OPEN\] #(\d+) — (.+)$/gm)];
@@ -272,6 +279,7 @@ function priorityScore(priority) {
 
 const args = parseArgs(process.argv.slice(2));
 const gaps = parseGaps(fs.readFileSync(args.gaps, "utf8"));
+const resolvedGapIds = parseResolvedGapIds(fs.readFileSync(args.gaps, "utf8"));
 const questionRoutes = readJson(args.questionRoutes);
 const navigation = readJson(args.navigationTree);
 const authoredIndex = readJson(args.authoredIndex);
@@ -325,17 +333,21 @@ const items = gaps.map((gap) => {
     linkedParkedPages.length * 4 +
     (missingRelatedPageIds.length || missingSourceKeys.length ? -20 : 0);
 
+  const resolvedByBody = /\*\*Disposition:\*\*\s*Resolved for v1/i.test(gap.rawBody);
+  const resolved = (resolvedGapIds.has(gap.id) || resolvedByBody) && !linkedOperatorItems.length;
+
   return {
     id: `queue-${gap.id.toLowerCase()}`,
     gapId: gap.id,
     title: gap.title,
     type: "documented-gap",
-    status: linkedOperatorItems.length ? "operator-parked" : "open",
+    status: linkedOperatorItems.length ? "operator-parked" : resolved ? "resolved" : "open",
     priority: meta.priority,
     priorityScore: score,
     category: meta.category,
     summary: gap.summary,
     needed: gap.needed,
+    resolved,
     sourceKeys,
     sources,
     relatedPageIds,

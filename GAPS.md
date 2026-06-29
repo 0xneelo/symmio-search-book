@@ -44,9 +44,9 @@ Phase A is implemented as estimated revenue from network volume, configurable pl
 
 Linear research says Goldsky subgraphs should become the more accurate network-volume source than the current Vibe backend wallet-volume endpoint. Current local code still uses the backend REST source and daily snapshots.
 
-Goldsky subgraph and GraphQL endpoint docs are now registered as public citation sources, and `authored-barometer-subgraph-upgrade` explains the current-source versus target-source distinction. This repo still has not implemented the Barometer migration, and the exact Vibe subgraph endpoint/venue mapping remains unconfirmed.
+Goldsky subgraph and GraphQL endpoint docs are now registered as public citation sources, and `authored-barometer-subgraph-upgrade` explains the current-source versus target-source distinction. This repo still has not implemented the Barometer migration, and the exact Vibe subgraph endpoint/venue mapping remains implementation-tracked rather than a v1 publication blocker.
 
-**Needed:** Implementation status, exact Vibe subgraph endpoint/venue mapping suitable for publication, and whether docs should describe the future subgraph source or the current production source.
+**Disposition:** Resolved for v1. Docs describe the current production source as backend REST wallet totals plus daily snapshots and describe Goldsky/subgraph-backed Barometer as the tracked upgrade. Exact Vibe subgraph endpoint and venue mapping remain implementation details under SYN-200, not a docs blocker.
 
 ## G-006: Exact Vibe Market Counts Need Fresh Verification Before Publication
 
@@ -74,9 +74,9 @@ The prompt frames Vibe x Symmio around options intents, vault-backed inventory, 
 
 Terms like VibeCaps, network revenue, referral commission, Vibe points, trading points, onboarding points, PartyA, PartyB, solver, and MM are all used across sources. Some are protocol terms, some product terms, and some campaign terms.
 
-`authored-points-taxonomy` now separates onboarding points, referral points, network/trading points, and Vibe points using local code plus public Vibe docs. The remaining owner-review need is canonical naming approval and the final public TGE settlement formula.
+`authored-points-taxonomy` now separates onboarding points, referral points, network/trading points, and Vibe points using local code plus public Vibe docs. The canonical naming stance is approved for v1, and the final public TGE settlement formula is deferred/not public for v1.
 
-**Needed:** Canonical glossary approval.
+**Disposition:** Resolved for v1. The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points. The public TGE settlement formula is deferred and not public for v1.
 
 ## G-010: Production Answer Engine Build Decision Is Resolved; Service Hardening Remains
 

@@ -9,7 +9,7 @@
   ],
   "status": "prototype-gap-queue",
   "totalItems": 12,
-  "totalQuestionSignals": 4,
+  "totalQuestionSignals": 2,
   "totalOperatorSignals": 7,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
@@ -27,17 +27,18 @@
     "Rewards And Referrals": 1,
     "Revenue": 1,
     "Origin And Whitepapers": 1,
-    "Data And Volume": 1,
     "Options And Settlement": 1,
-    "Terminology": 1,
     "Editorial Production": 1,
+    "Data And Volume": 1,
+    "Terminology": 1,
     "General": 1,
     "Research Sweep": 1,
     "Publication Freshness": 1
   },
   "byStatus": {
     "operator-parked": 4,
-    "open": 8
+    "resolved": 6,
+    "open": 2
   },
   "topItems": [
     "queue-g-010",
@@ -45,7 +46,7 @@
     "queue-g-003",
     "queue-g-004",
     "queue-g-007",
-    "queue-g-005"
+    "queue-g-008"
   ],
   "items": [
     {
@@ -59,6 +60,7 @@
       "category": "Production Answer Engine",
       "summary": "The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, live gpt-4.1-mini evaluation, HTTP service endpoints, SQLite event persistence, ratings, Search Insights reads, basic request rate limiting, configurable event retention, and a disabled-by-default token-gated moderation export are now implemented in the current service boundary. Production still needs service deployment, public frontend wiring, production LLM environment installation, reviewer/admin operating workflow, and remaining source imports.",
       "needed": "Public frontend platform/deploy route, production service environment, frontend-to-service deployment wiring, reviewer/admin operating workflow, and operational hardening.",
+      "resolved": false,
       "sourceKeys": [
         "spec-06",
         "spec-08"
@@ -122,6 +124,7 @@
       "category": "Discord Import",
       "summary": "The prompt asks to mine Discord, especially Lafa answers and repeated support questions. This environment does not have Discord export access. The prototype seeds a question list from local FAQ and source docs only.",
       "needed": "Discord export or channel/API access, channel list, date range, Lafa author identity, and permission to cite, paraphrase, use internally, or exclude the corpus.",
+      "resolved": false,
       "sourceKeys": [
         "spec-04",
         "spec-06",
@@ -196,12 +199,13 @@
       "gapId": "G-003",
       "title": "Referral Depth Was Contradictory, Now Resolved",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P0",
       "priorityScore": 108,
       "category": "Rewards And Referrals",
       "summary": "Evidence found:",
       "needed": "",
+      "resolved": true,
       "sourceKeys": [
         "spec-03",
         "server-points",
@@ -350,12 +354,13 @@
       "gapId": "G-004",
       "title": "Revenue Phase A Versus Phase B Public Wording Is Resolved For v1",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P0",
       "priorityScore": 100,
       "category": "Revenue",
       "summary": "Phase A is implemented as estimated revenue from network volume, configurable platform fee, and referrer share. Phase B issues describe per-venue platform revenue, VibeCaps LP profit share, liquidation display, funding, solver data, and points farmed.",
       "needed": "",
+      "resolved": true,
       "sourceKeys": [
         "spec-03",
         "local-revenue-doc",
@@ -457,6 +462,7 @@
       "category": "Origin And Whitepapers",
       "summary": "The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is registered as a history/source-control starting point. Official Git evidence now confirms that SYMM-IO/protocol-core starts on 2023-06-13, SYMM-IO/docs starts on 2023-08-22, and the first located whitepaper file in the official docs repo is Whitepaper/SYMMIO_paper_0_8.pdf, added on 2023-11-16 by commit e1715f85768b7f06933e91e41568422591729e16.",
       "needed": "Exact original whitepaper artifact, version-history comparison before v0.8 if it exists, and any archived docs outside the current official repositories.",
+      "resolved": false,
       "sourceKeys": [
         "spec-02",
         "symmio-whitepaper"
@@ -513,115 +519,17 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-005",
-      "gapId": "G-005",
-      "title": "Subgraph Migration Is Not Implemented In This Repo",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P1",
-      "priorityScore": 75,
-      "category": "Data And Volume",
-      "summary": "Linear research says Goldsky subgraphs should become the more accurate network-volume source than the current Vibe backend wallet-volume endpoint. Current local code still uses the backend REST source and daily snapshots.",
-      "needed": "Implementation status, exact Vibe subgraph endpoint/venue mapping suitable for publication, and whether docs should describe the future subgraph source or the current production source.",
-      "sourceKeys": [
-        "spec-03",
-        "server-volume",
-        "server-volume-snapshots",
-        "syn-200"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "server-volume",
-          "group": "Local Product And Code",
-          "use": "Current Vibe backend volume source, caching, normalization.",
-          "href": "../../server/volume.js",
-          "missing": false
-        },
-        {
-          "key": "server-volume-snapshots",
-          "group": "Local Product And Code",
-          "use": "Daily snapshot behavior.",
-          "href": "../../server/volume-snapshots.js",
-          "missing": false
-        },
-        {
-          "key": "syn-200",
-          "group": "Linear Research",
-          "use": "Subgraph migration research and more accurate volume path.",
-          "href": "",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "authored-network-volume",
-        "authored-dashboard-volume",
-        "local-volume-source",
-        "linear-subgraph-volume"
-      ],
-      "relatedPages": [
-        {
-          "id": "authored-network-volume",
-          "title": "Network Volume",
-          "section": "dashboard-reference",
-          "track": "Volume",
-          "status": "publication-candidate-needs-operator-review",
-          "routeSource": "authored"
-        },
-        {
-          "id": "authored-dashboard-volume",
-          "title": "Dashboard Volume",
-          "section": "dashboard-reference",
-          "track": "Dashboard Views",
-          "status": "publication-candidate-needs-operator-review",
-          "routeSource": "authored"
-        },
-        {
-          "id": "local-volume-source",
-          "title": "Current Volume Source",
-          "section": "dashboard-reference",
-          "track": "dashboard-reference",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        },
-        {
-          "id": "linear-subgraph-volume",
-          "title": "Subgraph Volume Migration Research",
-          "section": "product-research",
-          "track": "product-research",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        }
-      ],
-      "linkedQuestions": [
-        {
-          "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
-          "question": "Is network volume sourced from backend REST or subgraphs?",
-          "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
-        }
-      ],
-      "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
       "id": "queue-g-008",
       "gapId": "G-008",
       "title": "Options And Vault-Backed Inventory Need More Primary Sources",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P1",
       "priorityScore": 75,
       "category": "Options And Settlement",
       "summary": "The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. The current Symmio Options v0.2.1 docs, Diamond architecture, PartyA/PartyB open-close facets, and Instant Layer docs are now registered and synthesized into authored-options-intent-lifecycle. The remaining gap is the Vibe-specific covered-call/vault-backed inventory example and exact public exposure semantics.",
       "needed": "Product owner confirmation, Vibe-specific example lifecycle, vault source/coverage rules, and whether vault LPs can see exact covered-call exposure before publishing product-specific claims.",
+      "resolved": true,
       "sourceKeys": [
         "spec-02",
         "spec-04",
@@ -760,16 +668,162 @@
       "missingSourceKeys": []
     },
     {
+      "id": "queue-g-002a",
+      "gapId": "G-002A",
+      "title": "500-800 Page Manifest Is Mapped, Not Fully Authored",
+      "type": "documented-gap",
+      "status": "open",
+      "priority": "P1",
+      "priorityScore": 70,
+      "category": "Editorial Production",
+      "summary": "The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is growing around the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, the SYMM LP case-study setup/unit economics/risk/replication/data-guardrail layer, Neelo's referral architecture and quality-signal layer, and local product-reference mechanics, including market formation, Proof of Value, value alignment, token-holder inventory alignment, trader/project value loops, hybrid comparative advantage, validation/sustainability, perp design axes, static-design bootstrap failures, temporal separation of concerns, Z-score graduation, market price as verification, listing power, lifecycle gates, listing-plus-liquidity, order-book endpoint positioning, order-book bootstrap limits, RFQ-before-book sequencing, lifecycle hardening, programmatic graduation, gap-filling perp protocol shape, partnership posture, monopoly durability, perceived-versus-actual listing interest, curation-cost distortions, zero-cost evolutionary discovery, crypto's market-access disconnect, perps for the trenches, CLOB/vault long-tail limits, collateralized pool finite-tail limits, Percolator-wave settlement reality, async-tech versus sync-economics, long-tail perp model mapping, continuous truth markets, intent OTC verification, hybrid solver liquidity waterfalls, listing evidence, financialized rejection, token-margined LP economics, USDC LP backstop cascades, incentive-based attack risk, USDC LP risk premiums, token-inventory risk localization, risk-adjusted capital efficiency, oracle circuit-breaker risk, slab isolation, Percolator engineering/economics, USDC settlement separation, solver architecture, settlement state boundaries, solver engine loops, bootstrap oracle risk tiers, position lifecycle state machines, competitive replication/data moats, options lifecycle, information validation, universal issuance, information systems as validation infrastructure, issuance abundance as validation debt, spot-only market one-sidedness, tokens as information objects, self-correcting token market stack, derivatives as market discipline, perpetual design space, market assembly-line, CLOB graduation, liquidity-as-experience, the last primitive, token-margined risk, Vibe's exploit-resistance/bootstrap/yield pillars, funding defense hierarchy, funding-model control, funding core invariant, funding state variables, funding regime ladder, full funding objective, funding worked examples, gradient-flow balancing, utilization-mode switching, dynamic-pricing controls, cross-market risk mutualization, residual counterparty hedging, Force Close failure handling, solver default continuity, loss waterfalls, Symmio's clearing-house layer, bilateral intent lifecycle, solver event monitoring, collateral/margin/CVA, official Symmio funding epochs, cross-margin liquidations, settlement/profit realization, settlement costs and affiliate credits, solver operations/hedging, simple trade flow, order types, TP/SL, OI/liquidity, collateral/margining, fees/funding, account creation/login, deposits/withdrawals, portfolio/account data, account-health liquidations, security/audits, hotkeys, mobile PWA, TradingView controls, system visualization, project listing terms, referral-code flow, referral commission, rakeback, trading-program points, platform overview, volume snapshot cadence, Barometer source migration, points taxonomy, referral points as economic state, points claim bridge and vesting, rewards packs/artifacts, tokenized-points-perps as a hypothetical scenario, referral policy governance, and TGE multiplier caveats. Most of the 794-page corpus is still generated draft material rather than fully edited publication prose.",
+      "needed": "Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.",
+      "resolved": false,
+      "sourceKeys": [
+        "spec-08",
+        "authored-pages"
+      ],
+      "sources": [
+        {
+          "key": "spec-08",
+          "group": "Local Specs",
+          "use": "Session 2 implementation gate.",
+          "href": "../../_specs/app-docs/08-implementation-session.md",
+          "missing": false
+        },
+        {
+          "key": "authored-pages",
+          "group": "Authored Publication Candidates",
+          "use": "Hand-shaped publication-candidate pages built from the registered primary sources above.",
+          "href": "",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-search-insights-loop"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-search-insights-loop",
+          "title": "The Living Docs Loop",
+          "section": "answer-engine",
+          "track": "Search Insights",
+          "status": "publication-candidate",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
+      "id": "queue-g-005",
+      "gapId": "G-005",
+      "title": "Subgraph Migration Is Not Implemented In This Repo",
+      "type": "documented-gap",
+      "status": "resolved",
+      "priority": "P1",
+      "priorityScore": 70,
+      "category": "Data And Volume",
+      "summary": "Linear research says Goldsky subgraphs should become the more accurate network-volume source than the current Vibe backend wallet-volume endpoint. Current local code still uses the backend REST source and daily snapshots.",
+      "needed": "",
+      "resolved": true,
+      "sourceKeys": [
+        "spec-03",
+        "server-volume",
+        "server-volume-snapshots",
+        "syn-200"
+      ],
+      "sources": [
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "server-volume-snapshots",
+          "group": "Local Product And Code",
+          "use": "Daily snapshot behavior.",
+          "href": "../../server/volume-snapshots.js",
+          "missing": false
+        },
+        {
+          "key": "syn-200",
+          "group": "Linear Research",
+          "use": "Subgraph migration research and more accurate volume path.",
+          "href": "",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-network-volume",
+        "authored-dashboard-volume",
+        "local-volume-source",
+        "linear-subgraph-volume"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-network-volume",
+          "title": "Network Volume",
+          "section": "dashboard-reference",
+          "track": "Volume",
+          "status": "publication-candidate-needs-operator-review",
+          "routeSource": "authored"
+        },
+        {
+          "id": "authored-dashboard-volume",
+          "title": "Dashboard Volume",
+          "section": "dashboard-reference",
+          "track": "Dashboard Views",
+          "status": "publication-candidate-needs-operator-review",
+          "routeSource": "authored"
+        },
+        {
+          "id": "local-volume-source",
+          "title": "Current Volume Source",
+          "section": "dashboard-reference",
+          "track": "dashboard-reference",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        },
+        {
+          "id": "linear-subgraph-volume",
+          "title": "Subgraph Volume Migration Research",
+          "section": "product-research",
+          "track": "product-research",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        }
+      ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
       "id": "queue-g-009",
       "gapId": "G-009",
       "title": "Public Versus Internal Terminology Needs Owner Review",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P1",
-      "priorityScore": 75,
+      "priorityScore": 70,
       "category": "Terminology",
       "summary": "Terms like VibeCaps, network revenue, referral commission, Vibe points, trading points, onboarding points, PartyA, PartyB, solver, and MM are all used across sources. Some are protocol terms, some product terms, and some campaign terms.",
-      "needed": "Canonical glossary approval.",
+      "needed": "",
+      "resolved": true,
       "sourceKeys": [
         "spec-03",
         "dashboard-app",
@@ -818,7 +872,7 @@
           "title": "Onboarding Points And Vibe Points",
           "section": "rewards-referrals",
           "track": "Points",
-          "status": "publication-candidate-needs-operator-review",
+          "status": "publication-candidate",
           "routeSource": "authored"
         },
         {
@@ -846,62 +900,6 @@
           "routeSource": "generated"
         }
       ],
-      "linkedQuestions": [
-        {
-          "id": "gap-are-onboarding-points-the-same-as-vibe-trading-points",
-          "question": "Are onboarding points the same as Vibe trading points?",
-          "notes": "Local dashboard distinguishes them; public docs need canonical naming."
-        }
-      ],
-      "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-002a",
-      "gapId": "G-002A",
-      "title": "500-800 Page Manifest Is Mapped, Not Fully Authored",
-      "type": "documented-gap",
-      "status": "open",
-      "priority": "P1",
-      "priorityScore": 70,
-      "category": "Editorial Production",
-      "summary": "The manifest now maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is growing around the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, the SYMM LP case-study setup/unit economics/risk/replication/data-guardrail layer, Neelo's referral architecture and quality-signal layer, and local product-reference mechanics, including market formation, Proof of Value, value alignment, token-holder inventory alignment, trader/project value loops, hybrid comparative advantage, validation/sustainability, perp design axes, static-design bootstrap failures, temporal separation of concerns, Z-score graduation, market price as verification, listing power, lifecycle gates, listing-plus-liquidity, order-book endpoint positioning, order-book bootstrap limits, RFQ-before-book sequencing, lifecycle hardening, programmatic graduation, gap-filling perp protocol shape, partnership posture, monopoly durability, perceived-versus-actual listing interest, curation-cost distortions, zero-cost evolutionary discovery, crypto's market-access disconnect, perps for the trenches, CLOB/vault long-tail limits, collateralized pool finite-tail limits, Percolator-wave settlement reality, async-tech versus sync-economics, long-tail perp model mapping, continuous truth markets, intent OTC verification, hybrid solver liquidity waterfalls, listing evidence, financialized rejection, token-margined LP economics, USDC LP backstop cascades, incentive-based attack risk, USDC LP risk premiums, token-inventory risk localization, risk-adjusted capital efficiency, oracle circuit-breaker risk, slab isolation, Percolator engineering/economics, USDC settlement separation, solver architecture, settlement state boundaries, solver engine loops, bootstrap oracle risk tiers, position lifecycle state machines, competitive replication/data moats, options lifecycle, information validation, universal issuance, information systems as validation infrastructure, issuance abundance as validation debt, spot-only market one-sidedness, tokens as information objects, self-correcting token market stack, derivatives as market discipline, perpetual design space, market assembly-line, CLOB graduation, liquidity-as-experience, the last primitive, token-margined risk, Vibe's exploit-resistance/bootstrap/yield pillars, funding defense hierarchy, funding-model control, funding core invariant, funding state variables, funding regime ladder, full funding objective, funding worked examples, gradient-flow balancing, utilization-mode switching, dynamic-pricing controls, cross-market risk mutualization, residual counterparty hedging, Force Close failure handling, solver default continuity, loss waterfalls, Symmio's clearing-house layer, bilateral intent lifecycle, solver event monitoring, collateral/margin/CVA, official Symmio funding epochs, cross-margin liquidations, settlement/profit realization, settlement costs and affiliate credits, solver operations/hedging, simple trade flow, order types, TP/SL, OI/liquidity, collateral/margining, fees/funding, account creation/login, deposits/withdrawals, portfolio/account data, account-health liquidations, security/audits, hotkeys, mobile PWA, TradingView controls, system visualization, project listing terms, referral-code flow, referral commission, rakeback, trading-program points, platform overview, volume snapshot cadence, Barometer source migration, points taxonomy, referral points as economic state, points claim bridge and vesting, rewards packs/artifacts, tokenized-points-perps as a hypothetical scenario, referral policy governance, and TGE multiplier caveats. Most of the 794-page corpus is still generated draft material rather than fully edited publication prose.",
-      "needed": "Session 2 authoring pipeline, page templates, source blocks, answer-engine ingestion, and progressive publication plan.",
-      "sourceKeys": [
-        "spec-08",
-        "authored-pages"
-      ],
-      "sources": [
-        {
-          "key": "spec-08",
-          "group": "Local Specs",
-          "use": "Session 2 implementation gate.",
-          "href": "../../_specs/app-docs/08-implementation-session.md",
-          "missing": false
-        },
-        {
-          "key": "authored-pages",
-          "group": "Authored Publication Candidates",
-          "use": "Hand-shaped publication-candidate pages built from the registered primary sources above.",
-          "href": "",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "authored-search-insights-loop"
-      ],
-      "relatedPages": [
-        {
-          "id": "authored-search-insights-loop",
-          "title": "The Living Docs Loop",
-          "section": "answer-engine",
-          "track": "Search Insights",
-          "status": "publication-candidate",
-          "routeSource": "authored"
-        }
-      ],
       "linkedQuestions": [],
       "linkedOperatorItems": [],
       "linkedParkedPages": [],
@@ -919,6 +917,7 @@
       "category": "General",
       "summary": "The source spec names the Vibe Trading Notion workspace as a required working source. This repository has public Vibe docs, Neelo's GitHub corpus, local code, and Linear-derived facts, but no Notion export or readable local copy.",
       "needed": "Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.",
+      "resolved": false,
       "sourceKeys": [],
       "sources": [],
       "relatedPageIds": [],
@@ -941,12 +940,13 @@
       "gapId": "G-002",
       "title": "Competitive Sweep Opyn Target Is Excluded",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P2",
       "priorityScore": 40,
       "category": "Research Sweep",
       "summary": "The prompt requests a 25-sub-agent competitive sweep. The package now has a generated 50-doc target list across 25 lanes plus five returned explorer batches covering derivatives/options, DeFi, infrastructure, data/devtools, and product/wallet docs. It also has an authored competitive benchmark synthesis page. The only unreviewed official-doc target is Opyn; the operator excluded Opyn because it shut down, so the launch benchmark remains a documented 49/50 sweep rather than using mirrors or third-party snippets.",
       "needed": "",
+      "resolved": true,
       "sourceKeys": [
         "spec-07",
         "competitive-sweep-batch-01",
@@ -1014,6 +1014,7 @@
       "category": "Publication Freshness",
       "summary": "Vibe docs claim Binance perp market coverage and 390+ markets. Since market counts change, exact counts should be verified on the intended publication date.",
       "needed": "Current Vibe product source or live market index snapshot.",
+      "resolved": false,
       "sourceKeys": [
         "vibe-what-is"
       ],

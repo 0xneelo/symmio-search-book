@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 785,
-  "totalReconciliationQuestions": 4,
+  "totalRoutes": 787,
+  "totalReconciliationQuestions": 2,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 488,
+    "Medium": 490,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 785
+    "authored": 787
   },
   "answerable": [
     {
@@ -1061,7 +1061,7 @@
       "pageTitle": "Vibe Points Program",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Public docs cover trading, referring, and community categories; onboarding dashboard has separate campaign logic.",
@@ -1310,7 +1310,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review.",
@@ -1388,7 +1388,7 @@
       "pageTitle": "Points Taxonomy",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology.",
@@ -1403,6 +1403,25 @@
       "missing": false
     },
     {
+      "id": "qr-are-onboarding-points-the-same-as-vibe-trading-points",
+      "question": "Are onboarding points the same as Vibe trading points?",
+      "normalizedQuestion": "are onboarding points the same as vibe trading points",
+      "pageId": "authored-points-and-vibe-points",
+      "pageTitle": "Onboarding Points And Vibe Points",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points; the public TGE settlement formula is deferred and not public for v1.",
+      "sourceKeys": [
+        "dashboard-app",
+        "vibe-points",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-how-do-onboarding-points-settle-at-tge",
       "question": "How do onboarding points settle at TGE?",
       "normalizedQuestion": "how do onboarding points settle at tge",
@@ -1410,15 +1429,36 @@
       "pageTitle": "TGE Settlement Multiplier",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "confidence": "Low",
-      "notes": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "notes": "Dashboard footer and grounding spec support the TGE multiplier concept; the final settlement formula and claim mechanics are deferred and not public for v1.",
       "sourceKeys": [
         "dashboard-app",
         "spec-03",
         "server-points",
         "dashboard-overview"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-is-network-volume-sourced-from-backend-rest-or-subgraphs",
+      "question": "Is network volume sourced from backend REST or subgraphs?",
+      "normalizedQuestion": "is network volume sourced from backend rest or subgraphs",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Current production docs should describe backend REST wallet totals plus daily snapshots as live, and Goldsky/subgraph-backed Barometer as the tracked upgrade.",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
       ],
       "missing": false
     },
@@ -13672,18 +13712,6 @@
     }
   ],
   "reconciliation": [
-    {
-      "id": "gap-are-onboarding-points-the-same-as-vibe-trading-points",
-      "question": "Are onboarding points the same as Vibe trading points?",
-      "gapId": "G-009",
-      "notes": "Local dashboard distinguishes them; public docs need canonical naming."
-    },
-    {
-      "id": "gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
-      "question": "Is network volume sourced from backend REST or subgraphs?",
-      "gapId": "G-005",
-      "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
-    },
     {
       "id": "gap-can-a-vault-lp-see-exact-covered-call-exposure",
       "question": "Can a vault LP see exact covered-call exposure?",

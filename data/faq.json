@@ -9,8 +9,8 @@
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
   "totalEntries": 789,
-  "totalAnswerable": 785,
-  "totalUnresolved": 4,
+  "totalAnswerable": 787,
+  "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
@@ -22,21 +22,21 @@
     "Revenue": 97,
     "Manifesto": 160,
     "Rewards And Referrals": 100,
-    "Dashboard": 11,
-    "Data And Volume": 5,
+    "Dashboard": 12,
+    "Data And Volume": 4,
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 488,
+    "Medium": 490,
     "High": 44,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 785
+    "authored": 787
   },
   "byType": {
-    "answerable": 785,
-    "reconciliation": 4
+    "answerable": 787,
+    "reconciliation": 2
   },
   "answerable": [
     {
@@ -2381,7 +2381,7 @@
       "pageTitle": "Vibe Points Program",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-points",
@@ -3089,7 +3089,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -3285,7 +3285,7 @@
       "pageTitle": "Points Taxonomy",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "server-points",
@@ -3341,20 +3341,65 @@
       ]
     },
     {
+      "id": "faq-are-onboarding-points-the-same-as-vibe-trading-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Are onboarding points the same as Vibe trading points?",
+      "normalizedQuestion": "are onboarding points the same as vibe trading points",
+      "shortAnswer": "The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points; the public TGE settlement formula is deferred and not public for v1.",
+      "answerSummary": "Onboarding Points And Vibe Points The docs need to keep points vocabulary separated. The onboarding app has campaign style points for actions such as registration, content tasks, and referral participation. Vibe public docs describe protocol facing Vibe points categories such as trading, referring, and community activity. The dashboard also surfaces netwo...",
+      "confidence": "Medium",
+      "pageId": "authored-points-and-vibe-points",
+      "pageTitle": "Onboarding Points And Vibe Points",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "vibe-points",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-how-do-onboarding-points-settle-at-tge",
       "type": "answerable",
       "seedSource": "local-question-ledger",
       "category": "Rewards And Referrals",
       "question": "How do onboarding points settle at TGE?",
       "normalizedQuestion": "how do onboarding points settle at tge",
-      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; the final settlement formula and claim mechanics are deferred and not public for v1.",
       "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
       "confidence": "Low",
       "pageId": "authored-tge-settlement-multiplier",
       "pageTitle": "TGE Settlement Multiplier",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -3389,6 +3434,67 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-is-network-volume-sourced-from-backend-rest-or-subgraphs",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Is network volume sourced from backend REST or subgraphs?",
+      "normalizedQuestion": "is network volume sourced from backend rest or subgraphs",
+      "shortAnswer": "Current production docs should describe backend REST wallet totals plus daily snapshots as live, and Goldsky/subgraph-backed Barometer as the tracked upgrade.",
+      "answerSummary": "Barometer Subgraph Upgrade Barometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the cu...",
+      "confidence": "Medium",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "syn-200",
+          "group": "Linear Research",
+          "use": "Subgraph migration research and more accurate volume path.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "goldsky-subgraphs",
+          "group": "Competitive Context",
+          "use": "Goldsky subgraph product docs for indexing and subgraph-backed data access.",
+          "href": "https://docs.goldsky.com/subgraphs/introduction",
+          "missing": false
+        },
+        {
+          "key": "goldsky-graphql-endpoints",
+          "group": "Competitive Context",
+          "use": "Goldsky GraphQL endpoint documentation for querying indexed subgraph data.",
+          "href": "https://docs.goldsky.com/subgraphs/graph-endpoints",
+          "missing": false
+        },
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -25303,102 +25409,6 @@
   ],
   "unresolved": [
     {
-      "id": "faq-gap-are-onboarding-points-the-same-as-vibe-trading-points",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Rewards And Referrals",
-      "question": "Are onboarding points the same as Vibe trading points?",
-      "gapId": "G-009",
-      "gapTitle": "Public Versus Internal Terminology Needs Owner Review",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Local dashboard distinguishes them; public docs need canonical naming.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "dashboard-app",
-        "vibe-points",
-        "server-points"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "dashboard-app",
-          "group": "Local Product And Code",
-          "use": "Points distinction and dashboard shell.",
-          "href": "../../src/dashboard/app.jsx",
-          "missing": false
-        },
-        {
-          "key": "vibe-points",
-          "group": "Public Vibe Sources",
-          "use": "Trading, referring, and community points categories.",
-          "href": "https://docs.vibe.trading/trading/vibe-points.md",
-          "missing": false
-        },
-        {
-          "key": "server-points",
-          "group": "Local Product And Code",
-          "use": "Referral depth config and percentages.",
-          "href": "../../server/points.js",
-          "missing": false
-        }
-      ]
-    },
-    {
-      "id": "faq-gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Data And Volume",
-      "question": "Is network volume sourced from backend REST or subgraphs?",
-      "gapId": "G-005",
-      "gapTitle": "Subgraph Migration Is Not Implemented In This Repo",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "server-volume",
-        "server-volume-snapshots",
-        "syn-200"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "server-volume",
-          "group": "Local Product And Code",
-          "use": "Current Vibe backend volume source, caching, normalization.",
-          "href": "../../server/volume.js",
-          "missing": false
-        },
-        {
-          "key": "server-volume-snapshots",
-          "group": "Local Product And Code",
-          "use": "Daily snapshot behavior.",
-          "href": "../../server/volume-snapshots.js",
-          "missing": false
-        },
-        {
-          "key": "syn-200",
-          "group": "Linear Research",
-          "use": "Subgraph migration research and more accurate volume path.",
-          "href": "",
-          "missing": false
-        }
-      ]
-    },
-    {
       "id": "faq-gap-can-a-vault-lp-see-exact-covered-call-exposure",
       "type": "reconciliation",
       "seedSource": "local-question-ledger",
@@ -27838,7 +27848,7 @@
       "pageTitle": "Vibe Points Program",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-points",
@@ -28546,7 +28556,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -28742,7 +28752,7 @@
       "pageTitle": "Points Taxonomy",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "server-points",
@@ -28798,20 +28808,65 @@
       ]
     },
     {
+      "id": "faq-are-onboarding-points-the-same-as-vibe-trading-points",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Are onboarding points the same as Vibe trading points?",
+      "normalizedQuestion": "are onboarding points the same as vibe trading points",
+      "shortAnswer": "The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points; the public TGE settlement formula is deferred and not public for v1.",
+      "answerSummary": "Onboarding Points And Vibe Points The docs need to keep points vocabulary separated. The onboarding app has campaign style points for actions such as registration, content tasks, and referral participation. Vibe public docs describe protocol facing Vibe points categories such as trading, referring, and community activity. The dashboard also surfaces netwo...",
+      "confidence": "Medium",
+      "pageId": "authored-points-and-vibe-points",
+      "pageTitle": "Onboarding Points And Vibe Points",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "vibe-points",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "vibe-points",
+          "group": "Public Vibe Sources",
+          "use": "Trading, referring, and community points categories.",
+          "href": "https://docs.vibe.trading/trading/vibe-points.md",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-how-do-onboarding-points-settle-at-tge",
       "type": "answerable",
       "seedSource": "local-question-ledger",
       "category": "Rewards And Referrals",
       "question": "How do onboarding points settle at TGE?",
       "normalizedQuestion": "how do onboarding points settle at tge",
-      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review.",
+      "shortAnswer": "Dashboard footer and grounding spec support the TGE multiplier concept; the final settlement formula and claim mechanics are deferred and not public for v1.",
       "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
       "confidence": "Low",
       "pageId": "authored-tge-settlement-multiplier",
       "pageTitle": "TGE Settlement Multiplier",
       "pageSection": "rewards-referrals",
       "pageTrack": "Points",
-      "pageStatus": "publication-candidate-needs-operator-review",
+      "pageStatus": "publication-candidate",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -28846,6 +28901,67 @@
           "group": "Local Product And Code",
           "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
           "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-is-network-volume-sourced-from-backend-rest-or-subgraphs",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Dashboard",
+      "question": "Is network volume sourced from backend REST or subgraphs?",
+      "normalizedQuestion": "is network volume sourced from backend rest or subgraphs",
+      "shortAnswer": "Current production docs should describe backend REST wallet totals plus daily snapshots as live, and Goldsky/subgraph-backed Barometer as the tracked upgrade.",
+      "answerSummary": "Barometer Subgraph Upgrade Barometer is the planned accuracy upgrade for network volume. The current dashboard reads cumulative wallet totals from the Vibe backend and snapshots them locally. The Barometer path keeps the same downstream economics, but changes the volume input: trading activity should come from indexed analytics subgraphs instead of the cu...",
+      "confidence": "Medium",
+      "pageId": "authored-barometer-subgraph-upgrade",
+      "pageTitle": "Barometer Subgraph Upgrade",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Volume",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "syn-200",
+        "goldsky-subgraphs",
+        "goldsky-graphql-endpoints",
+        "server-volume",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "syn-200",
+          "group": "Linear Research",
+          "use": "Subgraph migration research and more accurate volume path.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "goldsky-subgraphs",
+          "group": "Competitive Context",
+          "use": "Goldsky subgraph product docs for indexing and subgraph-backed data access.",
+          "href": "https://docs.goldsky.com/subgraphs/introduction",
+          "missing": false
+        },
+        {
+          "key": "goldsky-graphql-endpoints",
+          "group": "Competitive Context",
+          "use": "Goldsky GraphQL endpoint documentation for querying indexed subgraph data.",
+          "href": "https://docs.goldsky.com/subgraphs/graph-endpoints",
+          "missing": false
+        },
+        {
+          "key": "server-volume",
+          "group": "Local Product And Code",
+          "use": "Current Vibe backend volume source, caching, normalization.",
+          "href": "../../server/volume.js",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
           "missing": false
         }
       ]
@@ -50753,102 +50869,6 @@
           "group": "Local Specs",
           "use": "Session 1 research gate.",
           "href": "../../_specs/app-docs/07-research-session.md",
-          "missing": false
-        }
-      ]
-    },
-    {
-      "id": "faq-gap-are-onboarding-points-the-same-as-vibe-trading-points",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Rewards And Referrals",
-      "question": "Are onboarding points the same as Vibe trading points?",
-      "gapId": "G-009",
-      "gapTitle": "Public Versus Internal Terminology Needs Owner Review",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Local dashboard distinguishes them; public docs need canonical naming.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "dashboard-app",
-        "vibe-points",
-        "server-points"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "dashboard-app",
-          "group": "Local Product And Code",
-          "use": "Points distinction and dashboard shell.",
-          "href": "../../src/dashboard/app.jsx",
-          "missing": false
-        },
-        {
-          "key": "vibe-points",
-          "group": "Public Vibe Sources",
-          "use": "Trading, referring, and community points categories.",
-          "href": "https://docs.vibe.trading/trading/vibe-points.md",
-          "missing": false
-        },
-        {
-          "key": "server-points",
-          "group": "Local Product And Code",
-          "use": "Referral depth config and percentages.",
-          "href": "../../server/points.js",
-          "missing": false
-        }
-      ]
-    },
-    {
-      "id": "faq-gap-is-network-volume-sourced-from-backend-rest-or-subgraphs",
-      "type": "reconciliation",
-      "seedSource": "local-question-ledger",
-      "category": "Data And Volume",
-      "question": "Is network volume sourced from backend REST or subgraphs?",
-      "gapId": "G-005",
-      "gapTitle": "Subgraph Migration Is Not Implemented In This Repo",
-      "shortAnswer": "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
-      "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path.",
-      "confidence": "Needs Reconciliation",
-      "sourceKeys": [
-        "spec-03",
-        "server-volume",
-        "server-volume-snapshots",
-        "syn-200"
-      ],
-      "sources": [
-        {
-          "key": "spec-03",
-          "group": "Local Specs",
-          "use": "Product facts and revenue/referral contradictions.",
-          "href": "../../_specs/app-docs/03-grounding.md",
-          "missing": false
-        },
-        {
-          "key": "server-volume",
-          "group": "Local Product And Code",
-          "use": "Current Vibe backend volume source, caching, normalization.",
-          "href": "../../server/volume.js",
-          "missing": false
-        },
-        {
-          "key": "server-volume-snapshots",
-          "group": "Local Product And Code",
-          "use": "Daily snapshot behavior.",
-          "href": "../../server/volume-snapshots.js",
-          "missing": false
-        },
-        {
-          "key": "syn-200",
-          "group": "Linear Research",
-          "use": "Subgraph migration research and more accurate volume path.",
-          "href": "",
           "missing": false
         }
       ]

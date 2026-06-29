@@ -3,7 +3,7 @@ id: "authored-points-and-vibe-points"
 title: "Onboarding Points And Vibe Points"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate-needs-operator-review"
+status: "publication-candidate"
 sourceKeys: ["dashboard-app", "vibe-points", "spec-03"]
 sourceUrls: ["src/dashboard/app.jsx", "https://docs.vibe.trading/trading/vibe-points.md", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-dashboard-points-distinction", "vibe-points-overview", "local-points-engine"]
@@ -15,7 +15,7 @@ The docs need to keep points vocabulary separated. The onboarding app has campai
 
 The safest public language is explicit: onboarding points are campaign/accounting units in this app; Vibe points are the trading-program points described by Vibe's public docs; referral points are their own category; and network/trading points are aggregated from trading activity where the product source supports that wording.
 
-TGE settlement language needs care. The current grounding says onboarding points settle at TGE with a multiplier on the network's Vibecaps trading volume, but final publication should cite the exact user-facing source and product owner wording before making that a prominent promise.
+TGE settlement language needs care. The current grounding says onboarding points settle at TGE with a multiplier on the network's Vibecaps trading volume, but the public TGE settlement formula is deferred and not public for v1. Do not turn that deferred formula into a conversion promise.
 
 ## Reader Implication
 

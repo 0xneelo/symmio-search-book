@@ -17,22 +17,22 @@
     "readerRoutablePages": 1593,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 785,
-    "seededAuthoredQuestionRoutes": 785,
-    "seededReconciliationQuestions": 4,
+    "seededQuestionRoutes": 787,
+    "seededAuthoredQuestionRoutes": 787,
+    "seededReconciliationQuestions": 2,
     "localFaqEntries": 789,
-    "localFaqAnswerable": 785,
-    "localFaqUnresolved": 4,
+    "localFaqAnswerable": 787,
+    "localFaqUnresolved": 2,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
-    "gapQueueQuestionSignals": 4,
+    "gapQueueQuestionSignals": 2,
     "gapQueueOperatorSignals": 7,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
-    "answerEngineExactRouteTests": 785,
-    "answerEngineExactRouteTestsPassing": 785,
-    "answerEngineRefusalTests": 4,
-    "answerEngineRefusalTestsPassing": 4,
+    "answerEngineExactRouteTests": 787,
+    "answerEngineExactRouteTestsPassing": 787,
+    "answerEngineRefusalTests": 2,
+    "answerEngineRefusalTestsPassing": 2,
     "answerEngineDeterministicReady": true,
     "answerEngineLlmProductionReady": false,
     "llmRagApiContractReady": true,
@@ -95,8 +95,8 @@
     "pageStatePublicNavigationPages": 798,
     "pageStateRetrievalEligiblePages": 1590,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 9,
-    "completionRequirementsPartial": 5,
+    "completionRequirementsComplete": 11,
+    "completionRequirementsPartial": 3,
     "completionRequirementsParked": 4,
     "completionRequirementsMissing": 0,
     "completionReady": false,
@@ -105,8 +105,8 @@
     "openOperatorItems": 7,
     "resolvedOperatorItems": 6,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 785,
-    "reconciliationQuestions": 4
+    "answerablePrototypeQuestions": 787,
+    "reconciliationQuestions": 2
   },
   "gates": [
     {
@@ -185,31 +185,31 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "785 generated routes, 785 answerable ledger rows, 0 missing page ids"
+      "detail": "787 generated routes, 787 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "authored-question-routes",
       "label": "Answerable seed questions use authored pages",
       "passed": true,
-      "detail": "785/785 seed routes use authored pages, 0 generated/curated fallbacks"
+      "detail": "787/787 seed routes use authored pages, 0 generated/curated fallbacks"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "785 answerable FAQs, 4 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "787 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
       "passed": true,
-      "detail": "12 queue items, 4 question signals, 7 operator signals, 2 parked pages"
+      "detail": "12 queue items, 2 question signals, 7 operator signals, 2 parked pages"
     },
     {
       "id": "deterministic-answer-engine",
       "label": "Deterministic answer engine contract resolves",
       "passed": true,
-      "detail": "785/785 exact routes, 4/4 refusal tests, LLM production ready no"
+      "detail": "787/787 exact routes, 2/2 refusal tests, LLM production ready no"
     },
     {
       "id": "llm-rag-contract",
@@ -269,7 +269,7 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "9/18 complete, 5 partial, 4 parked, 0 missing"
+      "detail": "11/18 complete, 3 partial, 4 parked, 0 missing"
     },
     {
       "id": "operator-inbox",
@@ -293,8 +293,8 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "publication-candidate-needs-operator-review": 624,
-      "publication-candidate": 154,
+      "publication-candidate-needs-operator-review": 619,
+      "publication-candidate": 159,
       "publication-candidate-needs-current-source-review": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
@@ -329,12 +329,12 @@
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 624,
+        "count": 619,
         "severity": "blocked"
       },
       {
         "status": "publication-candidate",
-        "count": 154,
+        "count": 159,
         "severity": "candidate"
       },
       {
@@ -768,15 +768,15 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 785,
-    "totalReconciliationQuestions": 4,
+    "totalRoutes": 787,
+    "totalReconciliationQuestions": 2,
     "byConfidence": {
-      "Medium": 488,
+      "Medium": 490,
       "High": 44,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 785
+      "authored": 787
     },
     "missingRouteIds": [],
     "nonAuthoredQuestionRoutes": []
@@ -785,8 +785,8 @@
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
     "totalEntries": 789,
-    "totalAnswerable": 785,
-    "totalUnresolved": 4,
+    "totalAnswerable": 787,
+    "totalUnresolved": 2,
     "totalCategories": 10,
     "byCategory": {
       "Getting Started": 119,
@@ -796,17 +796,17 @@
       "Revenue": 97,
       "Manifesto": 160,
       "Rewards And Referrals": 100,
-      "Dashboard": 11,
-      "Data And Volume": 5,
+      "Dashboard": 12,
+      "Data And Volume": 4,
       "Discord Import": 2
     },
     "byConfidence": {
-      "Medium": 488,
+      "Medium": 490,
       "High": 44,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 785
+      "authored": 787
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -815,7 +815,7 @@
   "gapQueueCoverage": {
     "status": "prototype-gap-queue",
     "totalItems": 12,
-    "totalQuestionSignals": 4,
+    "totalQuestionSignals": 2,
     "totalOperatorSignals": 7,
     "totalParkedPageSignals": 2,
     "byPriority": {
@@ -829,17 +829,18 @@
       "Rewards And Referrals": 1,
       "Revenue": 1,
       "Origin And Whitepapers": 1,
-      "Data And Volume": 1,
       "Options And Settlement": 1,
-      "Terminology": 1,
       "Editorial Production": 1,
+      "Data And Volume": 1,
+      "Terminology": 1,
       "General": 1,
       "Research Sweep": 1,
       "Publication Freshness": 1
     },
     "byStatus": {
       "operator-parked": 4,
-      "open": 8
+      "resolved": 6,
+      "open": 2
     },
     "topItems": [
       "queue-g-010",
@@ -847,7 +848,7 @@
       "queue-g-003",
       "queue-g-004",
       "queue-g-007",
-      "queue-g-005"
+      "queue-g-008"
     ],
     "missingQuestionGapIds": [],
     "missingOperatorGapIds": [],
@@ -860,15 +861,15 @@
     "contractVersion": "2026-06-28.v1",
     "deterministicReady": true,
     "llmProductionReady": false,
-    "exactRouteTests": 785,
-    "exactRouteTestsPassing": 785,
-    "refusalTests": 4,
-    "refusalTestsPassing": 4,
+    "exactRouteTests": 787,
+    "exactRouteTestsPassing": 787,
+    "refusalTests": 2,
+    "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "candidate": 785
+      "candidate": 787
     },
     "exactRoutesByConfidence": {
-      "Medium": 488,
+      "Medium": 490,
       "High": 44,
       "Low": 253
     },
@@ -945,7 +946,7 @@
           "candidate",
           "published"
         ],
-        "totalGoldenRoutes": 785
+        "totalGoldenRoutes": 787
       },
       {
         "stage": "glossary-route",
@@ -979,7 +980,7 @@
           "data/gap-queue.json",
           "QUESTIONS.md"
         ],
-        "totalGoldenRefusals": 4
+        "totalGoldenRefusals": 2
       }
     ],
     "storageContract": {
@@ -1042,9 +1043,9 @@
       "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
       "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
       "evaluationSet": {
-        "exactRoutes": 785,
+        "exactRoutes": 787,
         "glossaryRoutes": 32,
-        "refusals": 4,
+        "refusals": 2,
         "lowRatedFeedback": 1,
         "noRouteFeedback": 1,
         "adversarialMinimumRequiredBeforeProduction": 12
@@ -1173,8 +1174,8 @@
           "data/question-routes.json",
           "data/glossary.json"
         ],
-        "goldenExactRoutes": 785,
-        "goldenRefusals": 4
+        "goldenExactRoutes": 787,
+        "goldenRefusals": 2
       },
       {
         "stage": "input-risk-scan",
@@ -1325,8 +1326,8 @@
       "deterministicReady": true,
       "runtimeScript": "scripts/run-llm-rag-answer.mjs",
       "runtimeImplemented": true,
-      "exactRouteTests": 785,
-      "refusalTests": 4,
+      "exactRouteTests": 787,
+      "refusalTests": 2,
       "answerChunkPages": 1611,
       "answerChunks": 2841,
       "retrievalEligiblePages": 1590,
@@ -1396,7 +1397,7 @@
       "totalFixtures": 27,
       "passingFixtures": 27,
       "failingFixtures": 0,
-      "exactRouteGoldenSet": 785,
+      "exactRouteGoldenSet": 787,
       "adversarialGoldenSet": 15,
       "answerChunkPages": 1611,
       "answerChunks": 2841,
@@ -1583,8 +1584,8 @@
       "ratingFixtures": 3,
       "gapFixtures": 4,
       "gapQueueItems": 12,
-      "questionRouteCount": 785,
-      "reconciliationQuestionCount": 4,
+      "questionRouteCount": 787,
+      "reconciliationQuestionCount": 2,
       "operatorSignals": 7,
       "openOperatorItems": 7,
       "byEventType": {
@@ -2074,8 +2075,8 @@
       "section-page": 541
     },
     "byStatus": {
-      "publication-candidate-needs-operator-review": 624,
-      "publication-candidate": 154,
+      "publication-candidate-needs-operator-review": 619,
+      "publication-candidate": 159,
       "publication-candidate-needs-current-source-review": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
@@ -2091,7 +2092,7 @@
     "internalDraftPages": 3,
     "publicNavigationPages": 798,
     "retrievalEligiblePages": 1590,
-    "exactQuestionRoutedPages": 777,
+    "exactQuestionRoutedPages": 778,
     "duplicatePageIds": [],
     "unclassifiedPageIds": [],
     "missingVolumeIds": [],
@@ -2113,8 +2114,8 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 9,
-      "partial": 5,
+      "complete": 11,
+      "partial": 3,
       "parked": 4
     },
     "byCategory": {
@@ -2162,18 +2163,6 @@
         "id": "manifesto-and-reference",
         "status": "partial",
         "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages.",
-        "blocks": []
-      },
-      {
-        "id": "dashboard-reference",
-        "status": "partial",
-        "nextAction": "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication.",
-        "blocks": []
-      },
-      {
-        "id": "revenue-volume-points-reference",
-        "status": "partial",
-        "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
         "blocks": []
       },
       {
@@ -2408,18 +2397,6 @@
         "nextAction": "Continue converting generated source pages into publication-quality authored manifesto/reference pages."
       },
       {
-        "id": "dashboard-reference",
-        "status": "partial",
-        "blocks": [],
-        "nextAction": "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication."
-      },
-      {
-        "id": "revenue-volume-points-reference",
-        "status": "partial",
-        "blocks": [],
-        "nextAction": "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1."
-      },
-      {
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
@@ -2468,16 +2445,6 @@
       }
     ],
     "reconciliationQuestions": [
-      {
-        "question": "Are onboarding points the same as Vibe trading points?",
-        "gap": "`G-009`",
-        "notes": "Local dashboard distinguishes them; public docs need canonical naming."
-      },
-      {
-        "question": "Is network volume sourced from backend REST or subgraphs?",
-        "gap": "`G-005`",
-        "notes": "Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path."
-      },
       {
         "question": "Can a vault LP see exact covered-call exposure?",
         "gap": "`G-008`",

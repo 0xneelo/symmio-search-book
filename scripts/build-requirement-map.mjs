@@ -151,6 +151,7 @@ const finalReportExists = fs.existsSync(args.finalReport);
 const finalReportText = readText(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
+const authoredPageIds = new Set((authored.pages || []).map((page) => page.id));
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
 const answerEngineEvaluation = answerEngineContract.evaluation || {};
@@ -207,6 +208,58 @@ const finalReportDocumentsState =
   finalReportText.includes("## Verification Evidence") &&
   finalReportText.includes("## Remaining Production Work") &&
   finalReportMentionsOpenItems;
+const requiredDashboardPageIds = [
+  "authored-dashboard-route-inventory",
+  "authored-dashboard-overview",
+  "authored-dashboard-invites",
+  "authored-dashboard-network",
+  "authored-dashboard-volume",
+  "authored-dashboard-tasks",
+  "authored-dashboard-faq",
+  "authored-dashboard-settings",
+  "authored-estimated-network-revenue",
+  "authored-dashboard-revenue-pulse",
+];
+const missingDashboardPageIds = requiredDashboardPageIds.filter((pageId) => !authoredPageIds.has(pageId));
+const dashboardQuestionRouted = (questionRoutes.answerable || []).some(
+  (route) => route.question === "Which dashboard views are documented?" && route.pageId === "authored-dashboard-route-inventory",
+);
+const dashboardReferenceComplete =
+  !missingDashboardPageIds.length && dashboardQuestionRouted && !inboxHas(openInboxItems, 1) && !inboxHas(openInboxItems, 3);
+const requiredRevenueVolumePointsPageIds = [
+  "authored-estimated-network-revenue",
+  "authored-dashboard-revenue-pulse",
+  "authored-network-volume",
+  "authored-dashboard-volume",
+  "authored-barometer-subgraph-upgrade",
+  "authored-volume-snapshot-cadence",
+  "authored-points-taxonomy",
+  "authored-points-and-vibe-points",
+  "authored-vibe-points-program",
+  "authored-tge-settlement-multiplier",
+];
+const missingRevenueVolumePointsPageIds = requiredRevenueVolumePointsPageIds.filter((pageId) => !authoredPageIds.has(pageId));
+const revenueVolumePointsRoutes = new Set(
+  (questionRoutes.answerable || [])
+    .filter((route) =>
+      [
+        "How is estimated network revenue calculated?",
+        "Which revenue sources are live today?",
+        "Where does network volume come from?",
+        "Is network volume sourced from backend REST or subgraphs?",
+        "What are the different kinds of points?",
+        "Are onboarding points the same as Vibe trading points?",
+        "How are Vibe points earned?",
+        "How do onboarding points settle at TGE?",
+      ].includes(route.question),
+    )
+    .map((route) => route.question),
+);
+const revenueVolumePointsComplete =
+  !missingRevenueVolumePointsPageIds.length &&
+  revenueVolumePointsRoutes.size >= 8 &&
+  !inboxHas(openInboxItems, 1) &&
+  !inboxHas(openInboxItems, 3);
 const livingDocsEventContractReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -258,25 +311,33 @@ const requirements = [
   req({
     id: "dashboard-reference",
     label: "Every dashboard view documented",
-    status: (authoredSections["dashboard-reference"] || 0) >= 8 ? "partial" : "missing",
+    status: dashboardReferenceComplete ? "complete" : (authoredSections["dashboard-reference"] || 0) >= 8 ? "partial" : "missing",
     category: "reference",
     sourceSpecs: ["01", "03", "05", "09"],
-    evidence: `${authoredSections["dashboard-reference"] || 0} authored dashboard-reference pages; statuses ${JSON.stringify(authoredStatuses)}`,
-    nextAction: "Resolve operator-review items for revenue, volume, FAQ, and network-depth language before publication.",
+    evidence: dashboardReferenceComplete
+      ? `Current dashboard route inventory plus ${requiredDashboardPageIds.length - 1} required dashboard/revenue pages cover visible routes and hidden #revenue; route question mapped=${dashboardQuestionRouted}.`
+      : `${authoredSections["dashboard-reference"] || 0} authored dashboard-reference pages; missing required ids ${missingDashboardPageIds.join(", ") || "none"}; route question mapped=${dashboardQuestionRouted}; statuses ${JSON.stringify(authoredStatuses)}`,
+    nextAction: dashboardReferenceComplete
+      ? "Keep the route inventory synchronized with dashboard shell changes."
+      : "Resolve missing dashboard/revenue pages and route inventory before publication.",
   }),
   req({
     id: "revenue-volume-points-reference",
     label: "Revenue, volume, points, and Vibe-points reference",
-    status: inboxHas(openInboxItems, 1) ? "parked" : "partial",
+    status: inboxHas(openInboxItems, 1) ? "parked" : revenueVolumePointsComplete ? "complete" : "partial",
     category: "reference",
     sourceSpecs: ["01", "03", "08", "09"],
     evidence: inboxHas(openInboxItems, 1)
       ? "Authored revenue, network-volume, points, and dashboard pages exist; public revenue disclosure boundary would need operator input before publication."
-      : "Authored revenue, network-volume, points, and dashboard pages exist; operator-approved v1 public revenue is Phase A only: networkVolume × platformFeeRate × referrerPlatformShare, defaults 0.05% / 5 bps fee and 30% referrer platform share; Phase B economics are out of scope for v1.",
+      : revenueVolumePointsComplete
+        ? `Required v1 revenue, volume, Barometer, points-taxonomy, Vibe-points, and TGE-boundary pages exist; ${revenueVolumePointsRoutes.size}/8 required questions route to authored pages. Phase A formula and 15-level depth are approved; public TGE formula is deferred/not public for v1.`
+        : `Authored revenue, network-volume, points, and dashboard pages exist; missing required ids ${missingRevenueVolumePointsPageIds.join(", ") || "none"}; ${revenueVolumePointsRoutes.size}/8 required questions route to authored pages; operator-approved v1 revenue is Phase A only.`,
     blocks: inboxHas(openInboxItems, 1) ? ["OPERATOR-INBOX #1"] : [],
     nextAction: inboxHas(openInboxItems, 1)
       ? "Resume final revenue/economics wording when the operator fills inbox item #1."
-      : "Keep Phase A public copy aligned with the approved formula and keep Phase B economics refused/out of scope for v1.",
+      : revenueVolumePointsComplete
+        ? "Keep Phase A public copy aligned with the approved formula, keep Barometer as a tracked upgrade, and keep the public TGE formula deferred/not public for v1."
+        : "Route remaining revenue, volume, points, and Vibe-points questions to authored pages.",
   }),
   req({
     id: "referral-depth-reconciliation",

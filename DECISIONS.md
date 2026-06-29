@@ -1799,3 +1799,11 @@
 **Reason:** The mission requires a final report, while the production deploy route, Discord/Lafa corpus, Notion ingestion, oldest whitepaper, SSHE identification, and service env remain parked. A report that hides those gaps would be a shortcut; an explicit readiness-boundary report gives future operators the evidence and the unfinished work in one place.
 
 **Status:** Accepted for delivery tracking. The report is a current-state delivery artifact, not proof that the whole Search Book goal is production-complete.
+
+## D-226: Count Resolved Publication Stances Separately From Production Blockers
+
+**Decision:** Treat dashboard route coverage and v1 revenue/volume/points wording as complete when required authored pages and exact question routes exist, while keeping deployment, production service env, Discord/Lafa, Notion, oldest whitepaper, and SSHE under their own parked requirements.
+
+**Reason:** Several old gap rows still carried "needs reconciliation" language after operator decisions had already resolved the v1 public stance: Phase A revenue is approved, referral depth is 15 levels, current volume source is backend REST plus snapshots with Barometer as the tracked upgrade, and the point taxonomy is canonical while the public TGE formula is deferred/not public for v1. Keeping those rows open made the readiness map understate completed publication work and blurred it with genuine production blockers.
+
+**Status:** Accepted for readiness accounting. This does not claim the Search Book is deployed or source-complete.

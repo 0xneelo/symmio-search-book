@@ -79,7 +79,9 @@ Questions are grouped by whether the current source set can answer them.
 | What can I change in Settings? | `authored-dashboard-settings` | High | Local settings code captures contact metadata and recovery email without implying live email recovery. |
 | Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local FAQ is a seed until Discord/Lafa import is provided. |
 | What are the different kinds of points? | `authored-points-taxonomy` | Medium | Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology. |
-| How do onboarding points settle at TGE? | `authored-tge-settlement-multiplier` | Low | Dashboard footer and grounding spec support the TGE multiplier concept; final formula and claim mechanics need owner review. |
+| Are onboarding points the same as Vibe trading points? | `authored-points-and-vibe-points` | Medium | The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points; the public TGE settlement formula is deferred and not public for v1. |
+| How do onboarding points settle at TGE? | `authored-tge-settlement-multiplier` | Low | Dashboard footer and grounding spec support the TGE multiplier concept; the final settlement formula and claim mechanics are deferred and not public for v1. |
+| Is network volume sourced from backend REST or subgraphs? | `authored-barometer-subgraph-upgrade` | Medium | Current production docs should describe backend REST wallet totals plus daily snapshots as live, and Goldsky/subgraph-backed Barometer as the tracked upgrade. |
 | Why are referral points economic state? | `authored-referral-points-economic-state` | Medium | Neelo's referral rewards source says points need balance-like controls once they affect tradable outcomes, TGE weighting, or on-chain claims. |
 | How should points move from off-chain balances to on-chain claims? | `authored-points-claim-bridge-and-vesting` | Low | Neelo's points and rewards-pack sources support finalization, claim authorization, cooldown or vesting, and anomaly checks before economic activity. |
 | What are rewards packs and artifacts? | `authored-rewards-packs-and-artifacts` | Low | Neelo's rewards-pack source treats packs and artifacts as future-facing gamified reward objects with explicit supply, EV, and TGE accounting guardrails. |
@@ -800,8 +802,6 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 
 | Question | Gap | Notes |
 | --- | --- | --- |
-| Are onboarding points the same as Vibe trading points? | `G-009` | Local dashboard distinguishes them; public docs need canonical naming. |
-| Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |
 
