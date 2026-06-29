@@ -4,8 +4,8 @@
   "sourceCompletionReady": false,
   "totalSourceRequirements": 17,
   "byStatus": {
-    "complete": 11,
-    "parked": 4,
+    "complete": 12,
+    "parked": 3,
     "partial": 2
   },
   "byCategory": {
@@ -26,10 +26,6 @@
     {
       "id": 11,
       "title": "Production LLM provider, model, and API credentials for answer synthesis"
-    },
-    {
-      "id": 9,
-      "title": "Vibe add-token-info source fetch approval/access"
     },
     {
       "id": 7,
@@ -219,21 +215,19 @@
     {
       "id": "vibe-add-token-info",
       "label": "Vibe Add Token Info docs",
-      "status": "parked",
+      "status": "complete",
       "category": "product-reference",
       "sourceSpecs": [
         "04",
         "08"
       ],
-      "presentKeys": [],
-      "missingKeys": [
+      "presentKeys": [
         "vibe-add-token-info"
       ],
-      "evidence": "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
-      "blocks": [
-        "OPERATOR-INBOX #9"
-      ],
-      "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
+      "missingKeys": [],
+      "evidence": "Official Add Token Info Markdown is registered and synthesized into an authored reference page.",
+      "blocks": [],
+      "nextAction": "Keep payment details routed to the live app form; do not publish static fee, treasury address, token address, or chain list."
     },
     {
       "id": "vibe-notion",
@@ -428,7 +422,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "787 authored pages generated from registered sources across 10 sections.",
+      "evidence": "788 authored pages generated from registered sources across 10 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -533,6 +527,7 @@
         "vibe-account-creation",
         "vibe-account-health-liquidations",
         "vibe-account-portfolio",
+        "vibe-add-token-info",
         "vibe-architecture",
         "vibe-collateral-margining",
         "vibe-deposits-withdrawals",
@@ -562,23 +557,12 @@
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "117 registered source keys; 0 duplicate keys.",
+      "evidence": "118 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
   ],
   "missingSourceFamilies": [
-    {
-      "id": "vibe-add-token-info",
-      "status": "parked",
-      "missingKeys": [
-        "vibe-add-token-info"
-      ],
-      "blocks": [
-        "OPERATOR-INBOX #9"
-      ],
-      "nextAction": "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement."
-    },
     {
       "id": "vibe-notion",
       "status": "parked",

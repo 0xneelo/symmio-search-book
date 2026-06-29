@@ -76,6 +76,7 @@ Focused checks for this package:
 node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
 node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
 node src/search-book/scripts/build-authored-index.mjs
+node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-navigation-tree.mjs
 node src/search-book/scripts/build-journey-map.mjs
 node src/search-book/scripts/build-question-routes.mjs
@@ -86,7 +87,6 @@ node src/search-book/scripts/build-crosslink-map.mjs
 node src/search-book/scripts/build-volume-map.mjs
 node src/search-book/scripts/build-page-state-registry.mjs
 node src/search-book/scripts/build-glossary.mjs
-node src/search-book/scripts/build-source-catalog.mjs
 node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 node src/search-book/scripts/build-llm-rag-contract.mjs
@@ -142,9 +142,9 @@ node --check src/search-book/data/requirement-map.js
 node --check src/search-book/data/quality-audit.js
 node -e "const j=require('./src/search-book/data/journeys.json'); if (j.missingPageIds.length || j.totalJourneys < 5) process.exit(1); console.log(j.totalJourneys + '/' + j.totalSteps)"
 node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.missingRouteIds.length || q.totalRoutes < 1) process.exit(1); console.log(q.totalRoutes + '/' + q.totalReconciliationQuestions)"
-node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 771) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
-node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 5) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
-node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 771) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
+node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 773) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
+node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 4) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
+node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 773) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
 node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || l.datastoreImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
 node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || !lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
 node -e "const av=require('./src/search-book/data/answer-validation-report.json'); if (!av.reportReady || av.coverage.totalFixtures < 20 || av.coverage.passingFixtures !== av.coverage.totalFixtures || av.failureSummary.failingFixtureIds.length) process.exit(1); console.log(av.coverage.passingFixtures + '/' + av.coverage.totalFixtures)"

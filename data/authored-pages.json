@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 787,
+  "totalPages": 788,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 614,
+    "publication-candidate-needs-operator-review": 615,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -12,7 +12,7 @@
   },
   "bySection": {
     "manifesto": 471,
-    "product-reference": 47,
+    "product-reference": 48,
     "rewards-referrals": 103,
     "dashboard-reference": 12,
     "protocol-reference": 142,
@@ -17105,6 +17105,33 @@
       "file": "content/authored/reference/vibe-account-history-and-csv-export.md",
       "bodyMarkdown": "# Vibe Account History And CSV Export\n\nVibe's My Account page is the reference surface for account history.\n\nThe official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading-fee charts, rakeback tracking, account health, referral-code activity, points, and CSV export.\n\nThat makes it the right page to answer \"where did this number come from?\" questions. Deposits and withdrawals explain balance movement. Fees and funding explain trading-cost movement. PnL charts explain performance over time. Account health explains risk capacity.\n\n## What CSV Export Means\n\nCSV export gives the user a recordkeeping output. The docs should not imply that exporting a CSV solves tax treatment, accounting classification, or jurisdiction-specific reporting. The source supports data export, not legal or tax interpretation.\n\nThe practical answer is:\n\n- use My Account for transaction history and account-state review;\n- use the fee and funding charts to explain trading-cost changes;\n- export CSV when the user needs raw records for their own workflow;\n- route tax/accounting interpretation outside the current source set.\n\n## Sources\n\n- `vibe-account-portfolio`: official My Account history, analytics, fee/funding charts, transaction history, and CSV export.\n- `vibe-deposits-withdrawals`: official deposit and withdrawal history context.\n- `vibe-fees`: official fee category context.\n- `vibe-funding`: official funding cost context.\n\n## Related Pages\n\n- `authored-vibe-portfolio-and-account-data`\n- `authored-vibe-fees-and-funding`\n- `authored-vibe-deposits-and-withdrawals`",
       "excerpt": "Vibe Account History And CSV Export Vibe's My Account page is the reference surface for account history. The official portfolio guide says My Account includes transaction history, deposit and withdrawal history, detailed PnL stats, daily and cumulative PnL charts, funding charts, trading fee charts, rakeback tracking, account health, referral code activity, points, and CSV export. That makes it the right page to answer \"where did this number come from?\" questions. Deposits and withdrawals explain balance movement. Fees and funding explain trading cost movement. PnL charts explain performance over time. Account health explains risk capacity. What CSV Export Means CSV export gives the user a recordkeeping output. The docs should not imply that exporting a CSV solves tax treatment, accounting classification, or jurisdiction specific reporting. The source supports data export, not legal or tax interpretation. The practical answer is: use My Account for transaction history and account state review; use the fee and funding charts to explain trading cost changes; export CSV when the user needs raw records for their own workflow; route tax/accounting interpretation outside the current sour"
+    },
+    {
+      "id": "authored-vibe-add-token-info",
+      "title": "Vibe Add Token Info",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-add-token-info",
+        "vibe-project-listing-terms",
+        "spec-04"
+      ],
+      "sourceUrls": [
+        "https://docs.vibe.trading/more-info/add-token-info.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions",
+        "_specs/app-docs/04-sources.md"
+      ],
+      "relatedGeneratedPages": [
+        "vibe-add-token-info",
+        "vibe-project-listing-terms",
+        "authored-vibe-project-listing-terms"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/vibe-add-token-info.md",
+      "bodyMarkdown": "# Vibe Add Token Info\n\nAdd Token Info is the VibeCaps project-managed metadata flow. Once approved, a token trading page can show project-managed banner artwork, logo, description, website, social links, and an optional X feed instead of relying only on default token metadata.\n\nThe official source exposes two entry points. A project can start from a VibeCaps market that does not already have approved token info by using the Add Token Info action beside the token identity and safety icons. It can also start from the listed pool detail page, where the button appears only for listed pools without approved token info.\n\n## What A Project Can Submit\n\nThe source-backed fields are:\n\n- banner artwork;\n- token logo;\n- project description;\n- website;\n- social links;\n- X feed profile.\n\nIf the X feed is approved, posts can appear in the trading page feed panel and as chart markers. The purpose is contextual: traders can connect market movement with project updates without leaving the trading surface.\n\n## Submission Flow\n\nThe submitter needs a connected wallet, the target VibeCaps market, optional JPG/PNG/WebP artwork, optional links, a review contact email, optional Telegram contact, and USDC on one of the chains shown in the app.\n\nThe source flow is:\n\n1. Open the relevant VibeCaps market.\n2. Choose Add Token Info.\n3. Fill in the project details.\n4. Add the review contact email.\n5. Continue to payment.\n6. Choose the deposit chain.\n7. Send the exact USDC fee to the treasury address shown in the form.\n8. Paste the deposit transaction hash or explorer URL.\n9. Submit for review.\n\nThe app verifies that the selected treasury received enough USDC on the selected chain before accepting the submission.\n\n## Payment, Review, And Status\n\nThe fee is a one-time USDC review fee. The live amount is shown inside the app before payment, and the docs must not publish a static fee amount, treasury address, token address, or chain list unless a current app source supports it.\n\nSubmission history belongs to the connected wallet. The public statuses are:\n\n- pending review: the Vibe team received the submission;\n- approved: the submitted token info is live;\n- rejected: the submission was not approved;\n- replaced: a newer approved submission is live for that token.\n\nPending submissions can be edited. Updating a pending submission replaces the pending row and reuses the original payment transaction hash. Rejected submissions may be refunded at Vibe's discretion.\n\n## Review Boundaries\n\nThe official rejection examples are fraud or scam suspicion, inactive or inconsistent information, and verification mismatch between the submitted website/socials and the token or smart contract. Public docs should therefore frame Add Token Info as a reviewed metadata request, not as an automatic branding right.\n\nTwo safety rules matter for answer synthesis:\n\n- use only the payment amount, USDC token, chain, and treasury address shown inside the Vibe app;\n- if payment details fail to load, do not guess the fee or treasury address.\n\n## Reader Implication\n\nWhen projects ask what metadata they can add, route here. When they ask for current payment details, route them back to the live in-app form rather than giving a static address or amount.\n\n## Sources\n\n- `vibe-add-token-info`: official Add Token Info Markdown page.\n- `vibe-project-listing-terms`: adjacent project listing terms linked by the Add Token Info source.\n- `spec-04`: source-ingestion requirement for Vibe public docs.\n\n## Related Pages\n\n- `authored-vibe-project-listing-terms`\n- `vibe-add-token-info`\n- `vibe-project-listing-terms`",
+      "excerpt": "Vibe Add Token Info Add Token Info is the VibeCaps project managed metadata flow. Once approved, a token trading page can show project managed banner artwork, logo, description, website, social links, and an optional X feed instead of relying only on default token metadata. The official source exposes two entry points. A project can start from a VibeCaps market that does not already have approved token info by using the Add Token Info action beside the token identity and safety icons. It can also start from the listed pool detail page, where the button appears only for listed pools without approved token info. What A Project Can Submit The source backed fields are: banner artwork; token logo; project description; website; social links; X feed profile. If the X feed is approved, posts can appear in the trading page feed panel and as chart markers. The purpose is contextual: traders can connect market movement with project updates without leaving the trading surface. Submission Flow The submitter needs a connected wallet, the target VibeCaps market, optional JPG/PNG/WebP artwork, optional links, a review contact email, optional Telegram contact, and USDC on one of the chains shown in"
     },
     {
       "id": "authored-vibe-allocated-balance",

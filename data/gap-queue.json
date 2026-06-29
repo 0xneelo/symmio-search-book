@@ -8,9 +8,9 @@
     "data/source-catalog.json"
   ],
   "status": "prototype-gap-queue",
-  "totalItems": 13,
-  "totalQuestionSignals": 5,
-  "totalOperatorSignals": 8,
+  "totalItems": 12,
+  "totalQuestionSignals": 4,
+  "totalOperatorSignals": 7,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
   "missingOperatorGapIds": [],
@@ -19,7 +19,7 @@
   "byPriority": {
     "P0": 4,
     "P1": 5,
-    "P2": 4
+    "P2": 3
   },
   "byCategory": {
     "Production Answer Engine": 1,
@@ -31,12 +31,12 @@
     "Options And Settlement": 1,
     "Terminology": 1,
     "Editorial Production": 1,
-    "General": 2,
+    "General": 1,
     "Research Sweep": 1,
     "Publication Freshness": 1
   },
   "byStatus": {
-    "operator-parked": 5,
+    "operator-parked": 4,
     "open": 8
   },
   "topItems": [
@@ -904,40 +904,6 @@
       ],
       "linkedQuestions": [],
       "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-012",
-      "gapId": "G-012",
-      "title": "Vibe Add Token Info Source Fetch Is Parked",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P2",
-      "priorityScore": 57,
-      "category": "General",
-      "summary": "The generated companion page maps vibe-add-token-info to https://docs.vibe.trading/more-info/add-token-info.md, but two network-escalated fetch attempts timed out during approval review before execution. The page should not be authored from the one-line companion brief because it likely governs project-managed token metadata and branding details.",
-      "needed": "Official Markdown contents for the Add Token Info page, or a reachable canonical replacement URL from the operator.",
-      "sourceKeys": [],
-      "sources": [],
-      "relatedPageIds": [],
-      "relatedPages": [],
-      "linkedQuestions": [
-        {
-          "id": "gap-what-project-managed-token-metadata-can-be-added-to-vibe",
-          "question": "What project-managed token metadata can be added to Vibe?",
-          "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text."
-        }
-      ],
-      "linkedOperatorItems": [
-        {
-          "id": 9,
-          "title": "Vibe add-token-info source fetch approval/access",
-          "need": "Fetch the official Markdown contents for `https://docs.vibe.trading/more-info/add-token-info.md`, or confirm a reachable canonical replacement URL for the Add Token Info page.",
-          "blocks": "Authored Add Token Info / project-managed token metadata page and final source-completeness claim for that official Vibe utility guide."
-        }
-      ],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []

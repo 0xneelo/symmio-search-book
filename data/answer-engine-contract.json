@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 771
+      "totalGoldenRoutes": 773
     },
     {
       "stage": "glossary-route",
@@ -106,7 +106,7 @@
         "data/gap-queue.json",
         "QUESTIONS.md"
       ],
-      "totalGoldenRefusals": 5
+      "totalGoldenRefusals": 4
     }
   ],
   "citationPolicy": {
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 786,
-    "retrievalEligiblePages": 1578,
+    "publicNavigationPages": 787,
+    "retrievalEligiblePages": 1579,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 786,
+      "candidate": 787,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,20 +186,20 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 771,
-    "exactRouteTestsPassing": 771,
-    "totalRefusalTests": 5,
-    "refusalTestsPassing": 5,
+    "totalExactRouteTests": 773,
+    "exactRouteTestsPassing": 773,
+    "totalRefusalTests": 4,
+    "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
     "glossaryRouteTestsPassing": 32,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 771
+      "candidate": 773
     },
     "exactRoutesByConfidence": {
-      "Medium": 481,
+      "Medium": 483,
       "High": 44,
       "Low": 246
     },
@@ -16982,6 +16982,56 @@
         "chunkCount": 3,
         "faqEntryId": "faq-what-does-the-superflow-she-openapi-source-prove",
         "passes": true
+      },
+      {
+        "id": "qr-what-project-managed-token-metadata-can-be-added-to-vibe",
+        "query": "What project-managed token metadata can be added to Vibe?",
+        "normalizedQuery": "what project managed token metadata can be added to vibe",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-add-token-info",
+        "expectedPageTitle": "Vibe Add Token Info",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-add-token-info",
+          "vibe-project-listing-terms",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "vibe-add-token-info",
+          "vibe-project-listing-terms",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-what-project-managed-token-metadata-can-be-added-to-vibe",
+        "passes": true
+      },
+      {
+        "id": "qr-give-the-official-add-token-info-instructions-from-vibe-docs",
+        "query": "Give the official Add Token Info instructions from Vibe docs.",
+        "normalizedQuery": "give the official add token info instructions from vibe docs",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-vibe-add-token-info",
+        "expectedPageTitle": "Vibe Add Token Info",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-add-token-info",
+          "vibe-project-listing-terms",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "vibe-add-token-info",
+          "vibe-project-listing-terms",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-give-the-official-add-token-info-instructions-from-vibe-docs",
+        "passes": true
       }
     ],
     "glossaryRouteTests": [
@@ -18204,15 +18254,6 @@
         "gapId": "G-001",
         "notes": "Discord export missing.",
         "passes": true
-      },
-      {
-        "id": "gap-what-project-managed-token-metadata-can-be-added-to-vibe",
-        "query": "What project-managed token metadata can be added to Vibe?",
-        "normalizedQuery": "what project managed token metadata can be added to vibe",
-        "expectedStage": "gap-refusal",
-        "gapId": "G-012",
-        "notes": "Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text.",
-        "passes": true
       }
     ]
   },
@@ -18223,18 +18264,18 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 771,
+      "exactRoutes": 773,
       "glossaryRoutes": 32,
-      "refusals": 5,
+      "refusals": 4,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
       "adversarialMinimumRequiredBeforeProduction": 12
     }
   },
   "gapSignals": {
-    "totalGapQueueItems": 13,
-    "questionSignals": 5,
-    "operatorSignals": 8,
+    "totalGapQueueItems": 12,
+    "questionSignals": 4,
+    "operatorSignals": 7,
     "parkedPageSignals": 2
   },
   "warnings": [

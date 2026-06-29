@@ -86,12 +86,6 @@ The source spec names the Vibe Trading Notion workspace as a required working so
 
 **Needed:** Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.
 
-## G-012: Vibe Add Token Info Source Fetch Is Parked
-
-The generated companion page maps `vibe-add-token-info` to `https://docs.vibe.trading/more-info/add-token-info.md`, but two network-escalated fetch attempts timed out during approval review before execution. The page should not be authored from the one-line companion brief because it likely governs project-managed token metadata and branding details.
-
-**Needed:** Official Markdown contents for the Add Token Info page, or a reachable canonical replacement URL from the operator.
-
 ---
 
 ## Resolutions & Dispositions (2026-06-29)
@@ -110,6 +104,6 @@ Operator decisions recorded this session (Linear epic SYN-209; operator mirror i
 - **G-009 Terminology/glossary** — ✅ RESOLVED (operator 2026-06-29): the point **taxonomy** (onboarding/referral/network/Vibe points) is **approved as canonical**; the public **TGE settlement formula is deferred / not-public for v1**.
 - **G-010 Answer-engine build/buy** — ✅ RESOLVED: **BUILD** — standalone answer-engine service + SQLite (SYN-217) + OpenAI openai-compatible RAG runtime (SYN-211/SYN-215). Retrieval/chunking/citations/refusal already in the contract; rate-limits/abuse/analytics = SYN-219. Public frontend platform still open (inbox #4 / SYN-210).
 - **G-011 Notion** — Disposition: provided (`https://vibe-trading.notion.site/?pvs=73`); ingestion pending (SYN-226).
-- **G-012 Add-Token-Info** — Disposition: fetch pending (SYN-226); park if unreachable.
+- **G-012 Add-Token-Info** — ✅ RESOLVED: official Markdown fetched from `https://docs.vibe.trading/more-info/add-token-info.md`; authored reference page added. Payment details remain routed to the live in-app form.
 
 **All publication-stance questions are now resolved** (operator, 2026-06-29). The only remaining items are **implementation/ingestion, not decisions**: the G-005 subgraph endpoint/venue mapping (SYN-200), source ingestion/scrapes (SYN-225/SYN-226), and the parked Vibe-specific options example (G-008 — re-open only if/when the operator provides one).

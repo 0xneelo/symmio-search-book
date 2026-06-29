@@ -122,7 +122,6 @@ function gapOperatorItemIds(gapQueue, gapId) {
 
 function buildFixtures({ questionRoutes, gapQueue }) {
   const route = firstRoute(questionRoutes);
-  const addTokenInfo = routeByQuestion(questionRoutes, "What project-managed token metadata can be added to Vibe?");
   const answerQuestion = {
     id: "fixture-question-answered",
     query: route?.question || "What is Vibe Trading?",
@@ -227,16 +226,16 @@ function buildFixtures({ questionRoutes, gapQueue }) {
     time: "deterministic-build",
   };
   const sourceFamilyQuestion = {
-    id: "fixture-question-add-token-info",
-    query: addTokenInfo?.question || "What project-managed token metadata can be added to Vibe?",
+    id: "fixture-question-original-whitepaper",
+    query: "Quote the original 2021 Symmio whitepaper and compare it to the current version.",
     source: "fixture",
     pageId: "",
     page: "",
     score: 0,
     status: "operator-blocked-refusal",
     refusalReason: "source-family-missing",
-    gapId: addTokenInfo?.gapId || "G-012",
-    operatorItemIds: gapOperatorItemIds(gapQueue, addTokenInfo?.gapId || "G-012"),
+    gapId: "G-007",
+    operatorItemIds: gapOperatorItemIds(gapQueue, "G-007"),
     time: "deterministic-build",
   };
   return {

@@ -90,6 +90,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-tradingview-control` | https://docs.vibe.trading/trading/tradingview-control.md | In-app TradingView controls for indicators, chart customization, saved layouts, ticker switching, and watchlists. |
 | `vibe-system-visualization` | https://docs.vibe.trading/system-visualisation.md | Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges. |
 | `vibe-project-listing-terms` | https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md | Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process. |
+| `vibe-add-token-info` | https://docs.vibe.trading/more-info/add-token-info.md | Official project-managed token metadata submission flow for VibeCaps markets, including fields, payment, review states, rejection reasons, and safety caveats. |
 | `vibe-papers` | https://github.com/0xneelo/vibe_docs | Research-paper corpus and long-form themes. |
 | `vibe-papers-site` | https://0xneelo.github.io/vibe_docs/ | Reader-first published version of Neelo's papers. |
 | `vibe-papers-data` | `/tmp/vibe_docs/Website/public/generated/docs-data.json` | Session 1 local clone data used to derive the 794-page manifest. |

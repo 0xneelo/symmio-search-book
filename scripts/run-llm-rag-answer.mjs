@@ -126,15 +126,6 @@ const riskRules = [
     message: "Discord and Lafa-answer claims are blocked until the operator provides the export and citation boundary.",
   },
   {
-    id: "add-token-info",
-    reason: "source-family-missing",
-    status: "operator-blocked-refusal",
-    gapId: "G-012",
-    operatorItemIds: [9],
-    patterns: [/add token info/i, /project-managed token metadata/i],
-    message: "The Add Token Info source is parked until official source text is available.",
-  },
-  {
     id: "notion",
     reason: "operator-access-required",
     status: "operator-blocked-refusal",

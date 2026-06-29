@@ -276,9 +276,13 @@ const requirements = [
     sourceSpecs: ["04", "08"],
     presentKeys: keys.has("vibe-add-token-info") ? ["vibe-add-token-info"] : [],
     missingKeys: keys.has("vibe-add-token-info") ? [] : ["vibe-add-token-info"],
-    evidence: "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
+    evidence: keys.has("vibe-add-token-info")
+      ? "Official Add Token Info Markdown is registered and synthesized into an authored reference page."
+      : "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
     blocks: inboxHas(openInboxItems, 9) ? ["OPERATOR-INBOX #9"] : [],
-    nextAction: "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement.",
+    nextAction: keys.has("vibe-add-token-info")
+      ? "Keep payment details routed to the live app form; do not publish static fee, treasury address, token address, or chain list."
+      : "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement.",
   }),
   sourceReq({
     id: "vibe-notion",

@@ -777,6 +777,8 @@ Questions are grouped by whether the current source set can answer them.
 | Why does controlling the token lifecycle matter? | `authored-token-lifecycle-control-thesis` | Medium | Neelo's listing-game source argues that the layer producing credible pre-listing market evidence can influence downstream listing decisions. |
 | What does the Thumbs Down mean in Vibe's thesis? | `authored-thumbs-down-market-position` | Medium | Neelo's Thumbs Down section frames negative conviction as a market position, not merely a dislike reaction; product details remain review-bound. |
 | What does the SuperFlow SHE OpenAPI source prove? | `authored-superflow-she-api-boundary` | Low | The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration. |
+| What project-managed token metadata can be added to Vibe? | `authored-vibe-add-token-info` | Medium | Official Add Token Info docs support banner, logo, description, website, social links, and optional X feed submission for approved VibeCaps token pages. |
+| Give the official Add Token Info instructions from Vibe docs. | `authored-vibe-add-token-info` | Medium | The official flow is open market, choose Add Token Info, fill project/contact details, pay the in-app USDC review fee to the in-app treasury address, paste the transaction, and submit for review. |
 
 ## Prototype Event Log
 
@@ -790,7 +792,6 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 | Is network volume sourced from backend REST or subgraphs? | `G-005` | Current code uses backend REST; Linear research recommends subgraphs, and public Goldsky docs are now registered for the future source path. |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
 | Which Discord answers are authoritative? | `G-001` | Discord export missing. |
-| What project-managed token metadata can be added to Vibe? | `G-012` | Add Token Info official Markdown fetch is parked in operator inbox item #9; do not author this without source text. |
 
 ## Seeded FAQ Topics For Discord Mining
 
