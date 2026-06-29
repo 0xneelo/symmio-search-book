@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 422
+      "totalGoldenRoutes": 427
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 440,
-    "retrievalEligiblePages": 1232,
+    "publicNavigationPages": 445,
+    "retrievalEligiblePages": 1237,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 440,
+      "candidate": 445,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 422,
-    "exactRouteTestsPassing": 422,
+    "totalExactRouteTests": 427,
+    "exactRouteTestsPassing": 427,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 422
+      "candidate": 427
     },
     "exactRoutesByConfidence": {
-      "Medium": 202,
+      "Medium": 207,
       "High": 44,
       "Low": 176
     },
@@ -9471,6 +9471,121 @@
         "chunkCount": 1,
         "faqEntryId": "faq-how-should-tge-exposure-count-points-packs-and-artifacts",
         "passes": true
+      },
+      {
+        "id": "qr-why-isolate-referral-settlement-signers",
+        "query": "Why isolate referral settlement signers?",
+        "normalizedQuery": "why isolate referral settlement signers",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-signer-isolation-key-rotation",
+        "expectedPageTitle": "Referral Signer Isolation And Key Rotation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-isolate-referral-settlement-signers",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-replay-safe-referral-claims-work",
+        "query": "How do replay-safe referral claims work?",
+        "normalizedQuery": "how do replay safe referral claims work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-replay-safe-claim-authorizations",
+        "expectedPageTitle": "Replay-Safe Referral Claim Authorizations",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-how-do-replay-safe-referral-claims-work",
+        "passes": true
+      },
+      {
+        "id": "qr-why-audit-referral-admin-overrides",
+        "query": "Why audit referral admin overrides?",
+        "normalizedQuery": "why audit referral admin overrides",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-admin-override-audit-trails",
+        "expectedPageTitle": "Referral Admin Override Audit Trails",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-why-audit-referral-admin-overrides",
+        "passes": true
+      },
+      {
+        "id": "qr-which-referral-anomalies-need-monitoring",
+        "query": "Which referral anomalies need monitoring?",
+        "normalizedQuery": "which referral anomalies need monitoring",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-anomaly-monitoring-signals",
+        "expectedPageTitle": "Referral Anomaly Monitoring Signals",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-which-referral-anomalies-need-monitoring",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-fail-closed-referral-settlement-mean",
+        "query": "What does fail-closed referral settlement mean?",
+        "normalizedQuery": "what does fail closed referral settlement mean",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-fail-closed-incident-operations",
+        "expectedPageTitle": "Fail-Closed Referral Incident Operations",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 1,
+        "faqEntryId": "faq-what-does-fail-closed-referral-settlement-mean",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9546,7 +9661,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 422,
+      "exactRoutes": 427,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

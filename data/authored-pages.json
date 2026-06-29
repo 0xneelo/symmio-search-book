@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 441,
+  "totalPages": 446,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 304,
+    "publication-candidate-needs-operator-review": 309,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -12,7 +12,7 @@
   "bySection": {
     "manifesto": 208,
     "product-reference": 47,
-    "rewards-referrals": 45,
+    "rewards-referrals": 50,
     "dashboard-reference": 12,
     "protocol-reference": 117,
     "competitive-context": 1,
@@ -5921,6 +5921,58 @@
       "excerpt": "Referral Access Phasing Operating Model Neelo's access phasing section treats access codes as launch control infrastructure. The early purpose is not permanent exclusivity. It is to bound high sensitivity actions while trading, listing, attribution, monitoring, and reward accounting harden. The operating model has three phases: access gated launch, where codes are required for sensitive flows such as trading and listing; unified access and referral identity, where onboarding and attribution become one identity surface; open participation, where core use is broadly available and codes become optional accelerators. That sequence answers two opposite risks. Opening every incentive surface immediately can outrun abuse controls. Staying gated too long can throttle the network effects that make referrals useful. Transition Requirements The source names three migration requirements for every phase transition: backward compatibility windows, code format migration rules, and transparent communication to traders, listers, and partners. Those requirements matter because access state becomes economic state once referral, rakeback, points, and claims depend on it. A transition that changes code"
     },
     {
+      "id": "authored-referral-admin-override-audit-trails",
+      "title": "Referral Admin Override Audit Trails",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "neelo-17-referral-program-17-docs-02-architecture",
+        "authored-referral-public-private-policy-overlays"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-admin-override-audit-trails.md",
+      "bodyMarkdown": "# Referral Admin Override Audit Trails\n\nThe referral source treats tier changes and admin policy overrides as audit events. That is the right default because private partner terms, exception grants, beta cohorts, and abuse remediation can all affect future economics.\n\nAn override does not have to be bad. It can be necessary during launch. The risk is an override that changes attribution, eligibility, or payout terms without a durable record of who approved it, why it happened, which policy version it used, and which users or markets it affected.\n\nAudit trails also protect the operator. If a user disputes rewards, the team needs to reconstruct the policy state at the time of activity rather than guessing from the current dashboard.\n\n## Publication Boundary\n\nThe docs can require auditability for tier overrides, admin grants, partner overlays, sanctions, reversals, and manual corrections. They should not publish internal admin roles, private partner terms, enforcement thresholds, or sensitive investigation workflows.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\".\n- `spec-03`: referral policy and publication caveats.\n\n## Related Pages\n\n- `authored-referral-public-private-policy-overlays`\n- `authored-referral-policy-governance`\n- `authored-referral-dashboard-reporting-standards`",
+      "excerpt": "Referral Admin Override Audit Trails The referral source treats tier changes and admin policy overrides as audit events. That is the right default because private partner terms, exception grants, beta cohorts, and abuse remediation can all affect future economics. An override does not have to be bad. It can be necessary during launch. The risk is an override that changes attribution, eligibility, or payout terms without a durable record of who approved it, why it happened, which policy version it used, and which users or markets it affected. Audit trails also protect the operator. If a user disputes rewards, the team needs to reconstruct the policy state at the time of activity rather than guessing from the current dashboard. Publication Boundary The docs can require auditability for tier overrides, admin grants, partner overlays, sanctions, reversals, and manual corrections. They should not publish internal admin roles, private partner terms, enforcement thresholds, or sensitive investigation workflows. Sources vibe papers : Neelo, \"Section 8: Security Controls\". vibe papers : Neelo, \"Section 2: Architecture\". spec 03 : referral policy and publication caveats. Related Pages author"
+    },
+    {
+      "id": "authored-referral-anomaly-monitoring-signals",
+      "title": "Referral Anomaly Monitoring Signals",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "neelo-17-referral-program-17-docs-09-metrics-framework",
+        "authored-referral-metrics-and-integrity"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-anomaly-monitoring-signals.md",
+      "bodyMarkdown": "# Referral Anomaly Monitoring Signals\n\nThe security source requires anomaly monitoring for reward spikes and attribution outliers. The metrics source gives the broader reason: a referral system should measure quality, not only growth.\n\nUseful monitoring targets include:\n\n- sudden reward spikes by account, code, market, or cohort;\n- attribution patterns that concentrate value without corresponding real activity;\n- claim attempts that exceed finalized source buckets;\n- referral volume that diverges from fee-producing or listing-quality signals;\n- vesting, cooldown, or transfer events that cluster around suspicious accounts.\n\nMonitoring should not silently rewrite settlement. It should generate investigation signals, freeze recommendations, or operator review queues while deterministic claim state remains auditable.\n\n## Publication Boundary\n\nThe docs can name anomaly categories at a high level. They should not publish abuse thresholds, detection weights, sybil heuristics, investigation playbooks, or false-positive handling in enough detail to help attackers tune around them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 9: Metrics Framework\".\n- `spec-03`: dashboard and referral metric caveats.\n\n## Related Pages\n\n- `authored-referral-metrics-and-integrity`\n- `authored-referral-dashboard-reporting-standards`\n- `authored-referral-abuse-patterns`",
+      "excerpt": "Referral Anomaly Monitoring Signals The security source requires anomaly monitoring for reward spikes and attribution outliers. The metrics source gives the broader reason: a referral system should measure quality, not only growth. Useful monitoring targets include: sudden reward spikes by account, code, market, or cohort; attribution patterns that concentrate value without corresponding real activity; claim attempts that exceed finalized source buckets; referral volume that diverges from fee producing or listing quality signals; vesting, cooldown, or transfer events that cluster around suspicious accounts. Monitoring should not silently rewrite settlement. It should generate investigation signals, freeze recommendations, or operator review queues while deterministic claim state remains auditable. Publication Boundary The docs can name anomaly categories at a high level. They should not publish abuse thresholds, detection weights, sybil heuristics, investigation playbooks, or false positive handling in enough detail to help attackers tune around them. Sources vibe papers : Neelo, \"Section 8: Security Controls\". vibe papers : Neelo, \"Section 9: Metrics Framework\". spec 03 : dashboar"
+    },
+    {
       "id": "authored-referral-architecture-as-market-formation",
       "title": "Referral Architecture As Market Formation",
       "section": "rewards-referrals",
@@ -6085,6 +6137,31 @@
       "file": "content/authored/reference/referral-early-code-scarcity-cohorts.md",
       "bodyMarkdown": "# Referral Early-Code Scarcity Cohorts\n\nNeelo's referral-economics source explores an early-cohort model where initial referral-code holders receive structurally stronger distribution rights during an access-gated phase.\n\nThis is a growth mechanism, not a final public policy by itself. Scarcity can increase launch velocity only if it is paired with transparent issuance and expiry rules.\n\n## What The Model Must Define\n\nThe source says any early-code or master-cohort model must define:\n\n- exact cohort size and eligibility path;\n- duration of enhanced rights;\n- propagation depth limits;\n- sunset rules that prevent permanent centralization.\n\nThose details are what keep early access from becoming an unbounded permanent rent. Without them, a scarce-code program can conflict with open participation and referral fairness later.\n\n## Publication Boundary\n\nThis page explains the source launch model. It should not publish final cohort size, master-code list, enhanced-right duration, propagation depth, sunset schedule, partner commitments, or retroactive treatment until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Referral Economics\", \"Early-Code Scarcity and Master Cohorts\".\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\".\n- `spec-03`: Current referral-depth and public-economics caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-qualified-issuance-gating`\n- `authored-referral-depth-open-question`",
       "excerpt": "Referral Early Code Scarcity Cohorts Neelo's referral economics source explores an early cohort model where initial referral code holders receive structurally stronger distribution rights during an access gated phase. This is a growth mechanism, not a final public policy by itself. Scarcity can increase launch velocity only if it is paired with transparent issuance and expiry rules. What The Model Must Define The source says any early code or master cohort model must define: exact cohort size and eligibility path; duration of enhanced rights; propagation depth limits; sunset rules that prevent permanent centralization. Those details are what keep early access from becoming an unbounded permanent rent. Without them, a scarce code program can conflict with open participation and referral fairness later. Publication Boundary This page explains the source launch model. It should not publish final cohort size, master code list, enhanced right duration, propagation depth, sunset schedule, partner commitments, or retroactive treatment until operator, legal, accounting, and implementation review confirm them. Sources vibe papers : Neelo, \"Section 5: Referral Economics\", \"Early Code Scarcit"
+    },
+    {
+      "id": "authored-referral-fail-closed-incident-operations",
+      "title": "Fail-Closed Referral Incident Operations",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "authored-referral-settlement-security-controls",
+        "authored-referral-access-phasing-operating-model"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-fail-closed-incident-operations.md",
+      "bodyMarkdown": "# Fail-Closed Referral Incident Operations\n\nNeelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth.\n\nFailing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause, which actions continue, which claims require review, and how users are told the difference between a temporary verification hold and a permanent denial.\n\nThe security source names the launch-readiness pieces: incident runbooks, clear freeze scopes, and fail-safe paths for payout and withdrawal anomalies. Cooldowns before transferability give the operator time to detect fraudulent reward injections before they leave the controlled state.\n\n## Publication Boundary\n\nThe docs can promise the principle, not the exact emergency procedure. Final freeze scopes, runbook owners, user notification copy, payout hold rules, withdrawal anomaly paths, and restart criteria need security, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `spec-03`: referral, points, and reward-publication caveats.\n\n## Related Pages\n\n- `authored-referral-settlement-security-controls`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-referral-access-phasing-operating-model`",
+      "excerpt": "Fail Closed Referral Incident Operations Neelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth. Failing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause, which actions continue, which claims require review, and how users are told the difference between a temporary verification hold and a permanent denial. The security source names the launch readiness pieces: incident runbooks, clear freeze scopes, and fail safe paths for payout and withdrawal anomalies. Cooldowns before transferability give the operator time to detect fraudulent reward injections before they leave the controlled state. Publication Boundary The docs can promise the principle, not the exact emergency procedure. Final freeze scopes, runbook owners, user notification copy, payout hold rules, withdrawal anomaly paths, and restart criteria need security, legal, accounting, and implementation review. Sources vibe papers : Neelo, \"Section 8: Security Controls\". spec 03 : referral, points, and reward publication caveats. "
     },
     {
       "id": "authored-referral-identity-anchor",
@@ -6425,6 +6502,32 @@
       "excerpt": "Referral Rakeback Policy Model The referral paper models rakeback as two separate channels: the user's own trading fee activity and the referred network's fee generating activity. Both can be windowed, tiered, and policy driven, but the docs should not collapse them into a single \"reward\" label. The reason is accounting clarity. A self channel answers \"what did this trader earn from their own activity?\" A referral channel answers \"what did this referrer earn from attributed downstream activity?\" They may use similar rolling window calculations, but they have different trust and disclosure requirements. Public And Private Policy The source expects public default tables for normal users and explicit overlays for private commercial agreements. That distinction is important. Private partner terms may be commercially necessary, but they should not become hidden side effects in the public policy model. The source also flags unresolved policy questions: one level versus multi level referral depth, uniform versus campaign specific referee benefits, and stacking or cap behavior for referrer rewards. Those are not implementation details; they determine whether a user can reason about the sys"
     },
     {
+      "id": "authored-referral-replay-safe-claim-authorizations",
+      "title": "Replay-Safe Referral Claim Authorizations",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "neelo-17-referral-program-17-docs-02-architecture",
+        "authored-referral-identity-and-claim-flow"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-replay-safe-claim-authorizations.md",
+      "bodyMarkdown": "# Replay-Safe Referral Claim Authorizations\n\nThe security source requires replay-safe claims using nonces and expiry. The reason is direct: a claim authorization should be usable only for the intended account, amount, policy version, and time window.\n\nWithout replay protection, a legitimate claim can become an over-issuance vector. A user or attacker could attempt to reuse a stale authorization, submit the same claim through multiple paths, or exploit a policy transition where old and new claim formats overlap.\n\nReplay safety belongs in deterministic settlement state. Policy can decide who is eligible, but claim consumption, nonces, and expiry should not be mutable growth-policy state. That separation keeps marketing changes from rewriting economic history.\n\n## Publication Boundary\n\nThe docs can describe the minimum properties of a safe claim: scoped recipient, amount, source bucket, nonce, expiry, policy version, and one-time consumption. Exact message schema, contract interface, nonce storage, and expiration windows remain implementation and security review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\".\n- `spec-03`: current points and referral-settlement caveats.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-three-plane-architecture`\n- `authored-points-claim-bridge-and-vesting`",
+      "excerpt": "Replay Safe Referral Claim Authorizations The security source requires replay safe claims using nonces and expiry. The reason is direct: a claim authorization should be usable only for the intended account, amount, policy version, and time window. Without replay protection, a legitimate claim can become an over issuance vector. A user or attacker could attempt to reuse a stale authorization, submit the same claim through multiple paths, or exploit a policy transition where old and new claim formats overlap. Replay safety belongs in deterministic settlement state. Policy can decide who is eligible, but claim consumption, nonces, and expiry should not be mutable growth policy state. That separation keeps marketing changes from rewriting economic history. Publication Boundary The docs can describe the minimum properties of a safe claim: scoped recipient, amount, source bucket, nonce, expiry, policy version, and one time consumption. Exact message schema, contract interface, nonce storage, and expiration windows remain implementation and security review. Sources vibe papers : Neelo, \"Section 8: Security Controls\". vibe papers : Neelo, \"Section 2: Architecture\". spec 03 : current points"
+    },
+    {
       "id": "authored-referral-rights-ownership-model",
       "title": "Referral Rights Ownership Model",
       "section": "rewards-referrals",
@@ -6503,6 +6606,31 @@
       "file": "content/authored/reference/referral-settlement-security-controls.md",
       "bodyMarkdown": "# Referral Settlement Security Controls\n\nThe referral security source names the critical risk surfaces plainly: points-ledger tampering, signer compromise, claim replay, over-issuance, and operational blind spots during launch volatility.\n\nThat makes referral security a settlement problem, not only an anti-spam problem. If rewards can become claims, claims can become economic value, and economic value can move, the system needs controls before the growth loop expands.\n\n## Minimum Control Set\n\nThe source's minimum control set includes:\n\n- signer isolation with key rotation and approval controls;\n- replay-safe claims using nonces and expiry;\n- audit trails for tier changes and admin policy overrides;\n- anomaly monitoring for reward spikes and attribution outliers.\n\nThe architecture source adds the same boundary in another form: deterministic state, policy state, and monitoring state should stay separate. Claim consumption and nonces should not be mutable growth-policy state. Monitoring should detect anomalies without silently rewriting economic history.\n\n## Cooldown And Incident Scope\n\nA cooldown window before transferability can reduce the blast radius of fraudulent reward injections. It is not a complete defense. The source frames it as a circuit breaker that only works when paired with active monitoring.\n\nLaunch readiness also needs incident runbooks, explicit freeze scopes, and fail-safe paths for payout and withdrawal anomalies. Without those, the team can know something is wrong but still lack a bounded response path.\n\n## Reader Implication\n\nThe public docs should not describe referral settlement as \"instant rewards\" unless the exact settlement path supports that claim. The safer principle is the source's principle: incentive systems should fail closed on settlement. Growth speed can return after verification; credibility cannot be easily recovered after silent inflation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\".\n- `spec-03`: current points and referral-publication caveats.\n\n## Related Pages\n\n- `authored-referral-metrics-and-integrity`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-referral-policy-governance`",
       "excerpt": "Referral Settlement Security Controls The referral security source names the critical risk surfaces plainly: points ledger tampering, signer compromise, claim replay, over issuance, and operational blind spots during launch volatility. That makes referral security a settlement problem, not only an anti spam problem. If rewards can become claims, claims can become economic value, and economic value can move, the system needs controls before the growth loop expands. Minimum Control Set The source's minimum control set includes: signer isolation with key rotation and approval controls; replay safe claims using nonces and expiry; audit trails for tier changes and admin policy overrides; anomaly monitoring for reward spikes and attribution outliers. The architecture source adds the same boundary in another form: deterministic state, policy state, and monitoring state should stay separate. Claim consumption and nonces should not be mutable growth policy state. Monitoring should detect anomalies without silently rewriting economic history. Cooldown And Incident Scope A cooldown window before transferability can reduce the blast radius of fraudulent reward injections. It is not a complete "
+    },
+    {
+      "id": "authored-referral-signer-isolation-key-rotation",
+      "title": "Referral Signer Isolation And Key Rotation",
+      "section": "rewards-referrals",
+      "track": "Referral Architecture",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls",
+        "_specs/app-docs/03-grounding.md"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-17-referral-program-17-docs-08-security-controls",
+        "authored-referral-settlement-security-controls",
+        "authored-referral-three-plane-architecture"
+      ],
+      "volumeId": "volume-06-referrals-and-market-formation",
+      "file": "content/authored/reference/referral-signer-isolation-key-rotation.md",
+      "bodyMarkdown": "# Referral Signer Isolation And Key Rotation\n\nThe referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience.\n\nSigner isolation means the authority that approves reward claims should be separated from ordinary growth tooling. A campaign operator should not be able to silently mint economic claims by changing a tier table or exporting a CSV. Claim authorization needs constrained keys, approval controls, and a rotation path if a key is suspected to be exposed.\n\nKey rotation is not only a recovery action. It is also a readiness requirement. A system that cannot rotate signers without breaking claim accounting is not ready for high-growth launch conditions.\n\n## Publication Boundary\n\nThe public docs can explain the control objective: referral settlement keys should be isolated, approval-gated, and rotatable. They should not publish signer addresses, custody topology, approval quorum, rotation procedure, or emergency thresholds until implementation and security review approve those details.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: Security Controls\".\n- `spec-03`: referral and points settlement caveats.\n\n## Related Pages\n\n- `authored-referral-settlement-security-controls`\n- `authored-referral-three-plane-architecture`\n- `authored-points-claim-bridge-and-vesting`",
+      "excerpt": "Referral Signer Isolation And Key Rotation The referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience. Signer isolation means the authority that approves reward claims should be separated from ordinary growth tooling. A campaign operator should not be able to silently mint economic claims by changing a tier table or exporting a CSV. Claim authorization needs constrained keys, approval controls, and a rotation path if a key is suspected to be exposed. Key rotation is not only a recovery action. It is also a readiness requirement. A system that cannot rotate signers without breaking claim accounting is not ready for high growth launch conditions. Publication Boundary The public docs can explain the control objective: referral settlement keys should be isolated, approval gated, and rotatable. They should not publish signer addresses, custody topology, approval quorum, rotation procedure, or emergency thresholds until implementation and security review approve those details. Sources vibe papers : Neelo, \"Section 8: Security Controls\". spec 03 "
     },
     {
       "id": "authored-referral-three-plane-architecture",

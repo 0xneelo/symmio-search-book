@@ -1007,3 +1007,11 @@
 **Reason:** The broad packs-and-artifacts page explains the concept, but answer-engine readers need direct routes for the policy caveat and the accounting mechanics. Splitting these answers lets the docs explain the future model without announcing live product commitments.
 
 **Status:** Accepted for the authored rewards-reference layer; live pack launch, supply, probabilities, EV, conversion cost, transferability, artifact catalog, boost formulas, stacking rules, snapshot timing, TGE weights, and claim formulas remain operator/legal/accounting/implementation review.
+
+## D-127: Split Referral Security Controls Into Exact Control Answers
+
+**Decision:** Add authored rewards-reference pages for referral signer isolation and key rotation, replay-safe claim authorizations, admin override audit trails, anomaly monitoring signals, and fail-closed incident operations.
+
+**Reason:** The broad referral settlement-security page names the control set, but answer-engine readers need direct routes for each settlement risk and control. Splitting these answers makes referral security legible without exposing private thresholds or implementation-sensitive runbooks.
+
+**Status:** Accepted for the authored rewards-reference layer; live signer topology, key custody, message schemas, nonce storage, expiration windows, admin roles, override thresholds, anomaly rules, freeze scopes, payout holds, notification copy, and incident runbooks remain operator/security/legal/accounting/implementation review.

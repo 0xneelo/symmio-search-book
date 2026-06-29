@@ -760,6 +760,12 @@
 - Routed five new Ask questions so users, rewards operators, and legal/accounting reviewers can separate live point accounting from future reward-object mechanics.
 - Kept live pack launch, supply, probabilities, EV, conversion cost, transferability, artifact catalog, boost formulas, stacking rules, snapshot timing, TGE weights, and claim formulas under operator/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Security Controls Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's security-controls source: signer isolation and key rotation, replay-safe claim authorizations, admin override audit trails, anomaly monitoring signals, and fail-closed incident operations.
+- Routed five new Ask questions so users, security reviewers, and operators can inspect the referral settlement control set one risk at a time.
+- Kept live signer topology, key custody, message schemas, nonce storage, expiration windows, admin roles, override thresholds, anomaly rules, freeze scopes, payout holds, notification copy, and incident runbooks under operator/security/legal/accounting/implementation review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

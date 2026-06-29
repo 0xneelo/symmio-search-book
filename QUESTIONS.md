@@ -428,6 +428,11 @@ Questions are grouped by whether the current source set can answer them.
 | How should reward pack EV and supply be documented? | `authored-reward-pack-ev-supply-policy` | Medium | Neelo requires bounded supply, disclosed rarity/probability rules, and explicit expected-value policy before packs become economic objects. |
 | What do reward artifacts carry economically? | `authored-artifact-exposure-and-boost-rules` | Medium | Neelo's artifact model includes embedded point exposure, rarity, and optional boosts, each of which needs explicit policy before publication as live economics. |
 | How should TGE exposure count points, packs, and artifacts? | `authored-tge-qualifying-exposure-across-rewards` | Medium | Neelo counts only qualifying point exposure across approved forms and excludes unclaimed off-chain points until finalization and claim authorization. |
+| Why isolate referral settlement signers? | `authored-referral-signer-isolation-key-rotation` | Medium | Neelo names signer compromise as a critical reward-settlement risk and requires isolation, key rotation, and approval controls. |
+| How do replay-safe referral claims work? | `authored-referral-replay-safe-claim-authorizations` | Medium | Neelo requires nonces and expiry so claim authorizations cannot be reused, over-issued, or mutated by later growth-policy changes. |
+| Why audit referral admin overrides? | `authored-referral-admin-override-audit-trails` | Medium | Neelo requires audit trails for tier and admin policy overrides because partner terms, grants, and corrections can affect future economics. |
+| Which referral anomalies need monitoring? | `authored-referral-anomaly-monitoring-signals` | Medium | Neelo calls out reward spikes and attribution outliers, and the metrics source ties integrity monitoring to quality rather than raw growth. |
+| What does fail-closed referral settlement mean? | `authored-referral-fail-closed-incident-operations` | Medium | Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies. |
 
 ## Prototype Event Log
 

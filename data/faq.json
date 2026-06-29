@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 429,
-  "totalAnswerable": 422,
+  "totalEntries": 434,
+  "totalAnswerable": 427,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -21,21 +21,21 @@
     "Risk And Markets": 23,
     "Revenue": 68,
     "Manifesto": 66,
-    "Rewards And Referrals": 44,
+    "Rewards And Referrals": 49,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 202,
+    "Medium": 207,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 422
+    "authored": 427
   },
   "byType": {
-    "answerable": 422,
+    "answerable": 427,
     "reconciliation": 7
   },
   "answerable": [
@@ -13980,6 +13980,191 @@
       "confidence": "Medium",
       "pageId": "authored-tge-qualifying-exposure-across-rewards",
       "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-isolate-referral-settlement-signers",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why isolate referral settlement signers?",
+      "normalizedQuestion": "why isolate referral settlement signers",
+      "shortAnswer": "Neelo names signer compromise as a critical reward-settlement risk and requires isolation, key rotation, and approval controls.",
+      "answerSummary": "Referral Signer Isolation And Key Rotation The referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience. Signer isolation means the authority that approves reward claims should be separated from ordinary growth too...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-signer-isolation-key-rotation",
+      "pageTitle": "Referral Signer Isolation And Key Rotation",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-replay-safe-referral-claims-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do replay-safe referral claims work?",
+      "normalizedQuestion": "how do replay safe referral claims work",
+      "shortAnswer": "Neelo requires nonces and expiry so claim authorizations cannot be reused, over-issued, or mutated by later growth-policy changes.",
+      "answerSummary": "Replay Safe Referral Claim Authorizations The security source requires replay safe claims using nonces and expiry. The reason is direct: a claim authorization should be usable only for the intended account, amount, policy version, and time window. Without replay protection, a legitimate claim can become an over issuance vector. A user or attacker could at...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-replay-safe-claim-authorizations",
+      "pageTitle": "Replay-Safe Referral Claim Authorizations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-audit-referral-admin-overrides",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why audit referral admin overrides?",
+      "normalizedQuestion": "why audit referral admin overrides",
+      "shortAnswer": "Neelo requires audit trails for tier and admin policy overrides because partner terms, grants, and corrections can affect future economics.",
+      "answerSummary": "Referral Admin Override Audit Trails The referral source treats tier changes and admin policy overrides as audit events. That is the right default because private partner terms, exception grants, beta cohorts, and abuse remediation can all affect future economics. An override does not have to be bad. It can be necessary during launch. The risk is an overr...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-admin-override-audit-trails",
+      "pageTitle": "Referral Admin Override Audit Trails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-anomalies-need-monitoring",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral anomalies need monitoring?",
+      "normalizedQuestion": "which referral anomalies need monitoring",
+      "shortAnswer": "Neelo calls out reward spikes and attribution outliers, and the metrics source ties integrity monitoring to quality rather than raw growth.",
+      "answerSummary": "Referral Anomaly Monitoring Signals The security source requires anomaly monitoring for reward spikes and attribution outliers. The metrics source gives the broader reason: a referral system should measure quality, not only growth. Useful monitoring targets include: sudden reward spikes by account, code, market, or cohort; attribution patterns that concen...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-anomaly-monitoring-signals",
+      "pageTitle": "Referral Anomaly Monitoring Signals",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-fail-closed-referral-settlement-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What does fail-closed referral settlement mean?",
+      "normalizedQuestion": "what does fail closed referral settlement mean",
+      "shortAnswer": "Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies.",
+      "answerSummary": "Fail Closed Referral Incident Operations Neelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth. Failing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-fail-closed-incident-operations",
+      "pageTitle": "Fail-Closed Referral Incident Operations",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -28294,6 +28479,191 @@
       "confidence": "Medium",
       "pageId": "authored-tge-qualifying-exposure-across-rewards",
       "pageTitle": "TGE Qualifying Exposure Across Reward Forms",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-isolate-referral-settlement-signers",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why isolate referral settlement signers?",
+      "normalizedQuestion": "why isolate referral settlement signers",
+      "shortAnswer": "Neelo names signer compromise as a critical reward-settlement risk and requires isolation, key rotation, and approval controls.",
+      "answerSummary": "Referral Signer Isolation And Key Rotation The referral security source names signer compromise as a critical risk surface. If referral rewards can become claims, the signer path becomes part of economic settlement, not just a backend convenience. Signer isolation means the authority that approves reward claims should be separated from ordinary growth too...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-signer-isolation-key-rotation",
+      "pageTitle": "Referral Signer Isolation And Key Rotation",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-replay-safe-referral-claims-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How do replay-safe referral claims work?",
+      "normalizedQuestion": "how do replay safe referral claims work",
+      "shortAnswer": "Neelo requires nonces and expiry so claim authorizations cannot be reused, over-issued, or mutated by later growth-policy changes.",
+      "answerSummary": "Replay Safe Referral Claim Authorizations The security source requires replay safe claims using nonces and expiry. The reason is direct: a claim authorization should be usable only for the intended account, amount, policy version, and time window. Without replay protection, a legitimate claim can become an over issuance vector. A user or attacker could at...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-replay-safe-claim-authorizations",
+      "pageTitle": "Replay-Safe Referral Claim Authorizations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-audit-referral-admin-overrides",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Why audit referral admin overrides?",
+      "normalizedQuestion": "why audit referral admin overrides",
+      "shortAnswer": "Neelo requires audit trails for tier and admin policy overrides because partner terms, grants, and corrections can affect future economics.",
+      "answerSummary": "Referral Admin Override Audit Trails The referral source treats tier changes and admin policy overrides as audit events. That is the right default because private partner terms, exception grants, beta cohorts, and abuse remediation can all affect future economics. An override does not have to be bad. It can be necessary during launch. The risk is an overr...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-admin-override-audit-trails",
+      "pageTitle": "Referral Admin Override Audit Trails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-which-referral-anomalies-need-monitoring",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Which referral anomalies need monitoring?",
+      "normalizedQuestion": "which referral anomalies need monitoring",
+      "shortAnswer": "Neelo calls out reward spikes and attribution outliers, and the metrics source ties integrity monitoring to quality rather than raw growth.",
+      "answerSummary": "Referral Anomaly Monitoring Signals The security source requires anomaly monitoring for reward spikes and attribution outliers. The metrics source gives the broader reason: a referral system should measure quality, not only growth. Useful monitoring targets include: sudden reward spikes by account, code, market, or cohort; attribution patterns that concen...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-anomaly-monitoring-signals",
+      "pageTitle": "Referral Anomaly Monitoring Signals",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-fail-closed-referral-settlement-mean",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What does fail-closed referral settlement mean?",
+      "normalizedQuestion": "what does fail closed referral settlement mean",
+      "shortAnswer": "Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies.",
+      "answerSummary": "Fail Closed Referral Incident Operations Neelo's design principle is the security north star: incentive systems should fail closed on settlement, not fail open on growth. Failing closed means suspicious settlement paths can pause before value moves. It does not mean the whole product must freeze forever. A good incident plan defines which scopes can pause...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-fail-closed-incident-operations",
+      "pageTitle": "Fail-Closed Referral Incident Operations",
       "pageSection": "rewards-referrals",
       "pageTrack": "Referral Architecture",
       "pageStatus": "publication-candidate-needs-operator-review",

@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 422,
+  "totalRoutes": 427,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 202,
+    "Medium": 207,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 422
+    "authored": 427
   },
   "answerable": [
     {
@@ -7397,6 +7397,96 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo counts only qualifying point exposure across approved forms and excludes unclaimed off-chain points until finalization and claim authorization.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-isolate-referral-settlement-signers",
+      "question": "Why isolate referral settlement signers?",
+      "normalizedQuestion": "why isolate referral settlement signers",
+      "pageId": "authored-referral-signer-isolation-key-rotation",
+      "pageTitle": "Referral Signer Isolation And Key Rotation",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo names signer compromise as a critical reward-settlement risk and requires isolation, key rotation, and approval controls.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-replay-safe-referral-claims-work",
+      "question": "How do replay-safe referral claims work?",
+      "normalizedQuestion": "how do replay safe referral claims work",
+      "pageId": "authored-referral-replay-safe-claim-authorizations",
+      "pageTitle": "Replay-Safe Referral Claim Authorizations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo requires nonces and expiry so claim authorizations cannot be reused, over-issued, or mutated by later growth-policy changes.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-audit-referral-admin-overrides",
+      "question": "Why audit referral admin overrides?",
+      "normalizedQuestion": "why audit referral admin overrides",
+      "pageId": "authored-referral-admin-override-audit-trails",
+      "pageTitle": "Referral Admin Override Audit Trails",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo requires audit trails for tier and admin policy overrides because partner terms, grants, and corrections can affect future economics.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-which-referral-anomalies-need-monitoring",
+      "question": "Which referral anomalies need monitoring?",
+      "normalizedQuestion": "which referral anomalies need monitoring",
+      "pageId": "authored-referral-anomaly-monitoring-signals",
+      "pageTitle": "Referral Anomaly Monitoring Signals",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo calls out reward spikes and attribution outliers, and the metrics source ties integrity monitoring to quality rather than raw growth.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-fail-closed-referral-settlement-mean",
+      "question": "What does fail-closed referral settlement mean?",
+      "normalizedQuestion": "what does fail closed referral settlement mean",
+      "pageId": "authored-referral-fail-closed-incident-operations",
+      "pageTitle": "Fail-Closed Referral Incident Operations",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo says incentive systems should fail closed on settlement, using cooldowns, runbooks, freeze scopes, and fail-safe payout paths during anomalies.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
