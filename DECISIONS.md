@@ -1511,3 +1511,11 @@
 **Reason:** Existing funding pages already cover variable definitions, dynamic pricing, utilization modes, insurance, bell-curve transfers, ADL, and worked examples. The abstract and index still carry reader-facing orientation questions that should not be collapsed into detailed derivation pages: what the accounting track covers, what the control surface can choose, what operators must monitor, which four innovations define the model, and how the one-line objective/invariant compresses the thesis. Splitting these pages improves Ask precision and gives readers a controlled entry point before the deeper math.
 
 **Status:** Accepted for the authored manifesto layer; live accounting treatment, buyback rules, governance values, rate multipliers, recovery targets, insurance eligibility, liquidation policy, optimizer implementation, ADL guarantees, and production parameter values remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-190: Finish Funding Model Source Navigation Coverage
+
+**Decision:** Add authored Volume 04 manifesto pages for the remaining uncovered Funding Model headings: document cross-reference, derivation document index, notation convention, and why the gradient-flow/magnet analogy matters.
+
+**Reason:** D-187 and D-189 covered the core concepts, abstract, controls, monitoring, innovations, and objective. The remaining generated headings were source-navigation and notation pages that still matter for Ask precision: readers need to know how the derivation is organized, which documents contain which mechanisms, what the symbols mean, and why the analogy is more than decorative language. Finishing these routes makes the Section 15 funding corpus fully addressable without forcing readers into broad overview pages.
+
+**Status:** Accepted for the authored manifesto layer; source-time derivations, example values, notation parameters, optimizer behavior, convex penalties, solver routing, insurance allocations, ADL thresholds, and production guarantees remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.

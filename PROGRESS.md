@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Funding Model Remaining Exact Pages
+
+- Added 4 authored Volume 04 manifesto pages from the remaining uncovered Neelo Funding Model headings.
+- Finished the section coverage with exact answer pages for the document cross-reference map, derivation document index, notation convention, and why the gradient-flow/magnet analogy matters.
+- Extended the question ledger so Ask can route source-navigation and notation questions before sending readers into deeper funding math, controls, insurance, or worked-example pages.
+- Kept source-time derivations, example values, notation parameters, optimizer behavior, convex penalties, solver routing, insurance allocations, ADL thresholds, and production guarantees marked for fresh operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — Funding Abstract And Index Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from uncovered Neelo Funding Model abstract and index headings.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 735
+      "totalGoldenRoutes": 739
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 753,
-    "retrievalEligiblePages": 1545,
+    "publicNavigationPages": 757,
+    "retrievalEligiblePages": 1549,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 753,
+      "candidate": 757,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 735,
-    "exactRouteTestsPassing": 735,
+    "totalExactRouteTests": 739,
+    "exactRouteTestsPassing": 739,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 735
+      "candidate": 739
     },
     "exactRoutesByConfidence": {
-      "Medium": 463,
+      "Medium": 467,
       "High": 44,
       "Low": 228
     },
@@ -5874,6 +5874,90 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-funding-model-s-one-line-objective",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-i-navigate-the-funding-model-derivation",
+        "query": "How do I navigate the funding model derivation?",
+        "normalizedQuery": "how do i navigate the funding model derivation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-document-cross-reference-map",
+        "expectedPageTitle": "Funding Document Cross Reference Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-i-navigate-the-funding-model-derivation",
+        "passes": true
+      },
+      {
+        "id": "qr-what-documents-make-up-the-funding-model-source",
+        "query": "What documents make up the funding model source?",
+        "normalizedQuery": "what documents make up the funding model source",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-derivation-document-index",
+        "expectedPageTitle": "Funding Derivation Document Index",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-documents-make-up-the-funding-model-source",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-funding-notation-like-m-t-e-u-pi-r-i-and-a-mean",
+        "query": "What does funding notation like m, t, E, u, Pi, R, I, and A mean?",
+        "normalizedQuery": "what does funding notation like m t e u pi r i and a mean",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-notation-convention",
+        "expectedPageTitle": "Funding Notation Convention",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-funding-notation-like-m-t-e-u-pi-r-i-and-a-mean",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-the-funding-model-use-gradient-flow-and-magnet-analogies",
+        "query": "Why does the funding model use gradient-flow and magnet analogies?",
+        "normalizedQuery": "why does the funding model use gradient flow and magnet analogies",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-why-gradient-analogy-matters",
+        "expectedPageTitle": "Why The Funding Gradient Analogy Matters",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-why-does-the-funding-model-use-gradient-flow-and-magnet-analogies",
         "passes": true
       },
       {
@@ -16195,7 +16279,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 735,
+      "exactRoutes": 739,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
