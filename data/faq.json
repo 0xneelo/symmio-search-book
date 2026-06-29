@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 529,
-  "totalAnswerable": 522,
+  "totalEntries": 534,
+  "totalAnswerable": 527,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -18,7 +18,7 @@
     "Getting Started": 54,
     "Trading Flow": 32,
     "Solvers And Settlement": 150,
-    "Risk And Markets": 52,
+    "Risk And Markets": 57,
     "Revenue": 75,
     "Manifesto": 72,
     "Rewards And Referrals": 78,
@@ -27,15 +27,15 @@
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 302,
+    "Medium": 307,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 522
+    "authored": 527
   },
   "byType": {
-    "answerable": 522,
+    "answerable": 527,
     "reconciliation": 7
   },
   "answerable": [
@@ -17192,6 +17192,151 @@
       "confidence": "Medium",
       "pageId": "authored-engineering-fix-economics-limit",
       "pageTitle": "Engineering Fixes Cannot Solve Inverse Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-usdc-margin-break-the-collateral-double-hit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does USDC margin break the collateral double-hit?",
+      "normalizedQuestion": "how does usdc margin break the collateral double hit",
+      "shortAnswer": "Neelo's Section 8 says USDC margin separates trader collateral from the volatile traded asset, so a token crash does not also collapse the margin unit.",
+      "answerSummary": "USDC Margin Breaks The Collateral Double Hit Neelo's Section 8 starts the alternative by separating collateral denomination from the traded asset. Traders post USDC to open leveraged positions on volatile tokens. That alone changes the stress path. In a token margined inverse design, the same asset can be the collateral, the traded object, the payout unit...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-margin-breaks-double-hit",
+      "pageTitle": "USDC Margin Breaks The Collateral Double-Hit",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-linear-usdc-pnl-different-from-inverse-payout",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is linear USDC PnL different from inverse payout?",
+      "normalizedQuestion": "why is linear usdc pnl different from inverse payout",
+      "shortAnswer": "Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress.",
+      "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
+      "confidence": "Medium",
+      "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
+      "pageTitle": "Linear PnL Versus Hyperbolic Payout",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-stable-margin-change-manipulation-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does stable margin change manipulation economics?",
+      "normalizedQuestion": "how does stable margin change manipulation economics",
+      "shortAnswer": "Neelo says USDC margin forces attacks to spend stable capital and prevents the manipulated token from also being the collateral and payout unit.",
+      "answerSummary": "Stable Margin Makes Manipulation Cost Real Capital Neelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated. That changes the atta...",
+      "confidence": "Medium",
+      "pageId": "authored-stable-margin-manipulation-cost",
+      "pageTitle": "Stable Margin Makes Manipulation Cost Real Capital",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-an-oracle-be-a-reference-rather-than-an-execution-mandate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why should an oracle be a reference rather than an execution mandate?",
+      "normalizedQuestion": "why should an oracle be a reference rather than an execution mandate",
+      "shortAnswer": "Neelo's Section 8 gives the solver quote layer room to treat the oracle as a reference input while widening, capping, or refusing unsafe flow.",
+      "answerSummary": "Oracle Reference, Solver Quote Layer Section 8 says oracle exploitation is reduced when the solver can quote prices and use the oracle as reference rather than treating an oracle value as an unconditional execution mandate. That distinction is central to the Vibe argument. A passive on chain market asks: what does the oracle say, and can the state machine...",
+      "confidence": "Medium",
+      "pageId": "authored-oracle-reference-solver-quote-layer",
+      "pageTitle": "Oracle Reference, Solver Quote Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-cross-margin-capital-fungibility-improve-long-tail-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does cross-margin capital fungibility improve long-tail perps?",
+      "normalizedQuestion": "how does cross margin capital fungibility improve long tail perps",
+      "shortAnswer": "Neelo says USDC-margined hybrid design can net and allocate stable settlement capital across markets instead of trapping capital in isolated token slabs.",
+      "answerSummary": "Cross Margin Capital Fungibility Neelo's Section 8 says USDC margined hybrid design can improve capital efficiency because cross margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market. This is the mirror image of the Percolator capital critique. In a one market one slab m...",
+      "confidence": "Medium",
+      "pageId": "authored-cross-margin-capital-fungibility",
+      "pageTitle": "Cross-Margin Capital Fungibility",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",
@@ -34710,6 +34855,151 @@
       "confidence": "Medium",
       "pageId": "authored-engineering-fix-economics-limit",
       "pageTitle": "Engineering Fixes Cannot Solve Inverse Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-usdc-margin-break-the-collateral-double-hit",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does USDC margin break the collateral double-hit?",
+      "normalizedQuestion": "how does usdc margin break the collateral double hit",
+      "shortAnswer": "Neelo's Section 8 says USDC margin separates trader collateral from the volatile traded asset, so a token crash does not also collapse the margin unit.",
+      "answerSummary": "USDC Margin Breaks The Collateral Double Hit Neelo's Section 8 starts the alternative by separating collateral denomination from the traded asset. Traders post USDC to open leveraged positions on volatile tokens. That alone changes the stress path. In a token margined inverse design, the same asset can be the collateral, the traded object, the payout unit...",
+      "confidence": "Medium",
+      "pageId": "authored-usdc-margin-breaks-double-hit",
+      "pageTitle": "USDC Margin Breaks The Collateral Double-Hit",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-linear-usdc-pnl-different-from-inverse-payout",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why is linear USDC PnL different from inverse payout?",
+      "normalizedQuestion": "why is linear usdc pnl different from inverse payout",
+      "shortAnswer": "Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress.",
+      "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
+      "confidence": "Medium",
+      "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
+      "pageTitle": "Linear PnL Versus Hyperbolic Payout",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-stable-margin-change-manipulation-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does stable margin change manipulation economics?",
+      "normalizedQuestion": "how does stable margin change manipulation economics",
+      "shortAnswer": "Neelo says USDC margin forces attacks to spend stable capital and prevents the manipulated token from also being the collateral and payout unit.",
+      "answerSummary": "Stable Margin Makes Manipulation Cost Real Capital Neelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated. That changes the atta...",
+      "confidence": "Medium",
+      "pageId": "authored-stable-margin-manipulation-cost",
+      "pageTitle": "Stable Margin Makes Manipulation Cost Real Capital",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-should-an-oracle-be-a-reference-rather-than-an-execution-mandate",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why should an oracle be a reference rather than an execution mandate?",
+      "normalizedQuestion": "why should an oracle be a reference rather than an execution mandate",
+      "shortAnswer": "Neelo's Section 8 gives the solver quote layer room to treat the oracle as a reference input while widening, capping, or refusing unsafe flow.",
+      "answerSummary": "Oracle Reference, Solver Quote Layer Section 8 says oracle exploitation is reduced when the solver can quote prices and use the oracle as reference rather than treating an oracle value as an unconditional execution mandate. That distinction is central to the Vibe argument. A passive on chain market asks: what does the oracle say, and can the state machine...",
+      "confidence": "Medium",
+      "pageId": "authored-oracle-reference-solver-quote-layer",
+      "pageTitle": "Oracle Reference, Solver Quote Layer",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-cross-margin-capital-fungibility-improve-long-tail-perps",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does cross-margin capital fungibility improve long-tail perps?",
+      "normalizedQuestion": "how does cross margin capital fungibility improve long tail perps",
+      "shortAnswer": "Neelo says USDC-margined hybrid design can net and allocate stable settlement capital across markets instead of trapping capital in isolated token slabs.",
+      "answerSummary": "Cross Margin Capital Fungibility Neelo's Section 8 says USDC margined hybrid design can improve capital efficiency because cross margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market. This is the mirror image of the Percolator capital critique. In a one market one slab m...",
+      "confidence": "Medium",
+      "pageId": "authored-cross-margin-capital-fungibility",
+      "pageTitle": "Cross-Margin Capital Fungibility",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
       "pageStatus": "publication-candidate-needs-operator-review",

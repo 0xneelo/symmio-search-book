@@ -528,6 +528,11 @@ Questions are grouped by whether the current source set can answer them.
 | What does Percolator's balance-sheet invariant prove? | `authored-percolator-balance-sheet-safety-invariant` | Medium | Neelo credits the invariant that users cannot withdraw more value than exists on the exchange balance sheet, while separating that from full payout credibility. |
 | Why does Percolator's fully on-chain keeper model matter? | `authored-fully-on-chain-keeper-model` | Medium | Neelo treats full on-chain execution and a permissionless keeper crank as real transparency strengths with adaptive-risk tradeoffs. |
 | Can engineering fixes solve inverse token economics? | `authored-engineering-fix-economics-limit` | Medium | Neelo's Section 7 says the core failures come from the economic model, so implementation quality can mitigate edges but cannot remove inverse-token structural constraints. |
+| How does USDC margin break the collateral double-hit? | `authored-usdc-margin-breaks-double-hit` | Medium | Neelo's Section 8 says USDC margin separates trader collateral from the volatile traded asset, so a token crash does not also collapse the margin unit. |
+| Why is linear USDC PnL different from inverse payout? | `authored-linear-pnl-versus-hyperbolic-payout` | Medium | Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress. |
+| How does stable margin change manipulation economics? | `authored-stable-margin-manipulation-cost` | Medium | Neelo says USDC margin forces attacks to spend stable capital and prevents the manipulated token from also being the collateral and payout unit. |
+| Why should an oracle be a reference rather than an execution mandate? | `authored-oracle-reference-solver-quote-layer` | Medium | Neelo's Section 8 gives the solver quote layer room to treat the oracle as a reference input while widening, capping, or refusing unsafe flow. |
+| How does cross-margin capital fungibility improve long-tail perps? | `authored-cross-margin-capital-fungibility` | Medium | Neelo says USDC-margined hybrid design can net and allocate stable settlement capital across markets instead of trapping capital in isolated token slabs. |
 
 ## Prototype Event Log
 

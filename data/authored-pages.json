@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 541,
+  "totalPages": 546,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 392,
+    "publication-candidate-needs-operator-review": 397,
     "publication-candidate": 130,
     "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 263,
+    "manifesto": 268,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -702,6 +702,29 @@
       "file": "content/authored/manifesto/coupled-design-problem.md",
       "bodyMarkdown": "# The Coupled Design Problem\n\nThe Vibe pillars are not independent checkboxes. They are a coupled design problem.\n\nIf a system optimizes only for exploit resistance, it can become too restrictive for long-tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only for LP yield, it can push risk onto capital in ways that fail during tail events.\n\n## Why Order Books Do Not Solve The Early Stage\n\nMature order books collapse many of these concerns into synchronous matching: a buyer and seller arrive together, the venue avoids warehousing much exposure, and the market clears. That works for assets that already have deep liquidity.\n\nLow-cap markets sit earlier on the maturity curve. They need defense against leveraged abuse, tradability when two-sided flow is intermittent, and a reason for residual risk-takers to keep capital in the system.\n\n## Reader Implication\n\nThis page is the bridge from \"Vibe has three pillars\" to \"Vibe needs a different market structure.\" The pillars are hard because solving one can weaken another. The product thesis is credible only if the architecture can satisfy all three at once.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Coupled Design Problem\".\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-exploit-resistance-pillar`\n- `authored-bootstrap-counterparty-pillar`\n- `authored-lp-yield-capital-efficiency-pillar`\n- `neelo-10-vibe-pillars-10-docs-05-the-coupled-design-problem`",
       "excerpt": "The Coupled Design Problem The Vibe pillars are not independent checkboxes. They are a coupled design problem. If a system optimizes only for exploit resistance, it can become too restrictive for long tail markets to bootstrap. If it optimizes only for bootstrap, it may create residual counterparties that are fragile or too expensive. If it optimizes only for LP yield, it can push risk onto capital in ways that fail during tail events. Why Order Books Do Not Solve The Early Stage Mature order books collapse many of these concerns into synchronous matching: a buyer and seller arrive together, the venue avoids warehousing much exposure, and the market clears. That works for assets that already have deep liquidity. Low cap markets sit earlier on the maturity curve. They need defense against leveraged abuse, tradability when two sided flow is intermittent, and a reason for residual risk takers to keep capital in the system. Reader Implication This page is the bridge from \"Vibe has three pillars\" to \"Vibe needs a different market structure.\" The pillars are hard because solving one can weaken another. The product thesis is credible only if the architecture can satisfy all three at once."
+    },
+    {
+      "id": "authored-cross-margin-capital-fungibility",
+      "title": "Cross-Margin Capital Fungibility",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "authored-slab-isolation-capital-inefficiency",
+        "authored-systemic-leverage-comparison"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/cross-margin-capital-fungibility.md",
+      "bodyMarkdown": "# Cross-Margin Capital Fungibility\n\nNeelo's Section 8 says USDC-margined hybrid design can improve capital efficiency because cross-margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market.\n\nThis is the mirror image of the Percolator capital critique. In a one-market-one-slab model, each market asks for its own collateral and locks it against that market's gross obligations. In a cross-market USDC risk layer, positive and negative exposures can be evaluated as a portfolio, and stable settlement capital can be allocated where the current risk actually sits.\n\nFungibility does not mean unlimited shared risk. A sane system still needs market limits, eligibility, local budgets, global insurance caps, and isolation when a market becomes toxic. But capital efficiency comes from being able to share usable settlement capital without pretending every market is equally safe.\n\n## Why This Matters For The Long Tail\n\nThe long tail creates many small markets. If every market requires independent, idle, non-nettable backing, the system can list widely while liquidity remains shallow. Cross-margin capital makes a broader market set more plausible because risk can be measured across positions, not only inside one slab.\n\nThe hard part is governance and risk policy: when to net, when to isolate, and when to deny shared protection. That is why this page should be read with the defense-hierarchy and source-completeness caveats.\n\n## Reader Implication\n\nWhen a reader asks why capital efficiency improves under the hybrid model, route here. The answer is not only \"USDC is stable.\" It is that stable settlement capital can be netted, reallocated, and governed across markets in ways isolated token slabs cannot.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.2 How This Fixes Each Problem\".\n\n## Related Pages\n\n- `authored-slab-isolation-capital-inefficiency`\n- `authored-systemic-leverage-comparison`\n- `authored-cross-market-risk-mutualization`",
+      "excerpt": "Cross Margin Capital Fungibility Neelo's Section 8 says USDC margined hybrid design can improve capital efficiency because cross margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market. This is the mirror image of the Percolator capital critique. In a one market one slab model, each market asks for its own collateral and locks it against that market's gross obligations. In a cross market USDC risk layer, positive and negative exposures can be evaluated as a portfolio, and stable settlement capital can be allocated where the current risk actually sits. Fungibility does not mean unlimited shared risk. A sane system still needs market limits, eligibility, local budgets, global insurance caps, and isolation when a market becomes toxic. But capital efficiency comes from being able to share usable settlement capital without pretending every market is equally safe. Why This Matters For The Long Tail The long tail creates many small markets. If every market requires independent, idle, non nettable backing, the system can list widely while liquidity remains shallow. Cross margin capital makes a broader marke"
     },
     {
       "id": "authored-cross-market-risk-mutualization",
@@ -4384,6 +4407,29 @@
       "excerpt": "Lifecycle Hardening Before Listing Vibe does not only add another trading surface. In the Ode to OrderBooks source, it hardens the token lifecycle before a market reaches the mature venue layer. Long only launch environments reward attention. A token can look strong because buyers can express belief, promoters can amplify the story, and skeptics have limited ways to act beyond posting. A shortable derivatives market changes that. Negative information can become an economic position. Critics can risk capital. Hype faces resistance earlier. That is the hardening mechanism: two sided price discovery tests a market before downstream venues must decide whether to list it. Why It Helps Order Books By the time a market graduates, it has not only shown narrative strength. It has survived leverage, short interest, volatility, solver pricing, liquidation behavior, and trader demand. That makes the later order book listing less dependent on appearances. The source therefore connects shorting to listing quality. A market that survives the \"NO button\" is more informative than one that only survived a marketing campaign. Sources vibe papers : Neelo, \"Section 5: Hardening the Lifecycle\". vibe pap"
     },
     {
+      "id": "authored-linear-pnl-versus-hyperbolic-payout",
+      "title": "Linear PnL Versus Hyperbolic Payout",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "authored-inverse-payoff-trap",
+        "authored-pump-bankruptcy-arithmetic"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/linear-pnl-versus-hyperbolic-payout.md",
+      "bodyMarkdown": "# Linear PnL Versus Hyperbolic Payout\n\nNeelo's Section 8 says USDC-margining fixes negative convexity because PnL becomes linear: a one-dollar price move maps to a one-dollar PnL effect, rather than an inverse payout curve that expands nonlinearly.\n\nThat distinction matters most under stress. In an inverse token-margined system, the number of tokens owed can explode as price moves against the LP. The market can be technically defined but economically hostile because the payout unit is moving through the same curve as the underlying.\n\nLinear USDC PnL does not make the market safe by itself. It makes the obligation easier to size. The solver can quote, hedge, widen spreads, cap exposure, or refuse trades against a dollar-denominated liability instead of a hyperbolic token obligation.\n\n## Why The Shape Matters\n\nRisk systems can manage bounded, legible obligations more effectively than obligations whose unit count grows as the asset weakens. Linear PnL lets the market ask familiar questions: how much USDC is owed, how much collateral exists, how much hedge exists, and what exposure remains.\n\nThe inverse curve turns those questions into a moving target. The worse the token state becomes, the harder the payout denominator becomes to reason about.\n\n## Reader Implication\n\nWhen a reader asks why inverse payoff is a structural problem, route here. The issue is not only price volatility; it is the payout shape. Linear USDC PnL makes the liability legible enough for active risk controls to operate.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.2 How This Fixes Each Problem\".\n\n## Related Pages\n\n- `authored-inverse-payoff-trap`\n- `authored-pump-bankruptcy-arithmetic`\n- `authored-engineering-fix-economics-limit`",
+      "excerpt": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can explode as price moves against the LP. The market can be technically defined but economically hostile because the payout unit is moving through the same curve as the underlying. Linear USDC PnL does not make the market safe by itself. It makes the obligation easier to size. The solver can quote, hedge, widen spreads, cap exposure, or refuse trades against a dollar denominated liability instead of a hyperbolic token obligation. Why The Shape Matters Risk systems can manage bounded, legible obligations more effectively than obligations whose unit count grows as the asset weakens. Linear PnL lets the market ask familiar questions: how much USDC is owed, how much collateral exists, how much hedge exists, and what exposure remains. The inverse curve turns those questions into a moving target. The worse the token state becomes, the harde"
+    },
+    {
       "id": "authored-liquidation-keeper-fragility",
       "title": "Liquidation And Keeper Fragility",
       "section": "manifesto",
@@ -5431,6 +5477,29 @@
       "file": "content/authored/manifesto/oracle-circuit-breaker-paradox.md",
       "bodyMarkdown": "# The Oracle Circuit-Breaker Paradox\n\nThe oracle problem in low-cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety.\n\nNeelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on-chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off-chain but before the capped oracle has arrived.\n\nThe passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long-tail tokens and memecoins violate that assumption constantly.\n\nThe source-backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a deterministic oracle rule can solve every adversarial market state.\n\n## Reader Implication\n\nTraders should understand why early-market quotes may widen or disappear during stress. LPs should understand that an oracle rule that looks conservative can still create a predictable arbitrage path.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\".\n\n## Related Pages\n\n- `authored-exploit-resistance-pillar`\n- `authored-hybrid-settlement-solver-stack`\n- `authored-hybrid-solver-liquidity-waterfall`",
       "excerpt": "The Oracle Circuit Breaker Paradox The oracle problem in low cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety. Neelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off chain but before the capped oracle has arrived. The passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long tail tokens and memecoins violate that assumption constantly. The source backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a determinis"
+    },
+    {
+      "id": "authored-oracle-reference-solver-quote-layer",
+      "title": "Oracle Reference, Solver Quote Layer",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "authored-solver-refusal-as-oracle-defense",
+        "authored-oracle-trilemma"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/oracle-reference-solver-quote-layer.md",
+      "bodyMarkdown": "# Oracle Reference, Solver Quote Layer\n\nSection 8 says oracle exploitation is reduced when the solver can quote prices and use the oracle as reference rather than treating an oracle value as an unconditional execution mandate.\n\nThat distinction is central to the Vibe argument. A passive on-chain market asks: what does the oracle say, and can the state machine execute? A solver-mediated market can ask a richer question: is this reference price reliable enough to quote, should the spread widen, should size be capped, or should the quote be refused?\n\nThe oracle still matters. It provides a shared reference for price, margin, liquidation, and dispute logic. But the solver quote layer inserts risk judgment before exposure is accepted.\n\n## Why This Helps Low-Cap Markets\n\nLow-cap markets often have thin spot liquidity, abrupt price moves, and stale or manipulable references. A passive market can become a predictable target when the oracle lags. A solver quote layer can turn that same uncertainty into price, size, or refusal.\n\nThe tradeoff is transparency and policy. Docs must explain when quotes can disappear or widen, and production systems must define which risk signals matter. But that is an explicit tradeoff rather than a hidden oracle dependency.\n\n## Reader Implication\n\nWhen a trader asks why a quote can be refused even though an oracle price exists, route here. The answer is that the oracle is a reference input, not a promise that every requested trade is safe to execute at that price.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.2 How This Fixes Each Problem\" and \"8.3 The Role of Active Risk Management\".\n\n## Related Pages\n\n- `authored-solver-refusal-as-oracle-defense`\n- `authored-oracle-trilemma`\n- `authored-capped-oracle-latency-arbitrage`",
+      "excerpt": "Oracle Reference, Solver Quote Layer Section 8 says oracle exploitation is reduced when the solver can quote prices and use the oracle as reference rather than treating an oracle value as an unconditional execution mandate. That distinction is central to the Vibe argument. A passive on chain market asks: what does the oracle say, and can the state machine execute? A solver mediated market can ask a richer question: is this reference price reliable enough to quote, should the spread widen, should size be capped, or should the quote be refused? The oracle still matters. It provides a shared reference for price, margin, liquidation, and dispute logic. But the solver quote layer inserts risk judgment before exposure is accepted. Why This Helps Low Cap Markets Low cap markets often have thin spot liquidity, abrupt price moves, and stale or manipulable references. A passive market can become a predictable target when the oracle lags. A solver quote layer can turn that same uncertainty into price, size, or refusal. The tradeoff is transparency and policy. Docs must explain when quotes can disappear or widen, and production systems must define which risk signals matter. But that is an expl"
     },
     {
       "id": "authored-oracle-trilemma",
@@ -9135,6 +9204,29 @@
       "excerpt": "Spot Perp Pump And Dump Attack Neelo's Percolator manipulation source describes a two phase attack that uses the spot market and the perp market against each other. In the pump phase, the attacker opens a leveraged long, buys the token on spot, pushes the oracle upward, and cashes out the long as the perp follows. In the dump phase, the attacker opens a large short, sells accumulated spot tokens, pushes the price down, and closes the short for token denominated profit. Why The Sequence Matters The important feature is coordination across venues. The perp is not attacked in isolation. The attacker can use the reference spot market to move the oracle and use the perp to extract from the LP vault. In a thin market, the cost of moving spot can be smaller than the gain from the leveraged derivative. This is why low cap perp documentation must discuss spot liquidity, oracle construction, OI caps, and liquidation feasibility together. A market can look safe in a single module and still be attackable as a cross market system. Reader Implication When a reader asks whether manipulation is random or structural, route here. The source's answer is that manipulation becomes structural when the a"
     },
     {
+      "id": "authored-stable-margin-manipulation-cost",
+      "title": "Stable Margin Makes Manipulation Cost Real Capital",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "authored-token-margin-manipulation-amplifier",
+        "authored-profitable-manipulation-condition"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/stable-margin-manipulation-cost.md",
+      "bodyMarkdown": "# Stable Margin Makes Manipulation Cost Real Capital\n\nNeelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC-margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated.\n\nThat changes the attack arithmetic. In a token-margined design, the attacker may use the token's own reflexivity against the market: the collateral, payout unit, LP balance sheet, and manipulated asset can all move together. In the USDC-margined model, the attacker must spend real stable capital and extract against bounded USDC obligations.\n\nThis does not mean manipulation disappears. It means the feedback loop is less self-amplifying. The market can combine stable margin with solver quote controls, OI limits, dynamic spreads, funding, and refusal rather than relying on passive token-denominated mechanics.\n\n## Bounded Liability Is A Control Surface\n\nManipulation defense begins with economics. If the cost to push the reference market is lower than the payout extracted from the perp, the attack can be rational. Stable margin helps by making the payout legible in USDC and by preventing the manipulated token from simultaneously weakening the collateral unit.\n\nThe defense is strongest when the solver can also notice bad market states and refuse or reprice. Stable margin is the base; active risk management is the response.\n\n## Reader Implication\n\nWhen a reader asks why USDC margin helps manipulation defense, route here. The answer is not that USDC makes spot liquidity deep. The answer is that stable margin removes one reflexive amplifier and makes the attacker's economics easier to bound.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.2 How This Fixes Each Problem\".\n\n## Related Pages\n\n- `authored-token-margin-manipulation-amplifier`\n- `authored-profitable-manipulation-condition`\n- `authored-solver-refusal-as-oracle-defense`",
+      "excerpt": "Stable Margin Makes Manipulation Cost Real Capital Neelo's Section 8 contrasts token margin with USDC margin in manipulation states. In the USDC margined alternative, an attacker still needs capital to move the spot market, but the derivative payout and collateral base are not denominated in the same volatile token being manipulated. That changes the attack arithmetic. In a token margined design, the attacker may use the token's own reflexivity against the market: the collateral, payout unit, LP balance sheet, and manipulated asset can all move together. In the USDC margined model, the attacker must spend real stable capital and extract against bounded USDC obligations. This does not mean manipulation disappears. It means the feedback loop is less self amplifying. The market can combine stable margin with solver quote controls, OI limits, dynamic spreads, funding, and refusal rather than relying on passive token denominated mechanics. Bounded Liability Is A Control Surface Manipulation defense begins with economics. If the cost to push the reference market is lower than the payout extracted from the perp, the attack can be rational. Stable margin helps by making the payout legible "
+    },
+    {
       "id": "authored-static-perp-design-failures",
       "title": "Why Static Perp Designs Fail At Bootstrap",
       "section": "manifesto",
@@ -11241,6 +11333,29 @@
       "file": "content/authored/manifesto/usdc-lp-unsecured-creditor-analogy.md",
       "bodyMarkdown": "# USDC LP Unsecured-Creditor Analogy\n\nNeelo compares a generic USDC LP in a fragile low-cap perp backstop to an unsecured creditor of a risky borrower.\n\nThe analogy is useful because it shifts the reader away from \"passive yield\" language. The LP is not only lending into a neutral pool. The LP is exposed if the market structure creates bad debt, if liquidations fail, if the backstop is depleted, or if stress events cluster faster than defenses can respond.\n\nAn unsecured-creditor lens asks whether the borrower-like system can repay through stress. If repayment depends on volatile low-cap markets, oracle integrity, keeper execution, and external subsidies, then the LP needs a high spread over safer alternatives.\n\n## Documentation Rule\n\nUse this analogy to explain why USDC backstop capital asks for credit-risk compensation. Do not imply that Vibe is issuing debt or that any current vault is legally structured as unsecured credit without legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance.\n\n## Related Pages\n\n- `authored-expected-loss-capital-maintenance`\n- `authored-usdc-expected-loss-decomposition`\n- `authored-usdc-lp-backstop-cascade`",
       "excerpt": "USDC LP Unsecured Creditor Analogy Neelo compares a generic USDC LP in a fragile low cap perp backstop to an unsecured creditor of a risky borrower. The analogy is useful because it shifts the reader away from \"passive yield\" language. The LP is not only lending into a neutral pool. The LP is exposed if the market structure creates bad debt, if liquidations fail, if the backstop is depleted, or if stress events cluster faster than defenses can respond. An unsecured creditor lens asks whether the borrower like system can repay through stress. If repayment depends on volatile low cap markets, oracle integrity, keeper execution, and external subsidies, then the LP needs a high spread over safer alternatives. Documentation Rule Use this analogy to explain why USDC backstop capital asks for credit risk compensation. Do not imply that Vibe is issuing debt or that any current vault is legally structured as unsecured credit without legal review. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Comparison with Traditional Finance. Related Pages authored expected loss capital maintenance authored usdc expected loss decomposition authored usdc lp backsto"
+    },
+    {
+      "id": "authored-usdc-margin-breaks-double-hit",
+      "title": "USDC Margin Breaks The Collateral Double-Hit",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-08-structurally-superior-alternative",
+        "authored-usdc-settlement-inventory-separation",
+        "authored-token-margined-reflexivity-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/usdc-margin-breaks-double-hit.md",
+      "bodyMarkdown": "# USDC Margin Breaks The Collateral Double-Hit\n\nNeelo's Section 8 starts the alternative by separating collateral denomination from the traded asset. Traders post USDC to open leveraged positions on volatile tokens. That alone changes the stress path.\n\nIn a token-margined inverse design, the same asset can be the collateral, the traded object, the payout unit, and part of the LP balance sheet. A token crash can therefore weaken collateral at the same moment winning shorts are owed more economic value. That is the double-hit.\n\nUSDC margin breaks that coupling. The traded token can still crash, liquidity can still vanish, and the market can still need risk controls. But the trader's margin unit does not collapse because the underlying token collapsed. The system can reason about PnL in a more stable denomination while deciding whether token inventory, solver capital, insurance, or refusal should absorb the residual risk.\n\n## Why This Is Not Just A Stablecoin Preference\n\nThe design claim is not \"USDC is nicer UX.\" It is that margin denomination is a solvency primitive. The margin unit determines whether market stress attacks the collateral base directly.\n\nThis is why token inventory and USDC settlement are complementary rather than substitutes. Token holders can still provide inventory because they already bear token exposure. Trader margin and settlement can still happen in USDC so the market does not pay claims in the same asset that is failing.\n\n## Reader Implication\n\nWhen a reader asks why stable margin matters, route here. The answer is that USDC margin removes the same-asset double-hit from the core settlement loop, even though it does not remove the need for active risk management.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 8: The Structurally Superior Alternative\", \"8.1 USDC-Margined Hybrid Vault\" and \"8.2 How This Fixes Each Problem\".\n\n## Related Pages\n\n- `authored-usdc-settlement-inventory-separation`\n- `authored-token-margined-reflexivity-risk`\n- `authored-drift-luna-token-collateral-precedent`",
+      "excerpt": "USDC Margin Breaks The Collateral Double Hit Neelo's Section 8 starts the alternative by separating collateral denomination from the traded asset. Traders post USDC to open leveraged positions on volatile tokens. That alone changes the stress path. In a token margined inverse design, the same asset can be the collateral, the traded object, the payout unit, and part of the LP balance sheet. A token crash can therefore weaken collateral at the same moment winning shorts are owed more economic value. That is the double hit. USDC margin breaks that coupling. The traded token can still crash, liquidity can still vanish, and the market can still need risk controls. But the trader's margin unit does not collapse because the underlying token collapsed. The system can reason about PnL in a more stable denomination while deciding whether token inventory, solver capital, insurance, or refusal should absorb the residual risk. Why This Is Not Just A Stablecoin Preference The design claim is not \"USDC is nicer UX.\" It is that margin denomination is a solvency primitive. The margin unit determines whether market stress attacks the collateral base directly. This is why token inventory and USDC set"
     },
     {
       "id": "authored-usdc-opportunity-cost-floor",

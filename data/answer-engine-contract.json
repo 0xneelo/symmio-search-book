@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 522
+      "totalGoldenRoutes": 527
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 540,
-    "retrievalEligiblePages": 1332,
+    "publicNavigationPages": 545,
+    "retrievalEligiblePages": 1337,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 540,
+      "candidate": 545,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 522,
-    "exactRouteTestsPassing": 522,
+    "totalExactRouteTests": 527,
+    "exactRouteTestsPassing": 527,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 522
+      "candidate": 527
     },
     "exactRoutesByConfidence": {
-      "Medium": 302,
+      "Medium": 307,
       "High": 44,
       "Low": 176
     },
@@ -11647,6 +11647,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-can-engineering-fixes-solve-inverse-token-economics",
         "passes": true
+      },
+      {
+        "id": "qr-how-does-usdc-margin-break-the-collateral-double-hit",
+        "query": "How does USDC margin break the collateral double-hit?",
+        "normalizedQuery": "how does usdc margin break the collateral double hit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-usdc-margin-breaks-double-hit",
+        "expectedPageTitle": "USDC Margin Breaks The Collateral Double-Hit",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-usdc-margin-break-the-collateral-double-hit",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-linear-usdc-pnl-different-from-inverse-payout",
+        "query": "Why is linear USDC PnL different from inverse payout?",
+        "normalizedQuery": "why is linear usdc pnl different from inverse payout",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-linear-pnl-versus-hyperbolic-payout",
+        "expectedPageTitle": "Linear PnL Versus Hyperbolic Payout",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-linear-usdc-pnl-different-from-inverse-payout",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-stable-margin-change-manipulation-economics",
+        "query": "How does stable margin change manipulation economics?",
+        "normalizedQuery": "how does stable margin change manipulation economics",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-stable-margin-manipulation-cost",
+        "expectedPageTitle": "Stable Margin Makes Manipulation Cost Real Capital",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-stable-margin-change-manipulation-economics",
+        "passes": true
+      },
+      {
+        "id": "qr-why-should-an-oracle-be-a-reference-rather-than-an-execution-mandate",
+        "query": "Why should an oracle be a reference rather than an execution mandate?",
+        "normalizedQuery": "why should an oracle be a reference rather than an execution mandate",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-oracle-reference-solver-quote-layer",
+        "expectedPageTitle": "Oracle Reference, Solver Quote Layer",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-should-an-oracle-be-a-reference-rather-than-an-execution-mandate",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-cross-margin-capital-fungibility-improve-long-tail-perps",
+        "query": "How does cross-margin capital fungibility improve long-tail perps?",
+        "normalizedQuery": "how does cross margin capital fungibility improve long tail perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-cross-margin-capital-fungibility",
+        "expectedPageTitle": "Cross-Margin Capital Fungibility",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-cross-margin-capital-fungibility-improve-long-tail-perps",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11722,7 +11827,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 522,
+      "exactRoutes": 527,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

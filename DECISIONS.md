@@ -1167,3 +1167,11 @@
 **Reason:** Section 7 is the fair-critique layer: it credits Percolator before rejecting the token-margined economic model. Exact routes let readers inspect what the system gets right without collapsing engineering strengths into financial robustness or dismissing real technical achievements.
 
 **Status:** Accepted for the authored manifesto layer; live verification scope, deployed program state, matcher implementations, keeper behavior, audit/security status, and current production claims remain fresh primary-source and operator/security/risk/legal/implementation review.
+
+## D-147: Split Percolator USDC Alternative Into Exact Mechanism Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for USDC margin breaking the collateral double-hit, linear PnL versus hyperbolic payout, stable-margin manipulation economics, oracle-as-reference solver quoting, and cross-margin capital fungibility.
+
+**Reason:** Section 8 is the mechanism bridge from the Percolator critique to Vibe's hybrid alternative. Exact routes keep stable margin, linear settlement, solver discretion, and cross-market capital use distinct instead of presenting "USDC margin" as one vague fix.
+
+**Status:** Accepted for the authored manifesto layer; live margin parameters, solver quote rules, cross-margin implementation, insurance allocation, risk limits, supported assets, and current production claims remain operator/security/risk/legal/implementation review.

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator USDC Alternative Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 8 structurally-superior-alternative source.
+- Split the USDC-margining fix table into exact answer routes for breaking the collateral double-hit, linear PnL versus hyperbolic payout, stable-margin manipulation economics, oracle reference plus solver quoting, and cross-margin capital fungibility.
+- Extended the question ledger so Ask can route direct questions about why stable settlement, solver quoting, and cross-market capital treatment address the token-margined failure modes.
+- Kept live margin parameters, solver quote rules, supported cross-margin behavior, insurance allocation, venue-specific risk limits, and current production claims marked for operator/security/risk/legal/implementation review.
+
 ## 2026-06-29 — Percolator Strengths Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 7 strengths source.
