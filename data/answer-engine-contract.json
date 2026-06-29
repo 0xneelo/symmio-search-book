@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 788
+      "totalGoldenRoutes": 789
     },
     {
       "stage": "glossary-route",
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 788,
-    "exactRouteTestsPassing": 788,
+    "totalExactRouteTests": 789,
+    "exactRouteTestsPassing": 789,
     "totalRefusalTests": 2,
     "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 788
+      "candidate": 789
     },
     "exactRoutesByConfidence": {
-      "Medium": 491,
+      "Medium": 492,
       "High": 44,
       "Low": 253
     },
@@ -327,8 +327,43 @@
           "spec-04"
         ],
         "unknownSourceKeys": [],
-        "chunkCount": 3,
+        "chunkCount": 4,
         "faqEntryId": "faq-what-official-symmio-whitepaper-history-is-currently-available",
+        "passes": true
+      },
+      {
+        "id": "qr-is-symmio-paper-v0-8-the-first-located-whitepaper-in-the-source-map",
+        "query": "Is SYMMIO paper v0.8 the first located whitepaper in the source map?",
+        "normalizedQuery": "is symmio paper v0 8 the first located whitepaper in the source map",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symmio-whitepaper-history-boundary",
+        "expectedPageTitle": "Symmio Whitepaper History Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "symm-io-protocol-core-initial-commit",
+          "symm-io-protocol-core-readme",
+          "symmio-docs-initial-commit",
+          "symmio-whitepaper-0-8-commit",
+          "symmio-whitepaper-0-8-pdf",
+          "symmio-earliest-docs",
+          "symmio-whitepaper",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "symm-io-protocol-core-initial-commit",
+          "symm-io-protocol-core-readme",
+          "symmio-docs-initial-commit",
+          "symmio-whitepaper-0-8-commit",
+          "symmio-whitepaper-0-8-pdf",
+          "symmio-earliest-docs",
+          "symmio-whitepaper",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 4,
+        "faqEntryId": "faq-is-symmio-paper-v0-8-the-first-located-whitepaper-in-the-source-map",
         "passes": true
       },
       {
@@ -18620,7 +18655,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 788,
+      "exactRoutes": 789,
       "glossaryRoutes": 32,
       "refusals": 2,
       "lowRatedFeedback": 1,

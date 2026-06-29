@@ -62,6 +62,8 @@ The current official product overview and platform overview were re-fetched duri
 
 The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is registered as a history/source-control starting point. Official Git evidence now confirms that `SYMM-IO/protocol-core` starts on 2023-06-13, `SYMM-IO/docs` starts on 2023-08-22, and the first located whitepaper file in the official docs repo is `Whitepaper/SYMMIO_paper_0_8.pdf`, added on 2023-11-16 by commit `e1715f85768b7f06933e91e41568422591729e16`.
 
+A 2026-06-30 re-fetch of the current official Symmio whitepaper page confirms that the public docs still point to `SYMMIO_paper_0_8.pdf` and frame the whitepaper/protocol as evolving work. This supports a current source-boundary answer, but it still does not prove the original/oldest artifact.
+
 This narrows the gap but does not close it. The exact original/oldest whitepaper artifact, any 2021 source, and a full oldest-to-current comparison are still not in the registered corpus.
 
 **Needed:** Exact original whitepaper artifact, version-history comparison before v0.8 if it exists, and any archived docs outside the current official repositories.

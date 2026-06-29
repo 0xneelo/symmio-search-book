@@ -17,6 +17,8 @@ The strongest confirmed lower bound is the official `SYMM-IO/protocol-core` repo
 
 The official `SYMM-IO/docs` repository starts later. Its initial public commit is dated 2023-08-22 and added hedger documentation. The first located whitepaper file in that repository is `Whitepaper/SYMMIO_paper_0_8.pdf`, introduced by commit `e1715f85768b7f06933e91e41568422591729e16` on 2023-11-16. The file then appears again in the repo history on 2024-01-30 through a follow-up bug-fix commit.
 
+A 2026-06-30 check of the current official Symmio whitepaper page confirms that the public docs still point readers to the GitHub-hosted `SYMMIO_paper_0_8.pdf`. The same page frames both the whitepaper and protocol as evolving work and presents the document as an overview of long-term vision, practical implementation, and future concepts, not as a frozen final specification.
+
 ## What This Proves
 
 This proves that official GitHub history currently available in the source map includes:
@@ -24,6 +26,7 @@ This proves that official GitHub history currently available in the source map i
 - a public protocol-core implementation starting on 2023-06-13;
 - a public docs repository starting on 2023-08-22;
 - a tracked SYMMIO paper v0.8 PDF introduced on 2023-11-16;
+- a current whitepaper page that points to that v0.8 PDF;
 - a current README that supports the hybrid clearing-house and intent-centric protocol framing.
 
 ## What It Does Not Prove
@@ -32,9 +35,13 @@ This does not prove the exact original whitepaper, a 2021 artifact, a complete o
 
 The docs should therefore avoid saying "the original whitepaper says..." unless the original artifact is later recovered. The safer wording is: "the earliest official GitHub evidence currently registered starts in 2023, and the first located whitepaper PDF in the official docs repo is SYMMIO paper v0.8."
 
+The current whitepaper page also contains forward-looking publication language about further research. Treat that as source-page context, not a current roadmap claim, until it is reconciled with newer official sources or operator review.
+
 ## Reader Implication
 
 When a reader asks for Symmio whitepaper history, route them here first. The answer should separate confirmed official repository evidence from the unresolved origin-story artifact. Current Symmio mechanics can still be cited from present docs and the current protocol-core README; historical claims should remain bounded until the missing artifact is supplied or excluded.
+
+If a reader asks whether `SYMMIO_paper_0_8.pdf` is the original whitepaper, answer more narrowly: it is the first located whitepaper PDF currently registered in the official docs repository history, not proof of the exact original artifact.
 
 ## Sources
 
@@ -44,7 +51,7 @@ When a reader asks for Symmio whitepaper history, route them here first. The ans
 - `symmio-whitepaper-0-8-commit`: commit introducing the v0.8 PDF on 2023-11-16.
 - `symmio-whitepaper-0-8-pdf`: official `SYMMIO_paper_0_8.pdf` in the docs repository.
 - `symmio-earliest-docs`: official SYMM-IO docs repository.
-- `symmio-whitepaper`: current Symmio whitepaper pointer.
+- `symmio-whitepaper`: current Symmio whitepaper page, including the public v0.8 PDF pointer and work-in-progress boundary.
 - `spec-04`: required source-family list naming the whitepaper/history gap.
 
 ## Related Pages

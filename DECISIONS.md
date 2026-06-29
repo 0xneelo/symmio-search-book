@@ -1823,3 +1823,11 @@
 **Reason:** A 2026-06-30 fetch of the official Vibe "What is Vibe Trading?" Markdown page still says Vibe has all Binance perp markets and `390+ markets`; the official platform page says `390+ Markets with up to 60x Leverage (x100 on some)`. Those pages are primary public sources for the wording, but market availability is mutable. Publishing the number as a timeless claim would weaken source integrity.
 
 **Status:** Accepted for v1 wording. G-006 stays open as a publication-date verification item rather than a blocker to routing basic Vibe product questions.
+
+## D-229: Bound Symmio Whitepaper Claims To Current Registered Evidence
+
+**Decision:** Route current Symmio whitepaper-history questions to `authored-symmio-whitepaper-history-boundary`, and describe `SYMMIO_paper_0_8.pdf` as the first located whitepaper PDF in the registered official docs history, not as the exact original whitepaper.
+
+**Reason:** A 2026-06-30 fetch of the current official Symmio whitepaper page confirms it still points to the GitHub-hosted v0.8 PDF and frames the whitepaper/protocol as evolving work. Existing official Git evidence shows that v0.8 PDF entering the public docs repo on 2023-11-16. None of that proves the original/oldest artifact or a 2021 origin document, so the answer engine must keep original/oldest/2021-whitepaper questions parked under G-007 and OPERATOR-INBOX #6.
+
+**Status:** Accepted for source-boundary wording. This improves answerability for current evidence without closing the source-ingestion blocker.
