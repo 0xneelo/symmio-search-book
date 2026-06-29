@@ -463,6 +463,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why can private referral deals obscure public economics? | `authored-referral-private-deal-opacity-risk` | Medium | Neelo says private deal logic can obscure public economics, so docs should describe private terms as overlays rather than hidden public-policy side effects. |
 | What must harden before points become economically transferable? | `authored-referral-transferable-points-hardening-gate` | Medium | Neelo warns against treating points as transferable before accounting, eligibility, finalization, claims, and abuse controls are hardened. |
 | How should referral features become reliable incentives under scale? | `authored-referral-reliable-incentives-under-scale` | Medium | Neelo's design requirement is to move from features that work to incentives that remain reliable under scale and adversarial behavior. |
+| When do CLOB perps work best? | `authored-clob-majors-first-stage-fit` | Medium | Neelo's listing annex says CLOBs are strongest when makers, two-sided flow, tight spreads, and watched assets already exist. |
+| What is the economic synchrony requirement for order books? | `authored-clob-economic-synchrony-requirement` | Medium | Neelo separates technical matching from the economic need for a willing counterparty with enough size at the moment of trade. |
+| Why can strict listing policy be honest for order books? | `authored-strict-listing-depth-policy` | Medium | Neelo treats Hyperliquid-style listing discipline as a coherent response to CLOB depth limits, while leaving a lower discovery layer for long-tail assets. |
+| Why does pooled-collateral TVL fragment on the long tail? | `authored-pool-tail-tvl-fragmentation` | Medium | Neelo's GMX-style pool notes explain that pooled liquidity can bootstrap some markets, but risk and capital spread thinly as the market universe grows. |
+| Can open interest exist without reliable payouts? | `authored-open-interest-without-payout-reliability` | Medium | Neelo's Percolator-wave notes warn that OI can appear while one-sided flow still lacks a credible settlement or payout path. |
 
 ## Prototype Event Log
 

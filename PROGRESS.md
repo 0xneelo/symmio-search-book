@@ -802,6 +802,12 @@
 - Routed five new Ask questions so users, partners, and reviewers can inspect early-stage referral limits without turning them into live portability, transferability, or private-deal policy.
 - Kept live referral-right transferability, attribution migration, private partner terms, point transferability, claim mechanics, abuse controls, and settlement implementation under operator/legal/accounting/product/security/implementation review.
 
+## 2026-06-29 — Listing Annex Exact Pages
+
+- Added five authored manifesto pages from Neelo's listing-additional annex: CLOB majors-first stage fit, CLOB economic synchrony, strict listing-depth policy, pool tail-TVL fragmentation, and open interest without payout reliability.
+- Routed five new Ask questions so readers can compare order books, pool-backed systems, strict listing venues, and Percolator-family settlement limits without treating any venue example as a live audited claim.
+- Kept third-party venue parameters, live market counts, lockups, auction cadence, TVL figures, payout behavior, and code-lineage claims under current-source and publication-date review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

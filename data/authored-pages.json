@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 476,
+  "totalPages": 481,
   "byStatus": {
     "publication-candidate-needs-operator-review": 339,
-    "publication-candidate": 124,
-    "publication-candidate-needs-current-source-review": 2,
+    "publication-candidate": 125,
+    "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 208,
+    "manifesto": 213,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -341,6 +341,30 @@
       "excerpt": "The Bootstrap Trilemma The central market formation problem is not listing a perpetual after liquidity exists. It is making a new market credible before the normal order book conditions are present. Neelo's Vibe papers frame this as a three way constraint: permissionless listing, capital efficiency, and reliable counterparty guarantees are each desirable, but a single static architecture struggles to supply all three at market birth. Order books are capital efficient and reliable when both sides exist, but new assets often do not have enough synchronous liquidity. Fully collateralized pool designs can guarantee payouts, but the collateral burden turns into a fee and return problem. Netted systems can be efficient, but they fail if the profitable side has no actual counterparty behind it. Vibe's claim is not that the trilemma disappears. The claim is that a market can move through architectures as it matures. Early markets need a solver and intent layer that can price demand before a book exists. Later markets can graduate into deeper, more order book like liquidity once real flow proves itself. Reader Implication For a project, the question changes from \"can I persuade a venue to l"
     },
     {
+      "id": "authored-clob-economic-synchrony-requirement",
+      "title": "CLOB Economic Synchrony Requirement",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/04-async-tech-sync-economics"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "neelo-16-listing-additional-16-docs-04-async-tech-sync-economics",
+        "authored-technically-async-economically-sync"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/clob-economic-synchrony-requirement.md",
+      "bodyMarkdown": "# CLOB Economic Synchrony Requirement\n\nNeelo's listing annex separates technical matching from economic clearing. An order book can be technically available while the market still fails economically.\n\nTechnological synchrony means resting orders match when prices cross. Economic synchrony means someone is actually willing to be the counterparty at that moment, with enough size and a price that traders can use.\n\n## Why Long-Tail Books Break\n\nLong-tail books often fail the economic side first. The matching engine can exist, the chart can render, and the symbol can be listed, but if one side is empty or spreads are unusable, the trader does not experience the market as real exposure.\n\nThat is why the bootstrap problem is not solved by technical listing alone. The system has to coordinate counterparty willingness, inventory, risk pricing, and settlement. A CLOB can express that coordination once it exists; it is weaker at creating it from zero.\n\n## Vibe Implication\n\nThe intent/solver layer answers the missing stage. It can ask a narrower question than a public order book asks: is a counterparty willing to quote this request under these risk terms? That is still economic synchrony, but localized into a quote instead of assumed across an entire continuous book.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1.2: Sync matching in a broad sense\".\n- `vibe-papers`: Neelo, \"Section 4: Async Tech vs Sync Economics\".\n\n## Related Pages\n\n- `authored-technically-async-economically-sync`\n- `authored-clob-liquidity-coordination-loop`\n- `authored-intent-otc-long-tail-verification`",
+      "excerpt": "CLOB Economic Synchrony Requirement Neelo's listing annex separates technical matching from economic clearing. An order book can be technically available while the market still fails economically. Technological synchrony means resting orders match when prices cross. Economic synchrony means someone is actually willing to be the counterparty at that moment, with enough size and a price that traders can use. Why Long Tail Books Break Long tail books often fail the economic side first. The matching engine can exist, the chart can render, and the symbol can be listed, but if one side is empty or spreads are unusable, the trader does not experience the market as real exposure. That is why the bootstrap problem is not solved by technical listing alone. The system has to coordinate counterparty willingness, inventory, risk pricing, and settlement. A CLOB can express that coordination once it exists; it is weaker at creating it from zero. Vibe Implication The intent/solver layer answers the missing stage. It can ask a narrower question than a public order book asks: is a counterparty willing to quote this request under these risk terms? That is still economic synchrony, but localized into "
+    },
+    {
       "id": "authored-clob-liquidity-coordination-loop",
       "title": "The CLOB Liquidity Coordination Loop",
       "section": "manifesto",
@@ -362,6 +386,29 @@
       "file": "content/authored/manifesto/clob-liquidity-coordination-loop.md",
       "bodyMarkdown": "# The CLOB Liquidity Coordination Loop\n\nThe long-tail order-book problem is a coordination loop.\n\nMakers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again.\n\nThat is why \"just launch an order book\" is not enough for a new perp market. The matching engine can exist and still fail economically. The book needs enough simultaneous, two-sided participation to make the UI feel like exposure to the underlying rather than a sparse grid of stale or missing orders.\n\n## Why Vibe Needs A Different Starting Point\n\nAn intent and solver layer can start from a different premise. Instead of requiring continuous public depth on day one, it can ask whether a counterparty is willing to quote a specific request under explicit risk controls.\n\nThat does not make the risk disappear. It makes the bootstrap state visible. A market can begin with quoted, risk-managed exposure, then graduate only after real flow justifies deeper execution.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1.5: Chicken-and-egg on CLOB long tails\".\n\n## Related Pages\n\n- `authored-order-book-bootstrap-limit`\n- `authored-improve-before-replacing`\n- `authored-protocol-defined-market-lifecycle`",
       "excerpt": "The CLOB Liquidity Coordination Loop The long tail order book problem is a coordination loop. Makers do not quote meaningful size without expected flow. Traders do not arrive without usable quotes. LPs and liquidity programs do not commit when the earning path is unclear. Without LPs or makers, the book has no depth, and the loop starts again. That is why \"just launch an order book\" is not enough for a new perp market. The matching engine can exist and still fail economically. The book needs enough simultaneous, two sided participation to make the UI feel like exposure to the underlying rather than a sparse grid of stale or missing orders. Why Vibe Needs A Different Starting Point An intent and solver layer can start from a different premise. Instead of requiring continuous public depth on day one, it can ask whether a counterparty is willing to quote a specific request under explicit risk controls. That does not make the risk disappear. It makes the bootstrap state visible. A market can begin with quoted, risk managed exposure, then graduate only after real flow justifies deeper execution. Sources vibe papers : Neelo, \"Section 1.5: Chicken and egg on CLOB long tails\". Related Page"
+    },
+    {
+      "id": "authored-clob-majors-first-stage-fit",
+      "title": "CLOB Majors-First Stage Fit",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "authored-order-books-as-mature-end-state",
+        "authored-clob-vault-rails-long-tail-limits"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/clob-majors-first-stage-fit.md",
+      "bodyMarkdown": "# CLOB Majors-First Stage Fit\n\nThe listing annex gives order books their strongest form before criticizing their long-tail limits. Central limit order book perps are excellent when both sides already want to trade, when makers are present, and when the asset is watched closely enough for tight spreads and depth to persist.\n\nThat is why CLOBs are majors-first infrastructure. They are not weak because they are order books. They are weak at the moment before a market has earned the conditions that make an order book feel liquid.\n\n## What Has To Exist First\n\nA CLOB needs more than a symbol:\n\n- makers who believe quoting size will earn enough;\n- traders who believe entry and exit will be usable;\n- price anchors that make marks legible;\n- enough two-sided interest to avoid stale or one-sided books.\n\nFor majors, those conditions can already be present. For long-tail assets, they often are not. The market may need a discovery and bootstrap layer before it deserves mature CLOB treatment.\n\n## Publication Boundary\n\nThis page should not publish live venue-specific listing cadence, maker-program terms, liquidity-mining rewards, or market-count claims without rechecking current third-party docs. The durable source-backed point is stage fit: CLOBs are strong after liquidity is already coordinated.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: Order Books - Bootstrap Economics, dYdX, Hyperliquid\".\n\n## Related Pages\n\n- `authored-order-books-as-mature-end-state`\n- `authored-clob-vault-rails-long-tail-limits`\n- `authored-order-book-bootstrap-limit`",
+      "excerpt": "CLOB Majors First Stage Fit The listing annex gives order books their strongest form before criticizing their long tail limits. Central limit order book perps are excellent when both sides already want to trade, when makers are present, and when the asset is watched closely enough for tight spreads and depth to persist. That is why CLOBs are majors first infrastructure. They are not weak because they are order books. They are weak at the moment before a market has earned the conditions that make an order book feel liquid. What Has To Exist First A CLOB needs more than a symbol: makers who believe quoting size will earn enough; traders who believe entry and exit will be usable; price anchors that make marks legible; enough two sided interest to avoid stale or one sided books. For majors, those conditions can already be present. For long tail assets, they often are not. The market may need a discovery and bootstrap layer before it deserves mature CLOB treatment. Publication Boundary This page should not publish live venue specific listing cadence, maker program terms, liquidity mining rewards, or market count claims without rechecking current third party docs. The durable source back"
     },
     {
       "id": "authored-clob-vault-rails-long-tail-limits",
@@ -4904,6 +4951,30 @@
       "excerpt": "The 1x Leverage Ceiling The Percolator LP economics source argues that token margined perps face a leverage ceiling that attacks the point of perpetuals. The example is stark: if an LP has 1,000,000 tokens and traders open 10,000,000 tokens of long exposure, a relatively small price increase can make the LP owe its whole collateral in token terms. To survive that kind of move, the LP must keep collateral close to open interest. Why This Breaks Capital Efficiency Perpetuals are useful because they let traders express leveraged exposure while the system manages margin, liquidation, and counterparty risk. If a token margined LP must maintain roughly one to one collateral against open interest, the system has lost much of that capital efficiency advantage. The source's practical point is not that a single utilization ratio is universal. It is that same asset collateral plus inverse payout risk force conservative utilization. Higher open interest may look like growth, but it can move the market closer to LP insolvency if the token pumps and longs win. Why Fees Do Not Solve It Fees and funding do not remove the leverage ceiling if they are also token denominated. The LP is still paid in "
     },
     {
+      "id": "authored-open-interest-without-payout-reliability",
+      "title": "Open Interest Without Payout Reliability",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/03-percolator-wave-perc-fund",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-03-percolator-wave-perc-fund",
+        "neelo-16-listing-additional-16-docs-05-liquidity-as-trader-experience",
+        "authored-percolator-wave-settlement-reality"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/open-interest-without-payout-reliability.md",
+      "bodyMarkdown": "# Open Interest Without Payout Reliability\n\nThe Percolator-wave notes warn against reading open interest as proof that a long-tail perp is economically complete. A market can show non-zero OI while the payout path is still fragile.\n\nThe problem appears when flow is one-sided and there is no offsetting book, no deep LP layer, and no inventory path sized for the tail risk. Long positions may exist, but if they win, the system still needs someone or something to pay them.\n\n## Why This Matters For Traders\n\nOpen interest says exposure has been created. It does not by itself answer:\n\n- whether the mark tracks the underlying story;\n- whether funding can update normally;\n- whether exits settle without haircuts or freezes;\n- whether future contra-flow is required for payout reliability;\n- whether the venue has an explicit backstop path.\n\nThat is why the liquidity-as-trader-experience source treats payout reliability as part of liquidity. A trader does not only need a position to open. They need confidence that the position can close and settle according to a comprehensible rule.\n\n## Publication Boundary\n\nThis page should not characterize any live third-party venue's current solvency, payout behavior, or code lineage without fresh official source review. It uses the source's model-level warning: open interest can be visible while settlement reliability is unresolved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: The Percolator Wave, Perk.fund, and Settlement Reality\".\n- `vibe-papers`: Neelo, \"Section 5: Liquidity as Trader Experience\".\n\n## Related Pages\n\n- `authored-percolator-wave-settlement-reality`\n- `authored-trader-payout-certainty`\n- `authored-exchange-deviation-diagnostic`",
+      "excerpt": "Open Interest Without Payout Reliability The Percolator wave notes warn against reading open interest as proof that a long tail perp is economically complete. A market can show non zero OI while the payout path is still fragile. The problem appears when flow is one sided and there is no offsetting book, no deep LP layer, and no inventory path sized for the tail risk. Long positions may exist, but if they win, the system still needs someone or something to pay them. Why This Matters For Traders Open interest says exposure has been created. It does not by itself answer: whether the mark tracks the underlying story; whether funding can update normally; whether exits settle without haircuts or freezes; whether future contra flow is required for payout reliability; whether the venue has an explicit backstop path. That is why the liquidity as trader experience source treats payout reliability as part of liquidity. A trader does not only need a position to open. They need confidence that the position can close and settle according to a comprehensible rule. Publication Boundary This page should not characterize any live third party venue's current solvency, payout behavior, or code lineage"
+    },
+    {
       "id": "authored-options-intent-lifecycle",
       "title": "Options Intent Lifecycle",
       "section": "protocol-reference",
@@ -5465,6 +5536,29 @@
       "file": "content/authored/reference/points-value-state-lifecycle.md",
       "bodyMarkdown": "# Points Value State Lifecycle\n\nThe rewards sources separate point balances by economic state. A user-visible points number is not automatically final, transferable, or eligible for TGE accounting.\n\nThe clean lifecycle is:\n\n- unfinalized off-chain points, which may still depend on daily or epoch source checks;\n- finalized off-chain points, which are source-bucketed and eligible for a claim path if policy allows;\n- claimed on-chain points, which become economically active only after authorization and any required delay;\n- converted reward objects, such as packs or artifacts, if a future policy permits conversion.\n\nThis state model prevents a common documentation error: treating every displayed point as the same thing. The source warns that real-time \"final points\" displays can increase gaming risk if users can optimize against incomplete settlement logic.\n\n## Reader Implication\n\nWhen users ask whether points are final, the docs should answer by state. A live dashboard can show progress without implying the balance has passed finalization, claim eligibility, transferability, or TGE qualification.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Public TGE and claim semantics remain owner-review.\n\n## Related Pages\n\n- `authored-referral-points-economic-state`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-settlement-multiplier`",
       "excerpt": "Points Value State Lifecycle The rewards sources separate point balances by economic state. A user visible points number is not automatically final, transferable, or eligible for TGE accounting. The clean lifecycle is: unfinalized off chain points, which may still depend on daily or epoch source checks; finalized off chain points, which are source bucketed and eligible for a claim path if policy allows; claimed on chain points, which become economically active only after authorization and any required delay; converted reward objects, such as packs or artifacts, if a future policy permits conversion. This state model prevents a common documentation error: treating every displayed point as the same thing. The source warns that real time \"final points\" displays can increase gaming risk if users can optimize against incomplete settlement logic. Reader Implication When users ask whether points are final, the docs should answer by state. A live dashboard can show progress without implying the balance has passed finalization, claim eligibility, transferability, or TGE qualification. Sources vibe papers : Neelo, \"Section 4: Points and Rewards\". vibe papers : Neelo, \"Section 12: Rewards, Pa"
+    },
+    {
+      "id": "authored-pool-tail-tvl-fragmentation",
+      "title": "Pool Tail TVL Fragmentation",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-02-collateralized-pools-gmx",
+        "authored-collateralized-pools-finite-long-tail",
+        "authored-pooled-backstop-mismatch"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/pool-tail-tvl-fragmentation.md",
+      "bodyMarkdown": "# Pool Tail TVL Fragmentation\n\nGMX-style pooled collateral solves a real bootstrap problem: a trader can receive oracle-priced execution without waiting for a full order book. But the source notes that the long tail remains finite because capital has to be spread across risk.\n\nAs more markets are added, pool capital either concentrates in the majors or fragments across tail assets. A market can appear in the UI while the actual support behind it is too small to feel like durable liquidity.\n\n## Why Fragmentation Matters\n\nTail TVL fragmentation changes the trader's real product:\n\n- open size may be capped tightly;\n- spreads or fees may need to compensate for stress;\n- oracle-priced execution may not imply deep loss absorption;\n- the backstop asset may not match the token narrative being traded.\n\nThat is another version of listing outrunning liquidity. The pool can quote, but the question remains: how much risk can it safely absorb for this specific long-tail market?\n\n## Publication Boundary\n\nThis page should not publish current GMX or third-party market counts, TVL numbers, pool composition, or asset-specific capacity without current official source review. The durable claim is structural: pooled collateral helps some long-tail bootstrap, but capital fragmentation limits generalized depth.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Collateralized Pools (GMX-style) and Finite Long Tails\".\n\n## Related Pages\n\n- `authored-collateralized-pools-finite-long-tail`\n- `authored-pooled-backstop-mismatch`\n- `authored-token-vault-perps-versus-usdc-pools`",
+      "excerpt": "Pool Tail TVL Fragmentation GMX style pooled collateral solves a real bootstrap problem: a trader can receive oracle priced execution without waiting for a full order book. But the source notes that the long tail remains finite because capital has to be spread across risk. As more markets are added, pool capital either concentrates in the majors or fragments across tail assets. A market can appear in the UI while the actual support behind it is too small to feel like durable liquidity. Why Fragmentation Matters Tail TVL fragmentation changes the trader's real product: open size may be capped tightly; spreads or fees may need to compensate for stress; oracle priced execution may not imply deep loss absorption; the backstop asset may not match the token narrative being traded. That is another version of listing outrunning liquidity. The pool can quote, but the question remains: how much risk can it safely absorb for this specific long tail market? Publication Boundary This page should not publish current GMX or third party market counts, TVL numbers, pool composition, or asset specific capacity without current official source review. The durable claim is structural: pooled collateral"
     },
     {
       "id": "authored-pooled-backstop-mismatch",
@@ -8326,6 +8420,31 @@
       "file": "content/authored/reference/strategic-unhedged-exposure-boundary.md",
       "bodyMarkdown": "# Strategic Unhedged Exposure Boundary\n\nThe DDQ source separates two ideas that should not be collapsed: a solver failing to hedge, and a solver intentionally carrying limited exposure.\n\nFailure means the solver is trapped in risk it cannot safely back, price, or unwind. Strategic unhedged exposure means the solver chooses, inside defined limits, to warehouse some risk because the market is mature enough, inventory is sufficient, or expected PnL justifies the balance-sheet use.\n\n## Why It Is Not The VibeCap Baseline\n\nThe source is clear that newly listed low-cap markets are hedge-first. The solver should price risk, establish backing inventory, or refuse before accepting residual exposure. Strategic unhedged exposure belongs, if anywhere, in higher-integrity markets where the solver has stronger data and explicit risk limits.\n\nThis is also how the collateralization mental model fits. A market can begin closer to fully backed protocol-side exposure and then become more capital efficient as liquidity, liquidation history, price integrity, and confidence improve. Unhedged exposure is a maturity privilege, not an early-market default.\n\n## Reader Implication\n\nFor LPs, the boundary prevents a false guarantee and a false fear. The system is not promising that no solver ever holds risk. It is also not saying every cold market is allowed to run naked exposure from day one.\n\nFor traders, this explains why mature markets can feel more permissive than new markets. Better market evidence can support looser terms; fragile markets should remain tighter.\n\n## Publication Boundary\n\nDo not publish final unhedged-exposure allowances, solver inventory limits, confidence scores, leverage schedules, or market-maturity thresholds without operator and implementation review. The source-backed claim is the boundary: unhedged exposure is strategic and limited, not the default failure state for VibeCaps.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver Hedging Risk Considerations\".\n- `vibe-papers`: Neelo DDQ, \"Balancing UX vs Risk\".\n\n## Related Pages\n\n- `authored-market-maturation-risk-posture`\n- `authored-conservative-launch-collateralization`\n- `authored-solver-hedging-failure-modes`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations`",
       "excerpt": "Strategic Unhedged Exposure Boundary The DDQ source separates two ideas that should not be collapsed: a solver failing to hedge, and a solver intentionally carrying limited exposure. Failure means the solver is trapped in risk it cannot safely back, price, or unwind. Strategic unhedged exposure means the solver chooses, inside defined limits, to warehouse some risk because the market is mature enough, inventory is sufficient, or expected PnL justifies the balance sheet use. Why It Is Not The VibeCap Baseline The source is clear that newly listed low cap markets are hedge first. The solver should price risk, establish backing inventory, or refuse before accepting residual exposure. Strategic unhedged exposure belongs, if anywhere, in higher integrity markets where the solver has stronger data and explicit risk limits. This is also how the collateralization mental model fits. A market can begin closer to fully backed protocol side exposure and then become more capital efficient as liquidity, liquidation history, price integrity, and confidence improve. Unhedged exposure is a maturity privilege, not an early market default. Reader Implication For LPs, the boundary prevents a false gua"
+    },
+    {
+      "id": "authored-strict-listing-depth-policy",
+      "title": "Strict Listing Policy Protects Depth",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid",
+        "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/hip-3-deploying-hip-3-assets"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-16-listing-additional-16-docs-01-order-books-dydx-hyperliquid",
+        "authored-hyperliquid-gap-lower-layer",
+        "authored-vibe-as-discovery-layer"
+      ],
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "file": "content/authored/manifesto/strict-listing-depth-policy.md",
+      "bodyMarkdown": "# Strict Listing Policy Protects Depth\n\nThe listing annex treats Hyperliquid-style discipline as an intellectually honest response to order-book limits. If CLOBs work best when assets are already active enough for two-sided flow, then a venue should not pretend that every new symbol can carry mature depth immediately.\n\nStrict listing policy trades breadth for microstructure quality. It says fewer markets with better expected depth can be more coherent than many markets that technically exist but feel empty.\n\n## The Tradeoff\n\nThe benefit is predictable trader experience for listed markets. The cost is that long-tail assets still need somewhere else to prove they deserve deeper execution.\n\nThat is the gap Vibe wants to occupy. Vibe can be the earlier discovery and stress-test layer: show whether a token has real directional demand, short interest, solver pricing interest, and market-quality signals before it asks for a mature order-book slot.\n\n## Publication Boundary\n\nDo not publish exact third-party auction cadence, governance parameters, deployment requirements, or listing frequency without current official source review. The source-backed point is the tradeoff: strict listing protects order-book quality but leaves a lower-layer discovery problem.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1.4: Hyperliquid: acknowledging limits via rare listings\".\n- `hyperliquid-hip3`: Hyperliquid HIP-3 official documentation for builder-deployed perp context.\n\n## Related Pages\n\n- `authored-hyperliquid-gap-lower-layer`\n- `authored-vibe-as-discovery-layer`\n- `authored-order-books-as-graduation-layer`",
+      "excerpt": "Strict Listing Policy Protects Depth The listing annex treats Hyperliquid style discipline as an intellectually honest response to order book limits. If CLOBs work best when assets are already active enough for two sided flow, then a venue should not pretend that every new symbol can carry mature depth immediately. Strict listing policy trades breadth for microstructure quality. It says fewer markets with better expected depth can be more coherent than many markets that technically exist but feel empty. The Tradeoff The benefit is predictable trader experience for listed markets. The cost is that long tail assets still need somewhere else to prove they deserve deeper execution. That is the gap Vibe wants to occupy. Vibe can be the earlier discovery and stress test layer: show whether a token has real directional demand, short interest, solver pricing interest, and market quality signals before it asks for a mature order book slot. Publication Boundary Do not publish exact third party auction cadence, governance parameters, deployment requirements, or listing frequency without current official source review. The source backed point is the tradeoff: strict listing protects order book"
     },
     {
       "id": "authored-strict-solver-liquidation-mode",

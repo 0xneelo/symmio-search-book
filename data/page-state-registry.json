@@ -35,26 +35,26 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1270,
+  "totalPages": 1275,
   "byState": {
-    "candidate": 475,
+    "candidate": 480,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 476,
+    "authored": 481,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 476,
+    "authored-page": 481,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
     "publication-candidate-needs-operator-review": 339,
-    "publication-candidate": 124,
-    "publication-candidate-needs-current-source-review": 2,
+    "publication-candidate": 125,
+    "publication-candidate-needs-current-source-review": 6,
     "publication-candidate-needs-editorial-review": 2,
     "needs-reconciliation": 3,
     "publication-candidate-needs-publication-date-review": 8,
@@ -64,7 +64,7 @@
     "draft-extracted-from-primary-source": 541
   },
   "bySection": {
-    "manifesto": 208,
+    "manifesto": 213,
     "product-reference": 50,
     "rewards-referrals": 86,
     "dashboard-reference": 17,
@@ -101,7 +101,7 @@
       "source-companion": 238
     },
     "volume-03-listing-power-and-orderbooks": {
-      "candidate": 63,
+      "candidate": 68,
       "source-companion": 155
     },
     "volume-07-product-trading-and-risk": {
@@ -129,13 +129,13 @@
     }
   },
   "publishedPages": 0,
-  "publicCandidatePages": 475,
+  "publicCandidatePages": 480,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 475,
-  "retrievalEligiblePages": 1267,
+  "publicNavigationPages": 480,
+  "retrievalEligiblePages": 1272,
   "reviewRequiredPages": 1134,
-  "exactQuestionRoutedPages": 454,
+  "exactQuestionRoutedPages": 459,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -185,7 +185,9 @@
     "authored-bootstrap-counterparty-pillar",
     "authored-bootstrap-oracle-risk-tiers",
     "authored-bootstrap-trilemma",
+    "authored-clob-economic-synchrony-requirement",
     "authored-clob-liquidity-coordination-loop",
+    "authored-clob-majors-first-stage-fit",
     "authored-clob-vault-rails-long-tail-limits",
     "authored-collateral-margin-cva",
     "authored-collateralized-pools-finite-long-tail",
@@ -194,9 +196,7 @@
     "authored-conservative-launch-collateralization",
     "authored-cooperation-creates-optionality",
     "authored-coupled-design-problem",
-    "authored-cross-market-risk-mutualization",
-    "authored-crypto-market-access-disconnect",
-    "authored-curated-venues-inherit-asymmetric-blame"
+    "authored-cross-market-risk-mutualization"
   ],
   "warnings": [
     "No page is marked published yet; current authored pages remain candidates.",
@@ -538,6 +538,31 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-clob-economic-synchrony-requirement",
+      "title": "CLOB Economic Synchrony Requirement",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/clob-economic-synchrony-requirement.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/04-async-tech-sync-economics"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-clob-liquidity-coordination-loop",
       "title": "The CLOB Liquidity Coordination Loop",
       "section": "manifesto",
@@ -546,6 +571,30 @@
       "status": "publication-candidate",
       "routeSource": "authored",
       "file": "content/authored/manifesto/clob-liquidity-coordination-loop.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-clob-majors-first-stage-fit",
+      "title": "CLOB Majors-First Stage Fit",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/clob-majors-first-stage-fit.md",
       "volumeId": "volume-03-listing-power-and-orderbooks",
       "pageState": "candidate",
       "launchRole": "public-candidate-page",
@@ -5286,6 +5335,31 @@
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
     {
+      "id": "authored-open-interest-without-payout-reliability",
+      "title": "Open Interest Without Payout Reliability",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/open-interest-without-payout-reliability.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/03-percolator-wave-perc-fund",
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
       "id": "authored-options-intent-lifecycle",
       "title": "Options Intent Lifecycle",
       "section": "protocol-reference",
@@ -5862,6 +5936,30 @@
         "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards",
         "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system",
         "_specs/app-docs/03-grounding.md"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-pool-tail-tvl-fragmentation",
+      "title": "Pool Tail TVL Fragmentation",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/pool-tail-tvl-fragmentation.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },
@@ -8829,6 +8927,32 @@
       "sourceUrls": [
         "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations",
         "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"
+      ],
+      "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
+    },
+    {
+      "id": "authored-strict-listing-depth-policy",
+      "title": "Strict Listing Policy Protects Depth",
+      "section": "manifesto",
+      "track": "16 - Listing Additional Notes",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "file": "content/authored/manifesto/strict-listing-depth-policy.md",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "pageState": "candidate",
+      "launchRole": "public-candidate-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid",
+        "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/hip-3-deploying-hip-3-assets"
       ],
       "classificationReason": "Authored page is suitable for prototype navigation and final editorial review."
     },

@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 464,
-  "totalAnswerable": 457,
+  "totalEntries": 469,
+  "totalAnswerable": 462,
   "totalUnresolved": 7,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -20,22 +20,22 @@
     "Solvers And Settlement": 126,
     "Risk And Markets": 23,
     "Revenue": 69,
-    "Manifesto": 66,
+    "Manifesto": 71,
     "Rewards And Referrals": 78,
     "Dashboard": 10,
     "Data And Volume": 5,
     "Discord Import": 1
   },
   "byConfidence": {
-    "Medium": 237,
+    "Medium": 242,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 457
+    "authored": 462
   },
   "byType": {
-    "answerable": 457,
+    "answerable": 462,
     "reconciliation": 7
   },
   "answerable": [
@@ -15296,6 +15296,159 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-do-clob-perps-work-best",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "When do CLOB perps work best?",
+      "normalizedQuestion": "when do clob perps work best",
+      "shortAnswer": "Neelo's listing annex says CLOBs are strongest when makers, two-sided flow, tight spreads, and watched assets already exist.",
+      "answerSummary": "CLOB Majors First Stage Fit The listing annex gives order books their strongest form before criticizing their long tail limits. Central limit order book perps are excellent when both sides already want to trade, when makers are present, and when the asset is watched closely enough for tight spreads and depth to persist. That is why CLOBs are majors first...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-majors-first-stage-fit",
+      "pageTitle": "CLOB Majors-First Stage Fit",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-economic-synchrony-requirement-for-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the economic synchrony requirement for order books?",
+      "normalizedQuestion": "what is the economic synchrony requirement for order books",
+      "shortAnswer": "Neelo separates technical matching from the economic need for a willing counterparty with enough size at the moment of trade.",
+      "answerSummary": "CLOB Economic Synchrony Requirement Neelo's listing annex separates technical matching from economic clearing. An order book can be technically available while the market still fails economically. Technological synchrony means resting orders match when prices cross. Economic synchrony means someone is actually willing to be the counterparty at that moment...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-economic-synchrony-requirement",
+      "pageTitle": "CLOB Economic Synchrony Requirement",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-strict-listing-policy-be-honest-for-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can strict listing policy be honest for order books?",
+      "normalizedQuestion": "why can strict listing policy be honest for order books",
+      "shortAnswer": "Neelo treats Hyperliquid-style listing discipline as a coherent response to CLOB depth limits, while leaving a lower discovery layer for long-tail assets.",
+      "answerSummary": "Strict Listing Policy Protects Depth The listing annex treats Hyperliquid style discipline as an intellectually honest response to order book limits. If CLOBs work best when assets are already active enough for two sided flow, then a venue should not pretend that every new symbol can carry mature depth immediately. Strict listing policy trades breadth for...",
+      "confidence": "Medium",
+      "pageId": "authored-strict-listing-depth-policy",
+      "pageTitle": "Strict Listing Policy Protects Depth",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "hyperliquid-hip3",
+          "group": "Competitive Context",
+          "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
+          "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-pooled-collateral-tvl-fragment-on-the-long-tail",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does pooled-collateral TVL fragment on the long tail?",
+      "normalizedQuestion": "why does pooled collateral tvl fragment on the long tail",
+      "shortAnswer": "Neelo's GMX-style pool notes explain that pooled liquidity can bootstrap some markets, but risk and capital spread thinly as the market universe grows.",
+      "answerSummary": "Pool Tail TVL Fragmentation GMX style pooled collateral solves a real bootstrap problem: a trader can receive oracle priced execution without waiting for a full order book. But the source notes that the long tail remains finite because capital has to be spread across risk. As more markets are added, pool capital either concentrates in the majors or fragme...",
+      "confidence": "Medium",
+      "pageId": "authored-pool-tail-tvl-fragmentation",
+      "pageTitle": "Pool Tail TVL Fragmentation",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-open-interest-exist-without-reliable-payouts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Can open interest exist without reliable payouts?",
+      "normalizedQuestion": "can open interest exist without reliable payouts",
+      "shortAnswer": "Neelo's Percolator-wave notes warn that OI can appear while one-sided flow still lacks a credible settlement or payout path.",
+      "answerSummary": "Open Interest Without Payout Reliability The Percolator wave notes warn against reading open interest as proof that a long tail perp is economically complete. A market can show non zero OI while the payout path is still fragile. The problem appears when flow is one sided and there is no offsetting book, no deep LP layer, and no inventory path sized for th...",
+      "confidence": "Medium",
+      "pageId": "authored-open-interest-without-payout-reliability",
+      "pageTitle": "Open Interest Without Payout Reliability",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]
@@ -30905,6 +31058,159 @@
           "group": "Local Specs",
           "use": "Product facts and revenue/referral contradictions.",
           "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-when-do-clob-perps-work-best",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "When do CLOB perps work best?",
+      "normalizedQuestion": "when do clob perps work best",
+      "shortAnswer": "Neelo's listing annex says CLOBs are strongest when makers, two-sided flow, tight spreads, and watched assets already exist.",
+      "answerSummary": "CLOB Majors First Stage Fit The listing annex gives order books their strongest form before criticizing their long tail limits. Central limit order book perps are excellent when both sides already want to trade, when makers are present, and when the asset is watched closely enough for tight spreads and depth to persist. That is why CLOBs are majors first...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-majors-first-stage-fit",
+      "pageTitle": "CLOB Majors-First Stage Fit",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-economic-synchrony-requirement-for-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "What is the economic synchrony requirement for order books?",
+      "normalizedQuestion": "what is the economic synchrony requirement for order books",
+      "shortAnswer": "Neelo separates technical matching from the economic need for a willing counterparty with enough size at the moment of trade.",
+      "answerSummary": "CLOB Economic Synchrony Requirement Neelo's listing annex separates technical matching from economic clearing. An order book can be technically available while the market still fails economically. Technological synchrony means resting orders match when prices cross. Economic synchrony means someone is actually willing to be the counterparty at that moment...",
+      "confidence": "Medium",
+      "pageId": "authored-clob-economic-synchrony-requirement",
+      "pageTitle": "CLOB Economic Synchrony Requirement",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-strict-listing-policy-be-honest-for-order-books",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why can strict listing policy be honest for order books?",
+      "normalizedQuestion": "why can strict listing policy be honest for order books",
+      "shortAnswer": "Neelo treats Hyperliquid-style listing discipline as a coherent response to CLOB depth limits, while leaving a lower discovery layer for long-tail assets.",
+      "answerSummary": "Strict Listing Policy Protects Depth The listing annex treats Hyperliquid style discipline as an intellectually honest response to order book limits. If CLOBs work best when assets are already active enough for two sided flow, then a venue should not pretend that every new symbol can carry mature depth immediately. Strict listing policy trades breadth for...",
+      "confidence": "Medium",
+      "pageId": "authored-strict-listing-depth-policy",
+      "pageTitle": "Strict Listing Policy Protects Depth",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "hyperliquid-hip3"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "hyperliquid-hip3",
+          "group": "Competitive Context",
+          "use": "Builder-deployed perps, staking, deployer duties, independent margin/order books.",
+          "href": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-pooled-collateral-tvl-fragment-on-the-long-tail",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does pooled-collateral TVL fragment on the long tail?",
+      "normalizedQuestion": "why does pooled collateral tvl fragment on the long tail",
+      "shortAnswer": "Neelo's GMX-style pool notes explain that pooled liquidity can bootstrap some markets, but risk and capital spread thinly as the market universe grows.",
+      "answerSummary": "Pool Tail TVL Fragmentation GMX style pooled collateral solves a real bootstrap problem: a trader can receive oracle priced execution without waiting for a full order book. But the source notes that the long tail remains finite because capital has to be spread across risk. As more markets are added, pool capital either concentrates in the majors or fragme...",
+      "confidence": "Medium",
+      "pageId": "authored-pool-tail-tvl-fragmentation",
+      "pageTitle": "Pool Tail TVL Fragmentation",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-open-interest-exist-without-reliable-payouts",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Can open interest exist without reliable payouts?",
+      "normalizedQuestion": "can open interest exist without reliable payouts",
+      "shortAnswer": "Neelo's Percolator-wave notes warn that OI can appear while one-sided flow still lacks a credible settlement or payout path.",
+      "answerSummary": "Open Interest Without Payout Reliability The Percolator wave notes warn against reading open interest as proof that a long tail perp is economically complete. A market can show non zero OI while the payout path is still fragile. The problem appears when flow is one sided and there is no offsetting book, no deep LP layer, and no inventory path sized for th...",
+      "confidence": "Medium",
+      "pageId": "authored-open-interest-without-payout-reliability",
+      "pageTitle": "Open Interest Without Payout Reliability",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
           "missing": false
         }
       ]

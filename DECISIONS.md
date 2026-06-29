@@ -1063,3 +1063,11 @@
 **Reason:** Neelo's system-baseline source does not only describe what works today; it names the early-stage limits that must be resolved before referral economics can scale. Exact answer routes make those limits visible without publishing unresolved portability, transferability, private partner, or settlement policy.
 
 **Status:** Accepted for the authored rewards-reference layer; live referral-right transferability, graph migration, private partner terms, point transferability, source-bucket accounting, claim authorization, anti-abuse review, settlement contracts, and public economic commitments remain operator/legal/accounting/product/security/implementation review.
+
+## D-134: Split Listing-Additional Annex Into Exact Market-Model Answers
+
+**Decision:** Add authored manifesto pages for CLOB majors-first stage fit, CLOB economic synchrony requirements, strict listing-depth policy, pooled-collateral tail-TVL fragmentation, and open interest without payout reliability.
+
+**Reason:** The broad listing-annex pages explain the model map, but answer-engine readers need direct routes for the operational vocabulary used to compare order books, vault rails, pool-backed perps, and Percolator-family systems. Splitting these answers improves market-structure precision without presenting third-party field observations as current venue documentation.
+
+**Status:** Accepted for the authored manifesto layer; third-party venue parameters, market counts, lockups, auction cadence, TVL figures, payout behavior, and implementation/code-lineage claims remain current-source and publication-date review.

@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 457
+      "totalGoldenRoutes": 462
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 475,
-    "retrievalEligiblePages": 1267,
+    "publicNavigationPages": 480,
+    "retrievalEligiblePages": 1272,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 475,
+      "candidate": 480,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 457,
-    "exactRouteTestsPassing": 457,
+    "totalExactRouteTests": 462,
+    "exactRouteTestsPassing": 462,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 457
+      "candidate": 462
     },
     "exactRoutesByConfidence": {
-      "Medium": 237,
+      "Medium": 242,
       "High": 44,
       "Low": 176
     },
@@ -10276,6 +10276,113 @@
         "chunkCount": 2,
         "faqEntryId": "faq-how-should-referral-features-become-reliable-incentives-under-scale",
         "passes": true
+      },
+      {
+        "id": "qr-when-do-clob-perps-work-best",
+        "query": "When do CLOB perps work best?",
+        "normalizedQuery": "when do clob perps work best",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-clob-majors-first-stage-fit",
+        "expectedPageTitle": "CLOB Majors-First Stage Fit",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-do-clob-perps-work-best",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-economic-synchrony-requirement-for-order-books",
+        "query": "What is the economic synchrony requirement for order books?",
+        "normalizedQuery": "what is the economic synchrony requirement for order books",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-clob-economic-synchrony-requirement",
+        "expectedPageTitle": "CLOB Economic Synchrony Requirement",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-economic-synchrony-requirement-for-order-books",
+        "passes": true
+      },
+      {
+        "id": "qr-why-can-strict-listing-policy-be-honest-for-order-books",
+        "query": "Why can strict listing policy be honest for order books?",
+        "normalizedQuery": "why can strict listing policy be honest for order books",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-strict-listing-depth-policy",
+        "expectedPageTitle": "Strict Listing Policy Protects Depth",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "hyperliquid-hip3"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "hyperliquid-hip3"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-can-strict-listing-policy-be-honest-for-order-books",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-pooled-collateral-tvl-fragment-on-the-long-tail",
+        "query": "Why does pooled-collateral TVL fragment on the long tail?",
+        "normalizedQuery": "why does pooled collateral tvl fragment on the long tail",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-pool-tail-tvl-fragmentation",
+        "expectedPageTitle": "Pool Tail TVL Fragmentation",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-pooled-collateral-tvl-fragment-on-the-long-tail",
+        "passes": true
+      },
+      {
+        "id": "qr-can-open-interest-exist-without-reliable-payouts",
+        "query": "Can open interest exist without reliable payouts?",
+        "normalizedQuery": "can open interest exist without reliable payouts",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-open-interest-without-payout-reliability",
+        "expectedPageTitle": "Open Interest Without Payout Reliability",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-can-open-interest-exist-without-reliable-payouts",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10351,7 +10458,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 457,
+      "exactRoutes": 462,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
