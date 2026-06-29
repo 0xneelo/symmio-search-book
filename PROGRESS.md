@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Funding Abstract And Index Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from uncovered Neelo Funding Model abstract and index headings.
+- Split the source into exact answer pages for the accounting roadmap, control surface, monitoring/governance map, key innovations, and one-line objective/invariant.
+- Extended the question ledger so Ask can route Funding Model overview questions before dropping readers into later variable definitions, pricing controls, insurance mechanics, or ADL pages.
+- Kept live accounting treatment, buyback rules, governance values, rate multipliers, recovery targets, insurance eligibility, liquidation policy, and ADL guarantees marked for fresh operator/risk/legal/accounting/implementation review.
+
 ## 2026-06-29 — SYMM LP Executive Methodology Exact Pages
 
 - Added 5 authored Volume 05 protocol-reference pages from uncovered Neelo SYMM LP case-study headings.

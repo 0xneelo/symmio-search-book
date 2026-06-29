@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 730
+      "totalGoldenRoutes": 735
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 748,
-    "retrievalEligiblePages": 1540,
+    "publicNavigationPages": 753,
+    "retrievalEligiblePages": 1545,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 748,
+      "candidate": 753,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 730,
-    "exactRouteTestsPassing": 730,
+    "totalExactRouteTests": 735,
+    "exactRouteTestsPassing": 735,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 730
+      "candidate": 735
     },
     "exactRoutesByConfidence": {
-      "Medium": 458,
+      "Medium": 463,
       "High": 44,
       "Low": 228
     },
@@ -5769,6 +5769,111 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-the-full-funding-model-objective",
+        "passes": true
+      },
+      {
+        "id": "qr-what-accounting-roadmap-does-the-funding-model-start-from",
+        "query": "What accounting roadmap does the funding model start from?",
+        "normalizedQuery": "what accounting roadmap does the funding model start from",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-abstract-accounting-roadmap",
+        "expectedPageTitle": "Funding Abstract Accounting Roadmap",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-accounting-roadmap-does-the-funding-model-start-from",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-funding-model-s-control-surface",
+        "query": "What is the funding model's control surface?",
+        "normalizedQuery": "what is the funding model s control surface",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-abstract-control-surface",
+        "expectedPageTitle": "Funding Abstract Control Surface",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-funding-model-s-control-surface",
+        "passes": true
+      },
+      {
+        "id": "qr-what-should-operators-monitor-in-the-funding-model",
+        "query": "What should operators monitor in the funding model?",
+        "normalizedQuery": "what should operators monitor in the funding model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-monitoring-governance-map",
+        "expectedPageTitle": "Funding Monitoring And Governance Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-should-operators-monitor-in-the-funding-model",
+        "passes": true
+      },
+      {
+        "id": "qr-what-are-the-funding-model-s-key-innovations",
+        "query": "What are the funding model's key innovations?",
+        "normalizedQuery": "what are the funding model s key innovations",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-key-innovations-summary",
+        "expectedPageTitle": "Funding Key Innovations Summary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-are-the-funding-model-s-key-innovations",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-funding-model-s-one-line-objective",
+        "query": "What is the funding model's one-line objective?",
+        "normalizedQuery": "what is the funding model s one line objective",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-one-line-objective-and-invariant",
+        "expectedPageTitle": "Funding One-Line Objective And Invariant",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-funding-model-s-one-line-objective",
         "passes": true
       },
       {
@@ -16090,7 +16195,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 730,
+      "exactRoutes": 735,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

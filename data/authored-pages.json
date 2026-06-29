@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 749,
+  "totalPages": 754,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 576,
+    "publication-candidate-needs-operator-review": 581,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -11,7 +11,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 461,
+    "manifesto": 466,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -2753,6 +2753,52 @@
       "excerpt": "Fully On Chain Keeper Model Neelo's Section 7 credits Percolator for being fully on chain, with no off chain dependency and a permissionless keeper crank. It also credits a minimal, auditable state machine that is easier to reason about than a sprawling hybrid system. That achievement matters. A fully on chain engine makes execution and state transitions inspectable. It reduces reliance on hidden infrastructure, private risk engines, or discretionary off chain operators. For some users and builders, that property is a core value. The tradeoff is that full on chain passivity can reduce the system's ability to refuse bad flow, reprice under stress, or incorporate richer off chain risk judgment before accepting exposure. The source itself notes that some oracle latency exploitation can only be partially addressed without introducing off chain signers, which would undermine the fully on chain premise. Transparency Versus Adaptive Risk The design question is not whether transparency is good. It is what transparency is asked to do. If the market needs active risk controls, discretionary refusal, external hedging, or richer quote logic to survive low cap volatility, then a purely on chain"
     },
     {
+      "id": "authored-funding-abstract-accounting-roadmap",
+      "title": "Funding Abstract Accounting Roadmap",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/01-abstract#a-accounting"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-01-abstract-a-accounting",
+        "authored-funding-revenue-cost-accounting-map",
+        "authored-funding-state-variable-map"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-abstract-accounting-roadmap.md",
+      "bodyMarkdown": "# Funding Abstract Accounting Roadmap\n\nThe funding-model abstract opens its accounting track by naming the pieces a market has to measure before it can decide whether pricing, insurance, hedging, or deleveraging should change. The source lists the accounting path from scope and units through market state, inventory capacity, exposure decomposition, revenue, cost, profit, phase parameters, buyback accounting, insurance funds, profit deviation, and smoothing.\n\nThat roadmap matters because it says the model is not \"a funding rate\" in isolation. It is an accounting system for a long-tail perp market. The market first needs to know what unit it is measuring, which market window it is in, what inventory it holds, what open interest exists, how much exposure is covered by token inventory, how much remains uncovered, which revenue and cost streams apply, and how much profit or stress is left after those streams are counted.\n\n## What The Accounting Track Teaches\n\nThe track separates raw state from derived capacity. Open interest, price, token holdings, and USDC holdings are inputs. Covered amount, obtainable tokens, absolute token capacity, netted exposure, solver exposure, and direction are interpretations built from those inputs.\n\nIt also separates gross revenue from final profit. Trading fees, spreads, funding, liquidations, market-making, and borrow revenue are not enough by themselves. They have to be compared against hedge cost, external borrow cost, operations, shortfall, and counterparty exposure to trader PnL. Only then can the model talk about per-market LP or solver profit.\n\nThe final accounting pieces connect individual markets to system safety. Buyback accounting, local insurance, global insurance, profit deviation, and profit-versus-insurance smoothing are the bridge from a market's own PnL to cross-market defense policy.\n\n## Publication Boundary\n\nThis page is a source-roadmap page. It does not publish live accounting treatment, tax treatment, buyback rules, insurance percentages, profit targets, eligibility thresholds, solver cost assumptions, or any production rate. Those values need implementation, accounting, risk, legal, and operator review before public release.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Abstract\", \"(A) Accounting\".\n\n## Related Pages\n\n- `authored-funding-state-variable-map`\n- `authored-funding-revenue-cost-accounting-map`\n- `authored-funding-insurance-buyback-accounting`",
+      "excerpt": "Funding Abstract Accounting Roadmap The funding model abstract opens its accounting track by naming the pieces a market has to measure before it can decide whether pricing, insurance, hedging, or deleveraging should change. The source lists the accounting path from scope and units through market state, inventory capacity, exposure decomposition, revenue, cost, profit, phase parameters, buyback accounting, insurance funds, profit deviation, and smoothing. That roadmap matters because it says the model is not \"a funding rate\" in isolation. It is an accounting system for a long tail perp market. The market first needs to know what unit it is measuring, which market window it is in, what inventory it holds, what open interest exists, how much exposure is covered by token inventory, how much remains uncovered, which revenue and cost streams apply, and how much profit or stress is left after those streams are counted. What The Accounting Track Teaches The track separates raw state from derived capacity. Open interest, price, token holdings, and USDC holdings are inputs. Covered amount, obtainable tokens, absolute token capacity, netted exposure, solver exposure, and direction are interpr"
+    },
+    {
+      "id": "authored-funding-abstract-control-surface",
+      "title": "Funding Abstract Control Surface",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/01-abstract#c-controls"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-01-abstract-c-controls",
+        "authored-funding-control-actions-map",
+        "authored-funding-dynamic-control-loop"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-abstract-control-surface.md",
+      "bodyMarkdown": "# Funding Abstract Control Surface\n\nThe funding-model abstract names the control surface after it names the accounting surface. Once the system can measure state, exposure, profit, risk, and insurance capacity, it has to decide which knobs are available.\n\nNeelo's source lists funding modes, dynamic funding, dynamic borrow, dynamic spread, incentive shaping, recovery constraints, cross-market recovery, bell-curve transfers, flattening allocations, invariants, and final per-market decision outputs. That list is the clearest sign that the model is a control system, not a single scalar fee.\n\n## The Control Families\n\nThe first family is pricing. Funding, borrow, and spread can all move with utilization, skew, insurance pressure, and regime multipliers. That lets the system charge flow that worsens stress and potentially reward flow that repairs inventory balance.\n\nThe second family is recovery. The source states a recovery constraint in which spread, funding, and borrow revenue must cover a target share of modeled loss or stress. If one market cannot carry enough recovery pressure locally, the model leaves room for cross-market recovery lift and insurance support.\n\nThe third family is cross-market flattening. Profit-tail transfers, stress-tail allocations, flattening pools, proportional shares, and conservation invariants describe how winner-market surplus can support stressed markets without pretending that support is free or unlimited.\n\nThe output is not only a number shown to traders. It is a per-market decision bundle: mode, funding, borrow, spread, incentive shape, insurance use, flattening allocation, and proximity to more disruptive defenses.\n\n## Publication Boundary\n\nThis page explains the source-model control surface. It does not publish production knobs, formulas, multipliers, caps, recovery targets, global-support policy, incentive rebates, or ADL behavior. Public parameter language remains review-bound.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Abstract\", \"(C) Controls\".\n\n## Related Pages\n\n- `authored-funding-control-actions-map`\n- `authored-funding-dynamic-control-loop`\n- `authored-funding-three-pricing-instruments`",
+      "excerpt": "Funding Abstract Control Surface The funding model abstract names the control surface after it names the accounting surface. Once the system can measure state, exposure, profit, risk, and insurance capacity, it has to decide which knobs are available. Neelo's source lists funding modes, dynamic funding, dynamic borrow, dynamic spread, incentive shaping, recovery constraints, cross market recovery, bell curve transfers, flattening allocations, invariants, and final per market decision outputs. That list is the clearest sign that the model is a control system, not a single scalar fee. The Control Families The first family is pricing. Funding, borrow, and spread can all move with utilization, skew, insurance pressure, and regime multipliers. That lets the system charge flow that worsens stress and potentially reward flow that repairs inventory balance. The second family is recovery. The source states a recovery constraint in which spread, funding, and borrow revenue must cover a target share of modeled loss or stress. If one market cannot carry enough recovery pressure locally, the model leaves room for cross market recovery lift and insurance support. The third family is cross market"
+    },
+    {
       "id": "authored-funding-adl-defense-sequence-example",
       "title": "Funding ADL And Defense Sequence Example",
       "section": "manifesto",
@@ -3548,6 +3594,29 @@
       "excerpt": "Funding Insurance Spend Caps Insurance spend in Neelo's funding model is capped. The model separates local spend, global spend, and total defense budget so a single stressed market cannot silently consume every available reserve. The source names three spend constraints: with: x m loc is spend from the market's local insurance fund. x m glob is spend from the eligible global allocation. x m is the combined insurance deployed for that market in the period. Why The Caps Are Separate Local insurance is isolated by market. It can be spent first without draining unrelated markets. Global insurance is shared and therefore more sensitive: the source says not every token qualifies, eligibility is manual per market, and allocation should never risk all of the global fund in one market. The total defense budget ties those layers together. It defines how much explicit insurance defense can be used before the residual stress calculation starts pointing toward ADL or another emergency posture. Publication Boundary This page explains the source model cap structure. It should not publish live local caps, global caps, risk fractions, market eligibility, spend cadence, reserve balances, or allocati"
     },
     {
+      "id": "authored-funding-key-innovations-summary",
+      "title": "Funding Key Innovations Summary",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index#key-innovations"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-02-index-key-innovations",
+        "authored-funding-two-mode-utilization-switch",
+        "authored-funding-defense-hierarchy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-key-innovations-summary.md",
+      "bodyMarkdown": "# Funding Key Innovations Summary\n\nThe funding-model index names four innovations: two utilization modes, bell-curve flattening, a five-layer defense hierarchy before ADL, and anti-cyclical liquidations. Together, they describe why the model is built for token-margined long-tail markets rather than for a generic perp fee table.\n\nThe first innovation is the separation between token-inventory utilization and insurance-fund utilization. Ordinary stress begins with the question of whether token inventory can cover exposure. Tail stress begins when exposure pushes beyond that inventory and the system has to reason about insurance capacity.\n\nThe second innovation is bell-curve flattening. The source model can transfer value from profitable markets to stressed markets through a capped and rule-bound pool. That does not erase losses. It defines when surplus can be used to support markets that are temporarily or structurally below target.\n\nThe third innovation is defense in depth. The source names a sequence before ADL: netting, token inventory, local insurance, global insurance, and then ADL. That sequence matters because it tells readers that forced deleveraging should not be the first answer to imbalance.\n\nThe fourth innovation is anti-cyclical liquidation treatment. Liquidation profits are framed as buyback and defense inputs rather than as forced spot selling of the base token into stress. In the source's thesis, liquidation is an inventory and risk reallocation event inside the system, not an automatic reason to dump project inventory externally.\n\n## Why These Four Belong Together\n\nTwo utilization modes identify the state. Bell-curve flattening connects markets. Defense in depth determines the order of protection. Anti-cyclical liquidation accounting changes how stress cashflows feed the system. The innovation is not any single mechanism in isolation; it is the combination of state classification, cross-market smoothing, layered defense, and liquidation accounting.\n\n## Publication Boundary\n\nThis page summarizes source-model innovations. It does not claim that all four mechanisms are live with final production parameters, that global support is unconditional, that ADL can never occur, or that liquidations create guaranteed buy pressure. Production docs need implementation and risk review for each mechanism.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Perpetual Market - Full Mathematical Derivation\", \"Key Innovations\".\n\n## Related Pages\n\n- `authored-funding-two-mode-utilization-switch`\n- `authored-funding-defense-hierarchy`\n- `authored-funding-core-invariant`",
+      "excerpt": "Funding Key Innovations Summary The funding model index names four innovations: two utilization modes, bell curve flattening, a five layer defense hierarchy before ADL, and anti cyclical liquidations. Together, they describe why the model is built for token margined long tail markets rather than for a generic perp fee table. The first innovation is the separation between token inventory utilization and insurance fund utilization. Ordinary stress begins with the question of whether token inventory can cover exposure. Tail stress begins when exposure pushes beyond that inventory and the system has to reason about insurance capacity. The second innovation is bell curve flattening. The source model can transfer value from profitable markets to stressed markets through a capped and rule bound pool. That does not erase losses. It defines when surplus can be used to support markets that are temporarily or structurally below target. The third innovation is defense in depth. The source names a sequence before ADL: netting, token inventory, local insurance, global insurance, and then ADL. That sequence matters because it tells readers that forced deleveraging should not be the first answer t"
+    },
+    {
       "id": "authored-funding-local-insurance-fund",
       "title": "Funding Local Insurance Fund",
       "section": "protocol-reference",
@@ -3828,6 +3897,29 @@
       "excerpt": "Funding Model Reading Boundary Neelo's funding model intro tells readers not to treat the numbered derivation as a finished law of markets. It is a rigorous map of states, controls, profit, risk, insurance, and ADL, but it is still a scaffold for control and iteration. That reading boundary matters because Vibe's risk problem is strategic. Trader behavior changes. Solver competition changes. Market maturity changes. A model can name the tensions and the control surfaces, but it should not be published as if one static optimum solves every future market state. How To Read The Folder The funding model folder should be read as: a map of what the system observes; a map of what the system can adjust; a language for profit, risk, insurance, and deleveraging; a frame for iteration when live flow teaches the model something new. When a later section appears to give a final answer, this intro should govern the interpretation. The model is meant to help the protocol adapt, not to remove the need for observation, governance, and operational judgment. Publication Boundary Do not turn source model equations into live product parameters, guaranteed risk controls, or final LP economics without im"
     },
     {
+      "id": "authored-funding-monitoring-governance-map",
+      "title": "Funding Monitoring And Governance Map",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/01-abstract#e-monitoring"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-01-abstract-e-monitoring",
+        "authored-funding-risk-signals-map",
+        "authored-funding-defense-hierarchy"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-monitoring-governance-map.md",
+      "bodyMarkdown": "# Funding Monitoring And Governance Map\n\nThe monitoring section of the funding-model abstract is short but important. It states that a dynamic market-control model has to be observable. Real-time metrics, insurance-fund health, ADL proximity, cross-market correlation, historical performance, alert thresholds, and governance parameters all belong in the operating surface.\n\nThis prevents the model from becoming decorative math. If utilization, skew, exposure, insurance depletion, ADL proximity, and cross-market stress are not visible, operators cannot know whether pricing is doing its job, whether insurance is being consumed too quickly, or whether a market is moving toward a state that should be paused, repriced, hedged, or deleveraged.\n\n## What Must Be Watched\n\nThe first monitoring layer is market state: utilization, skew, and exposure. These are the live signals that tell the system whether flow is balanced or whether inventory and solver capacity are being pushed into stress.\n\nThe second layer is defense capacity: local and global insurance levels, depletion rate, and distance to ADL trigger thresholds. A market can look tradable until defense capacity is exhausted, so health has to be measured against available buffers, not just current open interest.\n\nThe third layer is system coupling: cross-market correlation and historical performance. If several markets are stressed in the same direction, a global pool can be pressured differently than in isolated one-market stress. Profit, drawdown, ADL frequency, and other history help distinguish routine turbulence from structural weakness.\n\nThe fourth layer is governance. Parameters such as lambda, beta, tail cutoffs, eligibility values, and caps are not merely mathematical symbols. They are governance and risk choices, so they need auditability, change control, and public wording that does not imply fixed live policy unless the operator approves it.\n\n## Publication Boundary\n\nThis page does not publish live dashboards, alert thresholds, governance values, ADL trigger distances, insurance balances, or parameter-change authority. It explains the monitoring categories that production docs and operations must eventually make explicit.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Abstract\", \"(E) Monitoring\".\n\n## Related Pages\n\n- `authored-funding-risk-signals-map`\n- `authored-funding-defense-hierarchy`\n- `authored-funding-insurance-safety-budgets`",
+      "excerpt": "Funding Monitoring And Governance Map The monitoring section of the funding model abstract is short but important. It states that a dynamic market control model has to be observable. Real time metrics, insurance fund health, ADL proximity, cross market correlation, historical performance, alert thresholds, and governance parameters all belong in the operating surface. This prevents the model from becoming decorative math. If utilization, skew, exposure, insurance depletion, ADL proximity, and cross market stress are not visible, operators cannot know whether pricing is doing its job, whether insurance is being consumed too quickly, or whether a market is moving toward a state that should be paused, repriced, hedged, or deleveraged. What Must Be Watched The first monitoring layer is market state: utilization, skew, and exposure. These are the live signals that tell the system whether flow is balanced or whether inventory and solver capacity are being pushed into stress. The second layer is defense capacity: local and global insurance levels, depletion rate, and distance to ADL trigger thresholds. A market can look tradable until defense capacity is exhausted, so health has to be mea"
+    },
+    {
       "id": "authored-funding-normal-stress-utilization-example",
       "title": "Funding Normal And Stress Utilization Example",
       "section": "manifesto",
@@ -3850,6 +3942,29 @@
       "file": "content/authored/manifesto/funding-normal-stress-utilization-example.md",
       "bodyMarkdown": "# Funding Normal And Stress Utilization Example\n\nNeelo's first two worked examples show the ordinary token-inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime.\n\nIn the normal example, `$60,000` of longs and `$50,000` of shorts net to `$50,000`, leaving `$10,000` of residual long exposure. With `5,000` tokens at `$10`, token inventory is worth `$50,000`, so token utilization is:\n\n```\nu1 = 10,000 / 50,000 = 20%\n```\n\nThat sits below the source example's optimal utilization threshold, so the market remains in normal funding.\n\n## What Changes In Stress\n\nThe stress example uses `$120,000` longs and `$80,000` shorts. Netting leaves `$40,000` residual exposure against the same `$50,000` token inventory:\n\n```\nu1 = 40,000 / 50,000 = 80%\n```\n\nAt the example boundary, stress pricing begins. If utilization rises to `90%`, the source's normalized stress term becomes:\n\n```\ns = (0.90 - 0.80) / (1 - 0.80) = 0.50\n```\n\nWith the illustrative stress curve, funding moves from `30%` APR to `55%` APR.\n\n## Reader Implication\n\nThe example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back toward balance.\n\n## Publication Boundary\n\nThe percentages, threshold, market name, APRs, and token amounts are source-model examples. Do not publish them as live market parameters without operator, risk, legal, accounting, and implementation review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Worked Examples\", \"Example 1: Normal Operation\" and \"Example 2: Stress Regime\".\n\n## Related Pages\n\n- `authored-funding-rate-regime-model`\n- `authored-funding-token-inventory-utilization-mode`\n- `authored-funding-worked-examples-reading-guide`",
       "excerpt": "Funding Normal And Stress Utilization Example Neelo's first two worked examples show the ordinary token inventory path: net user positions, compute residual solver exposure, divide by token inventory value, then select the utilization regime. In the normal example, $60,000 of longs and $50,000 of shorts net to $50,000 , leaving $10,000 of residual long exposure. With 5,000 tokens at $10 , token inventory is worth $50,000 , so token utilization is: That sits below the source example's optimal utilization threshold, so the market remains in normal funding. What Changes In Stress The stress example uses $120,000 longs and $80,000 shorts. Netting leaves $40,000 residual exposure against the same $50,000 token inventory: At the example boundary, stress pricing begins. If utilization rises to 90% , the source's normalized stress term becomes: With the illustrative stress curve, funding moves from 30% APR to 55% APR. Reader Implication The example is not mainly about the specific threshold. It teaches the first diagnostic: exposure is measured after user netting, and token utilization determines whether ordinary pricing is enough or whether stress pricing should push the market back towar"
+    },
+    {
+      "id": "authored-funding-one-line-objective-and-invariant",
+      "title": "Funding One-Line Objective And Invariant",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index#quick-reference-the-one-line-summary"
+      ],
+      "relatedGeneratedPages": [
+        "section-15-funding-model-15-docs-02-index-quick-reference-the-one-line-summary",
+        "authored-funding-master-optimization-equation",
+        "authored-funding-core-invariant"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-one-line-objective-and-invariant.md",
+      "bodyMarkdown": "# Funding One-Line Objective And Invariant\n\nThe funding-model index compresses the system into one objective:\n\n```text\nmax sum_m Pi'_m - lambda sum_m R_m - sum_m C_adl(a_m)\n```\n\nRead in plain English, the model wants to maximize flattened per-market profit while subtracting local risk and the user-experience cost of ADL. `Pi'_m` is per-market profit after cross-market flattening, `R_m` is the local risk score, `C_adl(a_m)` is the ADL penalty, and `lambda` is the risk-aversion weight.\n\nThat one line is useful because it refuses to optimize profit alone. A market that earns money while pushing utilization, skew, exposure, or ADL proximity into danger is not healthy in the source model. The objective insists that profit, risk, and forced-deleveraging cost be read together.\n\n## The Core Invariant\n\nThe same quick-reference section states the invariant: liquidations are inventory reallocations, not loss events, and trader loss events do not require selling the base token into spot markets.\n\nThat invariant is central to the Vibe thesis. In a token-inventory-backed perp design, stress handling should move exposure, cashflows, and defense resources through the solver and LP stack before it turns into external spot-market pressure. The purpose is to make liquidation and loss handling anti-cyclical: stress should strengthen internal buffers where possible instead of mechanically pushing project tokens into a falling market.\n\n## How To Use The One-Line Summary\n\nUse it as a reader's map, not as a deployment config. It tells a solver, LP, project, or researcher what the system is trying to trade off:\n\n- keep markets profitable after flattening;\n- penalize risky local states;\n- avoid ADL except when cheaper defenses are insufficient;\n- preserve the liquidation-as-reallocation invariant wherever the implementation and risk controls support it.\n\n## Publication Boundary\n\nThis page does not publish a live optimizer, risk-aversion value, ADL-cost function, flattening policy, liquidation rule, or guarantee that base tokens will never be sold under any circumstance. It explains the source-model objective and invariant that production docs must reconcile with implemented contracts, solver policy, and risk operations.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Vibe Perpetual Market - Full Mathematical Derivation\", \"Quick Reference: The One-Line Summary\".\n\n## Related Pages\n\n- `authored-funding-master-optimization-equation`\n- `authored-funding-full-objective`\n- `authored-funding-core-invariant`",
+      "excerpt": "Funding One Line Objective And Invariant The funding model index compresses the system into one objective: Read in plain English, the model wants to maximize flattened per market profit while subtracting local risk and the user experience cost of ADL. Pi' m is per market profit after cross market flattening, R m is the local risk score, C adl(a m) is the ADL penalty, and lambda is the risk aversion weight. That one line is useful because it refuses to optimize profit alone. A market that earns money while pushing utilization, skew, exposure, or ADL proximity into danger is not healthy in the source model. The objective insists that profit, risk, and forced deleveraging cost be read together. The Core Invariant The same quick reference section states the invariant: liquidations are inventory reallocations, not loss events, and trader loss events do not require selling the base token into spot markets. That invariant is central to the Vibe thesis. In a token inventory backed perp design, stress handling should move exposure, cashflows, and defense resources through the solver and LP stack before it turns into external spot market pressure. The purpose is to make liquidation and loss "
     },
     {
       "id": "authored-funding-operational-path-control",

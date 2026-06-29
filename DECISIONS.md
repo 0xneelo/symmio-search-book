@@ -1503,3 +1503,11 @@
 **Reason:** The existing SYMM LP pages cover the setup, headline result shape, proof-of-possibility framing, risk caveat, replication framework, and reporting requirements. The remaining executive and methodology headings answer different diligence questions: what the observed case was, how to interpret it, how yield was annualized, what scaling depends on, and which source/window conventions make the case reproducible. Splitting these routes keeps the case useful as mechanism evidence while reducing the chance that one favorable data cut becomes a generalized yield claim.
 
 **Status:** Accepted for the authored protocol-reference layer; live LP APY, vault capacity, treasury allocation recommendations, audited accounting, source ownership, current market state, scale-up thresholds, and public reporting policy remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
+
+## D-189: Split Funding Abstract And Index Headings Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for uncovered Funding Model abstract and index headings: the accounting roadmap, control surface, monitoring/governance map, key innovations, and one-line objective/invariant.
+
+**Reason:** Existing funding pages already cover variable definitions, dynamic pricing, utilization modes, insurance, bell-curve transfers, ADL, and worked examples. The abstract and index still carry reader-facing orientation questions that should not be collapsed into detailed derivation pages: what the accounting track covers, what the control surface can choose, what operators must monitor, which four innovations define the model, and how the one-line objective/invariant compresses the thesis. Splitting these pages improves Ask precision and gives readers a controlled entry point before the deeper math.
+
+**Status:** Accepted for the authored manifesto layer; live accounting treatment, buyback rules, governance values, rate multipliers, recovery targets, insurance eligibility, liquidation policy, optimizer implementation, ADL guarantees, and production parameter values remain fresh primary-source/operator/product/risk/legal/accounting/implementation review.
