@@ -443,6 +443,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why model market referral share as LP-side accounting? | `authored-referral-lp-side-bounded-accounting` | Medium | Neelo frames market-scoped referral share as a bounded slice of LP-side economics to keep accounting predictable and market-specific. |
 | What are referral category partner overlays? | `authored-referral-category-partner-overlays` | Medium | Neelo allows strategic partner overlays on tagged market groups with uplift split separately from ordinary user-level referral policy. |
 | Why do market referrals need precedence and payout buckets? | `authored-referral-market-precedence-payout-buckets` | Medium | Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket. |
+| Which referral policy decisions remain open? | `authored-referral-policy-decision-lane` | Medium | Neelo's open-decisions source keeps referral depth, referee benefit variants, and attachment changes under owner-approved policy review. |
+| Which referral economic policy decisions remain open? | `authored-referral-economic-policy-decision-lane` | Medium | Neelo separates private commercial tiers, transferability, and TGE-linked point weighting as economic decisions that need approved public statements. |
+| Which referral settlement and security decisions remain open? | `authored-referral-settlement-security-decision-lane` | Medium | Neelo asks whether rebates are in-flow or claim-based, which signer/custody controls are mandatory, and what freeze or rollback scope is acceptable. |
+| Which referral rollout capacity decisions remain open? | `authored-referral-rollout-capacity-decision-lane` | Medium | Neelo keeps listing throughput, month-one/month-three feature scope, and partner sequencing as launch-capacity decisions. |
+| When is a referral decision ready for public docs? | `authored-referral-public-statement-readiness` | Medium | Neelo requires an owner, target milestone, policy statement, and measurable acceptance criteria before unresolved referral policy becomes final public documentation. |
 
 ## Prototype Event Log
 

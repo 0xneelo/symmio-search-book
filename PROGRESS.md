@@ -778,6 +778,12 @@
 - Routed five new Ask questions so market listers, partners, rewards operators, and accounting reviewers can separate user-level referral from market-scoped and category-scoped economics.
 - Kept live attachment eligibility, lister roles, market-review criteria, partner identities, category tags, uplift rates, fee splits, precedence order, stacking rules, payout cadence, dispute procedures, and accounting ledgers under operator/commercial/legal/accounting/implementation review.
 
+## 2026-06-29 — Referral Open Decision Lane Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's open-decisions source: referral policy decisions, economic policy decisions, settlement/security decisions, rollout/capacity decisions, and public-statement readiness.
+- Routed five new Ask questions so users, partners, security reviewers, and operators can inspect which referral decisions remain open without collapsing them into one generic caveat.
+- Kept live referral depth, benefit variants, attachment changes, private tiers, transferability, TGE weights, signer/custody models, freeze/rollback scopes, launch capacity, feature sequencing, partner commitments, and acceptance criteria under owner review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

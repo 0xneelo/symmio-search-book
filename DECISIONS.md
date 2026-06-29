@@ -1031,3 +1031,11 @@
 **Reason:** The broad market-scoped referral page explains the layer, but answer-engine readers need direct routes for attachment timing, what happens when attachment is absent, why the share should be bounded, how partner category overlays differ from user-level referral, and why precedence rules are required.
 
 **Status:** Accepted for the authored rewards-reference layer; live attachment eligibility, lister roles, market-review criteria, partner identities, category tags, uplift rates, fee splits, precedence order, stacking rules, payout cadence, dispute procedures, and accounting ledgers remain operator/commercial/legal/accounting/implementation review.
+
+## D-130: Split Referral Open Decisions Into Lane-Level Exact Answers
+
+**Decision:** Add authored rewards-reference pages for referral policy decisions, referral economic policy decisions, referral settlement/security decisions, referral rollout/capacity decisions, and public-statement readiness.
+
+**Reason:** The broad governance pages show that open decisions exist, but answer-engine readers need direct routes for the lane they are asking about. Splitting the open decisions keeps unresolved referral policy visible without turning architecture notes into final product commitments.
+
+**Status:** Accepted for the authored rewards-reference layer; live referral depth, referee benefit variants, attachment changes, private commercial tiers, reward transferability, TGE weights, in-flow versus claim settlement, signer/custody controls, freeze/rollback scope, listing throughput, month-one/month-three features, partner sequencing, owner assignments, milestones, and acceptance criteria remain operator/product/security/legal/commercial/accounting/implementation review.

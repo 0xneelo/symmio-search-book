@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 437
+      "totalGoldenRoutes": 442
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 455,
-    "retrievalEligiblePages": 1247,
+    "publicNavigationPages": 460,
+    "retrievalEligiblePages": 1252,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 455,
+      "candidate": 460,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 437,
-    "exactRouteTestsPassing": 437,
+    "totalExactRouteTests": 442,
+    "exactRouteTestsPassing": 442,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 437
+      "candidate": 442
     },
     "exactRoutesByConfidence": {
-      "Medium": 217,
+      "Medium": 222,
       "High": 44,
       "Low": 176
     },
@@ -9816,6 +9816,121 @@
         "chunkCount": 1,
         "faqEntryId": "faq-why-do-market-referrals-need-precedence-and-payout-buckets",
         "passes": true
+      },
+      {
+        "id": "qr-which-referral-policy-decisions-remain-open",
+        "query": "Which referral policy decisions remain open?",
+        "normalizedQuery": "which referral policy decisions remain open",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-policy-decision-lane",
+        "expectedPageTitle": "Referral Policy Decision Lane",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-referral-policy-decisions-remain-open",
+        "passes": true
+      },
+      {
+        "id": "qr-which-referral-economic-policy-decisions-remain-open",
+        "query": "Which referral economic policy decisions remain open?",
+        "normalizedQuery": "which referral economic policy decisions remain open",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-economic-policy-decision-lane",
+        "expectedPageTitle": "Referral Economic Policy Decision Lane",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-referral-economic-policy-decisions-remain-open",
+        "passes": true
+      },
+      {
+        "id": "qr-which-referral-settlement-and-security-decisions-remain-open",
+        "query": "Which referral settlement and security decisions remain open?",
+        "normalizedQuery": "which referral settlement and security decisions remain open",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-settlement-security-decision-lane",
+        "expectedPageTitle": "Referral Settlement And Security Decision Lane",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-referral-settlement-and-security-decisions-remain-open",
+        "passes": true
+      },
+      {
+        "id": "qr-which-referral-rollout-capacity-decisions-remain-open",
+        "query": "Which referral rollout capacity decisions remain open?",
+        "normalizedQuery": "which referral rollout capacity decisions remain open",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-rollout-capacity-decision-lane",
+        "expectedPageTitle": "Referral Rollout And Capacity Decision Lane",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-referral-rollout-capacity-decisions-remain-open",
+        "passes": true
+      },
+      {
+        "id": "qr-when-is-a-referral-decision-ready-for-public-docs",
+        "query": "When is a referral decision ready for public docs?",
+        "normalizedQuery": "when is a referral decision ready for public docs",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-public-statement-readiness",
+        "expectedPageTitle": "Referral Public Statement Readiness",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-when-is-a-referral-decision-ready-for-public-docs",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -9891,7 +10006,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 437,
+      "exactRoutes": 442,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,
