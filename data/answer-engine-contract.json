@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 367
+      "totalGoldenRoutes": 372
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 385,
-    "retrievalEligiblePages": 1177,
+    "publicNavigationPages": 390,
+    "retrievalEligiblePages": 1182,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 385,
+      "candidate": 390,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 367,
-    "exactRouteTestsPassing": 367,
+    "totalExactRouteTests": 372,
+    "exactRouteTestsPassing": 372,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 367
+      "candidate": 372
     },
     "exactRoutesByConfidence": {
-      "Medium": 152,
+      "Medium": 157,
       "High": 44,
       "Low": 171
     },
@@ -8276,6 +8276,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-what-is-insurance-fund-utilization-mode",
         "passes": true
+      },
+      {
+        "id": "qr-how-does-the-funding-model-calculate-lp-profit",
+        "query": "How does the funding model calculate LP profit?",
+        "normalizedQuery": "how does the funding model calculate lp profit",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-lp-master-profit-formula",
+        "expectedPageTitle": "Funding LP Master Profit Formula",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-the-funding-model-calculate-lp-profit",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-trader-pnl-affect-lps-across-bootstrap-and-mature-phases",
+        "query": "How does trader PnL affect LPs across bootstrap and mature phases?",
+        "normalizedQuery": "how does trader pnl affect lps across bootstrap and mature phases",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-trader-pnl-phase-exposure",
+        "expectedPageTitle": "Funding Trader PnL Phase Exposure",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-trader-pnl-affect-lps-across-bootstrap-and-mature-phases",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-lp-loss-pressure",
+        "query": "What is LP loss pressure?",
+        "normalizedQuery": "what is lp loss pressure",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-lp-loss-pressure-signal",
+        "expectedPageTitle": "Funding LP Loss Pressure Signal",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-lp-loss-pressure",
+        "passes": true
+      },
+      {
+        "id": "qr-how-do-insurance-inflows-and-buybacks-fit-the-lp-profit-model",
+        "query": "How do insurance inflows and buybacks fit the LP profit model?",
+        "normalizedQuery": "how do insurance inflows and buybacks fit the lp profit model",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-insurance-buyback-accounting",
+        "expectedPageTitle": "Funding Insurance And Buyback Accounting",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-do-insurance-inflows-and-buybacks-fit-the-lp-profit-model",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-vibe-lp-risk-different-from-uniswap-impermanent-loss",
+        "query": "Why is Vibe LP risk different from Uniswap impermanent loss?",
+        "normalizedQuery": "why is vibe lp risk different from uniswap impermanent loss",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-funding-vibe-versus-uniswap-lp-risk",
+        "expectedPageTitle": "Funding Vibe Versus Uniswap LP Risk",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-vibe-lp-risk-different-from-uniswap-impermanent-loss",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -8351,7 +8456,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 367,
+      "exactRoutes": 372,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

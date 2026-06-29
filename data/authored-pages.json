@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 386,
+  "totalPages": 391,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 249,
+    "publication-candidate-needs-operator-review": 254,
     "publication-candidate": 124,
     "publication-candidate-needs-current-source-review": 2,
     "publication-candidate-needs-editorial-review": 2,
@@ -10,7 +10,7 @@
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 188,
+    "manifesto": 193,
     "product-reference": 47,
     "dashboard-reference": 12,
     "protocol-reference": 102,
@@ -2102,6 +2102,29 @@
       "excerpt": "Funding Global Insurance Eligibility Global insurance is shared protection, but Neelo's funding model is explicit that not every token qualifies. Eligibility is manual in the source model, and non eligible markets can only use local insurance. That design is about contagion control. If every new token market could immediately drain shared insurance, a weak or manipulated market could externalize its losses to unrelated markets. The model therefore gives global insurance three constraints: a market must be eligible; the per market allocation is capped; the system should never risk the whole global fund in one market. How To Explain It To Users Global insurance should be described as a capped risk budget, not a guarantee. A market may have zero allocation, a small allocation, or a larger allocation after it earns trust through cleaner price formation, better liquidity, and safer behavior. This also explains why early markets can have stricter terms. A market that has not earned shared protection must rely more heavily on netting, token inventory, local insurance, dynamic pricing, and tighter limits. Publication Boundary Do not publish final eligibility rules, allocation caps, governa"
     },
     {
+      "id": "authored-funding-insurance-buyback-accounting",
+      "title": "Funding Insurance And Buyback Accounting",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit#insurance-fund-inflows"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-06-lp-profit",
+        "authored-funding-local-insurance-fund",
+        "authored-funding-global-insurance-eligibility"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-insurance-buyback-accounting.md",
+      "bodyMarkdown": "# Funding Insurance And Buyback Accounting\n\nNeelo's LP-profit decomposition treats insurance inflows and buybacks as accounting consequences of market operations, not as decorative tokenomics. The local insurance fund receives market-specific liquidation profits, a share of positive solver profits, and related protection charges in the broader model. The global insurance fund can receive system-level inflows, including retained value from cross-market flattening.\n\nWhen market profit is positive, the source model also allows a portion of that profit to be allocated toward buybacks. A stricter variant uses liquidation-only buybacks, where liquidation profits are the buyback source. The important point is the direction: trader loss or liquidation events can become USDC-denominated revenue that supports protection or token demand rather than forcing base-token selling.\n\n## Why This Matters\n\nThis accounting supports one of the funding model's core claims: a trader loss event does not automatically require selling the base token into spot markets. If losses are cash-settled and the system receives revenue, the flow can be routed into insurance reserves or buyback demand. That makes the model anti-cyclical in intent, though only implementation and operator policy can define the live behavior.\n\nReaders should see the difference between three buckets: operating profit, insurance reserve growth, and token buyback allocation. Blending them into a single \"yield\" phrase would hide the risk policy and the publication boundary.\n\n## Publication Boundary\n\nThis page explains the source accounting. It does not publish live buyback commitments, buyback fractions, liquidation-profit routing, insurance-fund balances, solver-profit share, token purchase execution, or public token-value promises.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance Fund Inflows\" and \"Buyback Allocation\".\n\n## Related Pages\n\n- `authored-funding-local-insurance-fund`\n- `authored-funding-global-insurance-eligibility`\n- `authored-funding-core-invariant`",
+      "excerpt": "Funding Insurance And Buyback Accounting Neelo's LP profit decomposition treats insurance inflows and buybacks as accounting consequences of market operations, not as decorative tokenomics. The local insurance fund receives market specific liquidation profits, a share of positive solver profits, and related protection charges in the broader model. The global insurance fund can receive system level inflows, including retained value from cross market flattening. When market profit is positive, the source model also allows a portion of that profit to be allocated toward buybacks. A stricter variant uses liquidation only buybacks, where liquidation profits are the buyback source. The important point is the direction: trader loss or liquidation events can become USDC denominated revenue that supports protection or token demand rather than forcing base token selling. Why This Matters This accounting supports one of the funding model's core claims: a trader loss event does not automatically require selling the base token into spot markets. If losses are cash settled and the system receives revenue, the flow can be routed into insurance reserves or buyback demand. That makes the model anti"
+    },
+    {
       "id": "authored-funding-insurance-fund-utilization-mode",
       "title": "Funding Insurance-Fund Utilization Mode",
       "section": "manifesto",
@@ -2171,6 +2194,52 @@
       "file": "content/authored/reference/funding-local-insurance-fund.md",
       "bodyMarkdown": "# Funding Local Insurance Fund\n\nIn Neelo's funding model, local insurance is a per-market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL.\n\nThe source model gives three local-fund inflows:\n\n- `100%` of liquidation profits from the same market;\n- `30%` of positive solver profits from the same market;\n- CVA-style charges where applicable.\n\nThe important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted.\n\n## Why Local Comes Before Global\n\nLocal insurance keeps loss responsibility close to the market that generated the risk. A permissionless low-cap market should build its own runway from its own operations before it asks for shared protection.\n\nThat also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source-model inflows are being counted.\n\n## Publication Boundary\n\nThe source model uses example percentages and formulas. Public docs should not present `30%`, spend caps, CVA treatment, or liquidation-profit routing as live production policy until operator and implementation review confirm the deployed values.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Insurance & ADL Logic\".\n- `vibe-papers`: Neelo, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-conditional-global-insurance-allocation`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "Funding Local Insurance Fund In Neelo's funding model, local insurance is a per market USDC protection fund. It sits after user netting and solver token inventory, and before any shared global insurance or ADL. The source model gives three local fund inflows: 100% of liquidation profits from the same market; 30% of positive solver profits from the same market; CVA style charges where applicable. The important property is isolation. A local insurance fund belongs to its market. It cannot be drained by another market, and it is the first explicit USDC protection layer after token inventory is depleted. Why Local Comes Before Global Local insurance keeps loss responsibility close to the market that generated the risk. A permissionless low cap market should build its own runway from its own operations before it asks for shared protection. That also makes reporting clearer. If a market reaches insurance mode, users should be able to see whether the local fund is healthy, how much can be spent in the current period, and which source model inflows are being counted. Publication Boundary The source model uses example percentages and formulas. Public docs should not present 30% , spend caps"
+    },
+    {
+      "id": "authored-funding-lp-loss-pressure-signal",
+      "title": "Funding LP Loss Pressure Signal",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit#lp-loss-pressure-signal"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-06-lp-profit",
+        "authored-funding-risk-signals-map",
+        "authored-funding-stress-demand-and-insurance-spend"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-lp-loss-pressure-signal.md",
+      "bodyMarkdown": "# Funding LP Loss Pressure Signal\n\nThe LP loss pressure signal measures when trader winnings exceed the resources the market has collected to pay them. In the source model, it looks at positive trader winnings and compares them against revenue plus user losses received by the LP side. Only the uncovered portion becomes loss pressure.\n\nIn plain language: if winners can be paid from fees, spreads, funding, liquidation revenue, borrow revenue, and losing-trader transfers, the market is not under the same pressure. If trader winnings exceed that cushion, the residual amount becomes a local risk input. That is the signal the control layer should notice before the situation becomes an insurance or ADL problem.\n\n## Why This Matters\n\nLoss pressure is more precise than saying \"traders are winning\" or \"the market is volatile.\" A market can have winning traders without stressing LP capital if enough offsetting revenue and losing flow exists. The danger begins when the winners outrun the market's earned and transferred resources.\n\nThis signal connects the accounting layer to the risk layer. It helps explain why dynamic pricing can rise, why insurance demand can appear, and why the model tracks profit deviation instead of only open interest. The protocol is trying to identify the gap between what the market owes and what the market has earned or received.\n\n## Publication Boundary\n\nThis page explains the source-model signal. It does not publish live loss-pressure thresholds, real-time monitoring policy, exact revenue classification, liquidation accounting, or final alert/action triggers. Those remain review-bound.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"LP Loss Pressure Signal\".\n\n## Related Pages\n\n- `authored-funding-risk-signals-map`\n- `authored-funding-stress-demand-and-insurance-spend`\n- `authored-funding-rate-regime-model`",
+      "excerpt": "Funding LP Loss Pressure Signal The LP loss pressure signal measures when trader winnings exceed the resources the market has collected to pay them. In the source model, it looks at positive trader winnings and compares them against revenue plus user losses received by the LP side. Only the uncovered portion becomes loss pressure. In plain language: if winners can be paid from fees, spreads, funding, liquidation revenue, borrow revenue, and losing trader transfers, the market is not under the same pressure. If trader winnings exceed that cushion, the residual amount becomes a local risk input. That is the signal the control layer should notice before the situation becomes an insurance or ADL problem. Why This Matters Loss pressure is more precise than saying \"traders are winning\" or \"the market is volatile.\" A market can have winning traders without stressing LP capital if enough offsetting revenue and losing flow exists. The danger begins when the winners outrun the market's earned and transferred resources. This signal connects the accounting layer to the risk layer. It helps explain why dynamic pricing can rise, why insurance demand can appear, and why the model tracks profit de"
+    },
+    {
+      "id": "authored-funding-lp-master-profit-formula",
+      "title": "Funding LP Master Profit Formula",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit#the-master-formula"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-06-lp-profit",
+        "authored-lp-profit-and-dynamic-pricing",
+        "authored-funding-revenue-cost-accounting-map"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-lp-master-profit-formula.md",
+      "bodyMarkdown": "# Funding LP Master Profit Formula\n\nNeelo's LP-profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form:\n\n```text\nmarket profit = revenue - cost - counterparty_share * trader_pnl + hedge_pnl - shortfall\n```\n\nThat structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance-margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market-level results across markets.\n\n## Why This Matters\n\nThe formula makes Vibe's long-tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough.\n\nThis is also why dynamic pricing, utilization modes, insurance, and ADL belong in the same model as LP profit. They are not separate features. They are control surfaces that try to keep the profit equation inside acceptable bounds before the system reaches harder defense layers.\n\n## Publication Boundary\n\nThis page explains the source-model equation. It does not publish live Vibe LP terms, final fee shares, market-specific rates, hedge venues, accounting treatment, token buyback policy, or a promised vault yield. Those remain operator, implementation, legal, and accounting review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n\n## Related Pages\n\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-funding-revenue-cost-accounting-map`\n- `authored-funding-full-objective`",
+      "excerpt": "Funding LP Master Profit Formula Neelo's LP profit section defines market profit as a full accounting equation, not as a yield label. For each market, profit starts with revenue, subtracts costs, subtracts the share of trader PnL that the LP or solver stack must absorb, adds hedge PnL, and subtracts bad debt or liquidation shortfall. In compact form: That structure is the key answer. The LP is not paid just because volume exists. The market has to earn enough through trading fees, spreads, funding, liquidation fees, maintenance margin fees, and borrow revenue to cover hedge cost, external borrow cost, operations, trader winnings, and shortfall risk. The global LP result is then the sum of those market level results across markets. Why This Matters The formula makes Vibe's long tail thesis more concrete. Permissionless market creation cannot be judged only by open interest, gross fee rate, or collateral efficiency. A market can look busy and still be unprofitable if trader PnL, hedge expense, or shortfall outruns the revenue stack. Conversely, a thin market can be economically useful if its risk is netted, priced, and hedged well enough. This is also why dynamic pricing, utilization"
     },
     {
       "id": "authored-funding-math-not-market-solution",
@@ -2455,6 +2524,29 @@
       "excerpt": "Funding Token Inventory Utilization Mode Token inventory utilization is the first mode in Neelo's two mode funding model. It asks how much un netted exposure exists relative to the token inventory available to cover it. In the source, this mode applies while exposure remains inside token inventory. If the market has enough token coverage, the system is in ordinary inventory management rather than insurance mode. That does not mean the market is always calm. It can still move from normal to stress to critical as utilization approaches the edge of token coverage. The important idea is that token inventory is the first constraint. When exposure is small relative to covered amount, base rates can be enough. As exposure approaches a kink or critical zone, dynamic pricing can become more aggressive. If exposure moves beyond token coverage, the model shifts toward insurance fund utilization. Reader Implication For traders, token inventory mode explains why a market can become more expensive before any insurance or ADL language appears. The market is still within token coverage, but additional same direction flow consumes scarce inventory and can be priced accordingly. For LPs and projects"
     },
     {
+      "id": "authored-funding-trader-pnl-phase-exposure",
+      "title": "Funding Trader PnL Phase Exposure",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit#trader-pnl-term"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-06-lp-profit",
+        "authored-funding-phase-counterparty-share",
+        "authored-ddq-mature-market-stage"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-trader-pnl-phase-exposure.md",
+      "bodyMarkdown": "# Funding Trader PnL Phase Exposure\n\nTrader PnL enters the LP-profit formula through a phase-dependent counterparty-share term. In the source model, aggregate trader PnL is the sum of individual trader wins and losses in a market. When traders win, the residual counterparty side must pay. When traders lose, the residual counterparty side receives those losses.\n\nThe important variable is the counterparty-share parameter. In bootstrap mode, the LP or solver stack is closer to the full counterparty, so trader PnL has a large direct effect on LP profit. In a mature market, opposing traders offset more of each other, so the LP or solver stack is less exposed to aggregate trader PnL. The source describes this as a phase toggle rather than a universal constant.\n\n## Why This Matters\n\nThis distinction stops the docs from making a false blanket statement about who takes the other side of every trade. Early long-tail markets need residual counterparty support because there may not be enough balanced flow. Mature markets can rely more on natural long-short netting. The same venue can therefore move from balance-sheet-supported bootstrap economics toward trader-to-trader settlement as the market develops.\n\nFor readers, this also explains why market maturity matters for pricing and risk. If the LP/solver stack absorbs most trader PnL, risk controls need to be conservative and dynamic. If trader flow offsets itself, the venue can depend more on netting and less on inventory or insurance.\n\n## Publication Boundary\n\nThis page explains the source model's phase logic. It does not publish live phase thresholds, graduation criteria, market-specific exposure caps, solver obligations, or final LP rights. Those need implementation and operator review before public commitment.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Trader PnL Term\".\n\n## Related Pages\n\n- `authored-funding-phase-counterparty-share`\n- `authored-ddq-mature-market-stage`\n- `authored-residual-counterparty-balance-sheet-problem`",
+      "excerpt": "Funding Trader PnL Phase Exposure Trader PnL enters the LP profit formula through a phase dependent counterparty share term. In the source model, aggregate trader PnL is the sum of individual trader wins and losses in a market. When traders win, the residual counterparty side must pay. When traders lose, the residual counterparty side receives those losses. The important variable is the counterparty share parameter. In bootstrap mode, the LP or solver stack is closer to the full counterparty, so trader PnL has a large direct effect on LP profit. In a mature market, opposing traders offset more of each other, so the LP or solver stack is less exposed to aggregate trader PnL. The source describes this as a phase toggle rather than a universal constant. Why This Matters This distinction stops the docs from making a false blanket statement about who takes the other side of every trade. Early long tail markets need residual counterparty support because there may not be enough balanced flow. Mature markets can rely more on natural long short netting. The same venue can therefore move from balance sheet supported bootstrap economics toward trader to trader settlement as the market develop"
+    },
+    {
       "id": "authored-funding-trader-ux-lp-efficiency-tradeoff",
       "title": "Trader UX And LP Efficiency Trade Off",
       "section": "manifesto",
@@ -2476,6 +2568,29 @@
       "file": "content/authored/manifesto/funding-trader-ux-lp-efficiency-tradeoff.md",
       "bodyMarkdown": "# Trader UX And LP Efficiency Trade Off\n\nThe funding-model source names a deliberate tension: near the safest launch state, traders can receive a familiar perp-like experience, but LP-side capital efficiency is intentionally lower.\n\nThis is not a UI footnote. It is the core product tradeoff for long-tail derivatives. A new market can feel simple to the trader because the system hides much of the risk routing behind quotes, spreads, funding, inventory checks, and solver decisions. But that simplicity has to be paid for somewhere. In the conservative state, the system may require more inventory, tighter limits, wider spreads, heavier hedging, or lower leverage than a mature market would need.\n\nAs a market becomes more efficient for LPs, the balance changes. More natural netting, better flow, deeper inventory, and more reliable price discovery can let the system use capital more productively. But moving toward higher efficiency also increases the need for sharper controls, because the market is taking more risk on trader UX, tail outcomes, or residual counterparty exposure.\n\n## What The Reader Should Learn\n\nThe source helps the docs avoid two bad simplifications.\n\nFirst, good trader UX does not mean risk has disappeared. It means the risk was converted into a quote, margin requirement, spread, funding signal, hedging action, or exposure limit.\n\nSecond, LP efficiency is not always the first objective at launch. A cold-start market may intentionally accept lower LP efficiency so users can trade in a controlled way before the market earns looser terms. The answer-engine should route \"why is this market expensive?\" and \"why is leverage limited?\" questions toward this tradeoff rather than treating every constraint as a bug.\n\n## Publication Boundary\n\nThis page does not assert final Vibe launch leverage, spread policy, LP returns, or graduation thresholds. It explains the source model's tradeoff: trader-facing simplicity and LP-side efficiency move together only after market evidence supports it.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Trader UX vs LP efficiency (the deliberate tradeoff)\".\n\n## Related Pages\n\n- `authored-market-maturation-state-map`\n- `authored-ddq-systemic-leverage-ramp`\n- `authored-funding-model-control-problem`",
       "excerpt": "Trader UX And LP Efficiency Trade Off The funding model source names a deliberate tension: near the safest launch state, traders can receive a familiar perp like experience, but LP side capital efficiency is intentionally lower. This is not a UI footnote. It is the core product tradeoff for long tail derivatives. A new market can feel simple to the trader because the system hides much of the risk routing behind quotes, spreads, funding, inventory checks, and solver decisions. But that simplicity has to be paid for somewhere. In the conservative state, the system may require more inventory, tighter limits, wider spreads, heavier hedging, or lower leverage than a mature market would need. As a market becomes more efficient for LPs, the balance changes. More natural netting, better flow, deeper inventory, and more reliable price discovery can let the system use capital more productively. But moving toward higher efficiency also increases the need for sharper controls, because the market is taking more risk on trader UX, tail outcomes, or residual counterparty exposure. What The Reader Should Learn The source helps the docs avoid two bad simplifications. First, good trader UX does not "
+    },
+    {
+      "id": "authored-funding-vibe-versus-uniswap-lp-risk",
+      "title": "Funding Vibe Versus Uniswap LP Risk",
+      "section": "manifesto",
+      "track": "15 - Funding Rate Model",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit#comparison-uniswap-vs-vibe-lp-profit"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-15-funding-model-15-docs-06-lp-profit",
+        "authored-funding-risk-inversion",
+        "authored-token-vault-perps-versus-usdc-pools"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/funding-vibe-versus-uniswap-lp-risk.md",
+      "bodyMarkdown": "# Funding Vibe Versus Uniswap LP Risk\n\nNeelo's LP-profit section contrasts a spot AMM LP with a Vibe-style semi-AMM perp LP. In the spot AMM case, the LP faces impermanent-loss math tied directly to price movement between deposit and withdrawal. In the Vibe-style perp model, the LP result is instead driven by fees, funding, liquidations, trader PnL, hedge PnL, and shortfall risk.\n\nThat does not make Vibe risk-free. It means the risk is different. A Uniswap-style LP is exposed to a price-only curve. A Vibe-style residual counterparty is exposed to trader behavior, market imbalance, hedging execution, liquidation performance, insurance capacity, and the ability of pricing controls to rebalance flow before harder defenses are needed.\n\n## Why This Matters\n\nThe comparison keeps the manifesto precise. Vibe is not simply \"better LP yield\" or \"no risk.\" It is a different risk architecture for a different problem: bootstrapping long-tail derivatives where trader demand may be episodic, two-sided flow may be weak at launch, and residual counterparty capital must be paid for taking the hard side.\n\nThe source argues that if traders lose on average, the LP side can have positive expectancy. The docs must still present that as a model condition, not a universal promise. Actual results depend on market regime, trader composition, fees, funding, liquidations, hedging, and shortfall controls.\n\n## Publication Boundary\n\nThis page explains the source comparison. It does not guarantee positive LP returns, compare live products, publish expected trader-loss rates, or claim that Vibe removes all LP risk. Public LP-performance wording needs operator, accounting, and legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Comparison: Uniswap vs Vibe LP Profit\".\n\n## Related Pages\n\n- `authored-funding-risk-inversion`\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-symm-lp-proof-of-possibility`",
+      "excerpt": "Funding Vibe Versus Uniswap LP Risk Neelo's LP profit section contrasts a spot AMM LP with a Vibe style semi AMM perp LP. In the spot AMM case, the LP faces impermanent loss math tied directly to price movement between deposit and withdrawal. In the Vibe style perp model, the LP result is instead driven by fees, funding, liquidations, trader PnL, hedge PnL, and shortfall risk. That does not make Vibe risk free. It means the risk is different. A Uniswap style LP is exposed to a price only curve. A Vibe style residual counterparty is exposed to trader behavior, market imbalance, hedging execution, liquidation performance, insurance capacity, and the ability of pricing controls to rebalance flow before harder defenses are needed. Why This Matters The comparison keeps the manifesto precise. Vibe is not simply \"better LP yield\" or \"no risk.\" It is a different risk architecture for a different problem: bootstrapping long tail derivatives where trader demand may be episodic, two sided flow may be weak at launch, and residual counterparty capital must be paid for taking the hard side. The source argues that if traders lose on average, the LP side can have positive expectancy. The docs must"
     },
     {
       "id": "authored-funding-worked-examples-reading-guide",

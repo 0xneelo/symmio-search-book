@@ -373,6 +373,11 @@ Questions are grouped by whether the current source set can answer them.
 | Which volatility and pump parameters affect funding risk? | `authored-funding-risk-volatility-parameters` | Medium | Neelo's risk variables include volatility, profit deviation, market/user pump estimates, drawdown assumptions, and the Aenigma exposure multiplier. |
 | What is token-inventory utilization mode? | `authored-funding-token-inventory-utilization-mode` | Medium | Neelo's utilization-mode source uses token inventory mode while exposure remains within token coverage and rates can move from normal to stress. |
 | What is insurance-fund utilization mode? | `authored-funding-insurance-fund-utilization-mode` | Medium | Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget. |
+| How does the funding model calculate LP profit? | `authored-funding-lp-master-profit-formula` | Medium | Neelo's LP-profit decomposition combines revenue, costs, counterparty-share-adjusted trader PnL, hedge PnL, and shortfall into one market-profit equation. |
+| How does trader PnL affect LPs across bootstrap and mature phases? | `authored-funding-trader-pnl-phase-exposure` | Medium | Neelo's counterparty-share parameter explains why LP/solver exposure to aggregate trader PnL is higher in bootstrap mode and lower as trader flow nets naturally. |
+| What is LP loss pressure? | `authored-funding-lp-loss-pressure-signal` | Medium | Neelo defines LP loss pressure as the uncovered part of trader winnings after market revenue and losing-trader transfers are counted. |
+| How do insurance inflows and buybacks fit the LP profit model? | `authored-funding-insurance-buyback-accounting` | Medium | Neelo's LP-profit section routes liquidation profits, solver profits, insurance reserves, and buyback allocations as separate accounting flows. |
+| Why is Vibe LP risk different from Uniswap impermanent loss? | `authored-funding-vibe-versus-uniswap-lp-risk` | Medium | Neelo contrasts spot AMM price-curve loss with Vibe-style perp exposure to trader PnL, funding, liquidations, hedge PnL, and shortfall risk. |
 
 ## Prototype Event Log
 

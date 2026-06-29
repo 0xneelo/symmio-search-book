@@ -694,6 +694,12 @@
 - Routed five new Ask questions so formula, LP, project, and operator readers can inspect the market state and utilization-mode transitions behind dynamic funding and defense decisions.
 - Kept covered amount, inventory rights, volatility windows, Aenigma values, insurance balances, spend caps, utilization thresholds, rate ramps, loss-estimate formulas, global allocation rules, and ADL thresholds under operator/implementation/legal/accounting review.
 
+## 2026-06-29 — Funding LP Profit Decomposition Exact Pages
+
+- Added five authored Volume 04 manifesto pages from Neelo's LP-profit decomposition: master market-profit formula, trader-PnL phase exposure, LP loss pressure, insurance and buyback accounting, and Vibe-versus-Uniswap LP-risk comparison.
+- Routed five new Ask questions so LPs, solvers, projects, and operators can inspect the accounting model without collapsing it into one broad yield or dynamic-pricing page.
+- Kept live LP terms, fee shares, hedge venues, insurance balances, buyback policy, trader-loss assumptions, liquidation accounting, performance claims, and market-specific risk thresholds under operator/implementation/legal/accounting review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

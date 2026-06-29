@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 367,
+  "totalRoutes": 372,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 152,
+    "Medium": 157,
     "High": 44,
     "Low": 171
   },
   "byRouteSource": {
-    "authored": 367
+    "authored": 372
   },
   "answerable": [
     {
@@ -6443,6 +6443,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's utilization-mode source switches to insurance pressure when exposure exceeds token coverage and loss estimates consume defense budget.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-the-funding-model-calculate-lp-profit",
+      "question": "How does the funding model calculate LP profit?",
+      "normalizedQuestion": "how does the funding model calculate lp profit",
+      "pageId": "authored-funding-lp-master-profit-formula",
+      "pageTitle": "Funding LP Master Profit Formula",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's LP-profit decomposition combines revenue, costs, counterparty-share-adjusted trader PnL, hedge PnL, and shortfall into one market-profit equation.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-trader-pnl-affect-lps-across-bootstrap-and-mature-phases",
+      "question": "How does trader PnL affect LPs across bootstrap and mature phases?",
+      "normalizedQuestion": "how does trader pnl affect lps across bootstrap and mature phases",
+      "pageId": "authored-funding-trader-pnl-phase-exposure",
+      "pageTitle": "Funding Trader PnL Phase Exposure",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's counterparty-share parameter explains why LP/solver exposure to aggregate trader PnL is higher in bootstrap mode and lower as trader flow nets naturally.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-lp-loss-pressure",
+      "question": "What is LP loss pressure?",
+      "normalizedQuestion": "what is lp loss pressure",
+      "pageId": "authored-funding-lp-loss-pressure-signal",
+      "pageTitle": "Funding LP Loss Pressure Signal",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo defines LP loss pressure as the uncovered part of trader winnings after market revenue and losing-trader transfers are counted.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-do-insurance-inflows-and-buybacks-fit-the-lp-profit-model",
+      "question": "How do insurance inflows and buybacks fit the LP profit model?",
+      "normalizedQuestion": "how do insurance inflows and buybacks fit the lp profit model",
+      "pageId": "authored-funding-insurance-buyback-accounting",
+      "pageTitle": "Funding Insurance And Buyback Accounting",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's LP-profit section routes liquidation profits, solver profits, insurance reserves, and buyback allocations as separate accounting flows.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-vibe-lp-risk-different-from-uniswap-impermanent-loss",
+      "question": "Why is Vibe LP risk different from Uniswap impermanent loss?",
+      "normalizedQuestion": "why is vibe lp risk different from uniswap impermanent loss",
+      "pageId": "authored-funding-vibe-versus-uniswap-lp-risk",
+      "pageTitle": "Funding Vibe Versus Uniswap LP Risk",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo contrasts spot AMM price-curve loss with Vibe-style perp exposure to trader PnL, funding, liquidations, hedge PnL, and shortfall risk.",
       "sourceKeys": [
         "vibe-papers"
       ],

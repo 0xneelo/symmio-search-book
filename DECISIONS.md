@@ -919,3 +919,11 @@
 **Reason:** The funding variable map and utilization overview are useful orientation pages, but they still hide the practical distinctions readers will ask about: what a market-specific state snapshot contains, what insurance resources are actually budgeted, which volatility/pump assumptions shape modeled stress, why inventory mode can become expensive before emergency, and why insurance mode is a different tail-risk state. Splitting these pages keeps the model inspectable while preserving review boundaries around live numbers.
 
 **Status:** Accepted for the authored manifesto layer; covered amount, inventory rights, volatility windows, Aenigma values, insurance balances, spend caps, utilization thresholds, rate ramps, loss-estimate formulas, global allocation rules, and ADL thresholds remain operator/implementation/legal/accounting review.
+
+## D-116: Split Funding LP Profit Decomposition Into Exact Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the LP master profit formula, trader-PnL phase exposure, LP loss pressure signal, insurance and buyback accounting, and the Vibe-versus-Uniswap LP-risk comparison.
+
+**Reason:** The existing LP-profit and revenue/cost pages explain the broad economics, but answer-engine readers need exact routes for the actual accounting questions: how market profit is computed, when trader PnL hits the residual counterparty, what counts as uncovered loss pressure, where insurance and buybacks sit in the accounting, and why Vibe LP risk differs from spot AMM impermanent loss. Splitting these pages improves precision without publishing live rates or yield promises.
+
+**Status:** Accepted for the authored manifesto layer; live LP terms, fee shares, hedge venues, insurance balances, buyback policy, trader-loss assumptions, liquidation accounting, performance claims, and market-specific risk thresholds remain operator/implementation/legal/accounting review.
