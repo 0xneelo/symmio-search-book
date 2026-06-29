@@ -448,6 +448,11 @@ Questions are grouped by whether the current source set can answer them.
 | Which referral settlement and security decisions remain open? | `authored-referral-settlement-security-decision-lane` | Medium | Neelo asks whether rebates are in-flow or claim-based, which signer/custody controls are mandatory, and what freeze or rollback scope is acceptable. |
 | Which referral rollout capacity decisions remain open? | `authored-referral-rollout-capacity-decision-lane` | Medium | Neelo keeps listing throughput, month-one/month-three feature scope, and partner sequencing as launch-capacity decisions. |
 | When is a referral decision ready for public docs? | `authored-referral-public-statement-readiness` | Medium | Neelo requires an owner, target milestone, policy statement, and measurable acceptance criteria before unresolved referral policy becomes final public documentation. |
+| Why are referrals not just a marketing widget? | `authored-referral-not-marketing-widget` | Medium | Neelo's conclusion frames referrals as structural infrastructure connecting acquisition, market creation, and fee distribution. |
+| What should referral growth optimize for? | `authored-referral-sustainable-fee-flow-objective` | Medium | Neelo says the system must optimize for listings and sustainable fee flow, not raw code issuance or signup counts. |
+| What preserves referral trust under adversarial conditions? | `authored-referral-adversarial-trust-constraints` | Medium | Neelo names identity boundaries, hardened accounting, anti-gaming policy, phased rollout discipline, and KPI governance as the trust constraints. |
+| How should referral docs route topics to owning chapters? | `authored-referral-design-coverage-routing-map` | Medium | Neelo's design coverage map assigns each referral topic to its primary chapter so updates do not fragment policy across the docs. |
+| What is the change policy for referral docs? | `authored-referral-primary-chapter-change-policy` | Medium | Neelo requires updating the relevant chapter first, then the coverage map, while keeping links aligned across repository and docs-site views. |
 
 ## Prototype Event Log
 

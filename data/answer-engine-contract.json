@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 442
+      "totalGoldenRoutes": 447
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 460,
-    "retrievalEligiblePages": 1252,
+    "publicNavigationPages": 465,
+    "retrievalEligiblePages": 1257,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 460,
+      "candidate": 465,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 442,
-    "exactRouteTestsPassing": 442,
+    "totalExactRouteTests": 447,
+    "exactRouteTestsPassing": 447,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 442
+      "candidate": 447
     },
     "exactRoutesByConfidence": {
-      "Medium": 222,
+      "Medium": 227,
       "High": 44,
       "Low": 176
     },
@@ -9931,6 +9931,121 @@
         "chunkCount": 2,
         "faqEntryId": "faq-when-is-a-referral-decision-ready-for-public-docs",
         "passes": true
+      },
+      {
+        "id": "qr-why-are-referrals-not-just-a-marketing-widget",
+        "query": "Why are referrals not just a marketing widget?",
+        "normalizedQuery": "why are referrals not just a marketing widget",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-not-marketing-widget",
+        "expectedPageTitle": "Referral Is Not A Marketing Widget",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-are-referrals-not-just-a-marketing-widget",
+        "passes": true
+      },
+      {
+        "id": "qr-what-should-referral-growth-optimize-for",
+        "query": "What should referral growth optimize for?",
+        "normalizedQuery": "what should referral growth optimize for",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-sustainable-fee-flow-objective",
+        "expectedPageTitle": "Referral Sustainable Fee Flow Objective",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-should-referral-growth-optimize-for",
+        "passes": true
+      },
+      {
+        "id": "qr-what-preserves-referral-trust-under-adversarial-conditions",
+        "query": "What preserves referral trust under adversarial conditions?",
+        "normalizedQuery": "what preserves referral trust under adversarial conditions",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-adversarial-trust-constraints",
+        "expectedPageTitle": "Referral Adversarial Trust Constraints",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-preserves-referral-trust-under-adversarial-conditions",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-referral-docs-route-topics-to-owning-chapters",
+        "query": "How should referral docs route topics to owning chapters?",
+        "normalizedQuery": "how should referral docs route topics to owning chapters",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-design-coverage-routing-map",
+        "expectedPageTitle": "Referral Design Coverage Routing Map",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-should-referral-docs-route-topics-to-owning-chapters",
+        "passes": true
+      },
+      {
+        "id": "qr-what-is-the-change-policy-for-referral-docs",
+        "query": "What is the change policy for referral docs?",
+        "normalizedQuery": "what is the change policy for referral docs",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-referral-primary-chapter-change-policy",
+        "expectedPageTitle": "Referral Primary Chapter Change Policy",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-change-policy-for-referral-docs",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -10006,7 +10121,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 442,
+      "exactRoutes": 447,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

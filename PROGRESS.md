@@ -784,6 +784,12 @@
 - Routed five new Ask questions so users, partners, security reviewers, and operators can inspect which referral decisions remain open without collapsing them into one generic caveat.
 - Kept live referral depth, benefit variants, attachment changes, private tiers, transferability, TGE weights, signer/custody models, freeze/rollback scopes, launch capacity, feature sequencing, partner commitments, and acceptance criteria under owner review.
 
+## 2026-06-29 — Referral Conclusion Traceability Exact Pages
+
+- Added five authored rewards-reference pages from Neelo's referral conclusion and design coverage map: referrals as structural infrastructure, sustainable fee-flow optimization, adversarial trust constraints, topic ownership routing, and primary-chapter-first change policy.
+- Routed five new Ask questions so users, partners, reviewers, and future maintainers can understand what referral growth is optimizing and where each policy should be updated.
+- Kept live referral depth, fee-share formulas, partner terms, transferability, TGE weighting, signer controls, launch dates, and chapter ownership changes under approved owner review.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.

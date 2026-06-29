@@ -1039,3 +1039,11 @@
 **Reason:** The broad governance pages show that open decisions exist, but answer-engine readers need direct routes for the lane they are asking about. Splitting the open decisions keeps unresolved referral policy visible without turning architecture notes into final product commitments.
 
 **Status:** Accepted for the authored rewards-reference layer; live referral depth, referee benefit variants, attachment changes, private commercial tiers, reward transferability, TGE weights, in-flow versus claim settlement, signer/custody controls, freeze/rollback scope, listing throughput, month-one/month-three features, partner sequencing, owner assignments, milestones, and acceptance criteria remain operator/product/security/legal/commercial/accounting/implementation review.
+
+## D-131: Split Referral Conclusion And Traceability Into Architecture-Coherence Answers
+
+**Decision:** Add authored rewards-reference pages for referrals as structural infrastructure, sustainable fee-flow optimization, adversarial trust constraints, referral topic ownership routing, and primary-chapter-first change policy.
+
+**Reason:** The referral conclusion and design coverage map are the coherence layer for the whole referral corpus. Exact answer routes should explain why referrals are not just marketing, what the system optimizes, which constraints preserve trust, and how future docs changes should route through owning chapters instead of fragmenting policy.
+
+**Status:** Accepted for the authored rewards-reference layer; live referral depth, fee-share formulas, partner terms, transferability, TGE weighting, signer controls, launch dates, and chapter ownership changes remain operator/product/security/legal/commercial/accounting/implementation review.
