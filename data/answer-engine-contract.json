@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 774
+      "totalGoldenRoutes": 775
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 788,
-    "retrievalEligiblePages": 1580,
+    "publicNavigationPages": 789,
+    "retrievalEligiblePages": 1581,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 788,
+      "candidate": 789,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 774,
-    "exactRouteTestsPassing": 774,
+    "totalExactRouteTests": 775,
+    "exactRouteTestsPassing": 775,
     "totalRefusalTests": 4,
     "refusalTestsPassing": 4,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 774
+      "candidate": 775
     },
     "exactRoutesByConfidence": {
-      "Medium": 484,
+      "Medium": 485,
       "High": 44,
       "Low": 246
     },
@@ -17067,6 +17067,33 @@
         "chunkCount": 3,
         "faqEntryId": "faq-give-the-official-add-token-info-instructions-from-vibe-docs",
         "passes": true
+      },
+      {
+        "id": "qr-how-will-discord-and-lafa-answers-enter-search-book",
+        "query": "How will Discord and Lafa answers enter Search Book?",
+        "normalizedQuery": "how will discord and lafa answers enter search book",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-discord-lafa-ingestion-boundary",
+        "expectedPageTitle": "Discord Lafa Ingestion Boundary",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "discord-ingestion-contract",
+          "spec-04",
+          "spec-06",
+          "spec-07"
+        ],
+        "linkedSourceKeys": [
+          "discord-ingestion-contract",
+          "spec-04",
+          "spec-06",
+          "spec-07"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 3,
+        "faqEntryId": "faq-how-will-discord-and-lafa-answers-enter-search-book",
+        "passes": true
       }
     ],
     "glossaryRouteTests": [
@@ -18299,7 +18326,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 774,
+      "exactRoutes": 775,
       "glossaryRoutes": 32,
       "refusals": 4,
       "lowRatedFeedback": 1,

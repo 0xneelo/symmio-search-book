@@ -780,6 +780,7 @@ Questions are grouped by whether the current source set can answer them.
 | What does the SuperFlow SHE OpenAPI source prove? | `authored-superflow-she-api-boundary` | Low | The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration. |
 | What project-managed token metadata can be added to Vibe? | `authored-vibe-add-token-info` | Medium | Official Add Token Info docs support banner, logo, description, website, social links, and optional X feed submission for approved VibeCaps token pages. |
 | Give the official Add Token Info instructions from Vibe docs. | `authored-vibe-add-token-info` | Medium | The official flow is open market, choose Add Token Info, fill project/contact details, pay the in-app USDC review fee to the in-app treasury address, paste the transaction, and submit for review. |
+| How will Discord and Lafa answers enter Search Book? | `authored-discord-lafa-ingestion-boundary` | Medium | The import contract and scraper path are implemented, but actual Discord/Lafa answers remain parked until channel/export access, Lafa author identity, and publication boundary are provided. |
 
 ## Prototype Event Log
 

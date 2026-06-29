@@ -1316,11 +1316,18 @@
 - Routed one Ask question for the Symmio whitepaper-history boundary and updated the source-ingestion evidence so OPERATOR-INBOX #6 remains parked only for the exact original/oldest artifact and any archived pre-v0.8 history.
 - Kept the 2021/origin-story comparison, oldest-to-current version history, and archived docs outside current official repositories under source-ingestion review.
 
+## 2026-06-29 — Discord/Lafa Ingestion Tooling
+
+- Added `src/search-book/scripts/build-discord-corpus.mjs`, a deterministic import/scraper path for Discord/Lafa source mining.
+- Generated `data/discord-corpus.json` and `data/discord-corpus.js` in parked mode: import contract ready, API scraper ready, zero imported messages, ten seeded Discord-mining topics, and missing inputs for export/API access, public-use boundary, and Lafa author id mapping.
+- Registered `discord-ingestion-contract` in `SOURCES.md`, wired the generated corpus into source-ingestion and requirement-map evidence, and kept `discord-lafa-corpus` / `discord-seeded-faq` parked under OPERATOR-INBOX #2.
+- Added `authored-discord-lafa-ingestion-boundary` and routed one Ask question explaining how Discord and Lafa answers will enter Search Book without claiming any Discord answer as authoritative yet.
+
 ## Still Open
 
 - Full editorial rewrite into final publication pages.
 - Vibe Trading Notion ingestion and public-use boundary.
-- Discord/Lafa scraper and FAQ import.
+- Discord/Lafa export/API access, author identity, public-use boundary, and FAQ import.
 - Exact original/oldest Symmio whitepaper or archived pre-v0.8 history.
 - SuperFlow SSHE identification or explicit exclusion.
 - Vibe-specific covered-call/vault inventory example and LP exposure semantics.

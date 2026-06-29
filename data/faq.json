@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 778,
-  "totalAnswerable": 774,
+  "totalEntries": 779,
+  "totalAnswerable": 775,
   "totalUnresolved": 4,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -24,18 +24,18 @@
     "Rewards And Referrals": 100,
     "Dashboard": 10,
     "Data And Volume": 5,
-    "Discord Import": 1
+    "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 484,
+    "Medium": 485,
     "High": 44,
     "Low": 246
   },
   "byRouteSource": {
-    "authored": 774
+    "authored": 775
   },
   "byType": {
-    "answerable": 774,
+    "answerable": 775,
     "reconciliation": 4
   },
   "answerable": [
@@ -24873,6 +24873,59 @@
           "group": "Local Specs",
           "use": "Required source families.",
           "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-will-discord-and-lafa-answers-enter-search-book",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Discord Import",
+      "question": "How will Discord and Lafa answers enter Search Book?",
+      "normalizedQuestion": "how will discord and lafa answers enter search book",
+      "shortAnswer": "The import contract and scraper path are implemented, but actual Discord/Lafa answers remain parked until channel/export access, Lafa author identity, and publication boundary are provided.",
+      "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, but it is not yet a source corpus. The current repository now has an ingestion contract and scraper path; it does not have the operator approved Discord export, Lafa author identity map, or publication boundary needed to publish Discord derived answers. That distincti...",
+      "confidence": "Medium",
+      "pageId": "authored-discord-lafa-ingestion-boundary",
+      "pageTitle": "Discord Lafa Ingestion Boundary",
+      "pageSection": "answer-engine",
+      "pageTrack": "Living Docs",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "discord-ingestion-contract",
+          "group": "Local Product And Code",
+          "use": "Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus.",
+          "href": "../../src/search-book/data/discord-corpus.json",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
           "missing": false
         }
       ]
@@ -49907,6 +49960,59 @@
           "group": "Local Specs",
           "use": "Required source families.",
           "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-will-discord-and-lafa-answers-enter-search-book",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Discord Import",
+      "question": "How will Discord and Lafa answers enter Search Book?",
+      "normalizedQuestion": "how will discord and lafa answers enter search book",
+      "shortAnswer": "The import contract and scraper path are implemented, but actual Discord/Lafa answers remain parked until channel/export access, Lafa author identity, and publication boundary are provided.",
+      "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, but it is not yet a source corpus. The current repository now has an ingestion contract and scraper path; it does not have the operator approved Discord export, Lafa author identity map, or publication boundary needed to publish Discord derived answers. That distincti...",
+      "confidence": "Medium",
+      "pageId": "authored-discord-lafa-ingestion-boundary",
+      "pageTitle": "Discord Lafa Ingestion Boundary",
+      "pageSection": "answer-engine",
+      "pageTrack": "Living Docs",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "discord-ingestion-contract",
+          "group": "Local Product And Code",
+          "use": "Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus.",
+          "href": "../../src/search-book/data/discord-corpus.json",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
           "missing": false
         }
       ]

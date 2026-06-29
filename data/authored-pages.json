@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 789,
+  "totalPages": 790,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 616,
+    "publication-candidate-needs-operator-review": 617,
     "publication-candidate": 152,
     "publication-candidate-needs-current-source-review": 8,
     "publication-candidate-needs-editorial-review": 3,
@@ -17,8 +17,8 @@
     "dashboard-reference": 12,
     "protocol-reference": 143,
     "competitive-context": 1,
+    "answer-engine": 2,
     "reference": 1,
-    "answer-engine": 1,
     "solver-reference": 1,
     "compendium": 8
   },
@@ -2142,6 +2142,35 @@
       "file": "content/authored/reference/discontinuous-outcome-market-guardrails.md",
       "bodyMarkdown": "# Discontinuous-Outcome Market Guardrails\n\nThe DDQ hedging-risk source connects liquidity integrity to markets with discontinuous outcomes. Some markets do not deteriorate smoothly. Liquidity can vanish, price regimes can jump, and the reference state can change faster than ordinary hedging or liquidation can clear.\n\nThat matters for prediction-like markets, event-driven assets, and low-cap tokens with rug or liquidity-pull risk. The solver cannot safely treat every market as though prices move in small, continuous increments.\n\n## Why Explicit Guardrails Matter\n\nDiscontinuous markets require explicit state transitions. A normal quote can become unsafe if the solver sees unreliable price formation, abnormal market behavior, or a sudden loss of executable depth. In those states, widening a spread may not be enough; the correct response can be refusal, freeze, emergency settlement logic, or market shutdown.\n\nThe source's point is that these controls make the solver engine more suitable for markets where sudden regime shifts are expected. The system needs rules for when the market has stopped being normally hedgeable.\n\n## Reader Implication\n\nFor users, this explains why a permissionless market can feel conservative around the exact moments when speculation is most intense. The system is trying to distinguish tradable volatility from integrity failure.\n\nFor protocol reviewers, this page separates discontinuity risk from ordinary volatility. Volatility can be priced. A discontinuity may require a mode switch.\n\n## Publication Boundary\n\nDo not publish final prediction-market support, event categories, oracle policy, freeze criteria, settlement evidence, market-resolution rules, or discontinuity thresholds without operator and implementation review. The source-backed claim is that discontinuous markets need automated guardrails, not that every such market is already production-supported.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver Hedging Risk Considerations\".\n\n## Related Pages\n\n- `authored-tail-event-profit-cap-emergency-brake`\n- `authored-solver-refusal-as-oracle-defense`\n- `authored-liquidity-collapse-freeze-logic`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations`",
       "excerpt": "Discontinuous Outcome Market Guardrails The DDQ hedging risk source connects liquidity integrity to markets with discontinuous outcomes. Some markets do not deteriorate smoothly. Liquidity can vanish, price regimes can jump, and the reference state can change faster than ordinary hedging or liquidation can clear. That matters for prediction like markets, event driven assets, and low cap tokens with rug or liquidity pull risk. The solver cannot safely treat every market as though prices move in small, continuous increments. Why Explicit Guardrails Matter Discontinuous markets require explicit state transitions. A normal quote can become unsafe if the solver sees unreliable price formation, abnormal market behavior, or a sudden loss of executable depth. In those states, widening a spread may not be enough; the correct response can be refusal, freeze, emergency settlement logic, or market shutdown. The source's point is that these controls make the solver engine more suitable for markets where sudden regime shifts are expected. The system needs rules for when the market has stopped being normally hedgeable. Reader Implication For users, this explains why a permissionless market can fe"
+    },
+    {
+      "id": "authored-discord-lafa-ingestion-boundary",
+      "title": "Discord Lafa Ingestion Boundary",
+      "section": "answer-engine",
+      "track": "Living Docs",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sourceUrls": [
+        "src/search-book/data/discord-corpus.json",
+        "_specs/app-docs/04-sources.md",
+        "_specs/app-docs/06-answer-engine.md",
+        "_specs/app-docs/07-research-session.md"
+      ],
+      "relatedGeneratedPages": [
+        "authored-dashboard-faq",
+        "authored-search-insights-loop",
+        "authored-volume-08-dashboard-faq-and-living-docs"
+      ],
+      "volumeId": "",
+      "file": "content/authored/reference/discord-lafa-ingestion-boundary.md",
+      "bodyMarkdown": "# Discord Lafa Ingestion Boundary\n\nDiscord is a required demand signal for the Search Book, but it is not yet a source corpus. The current repository now has an ingestion contract and scraper path; it does not have the operator-approved Discord export, Lafa author identity map, or publication boundary needed to publish Discord-derived answers.\n\nThat distinction keeps the answer engine honest. The system can seed a local FAQ from product code, public docs, Linear research, and tracked questions. It must still refuse questions that ask what Lafa said in Discord until a real export or API scrape is imported and reviewed.\n\n## Ingestion Path\n\nThe import tool is `src/search-book/scripts/build-discord-corpus.mjs`. It can:\n\n- write a deterministic parked corpus report when no export is present;\n- ingest JSON or JSONL exports shaped like Discord API messages, DiscordChatExporter-style `messages[]`, or channel objects with `messages[]`;\n- fetch from Discord REST v10 when `SEARCH_BOOK_DISCORD_BOT_TOKEN` or `DISCORD_BOT_TOKEN` and channel ids are supplied;\n- normalize message ids, channels, authors, timestamps, replies, question candidates, and Lafa-answer candidates;\n- omit message text by default unless the operator has approved a citation/paraphrase mode or the run explicitly stores content.\n\nThe output is `src/search-book/data/discord-corpus.json`. It records import readiness, API scraper readiness, imported-message counts, question clusters, Lafa-answer candidates, missing operator inputs, and seeded topics from `QUESTIONS.md`.\n\n## Publication Boundary\n\nThe docs should not quote Discord, paraphrase Lafa, or promote Discord-derived FAQ entries until three inputs are present:\n\n1. channel access or an export for the relevant Symmio/Vibe Discord channels;\n2. a reliable Lafa author id map, not only a name match;\n3. an operator-approved public-use mode: cite, paraphrase, internal-only, or exclude.\n\nIf the publication mode is unknown or internal-only, generated artifacts should not store message text in committed public files. Message counts and cluster metadata can still guide internal gap planning.\n\n## Reader Implication\n\nWhen readers ask which Discord answers are authoritative, the answer is still a refusal. The current source-backed answer is about process: Discord will enter Search Book through a reviewed import path, then question clusters and approved Lafa answers can seed FAQ routes, answer-validation fixtures, gap priority, and living-docs improvements.\n\n## Sources\n\n- `discord-ingestion-contract`: generated Discord import contract and scraper status.\n- `spec-04`: source requirement naming Symmio Discord and Lafa answers.\n- `spec-06`: answer-engine and living-docs loop requirement.\n- `spec-07`: research-session requirement to mine Discord.\n\n## Related Pages\n\n- `authored-dashboard-faq`\n- `authored-search-insights-loop`\n- `authored-volume-08-dashboard-faq-and-living-docs`",
+      "excerpt": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, but it is not yet a source corpus. The current repository now has an ingestion contract and scraper path; it does not have the operator approved Discord export, Lafa author identity map, or publication boundary needed to publish Discord derived answers. That distinction keeps the answer engine honest. The system can seed a local FAQ from product code, public docs, Linear research, and tracked questions. It must still refuse questions that ask what Lafa said in Discord until a real export or API scrape is imported and reviewed. Ingestion Path The import tool is src/search book/scripts/build discord corpus.mjs . It can: write a deterministic parked corpus report when no export is present; ingest JSON or JSONL exports shaped like Discord API messages, DiscordChatExporter style messages[] , or channel objects with messages[] ; fetch from Discord REST v10 when SEARCH BOOK DISCORD BOT TOKEN or DISCORD BOT TOKEN and channel ids are supplied; normalize message ids, channels, authors, timestamps, replies, question candidates, and Lafa answer candidates; omit message text by default unless the operator h"
     },
     {
       "id": "authored-distressed-position-buyout-continuity",

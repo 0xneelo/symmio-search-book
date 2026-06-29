@@ -4,7 +4,9 @@
 
 The prompt asks to mine Discord, especially Lafa answers and repeated support questions. This environment does not have Discord export access. The prototype seeds a question list from local FAQ and source docs only.
 
-**Needed:** Discord export, channel list, date range, and permission to cite or paraphrase.
+The repository now has `src/search-book/scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which define the import contract and Discord REST export path. That closes the tooling gap, not the source gap: no Discord messages, Lafa author id map, or public-use boundary are imported yet.
+
+**Needed:** Discord export or channel/API access, channel list, date range, Lafa author identity, and permission to cite, paraphrase, use internally, or exclude the corpus.
 
 ## G-002: 25-Agent Competitive Sweep Is Not Complete
 

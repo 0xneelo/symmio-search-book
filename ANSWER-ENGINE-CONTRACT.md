@@ -49,7 +49,7 @@ node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 ```
 
-The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 767 seeded exact-route tests and 7 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
+The generated artifacts are `data/answer-engine-contract.json` and `data/living-docs-events.json`. The answer-engine contract currently proves 775 seeded exact-route tests and 4 refusal tests. The living-docs event contract validates 12 prototype event fixtures across question, rating, and gap events. `llmProductionReady` intentionally remains false until runtime citation validation, prompt-injection tests, operator-blocked source decisions, and Discord/Lafa import are done.
 
 Glossary routing is now executable in the runtime harness and generated proof: 32/32 glossary route tests pass. Of those terms, 26 route to a public candidate page, 5 are retrieval-context-only until a public page is selected by chunk retrieval, and 1 is internal/blocked and must fail closed through the existing operator/refusal path.
 

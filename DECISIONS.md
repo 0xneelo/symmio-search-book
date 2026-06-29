@@ -1663,3 +1663,11 @@
 **Reason:** These official commits are stronger evidence than a generic repository link, and they let the answer engine give a useful cited answer about the current source boundary. They still do not prove a 2021/original whitepaper artifact or a complete oldest-to-current comparison, so closing the source family would overstate the evidence.
 
 **Status:** Accepted for source-ingestion coverage and answer routing. Publish the 2023 official GitHub evidence as the current boundary; do not use "original whitepaper" or 2021 origin-story wording until the exact artifact or archived source is recovered or explicitly excluded.
+
+## D-209: Separate Discord Ingestion Tooling From Discord Source Completion
+
+**Decision:** Add a deterministic Discord/Lafa import contract and scraper path, generate parked `data/discord-corpus.*` artifacts, and register `discord-ingestion-contract` as local tooling evidence. Keep the Discord/Lafa source family parked until real channel/export access, Lafa author identity, and public-use mode are supplied.
+
+**Reason:** The docs need Discord-seeded FAQ and Lafa answers, but guessing community answers would violate the primary-source rule. Tooling can be built now without pretending the corpus exists. The importer supports export JSON/JSONL and Discord REST fetches, but generated public artifacts omit message text unless a citation/paraphrase mode is explicitly approved.
+
+**Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord must still refuse until the corpus is imported and reviewed.

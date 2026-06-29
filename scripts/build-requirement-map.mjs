@@ -22,6 +22,7 @@ const defaults = {
   llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
   livingDocsEvents: path.join(searchBookRoot, "data", "living-docs-events.json"),
+  discordCorpus: path.join(searchBookRoot, "data", "discord-corpus.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
@@ -119,6 +120,12 @@ const livingDocsEvents = readJson(args.livingDocsEvents, {
   datastoreImplemented: false,
   livingDocsProductionReady: false,
   coverage: { totalFixtures: 0, passingFixtures: 0, failingFixtures: 0 },
+});
+const discordCorpus = readJson(args.discordCorpus, {
+  importContractReady: false,
+  apiScraperReady: false,
+  corpusReady: false,
+  totals: { seededTopics: 0, importedMessages: 0, questionClusters: 0, lafaAnswerCandidates: 0 },
 });
 const answerChunks = readJson(args.answerChunks, { totalPages: 0, totalChunks: 0, pagesMissingChunks: [], unknownSourceKeys: [] });
 const glossary = readJson(args.glossary, { totalTerms: 0, missingPageIds: [], missingSourceKeys: [] });
@@ -276,9 +283,9 @@ const requirements = [
     status: inboxHas(openInboxItems, 2) ? "parked" : "partial",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
-    evidence: `${faq.totalEntries || 0} local FAQ entries exist, but Discord/Lafa corpus is not imported.`,
+    evidence: `${faq.totalEntries || 0} local FAQ entries exist. Discord import contract ready=${discordCorpus.importContractReady === true}; API scraper ready=${discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}.`,
     blocks: inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : [],
-    nextAction: "Resume Discord-derived FAQ import when the operator fills inbox item #2.",
+    nextAction: "Run Discord-derived FAQ import when the operator provides channel access/export, Lafa author identity, and public-use boundary.",
   }),
   req({
     id: "guided-journeys",

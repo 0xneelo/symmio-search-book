@@ -385,15 +385,17 @@
         "07",
         "08"
       ],
-      "presentKeys": [],
+      "presentKeys": [
+        "discord-ingestion-contract"
+      ],
       "missingKeys": [
         "symmio-discord-lafa-export"
       ],
-      "evidence": "Discord/Lafa corpus is not imported; local FAQ is seeded from repo/public docs only.",
+      "evidence": "Discord import tooling ready=true; imported messages=0; question clusters=0; Lafa answer candidates=0. Local FAQ is still seeded from repo/public docs only.",
       "blocks": [
         "OPERATOR-INBOX #2"
       ],
-      "nextAction": "Resume Discord-derived FAQ and answer-engine seeding when the operator fills inbox item #2."
+      "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
     },
     {
       "id": "competitive-sweep",
@@ -428,7 +430,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "789 authored pages generated from registered sources across 10 sections.",
+      "evidence": "790 authored pages generated from registered sources across 10 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -457,6 +459,7 @@
         "dashboard-settings",
         "dashboard-tasks",
         "dashboard-volume",
+        "discord-ingestion-contract",
         "goldsky-graphql-endpoints",
         "goldsky-subgraphs",
         "hyperliquid-hip3",
@@ -568,7 +571,7 @@
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "123 registered source keys; 0 duplicate keys.",
+      "evidence": "124 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
@@ -616,7 +619,7 @@
       "blocks": [
         "OPERATOR-INBOX #2"
       ],
-      "nextAction": "Resume Discord-derived FAQ and answer-engine seeding when the operator fills inbox item #2."
+      "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
     },
     {
       "id": "competitive-sweep",

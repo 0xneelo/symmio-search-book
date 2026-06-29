@@ -448,8 +448,11 @@ function preflight(args, runtime) {
       suggestedQueries: ["What is Vibe Trading?", "What are intents?", "What is the answer engine?"],
     });
   }
+  const exactRoute = runtime.exactRouteByQuestion.get(normalizedQuery);
+  const isDiscordIngestionBoundaryRoute = exactRoute?.pageId === "authored-discord-lafa-ingestion-boundary";
 
   for (const rule of riskRules) {
+    if (rule.id === "discord" && isDiscordIngestionBoundaryRoute) continue;
     if (rule.patterns.some((pattern) => pattern.test(args.query))) {
       return refusal(args, {
         status: rule.status,

@@ -47,7 +47,7 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 14 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should run those checks against actual model responses before production launch.
 

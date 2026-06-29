@@ -13,6 +13,7 @@ const defaults = {
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
+  discordCorpus: path.join(searchBookRoot, "data", "discord-corpus.json"),
   sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
   gaps: path.join(searchBookRoot, "GAPS.md"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
@@ -105,6 +106,12 @@ const args = parseArgs(process.argv.slice(2));
 const manifest = readJson(args.manifest, { pages: [] });
 const authored = readJson(args.authoredIndex, { totalPages: 0, bySection: {} });
 const sourceCatalog = readJson(args.sourceCatalog, { sourceByKey: {}, totalSources: 0, duplicateKeys: [] });
+const discordCorpus = readJson(args.discordCorpus, {
+  importContractReady: false,
+  apiScraperReady: false,
+  corpusReady: false,
+  totals: { importedMessages: 0, questionClusters: 0, lafaAnswerCandidates: 0, seededTopics: 0 },
+});
 const competitiveSweep = readJson(args.competitiveSweep, {
   targetDocs: 0,
   targetDocsReviewed: 0,
@@ -193,6 +200,7 @@ const symmioGithubKeys = [
 const superflowKeys = ["superflow-she-openapi"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
+const discordToolingKeys = ["discord-ingestion-contract"];
 
 const localSpecStatus = requiredKeysStatus(keys, localSpecKeys);
 const localCodeStatus = requiredKeysStatus(keys, localCodeKeys);
@@ -206,6 +214,7 @@ const symmioGithubStatus = requiredKeysStatus(keys, symmioGithubKeys);
 const superflowStatus = requiredKeysStatus(keys, superflowKeys);
 const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
 const competitiveSweepSourceStatus = requiredKeysStatus(keys, competitiveSweepKeys);
+const discordToolingStatus = requiredKeysStatus(keys, discordToolingKeys);
 const competitiveSweepHasBatch =
   (competitiveSweep.targetDocs || 0) >= 50 &&
   (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
@@ -382,11 +391,11 @@ const requirements = [
     status: inboxHas(openInboxItems, 2) ? "parked" : "missing",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
-    presentKeys: [],
+    presentKeys: discordToolingStatus.present,
     missingKeys: ["symmio-discord-lafa-export"],
-    evidence: "Discord/Lafa corpus is not imported; local FAQ is seeded from repo/public docs only.",
+    evidence: `Discord import tooling ready=${discordCorpus.importContractReady === true && discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}. Local FAQ is still seeded from repo/public docs only.`,
     blocks: inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : [],
-    nextAction: "Resume Discord-derived FAQ and answer-engine seeding when the operator fills inbox item #2.",
+    nextAction: "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary.",
   }),
   sourceReq({
     id: "competitive-sweep",
