@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 03 Reading Order Overview
+
+- Expanded `authored-volume-03-listing-power-and-orderbooks` from a short volume stub into a book-level reading order for the Listing Monopoly path, order-book complementarity path, Ode source-navigation maps, and HIP-3/discovery-layer bridge.
+- Routed one new Ask question, "How should I read Volume 03 on listing power and order books?", to the Volume 03 overview so broad reader-orientation demand lands on the compendium entry point rather than a narrow source map.
+- Kept HIP-3 outcomes, direct Hyperliquid routing, SSHE mechanics, automatic graduation rules, market-maturity thresholds, market-score formulas, source-time venue examples, launchpad partnerships, order-book listing policies, downstream listing influence, and monopoly/structural-superiority verdicts under current-source/operator/product/market/risk/legal/accounting/security review.
+
 ## 2026-06-30 — Volume 02 Reading Order Overview
 
 - Expanded `authored-volume-02-bootstrap-and-proof-of-value` from a short volume stub into a book-level reading order for the bootstrap trilemma, Perp Classes / Z-Score mechanism path, Perp Bootstrap source-navigation map, Proof of Value source maps, and validation/sustainability bridge.

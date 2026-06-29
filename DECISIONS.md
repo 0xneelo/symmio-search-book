@@ -1839,3 +1839,11 @@
 **Reason:** The exact Volume 02 source maps already exist, but readers still need a high-level route through the book part before choosing a narrow source family. A volume overview should answer the broad "how do I read this?" question, then send readers into exact authored pages and source-navigation maps without turning review-bound source markers into final product claims.
 
 **Status:** Accepted for compendium authoring. Z-score thresholds, automatic graduation, solver obligations, LP revenue shares, insurance or ADL behavior, risk-waterfall details, and monopoly or structural-superiority verdicts remain current-source/operator/product/risk/legal/accounting/security review items before publication.
+
+## D-231: Use Volume 03 As The Listing-Power Reading Order
+
+**Decision:** Expand `authored-volume-03-listing-power-and-orderbooks` into the canonical book-level entry point for the Listing Monopoly path, order-book complementarity path, Ode source navigation, and HIP-3/discovery-layer bridge.
+
+**Reason:** The exact Volume 03 authored pages and source maps already exist, but readers still need one overview that explains how listing power, liquidity, order-book maturity, admission bottlenecks, and discovery-layer claims fit together. A volume overview should answer the broad "how do I read this?" question, then route into exact pages without republishing source TODOs, transcript markers, or review-bound venue examples as final claims.
+
+**Status:** Accepted for compendium authoring. HIP-3 outcomes, direct Hyperliquid routing, SSHE mechanics, automatic graduation rules, market-maturity thresholds, market-score formulas, source-time venue examples, launchpad partnerships, order-book listing policies, downstream listing influence, and monopoly or structural-superiority verdicts remain fresh primary-source/operator/product/market/risk/legal/accounting/security review items before publication.
