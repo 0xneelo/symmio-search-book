@@ -77,8 +77,12 @@
     {
       "stage": "glossary-route",
       "priority": 2,
-      "behavior": "If a query asks for a term or alias, route to the term's primary page.",
-      "sourceData": "data/glossary.json"
+      "behavior": "If a query asks for a term or alias, route to the term's public primary page when one exists; otherwise use retrieval context only and fail closed if no public answer page is available.",
+      "sourceData": "data/glossary.json",
+      "totalGoldenRoutes": 32,
+      "publicRoutableTerms": 26,
+      "contextOnlyTerms": 5,
+      "internalOnlyTerms": 1
     },
     {
       "stage": "chunk-retrieval",
@@ -186,8 +190,11 @@
     "exactRouteTestsPassing": 767,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
+    "totalGlossaryRouteTests": 32,
+    "glossaryRouteTestsPassing": 32,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
+    "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
       "candidate": 767
     },
@@ -196,10 +203,21 @@
       "High": 44,
       "Low": 245
     },
+    "glossaryRoutesByRuntimeAction": {
+      "retrieve-context-without-public-primary": 5,
+      "route-to-public-page": 26,
+      "fail-closed-internal-or-missing": 1
+    },
+    "glossaryRoutesBySourcePrimaryPageState": {
+      "source-companion": 12,
+      "candidate": 19,
+      "internal-draft": 1
+    },
     "exactRoutesMissingChunks": [],
     "exactRoutesInternalDraft": [],
     "failingExactRouteIds": [],
     "failingRefusalIds": [],
+    "failingGlossaryRouteIds": [],
     "exactRouteTests": [
       {
         "id": "qr-what-is-vibe-trading",
@@ -16862,6 +16880,1184 @@
         "passes": true
       }
     ],
+    "glossaryRouteTests": [
+      {
+        "id": "term-adl",
+        "query": "What is ADL?",
+        "normalizedQuery": "what is adl",
+        "expectedStage": "glossary-route",
+        "term": "ADL",
+        "aliases": [
+          "Auto-deleveraging"
+        ],
+        "category": "Risk",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "neelo-15-funding-model-15-docs-09-insurance-adl",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "retrieve-context-without-public-primary",
+        "publicPageIds": [],
+        "retrievalPageIds": [
+          "neelo-15-funding-model-15-docs-09-insurance-adl"
+        ],
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 0,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-amfq",
+        "query": "What is AMFQ?",
+        "normalizedQuery": "what is amfq",
+        "expectedStage": "glossary-route",
+        "term": "AMFQ",
+        "aliases": [
+          "aMFQ",
+          "Automated Market for Quotes"
+        ],
+        "category": "Trading Flow",
+        "expectedPrimaryPageId": "authored-amfq-legacy-intent-naming",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-amfq-legacy-intent-naming",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-amfq-legacy-intent-naming",
+          "authored-vibe-intent-architecture"
+        ],
+        "retrievalPageIds": [
+          "authored-amfq-legacy-intent-naming",
+          "authored-vibe-intent-architecture",
+          "vibe-architecture-amfq"
+        ],
+        "sourceKeys": [
+          "vibe-architecture",
+          "styleguide",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-architecture",
+          "styleguide"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 5,
+        "publicChunkCount": 4,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-barometer",
+        "query": "What is Barometer?",
+        "normalizedQuery": "what is barometer",
+        "expectedStage": "glossary-route",
+        "term": "Barometer",
+        "aliases": [
+          "Goldsky volume upgrade"
+        ],
+        "category": "Data",
+        "expectedPrimaryPageId": "authored-network-volume",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "linear-subgraph-volume",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-network-volume"
+        ],
+        "retrievalPageIds": [
+          "linear-subgraph-volume",
+          "authored-network-volume"
+        ],
+        "sourceKeys": [
+          "syn-200",
+          "spec-03",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-bootstrap-trilemma",
+        "query": "What is Bootstrap trilemma?",
+        "normalizedQuery": "what is bootstrap trilemma",
+        "expectedStage": "glossary-route",
+        "term": "Bootstrap trilemma",
+        "aliases": [
+          "Market bootstrap problem"
+        ],
+        "category": "Market Formation",
+        "expectedPrimaryPageId": "authored-bootstrap-trilemma",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-bootstrap-trilemma",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-bootstrap-trilemma"
+        ],
+        "retrievalPageIds": [
+          "authored-bootstrap-trilemma",
+          "neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 7,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-collateral",
+        "query": "What is Collateral?",
+        "normalizedQuery": "what is collateral",
+        "expectedStage": "glossary-route",
+        "term": "Collateral",
+        "aliases": [
+          "Margin collateral"
+        ],
+        "category": "Risk",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "vibe-collateral-margining",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "retrieve-context-without-public-primary",
+        "publicPageIds": [],
+        "retrievalPageIds": [
+          "vibe-collateral-margining",
+          "symmio-core-concepts"
+        ],
+        "sourceKeys": [
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 0,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-cross-margin",
+        "query": "What is Cross-margin?",
+        "normalizedQuery": "what is cross margin",
+        "expectedStage": "glossary-route",
+        "term": "Cross-margin",
+        "aliases": [
+          "Cross-market margining"
+        ],
+        "category": "Risk",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "symmio-core-concepts",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "retrieve-context-without-public-primary",
+        "publicPageIds": [],
+        "retrievalPageIds": [
+          "symmio-core-concepts",
+          "neelo-15-funding-model-15-docs-08-bell-curve-flattening"
+        ],
+        "sourceKeys": [
+          "symmio-core",
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "symmio-core",
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 5,
+        "publicChunkCount": 0,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-estimated-network-revenue",
+        "query": "What is Estimated network revenue?",
+        "normalizedQuery": "what is estimated network revenue",
+        "expectedStage": "glossary-route",
+        "term": "Estimated network revenue",
+        "aliases": [
+          "Estimated revenue",
+          "Network revenue"
+        ],
+        "category": "Dashboard",
+        "expectedPrimaryPageId": "authored-estimated-network-revenue",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-estimated-network-revenue",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-estimated-network-revenue"
+        ],
+        "retrievalPageIds": [
+          "authored-estimated-network-revenue",
+          "local-network-revenue",
+          "local-revenue-pulse"
+        ],
+        "sourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-funding",
+        "query": "What is Funding?",
+        "normalizedQuery": "what is funding",
+        "expectedStage": "glossary-route",
+        "term": "Funding",
+        "aliases": [
+          "Funding rate"
+        ],
+        "category": "Economics",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "vibe-funding",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "retrieve-context-without-public-primary",
+        "publicPageIds": [],
+        "retrievalPageIds": [
+          "vibe-funding",
+          "symmio-funding-rates",
+          "neelo-15-funding-model-15-docs-07-dynamic-pricing"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 6,
+        "publicChunkCount": 0,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-gamma",
+        "query": "What is Gamma?",
+        "normalizedQuery": "what is gamma",
+        "expectedStage": "glossary-route",
+        "term": "Gamma",
+        "aliases": [
+          "Hyperliquid-native majors phase"
+        ],
+        "category": "Revenue",
+        "expectedPrimaryPageId": "authored-estimated-network-revenue",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-estimated-network-revenue",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-estimated-network-revenue"
+        ],
+        "retrievalPageIds": [
+          "authored-estimated-network-revenue",
+          "hyperliquid-hip3"
+        ],
+        "sourceKeys": [
+          "spec-03",
+          "hyperliquid-hip3",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "spec-03",
+          "hyperliquid-hip3"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-hip-3",
+        "query": "What is HIP-3?",
+        "normalizedQuery": "what is hip 3",
+        "expectedStage": "glossary-route",
+        "term": "HIP-3",
+        "aliases": [
+          "Builder-deployed perpetuals"
+        ],
+        "category": "Market Formation",
+        "expectedPrimaryPageId": "authored-vibe-as-discovery-layer",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "hyperliquid-hip3",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-vibe-as-discovery-layer"
+        ],
+        "retrievalPageIds": [
+          "hyperliquid-hip3",
+          "authored-vibe-as-discovery-layer"
+        ],
+        "sourceKeys": [
+          "hyperliquid-hip3",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "hyperliquid-hip3"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-intent",
+        "query": "What is Intent?",
+        "normalizedQuery": "what is intent",
+        "expectedStage": "glossary-route",
+        "term": "Intent",
+        "aliases": [
+          "Trade intent"
+        ],
+        "category": "Trading Flow",
+        "expectedPrimaryPageId": "authored-intents-and-solvers",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-intents-and-solvers",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-intents-and-solvers"
+        ],
+        "retrievalPageIds": [
+          "authored-intents-and-solvers",
+          "symmio-intent-lifecycle",
+          "neelo-02-proof-of-value-02-docs-05-intent-based-architecture"
+        ],
+        "sourceKeys": [
+          "symmio-intent-lifecycle",
+          "vibe-architecture",
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-intent-lifecycle",
+          "vibe-architecture",
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 6,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-isolation",
+        "query": "What is Isolation?",
+        "normalizedQuery": "what is isolation",
+        "expectedStage": "glossary-route",
+        "term": "Isolation",
+        "aliases": [
+          "Isolated market risk"
+        ],
+        "category": "Risk",
+        "expectedPrimaryPageId": "authored-token-vault-perps-versus-usdc-pools",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-token-vault-perps-versus-usdc-pools",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-token-vault-perps-versus-usdc-pools"
+        ],
+        "retrievalPageIds": [
+          "authored-token-vault-perps-versus-usdc-pools",
+          "symmio-core-concepts"
+        ],
+        "sourceKeys": [
+          "symmio-core",
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-core",
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-liquidation",
+        "query": "What is Liquidation?",
+        "normalizedQuery": "what is liquidation",
+        "expectedStage": "glossary-route",
+        "term": "Liquidation",
+        "aliases": [
+          "Account health liquidation"
+        ],
+        "category": "Risk",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "vibe-account-health-liquidations",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "retrieve-context-without-public-primary",
+        "publicPageIds": [],
+        "retrievalPageIds": [
+          "vibe-account-health-liquidations",
+          "symmio-liquidations"
+        ],
+        "sourceKeys": [
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 0,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-listing-monopoly",
+        "query": "What is Listing monopoly?",
+        "normalizedQuery": "what is listing monopoly",
+        "expectedStage": "glossary-route",
+        "term": "Listing monopoly",
+        "aliases": [
+          "Listing control"
+        ],
+        "category": "Market Formation",
+        "expectedPrimaryPageId": "authored-listing-monopoly",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-listing-monopoly",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-listing-monopoly"
+        ],
+        "retrievalPageIds": [
+          "authored-listing-monopoly",
+          "neelo-03-listing-monopoly-03-docs-00-abstract"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 5,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-network-volume",
+        "query": "What is Network volume?",
+        "normalizedQuery": "what is network volume",
+        "expectedStage": "glossary-route",
+        "term": "Network volume",
+        "aliases": [
+          "Referral network volume"
+        ],
+        "category": "Dashboard",
+        "expectedPrimaryPageId": "authored-network-volume",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-network-volume",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-network-volume"
+        ],
+        "retrievalPageIds": [
+          "authored-network-volume"
+        ],
+        "sourceKeys": [
+          "server-volume",
+          "server-me",
+          "spec-03",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "server-volume",
+          "server-me",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-onboarding-points",
+        "query": "What is Onboarding points?",
+        "normalizedQuery": "what is onboarding points",
+        "expectedStage": "glossary-route",
+        "term": "Onboarding points",
+        "aliases": [
+          "Campaign points"
+        ],
+        "category": "Rewards",
+        "expectedPrimaryPageId": "authored-points-and-vibe-points",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-points-and-vibe-points",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-points-and-vibe-points"
+        ],
+        "retrievalPageIds": [
+          "authored-points-and-vibe-points",
+          "local-points-engine"
+        ],
+        "sourceKeys": [
+          "server-points",
+          "dashboard-app",
+          "spec-03",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "server-points",
+          "dashboard-app",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-order-book",
+        "query": "What is Order book?",
+        "normalizedQuery": "what is order book",
+        "expectedStage": "glossary-route",
+        "term": "Order book",
+        "aliases": [
+          "CLOB"
+        ],
+        "category": "Market Formation",
+        "expectedPrimaryPageId": "authored-intents-complete-order-books",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-intents-complete-order-books",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-intents-complete-order-books"
+        ],
+        "retrievalPageIds": [
+          "authored-intents-complete-order-books",
+          "neelo-04-ode-to-the-orderbook-04-docs-02-the-limit-of-order-books"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-partya",
+        "query": "What is PartyA?",
+        "normalizedQuery": "what is partya",
+        "expectedStage": "glossary-route",
+        "term": "PartyA",
+        "aliases": [
+          "Trader side"
+        ],
+        "category": "Symmio",
+        "expectedPrimaryPageId": "authored-symmio-party-a-party-b",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-symmio-party-a-party-b",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-symmio-party-a-party-b"
+        ],
+        "retrievalPageIds": [
+          "authored-symmio-party-a-party-b",
+          "symmio-core-concepts"
+        ],
+        "sourceKeys": [
+          "symmio-core",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 1,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-partyb",
+        "query": "What is PartyB?",
+        "normalizedQuery": "what is partyb",
+        "expectedStage": "glossary-route",
+        "term": "PartyB",
+        "aliases": [
+          "Solver side",
+          "Counterparty side"
+        ],
+        "category": "Symmio",
+        "expectedPrimaryPageId": "authored-symmio-party-a-party-b",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-symmio-party-a-party-b",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-symmio-party-a-party-b"
+        ],
+        "retrievalPageIds": [
+          "authored-symmio-party-a-party-b",
+          "symmio-solver-role"
+        ],
+        "sourceKeys": [
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-core",
+          "symmio-intent-lifecycle"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 1,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-perpetual",
+        "query": "What is Perpetual?",
+        "normalizedQuery": "what is perpetual",
+        "expectedStage": "glossary-route",
+        "term": "Perpetual",
+        "aliases": [
+          "Perp"
+        ],
+        "category": "Product",
+        "expectedPrimaryPageId": "authored-vibe-trade-flow",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "vibe-product-what-is",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-vibe-trade-flow"
+        ],
+        "retrievalPageIds": [
+          "vibe-product-what-is",
+          "symmio-what-is",
+          "authored-vibe-trade-flow"
+        ],
+        "sourceKeys": [
+          "vibe-what-is",
+          "symmio-what-is",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-what-is",
+          "symmio-what-is"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 1,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-phase-a",
+        "query": "What is Phase A?",
+        "normalizedQuery": "what is phase a",
+        "expectedStage": "glossary-route",
+        "term": "Phase A",
+        "aliases": [
+          "Live revenue estimate phase"
+        ],
+        "category": "Revenue",
+        "expectedPrimaryPageId": "authored-estimated-network-revenue",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-estimated-network-revenue",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-estimated-network-revenue"
+        ],
+        "retrievalPageIds": [
+          "authored-estimated-network-revenue",
+          "local-network-revenue"
+        ],
+        "sourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "linkedSourceKeys": [
+          "local-revenue-doc",
+          "dashboard-revenue-doc",
+          "server-pulse",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-phase-b",
+        "query": "What is Phase B?",
+        "normalizedQuery": "what is phase b",
+        "expectedStage": "glossary-route",
+        "term": "Phase B",
+        "aliases": [
+          "Designed revenue expansion"
+        ],
+        "category": "Revenue",
+        "expectedPrimaryPageId": "authored-lp-profit-and-dynamic-pricing",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "linear-phase-b-revenue",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-lp-profit-and-dynamic-pricing"
+        ],
+        "retrievalPageIds": [
+          "linear-phase-b-revenue",
+          "authored-lp-profit-and-dynamic-pricing"
+        ],
+        "sourceKeys": [
+          "syn-203",
+          "spec-03",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-proof-of-value",
+        "query": "What is Proof of Value?",
+        "normalizedQuery": "what is proof of value",
+        "expectedStage": "glossary-route",
+        "term": "Proof of Value",
+        "aliases": [
+          "PoV"
+        ],
+        "category": "Market Formation",
+        "expectedPrimaryPageId": "authored-proof-of-value",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-proof-of-value",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-proof-of-value"
+        ],
+        "retrievalPageIds": [
+          "authored-proof-of-value",
+          "neelo-02-proof-of-value-02-docs-00-abstract"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-referral-depth",
+        "query": "What is Referral depth?",
+        "normalizedQuery": "what is referral depth",
+        "expectedStage": "glossary-route",
+        "term": "Referral depth",
+        "aliases": [
+          "Network depth"
+        ],
+        "category": "Rewards",
+        "expectedPrimaryPageId": "",
+        "expectedPrimaryPageState": "",
+        "sourcePrimaryPageId": "authored-referral-depth-open-question",
+        "sourcePrimaryPageState": "internal-draft",
+        "runtimeAction": "fail-closed-internal-or-missing",
+        "publicPageIds": [],
+        "retrievalPageIds": [],
+        "sourceKeys": [
+          "server-points",
+          "server-me",
+          "dashboard-faq",
+          "syn-172",
+          "syn-118",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "server-points",
+          "server-me",
+          "dashboard-faq"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 0,
+        "publicChunkCount": 0,
+        "internalOnly": true,
+        "passes": true
+      },
+      {
+        "id": "term-solver",
+        "query": "What is Solver?",
+        "normalizedQuery": "what is solver",
+        "expectedStage": "glossary-route",
+        "term": "Solver",
+        "aliases": [
+          "Liquidity provider solver",
+          "Counterparty"
+        ],
+        "category": "Trading Flow",
+        "expectedPrimaryPageId": "authored-intents-and-solvers",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-intents-and-solvers",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-intents-and-solvers"
+        ],
+        "retrievalPageIds": [
+          "authored-intents-and-solvers",
+          "symmio-solver-role",
+          "symmio-intent-lifecycle"
+        ],
+        "sourceKeys": [
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "vibe-architecture",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "vibe-architecture"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-spread",
+        "query": "What is Spread?",
+        "normalizedQuery": "what is spread",
+        "expectedStage": "glossary-route",
+        "term": "Spread",
+        "aliases": [
+          "Bid/ask spread"
+        ],
+        "category": "Economics",
+        "expectedPrimaryPageId": "authored-lp-profit-and-dynamic-pricing",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-lp-profit-and-dynamic-pricing",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-lp-profit-and-dynamic-pricing"
+        ],
+        "retrievalPageIds": [
+          "authored-lp-profit-and-dynamic-pricing",
+          "neelo-15-funding-model-15-docs-07-dynamic-pricing"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "syn-203",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 6,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-symmio",
+        "query": "What is Symmio?",
+        "normalizedQuery": "what is symmio",
+        "expectedStage": "glossary-route",
+        "term": "Symmio",
+        "aliases": [
+          "Intent-based clearing layer"
+        ],
+        "category": "Symmio",
+        "expectedPrimaryPageId": "authored-symmio-party-a-party-b",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "symmio-what-is",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-symmio-party-a-party-b"
+        ],
+        "retrievalPageIds": [
+          "symmio-what-is",
+          "authored-symmio-party-a-party-b"
+        ],
+        "sourceKeys": [
+          "symmio-what-is",
+          "symmio-core",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "symmio-what-is",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 2,
+        "publicChunkCount": 1,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-tge-settlement",
+        "query": "What is TGE settlement?",
+        "normalizedQuery": "what is tge settlement",
+        "expectedStage": "glossary-route",
+        "term": "TGE settlement",
+        "aliases": [
+          "Token generation event settlement"
+        ],
+        "category": "Rewards",
+        "expectedPrimaryPageId": "authored-points-and-vibe-points",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-points-and-vibe-points",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-points-and-vibe-points",
+          "authored-dashboard-overview"
+        ],
+        "retrievalPageIds": [
+          "authored-points-and-vibe-points",
+          "authored-dashboard-overview"
+        ],
+        "sourceKeys": [
+          "spec-03",
+          "dashboard-app",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "spec-03",
+          "dashboard-app"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 4,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-token-vault-perp",
+        "query": "What is Token-vault perp?",
+        "normalizedQuery": "what is token vault perp",
+        "expectedStage": "glossary-route",
+        "term": "Token-vault perp",
+        "aliases": [
+          "Token-margined perp"
+        ],
+        "category": "Product",
+        "expectedPrimaryPageId": "authored-token-vault-perps-versus-usdc-pools",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-token-vault-perps-versus-usdc-pools",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-token-vault-perps-versus-usdc-pools"
+        ],
+        "retrievalPageIds": [
+          "authored-token-vault-perps-versus-usdc-pools",
+          "neelo-06-usdc-token-perps-06-docs-overview"
+        ],
+        "sourceKeys": [
+          "vibe-papers",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-vibe",
+        "query": "What is Vibe?",
+        "normalizedQuery": "what is vibe",
+        "expectedStage": "glossary-route",
+        "term": "Vibe",
+        "aliases": [
+          "Vibe Trading"
+        ],
+        "category": "Product",
+        "expectedPrimaryPageId": "authored-vibe-as-discovery-layer",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "vibe-product-what-is",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-vibe-as-discovery-layer",
+          "authored-vibe-trade-flow"
+        ],
+        "retrievalPageIds": [
+          "vibe-product-what-is",
+          "authored-vibe-as-discovery-layer",
+          "authored-vibe-trade-flow"
+        ],
+        "sourceKeys": [
+          "vibe-what-is",
+          "vibe-architecture",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-what-is",
+          "vibe-architecture"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 4,
+        "publicChunkCount": 3,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-vibe-points",
+        "query": "What is Vibe points?",
+        "normalizedQuery": "what is vibe points",
+        "expectedStage": "glossary-route",
+        "term": "Vibe points",
+        "aliases": [
+          "Protocol points",
+          "Trading points"
+        ],
+        "category": "Rewards",
+        "expectedPrimaryPageId": "authored-points-and-vibe-points",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "authored-points-and-vibe-points",
+        "sourcePrimaryPageState": "candidate",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-points-and-vibe-points"
+        ],
+        "retrievalPageIds": [
+          "authored-points-and-vibe-points",
+          "vibe-points-overview"
+        ],
+        "sourceKeys": [
+          "vibe-points",
+          "spec-03",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-points",
+          "spec-03"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      },
+      {
+        "id": "term-vibecaps",
+        "query": "What is VibeCaps?",
+        "normalizedQuery": "what is vibecaps",
+        "expectedStage": "glossary-route",
+        "term": "VibeCaps",
+        "aliases": [
+          "Lowcap perps"
+        ],
+        "category": "Product",
+        "expectedPrimaryPageId": "authored-token-vault-perps-versus-usdc-pools",
+        "expectedPrimaryPageState": "candidate",
+        "sourcePrimaryPageId": "vibe-vibecaps-margin",
+        "sourcePrimaryPageState": "source-companion",
+        "runtimeAction": "route-to-public-page",
+        "publicPageIds": [
+          "authored-token-vault-perps-versus-usdc-pools"
+        ],
+        "retrievalPageIds": [
+          "vibe-vibecaps-margin",
+          "authored-token-vault-perps-versus-usdc-pools"
+        ],
+        "sourceKeys": [
+          "vibe-what-is",
+          "vibe-margin",
+          "authored-pages"
+        ],
+        "linkedSourceKeys": [
+          "vibe-what-is",
+          "vibe-margin"
+        ],
+        "unknownSourceKeys": [],
+        "retrievalChunkCount": 3,
+        "publicChunkCount": 2,
+        "internalOnly": false,
+        "passes": true
+      }
+    ],
     "refusalTests": [
       {
         "id": "gap-does-referral-depth-count-5-or-15-levels",
@@ -16936,6 +18132,7 @@
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
       "exactRoutes": 767,
+      "glossaryRoutes": 32,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

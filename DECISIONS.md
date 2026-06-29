@@ -1639,3 +1639,11 @@
 **Reason:** Exact-route answering can still assemble retrieval context and related-page suggestions. When a terminology query like `What was AMFQ?` keeps `was` as a scoring token, low-value pages that merely contain "was" can enter the context even though the exact route is correct. The runtime should let substantive terms such as `AMFQ`, `intent`, `solver`, `funding`, or `referral` drive retrieval, not grammatical filler.
 
 **Status:** Accepted for deterministic answer-engine runtime and contract generation. Continue to keep the stop-word lists in `run-llm-rag-answer.mjs` and `build-answer-engine-contract.mjs` aligned until they are factored into a shared module.
+
+## D-206: Execute Glossary Routing Before Broad Retrieval
+
+**Decision:** Load `data/glossary.json` in the answer-engine runtime, match normalized terms and aliases for definition-style queries, and carry the match into retrieval context as `glossaryRoute`. Exact seeded question routes still win first. Glossary matches may route directly to a public `candidate`/future `published` page when one exists; source companions can boost retrieval context but cannot become the final public answer page; internal-only terms must fail closed through refusal/operator-blocked paths.
+
+**Reason:** The contract already named a glossary-route stage, but the executable harness was only using exact question routes and chunk scoring. Definition queries such as `Define AMFQ` or `Explain PartyA` should deterministically land on the canonical term page before broad retrieval or LLM synthesis. The generated glossary also includes source-companion and internal-draft primaries, so the runtime needs an explicit public-route boundary instead of blindly treating a glossary `primaryPageId` as reader-facing.
+
+**Status:** Accepted for deterministic runtime and generated answer-engine proof. The contract now validates 32/32 glossary route tests: 26 public-routable terms, 5 retrieval-context-only terms, and 1 internal/blocked term.

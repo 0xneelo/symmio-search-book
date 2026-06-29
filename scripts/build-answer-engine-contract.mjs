@@ -12,6 +12,7 @@ const defaults = {
   faq: path.join(searchBookRoot, "data", "faq.json"),
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
+  glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   outJson: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
@@ -116,6 +117,7 @@ const questionRoutes = readJson(args.questionRoutes);
 const faq = readJson(args.faq);
 const answerChunks = readJson(args.answerChunks);
 const pageStateRegistry = readJson(args.pageStateRegistry);
+const glossary = readJson(args.glossary);
 const sourceCatalog = readJson(args.sourceCatalog);
 const gapQueue = readJson(args.gapQueue);
 
@@ -127,6 +129,24 @@ for (const chunk of answerChunks.chunks || []) {
 }
 const sourceByKey = sourceCatalog.sourceByKey || {};
 const faqByQuestion = new Map((faq.answerable || []).map((entry) => [normalizeQuestion(entry.question), entry]));
+
+function publicPageIdsFor(pageIds) {
+  return (pageIds || []).filter((pageId) => {
+    const page = pageStateById.get(pageId);
+    return page && ["candidate", "published"].includes(page.pageState);
+  });
+}
+
+function retrievalPageIdsFor(pageIds) {
+  return (pageIds || []).filter((pageId) => {
+    const page = pageStateById.get(pageId);
+    return page && ["candidate", "published", "source-companion"].includes(page.pageState);
+  });
+}
+
+function totalChunksFor(pageIds) {
+  return pageIds.reduce((total, pageId) => total + (chunksByPageId.get(pageId) || []).length, 0);
+}
 
 const exactRouteTests = (questionRoutes.answerable || []).map((route) => {
   const pageState = pageStateById.get(route.pageId);
@@ -170,6 +190,56 @@ const refusalTests = (questionRoutes.reconciliation || []).map((item) => ({
   passes: Boolean(item.gapId),
 }));
 
+const glossaryRouteTests = (glossary.terms || []).map((term) => {
+  const sourcePrimaryPage = pageStateById.get(term.primaryPageId);
+  const publicPageIds = publicPageIdsFor(term.pageIds || []);
+  const retrievalPageIds = retrievalPageIdsFor(term.pageIds || []);
+  const expectedPrimaryPageId = publicPageIds.includes(term.primaryPageId)
+    ? term.primaryPageId
+    : publicPageIds[0] || "";
+  const expectedPrimaryPage = expectedPrimaryPageId ? pageStateById.get(expectedPrimaryPageId) : null;
+  const unknownSourceKeys = (term.sourceKeys || []).filter((key) => !sourceByKey[key]);
+  const linkedSourceKeys = (term.sourceKeys || []).filter((key) => sourceByKey[key]?.href);
+  const retrievalChunkCount = totalChunksFor(retrievalPageIds);
+  const publicChunkCount = totalChunksFor(publicPageIds);
+  const internalOnly = !retrievalPageIds.length && (term.pageIds || []).some((pageId) => pageStateById.get(pageId)?.pageState === "internal-draft");
+  const runtimeAction = expectedPrimaryPageId
+    ? "route-to-public-page"
+    : retrievalPageIds.length
+      ? "retrieve-context-without-public-primary"
+      : "fail-closed-internal-or-missing";
+
+  return {
+    id: term.id,
+    query: `What is ${term.term}?`,
+    normalizedQuery: normalizeQuestion(`What is ${term.term}?`),
+    expectedStage: "glossary-route",
+    term: term.term,
+    aliases: term.aliases || [],
+    category: term.category,
+    expectedPrimaryPageId,
+    expectedPrimaryPageState: expectedPrimaryPage?.pageState || "",
+    sourcePrimaryPageId: term.primaryPageId,
+    sourcePrimaryPageState: sourcePrimaryPage?.pageState || "missing",
+    runtimeAction,
+    publicPageIds,
+    retrievalPageIds,
+    sourceKeys: term.sourceKeys || [],
+    linkedSourceKeys,
+    unknownSourceKeys,
+    retrievalChunkCount,
+    publicChunkCount,
+    internalOnly,
+    passes:
+      Boolean(sourcePrimaryPage) &&
+      (term.missingPageIds || []).length === 0 &&
+      (term.missingSourceKeys || []).length === 0 &&
+      unknownSourceKeys.length === 0 &&
+      linkedSourceKeys.length > 0 &&
+      (retrievalChunkCount > 0 || internalOnly),
+  };
+});
+
 const lowRatedFeedbackContract = {
   trigger: "rating:no",
   expectedEvent: "low-rated-answer",
@@ -186,8 +256,11 @@ const noRouteFeedbackContract = {
 
 const failingExactRoutes = exactRouteTests.filter((test) => !test.passes);
 const failingRefusals = refusalTests.filter((test) => !test.passes);
+const failingGlossaryRoutes = glossaryRouteTests.filter((test) => !test.passes);
 const exactRoutesByPageState = countBy(exactRouteTests, (test) => test.expectedPageState);
 const exactRoutesByConfidence = countBy(exactRouteTests, (test) => test.routeConfidence);
+const glossaryRoutesByRuntimeAction = countBy(glossaryRouteTests, (test) => test.runtimeAction);
+const glossaryRoutesBySourcePrimaryPageState = countBy(glossaryRouteTests, (test) => test.sourcePrimaryPageState);
 const exactRoutesMissingChunks = exactRouteTests.filter((test) => !test.chunkCount).map((test) => test.id);
 const exactRoutesWithUnknownSourceKeys = exactRouteTests.filter((test) => test.unknownSourceKeys.length).map((test) => ({
   id: test.id,
@@ -197,7 +270,8 @@ const exactRoutesWithoutLinkedSources = exactRouteTests.filter((test) => !test.l
 const exactRoutesInternalDraft = exactRouteTests.filter((test) => test.expectedPageState === "internal-draft").map((test) => test.id);
 const allExactRoutesPass = failingExactRoutes.length === 0 && exactRouteTests.length === (questionRoutes.totalRoutes || 0);
 const allRefusalTestsPass = failingRefusals.length === 0 && refusalTests.length === (questionRoutes.totalReconciliationQuestions || 0);
-const deterministicReady = allExactRoutesPass && allRefusalTestsPass && (pageStateRegistry.retrievalEligiblePages || 0) > 0;
+const allGlossaryRoutesPass = failingGlossaryRoutes.length === 0 && glossaryRouteTests.length === (glossary.totalTerms || 0);
+const deterministicReady = allExactRoutesPass && allRefusalTestsPass && allGlossaryRoutesPass && (pageStateRegistry.retrievalEligiblePages || 0) > 0;
 
 const payload = {
   generatedAt: "deterministic-build",
@@ -224,8 +298,12 @@ const payload = {
     {
       stage: "glossary-route",
       priority: 2,
-      behavior: "If a query asks for a term or alias, route to the term's primary page.",
+      behavior: "If a query asks for a term or alias, route to the term's public primary page when one exists; otherwise use retrieval context only and fail closed if no public answer page is available.",
       sourceData: "data/glossary.json",
+      totalGoldenRoutes: glossaryRouteTests.length,
+      publicRoutableTerms: glossaryRouteTests.filter((test) => test.expectedPrimaryPageId).length,
+      contextOnlyTerms: glossaryRouteTests.filter((test) => test.runtimeAction === "retrieve-context-without-public-primary").length,
+      internalOnlyTerms: glossaryRouteTests.filter((test) => test.internalOnly).length,
     },
     {
       stage: "chunk-retrieval",
@@ -275,15 +353,22 @@ const payload = {
     exactRouteTestsPassing: exactRouteTests.length - failingExactRoutes.length,
     totalRefusalTests: refusalTests.length,
     refusalTestsPassing: refusalTests.length - failingRefusals.length,
+    totalGlossaryRouteTests: glossaryRouteTests.length,
+    glossaryRouteTestsPassing: glossaryRouteTests.length - failingGlossaryRoutes.length,
     allExactRoutesPass,
     allRefusalTestsPass,
+    allGlossaryRoutesPass,
     exactRoutesByPageState,
     exactRoutesByConfidence,
+    glossaryRoutesByRuntimeAction,
+    glossaryRoutesBySourcePrimaryPageState,
     exactRoutesMissingChunks,
     exactRoutesInternalDraft,
     failingExactRouteIds: failingExactRoutes.map((test) => test.id),
     failingRefusalIds: failingRefusals.map((test) => test.id),
+    failingGlossaryRouteIds: failingGlossaryRoutes.map((test) => test.id),
     exactRouteTests,
+    glossaryRouteTests,
     refusalTests,
   },
   llmReadinessContract: {
@@ -294,6 +379,7 @@ const payload = {
     citationBoundary: "Every substantive answer paragraph must cite page ids and source keys.",
     evaluationSet: {
       exactRoutes: exactRouteTests.length,
+      glossaryRoutes: glossaryRouteTests.length,
       refusals: refusalTests.length,
       lowRatedFeedback: 1,
       noRouteFeedback: 1,
@@ -320,6 +406,7 @@ console.log(
     {
       deterministicReady: payload.deterministicReady,
       exactRoutes: `${payload.evaluation.exactRouteTestsPassing}/${payload.evaluation.totalExactRouteTests}`,
+      glossaryRoutes: `${payload.evaluation.glossaryRouteTestsPassing}/${payload.evaluation.totalGlossaryRouteTests}`,
       refusals: `${payload.evaluation.refusalTestsPassing}/${payload.evaluation.totalRefusalTests}`,
       retrievalEligiblePages: payload.pageStateContract.retrievalEligiblePages,
       llmProductionReady: payload.llmProductionReady,

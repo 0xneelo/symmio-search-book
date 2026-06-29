@@ -12,6 +12,7 @@ const defaults = {
   answerChunks: path.join(searchBookRoot, "data", "answer-chunks.json"),
   pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
+  glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
@@ -244,6 +245,94 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))];
 }
 
+function stripDefinitionQuery(value) {
+  let candidate = normalize(value);
+  const prefixes = [
+    "what is",
+    "what are",
+    "what was",
+    "whats",
+    "define",
+    "explain",
+    "meaning of",
+    "tell me about",
+    "what does",
+  ];
+  const suffixes = [
+    "mean",
+    "means",
+    "stand for",
+    "stands for",
+    "refer to",
+    "refers to",
+    "in vibe",
+    "in symmio",
+    "in vibe docs",
+    "in the docs",
+    "in search book",
+  ];
+
+  for (const prefix of prefixes) {
+    if (candidate === prefix) return "";
+    if (candidate.startsWith(`${prefix} `)) {
+      candidate = candidate.slice(prefix.length).trim();
+      break;
+    }
+  }
+  for (const suffix of suffixes) {
+    if (candidate.endsWith(` ${suffix}`)) {
+      candidate = candidate.slice(0, -suffix.length).trim();
+      break;
+    }
+  }
+  return candidate;
+}
+
+function buildGlossaryRuntime(glossary, pageById) {
+  const routes = [];
+  const aliasLookup = new Map();
+  for (const term of glossary.terms || []) {
+    const retrievalPageIds = unique(term.pageIds || []).filter((pageId) => {
+      const page = pageById.get(pageId);
+      return page && ["candidate", "published", "source-companion"].includes(page.pageState);
+    });
+    const publicPageIds = retrievalPageIds.filter((pageId) => {
+      const page = pageById.get(pageId);
+      return page && ["candidate", "published"].includes(page.pageState);
+    });
+    const sourcePrimaryPage = pageById.get(term.primaryPageId);
+    const publicPrimaryPageId = publicPageIds.includes(term.primaryPageId)
+      ? term.primaryPageId
+      : publicPageIds[0] || "";
+    const route = {
+      id: term.id,
+      term: term.term,
+      category: term.category,
+      definition: term.definition,
+      aliases: term.aliases || [],
+      sourceKeys: term.sourceKeys || [],
+      sourcePrimaryPageId: term.primaryPageId,
+      sourcePrimaryPageState: sourcePrimaryPage?.pageState || "missing",
+      primaryPageId: publicPrimaryPageId,
+      primaryPageState: publicPrimaryPageId ? pageById.get(publicPrimaryPageId)?.pageState || "missing" : "",
+      retrievalPageIds,
+      publicPageIds,
+    };
+    routes.push(route);
+
+    const aliases = unique([term.term, ...(term.aliases || [])]);
+    for (const alias of aliases) {
+      const normalizedAlias = normalize(alias);
+      if (!normalizedAlias) continue;
+      const existing = aliasLookup.get(normalizedAlias);
+      if (!existing || normalizedAlias.length > existing.normalizedAlias.length) {
+        aliasLookup.set(normalizedAlias, { route, alias, normalizedAlias });
+      }
+    }
+  }
+  return { glossary, routes, aliasLookup };
+}
+
 function parseOpenInboxItems(markdown) {
   const openSection = markdown.split("## Open")[1]?.split("## Resolved")[0] || "";
   return [...openSection.matchAll(/^### \[OPEN\] #(\d+) — (.+)$/gm)].map((match) => ({
@@ -256,6 +345,7 @@ function loadRuntime(defaultPaths) {
   const answerChunks = readJson(defaultPaths.answerChunks);
   const pageStateRegistry = readJson(defaultPaths.pageStateRegistry);
   const questionRoutes = readJson(defaultPaths.questionRoutes);
+  const glossary = readJson(defaultPaths.glossary);
   const sourceCatalog = readJson(defaultPaths.sourceCatalog);
   const gapQueue = readJson(defaultPaths.gapQueue);
   const openInboxItems = parseOpenInboxItems(readText(defaultPaths.operatorInbox));
@@ -267,16 +357,20 @@ function loadRuntime(defaultPaths) {
     if (!chunksByPageId.has(chunk.pageId)) chunksByPageId.set(chunk.pageId, []);
     chunksByPageId.get(chunk.pageId).push(chunk);
   }
+  const glossaryRuntime = buildGlossaryRuntime(glossary, pageById);
   return {
     answerChunks,
     pageStateRegistry,
     questionRoutes,
+    glossary,
     sourceCatalog,
     gapQueue,
     openInboxItems,
     pageById,
     chunkById,
     chunksByPageId,
+    glossaryRoutes: glossaryRuntime.routes,
+    glossaryAliasLookup: glossaryRuntime.aliasLookup,
     sourceByKey: sourceCatalog.sourceByKey || {},
     gapById: new Map((gapQueue.items || []).map((gap) => [gap.gapId, gap])),
     exactRouteByQuestion: new Map((questionRoutes.answerable || []).map((route) => [route.normalizedQuestion, route])),
@@ -349,13 +443,53 @@ function preflight(args, runtime) {
   return null;
 }
 
-function scoreChunk(chunk, queryTokens, routeHintPageId) {
+function findGlossaryRoute(normalizedQuery, runtime) {
+  const candidates = unique([
+    normalizedQuery,
+    stripDefinitionQuery(normalizedQuery),
+  ]).filter(Boolean);
+
+  for (const candidate of candidates) {
+    const exact = runtime.glossaryAliasLookup.get(candidate);
+    if (exact) {
+      return {
+        ...exact.route,
+        matchedAlias: exact.alias,
+        normalizedAlias: exact.normalizedAlias,
+        matchType: candidate === normalizedQuery ? "exact-alias" : "definition-query",
+      };
+    }
+  }
+
+  const sortedAliases = [...runtime.glossaryAliasLookup.values()]
+    .filter((item) => item.normalizedAlias.length > 2)
+    .sort((a, b) => b.normalizedAlias.length - a.normalizedAlias.length || a.normalizedAlias.localeCompare(b.normalizedAlias));
+
+  for (const candidate of candidates) {
+    for (const item of sortedAliases) {
+      const pattern = new RegExp(`(^| )${item.normalizedAlias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}( |$)`);
+      if (!pattern.test(candidate)) continue;
+      const aliasTokens = tokens(item.normalizedAlias);
+      if (aliasTokens.length <= 1 && candidate !== item.normalizedAlias) continue;
+      return {
+        ...item.route,
+        matchedAlias: item.alias,
+        normalizedAlias: item.normalizedAlias,
+        matchType: "contained-alias",
+      };
+    }
+  }
+
+  return null;
+}
+
+function scoreChunk(chunk, queryTokens, routeHintPageIds) {
   const haystack = `${chunk.title} ${chunk.text} ${(chunk.sourceKeys || []).join(" ")}`.toLowerCase();
   let score = 0;
   for (const token of queryTokens) {
     if (haystack.includes(token)) score += chunk.title.toLowerCase().includes(token) ? 3 : 1;
   }
-  if (routeHintPageId && chunk.pageId === routeHintPageId) score += 20;
+  if (routeHintPageIds.has(chunk.pageId)) score += 20;
   return score;
 }
 
@@ -363,14 +497,19 @@ function retrieve(args, runtime) {
   const normalizedQuery = normalize(args.query);
   const queryTokens = tokens(args.query);
   const exactRoute = runtime.exactRouteByQuestion.get(normalizedQuery);
-  const routeHintPageId = exactRoute?.pageId || "";
+  const glossaryRoute = exactRoute ? null : findGlossaryRoute(normalizedQuery, runtime);
+  const routeHintPageIds = new Set([
+    exactRoute?.pageId || "",
+    glossaryRoute?.primaryPageId || "",
+    ...(glossaryRoute?.retrievalPageIds || []),
+  ].filter(Boolean));
   const scored = [];
 
   for (const chunk of runtime.answerChunks.chunks || []) {
     const page = runtime.pageById.get(chunk.pageId);
     if (!page || !["candidate", "published", "source-companion"].includes(page.pageState)) continue;
     if ((chunk.sourceKeys || []).some((key) => !runtime.sourceByKey[key])) continue;
-    const score = scoreChunk(chunk, queryTokens, routeHintPageId);
+    const score = scoreChunk(chunk, queryTokens, routeHintPageIds);
     if (score > 0) scored.push({ ...chunk, score, pageState: page.pageState });
   }
 
@@ -401,6 +540,7 @@ function retrieve(args, runtime) {
     query: args.query,
     normalizedQuery,
     exactRoute: exactRoute || null,
+    glossaryRoute: glossaryRoute || null,
     chunks,
     candidatePages,
     blockedSignals: [],
@@ -424,6 +564,10 @@ function citationForChunk(chunk, runtime) {
 
 function choosePrimaryPage(context, runtime) {
   if (context.exactRoute) return context.exactRoute.pageId;
+  if (context.glossaryRoute?.primaryPageId) {
+    const page = runtime.pageById.get(context.glossaryRoute.primaryPageId);
+    if (page && ["candidate", "published"].includes(page.pageState)) return page.id;
+  }
   const answerable = context.chunks.find((chunk) => {
     const page = runtime.pageById.get(chunk.pageId);
     return page && ["candidate", "published"].includes(page.pageState);
@@ -474,7 +618,7 @@ function extractiveAnswer(args, runtime, context) {
         source: args.source,
       },
     ],
-    confidence: context.exactRoute ? "exact-route" : "retrieval",
+    confidence: context.exactRoute ? "exact-route" : context.glossaryRoute ? "glossary-route" : "retrieval",
     relatedPageIds: unique(context.candidatePages.map((page) => page.pageId)).filter((pageId) => pageId !== primaryPageId).slice(0, 5),
   };
   return validateResponseOrThrow(response, context, runtime);
@@ -554,6 +698,7 @@ async function llmAnswer(args, runtime, context) {
           requestId: args.requestId,
           query: args.query,
           exactRoute: context.exactRoute,
+          glossaryRoute: context.glossaryRoute,
           candidatePages: context.candidatePages,
           chunks: contextForPrompt(context),
         }),

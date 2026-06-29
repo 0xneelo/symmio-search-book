@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Runtime Glossary Routing
+
+- Added executable glossary lookup to the answer-engine runtime so definition-style term and alias queries use `data/glossary.json` before broad retrieval.
+- Kept exact seeded question routes first, then glossary routing, then chunk retrieval.
+- Added generated answer-engine contract coverage for 32 glossary terms: 26 public-routable terms, 5 retrieval-context-only terms, and 1 internal/blocked term.
+- Verified runtime probes for AMFQ, PartyA, Vibe Trading, referral depth, and ADL: glossary routes now sharpen definition queries while operator-blocked and public-page boundaries still hold.
+
 ## 2026-06-29 — Answer Retrieval Stop-Word Tightening
 
 - Expanded the deterministic answer-engine stop-word list so auxiliary words like `was`, `were`, `has`, `have`, `should`, `could`, `which`, and `with` do not drive chunk retrieval.

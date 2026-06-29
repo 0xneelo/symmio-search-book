@@ -972,8 +972,12 @@
       {
         "stage": "glossary-route",
         "priority": 2,
-        "behavior": "If a query asks for a term or alias, route to the term's primary page.",
-        "sourceData": "data/glossary.json"
+        "behavior": "If a query asks for a term or alias, route to the term's public primary page when one exists; otherwise use retrieval context only and fail closed if no public answer page is available.",
+        "sourceData": "data/glossary.json",
+        "totalGoldenRoutes": 32,
+        "publicRoutableTerms": 26,
+        "contextOnlyTerms": 5,
+        "internalOnlyTerms": 1
       },
       {
         "stage": "chunk-retrieval",
@@ -1061,6 +1065,7 @@
       "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
       "evaluationSet": {
         "exactRoutes": 767,
+        "glossaryRoutes": 32,
         "refusals": 7,
         "lowRatedFeedback": 1,
         "noRouteFeedback": 1,

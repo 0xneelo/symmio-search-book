@@ -4,9 +4,9 @@ This contract defines how production LLM answers must sit on top of the determin
 
 ## Runtime Boundary
 
-- Run deterministic exact-route, glossary, and reconciliation checks before LLM synthesis.
+- Run deterministic exact-route, executable glossary, and reconciliation checks before LLM synthesis.
 - Retrieve only from `data/answer-chunks.json` and page states allowed by `data/page-state-registry.json`.
-- Let `source-companion` pages support context, but route public readers to `candidate` or future `published` pages.
+- Let `source-companion` pages support context, but route public readers only to `candidate` or future `published` pages.
 - Exclude `internal-draft` pages from model context and final answers.
 - Keep provider choice out of this contract; model id and API key belong in environment/runtime configuration.
 
@@ -47,7 +47,7 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, and 14 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 14 adversarial eval cases are specified. `llmProductionReady` intentionally remains false until approved model credentials, live model-response validation, prompt-injection test execution, operator-blocked source decisions, server persistence, and Discord/Lafa import are complete.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should run those checks against actual model responses before production launch.
 
