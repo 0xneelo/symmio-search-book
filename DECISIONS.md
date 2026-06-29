@@ -1143,3 +1143,11 @@
 **Reason:** The broad token-margined LP and 1x leverage pages explain the conclusion, but answer-engine readers need direct routes for the mechanics underneath it. Splitting Section 4 keeps the unit-of-account problem, LP motive problem, volatility payoff shape, inverse-PnL bankruptcy example, and utilization-safety interpretation separate enough to answer precise questions without overgeneralizing the source.
 
 **Status:** Accepted for the authored manifesto layer; live Percolator SOV balances, current utilization, deployed risk parameters, haircut behavior, margin thresholds, fee/funding values, LP terms, and publication-date third-party claims remain fresh primary-source and operator/risk/legal/implementation review.
+
+## D-144: Split Percolator Oracle Manipulation Into Exact Risk Answers
+
+**Decision:** Add authored Volume 04 manifesto pages for the oracle trilemma, capped-oracle latency arbitrage, spot/perp pump-and-dump sequence, token-margin manipulation amplification, and ADL haircut as controlled crash.
+
+**Reason:** The existing oracle-circuit-breaker, passive-matcher, and shorting-death-spiral pages explain the broad critique, but answer-engine readers need direct routes for the source's precise failure mechanics. Splitting Section 5 keeps the oracle tradeoff, deterministic catch-up window, cross-market attack path, margin-unit amplification, and payout-haircut credibility cost independently answerable.
+
+**Status:** Accepted for the authored manifesto layer; live oracle providers, circuit-breaker values, matcher code, spread values, current Percolator deployment state, manipulation feasibility, ADL haircut implementation, and user-facing guarantees remain fresh primary-source and operator/security/risk/legal/implementation review.

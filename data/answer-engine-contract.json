@@ -50,7 +50,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 507
+      "totalGoldenRoutes": 512
     },
     {
       "stage": "glossary-route",
@@ -145,11 +145,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 525,
-    "retrievalEligiblePages": 1317,
+    "publicNavigationPages": 530,
+    "retrievalEligiblePages": 1322,
     "internalDraftPages": 3,
     "byState": {
-      "candidate": 525,
+      "candidate": 530,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -160,17 +160,17 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 507,
-    "exactRouteTestsPassing": 507,
+    "totalExactRouteTests": 512,
+    "exactRouteTestsPassing": 512,
     "totalRefusalTests": 7,
     "refusalTestsPassing": 7,
     "allExactRoutesPass": true,
     "allRefusalTestsPass": true,
     "exactRoutesByPageState": {
-      "candidate": 507
+      "candidate": 512
     },
     "exactRoutesByConfidence": {
-      "Medium": 287,
+      "Medium": 292,
       "High": 44,
       "Low": 176
     },
@@ -11332,6 +11332,111 @@
         "chunkCount": 2,
         "faqEntryId": "faq-why-can-percolator-s-low-utilization-be-necessary",
         "passes": true
+      },
+      {
+        "id": "qr-what-is-the-oracle-trilemma-in-low-cap-perps",
+        "query": "What is the oracle trilemma in low-cap perps?",
+        "normalizedQuery": "what is the oracle trilemma in low cap perps",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-oracle-trilemma",
+        "expectedPageTitle": "The Oracle Trilemma",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-is-the-oracle-trilemma-in-low-cap-perps",
+        "passes": true
+      },
+      {
+        "id": "qr-how-can-a-capped-oracle-create-latency-arbitrage",
+        "query": "How can a capped oracle create latency arbitrage?",
+        "normalizedQuery": "how can a capped oracle create latency arbitrage",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-capped-oracle-latency-arbitrage",
+        "expectedPageTitle": "Capped Oracle Latency Arbitrage",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-can-a-capped-oracle-create-latency-arbitrage",
+        "passes": true
+      },
+      {
+        "id": "qr-how-does-a-spot-perp-pump-and-dump-attack-work",
+        "query": "How does a spot-perp pump-and-dump attack work?",
+        "normalizedQuery": "how does a spot perp pump and dump attack work",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-spot-perp-pump-dump-attack",
+        "expectedPageTitle": "Spot-Perp Pump-And-Dump Attack",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-how-does-a-spot-perp-pump-and-dump-attack-work",
+        "passes": true
+      },
+      {
+        "id": "qr-why-does-token-margin-amplify-manipulation",
+        "query": "Why does token margin amplify manipulation?",
+        "normalizedQuery": "why does token margin amplify manipulation",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-token-margin-manipulation-amplifier",
+        "expectedPageTitle": "Token Margin As Manipulation Amplifier",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-does-token-margin-amplify-manipulation",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-adl-haircut-a-controlled-crash",
+        "query": "Why is ADL haircut a controlled crash?",
+        "normalizedQuery": "why is adl haircut a controlled crash",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-adl-haircut-controlled-crash",
+        "expectedPageTitle": "ADL Haircut As Controlled Crash",
+        "expectedPageState": "candidate",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-adl-haircut-a-controlled-crash",
+        "passes": true
       }
     ],
     "refusalTests": [
@@ -11407,7 +11512,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 507,
+      "exactRoutes": 512,
       "refusals": 7,
       "lowRatedFeedback": 1,
       "noRouteFeedback": 1,

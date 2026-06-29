@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic-build",
-  "totalPages": 526,
+  "totalPages": 531,
   "byStatus": {
-    "publication-candidate-needs-operator-review": 380,
-    "publication-candidate": 128,
-    "publication-candidate-needs-current-source-review": 6,
+    "publication-candidate-needs-operator-review": 382,
+    "publication-candidate": 130,
+    "publication-candidate-needs-current-source-review": 7,
     "publication-candidate-needs-editorial-review": 2,
     "publication-candidate-needs-fresh-source-review": 1,
     "needs-reconciliation": 1,
     "publication-candidate-needs-publication-date-review": 8
   },
   "bySection": {
-    "manifesto": 248,
+    "manifesto": 253,
     "product-reference": 47,
     "rewards-referrals": 80,
     "dashboard-reference": 12,
@@ -46,6 +46,29 @@
       "file": "content/authored/manifesto/active-risk-management-vs-passive-physics.md",
       "bodyMarkdown": "# Active Risk Management Versus Passive Physics\n\nNeelo's Vibe-versus-Percolator comparison describes two risk philosophies.\n\nPercolator is framed as passive physics: parameters are set, invariants are checked, and the state machine liquidates or applies ADL when constraints fail. Vibe is framed as active optimization: the solver adjusts spreads, funding, borrow rates, insurance deployment, and defensive escalation in response to market state.\n\n## What The Active Layer Buys\n\nActive risk management can use several control surfaces:\n\n- widen spreads when volatility or utilization rises;\n- adjust funding to discourage dominant-side skew;\n- deploy local or global insurance before forced deleveraging;\n- offer pricing incentives for rebalancing flow;\n- reduce exposure when oracle or manipulation risk rises.\n\nThe point is not that an active solver can eliminate risk. It is that a solver can respond before the only remaining action is liquidation or haircut.\n\n## What It Costs\n\nThe active approach costs simplicity. It needs risk models, monitoring, operator policy, source-backed parameters, and public documentation of failure modes. It also creates UX tradeoffs: quotes can widen, capacity can tighten, and some trades can be refused.\n\nThat cost is still part of the Vibe thesis. Long-tail markets are not mature CLOB markets. They need an adaptive counterparty layer until the market has enough two-sided flow to clear more naturally.\n\n## Reader Implication\n\nThe docs should present active solver discretion as a risk-control mechanism, not as magic. It is more complex than passive invariant checking, but the complexity is the price of making thin, volatile markets tradeable without pretending every asset has mature liquidity from day one.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"The Structurally Superior Alternative\".\n- `vibe-papers`: Neelo, \"Vibe Trading's OTC Solver Model vs. Percolator's Inverted Perps\".\n\n## Related Pages\n\n- `authored-dynamic-pricing-controls`\n- `authored-funding-defense-hierarchy`\n- `authored-solver-engine-operating-loop`",
       "excerpt": "Active Risk Management Versus Passive Physics Neelo's Vibe versus Percolator comparison describes two risk philosophies. Percolator is framed as passive physics: parameters are set, invariants are checked, and the state machine liquidates or applies ADL when constraints fail. Vibe is framed as active optimization: the solver adjusts spreads, funding, borrow rates, insurance deployment, and defensive escalation in response to market state. What The Active Layer Buys Active risk management can use several control surfaces: widen spreads when volatility or utilization rises; adjust funding to discourage dominant side skew; deploy local or global insurance before forced deleveraging; offer pricing incentives for rebalancing flow; reduce exposure when oracle or manipulation risk rises. The point is not that an active solver can eliminate risk. It is that a solver can respond before the only remaining action is liquidation or haircut. What It Costs The active approach costs simplicity. It needs risk models, monitoring, operator policy, source backed parameters, and public documentation of failure modes. It also creates UX tradeoffs: quotes can widen, capacity can tighten, and some trades"
+    },
+    {
+      "id": "authored-adl-haircut-controlled-crash",
+      "title": "ADL Haircut As Controlled Crash",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "authored-shorting-death-spiral",
+        "authored-percolator-engineering-vs-economics"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/adl-haircut-controlled-crash.md",
+      "bodyMarkdown": "# ADL Haircut As Controlled Crash\n\nPercolator's source names auto-deleveraging through a haircut ratio as the defense when the vault cannot cover obligations. That can preserve a balance-sheet invariant. It does not preserve the market's economic promise.\n\nThe source's critique is direct: winning traders do not receive the full profit they earned. The protocol avoids technical insolvency by reducing payouts, but the market has admitted that profitable positions are conditional on vault health.\n\n## Why The Distinction Matters\n\nAn emergency haircut can be better than an uncontrolled insolvency. It can make the crash bounded and explicit. But it is still a controlled crash. The trader experience is no longer \"my position paid.\" It is \"my winning claim was cut because the venue could not honor it.\"\n\nThat distinction is central to the compendium's Percolator comparison. Software correctness can prove that balances are conserved under a haircut rule. It cannot prove that serious traders will trust a venue where stress resolution routinely confiscates winning PnL.\n\n## Reader Implication\n\nADL should be documented as a last-resort solvency control, not as a normal payout mechanism. A reader asking whether a market pays winners needs both answers: the technical rule that prevents insolvency and the economic cost of using that rule.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\", \"5.5.3 ADL as Band-Aid\".\n\n## Related Pages\n\n- `authored-shorting-death-spiral`\n- `authored-percolator-engineering-vs-economics`\n- `authored-trader-payout-certainty`",
+      "excerpt": "ADL Haircut As Controlled Crash Percolator's source names auto deleveraging through a haircut ratio as the defense when the vault cannot cover obligations. That can preserve a balance sheet invariant. It does not preserve the market's economic promise. The source's critique is direct: winning traders do not receive the full profit they earned. The protocol avoids technical insolvency by reducing payouts, but the market has admitted that profitable positions are conditional on vault health. Why The Distinction Matters An emergency haircut can be better than an uncontrolled insolvency. It can make the crash bounded and explicit. But it is still a controlled crash. The trader experience is no longer \"my position paid.\" It is \"my winning claim was cut because the venue could not honor it.\" That distinction is central to the compendium's Percolator comparison. Software correctness can prove that balances are conserved under a haircut rule. It cannot prove that serious traders will trust a venue where stress resolution routinely confiscates winning PnL. Reader Implication ADL should be documented as a last resort solvency control, not as a normal payout mechanism. A reader asking whether"
     },
     {
       "id": "authored-adversarial-selection-pressure",
@@ -386,6 +409,29 @@
       "file": "content/authored/manifesto/break-even-versus-attractive-apr.md",
       "bodyMarkdown": "# Break-Even Versus Attractive APR\n\nThe economic interpretation section makes a useful distinction: an LP break-even APR is not the same as an attractive APR.\n\nIn the source model, break-even means the LP earns enough to cover expected loss and still match the outside USDC opportunity:\n\n```\nr_I >= E[Loss] + r_f\n```\n\nThat only gets the LP to indifference in expectation. To be attractive, the return must also compensate for tail risk, volatility of losses, and adverse selection. A rational LP does not supply fragile backstop capital merely to expect the same outcome as a simpler USDC strategy after absorbing more complicated risk.\n\n## Reader Implication\n\nWhen documentation discusses LP incentives, it should not treat \"positive expected return\" as enough. The capital has to be worth deploying after expected loss, opportunity cost, tail risk, and operational complexity.\n\n## Publication Boundary\n\nThe source's break-even and attractive-APR ranges are model outputs. They should not become live Vibe LP marketing copy, target yields, or promises of capital availability without operator, accounting, legal, and implementation approval.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Economic Interpretation.\n\n## Related Pages\n\n- `authored-required-risk-premium-for-usdc-lps`\n- `authored-usdc-opportunity-cost-floor`\n- `authored-adverse-selection-premium-for-usdc-lps`",
       "excerpt": "Break Even Versus Attractive APR The economic interpretation section makes a useful distinction: an LP break even APR is not the same as an attractive APR. In the source model, break even means the LP earns enough to cover expected loss and still match the outside USDC opportunity: That only gets the LP to indifference in expectation. To be attractive, the return must also compensate for tail risk, volatility of losses, and adverse selection. A rational LP does not supply fragile backstop capital merely to expect the same outcome as a simpler USDC strategy after absorbing more complicated risk. Reader Implication When documentation discusses LP incentives, it should not treat \"positive expected return\" as enough. The capital has to be worth deploying after expected loss, opportunity cost, tail risk, and operational complexity. Publication Boundary The source's break even and attractive APR ranges are model outputs. They should not become live Vibe LP marketing copy, target yields, or promises of capital availability without operator, accounting, legal, and implementation approval. Sources vibe papers : Neelo, \"Required APR Derivation for USDC Depositors in Imperial\", Economic Inter"
+    },
+    {
+      "id": "authored-capped-oracle-latency-arbitrage",
+      "title": "Capped Oracle Latency Arbitrage",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-current-source-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "authored-oracle-circuit-breaker-paradox",
+        "authored-passive-matcher-vulnerability"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/capped-oracle-latency-arbitrage.md",
+      "bodyMarkdown": "# Capped Oracle Latency Arbitrage\n\nThe circuit-breaker paradox becomes concrete when a capped oracle moves toward a known external price. Neelo's source uses a Percolator SOV example with a per-push update cap. If the real DEX price jumps faster than the oracle can update, an attacker can observe the destination before the on-chain price arrives.\n\nIn the source sequence, the real price jumps from `$1.00` toward `$1.50`, while the capped oracle advances in smaller steps. A trader can open a leveraged long at the lagging oracle price, wait as the oracle catches up, and close after the deterministic path has already become visible.\n\n## Why This Is Different From Ordinary Staleness\n\nOrdinary stale data is bad because the price is old. A capped catch-up path is worse in one respect: the attacker may know not only that the oracle is stale, but also the direction it must travel if the external market remains there.\n\nThat turns a protective mechanism into a predictable latency-arbitrage surface. The circuit breaker reduces flash-loan manipulation risk, but it can create a window where informed traders buy a winning ticket after the outcome is already visible off-chain.\n\n## Publication Boundary\n\nPercolator-specific cap values, data vendors, current deployment state, and live exploitability require fresh primary-source review before publication. The durable lesson is architectural: capped oracle motion can protect against one attack while creating another.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\", \"5.2 The Circuit Breaker Paradox\".\n\n## Related Pages\n\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-oracle-trilemma`\n- `authored-passive-matcher-vulnerability`",
+      "excerpt": "Capped Oracle Latency Arbitrage The circuit breaker paradox becomes concrete when a capped oracle moves toward a known external price. Neelo's source uses a Percolator SOV example with a per push update cap. If the real DEX price jumps faster than the oracle can update, an attacker can observe the destination before the on chain price arrives. In the source sequence, the real price jumps from $1.00 toward $1.50 , while the capped oracle advances in smaller steps. A trader can open a leveraged long at the lagging oracle price, wait as the oracle catches up, and close after the deterministic path has already become visible. Why This Is Different From Ordinary Staleness Ordinary stale data is bad because the price is old. A capped catch up path is worse in one respect: the attacker may know not only that the oracle is stale, but also the direction it must travel if the external market remains there. That turns a protective mechanism into a predictable latency arbitrage surface. The circuit breaker reduces flash loan manipulation risk, but it can create a window where informed traders buy a winning ticket after the outcome is already visible off chain. Publication Boundary Percolator s"
     },
     {
       "id": "authored-clob-economic-synchrony-requirement",
@@ -5226,6 +5272,29 @@
       "excerpt": "The Oracle Circuit Breaker Paradox The oracle problem in low cap perps is not only stale data. It is the tradeoff between guaranteed execution, fair pricing, and LP safety. Neelo's Percolator source shows why a circuit breaker can both protect and endanger the market. If the oracle updates freely, a flash manipulation can move the reference price and drain passive LPs. If the oracle is capped, the market can know that the on chain price must catch up to the real price over several updates. That creates latency arbitrage: a trader can enter after the outcome is already visible off chain but before the capped oracle has arrived. The passive matcher makes the issue concrete. A fixed spread around an oracle price works only if real price does not move more than the spread before the oracle catches up. Long tail tokens and memecoins violate that assumption constantly. The source backed Vibe argument is that a solver quote should use oracles as inputs, not as the blind execution price. A solver can refuse, widen spreads, or price current risk when the reference market is manipulated or moving too fast. That increases agency and implementation burden, but it avoids pretending a determinis"
     },
     {
+      "id": "authored-oracle-trilemma",
+      "title": "The Oracle Trilemma",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "authored-oracle-circuit-breaker-paradox",
+        "authored-passive-matcher-vulnerability"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/oracle-trilemma.md",
+      "bodyMarkdown": "# The Oracle Trilemma\n\nNeelo's Percolator oracle source frames low-cap on-chain derivatives as a trilemma. A market wants guaranteed execution, fair pricing, and LP safety, but the source argues the system can reliably hold only two at once.\n\nGuaranteed execution means users can always trade. Fair pricing means execution occurs at market value. LP safety means informed flow cannot drain the backing account by trading against stale or manipulable prices.\n\n## Why The Three Goals Conflict\n\nIf the protocol always executes against an oracle, traders get predictable access, but LPs can be exposed when the oracle is stale, capped, or manipulated. If the protocol rejects trades during volatility, LPs are safer, but execution is no longer guaranteed. If the protocol relies on dynamic or discretionary quotes, pricing can become safer, but the system has moved away from a purely passive on-chain matcher.\n\nThe trilemma is useful because it prevents fake simplicity. The question is not \"which oracle is best?\" It is which tradeoff the market chooses when real-world price, on-chain update cadence, and adversarial flow diverge.\n\n## Reader Implication\n\nDocs should explain oracle design as a market-structure choice, not a data plumbing detail. A reader asking why a quote widened, disappeared, or diverged from a simple oracle price should see the trilemma before seeing implementation parameters.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\", \"5.1 The Oracle Trilemma\".\n\n## Related Pages\n\n- `authored-oracle-circuit-breaker-paradox`\n- `authored-passive-matcher-vulnerability`\n- `authored-solver-refusal-as-oracle-defense`",
+      "excerpt": "The Oracle Trilemma Neelo's Percolator oracle source frames low cap on chain derivatives as a trilemma. A market wants guaranteed execution, fair pricing, and LP safety, but the source argues the system can reliably hold only two at once. Guaranteed execution means users can always trade. Fair pricing means execution occurs at market value. LP safety means informed flow cannot drain the backing account by trading against stale or manipulable prices. Why The Three Goals Conflict If the protocol always executes against an oracle, traders get predictable access, but LPs can be exposed when the oracle is stale, capped, or manipulated. If the protocol rejects trades during volatility, LPs are safer, but execution is no longer guaranteed. If the protocol relies on dynamic or discretionary quotes, pricing can become safer, but the system has moved away from a purely passive on chain matcher. The trilemma is useful because it prevents fake simplicity. The question is not \"which oracle is best?\" It is which tradeoff the market chooses when real world price, on chain update cadence, and adversarial flow diverge. Reader Implication Docs should explain oracle design as a market structure choic"
+    },
+    {
       "id": "authored-order-book-admission-bottleneck",
       "title": "Order Book Admission Bottleneck",
       "section": "manifesto",
@@ -8813,6 +8882,29 @@
       "excerpt": "Spot Only Markets Are One Sided Spot markets are necessary, but they do not give a token complete market expression. They mostly let participants buy, sell existing holdings, or leave. That one sidedness explains many familiar crypto symptoms: narratives can outrun fundamentals, attention can substitute for conviction, and token markets can look active before they have been shorted, hedged, or stress tested. The market has a yes button, but the no side is weak. Derivatives add the missing market language. They let participants short, hedge, basis trade, and express risk without requiring them to hold or sell the underlying token directly. That does not guarantee truth, but it makes overstatement more expensive and skepticism more useful. Reader Implication The docs should not present perps as a casino layer pasted onto tokens. The better explanation is that derivatives complete the market grammar. A token market that can only express enthusiasm is not done. Sources vibe papers : Neelo, \"Section 4: Why the Industry Is Still Broken\". vibe papers : Neelo, \"Section 5: Why Derivatives Matter\". Related Pages authored why derivatives matter authored truth markets no button authored financ"
     },
     {
+      "id": "authored-spot-perp-pump-dump-attack",
+      "title": "Spot-Perp Pump-And-Dump Attack",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate-needs-operator-review",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "authored-profitable-manipulation-condition",
+        "authored-token-margined-reflexivity-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/spot-perp-pump-dump-attack.md",
+      "bodyMarkdown": "# Spot-Perp Pump-And-Dump Attack\n\nNeelo's Percolator manipulation source describes a two-phase attack that uses the spot market and the perp market against each other.\n\nIn the pump phase, the attacker opens a leveraged long, buys the token on spot, pushes the oracle upward, and cashes out the long as the perp follows. In the dump phase, the attacker opens a large short, sells accumulated spot tokens, pushes the price down, and closes the short for token-denominated profit.\n\n## Why The Sequence Matters\n\nThe important feature is coordination across venues. The perp is not attacked in isolation. The attacker can use the reference spot market to move the oracle and use the perp to extract from the LP vault. In a thin market, the cost of moving spot can be smaller than the gain from the leveraged derivative.\n\nThis is why low-cap perp documentation must discuss spot liquidity, oracle construction, OI caps, and liquidation feasibility together. A market can look safe in a single module and still be attackable as a cross-market system.\n\n## Reader Implication\n\nWhen a reader asks whether manipulation is random or structural, route here. The source's answer is that manipulation becomes structural when the attacker can profitably coordinate spot movement, oracle response, and leveraged perp PnL.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\", \"5.4.1 The Pump-and-Dump Attack\".\n\n## Related Pages\n\n- `authored-profitable-manipulation-condition`\n- `authored-incentive-based-attack-risk`\n- `authored-token-margin-manipulation-amplifier`",
+      "excerpt": "Spot Perp Pump And Dump Attack Neelo's Percolator manipulation source describes a two phase attack that uses the spot market and the perp market against each other. In the pump phase, the attacker opens a leveraged long, buys the token on spot, pushes the oracle upward, and cashes out the long as the perp follows. In the dump phase, the attacker opens a large short, sells accumulated spot tokens, pushes the price down, and closes the short for token denominated profit. Why The Sequence Matters The important feature is coordination across venues. The perp is not attacked in isolation. The attacker can use the reference spot market to move the oracle and use the perp to extract from the LP vault. In a thin market, the cost of moving spot can be smaller than the gain from the leveraged derivative. This is why low cap perp documentation must discuss spot liquidity, oracle construction, OI caps, and liquidation feasibility together. A market can look safe in a single module and still be attackable as a cross market system. Reader Implication When a reader asks whether manipulation is random or structural, route here. The source's answer is that manipulation becomes structural when the a"
+    },
+    {
       "id": "authored-static-perp-design-failures",
       "title": "Why Static Perp Designs Fail At Bootstrap",
       "section": "manifesto",
@@ -10272,6 +10364,29 @@
       "file": "content/authored/reference/token-lp-attractiveness-model.md",
       "bodyMarkdown": "# Token LP Attractiveness Model\n\nThe DDQ's LP-attractiveness section makes a balance-sheet argument: Vibe should not ask every market to begin with a large external USDC vault. It separates the stablecoin side from the token-inventory side.\n\nOn the stablecoin side, the source describes solver- or protocol-funded USDC operations. Stablecoin capital is used operationally for settlement, hedging, and bridging, but the model avoids asking outside USDC LPs to lend into low-cap leveraged markets where they would demand a high risk premium.\n\nOn the token side, the source argues that project treasuries, token holders, founders, early investors, and aligned communities are natural inventory providers because they already bear directional token exposure. Depositing some token inventory into a Vibe vault can create additional market utility and possible yield without forcing the project to spend scarce stablecoins.\n\n## Lifecycle Role\n\nThe DDQ describes LP deposits as ignition capital. In the bootstrapped stage, asynchronous execution and conservative risk limits rely more on LP deposits and solver control. In the maturing stage, trader-to-trader netting should increase and protocol-side collateralization can decrease. In the mature stage, the solver should act more like a pricing, matching, and risk-control layer than a balance-sheet backstop for every fill.\n\nThat lifecycle framing matters because it prevents a false promise. Token LPs are not expected to remain the entire market forever. They help the market reach the stage where better two-sided flow can carry more of the risk.\n\n## Publication Boundary\n\nThe source includes specific economic claims, including a modeled capital-efficiency advantage, a revenue-share target, and early partner/deposit traction. Those should remain source-model claims until operator review confirms what can be published today under the revenue and partner-disclosure boundary.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Attractiveness for LPs\".\n- `vibe-papers`: Neelo, \"USDC vs Token-Margined Perpetuals\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-token-inventory-risk-localization`\n- `authored-risk-adjusted-capital-efficiency`\n- `neelo-08-due-diligence-questionnaire-08-docs-attractiveness-for-lps-attractiveness-for-lps`",
       "excerpt": "Token LP Attractiveness Model The DDQ's LP attractiveness section makes a balance sheet argument: Vibe should not ask every market to begin with a large external USDC vault. It separates the stablecoin side from the token inventory side. On the stablecoin side, the source describes solver or protocol funded USDC operations. Stablecoin capital is used operationally for settlement, hedging, and bridging, but the model avoids asking outside USDC LPs to lend into low cap leveraged markets where they would demand a high risk premium. On the token side, the source argues that project treasuries, token holders, founders, early investors, and aligned communities are natural inventory providers because they already bear directional token exposure. Depositing some token inventory into a Vibe vault can create additional market utility and possible yield without forcing the project to spend scarce stablecoins. Lifecycle Role The DDQ describes LP deposits as ignition capital. In the bootstrapped stage, asynchronous execution and conservative risk limits rely more on LP deposits and solver control. In the maturing stage, trader to trader netting should increase and protocol side collateralizatio"
+    },
+    {
+      "id": "authored-token-margin-manipulation-amplifier",
+      "title": "Token Margin As Manipulation Amplifier",
+      "section": "manifesto",
+      "track": "07 - Token-Margined Issues (Percolator)",
+      "granularity": "authored-page",
+      "status": "publication-candidate",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sourceUrls": [
+        "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"
+      ],
+      "relatedGeneratedPages": [
+        "neelo-07-token-margined-issues-perculator-07-docs-05-oracle-manipulation-death-spiral",
+        "authored-spot-perp-pump-dump-attack",
+        "authored-token-margined-reflexivity-risk"
+      ],
+      "volumeId": "volume-04-token-margin-and-funding-systems",
+      "file": "content/authored/manifesto/token-margin-manipulation-amplifier.md",
+      "bodyMarkdown": "# Token Margin As Manipulation Amplifier\n\nNeelo's source contrasts USDC-margined manipulation with token-margined manipulation. In the USDC case, the attacker must spend stable collateral, PnL is bounded in dollar terms, and the LP collateral unit does not weaken just because the listed token moves.\n\nIn the token-margined case, the same token can be the collateral, the manipulation object, the payout unit, and the LP's balance-sheet base. That makes manipulation more reflexive.\n\n## The Amplification Path\n\nDuring a pump, the attacker can benefit from long PnL while collateral appreciates. During a dump, inverse payoff mechanics can require more token units to settle profits while LP collateral devalues. If the oracle is capped, the attacker may also get a predictable timing path in both directions.\n\nThe source's claim is not only that manipulation exists. It is that token-margining can connect the manipulation budget, payout liability, collateral value, and oracle path into one feedback system.\n\n## Reader Implication\n\nDocs should not treat margin currency as an implementation afterthought. The unit of margin can decide whether manipulation stays a bounded external cost or becomes part of the market's internal feedback loop.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Oracle Paradox, Manipulation, and Death Spiral\", \"5.4.2 Why Token-Margining Amplifies\".\n\n## Related Pages\n\n- `authored-spot-perp-pump-dump-attack`\n- `authored-token-margined-reflexivity-risk`\n- `authored-inverse-payoff-trap`",
+      "excerpt": "Token Margin As Manipulation Amplifier Neelo's source contrasts USDC margined manipulation with token margined manipulation. In the USDC case, the attacker must spend stable collateral, PnL is bounded in dollar terms, and the LP collateral unit does not weaken just because the listed token moves. In the token margined case, the same token can be the collateral, the manipulation object, the payout unit, and the LP's balance sheet base. That makes manipulation more reflexive. The Amplification Path During a pump, the attacker can benefit from long PnL while collateral appreciates. During a dump, inverse payoff mechanics can require more token units to settle profits while LP collateral devalues. If the oracle is capped, the attacker may also get a predictable timing path in both directions. The source's claim is not only that manipulation exists. It is that token margining can connect the manipulation budget, payout liability, collateral value, and oracle path into one feedback system. Reader Implication Docs should not treat margin currency as an implementation afterthought. The unit of margin can decide whether manipulation stays a bounded external cost or becomes part of the marke"
     },
     {
       "id": "authored-token-margined-lp-lose-lose",

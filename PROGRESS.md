@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-29 — Percolator Oracle Manipulation Exact Pages
+
+- Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 5 oracle/manipulation source.
+- Split the broad oracle and death-spiral critique into exact answer routes for the oracle trilemma, capped-oracle latency arbitrage, spot/perp pump-and-dump sequence, token-margin manipulation amplification, and ADL haircut as controlled crash.
+- Extended the question ledger so Ask can route direct user questions about oracle tradeoffs, capped catch-up paths, manipulation sequencing, token-margin reflexivity, and haircut credibility.
+- Kept live Percolator parameters, circuit-breaker values, matcher implementation state, oracle vendors, current exploitability, and ADL behavior marked for fresh primary-source/operator/risk review.
+
 ## 2026-06-29 — Percolator LP Economics Exact Pages
 
 - Added 5 authored Volume 04 manifesto pages from Neelo's Percolator Section 4 LP-economics source.

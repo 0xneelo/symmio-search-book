@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 507,
+  "totalRoutes": 512,
   "totalReconciliationQuestions": 7,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 287,
+    "Medium": 292,
     "High": 44,
     "Low": 176
   },
   "byRouteSource": {
-    "authored": 507
+    "authored": 512
   },
   "answerable": [
     {
@@ -8881,6 +8881,91 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo interprets low Percolator SOV utilization as a safety necessity under token-margined inverse payout risk, not merely weak demand.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-is-the-oracle-trilemma-in-low-cap-perps",
+      "question": "What is the oracle trilemma in low-cap perps?",
+      "normalizedQuestion": "what is the oracle trilemma in low cap perps",
+      "pageId": "authored-oracle-trilemma",
+      "pageTitle": "The Oracle Trilemma",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's Percolator source frames guaranteed execution, fair pricing, and LP safety as a three-way tradeoff where passive oracle systems can hold only two reliably.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-can-a-capped-oracle-create-latency-arbitrage",
+      "question": "How can a capped oracle create latency arbitrage?",
+      "normalizedQuestion": "how can a capped oracle create latency arbitrage",
+      "pageId": "authored-capped-oracle-latency-arbitrage",
+      "pageTitle": "Capped Oracle Latency Arbitrage",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-current-source-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo's circuit-breaker example shows how a capped oracle can create a known catch-up path after the external market has already moved.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-how-does-a-spot-perp-pump-and-dump-attack-work",
+      "question": "How does a spot-perp pump-and-dump attack work?",
+      "normalizedQuestion": "how does a spot perp pump and dump attack work",
+      "pageId": "authored-spot-perp-pump-dump-attack",
+      "pageTitle": "Spot-Perp Pump-And-Dump Attack",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo describes an attacker coordinating spot buys or sells with leveraged perp positions so oracle movement and derivative PnL reinforce each other.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-token-margin-amplify-manipulation",
+      "question": "Why does token margin amplify manipulation?",
+      "normalizedQuestion": "why does token margin amplify manipulation",
+      "pageId": "authored-token-margin-manipulation-amplifier",
+      "pageTitle": "Token Margin As Manipulation Amplifier",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo contrasts USDC margin with token margin, where collateral, manipulation object, payout unit, and LP balance-sheet base can become the same volatile token.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-adl-haircut-a-controlled-crash",
+      "question": "Why is ADL haircut a controlled crash?",
+      "normalizedQuestion": "why is adl haircut a controlled crash",
+      "pageId": "authored-adl-haircut-controlled-crash",
+      "pageTitle": "ADL Haircut As Controlled Crash",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "publication-candidate-needs-operator-review",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Neelo says Percolator ADL can prevent technical insolvency by reducing winning payouts, but that damages trust because the market could not honor obligations.",
       "sourceKeys": [
         "vibe-papers"
       ],

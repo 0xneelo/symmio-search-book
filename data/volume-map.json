@@ -3,10 +3,10 @@
   "status": "prototype-compendium-volume-map",
   "targetRange": "500-800 pages",
   "manifestPages": 794,
-  "readerPages": 1320,
+  "readerPages": 1325,
   "totalVolumes": 8,
   "totalChapters": 99,
-  "pagesAssigned": 1320,
+  "pagesAssigned": 1325,
   "manifestWithinTarget": true,
   "duplicatePageIds": [],
   "unassignedPageIds": [],
@@ -3928,30 +3928,31 @@
       "title": "Token Margin, Pillars, And Funding Systems",
       "premise": "Collect token-margined perps, Vibe pillars, information/trade convergence, and funding model architecture.",
       "readerPromise": "Understand the infrastructure mechanics that make inventory-backed markets economically legible.",
-      "totalPages": 286,
+      "totalPages": 291,
       "overviewPageId": "authored-volume-04-token-margin-and-funding-systems",
       "overviewTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
-      "authoredPages": 114,
+      "authoredPages": 119,
       "generatedPages": 172,
       "statusCounts": {
         "draft-extracted-from-primary-source": 118,
         "draft-imported-from-primary-source": 54,
-        "publication-candidate": 18,
+        "publication-candidate": 20,
+        "publication-candidate-needs-current-source-review": 1,
         "publication-candidate-needs-fresh-source-review": 1,
-        "publication-candidate-needs-operator-review": 95
+        "publication-candidate-needs-operator-review": 97
       },
       "granularityCounts": {
-        "authored-page": 114,
+        "authored-page": 119,
         "section-page": 118,
         "source-page": 54
       },
       "routeSourceCounts": {
-        "authored": 114,
+        "authored": 119,
         "generated": 172
       },
       "sectionCounts": {
         "compendium": 1,
-        "manifesto": 112,
+        "manifesto": 117,
         "protocol-reference": 1,
         "vision-papers": 54,
         "vision-sections": 118
@@ -4001,6 +4002,8 @@
         "authored-usdc-risk-premium-ratio-diagnostic",
         "authored-usdc-structural-capital-burden",
         "authored-active-risk-management-vs-passive-physics",
+        "authored-adl-haircut-controlled-crash",
+        "authored-capped-oracle-latency-arbitrage",
         "authored-inverted-market-mode-semantics",
         "authored-passive-matcher-vulnerability",
         "authored-percolator-formal-verification-boundary",
@@ -4012,12 +4015,15 @@
         "authored-pump-bankruptcy-arithmetic",
         "authored-shorting-death-spiral",
         "authored-slab-isolation-capital-inefficiency",
+        "authored-spot-perp-pump-dump-attack",
         "authored-one-x-leverage-ceiling",
         "authored-inverse-payoff-trap",
         "authored-oracle-circuit-breaker-paradox",
+        "authored-oracle-trilemma",
         "authored-rational-lp-paradox",
         "authored-token-denominated-fee-illusion",
         "authored-token-margined-lp-lose-lose",
+        "authored-token-margin-manipulation-amplifier",
         "authored-token-margined-short-volatility-profile",
         "authored-usdc-settlement-inventory-separation",
         "authored-bootstrap-counterparty-pillar",
@@ -4492,18 +4498,19 @@
           "title": "07 - Token-Margined Issues (Percolator)",
           "section": "manifesto",
           "track": "07 - Token-Margined Issues (Percolator)",
-          "totalPages": 54,
-          "authoredPages": 20,
+          "totalPages": 59,
+          "authoredPages": 25,
           "generatedPages": 34,
           "statusCounts": {
             "draft-extracted-from-primary-source": 20,
             "draft-imported-from-primary-source": 14,
-            "publication-candidate": 7,
+            "publication-candidate": 9,
+            "publication-candidate-needs-current-source-review": 1,
             "publication-candidate-needs-fresh-source-review": 1,
-            "publication-candidate-needs-operator-review": 12
+            "publication-candidate-needs-operator-review": 14
           },
           "granularityCounts": {
-            "authored-page": 20,
+            "authored-page": 25,
             "section-page": 20,
             "source-page": 14
           },
@@ -4513,6 +4520,8 @@
           "firstPageId": "authored-active-risk-management-vs-passive-physics",
           "pageIds": [
             "authored-active-risk-management-vs-passive-physics",
+            "authored-adl-haircut-controlled-crash",
+            "authored-capped-oracle-latency-arbitrage",
             "authored-inverted-market-mode-semantics",
             "authored-passive-matcher-vulnerability",
             "authored-percolator-formal-verification-boundary",
@@ -4524,12 +4533,15 @@
             "authored-pump-bankruptcy-arithmetic",
             "authored-shorting-death-spiral",
             "authored-slab-isolation-capital-inefficiency",
+            "authored-spot-perp-pump-dump-attack",
             "authored-one-x-leverage-ceiling",
             "authored-inverse-payoff-trap",
             "authored-oracle-circuit-breaker-paradox",
+            "authored-oracle-trilemma",
             "authored-rational-lp-paradox",
             "authored-token-denominated-fee-illusion",
             "authored-token-margined-lp-lose-lose",
+            "authored-token-margin-manipulation-amplifier",
             "authored-token-margined-short-volatility-profile",
             "authored-usdc-settlement-inventory-separation",
             "neelo-07-token-margined-issues-perculator-07-docs-01-introduction",
@@ -4582,6 +4594,32 @@
               ]
             },
             {
+              "id": "authored-adl-haircut-controlled-crash",
+              "title": "ADL Haircut As Controlled Crash",
+              "section": "manifesto",
+              "track": "07 - Token-Margined Issues (Percolator)",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-operator-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
+              "id": "authored-capped-oracle-latency-arbitrage",
+              "title": "Capped Oracle Latency Arbitrage",
+              "section": "manifesto",
+              "track": "07 - Token-Margined Issues (Percolator)",
+              "granularity": "authored-page",
+              "status": "publication-candidate-needs-current-source-review",
+              "routeSource": "authored",
+              "volumeId": "volume-04-token-margin-and-funding-systems",
+              "sourceKeys": [
+                "vibe-papers"
+              ]
+            },
+            {
               "id": "authored-inverted-market-mode-semantics",
               "title": "Inverted Market Mode Semantics",
               "section": "manifesto",
@@ -4614,32 +4652,6 @@
               "track": "07 - Token-Margined Issues (Percolator)",
               "granularity": "authored-page",
               "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-percolator-hybrid-risk-execution-model",
-              "title": "Percolator Hybrid Risk And Execution Model",
-              "section": "manifesto",
-              "track": "07 - Token-Margined Issues (Percolator)",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-operator-review",
-              "routeSource": "authored",
-              "volumeId": "volume-04-token-margin-and-funding-systems",
-              "sourceKeys": [
-                "vibe-papers"
-              ]
-            },
-            {
-              "id": "authored-percolator-low-utilization-necessity",
-              "title": "Percolator Low Utilization Is A Safety Signal",
-              "section": "manifesto",
-              "track": "07 - Token-Margined Issues (Percolator)",
-              "granularity": "authored-page",
-              "status": "publication-candidate-needs-fresh-source-review",
               "routeSource": "authored",
               "volumeId": "volume-04-token-margin-and-funding-systems",
               "sourceKeys": [
@@ -10986,6 +10998,8 @@
     "authored-usdc-risk-premium-ratio-diagnostic": "volume-04-token-margin-and-funding-systems",
     "authored-usdc-structural-capital-burden": "volume-04-token-margin-and-funding-systems",
     "authored-active-risk-management-vs-passive-physics": "volume-04-token-margin-and-funding-systems",
+    "authored-adl-haircut-controlled-crash": "volume-04-token-margin-and-funding-systems",
+    "authored-capped-oracle-latency-arbitrage": "volume-04-token-margin-and-funding-systems",
     "authored-inverted-market-mode-semantics": "volume-04-token-margin-and-funding-systems",
     "authored-passive-matcher-vulnerability": "volume-04-token-margin-and-funding-systems",
     "authored-percolator-formal-verification-boundary": "volume-04-token-margin-and-funding-systems",
@@ -10997,12 +11011,15 @@
     "authored-pump-bankruptcy-arithmetic": "volume-04-token-margin-and-funding-systems",
     "authored-shorting-death-spiral": "volume-04-token-margin-and-funding-systems",
     "authored-slab-isolation-capital-inefficiency": "volume-04-token-margin-and-funding-systems",
+    "authored-spot-perp-pump-dump-attack": "volume-04-token-margin-and-funding-systems",
     "authored-one-x-leverage-ceiling": "volume-04-token-margin-and-funding-systems",
     "authored-inverse-payoff-trap": "volume-04-token-margin-and-funding-systems",
     "authored-oracle-circuit-breaker-paradox": "volume-04-token-margin-and-funding-systems",
+    "authored-oracle-trilemma": "volume-04-token-margin-and-funding-systems",
     "authored-rational-lp-paradox": "volume-04-token-margin-and-funding-systems",
     "authored-token-denominated-fee-illusion": "volume-04-token-margin-and-funding-systems",
     "authored-token-margined-lp-lose-lose": "volume-04-token-margin-and-funding-systems",
+    "authored-token-margin-manipulation-amplifier": "volume-04-token-margin-and-funding-systems",
     "authored-token-margined-short-volatility-profile": "volume-04-token-margin-and-funding-systems",
     "authored-usdc-settlement-inventory-separation": "volume-04-token-margin-and-funding-systems",
     "authored-bootstrap-counterparty-pillar": "volume-04-token-margin-and-funding-systems",

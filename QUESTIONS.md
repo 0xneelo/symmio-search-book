@@ -513,6 +513,11 @@ Questions are grouped by whether the current source set can answer them.
 | Why are token-margined LPs short volatility? | `authored-token-margined-short-volatility-profile` | Medium | Neelo's lose-lose quadrant shows large moves in either direction can damage LP value, while flat price behavior is the narrow favorable state. |
 | How can a small pump bankrupt a token-margined LP? | `authored-pump-bankruptcy-arithmetic` | Medium | Neelo's inverse-PnL example shows 10x open interest against LP collateral can consume all collateral after an approximately 11.11% pump. |
 | Why can Percolator's low utilization be necessary? | `authored-percolator-low-utilization-necessity` | Medium | Neelo interprets low Percolator SOV utilization as a safety necessity under token-margined inverse payout risk, not merely weak demand. |
+| What is the oracle trilemma in low-cap perps? | `authored-oracle-trilemma` | Medium | Neelo's Percolator source frames guaranteed execution, fair pricing, and LP safety as a three-way tradeoff where passive oracle systems can hold only two reliably. |
+| How can a capped oracle create latency arbitrage? | `authored-capped-oracle-latency-arbitrage` | Medium | Neelo's circuit-breaker example shows how a capped oracle can create a known catch-up path after the external market has already moved. |
+| How does a spot-perp pump-and-dump attack work? | `authored-spot-perp-pump-dump-attack` | Medium | Neelo describes an attacker coordinating spot buys or sells with leveraged perp positions so oracle movement and derivative PnL reinforce each other. |
+| Why does token margin amplify manipulation? | `authored-token-margin-manipulation-amplifier` | Medium | Neelo contrasts USDC margin with token margin, where collateral, manipulation object, payout unit, and LP balance-sheet base can become the same volatile token. |
+| Why is ADL haircut a controlled crash? | `authored-adl-haircut-controlled-crash` | Medium | Neelo says Percolator ADL can prevent technical insolvency by reducing winning payouts, but that damages trust because the market could not honor obligations. |
 
 ## Prototype Event Log
 
