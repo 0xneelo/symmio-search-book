@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 08 Reading Order Overview
+
+- Expanded `authored-volume-08-dashboard-faq-and-living-docs` from a short volume stub into a book-level reading order for dashboard route coverage, revenue/volume/points semantics, local FAQ boundaries, Discord/Lafa ingestion status, and the Search insights living-docs loop.
+- Routed one new Ask question, "How should I read Volume 08 on dashboard, FAQ, and living docs?", to the Volume 08 overview so broad dashboard/living-docs orientation lands on the compendium entry point before narrow view, FAQ, or event-loop pages.
+- Kept Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations parked or under implementation review.
+
 ## 2026-06-30 — Volume 07 Reading Order Overview
 
 - Expanded `authored-volume-07-product-trading-and-risk` from a short volume stub into a book-level reading order for product orientation, account/custody setup, trading and cost flow, account risk, security/audit evidence, project listing terms, and VibeCaps risk boundaries.

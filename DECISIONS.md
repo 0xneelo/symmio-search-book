@@ -1879,3 +1879,11 @@
 **Reason:** The exact Volume 07 pages already answer the practical questions users and projects ask first, but the overview still only named a few generated product stubs. A volume-level route keeps the official product references coherent and makes the transition from product usage to solver/LP risk controls explicit.
 
 **Status:** Accepted for compendium authoring. Market counts, leverage limits, chain support, deposit and withdrawal timing, fee percentages, funding values, available liquidity, liquidation thresholds, solver capacity, project profit splits, custody/security-fund details, audit scope, mobile notification behavior, and VibeCaps guardrail behavior remain publication-date product, implementation, risk, legal, accounting, and security review items before publication.
+
+## D-236: Use Volume 08 As The Dashboard And Living-Docs Reading Order
+
+**Decision:** Expand `authored-volume-08-dashboard-faq-and-living-docs` into the canonical book-level entry point for dashboard route coverage, revenue/volume/points semantics, local FAQ boundaries, Discord/Lafa ingestion status, and the Search insights living-docs loop.
+
+**Reason:** The dashboard and answer-engine pages are the user's operational front door, but broad questions should not route directly to one view or one event-loop page. A volume overview lets readers start from route coverage, then move into view-specific answers, economics/points semantics, FAQ/source boundaries, and production living-docs requirements.
+
+**Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, and current backend volume snapshots are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
