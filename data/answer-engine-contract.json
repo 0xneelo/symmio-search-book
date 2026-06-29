@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 794
+      "totalGoldenRoutes": 795
     },
     {
       "stage": "glossary-route",
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 794,
-    "exactRouteTestsPassing": 794,
+    "totalExactRouteTests": 795,
+    "exactRouteTestsPassing": 795,
     "totalRefusalTests": 2,
     "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
@@ -196,11 +196,11 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "candidate": 794
+      "candidate": 795
     },
     "exactRoutesByConfidence": {
       "Medium": 497,
-      "High": 44,
+      "High": 45,
       "Low": 253
     },
     "glossaryRoutesByRuntimeAction": {
@@ -599,6 +599,33 @@
         "unknownSourceKeys": [],
         "chunkCount": 4,
         "faqEntryId": "faq-how-should-i-read-volume-06-on-referrals-and-market-formation",
+        "passes": true
+      },
+      {
+        "id": "qr-how-should-i-read-volume-07-on-product-trading-and-risk",
+        "query": "How should I read Volume 07 on product, trading, and risk?",
+        "normalizedQuery": "how should i read volume 07 on product trading and risk",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-volume-07-product-trading-and-risk",
+        "expectedPageTitle": "Volume 07: Product, Trading, And Risk Guides",
+        "expectedPageState": "candidate",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "spec-03",
+          "vibe-llms",
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "linkedSourceKeys": [
+          "spec-03",
+          "vibe-llms",
+          "vibe-margin",
+          "symmio-core"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 5,
+        "faqEntryId": "faq-how-should-i-read-volume-07-on-product-trading-and-risk",
         "passes": true
       },
       {
@@ -18790,7 +18817,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 794,
+      "exactRoutes": 795,
       "glossaryRoutes": 32,
       "refusals": 2,
       "lowRatedFeedback": 1,

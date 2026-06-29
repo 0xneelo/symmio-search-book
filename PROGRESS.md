@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 07 Reading Order Overview
+
+- Expanded `authored-volume-07-product-trading-and-risk` from a short volume stub into a book-level reading order for product orientation, account/custody setup, trading and cost flow, account risk, security/audit evidence, project listing terms, and VibeCaps risk boundaries.
+- Routed one new Ask question, "How should I read Volume 07 on product, trading, and risk?", to the Volume 07 overview so broad product-reference demand lands on the compendium entry point before narrow trade, account, or project-listing pages.
+- Kept market counts, leverage limits, chain support, deposit/withdrawal timing, fee percentages, funding values, available liquidity, liquidation thresholds, solver capacity, project profit splits, custody/security-fund details, audit scope, mobile notification behavior, and VibeCaps guardrail behavior under publication-date product/implementation/risk/legal/accounting/security review.
+
 ## 2026-06-30 — Volume 06 Reading Order Overview
 
 - Expanded `authored-volume-06-referrals-and-market-formation` from a stale review-marked stub into a book-level reading order for referral market-formation, resolved 15-level public wording, architecture/security paths, policy metrics, reward rails, and tokenized-points hypotheticals.

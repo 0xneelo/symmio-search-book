@@ -7,7 +7,7 @@ status: "publication-candidate"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["spec-03", "vibe-llms", "vibe-margin", "symmio-core"]
 sourceUrls: ["_specs/app-docs/03-grounding.md", "https://docs.vibe.trading/llms.txt", "https://docs.vibe.trading/trading/managing-vibecaps-margin.md", "https://docs.symm.io/"]
-relatedGeneratedPages: ["vibe-fees", "vibe-funding", "vibe-vibecaps-margin", "vibe-account-health-liquidations"]
+relatedGeneratedPages: ["authored-vibe-product-overview", "authored-vibe-account-creation-and-login", "authored-vibe-simple-trade-flow", "authored-vibe-fees-and-funding", "authored-vibe-account-health-and-liquidations", "authored-vibe-security-and-audits", "authored-vibe-project-listing-terms", "authored-vibecap-hedge-first-requirement"]
 ---
 
 # Volume 07: Product, Trading, And Risk Guides
@@ -23,9 +23,27 @@ The source material here is intentionally more operational than the manifesto vo
 - It keeps risk language concrete rather than promotional.
 - It gives the answer engine grounded pages for common product questions.
 
+## Reading Order
+
+Start with the product orientation path: `authored-vibe-product-overview`, `authored-vibe-platform-overview`, `authored-vibe-intent-architecture`, and `authored-vibecaps-margin-management`. These pages explain what Vibe offers, why the product is intent-based, and how VibeCaps margin should be read before a user reaches for leverage or project-specific markets.
+
+Then read the account and custody path: `authored-vibe-account-creation-and-login`, `authored-vibe-login-path-choice`, `authored-vibe-deposits-and-withdrawals`, `authored-vibe-deposit-chain-support`, `authored-vibe-allocated-balance`, `authored-vibe-large-withdrawal-window`, `authored-vibe-portfolio-and-account-data`, and `authored-vibe-account-history-and-csv-export`. This path answers the questions a user asks before trading: how to log in, how custody changes by login path, where funds appear, why withdrawal timing can differ, and what account records are visible.
+
+Next read the trading and cost path: `authored-vibe-simple-trade-flow`, `authored-vibe-order-types`, `authored-vibe-tpsl`, `authored-vibe-stop-order-trigger-model`, `authored-vibe-oi-and-liquidity`, `authored-vibe-available-liquidity-capacity`, `authored-vibe-fees-and-funding`, `authored-vibe-trade-panel-cost-breakdown`, `authored-vibe-funding-payment-direction`, `authored-vibe-tpsl-slippage-threshold`, `authored-vibe-collateral-and-margining`, and `authored-vibe-account-health-and-liquidations`. This is the practical trading shelf: order entry, solver capacity, funding direction, cost fields, margin, CVA, and liquidation risk.
+
+Use the security and client-controls path when the reader asks whether the product surface is safe to use: `authored-vibe-security-and-audits`, `authored-vibe-settlement-contract-audit-scope`, `authored-vibe-token-staking-audit-caveat`, `authored-vibe-sherlock-audit-contest-reference`, `authored-vibe-security-claim-versioning`, `authored-vibe-custody-path-security-boundary`, `authored-vibe-hotkeys`, `authored-vibe-mobile-pwa`, `authored-vibe-pwa-notification-categories`, and `authored-vibe-tradingview-controls`. This path distinguishes settlement-contract audit evidence from token/staking caveats, then covers the controls users operate day to day.
+
+For project-side readers, use the listing and commercial-boundary path: `authored-vibe-system-visualization`, `authored-vibe-project-listing-terms`, `authored-vibe-project-supply-loan-flow`, `authored-vibe-project-solver-profit-sources`, `authored-vibe-project-profit-share-boundary`, `authored-vibe-project-token-custody-boundary`, and `authored-vibe-project-audit-and-exit-rights`. This path keeps supply loans, solver profit sources, custody, security-fund language, audit rights, and exit paths grounded in official product material.
+
+Finish with the VibeCaps risk bridge: `authored-vibecap-hedge-first-requirement`, `authored-soft-quote-last-look-risk-gating`, `authored-liquidity-collapse-freeze-logic`, `authored-discontinuous-outcome-market-guardrails`, and `authored-strategic-unhedged-exposure-boundary`. These pages connect product usage back to the solver/LP operations volume: the user-facing trading surface is only credible if low-cap market risk is hedged, gated, frozen, or bounded when conditions deteriorate.
+
 ## Reader Implication
 
 If you came to use the product rather than study the thesis, this volume is your reference shelf. It should make the product legible without hiding the risk model.
+
+## Publication Boundary
+
+Treat this volume as the compendium's product-reference and user-risk spine, not as a legal, accounting, tax, investment, or current-parameter guarantee. Market counts, leverage limits, chain support, deposit/withdrawal timing, fee percentages, funding values, available liquidity, liquidation thresholds, solver capacity, project profit splits, custody/security-fund details, audit scope, mobile notification behavior, and VibeCaps guardrail behavior must be checked against fresh official product sources and implementation evidence at publication time.
 
 ## Sources
 
@@ -36,7 +54,11 @@ If you came to use the product rather than study the thesis, this volume is your
 
 ## Related Pages
 
-- `vibe-fees`
-- `vibe-funding`
-- `vibe-vibecaps-margin`
-- `vibe-account-health-liquidations`
+- `authored-vibe-product-overview`
+- `authored-vibe-account-creation-and-login`
+- `authored-vibe-simple-trade-flow`
+- `authored-vibe-fees-and-funding`
+- `authored-vibe-account-health-and-liquidations`
+- `authored-vibe-security-and-audits`
+- `authored-vibe-project-listing-terms`
+- `authored-vibecap-hedge-first-requirement`

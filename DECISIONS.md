@@ -1871,3 +1871,11 @@
 **Reason:** The exact Volume 06 pages already cover referral architecture, points, rewards, security controls, metrics, reward packs, and tokenized-points hypotheticals. The volume overview still carried stale "depth unresolved" language, so readers needed one updated route that separates current public facts from future-facing economics and implementation-sensitive claims.
 
 **Status:** Accepted for compendium authoring. Public v1 referral depth is fifteen levels and historical backfill is additive. Final TGE formulas, claim mechanics, transferable rewards, signer topology, reward-pack supply and expected value, partner overlays, private economics, anti-gaming thresholds, dispute tooling, live KPI formulas, public dashboard release wording, market-scoped payout rules, and tokenized-points scenarios remain product, security, legal, accounting, implementation, and operator review items before publication.
+
+## D-235: Use Volume 07 As The Product Trading And Risk Reading Order
+
+**Decision:** Expand `authored-volume-07-product-trading-and-risk` into the canonical book-level entry point for product orientation, account/custody setup, trading and cost flow, account risk, security/audit evidence, project listing terms, and VibeCaps risk boundaries.
+
+**Reason:** The exact Volume 07 pages already answer the practical questions users and projects ask first, but the overview still only named a few generated product stubs. A volume-level route keeps the official product references coherent and makes the transition from product usage to solver/LP risk controls explicit.
+
+**Status:** Accepted for compendium authoring. Market counts, leverage limits, chain support, deposit and withdrawal timing, fee percentages, funding values, available liquidity, liquidation thresholds, solver capacity, project profit splits, custody/security-fund details, audit scope, mobile notification behavior, and VibeCaps guardrail behavior remain publication-date product, implementation, risk, legal, accounting, and security review items before publication.
