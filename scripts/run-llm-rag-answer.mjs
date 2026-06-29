@@ -816,9 +816,15 @@ function buildWorkedExample(context, runtime) {
 }
 
 function buildAnswerGuidance(context) {
+  const contextPageIds = new Set([
+    context.exactRoute?.pageId || "",
+    context.glossaryRoute?.primaryPageId || "",
+    ...context.chunks.map((chunk) => chunk.pageId),
+  ].filter(Boolean));
   const guidanceText = [
     context.exactRoute?.notes || "",
     context.glossaryRoute?.definition || "",
+    ...context.chunks.map((chunk) => chunk.text || ""),
   ].join("\n");
   const phraseCandidates = [
     "networkVolume × platformFeeRate × referrerPlatformShare",
@@ -829,6 +835,9 @@ function buildAnswerGuidance(context) {
     "15 levels",
     "never lowers a balance",
   ];
+  if (contextPageIds.has("authored-vibe-add-token-info") || /add token info/i.test(context.query || "")) {
+    phraseCandidates.push("banner", "logo", "description", "website", "social links", "X feed", "USDC", "transaction hash");
+  }
   const normalizedGuidanceText = guidanceText.toLowerCase();
   return {
     exactRouteNotes: context.exactRoute?.notes || "",
