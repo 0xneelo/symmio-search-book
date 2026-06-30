@@ -3,7 +3,7 @@ id: "authored-trader-payout-certainty"
 title: "Trader Payout Certainty Is A Design Requirement"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/05-economic-clarity"]
@@ -24,7 +24,7 @@ The docs should promise clarity before they promise perfection.
 
 They should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They should describe the defense stack in plain language. They should avoid implying that payout certainty means no tail risk. The stronger claim is narrower: a credible market names the counterparty path and the escalation path before a trader relies on it.
 
-## Publication Note
+## Publication Boundary
 
 Exact payout, insurance, ADL, solver, and LP-vault mechanics remain product and operator review topics. This page captures the source-backed requirement that those mechanics be legible.
 

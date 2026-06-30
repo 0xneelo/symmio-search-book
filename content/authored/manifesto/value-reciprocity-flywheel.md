@@ -3,7 +3,7 @@ id: "authored-value-reciprocity-flywheel"
 title: "The Value Reciprocity Flywheel"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"]

@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 408,
-    "publication-candidate-needs-operator-review": 390,
+    "published": 425,
+    "publication-candidate-needs-operator-review": 373,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -16188,7 +16188,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16203,7 +16203,7 @@
       ],
       "volumeId": "volume-02-bootstrap-and-proof-of-value",
       "file": "content/authored/manifesto/token-holder-inventory-alignment.md",
-      "bodyMarkdown": "# Token Holders Are Natural Inventory Providers\n\nThe Proof of Value framework separates two jobs that are often collapsed: stable settlement liquidity and token inventory.\n\nThe source argues that Vibe should not ask generic external USDC LPs to back every long-tail market. Stablecoin LPs are being asked to underwrite low-cap token risk they may not understand, do not already hold, and would price very expensively. That can force a bad loop: high perceived risk, high yield demand, higher fees, lower trader activity, and weaker market sustainability.\n\nToken holders are different. A project treasury, founder, whale, or committed holder already has directional exposure to the asset. If that holder contributes a bounded portion of inventory to help a perp market exist, the incremental risk is closer to risk they already accepted. The deposit can add utility, signal support, and potentially earn yield from real market activity.\n\n## The Architecture Claim\n\nThe architecture claim is not that token inventory is risk-free. It is that token inventory and USDC settlement should not be confused.\n\nToken-side inventory can help a solver manage residual exposure in the market being created. Stable settlement and trader margin remain separate. That separation lets the system use market-specific capital without turning the trader's settlement unit into the same volatile asset that is being traded.\n\nThis is why the source frames token inventory as capital efficiency. The system is not trying to make every early market look like a mature USDC vault. It is matching the capital source to the risk it is best positioned to bear.\n\n## Publication Note\n\nThe source includes example revenue-share and capital-efficiency claims. Those examples should stay under operator review until current public economics, vault terms, and disclosure boundaries are confirmed.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\".\n- `vibe-papers`: Neelo, \"Section 6: Comparative Advantage\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-lp-yield-capital-efficiency-pillar`",
+      "bodyMarkdown": "# Token Holders Are Natural Inventory Providers\n\nThe Proof of Value framework separates two jobs that are often collapsed: stable settlement liquidity and token inventory.\n\nThe source argues that Vibe should not ask generic external USDC LPs to back every long-tail market. Stablecoin LPs are being asked to underwrite low-cap token risk they may not understand, do not already hold, and would price very expensively. That can force a bad loop: high perceived risk, high yield demand, higher fees, lower trader activity, and weaker market sustainability.\n\nToken holders are different. A project treasury, founder, whale, or committed holder already has directional exposure to the asset. If that holder contributes a bounded portion of inventory to help a perp market exist, the incremental risk is closer to risk they already accepted. The deposit can add utility, signal support, and potentially earn yield from real market activity.\n\n## The Architecture Claim\n\nThe architecture claim is not that token inventory is risk-free. It is that token inventory and USDC settlement should not be confused.\n\nToken-side inventory can help a solver manage residual exposure in the market being created. Stable settlement and trader margin remain separate. That separation lets the system use market-specific capital without turning the trader's settlement unit into the same volatile asset that is being traded.\n\nThis is why the source frames token inventory as capital efficiency. The system is not trying to make every early market look like a mature USDC vault. It is matching the capital source to the risk it is best positioned to bear.\n\n## Publication Boundary\n\nThe source includes example revenue-share and capital-efficiency claims. Those examples should stay under operator review until current public economics, vault terms, and disclosure boundaries are confirmed.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 3: LP Value Proposition\".\n- `vibe-papers`: Neelo, \"Section 6: Comparative Advantage\".\n\n## Related Pages\n\n- `authored-token-vault-perps-versus-usdc-pools`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-lp-yield-capital-efficiency-pillar`",
       "excerpt": "Token Holders Are Natural Inventory Providers The Proof of Value framework separates two jobs that are often collapsed: stable settlement liquidity and token inventory. The source argues that Vibe should not ask generic external USDC LPs to back every long tail market. Stablecoin LPs are being asked to underwrite low cap token risk they may not understand, do not already hold, and would price very expensively. That can force a bad loop: high perceived risk, high yield demand, higher fees, lower trader activity, and weaker market sustainability. Token holders are different. A project treasury, founder, whale, or committed holder already has directional exposure to the asset. If that holder contributes a bounded portion of inventory to help a perp market exist, the incremental risk is closer to risk they already accepted. The deposit can add utility, signal support, and potentially earn yield from real market activity. The Architecture Claim The architecture claim is not that token inventory is risk free. It is that token inventory and USDC settlement should not be confused. Token side inventory can help a solver manage residual exposure in the market being created. Stable settlement"
     },
     {
@@ -16674,7 +16674,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16689,7 +16689,7 @@
       ],
       "volumeId": "volume-02-bootstrap-and-proof-of-value",
       "file": "content/authored/manifesto/trader-payout-certainty.md",
-      "bodyMarkdown": "# Trader Payout Certainty Is A Design Requirement\n\nA trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid.\n\nNeelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long-tail perp market, one-sided flow, thin hedging venues, oracle risk, and fast moves can turn a quote into a liability. If the docs cannot explain who backs the trade and how stress is handled, serious traders will treat the market as promotional rather than executable.\n\nThe economic-clarity source gives the right vocabulary. When flow is netted, traders effectively pay each other. When flow is un-netted, the solver warehouses residual exposure and manages it with hedging, token inventory, dynamic pricing, insurance, and last-resort ADL boundaries. The exact implementation needs operator-approved wording, but the public docs should never blur those cases.\n\n## What The Docs Should Promise\n\nThe docs should promise clarity before they promise perfection.\n\nThey should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They should describe the defense stack in plain language. They should avoid implying that payout certainty means no tail risk. The stronger claim is narrower: a credible market names the counterparty path and the escalation path before a trader relies on it.\n\n## Publication Note\n\nExact payout, insurance, ADL, solver, and LP-vault mechanics remain product and operator review topics. This page captures the source-backed requirement that those mechanics be legible.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 5: Economic Clarity\".\n\n## Related Pages\n\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
+      "bodyMarkdown": "# Trader Payout Certainty Is A Design Requirement\n\nA trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid.\n\nNeelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long-tail perp market, one-sided flow, thin hedging venues, oracle risk, and fast moves can turn a quote into a liability. If the docs cannot explain who backs the trade and how stress is handled, serious traders will treat the market as promotional rather than executable.\n\nThe economic-clarity source gives the right vocabulary. When flow is netted, traders effectively pay each other. When flow is un-netted, the solver warehouses residual exposure and manages it with hedging, token inventory, dynamic pricing, insurance, and last-resort ADL boundaries. The exact implementation needs operator-approved wording, but the public docs should never blur those cases.\n\n## What The Docs Should Promise\n\nThe docs should promise clarity before they promise perfection.\n\nThey should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They should describe the defense stack in plain language. They should avoid implying that payout certainty means no tail risk. The stronger claim is narrower: a credible market names the counterparty path and the escalation path before a trader relies on it.\n\n## Publication Boundary\n\nExact payout, insurance, ADL, solver, and LP-vault mechanics remain product and operator review topics. This page captures the source-backed requirement that those mechanics be legible.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 5: Economic Clarity\".\n\n## Related Pages\n\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-funding-defense-hierarchy`\n- `authored-loss-waterfall-and-profit-caps`",
       "excerpt": "Trader Payout Certainty Is A Design Requirement A trader does not only need a market to appear on the screen. A trader needs to believe that a winning position can be paid. Neelo's framework makes payout certainty part of trader value. Access and leverage matter, but they are not sufficient. In a long tail perp market, one sided flow, thin hedging venues, oracle risk, and fast moves can turn a quote into a liability. If the docs cannot explain who backs the trade and how stress is handled, serious traders will treat the market as promotional rather than executable. The economic clarity source gives the right vocabulary. When flow is netted, traders effectively pay each other. When flow is un netted, the solver warehouses residual exposure and manages it with hedging, token inventory, dynamic pricing, insurance, and last resort ADL boundaries. The exact implementation needs operator approved wording, but the public docs should never blur those cases. What The Docs Should Promise The docs should promise clarity before they promise perfection. They should say whether a market is in a bootstrap or mature state. They should name the difference between netted and residual exposure. They "
     },
     {
@@ -16698,7 +16698,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16713,7 +16713,7 @@
       ],
       "volumeId": "volume-02-bootstrap-and-proof-of-value",
       "file": "content/authored/manifesto/trader-project-value-loop.md",
-      "bodyMarkdown": "# The Trader And Project Value Loop\n\nThe Proof of Value framework explains Vibe's product value as a loop between traders and projects.\n\nFor traders, the first value is access. Long-tail tokens often have spot markets before they have serious derivative markets. A Vibe market can let traders speculate, hedge, arbitrage, or express a bearish view before the asset earns a mature order-book listing. The source also ties execution quality to the lifecycle: early markets may begin with wider solver quotes and improve as flow becomes more balanced.\n\nFor projects, the value is different. A project may have token inventory but limited productive uses for it. Centralized listings, professional market makers, or single-sided spot liquidity can require stablecoin commitments, retainers, operational overhead, or sell-pressure tradeoffs. A perp market gives the token more utility and visibility while letting the project support the market with the asset it already holds.\n\n## The Loop\n\nThe loop works only if both sides reinforce each other. More project inventory can create more markets. More markets can attract more traders. More trading can create more fees and stronger market evidence. Stronger evidence can attract more projects, solvers, LPs, and downstream venues.\n\nThat is the difference between a listing form and a market-formation system. A listing form creates supply of symbols. A value loop creates repeated reasons for participants to keep the market alive.\n\n## Publication Note\n\nThe source describes example revenue shares and project motivations. Final public docs should distinguish source-model economics from confirmed current Vibe terms.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Value Dimensions\".\n\n## Related Pages\n\n- `authored-why-derivatives-matter`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-vibe-as-listing-source-of-truth`",
+      "bodyMarkdown": "# The Trader And Project Value Loop\n\nThe Proof of Value framework explains Vibe's product value as a loop between traders and projects.\n\nFor traders, the first value is access. Long-tail tokens often have spot markets before they have serious derivative markets. A Vibe market can let traders speculate, hedge, arbitrage, or express a bearish view before the asset earns a mature order-book listing. The source also ties execution quality to the lifecycle: early markets may begin with wider solver quotes and improve as flow becomes more balanced.\n\nFor projects, the value is different. A project may have token inventory but limited productive uses for it. Centralized listings, professional market makers, or single-sided spot liquidity can require stablecoin commitments, retainers, operational overhead, or sell-pressure tradeoffs. A perp market gives the token more utility and visibility while letting the project support the market with the asset it already holds.\n\n## The Loop\n\nThe loop works only if both sides reinforce each other. More project inventory can create more markets. More markets can attract more traders. More trading can create more fees and stronger market evidence. Stronger evidence can attract more projects, solvers, LPs, and downstream venues.\n\nThat is the difference between a listing form and a market-formation system. A listing form creates supply of symbols. A value loop creates repeated reasons for participants to keep the market alive.\n\n## Publication Boundary\n\nThe source describes example revenue shares and project motivations. Final public docs should distinguish source-model economics from confirmed current Vibe terms.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 4: Trader and Project Value\".\n- `vibe-papers`: Neelo, \"Section 2: A Framework for Value Dimensions\".\n\n## Related Pages\n\n- `authored-why-derivatives-matter`\n- `authored-listing-plus-liquidity-thesis`\n- `authored-vibe-as-listing-source-of-truth`",
       "excerpt": "The Trader And Project Value Loop The Proof of Value framework explains Vibe's product value as a loop between traders and projects. For traders, the first value is access. Long tail tokens often have spot markets before they have serious derivative markets. A Vibe market can let traders speculate, hedge, arbitrage, or express a bearish view before the asset earns a mature order book listing. The source also ties execution quality to the lifecycle: early markets may begin with wider solver quotes and improve as flow becomes more balanced. For projects, the value is different. A project may have token inventory but limited productive uses for it. Centralized listings, professional market makers, or single sided spot liquidity can require stablecoin commitments, retainers, operational overhead, or sell pressure tradeoffs. A perp market gives the token more utility and visibility while letting the project support the market with the asset it already holds. The Loop The loop works only if both sides reinforce each other. More project inventory can create more markets. More markets can attract more traders. More trading can create more fees and stronger market evidence. Stronger evidenc"
     },
     {
@@ -16722,7 +16722,7 @@
       "section": "manifesto",
       "track": "01 - Perps Categories & Bootstrap Trilemma",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17288,7 +17288,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17360,7 +17360,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17374,7 +17374,7 @@
       ],
       "volumeId": "volume-02-bootstrap-and-proof-of-value",
       "file": "content/authored/manifesto/value-capture-durability-scorecard.md",
-      "bodyMarkdown": "# Value Capture Needs Durability\n\nThe Thiel-style scorecard in Neelo's Proof of Value paper is useful because it separates excitement from business durability.\n\nCreating value is not enough. Vibe can create value by opening perp markets for gap tokens, giving projects a better use for inventory, giving traders long and short exposure, and producing listing evidence for downstream venues. Those are value-creation claims.\n\nCapture is a different question. The protocol, solver, and operating stack must keep enough economics to remain active. The source names several possible capture surfaces: trading fees, spread revenue, protocol share, data products, and graduation or integration paths. The compendium should not collapse those into one vague \"revenue\" story. Each capture path has a different dependency.\n\n## The Durability Test\n\nDurability is the hard part. A market can grow quickly and still be fragile if it depends on subsidies, one-time attention, unpriced solver risk, or partner optics. A durable market should show repeated use, improving execution, declining residual exposure, sustained project participation, and defensible data advantages.\n\nThat is why the docs need a scorecard instead of a slogan:\n\n- What value is created for each constituency?\n- What value is captured by the protocol and solver?\n- Does capture come from usage rather than extraction?\n- Does the market become less fragile as it matures?\n- Does the data compound into better listings, better pricing, and better trust?\n\nIf those questions are not answered, \"Proof of Value\" is only a narrative. If they are answered with source-backed metrics, it becomes a falsifiable operating thesis.\n\n## Publication Note\n\nProtocol share, live fee routing, solver spread economics, data-products strategy, and launch-partner metrics remain operator-review items. This page keeps the strategy logic while avoiding unaudited capture claims.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Proof of Value: A Thielian Analysis\".\n\n## Related Pages\n\n- `authored-thiel-value-creation-capture`\n- `authored-no-ponzi-market-revenue-test`\n- `authored-proof-value-validation-sustainability`",
+      "bodyMarkdown": "# Value Capture Needs Durability\n\nThe Thiel-style scorecard in Neelo's Proof of Value paper is useful because it separates excitement from business durability.\n\nCreating value is not enough. Vibe can create value by opening perp markets for gap tokens, giving projects a better use for inventory, giving traders long and short exposure, and producing listing evidence for downstream venues. Those are value-creation claims.\n\nCapture is a different question. The protocol, solver, and operating stack must keep enough economics to remain active. The source names several possible capture surfaces: trading fees, spread revenue, protocol share, data products, and graduation or integration paths. The compendium should not collapse those into one vague \"revenue\" story. Each capture path has a different dependency.\n\n## The Durability Test\n\nDurability is the hard part. A market can grow quickly and still be fragile if it depends on subsidies, one-time attention, unpriced solver risk, or partner optics. A durable market should show repeated use, improving execution, declining residual exposure, sustained project participation, and defensible data advantages.\n\nThat is why the docs need a scorecard instead of a slogan:\n\n- What value is created for each constituency?\n- What value is captured by the protocol and solver?\n- Does capture come from usage rather than extraction?\n- Does the market become less fragile as it matures?\n- Does the data compound into better listings, better pricing, and better trust?\n\nIf those questions are not answered, \"Proof of Value\" is only a narrative. If they are answered with source-backed metrics, it becomes a falsifiable operating thesis.\n\n## Publication Boundary\n\nProtocol share, live fee routing, solver spread economics, data-products strategy, and launch-partner metrics remain operator-review items. This page keeps the strategy logic while avoiding unaudited capture claims.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Proof of Value: A Thielian Analysis\".\n\n## Related Pages\n\n- `authored-thiel-value-creation-capture`\n- `authored-no-ponzi-market-revenue-test`\n- `authored-proof-value-validation-sustainability`",
       "excerpt": "Value Capture Needs Durability The Thiel style scorecard in Neelo's Proof of Value paper is useful because it separates excitement from business durability. Creating value is not enough. Vibe can create value by opening perp markets for gap tokens, giving projects a better use for inventory, giving traders long and short exposure, and producing listing evidence for downstream venues. Those are value creation claims. Capture is a different question. The protocol, solver, and operating stack must keep enough economics to remain active. The source names several possible capture surfaces: trading fees, spread revenue, protocol share, data products, and graduation or integration paths. The compendium should not collapse those into one vague \"revenue\" story. Each capture path has a different dependency. The Durability Test Durability is the hard part. A market can grow quickly and still be fragile if it depends on subsidies, one time attention, unpriced solver risk, or partner optics. A durable market should show repeated use, improving execution, declining residual exposure, sustained project participation, and defensible data advantages. That is why the docs need a scorecard instead of"
     },
     {
@@ -17383,7 +17383,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17406,7 +17406,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17430,7 +17430,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17638,7 +17638,7 @@
       "section": "manifesto",
       "track": "01 - Perps Categories & Bootstrap Trilemma",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -17948,7 +17948,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -18070,7 +18070,7 @@
       "section": "manifesto",
       "track": "01 - Perps Categories & Bootstrap Trilemma",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19459,7 +19459,7 @@
       "section": "manifesto",
       "track": "05 - Proof Of Value",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19530,7 +19530,7 @@
       "section": "manifesto",
       "track": "01 - Perps Categories & Bootstrap Trilemma",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19576,7 +19576,7 @@
       "section": "manifesto",
       "track": "13 — Proof of Value Framework",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19599,7 +19599,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19669,7 +19669,7 @@
       "section": "manifesto",
       "track": "06 — Market Creation Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19684,8 +19684,8 @@
       ],
       "volumeId": "volume-02-bootstrap-and-proof-of-value",
       "file": "content/authored/manifesto/z-score-graduation-criteria.md",
-      "bodyMarkdown": "# Z-Score Graduation Criteria\n\nThe Z-score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one-sided and solver-dependent. A low score means natural trader flow is doing more of the balancing work.\n\nThat makes the Z-score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order-book readiness.\n\n## What It Should Not Do\n\nThe Z-score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets.\n\nThe docs should therefore explain two layers:\n\n- the thesis layer: solver dependency should fall as markets mature;\n- the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status.\n\n## Reader Implication\n\nThis page gives market creators and exchanges a concrete question to ask: is demand balanced enough that the market has earned its next execution layer? That is stronger than asking whether a listing committee feels confident.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.5 The Z-Score\".\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications\".\n\n## Related Pages\n\n- `authored-market-maturation-z-score`\n- `authored-vibe-as-discovery-layer`\n- `section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity`",
-      "excerpt": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing work. That makes the Z score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order book readiness. What It Should Not Do The Z score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets. The docs should therefore explain two layers: the thesis layer: solver dependency should fall as markets mature; the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status. Reader Impli"
+      "bodyMarkdown": "# Z-Score Graduation Criteria\n\nThe Z-score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one-sided and solver-dependent. A low score means natural trader flow is doing more of the balancing work.\n\nThat makes the Z-score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order-book readiness.\n\n## What It Should Not Do\n\nThe Z-score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets.\n\nThe docs should therefore explain two layers:\n\n- the thesis layer: solver dependency should fall as markets mature;\n- the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status.\n\n## Publication Boundary\n\nDo not publish the Z-score as a current production threshold, dashboard value, auto-graduation trigger, or order-book handoff rule without fresh implementation review. This page publishes the source-backed maturity model, not live formula parameters or launch commitments.\n\n## Reader Implication\n\nThis page gives market creators and exchanges a concrete question to ask: is demand balanced enough that the market has earned its next execution layer? That is stronger than asking whether a listing committee feels confident.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Vibe Trading Architecture: 5.5 The Z-Score\".\n- `vibe-papers`: Neelo, \"Section 7: Industry Implications\".\n\n## Related Pages\n\n- `authored-market-maturation-z-score`\n- `authored-vibe-as-discovery-layer`\n- `section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity`",
+      "excerpt": "Z Score Graduation Criteria The Z score is Neelo's proposed way to measure whether a market still depends on the solver as residual counterparty. The source defines it as net solver exposure divided by total open interest. A high score means the market is one sided and solver dependent. A low score means natural trader flow is doing more of the balancing work. That makes the Z score a graduation signal. If a market shows sustained low solver dependency, adequate volume, enough unique traders, manageable liquidation behavior, and stable funding dynamics, it can move toward tighter spreads, greater netting, and eventually order book readiness. What It Should Not Do The Z score should not be presented as a live public dashboard number unless product owners confirm the implementation. The source provides the model, ranges, and maturity story, but exact thresholds, time windows, and transition rules still require calibration against real markets. The docs should therefore explain two layers: the thesis layer: solver dependency should fall as markets mature; the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status. Publication "
     },
     {
       "id": "authored-zero-cost-evolutionary-discovery",

@@ -3,7 +3,7 @@ id: "authored-why-existing-perp-solutions-fail-bootstrap"
 title: "Why Existing Perp Solutions Fail Bootstrap"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-4-why-existing-solutions-fail"]

@@ -3,7 +3,7 @@ id: "authored-trader-project-value-loop"
 title: "The Trader And Project Value Loop"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework"]
@@ -24,7 +24,7 @@ The loop works only if both sides reinforce each other. More project inventory c
 
 That is the difference between a listing form and a market-formation system. A listing form creates supply of symbols. A value loop creates repeated reasons for participants to keep the market alive.
 
-## Publication Note
+## Publication Boundary
 
 The source describes example revenue shares and project motivations. Final public docs should distinguish source-model economics from confirmed current Vibe terms.
 

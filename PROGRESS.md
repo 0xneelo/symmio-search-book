@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Remaining Volume 02 Bootstrap And Proof-Of-Value Batch
+
+- Promoted the remaining `17` Volume 02 manifesto candidates to `published`: Token Holders Are Natural Inventory Providers, Trader Payout Certainty Is A Design Requirement, The Trader And Project Value Loop, Requirements For Escaping The Bootstrap Trilemma, The USDC Vault Negative Feedback Loop, Value Capture Needs Durability, Value Creation And Capture Must Stay Independent, The Value Reciprocity Flywheel, The Verification Breaking Point, Vibe Architecture Design Philosophy, Vibe's Hybrid Approach Preview, Vibe As A Market-Evolution Architecture, Whale Vaults And Risk Tranching, Why Existing Perp Solutions Fail Bootstrap, Why Proof Of Value Matters, Solver Defense Against The Wick Of Death, and Z-Score Graduation Criteria.
+- Normalized publication boundaries for live vault parameters, exact Z-score formulas, graduation thresholds, launch availability, payout guarantees, solver defense rules, oracle/funding/liquidation mechanics, token-holder legal/economic rights, current market counts, project traction, and unsupported guarantees of capital safety or value capture.
+- Regenerated Search Book data so page-state counts now show `425` published pages, `373` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `0` Volume 02 candidates remaining, and `193` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 02 Proof-Of-Value Market-Structure Batch
 
 - Promoted `10` Volume 02 Proof-of-Value manifesto pages to `published`: Projects Need Token Utility Without Stablecoin Drag, Liquidity Is Two Jobs Not One, Protocol-Owned Solver As Public Option, The Risk Alignment Matrix, The Scale Of The Long-Tail Perp Problem, The Small-Market Wedge Strategy, Solver-Funded USDC Is A Capital Loop, Solver Refusal As Oracle Defense, The Solver Sustainability Condition, and The Thumbs Down Is A Market Position.

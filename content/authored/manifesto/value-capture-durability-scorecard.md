@@ -3,7 +3,7 @@ id: "authored-value-capture-durability-scorecard"
 title: "Value Capture Needs Durability"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/09-thiel-value-analysis"]
@@ -32,7 +32,7 @@ That is why the docs need a scorecard instead of a slogan:
 
 If those questions are not answered, "Proof of Value" is only a narrative. If they are answered with source-backed metrics, it becomes a falsifiable operating thesis.
 
-## Publication Note
+## Publication Boundary
 
 Protocol share, live fee routing, solver spread economics, data-products strategy, and launch-partner metrics remain operator-review items. This page keeps the strategy logic while avoiding unaudited capture claims.
 

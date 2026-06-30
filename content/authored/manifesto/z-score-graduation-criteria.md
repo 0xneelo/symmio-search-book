@@ -3,7 +3,7 @@ id: "authored-z-score-graduation-criteria"
 title: "Z-Score Graduation Criteria"
 section: "manifesto"
 track: "06 — Market Creation Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-5-the-z-score-measuring-market-maturity", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"]
@@ -24,6 +24,10 @@ The docs should therefore explain two layers:
 
 - the thesis layer: solver dependency should fall as markets mature;
 - the product layer: any live graduation metric needs confirmed formula, source, update cadence, and publication status.
+
+## Publication Boundary
+
+Do not publish the Z-score as a current production threshold, dashboard value, auto-graduation trigger, or order-book handoff rule without fresh implementation review. This page publishes the source-backed maturity model, not live formula parameters or launch commitments.
 
 ## Reader Implication
 

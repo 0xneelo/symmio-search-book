@@ -3,7 +3,7 @@ id: "authored-usdc-vault-negative-feedback-loop"
 title: "The USDC Vault Negative Feedback Loop"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]

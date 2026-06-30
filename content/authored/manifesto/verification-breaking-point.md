@@ -3,7 +3,7 @@ id: "authored-verification-breaking-point"
 title: "The Verification Breaking Point"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/01-introduction#1-3-the-breaking-point"]

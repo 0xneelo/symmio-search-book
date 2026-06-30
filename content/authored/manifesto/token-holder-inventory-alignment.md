@@ -3,7 +3,7 @@ id: "authored-token-holder-inventory-alignment"
 title: "Token Holders Are Natural Inventory Providers"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage"]
@@ -26,7 +26,7 @@ Token-side inventory can help a solver manage residual exposure in the market be
 
 This is why the source frames token inventory as capital efficiency. The system is not trying to make every early market look like a mature USDC vault. It is matching the capital source to the risk it is best positioned to bear.
 
-## Publication Note
+## Publication Boundary
 
 The source includes example revenue-share and capital-efficiency claims. Those examples should stay under operator review until current public economics, vault terms, and disclosure boundaries are confirmed.
 
