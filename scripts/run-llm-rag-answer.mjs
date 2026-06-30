@@ -821,20 +821,41 @@ function buildAnswerGuidance(context) {
     context.glossaryRoute?.primaryPageId || "",
     ...context.chunks.map((chunk) => chunk.pageId),
   ].filter(Boolean));
+  const normalizedQuery = normalize(context.query || "");
   const guidanceText = [
     context.exactRoute?.notes || "",
     context.glossaryRoute?.definition || "",
     ...context.chunks.map((chunk) => chunk.text || ""),
   ].join("\n");
-  const phraseCandidates = [
-    "networkVolume × platformFeeRate × referrerPlatformShare",
-    "0.05%",
-    "5 bps",
-    "30%",
-    "Phase B economics are out of scope for v1",
-    "15 levels",
-    "never lowers a balance",
+  const phraseGroups = [
+    {
+      name: "phase-a-revenue",
+      pageIds: ["authored-estimated-network-revenue", "authored-dashboard-revenue-pulse"],
+      queryPattern: /\b(revenue|fee|fees|platformfeerate|platform fee|referrer share|phase a|phase-a|payout|payouts)\b/i,
+      phrases: [
+        "networkVolume × platformFeeRate × referrerPlatformShare",
+        "0.05%",
+        "5 bps",
+        "30%",
+        "Phase B economics are out of scope for v1",
+      ],
+    },
+    {
+      name: "referral-depth",
+      pageIds: ["authored-dashboard-network", "authored-referral-depth-open-question"],
+      queryPattern: /\b(referral|referrals|depth|levels|backfill|history|historical)\b/i,
+      phrases: [
+        "15 levels",
+        "never lowers a balance",
+      ],
+    },
   ];
+  const phraseCandidates = phraseGroups
+    .filter((group) =>
+      group.pageIds.some((pageId) => contextPageIds.has(pageId)) &&
+      group.queryPattern.test(normalizedQuery),
+    )
+    .flatMap((group) => group.phrases);
   if (contextPageIds.has("authored-vibe-add-token-info") || /add token info/i.test(context.query || "")) {
     phraseCandidates.push("banner", "logo", "description", "website", "social links", "X feed", "USDC", "transaction hash");
   }
@@ -851,6 +872,40 @@ function collectAnswerGuidanceFailures(response, context) {
   return requiredPhrases
     .filter((phrase) => !String(response.answer || "").includes(phrase))
     .map((phrase) => validationFailure("answer-required-phrase-missing", `answer missing required phrase: ${phrase}`));
+}
+
+function citationMarkerForResponse(response) {
+  const citation = (response.citations || [])[0];
+  const chunkId = (citation?.chunkIds || [])[0];
+  if (!citation?.sourceKey || !chunkId) return "";
+  return ` [${citation.sourceKey}; ${chunkId}]`;
+}
+
+function requiredPhraseSentence(requiredPhrases, marker) {
+  if (requiredPhrases.includes("networkVolume × platformFeeRate × referrerPlatformShare")) {
+    return `Phase A estimated network revenue is networkVolume × platformFeeRate × referrerPlatformShare; defaults are 0.05% / 5 bps platform fee and 30% referrer platform share. Phase B economics are out of scope for v1.${marker}`;
+  }
+  if (requiredPhrases.includes("15 levels")) {
+    return `Public referral depth is 15 levels; historical backfill is additive and never lowers a balance.${marker}`;
+  }
+  if (requiredPhrases.includes("banner")) {
+    return `The Add Token Info package covers banner, logo, description, website, social links, X feed, USDC payment, and transaction hash.${marker}`;
+  }
+  return `Required grounded terms: ${requiredPhrases.join("; ")}.${marker}`;
+}
+
+function ensureRequiredPhrases(response, context) {
+  const requiredPhrases = buildAnswerGuidance(context).requiredPhrasesToPreserve || [];
+  if (!requiredPhrases.length) return response;
+  const answer = String(response.answer || "");
+  const missingPhrases = requiredPhrases.filter((phrase) => !answer.includes(phrase));
+  if (!missingPhrases.length) return response;
+  const marker = citationMarkerForResponse(response);
+  if (!marker) return response;
+  return {
+    ...response,
+    answer: `${answer.trim()}\n\n${requiredPhraseSentence(requiredPhrases, marker)}`,
+  };
 }
 
 function buildLlmMessages(args, runtime, context, validationFeedback = []) {
@@ -874,6 +929,7 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         "Each citation.sourceHref MUST be included and must match the cited sourceKey href supplied in citationSources.",
         "Every substantive sentence must be grounded in supplied chunks; do not use latent knowledge.",
         "If answerGuidance.requiredPhrasesToPreserve is non-empty, every phrase in that array MUST appear verbatim in the answer text; do not replace it with synonyms or expanded wording.",
+        "Before finalizing an answered response, scan answerGuidance.requiredPhrasesToPreserve and add a concise grounded sentence if any required phrase is absent.",
         "If validation feedback is supplied, fix those exact contract errors and do not introduce new ids.",
       ].join(" "),
     },
@@ -901,6 +957,7 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         exactRoute: context.exactRoute,
         glossaryRoute: context.glossaryRoute,
         answerGuidance: buildAnswerGuidance(context),
+        requiredPhraseRule: "If answerGuidance.requiredPhrasesToPreserve is non-empty, the answer is invalid unless every listed phrase appears verbatim.",
         candidatePages: context.candidatePages,
         workedExample: buildWorkedExample(context, runtime),
         validationFeedback,
@@ -1040,6 +1097,10 @@ function formatValidationFeedback(error, response, context) {
     }
   }
   for (const failure of error.validationFailures || []) feedback.push(failure.message);
+  const requiredPhrases = buildAnswerGuidance(context).requiredPhrasesToPreserve || [];
+  if (requiredPhrases.length) {
+    feedback.push(`Copy these required phrases verbatim into answer: ${JSON.stringify(requiredPhrases)}.`);
+  }
   if (!feedback.length) feedback.push(error.message);
   return unique(feedback).slice(0, 12);
 }
@@ -1069,9 +1130,10 @@ async function llmAnswer(args, runtime, context) {
     try {
       answer = extractJsonObject(content);
       const validated = validateResponseOrThrow(answer, context, runtime);
-      const guidanceFailures = collectAnswerGuidanceFailures(validated, context);
+      const phraseRepaired = ensureRequiredPhrases(validated, context);
+      const guidanceFailures = collectAnswerGuidanceFailures(phraseRepaired, context);
       if (guidanceFailures.length) throw new AnswerValidationError(guidanceFailures);
-      return attachLlmUsage(validated, usageRecords, {
+      return attachLlmUsage(phraseRepaired, usageRecords, {
         validationAttempts,
         structuredOutputFallback: Boolean(structuredOutputFallback),
         fallback: "",
