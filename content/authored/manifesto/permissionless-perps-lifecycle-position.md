@@ -3,7 +3,7 @@ id: "authored-permissionless-perps-lifecycle-position"
 title: "Where Permissionless Perps Sit In The Lifecycle"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis#5-1-position-in-the-lifecycle"]

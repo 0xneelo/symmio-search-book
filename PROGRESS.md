@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 03 Permissionless-Perps Publication Batch
+
+- Promoted `10` Volume 03 Listing Power and Orderbooks manifesto pages to `published`: Hyperliquid As Perp Infrastructure, The Trench System In Token Market Formation, Listing Without Liquidity, The Zero-Cost Liquidity Analogy, The Permissionless Derivatives Thesis, The Evolution Of Permissionless Infrastructure, Permissionless Perps Hypothesis Summary, The Initial Market For Permissionless Perps, Where Permissionless Perps Sit In The Lifecycle, and How Permissionless Perps Relate To Existing Venues.
+- Preserved publication boundaries for source-time Hyperliquid/HIP-3 claims, current venue rules, exact market-cap bands, token eligibility, supported chains, launch criteria, leverage, liquidity obligations, current product coverage, downstream venue partnerships, automatic graduation, universal shorting/hedging, and legal/risk-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `443` published pages, `355` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `23` Volume 03 candidates remaining, and `175` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 03 Market-Structure Publication Batch
 
 - Promoted `8` Volume 03 Listing Power and Orderbooks manifesto pages to `published`: Cooperation Creates Optionality, The Hyperliquid Gap Needs A Lower Layer, The Market Assembly Line, Market Formation As A Continuous System, Order Books As The Graduation Layer, Protocol-Defined Market Lifecycle, The Percolator Wave Meets Settlement Reality, and Verified On Vibe As A Stress-Test Badge.

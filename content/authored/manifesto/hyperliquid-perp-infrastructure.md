@@ -3,7 +3,7 @@ id: "authored-hyperliquid-perp-infrastructure"
 title: "Hyperliquid As Perp Infrastructure"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/03-landscape#3-5-hyperliquid-perp-infrastructure"]
