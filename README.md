@@ -60,6 +60,14 @@ SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/sear
 
 It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, `GET /api/search-book/moderation`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, and Search Insights will use the service while keeping `localStorage` fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
 
+Run the local service smoke test:
+
+```sh
+npm run search-book:smoke-service
+```
+
+The smoke test starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database, exercises health, extractive answer persistence, rating persistence, Search Insights, and the token-gated moderation export, then removes the temporary database. It does not call the LLM provider.
+
 Operational env knobs:
 
 ```sh
@@ -141,6 +149,7 @@ node --check src/search-book/scripts/build-answer-engine-contract.mjs
 node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
 node --check src/search-book/scripts/serve-answer-engine.mjs
+node --check src/search-book/scripts/smoke-answer-engine-service.mjs
 node --check src/search-book/scripts/build-answer-validation-report.mjs
 node --check src/search-book/scripts/build-answer-chunks.mjs
 node --check src/search-book/scripts/build-volume-map.mjs
@@ -199,6 +208,7 @@ node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.p
 node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.targetMinimumPages !== 500 || q.targetMaximumPages !== 800 || !q.totals.manifestWithinTarget || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.compendiumTarget.minimumPages !== 500 || m.compendiumTarget.maximumPages !== 800 || m.pages.length < m.compendiumTarget.minimumPages || m.pages.length > m.compendiumTarget.maximumPages) process.exit(1); console.log(m.pages.length)"
+npm run search-book:smoke-service
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md
 ```

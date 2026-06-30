@@ -8,7 +8,7 @@ The Search Book now has a 500-800 page compendium shape with 794 manifest pages,
 
 The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 530 candidate pages still in the review queue. The remaining candidate review lanes are 0 final-review-ready pages, 530 operator-review pages, 0 source-refresh pages, 0 publication-date-review pages, and 0 editorial-review pages. Source companions remain retrieval and traceability material, not public navigation pages.
 
-The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,863 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`.
+The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,863 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`. The local smoke command `npm run search-book:smoke-service` now proves service health, extractive answer persistence, rating persistence, Search Insights, and token-gated moderation export against a temporary SQLite database.
 
 The live OpenAI-compatible RAG runtime passed the current recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 15 calls, 83,256 input tokens, 7,755 output tokens, and an estimated cost of `$0.01714140` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
 
@@ -22,6 +22,7 @@ Use these commands as the current reproducible verification path:
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:verify
 node src/search-book/scripts/run-llm-rag-answer.mjs --mode extractive --query "Which dashboard views are documented?" --json
+npm run search-book:smoke-service
 git diff --check -- src/search-book _local/agent-worklog.md
 npm run build --if-present
 ```

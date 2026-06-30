@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Answer-Engine Service Smoke Test
+
+- Added `src/search-book/scripts/smoke-answer-engine-service.mjs`, a deterministic local smoke runner for the standalone answer-engine service.
+- The smoke runner starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database and extractive mode, then proves `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, unauthenticated moderation rejection, and authenticated moderation export.
+- Added `npm run search-book:smoke-service` and documented the command in the Search Book README verification flow. The smoke test does not call the LLM provider or read production API keys.
+
 ## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Recheck
 
 - Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
