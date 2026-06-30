@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Preview-Service Integration Smoke Test
+
+- Added `src/search-book/scripts/smoke-preview-service.mjs`, a deterministic local smoke runner that starts both the static Search Book preview and the standalone SQLite answer-engine service on isolated localhost ports.
+- The smoke runner loads the preview with `?service=...&serviceMode=extractive`, checks CORS preflight, then proves service-backed ask, rating, Search Insights, and exact-page URLs without reading production credentials or calling the LLM provider.
+- Added `npm run search-book:smoke-preview-service` and documented it beside the existing static and service smoke checks.
+
 ## 2026-06-30 — Static Preview Smoke Test
 
 - Added `src/search-book/scripts/serve-static-preview.mjs`, a dependency-free localhost static server for the Search Book prototype.

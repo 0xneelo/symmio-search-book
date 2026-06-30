@@ -83,6 +83,14 @@ npm run search-book:smoke-service
 
 The smoke test starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database, exercises health, extractive answer persistence, rating persistence, Search Insights, and the token-gated moderation export, then removes the temporary database. It does not call the LLM provider.
 
+Run the combined preview/service bridge smoke test:
+
+```sh
+npm run search-book:smoke-preview-service
+```
+
+The bridge smoke starts both `serve-static-preview.mjs` and `serve-answer-engine.mjs` on isolated localhost ports, loads the preview with `?service=...&serviceMode=extractive`, checks CORS preflight, then verifies service-backed ask, rating, Search Insights, and exact-page URLs without calling the LLM provider.
+
 Operational env knobs:
 
 ```sh
@@ -120,6 +128,7 @@ Focused checks for this package:
 ```sh
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:smoke-static
+npm run search-book:smoke-preview-service
 npm run search-book:smoke-service
 ```
 
@@ -167,6 +176,7 @@ node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
 node --check src/search-book/scripts/serve-static-preview.mjs
 node --check src/search-book/scripts/smoke-static-preview.mjs
+node --check src/search-book/scripts/smoke-preview-service.mjs
 node --check src/search-book/scripts/serve-answer-engine.mjs
 node --check src/search-book/scripts/smoke-answer-engine-service.mjs
 node --check src/search-book/scripts/build-answer-validation-report.mjs
@@ -228,6 +238,7 @@ node -e "const d=require('./src/search-book/data/authored-pages.json'); const vo
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.targetMinimumPages !== 500 || q.targetMaximumPages !== 800 || !q.totals.manifestWithinTarget || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.compendiumTarget.minimumPages !== 500 || m.compendiumTarget.maximumPages !== 800 || m.pages.length < m.compendiumTarget.minimumPages || m.pages.length > m.compendiumTarget.maximumPages) process.exit(1); console.log(m.pages.length)"
 npm run search-book:smoke-static
+npm run search-book:smoke-preview-service
 npm run search-book:smoke-service
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md
