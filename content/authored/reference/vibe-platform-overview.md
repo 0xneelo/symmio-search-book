@@ -3,7 +3,7 @@ id: "authored-vibe-platform-overview"
 title: "Vibe Platform Overview"
 section: "product-reference"
 track: "Vibe Basics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-platform", "vibe-what-is", "vibe-architecture"]
 sourceUrls: ["https://docs.vibe.trading/about-vibe-trading/the-platform.md", "https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md", "https://docs.vibe.trading/architectural-overview.md"]
 relatedGeneratedPages: ["vibe-product-platform", "vibe-product-what-is", "authored-vibe-product-overview"]
@@ -26,6 +26,10 @@ This page is the public-product bridge between the manifesto and the operating g
 ## Reader Implication
 
 When someone asks "what does Vibe actually give me?", route here for the product-level answer. When the question becomes precise, route to the relevant page: account creation, deposits, points, rakeback, simple trading, intent architecture, or market creation.
+
+## Publication Boundary
+
+This page can publish the current public-docs shape of the platform: broad perp market access, lowcap listing support, account-creation paths, deposits, points, rakeback, and the intent/SYMMIO architecture beneath the product. It should not publish exact market counts, leverage ceilings, revenue-share economics, token-holder rights, or chain support as final launch facts without a fresh publication-date source check.
 
 ## Sources
 

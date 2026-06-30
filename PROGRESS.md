@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Vibe Product-Reference Final Operator-Review Batch
+
+- Promoted the final `2` product-reference operator-review pages to `published`: Vibe Platform Overview and Vibe Security And Audits.
+- Added explicit publication/current-source boundaries so platform answers can cite the public-docs product shape without freezing market counts, leverage ceilings, revenue-share economics, token-holder rights, or chain support, and security answers stay scoped to SYMMIO-Core v0.8.4 settlement contracts, Sherlock audit context, and the token/staking coming-soon caveat.
+- Regenerated Search Book data so page-state counts now show `366` published pages, `432` candidate pages, `792` source companions, `798/798` exact routes, and `0` product-reference candidate pages remaining.
+
 ## 2026-06-30 — SYN-215 Live RAG Add Token Info Boundary Refresh
 
 - Tightened `run-llm-rag-answer.mjs` answer guidance so Add Token Info responses avoid repeating prohibited static-payment boundary phrases while preserving the strict citation validator and exact source-grounded answer contract.
