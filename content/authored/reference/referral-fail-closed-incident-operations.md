@@ -3,7 +3,7 @@ id: "authored-referral-fail-closed-incident-operations"
 title: "Fail-Closed Referral Incident Operations"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls#8-5-design-principle", "_specs/app-docs/03-grounding.md"]

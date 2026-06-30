@@ -2,9 +2,9 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 731,
-    "publication-candidate-needs-operator-review": 67,
-    "needs-reconciliation": 1
+    "published": 743,
+    "needs-reconciliation": 1,
+    "publication-candidate-needs-operator-review": 55
   },
   "bySection": {
     "manifesto": 479,
@@ -10822,7 +10822,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -10848,7 +10848,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -10874,7 +10874,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -10890,7 +10890,7 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/referral-code-activation-gates.md",
-      "bodyMarkdown": "# Referral Code Activation Gates\n\nNeelo's referral architecture separates referral identity from referral-code activation. The source model allows a user to hold identity metadata at onboarding while reward-eligible code activation requires additional policy approval.\n\nThe architecture gives example activation gates:\n\n- reaching a minimum performance threshold, such as rakeback tier 2;\n- reaching a minimum cumulative trading threshold, such as `$10M` of volume;\n- receiving an administrative exception for strategic partners, designated contributors, or meaningful closed-alpha and pre-beta testers.\n\n## Pre-Beta As A Transition State\n\nThe source treats pre-beta as a transition period, roughly 30-60 days after beta launch, where referral codes may exist but are not yet globally activated for normal reward routing.\n\nThat distinction matters for public docs. A code can exist, identity can be recorded, and access can be phased before the reward graph is fully open. The docs should name which state the user is in instead of implying that every code has the same economic status.\n\n## Publication Boundary\n\nThe threshold examples are source-model examples, not final public Vibe policy. Do not publish live tier gates, volume thresholds, exception lists, pre-beta duration, global activation timing, or retroactive backfill behavior until operator and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Referral Code Activation Policy\".\n- `spec-03`: Referral-depth and historical-accounting caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-identity-anchor`\n- `authored-referral-depth-open-question`",
+      "bodyMarkdown": "# Referral Code Activation Gates\n\nNeelo's referral architecture separates referral identity from referral-code activation. The source model allows a user to hold identity metadata at onboarding while reward-eligible code activation requires additional policy approval.\n\nThe architecture gives example activation gates:\n\n- reaching a minimum performance threshold, such as rakeback tier 2;\n- reaching a minimum cumulative trading threshold, such as `$10M` of volume;\n- receiving an administrative exception for strategic partners, designated contributors, or meaningful closed-alpha and pre-beta testers.\n\n## Pre-Beta As A Transition State\n\nThe source treats pre-beta as a transition period, roughly 30-60 days after beta launch, where referral codes may exist but are not yet globally activated for normal reward routing.\n\nThat distinction matters for public docs. A code can exist, identity can be recorded, and access can be phased before the reward graph is fully open. The docs should name which state the user is in instead of implying that every code has the same economic status.\n\n## Publication Boundary\n\nThe threshold examples are source-model examples, not final public Vibe policy. Do not publish live tier gates, volume thresholds, exception lists, pre-beta duration, global activation timing, or retroactive backfill behavior until operator and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Referral Code Activation Policy\".\n- `spec-03`: Referral-depth and historical-accounting caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-identity-anchor`\n- `authored-referral-identity-and-claim-flow`",
       "excerpt": "Referral Code Activation Gates Neelo's referral architecture separates referral identity from referral code activation. The source model allows a user to hold identity metadata at onboarding while reward eligible code activation requires additional policy approval. The architecture gives example activation gates: reaching a minimum performance threshold, such as rakeback tier 2; reaching a minimum cumulative trading threshold, such as $10M of volume; receiving an administrative exception for strategic partners, designated contributors, or meaningful closed alpha and pre beta testers. Pre Beta As A Transition State The source treats pre beta as a transition period, roughly 30 60 days after beta launch, where referral codes may exist but are not yet globally activated for normal reward routing. That distinction matters for public docs. A code can exist, identity can be recorded, and access can be phased before the reward graph is fully open. The docs should name which state the user is in instead of implying that every code has the same economic status. Publication Boundary The threshold examples are source model examples, not final public Vibe policy. Do not publish live tier gates,"
     },
     {
@@ -10929,7 +10929,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11016,7 +11016,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11035,8 +11035,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/referral-dual-incentive-rails.md",
-      "bodyMarkdown": "# Referral Dual Incentive Rails\n\nNeelo's referral baseline separates two incentive rails:\n\n- trading rakeback, based on the user's own rolling activity;\n- referral rewards, based on referred-user activity over the same rolling window.\n\nThe rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and attribution rules, but they answer different economic questions.\n\n## Why One Reward Label Is Not Enough\n\nThe self channel asks whether a trader should receive value back from their own fee generation. The referral channel asks whether a referrer should receive value from attributed downstream activity. Mixing those rails under one generic \"points\" or \"rewards\" label makes it harder to audit attribution, disclose terms, and reconcile dashboard state.\n\nThe source emphasizes that the hard part is not just computation. It is consistent and auditable attribution across tiers, rolling windows, and commercial policy.\n\n## Publication Boundary\n\nThis page explains source-level channel separation. It should not publish final rakeback percentages, referral percentages, window length, tier tables, stacking behavior, private partner overlays, or referral depth until operator review resolves the public policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Two Incentive Rails\".\n- `vibe-papers`: Neelo, \"Section 3: Rakeback Design\", \"Dual-Channel Model\".\n- `spec-03`: Current referral-depth and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-rakeback-policy-model`\n- `authored-points-taxonomy`\n- `authored-vibe-rakeback-trading-fees`",
-      "excerpt": "Referral Dual Incentive Rails Neelo's referral baseline separates two incentive rails: trading rakeback, based on the user's own rolling activity; referral rewards, based on referred user activity over the same rolling window. The rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and attribution rules, but they answer different economic questions. Why One Reward Label Is Not Enough The self channel asks whether a trader should receive value back from their own fee generation. The referral channel asks whether a referrer should receive value from attributed downstream activity. Mixing those rails under one generic \"points\" or \"rewards\" label makes it harder to audit attribution, disclose terms, and reconcile dashboard state. The source emphasizes that the hard part is not just computation. It is consistent and auditable attribution across tiers, rolling windows, and commercial policy. Publication Boundary This page explains source level channel separation. It should not publish final rakeback percentages, referral percentages, window length, tier tables, stacking behavior, private partner overlays, or referral d"
+      "bodyMarkdown": "# Referral Dual Incentive Rails\n\nNeelo's referral baseline separates two incentive rails:\n\n- trading rakeback, based on the user's own rolling activity;\n- referral rewards, based on referred-user activity over the same rolling window.\n\nThe rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and attribution rules, but they answer different economic questions.\n\n## Why One Reward Label Is Not Enough\n\nThe self channel asks whether a trader should receive value back from their own fee generation. The referral channel asks whether a referrer should receive value from attributed downstream activity. Mixing those rails under one generic \"points\" or \"rewards\" label makes it harder to audit attribution, disclose terms, and reconcile dashboard state.\n\nThe source emphasizes that the hard part is not just computation. It is consistent and auditable attribution across tiers, rolling windows, and commercial policy.\n\n## Publication Boundary\n\nThis page explains source-level channel separation. Public referral depth is 15 levels with additive backfill, but this page should not publish final rakeback percentages, referral percentages, window length, tier tables, stacking behavior, private partner overlays, or any future depth/eligibility change until that specific policy is approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Two Incentive Rails\".\n- `vibe-papers`: Neelo, \"Section 3: Rakeback Design\", \"Dual-Channel Model\".\n- `spec-03`: Current referral-depth and public economics caveats.\n\n## Related Pages\n\n- `authored-referral-rakeback-policy-model`\n- `authored-points-taxonomy`\n- `authored-vibe-rakeback-trading-fees`",
+      "excerpt": "Referral Dual Incentive Rails Neelo's referral baseline separates two incentive rails: trading rakeback, based on the user's own rolling activity; referral rewards, based on referred user activity over the same rolling window. The rakeback source restates the same split as a self channel and a referral channel. Both can use rolling aggregates, tiers, and attribution rules, but they answer different economic questions. Why One Reward Label Is Not Enough The self channel asks whether a trader should receive value back from their own fee generation. The referral channel asks whether a referrer should receive value from attributed downstream activity. Mixing those rails under one generic \"points\" or \"rewards\" label makes it harder to audit attribution, disclose terms, and reconcile dashboard state. The source emphasizes that the hard part is not just computation. It is consistent and auditable attribution across tiers, rolling windows, and commercial policy. Publication Boundary This page explains source level channel separation. Public referral depth is 15 levels with additive backfill, but this page should not publish final rakeback percentages, referral percentages, window length, t"
     },
     {
       "id": "authored-referral-durable-fee-producing-attribution",
@@ -11070,7 +11070,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11087,7 +11087,7 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/referral-early-code-scarcity-cohorts.md",
-      "bodyMarkdown": "# Referral Early-Code Scarcity Cohorts\n\nNeelo's referral-economics source explores an early-cohort model where initial referral-code holders receive structurally stronger distribution rights during an access-gated phase.\n\nThis is a growth mechanism, not a final public policy by itself. Scarcity can increase launch velocity only if it is paired with transparent issuance and expiry rules.\n\n## What The Model Must Define\n\nThe source says any early-code or master-cohort model must define:\n\n- exact cohort size and eligibility path;\n- duration of enhanced rights;\n- propagation depth limits;\n- sunset rules that prevent permanent centralization.\n\nThose details are what keep early access from becoming an unbounded permanent rent. Without them, a scarce-code program can conflict with open participation and referral fairness later.\n\n## Publication Boundary\n\nThis page explains the source launch model. It should not publish final cohort size, master-code list, enhanced-right duration, propagation depth, sunset schedule, partner commitments, or retroactive treatment until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Referral Economics\", \"Early-Code Scarcity and Master Cohorts\".\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\".\n- `spec-03`: Current referral-depth and public-economics caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-qualified-issuance-gating`\n- `authored-referral-depth-open-question`",
+      "bodyMarkdown": "# Referral Early-Code Scarcity Cohorts\n\nNeelo's referral-economics source explores an early-cohort model where initial referral-code holders receive structurally stronger distribution rights during an access-gated phase.\n\nThis is a growth mechanism, not a final public policy by itself. Scarcity can increase launch velocity only if it is paired with transparent issuance and expiry rules.\n\n## What The Model Must Define\n\nThe source says any early-code or master-cohort model must define:\n\n- exact cohort size and eligibility path;\n- duration of enhanced rights;\n- propagation depth limits;\n- sunset rules that prevent permanent centralization.\n\nThose details are what keep early access from becoming an unbounded permanent rent. Without them, a scarce-code program can conflict with open participation and referral fairness later.\n\n## Publication Boundary\n\nThis page explains the source launch model. It should not publish final cohort size, master-code list, enhanced-right duration, propagation depth, sunset schedule, partner commitments, or retroactive treatment until operator, legal, accounting, and implementation review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 5: Referral Economics\", \"Early-Code Scarcity and Master Cohorts\".\n- `vibe-papers`: Neelo, \"Section 6: Access Phasing\".\n- `spec-03`: Current referral-depth and public-economics caveats.\n\n## Related Pages\n\n- `authored-referral-access-phasing-operating-model`\n- `authored-referral-qualified-issuance-gating`\n- `authored-referral-identity-and-claim-flow`",
       "excerpt": "Referral Early Code Scarcity Cohorts Neelo's referral economics source explores an early cohort model where initial referral code holders receive structurally stronger distribution rights during an access gated phase. This is a growth mechanism, not a final public policy by itself. Scarcity can increase launch velocity only if it is paired with transparent issuance and expiry rules. What The Model Must Define The source says any early code or master cohort model must define: exact cohort size and eligibility path; duration of enhanced rights; propagation depth limits; sunset rules that prevent permanent centralization. Those details are what keep early access from becoming an unbounded permanent rent. Without them, a scarce code program can conflict with open participation and referral fairness later. Publication Boundary This page explains the source launch model. It should not publish final cohort size, master code list, enhanced right duration, propagation depth, sunset schedule, partner commitments, or retroactive treatment until operator, legal, accounting, and implementation review confirm them. Sources vibe papers : Neelo, \"Section 5: Referral Economics\", \"Early Code Scarcit"
     },
     {
@@ -11096,7 +11096,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11121,7 +11121,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11147,7 +11147,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11173,7 +11173,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11198,7 +11198,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11224,7 +11224,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11243,8 +11243,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/referral-identity-anchor.md",
-      "bodyMarkdown": "# Referral Identity Anchor\n\nNeelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier.\n\nThat anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward-eligible code activation. A user can have identity metadata at onboarding while activation remains subject to policy thresholds, exceptions, or rollout phase.\n\n## Why The Split Matters\n\nThe identity anchor answers \"who is this referral participant?\" Code activation answers \"can this participant route reward-eligible referrals right now?\" Keeping those states separate lets the system onboard users quickly without promising that every identity can immediately issue economically active codes.\n\nThe split also supports later settlement. If identity, activation, attribution, and claim consumption are collapsed into one mutable off-chain record, the program becomes hard to audit. If the identity anchor is stable and policy state is separately versioned, the docs can explain how eligibility changes without rewriting referral history.\n\n## Publication Boundary\n\nThis page explains the source architecture. It should not publish final NFT metadata, code-activation rights, transferability, eligibility thresholds, exception lists, or referral-depth behavior until operator and implementation review resolve the current referral policy boundary.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Referral Identity\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Referral Code Activation Policy\".\n- `spec-03`: Referral-depth and public points/revenue caveats.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-code-activation-gates`\n- `authored-referral-depth-open-question`",
-      "excerpt": "Referral Identity Anchor Neelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier. That anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward eligible code activation. A user can have identity metadata at onboarding while activation remains subject to policy thresholds, exceptions, or rollout phase. Why The Split Matters The identity anchor answers \"who is this referral participant?\" Code activation answers \"can this participant route reward eligible referrals right now?\" Keeping those states separate lets the system onboard users quickly without promising that every identity can immediately issue economically active codes. The split also supports later settlement. If identity, activation, attribution, and claim consumption are collapsed into one mutable off chain record, the program becomes hard to audit. If the identity anchor is stable and policy state is separately versioned, the docs can explain how eligibility changes without rewriting referral history. Publication Boundary This page explains the source architecture. It s"
+      "bodyMarkdown": "# Referral Identity Anchor\n\nNeelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier.\n\nThat anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward-eligible code activation. A user can have identity metadata at onboarding while activation remains subject to policy thresholds, exceptions, or rollout phase.\n\n## Why The Split Matters\n\nThe identity anchor answers \"who is this referral participant?\" Code activation answers \"can this participant route reward-eligible referrals right now?\" Keeping those states separate lets the system onboard users quickly without promising that every identity can immediately issue economically active codes.\n\nThe split also supports later settlement. If identity, activation, attribution, and claim consumption are collapsed into one mutable off-chain record, the program becomes hard to audit. If the identity anchor is stable and policy state is separately versioned, the docs can explain how eligibility changes without rewriting referral history.\n\n## Publication Boundary\n\nThis page explains the source architecture. Public referral depth is 15 levels with additive backfill, but this page should not publish final NFT metadata, code-activation rights, transferability, eligibility thresholds, exception lists, or any future depth/eligibility change until operator and implementation review approve that specific policy.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 1: System Baseline\", \"Referral Identity\".\n- `vibe-papers`: Neelo, \"Section 2: Architecture\", \"Referral Code Activation Policy\".\n- `spec-03`: Referral-depth and public points/revenue caveats.\n\n## Related Pages\n\n- `authored-referral-identity-and-claim-flow`\n- `authored-referral-code-activation-gates`\n- `authored-referral-unified-access-identity`",
+      "excerpt": "Referral Identity Anchor Neelo's referral baseline uses a referral NFT, or equivalent identity object, as the user's referral identity anchor and code carrier. That anchor should not be confused with immediate reward eligibility. The architecture source separates base referral identity from reward eligible code activation. A user can have identity metadata at onboarding while activation remains subject to policy thresholds, exceptions, or rollout phase. Why The Split Matters The identity anchor answers \"who is this referral participant?\" Code activation answers \"can this participant route reward eligible referrals right now?\" Keeping those states separate lets the system onboard users quickly without promising that every identity can immediately issue economically active codes. The split also supports later settlement. If identity, activation, attribution, and claim consumption are collapsed into one mutable off chain record, the program becomes hard to audit. If the identity anchor is stable and policy state is separately versioned, the docs can explain how eligibility changes without rewriting referral history. Publication Boundary This page explains the source architecture. Publ"
     },
     {
       "id": "authored-referral-identity-and-claim-flow",

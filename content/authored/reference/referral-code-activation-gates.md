@@ -3,7 +3,7 @@ id: "authored-referral-code-activation-gates"
 title: "Referral Code Activation Gates"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#23-referral-code-activation-policy", "_specs/app-docs/03-grounding.md"]
@@ -39,4 +39,4 @@ The threshold examples are source-model examples, not final public Vibe policy. 
 
 - `authored-referral-access-phasing-operating-model`
 - `authored-referral-identity-anchor`
-- `authored-referral-depth-open-question`
+- `authored-referral-identity-and-claim-flow`

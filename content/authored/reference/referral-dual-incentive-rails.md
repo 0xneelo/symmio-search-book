@@ -3,7 +3,7 @@ id: "authored-referral-dual-incentive-rails"
 title: "Referral Dual Incentive Rails"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-2-two-incentive-rails", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design#3-1-dual-channel-model", "_specs/app-docs/03-grounding.md"]
@@ -27,7 +27,7 @@ The source emphasizes that the hard part is not just computation. It is consiste
 
 ## Publication Boundary
 
-This page explains source-level channel separation. It should not publish final rakeback percentages, referral percentages, window length, tier tables, stacking behavior, private partner overlays, or referral depth until operator review resolves the public policy.
+This page explains source-level channel separation. Public referral depth is 15 levels with additive backfill, but this page should not publish final rakeback percentages, referral percentages, window length, tier tables, stacking behavior, private partner overlays, or any future depth/eligibility change until that specific policy is approved.
 
 ## Sources
 

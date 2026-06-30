@@ -3,7 +3,7 @@ id: "authored-referral-early-code-scarcity-cohorts"
 title: "Referral Early-Code Scarcity Cohorts"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#56-early-code-scarcity-and-master-cohorts", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing", "_specs/app-docs/03-grounding.md"]
@@ -41,4 +41,4 @@ This page explains the source launch model. It should not publish final cohort s
 
 - `authored-referral-access-phasing-operating-model`
 - `authored-referral-qualified-issuance-gating`
-- `authored-referral-depth-open-question`
+- `authored-referral-identity-and-claim-flow`

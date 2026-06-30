@@ -3,7 +3,7 @@ id: "authored-referral-identity-anchor"
 title: "Referral Identity Anchor"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#1-1-referral-identity", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture#2-3-referral-code-activation-policy", "_specs/app-docs/03-grounding.md"]
@@ -24,7 +24,7 @@ The split also supports later settlement. If identity, activation, attribution, 
 
 ## Publication Boundary
 
-This page explains the source architecture. It should not publish final NFT metadata, code-activation rights, transferability, eligibility thresholds, exception lists, or referral-depth behavior until operator and implementation review resolve the current referral policy boundary.
+This page explains the source architecture. Public referral depth is 15 levels with additive backfill, but this page should not publish final NFT metadata, code-activation rights, transferability, eligibility thresholds, exception lists, or any future depth/eligibility change until operator and implementation review approve that specific policy.
 
 ## Sources
 
@@ -36,4 +36,4 @@ This page explains the source architecture. It should not publish final NFT meta
 
 - `authored-referral-identity-and-claim-flow`
 - `authored-referral-code-activation-gates`
-- `authored-referral-depth-open-question`
+- `authored-referral-unified-access-identity`

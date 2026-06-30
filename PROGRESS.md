@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Policy And KPI Batch
+
+- Promoted `12` Volume 06 rewards/referrals policy, identity, and KPI pages to `published`: Referral Category Partner Overlays, Referral Claim Versus In-Flow Rebate UX, Referral Code Activation Gates, Referral Demand KPIs, Referral Dual Incentive Rails, Referral Early-Code Scarcity Cohorts, Referral Economic Policy Decision Lane, Fail-Closed Referral Incident Operations, Referral Game-Layer KPIs, Referral Graph Portability Limits, Referral Growth Funnel KPIs, and Referral Identity Anchor.
+- Added or preserved publication boundaries for category partner overlays, claim-based versus in-flow rebate UX, code activation gates, demand and growth funnel KPIs, dual incentive rails, early-code scarcity cohorts, economic policy decisions, fail-closed incident operations, game-layer KPI future layers, graph portability limits, identity anchors, public 15-level referral depth with additive backfill, Phase B refusal, private partner economics, overlay commercial terms, payout/rebate formulas, reward accounting, TGE settlement, transferability, signer/security controls, anti-gaming enforcement, live dashboard formulas, exact launch targets, incident thresholds, graph migration rights, and rollout state.
+- Regenerated Search Book data so page-state counts now show `743` published pages, `55` candidate pages, `792` source companions, `798/798` exact routes, `2,873` chunks, `0` Volume 05 candidates, `55` Volume 06 candidates, `0` protocol-reference candidates, `55` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 06 Referral Market-Formation Batch
 
 - Promoted `9` Volume 06 rewards/referrals market-formation pages to `published`: Referral Architecture As Market Formation, Referral Architecture Failure Modes, Referral Architecture Target Principle, Referral Is Not A Marketing Widget, Referral Attachment At Market Creation, Referral Market Creation Velocity, Referral Durable Fee-Producing Attribution, Referral Sustainable Fee Flow Objective, and Referral Reliable Incentives Under Scale.
