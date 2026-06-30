@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Market Lifecycle Thesis Operator-Review Batch
+
+- Promoted `12` stable Neelo-source manifesto pages to `published`: Vibe As A Listing Oracle, Insurance Topology Should Follow Market Maturity, The Listing Decision Problem, Future Directions For Market Lifecycle Infrastructure, Market Lifecycle Implications For The Industry, The Market Maturation State Map, Market Participant Impact Map, The Market Risk Distribution Shift, Markets Are Dynamic Not Static, Permissionless Perps As Market Infrastructure, The Permissionless Perps Vision Restated, and The Perp Bootstrap Paper Abstract.
+- Preserved publication boundaries already present in the pages: live Z-score thresholds, exact market counts, partner/integration status, insurance caps, cross-margin criteria, LP yield or term-sheet language, loss waterfalls, automated graduation, and current venue behavior require separate primary-source/operator approval.
+- Regenerated Search Book data so page-state counts now show `244` published pages, `554` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Competitive Architecture Moat Operator-Review Batch
 
 - Promoted `12` stable Neelo-source manifesto pages to `published`: Competitive Replication Checklist, Competitive Response Scenario Map, The Competitive Why-Now Window, Ecosystem Synergy Map, First Mover Operational Learning, Hybrid Retrofit Is A New Protocol, Integration And Data Network Effects, Replication Barriers And Data Moats, The Solver As The Initial Network Effect, Solver Complexity Is A Replication Barrier, State Migration Is A Replication Risk, and Sustainable Moat Scorecard.

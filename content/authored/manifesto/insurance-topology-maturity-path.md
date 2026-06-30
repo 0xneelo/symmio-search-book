@@ -3,7 +3,7 @@ id: "authored-insurance-topology-maturity-path"
 title: "Insurance Topology Should Follow Market Maturity"
 section: "manifesto"
 track: "01 — Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-4-dimension-3-insurance-topology", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-2-the-four-transitions"]
