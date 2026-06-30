@@ -3,7 +3,7 @@ id: "authored-vibe-project-audit-and-exit-rights"
 title: "Vibe Project Audit And Exit Rights"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-project-listing-terms"]
 sourceUrls: ["https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"]
@@ -25,6 +25,10 @@ The same terms include termination rights, community notice and wind-down langua
 For projects, the answer is not "trust the dashboard." The public terms describe a formal audit path and an exit/wind-down framework. For traders, the existence of delisting language is a reminder that a listed market can have service-level and safety boundaries; a listing does not guarantee permanent support or unchanged terms.
 
 This page is a documentation summary, not legal advice. The applicable agreement or statement of work controls exact rights, notice, reporting, and dispute mechanics.
+
+## Publication Boundary
+
+Do not publish exact notice periods, auditor rights, confidentiality terms, dispute mechanics, delisting timelines, or termination consequences as universal public terms. The source-backed claim is that the public terms include audit access, reporting, exit, and wind-down mechanics whose controlling details live in the applicable agreement.
 
 ## Sources
 

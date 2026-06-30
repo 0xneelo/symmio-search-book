@@ -3,7 +3,7 @@ id: "authored-vibe-project-supply-loan-flow"
 title: "Vibe Project Supply Loan Flow"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-system-visualization", "vibe-project-listing-terms", "vibe-architecture"]
 sourceUrls: ["https://docs.vibe.trading/system-visualisation.md", "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md", "https://docs.vibe.trading/architectural-overview.md"]
@@ -33,6 +33,10 @@ The source also gives a typical supply-loan range, but the project-listing terms
 ## Reader Guidance
 
 For a project, the core question is not "can I add a symbol?" It is "what inventory, agreement, risk, and reporting path supports the symbol?" Route broad market-creation questions here first, then to project-listing terms for custody, audit, profit, and exit mechanics.
+
+## Publication Boundary
+
+Do not publish supply-loan ranges, required inventory, revenue projections, solver borrowing rights, custody mechanics, or project-specific listing commitments as universal terms. The source-backed claim is the workflow: project inventory supports solver-managed market creation under agreement-specific terms.
 
 ## Sources
 

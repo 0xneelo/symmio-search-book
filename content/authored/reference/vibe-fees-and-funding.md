@@ -3,7 +3,7 @@ id: "authored-vibe-fees-and-funding"
 title: "Vibe Fees And Funding"
 section: "product-reference"
 track: "Fees"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-fees", "vibe-funding"]
 sourceUrls: ["https://docs.vibe.trading/trading/fees.md", "https://docs.vibe.trading/trading/funding.md"]
 relatedGeneratedPages: ["vibe-fees", "vibe-funding", "symmio-funding-rates", "symmio-trading-fees"]
@@ -34,6 +34,10 @@ The funding page says Vibe relies on solver quotes and real-time trader/solver i
 ## Reader Implication
 
 When answering "what will this trade cost?", show both layers: fees around the trade and funding over time. Exact percentages require current product confirmation; funding direction depends on market conditions and position side.
+
+## Publication Boundary
+
+Do not publish exact fee percentages, solver/hedger charges, funding amounts, minimum-payment thresholds, or trade-cost totals as universal values without current product confirmation. The source-backed public answer is categorical: the trade panel is the authoritative pre-confirmation cost breakdown, and funding depends on market conditions and position side.
 
 ## Sources
 

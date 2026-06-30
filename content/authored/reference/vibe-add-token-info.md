@@ -3,7 +3,7 @@ id: "authored-vibe-add-token-info"
 title: "Vibe Add Token Info"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-add-token-info", "vibe-project-listing-terms", "spec-04"]
 sourceUrls: ["https://docs.vibe.trading/more-info/add-token-info.md", "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions", "_specs/app-docs/04-sources.md"]
 relatedGeneratedPages: ["vibe-add-token-info", "vibe-project-listing-terms", "authored-vibe-project-listing-terms"]
@@ -59,7 +59,7 @@ Submission history belongs to the connected wallet. The public statuses are:
 
 Pending submissions can be edited. Updating a pending submission replaces the pending row and reuses the original payment transaction hash. Rejected submissions may be refunded at Vibe's discretion.
 
-## Review Boundaries
+## Publication Boundary
 
 The official rejection examples are fraud or scam suspicion, inactive or inconsistent information, and verification mismatch between the submitted website/socials and the token or smart contract. Public docs should therefore frame Add Token Info as a reviewed metadata request, not as an automatic branding right.
 

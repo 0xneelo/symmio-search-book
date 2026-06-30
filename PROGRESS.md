@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Vibe Market-Creation And Referral Guide Operator-Review Batch
+
+- Promoted `12` official-source Vibe product and rewards pages to `published`: Vibe Add Token Info, Vibe Fees And Funding, Vibe Project Audit And Exit Rights, Vibe Project Listing Terms, Vibe Project Profit-Share Boundary, Vibe Project Solver Profit Sources, Vibe Project Supply Loan Flow, Vibe Project Token Custody Boundary, Vibe Rakeback And Trading Fees, Vibe Referral Code Flow, Vibe Referral Commission Program, and Vibe System Visualization.
+- Added or normalized publication boundaries for live payment/form details, legal terms, project commercial terms, fees/funding, profit share, token custody, solver economics, referral payout timing, coming-soon referral flows, exact TGE settlement, and dashboard network-accounting boundaries.
+- Regenerated Search Book data so page-state counts now show `364` published pages, `434` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Symmio Contract Reference Operator-Review Batch
 
 - Promoted `6` official-source Symmio reference pages to `published`: Options Intent Lifecycle, Symmio Account Layer And Virtual Accounts, Symmio Contract Quote Lifecycle, Symmio Contract Surface, Symmio Frontend Builder And Audit Posture, and Symmio Withdrawal And Provider System.

@@ -3,7 +3,7 @@ id: "authored-vibe-project-token-custody-boundary"
 title: "Vibe Project Token Custody Boundary"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-project-listing-terms", "vibe-system-visualization"]
 sourceUrls: ["https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md", "https://docs.vibe.trading/system-visualisation.md"]
@@ -25,6 +25,10 @@ That means the docs can explain that a security-fund concept exists in the terms
 ## Reader Guidance
 
 For projects, this page answers "what happens to the tokens we provide?" at the source level: client-asset accounting, service use, custody risk, and a non-guaranteed security-fund concept. It does not replace the actual agreement or legal review.
+
+## Publication Boundary
+
+Do not publish custody procedures, segregation guarantees, security-fund coverage, withdrawal rights, rehypothecation rights, or legal conclusions as universal policy without legal, accounting, product, and operator review. The source-backed claim is limited to the public terms' client-asset, separate-accounting, custody-risk, and discretionary security-fund language.
 
 ## Sources
 

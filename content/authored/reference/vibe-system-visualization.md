@@ -3,7 +3,7 @@ id: "authored-vibe-system-visualization"
 title: "Vibe System Visualization"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-system-visualization", "vibe-project-listing-terms", "vibe-architecture"]
 sourceUrls: ["https://docs.vibe.trading/system-visualisation.md", "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md", "https://docs.vibe.trading/architectural-overview.md"]
 relatedGeneratedPages: ["vibe-system-visualization", "vibe-project-listing-terms", "authored-vibe-intent-architecture"]
@@ -26,6 +26,10 @@ The same page lists spread, funding rates, liquidations, and losing trades as so
 ## Reader Implication
 
 When a project asks "how does listing a perp with Vibe work?", route them here for the high-level loop, then to project listing terms for service, custody, profit, audit, and termination mechanics. When a trader asks what happens behind their trade, route them to the intent architecture and solver operations pages.
+
+## Publication Boundary
+
+Do not publish supply-loan ranges, project profit-share ranges, solver profit channels, or revenue projections as universal commercial terms. The source-backed claim is the high-level workflow and example economics; actual project terms remain agreement-specific and require operator/accounting/product review before they become current public commitments.
 
 ## Sources
 

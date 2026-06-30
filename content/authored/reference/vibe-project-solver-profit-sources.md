@@ -3,7 +3,7 @@ id: "authored-vibe-project-solver-profit-sources"
 title: "Vibe Project Solver Profit Sources"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-system-visualization", "vibe-project-listing-terms"]
 sourceUrls: ["https://docs.vibe.trading/system-visualisation.md", "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"]
@@ -30,7 +30,7 @@ That list should not be presented as a guaranteed project payout. It should be p
 
 ## Publication Boundary
 
-The operator still needs to approve the final public revenue disclosure boundary. This page can cite the official project-listing and system-visualization sources, but it should not convert those source examples into a live revenue calculator, venue-level revenue promise, or universal solver/LP split.
+Project-side solver economics are separate from the v1 Phase A referrer-revenue formula. This page can cite the official project-listing and system-visualization sources, but it should not convert those source examples into a live revenue calculator, venue-level revenue promise, or universal solver/LP split.
 
 ## Sources
 

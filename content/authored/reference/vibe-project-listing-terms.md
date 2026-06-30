@@ -3,7 +3,7 @@ id: "authored-vibe-project-listing-terms"
 title: "Vibe Project Listing Terms"
 section: "product-reference"
 track: "Market Creation"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-project-listing-terms", "vibe-system-visualization"]
 sourceUrls: ["https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md", "https://docs.vibe.trading/system-visualisation.md"]
 relatedGeneratedPages: ["vibe-project-listing-terms", "vibe-system-visualization", "authored-vibe-system-visualization"]
@@ -34,6 +34,10 @@ The terms also include conduct restrictions against market manipulation, client 
 ## Reader Implication
 
 Projects should read this page before treating Vibe listing as a simple self-serve ticker request. Traders should read it as background for how project-side inventory and market-making services can support a Vibe perp, not as a guarantee of any specific market's terms, liquidity, or profit split.
+
+## Publication Boundary
+
+This page summarizes public terms and is not legal advice. Do not publish exact KPIs, custody procedures, security-fund coverage, profit splits, supply commitments, conduct remedies, jurisdictional conclusions, or project-specific commercial terms as universal policy without legal, accounting, product, and operator review.
 
 ## Sources
 

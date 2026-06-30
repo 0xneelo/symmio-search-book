@@ -3,7 +3,7 @@ id: "authored-vibe-rakeback-trading-fees"
 title: "Vibe Rakeback And Trading Fees"
 section: "rewards-referrals"
 track: "Fees"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-rakeback", "vibe-referral-codes", "vibe-fees"]
 sourceUrls: ["https://docs.vibe.trading/trading/rakeback-trading-fees.md", "https://docs.vibe.trading/getting-started/referral-codes.md", "https://docs.vibe.trading/trading/fees.md"]
 relatedGeneratedPages: ["vibe-rakeback", "vibe-referral-codes", "vibe-fees"]
@@ -26,6 +26,10 @@ The rakeback page is a rewards table, while the fees page explains that trade co
 ## Reader Implication
 
 When a trader asks "why did I get money back from fees?", route here. When a user asks "what does this trade cost before I click?", route to the fees and funding page. When a referrer asks "what do I earn from my network?", route to referral commission and keep depth/accounting caveats visible.
+
+## Publication Boundary
+
+Do not mix referee rakeback with referrer commission or dashboard network revenue. Exact rakeback tiers should cite the current public Vibe rakeback page, while trade-cost questions still route to the live trade panel and fee/funding docs.
 
 ## Sources
 
