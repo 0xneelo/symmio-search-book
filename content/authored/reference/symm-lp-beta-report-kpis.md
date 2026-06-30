@@ -3,7 +3,7 @@ id: "authored-symm-lp-beta-report-kpis"
 title: "SYMM LP Beta Report KPI Stack"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions"]
@@ -32,6 +32,10 @@ The source also calls for vault-level time series, day/week realized and unreali
 ## Reader Implication
 
 The KPI stack turns a compelling case study into an operational reporting standard. It lets future LPs see not only that a period was profitable, but where the profit came from, how much was realized, what risk was carried, and when scaling should stop.
+
+## Publication Boundary
+
+Do not publish this KPI stack as an audited reporting standard, a live dashboard commitment, or a guarantee that every metric is currently exposed in production. The source-backed claim is that repeatable LP reporting needs these measurements before case-study economics can be treated as durable or scalable.
 
 ## Sources
 

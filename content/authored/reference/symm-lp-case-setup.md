@@ -3,7 +3,8 @@ id: "authored-symm-lp-case-setup"
 title: "SYMM LP Case Setup"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup"]
 relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-00-abstract", "neelo-12-case-study-symm-lp-12-docs-01-executive-summary", "neelo-12-case-study-symm-lp-12-docs-02-case-context-and-setup"]
@@ -24,6 +25,10 @@ That does not mean the LP role is risk-free. In bootstrap mode, LP collateral is
 ## Reader Implication
 
 Treat this page as a case setup, not a generalized performance promise. The useful lesson is the mechanism: project-aligned inventory can bootstrap a perp market and potentially monetize trader imbalance. The unresolved question is whether the same economics hold across neutral, adverse, or higher-volume regimes.
+
+## Publication Boundary
+
+Do not publish this setup as a current SYMM vault offer, treasury recommendation, or guarantee that token inventory can safely monetize every market. The source-backed claim is limited to the named LafaChief SYMM case, its measured context, and the mechanism it illustrates.
 
 ## Sources
 

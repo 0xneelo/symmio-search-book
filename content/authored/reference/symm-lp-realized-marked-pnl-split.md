@@ -3,7 +3,7 @@ id: "authored-symm-lp-realized-marked-pnl-split"
 title: "SYMM LP Realized And Marked PnL Split"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers", "symmio-settlement", "symmio-profit-realization"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"]

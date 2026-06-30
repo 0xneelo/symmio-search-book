@@ -3,7 +3,7 @@ id: "authored-symm-lp-benchmark-reading"
 title: "Reading The SYMM LP Benchmarks"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions"]
@@ -31,6 +31,10 @@ It does not prove a constant yield. The source explicitly ties the outperformanc
 ## Reader Implication
 
 Use the benchmark table as a wealth comparison, not a headline APR. It answers "what happened to this allocation versus simple alternatives?" The next required question is whether that spread survives different skew, liquidity, leverage, and trader-profit conditions.
+
+## Publication Boundary
+
+Do not publish the benchmark as current vault performance, future APY, investment advice, or proof that the result generalizes across regimes. The source-backed claim is limited to this case-study window, its benchmark definitions, and the stated comparison between holding, selling, and Vibe LP deposit outcomes.
 
 ## Sources
 

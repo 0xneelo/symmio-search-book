@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 655,
-    "publication-candidate-needs-operator-review": 143,
+    "published": 674,
+    "publication-candidate-needs-operator-review": 124,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -14211,7 +14211,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14227,7 +14227,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-benchmark-reading.md",
-      "bodyMarkdown": "# Reading The SYMM LP Benchmarks\n\nThe SYMM LP benchmark table compares three uses of the same starting notional: hold the deposited SYMM, deposit the SYMM into Vibe LP, or sell the original position into USDC at the start. The comparison is useful because it separates token mark-to-market from cash earned.\n\nThe source reports:\n\n- Full Hold ending funds: `$16,806.37`, or `-42.19%`.\n- Vibe deposit ending funds: `$32,405.05`, or `+11.47%`.\n- Full Sell ending funds: `$29,070.48`, or `0.00%`.\n\nIn that window, the Vibe deposit beat Full Hold by `$15,598.68` and Full Sell by `$3,334.57`. The case also reports `+47.80%` combined realized and unrealized return on deposit-time notional before the portfolio-level token mark is applied.\n\n## What The Benchmark Proves\n\nThe benchmark proves that, for this data window, LP cash earnings and token-count growth more than offset the decline in SYMM's mark-to-market price. That is why the Vibe-deposit scenario can show a positive total-funds outcome even while the token price fell.\n\nIt does not prove a constant yield. The source explicitly ties the outperformance to a favorable long-crowding and down-price regime. A production case study should rerun the same benchmark across multiple regimes, including uptrend and chop.\n\n## Reader Implication\n\nUse the benchmark table as a wealth comparison, not a headline APR. It answers \"what happened to this allocation versus simple alternatives?\" The next required question is whether that spread survives different skew, liquidity, leverage, and trader-profit conditions.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-risk-and-edge-cases`",
+      "bodyMarkdown": "# Reading The SYMM LP Benchmarks\n\nThe SYMM LP benchmark table compares three uses of the same starting notional: hold the deposited SYMM, deposit the SYMM into Vibe LP, or sell the original position into USDC at the start. The comparison is useful because it separates token mark-to-market from cash earned.\n\nThe source reports:\n\n- Full Hold ending funds: `$16,806.37`, or `-42.19%`.\n- Vibe deposit ending funds: `$32,405.05`, or `+11.47%`.\n- Full Sell ending funds: `$29,070.48`, or `0.00%`.\n\nIn that window, the Vibe deposit beat Full Hold by `$15,598.68` and Full Sell by `$3,334.57`. The case also reports `+47.80%` combined realized and unrealized return on deposit-time notional before the portfolio-level token mark is applied.\n\n## What The Benchmark Proves\n\nThe benchmark proves that, for this data window, LP cash earnings and token-count growth more than offset the decline in SYMM's mark-to-market price. That is why the Vibe-deposit scenario can show a positive total-funds outcome even while the token price fell.\n\nIt does not prove a constant yield. The source explicitly ties the outperformance to a favorable long-crowding and down-price regime. A production case study should rerun the same benchmark across multiple regimes, including uptrend and chop.\n\n## Reader Implication\n\nUse the benchmark table as a wealth comparison, not a headline APR. It answers \"what happened to this allocation versus simple alternatives?\" The next required question is whether that spread survives different skew, liquidity, leverage, and trader-profit conditions.\n\n## Publication Boundary\n\nDo not publish the benchmark as current vault performance, future APY, investment advice, or proof that the result generalizes across regimes. The source-backed claim is limited to this case-study window, its benchmark definitions, and the stated comparison between holding, selling, and Vibe LP deposit outcomes.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-risk-and-edge-cases`",
       "excerpt": "Reading The SYMM LP Benchmarks The SYMM LP benchmark table compares three uses of the same starting notional: hold the deposited SYMM, deposit the SYMM into Vibe LP, or sell the original position into USDC at the start. The comparison is useful because it separates token mark to market from cash earned. The source reports: Full Hold ending funds: $16,806.37 , or 42.19% . Vibe deposit ending funds: $32,405.05 , or +11.47% . Full Sell ending funds: $29,070.48 , or 0.00% . In that window, the Vibe deposit beat Full Hold by $15,598.68 and Full Sell by $3,334.57 . The case also reports +47.80% combined realized and unrealized return on deposit time notional before the portfolio level token mark is applied. What The Benchmark Proves The benchmark proves that, for this data window, LP cash earnings and token count growth more than offset the decline in SYMM's mark to market price. That is why the Vibe deposit scenario can show a positive total funds outcome even while the token price fell. It does not prove a constant yield. The source explicitly ties the outperformance to a favorable long crowding and down price regime. A production case study should rerun the same benchmark across multi"
     },
     {
@@ -14236,7 +14236,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14252,7 +14252,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-beta-report-kpis.md",
-      "bodyMarkdown": "# SYMM LP Beta Report KPI Stack\n\nThe SYMM LP source gives enough evidence for a proof-of-mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale.\n\nMinimum beta-report metrics should include:\n\n- net ROI versus a token-hold benchmark;\n- realized ROI versus total marked ROI;\n- maximum drawdown and recovery time;\n- fee, funding, liquidation, and user-PnL attribution;\n- open-interest concentration and leverage distribution;\n- capacity stress at higher TVL tiers.\n\n## Accounting Requirements\n\nThe report also needs a sign-convention dictionary for dashboard fields. `Current Debt`, `Current UPnL`, and `User Profit` are user-side fields; negative values are favorable to the LP side only under the stated convention. Realized and unrealized components should stay separate in public tables.\n\nThe source also calls for vault-level time series, day/week realized and unrealized splits, max drawdown duration, and a gross-to-net bridge. Without those, a single snapshot can look more complete than it is.\n\n## Reader Implication\n\nThe KPI stack turns a compelling case study into an operational reporting standard. It lets future LPs see not only that a period was profitable, but where the profit came from, how much was realized, what risk was carried, and when scaling should stop.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n\n## Related Pages\n\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-current-debt-and-upnl`",
+      "bodyMarkdown": "# SYMM LP Beta Report KPI Stack\n\nThe SYMM LP source gives enough evidence for a proof-of-mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale.\n\nMinimum beta-report metrics should include:\n\n- net ROI versus a token-hold benchmark;\n- realized ROI versus total marked ROI;\n- maximum drawdown and recovery time;\n- fee, funding, liquidation, and user-PnL attribution;\n- open-interest concentration and leverage distribution;\n- capacity stress at higher TVL tiers.\n\n## Accounting Requirements\n\nThe report also needs a sign-convention dictionary for dashboard fields. `Current Debt`, `Current UPnL`, and `User Profit` are user-side fields; negative values are favorable to the LP side only under the stated convention. Realized and unrealized components should stay separate in public tables.\n\nThe source also calls for vault-level time series, day/week realized and unrealized splits, max drawdown duration, and a gross-to-net bridge. Without those, a single snapshot can look more complete than it is.\n\n## Reader Implication\n\nThe KPI stack turns a compelling case study into an operational reporting standard. It lets future LPs see not only that a period was profitable, but where the profit came from, how much was realized, what risk was carried, and when scaling should stop.\n\n## Publication Boundary\n\nDo not publish this KPI stack as an audited reporting standard, a live dashboard commitment, or a guarantee that every metric is currently exposed in production. The source-backed claim is that repeatable LP reporting needs these measurements before case-study economics can be treated as durable or scalable.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n\n## Related Pages\n\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-data-guardrails`\n- `authored-symm-lp-current-debt-and-upnl`",
       "excerpt": "SYMM LP Beta Report KPI Stack The SYMM LP source gives enough evidence for a proof of mechanism page, but a repeated public beta report needs a stricter KPI stack. The goal is to show whether LP economics are durable, attributable, and safe to scale. Minimum beta report metrics should include: net ROI versus a token hold benchmark; realized ROI versus total marked ROI; maximum drawdown and recovery time; fee, funding, liquidation, and user PnL attribution; open interest concentration and leverage distribution; capacity stress at higher TVL tiers. Accounting Requirements The report also needs a sign convention dictionary for dashboard fields. Current Debt , Current UPnL , and User Profit are user side fields; negative values are favorable to the LP side only under the stated convention. Realized and unrealized components should stay separate in public tables. The source also calls for vault level time series, day/week realized and unrealized splits, max drawdown duration, and a gross to net bridge. Without those, a single snapshot can look more complete than it is. Reader Implication The KPI stack turns a compelling case study into an operational reporting standard. It lets future L"
     },
     {
@@ -14283,7 +14283,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14297,9 +14297,9 @@
         "neelo-12-case-study-symm-lp-12-docs-01-executive-summary",
         "neelo-12-case-study-symm-lp-12-docs-02-case-context-and-setup"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-case-setup.md",
-      "bodyMarkdown": "# SYMM LP Case Setup\n\nNeelo's SYMM LP case study tracks one liquidity-provider deployment on Vibe: three SYMM deposits by LafaChief totaling `2,271,131` tokens. The source frames the test as a way to evaluate whether a project-aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposure.\n\nThe context matters. This was a young SYMM market with a heavily long-biased trader base and a falling token price during the measured window. The LP was not simply earning passive yield from high turnover. It was backing early market activity while trader positioning, funding transfers, fees, and mark-to-market losses created an LP-favorable data cut.\n\n## What Was Being Tested\n\nThe operational question was whether token inventory could do more than sit idle. In the case-study framing, a treasury, insider, or large holder can allocate a limited share of inventory into a Vibe LP role, keep the majority of the stack for directional upside, and let the deposited portion participate in market-making economics.\n\nThat does not mean the LP role is risk-free. In bootstrap mode, LP collateral is closer to the market backstop. As a market matures and two-sided trader flow improves, more risk can be netted trader-to-trader, but the LP still needs transparent accounting for realized debt, unrealized PnL, skew, utilization, and liquidation integrity.\n\n## Reader Implication\n\nTreat this page as a case setup, not a generalized performance promise. The useful lesson is the mechanism: project-aligned inventory can bootstrap a perp market and potentially monetize trader imbalance. The unresolved question is whether the same economics hold across neutral, adverse, or higher-volume regimes.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"SYMM LP Case Study: Abstract\".\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Case Context and Setup\".\n\n## Related Pages\n\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-symm-lp-unit-economics`\n- `neelo-12-case-study-symm-lp-12-docs-02-case-context-and-setup`",
+      "bodyMarkdown": "# SYMM LP Case Setup\n\nNeelo's SYMM LP case study tracks one liquidity-provider deployment on Vibe: three SYMM deposits by LafaChief totaling `2,271,131` tokens. The source frames the test as a way to evaluate whether a project-aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposure.\n\nThe context matters. This was a young SYMM market with a heavily long-biased trader base and a falling token price during the measured window. The LP was not simply earning passive yield from high turnover. It was backing early market activity while trader positioning, funding transfers, fees, and mark-to-market losses created an LP-favorable data cut.\n\n## What Was Being Tested\n\nThe operational question was whether token inventory could do more than sit idle. In the case-study framing, a treasury, insider, or large holder can allocate a limited share of inventory into a Vibe LP role, keep the majority of the stack for directional upside, and let the deposited portion participate in market-making economics.\n\nThat does not mean the LP role is risk-free. In bootstrap mode, LP collateral is closer to the market backstop. As a market matures and two-sided trader flow improves, more risk can be netted trader-to-trader, but the LP still needs transparent accounting for realized debt, unrealized PnL, skew, utilization, and liquidation integrity.\n\n## Reader Implication\n\nTreat this page as a case setup, not a generalized performance promise. The useful lesson is the mechanism: project-aligned inventory can bootstrap a perp market and potentially monetize trader imbalance. The unresolved question is whether the same economics hold across neutral, adverse, or higher-volume regimes.\n\n## Publication Boundary\n\nDo not publish this setup as a current SYMM vault offer, treasury recommendation, or guarantee that token inventory can safely monetize every market. The source-backed claim is limited to the named LafaChief SYMM case, its measured context, and the mechanism it illustrates.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"SYMM LP Case Study: Abstract\".\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Case Context and Setup\".\n\n## Related Pages\n\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-symm-lp-unit-economics`\n- `neelo-12-case-study-symm-lp-12-docs-02-case-context-and-setup`",
       "excerpt": "SYMM LP Case Setup Neelo's SYMM LP case study tracks one liquidity provider deployment on Vibe: three SYMM deposits by LafaChief totaling 2,271,131 tokens. The source frames the test as a way to evaluate whether a project aligned token holder can use a Vibe vault deposit as both market bootstrap collateral and a partial hedge against existing token exposure. The context matters. This was a young SYMM market with a heavily long biased trader base and a falling token price during the measured window. The LP was not simply earning passive yield from high turnover. It was backing early market activity while trader positioning, funding transfers, fees, and mark to market losses created an LP favorable data cut. What Was Being Tested The operational question was whether token inventory could do more than sit idle. In the case study framing, a treasury, insider, or large holder can allocate a limited share of inventory into a Vibe LP role, keep the majority of the stack for directional upside, and let the deposited portion participate in market making economics. That does not mean the LP role is risk free. In bootstrap mode, LP collateral is closer to the market backstop. As a market matu"
     },
     {
@@ -14308,7 +14308,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14360,7 +14360,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14384,7 +14384,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14397,9 +14397,9 @@
         "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-3-metric-definitions-lp-perspective",
         "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-4-interpretation-guardrails"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-data-guardrails.md",
-      "bodyMarkdown": "# SYMM LP Data Guardrails\n\nThe SYMM LP case-study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily-series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge.\n\nThe key dashboard fields are:\n\n- total tokens, locked tokens, free tokens, and total USDC;\n- user profit, current debt, current UPnL, total OI, long OI, and short OI;\n- long utilization, open-interest quantity, and open-position count;\n- deposited tokens, current token balance, average deposit price, current price reference, and realized/unrealized LP profit.\n\n## Guardrails For Publication\n\nDo not treat one data cut as a full-cycle performance report. Do not sum heterogeneous dashboard fields unless the accounting method confirms they are additive. Keep realized and unrealized components separate. Explain that negative user-side debt or PnL is favorable to the LP side only under the stated sign convention.\n\nThe reproducibility note also matters. The source window starts at the first deposit timestamp and runs through the referenced dashboard snapshot. Daily annualized yield is computed from average per-day yield times 365, without compounding. That convention should be visible whenever the case is converted into public-facing yield language.\n\n## Reader Implication\n\nThis page is the boundary between compelling evidence and overclaiming. It lets the compendium use the SYMM case as a proof of mechanism while still asking for audited attribution, time series, drawdown, gross-to-net bridges, and benchmark updates before publishing it as a general LP performance standard.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-risk-and-edge-cases`\n- `neelo-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions`",
+      "bodyMarkdown": "# SYMM LP Data Guardrails\n\nThe SYMM LP case-study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily-series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge.\n\nThe key dashboard fields are:\n\n- total tokens, locked tokens, free tokens, and total USDC;\n- user profit, current debt, current UPnL, total OI, long OI, and short OI;\n- long utilization, open-interest quantity, and open-position count;\n- deposited tokens, current token balance, average deposit price, current price reference, and realized/unrealized LP profit.\n\n## Guardrails For Publication\n\nDo not treat one data cut as a full-cycle performance report. Do not sum heterogeneous dashboard fields unless the accounting method confirms they are additive. Keep realized and unrealized components separate. Explain that negative user-side debt or PnL is favorable to the LP side only under the stated sign convention.\n\nThe reproducibility note also matters. The source window starts at the first deposit timestamp and runs through the referenced dashboard snapshot. Daily annualized yield is computed from average per-day yield times 365, without compounding. That convention should be visible whenever the case is converted into public-facing yield language.\n\n## Reader Implication\n\nThis page is the boundary between compelling evidence and overclaiming. It lets the compendium use the SYMM case as a proof of mechanism while still asking for audited attribution, time series, drawdown, gross-to-net bridges, and benchmark updates before publishing it as a general LP performance standard.\n\n## Publication Boundary\n\nDo not treat the data cut as a complete audit, a current vault statement, or a public accounting standard. Final public reporting needs durable raw sources, owner-approved sign conventions, refresh cadence, realized/unrealized reconciliation, and accounting review before figures are reused outside this case-study context.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-risk-and-edge-cases`\n- `neelo-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions`",
       "excerpt": "SYMM LP Data Guardrails The SYMM LP case study data is useful because it names the exact metrics being interpreted, but it should still be treated as a snapshot. The source uses dashboard values, case inputs, and daily series references; it does not present a full audited vault report with every trade, fee, liquidation, drawdown, and attribution bridge. The key dashboard fields are: total tokens, locked tokens, free tokens, and total USDC; user profit, current debt, current UPnL, total OI, long OI, and short OI; long utilization, open interest quantity, and open position count; deposited tokens, current token balance, average deposit price, current price reference, and realized/unrealized LP profit. Guardrails For Publication Do not treat one data cut as a full cycle performance report. Do not sum heterogeneous dashboard fields unless the accounting method confirms they are additive. Keep realized and unrealized components separate. Explain that negative user side debt or PnL is favorable to the LP side only under the stated sign convention. The reproducibility note also matters. The source window starts at the first deposit timestamp and runs through the referenced dashboard snaps"
     },
     {
@@ -14408,7 +14408,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14433,7 +14433,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14482,7 +14482,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14506,7 +14506,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14530,7 +14530,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14554,7 +14554,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14578,7 +14578,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14626,7 +14626,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14694,7 +14694,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14718,7 +14718,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-settlement",
@@ -14746,7 +14746,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14762,7 +14762,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-regime-dependence.md",
-      "bodyMarkdown": "# SYMM LP Returns Are Regime-Dependent\n\nThe central risk in the SYMM LP case is the mirror image of its success. The measured window was favorable because trader positioning was strongly long-biased while token price moved down. If traders had been right instead of wrong, the LP outcome could have compressed or turned negative.\n\nThe risk source names several regime paths that must be tested before scaling:\n\n- a prolonged uptrend with profitable long traders;\n- chop with low directional edge but continuing fees;\n- a sudden gap move in a thin market;\n- community activity decay that reduces open interest and turnover.\n\n## Allocation Is Not Immunity\n\nThe case's hedge logic says an insider or treasury can deposit only a limited share of holdings, such as 5-20%, while keeping the majority of inventory uncommitted. That can split exposure between retained upside and LP economics, but it does not remove LP risk.\n\nThe LP allocation is still exposed to trader profitability, unrealized PnL volatility, leverage amplification, liquidation execution, liquidity stress, and concentration in one token community.\n\n## Reader Implication\n\nThe public claim should be \"this mechanism worked in one favorable regime,\" not \"this return profile is durable.\" Production reporting needs scenario analysis, drawdown history, realized/unrealized splits, and stress-adjusted scaling assumptions.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n\n## Related Pages\n\n- `authored-symm-lp-risk-and-edge-cases`\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-benchmark-reading`",
+      "bodyMarkdown": "# SYMM LP Returns Are Regime-Dependent\n\nThe central risk in the SYMM LP case is the mirror image of its success. The measured window was favorable because trader positioning was strongly long-biased while token price moved down. If traders had been right instead of wrong, the LP outcome could have compressed or turned negative.\n\nThe risk source names several regime paths that must be tested before scaling:\n\n- a prolonged uptrend with profitable long traders;\n- chop with low directional edge but continuing fees;\n- a sudden gap move in a thin market;\n- community activity decay that reduces open interest and turnover.\n\n## Allocation Is Not Immunity\n\nThe case's hedge logic says an insider or treasury can deposit only a limited share of holdings, such as 5-20%, while keeping the majority of inventory uncommitted. That can split exposure between retained upside and LP economics, but it does not remove LP risk.\n\nThe LP allocation is still exposed to trader profitability, unrealized PnL volatility, leverage amplification, liquidation execution, liquidity stress, and concentration in one token community.\n\n## Reader Implication\n\nThe public claim should be \"this mechanism worked in one favorable regime,\" not \"this return profile is durable.\" Production reporting needs scenario analysis, drawdown history, realized/unrealized splits, and stress-adjusted scaling assumptions.\n\n## Publication Boundary\n\nDo not publish the case as regime-independent yield, risk-free LP income, or a recommendation to size LP exposure in the 5-20% range without operator/risk review. The source-backed claim is the regime sensitivity itself: the favorable result depends on trader skew, price path, liquidity, liquidation integrity, and participation.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n\n## Related Pages\n\n- `authored-symm-lp-risk-and-edge-cases`\n- `authored-symm-lp-replication-framework`\n- `authored-symm-lp-benchmark-reading`",
       "excerpt": "SYMM LP Returns Are Regime Dependent The central risk in the SYMM LP case is the mirror image of its success. The measured window was favorable because trader positioning was strongly long biased while token price moved down. If traders had been right instead of wrong, the LP outcome could have compressed or turned negative. The risk source names several regime paths that must be tested before scaling: a prolonged uptrend with profitable long traders; chop with low directional edge but continuing fees; a sudden gap move in a thin market; community activity decay that reduces open interest and turnover. Allocation Is Not Immunity The case's hedge logic says an insider or treasury can deposit only a limited share of holdings, such as 5 20%, while keeping the majority of inventory uncommitted. That can split exposure between retained upside and LP economics, but it does not remove LP risk. The LP allocation is still exposed to trader profitability, unrealized PnL volatility, leverage amplification, liquidation execution, liquidity stress, and concentration in one token community. Reader Implication The public claim should be \"this mechanism worked in one favorable regime,\" not \"this r"
     },
     {
@@ -14820,7 +14820,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14833,9 +14833,9 @@
         "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-2-principal-risk-vectors",
         "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-4-edge-cases-to-test-before-scaling"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-risk-and-edge-cases.md",
-      "bodyMarkdown": "# SYMM LP Risk And Edge Cases\n\nThe SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes.\n\nThe source highlights several risk vectors:\n\n- directional reversal, where trader-side wins move against the LP;\n- unrealized PnL volatility, where marked profit can disappear before realization;\n- leverage amplification, where small token moves create larger LP exposure;\n- liquidity stress, where liquidation integrity depends on executable markets;\n- concentration, where one token community or one dominant positioning regime shapes the whole case.\n\n## Edge Cases To Test\n\nBefore scaling a similar LP program, the docs should ask how the model behaves under several adverse paths:\n\n- a prolonged uptrend where long-biased traders are profitable;\n- a choppy market with low directional edge and weak fee generation;\n- a sudden gap in a thin market where liquidation may be difficult;\n- fading community participation where open interest and turnover decay.\n\nThese are not edge cases because they are exotic. They are the normal market-regime checks needed before a case study becomes a repeatable playbook.\n\n## Reader Implication\n\nThe right public claim is not \"SYMM LP returns generalize.\" The defensible claim is that a token-aligned LP can monetize certain combinations of activity, skew, and price movement, provided the deployment is sized, monitored, and reported with explicit risk constraints.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-replication-framework`\n- `neelo-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases`",
+      "bodyMarkdown": "# SYMM LP Risk And Edge Cases\n\nThe SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes.\n\nThe source highlights several risk vectors:\n\n- directional reversal, where trader-side wins move against the LP;\n- unrealized PnL volatility, where marked profit can disappear before realization;\n- leverage amplification, where small token moves create larger LP exposure;\n- liquidity stress, where liquidation integrity depends on executable markets;\n- concentration, where one token community or one dominant positioning regime shapes the whole case.\n\n## Edge Cases To Test\n\nBefore scaling a similar LP program, the docs should ask how the model behaves under several adverse paths:\n\n- a prolonged uptrend where long-biased traders are profitable;\n- a choppy market with low directional edge and weak fee generation;\n- a sudden gap in a thin market where liquidation may be difficult;\n- fading community participation where open interest and turnover decay.\n\nThese are not edge cases because they are exotic. They are the normal market-regime checks needed before a case study becomes a repeatable playbook.\n\n## Reader Implication\n\nThe right public claim is not \"SYMM LP returns generalize.\" The defensible claim is that a token-aligned LP can monetize certain combinations of activity, skew, and price movement, provided the deployment is sized, monitored, and reported with explicit risk constraints.\n\n## Publication Boundary\n\nDo not convert these edge cases into live risk limits, loss guarantees, investment advice, or evidence that every listed token can support the same LP program. Production claims need fresh market data, liquidation and execution review, accounting review, and operator-approved sizing/monitoring rules.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Risk Analysis and Edge Cases\".\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-replication-framework`\n- `neelo-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases`",
       "excerpt": "SYMM LP Risk And Edge Cases The SYMM LP case study is favorable to the LP because the measured period combined strong long skew with a falling token price. The core risk is the mirror image: if traders are right, the LP can lose. The case only proves that the mechanism can work in one regime; it does not prove that LP return is durable across all regimes. The source highlights several risk vectors: directional reversal, where trader side wins move against the LP; unrealized PnL volatility, where marked profit can disappear before realization; leverage amplification, where small token moves create larger LP exposure; liquidity stress, where liquidation integrity depends on executable markets; concentration, where one token community or one dominant positioning regime shapes the whole case. Edge Cases To Test Before scaling a similar LP program, the docs should ask how the model behaves under several adverse paths: a prolonged uptrend where long biased traders are profitable; a choppy market with low directional edge and weak fee generation; a sudden gap in a thin market where liquidation may be difficult; fading community participation where open interest and turnover decay. These a"
     },
     {
@@ -14913,7 +14913,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],

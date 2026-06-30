@@ -3,7 +3,8 @@ id: "authored-symm-lp-data-guardrails"
 title: "SYMM LP Data Guardrails"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics"]
 relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions", "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-3-metric-definitions-lp-perspective", "section-12-case-study-symm-lp-12-docs-07-data-snapshot-and-metric-definitions-7-4-interpretation-guardrails"]
@@ -29,6 +30,10 @@ The reproducibility note also matters. The source window starts at the first dep
 ## Reader Implication
 
 This page is the boundary between compelling evidence and overclaiming. It lets the compendium use the SYMM case as a proof of mechanism while still asking for audited attribution, time series, drawdown, gross-to-net bridges, and benchmark updates before publishing it as a general LP performance standard.
+
+## Publication Boundary
+
+Do not treat the data cut as a complete audit, a current vault statement, or a public accounting standard. Final public reporting needs durable raw sources, owner-approved sign conventions, refresh cadence, realized/unrealized reconciliation, and accounting review before figures are reused outside this case-study context.
 
 ## Sources
 

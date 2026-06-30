@@ -3,7 +3,8 @@ id: "authored-symm-lp-risk-and-edge-cases"
 title: "SYMM LP Risk And Edge Cases"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/04-risk-analysis-and-edge-cases", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework"]
 relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases", "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-2-principal-risk-vectors", "section-12-case-study-symm-lp-12-docs-04-risk-analysis-and-edge-cases-4-4-edge-cases-to-test-before-scaling"]
@@ -35,6 +36,10 @@ These are not edge cases because they are exotic. They are the normal market-reg
 ## Reader Implication
 
 The right public claim is not "SYMM LP returns generalize." The defensible claim is that a token-aligned LP can monetize certain combinations of activity, skew, and price movement, provided the deployment is sized, monitored, and reported with explicit risk constraints.
+
+## Publication Boundary
+
+Do not convert these edge cases into live risk limits, loss guarantees, investment advice, or evidence that every listed token can support the same LP program. Production claims need fresh market data, liquidation and execution review, accounting review, and operator-approved sizing/monitoring rules.
 
 ## Sources
 
