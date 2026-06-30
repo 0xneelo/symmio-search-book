@@ -3,10 +3,11 @@ id: "authored-order-books-as-graduation-layer"
 title: "Order Books As The Graduation Layer"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade"]
 relatedGeneratedPages: ["neelo-04-ode-to-the-orderbook-04-docs-07-the-clob-upgrade", "authored-vibe-as-discovery-layer", "authored-market-assembly-line", "authored-hybrid-settlement-solver-stack"]
+volumeId: "volume-03-listing-power-and-orderbooks"
 ---
 
 # Order Books As The Graduation Layer
@@ -18,6 +19,10 @@ That changes the competitive frame. A new market does not need to pretend it alr
 This is why the compendium should avoid the lazy "Vibe versus order books" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate.
 
 The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order-book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity.
+
+## Publication Boundary
+
+This page should not publish SSHE behavior, confirmed CLOB partnerships, automatic routing, or downstream listing guarantees. It documents the graduation-layer thesis: order books are most useful after early markets produce credible evidence.
 
 ## Reader Implication
 

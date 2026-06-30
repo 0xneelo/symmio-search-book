@@ -3,7 +3,7 @@ id: "authored-market-formation-continuous-system"
 title: "Market Formation As A Continuous System"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/08-the-house-of-all-finance"]
@@ -30,6 +30,10 @@ Together, these layers are more powerful than disconnected venues. They turn lis
 The source explicitly extends the assembly-line logic beyond memecoins and crypto long-tail assets. The same pattern could apply to tokenized equities, niche commodities, local markets, thematic markets, and any financial object that benefits from early discovery before mature execution.
 
 That should be framed as the long-term thesis, not a current product claim. The present compendium can document the mechanism: build the substrate that prepares markets before the visible top layer absorbs them.
+
+## Publication Boundary
+
+This page should not claim live support for tokenized equities, commodities, local markets, thematic markets, or any non-crypto venue. It publishes the system model: early discovery layers prepare markets before mature execution absorbs them.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-protocol-defined-market-lifecycle"
 title: "Protocol-Defined Market Lifecycle"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/04-the-assembly-line#4-1-protocol-defined-lifecycle", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/04-the-assembly-line#4-2-why-this-matters"]

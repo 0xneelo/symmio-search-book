@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 03 Market-Structure Publication Batch
+
+- Promoted `8` Volume 03 Listing Power and Orderbooks manifesto pages to `published`: Cooperation Creates Optionality, The Hyperliquid Gap Needs A Lower Layer, The Market Assembly Line, Market Formation As A Continuous System, Order Books As The Graduation Layer, Protocol-Defined Market Lifecycle, The Percolator Wave Meets Settlement Reality, and Verified On Vibe As A Stress-Test Badge.
+- Added or normalized publication boundaries for SSHE identity/source coverage, confirmed Hyperliquid or other destination integrations, automatic graduation/listing guarantees, exact live graduation thresholds, live badge programs, Percolator implementation claims, venue comparisons beyond cited sources, current product commitments, and legal/solvency-sensitive language.
+- Regenerated Search Book data so page-state counts now show `433` published pages, `365` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `33` Volume 03 candidates remaining, and `185` manifesto candidates remaining.
+
 ## 2026-06-30 — Remaining Volume 02 Bootstrap And Proof-Of-Value Batch
 
 - Promoted the remaining `17` Volume 02 manifesto candidates to `published`: Token Holders Are Natural Inventory Providers, Trader Payout Certainty Is A Design Requirement, The Trader And Project Value Loop, Requirements For Escaping The Bootstrap Trilemma, The USDC Vault Negative Feedback Loop, Value Capture Needs Durability, Value Creation And Capture Must Stay Independent, The Value Reciprocity Flywheel, The Verification Breaking Point, Vibe Architecture Design Philosophy, Vibe's Hybrid Approach Preview, Vibe As A Market-Evolution Architecture, Whale Vaults And Risk Tranching, Why Existing Perp Solutions Fail Bootstrap, Why Proof Of Value Matters, Solver Defense Against The Wick Of Death, and Z-Score Graduation Criteria.

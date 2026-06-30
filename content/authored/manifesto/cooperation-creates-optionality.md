@@ -3,7 +3,7 @@ id: "authored-cooperation-creates-optionality"
 title: "Cooperation Creates Optionality"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade#7-3-when-cooperation-creates-optionality", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade#7-4-the-role-of-sshe-as-an-internal-orderbook-layer"]
@@ -17,6 +17,10 @@ Cooperation is not a retreat from market ownership. In Neelo's CLOB-upgrade sect
 That makes cooperation more durable than premature imitation. If Vibe tries to compete directly with order books before earning upstream trust, it is judged as an inferior version of a mature venue. If Vibe first becomes indispensable to the community's market pipeline, it can remain a complement, support deeper execution, or expand its own execution surface from a position of earned trust.
 
 The same source names SSHE as a possible internal or intermediate execution layer. That detail should stay under owner review because the canonical SSHE source family remains parked in `OPERATOR-INBOX #7`. The source-backed principle is still publishable: Vibe should not depend on one graduation endpoint. A serious market-formation system needs options between pure bootstrap mode and full external order-book maturity.
+
+## Publication Boundary
+
+This page should not claim a confirmed SSHE implementation, a live integration path, or a guaranteed order-book destination. It publishes the source-backed strategic principle: cooperation can preserve optionality while Vibe earns upstream trust.
 
 ## Reader Implication
 

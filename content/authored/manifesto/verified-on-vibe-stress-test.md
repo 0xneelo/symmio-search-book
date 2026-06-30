@@ -3,7 +3,7 @@ id: "authored-verified-on-vibe-stress-test"
 title: "Verified On Vibe As A Stress-Test Badge"
 section: "manifesto"
 track: "05 — Proof Of Value"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings#7-3-vibe-as-source-of-truth", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings#7-5-the-strait-gate-matthew-7-1314", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/09-conclusion#9-1-full-thesis-summary"]
