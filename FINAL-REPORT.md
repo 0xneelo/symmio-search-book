@@ -21,6 +21,7 @@ Use these commands as the current reproducible verification path:
 ```sh
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:verify
+node src/search-book/scripts/check-readiness-evidence.mjs
 node src/search-book/scripts/run-llm-rag-answer.mjs --mode extractive --query "Which dashboard views are documented?" --json
 npm run search-book:smoke-static
 npm run search-book:smoke-preview-service
@@ -29,7 +30,7 @@ git diff --check -- src/search-book _local/agent-worklog.md
 npm run build --if-present
 ```
 
-The canonical build verifies 24 deterministic build steps, 56 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
+The canonical build verifies 24 deterministic build steps, 57 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, readiness-evidence consistency against `data/llm-rag-contract.json`, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
 
 ## Requirement Summary
 

@@ -192,6 +192,20 @@ function runSensitivePatternScan(dryRun) {
   };
 }
 
+function runReadinessEvidenceCheck(env, dryRun) {
+  const step = {
+    id: "check-readiness-evidence",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-readiness-evidence.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -311,6 +325,7 @@ if (args.dryRun) {
   if (args.verify) {
     runSyntaxChecks(env, true);
     runSensitivePatternScan(true);
+    runReadinessEvidenceCheck(env, true);
   }
   process.exit(0);
 }
@@ -324,10 +339,12 @@ for (const step of chosenSteps) runStep(step, env);
 let syntaxChecks = 0;
 let invariants = null;
 let sensitivePatternScan = null;
+let readinessEvidence = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
   sensitivePatternScan = runSensitivePatternScan(false);
+  readinessEvidence = runReadinessEvidenceCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -337,5 +354,6 @@ console.log(JSON.stringify({
   syntaxChecks,
   invariants,
   sensitivePatternScan,
+  readinessEvidence,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

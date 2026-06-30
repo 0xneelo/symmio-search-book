@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Readiness Evidence Consistency Check
+
+- Added `src/search-book/scripts/check-readiness-evidence.mjs`, a deterministic guard that compares the recorded live `gpt-4.1-mini` evidence in `data/llm-rag-contract.json` against the final report, progress log, production roadmap, and LLM RAG contract.
+- Wired the guard into `node src/search-book/scripts/build-all.mjs --verify` so stale SYN-215 pass rates, token totals, and cost now fail the normal Search Book verification path without calling the live LLM or reading credentials.
+- Documented the standalone check in the README and final report; the canonical build now performs `57` syntax checks after adding the new script.
+
 ## 2026-06-30 — Preview-Service Integration Smoke Test
 
 - Added `src/search-book/scripts/smoke-preview-service.mjs`, a deterministic local smoke runner that starts both the static Search Book preview and the standalone SQLite answer-engine service on isolated localhost ports.

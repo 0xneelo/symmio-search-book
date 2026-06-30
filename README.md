@@ -126,6 +126,7 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 Focused checks for this package:
 
 ```sh
+node src/search-book/scripts/check-readiness-evidence.mjs
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:smoke-static
 npm run search-book:smoke-preview-service
@@ -157,6 +158,7 @@ node src/search-book/scripts/build-answer-engine-contract.mjs
 node src/search-book/scripts/build-living-docs-events.mjs
 node src/search-book/scripts/build-llm-rag-contract.mjs
 node src/search-book/scripts/build-answer-validation-report.mjs
+node src/search-book/scripts/check-readiness-evidence.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
 node src/search-book/scripts/build-source-ingestion-map.mjs
 node src/search-book/scripts/build-requirement-map.mjs
@@ -173,6 +175,7 @@ node --check src/search-book/scripts/build-discord-corpus.mjs
 node --check src/search-book/scripts/build-gap-queue.mjs
 node --check src/search-book/scripts/build-answer-engine-contract.mjs
 node --check src/search-book/scripts/build-llm-rag-contract.mjs
+node --check src/search-book/scripts/check-readiness-evidence.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
 node --check src/search-book/scripts/serve-static-preview.mjs
 node --check src/search-book/scripts/smoke-static-preview.mjs
