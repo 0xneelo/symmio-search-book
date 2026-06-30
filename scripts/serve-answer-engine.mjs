@@ -6,7 +6,7 @@ import http from "node:http";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
-import { answerQuery, defaults as runtimeDefaults, loadRuntime } from "./run-llm-rag-answer.mjs";
+import { answerQuery, defaults as runtimeDefaults, loadRuntime, withDegraded } from "./run-llm-rag-answer.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -16,7 +16,7 @@ const config = {
   host: process.env.SEARCH_BOOK_ANSWER_ENGINE_HOST || "127.0.0.1",
   port: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_PORT || 8787),
   dbPath: process.env.SEARCH_BOOK_ANSWER_ENGINE_DB || path.join(repoRoot, "server", "data", "search-book-answer-engine.sqlite"),
-  defaultMode: process.env.SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE || "extractive",
+  defaultMode: process.env.SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE || "llm",
   maxBodyBytes: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_BODY_BYTES || 64_000),
   maxRecentEvents: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS || 25),
   rateLimitPerMinute: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE || 60),
@@ -647,43 +647,6 @@ function moderationRows(db) {
   return { gapBacklog, lowRatedAnswers, unansweredQuestions, repeatedQuestions };
 }
 
-function serviceConfigRefusal({ query, requestId, source }) {
-  return {
-    response: {
-      requestId,
-      status: "operator-blocked-refusal",
-      answer: "",
-      primaryPageId: "",
-      citations: [],
-      refusalReason: "operator-access-required",
-      message: "LLM mode requires approved model credentials in the service environment. The API key was not read, printed, or persisted.",
-      gapEvent: {
-        id: `gap-${requestId}`,
-        query,
-        reason: "operator-access-required",
-        page: "",
-        gapId: "",
-        operatorItemIds: [11],
-        time: "runtime",
-      },
-      suggestedQueries: ["What is Vibe Trading?", "What are intents?", "What does a solver do?"],
-      events: [
-        {
-          type: "gap-created",
-          pageId: "",
-          query,
-          source,
-          gapId: "",
-          operatorItemIds: [11],
-          reason: "operator-access-required",
-        },
-      ],
-      relatedPageIds: [],
-    },
-    context: null,
-  };
-}
-
 function checkRateLimit(req) {
   if (!config.rateLimitPerMinute) return true;
   const key = req.socket.remoteAddress || "unknown";
@@ -699,12 +662,16 @@ function checkRateLimit(req) {
   return bucket.count <= config.rateLimitPerMinute;
 }
 
-async function handleAnswer(db, runtime, req, res) {
+async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
   const body = await readJsonBody(req);
   const query = truncate(body.query, 4000).trim();
   if (!query) throw Object.assign(new Error("answer requires query."), { statusCode: 400 });
   const mode = body.mode || config.defaultMode;
   if (!allowedModes.has(mode)) throw Object.assign(new Error("mode must be extractive or llm."), { statusCode: 400 });
+  if (overLimit && mode !== "llm") {
+    jsonResponse(res, 429, { status: "rate-limited", message: "Too many requests." });
+    return;
+  }
 
   const request = {
     ...runtimeDefaults,
@@ -717,14 +684,11 @@ async function handleAnswer(db, runtime, req, res) {
   };
 
   let result;
-  try {
+  if (overLimit && mode === "llm") {
+    result = await answerQuery({ ...request, mode: "extractive" }, runtime);
+    result = { ...result, response: withDegraded(result.response, "rate-limited") };
+  } else {
     result = await answerQuery(request, runtime);
-  } catch (error) {
-    if (mode === "llm" && /LLM mode requires approved runtime configuration/.test(error.message || "")) {
-      result = serviceConfigRefusal(request);
-    } else {
-      throw error;
-    }
   }
 
   const persisted = persistQuestion(db, request, result);
@@ -799,11 +763,13 @@ function createServer() {
         jsonResponse(res, 204, {});
         return;
       }
-      if (!checkRateLimit(req)) {
+      const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+      const withinRateLimit = checkRateLimit(req);
+      const isAnswerRoute = req.method === "POST" && url.pathname === "/api/search-book/answer";
+      if (!withinRateLimit && !isAnswerRoute) {
         jsonResponse(res, 429, { status: "rate-limited", message: "Too many requests." });
         return;
       }
-      const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
       if (req.method === "GET" && url.pathname === "/health") {
         jsonResponse(res, 200, {
           status: "ok",
@@ -825,8 +791,8 @@ function createServer() {
         });
         return;
       }
-      if (req.method === "POST" && url.pathname === "/api/search-book/answer") {
-        await handleAnswer(db, runtime, req, res);
+      if (isAnswerRoute) {
+        await handleAnswer(db, runtime, req, res, { overLimit: !withinRateLimit });
         return;
       }
       if (req.method === "POST" && url.pathname === "/api/search-book/rating") {
