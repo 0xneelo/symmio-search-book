@@ -432,6 +432,19 @@ function refusal(args, { status = "refusal", reason, message, gapId = "", operat
   };
 }
 
+const conceptualLpProfitRoutePageIds = new Set([
+  "authored-lp-profit-decomposition-map",
+  "authored-lp-profit-and-dynamic-pricing",
+  "authored-funding-lp-master-profit-formula",
+  "authored-funding-insurance-buyback-accounting",
+]);
+
+function isConceptualLpProfitRoute(exactRoute, query) {
+  if (!exactRoute || !conceptualLpProfitRoutePageIds.has(exactRoute.pageId)) return false;
+  if (!/\blp profit\b/i.test(query)) return false;
+  return !/\b(live|v1|production|payouts?|shares?|venue-specific|liquidation|funding revenue|solver split)\b/i.test(query);
+}
+
 function preflight(args, runtime) {
   const normalizedQuery = normalize(args.query);
   const reconciliation = runtime.reconciliationByQuestion.get(normalizedQuery);
@@ -452,6 +465,7 @@ function preflight(args, runtime) {
 
   for (const rule of riskRules) {
     if (rule.id === "discord" && isDiscordIngestionBoundaryRoute) continue;
+    if (rule.id === "revenue-economics" && isConceptualLpProfitRoute(exactRoute, args.query)) continue;
     if (rule.patterns.some((pattern) => pattern.test(args.query))) {
       return refusal(args, {
         status: rule.status,

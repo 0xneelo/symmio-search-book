@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 02 Bootstrap And Proof Manifesto Batch
+
+- Promoted `10` Volume 02 manifesto pages to `published`: Hybrid Perps Comparative Advantage, The Low-Cap Perp Proof Challenge, LP Profit Needs A Decomposition Map, The No-Ponzi Market Revenue Test, The Perp Paper Contribution Map, The Perp Paper Contribution Preview, The Rise Of Perpetual Futures, Pre-Revenue Commitment Is A Signal Not Proof, The Project Alternative Cost Stack, and Project Participation Is Not Only Revenue.
+- Preserved or normalized publication boundaries for live market-data numbers, LP APR/yield formulas, counterparty-share schedules, partner counts, project economics, Z-score/graduation policy, venue comparisons, implementation status, launch commitments, legal/accounting/risk-sensitive claims, and final public performance guarantees.
+- Regenerated Search Book data so page-state counts now show `398` published pages, `400` candidate pages, `792` source companions, `798/798` exact routes, `2,867` chunks, `27` Volume 02 candidates remaining, and `220` manifesto candidates remaining.
+
 ## 2026-06-30 — Referral Access And Integrity Publication Batch
 
 - Promoted `11` rewards/referrals pages to `published`: Artifact Exposure And Boost Rules, Artifact Secondary Market Boundary, Market-Scoped Referrals, Points Claim Bridge And Vesting, Points Value State Lifecycle, Referral Abuse Patterns, Referral Access-Gated Launch, Referral Access Phasing Operating Model, Referral Admin Override Audit Trails, Referral Adversarial Trust Constraints, and Referral Anomaly Monitoring Signals.

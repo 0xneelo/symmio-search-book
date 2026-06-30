@@ -3,7 +3,7 @@ id: "authored-pre-revenue-commitment-signal"
 title: "Pre-Revenue Commitment Is A Signal, Not Proof"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"]
@@ -31,7 +31,7 @@ The sequence is:
 
 That framing lets the compendium stay honest. Early partner interest matters because sophisticated projects rarely commit inventory to a proposition they do not understand. Sustainable proof arrives later, through repeated market use and stress outcomes.
 
-## Publication Note
+## Publication Boundary
 
 The source includes specific launch-partner and deposited-value figures. Those figures need current operator-approved sourcing before final publication. This page documents the evidentiary role of pre-revenue commitment rather than publishing a live metric.
 

@@ -3,7 +3,7 @@ id: "authored-no-ponzi-market-revenue-test"
 title: "The No-Ponzi Market Revenue Test"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/08-conclusion"]
@@ -30,7 +30,7 @@ The no-ponzi test should become part of the living-docs measurement agenda:
 
 If the docs track those questions, Proof of Value becomes falsifiable rather than purely rhetorical.
 
-## Publication Note
+## Publication Boundary
 
 Current live market revenue, LP payouts, solver profitability, and stress outcomes need operator-approved source data before final publication. This page documents the test the compendium should apply.
 

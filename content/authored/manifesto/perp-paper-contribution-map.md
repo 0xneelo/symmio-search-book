@@ -3,7 +3,7 @@ id: "authored-perp-paper-contribution-map"
 title: "The Perp Paper Contribution Map"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/09-conclusion#9-1-summary-of-contributions"]

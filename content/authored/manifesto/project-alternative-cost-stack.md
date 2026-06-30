@@ -3,7 +3,7 @@ id: "authored-project-alternative-cost-stack"
 title: "The Project Alternative Cost Stack"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value"]
@@ -32,7 +32,7 @@ That inversion is strategically useful for the compendium. When a project asks "
 
 The last option is Vibe's wedge. It turns project inventory into market-formation capital and makes the resulting flow observable.
 
-## Publication Note
+## Publication Boundary
 
 The source includes example revenue-share and partner-traction claims. Keep those claims review-bound until current public economics and project-listing terms are confirmed.
 

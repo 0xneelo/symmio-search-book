@@ -3,7 +3,7 @@ id: "authored-hybrid-perps-comparative-advantage"
 title: "Hybrid Perps Comparative Advantage"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/08-conclusion"]
@@ -26,7 +26,7 @@ Traders post and settle in USDC. Token holders or projects provide token invento
 
 That does not make the system free of risk. It makes the risk easier to name. The compendium should present the comparison as a capital-structure argument: what capital backs the market, what unit settles trader claims, who manages residual exposure, and what happens in stress.
 
-## Publication Note
+## Publication Boundary
 
 The source includes capital-efficiency estimates and example yield-demand claims. Treat them as source-model evidence pending operator/accounting review, not as final public performance guarantees.
 
