@@ -3,7 +3,8 @@ id: "authored-symmio-whitepaper-history-boundary"
 title: "Symmio Whitepaper History Boundary"
 section: "protocol-reference"
 track: "Source Ingestion"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["symm-io-protocol-core-initial-commit", "symm-io-protocol-core-readme", "symmio-docs-initial-commit", "symmio-whitepaper-0-8-commit", "symmio-whitepaper-0-8-pdf", "symmio-earliest-docs", "symmio-whitepaper", "spec-04"]
 sourceUrls: ["https://github.com/SYMM-IO/protocol-core/commit/e40c16ddedff545e0cb51bc137102e835dcb8753", "https://github.com/SYMM-IO/protocol-core/blob/main/README.md", "https://github.com/SYMM-IO/docs/commit/3e6e9687248cb48952d89cf7616b158d94373c54", "https://github.com/SYMM-IO/docs/commit/e1715f85768b7f06933e91e41568422591729e16", "https://github.com/SYMM-IO/docs/blob/main/Whitepaper/SYMMIO_paper_0_8.pdf", "https://github.com/SYMM-IO/docs", "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md", "_specs/app-docs/04-sources.md"]
 relatedGeneratedPages: ["symmio-whitepaper", "authored-symmio-clearing-house-layer", "authored-bilateral-intent-lifecycle"]

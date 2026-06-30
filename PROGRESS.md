@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Final Volume 05 Boundary-Page Batch
+
+- Promoted the final `3` Volume 05 protocol/source-boundary pages to `published`: Symmio Whitepaper History Boundary, Solver Worst-Case Scenarios Source Map, and SuperFlow SHE API Boundary.
+- Preserved boundaries around the exact original/oldest Symmio whitepaper gap, SSHE source identification, SuperFlow/SHE OpenAPI scope, solver worst-case implementation details, Force Close timers, proof networks, hedge venues, risk thresholds, insurance allocation formulas, ADL triggers, restart rules, and legal/risk/security-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `714` published pages, `84` candidate pages, `792` source companions, `798/798` exact routes, `2,871` chunks, `0` Volume 05 candidates, `84` Volume 06 candidates, `0` protocol-reference candidates, `84` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 05 Technical And Information Manifesto Batch
 
 - Promoted the remaining `13` Volume 05 manifesto pages to `published`: Bootstrap Oracle Risk Tiers, External Solver First Look, LP Capacity Rent Model, Pass-Through Execution Boundary, Position Lifecycle State Machine, Safety Premium Backstop Quotes, Settlement Contract Responsibility Map, Settlement State Boundary, Solver Engine Operating Loop, Solver Quote And Risk Engines, Technical Capability Map, The Technical Security Model, and TWAP Inventory Rebalancing.

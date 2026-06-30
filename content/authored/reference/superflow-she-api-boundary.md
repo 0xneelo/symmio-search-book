@@ -3,7 +3,8 @@ id: "authored-superflow-she-api-boundary"
 title: "SuperFlow SHE API Boundary"
 section: "protocol-reference"
 track: "Source Ingestion"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["superflow-she-openapi", "spec-04"]
 sourceUrls: ["https://dev.superflow.exchange/openapi.json", "_specs/app-docs/04-sources.md"]
 relatedGeneratedPages: ["authored-symmio-clearing-house-layer", "authored-bilateral-intent-lifecycle", "authored-barometer-subgraph-upgrade"]
