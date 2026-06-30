@@ -148,9 +148,9 @@
         "06",
         "09"
       ],
-      "evidence": "798 seeded routes, 2878 retrieval chunks, 798/798 exact-route tests, 2/2 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, reviewer workflow documented=true, backup/restore implemented=true",
+      "evidence": "798 seeded routes, 2878 retrieval chunks, 798/798 exact-route tests, 2/2 refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=true, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, CORS allowlist implemented=true, reviewer workflow documented=true, backup/restore implemented=true",
       "blocks": [],
-      "nextAction": "Install production service env, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
+      "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
     },
     {
       "id": "answer-engine-contracts-and-evals",
@@ -176,9 +176,9 @@
         "06",
         "09"
       ],
-      "evidence": "12 generated gap items, 7 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, reviewer workflow documented=true, backup/restore implemented=true, localStorage prototype still present for static preview",
+      "evidence": "12 generated gap items, 7 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, CORS allowlist implemented=true, reviewer workflow documented=true, backup/restore implemented=true, localStorage prototype still present for static preview",
       "blocks": [],
-      "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
+      "nextAction": "Install production env, configure allowed origins, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
     },
     {
       "id": "discord-seeded-faq",
@@ -319,13 +319,13 @@
     {
       "id": "answer-engine-front-door",
       "status": "partial",
-      "nextAction": "Install production service env, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
+      "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
       "blocks": []
     },
     {
       "id": "living-docs-loop",
       "status": "partial",
-      "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
+      "nextAction": "Install production env, configure allowed origins, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
       "blocks": []
     },
     {

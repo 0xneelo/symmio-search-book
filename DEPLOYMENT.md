@@ -67,6 +67,11 @@ sudo systemctl status symmio-search-book.service
 
 Health check: `curl -fsS http://127.0.0.1:8787/health`.
 
+For production browser traffic, set
+`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS=https://<public-docs-route>` in the service env.
+The local default is `*`; server-to-server health checks without an `Origin` header remain
+allowed.
+
 ## 5. Smoke verification
 
 These run isolated localhost servers with temp databases and never call the LLM provider:

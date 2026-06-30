@@ -11,6 +11,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const serviceScript = path.join(__dirname, "serve-answer-engine.mjs");
 const summaryScript = path.join(__dirname, "summarize-living-docs-gaps.mjs");
 const host = "127.0.0.1";
+const allowedOrigin = "https://docs.example.test";
+const blockedOrigin = "https://blocked.example.test";
 const moderationToken = "search-book-smoke-token";
 const dbPath = path.join(os.tmpdir(), `search-book-answer-engine-smoke-${process.pid}-${Date.now()}.sqlite`);
 const emptyLlmEnv = {
@@ -87,7 +89,7 @@ async function requestJson(baseUrl, pathname, options = {}) {
   } catch {
     throw new Error(`${pathname} returned non-JSON body: ${text.slice(0, 200)}`);
   }
-  return { statusCode: response.status, payload };
+  return { statusCode: response.status, payload, headers: response.headers };
 }
 
 async function waitForHealth(baseUrl, child, logs) {
@@ -145,6 +147,7 @@ async function main() {
       SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE: "0",
       SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS: "10",
       SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS: "180",
+      SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS: allowedOrigin,
       SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT: "true",
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN: moderationToken,
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT: "10",
@@ -168,6 +171,42 @@ async function main() {
     assert(health.service === "search-book-answer-engine", "health did not identify the answer-engine service.");
     assert(health.defaultMode === "extractive", "health did not report extractive default mode.");
     assert(health.operations?.moderation?.configured === true, "moderation export was not configured in smoke service.");
+    assert(
+      (health.operations?.cors?.allowedOrigins || []).includes(allowedOrigin),
+      "health did not report configured CORS allowed origin.",
+    );
+
+    const corsHealth = await requestJson(baseUrl, "/health", {
+      headers: { origin: allowedOrigin },
+    });
+    assert(corsHealth.statusCode === 200, `allowed-origin health returned ${corsHealth.statusCode}.`);
+    assert(
+      corsHealth.headers.get("access-control-allow-origin") === allowedOrigin,
+      `allowed-origin CORS header was ${corsHealth.headers.get("access-control-allow-origin")}.`,
+    );
+
+    const preflight = await requestJson(baseUrl, "/api/search-book/answer", {
+      method: "OPTIONS",
+      headers: {
+        origin: allowedOrigin,
+        "access-control-request-method": "POST",
+      },
+    });
+    assert(preflight.statusCode === 204, `allowed-origin preflight returned ${preflight.statusCode}.`);
+    assert(
+      preflight.headers.get("access-control-allow-origin") === allowedOrigin,
+      "allowed-origin preflight did not echo the configured origin.",
+    );
+
+    const blocked = await requestJson(baseUrl, "/health", {
+      headers: { origin: blockedOrigin },
+    });
+    assert(blocked.statusCode === 403, `blocked-origin health returned ${blocked.statusCode}.`);
+    assert(blocked.payload.status === "forbidden-origin", `blocked-origin status was ${blocked.payload.status}.`);
+    assert(
+      !blocked.headers.get("access-control-allow-origin"),
+      "blocked-origin response must not expose an allow-origin header.",
+    );
 
     const answer = await requestJson(baseUrl, "/api/search-book/answer", {
       method: "POST",
@@ -383,6 +422,11 @@ async function main() {
         insights: insights.payload.status,
         moderationUnauthenticated: forbiddenModeration.statusCode,
         moderationAuthenticated: moderation.payload.status,
+      },
+      cors: {
+        allowedOrigin,
+        blockedOriginStatus: blocked.statusCode,
+        preflight: preflight.statusCode,
       },
       reuseCache: {
         ratingCacheStatus: helpfulRating.payload.cache?.status,

@@ -52,6 +52,7 @@
     "livingDocsFrontendServiceIntegrationImplemented": true,
     "livingDocsRetentionPolicyImplemented": true,
     "livingDocsModerationExportImplemented": true,
+    "livingDocsCorsPolicyImplemented": true,
     "livingDocsBackupRestoreImplemented": true,
     "livingDocsProductionReady": false,
     "livingDocsEventFixtures": 12,
@@ -234,7 +235,7 @@
       "id": "living-docs-events",
       "label": "Living-docs question, rating, and gap events validate",
       "passed": true,
-      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, frontend service bridge yes, retention policy yes, moderation export yes, backup/restore yes, production ready no"
+      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, frontend service bridge yes, retention policy yes, moderation export yes, CORS allowlist yes, backup/restore yes, production ready no"
     },
     {
       "id": "glossary-routes",
@@ -1402,8 +1403,9 @@
     "frontendServiceIntegrationImplemented": true,
     "retentionPolicyImplemented": true,
     "moderationExportImplemented": true,
+    "corsPolicyImplemented": true,
     "livingDocsProductionReady": false,
-    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, and an executable SQLite backup/restore-check path. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete.",
+    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, and an executable SQLite backup/restore-check path. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete.",
     "storage": {
       "localPrototype": {
         "questionsKey": "searchBookPrototype.questions",
@@ -1502,6 +1504,12 @@
           "tokenEnv": "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
           "limitEnv": "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT",
           "behavior": "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled."
+        },
+        "cors": {
+          "allowedOriginsEnv": "SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS",
+          "localDefault": "*",
+          "behavior": "Browser requests with an Origin header must match the configured allowlist unless the local wildcard default is used; server-to-server requests without Origin remain allowed.",
+          "boundary": "The final production origin value depends on the selected public frontend route and must be set in the service env before launch."
         },
         "reviewerSummary": {
           "script": "scripts/summarize-living-docs-gaps.mjs",
@@ -1607,6 +1615,7 @@
       "Let the static frontend use configured service endpoints for answers, ratings, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
       "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
       "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
+      "Enforce the configured browser CORS allowlist for service endpoints while preserving same-origin and server-to-server operations.",
       "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
       "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
       "Back up the SQLite datastore with the internal backup utility and verify restore viability before production launch and on an agreed cadence.",
@@ -1651,12 +1660,13 @@
       "frontendIntegration": "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints.",
       "retention": "The service has a configured retention policy with a 180-day default and a documented env override.",
       "moderation": "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work.",
+      "cors": "The service can enforce SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS for browser access; final production origin configuration is still tied to the deploy-route decision.",
       "answerReuse": "The service stores helpful-rated answers with embeddings and can reuse them for semantically similar questions after guardrail preflight.",
       "dynamicExamples": "The service exposes helpful cached questions for dynamic example chips while the frontend keeps curated examples as fallback.",
       "reviewerSummary": "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence.",
       "reviewerWorkflow": "The internal living-docs operations runbook documents daily triage, weekly summaries, moderation export handling, privacy boundaries, escalation rules, launch gates, and incident handling.",
       "backupRestore": "The internal backup utility can create a SQLite-consistent backup manifest and verify restore viability with integrity and table-count checks.",
-      "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided.",
+      "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided.",
       "blockedBy": [
         "OPERATOR-INBOX #4",
         "OPERATOR-INBOX #11",
@@ -2315,13 +2325,13 @@
       {
         "id": "answer-engine-front-door",
         "status": "partial",
-        "nextAction": "Install production service env, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
+        "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
         "blocks": []
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
-        "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
+        "nextAction": "Install production env, configure allowed origins, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
         "blocks": []
       },
       {
@@ -2541,13 +2551,13 @@
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Install production service env, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
+        "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
+        "nextAction": "Install production env, configure allowed origins, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
       },
       {
         "id": "discord-seeded-faq",

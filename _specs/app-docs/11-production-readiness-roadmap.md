@@ -10,7 +10,7 @@ This roadmap turns the current search-book research package into the production 
 
 The search-book is already a strong research and prototype substrate:
 
-- A static prototype exists in `src/search-book`.
+- A static prototype exists at the standalone repo root.
 - The page manifest target is already in range at 794 manifest pages.
 - The authored layer is now book-scale: 799 authored pages across manifesto, product-reference, rewards/referrals, dashboard-reference, protocol-reference, answer-engine, and compendium sections. All 798 public authored routes are marked `published`; 0 candidate pages remain in the review lanes.
 - The requirement map now treats the public manifesto/reference corpus as complete: 12/18 definition-of-done requirements are complete, 2 are partial, 4 are parked, and 0 are missing. Production readiness remains false because deployment, source-traceability inputs, and Discord/Lafa ingestion are still outside the completed corpus work.
@@ -18,8 +18,8 @@ The search-book is already a strong research and prototype substrate:
 - The deterministic answer engine has exact-route, glossary, chunk-retrieval, refusal, and citation-validation coverage.
 - The OpenAI-compatible LLM RAG runtime exists. The latest 2026-06-30 live `gpt-4.1-mini` eval passed 42/42 fixtures: 15/15 adversarial refusals and 27/27 answer-validation cases, with 16 measured calls, 93,868 input tokens, 8,615 output tokens, and an estimated cost of $0.01924920.
 - The deterministic verification path now checks that the final report, progress log, production roadmap, and LLM RAG contract still match the recorded live RAG evidence in `data/llm-rag-contract.json`, and it verifies static app integrity for local script dependencies, expected `window.SearchBook*` globals, static page links, and public reader-data coverage.
-- The standalone answer-engine service has SQLite persistence, basic rate limiting, configurable event retention, a disabled-by-default token-gated moderation export, a static frontend bridge, an internal reviewer operations runbook, an executable SQLite backup/restore-check utility, and a local smoke test that exercises health, answer persistence, ratings, insights, and moderation export without live LLM calls.
-- The current local preview runs from `src/search-book`, can be served on localhost with `npm run search-book:serve-static`, has static integrity coverage at `npm run search-book:check-static`, has a static preview smoke test at `npm run search-book:smoke-static`, and has a combined preview/service smoke test at `npm run search-book:smoke-preview-service` that verifies the static frontend can use the standalone service.
+- The standalone answer-engine service has SQLite persistence, basic rate limiting, configurable event retention, configurable browser CORS allowlisting, a disabled-by-default token-gated moderation export, a static frontend bridge, an internal reviewer operations runbook, an executable SQLite backup/restore-check utility, and a local smoke test that exercises health, answer persistence, ratings, insights, moderation export, and allowed/blocked origins without live LLM calls.
+- The current local preview runs from the standalone repo root, can be served on localhost with `npm run search-book:serve-static`, has static integrity coverage at `npm run search-book:check-static`, has a static preview smoke test at `npm run search-book:smoke-static`, and has a combined preview/service smoke test at `npm run search-book:smoke-preview-service` that verifies the static frontend can use the standalone service.
 - The quality audit is intentionally not green yet; known failures are source ingestion, operator inbox, and Discord.
 - Operator publication decisions for Phase A revenue, referral depth, Opyn exclusion, answer-engine build path, source-family dispositions, canonical point taxonomy, and Add Token Info are recorded. The remaining open items are implementation/source/deploy inputs: public frontend platform/repo/deploy route, production service env credentials, Discord/Lafa corpus, Notion ingestion, oldest Symmio whitepaper artifact, SuperFlow/SSHE identification, and one old checkpoint-commit approval item.
 
@@ -80,7 +80,7 @@ Required operator decisions:
 
 Exit gate:
 
-- `src/search-book` is clean after a scoped checkpoint commit.
+- The standalone repo is clean after a scoped checkpoint commit.
 - The quality audit failure list is still limited to known parked blockers.
 - No unrelated dashboard/spec/deploy work is staged.
 
@@ -188,7 +188,7 @@ Exit gate:
 
 Goal: integrate the LLM for actual scanning and cited answers.
 
-Current status: the CLI/runtime harness is implemented and live-tested with OpenAI `gpt-4.1-mini`. It uses strict structured JSON output where supported, validation retry feedback, exact-route/glossary preflight, source-gated chunks, citation validation, adversarial refusals, token/cost accounting, and extractive fallback after capped validation failure. The same runtime now has a standalone HTTP service boundary with SQLite persistence for questions, ratings, gaps, and helpful answer-cache rows; basic request rate limiting; configurable retention; rated-answer reuse after guardrail preflight; optional dynamic example chips from helpful cached questions; a disabled-by-default token-gated moderation export; direct SQLite gap-summary job; executable SQLite backup/restore-check utility; and `src/search-book/LIVING-DOCS-OPERATIONS.md` for reviewer triage. The static Search Book can call that service when configured. Production still needs service environment variables, selected public frontend route/deploy wiring, production moderation and backup storage access, assigned reviewer owner/cadence, deployment checks, monitoring, and source-import completion.
+Current status: the CLI/runtime harness is implemented and live-tested with OpenAI `gpt-4.1-mini`. It uses strict structured JSON output where supported, validation retry feedback, exact-route/glossary preflight, source-gated chunks, citation validation, adversarial refusals, token/cost accounting, and extractive fallback after capped validation failure. The same runtime now has a standalone HTTP service boundary with SQLite persistence for questions, ratings, gaps, and helpful answer-cache rows; basic request rate limiting; configurable retention; rated-answer reuse after guardrail preflight; optional dynamic example chips from helpful cached questions; a disabled-by-default token-gated moderation export; direct SQLite gap-summary job; executable SQLite backup/restore-check utility; and `LIVING-DOCS-OPERATIONS.md` for reviewer triage. The static Search Book can call that service when configured. Production still needs service environment variables, selected public frontend route/deploy wiring, production moderation and backup storage access, assigned reviewer owner/cadence, deployment checks, monitoring, and source-import completion.
 
 Timing:
 
@@ -329,7 +329,7 @@ Current service status:
 - `GET /api/search-book/moderation` can export gap, low-rating, unanswered-question, and repeated-question queues, but is disabled by default and requires a moderation token when enabled.
 - `scripts/summarize-living-docs-gaps.mjs` can read the SQLite datastore directly and emit internal markdown or JSON reviewer summaries for gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended actions.
 - `scripts/backup-answer-engine-db.mjs` can create SQLite-consistent backups, write manifests, and verify restore viability with integrity and table-count checks.
-- `src/search-book/LIVING-DOCS-OPERATIONS.md` documents daily triage, weekly summaries, moderation export handling, privacy boundaries, launch gates, and incident response.
+- `LIVING-DOCS-OPERATIONS.md` documents daily triage, weekly summaries, moderation export handling, privacy boundaries, launch gates, and incident response.
 - Production still needs deployment wiring, monitoring, production moderation and backup storage access, and an assigned scheduler/owner for the documented gap-summary and backup cadence.
 
 Exit gate:

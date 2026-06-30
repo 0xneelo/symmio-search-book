@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, gated moderation export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
 
 ## Operating Boundary
 
@@ -19,6 +19,7 @@ Production service setup:
 ```sh
 SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite
 SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=180
+SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS=https://<public-docs-route>
 SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=false
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
@@ -141,13 +142,13 @@ Operational rules:
 4. Regenerate deterministic data:
 
 ```sh
-node src/search-book/scripts/build-all.mjs --verify
+node scripts/build-all.mjs --verify
 ```
 
 5. Probe the affected question:
 
 ```sh
-node src/search-book/scripts/run-llm-rag-answer.mjs --mode extractive --query "QUESTION" --json
+node scripts/run-llm-rag-answer.mjs --mode extractive --query "QUESTION" --json
 ```
 
 6. If prompt/runtime behavior changed, rerun the live eval with service credentials loaded through `--env-file` and never print the API key.
@@ -182,12 +183,13 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - Latest production/staging backup restore check has passed.
 - `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` are installed in service env.
 - Retention days are set and approved.
+- `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
 - Moderation export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.
 - Discord/Lafa import is either completed or explicitly launch-parked.
 - `npm run search-book:smoke-service` passes against an isolated database.
 - `npm run search-book:smoke-preview-service` passes against local preview/service ports.
-- `node src/search-book/scripts/build-all.mjs --verify` passes.
+- `node scripts/build-all.mjs --verify` passes.
 - Latest live LLM eval passes strict citation validation.
 
 ## Incident Handling

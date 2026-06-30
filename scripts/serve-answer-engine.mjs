@@ -30,6 +30,7 @@ const config = {
   maxRecentEvents: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS || 25),
   rateLimitPerMinute: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE || 60),
   retentionDays: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS || 180),
+  allowedOrigins: parseAllowedOrigins(process.env.SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS || "*"),
   reuseThreshold: Number(process.env.SEARCH_BOOK_REUSE_THRESHOLD || 0.9),
   reuseMaxCandidates: Number(process.env.SEARCH_BOOK_REUSE_MAX_CANDIDATES || 250),
   exampleLimit: Number(process.env.SEARCH_BOOK_EXAMPLE_LIMIT || 4),
@@ -59,14 +60,50 @@ function jsonText(value) {
   return JSON.stringify(value ?? null);
 }
 
-function jsonResponse(res, statusCode, payload) {
-  const body = JSON.stringify(payload, null, 2);
-  res.writeHead(statusCode, {
+function parseAllowedOrigins(value) {
+  const origins = String(value || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+  return origins.length && !origins.includes("*") ? [...new Set(origins)].sort((a, b) => a.localeCompare(b)) : ["*"];
+}
+
+function corsOrigin(req) {
+  const origin = String(req.headers.origin || "");
+  if (config.allowedOrigins.includes("*")) return "*";
+  if (origin && config.allowedOrigins.includes(origin)) return origin;
+  return "";
+}
+
+function corsHeaders(req) {
+  const headers = {
     "content-type": "application/json; charset=utf-8",
-    "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET,POST,OPTIONS",
     "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token",
+  };
+  const origin = corsOrigin(req);
+  if (origin) headers["access-control-allow-origin"] = origin;
+  if (origin !== "*") headers.vary = "Origin";
+  return headers;
+}
+
+function originAllowed(req) {
+  const origin = String(req.headers.origin || "");
+  return !origin || config.allowedOrigins.includes("*") || config.allowedOrigins.includes(origin);
+}
+
+function requireAllowedOrigin(req, res) {
+  if (originAllowed(req)) return true;
+  jsonResponse(req, res, 403, {
+    status: "forbidden-origin",
+    message: "Origin is not allowed by SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS.",
   });
+  return false;
+}
+
+function jsonResponse(req, res, statusCode, payload) {
+  const body = JSON.stringify(payload, null, 2);
+  res.writeHead(statusCode, corsHeaders(req));
   res.end(`${body}\n`);
 }
 
@@ -845,7 +882,7 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
   const mode = body.mode || config.defaultMode;
   if (!allowedModes.has(mode)) throw Object.assign(new Error("mode must be extractive or llm."), { statusCode: 400 });
   if (overLimit && mode !== "llm") {
-    jsonResponse(res, 429, { status: "rate-limited", message: "Too many requests." });
+    jsonResponse(req, res, 429, { status: "rate-limited", message: "Too many requests." });
     return;
   }
 
@@ -874,7 +911,7 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
   }
 
   const persisted = persistQuestion(db, request, result);
-  jsonResponse(res, 200, {
+  jsonResponse(req, res, 200, {
     ...result.response,
     persisted,
   });
@@ -889,12 +926,12 @@ async function handleRating(db, req, res) {
   } catch {
     cache = { status: "skipped", reason: "cache-sync-error" };
   }
-  jsonResponse(res, 200, { status: "recorded", persisted, cache });
+  jsonResponse(req, res, 200, { status: "recorded", persisted, cache });
 }
 
-function handleInsights(db, res) {
+function handleInsights(db, req, res) {
   const retention = applyRetention(db);
-  jsonResponse(res, 200, {
+  jsonResponse(req, res, 200, {
     status: "ok",
     generatedAt: nowIso(),
     storage: {
@@ -908,9 +945,9 @@ function handleInsights(db, res) {
   });
 }
 
-function handleExamples(db, res) {
+function handleExamples(db, req, res) {
   const examples = exampleRows(db);
-  jsonResponse(res, 200, {
+  jsonResponse(req, res, 200, {
     status: "ok",
     generatedAt: nowIso(),
     minCount: 1,
@@ -921,7 +958,7 @@ function handleExamples(db, res) {
 function handleModeration(db, req, res) {
   requireModerationAccess(req);
   const retention = applyRetention(db);
-  jsonResponse(res, 200, {
+  jsonResponse(req, res, 200, {
     status: "ok",
     generatedAt: nowIso(),
     policy: {
@@ -957,19 +994,20 @@ function createServer() {
   const runtime = loadRuntime(runtimeDefaults);
   return http.createServer(async (req, res) => {
     try {
+      if (!requireAllowedOrigin(req, res)) return;
       if (req.method === "OPTIONS") {
-        jsonResponse(res, 204, {});
+        jsonResponse(req, res, 204, {});
         return;
       }
       const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
       const withinRateLimit = checkRateLimit(req);
       const isAnswerRoute = req.method === "POST" && url.pathname === "/api/search-book/answer";
       if (!withinRateLimit && !isAnswerRoute) {
-        jsonResponse(res, 429, { status: "rate-limited", message: "Too many requests." });
+        jsonResponse(req, res, 429, { status: "rate-limited", message: "Too many requests." });
         return;
       }
       if (req.method === "GET" && url.pathname === "/health") {
-        jsonResponse(res, 200, {
+        jsonResponse(req, res, 200, {
           status: "ok",
           service: "search-book-answer-engine",
           defaultMode: config.defaultMode,
@@ -985,6 +1023,10 @@ function createServer() {
               ...moderationPolicy(),
               configured: config.moderationExportEnabled && Boolean(config.moderationToken),
             },
+            cors: {
+              allowedOrigins: config.allowedOrigins,
+              env: "SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS",
+            },
           },
         });
         return;
@@ -998,20 +1040,20 @@ function createServer() {
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {
-        handleInsights(db, res);
+        handleInsights(db, req, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/examples") {
-        handleExamples(db, res);
+        handleExamples(db, req, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/moderation") {
         handleModeration(db, req, res);
         return;
       }
-      jsonResponse(res, 404, { status: "not-found" });
+      jsonResponse(req, res, 404, { status: "not-found" });
     } catch (error) {
-      jsonResponse(res, error.statusCode || 500, {
+      jsonResponse(req, res, error.statusCode || 500, {
         status: "error",
         message: error.statusCode ? error.message : "Search Book answer-engine service error.",
       });
