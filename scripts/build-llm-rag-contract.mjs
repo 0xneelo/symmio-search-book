@@ -345,10 +345,10 @@ const recordedLiveEvaluation = {
     total: { passing: 42, total: 42 },
   },
   measuredUsage: {
-    calls: 19,
-    inputTokens: 98363,
-    outputTokens: 8659,
-    estimatedCostUsd: 0.01994985,
+    calls: 21,
+    inputTokens: 111578,
+    outputTokens: 10401,
+    estimatedCostUsd: 0.0229773,
     pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
   },
   notes:
