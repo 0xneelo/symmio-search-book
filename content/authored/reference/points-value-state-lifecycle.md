@@ -3,7 +3,7 @@ id: "authored-points-value-state-lifecycle"
 title: "Points Value State Lifecycle"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "_specs/app-docs/03-grounding.md"]
@@ -26,6 +26,10 @@ This state model prevents a common documentation error: treating every displayed
 ## Reader Implication
 
 When users ask whether points are final, the docs should answer by state. A live dashboard can show progress without implying the balance has passed finalization, claim eligibility, transferability, or TGE qualification.
+
+## Publication Boundary
+
+This page can publish the source-backed points-state model. It should not present any displayed balance as finalized, claimable, transferable, TGE-qualified, or convertible into reward objects unless the relevant policy and implementation path have been approved.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-points-claim-bridge-and-vesting"
 title: "Points Claim Bridge And Vesting"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "_specs/app-docs/03-grounding.md"]
@@ -27,6 +27,10 @@ The rewards-pack source gives an example flow: users earn points off-chain, clai
 ## Reader Implication
 
 When a user asks whether points are "final," the docs should answer by state. Provisional points are not the same as finalized claimable points, and claimable points are not automatically the same as transferable economic exposure.
+
+## Publication Boundary
+
+This page can publish the source-backed state distinction between provisional balances, finalized buckets, claim authorization, and vesting or cooldown. Exact claim dates, vesting duration, transferability, TGE conversion, on-chain contract addresses, and eligibility rules remain owner-review items before publication as live rewards mechanics.
 
 ## Sources
 

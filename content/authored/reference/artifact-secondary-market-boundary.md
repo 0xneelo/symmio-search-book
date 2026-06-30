@@ -3,7 +3,7 @@ id: "authored-artifact-secondary-market-boundary"
 title: "Artifact Secondary Market Boundary"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system#12-7-artifact-economy-and-secondary-market", "_specs/app-docs/03-grounding.md"]
@@ -18,7 +18,7 @@ In that model, points can represent direct exposure once transferable, unopened 
 
 That market structure creates a documentation burden. If packs or artifacts are transferable, public docs need valuation rules, supply rules, rarity rules, boost rules, snapshot treatment, and market-risk warnings before users can reason about secondary-market prices. Without those rules, secondary trading can make the reward layer look more final than it is.
 
-## Boundary
+## Publication Boundary
 
 The docs can explain why a secondary market might emerge around reward objects. They should not imply that Vibe endorses a market, guarantees liquidity, supports a floor price, approves a wrapper, or finalizes TGE treatment unless those policies are separately approved.
 

@@ -3,7 +3,7 @@ id: "authored-referral-adversarial-trust-constraints"
 title: "Referral Adversarial Trust Constraints"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/11-conclusion", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls", "_specs/app-docs/03-grounding.md"]
@@ -31,6 +31,10 @@ Transparent KPI governance answers which public metrics are real evidence, which
 ## Reader Implication
 
 When a reader asks whether referral growth is safe, the answer should not be broad reassurance. It should point to the constraints: identity, accounting, anti-gaming, rollout discipline, and KPI governance. If one of those constraints lacks an approved public policy, the docs should say so.
+
+## Publication Boundary
+
+This page can publish the source-backed trust constraints. It should not claim that every constraint is fully implemented or audited in production until the corresponding identity, accounting, anti-gaming, rollout, and KPI-governance controls are verified.
 
 ## Sources
 

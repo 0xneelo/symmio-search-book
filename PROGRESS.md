@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Referral Access And Integrity Publication Batch
+
+- Promoted `11` rewards/referrals pages to `published`: Artifact Exposure And Boost Rules, Artifact Secondary Market Boundary, Market-Scoped Referrals, Points Claim Bridge And Vesting, Points Value State Lifecycle, Referral Abuse Patterns, Referral Access-Gated Launch, Referral Access Phasing Operating Model, Referral Admin Override Audit Trails, Referral Adversarial Trust Constraints, and Referral Anomaly Monitoring Signals.
+- Added or normalized publication boundaries for artifact economics, secondary-market support, market-scoped partner payouts, points claim/vesting state, point finality, access phases, admin overrides, trust constraints, anomaly monitoring, live eligibility, TGE treatment, transferability, and abuse-enforcement details.
+- Regenerated Search Book data so page-state counts now show `388` published pages, `410` candidate pages, `792` source companions, `798/798` exact routes, `2,867` chunks, and `84` rewards-referrals candidate pages remaining.
+
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Force Close Batch
 
 - Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.

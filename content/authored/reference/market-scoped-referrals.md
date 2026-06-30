@@ -3,7 +3,7 @@ id: "authored-market-scoped-referrals"
 title: "Market-Scoped Referrals"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/07-lp-and-category-layer", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-07-lp-and-category-layer", "section-17-referral-program-17-docs-07-lp-and-category-layer-7-1-market-scoped-referral", "section-17-referral-program-17-docs-07-lp-and-category-layer-7-5-strategic-role"]
@@ -30,6 +30,10 @@ Without those rules, partner economics blur into the public referral policy and 
 ## Reader Implication
 
 Market-scoped referrals explain why the compendium treats referrals as market-formation infrastructure. They can connect distribution to listings, LP flow, and partner-led market categories. They should not be described as live universal policy until the owner confirms current partner, category, and payout semantics.
+
+## Publication Boundary
+
+This page can publish the source-backed market-scoped referral model as design context. Current partner lists, category tags, precedence rules, payout percentages, market eligibility, and commercial partner terms require product-owner and implementation review before publication as live policy.
 
 ## Sources
 

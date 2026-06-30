@@ -3,7 +3,7 @@ id: "authored-referral-anomaly-monitoring-signals"
 title: "Referral Anomaly Monitoring Signals"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework", "_specs/app-docs/03-grounding.md"]
