@@ -3,7 +3,7 @@ id: "authored-listing-monopoly-vision-restated"
 title: "Listing Monopoly Vision Restated"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/07-conclusion", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/07-conclusion#7-4-the-vision-restated"]
