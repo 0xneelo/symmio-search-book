@@ -3,7 +3,7 @@ id: "authored-cross-margin-capital-fungibility"
 title: "Cross-Margin Capital Fungibility"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"]
@@ -27,6 +27,10 @@ The hard part is governance and risk policy: when to net, when to isolate, and w
 ## Reader Implication
 
 When a reader asks why capital efficiency improves under the hybrid model, route here. The answer is not only "USDC is stable." It is that stable settlement capital can be netted, reallocated, and governed across markets in ways isolated token slabs cannot.
+
+## Publication Boundary
+
+Publish this as an architectural capital-efficiency thesis. Do not present it as a live Vibe cross-margin policy, shared-insurance promise, supported-market guarantee, leverage limit, or audited capital-efficiency measurement until the production risk and governance settings are disclosed.
 
 ## Sources
 

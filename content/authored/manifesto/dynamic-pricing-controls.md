@@ -3,7 +3,7 @@ id: "authored-dynamic-pricing-controls"
 title: "Dynamic Pricing Controls"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective"]
@@ -32,7 +32,7 @@ Dynamic pricing is cheaper than forced unwinds. A market that can pay traders to
 
 For the compendium, this page should teach dynamic pricing as a risk-routing instrument. It belongs in the manifesto because it explains why Vibe can try to open long-tail markets without treating every thin market like a mature exchange book.
 
-## Publication Note
+## Publication Boundary
 
 This is architecture language from the source model. Public Vibe docs should publish concrete rates, ramps, rebates, and caps only after implementation and disclosure review.
 

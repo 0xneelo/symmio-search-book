@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Risk-Premium And Token-Margin Batch
+
+- Promoted `10` Volume 04 Token Margin and Funding Systems manifesto pages to `published`: Required Risk Premium For USDC LPs, Break-Even Versus Attractive APR, Cross-Margin Capital Fungibility, Cross-Market Risk Mutualization, Drift LUNA Token-Collateral Precedent, Dynamic Pricing Controls, Economic Clarity For Permissionless Perps, Engineering Fixes Cannot Solve Inverse Economics, Expected Loss As Capital Maintenance, and Fully On-Chain Keeper Model.
+- Added or normalized publication boundaries for source-model APR/loss ranges, live Vibe LP terms, production rates/caps/rebates, global insurance eligibility, off-chain signer/operator claims, market support, leverage, payout guarantees, and legal/risk-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `476` published pages, `322` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `130` Volume 04 candidates remaining, and `142` manifesto candidates remaining.
+
 ## 2026-06-30 — SYN-215 Live RAG Refresh After Volume 03 Completion
 
 - Tightened `src/search-book/scripts/run-llm-rag-answer.mjs` so LLM citations copy canonical `sourceHref` values from `citationSources` / `validIds.sourceHrefBySourceKey` instead of chunk `sourceUrls`; the strict validator is unchanged.

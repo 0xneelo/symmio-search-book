@@ -3,7 +3,7 @@ id: "authored-fully-on-chain-keeper-model"
 title: "Fully On-Chain Keeper Model"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"]
@@ -27,6 +27,10 @@ Vibe's answer should not be "off-chain is better." It should be that durable fin
 ## Reader Implication
 
 When readers compare Percolator and Vibe, route here for the honest tradeoff. Percolator maximizes on-chain inspectability. Vibe should justify any hybrid element by showing what economic risk that element controls.
+
+## Publication Boundary
+
+Publish the transparency-versus-adaptive-risk tradeoff without implying that fully on-chain systems are unsafe by default, that Vibe's hybrid components have final production parameters, or that any off-chain signer, keeper, refusal, or hedging workflow is live unless separately sourced.
 
 ## Sources
 

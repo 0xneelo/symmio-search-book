@@ -3,7 +3,7 @@ id: "authored-drift-luna-token-collateral-precedent"
 title: "Drift LUNA Token-Collateral Precedent"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"]
@@ -27,6 +27,10 @@ If the collateral unit can become nearly worthless while the market owes short-s
 ## Reader Implication
 
 When a reader asks why Vibe separates settlement from token inventory, route here. The source's Drift/LUNA precedent makes the separation legible: market-native inventory can be useful for alignment, but it should not become the only asset backing stress-state payouts.
+
+## Publication Boundary
+
+Use the Drift/LUNA example only as a source-cited historical precedent for token-collateral reflexivity. Do not extend it into unsupported claims about Drift's current design, Vibe's live settlement guarantees, specific liquidation outcomes, or legal/investment advice about token collateral.
 
 ## Sources
 

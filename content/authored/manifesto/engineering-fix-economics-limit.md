@@ -3,7 +3,7 @@ id: "authored-engineering-fix-economics-limit"
 title: "Engineering Fixes Cannot Solve Inverse Economics"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"]
@@ -27,6 +27,10 @@ That nuance matters because Vibe's argument is architectural, not tribal. The ta
 ## Reader Implication
 
 When a reader asks whether Percolator's issues can be patched away, route here. The answer is: some execution or oracle details can be improved, but the core inverse-token economics remain unless the collateral, settlement, and risk-bearing model changes.
+
+## Publication Boundary
+
+Keep this framed as a source-based architecture critique. Do not turn it into a claim about Hyperliquid's current Percolator implementation, a guarantee that Vibe eliminates every listed risk, or legal/risk advice for traders or LPs.
 
 ## Sources
 

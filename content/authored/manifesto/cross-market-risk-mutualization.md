@@ -3,7 +3,7 @@ id: "authored-cross-market-risk-mutualization"
 title: "Cross-Market Risk Mutualization"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective"]
@@ -30,9 +30,9 @@ Bell-curve flattening and insurance sit before ADL in the defense stack. Dynamic
 
 For readers, the key point is not the exact formula. It is the principle: profitable markets can help stabilize the system, but public docs must show the gates, caps, and loss-ordering that prevent uncontrolled contagion.
 
-## Publication Note
+## Publication Boundary
 
-The source model supports the architecture, but final public docs need operator review for eligibility policy, allocation caps, retained percentages, and any claim that a production global insurance layer is live.
+The source model supports the architecture, but public docs must not imply that a production global insurance layer is live or disclose eligibility policy, allocation caps, retained percentages, or loss-ordering rules beyond what approved sources publish.
 
 ## Sources
 
