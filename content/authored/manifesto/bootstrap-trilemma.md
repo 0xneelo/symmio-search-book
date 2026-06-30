@@ -3,7 +3,7 @@ id: "authored-bootstrap-trilemma"
 title: "The Bootstrap Trilemma"
 section: "manifesto"
 track: "01 — Market Formation Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma"]
 relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-04-bootstrap-trilemma"]

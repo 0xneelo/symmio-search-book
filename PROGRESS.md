@@ -1,5 +1,10 @@
 # Progress
 
+## 2026-06-30 — Bootstrap Publication Review Batch
+
+- Promoted `7` stable Neelo-source bootstrap-trilemma pages to `published`: The Async-Netted No-Payer Failure, The Bootstrap Trilemma, Formalizing The Bootstrap Trilemma Constraint, The Bootstrap Trilemma Summary, The Three Properties In The Bootstrap Trilemma, How To Read The Bootstrap Trilemma Visualization, and Collateralization Is The Payout Question.
+- Kept the freshness-sensitive Vibe Product Overview, Barometer Subgraph Upgrade, and broader Volume 01 overview in the review queue for later source/date review.
+
 ## 2026-06-30 — First Candidate Publication Review Batch
 
 - Promoted the first `8` source/prose/route-reviewed pages to `published`: Symmio Clearing-House Layer, Vibe Intent Architecture, Information And Trade Are Converging, The Information Validation Crisis, Market Cap Is A Costly Signal, Synthetic Abundance Creates A Verification Crisis, Universal Issuance Needs Derivatives, and Why Derivatives Matter.

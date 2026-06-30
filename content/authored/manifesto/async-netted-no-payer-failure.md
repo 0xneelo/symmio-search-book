@@ -3,7 +3,7 @@ id: "authored-async-netted-no-payer-failure"
 title: "The Async-Netted No-Payer Failure"
 section: "manifesto"
 track: "01 — Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-4-why-single-architectures-fail", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-5-the-complete-framework"]
