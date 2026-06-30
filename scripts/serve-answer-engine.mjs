@@ -6,7 +6,14 @@ import http from "node:http";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
-import { answerQuery, defaults as runtimeDefaults, loadRuntime, withDegraded } from "./run-llm-rag-answer.mjs";
+import {
+  answerQuery,
+  defaults as runtimeDefaults,
+  embedQuery,
+  embeddingToBlob,
+  loadRuntime,
+  withDegraded,
+} from "./run-llm-rag-answer.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -21,6 +28,9 @@ const config = {
   maxRecentEvents: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS || 25),
   rateLimitPerMinute: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE || 60),
   retentionDays: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS || 180),
+  reuseThreshold: Number(process.env.SEARCH_BOOK_REUSE_THRESHOLD || 0.9),
+  reuseMaxCandidates: Number(process.env.SEARCH_BOOK_REUSE_MAX_CANDIDATES || 250),
+  exampleLimit: Number(process.env.SEARCH_BOOK_EXAMPLE_LIMIT || 4),
   moderationExportEnabled: process.env.SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT === "true",
   moderationExportLimit: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT || 50),
   moderationToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
@@ -132,6 +142,23 @@ function openDatabase(dbPath) {
     CREATE INDEX IF NOT EXISTS idx_search_book_ratings_created_at
       ON search_book_ratings(created_at DESC);
 
+    CREATE TABLE IF NOT EXISTS search_book_answer_cache (
+      id TEXT PRIMARY KEY,
+      normalized_query TEXT NOT NULL UNIQUE,
+      query TEXT NOT NULL,
+      embedding BLOB NOT NULL,
+      embedding_model TEXT NOT NULL,
+      answer_json TEXT NOT NULL,
+      primary_page_id TEXT NOT NULL,
+      helpful_count INTEGER NOT NULL DEFAULT 1,
+      last_served_at TEXT NOT NULL,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_search_book_answer_cache_helpful
+      ON search_book_answer_cache(helpful_count DESC, updated_at DESC);
+
     CREATE TABLE IF NOT EXISTS search_book_gaps (
       id TEXT PRIMARY KEY,
       event_id TEXT NOT NULL,
@@ -164,7 +191,7 @@ function retentionPolicy() {
     days: config.retentionDays,
     env: "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
     defaultDays: 180,
-    scope: ["questions", "ratings", "gaps"],
+    scope: ["questions", "ratings", "gaps", "answerCache"],
   };
 }
 
@@ -180,13 +207,14 @@ function applyRetention(db) {
     return {
       ...retentionPolicy(),
       cutoff: "",
-      deleted: { ratings: 0, gaps: 0, questions: 0, orphanGaps: 0 },
+      deleted: { ratings: 0, gaps: 0, questions: 0, orphanGaps: 0, answerCache: 0 },
     };
   }
   const deleted = {
     ratings: db.prepare("DELETE FROM search_book_ratings WHERE created_at < ?").run(cutoff).changes,
     gaps: db.prepare("DELETE FROM search_book_gaps WHERE created_at < ?").run(cutoff).changes,
     questions: db.prepare("DELETE FROM search_book_questions WHERE created_at < ?").run(cutoff).changes,
+    answerCache: db.prepare("DELETE FROM search_book_answer_cache WHERE updated_at < ?").run(cutoff).changes,
     orphanGaps: db.prepare(`
       DELETE FROM search_book_gaps
       WHERE event_id != ''
@@ -354,6 +382,69 @@ function persistRating(db, body) {
   };
 }
 
+const positiveRatings = new Set(["yes", "useful"]);
+
+function normalizeQuestionForCache(query) {
+  return String(query || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function ratingBalance(db, eventIdValue) {
+  const row = db.prepare(`
+    SELECT
+      SUM(CASE WHEN rating IN ('yes', 'useful') THEN 1 ELSE 0 END) AS helpful,
+      SUM(CASE WHEN rating IN ('no', 'not-useful') THEN 1 ELSE 0 END) AS negative
+    FROM search_book_ratings
+    WHERE event_id = ?
+  `).get(eventIdValue);
+  return { helpful: Number(row?.helpful || 0), negative: Number(row?.negative || 0) };
+}
+
+async function syncAnswerCacheForRating(db, persisted) {
+  const question = db.prepare("SELECT * FROM search_book_questions WHERE id = ?").get(persisted.eventId);
+  if (!question) return { status: "skipped", reason: "question-missing" };
+  const normalizedQuery = normalizeQuestionForCache(question.query);
+  const balance = ratingBalance(db, question.id);
+  if (balance.helpful <= balance.negative) {
+    db.prepare("DELETE FROM search_book_answer_cache WHERE normalized_query = ?").run(normalizedQuery);
+    return { status: "evicted", helpfulCount: balance.helpful, negativeCount: balance.negative };
+  }
+  if (!positiveRatings.has(persisted.rating) || question.status !== "answered") {
+    return { status: "skipped", reason: "not-cache-eligible" };
+  }
+  const answer = parseJsonColumn(question.response_json, null);
+  if (!answer || answer.status !== "answered") return { status: "skipped", reason: "answer-missing" };
+  const embedded = await embedQuery(question.query);
+  if (embedded.status !== "embedded") return { status: "skipped", reason: embedded.reason, missing: embedded.missing || [] };
+  const now = nowIso();
+  db.prepare(`
+    INSERT INTO search_book_answer_cache (
+      id, normalized_query, query, embedding, embedding_model, answer_json,
+      primary_page_id, helpful_count, last_served_at, created_at, updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(normalized_query) DO UPDATE SET
+      query = excluded.query,
+      embedding = excluded.embedding,
+      embedding_model = excluded.embedding_model,
+      answer_json = excluded.answer_json,
+      primary_page_id = excluded.primary_page_id,
+      helpful_count = excluded.helpful_count,
+      updated_at = excluded.updated_at
+  `).run(
+    eventId("cache"),
+    normalizedQuery,
+    question.query,
+    embeddingToBlob(embedded.embedding),
+    embedded.model,
+    jsonText(answer),
+    question.page_id,
+    balance.helpful,
+    now,
+    now,
+    now,
+  );
+  return { status: "cached", helpfulCount: balance.helpful, embeddingModel: embedded.model };
+}
+
 function rows(db, sql, ...params) {
   return db.prepare(sql).all(...params);
 }
@@ -438,7 +529,8 @@ function counts(db) {
     SELECT
       (SELECT COUNT(*) FROM search_book_questions) AS questions,
       (SELECT COUNT(*) FROM search_book_ratings) AS ratings,
-      (SELECT COUNT(*) FROM search_book_gaps) AS gaps
+      (SELECT COUNT(*) FROM search_book_gaps) AS gaps,
+      (SELECT COUNT(*) FROM search_book_answer_cache) AS answerCache
   `).get();
   return { totals, byQuestionStatus, byRating, byGapReason };
 }
@@ -701,7 +793,8 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
 async function handleRating(db, req, res) {
   const body = await readJsonBody(req);
   const persisted = persistRating(db, body);
-  jsonResponse(res, 200, { status: "recorded", persisted });
+  const cache = await syncAnswerCacheForRating(db, persisted);
+  jsonResponse(res, 200, { status: "recorded", persisted, cache });
 }
 
 function handleInsights(db, res) {
@@ -711,7 +804,7 @@ function handleInsights(db, res) {
     generatedAt: nowIso(),
     storage: {
       adapter: "node:sqlite",
-      tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
+      tables: ["search_book_questions", "search_book_ratings", "search_book_gaps", "search_book_answer_cache"],
     },
     retention,
     moderation: moderationPolicy(),
