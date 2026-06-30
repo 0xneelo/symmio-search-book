@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 Funding Defense Protocol Batch
+
+- Promoted `24` Volume 05 funding-defense and protocol-operations pages to `published`: Conditional Global Insurance Allocation, Conservative Launch Collateralization, Discontinuous-Outcome Market Guardrails, External USDC LP Risk-Premium Mismatch, Funding ADL Priority Ranking, Funding ADL Target Sizing, Funding ADL Trigger And Target, Funding Bell-Curve Tail Cutoffs, Funding Bell-Curve Transfer Pool, Funding Defense Activation Timeline, Funding Defense Layer Cost Ordering, Funding Exposure Loss Estimate, Funding Flattening Conservation And Retention, Funding Global Insurance Eligibility, Funding Hedge Cost Coverage, Funding Insurance Spend Caps, Funding Local Insurance Fund, Funding Proportional Tail Allocation, Funding Solver Token Inventory Defense, Funding Stress Demand And Insurance Spend, Funding Total Defense Budget, Funding Transfer Pool Feasibility, Funding User Position Netting Defense, and Funding Winner Surplus And Loser Shortfall.
+- Preserved publication boundaries for live insurance allocation, launch collateralization, discontinuous-market guardrails, USDC LP premiums, ADL triggers/priority/target sizing, bell-curve cutoffs and transfer pools, defense activation timing, layer cost ordering, loss estimates, hedge-cost coverage, insurance spend caps, local/global insurance, token-inventory defense, defense budgets, netting, surplus/shortfall accounting, and legal/risk/accounting/security-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `630` published pages, `168` candidate pages, `792` source companions, `798/798` exact routes, `2,870` chunks, `84` Volume 05 candidates, `84` Volume 06 candidates, `71` protocol-reference candidates, `84` rewards-referrals candidates, and `13` manifesto candidates remaining.
+
 ## 2026-06-30 — Final Volume 04 Publication Batch
 
 - Promoted the final `11` Volume 04 candidates to `published`: Funding As Market Balancing, The Hybrid Solver Liquidity Waterfall, Intent OTC As Long-Tail Verification, LP Yield And Capital Efficiency, One Counterparty For Niche Verification, Residual Counterparty Balance-Sheet Problem, The Thumbs Down Mechanism Stack, Token-Vault Perps Versus USDC Pools, Vibe As Listing Source Of Truth, Yield As Architecture Survival Proof, and Yield As Market Survival Constraint.

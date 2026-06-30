@@ -3,7 +3,7 @@ id: "authored-external-usdc-lp-risk-premium-mismatch"
 title: "External USDC LP Risk-Premium Mismatch"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
