@@ -3,7 +3,7 @@ id: "authored-vibe-android-pwa-install"
 title: "Installing The Vibe PWA On Android"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-mobile-pwa", "vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/trading/mobile-app-pwa.md", "https://docs.vibe.trading/getting-started/account-creation.md"]

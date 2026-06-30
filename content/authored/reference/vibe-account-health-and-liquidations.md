@@ -3,7 +3,7 @@ id: "authored-vibe-account-health-and-liquidations"
 title: "Vibe Account Health And Liquidations"
 section: "product-reference"
 track: "Risk And Margin"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-account-health-liquidations", "vibe-collateral-margining", "symmio-liquidations"]
 sourceUrls: ["https://docs.vibe.trading/trading/account-health-and-liquidations.md", "https://docs.vibe.trading/trading/collateral-and-margining.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md"]
 relatedGeneratedPages: ["vibe-account-health-liquidations", "vibe-collateral-margining", "symmio-liquidations", "authored-symmio-cross-margin-liquidations"]

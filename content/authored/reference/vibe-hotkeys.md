@@ -3,7 +3,7 @@ id: "authored-vibe-hotkeys"
 title: "Vibe Hotkeys"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-hotkeys", "vibe-simple-trade", "vibe-order-types"]
 sourceUrls: ["https://docs.vibe.trading/trading/hot-keys.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md", "https://docs.vibe.trading/trading/order-types.md"]
 relatedGeneratedPages: ["vibe-hotkeys", "vibe-simple-trade", "vibe-order-types"]

@@ -79,8 +79,8 @@
     "sourceCompanionsQueued": 792,
     "sourceCompanionsCoveredByAuthoredPages": 792,
     "sourceCompanionsNeedingAuthoredCoverage": 0,
-    "candidateReviewPages": 688,
-    "candidateFinalReviewReadyPages": 49,
+    "candidateReviewPages": 674,
+    "candidateFinalReviewReadyPages": 35,
     "candidateOperatorReviewPages": 619,
     "candidateSourceRefreshPages": 9,
     "candidatePublicationDateReviewPages": 8,
@@ -104,21 +104,21 @@
     "covered-by-authored-page": 792
   },
   "byCandidateReviewReason": {
-    "candidate-final-review": 49,
+    "candidate-final-review": 35,
     "editorial-review": 3,
     "publication-date-review": 8,
     "source-refresh": 9,
     "operator-review": 619
   },
   "byCandidateReviewAction": {
-    "final-editorial-source-check-then-publish": 49,
+    "final-editorial-source-check-then-publish": 35,
     "tighten-prose-structure-before-publish": 3,
     "refresh-time-sensitive-product-source-before-publish": 8,
     "refresh-current-source-evidence-before-publish": 9,
     "operator-product-risk-legal-accounting-review-before-publish": 619
   },
   "byCandidateReviewStatus": {
-    "publication-candidate": 49,
+    "publication-candidate": 35,
     "publication-candidate-needs-editorial-review": 3,
     "publication-candidate-needs-publication-date-review": 8,
     "publication-candidate-needs-current-source-review": 8,
@@ -247,23 +247,23 @@
     },
     "volume-07-product-trading-and-risk": {
       "title": "Product, Trading, And Risk Guides",
-      "candidateReviewPages": 45,
+      "candidateReviewPages": 31,
       "byReviewReason": {
-        "candidate-final-review": 27,
+        "candidate-final-review": 13,
         "publication-date-review": 8,
         "operator-review": 10
       },
       "topPageIds": [
-        "authored-vibe-account-creation-and-login",
-        "authored-vibe-account-health-and-liquidations",
-        "authored-vibe-account-history-and-csv-export",
-        "authored-vibe-allocated-balance",
-        "authored-vibe-android-pwa-install",
-        "authored-vibe-available-liquidity-capacity",
-        "authored-vibe-collateral-and-margining",
-        "authored-vibe-deposits-and-withdrawals",
-        "authored-vibe-funding-payment-direction",
-        "authored-vibe-hotkey-execution-guardrails"
+        "authored-vibe-oi-and-liquidity",
+        "authored-vibe-order-types",
+        "authored-vibe-portfolio-and-account-data",
+        "authored-vibe-pwa-notification-categories",
+        "authored-vibe-simple-trade-flow",
+        "authored-vibe-stop-order-trigger-model",
+        "authored-vibe-tpsl",
+        "authored-vibe-tpsl-slippage-threshold",
+        "authored-vibe-tradingview-controls",
+        "authored-vibe-tradingview-layouts-and-watchlists"
       ]
     },
     "volume-08-dashboard-faq-and-living-docs": {
@@ -552,91 +552,8 @@
       ]
     },
     {
-      "pageId": "authored-vibe-account-creation-and-login",
-      "title": "Vibe Account Creation And Login",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-account-health-and-liquidations",
-      "title": "Vibe Account Health And Liquidations",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Risk And Margin",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-health-liquidations",
-        "vibe-collateral-margining",
-        "symmio-liquidations"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-account-history-and-csv-export",
-      "title": "Vibe Account History And CSV Export",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-portfolio",
-        "vibe-deposits-withdrawals",
-        "vibe-fees",
-        "vibe-funding"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-allocated-balance",
-      "title": "Vibe Allocated Balance",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-deposits-withdrawals",
-        "vibe-account-health-liquidations",
-        "vibe-account-portfolio"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-android-pwa-install",
-      "title": "Installing The Vibe PWA On Android",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-available-liquidity-capacity",
-      "title": "Vibe Available Liquidity Capacity",
+      "pageId": "authored-vibe-oi-and-liquidity",
+      "title": "Vibe Open Interest And Available Liquidity",
       "volumeId": "volume-07-product-trading-and-risk",
       "volumeTitle": "Product, Trading, And Risk Guides",
       "section": "product-reference",
@@ -652,8 +569,160 @@
       ]
     },
     {
-      "pageId": "authored-vibe-collateral-and-margining",
-      "title": "Vibe Collateral And Margining",
+      "pageId": "authored-vibe-order-types",
+      "title": "Vibe Order Types",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-portfolio-and-account-data",
+      "title": "Vibe Portfolio And Account Data",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-account-portfolio",
+        "vibe-points",
+        "vibe-deposits-withdrawals"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-pwa-notification-categories",
+      "title": "Vibe PWA Notification Categories",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-health-liquidations",
+        "vibe-account-portfolio"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-simple-trade-flow",
+      "title": "Vibe Simple Trade Flow",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-simple-trade",
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-architecture"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-stop-order-trigger-model",
+      "title": "Vibe Stop Order Trigger Model",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-order-types",
+        "vibe-tpsl",
+        "vibe-simple-trade"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-tpsl",
+      "title": "Vibe Take Profit And Stop Loss",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-simple-trade"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-tpsl-slippage-threshold",
+      "title": "Vibe TP/SL Slippage Threshold",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-tpsl",
+        "vibe-order-types",
+        "vibe-oi-liquidity"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-tradingview-controls",
+      "title": "Vibe TradingView Controls",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-tradingview-layouts-and-watchlists",
+      "title": "Vibe TradingView Layouts And Watchlists",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-tradingview-control",
+        "vibe-simple-trade"
+      ]
+    },
+    {
+      "pageId": "authored-vibecaps-margin-management",
+      "title": "VibeCaps Margin Management",
       "volumeId": "volume-07-product-trading-and-risk",
       "volumeTitle": "Product, Trading, And Risk Guides",
       "section": "product-reference",
@@ -663,122 +732,60 @@
       "reviewAction": "final-editorial-source-check-then-publish",
       "questionRouteCount": 1,
       "sourceKeys": [
-        "vibe-collateral-margining",
         "vibe-margin",
         "symmio-core"
       ]
     },
     {
-      "pageId": "authored-vibe-deposits-and-withdrawals",
-      "title": "Vibe Deposits And Withdrawals",
+      "pageId": "authored-volume-07-product-trading-and-risk",
+      "title": "Volume 07: Product, Trading, And Risk Guides",
       "volumeId": "volume-07-product-trading-and-risk",
       "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
+      "section": "compendium",
+      "track": "Volume 07",
       "status": "publication-candidate",
       "reviewReason": "candidate-final-review",
       "reviewAction": "final-editorial-source-check-then-publish",
       "questionRouteCount": 1,
       "sourceKeys": [
-        "vibe-deposits-withdrawals",
-        "vibe-account-creation"
+        "spec-03",
+        "vibe-llms",
+        "vibe-margin",
+        "symmio-core"
       ]
     },
     {
-      "pageId": "authored-vibe-funding-payment-direction",
-      "title": "Vibe Funding Payment Direction",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Fees",
+      "pageId": "authored-dashboard-invites",
+      "title": "Dashboard My Invites",
+      "volumeId": "volume-08-dashboard-faq-and-living-docs",
+      "volumeTitle": "Dashboard, FAQ, And Living Docs",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
       "status": "publication-candidate",
       "reviewReason": "candidate-final-review",
       "reviewAction": "final-editorial-source-check-then-publish",
       "questionRouteCount": 1,
       "sourceKeys": [
-        "vibe-funding",
-        "vibe-fees"
+        "dashboard-app",
+        "dashboard-codes",
+        "dashboard-faq"
       ]
     },
     {
-      "pageId": "authored-vibe-hotkey-execution-guardrails",
-      "title": "Vibe Hotkey Execution Guardrails",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
+      "pageId": "authored-dashboard-settings",
+      "title": "Dashboard Settings",
+      "volumeId": "volume-08-dashboard-faq-and-living-docs",
+      "volumeTitle": "Dashboard, FAQ, And Living Docs",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
       "status": "publication-candidate",
       "reviewReason": "candidate-final-review",
       "reviewAction": "final-editorial-source-check-then-publish",
       "questionRouteCount": 1,
       "sourceKeys": [
-        "vibe-hotkeys",
-        "vibe-simple-trade",
-        "vibe-order-types"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-hotkeys",
-      "title": "Vibe Hotkeys",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-hotkeys",
-        "vibe-simple-trade",
-        "vibe-order-types"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-ios-pwa-install",
-      "title": "Installing The Vibe PWA On iOS",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-login-path-choice",
-      "title": "Choosing A Vibe Login Path",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-mobile-pwa",
-      "title": "Vibe Mobile PWA",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
+        "dashboard-app",
+        "dashboard-settings",
+        "dashboard-data"
       ]
     }
   ],
@@ -35687,236 +35694,6 @@
         "vibe-papers",
         "symmio-core",
         "symmio-intent-lifecycle"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-account-creation-and-login",
-      "title": "Vibe Account Creation And Login",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-account-health-and-liquidations",
-      "title": "Vibe Account Health And Liquidations",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Risk And Margin",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-health-liquidations",
-        "vibe-collateral-margining",
-        "symmio-liquidations"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-account-history-and-csv-export",
-      "title": "Vibe Account History And CSV Export",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-portfolio",
-        "vibe-deposits-withdrawals",
-        "vibe-fees",
-        "vibe-funding"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-allocated-balance",
-      "title": "Vibe Allocated Balance",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-deposits-withdrawals",
-        "vibe-account-health-liquidations",
-        "vibe-account-portfolio"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-android-pwa-install",
-      "title": "Installing The Vibe PWA On Android",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-available-liquidity-capacity",
-      "title": "Vibe Available Liquidity Capacity",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-oi-liquidity",
-        "vibe-architecture",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-collateral-and-margining",
-      "title": "Vibe Collateral And Margining",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Risk And Margin",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-collateral-margining",
-        "vibe-margin",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-deposits-and-withdrawals",
-      "title": "Vibe Deposits And Withdrawals",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-deposits-withdrawals",
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-funding-payment-direction",
-      "title": "Vibe Funding Payment Direction",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Fees",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-funding",
-        "vibe-fees"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-hotkey-execution-guardrails",
-      "title": "Vibe Hotkey Execution Guardrails",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-hotkeys",
-        "vibe-simple-trade",
-        "vibe-order-types"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-hotkeys",
-      "title": "Vibe Hotkeys",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-hotkeys",
-        "vibe-simple-trade",
-        "vibe-order-types"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-ios-pwa-install",
-      "title": "Installing The Vibe PWA On iOS",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-login-path-choice",
-      "title": "Choosing A Vibe Login Path",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-creation"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-mobile-pwa",
-      "title": "Vibe Mobile PWA",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-creation"
       ]
     },
     {

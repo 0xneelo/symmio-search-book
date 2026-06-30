@@ -3,7 +3,7 @@ id: "authored-vibe-mobile-pwa"
 title: "Vibe Mobile PWA"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-mobile-pwa", "vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/trading/mobile-app-pwa.md", "https://docs.vibe.trading/getting-started/account-creation.md"]
 relatedGeneratedPages: ["vibe-mobile-pwa", "vibe-account-creation", "vibe-account-health-liquidations"]

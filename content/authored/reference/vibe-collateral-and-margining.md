@@ -3,7 +3,7 @@ id: "authored-vibe-collateral-and-margining"
 title: "Vibe Collateral And Margining"
 section: "product-reference"
 track: "Risk And Margin"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-collateral-margining", "vibe-margin", "symmio-core"]
 sourceUrls: ["https://docs.vibe.trading/trading/collateral-and-margining.md", "https://docs.vibe.trading/trading/managing-vibecaps-margin.md", "https://docs.symm.io/getting-started/core-concepts.md"]
 relatedGeneratedPages: ["vibe-collateral-margining", "vibe-vibecaps-margin", "vibe-account-health-liquidations", "authored-collateral-margin-cva"]

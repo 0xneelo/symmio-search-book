@@ -3,7 +3,7 @@ id: "authored-vibe-available-liquidity-capacity"
 title: "Vibe Available Liquidity Capacity"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-oi-liquidity", "vibe-architecture", "symmio-core"]
 sourceUrls: ["https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md", "https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/getting-started/core-concepts.md"]

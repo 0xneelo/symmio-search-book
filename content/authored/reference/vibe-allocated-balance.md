@@ -3,7 +3,7 @@ id: "authored-vibe-allocated-balance"
 title: "Vibe Allocated Balance"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-deposits-withdrawals", "vibe-account-health-liquidations", "vibe-account-portfolio"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md", "https://docs.vibe.trading/trading/account-health-and-liquidations.md", "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md"]

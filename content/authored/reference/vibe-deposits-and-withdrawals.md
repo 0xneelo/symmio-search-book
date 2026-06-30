@@ -3,7 +3,7 @@ id: "authored-vibe-deposits-and-withdrawals"
 title: "Vibe Deposits And Withdrawals"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-deposits-withdrawals", "vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md", "https://docs.vibe.trading/getting-started/account-creation.md"]
 relatedGeneratedPages: ["vibe-deposits-withdrawals", "vibe-account-creation", "vibe-account-portfolio"]

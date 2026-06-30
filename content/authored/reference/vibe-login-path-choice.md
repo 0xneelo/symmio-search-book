@@ -3,7 +3,7 @@ id: "authored-vibe-login-path-choice"
 title: "Choosing A Vibe Login Path"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/account-creation.md"]

@@ -3,7 +3,7 @@ id: "authored-vibe-hotkey-execution-guardrails"
 title: "Vibe Hotkey Execution Guardrails"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-hotkeys", "vibe-simple-trade", "vibe-order-types"]
 sourceUrls: ["https://docs.vibe.trading/trading/hot-keys.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md", "https://docs.vibe.trading/trading/order-types.md"]

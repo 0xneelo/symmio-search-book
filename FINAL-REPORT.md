@@ -4,9 +4,9 @@ Generated for the current `search-book/research-dossier` checkpoint on 2026-06-3
 
 ## Current Status
 
-The Search Book now has a 500-800 page compendium shape with 794 manifest pages, 799 authored pages, 8 volumes, 104 chapters, and 1,593 reader-routable pages assigned to volumes. The first 110 authored pages are marked `published`; the remaining authored pages stay in candidate/review states. The generated corpus stays inside the requested 500-800 page target while the reader layer includes authored pages plus source companions for traceability.
+The Search Book now has a 500-800 page compendium shape with 794 manifest pages, 799 authored pages, 8 volumes, 104 chapters, and 1,593 reader-routable pages assigned to volumes. The first 124 authored pages are marked `published`; the remaining authored pages stay in candidate/review states. The generated corpus stays inside the requested 500-800 page target while the reader layer includes authored pages plus source companions for traceability.
 
-The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 688 candidate pages still in the review queue. The remaining candidate review lanes are 49 final-review-ready pages, 619 operator-review pages, 9 source-refresh pages, 8 publication-date-review pages, and 3 editorial-review pages. Source companions remain retrieval and traceability material, not public navigation pages.
+The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 674 candidate pages still in the review queue. The remaining candidate review lanes are 35 final-review-ready pages, 619 operator-review pages, 9 source-refresh pages, 8 publication-date-review pages, and 3 editorial-review pages. Source companions remain retrieval and traceability material, not public navigation pages.
 
 The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 797 exact question routes, 32 glossary routes, 2 refusal routes, 2,861 retrieval chunks, and 799 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`.
 
@@ -33,7 +33,7 @@ The canonical build verifies 24 deterministic build steps, 52 syntax checks, exa
 | Area | Current evidence | Release status |
 | --- | --- | --- |
 | Page target | 794 manifest pages against the 500-800 target | Verified for dossier/prototype |
-| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections; 110 published pages; 792/792 source companions covered by authored pages; 49 candidate pages ready for final review before the operator/source/editorial lanes | Partially published; most pages still need final source/deploy review |
+| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections; 124 published pages; 792/792 source companions covered by authored pages; 35 candidate pages ready for final review before the operator/source/editorial lanes | Partially published; most pages still need final source/deploy review |
 | Dashboard reference | 13 dashboard-reference pages, including every visible dashboard route plus hidden `#revenue` route | Documented, with production copy gates preserved |
 | Answer engine | 797/797 exact routes, 32/32 glossary routes, 2/2 refusal routes | Deterministic runtime verified |
 | LLM RAG | 42/42 live eval on `gpt-4.1-mini` | Runtime verified; production env/deploy still parked |

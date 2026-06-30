@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 07 Product Guide Publication Review Batch
+
+- Promoted `14` official Vibe product-guide pages to `published`: Vibe Account Creation And Login, Choosing A Vibe Login Path, Vibe Deposits And Withdrawals, Vibe Allocated Balance, Vibe Account History And CSV Export, Vibe Account Health And Liquidations, Vibe Collateral And Margining, Vibe Available Liquidity Capacity, Vibe Funding Payment Direction, Vibe Hotkeys, Vibe Hotkey Execution Guardrails, Vibe Mobile PWA, Installing The Vibe PWA On iOS, and Installing The Vibe PWA On Android.
+- Preserved the product safety boundaries: email/social login has a different custody posture than EOA wallet login, large-withdrawal thresholds are not invented, available liquidity remains solver-side capacity, cross-margin and isolated-margin risks stay separate, funding payments can be suppressed below gas cost, and Vibe mobile is documented as a PWA rather than a native app-store claim.
+- Regenerated Search Book data so page-state counts now show `124` published pages, `674` candidate pages, `792` source companions, and `35` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Points And Terminology Publication Review Batch
 
 - Promoted `5` resolved points/terminology pages to `published`: Onboarding Points And Vibe Points, Points Taxonomy, TGE Settlement Multiplier, Vibe Points Program, and AMFQ Is Legacy Naming For Intents.

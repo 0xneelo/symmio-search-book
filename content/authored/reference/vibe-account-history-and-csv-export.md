@@ -3,7 +3,7 @@ id: "authored-vibe-account-history-and-csv-export"
 title: "Vibe Account History And CSV Export"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-account-portfolio", "vibe-deposits-withdrawals", "vibe-fees", "vibe-funding"]
 sourceUrls: ["https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md", "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md", "https://docs.vibe.trading/trading/fees.md", "https://docs.vibe.trading/trading/funding.md"]

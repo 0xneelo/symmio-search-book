@@ -3,7 +3,7 @@ id: "authored-vibe-account-creation-and-login"
 title: "Vibe Account Creation And Login"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/account-creation.md"]
 relatedGeneratedPages: ["vibe-account-creation", "vibe-deposits-withdrawals", "authored-vibe-simple-trade-flow"]

@@ -3,7 +3,7 @@ id: "authored-vibe-funding-payment-direction"
 title: "Vibe Funding Payment Direction"
 section: "product-reference"
 track: "Fees"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-funding", "vibe-fees"]
 sourceUrls: ["https://docs.vibe.trading/trading/funding.md", "https://docs.vibe.trading/trading/fees.md"]
