@@ -3,7 +3,7 @@ id: "authored-competitive-docs-benchmark"
 title: "What Vibe x Symmio Should Borrow From The Best Docs"
 section: "competitive-context"
 track: "Competitive Benchmark"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["competitive-sweep-batch-01", "spec-05", "spec-06", "spec-07"]
 sourceUrls: ["src/search-book/data/competitive-sweep.json", "_specs/app-docs/05-architecture.md", "_specs/app-docs/06-answer-engine.md", "_specs/app-docs/07-research-session.md"]
 relatedGeneratedPages: ["authored-volume-01-orientation-and-thesis", "authored-search-insights-loop", "authored-vibe-as-discovery-layer", "hyperliquid-hip3"]
@@ -82,6 +82,10 @@ The compendium should not merely be bigger than a normal docs site. It should be
 - route an unanswered question into the improvement loop.
 
 If a page does none of those things, it is filler. If it does one of them with exact citations and cross-links, it belongs.
+
+## Publication Boundary
+
+Treat this page as a design benchmark from a source-checked official-docs sweep, not as a live ranking of protocols or a claim that every borrowed pattern is already shipped. The source-backed claim is narrower: the Search Book should use job-first routing, source packages, citations, risk taxonomy, data lineage, and visible feedback loops because those patterns match the compendium's own IA and answer-engine requirements.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-volume-06-referrals-and-market-formation"
 title: "Volume 06: Referrals And Market Formation"
 section: "compendium"
 track: "Volume 06"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["spec-03", "vibe-papers", "vibe-points", "server-points", "server-me", "dashboard-faq"]
 sourceUrls: ["_specs/app-docs/03-grounding.md", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program-architecture/17-docs/00-abstract", "https://docs.vibe.trading/trading/vibe-points.md", "server/points.js", "server/routes/me.js", "src/dashboard/faq.jsx"]

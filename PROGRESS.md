@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Singleton Candidate Publication Batch
+
+- Promoted the final `2` singleton review-lane pages to `published`: What Vibe x Symmio Should Borrow From The Best Docs and Volume 06: Referrals And Market Formation.
+- Added an explicit publication boundary to the competitive benchmark so the 49/50 official-docs sweep is used as a source-checked design pattern, not a live protocol ranking or claim that every borrowed pattern already ships.
+- Regenerated Search Book data so page-state counts now show `368` published pages, `430` candidate pages, `792` source companions, `798/798` exact routes, and no remaining `competitive-context` or `compendium` candidate pages.
+
 ## 2026-06-30 — Vibe Product-Reference Final Operator-Review Batch
 
 - Promoted the final `2` product-reference operator-review pages to `published`: Vibe Platform Overview and Vibe Security And Audits.
