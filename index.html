@@ -2669,17 +2669,11 @@
             .filter(Boolean)
             .slice(0, curatedExampleQuestions.length);
           exampleQuestions = dynamic.length >= curatedExampleQuestions.length ? dynamic : [...curatedExampleQuestions];
-          serviceState.online = true;
-          serviceState.lastError = "";
           renderExampleQuestions();
-          renderServiceStatus();
           return payload;
         } catch (error) {
           exampleQuestions = [...curatedExampleQuestions];
-          serviceState.online = false;
-          serviceState.lastError = error.message || "Could not reach answer-engine service.";
           renderExampleQuestions();
-          renderServiceStatus();
           return null;
         }
       }

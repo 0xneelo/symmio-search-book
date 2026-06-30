@@ -913,7 +913,7 @@ function handleExamples(db, res) {
   jsonResponse(res, 200, {
     status: "ok",
     generatedAt: nowIso(),
-    minCount: config.exampleLimit,
+    minCount: 1,
     examples,
   });
 }
