@@ -678,18 +678,28 @@ function llmConfigFromEnv() {
   };
 }
 
-function assertLlmConfig(config) {
+function llmConfigErrors(config) {
   const missing = [];
   if (config.apiStyle !== "openai-compatible") missing.push("SEARCH_BOOK_LLM_API_STYLE=openai-compatible");
   if (!config.endpoint) missing.push("SEARCH_BOOK_LLM_ENDPOINT");
   if (!config.model) missing.push("SEARCH_BOOK_LLM_MODEL");
   if (!config.apiKey) missing.push("SEARCH_BOOK_LLM_API_KEY");
   if (config.allowExternalContext !== "true") missing.push("SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true");
+  return missing;
+}
+
+function assertLlmConfig(config) {
+  const missing = llmConfigErrors(config);
   if (missing.length) {
     throw new Error(
       `LLM mode requires approved runtime configuration from OPERATOR-INBOX #11. Missing: ${missing.join(", ")}`,
     );
   }
+}
+
+function withDegraded(response, reason) {
+  if (response?.status !== "answered") return response;
+  return { ...response, degraded: { reason } };
 }
 
 const gpt41MiniPricingPerMillion = {
@@ -1174,7 +1184,9 @@ function formatValidationFeedback(error, response, context) {
 
 async function llmAnswer(args, runtime, context) {
   const config = llmConfigFromEnv();
-  assertLlmConfig(config);
+  if (llmConfigErrors(config).length) {
+    return withDegraded(extractiveAnswer(args, runtime, context), "llm-unavailable");
+  }
   if (!context.chunks.length) {
     return refusal(args, {
       reason: "no-grounded-context",
@@ -1188,32 +1200,36 @@ async function llmAnswer(args, runtime, context) {
   let lastError = null;
   const maxValidationRetries = 2;
 
-  for (let attempt = 1; attempt <= maxValidationRetries + 1; attempt += 1) {
-    const body = buildLlmRequestBody(args, runtime, context, config, structuredOutputFormat(), validationFeedback);
-    const { payload, responseFormatType, structuredOutputFallback } = await callLlmWithFormatFallback(config, body);
-    usageRecords.push(usageFromPayload(payload, config.model, responseFormatType, attempt));
-    const content = payload.choices?.[0]?.message?.content || payload.output_text || "";
-    let answer;
-    try {
-      answer = extractJsonObject(content);
-      const validated = validateResponseOrThrow(answer, context, runtime);
-      const phraseRepaired = applyAnswerGuidance(validated, context);
-      const guidanceFailures = collectAnswerGuidanceFailures(phraseRepaired, context);
-      if (guidanceFailures.length) throw new AnswerValidationError(guidanceFailures);
-      return attachLlmUsage(phraseRepaired, usageRecords, {
-        validationAttempts,
-        structuredOutputFallback: Boolean(structuredOutputFallback),
-        fallback: "",
-      });
-    } catch (error) {
-      lastError = error;
-      validationFeedback = formatValidationFeedback(error, answer, context);
-      validationAttempts.push({
-        attempt,
-        failures: validationFeedback,
-      });
-      if (attempt > maxValidationRetries) break;
+  try {
+    for (let attempt = 1; attempt <= maxValidationRetries + 1; attempt += 1) {
+      const body = buildLlmRequestBody(args, runtime, context, config, structuredOutputFormat(), validationFeedback);
+      const { payload, responseFormatType, structuredOutputFallback } = await callLlmWithFormatFallback(config, body);
+      usageRecords.push(usageFromPayload(payload, config.model, responseFormatType, attempt));
+      const content = payload.choices?.[0]?.message?.content || payload.output_text || "";
+      let answer;
+      try {
+        answer = extractJsonObject(content);
+        const validated = validateResponseOrThrow(answer, context, runtime);
+        const phraseRepaired = applyAnswerGuidance(validated, context);
+        const guidanceFailures = collectAnswerGuidanceFailures(phraseRepaired, context);
+        if (guidanceFailures.length) throw new AnswerValidationError(guidanceFailures);
+        return attachLlmUsage(phraseRepaired, usageRecords, {
+          validationAttempts,
+          structuredOutputFallback: Boolean(structuredOutputFallback),
+          fallback: "",
+        });
+      } catch (error) {
+        lastError = error;
+        validationFeedback = formatValidationFeedback(error, answer, context);
+        validationAttempts.push({
+          attempt,
+          failures: validationFeedback,
+        });
+        if (attempt > maxValidationRetries) break;
+      }
     }
+  } catch (providerError) {
+    return withDegraded(extractiveAnswer(args, runtime, context), "llm-error");
   }
 
   const fallback = extractiveAnswer(args, runtime, context);
@@ -1503,6 +1519,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const runtime = loadRuntime(defaults);
   if (args.evalLive) {
+    assertLlmConfig(llmConfigFromEnv());
     const evalReport = await runLiveEval(args, runtime);
     console.log(args.json ? JSON.stringify(evalReport, null, 2) : JSON.stringify(evalReport.coverage, null, 2));
     if (evalReport.status !== "passed") process.exit(1);
@@ -1523,6 +1540,7 @@ export {
   defaults,
   loadRuntime,
   parseArgs,
+  withDegraded,
 };
 
 if (isCli) {
