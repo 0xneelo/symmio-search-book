@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 02 Batch
+
+- Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure. No validator weakening or runtime logic change was needed.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,036` input tokens, `592` output tokens, and `$0.00111060`; bootstrap trilemma used `4,972` input tokens, `673` output tokens, and `$0.00114960`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `85,078` input tokens, `8,212` output tokens, and `$0.01768890`.
+
 ## 2026-06-30 — Volume 02 Bootstrap And Proof Manifesto Batch
 
 - Promoted `10` Volume 02 manifesto pages to `published`: Hybrid Perps Comparative Advantage, The Low-Cap Perp Proof Challenge, LP Profit Needs A Decomposition Map, The No-Ponzi Market Revenue Test, The Perp Paper Contribution Map, The Perp Paper Contribution Preview, The Rise Of Perpetual Futures, Pre-Revenue Commitment Is A Signal Not Proof, The Project Alternative Cost Stack, and Project Participation Is Not Only Revenue.
