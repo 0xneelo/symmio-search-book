@@ -221,7 +221,13 @@ const publicationPlan = fs.existsSync(args.publicationPlan)
   ? readJson(args.publicationPlan)
   : {
       planReady: false,
-      totals: { sourceCompanionsAvailable: 0, sourceCompanionsQueued: 0, candidateReviewPages: 0, queueStages: 0 },
+      totals: {
+        sourceCompanionsAvailable: 0,
+        sourceCompanionsQueued: 0,
+        candidateReviewPages: 0,
+        candidateFinalReviewReadyPages: 0,
+        queueStages: 0,
+      },
       sourceBlockRequiredFields: [],
       sourceCompanionQueue: [],
       byStage: {},
@@ -665,7 +671,7 @@ const gates = [
     id: "publication-plan",
     label: "Source companions have a publication authoring plan",
     passed: publicationPlanReady,
-    detail: `${publicationPlan.totals?.sourceCompanionsQueued || 0}/${pageStateRegistry.sourceCompanionPages || 0} source companions queued, ${publicationPlan.totals?.sourceCompanionsCoveredByAuthoredPages || 0} covered by authored pages, ${publicationPlan.totals?.sourceCompanionsNeedingAuthoredCoverage || 0} needing authored coverage, ${publicationPlan.totals?.candidateReviewPages || 0} candidate review pages, ${publicationPlan.totals?.queueStages || 0} stages`,
+    detail: `${publicationPlan.totals?.sourceCompanionsQueued || 0}/${pageStateRegistry.sourceCompanionPages || 0} source companions queued, ${publicationPlan.totals?.sourceCompanionsCoveredByAuthoredPages || 0} covered by authored pages, ${publicationPlan.totals?.sourceCompanionsNeedingAuthoredCoverage || 0} needing authored coverage, ${publicationPlan.totals?.candidateReviewPages || 0} candidate review pages, ${publicationPlan.totals?.candidateFinalReviewReadyPages || 0} final-review ready, ${publicationPlan.totals?.queueStages || 0} stages`,
   },
   {
     id: "requirement-map",
@@ -790,6 +796,7 @@ const payload = {
     publicationPlanReady,
     publicationPlanQueuedSourceCompanions: publicationPlan.totals?.sourceCompanionsQueued || 0,
     publicationPlanCandidateReviewPages: publicationPlan.totals?.candidateReviewPages || 0,
+    publicationPlanCandidateFinalReviewReadyPages: publicationPlan.totals?.candidateFinalReviewReadyPages || 0,
     publicationPlanStages: publicationPlan.totals?.queueStages || 0,
     completionRequirements: requirementMap.totalRequirements || 0,
     completionRequirementsComplete: requirementMap.byStatus?.complete || 0,

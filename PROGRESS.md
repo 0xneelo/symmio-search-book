@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Candidate Review Lane Planning
+
+- Updated `data/publication-plan.*` so `candidateReviewQueue` includes all `798` candidate pages, not only pages with explicit review flags.
+- Added launch review lanes: `159` final-review-ready pages, `619` operator-review pages, `9` source-refresh pages, `8` publication-date-review pages, and `3` editorial-review pages.
+- Added `nextCandidateReviewBatch` so future agents can start with final-review-ready pages before clearing slower operator/source/editorial lanes.
+
 ## 2026-06-30 — Readiness Report Post-Coverage Refresh
 
 - Refreshed readiness/reporting after the coverage-aware publication-plan checkpoint so requirement-map and quality-audit guidance point to final candidate review instead of promoting already-covered source companions.

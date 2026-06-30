@@ -107,21 +107,48 @@ function stageRank(stage) {
   }[stage] || 9;
 }
 
+function reviewReasonFor(status) {
+  if (/operator-review/i.test(status || "")) return "operator-review";
+  if (/current-source|fresh-source/i.test(status || "")) return "source-refresh";
+  if (/publication-date/i.test(status || "")) return "publication-date-review";
+  if (/editorial-review|needs-review/i.test(status || "")) return "editorial-review";
+  return "candidate-final-review";
+}
+
+function reviewActionFor(reason) {
+  return {
+    "candidate-final-review": "final-editorial-source-check-then-publish",
+    "editorial-review": "tighten-prose-structure-before-publish",
+    "publication-date-review": "refresh-time-sensitive-product-source-before-publish",
+    "source-refresh": "refresh-current-source-evidence-before-publish",
+    "operator-review": "operator-product-risk-legal-accounting-review-before-publish",
+  }[reason] || "review-before-publish";
+}
+
+function reviewRank(reason) {
+  return {
+    "candidate-final-review": 1,
+    "editorial-review": 2,
+    "publication-date-review": 3,
+    "source-refresh": 4,
+    "operator-review": 5,
+  }[reason] || 9;
+}
+
 function compactCandidate(page) {
+  const reviewReason = reviewReasonFor(page.status);
+  const volume = volumeById.get(page.volumeId);
   return {
     pageId: page.id,
     title: page.title,
     volumeId: page.volumeId,
+    volumeTitle: volume?.title || "",
     section: page.section,
     track: page.track,
     status: page.status,
-    reviewReason: /operator-review/i.test(page.status || "")
-      ? "operator-review"
-      : /current-source|fresh-source/i.test(page.status || "")
-        ? "source-refresh"
-        : /editorial-review|needs-review/i.test(page.status || "")
-          ? "editorial-review"
-          : "candidate-final-review",
+    reviewReason,
+    reviewAction: reviewActionFor(reviewReason),
+    questionRouteCount: routeCountsByPageId[page.id] || 0,
     sourceKeys: page.sourceKeys || [],
   };
 }
@@ -218,9 +245,14 @@ const sourceCompanionQueue = (pageState.pages || [])
   );
 
 const candidateReviewQueue = (pageState.pages || [])
-  .filter((page) => page.pageState === "candidate" && page.status !== "publication-candidate")
+  .filter((page) => page.pageState === "candidate")
   .map(compactCandidate)
-  .sort((a, b) => a.volumeId.localeCompare(b.volumeId) || a.pageId.localeCompare(b.pageId));
+  .sort((a, b) =>
+    reviewRank(a.reviewReason) - reviewRank(b.reviewReason) ||
+    b.questionRouteCount - a.questionRouteCount ||
+    a.volumeId.localeCompare(b.volumeId) ||
+    a.pageId.localeCompare(b.pageId),
+  );
 
 const stageDefinitions = [
   {
@@ -246,16 +278,62 @@ const stageDefinitions = [
   {
     id: "5-final-candidate-review",
     label: "Final Candidate Review",
-    rule: "Review authored candidates for operator, source-refresh, and editorial flags before publication.",
+    rule: "Review authored candidates by lane, then promote approved pages to published status.",
+  },
+];
+
+const candidateReviewLaneDefinitions = [
+  {
+    id: "candidate-final-review",
+    label: "Final Review Ready",
+    rule: "Run final editorial/source/link checks and promote approved pages to published status.",
+  },
+  {
+    id: "editorial-review",
+    label: "Editorial Review",
+    rule: "Tighten prose, structure, and page shape before final publish review.",
+  },
+  {
+    id: "publication-date-review",
+    label: "Publication-Date Review",
+    rule: "Refresh time-sensitive product, market-count, fee, security, chain, and audit claims before publishing.",
+  },
+  {
+    id: "source-refresh",
+    label: "Current Source Refresh",
+    rule: "Refresh current primary-source evidence before publishing source-sensitive pages.",
+  },
+  {
+    id: "operator-review",
+    label: "Operator Review",
+    rule: "Keep pages out of published status until product, risk, legal, accounting, security, or operator review clears.",
   },
 ];
 
 const sourceCompanionsNeedingAuthoredCoverage = sourceCompanionQueue.filter((item) => item.coverageState === "needs-authored-coverage");
 const sourceCompanionsCoveredByAuthoredPages = sourceCompanionQueue.filter((item) => item.coverageState === "covered-by-authored-page");
+const candidateFinalReviewReadyPages = candidateReviewQueue.filter((item) => item.reviewReason === "candidate-final-review");
+const candidateOperatorReviewPages = candidateReviewQueue.filter((item) => item.reviewReason === "operator-review");
+const candidateSourceRefreshPages = candidateReviewQueue.filter((item) => item.reviewReason === "source-refresh");
+const candidatePublicationDateReviewPages = candidateReviewQueue.filter((item) => item.reviewReason === "publication-date-review");
+const candidateEditorialReviewPages = candidateReviewQueue.filter((item) => item.reviewReason === "editorial-review");
 const byStage = countBy(sourceCompanionQueue, (item) => item.stage);
 const byTemplate = countBy(sourceCompanionQueue, (item) => item.authoringTemplate);
 const bySuggestedAction = countBy(sourceCompanionQueue, (item) => item.suggestedAction);
 const byCoverageState = countBy(sourceCompanionQueue, (item) => item.coverageState);
+const byCandidateReviewReason = countBy(candidateReviewQueue, (item) => item.reviewReason);
+const byCandidateReviewAction = countBy(candidateReviewQueue, (item) => item.reviewAction);
+const byCandidateReviewStatus = countBy(candidateReviewQueue, (item) => item.status);
+const byCandidateReviewVolume = {};
+for (const volume of volumeMap.volumes || []) {
+  const volumeItems = candidateReviewQueue.filter((item) => item.volumeId === volume.id);
+  byCandidateReviewVolume[volume.id] = {
+    title: volume.title,
+    candidateReviewPages: volumeItems.length,
+    byReviewReason: countBy(volumeItems, (item) => item.reviewReason),
+    topPageIds: volumeItems.slice(0, 10).map((item) => item.pageId),
+  };
+}
 const byVolume = {};
 for (const volume of volumeMap.volumes || []) {
   const volumeItems = sourceCompanionQueue.filter((item) => item.volumeId === volume.id);
@@ -291,12 +369,18 @@ const payload = {
     "authoringTemplate",
   ],
   stageDefinitions,
+  candidateReviewLaneDefinitions,
   totals: {
     sourceCompanionsAvailable: pageState.sourceCompanionPages || 0,
     sourceCompanionsQueued: sourceCompanionQueue.length,
     sourceCompanionsCoveredByAuthoredPages: sourceCompanionsCoveredByAuthoredPages.length,
     sourceCompanionsNeedingAuthoredCoverage: sourceCompanionsNeedingAuthoredCoverage.length,
     candidateReviewPages: candidateReviewQueue.length,
+    candidateFinalReviewReadyPages: candidateFinalReviewReadyPages.length,
+    candidateOperatorReviewPages: candidateOperatorReviewPages.length,
+    candidateSourceRefreshPages: candidateSourceRefreshPages.length,
+    candidatePublicationDateReviewPages: candidatePublicationDateReviewPages.length,
+    candidateEditorialReviewPages: candidateEditorialReviewPages.length,
     queueStages: stageDefinitions.length,
     topPriorityScore: sourceCompanionsNeedingAuthoredCoverage.reduce((max, item) => Math.max(max, item.priorityScore || 0), 0),
   },
@@ -304,14 +388,20 @@ const payload = {
   byTemplate,
   bySuggestedAction,
   byCoverageState,
+  byCandidateReviewReason,
+  byCandidateReviewAction,
+  byCandidateReviewStatus,
+  byCandidateReviewVolume,
   byVolume,
   nextAuthoringBatch: sourceCompanionsNeedingAuthoredCoverage.slice(0, 25),
+  nextCandidateReviewBatch: candidateFinalReviewReadyPages.slice(0, 25),
   sourceCompanionQueue,
   candidateReviewQueue,
   warnings: [
     "This plan is an authoring queue, not a publication approval.",
     "Source companions must remain out of public navigation until promoted into authored pages and reviewed.",
     "nextAuthoringBatch excludes source companions already named in authored relatedGeneratedPages coverage.",
+    "nextCandidateReviewBatch is final-review ready, but it is not publication approval.",
     "Candidate pages still need final source/operator/deploy review before the production site marks them published.",
   ],
 };
@@ -324,5 +414,6 @@ console.log(JSON.stringify({
   sourceCompanionsQueued: payload.totals.sourceCompanionsQueued,
   sourceCompanionsNeedingAuthoredCoverage: payload.totals.sourceCompanionsNeedingAuthoredCoverage,
   candidateReviewPages: payload.totals.candidateReviewPages,
+  candidateFinalReviewReadyPages: payload.totals.candidateFinalReviewReadyPages,
   stages: payload.totals.queueStages,
 }, null, 2));

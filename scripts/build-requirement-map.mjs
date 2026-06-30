@@ -101,7 +101,7 @@ const authored = readJson(args.authoredIndex, { pages: [], totalPages: 0, bySect
 const volumeMap = readJson(args.volumeMap, { totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0, volumes: [] });
 const publicationPlan = readJson(args.publicationPlan, {
   planReady: false,
-  totals: { sourceCompanionsQueued: 0, candidateReviewPages: 0 },
+  totals: { sourceCompanionsQueued: 0, candidateReviewPages: 0, candidateFinalReviewReadyPages: 0 },
   byStage: {},
 });
 const journeys = readJson(args.journeys, { totalJourneys: 0, totalSteps: 0, missingPageIds: [] });
@@ -160,6 +160,7 @@ const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (pag
 const sourceCompanionsCoveredByAuthoredPages = publicationPlan.totals?.sourceCompanionsCoveredByAuthoredPages || 0;
 const sourceCompanionsNeedingAuthoredCoverage = publicationPlan.totals?.sourceCompanionsNeedingAuthoredCoverage || 0;
 const candidateReviewPages = publicationPlan.totals?.candidateReviewPages || 0;
+const candidateFinalReviewReadyPages = publicationPlan.totals?.candidateFinalReviewReadyPages || 0;
 const authoredPageIds = new Set((authored.pages || []).map((page) => page.id));
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
@@ -305,11 +306,11 @@ const requirements = [
     status: (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8 ? "partial" : "missing",
     category: "content",
     sourceSpecs: ["01", "02", "03", "05"],
-    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued, ${sourceCompanionsCoveredByAuthoredPages} covered by authored pages, ${sourceCompanionsNeedingAuthoredCoverage} needing authored coverage, and ${candidateReviewPages} candidate review pages`,
+    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued, ${sourceCompanionsCoveredByAuthoredPages} covered by authored pages, ${sourceCompanionsNeedingAuthoredCoverage} needing authored coverage, ${candidateReviewPages} candidate review pages, and ${candidateFinalReviewReadyPages} final-review-ready pages`,
     nextAction: publicationPlan.planReady
       ? sourceCompanionsNeedingAuthoredCoverage > 0
         ? "Use data/publication-plan.json to fold the remaining source companions into authored pages in demand/gap order."
-        : "Use data/publication-plan.json candidateReviewQueue to run final source/operator/editorial review and promote approved candidate pages to published status."
+        : "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status."
       : "Create a deterministic publication authoring plan, then continue converting generated source pages into publication-quality authored manifesto/reference pages.",
   }),
   req({

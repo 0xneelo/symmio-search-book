@@ -1911,3 +1911,11 @@
 **Reason:** Keeping stale "promote source companions" instructions in `requirement-map`, `quality-audit`, `GAPS`, or `FINAL-REPORT` would send future agents back into completed authoring work. The remaining content risk is review quality and launch status, while production blockers remain source ingestion, service env, and deploy route.
 
 **Status:** Accepted for current production-readiness tracking.
+
+## D-240: Include All Candidates In Publication Review Lanes
+
+**Decision:** `data/publication-plan.*` should include every `candidate` page in `candidateReviewQueue`, classify each page into a review lane, and expose `nextCandidateReviewBatch` from the final-review-ready lane before slower operator/source/editorial lanes.
+
+**Reason:** The earlier queue only showed flagged candidates and hid ordinary `publication-candidate` pages that still need final review before launch. A complete lane view keeps production review honest without reopening already-complete source-companion authoring coverage.
+
+**Status:** Accepted for launch review planning. Final-review-ready is not publication approval; approved pages still need explicit promotion to `published`.

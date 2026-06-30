@@ -96,7 +96,8 @@
     "pageStateRetrievalEligiblePages": 1590,
     "publicationPlanReady": true,
     "publicationPlanQueuedSourceCompanions": 792,
-    "publicationPlanCandidateReviewPages": 639,
+    "publicationPlanCandidateReviewPages": 798,
+    "publicationPlanCandidateFinalReviewReadyPages": 159,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
     "completionRequirementsComplete": 11,
@@ -273,7 +274,7 @@
       "id": "publication-plan",
       "label": "Source companions have a publication authoring plan",
       "passed": true,
-      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 639 candidate review pages, 5 stages"
+      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 798 candidate review pages, 159 final-review ready, 5 stages"
     },
     {
       "id": "requirement-map",
@@ -2133,7 +2134,12 @@
       "sourceCompanionsQueued": 792,
       "sourceCompanionsCoveredByAuthoredPages": 792,
       "sourceCompanionsNeedingAuthoredCoverage": 0,
-      "candidateReviewPages": 639,
+      "candidateReviewPages": 798,
+      "candidateFinalReviewReadyPages": 159,
+      "candidateOperatorReviewPages": 619,
+      "candidateSourceRefreshPages": 9,
+      "candidatePublicationDateReviewPages": 8,
+      "candidateEditorialReviewPages": 3,
       "queueStages": 5,
       "topPriorityScore": 0
     },
@@ -2228,6 +2234,7 @@
       "This plan is an authoring queue, not a publication approval.",
       "Source companions must remain out of public navigation until promoted into authored pages and reviewed.",
       "nextAuthoringBatch excludes source companions already named in authored relatedGeneratedPages coverage.",
+      "nextCandidateReviewBatch is final-review ready, but it is not publication approval.",
       "Candidate pages still need final source/operator/deploy review before the production site marks them published."
     ]
   },
@@ -2284,7 +2291,7 @@
       {
         "id": "manifesto-and-reference",
         "status": "partial",
-        "nextAction": "Use data/publication-plan.json candidateReviewQueue to run final source/operator/editorial review and promote approved candidate pages to published status.",
+        "nextAction": "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status.",
         "blocks": []
       },
       {
@@ -2516,7 +2523,7 @@
         "id": "manifesto-and-reference",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Use data/publication-plan.json candidateReviewQueue to run final source/operator/editorial review and promote approved candidate pages to published status."
+        "nextAction": "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status."
       },
       {
         "id": "answer-engine-front-door",
