@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Readiness Report Post-Coverage Refresh
+
+- Refreshed readiness/reporting after the coverage-aware publication-plan checkpoint so requirement-map and quality-audit guidance point to final candidate review instead of promoting already-covered source companions.
+- Updated `GAPS.md` and `FINAL-REPORT.md` to the current counts: 797 exact routes, 2,861 retrieval chunks, 799 FAQ entries, quality gates `27/30`, live `gpt-4.1-mini` eval cost `$0.02297730`, and `792/792` source companions covered by authored pages.
+- Kept the report explicit that production is still blocked by parked source/deploy/operator items, not by missing source-companion authoring coverage.
+
 ## 2026-06-30 — Coverage-Aware Publication Plan
 
 - Updated the publication-plan generator so `relatedGeneratedPages` on authored candidate/published pages is treated as real authored coverage for generated source companions.

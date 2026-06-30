@@ -22,7 +22,9 @@ The latest Symmio contract-builder pass also adds authored coverage for the prot
 
 The repo now has `src/search-book/scripts/build-publication-plan.mjs` and generated `data/publication-plan.*`, which turn the page-state registry, volume map, route ledger, gap queue, crosslinks, and source catalog into a progressive authoring queue. It queues all source-companion pages, carries source-block requirements, suggests whether to fold material into existing authored pages or create new authored source maps/reference pages, and separates candidate pages that still need source/operator/editorial review.
 
-**Needed:** Execute the publication plan: promote the queued source companions into final authored prose where needed, run final source/operator/editorial review on candidate pages, and keep generated companions out of public navigation until promoted.
+The coverage-aware publication-plan pass now reports all `792/792` source companions covered by authored pages and `0` companions needing authored coverage. Source companions remain useful for retrieval and traceability, but the authoring queue no longer needs to promote them as standalone public pages.
+
+**Needed:** Run final source/operator/editorial review on candidate pages, promote approved pages to `published`, keep source companions out of public navigation, and keep the generated retrieval layer synchronized as sources change.
 
 ## G-003: Referral Depth Was Contradictory, Now Resolved
 

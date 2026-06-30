@@ -6,11 +6,13 @@ Generated for the current `search-book/research-dossier` checkpoint on 2026-06-3
 
 The Search Book now has a 500-800 page compendium shape with 794 manifest pages, 799 authored publication-candidate pages, 8 volumes, 104 chapters, and 1,593 reader-routable pages assigned to volumes. The generated corpus stays inside the requested 500-800 page target while the reader layer includes authored pages plus source companions for traceability.
 
-The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 785 exact question routes, 32 glossary routes, 4 refusal routes, 2,841 retrieval chunks, and 789 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`.
+The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 639 candidate pages still needing final review. Source companions remain retrieval and traceability material, not public navigation pages.
 
-The live OpenAI-compatible RAG runtime passed the recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 19 calls, 94,702 input tokens, 8,227 output tokens, and an estimated cost of `$0.01914150` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
+The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 797 exact question routes, 32 glossary routes, 2 refusal routes, 2,861 retrieval chunks, and 799 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`.
 
-Quality status is still intentionally not green for launch. The latest audit passes 26/29 gates. The failing gates are required-source ingestion, operator inbox, and Discord/Lafa corpus import. The regenerated definition-of-done map has no missing report artifact, but remains not completion-ready because production/source items are still partial or parked.
+The live OpenAI-compatible RAG runtime passed the recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 21 calls, 111,578 input tokens, 10,401 output tokens, and an estimated cost of `$0.02297730` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
+
+Quality status is still intentionally not green for launch. The latest audit passes 27/30 gates. The failing gates are required-source ingestion, operator inbox, and Discord/Lafa corpus import. The regenerated definition-of-done map has no missing report artifact, but remains not completion-ready because production/source items are still partial or parked.
 
 ## Verification Evidence
 
@@ -24,16 +26,16 @@ git diff --check -- src/search-book _local/agent-worklog.md
 npm run build --if-present
 ```
 
-The canonical build verifies 23 deterministic build steps, 50 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
+The canonical build verifies 24 deterministic build steps, 52 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
 
 ## Requirement Summary
 
 | Area | Current evidence | Release status |
 | --- | --- | --- |
 | Page target | 794 manifest pages against the 500-800 target | Verified for dossier/prototype |
-| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections | Publication-candidate, still needs final source/deploy review |
+| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections; 792/792 source companions covered by authored pages | Publication-candidate, still needs final source/deploy review |
 | Dashboard reference | 13 dashboard-reference pages, including every visible dashboard route plus hidden `#revenue` route | Documented, with production copy gates preserved |
-| Answer engine | 785/785 exact routes, 32/32 glossary routes, 4/4 refusal routes | Deterministic runtime verified |
+| Answer engine | 797/797 exact routes, 32/32 glossary routes, 2/2 refusal routes | Deterministic runtime verified |
 | LLM RAG | 42/42 live eval on `gpt-4.1-mini` | Runtime verified; production env/deploy still parked |
 | Living docs | 12/12 event fixtures, SQLite service, frontend bridge, retention policy, gated moderation export | Implemented locally; production operations still parked |
 | Source ingestion | 13/17 complete, 1 partial, 3 parked | Not source-complete |

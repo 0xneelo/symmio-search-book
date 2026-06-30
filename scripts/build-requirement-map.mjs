@@ -157,6 +157,9 @@ const finalReportExists = fs.existsSync(args.finalReport);
 const finalReportText = readText(args.finalReport);
 const authoredSections = authored.bySection || countBy(authored.pages || [], (page) => page.section);
 const authoredStatuses = authored.byStatus || countBy(authored.pages || [], (page) => page.status);
+const sourceCompanionsCoveredByAuthoredPages = publicationPlan.totals?.sourceCompanionsCoveredByAuthoredPages || 0;
+const sourceCompanionsNeedingAuthoredCoverage = publicationPlan.totals?.sourceCompanionsNeedingAuthoredCoverage || 0;
+const candidateReviewPages = publicationPlan.totals?.candidateReviewPages || 0;
 const authoredPageIds = new Set((authored.pages || []).map((page) => page.id));
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
@@ -294,7 +297,7 @@ const requirements = [
     category: "content",
     sourceSpecs: ["01", "05", "08"],
     evidence: `${(manifest.pages || []).length} manifest pages, ${searchIndex.length} search-index entries, target ${manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL}`,
-    nextAction: "Keep generated drafts source-traceable while converting highest-value routes into authored pages.",
+    nextAction: "Keep generated drafts source-traceable while final-reviewing candidate pages for publication.",
   }),
   req({
     id: "manifesto-and-reference",
@@ -302,9 +305,11 @@ const requirements = [
     status: (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8 ? "partial" : "missing",
     category: "content",
     sourceSpecs: ["01", "02", "03", "05"],
-    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued and ${publicationPlan.totals?.candidateReviewPages || 0} candidate review pages`,
+    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued, ${sourceCompanionsCoveredByAuthoredPages} covered by authored pages, ${sourceCompanionsNeedingAuthoredCoverage} needing authored coverage, and ${candidateReviewPages} candidate review pages`,
     nextAction: publicationPlan.planReady
-      ? "Use data/publication-plan.json to promote source companions into authored pages in demand/gap order."
+      ? sourceCompanionsNeedingAuthoredCoverage > 0
+        ? "Use data/publication-plan.json to fold the remaining source companions into authored pages in demand/gap order."
+        : "Use data/publication-plan.json candidateReviewQueue to run final source/operator/editorial review and promote approved candidate pages to published status."
       : "Create a deterministic publication authoring plan, then continue converting generated source pages into publication-quality authored manifesto/reference pages.",
   }),
   req({

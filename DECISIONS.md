@@ -1903,3 +1903,11 @@
 **Reason:** The compendium now uses authored overview, reference, and source-navigation pages to absorb generated source companions without promoting every companion stub into a public page. The old plan treated those already-folded companions as unworked authoring demand, which made the next batch noisy and obscured genuinely uncovered work.
 
 **Status:** Accepted for G-002A authoring workflow. As of 2026-06-30, all `792/792` source companions are covered by authored pages; final publication review, current-source review, operator review, deployment, and parked source-ingestion items remain separate readiness gates.
+
+## D-239: Shift Readiness Tracking From Companion Promotion To Candidate Review
+
+**Decision:** After the coverage-aware publication-plan checkpoint, readiness artifacts should treat source-companion authoring coverage as complete and direct future content work toward `candidateReviewQueue`, final source/operator/editorial review, and explicit `published` promotion.
+
+**Reason:** Keeping stale "promote source companions" instructions in `requirement-map`, `quality-audit`, `GAPS`, or `FINAL-REPORT` would send future agents back into completed authoring work. The remaining content risk is review quality and launch status, while production blockers remain source ingestion, service env, and deploy route.
+
+**Status:** Accepted for current production-readiness tracking.
