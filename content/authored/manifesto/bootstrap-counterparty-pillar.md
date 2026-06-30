@@ -3,7 +3,7 @@ id: "authored-bootstrap-counterparty-pillar"
 title: "Bootstrap And Counterparty Formation"
 section: "manifesto"
 track: "07 — Architecture Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"]
 relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-03-pillar-two-bootstrap-and-counterparty", "authored-vibe-pillars", "authored-solver-owned-market-maker"]

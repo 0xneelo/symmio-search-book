@@ -3,7 +3,7 @@ id: "authored-financialized-rejection-thumbs-down"
 title: "Financialized Rejection And The Thumbs Down"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"]

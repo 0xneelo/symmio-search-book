@@ -3,7 +3,7 @@ id: "authored-token-margined-reflexivity-risk"
 title: "Token-Margined Reflexivity Risk"
 section: "manifesto"
 track: "10 — Risk Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"]
 relatedGeneratedPages: ["neelo-07-token-margined-issues-perculator-07-docs-03-reflexivity-and-convexity", "authored-token-vault-perps-versus-usdc-pools", "authored-liquidity-as-trader-experience", "authored-funding-as-market-balancing"]

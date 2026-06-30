@@ -3,7 +3,7 @@ id: "authored-beyond-polymarket-continuous-truth-markets"
 title: "Beyond Polymarket: Continuous Truth Markets"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/02-crisis-of-verification"]

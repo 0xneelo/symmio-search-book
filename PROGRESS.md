@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Architecture Publication Review Batch
+
+- Promoted `19` stable Neelo-source `vibe-papers` pages to `published` across continuous truth markets, bootstrap/counterparty formation, coupled Vibe pillars, episodic long-tail flow, exploit resistance, financialized rejection, leverage/oracle risk, order-book maturity, Percolator economic limits, perp markets as credit systems, rational LP paradoxes, single-pillar failure, slab isolation, token-denominated fee illusion, token-margin manipulation, token-margined LP lose-lose, and token-margined reflexivity.
+- Kept freshness-sensitive product/data-source pages, Hyperliquid-current pages, and broad compendium overviews in the review queue for separate source/date review.
+- Regenerated Search Book data so page-state counts now show `94` published pages, `704` candidate pages, `792` source companions, and `65` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Lifecycle And Liquidity Publication Review Batch
 
 - Promoted `19` stable Neelo-source `vibe-papers` pages to `published` across lifecycle hardening, liquidity-as-trader-experience, listing monopoly, listing-plus-liquidity, perceived/actual listing interest, long-tail perp model mapping, order-book admission/bootstrap/maturity, venue partnership, perp protocol design space, spot-market one-sidedness, async/economic synchrony, Thielian listing strategy, tokens as information objects, upstream trust, and zero-cost evolutionary discovery.

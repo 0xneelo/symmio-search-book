@@ -3,7 +3,7 @@ id: "authored-coupled-design-problem"
 title: "The Coupled Design Problem"
 section: "manifesto"
 track: "07 — Architecture Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/05-the-coupled-design-problem"]
 relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-05-the-coupled-design-problem", "authored-vibe-pillars", "authored-exploit-resistance-pillar", "authored-bootstrap-counterparty-pillar", "authored-lp-yield-capital-efficiency-pillar"]
