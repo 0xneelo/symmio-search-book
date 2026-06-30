@@ -3,7 +3,7 @@ id: "authored-points-taxonomy"
 title: "Points Taxonomy"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["server-points", "server-me", "dashboard-app", "dashboard-overview", "vibe-points", "spec-03"]
 sourceUrls: ["server/points.js", "server/routes/me.js", "src/dashboard/app.jsx", "src/dashboard/overview.jsx", "https://docs.vibe.trading/trading/vibe-points.md", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-points-engine", "local-dashboard-points-distinction", "vibe-points-overview", "neelo-17-referral-program-17-docs-04-points-and-rewards"]

@@ -3,7 +3,7 @@ id: "authored-tge-settlement-multiplier"
 title: "TGE Settlement Multiplier"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["dashboard-app", "spec-03", "server-points", "dashboard-overview"]
 sourceUrls: ["src/dashboard/app.jsx", "_specs/app-docs/03-grounding.md", "server/points.js", "src/dashboard/overview.jsx"]
 relatedGeneratedPages: ["local-dashboard-points-distinction", "local-points-engine", "section-17-referral-program-17-docs-12-rewards-packs-artifact-system-12-9-tge-allocation-rule"]

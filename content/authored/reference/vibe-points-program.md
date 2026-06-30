@@ -3,7 +3,7 @@ id: "authored-vibe-points-program"
 title: "Vibe Points Program"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-points", "dashboard-app", "spec-03"]
 sourceUrls: ["https://docs.vibe.trading/trading/vibe-points.md", "src/dashboard/app.jsx", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["vibe-points-overview", "authored-points-and-vibe-points", "authored-referral-depth-open-question"]

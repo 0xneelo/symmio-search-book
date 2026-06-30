@@ -79,8 +79,8 @@
     "sourceCompanionsQueued": 792,
     "sourceCompanionsCoveredByAuthoredPages": 792,
     "sourceCompanionsNeedingAuthoredCoverage": 0,
-    "candidateReviewPages": 693,
-    "candidateFinalReviewReadyPages": 54,
+    "candidateReviewPages": 688,
+    "candidateFinalReviewReadyPages": 49,
     "candidateOperatorReviewPages": 619,
     "candidateSourceRefreshPages": 9,
     "candidatePublicationDateReviewPages": 8,
@@ -104,21 +104,21 @@
     "covered-by-authored-page": 792
   },
   "byCandidateReviewReason": {
-    "candidate-final-review": 54,
+    "candidate-final-review": 49,
     "editorial-review": 3,
     "publication-date-review": 8,
     "source-refresh": 9,
     "operator-review": 619
   },
   "byCandidateReviewAction": {
-    "final-editorial-source-check-then-publish": 54,
+    "final-editorial-source-check-then-publish": 49,
     "tighten-prose-structure-before-publish": 3,
     "refresh-time-sensitive-product-source-before-publish": 8,
     "refresh-current-source-evidence-before-publish": 9,
     "operator-product-risk-legal-accounting-review-before-publish": 619
   },
   "byCandidateReviewStatus": {
-    "publication-candidate": 54,
+    "publication-candidate": 49,
     "publication-candidate-needs-editorial-review": 3,
     "publication-candidate-needs-publication-date-review": 8,
     "publication-candidate-needs-current-source-review": 8,
@@ -228,34 +228,32 @@
     },
     "volume-06-referrals-and-market-formation": {
       "title": "Referrals And Market Formation",
-      "candidateReviewPages": 103,
+      "candidateReviewPages": 99,
       "byReviewReason": {
-        "candidate-final-review": 4,
         "operator-review": 99
       },
       "topPageIds": [
-        "authored-points-and-vibe-points",
-        "authored-points-taxonomy",
-        "authored-tge-settlement-multiplier",
-        "authored-vibe-points-program",
         "authored-artifact-exposure-and-boost-rules",
         "authored-artifact-secondary-market-boundary",
         "authored-market-scoped-referrals",
         "authored-points-claim-bridge-and-vesting",
         "authored-points-value-state-lifecycle",
-        "authored-referral-abuse-patterns"
+        "authored-referral-abuse-patterns",
+        "authored-referral-access-gated-launch",
+        "authored-referral-access-phasing-operating-model",
+        "authored-referral-admin-override-audit-trails",
+        "authored-referral-adversarial-trust-constraints"
       ]
     },
     "volume-07-product-trading-and-risk": {
       "title": "Product, Trading, And Risk Guides",
-      "candidateReviewPages": 46,
+      "candidateReviewPages": 45,
       "byReviewReason": {
-        "candidate-final-review": 28,
+        "candidate-final-review": 27,
         "publication-date-review": 8,
         "operator-review": 10
       },
       "topPageIds": [
-        "authored-amfq-legacy-intent-naming",
         "authored-vibe-account-creation-and-login",
         "authored-vibe-account-health-and-liquidations",
         "authored-vibe-account-history-and-csv-export",
@@ -264,7 +262,8 @@
         "authored-vibe-available-liquidity-capacity",
         "authored-vibe-collateral-and-margining",
         "authored-vibe-deposits-and-withdrawals",
-        "authored-vibe-funding-payment-direction"
+        "authored-vibe-funding-payment-direction",
+        "authored-vibe-hotkey-execution-guardrails"
       ]
     },
     "volume-08-dashboard-faq-and-living-docs": {
@@ -553,96 +552,6 @@
       ]
     },
     {
-      "pageId": "authored-points-and-vibe-points",
-      "title": "Onboarding Points And Vibe Points",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "dashboard-app",
-        "vibe-points",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-points-taxonomy",
-      "title": "Points Taxonomy",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "server-points",
-        "server-me",
-        "dashboard-app",
-        "dashboard-overview",
-        "vibe-points",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-tge-settlement-multiplier",
-      "title": "TGE Settlement Multiplier",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "dashboard-app",
-        "spec-03",
-        "server-points",
-        "dashboard-overview"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-points-program",
-      "title": "Vibe Points Program",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-points",
-        "dashboard-app",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-amfq-legacy-intent-naming",
-      "title": "AMFQ Is Legacy Naming For Intents",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Flow",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-architecture",
-        "symmio-core",
-        "symmio-intent-lifecycle",
-        "styleguide"
-      ]
-    },
-    {
       "pageId": "authored-vibe-account-creation-and-login",
       "title": "Vibe Account Creation And Login",
       "volumeId": "volume-07-product-trading-and-risk",
@@ -789,6 +698,87 @@
       "sourceKeys": [
         "vibe-funding",
         "vibe-fees"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-hotkey-execution-guardrails",
+      "title": "Vibe Hotkey Execution Guardrails",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-hotkeys",
+      "title": "Vibe Hotkeys",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Guides",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-hotkeys",
+        "vibe-simple-trade",
+        "vibe-order-types"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-ios-pwa-install",
+      "title": "Installing The Vibe PWA On iOS",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-login-path-choice",
+      "title": "Choosing A Vibe Login Path",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-account-creation"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-mobile-pwa",
+      "title": "Vibe Mobile PWA",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Account And Safety",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "vibe-mobile-pwa",
+        "vibe-account-creation"
       ]
     }
   ],
@@ -35697,96 +35687,6 @@
         "vibe-papers",
         "symmio-core",
         "symmio-intent-lifecycle"
-      ]
-    },
-    {
-      "pageId": "authored-points-and-vibe-points",
-      "title": "Onboarding Points And Vibe Points",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "dashboard-app",
-        "vibe-points",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-points-taxonomy",
-      "title": "Points Taxonomy",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "server-points",
-        "server-me",
-        "dashboard-app",
-        "dashboard-overview",
-        "vibe-points",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-tge-settlement-multiplier",
-      "title": "TGE Settlement Multiplier",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "dashboard-app",
-        "spec-03",
-        "server-points",
-        "dashboard-overview"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-points-program",
-      "title": "Vibe Points Program",
-      "volumeId": "volume-06-referrals-and-market-formation",
-      "volumeTitle": "Referrals And Market Formation",
-      "section": "rewards-referrals",
-      "track": "Points",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-points",
-        "dashboard-app",
-        "spec-03"
-      ]
-    },
-    {
-      "pageId": "authored-amfq-legacy-intent-naming",
-      "title": "AMFQ Is Legacy Naming For Intents",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Flow",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-architecture",
-        "symmio-core",
-        "symmio-intent-lifecycle",
-        "styleguide"
       ]
     },
     {

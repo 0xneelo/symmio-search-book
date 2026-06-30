@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Points And Terminology Publication Review Batch
+
+- Promoted `5` resolved points/terminology pages to `published`: Onboarding Points And Vibe Points, Points Taxonomy, TGE Settlement Multiplier, Vibe Points Program, and AMFQ Is Legacy Naming For Intents.
+- Preserved the approved public boundaries: point rails remain separate, the final public TGE settlement formula remains deferred/not public for v1, and AMFQ/aMFQ is legacy Automated Market for Quotes naming for current Intents rather than a separate live system.
+- Regenerated Search Book data so page-state counts now show `110` published pages, `688` candidate pages, `792` source companions, and `49` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Volume 05 Protocol Publication Review Batch
 
 - Promoted `11` stable Symmio/Vibe-source protocol and solver pages to `published`: Bilateral Intent Lifecycle, Collateral/Margin/CVA, Intents And Solvers, Solver Event Monitoring, Symmio Cross-Margin Liquidations, Symmio Funding Epochs, PartyA And PartyB, Symmio Settlement Costs And Affiliates, Symmio Settlement And Profit Realization, Symmio Solver Operations And Hedging, and The Technical Architecture Layer Map.

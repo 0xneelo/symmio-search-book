@@ -3,7 +3,7 @@ id: "authored-points-and-vibe-points"
 title: "Onboarding Points And Vibe Points"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["dashboard-app", "vibe-points", "spec-03"]
 sourceUrls: ["src/dashboard/app.jsx", "https://docs.vibe.trading/trading/vibe-points.md", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-dashboard-points-distinction", "vibe-points-overview", "local-points-engine"]
