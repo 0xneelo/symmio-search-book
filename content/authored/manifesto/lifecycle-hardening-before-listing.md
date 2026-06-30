@@ -3,7 +3,7 @@ id: "authored-lifecycle-hardening-before-listing"
 title: "Lifecycle Hardening Before Listing"
 section: "manifesto"
 track: "04 — Ode to OrderBooks"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/05-hardening-the-lifecycle", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/03-the-end-of-narrative-based-listings"]

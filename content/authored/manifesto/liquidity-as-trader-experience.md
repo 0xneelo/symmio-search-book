@@ -3,7 +3,7 @@ id: "authored-liquidity-as-trader-experience"
 title: "Liquidity As Trader Experience"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"]
 relatedGeneratedPages: ["neelo-16-listing-additional-16-docs-05-liquidity-as-trader-experience", "authored-token-vault-perps-versus-usdc-pools", "authored-market-lifecycle-gap", "authored-order-books-as-graduation-layer"]

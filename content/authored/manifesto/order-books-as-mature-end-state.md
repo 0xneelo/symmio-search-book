@@ -3,7 +3,7 @@ id: "authored-order-books-as-mature-end-state"
 title: "Order Books Are The Mature End State"
 section: "manifesto"
 track: "04 — Ode to OrderBooks"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/06-ode-to-orderbooks"]

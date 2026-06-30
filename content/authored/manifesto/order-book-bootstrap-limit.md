@@ -3,7 +3,7 @@ id: "authored-order-book-bootstrap-limit"
 title: "The Bootstrap Limit Of Order Books"
 section: "manifesto"
 track: "04 — Ode to OrderBooks"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/02-the-limit-of-order-books", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/02-the-problem-with-listings"]

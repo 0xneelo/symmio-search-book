@@ -3,7 +3,7 @@ id: "authored-tokens-as-information-objects"
 title: "Tokens Are Information Objects"
 section: "manifesto"
 track: "09 - Fix Industry One Primitive"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/03-the-issuance-revolution"]

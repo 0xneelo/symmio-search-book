@@ -3,7 +3,7 @@ id: "authored-order-book-admission-bottleneck"
 title: "Order Book Admission Bottleneck"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/02-the-problem-with-listings"]
 relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-01-introduction", "neelo-05-ode-to-the-orderbook-part2-05-docs-02-the-problem-with-listings", "authored-order-book-bootstrap-limit"]

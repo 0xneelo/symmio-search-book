@@ -3,7 +3,7 @@ id: "authored-perpetual-protocol-design-space"
 title: "The Perpetual Protocol Design Space"
 section: "manifesto"
 track: "03 — Market Argument"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework"]
 relatedGeneratedPages: ["neelo-01-perp-classes-zscore-01-docs-02-framework", "authored-bootstrap-trilemma", "authored-four-transitions", "authored-order-books-as-graduation-layer"]

@@ -3,7 +3,7 @@ id: "authored-zero-cost-evolutionary-discovery"
 title: "Zero-Cost Evolutionary Discovery"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/04-the-evolutionary-edge", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs-overview"]

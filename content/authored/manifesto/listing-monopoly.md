@@ -3,7 +3,7 @@ id: "authored-listing-monopoly"
 title: "The Listing Monopoly"
 section: "manifesto"
 track: "06 — Listing Power"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap"]
 relatedGeneratedPages: ["neelo-03-listing-monopoly-03-docs-overview", "neelo-03-listing-monopoly-03-docs-00-abstract", "neelo-03-listing-monopoly-03-docs-04-the-lifecycle-gap"]

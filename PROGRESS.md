@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Lifecycle And Liquidity Publication Review Batch
+
+- Promoted `19` stable Neelo-source `vibe-papers` pages to `published` across lifecycle hardening, liquidity-as-trader-experience, listing monopoly, listing-plus-liquidity, perceived/actual listing interest, long-tail perp model mapping, order-book admission/bootstrap/maturity, venue partnership, perp protocol design space, spot-market one-sidedness, async/economic synchrony, Thielian listing strategy, tokens as information objects, upstream trust, and zero-cost evolutionary discovery.
+- Kept freshness-sensitive product/data-source pages, Hyperliquid-current pages, and broad compendium overviews in the review queue for separate source/date review.
+- Regenerated Search Book data so page-state counts now show `75` published pages, `723` candidate pages, `792` source companions, and `84` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Listing And Market-Access Publication Review Batch
 
 - Promoted `21` stable Neelo-source `vibe-papers` pages to `published` across bootstrap causes, CLOB/order-book coordination, complete market expression, issuance/validation debt, crypto market-access disconnect, curation cost, derivatives venue term, narrative-based listing limits, exchange deviation, listing game theory, gap-filling perps, order-book cooperation, information-market validation, the last primitive, and lifecycle gates as market power.

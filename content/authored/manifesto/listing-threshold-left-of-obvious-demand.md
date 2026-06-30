@@ -3,7 +3,7 @@ id: "authored-listing-threshold-left-of-obvious-demand"
 title: "Left Of The Listing Threshold"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/02-perceived-vs-actual-interest", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/01-introduction"]

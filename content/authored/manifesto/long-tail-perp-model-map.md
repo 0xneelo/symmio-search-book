@@ -3,7 +3,7 @@ id: "authored-long-tail-perp-model-map"
 title: "The Long-Tail Perp Model Map"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-transcript", "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary", "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs-overview"]
