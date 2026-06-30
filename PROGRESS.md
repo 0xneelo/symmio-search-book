@@ -18,10 +18,10 @@
 - The smoke runner starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database and extractive mode, then proves `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, unauthenticated moderation rejection, and authenticated moderation export.
 - Added `npm run search-book:smoke-service` and documented the command in the Search Book README verification flow. The smoke test does not call the LLM provider or read production API keys.
 
-## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Recheck
+## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Refresh
 
 - Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
-- Aligned human-facing readiness docs to the latest committed live RAG evidence from `51c2a65`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,590` output tokens, and `$0.01704240` estimated cost.
+- Aligned human-facing readiness docs to the latest committed live RAG evidence from `0ef7ba4`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `8,067` output tokens, and `$0.01732860` estimated cost.
 - Kept the production boundary explicit: the corpus and runtime are verified, but public frontend/deploy route, production service env, Discord/Lafa import, Notion ingestion, oldest Symmio whitepaper recovery, and SuperFlow/SSHE identification remain parked in `OPERATOR-INBOX.md`.
 
 ## 2026-06-30 — Proof Of Value Framework Operator-Review Batch
