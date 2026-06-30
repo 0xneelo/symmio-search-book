@@ -47,7 +47,7 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-30 OpenAI-backed live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, with 15 measured calls, 85,078 input tokens, 8,212 output tokens, and an estimated cost of $0.01768890. `llmProductionReady` intentionally remains false until service-environment credentials, public frontend/deploy wiring, remaining operator source decisions, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-30 OpenAI-backed live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, with 15 measured calls, 85,078 input tokens, 7,768 output tokens, and an estimated cost of $0.01742250. `llmProductionReady` intentionally remains false until service-environment credentials, public frontend/deploy wiring, remaining operator source decisions, and Discord/Lafa import are complete.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 

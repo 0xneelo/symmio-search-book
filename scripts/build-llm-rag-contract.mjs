@@ -347,8 +347,8 @@ const recordedLiveEvaluation = {
   measuredUsage: {
     calls: 15,
     inputTokens: 85078,
-    outputTokens: 8212,
-    estimatedCostUsd: 0.0176889,
+    outputTokens: 7768,
+    estimatedCostUsd: 0.0174225,
     pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
   },
   notes:
