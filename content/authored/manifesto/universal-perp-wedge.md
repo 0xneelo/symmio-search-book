@@ -3,7 +3,7 @@ id: "authored-universal-perp-wedge"
 title: "Universal Perp Wedge"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"]
@@ -23,6 +23,10 @@ The strategic order is important. Universal perps are the wedge because they are
 ## Reader Implication
 
 The universal-perp wedge explains why Vibe can begin as market infrastructure before becoming a broader information-verification layer. Perps provide the first tractable surface for long-tail market formation.
+
+## Publication Boundary
+
+The source supports the long-tail perp access thesis, not a live promise of support for every DEX token, market cap, liquidity condition, oracle setup, margin mode, leverage level, or solver/risk-control configuration.
 
 ## Sources
 

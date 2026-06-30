@@ -3,7 +3,7 @@ id: "authored-ode-orderbooks-source-navigation-map"
 title: "Ode To OrderBooks Source Navigation Map"
 section: "manifesto"
 track: "04 - Ode to OrderBooks"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/09-conclusion"]

@@ -3,7 +3,7 @@ id: "authored-token-lifecycle-control-thesis"
 title: "Control The Token Lifecycle, Control The Signal"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings"]
@@ -23,6 +23,10 @@ The source uses empire and sea-control analogies. The public compendium should k
 ## Reader Implication
 
 This page explains why Vibe's discovery layer matters even if later order-book venues remain important. The layer that creates credible pre-listing evidence can become part of the listing decision itself.
+
+## Publication Boundary
+
+This page is a strategic interpretation of the source corpus. It does not assert that Vibe controls downstream listing decisions, has confirmed venue partnerships, guarantees market graduation, or replaces independent CEX, DEX, order-book, or protocol risk review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-perps-as-anti-bottleneck-layer"
 title: "Perps As An Anti-Bottleneck Layer"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/05-the-disconnect-in-crypto", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/06-vibe-and-perps-for-the-trenches", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/07-conclusion"]
@@ -26,7 +26,7 @@ That has a precise meaning. It does not say every market will be high quality. I
 
 This is why the compendium should frame Vibe as market infrastructure, not just an exchange with more tickers. The hard product is not a symbol list. It is a defended path from permissionless token creation to permissionless derivative discovery.
 
-## Publication Note
+## Publication Boundary
 
 Exact production market eligibility, venue partnerships, HIP-3 handoff policy, and graduation guarantees remain product/operator review items.
 

@@ -3,7 +3,7 @@ id: "authored-rfq-before-order-book"
 title: "RFQ Before Order Book"
 section: "manifesto"
 track: "04 — Ode to OrderBooks"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/03-vibe-as-bootstrap-layer", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/09-conclusion"]
@@ -22,7 +22,7 @@ Vibe's bootstrap layer changes the first question from "can this market support 
 
 Do not present RFQ as a permanent replacement for mature execution. The source is sharper than that. RFQ is the early-market mechanism that gives the market time to become worthy of a book.
 
-## Publication Note
+## Publication Boundary
 
 Specific routing through internal, external, or intermediate venues needs implementation and operator review. The publishable thesis is the sequence: bootstrap first, graduate later.
 

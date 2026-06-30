@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Remaining Volume 03 Listing Power Publication Batch
+
+- Promoted the remaining `23` Volume 03 Listing Power and Orderbooks manifesto pages to `published`, including the Ode source-navigation maps, order-book integration handshake, RFQ-before-book sequencing, programmatic graduation, strategic-implication pages, PumpFun/Uniswap lifecycle context, and long-tail/perps market-filter thesis pages.
+- Added or normalized publication boundaries for source-navigation maps, current venue integrations, downstream listing adoption, automatic graduation, exact live thresholds, token eligibility, liquidity/support guarantees, order-book partnership claims, universal token/perp support, leverage/risk controls, and legal/risk-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `466` published pages, `332` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `0` Volume 03 candidates remaining, and `152` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 03 Permissionless-Perps Publication Batch
 
 - Promoted `10` Volume 03 Listing Power and Orderbooks manifesto pages to `published`: Hyperliquid As Perp Infrastructure, The Trench System In Token Market Formation, Listing Without Liquidity, The Zero-Cost Liquidity Analogy, The Permissionless Derivatives Thesis, The Evolution Of Permissionless Infrastructure, Permissionless Perps Hypothesis Summary, The Initial Market For Permissionless Perps, Where Permissionless Perps Sit In The Lifecycle, and How Permissionless Perps Relate To Existing Venues.

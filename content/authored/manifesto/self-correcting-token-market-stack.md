@@ -3,7 +3,7 @@ id: "authored-self-correcting-token-market-stack"
 title: "The Self-Correcting Token Market Stack"
 section: "manifesto"
 track: "09 - Fix Industry One Primitive"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/07-fixing-the-industry", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/08-conclusion"]
@@ -22,7 +22,7 @@ This is where Vibe and Symmio are paired in the source. Symmio supplies derivati
 
 It does not mean every token deserves reckless leverage or permanent support. It means every meaningful token should have a path to being tested. Some markets will prove themselves and graduate. Others will fail earlier because the negative side can finally act.
 
-## Publication Note
+## Publication Boundary
 
 The source supports the strategic division between Vibe and Symmio. Final production docs still need platform, product, and operator review before making promises about exact market creation workflow, graduation policy, solver responsibilities, or vault exposure.
 

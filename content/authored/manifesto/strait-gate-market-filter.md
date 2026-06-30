@@ -3,7 +3,7 @@ id: "authored-strait-gate-market-filter"
 title: "The Strait Gate Is A Market Filter"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/07-game-theory-of-listings", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion"]
@@ -23,6 +23,10 @@ This also clarifies the power shift. A project should not only ask to be listed.
 ## Reader Implication
 
 Market creators should read the Strait Gate as a demand for proof. Surviving a two-sided derivatives market is different from launching a token or running a campaign. The docs should preserve the metaphor while keeping exact graduation rules under operator review.
+
+## Publication Boundary
+
+This page documents the source-backed market-filter thesis. It does not confirm live Vibe graduation thresholds, downstream listing commitments, venue partnerships, token eligibility, solver obligations, or any guarantee that surviving a Vibe market creates an automatic listing elsewhere.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-programmatic-market-graduation"
 title: "Programmatic Market Graduation"
 section: "manifesto"
 track: "05 - Ode to OrderBooks, Part II"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/06-programmatic-graduation", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/00-abstract"]
@@ -24,7 +24,7 @@ Programmatic graduation reduces the listing committee's guessing burden. The ord
 
 This gives Vibe's answer engine a clean way to explain market maturity: early markets are not failed order books; they are markets being tested for whether an order book should exist.
 
-## Publication Note
+## Publication Boundary
 
 The source gives categories of graduation criteria, not confirmed live Vibe thresholds. Final docs need product confirmation for formulas, cadence, qualifying venues, and whether any graduation process is automated.
 

@@ -3,7 +3,7 @@ id: "authored-perps-for-the-trenches"
 title: "Perps For The Trenches"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/06-vibe-and-perps-for-the-trenches", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/07-conclusion"]
@@ -20,7 +20,7 @@ Vibe is strategically important because it pushes derivatives earlier in that li
 
 The conclusion of the source is that listing design is a theory of market evolution. A system can wait for obvious demand and reduce embarrassment, or it can let markets discover demand before it is obvious. Vibe's place is the second path: an anti-bottleneck layer between permissionless creation and mature venue validation.
 
-## Publication Note
+## Publication Boundary
 
 This page should not be read as a live guarantee that every token can immediately receive a production Vibe market. The source supports the strategic thesis. Final docs still need product-owner confirmation for exact listing workflow, eligibility rules, solver support, vault exposure, and graduation policy.
 

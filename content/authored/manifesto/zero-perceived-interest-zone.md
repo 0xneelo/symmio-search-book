@@ -3,7 +3,7 @@ id: "authored-zero-perceived-interest-zone"
 title: "The Zero Perceived Interest Zone"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/04-the-evolutionary-edge", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/06-vibe-and-perps-for-the-trenches"]
@@ -24,7 +24,7 @@ Spot issuance and spot trading already reach this zone. Serious derivatives usua
 
 Vibe's thesis is to bring derivatives closer to that early zone. That does not mean every token deserves a market, and it does not mean the product should ignore risk controls. It means a properly defended intent-and-solver layer can test derivative demand earlier than mature order-book venues can.
 
-## Publication Note
+## Publication Boundary
 
 Exact token eligibility, listing workflow, market safety filters, and launch thresholds need product/operator review. This page documents the source-backed strategic zone, not a public guarantee that any token can receive a production market immediately.
 

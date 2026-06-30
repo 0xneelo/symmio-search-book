@@ -3,7 +3,7 @@ id: "authored-strategic-implications-launchpads-dexs"
 title: "Strategic Implications For Launchpads And DEXs"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/06-strategic-implications#6-2-for-launchpads-and-dexs"]
