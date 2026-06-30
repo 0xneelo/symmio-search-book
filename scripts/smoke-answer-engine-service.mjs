@@ -148,6 +148,10 @@ async function main() {
       SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT: "true",
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN: moderationToken,
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT: "10",
+      SEARCH_BOOK_EMBED_ENDPOINT: "http://127.0.0.1:1/test-embeddings",
+      SEARCH_BOOK_EMBED_MODEL: "smoke-embedding",
+      SEARCH_BOOK_LLM_API_KEY: "smoke-key",
+      SEARCH_BOOK_TEST_EMBEDDINGS: "true",
     },
   });
   child.stdout.setEncoding("utf8");
@@ -192,13 +196,66 @@ async function main() {
     assert(rating.payload.status === "recorded", `rating status was ${rating.payload.status}.`);
     assert(rating.payload.persisted?.eventId === eventId, "rating did not attach to the persisted question.");
 
+    const reuseSeedQuery = "How is my revenue calculated?";
+    const reuseSeed = await requestJson(baseUrl, "/api/search-book/answer", {
+      method: "POST",
+      body: JSON.stringify({
+        requestId: "smoke-reuse-seed",
+        query: reuseSeedQuery,
+        source: "service-smoke",
+        mode: "extractive",
+      }),
+    });
+    assert(reuseSeed.statusCode === 200, `reuse seed answer returned ${reuseSeed.statusCode}.`);
+    assert(reuseSeed.payload.status === "answered", `reuse seed status was ${reuseSeed.payload.status}.`);
+    assert(reuseSeed.payload.persisted?.id, "reuse seed did not include persisted question id.");
+
+    const helpfulRating = await requestJson(baseUrl, "/api/search-book/rating", {
+      method: "POST",
+      body: JSON.stringify({
+        eventId: reuseSeed.payload.persisted.id,
+        rating: "yes",
+        note: "smoke test helpful reuse seed",
+      }),
+    });
+    assert(helpfulRating.statusCode === 200, `helpful rating endpoint returned ${helpfulRating.statusCode}.`);
+    assert(helpfulRating.payload.status === "recorded", `helpful rating status was ${helpfulRating.payload.status}.`);
+    assert(
+      helpfulRating.payload.cache?.status === "cached",
+      `positive rating did not populate cache: ${JSON.stringify(helpfulRating.payload.cache)}.`,
+    );
+
+    const reused = await requestJson(baseUrl, "/api/search-book/answer", {
+      method: "POST",
+      body: JSON.stringify({
+        requestId: "smoke-reuse-paraphrase",
+        query: "Can you explain how my fees and revenue are calculated?",
+        source: "service-smoke",
+        mode: "llm",
+      }),
+    });
+    assert(reused.statusCode === 200, `reuse answer returned ${reused.statusCode}.`);
+    assert(reused.payload.status === "answered", `reuse status was ${reused.payload.status}.`);
+    assert(reused.payload.source === "reuse-cache", `reuse source was ${reused.payload.source}.`);
+    assert(!reused.payload.degraded, "reuse answer must not be tagged degraded.");
+    assert(reused.payload.reusedFrom?.score >= 0.9, `reuse score was ${JSON.stringify(reused.payload.reusedFrom)}.`);
+
     const insights = await requestJson(baseUrl, "/api/search-book/insights");
     assert(insights.statusCode === 200, `insights endpoint returned ${insights.statusCode}.`);
     assert(insights.payload.status === "ok", `insights status was ${insights.payload.status}.`);
-    assert((insights.payload.totals?.questions || 0) >= 1, "insights did not count the smoke question.");
-    assert((insights.payload.totals?.ratings || 0) >= 1, "insights did not count the smoke rating.");
+    assert((insights.payload.totals?.questions || 0) >= 3, "insights did not count the smoke questions.");
+    assert((insights.payload.totals?.ratings || 0) >= 2, "insights did not count the smoke ratings.");
     assert((insights.payload.totals?.gaps || 0) >= 1, "insights did not create a low-rated-answer gap.");
+    assert((insights.payload.totals?.answerCache || 0) >= 1, "insights did not count the reuse answer cache.");
     assert(insights.payload.retention?.enabled === true, "insights did not report enabled retention.");
+
+    const examples = await requestJson(baseUrl, "/api/search-book/examples");
+    assert(examples.statusCode === 200, `examples endpoint returned ${examples.statusCode}.`);
+    assert(examples.payload.status === "ok", `examples status was ${examples.payload.status}.`);
+    assert(
+      (examples.payload.examples || []).some((item) => item.query === reuseSeedQuery),
+      "examples did not include the helpful-rated question.",
+    );
 
     const forbiddenModeration = await requestJson(baseUrl, "/api/search-book/moderation");
     assert(forbiddenModeration.statusCode === 403, "moderation endpoint allowed unauthenticated access.");
@@ -262,6 +319,7 @@ async function main() {
     );
     assert(guardrail.payload.refusalReason === "source-family-missing", `guardrail refusalReason was ${guardrail.payload.refusalReason}.`);
     assert(!guardrail.payload.degraded, "guardrail refusal must not be tagged degraded.");
+    assert(guardrail.payload.source !== "reuse-cache", "guardrail refusal must not be served from reuse cache.");
 
     const rlLogs = { stdout: "", stderr: "" };
     const rlDbPath = `${dbPath}.ratelimit`;
@@ -325,6 +383,12 @@ async function main() {
         insights: insights.payload.status,
         moderationUnauthenticated: forbiddenModeration.statusCode,
         moderationAuthenticated: moderation.payload.status,
+      },
+      reuseCache: {
+        ratingCacheStatus: helpfulRating.payload.cache?.status,
+        reusedSource: reused.payload.source,
+        reusedScore: reused.payload.reusedFrom?.score,
+        examples: examples.payload.examples.length,
       },
       totals: insights.payload.totals,
       answer: {

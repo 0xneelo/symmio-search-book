@@ -772,6 +772,17 @@ async function embedQuery(text, options = {}) {
       embedding: [],
     };
   }
+  if (process.env.SEARCH_BOOK_TEST_EMBEDDINGS === "true") {
+    const normalized = String(text || "").toLowerCase();
+    const revenue = normalized.includes("revenue") || normalized.includes("fees") || normalized.includes("calculated");
+    return {
+      status: "embedded",
+      reason: "",
+      missing: [],
+      model: config.model || "smoke-embedding",
+      embedding: revenue ? [1, 0, 0, 0] : [0, 1, 0, 0],
+    };
+  }
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   if (typeof fetchImpl !== "function") {
     return { status: "skipped", reason: "fetch-unavailable", missing: ["fetch"], model: config.model, embedding: [] };
