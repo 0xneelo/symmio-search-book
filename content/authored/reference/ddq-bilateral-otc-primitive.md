@@ -3,7 +3,7 @@ id: "authored-ddq-bilateral-otc-primitive"
 title: "DDQ Bilateral OTC Derivatives Primitive"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers", "symmio-core", "symmio-intent-lifecycle"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]

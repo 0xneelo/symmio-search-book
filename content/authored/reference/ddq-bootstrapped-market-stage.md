@@ -3,7 +3,7 @@ id: "authored-ddq-bootstrapped-market-stage"
 title: "DDQ Bootstrapped Market Stage"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/attractiveness-for-lps/attractiveness-for-lps"]

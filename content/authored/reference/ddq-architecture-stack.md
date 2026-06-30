@@ -3,7 +3,7 @@ id: "authored-ddq-architecture-stack"
 title: "DDQ Architecture Stack"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/ddq-general-introduciton"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-ddq-general-introduciton", "authored-residual-counterparty-hedge-first", "authored-token-lp-attractiveness-model"]
@@ -35,7 +35,7 @@ Vibe's proposed answer is a hybrid liquidity model: token inventory, solver-fund
 
 This page should be the first DDQ route for partners. It explains why Vibe is not simply "a perp UI" or "a vault." The product claim is an integrated market-creation stack: intents, solvers, LP inventory, and settlement are designed to make long-tail leveraged markets possible before a normal order book can support them.
 
-## Publication Note
+## Publication Boundary
 
 The DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior.
 

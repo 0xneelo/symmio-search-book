@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — DDQ Architecture Operator-Review Batch
+
+- Promoted `12` stable Neelo-source DDQ protocol-reference pages to `published`: DDQ Source Table Of Contents, DDQ Architecture Stack, DDQ Asynchronous Matching Engine, DDQ Bilateral OTC Derivatives Primitive, DDQ Hybrid Liquidity Model, DDQ Request-Based Settlement Layer, DDQ Perpetuals Layer Role, DDQ Margin Protocol Role, DDQ Derivatives Lifecycle Expansion, DDQ Bootstrapped Market Stage, DDQ Maturing Market Stage, and DDQ Mature Market Stage.
+- Preserved publication boundaries already present in the pages: live solver obligations, product guarantees, LP economics, exact launch parameters, options/vault-specific claims, production settlement semantics, mark/funding/liquidation formulas, market-graduation rules, and deployed implementation status require operator, implementation, risk, legal, and accounting review.
+- Regenerated Search Book data so page-state counts now show `335` published pages, `463` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Volume 03 Listing Thiel Analysis Operator-Review Batch
 
 - Promoted `10` stable Neelo-source Volume 03 manifesto pages to `published`: Listing Monopoly 10x Gap-Filler Claim, Listing Monopoly Thiel Category Boundary, Listing Monopoly Competition Assessment, Listing Monopoly Durability Factors, Listing Monopoly Last-Mover Potential, Listing Control As A Monopoly Path, Listing Monopoly Network Effects And Cold Start, Listing Monopoly Small-Market Wedge, Listing Monopoly Thiel Summary Scorecard, and Listing Monopoly Value Creation And Capture.

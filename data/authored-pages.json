@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 323,
-    "publication-candidate-needs-operator-review": 475,
+    "published": 335,
+    "publication-candidate-needs-operator-review": 463,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -1597,7 +1597,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1611,7 +1611,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/ddq-architecture-stack.md",
-      "bodyMarkdown": "# DDQ Architecture Stack\n\nThe DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together?\n\nThe source names six primitives:\n\n- margin trading;\n- perpetuals;\n- request-based, intent-style settlement;\n- bilateral OTC derivatives primitives;\n- proprietary solver technology;\n- user vaults for liquidity tokens.\n\nThe point is not that any one primitive is new in isolation. The source argument is that permissionless leverage for long-tail assets needs the stack to work as one system. Margin mechanics supply collateral discipline. Perpetual mechanics supply ongoing mark, funding, close, and liquidation language. Intents let the solver quote only after checking risk. Bilateral OTC primitives fit the PartyA/PartyB settlement model. User vaults provide token-side inventory without asking outside stablecoin LPs to underwrite every market.\n\n## Why The Stack Exists\n\nThe DDQ frames older on-chain margin experiments as capital hungry and attackable. Near 1:1 backing can constrain depth and widen spreads. Pure USDC vaults for low-cap leverage can attract a supply-side attack pattern where a user builds spot exposure, opens leverage, then stresses the backing pool through spot selling.\n\nVibe's proposed answer is a hybrid liquidity model: token inventory, solver-funded stablecoin operations, quote-by-quote risk checks, and market controls that tighten when the market is immature or stressed.\n\n## Reader Implication\n\nThis page should be the first DDQ route for partners. It explains why Vibe is not simply \"a perp UI\" or \"a vault.\" The product claim is an integrated market-creation stack: intents, solvers, LP inventory, and settlement are designed to make long-tail leveraged markets possible before a normal order book can support them.\n\n## Publication Note\n\nThe DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"DDQ - General Introduction\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-token-lp-attractiveness-model`\n- `authored-solver-default-and-continuity`\n- `neelo-08-due-diligence-questionnaire-08-docs-ddq-general-introduciton`",
+      "bodyMarkdown": "# DDQ Architecture Stack\n\nThe DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together?\n\nThe source names six primitives:\n\n- margin trading;\n- perpetuals;\n- request-based, intent-style settlement;\n- bilateral OTC derivatives primitives;\n- proprietary solver technology;\n- user vaults for liquidity tokens.\n\nThe point is not that any one primitive is new in isolation. The source argument is that permissionless leverage for long-tail assets needs the stack to work as one system. Margin mechanics supply collateral discipline. Perpetual mechanics supply ongoing mark, funding, close, and liquidation language. Intents let the solver quote only after checking risk. Bilateral OTC primitives fit the PartyA/PartyB settlement model. User vaults provide token-side inventory without asking outside stablecoin LPs to underwrite every market.\n\n## Why The Stack Exists\n\nThe DDQ frames older on-chain margin experiments as capital hungry and attackable. Near 1:1 backing can constrain depth and widen spreads. Pure USDC vaults for low-cap leverage can attract a supply-side attack pattern where a user builds spot exposure, opens leverage, then stresses the backing pool through spot selling.\n\nVibe's proposed answer is a hybrid liquidity model: token inventory, solver-funded stablecoin operations, quote-by-quote risk checks, and market controls that tighten when the market is immature or stressed.\n\n## Reader Implication\n\nThis page should be the first DDQ route for partners. It explains why Vibe is not simply \"a perp UI\" or \"a vault.\" The product claim is an integrated market-creation stack: intents, solvers, LP inventory, and settlement are designed to make long-tail leveraged markets possible before a normal order book can support them.\n\n## Publication Boundary\n\nThe DDQ source links internal Notion materials and describes evolving concepts. Final docs should use this page as architecture framing, not as a commitment to exact current vault rules, solver policies, margin formulas, or production contract behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"DDQ - General Introduction\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-token-lp-attractiveness-model`\n- `authored-solver-default-and-continuity`\n- `neelo-08-due-diligence-questionnaire-08-docs-ddq-general-introduciton`",
       "excerpt": "DDQ Architecture Stack The DDQ introduction is useful because it translates Vibe's thesis into the language an allocator, partner, or market operator would ask first: what pieces make the system work, and why are they needed together? The source names six primitives: margin trading; perpetuals; request based, intent style settlement; bilateral OTC derivatives primitives; proprietary solver technology; user vaults for liquidity tokens. The point is not that any one primitive is new in isolation. The source argument is that permissionless leverage for long tail assets needs the stack to work as one system. Margin mechanics supply collateral discipline. Perpetual mechanics supply ongoing mark, funding, close, and liquidation language. Intents let the solver quote only after checking risk. Bilateral OTC primitives fit the PartyA/PartyB settlement model. User vaults provide token side inventory without asking outside stablecoin LPs to underwrite every market. Why The Stack Exists The DDQ frames older on chain margin experiments as capital hungry and attackable. Near 1:1 backing can constrain depth and widen spreads. Pure USDC vaults for low cap leverage can attract a supply side attack "
     },
     {
@@ -1620,7 +1620,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1644,7 +1644,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-core",
@@ -1672,7 +1672,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1718,7 +1718,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-options-docs"
@@ -1766,7 +1766,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1838,7 +1838,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1861,7 +1861,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1884,7 +1884,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -1976,7 +1976,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2028,7 +2028,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "vibe-architecture",
@@ -2056,7 +2056,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
