@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Volume 02 Editorial Review Publication Batch
+
+- Promoted the remaining `3` editorial-review pages to `published`: The Market's Eye View, The Ticker Tape Verification Layer, and Truth As An Asset Class.
+- Tightened each page to the Search Book structure: a one-sentence answer, mechanism, reader implication or guardrail, source notes, and related pages.
+- Kept the claims bounded to Neelo's Proof of Value / Information and Trade sources: markets are costly verification surfaces, not objective truth or moral arbiters.
+- Regenerated Search Book data so page-state counts now show `162` published pages, `636` candidate pages, `792` source companions, `798/798` exact routes, and `0` editorial-review candidates remaining.
+
 ## 2026-06-30 — Remaining Final-Ready Candidate Publication Review Batch
 
 - Promoted the remaining `23` final-review-ready candidate pages to `published`: Vibe Product Overview, Barometer Subgraph Upgrade, Volume 01: Orientation And Core Thesis, Volume 02: Bootstrap Trilemma And Proof Of Value, Vibe As The Discovery Layer, Volume 03: Listing Power And Orderbook Alternatives, Token-Margined LPs Are Short Volatility, Tradable Before Continuous Flow, The Three Vibe Pillars, Volume 04: Token Margin, Pillars, And Funding Systems, Volume 05: Solver, LP, And Protocol Operations, Dashboard My Invites, Dashboard Settings, Dashboard Tasks, Autonomous Market Creation, The Four Transitions, The Market Creation Gap, Market Maturation And The Z-Score, The Lifecycle Gap As Product Surface, Hybrid Settlement And Solver Stack, The Solver As Protocol-Owned Market Maker, Vibe Trade Flow, and The Living Docs Loop.
