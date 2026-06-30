@@ -3,7 +3,7 @@ id: "authored-listing-thiel-value-capture-bridge"
 title: "Listing Monopoly Value Creation And Capture"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/08-thiel-monopoly-analysis#part-1-value-creation-vs-value-capture"]
