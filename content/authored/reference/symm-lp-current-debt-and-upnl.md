@@ -3,7 +3,7 @@ id: "authored-symm-lp-current-debt-and-upnl"
 title: "SYMM LP Current Debt And UPnL"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers", "symmio-settlement", "symmio-profit-realization"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/07-data-snapshot-and-metric-definitions", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"]
@@ -29,6 +29,10 @@ This maps to the broader Symmio settlement boundary: unrealized PnL and realized
 ## Reader Implication
 
 When a user asks whether the LP "made money," the precise answer is split. The case shows a realized component, an unrealized component, and a favorable user-side mark at one data cut. The stronger production claim still needs vault-level attribution, settlement history, and drawdown reporting.
+
+## Publication Boundary
+
+Do not publish `Current Debt`, `Current UPnL`, or `User Profit` as interchangeable cash balances, audited LP profit, current vault performance, or withdrawal guarantees. The source-backed claim is the sign convention and the realized-versus-marked distinction in the case-study data cut; final public reporting needs settlement/accounting review.
 
 ## Sources
 

@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 674,
-    "publication-candidate-needs-operator-review": 124,
+    "published": 686,
+    "publication-candidate-needs-operator-review": 112,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -14261,7 +14261,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14332,7 +14332,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-settlement",
@@ -14351,7 +14351,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-current-debt-and-upnl.md",
-      "bodyMarkdown": "# SYMM LP Current Debt And UPnL\n\nThe SYMM LP case study uses user-side accounting fields to describe LP-side economics. `Current Debt` is users' already realized debt to the LP. `Current UPnL` is users' current unrealized profit and loss at the mark. In the case-study sign convention, a negative user-side value is favorable to the LP.\n\nThat makes the reported data cut easier to read:\n\n- `Current Debt = -5,895.90` maps to about `$5,895.90` of realized LP profit.\n- `Current UPnL = -7,999.32` maps to about `$7,999.32` of unrealized LP edge at that mark.\n- `User Profit = -5,816.45` means users were net down at the referenced dashboard state.\n\n## Realized Versus Marked\n\nThe distinction is not cosmetic. `Current Debt` is the realized component and the source describes it as withdrawable for the LP. `Current UPnL` is mark-to-market; it can move before it is realized. A public case study should not treat both as identical cash.\n\nThis maps to the broader Symmio settlement boundary: unrealized PnL and realized allocated balance are different states. Settlement and profit-realization mechanics exist because open-position PnL has to be converted into realized accounting state before it behaves like spendable or withdrawable balance.\n\n## Reader Implication\n\nWhen a user asks whether the LP \"made money,\" the precise answer is split. The case shows a realized component, an unrealized component, and a favorable user-side mark at one data cut. The stronger production claim still needs vault-level attribution, settlement history, and drawdown reporting.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n- `symmio-settlement`: official settlement state boundary.\n- `symmio-profit-realization`: official LP profit-realization context.\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-data-guardrails`\n- `authored-symmio-settlement-profit-realization`",
+      "bodyMarkdown": "# SYMM LP Current Debt And UPnL\n\nThe SYMM LP case study uses user-side accounting fields to describe LP-side economics. `Current Debt` is users' already realized debt to the LP. `Current UPnL` is users' current unrealized profit and loss at the mark. In the case-study sign convention, a negative user-side value is favorable to the LP.\n\nThat makes the reported data cut easier to read:\n\n- `Current Debt = -5,895.90` maps to about `$5,895.90` of realized LP profit.\n- `Current UPnL = -7,999.32` maps to about `$7,999.32` of unrealized LP edge at that mark.\n- `User Profit = -5,816.45` means users were net down at the referenced dashboard state.\n\n## Realized Versus Marked\n\nThe distinction is not cosmetic. `Current Debt` is the realized component and the source describes it as withdrawable for the LP. `Current UPnL` is mark-to-market; it can move before it is realized. A public case study should not treat both as identical cash.\n\nThis maps to the broader Symmio settlement boundary: unrealized PnL and realized allocated balance are different states. Settlement and profit-realization mechanics exist because open-position PnL has to be converted into realized accounting state before it behaves like spendable or withdrawable balance.\n\n## Reader Implication\n\nWhen a user asks whether the LP \"made money,\" the precise answer is split. The case shows a realized component, an unrealized component, and a favorable user-side mark at one data cut. The stronger production claim still needs vault-level attribution, settlement history, and drawdown reporting.\n\n## Publication Boundary\n\nDo not publish `Current Debt`, `Current UPnL`, or `User Profit` as interchangeable cash balances, audited LP profit, current vault performance, or withdrawal guarantees. The source-backed claim is the sign convention and the realized-versus-marked distinction in the case-study data cut; final public reporting needs settlement/accounting review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Data Snapshot and Metric Definitions\".\n- `symmio-settlement`: official settlement state boundary.\n- `symmio-profit-realization`: official LP profit-realization context.\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-data-guardrails`\n- `authored-symmio-settlement-profit-realization`",
       "excerpt": "SYMM LP Current Debt And UPnL The SYMM LP case study uses user side accounting fields to describe LP side economics. Current Debt is users' already realized debt to the LP. Current UPnL is users' current unrealized profit and loss at the mark. In the case study sign convention, a negative user side value is favorable to the LP. That makes the reported data cut easier to read: Current Debt = 5,895.90 maps to about $5,895.90 of realized LP profit. Current UPnL = 7,999.32 maps to about $7,999.32 of unrealized LP edge at that mark. User Profit = 5,816.45 means users were net down at the referenced dashboard state. Realized Versus Marked The distinction is not cosmetic. Current Debt is the realized component and the source describes it as withdrawable for the LP. Current UPnL is mark to market; it can move before it is realized. A public case study should not treat both as identical cash. This maps to the broader Symmio settlement boundary: unrealized PnL and realized allocated balance are different states. Settlement and profit realization mechanics exist because open position PnL has to be converted into realized accounting state before it behaves like spendable or withdrawable balanc"
     },
     {
@@ -14458,7 +14458,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14602,7 +14602,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14617,7 +14617,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-low-volume-driver.md",
-      "bodyMarkdown": "# Low Volume Did Not Mean Weak LP Economics\n\nThe SYMM LP case reports only about `$100,000` of total trading volume over the measured period, with roughly `$1,000` of average daily volume. The headline LP outcome therefore cannot be explained as a simple high-turnover fee story.\n\nThe source's explanation is regime and positioning. The market was strongly long-biased while the token price declined. Users were net down at the referenced mark, and negative `Current Debt` plus negative `Current UPnL` were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user-side loss transfer in a one-sided regime.\n\n## Why This Matters\n\nThat is strategically important for bootstrapping. A young token market may not have mature order-book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move.\n\nIt is also a caution. Low-volume profitability is not a guarantee that any low-volume market is safe or profitable. If the same low-volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse.\n\n## Reader Implication\n\nDo not ask only \"how much volume was there?\" Ask what the volume did: who was crowded, whether users won or lost, how funding moved, whether liquidations executed, and how much of the LP result was realized versus marked.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-risk-and-edge-cases`",
+      "bodyMarkdown": "# Low Volume Did Not Mean Weak LP Economics\n\nThe SYMM LP case reports only about `$100,000` of total trading volume over the measured period, with roughly `$1,000` of average daily volume. The headline LP outcome therefore cannot be explained as a simple high-turnover fee story.\n\nThe source's explanation is regime and positioning. The market was strongly long-biased while the token price declined. Users were net down at the referenced mark, and negative `Current Debt` plus negative `Current UPnL` were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user-side loss transfer in a one-sided regime.\n\n## Why This Matters\n\nThat is strategically important for bootstrapping. A young token market may not have mature order-book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move.\n\nIt is also a caution. Low-volume profitability is not a guarantee that any low-volume market is safe or profitable. If the same low-volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse.\n\n## Reader Implication\n\nDo not ask only \"how much volume was there?\" Ask what the volume did: who was crowded, whether users won or lost, how funding moved, whether liquidations executed, and how much of the LP result was realized versus marked.\n\n## Publication Boundary\n\nDo not publish low-volume profitability as proof that thin markets are safe, repeatable, or capital-efficient by default. The source-backed claim is narrower: this specific low-volume window was LP-favorable because of trader positioning, price path, and accounting signs, not because low volume itself guarantees strong economics.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n\n## Related Pages\n\n- `authored-symm-lp-unit-economics`\n- `authored-symm-lp-current-debt-and-upnl`\n- `authored-symm-lp-risk-and-edge-cases`",
       "excerpt": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long biased while the token price declined. Users were net down at the referenced mark, and negative Current Debt plus negative Current UPnL were favorable to the LP side. Funding, fees, and liquidation cashflows may contribute, but the dominant qualitative driver was user side loss transfer in a one sided regime. Why This Matters That is strategically important for bootstrapping. A young token market may not have mature order book depth or constant churn, but it can still reveal directional demand and create LP economics if traders take the wrong side of a move. It is also a caution. Low volume profitability is not a guarantee that any low volume market is safe or profitable. If the same low volume market has profitable traders, poor liquidation execution, or adverse skew, the LP result can reverse. Reader Implication Do not ask only \"how"
     },
     {
@@ -14648,7 +14648,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14670,7 +14670,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14771,7 +14771,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14938,7 +14938,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14984,7 +14984,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15008,7 +15008,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15022,9 +15022,9 @@
         "neelo-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics",
         "neelo-12-case-study-symm-lp-12-docs-06-conclusion"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-unit-economics.md",
-      "bodyMarkdown": "# SYMM LP Unit Economics\n\nThe SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was `2,271,131` SYMM at an average input price of `$0.01280`, or `$29,070.4768` of deposit-time notional. At the data cut, the LP token balance had increased to `2,501,328.4` SYMM, a gain of `230,197.4` tokens.\n\nThe cash-denominated comparison is the sharper result. The source reports `$5,895.90` of realized LP profit and `$7,999.32` of unrealized LP profit, for `$13,895.22` combined against the original notional. Over the same window, passive SYMM holding is reported as negative because the token price declined from the case input price to the current price reference.\n\n## How To Read The Sign Convention\n\nThe source's critical accounting rule is that negative user-side debt or PnL is favorable to the LP side:\n\n- `Current Debt` is treated as realized user debt to the LP, so a negative value maps to realized LP profit.\n- `Current UPnL` is current unrealized user PnL, so a negative value maps to unrealized LP profit at mark.\n- `User Profit` is the aggregate user-side profitability field, so negative user profit means the LP side is up at that data cut.\n\nDo not collapse realized and unrealized profit into one promise. Realized debt is closer to withdrawable performance. Unrealized PnL is path-dependent and can move before settlement.\n\n## Why Volume Was Not The Main Driver\n\nThe case reports roughly `$100,000` of total notional volume and about `$1,000` average daily volume. That means the headline economics are not explained by high turnover alone. The more important drivers were directional imbalance, adverse price movement for long-biased users, funding transfers, fees, and possible liquidation cashflows.\n\n## Reader Implication\n\nThe unit-economics page is useful because it forces the docs to distinguish token return, USDC-denominated return, realized profit, unrealized mark, and passive benchmarks. It should not be used as an APR promise without audited attribution, drawdown history, and regime-diverse evidence.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-data-guardrails`\n- `neelo-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics`",
+      "bodyMarkdown": "# SYMM LP Unit Economics\n\nThe SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was `2,271,131` SYMM at an average input price of `$0.01280`, or `$29,070.4768` of deposit-time notional. At the data cut, the LP token balance had increased to `2,501,328.4` SYMM, a gain of `230,197.4` tokens.\n\nThe cash-denominated comparison is the sharper result. The source reports `$5,895.90` of realized LP profit and `$7,999.32` of unrealized LP profit, for `$13,895.22` combined against the original notional. Over the same window, passive SYMM holding is reported as negative because the token price declined from the case input price to the current price reference.\n\n## How To Read The Sign Convention\n\nThe source's critical accounting rule is that negative user-side debt or PnL is favorable to the LP side:\n\n- `Current Debt` is treated as realized user debt to the LP, so a negative value maps to realized LP profit.\n- `Current UPnL` is current unrealized user PnL, so a negative value maps to unrealized LP profit at mark.\n- `User Profit` is the aggregate user-side profitability field, so negative user profit means the LP side is up at that data cut.\n\nDo not collapse realized and unrealized profit into one promise. Realized debt is closer to withdrawable performance. Unrealized PnL is path-dependent and can move before settlement.\n\n## Why Volume Was Not The Main Driver\n\nThe case reports roughly `$100,000` of total notional volume and about `$1,000` average daily volume. That means the headline economics are not explained by high turnover alone. The more important drivers were directional imbalance, adverse price movement for long-biased users, funding transfers, fees, and possible liquidation cashflows.\n\n## Reader Implication\n\nThe unit-economics page is useful because it forces the docs to distinguish token return, USDC-denominated return, realized profit, unrealized mark, and passive benchmarks. It should not be used as an APR promise without audited attribution, drawdown history, and regime-diverse evidence.\n\n## Publication Boundary\n\nDo not publish these unit economics as current APY, investor guidance, audited vault accounting, or proof that SYMM-style LP economics generalize to other tokens. The source-backed claim is the case-study arithmetic and sign convention; production claims need source ownership, accounting review, drawdown history, and regime-diverse benchmarks.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Executive Summary\".\n- `vibe-papers`: Neelo, \"Performance and Unit Economics\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-data-guardrails`\n- `neelo-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics`",
       "excerpt": "SYMM LP Unit Economics The SYMM LP case study reports three layers of economics: token balance, realized LP profit, and unrealized LP profit. The deposited amount was 2,271,131 SYMM at an average input price of $0.01280 , or $29,070.4768 of deposit time notional. At the data cut, the LP token balance had increased to 2,501,328.4 SYMM, a gain of 230,197.4 tokens. The cash denominated comparison is the sharper result. The source reports $5,895.90 of realized LP profit and $7,999.32 of unrealized LP profit, for $13,895.22 combined against the original notional. Over the same window, passive SYMM holding is reported as negative because the token price declined from the case input price to the current price reference. How To Read The Sign Convention The source's critical accounting rule is that negative user side debt or PnL is favorable to the LP side: Current Debt is treated as realized user debt to the LP, so a negative value maps to realized LP profit. Current UPnL is current unrealized user PnL, so a negative value maps to unrealized LP profit at mark. User Profit is the aggregate user side profitability field, so negative user profit means the LP side is up at that data cut. Do no"
     },
     {
@@ -15057,7 +15057,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15081,7 +15081,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],

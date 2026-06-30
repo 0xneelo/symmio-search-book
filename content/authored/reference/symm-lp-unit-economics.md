@@ -3,7 +3,8 @@ id: "authored-symm-lp-unit-economics"
 title: "SYMM LP Unit Economics"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/03-performance-and-unit-economics", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/06-conclusion"]
 relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-01-executive-summary", "neelo-12-case-study-symm-lp-12-docs-03-performance-and-unit-economics", "neelo-12-case-study-symm-lp-12-docs-06-conclusion"]
@@ -32,6 +33,10 @@ The case reports roughly `$100,000` of total notional volume and about `$1,000` 
 ## Reader Implication
 
 The unit-economics page is useful because it forces the docs to distinguish token return, USDC-denominated return, realized profit, unrealized mark, and passive benchmarks. It should not be used as an APR promise without audited attribution, drawdown history, and regime-diverse evidence.
+
+## Publication Boundary
+
+Do not publish these unit economics as current APY, investor guidance, audited vault accounting, or proof that SYMM-style LP economics generalize to other tokens. The source-backed claim is the case-study arithmetic and sign convention; production claims need source ownership, accounting review, drawdown history, and regime-diverse benchmarks.
 
 ## Sources
 

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 SYMM LP Performance And Economics Batch
+
+- Promoted `12` Volume 05 SYMM LP performance/economics pages to `published`: SYMM LP Bootstrap Collateral Role, SYMM LP Current Debt And UPnL, SYMM LP Economic Channels, Low Volume Did Not Mean Weak LP Economics, SYMM LP Operational Objective, SYMM LP Pilot Allocation Discipline, SYMM LP Regime-Updated Benchmarks, SYMM LP Steady-State Operating Bounds, SYMM LP Tranche Scale-Up Stop Conditions, SYMM LP Unit Economics, SYMM LP Vault NAV Time Series, and SYMM LP Yield Methodology.
+- Added or preserved publication boundaries for current debt/UPnL sign conventions, fee/funding/liquidation/user-PnL attribution, low-volume conclusions, operating objectives, pilot allocation discipline, regime-updated benchmarks, steady-state bounds, tranche stop conditions, unit-economics math, NAV time series, yield annualization, and legal/risk/accounting/investment-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `686` published pages, `112` candidate pages, `792` source companions, `798/798` exact routes, `2,871` chunks, `28` Volume 05 candidates, `84` Volume 06 candidates, `15` protocol-reference candidates, `84` rewards-referrals candidates, and `13` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 05 SYMM LP Setup And Evidence Batch
 
 - Promoted `19` Volume 05 SYMM LP setup/evidence pages to `published`: Reading The SYMM LP Benchmarks, SYMM LP Beta Report KPI Stack, SYMM LP Case Setup, SYMM LP Community Replication Readiness, SYMM LP Dashboard Data Cut, SYMM LP Data Guardrails, SYMM LP Document Map, SYMM LP Drawdown And Recovery Reporting, SYMM LP Executive Interpretation Boundary, SYMM LP Executive What Happened, SYMM LP Favorable Regime Caveat, SYMM LP Gross-To-Net Attribution Bridge, SYMM LP Headline Result Shape, SYMM LP Market Context, SYMM LP Proof Of Possibility, SYMM LP Realized And Marked PnL Split, SYMM LP Returns Are Regime-Dependent, SYMM LP Risk And Edge Cases, and SYMM LP Source And Reproducibility Notes.
