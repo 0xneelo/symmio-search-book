@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Static App Integrity Check
+
+- Added `src/search-book/scripts/check-static-integrity.mjs`, a deterministic verifier for the static Search Book app shell.
+- The verifier checks local script references, expected `window.SearchBook*` data globals, static page links, URL-safe public page ids, and public navigation page coverage in local reader data.
+- Added `npm run search-book:check-static` and wired the check into `node src/search-book/scripts/build-all.mjs --verify`; the canonical build now performs `59` syntax checks after adding the new script.
+
 ## 2026-06-30 — Living Docs Gap Summary Job
 
 - Added `src/search-book/scripts/summarize-living-docs-gaps.mjs`, an internal reviewer job that reads the standalone answer-engine SQLite datastore and emits markdown or JSON summaries of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions.

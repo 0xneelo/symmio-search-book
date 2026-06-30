@@ -67,6 +67,14 @@ npm run search-book:smoke-static
 
 The static smoke test starts `serve-static-preview.mjs` on an isolated localhost port, verifies the Ask front door, an exact-page URL, core generated data assets, and missing-route 404 behavior, then stops the preview server.
 
+Run the static app integrity check:
+
+```sh
+npm run search-book:check-static
+```
+
+The static integrity check verifies that `index.html` references the required local data scripts, those scripts export the expected `window.SearchBook*` globals, static page links point to public reader pages, and all public navigation pages have local reader data.
+
 Run the standalone answer-engine service locally:
 
 ```sh
@@ -135,6 +143,7 @@ Focused checks for this package:
 
 ```sh
 node src/search-book/scripts/check-readiness-evidence.mjs
+node src/search-book/scripts/check-static-integrity.mjs
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:smoke-static
 npm run search-book:smoke-preview-service
@@ -167,6 +176,7 @@ node src/search-book/scripts/build-living-docs-events.mjs
 node src/search-book/scripts/build-llm-rag-contract.mjs
 node src/search-book/scripts/build-answer-validation-report.mjs
 node src/search-book/scripts/check-readiness-evidence.mjs
+node src/search-book/scripts/check-static-integrity.mjs
 node src/search-book/scripts/build-competitive-sweep.mjs
 node src/search-book/scripts/build-source-ingestion-map.mjs
 node src/search-book/scripts/build-requirement-map.mjs
@@ -204,6 +214,7 @@ node --check src/search-book/scripts/build-crosslink-map.mjs
 node --check src/search-book/scripts/build-living-docs-events.mjs
 node --check src/search-book/scripts/build-requirement-map.mjs
 node --check src/search-book/scripts/build-quality-audit.mjs
+node --check src/search-book/scripts/check-static-integrity.mjs
 node --check src/search-book/data/authored-pages.js
 node --check src/search-book/scripts/build-navigation-tree.mjs
 node --check src/search-book/data/navigation-tree.js

@@ -206,6 +206,20 @@ function runReadinessEvidenceCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runStaticIntegrityCheck(env, dryRun) {
+  const step = {
+    id: "check-static-integrity",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-static-integrity.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -326,6 +340,7 @@ if (args.dryRun) {
     runSyntaxChecks(env, true);
     runSensitivePatternScan(true);
     runReadinessEvidenceCheck(env, true);
+    runStaticIntegrityCheck(env, true);
   }
   process.exit(0);
 }
@@ -340,11 +355,13 @@ let syntaxChecks = 0;
 let invariants = null;
 let sensitivePatternScan = null;
 let readinessEvidence = null;
+let staticIntegrity = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
   sensitivePatternScan = runSensitivePatternScan(false);
   readinessEvidence = runReadinessEvidenceCheck(env, false);
+  staticIntegrity = runStaticIntegrityCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -355,5 +372,6 @@ console.log(JSON.stringify({
   invariants,
   sensitivePatternScan,
   readinessEvidence,
+  staticIntegrity,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));
