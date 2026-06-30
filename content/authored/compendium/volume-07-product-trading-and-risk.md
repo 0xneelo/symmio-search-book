@@ -3,7 +3,7 @@ id: "authored-volume-07-product-trading-and-risk"
 title: "Volume 07: Product, Trading, And Risk Guides"
 section: "compendium"
 track: "Volume 07"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["spec-03", "vibe-llms", "vibe-margin", "symmio-core"]
 sourceUrls: ["_specs/app-docs/03-grounding.md", "https://docs.vibe.trading/llms.txt", "https://docs.vibe.trading/trading/managing-vibecaps-margin.md", "https://docs.symm.io/"]

@@ -79,8 +79,8 @@
     "sourceCompanionsQueued": 792,
     "sourceCompanionsCoveredByAuthoredPages": 792,
     "sourceCompanionsNeedingAuthoredCoverage": 0,
-    "candidateReviewPages": 674,
-    "candidateFinalReviewReadyPages": 35,
+    "candidateReviewPages": 662,
+    "candidateFinalReviewReadyPages": 23,
     "candidateOperatorReviewPages": 619,
     "candidateSourceRefreshPages": 9,
     "candidatePublicationDateReviewPages": 8,
@@ -104,21 +104,21 @@
     "covered-by-authored-page": 792
   },
   "byCandidateReviewReason": {
-    "candidate-final-review": 35,
+    "candidate-final-review": 23,
     "editorial-review": 3,
     "publication-date-review": 8,
     "source-refresh": 9,
     "operator-review": 619
   },
   "byCandidateReviewAction": {
-    "final-editorial-source-check-then-publish": 35,
+    "final-editorial-source-check-then-publish": 23,
     "tighten-prose-structure-before-publish": 3,
     "refresh-time-sensitive-product-source-before-publish": 8,
     "refresh-current-source-evidence-before-publish": 9,
     "operator-product-risk-legal-accounting-review-before-publish": 619
   },
   "byCandidateReviewStatus": {
-    "publication-candidate": 35,
+    "publication-candidate": 23,
     "publication-candidate-needs-editorial-review": 3,
     "publication-candidate-needs-publication-date-review": 8,
     "publication-candidate-needs-current-source-review": 8,
@@ -247,23 +247,23 @@
     },
     "volume-07-product-trading-and-risk": {
       "title": "Product, Trading, And Risk Guides",
-      "candidateReviewPages": 31,
+      "candidateReviewPages": 19,
       "byReviewReason": {
-        "candidate-final-review": 13,
+        "candidate-final-review": 1,
         "publication-date-review": 8,
         "operator-review": 10
       },
       "topPageIds": [
-        "authored-vibe-oi-and-liquidity",
-        "authored-vibe-order-types",
-        "authored-vibe-portfolio-and-account-data",
-        "authored-vibe-pwa-notification-categories",
-        "authored-vibe-simple-trade-flow",
-        "authored-vibe-stop-order-trigger-model",
-        "authored-vibe-tpsl",
-        "authored-vibe-tpsl-slippage-threshold",
-        "authored-vibe-tradingview-controls",
-        "authored-vibe-tradingview-layouts-and-watchlists"
+        "authored-vibe-trade-flow",
+        "authored-vibe-custody-path-security-boundary",
+        "authored-vibe-deposit-chain-support",
+        "authored-vibe-large-withdrawal-window",
+        "authored-vibe-security-claim-versioning",
+        "authored-vibe-settlement-contract-audit-scope",
+        "authored-vibe-sherlock-audit-contest-reference",
+        "authored-vibe-token-staking-audit-caveat",
+        "authored-vibe-trade-panel-cost-breakdown",
+        "authored-vibe-add-token-info"
       ]
     },
     "volume-08-dashboard-faq-and-living-docs": {
@@ -552,209 +552,6 @@
       ]
     },
     {
-      "pageId": "authored-vibe-oi-and-liquidity",
-      "title": "Vibe Open Interest And Available Liquidity",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-oi-liquidity",
-        "vibe-architecture",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-order-types",
-      "title": "Vibe Order Types",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-portfolio-and-account-data",
-      "title": "Vibe Portfolio And Account Data",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-portfolio",
-        "vibe-points",
-        "vibe-deposits-withdrawals"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-pwa-notification-categories",
-      "title": "Vibe PWA Notification Categories",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-health-liquidations",
-        "vibe-account-portfolio"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-simple-trade-flow",
-      "title": "Vibe Simple Trade Flow",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-simple-trade",
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-architecture"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-stop-order-trigger-model",
-      "title": "Vibe Stop Order Trigger Model",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tpsl",
-      "title": "Vibe Take Profit And Stop Loss",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tpsl",
-        "vibe-order-types",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tpsl-slippage-threshold",
-      "title": "Vibe TP/SL Slippage Threshold",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tpsl",
-        "vibe-order-types",
-        "vibe-oi-liquidity"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tradingview-controls",
-      "title": "Vibe TradingView Controls",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tradingview-control",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tradingview-layouts-and-watchlists",
-      "title": "Vibe TradingView Layouts And Watchlists",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tradingview-control",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibecaps-margin-management",
-      "title": "VibeCaps Margin Management",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Risk And Margin",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-margin",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-volume-07-product-trading-and-risk",
-      "title": "Volume 07: Product, Trading, And Risk Guides",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "compendium",
-      "track": "Volume 07",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "spec-03",
-        "vibe-llms",
-        "vibe-margin",
-        "symmio-core"
-      ]
-    },
-    {
       "pageId": "authored-dashboard-invites",
       "title": "Dashboard My Invites",
       "volumeId": "volume-08-dashboard-faq-and-living-docs",
@@ -786,6 +583,161 @@
         "dashboard-app",
         "dashboard-settings",
         "dashboard-data"
+      ]
+    },
+    {
+      "pageId": "authored-dashboard-tasks",
+      "title": "Dashboard Tasks",
+      "volumeId": "volume-08-dashboard-faq-and-living-docs",
+      "volumeTitle": "Dashboard, FAQ, And Living Docs",
+      "section": "dashboard-reference",
+      "track": "Dashboard Views",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-tasks",
+        "dashboard-faq"
+      ]
+    },
+    {
+      "pageId": "authored-autonomous-market-creation",
+      "title": "Autonomous Market Creation",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-four-transitions",
+      "title": "The Four Transitions",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-market-creation-gap",
+      "title": "The Market Creation Gap",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-market-maturation-z-score",
+      "title": "Market Maturation And The Z-Score",
+      "volumeId": "volume-02-bootstrap-and-proof-of-value",
+      "volumeTitle": "Bootstrap Trilemma And Proof Of Value",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-market-lifecycle-gap",
+      "title": "The Lifecycle Gap As Product Surface",
+      "volumeId": "volume-03-listing-power-and-orderbooks",
+      "volumeTitle": "Listing Power And Orderbook Alternatives",
+      "section": "manifesto",
+      "track": "08 — Market Structure",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-hybrid-settlement-solver-stack",
+      "title": "Hybrid Settlement And Solver Stack",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "volumeTitle": "Solver, LP, And Protocol Operations",
+      "section": "manifesto",
+      "track": "07 — Technical Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-solver-owned-market-maker",
+      "title": "The Solver As Protocol-Owned Market Maker",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "volumeTitle": "Solver, LP, And Protocol Operations",
+      "section": "manifesto",
+      "track": "06 — Market Creation Architecture",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-papers"
+      ]
+    },
+    {
+      "pageId": "authored-vibe-trade-flow",
+      "title": "Vibe Trade Flow",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "volumeTitle": "Product, Trading, And Risk Guides",
+      "section": "product-reference",
+      "track": "Trading Flow",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ]
+    },
+    {
+      "pageId": "authored-search-insights-loop",
+      "title": "The Living Docs Loop",
+      "volumeId": "volume-08-dashboard-faq-and-living-docs",
+      "volumeTitle": "Dashboard, FAQ, And Living Docs",
+      "section": "answer-engine",
+      "track": "Search Insights",
+      "status": "publication-candidate",
+      "reviewReason": "candidate-final-review",
+      "reviewAction": "final-editorial-source-check-then-publish",
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "spec-06",
+        "spec-09"
       ]
     }
   ],
@@ -35694,209 +35646,6 @@
         "vibe-papers",
         "symmio-core",
         "symmio-intent-lifecycle"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-oi-and-liquidity",
-      "title": "Vibe Open Interest And Available Liquidity",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-oi-liquidity",
-        "vibe-architecture",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-order-types",
-      "title": "Vibe Order Types",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-portfolio-and-account-data",
-      "title": "Vibe Portfolio And Account Data",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-account-portfolio",
-        "vibe-points",
-        "vibe-deposits-withdrawals"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-pwa-notification-categories",
-      "title": "Vibe PWA Notification Categories",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Account And Safety",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-mobile-pwa",
-        "vibe-account-health-liquidations",
-        "vibe-account-portfolio"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-simple-trade-flow",
-      "title": "Vibe Simple Trade Flow",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-simple-trade",
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-architecture"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-stop-order-trigger-model",
-      "title": "Vibe Stop Order Trigger Model",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-order-types",
-        "vibe-tpsl",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tpsl",
-      "title": "Vibe Take Profit And Stop Loss",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tpsl",
-        "vibe-order-types",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tpsl-slippage-threshold",
-      "title": "Vibe TP/SL Slippage Threshold",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tpsl",
-        "vibe-order-types",
-        "vibe-oi-liquidity"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tradingview-controls",
-      "title": "Vibe TradingView Controls",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tradingview-control",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibe-tradingview-layouts-and-watchlists",
-      "title": "Vibe TradingView Layouts And Watchlists",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Trading Guides",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-tradingview-control",
-        "vibe-simple-trade"
-      ]
-    },
-    {
-      "pageId": "authored-vibecaps-margin-management",
-      "title": "VibeCaps Margin Management",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "product-reference",
-      "track": "Risk And Margin",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-margin",
-        "symmio-core"
-      ]
-    },
-    {
-      "pageId": "authored-volume-07-product-trading-and-risk",
-      "title": "Volume 07: Product, Trading, And Risk Guides",
-      "volumeId": "volume-07-product-trading-and-risk",
-      "volumeTitle": "Product, Trading, And Risk Guides",
-      "section": "compendium",
-      "track": "Volume 07",
-      "status": "publication-candidate",
-      "reviewReason": "candidate-final-review",
-      "reviewAction": "final-editorial-source-check-then-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "spec-03",
-        "vibe-llms",
-        "vibe-margin",
-        "symmio-core"
       ]
     },
     {

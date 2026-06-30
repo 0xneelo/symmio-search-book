@@ -3,7 +3,7 @@ id: "authored-vibe-tpsl"
 title: "Vibe Take Profit And Stop Loss"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-tpsl", "vibe-order-types", "vibe-simple-trade"]
 sourceUrls: ["https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md", "https://docs.vibe.trading/trading/order-types.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"]
 relatedGeneratedPages: ["vibe-tpsl", "vibe-order-types", "vibe-simple-trade", "vibe-account-portfolio"]

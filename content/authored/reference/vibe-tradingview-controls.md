@@ -3,7 +3,7 @@ id: "authored-vibe-tradingview-controls"
 title: "Vibe TradingView Controls"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-tradingview-control", "vibe-simple-trade"]
 sourceUrls: ["https://docs.vibe.trading/trading/tradingview-control.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"]
 relatedGeneratedPages: ["vibe-tradingview-control", "vibe-simple-trade", "vibe-account-portfolio"]

@@ -3,7 +3,7 @@ id: "authored-vibe-simple-trade-flow"
 title: "Vibe Simple Trade Flow"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-simple-trade", "vibe-order-types", "vibe-tpsl", "vibe-architecture"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/placing-a-simple-trade.md", "https://docs.vibe.trading/trading/order-types.md", "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md", "https://docs.vibe.trading/architectural-overview.md"]
 relatedGeneratedPages: ["vibe-simple-trade", "vibe-order-types", "vibe-tpsl", "authored-vibe-trade-flow"]

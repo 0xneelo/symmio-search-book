@@ -3,7 +3,7 @@ id: "authored-vibe-pwa-notification-categories"
 title: "Vibe PWA Notification Categories"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-mobile-pwa", "vibe-account-health-liquidations", "vibe-account-portfolio"]
 sourceUrls: ["https://docs.vibe.trading/trading/mobile-app-pwa.md", "https://docs.vibe.trading/trading/account-health-and-liquidations.md", "https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md"]

@@ -3,7 +3,7 @@ id: "authored-vibecaps-margin-management"
 title: "VibeCaps Margin Management"
 section: "product-reference"
 track: "Risk And Margin"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-margin", "symmio-core"]
 sourceUrls: ["https://docs.vibe.trading/trading/managing-vibecaps-margin.md", "https://docs.symm.io/getting-started/core-concepts.md"]
 relatedGeneratedPages: ["vibe-vibecaps-margin", "authored-collateral-margin-cva", "authored-token-vault-perps-versus-usdc-pools"]

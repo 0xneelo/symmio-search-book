@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 07 Trading And Risk Publication Review Batch
+
+- Promoted `12` Volume 07 trading/risk pages to `published`: Vibe Open Interest And Available Liquidity, Vibe Order Types, Vibe Portfolio And Account Data, Vibe PWA Notification Categories, Vibe Simple Trade Flow, Vibe Stop Order Trigger Model, Vibe Take Profit And Stop Loss, Vibe TP/SL Slippage Threshold, Vibe TradingView Controls, Vibe TradingView Layouts And Watchlists, VibeCaps Margin Management, and Volume 07: Product, Trading, And Risk Guides.
+- Preserved the trading-risk boundaries: coming-soon order types stay labeled as planned, TP/SL triggers are not exact-fill guarantees, TradingView and hotkey controls are UI controls rather than separate execution models, solver-side capacity remains distinct from open interest, and VibeCaps margin changes adjust liquidation cushion rather than position size.
+- Regenerated Search Book data so page-state counts now show `136` published pages, `662` candidate pages, `792` source companions, and `23` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Volume 07 Product Guide Publication Review Batch
 
 - Promoted `14` official Vibe product-guide pages to `published`: Vibe Account Creation And Login, Choosing A Vibe Login Path, Vibe Deposits And Withdrawals, Vibe Allocated Balance, Vibe Account History And CSV Export, Vibe Account Health And Liquidations, Vibe Collateral And Margining, Vibe Available Liquidity Capacity, Vibe Funding Payment Direction, Vibe Hotkeys, Vibe Hotkey Execution Guardrails, Vibe Mobile PWA, Installing The Vibe PWA On iOS, and Installing The Vibe PWA On Android.

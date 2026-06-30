@@ -3,7 +3,7 @@ id: "authored-vibe-tpsl-slippage-threshold"
 title: "Vibe TP/SL Slippage Threshold"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-tpsl", "vibe-order-types", "vibe-oi-liquidity"]
 sourceUrls: ["https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md", "https://docs.vibe.trading/trading/order-types.md", "https://docs.vibe.trading/trading/open-interest-oi-and-available-liquidity.md"]

@@ -3,7 +3,7 @@ id: "authored-vibe-portfolio-and-account-data"
 title: "Vibe Portfolio And Account Data"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-account-portfolio", "vibe-points", "vibe-deposits-withdrawals"]
 sourceUrls: ["https://docs.vibe.trading/trading/my-account-portfolio-charts-and-data.md", "https://docs.vibe.trading/trading/vibe-points.md", "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"]
 relatedGeneratedPages: ["vibe-account-portfolio", "authored-vibe-points-program", "vibe-deposits-withdrawals"]

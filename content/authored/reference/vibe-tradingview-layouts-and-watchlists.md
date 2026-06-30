@@ -3,7 +3,7 @@ id: "authored-vibe-tradingview-layouts-and-watchlists"
 title: "Vibe TradingView Layouts And Watchlists"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-tradingview-control", "vibe-simple-trade"]
 sourceUrls: ["https://docs.vibe.trading/trading/tradingview-control.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"]

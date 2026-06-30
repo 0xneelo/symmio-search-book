@@ -3,7 +3,7 @@ id: "authored-vibe-stop-order-trigger-model"
 title: "Vibe Stop Order Trigger Model"
 section: "product-reference"
 track: "Trading Guides"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-order-types", "vibe-tpsl", "vibe-simple-trade"]
 sourceUrls: ["https://docs.vibe.trading/trading/order-types.md", "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md"]
