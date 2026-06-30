@@ -967,6 +967,10 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
   const validPageIds = unique(context.chunks.map((chunk) => chunk.pageId));
   const validChunkIds = context.chunks.map((chunk) => chunk.id);
   const sourceKeysByChunkId = Object.fromEntries(context.chunks.map((chunk) => [chunk.id, chunk.sourceKeys || []]));
+  const sourceHrefBySourceKey = Object.fromEntries(
+    unique(context.chunks.flatMap((chunk) => chunk.sourceKeys || []))
+      .map((sourceKey) => [sourceKey, runtime.sourceByKey[sourceKey]?.href || ""]),
+  );
   return [
     {
       role: "system",
@@ -980,7 +984,8 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         "Each citation.pageId MUST be copied verbatim from a supplied chunk.pageId.",
         "Each citation.chunkIds item MUST be copied verbatim from supplied chunkId values.",
         "Each citation.sourceKey MUST come from the cited chunk's sourceKeys.",
-        "Each citation.sourceHref MUST be included and must match the cited sourceKey href supplied in citationSources.",
+        "Each citation.sourceHref MUST be copied from citationSources.sourceHref or validIds.sourceHrefBySourceKey for that same sourceKey.",
+        "Do not use chunk.sourceUrls as citation.sourceHref when citationSources supplies a sourceHref.",
         "Every substantive sentence must be grounded in supplied chunks; do not use latent knowledge.",
         "If answerGuidance.requiredPhrasesToPreserve is non-empty, every phrase in that array MUST appear verbatim in the answer text; do not replace it with synonyms or expanded wording.",
         "Before finalizing an answered response, scan answerGuidance.requiredPhrasesToPreserve and add a concise grounded sentence if any required phrase is absent.",
@@ -1009,6 +1014,7 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
           pageIds: validPageIds,
           chunkIds: validChunkIds,
           sourceKeysByChunkId,
+          sourceHrefBySourceKey,
         },
         exactRoute: context.exactRoute,
         glossaryRoute: context.glossaryRoute,

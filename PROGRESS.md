@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — SYN-215 Live RAG Refresh After Volume 03 Completion
+
+- Tightened `src/search-book/scripts/run-llm-rag-answer.mjs` so LLM citations copy canonical `sourceHref` values from `citationSources` / `validIds.sourceHrefBySourceKey` instead of chunk `sourceUrls`; the strict validator is unchanged.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,359` input tokens, `595` output tokens, and `$0.00116085`; bootstrap trilemma used `5,022` input tokens, `713` output tokens, and `$0.00118110`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `88,010` input tokens, `7,379` output tokens, and `$0.01762890`.
+
 ## 2026-06-30 — Remaining Volume 03 Listing Power Publication Batch
 
 - Promoted the remaining `23` Volume 03 Listing Power and Orderbooks manifesto pages to `published`, including the Ode source-navigation maps, order-book integration handshake, RFQ-before-book sequencing, programmatic graduation, strategic-implication pages, PumpFun/Uniswap lifecycle context, and long-tail/perps market-filter thesis pages.
@@ -34,7 +40,7 @@
 
 - Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure. No validator weakening or runtime logic change was needed.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,036` input tokens, `595` output tokens, and `$0.00111240`; bootstrap trilemma used `4,972` input tokens, `870` output tokens, and `$0.00126780`.
-- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `85,078` input tokens, `7,768` output tokens, and `$0.01742250`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
 ## 2026-06-30 — Volume 02 Bootstrap And Proof Manifesto Batch
 
