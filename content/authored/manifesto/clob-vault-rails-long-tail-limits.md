@@ -3,7 +3,7 @@ id: "authored-clob-vault-rails-long-tail-limits"
 title: "CLOB And Vault Rails Still Hit Long-Tail Limits"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid", "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/00-abstract"]

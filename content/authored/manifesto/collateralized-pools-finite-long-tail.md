@@ -3,7 +3,7 @@ id: "authored-collateralized-pools-finite-long-tail"
 title: "Collateralized Pools Have A Finite Long Tail"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx", "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/06-summary"]

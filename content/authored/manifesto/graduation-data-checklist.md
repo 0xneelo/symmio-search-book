@@ -3,7 +3,7 @@ id: "authored-graduation-data-checklist"
 title: "Graduation Data Checklist"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/06-programmatic-graduation"]
 relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-06-programmatic-graduation", "authored-programmatic-market-graduation", "authored-z-score-graduation-criteria"]

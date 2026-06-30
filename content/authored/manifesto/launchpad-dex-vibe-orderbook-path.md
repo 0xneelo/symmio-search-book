@@ -3,7 +3,7 @@ id: "authored-launchpad-dex-vibe-orderbook-path"
 title: "Launchpad To DEX To Vibe To Order Book"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/05-the-vibe-assembly-line", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/00-abstract"]
 relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-05-the-vibe-assembly-line", "neelo-05-ode-to-the-orderbook-part2-05-docs-00-abstract", "authored-market-assembly-line"]

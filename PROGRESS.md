@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 03 Lifecycle And Listing Operator-Review Batch
+
+- Promoted `15` stable Neelo-source Volume 03 manifesto pages to `published`: Binance As The Late-Stage Leviathan, CLOB And Vault Rails Still Hit Long-Tail Limits, Collateralized Pools Have A Finite Long Tail, Continuous Asset Lifecycle, What Changes If The Lifecycle Gap Is Filled, Monopoly Implications Of A Gap-Filling Protocol, Graduation Data Checklist, The Hypothetical Permissionless Perps Model, Launchpad To DEX To Vibe To Order Book, The Lifecycle Gap As Opportunity, Consequences Of The Lifecycle Gap, Defining The Lifecycle Gap, The Scale Of The Lifecycle Gap, Lifecycle Gap Summary, and The Barbell Structure Of Crypto Listings.
+- Preserved publication boundaries already present in the pages: live venue roles, listing policies, current counts/ratios, venue-specific parameters, downstream integrations, automatic graduation, exact eligibility, moat/dominance conclusions, investment claims, and product/risk/legal-sensitive promises remain outside these pages unless fresh primary-source/operator review clears them.
+- Regenerated Search Book data so page-state counts now show `283` published pages, `515` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — SYN-215 Live RAG Revalidation
 
 - Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` already contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
