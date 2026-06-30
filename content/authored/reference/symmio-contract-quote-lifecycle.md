@@ -3,7 +3,7 @@ id: "authored-symmio-contract-quote-lifecycle"
 title: "Symmio Contract Quote Lifecycle"
 section: "protocol-reference"
 track: "Symmio Contracts"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders", "symmio-llms"]
 sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio.md"]
 relatedGeneratedPages: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders", "symmio-how-trading-works"]
@@ -30,6 +30,10 @@ The architecture page also describes batch variants for PartyB group actions and
 ## Reader Implication
 
 When a user asks why a trade is pending, locked, open, close-pending, cancelled, or partially filled, the answer should route to lifecycle state, solver eligibility, collateral checks, and the quote's order type. The docs should not flatten those states into a generic "order status."
+
+## Publication Boundary
+
+Do not publish final Vibe order-type support, deployed contract versions, solver eligibility rules, quote deadlines, partial-fill rules, cancellation timings, or market-specific close behavior without product and implementation review. The source-backed claim is the official Symmio quote lifecycle vocabulary and contract-state sequence.
 
 ## Sources
 

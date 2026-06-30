@@ -3,7 +3,7 @@ id: "authored-options-intent-lifecycle"
 title: "Options Intent Lifecycle"
 section: "protocol-reference"
 track: "Symmio Options"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-architecture", "symmio-core", "symmio-options-docs", "symmio-options-technical-architecture", "symmio-options-facets", "symmio-options-partya-open", "symmio-options-partyb-open", "symmio-options-partya-close", "symmio-options-partyb-close", "symmio-options-instant-layer"]
 sourceUrls: ["https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/the-symmio-diamond.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-open-facet.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-open-facet.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partya-close-facet.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/facets/partyb-close-facet.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1/helper-contracts/instant-layer.md"]
 relatedGeneratedPages: ["authored-vibe-trade-flow", "authored-intents-and-solvers", "authored-symmio-party-a-party-b", "symmio-options-contracts", "symmio-settlement"]
@@ -49,7 +49,7 @@ The options implementation is organized through a Diamond architecture. The Diam
 
 The compendium should use these names whenever it explains options state. Vague lifecycle copy will not be precise enough for solvers, integrators, or support.
 
-## What Vibe Can Say Today
+## Publication Boundary
 
 The source-backed connection is this: Vibe exposes an intent-and-solver user experience, and Symmio options exposes open/close intent mechanics for options contracts. That is enough to document the conceptual lifecycle from product intention to protocol state.
 

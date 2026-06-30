@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Symmio Contract Reference Operator-Review Batch
+
+- Promoted `6` official-source Symmio reference pages to `published`: Options Intent Lifecycle, Symmio Account Layer And Virtual Accounts, Symmio Contract Quote Lifecycle, Symmio Contract Surface, Symmio Frontend Builder And Audit Posture, and Symmio Withdrawal And Provider System.
+- Added or normalized publication boundaries for version-sensitive contract surfaces, frontend-specific support, deployed contract addresses, Vibe product packaging, audit/security scope, withdrawal provider coverage, quote timing, account-isolation defaults, and options product terms.
+- Regenerated Search Book data so page-state counts now show `352` published pages, `446` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — DDQ Risk-Flow Operator-Review Batch
 
 - Promoted `11` stable Neelo-source DDQ protocol-reference pages to `published`: DDQ Closeout And Settlement Risk Holder, DDQ Execution And Netting Risk Split, DDQ Imbalance Management And Hedging Step, DDQ Local Insurance Tail Buffer, DDQ One-To-One Backing Limit, DDQ Ongoing Position Lifecycle Risk, DDQ Order Submission Risk Holder, DDQ Proprietary Solver Role, DDQ Systemic Leverage Ramp, DDQ Token Vault Liquidity Role, and DDQ USDC Vault Supply Attack Pattern.

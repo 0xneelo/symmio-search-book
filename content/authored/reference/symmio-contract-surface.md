@@ -3,7 +3,7 @@ id: "authored-symmio-contract-surface"
 title: "Symmio Contract Surface"
 section: "protocol-reference"
 track: "Symmio Contracts"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["symmio-contract-architecture", "symmio-core", "symmio-options-docs"]
 sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/contract-documentation/symmio-options-v0.2.1.md"]
 relatedGeneratedPages: ["symmio-contract-architecture", "symmio-core-concepts", "symmio-options-contracts"]
@@ -27,7 +27,7 @@ Around those diamonds sit supporting contracts: the external Muon signature veri
 
 Vibe readers should not think of Symmio as only a generic backend. It is an intent-based bilateral settlement stack with separated surfaces for account organization, user-signed execution, solver/PartyB operations, signatures, liquidation, and withdrawal delivery.
 
-## Publication Note
+## Publication Boundary
 
 The architecture page is version-sensitive. Final publication should verify the current Symmio version, deployed contract set, and whether Vibe uses the same surfaces for each product before presenting any contract inventory as live production fact.
 

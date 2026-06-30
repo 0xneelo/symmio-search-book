@@ -3,7 +3,7 @@ id: "authored-symmio-account-layer-virtual-accounts"
 title: "Symmio Account Layer And Virtual Accounts"
 section: "protocol-reference"
 track: "Symmio Contracts"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["symmio-contract-architecture", "symmio-core"]
 sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/getting-started/core-concepts.md"]
 relatedGeneratedPages: ["symmio-contract-architecture", "symmio-core-concepts", "authored-symmio-cross-margin-liquidations"]
@@ -28,6 +28,10 @@ The architecture page also names isolation modes: one Virtual Account per positi
 ## Reader Implication
 
 For traders, this explains why margin, liquidation, and withdrawals may depend on which account or isolated position container holds the funds. For frontend builders, it explains why account UX must map product concepts onto SubAccounts and Virtual Accounts rather than hiding all settlement state behind one balance label.
+
+## Publication Boundary
+
+Do not publish final Vibe account-mode support, deployed account-layer versions, frontend-specific isolation defaults, withdrawal UX promises, or contract-address inventories without product and implementation review. The source-backed claim is the Symmio account hierarchy and the role of Virtual Accounts as isolated PartyA containers.
 
 ## Sources
 

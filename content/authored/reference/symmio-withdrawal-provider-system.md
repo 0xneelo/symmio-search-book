@@ -3,7 +3,7 @@ id: "authored-symmio-withdrawal-provider-system"
 title: "Symmio Withdrawal And Provider System"
 section: "protocol-reference"
 track: "Symmio Contracts"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["symmio-contract-architecture", "symmio-contract-interactions"]
 sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/trader-documentation/interacting-with-contracts.md"]
 relatedGeneratedPages: ["symmio-contract-architecture", "symmio-contracts", "authored-vibe-deposits-and-withdrawals"]
@@ -25,7 +25,7 @@ The current architecture page names several withdrawal paths: normal same-chain 
 
 Express providers can front funds for a fee. Virtual providers support cross-chain delivery and implement lifecycle callbacks. The page also describes cancellation behavior, blackout windows around provider acceptance, and administrative force-cancel paths.
 
-## Publication Note
+## Publication Boundary
 
 The exact withdrawal paths, cooldowns, fees, provider coverage, and Vibe product support should be verified on publication date. This page documents Symmio architecture, not a promise that every path is live in every frontend.
 

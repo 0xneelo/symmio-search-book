@@ -3,7 +3,7 @@ id: "authored-symmio-frontend-builder-audit-posture"
 title: "Symmio Frontend Builder And Audit Posture"
 section: "protocol-reference"
 track: "Symmio Builder And Security"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["symmio-frontend-builder", "symmio-audit-reports", "symmio-contract-architecture"]
 sourceUrls: ["https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md", "https://docs.symm.io/security-and-architecture/audit-reports.md", "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md"]
 relatedGeneratedPages: ["symmio-frontend-builder", "symmio-audits", "symmio-contract-architecture"]
@@ -28,6 +28,10 @@ The safe publication pattern is versioned and source-specific: name the contract
 ## Reader Implication
 
 When someone asks "is Symmio audited?" or "who operates the frontend?", answer with the separation of responsibilities first: protocol infrastructure, third-party frontend operator, and versioned audit evidence. Then route Vibe-specific claims to Vibe's own public security page and product docs.
+
+## Publication Boundary
+
+Do not publish an audit as covering every future module, every third-party frontend, every Vibe product surface, or every deployed contract version unless the specific audit scope and product version have been checked. The source-backed claim is the B2B frontend-builder model and the existence of a versioned official audit index.
 
 ## Sources
 
