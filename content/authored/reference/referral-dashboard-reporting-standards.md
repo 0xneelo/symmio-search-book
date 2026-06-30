@@ -3,7 +3,7 @@ id: "authored-referral-dashboard-reporting-standards"
 title: "Referral Dashboard Reporting Standards"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework#9-3-reporting-rules", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability", "_specs/app-docs/03-grounding.md"]
@@ -34,6 +34,10 @@ The design coverage map is a routing layer for referral documentation. It says c
 ## Reader Implication
 
 Referral dashboards should present metrics as versioned evidence, not free-floating proof. A public chart needs phase labels, formula versions, organic-versus-campaign separation, and a link back to the rule that defines it.
+
+## Publication Boundary
+
+This page defines reporting standards for public referral dashboards. It should not publish live dashboard availability, exact KPI formulas, metric thresholds, campaign import rules, anomaly flags, false-positive rates, or launch-phase performance targets until operator and implementation review confirm the public reporting contract.
 
 ## Sources
 

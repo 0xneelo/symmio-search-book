@@ -3,7 +3,7 @@ id: "authored-referral-program-source-table-of-contents"
 title: "Referral Program Source Table Of Contents"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/overview#table-of-contents", "_specs/app-docs/03-grounding.md"]
@@ -38,6 +38,10 @@ Use the source map as a routing layer:
 ## Documentation Rule
 
 When a user asks a referral question, route to the chapter that owns the claim instead of answering from a convenient neighboring page. This avoids using a metric page as policy, a rewards-pack page as live product promise, or a hypothetical tokenized-points page as current roadmap.
+
+## Publication Boundary
+
+This page is a source-routing map, not a final referral policy. It should not publish live eligibility, payout, transferability, TGE settlement, reward-pack, anti-gaming, signer, or rollout decisions from neighboring chapters. Current public referral depth is 15 levels with additive backfill; Phase B economics and final TGE settlement formulas remain outside this page's v1 answer scope.
 
 ## Sources
 

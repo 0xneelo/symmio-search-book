@@ -3,7 +3,8 @@ id: "authored-referral-metrics-and-integrity"
 title: "Referral Metrics And Integrity"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/08-security-controls", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/09-metrics-framework#9-2-kpi-layers", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-08-security-controls", "neelo-17-referral-program-17-docs-09-metrics-framework", "section-17-referral-program-17-docs-09-metrics-framework-9-2-kpi-layers", "neelo-17-referral-program-17-docs-12-product-metrics-prebeta-beta"]
@@ -33,6 +34,10 @@ The design principle is simple: incentive systems should fail closed on settleme
 ## Reader Implication
 
 The docs should report referral growth with phase labels, formula versions, and organic-versus-campaign separation. They should also expose the integrity frame so users understand that anti-gaming controls are part of the product, not friction added after the fact.
+
+## Publication Boundary
+
+This page can publish the source-backed metric layers and integrity categories. It should not publish live KPI targets, campaign thresholds, anomaly scores, dispute procedures, signer/key-rotation details, vesting formulas, reward-deviation tolerances, or enforcement outcomes until operator, implementation, security, legal, and accounting review confirm them.
 
 ## Sources
 

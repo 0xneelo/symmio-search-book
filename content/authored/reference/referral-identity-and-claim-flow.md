@@ -3,7 +3,8 @@ id: "authored-referral-identity-and-claim-flow"
 title: "Referral Identity And Claim Flow"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/02-architecture", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-01-system-baseline", "neelo-17-referral-program-17-docs-02-architecture", "section-17-referral-program-17-docs-02-architecture-2-2-canonical-flow"]
@@ -31,7 +32,11 @@ The key design rule is that fast-changing policy can stay off-chain only if it i
 
 ## Reader Implication
 
-Do not describe referral identity as only a marketing code. In the compendium it is an attribution and settlement primitive. The open referral-depth question remains parked, but the identity and claim-flow architecture can still be explained safely.
+Do not describe referral identity as only a marketing code. In the compendium it is an attribution and settlement primitive. The public referral-depth stance is resolved at 15 levels with additive historical backfill, while identity, activation, and claim-flow implementation details still need their own policy and security boundaries.
+
+## Publication Boundary
+
+This page explains the source-backed identity and claim-flow model. It should not publish final referral NFT metadata, code-activation thresholds, signer topology, claim authorization format, settlement contract path, rollout timing, exception policy, or transferability rules until operator, implementation, security, legal, and accounting review confirm them.
 
 ## Sources
 

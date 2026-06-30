@@ -3,7 +3,7 @@ id: "authored-referral-design-coverage-routing-map"
 title: "Referral Design Coverage Routing Map"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/14-meeting-traceability#how-to-use-this-page", "_specs/app-docs/03-grounding.md"]
@@ -37,6 +37,10 @@ That keeps the compendium maintainable as the referral system grows.
 ## Reader Implication
 
 When an answer spans multiple referral concepts, route first to the page that owns the concept, then cross-link to companion pages. The map prevents the docs from becoming a set of duplicated answers with slightly different policy.
+
+## Publication Boundary
+
+This page publishes chapter ownership and answer-routing rules. It should not turn neighboring chapters into final live policy, especially for referral depth, payout eligibility, rakeback tiers, points settlement, reward packs, tokenized-points scenarios, signer controls, rollout capacity, or anti-gaming enforcement.
 
 ## Sources
 

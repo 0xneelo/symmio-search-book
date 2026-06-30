@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Architecture Source-Map Batch
+
+- Promoted `8` Volume 06 rewards/referrals architecture pages to `published`: Referral Program Source Table Of Contents, Referral Three-Plane Architecture, Referral Identity And Claim Flow, Referral Unified Access And Identity, Referral Metrics And Integrity, Referral Dashboard Reporting Standards, Referral Design Coverage Routing Map, and Referral Related Chapter Routing.
+- Added or preserved publication boundaries for referral source routing, three-plane architecture, identity/claim flow, unified access identity, metrics integrity, dashboard reporting, chapter ownership, public 15-level referral depth with additive backfill, Phase B refusal, final TGE settlement, reward economics, transferability, signer/security controls, rollout capacity, and anti-gaming enforcement.
+- Regenerated Search Book data so page-state counts now show `722` published pages, `76` candidate pages, `792` source companions, `798/798` exact routes, `2,871` chunks, `0` Volume 05 candidates, `76` Volume 06 candidates, `0` protocol-reference candidates, `76` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Final Volume 05 Boundary-Page Batch
 
 - Promoted the final `3` Volume 05 protocol/source-boundary pages to `published`: Symmio Whitepaper History Boundary, Solver Worst-Case Scenarios Source Map, and SuperFlow SHE API Boundary.
