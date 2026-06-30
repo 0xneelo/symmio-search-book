@@ -3,7 +3,7 @@ id: "authored-solver-operational-failure-force-close"
 title: "Solver Operational Failure And Force Close"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/iii-operation-failure-aftermath"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-i-operational-failure", "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-iii-operation-failure-aftermath", "authored-bilateral-intent-lifecycle", "authored-solver-event-monitoring"]
@@ -25,9 +25,9 @@ This is the right way to document the risk: the escape hatch reduces dependence 
 
 For leveraged trading, a long-horizon withdrawal-only emergency path is not enough. A trader needs a position-level close path because exposure can change materially in minutes. The DDQ frames Force Close as a position-specific escape hatch for solver unresponsiveness.
 
-## Publication Note
+## Publication Boundary
 
-This page should remain under operator and implementation review until exact Force Close availability, timer values, proof source, freshness constraints, and UI behavior are confirmed for the production product.
+This page can publish the source-backed Force Close model for solver unresponsiveness. Exact Force Close availability, timer values, proof source, freshness constraints, supported markets, and UI behavior remain operator and implementation-review items before publication as current production behavior.
 
 ## Sources
 

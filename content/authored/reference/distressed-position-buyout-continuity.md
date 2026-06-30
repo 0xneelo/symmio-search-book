@@ -3,7 +3,7 @@ id: "authored-distressed-position-buyout-continuity"
 title: "Distressed Position Buyout Continuity"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation"]
@@ -22,7 +22,7 @@ The source's continuity design also clarifies why CVA and buyout are complementa
 
 ## Publication Boundary
 
-This page should not publish a live buyout probability, auction rule, discount formula, solver eligibility standard, or guarantee that user positions always continue after a solver default. It documents the DDQ model and requires implementation review before production publication.
+This page should not publish a live buyout probability, auction rule, discount formula, solver eligibility standard, or guarantee that user positions always continue after a solver default. It documents the DDQ model; implementation details require review before publication as current production behavior.
 
 ## Sources
 

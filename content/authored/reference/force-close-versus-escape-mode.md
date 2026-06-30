@@ -3,7 +3,7 @@ id: "authored-force-close-versus-escape-mode"
 title: "Force Close Versus Escape Mode"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/ii-comparsion-to-other-protocols", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/a-operational-failures/i-operational-failure"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-ii-comparsion-to-other-protocols", "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-a-operational-failures-i-operational-failure", "authored-solver-operational-failure-force-close"]
@@ -28,9 +28,9 @@ The DDQ therefore frames Force Close as surgical rather than global. The user is
 
 The source's comparison should not be read as "there is no risk if a solver goes offline." Force Close reduces dependence on solver uptime, but it still leaves market-movement risk during the timer, proof, and execution window. It also depends on production proof availability, proof freshness, supported markets, and UI behavior.
 
-## Publication Note
+## Publication Boundary
 
-This page should remain review-marked until exact production Force Close availability, timer values, proof network details, proof freshness constraints, supported position types, and fallback UI are verified.
+This page can publish the source-backed distinction between position-level Force Close and broader escape-mode recovery. Exact production Force Close availability, timer values, proof-network details, proof freshness constraints, supported position types, and fallback UI remain implementation-review items before publication as current production behavior.
 
 ## Sources
 

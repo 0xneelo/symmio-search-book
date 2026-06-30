@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Force Close And Closeout Protocol Batch
+
+- Promoted `9` Neelo DDQ protocol-reference pages to `published`: Distressed Position Buyout Continuity, Executable Closeout Pricing, Force Close Failure Detection, Force Close Latency Risk, Force Close Price Proof, Force Close Proof Network, Force Close Protocol Timer, Force Close Versus Escape Mode, and Solver Operational Failure And Force Close.
+- Normalized review notes into publication boundaries for Force Close versus escape-mode recovery and solver operational failure, keeping exact production timer values, proof formats, proof-network topology, supported markets, UI prompts, closeout formulas, buyout/auction rules, solver eligibility, and continuity guarantees under implementation/operator/security/risk review.
+- Regenerated Search Book data so page-state counts now show `377` published pages, `421` candidate pages, `792` source companions, `798/798` exact routes, and `96` protocol-reference candidate pages remaining.
+
 ## 2026-06-30 — Singleton Candidate Publication Batch
 
 - Promoted the final `2` singleton review-lane pages to `published`: What Vibe x Symmio Should Borrow From The Best Docs and Volume 06: Referrals And Market Formation.
