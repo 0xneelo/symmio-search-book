@@ -3,7 +3,7 @@ id: "authored-dashboard-settings"
 title: "Dashboard Settings"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-settings", "dashboard-data"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/settings.jsx", "src/dashboard/data.jsx"]
 relatedGeneratedPages: ["local-dashboard-points-distinction"]

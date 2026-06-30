@@ -3,7 +3,7 @@ id: "authored-hybrid-settlement-solver-stack"
 title: "Hybrid Settlement And Solver Stack"
 section: "manifesto"
 track: "07 — Technical Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-1-system-architecture-overview", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-2-settlement-layer-on-chain", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-solver-layer-off-chain", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-4-oracle-layer"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-1-system-architecture-overview", "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-2-settlement-layer-on-chain", "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-3-solver-layer-off-chain", "section-01-perp-classes-zscore-01-docs-06-technical-deep-dive-6-4-oracle-layer"]

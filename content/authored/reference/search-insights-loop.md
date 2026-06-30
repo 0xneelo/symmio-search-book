@@ -3,7 +3,7 @@ id: "authored-search-insights-loop"
 title: "The Living Docs Loop"
 section: "answer-engine"
 track: "Search Insights"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["spec-06", "spec-09"]
 sourceUrls: ["_specs/app-docs/06-answer-engine.md", "_specs/app-docs/09-design-reference.md"]
 relatedGeneratedPages: []

@@ -3,7 +3,7 @@ id: "authored-vibe-product-overview"
 title: "Vibe Product Overview"
 section: "product-reference"
 track: "Vibe Basics"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-what-is", "vibe-platform", "vibe-architecture", "vibe-papers", "vibe-llms"]
 sourceUrls: ["https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md", "https://docs.vibe.trading/about-vibe-trading/the-platform.md", "https://docs.vibe.trading/architectural-overview.md", "https://github.com/0xneelo/vibe_docs", "https://docs.vibe.trading/about-vibe-trading/about-us.md"]
 relatedGeneratedPages: ["vibe-product-what-is", "vibe-product-about-us", "vibe-architecture-amfq", "authored-vibe-as-discovery-layer", "authored-market-assembly-line"]

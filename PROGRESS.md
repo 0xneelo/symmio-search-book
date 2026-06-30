@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Remaining Final-Ready Candidate Publication Review Batch
+
+- Promoted the remaining `23` final-review-ready candidate pages to `published`: Vibe Product Overview, Barometer Subgraph Upgrade, Volume 01: Orientation And Core Thesis, Volume 02: Bootstrap Trilemma And Proof Of Value, Vibe As The Discovery Layer, Volume 03: Listing Power And Orderbook Alternatives, Token-Margined LPs Are Short Volatility, Tradable Before Continuous Flow, The Three Vibe Pillars, Volume 04: Token Margin, Pillars, And Funding Systems, Volume 05: Solver, LP, And Protocol Operations, Dashboard My Invites, Dashboard Settings, Dashboard Tasks, Autonomous Market Creation, The Four Transitions, The Market Creation Gap, Market Maturation And The Z-Score, The Lifecycle Gap As Product Surface, Hybrid Settlement And Solver Stack, The Solver As Protocol-Owned Market Maker, Vibe Trade Flow, and The Living Docs Loop.
+- Added one exact Ask route for `What is the Vibe trade flow?` so the broader architecture page routes separately from the simple ticket-walkthrough page.
+- Preserved the review boundaries already present in those pages: Vibe market counts remain publication-date claims, Barometer endpoint/schema details remain implementation-tracked, Z-score is a Neelo model rather than a confirmed live dashboard metric, dashboard settings avoid implying active email recovery, and Search Insights is local/prototype unless the production service route is configured.
+- Regenerated Search Book data so page-state counts now show `159` published pages, `639` candidate pages, `792` source companions, `798/798` exact routes, and `0` final-review-ready candidates remaining before the operator/source/editorial review lanes.
+
 ## 2026-06-30 — Volume 07 Trading And Risk Publication Review Batch
 
 - Promoted `12` Volume 07 trading/risk pages to `published`: Vibe Open Interest And Available Liquidity, Vibe Order Types, Vibe Portfolio And Account Data, Vibe PWA Notification Categories, Vibe Simple Trade Flow, Vibe Stop Order Trigger Model, Vibe Take Profit And Stop Loss, Vibe TP/SL Slippage Threshold, Vibe TradingView Controls, Vibe TradingView Layouts And Watchlists, VibeCaps Margin Management, and Volume 07: Product, Trading, And Risk Guides.

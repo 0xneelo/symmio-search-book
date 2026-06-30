@@ -3,7 +3,7 @@ id: "authored-volume-05-solver-lp-and-protocol-operations"
 title: "Volume 05: Solver, LP, And Protocol Operations"
 section: "compendium"
 track: "Volume 05"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["spec-02", "spec-03", "vibe-papers", "symmio-core", "symmio-intent-lifecycle"]
 sourceUrls: ["_specs/app-docs/02-narrative-thesis.md", "_specs/app-docs/03-grounding.md", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive", "https://0xneelo.github.io/vibe_docs/docs/08-ddq/08-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/01-executive-summary", "https://docs.symm.io/"]

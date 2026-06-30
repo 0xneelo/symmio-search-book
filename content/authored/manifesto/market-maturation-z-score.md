@@ -3,7 +3,7 @@ id: "authored-market-maturation-z-score"
 title: "Market Maturation And The Z-Score"
 section: "manifesto"
 track: "06 — Market Creation Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-4-the-market-maturation-process", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-5-the-z-score-measuring-market-maturity"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-4-the-market-maturation-process", "section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-5-the-z-score-measuring-market-maturity"]

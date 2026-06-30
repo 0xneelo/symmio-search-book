@@ -3,7 +3,7 @@ id: "authored-four-transitions"
 title: "The Four Transitions"
 section: "manifesto"
 track: "06 — Market Creation Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-2-the-four-transitions"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-2-the-four-transitions"]

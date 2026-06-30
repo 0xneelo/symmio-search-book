@@ -3,7 +3,7 @@ id: "authored-volume-01-orientation-and-thesis"
 title: "Volume 01: Orientation And Core Thesis"
 section: "compendium"
 track: "Volume 01"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["spec-01", "spec-02", "spec-05", "vibe-papers", "hyperliquid-hip3"]
 sourceUrls: ["_specs/app-docs/01-mission.md", "_specs/app-docs/02-narrative-thesis.md", "_specs/app-docs/05-architecture.md", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/00-abstract", "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md"]

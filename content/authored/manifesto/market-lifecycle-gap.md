@@ -3,7 +3,7 @@ id: "authored-market-lifecycle-gap"
 title: "The Lifecycle Gap As Product Surface"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications#7-1-filling-the-market-lifecycle-gap", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap#4-1-defining-the-gap"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-07-industry-implications-7-1-filling-the-market-lifecycle-gap", "section-03-listing-monopoly-03-docs-04-the-lifecycle-gap-4-1-defining-the-gap"]

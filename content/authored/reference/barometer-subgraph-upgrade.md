@@ -3,7 +3,7 @@ id: "authored-barometer-subgraph-upgrade"
 title: "Barometer Subgraph Upgrade"
 section: "dashboard-reference"
 track: "Volume"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["syn-200", "goldsky-subgraphs", "goldsky-graphql-endpoints", "server-volume", "spec-03"]
 sourceUrls: ["Linear SYN-200", "https://docs.goldsky.com/subgraphs/introduction", "https://docs.goldsky.com/subgraphs/graph-endpoints", "server/volume.js", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["linear-subgraph-volume", "local-volume-source", "local-volume-snapshots"]

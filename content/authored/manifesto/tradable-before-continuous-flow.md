@@ -3,7 +3,7 @@ id: "authored-tradable-before-continuous-flow"
 title: "Tradable Before Continuous Flow"
 section: "manifesto"
 track: "07 - Architecture Thesis"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/03-pillar-two-bootstrap-and-counterparty"]

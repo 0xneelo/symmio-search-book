@@ -3,7 +3,7 @@ id: "authored-vibe-pillars"
 title: "The Three Vibe Pillars"
 section: "manifesto"
 track: "07 — Architecture Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/00-abstract"]
 relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-overview", "neelo-10-vibe-pillars-10-docs-00-abstract"]

@@ -3,7 +3,7 @@ id: "authored-dashboard-tasks"
 title: "Dashboard Tasks"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-tasks", "dashboard-faq"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/tasks.jsx", "src/dashboard/faq.jsx"]
 relatedGeneratedPages: ["local-points-engine", "local-dashboard-points-distinction", "local-dashboard-faq"]

@@ -3,7 +3,7 @@ id: "authored-autonomous-market-creation"
 title: "Autonomous Market Creation"
 section: "manifesto"
 track: "06 — Market Creation Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-6-the-vision-autonomous-market-creation"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-01-introduction-1-6-the-vision-autonomous-market-creation"]

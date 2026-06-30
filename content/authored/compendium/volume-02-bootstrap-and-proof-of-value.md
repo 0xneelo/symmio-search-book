@@ -3,7 +3,7 @@ id: "authored-volume-02-bootstrap-and-proof-of-value"
 title: "Volume 02: Bootstrap Trilemma And Proof Of Value"
 section: "compendium"
 track: "Volume 02"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers", "spec-02"]
 sourceUrls: ["_specs/app-docs/02-narrative-thesis.md", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/13-proof-of-value/13-docs/00-abstract"]

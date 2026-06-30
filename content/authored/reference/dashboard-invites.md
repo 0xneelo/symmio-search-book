@@ -3,7 +3,7 @@ id: "authored-dashboard-invites"
 title: "Dashboard My Invites"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-codes", "dashboard-faq"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/codes.jsx", "src/dashboard/faq.jsx"]
 relatedGeneratedPages: ["local-dashboard-faq"]

@@ -3,7 +3,7 @@ id: "authored-vibe-trade-flow"
 title: "Vibe Trade Flow"
 section: "product-reference"
 track: "Trading Flow"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-architecture", "symmio-core", "symmio-intent-lifecycle"]
 sourceUrls: ["https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]
 relatedGeneratedPages: ["vibe-architecture-amfq", "symmio-core-concepts", "symmio-intent-lifecycle"]

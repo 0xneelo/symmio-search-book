@@ -8,15 +8,15 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 799,
-  "totalAnswerable": 797,
+  "totalEntries": 800,
+  "totalAnswerable": 798,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 120,
-    "Trading Flow": 44,
+    "Trading Flow": 45,
     "Solvers And Settlement": 180,
     "Data And Volume": 9,
     "Revenue": 98,
@@ -28,14 +28,14 @@
   },
   "byConfidence": {
     "Medium": 499,
-    "High": 45,
+    "High": 46,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 797
+    "authored": 798
   },
   "byType": {
-    "answerable": 797,
+    "answerable": 798,
     "reconciliation": 2
   },
   "answerable": [
@@ -53,7 +53,7 @@
       "pageTitle": "Vibe Product Overview",
       "pageSection": "product-reference",
       "pageTrack": "Vibe Basics",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
@@ -114,7 +114,7 @@
       "pageTitle": "Vibe Product Overview",
       "pageSection": "product-reference",
       "pageTrack": "Vibe Basics",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
@@ -570,7 +570,7 @@
       "pageTitle": "Volume 01: Orientation And Core Thesis",
       "pageSection": "compendium",
       "pageTrack": "Volume 01",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "spec-01",
@@ -631,7 +631,7 @@
       "pageTitle": "Volume 02: Bootstrap Trilemma And Proof Of Value",
       "pageSection": "compendium",
       "pageTrack": "Volume 02",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -668,7 +668,7 @@
       "pageTitle": "Volume 03: Listing Power And Orderbook Alternatives",
       "pageSection": "compendium",
       "pageTrack": "Volume 03",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -713,7 +713,7 @@
       "pageTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
       "pageSection": "compendium",
       "pageTrack": "Volume 04",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -766,7 +766,7 @@
       "pageTitle": "Volume 05: Solver, LP, And Protocol Operations",
       "pageSection": "compendium",
       "pageTrack": "Volume 05",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "spec-02",
@@ -1095,6 +1095,51 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-vibe-trade-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the Vibe trade flow?",
+      "normalizedQuestion": "what is the vibe trade flow",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle sources support the request, quote, accept, settle, and monitor mental model.",
+      "answerSummary": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent b...",
+      "confidence": "High",
+      "pageId": "authored-vibe-trade-flow",
+      "pageTitle": "Vibe Trade Flow",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -3450,7 +3495,7 @@
       "pageTitle": "Dashboard My Invites",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -3763,7 +3808,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -3824,7 +3869,7 @@
       "pageTitle": "Dashboard Tasks",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -3869,7 +3914,7 @@
       "pageTitle": "Dashboard Settings",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -4126,7 +4171,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -5215,7 +5260,7 @@
       "pageTitle": "Vibe As The Discovery Layer",
       "pageSection": "manifesto",
       "pageTrack": "03 — Hyperliquid And Market Graduation",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -9805,7 +9850,7 @@
       "pageTitle": "The Three Vibe Pillars",
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -11532,7 +11577,7 @@
       "pageTitle": "Tradable Before Continuous Flow",
       "pageSection": "manifesto",
       "pageTrack": "07 - Architecture Thesis",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -22769,7 +22814,7 @@
       "pageTitle": "Token-Margined LPs Are Short Volatility",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -26210,7 +26255,7 @@
       "pageTitle": "Vibe Product Overview",
       "pageSection": "product-reference",
       "pageTrack": "Vibe Basics",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
@@ -26271,7 +26316,7 @@
       "pageTitle": "Vibe Product Overview",
       "pageSection": "product-reference",
       "pageTrack": "Vibe Basics",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-what-is",
@@ -26727,7 +26772,7 @@
       "pageTitle": "Volume 01: Orientation And Core Thesis",
       "pageSection": "compendium",
       "pageTrack": "Volume 01",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "spec-01",
@@ -26788,7 +26833,7 @@
       "pageTitle": "Volume 02: Bootstrap Trilemma And Proof Of Value",
       "pageSection": "compendium",
       "pageTrack": "Volume 02",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -26825,7 +26870,7 @@
       "pageTitle": "Volume 03: Listing Power And Orderbook Alternatives",
       "pageSection": "compendium",
       "pageTrack": "Volume 03",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -26870,7 +26915,7 @@
       "pageTitle": "Volume 04: Token Margin, Pillars, And Funding Systems",
       "pageSection": "compendium",
       "pageTrack": "Volume 04",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -26923,7 +26968,7 @@
       "pageTitle": "Volume 05: Solver, LP, And Protocol Operations",
       "pageSection": "compendium",
       "pageTrack": "Volume 05",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "spec-02",
@@ -27252,6 +27297,51 @@
           "group": "Public Symmio Sources",
           "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
           "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-vibe-trade-flow",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What is the Vibe trade flow?",
+      "normalizedQuestion": "what is the vibe trade flow",
+      "shortAnswer": "Vibe architecture and Symmio lifecycle sources support the request, quote, accept, settle, and monitor mental model.",
+      "answerSummary": "Vibe Trade Flow The user facing flow is simple: a trader expresses what they want, solvers respond with executable terms, and the accepted trade proceeds into the protocol lifecycle. The implementation details are deeper, but the mental model is request, quote, accept, settle, monitor. Vibe's public architecture source frames the front half as an intent b...",
+      "confidence": "High",
+      "pageId": "authored-vibe-trade-flow",
+      "pageTitle": "Vibe Trade Flow",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
           "missing": false
         }
       ]
@@ -29607,7 +29697,7 @@
       "pageTitle": "Dashboard My Invites",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -29920,7 +30010,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -29981,7 +30071,7 @@
       "pageTitle": "Dashboard Tasks",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -30026,7 +30116,7 @@
       "pageTitle": "Dashboard Settings",
       "pageSection": "dashboard-reference",
       "pageTrack": "Dashboard Views",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "dashboard-app",
@@ -30283,7 +30373,7 @@
       "pageTitle": "Barometer Subgraph Upgrade",
       "pageSection": "dashboard-reference",
       "pageTrack": "Volume",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "syn-200",
@@ -31372,7 +31462,7 @@
       "pageTitle": "Vibe As The Discovery Layer",
       "pageSection": "manifesto",
       "pageTrack": "03 — Hyperliquid And Market Graduation",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers",
@@ -35962,7 +36052,7 @@
       "pageTitle": "The Three Vibe Pillars",
       "pageSection": "manifesto",
       "pageTrack": "07 — Architecture Thesis",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -37689,7 +37779,7 @@
       "pageTitle": "Tradable Before Continuous Flow",
       "pageSection": "manifesto",
       "pageTrack": "07 - Architecture Thesis",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"
@@ -48926,7 +49016,7 @@
       "pageTitle": "Token-Margined LPs Are Short Volatility",
       "pageSection": "manifesto",
       "pageTrack": "07 - Token-Margined Issues (Percolator)",
-      "pageStatus": "publication-candidate",
+      "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
         "vibe-papers"

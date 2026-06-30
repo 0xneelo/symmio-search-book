@@ -3,7 +3,7 @@ id: "authored-vibe-as-discovery-layer"
 title: "Vibe As The Discovery Layer"
 section: "manifesto"
 track: "03 — Hyperliquid And Market Graduation"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers", "hyperliquid-hip3"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/overview", "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md"]
 relatedGeneratedPages: ["neelo-04-ode-to-the-orderbook-04-docs-overview", "hyperliquid-hip3"]

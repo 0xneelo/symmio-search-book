@@ -36,7 +36,7 @@ Every substantive page should include:
 - `Intent`: trade request or desired action expressed before a solver accepts it.
 - `AMFQ` / `aMFQ`: legacy Vibe name for Intents, short for Automated Market for Quotes. Use `Intent` in current docs; mention AMFQ only when translating older architecture/source language.
 - `VibeCaps`: Vibe lowcap perps surface; describe with margin/isolated-market context.
-- `Network volume`: descendant wallet trading volume used by the onboarding dashboard; depth must remain flagged until reconciled.
+- `Network volume`: descendant wallet trading volume used by the onboarding dashboard; public referral depth is 15 levels and historical backfill is additive.
 - `Estimated revenue`: dashboard estimate from network volume and configurable fee/share inputs; not final realized protocol accounting.
 
 ## UI Direction

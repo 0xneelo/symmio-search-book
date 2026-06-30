@@ -3,7 +3,7 @@ id: "authored-volume-04-token-margin-and-funding-systems"
 title: "Volume 04: Token Margin, Pillars, And Funding Systems"
 section: "compendium"
 track: "Volume 04"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers", "vibe-architecture", "spec-02", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-abstract", "https://docs.vibe.trading/architectural-overview.md", "_specs/app-docs/02-narrative-thesis.md", "_specs/app-docs/03-grounding.md"]

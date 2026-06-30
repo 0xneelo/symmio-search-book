@@ -3,7 +3,7 @@ id: "authored-volume-03-listing-power-and-orderbooks"
 title: "Volume 03: Listing Power And Orderbook Alternatives"
 section: "compendium"
 track: "Volume 03"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers", "hyperliquid-hip3", "spec-02"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/overview", "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md", "_specs/app-docs/02-narrative-thesis.md"]

@@ -3,7 +3,7 @@ id: "authored-solver-owned-market-maker"
 title: "The Solver As Protocol-Owned Market Maker"
 section: "manifesto"
 track: "06 — Market Creation Architecture"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture#5-3-the-solver-protocol-owned-market-maker", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/06-hybrid-solver-model#6-2-the-liquidity-waterfall"]
 relatedGeneratedPages: ["section-01-perp-classes-zscore-01-docs-05-vibe-architecture-5-3-the-solver-protocol-owned-market-maker", "section-02-proof-of-value-02-docs-06-hybrid-solver-model-6-2-the-liquidity-waterfall"]

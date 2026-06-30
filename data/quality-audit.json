@@ -17,11 +17,11 @@
     "readerRoutablePages": 1593,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 797,
-    "seededAuthoredQuestionRoutes": 797,
+    "seededQuestionRoutes": 798,
+    "seededAuthoredQuestionRoutes": 798,
     "seededReconciliationQuestions": 2,
-    "localFaqEntries": 799,
-    "localFaqAnswerable": 797,
+    "localFaqEntries": 800,
+    "localFaqAnswerable": 798,
     "localFaqUnresolved": 2,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -29,8 +29,8 @@
     "gapQueueOperatorSignals": 7,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
-    "answerEngineExactRouteTests": 797,
-    "answerEngineExactRouteTestsPassing": 797,
+    "answerEngineExactRouteTests": 798,
+    "answerEngineExactRouteTestsPassing": 798,
     "answerEngineRefusalTests": 2,
     "answerEngineRefusalTestsPassing": 2,
     "answerEngineDeterministicReady": true,
@@ -88,8 +88,8 @@
     "compendiumVolumeReaderPages": 1593,
     "compendiumVolumeAssignedPages": 1593,
     "pageStatePages": 1593,
-    "pageStatePublishedPages": 136,
-    "pageStateCandidatePages": 662,
+    "pageStatePublishedPages": 159,
+    "pageStateCandidatePages": 639,
     "pageStatePublicCandidatePages": 798,
     "pageStateSourceCompanionPages": 792,
     "pageStateInternalDraftPages": 3,
@@ -97,8 +97,8 @@
     "pageStateRetrievalEligiblePages": 1590,
     "publicationPlanReady": true,
     "publicationPlanQueuedSourceCompanions": 792,
-    "publicationPlanCandidateReviewPages": 662,
-    "publicationPlanCandidateFinalReviewReadyPages": 23,
+    "publicationPlanCandidateReviewPages": 639,
+    "publicationPlanCandidateFinalReviewReadyPages": 0,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
     "completionRequirementsComplete": 11,
@@ -111,7 +111,7 @@
     "openOperatorItems": 7,
     "resolvedOperatorItems": 7,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 797,
+    "answerablePrototypeQuestions": 798,
     "reconciliationQuestions": 2
   },
   "gates": [
@@ -191,19 +191,19 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "797 generated routes, 797 answerable ledger rows, 0 missing page ids"
+      "detail": "798 generated routes, 798 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "authored-question-routes",
       "label": "Answerable seed questions use authored pages",
       "passed": true,
-      "detail": "797/797 seed routes use authored pages, 0 generated/curated fallbacks"
+      "detail": "798/798 seed routes use authored pages, 0 generated/curated fallbacks"
     },
     {
       "id": "local-faq-routes",
       "label": "Local FAQ seed routes resolve",
       "passed": true,
-      "detail": "797 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "798 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -215,7 +215,7 @@
       "id": "deterministic-answer-engine",
       "label": "Deterministic answer engine contract resolves",
       "passed": true,
-      "detail": "797/797 exact routes, 2/2 refusal tests, LLM production ready no"
+      "detail": "798/798 exact routes, 2/2 refusal tests, LLM production ready no"
     },
     {
       "id": "llm-rag-contract",
@@ -269,13 +269,13 @@
       "id": "page-state-registry",
       "label": "Reader pages have launch states",
       "passed": true,
-      "detail": "1593/1593 reader pages classified; 136 published, 662 candidates, 792 source companions, 3 internal drafts"
+      "detail": "1593/1593 reader pages classified; 159 published, 639 candidates, 792 source companions, 3 internal drafts"
     },
     {
       "id": "publication-plan",
       "label": "Source companions have a publication authoring plan",
       "passed": true,
-      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 662 candidate review pages, 23 final-review ready, 5 stages"
+      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 639 candidate review pages, 0 final-review ready, 5 stages"
     },
     {
       "id": "requirement-map",
@@ -306,8 +306,7 @@
     },
     "authored": {
       "publication-candidate-needs-operator-review": 619,
-      "published": 136,
-      "publication-candidate": 23,
+      "published": 159,
       "publication-candidate-needs-current-source-review": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
@@ -347,13 +346,8 @@
       },
       {
         "status": "published",
-        "count": 136,
+        "count": 159,
         "severity": "info"
-      },
-      {
-        "status": "publication-candidate",
-        "count": 23,
-        "severity": "candidate"
       },
       {
         "status": "publication-candidate-needs-current-source-review",
@@ -786,15 +780,15 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 797,
+    "totalRoutes": 798,
     "totalReconciliationQuestions": 2,
     "byConfidence": {
       "Medium": 499,
-      "High": 45,
+      "High": 46,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 797
+      "authored": 798
     },
     "missingRouteIds": [],
     "nonAuthoredQuestionRoutes": []
@@ -802,13 +796,13 @@
   "faqCoverage": {
     "seedSource": "local-question-ledger",
     "status": "prototype-local-seed-discord-pending",
-    "totalEntries": 799,
-    "totalAnswerable": 797,
+    "totalEntries": 800,
+    "totalAnswerable": 798,
     "totalUnresolved": 2,
     "totalCategories": 10,
     "byCategory": {
       "Getting Started": 120,
-      "Trading Flow": 44,
+      "Trading Flow": 45,
       "Solvers And Settlement": 180,
       "Data And Volume": 9,
       "Revenue": 98,
@@ -820,11 +814,11 @@
     },
     "byConfidence": {
       "Medium": 499,
-      "High": 45,
+      "High": 46,
       "Low": 253
     },
     "byRouteSource": {
-      "authored": 797
+      "authored": 798
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -879,17 +873,17 @@
     "contractVersion": "2026-06-28.v1",
     "deterministicReady": true,
     "llmProductionReady": false,
-    "exactRouteTests": 797,
-    "exactRouteTestsPassing": 797,
+    "exactRouteTests": 798,
+    "exactRouteTestsPassing": 798,
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "candidate": 659,
-      "published": 138
+      "published": 155,
+      "candidate": 643
     },
     "exactRoutesByConfidence": {
       "Medium": 499,
-      "High": 45,
+      "High": 46,
       "Low": 253
     },
     "exactRoutesMissingChunks": [],
@@ -965,7 +959,7 @@
           "candidate",
           "published"
         ],
-        "totalGoldenRoutes": 797
+        "totalGoldenRoutes": 798
       },
       {
         "stage": "glossary-route",
@@ -1062,7 +1056,7 @@
       "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
       "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
       "evaluationSet": {
-        "exactRoutes": 797,
+        "exactRoutes": 798,
         "glossaryRoutes": 32,
         "refusals": 2,
         "lowRatedFeedback": 1,
@@ -1193,7 +1187,7 @@
           "data/question-routes.json",
           "data/glossary.json"
         ],
-        "goldenExactRoutes": 797,
+        "goldenExactRoutes": 798,
         "goldenRefusals": 2
       },
       {
@@ -1345,7 +1339,7 @@
       "deterministicReady": true,
       "runtimeScript": "scripts/run-llm-rag-answer.mjs",
       "runtimeImplemented": true,
-      "exactRouteTests": 797,
+      "exactRouteTests": 798,
       "refusalTests": 2,
       "answerChunkPages": 1611,
       "answerChunks": 2861,
@@ -1416,7 +1410,7 @@
       "totalFixtures": 27,
       "passingFixtures": 27,
       "failingFixtures": 0,
-      "exactRouteGoldenSet": 797,
+      "exactRouteGoldenSet": 798,
       "adversarialGoldenSet": 15,
       "answerChunkPages": 1611,
       "answerChunks": 2861,
@@ -1603,7 +1597,7 @@
       "ratingFixtures": 3,
       "gapFixtures": 4,
       "gapQueueItems": 12,
-      "questionRouteCount": 797,
+      "questionRouteCount": 798,
       "reconciliationQuestionCount": 2,
       "operatorSignals": 7,
       "openOperatorItems": 7,
@@ -2079,8 +2073,8 @@
     "status": "prototype-page-state-registry",
     "totalPages": 1593,
     "byState": {
-      "candidate": 662,
-      "published": 136,
+      "candidate": 639,
+      "published": 159,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -2096,8 +2090,7 @@
     },
     "byStatus": {
       "publication-candidate-needs-operator-review": 619,
-      "published": 136,
-      "publication-candidate": 23,
+      "published": 159,
       "publication-candidate-needs-current-source-review": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
@@ -2113,7 +2106,7 @@
     "internalDraftPages": 3,
     "publicNavigationPages": 798,
     "retrievalEligiblePages": 1590,
-    "exactQuestionRoutedPages": 786,
+    "exactQuestionRoutedPages": 787,
     "duplicatePageIds": [],
     "unclassifiedPageIds": [],
     "missingVolumeIds": [],
@@ -2143,8 +2136,8 @@
       "sourceCompanionsQueued": 792,
       "sourceCompanionsCoveredByAuthoredPages": 792,
       "sourceCompanionsNeedingAuthoredCoverage": 0,
-      "candidateReviewPages": 662,
-      "candidateFinalReviewReadyPages": 23,
+      "candidateReviewPages": 639,
+      "candidateFinalReviewReadyPages": 0,
       "candidateOperatorReviewPages": 619,
       "candidateSourceRefreshPages": 9,
       "candidatePublicationDateReviewPages": 8,
