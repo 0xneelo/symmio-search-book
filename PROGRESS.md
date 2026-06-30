@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — DDQ Risk-Flow Operator-Review Batch
+
+- Promoted `11` stable Neelo-source DDQ protocol-reference pages to `published`: DDQ Closeout And Settlement Risk Holder, DDQ Execution And Netting Risk Split, DDQ Imbalance Management And Hedging Step, DDQ Local Insurance Tail Buffer, DDQ One-To-One Backing Limit, DDQ Ongoing Position Lifecycle Risk, DDQ Order Submission Risk Holder, DDQ Proprietary Solver Role, DDQ Systemic Leverage Ramp, DDQ Token Vault Liquidity Role, and DDQ USDC Vault Supply Attack Pattern.
+- Preserved publication boundaries already present in the pages: final closeout procedures, solver obligations, hedge/execution guarantees, insurance allocation percentages, collateral thresholds, vault rights, leverage schedules, live implementation state, exploit details, and legal/risk/accounting-sensitive promises require operator, implementation, security, risk, legal, and accounting review.
+- Regenerated Search Book data so page-state counts now show `346` published pages, `452` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — DDQ Architecture Operator-Review Batch
 
 - Promoted `12` stable Neelo-source DDQ protocol-reference pages to `published`: DDQ Source Table Of Contents, DDQ Architecture Stack, DDQ Asynchronous Matching Engine, DDQ Bilateral OTC Derivatives Primitive, DDQ Hybrid Liquidity Model, DDQ Request-Based Settlement Layer, DDQ Perpetuals Layer Role, DDQ Margin Protocol Role, DDQ Derivatives Lifecycle Expansion, DDQ Bootstrapped Market Stage, DDQ Maturing Market Stage, and DDQ Mature Market Stage.
