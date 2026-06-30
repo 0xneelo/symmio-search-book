@@ -678,6 +678,14 @@ function llmConfigFromEnv() {
   };
 }
 
+function embeddingConfigFromEnv() {
+  return {
+    endpoint: process.env.SEARCH_BOOK_EMBED_ENDPOINT || "",
+    model: process.env.SEARCH_BOOK_EMBED_MODEL || "text-embedding-3-small",
+    apiKey: process.env.SEARCH_BOOK_LLM_API_KEY || "",
+  };
+}
+
 function llmConfigErrors(config) {
   const missing = [];
   if (config.apiStyle !== "openai-compatible") missing.push("SEARCH_BOOK_LLM_API_STYLE=openai-compatible");
@@ -685,6 +693,14 @@ function llmConfigErrors(config) {
   if (!config.model) missing.push("SEARCH_BOOK_LLM_MODEL");
   if (!config.apiKey) missing.push("SEARCH_BOOK_LLM_API_KEY");
   if (config.allowExternalContext !== "true") missing.push("SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true");
+  return missing;
+}
+
+function embeddingConfigErrors(config) {
+  const missing = [];
+  if (!config.endpoint) missing.push("SEARCH_BOOK_EMBED_ENDPOINT");
+  if (!config.model) missing.push("SEARCH_BOOK_EMBED_MODEL");
+  if (!config.apiKey) missing.push("SEARCH_BOOK_LLM_API_KEY");
   return missing;
 }
 
@@ -700,6 +716,90 @@ function assertLlmConfig(config) {
 function withDegraded(response, reason) {
   if (response?.status !== "answered") return response;
   return { ...response, degraded: { reason } };
+}
+
+function embeddingToBlob(values) {
+  if (!Array.isArray(values) || !values.length) throw new Error("embedding must be a non-empty array.");
+  const vector = Float32Array.from(values.map((value) => Number(value)));
+  if ([...vector].some((value) => !Number.isFinite(value))) throw new Error("embedding contains non-finite values.");
+  return Buffer.from(vector.buffer, vector.byteOffset, vector.byteLength);
+}
+
+function embeddingFromBlob(blob) {
+  let buffer;
+  if (Buffer.isBuffer(blob)) {
+    buffer = blob;
+  } else if (blob instanceof ArrayBuffer) {
+    buffer = Buffer.from(blob);
+  } else if (ArrayBuffer.isView(blob)) {
+    buffer = Buffer.from(blob.buffer, blob.byteOffset, blob.byteLength);
+  } else if (Array.isArray(blob)) {
+    buffer = Buffer.from(blob);
+  } else {
+    return [];
+  }
+  if (!buffer.length || buffer.length % Float32Array.BYTES_PER_ELEMENT !== 0) return [];
+  const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+  return [...new Float32Array(arrayBuffer)];
+}
+
+function cosineSimilarity(a, b) {
+  if (!Array.isArray(a) || !Array.isArray(b) || a.length === 0 || a.length !== b.length) return 0;
+  let dot = 0;
+  let aNorm = 0;
+  let bNorm = 0;
+  for (let index = 0; index < a.length; index += 1) {
+    const left = Number(a[index]);
+    const right = Number(b[index]);
+    if (!Number.isFinite(left) || !Number.isFinite(right)) return 0;
+    dot += left * right;
+    aNorm += left * left;
+    bNorm += right * right;
+  }
+  if (!aNorm || !bNorm) return 0;
+  return dot / (Math.sqrt(aNorm) * Math.sqrt(bNorm));
+}
+
+async function embedQuery(text, options = {}) {
+  const config = options.config || embeddingConfigFromEnv();
+  const errors = embeddingConfigErrors(config);
+  if (errors.length) {
+    return {
+      status: "skipped",
+      reason: "embedding-unavailable",
+      missing: errors,
+      model: config.model || "",
+      embedding: [],
+    };
+  }
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  if (typeof fetchImpl !== "function") {
+    return { status: "skipped", reason: "fetch-unavailable", missing: ["fetch"], model: config.model, embedding: [] };
+  }
+  try {
+    const response = await fetchImpl(config.endpoint, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${config.apiKey}`,
+      },
+      body: JSON.stringify({ model: config.model, input: text }),
+    });
+    if (!response.ok) {
+      return { status: "skipped", reason: `embedding-http-${response.status}`, missing: [], model: config.model, embedding: [] };
+    }
+    const payload = await response.json();
+    const embedding = payload.data?.[0]?.embedding || [];
+    if (!Array.isArray(embedding) || !embedding.length) {
+      return { status: "skipped", reason: "embedding-empty", missing: [], model: config.model, embedding: [] };
+    }
+    if (embedding.some((value) => !Number.isFinite(Number(value)))) {
+      return { status: "skipped", reason: "embedding-invalid", missing: [], model: config.model, embedding: [] };
+    }
+    return { status: "embedded", reason: "", missing: [], model: config.model, embedding };
+  } catch (error) {
+    return { status: "skipped", reason: "embedding-error", missing: [], model: config.model, embedding: [] };
+  }
 }
 
 const gpt41MiniPricingPerMillion = {
@@ -1537,7 +1637,13 @@ const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath
 
 export {
   answerQuery,
+  cosineSimilarity,
   defaults,
+  embedQuery,
+  embeddingConfigErrors,
+  embeddingConfigFromEnv,
+  embeddingFromBlob,
+  embeddingToBlob,
   loadRuntime,
   parseArgs,
   withDegraded,
