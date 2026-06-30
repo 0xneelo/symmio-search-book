@@ -3,7 +3,7 @@ id: "authored-funding-state-variable-map"
 title: "Funding State Variable Map"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/04-variable-definitions", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes"]
@@ -29,6 +29,10 @@ The source also separates state from controls. The system can change funding, bo
 ## Reader Implication
 
 When a solver, LP, or project asks why a market's terms changed, the right answer is rarely one metric. The funding model reads the binding constraint: token inventory, insurance capacity, skew, volatility, profit deviation, or residual stress.
+
+## Publication Boundary
+
+This page maps source-model state categories. It does not publish live inventory feeds, volatility windows, profit targets, insurance budgets, control policies, oracle vendors, or production parameter values without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

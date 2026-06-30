@@ -3,7 +3,7 @@ id: "authored-funding-worked-examples-reading-guide"
 title: "Funding Worked Examples Reading Guide"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/12-worked-examples", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"]
@@ -28,9 +28,9 @@ The bell-curve and ADL examples show system-level consequences. Cross-market sup
 
 Use these examples to teach reasoning order: net first, identify exposure, determine the binding constraint, apply pricing pressure, spend insurance only when needed, and treat ADL as a final solvency tool.
 
-## Publication Note
+## Publication Boundary
 
-The example numbers are illustrative model values. Production docs should not expose them as live market parameters unless the operator confirms they match deployed policy.
+This page explains source-model worked examples. It does not publish example numbers, stress thresholds, emergency durations, insurance assumptions, bell-curve settings, or ADL calculations as live market parameters unless operator, implementation, risk, legal, and accounting review confirms the deployed policy.
 
 ## Sources
 

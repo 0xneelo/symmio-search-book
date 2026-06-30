@@ -3,7 +3,7 @@ id: "authored-gradient-flow-market-balancing"
 title: "Gradient Flow Market Balancing"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective"]
@@ -32,9 +32,9 @@ Long-tail derivatives cannot depend on the same liquidity assumptions as mature 
 
 The reader implication is practical: when a Vibe market becomes more expensive, wider, or more constrained, that should be explained as a market-state response, not as arbitrary fee drift.
 
-## Publication Note
+## Publication Boundary
 
-This is a conceptual page from Neelo's model. The final docs should map any published gradient-flow language to the actual Vibe/Symmio controls implemented at launch.
+This page explains Neelo's source-model concept. It does not publish live gradient-flow formulas, implemented control mappings, pricing behavior, insurance policy, ADL constraints, or solvency guarantees without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

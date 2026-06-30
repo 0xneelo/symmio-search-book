@@ -3,7 +3,7 @@ id: "authored-utilization-modes-inventory-insurance"
 title: "Utilization Modes: Inventory And Insurance"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"]
@@ -30,9 +30,9 @@ That is not just mathematical neatness. It is an accounting discipline. The docs
 
 For traders, utilization modes explain why cost can rise before liquidation or ADL is visible. For LPs and treasuries, they explain why inventory contribution and insurance contribution are different risk roles. For solvers, they clarify when a market has moved from ordinary inventory pressure into a tail-risk management state.
 
-## Publication Note
+## Publication Boundary
 
-The source includes example thresholds and formulas. Final public docs should not publish those as live Vibe parameters until operator and implementation review confirms the production values.
+This page explains source-model utilization modes. It does not publish live thresholds, formulas, insurance allocations, ADL triggers, spread/funding behavior, or production parameter values without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

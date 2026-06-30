@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Remaining Volume 04 Funding Model Batch
+
+- Promoted the remaining `21` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Magnet Attractor Repeller Analogy, Funding Normal And Stress Utilization Example, Funding Phase And Counterparty Share, Funding Rate Regime Model, The Funding Risk Inversion, Funding Risk Signals Map, Funding Risk And Volatility Parameters, Funding State Variable Map, Funding Three Pricing Instruments, Funding Token-Inventory Utilization Mode, Funding Trader PnL Phase Exposure, Trader UX And LP Efficiency Trade Off, Funding Two Mode Utilization Switch, Funding Unified Objective Preview, Funding Vibe Versus Uniswap LP Risk, Why The Funding Gradient Analogy Matters, Funding Worked Examples Reading Guide, Gradient Flow Market Balancing, Liquidations As Inventory Reallocation, Why The Funding Model Needs Two Utilization Modes, and Utilization Modes: Inventory And Insurance.
+- Added or normalized publication boundaries for live regime thresholds, utilization bands, risk/volatility parameters, phase/counterparty-share values, ADL exposure settings, liquidation behavior, pricing instruments, inventory/insurance switch mechanics, trader PnL exposure, LP yield expectations, Uniswap/Vibe comparisons, and legal/risk/accounting-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `539` published pages, `259` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `67` Volume 04 candidates remaining, `0` Funding Rate Model candidates remaining, and `79` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 04 Funding Formula And State-Control Batch
 
 - Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding LP Loss Pressure Signal, Funding LP Master Profit Formula, Funding Master Formula Reading, Funding Master Optimization Equation, Funding Math As Problem Sharpening, Funding Math Is Not A Market Solution, The Funding Model Is A Control Problem, Funding Model Reading Boundary, Funding Monitoring And Governance Map, Funding Notation Convention, Funding One-Line Objective And Invariant, Funding Operational Path Control, Funding Per-Market State Variables, and Funding Revenue And Cost Accounting Map.

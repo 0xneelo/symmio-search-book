@@ -3,7 +3,7 @@ id: "authored-funding-rate-regime-model"
 title: "Funding Rate Regime Model"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/05-utilization-modes", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"]
@@ -26,9 +26,9 @@ ADL is the final regime. It appears only after the defense stack cannot keep exp
 
 This ladder is the practical version of the manifesto's market-balancing claim. Vibe does not need every long-tail market to start with perfect two-sided liquidity. It needs a way to make imbalance progressively more visible and costly before user-facing forced unwinds become necessary.
 
-## Publication Note
+## Publication Boundary
 
-The source contains example thresholds and APRs. Those are model values, not public production guarantees. Final docs should publish live rates, thresholds, grace periods, rebates, and ADL policy only after implementation and operator review.
+This page explains the source-model regime ladder. It does not publish live rates, thresholds, grace periods, rebates, insurance-mode rules, or ADL policy without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 
