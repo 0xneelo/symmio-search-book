@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Secrets / environment (LLM key loaded only via node --env-file)
+.env
+.env.*
+!.env.example
+.secrets/
+
+# Answer-engine SQLite datastore + WAL/journal sidecars + backups
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+search-book-answer-engine*.sqlite
+search-book-answer-engine*.db
+backups/
+
+# Logs / OS noise
+*.log
+.DS_Store

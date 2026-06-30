@@ -19,7 +19,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const config = {
   host: process.env.SEARCH_BOOK_ANSWER_ENGINE_HOST || "127.0.0.1",

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const defaults = {
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),
@@ -356,7 +356,7 @@ const gapSummaryJobImplemented =
 const backupScriptText = readText(args.backupScript);
 const backupRestoreImplemented =
   fs.existsSync(args.backupScript) &&
-  packageJson.scripts?.["search-book:backup-db"] === "node src/search-book/scripts/backup-answer-engine-db.mjs" &&
+  packageJson.scripts?.["search-book:backup-db"] === "node scripts/backup-answer-engine-db.mjs" &&
   backupScriptText.includes("search-book-answer-engine-backup") &&
   backupScriptText.includes("VACUUM INTO") &&
   backupScriptText.includes("PRAGMA integrity_check") &&

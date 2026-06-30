@@ -1,0 +1,23 @@
+{
+  "name": "symmio-search-book",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Symmio Search Book — deterministic answer-engine corpus, static site, and SQLite-backed living-docs service for Vibe / Symmio docs.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "search-book:build": "node scripts/build-all.mjs",
+    "search-book:verify": "node scripts/build-all.mjs --verify",
+    "search-book:check-static": "node scripts/check-static-integrity.mjs",
+    "search-book:serve-static": "node scripts/serve-static-preview.mjs",
+    "search-book:serve-service": "node scripts/serve-answer-engine.mjs",
+    "search-book:smoke-static": "node scripts/smoke-static-preview.mjs",
+    "search-book:smoke-preview-service": "node scripts/smoke-preview-service.mjs",
+    "search-book:smoke-service": "node scripts/smoke-answer-engine-service.mjs",
+    "search-book:backup-db": "node scripts/backup-answer-engine-db.mjs",
+    "search-book:living-docs-summary": "node scripts/summarize-living-docs-gaps.mjs"
+  }
+}

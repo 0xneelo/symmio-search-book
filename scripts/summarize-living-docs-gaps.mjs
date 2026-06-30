@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const defaults = {
   dbPath: process.env.SEARCH_BOOK_ANSWER_ENGINE_DB || path.join(repoRoot, "server", "data", "search-book-answer-engine.sqlite"),

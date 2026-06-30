@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const defaults = {
   docsRoot: process.env.VIBE_DOCS_PUBLIC || "/tmp/vibe_docs/Docs/public",
@@ -160,14 +160,16 @@ function runSyntaxChecks(env, dryRun) {
 
 function runSensitivePatternScan(dryRun) {
   const pattern = /VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}/;
-  const targetDir = path.join(repoRoot, "src", "search-book");
+  const targetDir = searchBookRoot;
   if (dryRun) {
     console.log(`native sensitive-pattern scan ${JSON.stringify(path.relative(repoRoot, targetDir))}`);
     return { matches: 0, files: 0, dryRun: true };
   }
   const files = [];
+  const skipDirs = new Set([".git", "node_modules", "backups"]);
   const visit = (dirPath) => {
     for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+      if (entry.isDirectory() && skipDirs.has(entry.name)) continue;
       const fullPath = path.join(dirPath, entry.name);
       if (entry.isDirectory()) visit(fullPath);
       else if (entry.isFile()) files.push(fullPath);

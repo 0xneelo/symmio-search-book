@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const defaults = {
   answerEngineContract: path.join(searchBookRoot, "data", "answer-engine-contract.json"),

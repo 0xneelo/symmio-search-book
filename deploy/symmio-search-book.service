@@ -1,0 +1,28 @@
+[Unit]
+Description=Symmio Search Book answer-engine service
+Documentation=https://github.com/0xneelo/symmio-search-book
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Adjust to where the repo is checked out on the host.
+WorkingDirectory=/opt/symmio-search-book
+# The env file holds SEARCH_BOOK_* config + the LLM key. Keep it out of git, chmod 600.
+# node --env-file loads it into process.env; the key is never logged or persisted.
+ExecStart=/usr/bin/node --env-file=/etc/symmio-search-book/search-book.env scripts/serve-answer-engine.mjs
+Restart=on-failure
+RestartSec=3
+# Persistent SQLite datastore lives outside the repo; set SEARCH_BOOK_ANSWER_ENGINE_DB
+# in the env file to a path under this directory.
+StateDirectory=symmio-search-book
+User=symmio-search-book
+Group=symmio-search-book
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/symmio-search-book
+
+[Install]
+WantedBy=multi-user.target

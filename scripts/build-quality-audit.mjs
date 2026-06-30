@@ -12,7 +12,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(searchBookRoot, "..", "..");
+const repoRoot = searchBookRoot;
 
 const defaults = {
   manifest: path.join(searchBookRoot, "page-manifest.json"),
@@ -285,9 +285,9 @@ const generatedFiles = listMarkdownFiles(args.generatedDir).length;
 const authoredFiles = listMarkdownFiles(args.authoredDir).length;
 const buildOrchestratorReady =
   fs.existsSync(args.buildOrchestrator) &&
-  packageJson.scripts?.["search-book:build"] === "node src/search-book/scripts/build-all.mjs" &&
-  packageJson.scripts?.["search-book:verify"] === "node src/search-book/scripts/build-all.mjs --verify" &&
-  readmeMarkdown.includes("node src/search-book/scripts/build-all.mjs --verify");
+  packageJson.scripts?.["search-book:build"] === "node scripts/build-all.mjs" &&
+  packageJson.scripts?.["search-book:verify"] === "node scripts/build-all.mjs --verify" &&
+  readmeMarkdown.includes("node scripts/build-all.mjs --verify");
 const openInboxItems = parseOpenInboxItems(inboxMarkdown);
 const resolvedInboxItems = parseResolvedInboxItems(inboxMarkdown);
 const gaps = parseGapItems(gapMarkdown);

@@ -1,285 +1,101 @@
-# Vibe x Symmio Search Book
+# symmio-search-book
 
-Session 1 research package, static docs prototype, and validated answer-engine runtime harness for the Vibe x Symmio documentation compendium.
+The **Symmio Search Book** — a deterministic answer-engine corpus, static site, and
+SQLite-backed living-docs service for the Vibe / Symmio documentation. Extracted from
+`onboarding-app` (`src/search-book/`) into its own standalone repo with full history
+preserved (Linear SYN-253).
 
-This directory is intentionally isolated from the existing dashboard. It is not the deployed production docs implementation yet.
+The corpus build is deterministic and the answer engine has an **extractive** mode that
+needs no network or API key. Live LLM answers (`--mode llm`) are optional and gated behind
+`SEARCH_BOOK_LLM_*` env loaded only via `node --env-file`.
 
-## Current State
+## Requirements
 
-- Research dossier: `research-dossier.md`
-- Progress log: `PROGRESS.md`
-- Source registry: `SOURCES.md`
-- Product/content decisions: `DECISIONS.md`
-- Gaps and contradictions: `GAPS.md`
-- Tracked reader questions: `QUESTIONS.md`
-- Deterministic answer-engine contract: `ANSWER-ENGINE-CONTRACT.md`
-- LLM RAG API contract: `LLM-RAG-CONTRACT.md`
-- Answer validation harness: `ANSWER-VALIDATION-HARNESS.md`
-- Living-docs reviewer operations runbook: `LIVING-DOCS-OPERATIONS.md`
-- Seed question dataset: `data/seed-questions.json`
-- Editorial and UI style guide: `STYLEGUIDE.md`
-- 500-800 page manifest: `page-manifest.json`
-- Compendium target contract: `scripts/compendium-target.mjs`
-- Generated draft content corpus: `content/generated/`
-- Authored publication-candidate pages: `content/authored/`
-- Authored compendium volume overviews: `content/authored/compendium/`
-- Authored page index: `data/authored-pages.js`
-- Compact prototype search index: `data/search-index.js`
-- Generated browse/navigation tree: `data/navigation-tree.js`
-- Generated guided journey map: `data/journeys.js`
-- Generated question-route map: `data/question-routes.js`
-- Generated local FAQ seed map: `data/faq.js`
-- Generated Discord/Lafa import contract: `data/discord-corpus.js`
-- Generated living-docs gap queue: `data/gap-queue.js`
-- Generated deterministic answer-engine contract: `data/answer-engine-contract.js`
-- Generated living-docs event contract: `data/living-docs-events.js`
-- Generated LLM RAG API contract: `data/llm-rag-contract.js`
-- Generated answer validation report: `data/answer-validation-report.js`
-- Generated answer retrieval chunks: `data/answer-chunks.js`
-- Generated compendium volume map: `data/volume-map.js`
-- Generated page-state registry: `data/page-state-registry.js`
-- Generated publication authoring plan: `data/publication-plan.js`
-- Generated routed glossary: `data/glossary.js`
-- Generated source catalog: `data/source-catalog.js`
-- Generated required-source ingestion map: `data/source-ingestion.js`
-- Generated competitive documentation sweep: `data/competitive-sweep.js`
-- Generated reader crosslink map: `data/crosslinks.js`
-- Generated definition-of-done requirement map: `data/requirement-map.js`
-- Generated publication-quality audit: `data/quality-audit.js`
-- Static preview server: `scripts/serve-static-preview.mjs`
-- Standalone answer-engine service: `scripts/serve-answer-engine.mjs`
-- Throwaway static prototype with exact-page reader: `index.html`
+- Node **>= 22.5.0** (uses the experimental `node:sqlite` built-in; no npm dependencies).
 
-Open `index.html` directly in a browser, or serve the static preview locally:
+## Layout
 
-```sh
-npm run search-book:serve-static
+| Path | What |
+| --- | --- |
+| `scripts/` | ~36 build/serve/smoke scripts (Node built-ins only). |
+| `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
+| `content/` | Authored + generated corpus markdown. |
+| `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
+| `_specs/app-docs/` | Product specs + operator inbox (SYN-209). |
+| `*.md` | Living docs: `FINAL-REPORT.md`, `DECISIONS.md`, `GAPS.md`, `STYLEGUIDE.md`, `LLM-RAG-CONTRACT.md`, `LIVING-DOCS-OPERATIONS.md`, etc. |
+
+## Build inputs
+
+`build-all` consumes the external Vibe docs export (the website's generated `docs-data.json`
+plus the public docs markdown root). Point these at your local export:
+
+```bash
+export VIBE_DOCS_PUBLIC=/tmp/vibe_docs/Docs/public
+export VIBE_DOCS_DATA=/tmp/vibe_docs/Website/public/generated/docs-data.json
 ```
 
-By default this serves `src/search-book` at `http://127.0.0.1:8788/`. It uses local data and `localStorage`; no backend, secrets, or live APIs are required.
+## Common commands
 
-Open an exact local page with `index.html?page=authored-intents-complete-order-books` or any page id from `data/search-index.json`.
+```bash
+# Regenerate the full corpus + data artifacts
+npm run search-book:build
 
-Run the local static preview smoke test:
+# Build, then run invariant checks + sensitive-pattern scan (CI gate)
+node scripts/build-all.mjs --verify     # == npm run search-book:verify
 
-```sh
-npm run search-book:smoke-static
-```
+# Inspect / resume build steps
+node scripts/build-all.mjs --list
+node scripts/build-all.mjs --from <step-id>
+node scripts/build-all.mjs --only <step-id>
 
-The static smoke test starts `serve-static-preview.mjs` on an isolated localhost port, verifies the Ask front door, an exact-page URL, core generated data assets, and missing-route 404 behavior, then stops the preview server.
-
-Run the static app integrity check:
-
-```sh
+# Static integrity + static preview server (default 127.0.0.1:8788)
 npm run search-book:check-static
-```
+npm run search-book:serve-static
 
-The static integrity check verifies that `index.html` references the required local data scripts, those scripts export the expected `window.SearchBook*` globals, static page links point to public reader pages, and all public navigation pages have local reader data.
+# Answer-engine service (SQLite-backed, default 127.0.0.1:8787)
+npm run search-book:serve-service
 
-Run the standalone answer-engine service locally:
-
-```sh
-SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
-```
-
-It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, `GET /api/search-book/examples`, `GET /api/search-book/moderation`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, Search Insights, and optional dynamic example chips will use the service while keeping `localStorage` and curated-example fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
-
-Run the local service smoke test:
-
-```sh
-npm run search-book:smoke-service
-```
-
-The smoke test starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database, exercises health, extractive answer persistence, rating persistence, rated-answer cache population, paraphrase reuse via `source:"reuse-cache"`, dynamic examples, Search Insights, guardrail refusal ordering, and the token-gated moderation export, then removes the temporary database. It does not call the LLM provider.
-
-Run the combined preview/service bridge smoke test:
-
-```sh
-npm run search-book:smoke-preview-service
-```
-
-The bridge smoke starts both `serve-static-preview.mjs` and `serve-answer-engine.mjs` on isolated localhost ports, loads the preview with `?service=...&serviceMode=extractive`, checks CORS preflight, then verifies service-backed ask, rating, Search Insights, and exact-page URLs without calling the LLM provider.
-
-Operational env knobs:
-
-```sh
-SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=180
-SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=false
-SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
-SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
-SEARCH_BOOK_EMBED_ENDPOINT=
-SEARCH_BOOK_EMBED_MODEL=text-embedding-3-small
-SEARCH_BOOK_REUSE_THRESHOLD=0.9
-SEARCH_BOOK_REUSE_MAX_CANDIDATES=250
-SEARCH_BOOK_EXAMPLE_LIMIT=4
-```
-
-Retention applies to persisted question, rating, gap, and answer-cache rows; set retention days to `0` only for a local archive. Helpful answer reuse requires embedding configuration and reuses `SEARCH_BOOK_LLM_API_KEY`; missing embeddings skip reuse and fall through to the normal answer path. The moderation export is disabled by default and, when enabled, requires `Authorization: Bearer ...` or `x-search-book-moderation-token`; never put that token in public frontend code.
-
-Run the internal reviewer gap summary against a local or production service database:
-
-```sh
-SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run search-book:living-docs-summary -- --format markdown --limit 20
-```
-
-The summary job reads the SQLite datastore directly and emits gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions. Its output includes raw user questions and notes; keep it internal unless a privacy review approves publication.
-
-Back up the answer-engine SQLite datastore with restore verification:
-
-```sh
-SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run search-book:backup-db -- --out /tmp/search-book-answer-engine-backup.sqlite
-```
-
-The backup utility creates a SQLite-consistent snapshot with `VACUUM INTO`, writes a manifest with table counts and SHA-256, and reopens the backup for integrity plus table-count verification. Production backups and manifests are internal operational artifacts and should not be committed.
-
-Use `LIVING-DOCS-OPERATIONS.md` for the internal reviewer workflow: daily Search Insights triage, weekly summary cadence, moderation export handling, privacy boundaries, launch gate, and incident response. The runbook documents operation; it does not deploy the service, install credentials, assign a production owner, or import parked source families.
-
-## Prototype Question
-
-Can a docs front door combine:
-
-- an ask-first entry point,
-- exact routed answer pages,
-- source-aware answers,
-- ratings and unanswered-question capture,
-- and a living-docs gap loop
-
-before committing to Mintlify, Fumadocs, or a custom docs app?
-
-## Non-Goals
-
-- This is not the final authored documentation site.
-- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, gated moderation export, summary job, backup/restore-check utility, and reviewer operations runbook; production service env, selected public frontend route, production moderation/backup access, assigned reviewer owner/cadence, and deploy wiring remain production work.
-- This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
-- This does not expose private API URLs, tokens, unprotected admin/reviewer endpoints, or operator-only credentials.
-
-## Verification
-
-Focused checks for this package:
-
-```sh
-node src/search-book/scripts/check-readiness-evidence.mjs
-node src/search-book/scripts/check-static-integrity.mjs
-node src/search-book/scripts/build-all.mjs --verify
+# Smoke tests (none call the LLM provider)
 npm run search-book:smoke-static
-npm run search-book:smoke-preview-service
 npm run search-book:smoke-service
+npm run search-book:smoke-preview-service
+
+# Ask a grounded, cited question with NO model call (extractive):
+node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
 ```
 
-The same check is exposed as `npm run search-book:verify`. Use `node src/search-book/scripts/build-all.mjs --list` to inspect step ids, `--dry-run` to preview commands, and `--from <step-id>` / `--only <step-id>` for resumable focused rebuilds.
+## Answer-engine service
 
-Expanded legacy command list, kept for audit only:
+`scripts/serve-answer-engine.mjs` exposes `POST /api/search-book/answer`,
+`POST /api/search-book/rating`, `GET /api/search-book/insights`,
+`GET /api/search-book/examples`, `GET /api/search-book/moderation`, and `GET /health`,
+persisting to SQLite (`node:sqlite`). Point the static frontend at it with
+`index.html?service=http://127.0.0.1:8787`; ratings, Search Insights, and dynamic example
+chips use the service while keeping `localStorage` + curated-example fallback. Retention,
+the disabled-by-default token-gated moderation export, the reviewer gap-summary job
+(`npm run search-book:living-docs-summary`), and the backup/restore-check utility
+(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`.
 
-```text
-node src/search-book/scripts/build-page-manifest.mjs --input /tmp/vibe_docs/Website/public/generated/docs-data.json --out /tmp/search-book-page-manifest.json
-node src/search-book/scripts/build-content-corpus.mjs --docs-root /tmp/vibe_docs/Docs/public --docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json
-node src/search-book/scripts/build-authored-index.mjs
-node src/search-book/scripts/build-source-catalog.mjs
-node src/search-book/scripts/build-navigation-tree.mjs
-node src/search-book/scripts/build-journey-map.mjs
-node src/search-book/scripts/build-question-routes.mjs
-node src/search-book/scripts/build-faq-map.mjs
-node src/search-book/scripts/build-discord-corpus.mjs
-node src/search-book/scripts/build-gap-queue.mjs
-node src/search-book/scripts/build-answer-chunks.mjs
-node src/search-book/scripts/build-crosslink-map.mjs
-node src/search-book/scripts/build-volume-map.mjs
-node src/search-book/scripts/build-page-state-registry.mjs
-node src/search-book/scripts/build-publication-plan.mjs
-node src/search-book/scripts/build-glossary.mjs
-node src/search-book/scripts/build-answer-engine-contract.mjs
-node src/search-book/scripts/build-living-docs-events.mjs
-node src/search-book/scripts/build-llm-rag-contract.mjs
-node src/search-book/scripts/build-answer-validation-report.mjs
-node src/search-book/scripts/check-readiness-evidence.mjs
-node src/search-book/scripts/check-static-integrity.mjs
-node src/search-book/scripts/build-competitive-sweep.mjs
-node src/search-book/scripts/build-source-ingestion-map.mjs
-node src/search-book/scripts/build-requirement-map.mjs
-node src/search-book/scripts/build-quality-audit.mjs
-node --check src/search-book/answer-corpus.js
-node --check src/search-book/scripts/compendium-target.mjs
-node --check src/search-book/scripts/build-page-manifest.mjs
-node --check src/search-book/scripts/build-content-corpus.mjs
-node --check src/search-book/scripts/build-authored-index.mjs
-node --check src/search-book/scripts/build-journey-map.mjs
-node --check src/search-book/scripts/build-question-routes.mjs
-node --check src/search-book/scripts/build-faq-map.mjs
-node --check src/search-book/scripts/build-discord-corpus.mjs
-node --check src/search-book/scripts/build-gap-queue.mjs
-node --check src/search-book/scripts/build-answer-engine-contract.mjs
-node --check src/search-book/scripts/build-llm-rag-contract.mjs
-node --check src/search-book/scripts/check-readiness-evidence.mjs
-node --check src/search-book/scripts/summarize-living-docs-gaps.mjs
-node --check src/search-book/scripts/backup-answer-engine-db.mjs
-node --check src/search-book/scripts/run-llm-rag-answer.mjs
-node --check src/search-book/scripts/serve-static-preview.mjs
-node --check src/search-book/scripts/smoke-static-preview.mjs
-node --check src/search-book/scripts/smoke-preview-service.mjs
-node --check src/search-book/scripts/serve-answer-engine.mjs
-node --check src/search-book/scripts/smoke-answer-engine-service.mjs
-node --check src/search-book/scripts/build-answer-validation-report.mjs
-node --check src/search-book/scripts/build-answer-chunks.mjs
-node --check src/search-book/scripts/build-volume-map.mjs
-node --check src/search-book/scripts/build-page-state-registry.mjs
-node --check src/search-book/scripts/build-publication-plan.mjs
-node --check src/search-book/scripts/build-glossary.mjs
-node --check src/search-book/scripts/build-source-catalog.mjs
-node --check src/search-book/scripts/build-competitive-sweep.mjs
-node --check src/search-book/scripts/build-source-ingestion-map.mjs
-node --check src/search-book/scripts/build-crosslink-map.mjs
-node --check src/search-book/scripts/build-living-docs-events.mjs
-node --check src/search-book/scripts/build-requirement-map.mjs
-node --check src/search-book/scripts/build-quality-audit.mjs
-node --check src/search-book/scripts/check-static-integrity.mjs
-node --check src/search-book/data/authored-pages.js
-node --check src/search-book/scripts/build-navigation-tree.mjs
-node --check src/search-book/data/navigation-tree.js
-node --check src/search-book/data/journeys.js
-node --check src/search-book/data/question-routes.js
-node --check src/search-book/data/faq.js
-node --check src/search-book/data/discord-corpus.js
-node --check src/search-book/data/gap-queue.js
-node --check src/search-book/data/answer-engine-contract.js
-node --check src/search-book/data/living-docs-events.js
-node --check src/search-book/data/llm-rag-contract.js
-node --check src/search-book/data/answer-validation-report.js
-node --check src/search-book/data/answer-chunks.js
-node --check src/search-book/data/volume-map.js
-node --check src/search-book/data/page-state-registry.js
-node --check src/search-book/data/publication-plan.js
-node --check src/search-book/data/glossary.js
-node --check src/search-book/data/source-catalog.js
-node --check src/search-book/data/competitive-sweep.js
-node --check src/search-book/data/source-ingestion.js
-node --check src/search-book/data/crosslinks.js
-node --check src/search-book/data/requirement-map.js
-node --check src/search-book/data/quality-audit.js
-node -e "const j=require('./src/search-book/data/journeys.json'); if (j.missingPageIds.length || j.totalJourneys < 5) process.exit(1); console.log(j.totalJourneys + '/' + j.totalSteps)"
-node -e "const q=require('./src/search-book/data/question-routes.json'); if (q.missingRouteIds.length || q.totalRoutes < 1) process.exit(1); console.log(q.totalRoutes + '/' + q.totalReconciliationQuestions)"
-node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageIds.length || f.missingSourceKeys.length || f.totalAnswerable !== 798) process.exit(1); console.log(f.totalEntries + '/' + f.totalCategories)"
-node -e "const dc=require('./src/search-book/data/discord-corpus.json'); if (!dc.importContractReady || !dc.apiScraperReady || dc.corpusReady || dc.totals.importedMessages !== 0 || dc.totals.seededTopics < 1) process.exit(1); console.log(dc.status + '/' + dc.totals.seededTopics)"
-node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 2) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
-node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 798) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
-node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || !l.datastoreImplemented || !l.sqliteDatastoreImplemented || !l.retentionPolicyImplemented || !l.moderationExportImplemented || !l.backupRestoreImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
-node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || !lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
-node -e "const av=require('./src/search-book/data/answer-validation-report.json'); if (!av.reportReady || av.coverage.totalFixtures < 20 || av.coverage.passingFixtures !== av.coverage.totalFixtures || av.failureSummary.failingFixtureIds.length) process.exit(1); console.log(av.coverage.passingFixtures + '/' + av.coverage.totalFixtures)"
-node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"
-node -e "const v=require('./src/search-book/data/volume-map.json'); if (v.unassignedPageIds.length || v.duplicatePageIds.length || v.volumeIdsMissingPages.length || v.readerPages !== v.pagesAssigned || !v.manifestWithinTarget) process.exit(1); console.log(v.totalVolumes + '/' + v.totalChapters)"
-node -e "const ps=require('./src/search-book/data/page-state-registry.json'); if (ps.duplicatePageIds.length || ps.unclassifiedPageIds.length || ps.missingVolumeIds.length || ps.totalPages < 900 || !ps.byState.candidate || !ps.byState['source-companion']) process.exit(1); console.log(ps.totalPages + '/' + Object.keys(ps.byState).length)"
-node -e "const g=require('./src/search-book/data/glossary.json'); if (g.missingPageIds.length || g.missingSourceKeys.length || g.totalTerms < 25) process.exit(1); console.log(g.totalTerms + '/' + Object.keys(g.byCategory).length)"
-node -e "const s=require('./src/search-book/data/source-catalog.json'); if (s.duplicateKeys.length || s.totalSources < 1) process.exit(1); console.log(s.totalSources + '/' + Object.keys(s.byGroup).length)"
-node -e "const cs=require('./src/search-book/data/competitive-sweep.json'); if (cs.targetDocs !== 50 || cs.plannedAgentLanes !== 25 || cs.completedExplorerBatches !== 5 || cs.targetDocsReviewed !== 49) process.exit(1); console.log(cs.targetDocsReviewed + '/' + cs.targetDocs)"
-node -e "const si=require('./src/search-book/data/source-ingestion.json'); if (si.duplicateRequirementIds.length || si.invalidParkedRequirements.length || si.totalSourceRequirements < 12 || si.sourceCompletionReady) process.exit(1); console.log((si.byStatus.complete || 0) + '/' + si.totalSourceRequirements)"
-node -e "const c=require('./src/search-book/data/crosslinks.json'); if (c.missingExplicitRelatedPageIds.length || c.totalPages < 800) process.exit(1); console.log(c.totalPages + '/' + c.pagesWithRelated)"
-node -e "const r=require('./src/search-book/data/requirement-map.json'); if (r.duplicateRequirementIds.length || r.invalidParkedRequirements.length || r.totalRequirements < 12 || r.completionReady) process.exit(1); console.log((r.byStatus.complete || 0) + '/' + r.totalRequirements)"
-node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.pages.every((p)=>p.bodyMarkdown)) process.exit(1); console.log(d.totalPages)"
-node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
-node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.targetMinimumPages !== 500 || q.targetMaximumPages !== 800 || !q.totals.manifestWithinTarget || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
-node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.compendiumTarget.minimumPages !== 500 || m.compendiumTarget.maximumPages !== 800 || m.pages.length < m.compendiumTarget.minimumPages || m.pages.length > m.compendiumTarget.maximumPages) process.exit(1); console.log(m.pages.length)"
-npm run search-book:smoke-static
-npm run search-book:smoke-preview-service
-npm run search-book:smoke-service
-rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
-git diff --check -- src/search-book _local/agent-worklog.md
+## Environment
+
+Copy `.env.example` → `.secrets/search-book.env`, fill in values, and load with `--env-file`:
+
+```bash
+node --env-file=.secrets/search-book.env scripts/serve-answer-engine.mjs
 ```
+
+Secrets (`SEARCH_BOOK_LLM_API_KEY`, moderation tokens, Discord tokens) are **never** committed
+— `.secrets/` and `.env*` are git-ignored. API keys are read from `process.env` only and are
+never printed or persisted.
+
+## Deployment
+
+See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd unit at
+[`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service).
+
+## Non-goals
+
+This is the corpus + runtime harness, not yet a deployed production docs site. Production
+service env, the selected public frontend route, production moderation/backup access, an
+assigned reviewer owner/cadence, and the Discord corpus import remain production follow-ups
+(tracked under Linear SYN-209 and its children).
