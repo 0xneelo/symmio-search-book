@@ -6,6 +6,12 @@
 - Added or normalized publication boundaries for live base rates, multiplier curves, emergency thresholds/caps/APRs, production objective weights, local/global insurance allocation, buyback commitments, insurance balances/spend permissions, loss-estimate formulas, solver quote functions, risk-score formulas, ADL/defense guarantees, and legal/risk/accounting-sensitive claims.
 - Regenerated Search Book data so page-state counts now show `504` published pages, `294` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `102` Volume 04 candidates remaining, and `114` manifesto candidates remaining.
 
+## 2026-06-30 — SYN-215 Live RAG Refresh After Volume 04 Funding Objective Batch
+
+- Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,360` input tokens, `595` output tokens, and `$0.00116100`; bootstrap trilemma used `5,020` input tokens, `755` output tokens, and `$0.00120600`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `88,010` input tokens, `7,626` output tokens, and `$0.01777710`.
+
 ## 2026-06-30 — Volume 04 Funding-Model Controls Batch
 
 - Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Abstract Accounting Roadmap, Funding Abstract Control Surface, Funding ADL And Defense Sequence Example, Funding ADL Penalty Function, Funding Bell-Curve Flattening Example, Funding Control Actions Map, The Funding Model Core Invariant, Funding Defense Hierarchy, Funding Derivation Document Index, Funding Directional Spreads And Rebates, Funding Document Cross Reference Map, Funding Dynamic Borrow Rate, Funding Dynamic Control Loop, and Funding Dynamic Funding Rate.
@@ -22,7 +28,7 @@
 
 - Tightened `src/search-book/scripts/run-llm-rag-answer.mjs` so LLM citations copy canonical `sourceHref` values from `citationSources` / `validIds.sourceHrefBySourceKey` instead of chunk `sourceUrls`; the strict validator is unchanged.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,359` input tokens, `595` output tokens, and `$0.00116085`; bootstrap trilemma used `5,022` input tokens, `713` output tokens, and `$0.00118110`.
-- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `88,010` input tokens, `7,379` output tokens, and `$0.01762890`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
 ## 2026-06-30 — Remaining Volume 03 Listing Power Publication Batch
 
