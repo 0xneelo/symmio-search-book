@@ -3,7 +3,7 @@ id: "authored-systematic-perp-categorization"
 title: "Why Perp Protocols Need Systematic Categorization"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-1-the-need-for-systematic-categorization"]
@@ -30,5 +30,5 @@ Route here when a reader asks why the compendium spends so much time on taxonomy
 
 - `authored-perp-protocol-framework`
 - `authored-perpetual-protocol-design-space`
-- `authored-collateralization-as-payout-source`
+- `authored-collateralization-payout-source`
 - `authored-insurance-topology-by-market-maturity`

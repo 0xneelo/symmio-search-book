@@ -3,7 +3,7 @@ id: "authored-static-perp-design-failures"
 title: "Why Static Perp Designs Fail At Bootstrap"
 section: "manifesto"
 track: "01 — Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma"]

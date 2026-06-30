@@ -3,7 +3,7 @@ id: "authored-temporal-separation-of-concerns"
 title: "Temporal Separation Of Concerns"
 section: "manifesto"
 track: "01 — Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/05-vibe-architecture"]

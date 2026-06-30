@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Proof Of Value And Perp Framework Publication Review Batch
+
+- Promoted `20` stable Neelo-source `vibe-papers` pages to `published` across Proof of Value, Information/Trade, and perp-framework taxonomy: long-tail verification throughput, market price as verification, framework summary, keyword and structure maps, three design axes, prediction-market limits, Proof of Authority to Proof of Value, Proof of Value, both Proof of Value source maps, the Proof of Value shadow side, short sellers as fact-checkers, static perp design failures, synchronous matching, systematic categorization, temporal separation, trilemma escape, the missing NO button, and the token-market valley of death.
+- Fixed two stale related-page references so the framework summary and systematic categorization pages point to `authored-collateralization-payout-source`.
+- Regenerated Search Book data so page-state counts now show `35` published pages, `763` candidate pages, `792` source companions, and `124` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Bootstrap Publication Review Batch
 
 - Promoted `7` stable Neelo-source bootstrap-trilemma pages to `published`: The Async-Netted No-Payer Failure, The Bootstrap Trilemma, Formalizing The Bootstrap Trilemma Constraint, The Bootstrap Trilemma Summary, The Three Properties In The Bootstrap Trilemma, How To Read The Bootstrap Trilemma Visualization, and Collateralization Is The Payout Question.

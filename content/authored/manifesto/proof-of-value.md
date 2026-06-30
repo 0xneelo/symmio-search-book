@@ -3,7 +3,7 @@ id: "authored-proof-of-value"
 title: "Proof Of Value"
 section: "manifesto"
 track: "05 — Proof Of Value"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/05-intent-based-architecture"]
 relatedGeneratedPages: ["neelo-02-proof-of-value-02-docs-overview", "neelo-02-proof-of-value-02-docs-00-abstract", "neelo-02-proof-of-value-02-docs-05-intent-based-architecture"]

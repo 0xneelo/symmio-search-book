@@ -3,7 +3,7 @@ id: "authored-short-sellers-as-fact-checkers"
 title: "Short Sellers As Fact-Checkers"
 section: "manifesto"
 track: "05 — Proof Of Value"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/02-crisis-of-verification#2-3-truth-as-a-derivative", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/04-the-missing-no-button#4-2-the-no-button-as-filter", "https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/08-the-thumbs-down#8-5-the-philosophy"]

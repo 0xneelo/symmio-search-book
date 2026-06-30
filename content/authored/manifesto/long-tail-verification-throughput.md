@@ -3,7 +3,7 @@ id: "authored-long-tail-verification-throughput"
 title: "Long-Tail Verification Needs Throughput"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"]

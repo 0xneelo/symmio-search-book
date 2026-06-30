@@ -3,7 +3,7 @@ id: "authored-perp-framework-summary"
 title: "The Perp Framework In One Table"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/02-framework#2-7-summary"]
@@ -31,4 +31,4 @@ Use this page when a reader wants the short version of the taxonomy. The answer 
 - `authored-systematic-perp-categorization`
 - `authored-perp-protocol-framework`
 - `authored-synchronous-matching-counterparty-requirement`
-- `authored-collateralization-as-payout-source`
+- `authored-collateralization-payout-source`

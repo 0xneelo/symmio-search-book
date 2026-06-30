@@ -3,7 +3,7 @@ id: "authored-truth-markets-no-button"
 title: "The Missing No Button"
 section: "manifesto"
 track: "05 — Proof Of Value"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/04-the-missing-no-button"]
 relatedGeneratedPages: ["neelo-14-information-trade-convergence-14-docs-00-abstract", "neelo-14-information-trade-convergence-14-docs-04-the-missing-no-button"]
