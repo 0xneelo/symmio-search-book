@@ -798,7 +798,7 @@ async function embedQuery(text, options = {}) {
     }
     return { status: "embedded", reason: "", missing: [], model: config.model, embedding };
   } catch (error) {
-    return { status: "skipped", reason: "embedding-error", missing: [], model: config.model, embedding: [] };
+    return { status: "skipped", reason: "embedding-error", missing: [], model: config.model, embedding: [], message: error.message || "" };
   }
 }
 
@@ -1645,6 +1645,7 @@ export {
   embeddingFromBlob,
   embeddingToBlob,
   loadRuntime,
+  llmConfigErrors,
   parseArgs,
   withDegraded,
 };
