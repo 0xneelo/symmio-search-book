@@ -3,7 +3,7 @@ id: "authored-vibe-token-staking-audit-caveat"
 title: "Vibe Token And Staking Audit Caveat"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-security-audits"]
 sourceUrls: ["https://docs.vibe.trading/more-info/security-and-audits.md"]
@@ -29,6 +29,10 @@ When a user asks whether token or staking contracts are audited, answer with the
 - the public Vibe page currently gives settlement-contract audit context;
 - token and staking contract details are marked as coming soon;
 - publication copy should be refreshed when Vibe publishes primary-source details for those modules.
+
+## Current-Source Verification
+
+Last verified against the official public source on 2026-06-30. The Vibe security page still marks token and staking contract details as coming soon, so the public answer must remain a caveat rather than a final audit-coverage claim.
 
 ## Sources
 

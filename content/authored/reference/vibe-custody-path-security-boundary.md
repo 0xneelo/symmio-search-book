@@ -3,7 +3,7 @@ id: "authored-vibe-custody-path-security-boundary"
 title: "Vibe Custody Path Security Boundary"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-account-creation", "vibe-security-audits", "vibe-deposits-withdrawals"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/account-creation.md", "https://docs.vibe.trading/more-info/security-and-audits.md", "https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"]
@@ -29,6 +29,10 @@ The docs should answer them separately:
 ## Reader Guidance
 
 When a user asks "which login is safer?", route to the login-path and custody-boundary pages. When they ask "is Vibe audited?", route to the settlement-contract audit page. Mixing those answers can make the docs sound comforting while failing to answer the user's actual risk question.
+
+## Current-Source Verification
+
+Last verified against the official public sources on 2026-06-30. The account-creation guide still distinguishes EOA wallet control from email/social smart-wallet convenience, and the security guide still scopes audit evidence separately to settlement contracts. Refresh this page if Vibe changes login/custody wording or publishes new custody/audit coverage.
 
 ## Sources
 

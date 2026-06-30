@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Vibe Publication-Date Verification Batch
+
+- Promoted the remaining `8` publication-date-review pages to `published`: Vibe Custody Path Security Boundary, Vibe Deposit Chain Support, Vibe Large Withdrawal Safety Window, Versioning Vibe Security Claims, Vibe Settlement Contract Audit Scope, Vibe Sherlock Audit Contest Reference, Vibe Token And Staking Audit Caveat, and Vibe Trade Panel Cost Breakdown.
+- Rechecked the official public Vibe docs, Sherlock contest page, and Symmio audit-report index on 2026-06-30 before publishing the pages.
+- Preserved live/current-source boundaries: EOA deposits are Base-only in the current deposit guide while email-created accounts have broader direct deposit coverage; large-withdrawal threshold values are not published; fee percentages remain placeholders and must route to the live trade panel; audit claims stay scoped to SYMMIO-Core v0.8.4 settlement contracts unless new primary sources expand the scope.
+- Regenerated Search Book data so page-state counts now show `179` published pages, `619` candidate pages, `792` source companions, `798/798` exact routes, and `0` publication-date-review candidates remaining.
+
 ## 2026-06-30 — Source-Refresh Boundary Publication Batch
 
 - Promoted the remaining `9` source-refresh pages to `published`: Synchronous Fully Netted Order-Book Protocols, CLOB Majors-First Stage Fit, Listing Is Not Vault Liquidity, Open Interest Without Payout Reliability, Pool Tail TVL Fragmentation, Pooled Backstop Mismatch, Strict Listing Policy Protects Depth, Capped Oracle Latency Arbitrage, and Percolator Low Utilization Is A Safety Signal.

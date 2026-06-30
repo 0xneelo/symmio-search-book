@@ -3,7 +3,7 @@ id: "authored-vibe-security-claim-versioning"
 title: "Versioning Vibe Security Claims"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-security-audits", "sherlock-symmetrical-contest", "symmio-audit-reports"]
 sourceUrls: ["https://docs.vibe.trading/more-info/security-and-audits.md", "https://audits.sherlock.xyz/contests/85", "https://docs.symm.io/security-and-architecture/audit-reports.md"]
@@ -33,6 +33,10 @@ That structure prevents three common overclaims: treating settlement-contract au
 ## Reader Guidance
 
 When the answer engine handles a security question, it should route to exact pages rather than compressing all security into one broad paragraph. "Is trade settlement audited?" should route to the settlement-contract audit page. "What about token or staking contracts?" should route to the coming-soon caveat. "Where is the evidence?" should route to the Sherlock reference.
+
+## Current-Source Verification
+
+Last verified against the official public sources on 2026-06-30. Vibe still names SYMMIO-Core v0.8.4 and Sherlock for settlement-contract audit context, while Symmio's audit-report index remains versioned by report/module. Refresh this page if Vibe or Symmio publishes a new contract version, audit report, or module-specific claim.
 
 ## Sources
 

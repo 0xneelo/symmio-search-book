@@ -3,7 +3,7 @@ id: "authored-vibe-trade-panel-cost-breakdown"
 title: "Vibe Trade Panel Cost Breakdown"
 section: "product-reference"
 track: "Fees"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-fees", "vibe-simple-trade", "vibe-funding"]
 sourceUrls: ["https://docs.vibe.trading/trading/fees.md", "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md", "https://docs.vibe.trading/trading/funding.md"]
@@ -26,6 +26,10 @@ The user should separate four ideas:
 - any future or placeholder fee numbers that require publication-date review before being presented as live values.
 
 The current fee source is category-useful but not sufficient for final exact percentages because it contains placeholder values. The docs should route users to the live ticket breakdown for current trade-specific costs and keep final public percentage claims under review.
+
+## Current-Source Verification
+
+Last verified against the official public sources on 2026-06-30. The fee guide still states that platform fees apply on open and close, solver/hedger fees vary by token pair, and the trade panel shows the detailed cost breakdown before confirmation. It still uses placeholder fee percentages, so this page must not publish static exact fee values.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-vibe-sherlock-audit-contest-reference"
 title: "Vibe Sherlock Audit Contest Reference"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-security-audits", "sherlock-symmetrical-contest"]
 sourceUrls: ["https://docs.vibe.trading/more-info/security-and-audits.md", "https://audits.sherlock.xyz/contests/85"]
@@ -29,6 +29,10 @@ Do not use it as a blanket source for unrelated modules. It is linked from the V
 ## Reader Guidance
 
 For serious users, an audit answer should include a chain of evidence: Vibe's security page names the contract family and version, then the Sherlock contest page gives the public audit-context reference. If either side changes, this page should be refreshed before publication.
+
+## Current-Source Verification
+
+Last verified against the official public sources on 2026-06-30. The Vibe security page still embeds the Sherlock contest link, and the Sherlock URL still resolves to the public Symmetrical contest page. Keep the reference attached only to the settlement-contract audit claim unless a new primary source expands the scope.
 
 ## Sources
 

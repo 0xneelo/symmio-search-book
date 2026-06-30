@@ -3,7 +3,7 @@ id: "authored-vibe-deposit-chain-support"
 title: "Vibe Deposit Chain Support"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-deposits-withdrawals", "vibe-account-creation"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md", "https://docs.vibe.trading/getting-started/account-creation.md"]
@@ -18,9 +18,9 @@ The current public deposit guide says EOA-created accounts can deposit directly 
 
 The account-creation guide reinforces the setup sequence. Wallet users should prepare USDC collateral and gas on the selected chain before connecting and funding the Vibe account. Email/social users receive a smart-wallet address and then move funds from that smart wallet into the Vibe account after the deposit appears.
 
-## Publication-Date Review
+## Current-Source Verification
 
-Chain support is time-sensitive. This page should be rechecked before publication or launch because deposit coverage can change as the product adds or removes supported chains.
+Last verified against the official public sources on 2026-06-30. Chain support is time-sensitive and should be rechecked before launch because deposit coverage can change as the product adds or removes supported chains.
 
 Do not infer support from a chain logo, social post, or internal endpoint. The safe public claim is the current official-doc distinction: EOA direct deposit path is Base-only in the source, while email-created accounts have broader direct deposit coverage.
 

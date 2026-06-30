@@ -3,7 +3,7 @@ id: "authored-vibe-large-withdrawal-window"
 title: "Vibe Large Withdrawal Safety Window"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-deposits-withdrawals"]
 sourceUrls: ["https://docs.vibe.trading/getting-started/deposits-and-withdrawals.md"]
@@ -25,11 +25,11 @@ The user-visible large-withdrawal flow has four important behaviors:
 
 After the window elapses, the user approves the withdrawal if the request is valid.
 
-## Publication Boundary
+## Current-Source Verification
 
-The public source does not define the threshold that makes a withdrawal "large." Do not invent that value. The source-backed answer is the behavior: small withdrawals are intended to be fast, while large withdrawals introduce a 12-hour fraud-proof safety window.
+Last verified against the official public source on 2026-06-30. The public source does not define the threshold that makes a withdrawal "large." Do not invent that value. The source-backed answer is the behavior: small withdrawals are intended to be fast, while large withdrawals introduce a 12-hour fraud-proof safety window.
 
-Because withdrawal thresholds and chain support can change, this page should be rechecked before publication.
+Because withdrawal thresholds and chain support can change, this page should be rechecked before launch or any user-facing release copy.
 
 ## Sources
 

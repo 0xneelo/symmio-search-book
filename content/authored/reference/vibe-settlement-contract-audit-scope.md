@@ -3,7 +3,7 @@ id: "authored-vibe-settlement-contract-audit-scope"
 title: "Vibe Settlement Contract Audit Scope"
 section: "product-reference"
 track: "Account And Safety"
-status: "publication-candidate-needs-publication-date-review"
+status: "published"
 volumeId: "volume-07-product-trading-and-risk"
 sourceKeys: ["vibe-security-audits", "sherlock-symmetrical-contest"]
 sourceUrls: ["https://docs.vibe.trading/more-info/security-and-audits.md", "https://audits.sherlock.xyz/contests/85"]
@@ -30,6 +30,10 @@ That is enough for a precise security answer, but it should remain versioned. If
 ## Reader Guidance
 
 For traders, the practical takeaway is that the public security claim is about the settlement-contract layer that supports trade settlement. For builders and auditors, the practical takeaway is to ask which contract version and which product surface a claim refers to before treating "audited" as universal.
+
+## Current-Source Verification
+
+Last verified against the official public sources on 2026-06-30. The Vibe security page still states the settlement layer uses SYMMIO-Core v0.8.4 smart contracts audited by Sherlock, and the linked Sherlock page still resolves to the Symmetrical contest reference. Refresh before launch if the settlement contract version or audit venue changes.
 
 ## Sources
 
