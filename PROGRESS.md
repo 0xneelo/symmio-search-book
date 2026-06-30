@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 04 USDC Batch
+
+- Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,360` input tokens, `702` output tokens, and `$0.00122520`; bootstrap trilemma used `5,019` input tokens, `712` output tokens, and `$0.00118005`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `16` calls, `93,868` input tokens, `8,615` output tokens, and `$0.01924920`; one Volume 03 reading-order answer used the validation-retry loop and then passed with valid citations.
+
 ## 2026-06-30 — Volume 04 USDC Versus Token-Margin Batch
 
 - Promoted `21` Volume 04 USDC-vs-token-margined manifesto pages to `published`: High APR Sustainability Pressure, Attack Risk Is Incentive-Based, Liquidation And Keeper Fragility, LP Total-Loss Perception Signal, Profitable Manipulation Condition, Capital Efficiency Must Be Risk-Adjusted, Risk-Adjusted Efficiency Multiplier, Solver Drawdown Is Not Protocol Insolvency, Stress Correlation Cascade, Systemic Leverage Comparison, Token Inventory Localizes Risk, Token Inventory As Structural Capital, USDC Expected Loss Decomposition, The USDC LP Backstop Cascade, USDC LP Catastrophe-Underwriter Analogy, USDC LP Illiquid-Market-Maker Analogy, USDC LP Unsecured-Creditor Analogy, USDC Opportunity Cost Floor, USDC Risk Methodology Stack, USDC Risk-Premium Ratio Diagnostic, and USDC Structural Capital Burden.
@@ -28,7 +34,7 @@
 
 - Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,360` input tokens, `595` output tokens, and `$0.00116100`; bootstrap trilemma used `5,020` input tokens, `755` output tokens, and `$0.00120600`.
-- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `88,010` input tokens, `7,626` output tokens, and `$0.01777710`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
 ## 2026-06-30 — Volume 04 Funding-Model Controls Batch
 

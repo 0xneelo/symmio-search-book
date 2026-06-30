@@ -345,14 +345,14 @@ const recordedLiveEvaluation = {
     total: { passing: 42, total: 42 },
   },
   measuredUsage: {
-    calls: 15,
-    inputTokens: 88010,
-    outputTokens: 7626,
-    estimatedCostUsd: 0.0177771,
+    calls: 16,
+    inputTokens: 93868,
+    outputTokens: 8615,
+    estimatedCostUsd: 0.0192492,
     pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
   },
   notes:
-    "Live eval exercised the OpenAI-compatible runtime with structured JSON outputs, canonical sourceHref copying, citation validation, required-phrase preservation, adversarial refusals, and answer-validation fixtures. This is runtime evidence, not a deployed-service readiness claim.",
+    "Live eval exercised the OpenAI-compatible runtime with structured JSON outputs, canonical sourceHref copying, citation validation, validation-retry feedback, required-phrase preservation, adversarial refusals, and answer-validation fixtures. This is runtime evidence, not a deployed-service readiness claim.",
 };
 
 const payload = {
