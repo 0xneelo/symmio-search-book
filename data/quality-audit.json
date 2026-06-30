@@ -1402,7 +1402,7 @@
     "retentionPolicyImplemented": true,
     "moderationExportImplemented": true,
     "livingDocsProductionReady": false,
-    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete.",
+    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, and a documented reviewer operating runbook. Production deployment/public route, production LLM service env, assigned production owner/cadence, and Discord import are still not complete.",
     "storage": {
       "localPrototype": {
         "questionsKey": "searchBookPrototype.questions",
@@ -1512,6 +1512,17 @@
           "behavior": "Reads the SQLite datastore directly and emits an internal reviewer summary of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended actions.",
           "privacy": "Output includes raw user questions and notes; do not publish it without an approved privacy review."
         },
+        "reviewerWorkflow": {
+          "runbook": "src/search-book/LIVING-DOCS-OPERATIONS.md",
+          "cadence": [
+            "daily review loop",
+            "weekly summary cadence",
+            "launch gate",
+            "incident handling"
+          ],
+          "behavior": "Documents how reviewers inspect Search Insights, run SQLite summaries, use the gated moderation export, triage low-rated/unanswered/repeated questions, preserve privacy, and escalate source/operator blockers.",
+          "boundary": "The runbook documents operation; it does not deploy the service, install production credentials, assign owners, or import parked source families."
+        },
         "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
       }
     },
@@ -1589,6 +1600,7 @@
       "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
       "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
       "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
+      "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
       "Keep API keys in process environment only; never persist or print them."
     ],
     "coverage": {
@@ -1633,7 +1645,8 @@
       "answerReuse": "The service stores helpful-rated answers with embeddings and can reuse them for semantically similar questions after guardrail preflight.",
       "dynamicExamples": "The service exposes helpful cached questions for dynamic example chips while the frontend keeps curated examples as fallback.",
       "reviewerSummary": "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence.",
-      "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided.",
+      "reviewerWorkflow": "The internal living-docs operations runbook documents daily triage, weekly summaries, moderation export handling, privacy boundaries, escalation rules, launch gates, and incident handling.",
+      "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure production retention/moderation access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided.",
       "blockedBy": [
         "OPERATOR-INBOX #4",
         "OPERATOR-INBOX #11",
@@ -2292,13 +2305,13 @@
       {
         "id": "answer-engine-front-door",
         "status": "partial",
-        "nextAction": "Install production service env, configure production retention/admin moderation access, and deploy behind the selected public frontend route.",
+        "nextAction": "Install production service env, configure production retention/moderation access, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
         "blocks": []
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
-        "nextAction": "Install production env, deploy the service plus selected public frontend route, and operate the reviewer workflow against the gated moderation export.",
+        "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
         "blocks": []
       },
       {
@@ -2518,13 +2531,13 @@
         "id": "answer-engine-front-door",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Install production service env, configure production retention/admin moderation access, and deploy behind the selected public frontend route."
+        "nextAction": "Install production service env, configure production retention/moderation access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
       },
       {
         "id": "living-docs-loop",
         "status": "partial",
         "blocks": [],
-        "nextAction": "Install production env, deploy the service plus selected public frontend route, and operate the reviewer workflow against the gated moderation export."
+        "nextAction": "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
       },
       {
         "id": "discord-seeded-faq",

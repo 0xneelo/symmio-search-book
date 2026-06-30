@@ -15,6 +15,7 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Deterministic answer-engine contract: `ANSWER-ENGINE-CONTRACT.md`
 - LLM RAG API contract: `LLM-RAG-CONTRACT.md`
 - Answer validation harness: `ANSWER-VALIDATION-HARNESS.md`
+- Living-docs reviewer operations runbook: `LIVING-DOCS-OPERATIONS.md`
 - Seed question dataset: `data/seed-questions.json`
 - Editorial and UI style guide: `STYLEGUIDE.md`
 - 500-800 page manifest: `page-manifest.json`
@@ -123,6 +124,8 @@ SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run searc
 
 The summary job reads the SQLite datastore directly and emits gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions. Its output includes raw user questions and notes; keep it internal unless a privacy review approves publication.
 
+Use `LIVING-DOCS-OPERATIONS.md` for the internal reviewer workflow: daily Search Insights triage, weekly summary cadence, moderation export handling, privacy boundaries, launch gate, and incident response. The runbook documents operation; it does not deploy the service, install credentials, assign a production owner, or import parked source families.
+
 ## Prototype Question
 
 Can a docs front door combine:
@@ -138,7 +141,7 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 ## Non-Goals
 
 - This is not the final authored documentation site.
-- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, and gated moderation export; production service env, selected public frontend route, admin/reviewer operations, and deploy wiring remain production work.
+- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, gated moderation export, summary job, and reviewer operations runbook; production service env, selected public frontend route, assigned reviewer owner/cadence, and deploy wiring remain production work.
 - This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
 - This does not expose private API URLs, tokens, unprotected admin/reviewer endpoints, or operator-only credentials.
 

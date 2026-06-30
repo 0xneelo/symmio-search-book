@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Living-Docs Reviewer Operations Runbook
+
+- Added `LIVING-DOCS-OPERATIONS.md` as the internal reviewer workflow for Search Book living docs: daily Search Insights triage, weekly SQLite summaries, gated moderation export handling, privacy boundaries, source/operator escalation rules, launch gate, and incident response.
+- Updated `build-living-docs-events.mjs` so generated evidence detects the runbook and reports `reviewerWorkflowDocumented: true`; regenerated `data/living-docs-events.*`, `data/requirement-map.*`, and `data/quality-audit.*`.
+- Kept production readiness false: the remaining living-docs work is public deploy route, production service env, production moderation access, assigned reviewer owner/cadence, and Discord/Lafa import.
+
 ## 2026-07-01 — Requirement-Map Publication State Alignment
 
 - Updated `build-requirement-map.mjs` so the `manifesto-and-reference` requirement is marked complete only when the page target is in range, the authored layer is book-scale and published, the volume map exists, all source companions are covered by authored pages, and all candidate review lanes are at zero.
@@ -9,7 +15,7 @@
 ## 2026-07-01 — Living-Docs Reuse-Cache Evidence Alignment
 
 - Updated the generated living-docs contract so it detects and records the current answer-engine service shape: SQLite question, rating, gap, and `search_book_answer_cache` persistence; rated-answer reuse after guardrail preflight; dynamic example questions via `GET /api/search-book/examples`; retention over answer-cache rows; and the existing gated moderation/reviewer-summary path.
-- Regenerated `data/living-docs-events.*`; the contract now reports `answerCacheImplemented: true`, `dynamicExamplesImplemented: true`, `12/12` living-docs fixtures, and `livingDocsProductionReady: false` because public deploy route, production service env, admin/reviewer workflow, and Discord import remain open.
+- Regenerated `data/living-docs-events.*`; the contract now reports `answerCacheImplemented: true`, `dynamicExamplesImplemented: true`, `12/12` living-docs fixtures, and `livingDocsProductionReady: false` because public deploy route, production service env, production access/owner cadence, and Discord import remain open.
 - Updated the Search Book README, answer-engine contract, final report, and production-readiness roadmap so they no longer describe the service as questions/ratings/gaps-only and so they document `source:"reuse-cache"` and optional dynamic example chips without changing the production-readiness boundary.
 
 ## 2026-07-01 — Final Volume 06 Rewards And Tokenized-Points Batch
@@ -659,7 +665,7 @@
 - Added configurable retention to the standalone answer-engine service for persisted question, rating, and gap events, with a 180-day default and `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=0` reserved for local archival use.
 - Added a disabled-by-default reviewer export at `GET /api/search-book/moderation` that summarizes gap backlog, low-rated answers, unanswered questions, and repeated questions only when `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and a moderation token are configured.
 - Exposed retention/moderation policy metadata through health and insights responses without printing API keys or moderation tokens.
-- Kept production readiness false until the production service env, public deploy route, admin/reviewer operating workflow, and remaining source imports are complete.
+- Kept production readiness false until the production service env, public deploy route, production reviewer access/owner cadence, and remaining source imports are complete.
 
 ## 2026-06-29 — Static Frontend Service Bridge
 

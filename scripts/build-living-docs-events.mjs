@@ -18,6 +18,7 @@ const defaults = {
   outJs: path.join(searchBookRoot, "data", "living-docs-events.js"),
   serviceScript: path.join(searchBookRoot, "scripts", "serve-answer-engine.mjs"),
   gapSummaryScript: path.join(searchBookRoot, "scripts", "summarize-living-docs-gaps.mjs"),
+  reviewerRunbook: path.join(searchBookRoot, "LIVING-DOCS-OPERATIONS.md"),
   frontendPrototype: path.join(searchBookRoot, "index.html"),
 };
 
@@ -349,6 +350,16 @@ const gapSummaryJobImplemented =
   readText(args.gapSummaryScript).includes("search_book_gaps") &&
   readText(args.gapSummaryScript).includes("lowRatedAnswers") &&
   readText(args.gapSummaryScript).includes("repeatedQuestions");
+const reviewerRunbookText = readText(args.reviewerRunbook);
+const reviewerWorkflowDocumented =
+  fs.existsSync(args.reviewerRunbook) &&
+  reviewerRunbookText.includes("# Search Book Living-Docs Operations") &&
+  reviewerRunbookText.includes("Daily Review Loop") &&
+  reviewerRunbookText.includes("Moderation Export") &&
+  reviewerRunbookText.includes("Triage Rules") &&
+  reviewerRunbookText.includes("Launch Gate") &&
+  reviewerRunbookText.includes("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN") &&
+  reviewerRunbookText.includes("npm run search-book:living-docs-summary");
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 const frontendServiceIntegrationImplemented =
   frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
@@ -393,15 +404,16 @@ const payload = {
   answerCacheImplemented,
   dynamicExamplesImplemented,
   gapSummaryJobImplemented,
+  reviewerWorkflowDocumented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented
-        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
-        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented
+        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, and a documented reviewer operating runbook. Production deployment/public route, production LLM service env, assigned production owner/cadence, and Discord import are still not complete."
+        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
-    : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
+    : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, reviewer workflow, and Discord import are not complete.",
   storage: {
     ...storage,
     productionService: {
@@ -459,6 +471,14 @@ const payload = {
             privacy: "Output includes raw user questions and notes; do not publish it without an approved privacy review.",
           }
         : "Reviewer gap-summary job is not implemented yet.",
+      reviewerWorkflow: reviewerWorkflowDocumented
+        ? {
+            runbook: "src/search-book/LIVING-DOCS-OPERATIONS.md",
+            cadence: ["daily review loop", "weekly summary cadence", "launch gate", "incident handling"],
+            behavior: "Documents how reviewers inspect Search Insights, run SQLite summaries, use the gated moderation export, triage low-rated/unanswered/repeated questions, preserve privacy, and escalate source/operator blockers.",
+            boundary: "The runbook documents operation; it does not deploy the service, install production credentials, assign owners, or import parked source families.",
+          }
+        : "Reviewer operating runbook is not documented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
         ? "src/search-book/index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
@@ -480,6 +500,7 @@ const payload = {
     "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
+    "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
     "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
@@ -530,9 +551,12 @@ const payload = {
     reviewerSummary: gapSummaryJobImplemented
       ? "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence."
       : "The scheduled/reviewer gap-summary job is not implemented yet.",
+    reviewerWorkflow: reviewerWorkflowDocumented
+      ? "The internal living-docs operations runbook documents daily triage, weekly summaries, moderation export handling, privacy boundaries, escalation rules, launch gates, and incident handling."
+      : "The reviewer operating runbook is not documented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && gapSummaryJobImplemented
-        ? "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided."
+      ? retentionPolicyImplemented && moderationExportImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented
+        ? "Deploy the standalone service and selected public frontend route, configure production retention/moderation access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided."
         : "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
       : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
@@ -553,5 +577,6 @@ console.log(JSON.stringify({
   answerCacheImplemented: payload.answerCacheImplemented,
   dynamicExamplesImplemented: payload.dynamicExamplesImplemented,
   gapSummaryJobImplemented: payload.gapSummaryJobImplemented,
+  reviewerWorkflowDocumented: payload.reviewerWorkflowDocumented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));
