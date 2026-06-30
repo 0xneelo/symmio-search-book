@@ -3,7 +3,7 @@ id: "authored-house-of-all-finance-proving-ground"
 title: "The House Of All Finance Needs A Proving Ground"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/07-conclusion", "https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/04-the-hyperliquid-gap"]
 relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-07-conclusion", "neelo-05-ode-to-the-orderbook-part2-05-docs-04-the-hyperliquid-gap", "authored-hyperliquid-gap-lower-layer"]

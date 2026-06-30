@@ -3,7 +3,7 @@ id: "authored-game-theory-of-listings"
 title: "The Game Theory Of Listings"
 section: "manifesto"
 track: "06 — Listing Power"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/00-abstract"]
 relatedGeneratedPages: ["neelo-11-gametheory-of-listings-11-docs-00-abstract"]

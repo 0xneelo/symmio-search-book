@@ -3,7 +3,7 @@ id: "authored-end-of-narrative-based-listings"
 title: "The End Of Narrative-Based Listings"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/05-ode-to-the-orderbook-part2/05-docs/03-the-end-of-narrative-based-listings"]
 relatedGeneratedPages: ["neelo-05-ode-to-the-orderbook-part2-05-docs-03-the-end-of-narrative-based-listings", "authored-game-theory-of-listings", "authored-listing-monopoly", "authored-proof-of-value"]

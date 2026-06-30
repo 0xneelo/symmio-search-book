@@ -3,7 +3,7 @@ id: "authored-intents-complete-order-books"
 title: "Intents Complete Order Books"
 section: "manifesto"
 track: "02 — Intents Versus Order Books"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/overview"]
 relatedGeneratedPages: ["neelo-04-ode-to-the-orderbook-04-docs-overview"]

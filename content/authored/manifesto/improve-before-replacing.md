@@ -3,7 +3,7 @@ id: "authored-improve-before-replacing"
 title: "Improve Before Replacing"
 section: "manifesto"
 track: "08 — Market Structure"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/04-ode-to-the-orderbook/04-docs/07-the-clob-upgrade#7-1-improve-before-replacing"]

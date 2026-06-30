@@ -3,7 +3,7 @@ id: "authored-gap-filling-perps-protocol"
 title: "The Gap-Filling Perps Protocol"
 section: "manifesto"
 track: "06 - Listing Power"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/05-permissionless-perps-hypothesis", "https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04-the-lifecycle-gap"]

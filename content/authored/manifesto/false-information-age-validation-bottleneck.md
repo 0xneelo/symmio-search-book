@@ -3,7 +3,7 @@ id: "authored-false-information-age-validation-bottleneck"
 title: "False Information Age Validation Bottleneck"
 section: "manifesto"
 track: "09 - Fix Industry One Primitive"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/00-abstract"]

@@ -3,7 +3,7 @@ id: "authored-last-primitive"
 title: "The Last Primitive"
 section: "manifesto"
 track: "09 — Industry Primitive"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/06-the-last-primitive"]
 relatedGeneratedPages: ["neelo-09-fix-industry-one-primitive-09-docs-overview", "neelo-09-fix-industry-one-primitive-09-docs-06-the-last-primitive", "authored-market-creation-gap", "authored-proof-of-value", "authored-intents-and-solvers"]

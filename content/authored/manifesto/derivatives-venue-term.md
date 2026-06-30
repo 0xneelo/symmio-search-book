@@ -3,7 +3,7 @@ id: "authored-derivatives-venue-term"
 title: "The Venue Term In Every Derivatives Trade"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"]

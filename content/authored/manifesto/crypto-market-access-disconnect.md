@@ -3,7 +3,7 @@ id: "authored-crypto-market-access-disconnect"
 title: "Crypto's Market Access Disconnect"
 section: "manifesto"
 track: "11 - Game Theory of Listings"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/05-the-disconnect-in-crypto", "https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/00-abstract"]

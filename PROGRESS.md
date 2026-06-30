@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Listing And Market-Access Publication Review Batch
+
+- Promoted `21` stable Neelo-source `vibe-papers` pages to `published` across bootstrap causes, CLOB/order-book coordination, complete market expression, issuance/validation debt, crypto market-access disconnect, curation cost, derivatives venue term, narrative-based listing limits, exchange deviation, listing game theory, gap-filling perps, order-book cooperation, information-market validation, the last primitive, and lifecycle gates as market power.
+- Kept freshness-sensitive product/data-source pages and broad compendium overviews in the review queue for separate source/date review.
+- Regenerated Search Book data so page-state counts now show `56` published pages, `742` candidate pages, `792` source companions, and `103` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Proof Of Value And Perp Framework Publication Review Batch
 
 - Promoted `20` stable Neelo-source `vibe-papers` pages to `published` across Proof of Value, Information/Trade, and perp-framework taxonomy: long-tail verification throughput, market price as verification, framework summary, keyword and structure maps, three design axes, prediction-market limits, Proof of Authority to Proof of Value, Proof of Value, both Proof of Value source maps, the Proof of Value shadow side, short sellers as fact-checkers, static perp design failures, synchronous matching, systematic categorization, temporal separation, trilemma escape, the missing NO button, and the token-market valley of death.
