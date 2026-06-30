@@ -3,7 +3,7 @@ id: "authored-funding-core-invariant"
 title: "The Funding Model Core Invariant"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/03-core-concepts", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/funding-rate-model"]
@@ -22,7 +22,7 @@ Traditional AMM and lending analogies can mislead readers. If the docs say only 
 
 The invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic pricing can route flow away from danger before hard unwind paths activate.
 
-## Boundary
+## Publication Boundary
 
 This page is conceptual architecture. It should not be read as a promise that every liquidation is profitable, every LP outcome is positive, or every production market has the same defense stack. Live liquidation thresholds, fee splits, insurance usage, and ADL behavior remain implementation and operator-review items.
 

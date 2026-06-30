@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 476,
-    "publication-candidate-needs-operator-review": 322,
+    "published": 490,
+    "publication-candidate-needs-operator-review": 308,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -2897,7 +2897,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2920,7 +2920,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2943,7 +2943,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2967,7 +2967,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3083,7 +3083,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3153,7 +3153,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3176,7 +3176,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3191,7 +3191,7 @@
       ],
       "volumeId": "volume-04-token-margin-and-funding-systems",
       "file": "content/authored/manifesto/funding-core-invariant.md",
-      "bodyMarkdown": "# The Funding Model Core Invariant\n\nNeelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad-debt events.\n\nThat does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leave system debt behind. In the source framing, a solver or LP stack can receive collateral, rebalance token inventory, earn fees and funding, and still manage exposure through dynamic prices before the system reaches insurance or ADL.\n\n## Why The Invariant Matters\n\nTraditional AMM and lending analogies can mislead readers. If the docs say only \"volatility is risk,\" users miss the difference between selling spot inventory, lending against collateral, and running a perp market where trader PnL, liquidation revenue, funding, spread, borrow, hedge cost, and shortfall risk all enter the same control loop.\n\nThe invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic pricing can route flow away from danger before hard unwind paths activate.\n\n## Boundary\n\nThis page is conceptual architecture. It should not be read as a promise that every liquidation is profitable, every LP outcome is positive, or every production market has the same defense stack. Live liquidation thresholds, fee splits, insurance usage, and ADL behavior remain implementation and operator-review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\".\n- `vibe-papers`: Neelo, \"Funding Rate Model for Low-Cap Perpetual Contracts\".\n\n## Related Pages\n\n- `authored-funding-model-control-problem`\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-funding-defense-hierarchy`",
+      "bodyMarkdown": "# The Funding Model Core Invariant\n\nNeelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad-debt events.\n\nThat does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leave system debt behind. In the source framing, a solver or LP stack can receive collateral, rebalance token inventory, earn fees and funding, and still manage exposure through dynamic prices before the system reaches insurance or ADL.\n\n## Why The Invariant Matters\n\nTraditional AMM and lending analogies can mislead readers. If the docs say only \"volatility is risk,\" users miss the difference between selling spot inventory, lending against collateral, and running a perp market where trader PnL, liquidation revenue, funding, spread, borrow, hedge cost, and shortfall risk all enter the same control loop.\n\nThe invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic pricing can route flow away from danger before hard unwind paths activate.\n\n## Publication Boundary\n\nThis page is conceptual architecture. It should not be read as a promise that every liquidation is profitable, every LP outcome is positive, or every production market has the same defense stack. Live liquidation thresholds, fee splits, insurance usage, and ADL behavior remain implementation and operator-review items.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Core Concepts: Gradient Flow & Attractor-Repeller Dynamics\".\n- `vibe-papers`: Neelo, \"Funding Rate Model for Low-Cap Perpetual Contracts\".\n\n## Related Pages\n\n- `authored-funding-model-control-problem`\n- `authored-lp-profit-and-dynamic-pricing`\n- `authored-funding-defense-hierarchy`",
       "excerpt": "The Funding Model Core Invariant Neelo's funding model turns on one practical inversion: liquidations are treated as inventory reallocations, not automatic bad debt events. That does not mean liquidations are harmless for users or that every market is safe. It means the risk model is not the same as a lending protocol where collateral liquidation can leave system debt behind. In the source framing, a solver or LP stack can receive collateral, rebalance token inventory, earn fees and funding, and still manage exposure through dynamic prices before the system reaches insurance or ADL. Why The Invariant Matters Traditional AMM and lending analogies can mislead readers. If the docs say only \"volatility is risk,\" users miss the difference between selling spot inventory, lending against collateral, and running a perp market where trader PnL, liquidation revenue, funding, spread, borrow, hedge cost, and shortfall risk all enter the same control loop. The invariant lets the compendium explain why Vibe can be more aggressive about market balancing than a simple pool. Faster liquidation can improve solver safety; funding can ramp without being framed as a solvency cascade by itself; dynamic "
     },
     {
@@ -3223,7 +3223,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3235,9 +3235,9 @@
         "neelo-15-funding-model-15-docs-09-insurance-adl",
         "authored-funding-as-market-balancing"
       ],
-      "volumeId": "",
+      "volumeId": "volume-04-token-margin-and-funding-systems",
       "file": "content/authored/manifesto/funding-defense-hierarchy.md",
-      "bodyMarkdown": "# Funding Defense Hierarchy\n\nNeelo's funding model frames ADL as the last resort, not the first line of defense. Before auto-deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL.\n\nThat order matters because each layer has a different cost.\n\n## The Stack\n\nUser position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market-specific USDC protection from liquidation proceeds, solver profits, and CVA-style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system.\n\nADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model.\n\n## Why This Belongs In The Vision Spine\n\nThe hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long-tail venue, the docs need to show readers where losses are absorbed before they ask who gets deleveraged.\n\n## Publication Note\n\nThis page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy: The Complete Protection Stack\".\n\n## Related Pages\n\n- `authored-funding-as-market-balancing`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-token-margined-reflexivity-risk`\n- `neelo-15-funding-model-15-docs-10-defense-hierarchy`",
+      "bodyMarkdown": "# Funding Defense Hierarchy\n\nNeelo's funding model frames ADL as the last resort, not the first line of defense. Before auto-deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL.\n\nThat order matters because each layer has a different cost.\n\n## The Stack\n\nUser position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market-specific USDC protection from liquidation proceeds, solver profits, and CVA-style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system.\n\nADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model.\n\n## Why This Belongs In The Vision Spine\n\nThe hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long-tail venue, the docs need to show readers where losses are absorbed before they ask who gets deleveraged.\n\n## Publication Boundary\n\nThis page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Defense Hierarchy: The Complete Protection Stack\".\n\n## Related Pages\n\n- `authored-funding-as-market-balancing`\n- `authored-economic-clarity-for-permissionless-perps`\n- `authored-token-margined-reflexivity-risk`\n- `neelo-15-funding-model-15-docs-10-defense-hierarchy`",
       "excerpt": "Funding Defense Hierarchy Neelo's funding model frames ADL as the last resort, not the first line of defense. Before auto deleveraging, the model describes a layered protection stack: user position netting, solver token inventory, local insurance, capped global insurance, and only then ADL. That order matters because each layer has a different cost. The Stack User position netting is the cleanest protection: longs and shorts naturally offset each other. Solver token inventory is the next layer, using actual token holdings to cover net exposure. Local insurance then creates market specific USDC protection from liquidation proceeds, solver profits, and CVA style charges. Global insurance can add shared protection, but the source model limits eligibility and allocation so weak markets cannot drain the whole system. ADL enters only after those defenses are exhausted or exposure exceeds the safe level implied by the model. Why This Belongs In The Vision Spine The hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long tail venue, the docs need to show"
     },
     {
@@ -3270,7 +3270,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3295,7 +3295,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3318,7 +3318,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3341,7 +3341,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3364,7 +3364,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -3388,7 +3388,7 @@
       "section": "manifesto",
       "track": "15 - Funding Rate Model",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Funding-Model Controls Batch
+
+- Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Abstract Accounting Roadmap, Funding Abstract Control Surface, Funding ADL And Defense Sequence Example, Funding ADL Penalty Function, Funding Bell-Curve Flattening Example, Funding Control Actions Map, The Funding Model Core Invariant, Funding Defense Hierarchy, Funding Derivation Document Index, Funding Directional Spreads And Rebates, Funding Document Cross Reference Map, Funding Dynamic Borrow Rate, Funding Dynamic Control Loop, and Funding Dynamic Funding Rate.
+- Added or normalized publication boundaries for live accounting treatment, tax treatment, buyback/insurance rules, production knobs/formulas/multipliers/caps/rebates, ADL thresholds/fractions/position selection, emergency sequencing, global-support eligibility, market-state feeds, funding intervals, and legal/risk/accounting-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `490` published pages, `308` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `116` Volume 04 candidates remaining, and `128` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 04 Risk-Premium And Token-Margin Batch
 
 - Promoted `10` Volume 04 Token Margin and Funding Systems manifesto pages to `published`: Required Risk Premium For USDC LPs, Break-Even Versus Attractive APR, Cross-Margin Capital Fungibility, Cross-Market Risk Mutualization, Drift LUNA Token-Collateral Precedent, Dynamic Pricing Controls, Economic Clarity For Permissionless Perps, Engineering Fixes Cannot Solve Inverse Economics, Expected Loss As Capital Maintenance, and Fully On-Chain Keeper Model.

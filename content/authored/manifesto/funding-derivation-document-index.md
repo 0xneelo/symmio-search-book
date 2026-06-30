@@ -3,7 +3,7 @@ id: "authored-funding-derivation-document-index"
 title: "Funding Derivation Document Index"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/02-index#document-index"]

@@ -3,7 +3,8 @@ id: "authored-funding-defense-hierarchy"
 title: "Funding Defense Hierarchy"
 section: "manifesto"
 track: "07 — Technical Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"]
 relatedGeneratedPages: ["neelo-15-funding-model-15-docs-10-defense-hierarchy", "neelo-15-funding-model-15-docs-09-insurance-adl", "authored-funding-as-market-balancing"]
@@ -25,7 +26,7 @@ ADL enters only after those defenses are exhausted or exposure exceeds the safe 
 
 The hierarchy explains why funding and insurance cannot be reduced to a fee. They are part of the same solvency design as token inventory, dynamic pricing, and risk limits. In a permissionless long-tail venue, the docs need to show readers where losses are absorbed before they ask who gets deleveraged.
 
-## Publication Note
+## Publication Boundary
 
 This page summarizes the Neelo model. Final public docs need operator and implementation review before publishing concrete percentages, allocation caps, eligibility policy, or Vibe/Symmio production ADL behavior.
 
