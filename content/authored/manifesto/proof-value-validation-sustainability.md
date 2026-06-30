@@ -3,7 +3,7 @@ id: "authored-proof-value-validation-sustainability"
 title: "Proof Of Value Requires Validation And Sustainability"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/09-thiel-value-analysis"]

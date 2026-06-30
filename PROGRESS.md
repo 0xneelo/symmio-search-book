@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Proof Of Value Framework Operator-Review Batch
+
+- Promoted `12` stable Neelo-source manifesto pages to `published`: Proof Of Value Capture Mechanisms, Proof Of Value Contribution Summary, Proof Of Value Creation Map, Proof Of Value Durability Threat Model, Proof Of Value Needs Four Constituencies, Proof Of Value Future Directions, Proof Of Value Is Ongoing Demonstration, Proof Of Value Participant Implications, The Proof Of Value Question, Proof Of Value Thesis Boundary, Proof Of Value Thesis Restated, and Proof Of Value Requires Validation And Sustainability.
+- Preserved publication boundaries already present in the pages: exact economics, revenue shares, solver spreads, partner/traction metrics, LP yields, stress outcomes, committed-token figures, optimal revenue-share settings, and final sustainability proof require fresh primary-source/operator/product/risk/legal/accounting review.
+- Regenerated Search Book data so page-state counts now show `268` published pages, `530` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Thiel Monopoly Strategy Operator-Review Batch
 
 - Promoted `12` stable Neelo-source manifesto pages to `published`: Brand As An Earned Market Signal, Category Creation Not Feature Competition, Durability And Long-Term Value, The Last-Mover Question, How To Read The Monopoly Verdict, The Thiel 10x Technology Test, The Thiel Risk Checklist, How To Read The Thiel Scorecard, Software-Like Scale Economics, Value Creation And Capture Must Both Be Real, Vertical Integration Of The Market Lifecycle, and The Thiel X/Y Value Frame.

@@ -3,7 +3,7 @@ id: "authored-proof-value-thesis-boundary"
 title: "Proof Of Value Thesis Boundary"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-5-thesis-statement", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/01-introduction#1-7-scope"]
