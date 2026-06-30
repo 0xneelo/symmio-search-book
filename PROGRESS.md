@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Recheck
+
+- Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
+- Aligned human-facing readiness docs to the latest committed live RAG evidence from `22a2995`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,848` output tokens, and `$0.01719720` estimated cost.
+- Kept the production boundary explicit: the corpus and runtime are verified, but public frontend/deploy route, production service env, Discord/Lafa import, Notion ingestion, oldest Symmio whitepaper recovery, and SuperFlow/SSHE identification remain parked in `OPERATOR-INBOX.md`.
+
 ## 2026-06-30 — Proof Of Value Framework Operator-Review Batch
 
 - Promoted `12` stable Neelo-source manifesto pages to `published`: Proof Of Value Capture Mechanisms, Proof Of Value Contribution Summary, Proof Of Value Creation Map, Proof Of Value Durability Threat Model, Proof Of Value Needs Four Constituencies, Proof Of Value Future Directions, Proof Of Value Is Ongoing Demonstration, Proof Of Value Participant Implications, The Proof Of Value Question, Proof Of Value Thesis Boundary, Proof Of Value Thesis Restated, and Proof Of Value Requires Validation And Sustainability.
