@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Bootstrap And Perp Landscape Operator-Review Batch
+
+- Promoted `12` stable Neelo-source manifesto pages to `published`: Async-Netted Perp Experiments Fail At The Payer Question, The Pick-Two Reality In Perp Market Design, The Bootstrap Thesis Statement, Asynchronous Fully Collateralized Vault Protocols, The Existing Perp Protocol Landscape, Hybrid Perp Approaches Are Partial Solutions, The Landscape Comparative Analysis, The Perp Bootstrap Paper's Scope And Limits, Perp Bootstrap Source Navigation Map, What The Perp Framework Implies, Why Single-Architecture Perp Designs Fail The Trilemma, and The Capital Efficiency Trap.
+- Preserved publication boundaries already present in the pages: source-time competitor/project examples are not live comparisons, current venue metrics and fee levels require fresh primary sources, graduation thresholds and production insurance behavior remain product/risk-review topics, and the source-navigation map is a traceability guide rather than a completed claim about roadmap, proofs, solver algorithms, or formal protocol comparisons.
+- Regenerated Search Book data so page-state counts now show `220` published pages, `578` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Information And Trade Thesis Operator-Review Batch
 
 - Promoted `10` stable Neelo-source manifesto pages to `published`: The Global Reputation Protocol Thesis, Information Trade Source Navigation Map, Consensus Reality Versus Objective Reality, Information And Trade Dissertation Scope, Why The NO Button Needs Leverage, Long-Only Markets Filter For Hype, The NO Button As Market Filter, Profitable Fact-Checking Loop, Shorting At Launch As Market Immune System, and Leverage As Truth Amplifier.

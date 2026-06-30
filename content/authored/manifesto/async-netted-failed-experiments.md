@@ -3,7 +3,7 @@ id: "authored-async-netted-failed-experiments"
 title: "Async-Netted Perp Experiments Fail At The Payer Question"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-4-category-3-asynchronous-fully-netted-the-failed-experiments"]

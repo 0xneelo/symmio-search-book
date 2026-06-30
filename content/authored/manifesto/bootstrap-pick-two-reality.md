@@ -3,7 +3,7 @@ id: "authored-bootstrap-pick-two-reality"
 title: "The Pick-Two Reality In Perp Market Design"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/04-bootstrap-trilemma#4-5-the-pick-two-reality"]

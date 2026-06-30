@@ -24,9 +24,9 @@ The repo now has `src/search-book/scripts/build-publication-plan.mjs` and genera
 
 The coverage-aware publication-plan pass now reports all `792/792` source companions covered by authored pages and `0` companions needing authored coverage. Source companions remain useful for retrieval and traceability, but the authoring queue no longer needs to promote them as standalone public pages.
 
-The latest information/trade publication batch adds authored coverage for the global reputation thesis, source-navigation map, sustainable consensus boundary, dissertation scope, NO-button/leverage mechanism, long-only hype filtering, profitable fact-checking, and launch-time shorting as a market immune-system thesis.
+The latest bootstrap/perp-landscape publication batch adds authored coverage for async-netted payer failure, the pick-two reality, bootstrap thesis, vault-backed protocol tradeoffs, the existing perp landscape, hybrid partial solutions, landscape comparative analysis, source scope/limits, source-navigation, framework implications, single-architecture failure, and the capital-efficiency trap.
 
-The candidate review queue now includes the remaining `590` candidate pages after the first `208` source/prose/route/current-source/operator-boundary-reviewed pages moved to `published`. Its launch lanes are `0` final-review-ready pages, `590` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages.
+The candidate review queue now includes the remaining `578` candidate pages after the first `220` source/prose/route/current-source/operator-boundary-reviewed pages moved to `published`. Its launch lanes are `0` final-review-ready pages, `578` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages.
 
 **Needed:** Continue with the operator-review lane; promote approved pages to `published`, keep source companions out of public navigation, and keep the generated retrieval layer synchronized as sources change.
 
