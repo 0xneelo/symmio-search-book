@@ -3,7 +3,7 @@ id: "authored-funding-model-control-problem"
 title: "The Funding Model Is A Control Problem"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/00-informal-intro", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/01-abstract"]
@@ -30,9 +30,9 @@ The funding model gives the compendium a language for a hard truth: permissionle
 
 That is why this page should sit near the token-margin and solver-risk material. Funding is not a fee widget. It is one part of a larger market-control loop.
 
-## Publication Note
+## Publication Boundary
 
-This page summarizes the source model. Final public docs need operator and implementation review before turning model parameters, thresholds, or solver policies into product guarantees.
+This page summarizes the source model. It does not publish live model parameters, thresholds, solver policies, effective-leverage schedules, stress/ADL triggers, insurance allocation, governance authority, or product guarantees without implementation, risk, legal, and operator review.
 
 ## Sources
 

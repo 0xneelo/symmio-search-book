@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Funding Formula And State-Control Batch
+
+- Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding LP Loss Pressure Signal, Funding LP Master Profit Formula, Funding Master Formula Reading, Funding Master Optimization Equation, Funding Math As Problem Sharpening, Funding Math Is Not A Market Solution, The Funding Model Is A Control Problem, Funding Model Reading Boundary, Funding Monitoring And Governance Map, Funding Notation Convention, Funding One-Line Objective And Invariant, Funding Operational Path Control, Funding Per-Market State Variables, and Funding Revenue And Cost Accounting Map.
+- Added or normalized publication boundaries for live formulas, objective weights, lambda values, risk scores, thresholds, alert triggers, solver obligations, accounting treatment, live revenue splits, insurance/ADL behavior, leverage schedules, token capacity, governance authority, and legal/risk/accounting-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `518` published pages, `280` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `88` Volume 04 candidates remaining, and `100` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 04 Funding Objective And Insurance Batch
 
 - Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Dynamic Pricing Multipliers, Funding Emergency Acceleration Example, Funding Emergency Time Ramp, The Full Funding Objective, Funding Gradient Flow Math Map, Funding Information And Traversal Loop, Funding Insurance And Buyback Accounting, Funding Insurance Cost Penalty, Funding Insurance-Fund Utilization Mode, Funding Insurance Mode Spread Example, Funding Insurance And Safety Budgets, Funding Key Innovations Summary, Funding Local Optima Avoidance, and Funding Local Risk Score Penalties.
