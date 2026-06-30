@@ -3,7 +3,8 @@ id: "authored-referral-issuance-and-anti-gaming"
 title: "Referral Issuance And Anti-Gaming"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/06-access-phasing", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-05-referral-economics", "neelo-17-referral-program-17-docs-06-access-phasing", "section-17-referral-program-17-docs-05-referral-economics-5-1-why-referral-systems-get-gamed"]
@@ -33,6 +34,10 @@ This sequencing avoids opening incentive surfaces before monitoring is mature, w
 
 The docs should frame referral-code scarcity as a quality-control mechanism, not as artificial exclusivity. Any early-cohort or master-code model needs eligibility, duration, propagation limits, and sunset rules before it becomes public policy.
 
+## Publication Boundary
+
+This page publishes the source threat model and the source-backed control categories. It does not publish final sybil rules, abuse thresholds, issuer eligibility thresholds, master-code terms, penalty rules, attribution-dispute process, monitoring signals, enforcement procedures, or historical reassignment behavior until operator, security, legal, accounting, and implementation review confirm them.
+
 ## Sources
 
 - `vibe-papers`: Neelo, "Section 5: Referral Economics".
@@ -42,5 +47,5 @@ The docs should frame referral-code scarcity as a quality-control mechanism, not
 ## Related Pages
 
 - `authored-referral-identity-and-claim-flow`
-- `authored-referral-depth-open-question`
-- `neelo-17-referral-program-17-docs-05-referral-economics`
+- `authored-referral-qualified-issuance-gating`
+- `authored-referral-abuse-patterns`

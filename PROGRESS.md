@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Security And Settlement Batch
+
+- Promoted `8` Volume 06 rewards/referrals security, settlement, and integrity pages to `published`: Referral Issuance And Anti-Gaming, Referral Qualified Issuance Gating, Replay-Safe Referral Claim Authorizations, Referral Rights Ownership Model, Referral Settlement Security Controls, Referral Settlement And Security Decision Lane, Referral Signer Isolation And Key Rotation, and Referral Transferable Points Hardening Gate.
+- Added or preserved publication boundaries for anti-gaming controls, qualified issuance, replay-safe claims, referral-right ownership, settlement controls, signer isolation, key rotation, transferable-points hardening, public 15-level referral depth with additive backfill, Phase B refusal, signer authority, claim authorization formats, replay domains, transferability, anti-gaming enforcement specifics, key-management procedures, settlement timing, TGE conversion, private ledgers, exploit/incident procedures, legal/accounting/security-sensitive advice, and unlaunched reward mechanics.
+- Regenerated Search Book data so page-state counts now show `774` published pages, `24` candidate pages, `792` source companions, `798/798` exact routes, `2,874` chunks, `0` Volume 05 candidates, `24` Volume 06 candidates, `0` protocol-reference candidates, `24` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 06 Referral Economics And Benefit-Boundary Batch
 
 - Promoted `12` Volume 06 rewards/referrals economics and benefit-boundary pages to `published`: Referral LP-Side Bounded Accounting, Referral Market Precedence And Payout Buckets, Referral Mixed Accountability Boundary, No Market Attachment Means No Market-Level Share, Referral Open Participation With Optional Benefits, Referral Points As Economic State, Referral Private Deal Opacity Risk, Referral Public And Private Economics Boundary, Referral Public And Private Policy Overlays, Referral Rakeback Policy Model, Referral Tiering Constraint Boundaries, and Referral Uniform Referee Benefit.
