@@ -3,7 +3,7 @@ id: "authored-vibe-trading-program-points"
 title: "Vibe Trading Program Points"
 section: "rewards-referrals"
 track: "Points"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-trading-program", "vibe-points", "vibe-referral-program"]
 sourceUrls: ["https://docs.vibe.trading/trading/trading-program.md", "https://docs.vibe.trading/trading/vibe-points.md", "https://docs.vibe.trading/trading/referral-program.md"]
 relatedGeneratedPages: ["vibe-trading-program", "vibe-points-overview", "vibe-referral-program"]

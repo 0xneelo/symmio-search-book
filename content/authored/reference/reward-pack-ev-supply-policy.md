@@ -3,7 +3,7 @@ id: "authored-reward-pack-ev-supply-policy"
 title: "Reward Pack EV And Supply Policy"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "_specs/app-docs/03-grounding.md"]
@@ -28,6 +28,10 @@ A production pack page needs:
 - expected output policy;
 - whether market price can diverge from expected value;
 - how unopened packs count for TGE exposure.
+
+## Publication Boundary
+
+This page defines what must be disclosed before packs can be treated as economic objects. It does not publish actual supply, rarity classes, probabilities, expected value, mint odds, point costs, market-price expectations, or TGE exposure weights.
 
 ## Sources
 

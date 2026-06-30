@@ -3,7 +3,7 @@ id: "authored-reward-pack-end-to-end-loop"
 title: "Reward Pack End-To-End Loop"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system#12-2-end-to-end-loop", "_specs/app-docs/03-grounding.md"]
@@ -29,6 +29,10 @@ This is not a current production flow. It is a future design loop that shows whe
 ## Why The Loop Matters
 
 The loop prevents the docs from treating packs as isolated collectibles. In the source model, packs are connected to the point ledger, claim path, asset state, market behavior, and final allocation. A production page should therefore document the entire lifecycle, not only the mint or open action.
+
+## Publication Boundary
+
+This page describes a future design loop and the control points it would require. It does not publish a launch date, current claim path, transferability setting, pack opening policy, artifact minting policy, valuation rule, or final TGE allocation formula.
 
 ## Sources
 

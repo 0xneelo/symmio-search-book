@@ -268,7 +268,13 @@ function runInvariants() {
 
   const pageState = readJson("data/page-state-registry.json");
   assert(!pageState.duplicatePageIds.length && !pageState.unclassifiedPageIds.length && !pageState.missingVolumeIds.length, "page-state registry has unresolved pages");
-  assert(pageState.totalPages >= 900 && pageState.byState.candidate && pageState.byState["source-companion"], "page-state registry coverage is too low");
+  const finalOrCandidatePages = (pageState.byState.published || 0) + (pageState.byState.candidate || 0);
+  assert(
+    pageState.totalPages >= 900 &&
+      finalOrCandidatePages >= routes.totalRoutes &&
+      pageState.byState["source-companion"],
+    "page-state registry coverage is too low",
+  );
 
   const publicationPlan = readJson("data/publication-plan.json");
   assert(publicationPlan.planReady, "publication authoring plan is not ready");

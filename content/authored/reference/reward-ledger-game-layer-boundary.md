@@ -3,7 +3,7 @@ id: "authored-reward-ledger-game-layer-boundary"
 title: "Reward Ledger And Game Layer Boundary"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system#12-1-core-shift-not-finalized", "_specs/app-docs/03-grounding.md"]
@@ -21,6 +21,10 @@ The source is also explicit that this is future-facing. Packs and artifacts are 
 ## Documentation Rule
 
 When readers ask why packs exist, the answer should not be "more rewards." The source's stronger answer is separation of concerns: keep base reward accounting auditable, then allow optional objects to package or express that exposure if supply, EV, rarity, transferability, and TGE treatment are approved.
+
+## Publication Boundary
+
+This page publishes the ledger-versus-game-layer architecture only. It does not announce reward packs or artifacts as live products, finalize transferability, define supply or rarity, set expected value, approve secondary markets, or define TGE conversion treatment.
 
 ## Sources
 

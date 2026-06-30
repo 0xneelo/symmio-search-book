@@ -3,7 +3,7 @@ id: "authored-reward-pack-system-guardrails"
 title: "Reward Pack System Guardrails"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system#12-10-guardrails", "_specs/app-docs/03-grounding.md"]
@@ -29,6 +29,10 @@ Security means the system needs vesting delay, anomaly monitoring, and auditable
 ## Documentation Rule
 
 Do not describe packs as live economic promises until supply, rarity, EV, eligibility, transferability, and TGE accounting have approved public policy. The safe public framing is future-facing architecture unless the operator approves a production launch page.
+
+## Publication Boundary
+
+This page publishes guardrails, not launch mechanics. It does not approve any pack or artifact issue, supply schedule, rarity table, probability distribution, transfer permission, eligibility rule, TGE treatment, or security-control implementation detail.
 
 ## Sources
 

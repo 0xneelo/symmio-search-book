@@ -3,7 +3,7 @@ id: "authored-rewards-packs-and-artifacts"
 title: "Rewards Packs And Artifacts"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-4-packs-and-artifacts", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards#4-6-extended-model", "_specs/app-docs/03-grounding.md"]
@@ -21,6 +21,10 @@ That structure can improve retention only if the economic rules are public enoug
 ## TGE Accounting Principle
 
 The source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off-chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure.
+
+## Publication Boundary
+
+This page keeps packs and artifacts in future-facing design-model territory. It does not publish live reward-pack availability, artifact issuance, supply, rarity, expected value, transferability, conversion ratios, snapshot timing, vesting treatment, or final TGE allocation mechanics.
 
 ## Sources
 

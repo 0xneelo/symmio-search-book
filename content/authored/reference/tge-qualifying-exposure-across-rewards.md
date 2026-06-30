@@ -3,7 +3,7 @@ id: "authored-tge-qualifying-exposure-across-rewards"
 title: "TGE Qualifying Exposure Across Reward Forms"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-rewards-packs-artifact-system", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/04-points-and-rewards", "_specs/app-docs/03-grounding.md"]
@@ -25,6 +25,10 @@ The source is also explicit about what should not count: unclaimed off-chain poi
 ## What Remains Operator-Controlled
 
 The model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication-critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula.
+
+## Publication Boundary
+
+This page publishes the qualifying-exposure concept only. It does not define a claim amount, conversion ratio, token allocation, eligibility snapshot, vesting schedule, transferability right, pack valuation, artifact valuation, or legal/accounting treatment.
 
 ## Sources
 

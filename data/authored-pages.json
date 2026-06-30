@@ -2,9 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 774,
-    "needs-reconciliation": 1,
-    "publication-candidate-needs-operator-review": 24
+    "published": 798,
+    "needs-reconciliation": 1
   },
   "bySection": {
     "manifesto": 479,
@@ -11488,7 +11487,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11514,7 +11513,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -11820,7 +11819,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12107,7 +12106,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12292,7 +12291,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12318,7 +12317,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12629,7 +12628,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12655,7 +12654,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12672,8 +12671,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/reward-ledger-game-layer-boundary.md",
-      "bodyMarkdown": "# Reward Ledger And Game Layer Boundary\n\nThe rewards-pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger.\n\nThat boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE-eligibility implications. Packs and artifacts can add engagement, variance, rarity, and secondary-market behavior only after the base ledger is already trustworthy.\n\nThe source is also explicit that this is future-facing. Packs and artifacts are not current product policy, not a feature announcement, and not an endorsed live reward commitment. They are a design model for how reward exposure could become more interactive without letting the game layer rewrite core accounting.\n\n## Documentation Rule\n\nWhen readers ask why packs exist, the answer should not be \"more rewards.\" The source's stronger answer is separation of concerns: keep base reward accounting auditable, then allow optional objects to package or express that exposure if supply, EV, rarity, transferability, and TGE treatment are approved.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", 12.1.\n- `spec-03`: Final reward policy and TGE language remain owner-review.\n\n## Related Pages\n\n- `authored-reward-packs-future-facing-status`\n- `authored-rewards-packs-and-artifacts`\n- `authored-points-value-state-lifecycle`",
-      "excerpt": "Reward Ledger And Game Layer Boundary The rewards pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger. That boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE eligibility implications. Packs and artifacts can add engagement, variance, rarity, and secondary market behavior only after the base ledger is already trustworthy. The source is also explicit that this is future facing. Packs and artifacts are not current product policy, not a feature announcement, and not an endorsed live reward commitment. They are a design model for how reward exposure could become more interactive without letting the game layer rewrite core accounting. Documentation Rule When readers ask why packs exist, the answer should not be \"more rewards.\" The source's stronger answer is separation of concerns: keep base reward accounting auditable, then allow optional objects to package or express that exposure if supply, EV, rarity, transferability, and TGE treatment are approved. Sources vibe papers : Neelo, \"Section 12: Rewards, P"
+      "bodyMarkdown": "# Reward Ledger And Game Layer Boundary\n\nThe rewards-pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger.\n\nThat boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE-eligibility implications. Packs and artifacts can add engagement, variance, rarity, and secondary-market behavior only after the base ledger is already trustworthy.\n\nThe source is also explicit that this is future-facing. Packs and artifacts are not current product policy, not a feature announcement, and not an endorsed live reward commitment. They are a design model for how reward exposure could become more interactive without letting the game layer rewrite core accounting.\n\n## Documentation Rule\n\nWhen readers ask why packs exist, the answer should not be \"more rewards.\" The source's stronger answer is separation of concerns: keep base reward accounting auditable, then allow optional objects to package or express that exposure if supply, EV, rarity, transferability, and TGE treatment are approved.\n\n## Publication Boundary\n\nThis page publishes the ledger-versus-game-layer architecture only. It does not announce reward packs or artifacts as live products, finalize transferability, define supply or rarity, set expected value, approve secondary markets, or define TGE conversion treatment.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", 12.1.\n- `spec-03`: Final reward policy and TGE language remain owner-review.\n\n## Related Pages\n\n- `authored-reward-packs-future-facing-status`\n- `authored-rewards-packs-and-artifacts`\n- `authored-points-value-state-lifecycle`",
+      "excerpt": "Reward Ledger And Game Layer Boundary The rewards pack source makes a clean architectural split: points are the reward ledger, while packs and artifacts are the optional game layer around that ledger. That boundary is the important part. Points should remain the simple accounting object because they carry source, finalization, claim, and TGE eligibility implications. Packs and artifacts can add engagement, variance, rarity, and secondary market behavior only after the base ledger is already trustworthy. The source is also explicit that this is future facing. Packs and artifacts are not current product policy, not a feature announcement, and not an endorsed live reward commitment. They are a design model for how reward exposure could become more interactive without letting the game layer rewrite core accounting. Documentation Rule When readers ask why packs exist, the answer should not be \"more rewards.\" The source's stronger answer is separation of concerns: keep base reward accounting auditable, then allow optional objects to package or express that exposure if supply, EV, rarity, transferability, and TGE treatment are approved. Publication Boundary This page publishes the ledger "
     },
     {
       "id": "authored-reward-pack-end-to-end-loop",
@@ -12681,7 +12680,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12698,7 +12697,7 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/reward-pack-end-to-end-loop.md",
-      "bodyMarkdown": "# Reward Pack End-To-End Loop\n\nThe source model describes a seven-step reward loop. It starts with off-chain point earning and ends with TGE accounting across whichever reward forms qualify.\n\nThe loop is:\n\n- users earn points off-chain;\n- points are claimed on-chain through a delayed claim path;\n- claimed points can be held directly or converted into packs;\n- packs can be held, traded, or opened;\n- opened packs mint artifacts with embedded points and optional boosts;\n- users can hold or trade points, packs, and artifacts if transferability is permitted;\n- final allocation uses total qualifying point exposure across the approved forms.\n\nThis is not a current production flow. It is a future design loop that shows where controls have to sit: finalization before claims, vesting or delay before economic activity, valuation rules before packs or artifacts count, and TGE rules before any object is treated as qualifying exposure.\n\n## Why The Loop Matters\n\nThe loop prevents the docs from treating packs as isolated collectibles. In the source model, packs are connected to the point ledger, claim path, asset state, market behavior, and final allocation. A production page should therefore document the entire lifecycle, not only the mint or open action.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", 12.2.\n- `spec-03`: Claim, vesting, and TGE semantics remain owner-review.\n\n## Related Pages\n\n- `authored-reward-ledger-game-layer-boundary`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "bodyMarkdown": "# Reward Pack End-To-End Loop\n\nThe source model describes a seven-step reward loop. It starts with off-chain point earning and ends with TGE accounting across whichever reward forms qualify.\n\nThe loop is:\n\n- users earn points off-chain;\n- points are claimed on-chain through a delayed claim path;\n- claimed points can be held directly or converted into packs;\n- packs can be held, traded, or opened;\n- opened packs mint artifacts with embedded points and optional boosts;\n- users can hold or trade points, packs, and artifacts if transferability is permitted;\n- final allocation uses total qualifying point exposure across the approved forms.\n\nThis is not a current production flow. It is a future design loop that shows where controls have to sit: finalization before claims, vesting or delay before economic activity, valuation rules before packs or artifacts count, and TGE rules before any object is treated as qualifying exposure.\n\n## Why The Loop Matters\n\nThe loop prevents the docs from treating packs as isolated collectibles. In the source model, packs are connected to the point ledger, claim path, asset state, market behavior, and final allocation. A production page should therefore document the entire lifecycle, not only the mint or open action.\n\n## Publication Boundary\n\nThis page describes a future design loop and the control points it would require. It does not publish a launch date, current claim path, transferability setting, pack opening policy, artifact minting policy, valuation rule, or final TGE allocation formula.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", 12.2.\n- `spec-03`: Claim, vesting, and TGE semantics remain owner-review.\n\n## Related Pages\n\n- `authored-reward-ledger-game-layer-boundary`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-qualifying-exposure-across-rewards`",
       "excerpt": "Reward Pack End To End Loop The source model describes a seven step reward loop. It starts with off chain point earning and ends with TGE accounting across whichever reward forms qualify. The loop is: users earn points off chain; points are claimed on chain through a delayed claim path; claimed points can be held directly or converted into packs; packs can be held, traded, or opened; opened packs mint artifacts with embedded points and optional boosts; users can hold or trade points, packs, and artifacts if transferability is permitted; final allocation uses total qualifying point exposure across the approved forms. This is not a current production flow. It is a future design loop that shows where controls have to sit: finalization before claims, vesting or delay before economic activity, valuation rules before packs or artifacts count, and TGE rules before any object is treated as qualifying exposure. Why The Loop Matters The loop prevents the docs from treating packs as isolated collectibles. In the source model, packs are connected to the point ledger, claim path, asset state, market behavior, and final allocation. A production page should therefore document the entire lifecycle"
     },
     {
@@ -12707,7 +12706,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12723,8 +12722,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/reward-pack-ev-supply-policy.md",
-      "bodyMarkdown": "# Reward Pack EV And Supply Policy\n\nThe pack model only works if supply and expected value are documented before users treat packs as economic objects.\n\nThe source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected-value containers.\n\nExpected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low-probability high-rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved.\n\n## Documentation Standard\n\nA production pack page needs:\n\n- total or phase supply;\n- rarity classes and probability tables;\n- input point cost or earning path;\n- expected output policy;\n- whether market price can diverge from expected value;\n- how unopened packs count for TGE exposure.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Reward formulas and conversion terms need owner approval.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-packs-future-facing-status`\n- `authored-tge-qualifying-exposure-across-rewards`",
-      "excerpt": "Reward Pack EV And Supply Policy The pack model only works if supply and expected value are documented before users treat packs as economic objects. The source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected value containers. Expected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low probability high rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved. Documentation Standard A production pack page needs: total or phase supply; rarity classes and probability tables; input point cost or earning path; expected output policy; whether market price can diverge from expected value; how unopened packs count for TGE exposure. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". spec 03 : Reward formulas and conversion terms"
+      "bodyMarkdown": "# Reward Pack EV And Supply Policy\n\nThe pack model only works if supply and expected value are documented before users treat packs as economic objects.\n\nThe source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected-value containers.\n\nExpected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low-probability high-rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved.\n\n## Documentation Standard\n\nA production pack page needs:\n\n- total or phase supply;\n- rarity classes and probability tables;\n- input point cost or earning path;\n- expected output policy;\n- whether market price can diverge from expected value;\n- how unopened packs count for TGE exposure.\n\n## Publication Boundary\n\nThis page defines what must be disclosed before packs can be treated as economic objects. It does not publish actual supply, rarity classes, probabilities, expected value, mint odds, point costs, market-price expectations, or TGE exposure weights.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `spec-03`: Reward formulas and conversion terms need owner approval.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-packs-future-facing-status`\n- `authored-tge-qualifying-exposure-across-rewards`",
+      "excerpt": "Reward Pack EV And Supply Policy The pack model only works if supply and expected value are documented before users treat packs as economic objects. The source's supply requirements are straightforward: pack issuance should be fixed or tightly governed, rarity distributions should be explicit, and probabilities should be disclosed. Without those rules, unopened packs become opaque claims on future rewards rather than auditable expected value containers. Expected value also needs a policy boundary. The source allows for packs whose typical output is slightly deflationary versus input points while preserving upside through low probability high rarity outcomes. That is a design model, not a final promise. Public docs should not imply pack EV, rarity, or mint odds until those values are approved. Documentation Standard A production pack page needs: total or phase supply; rarity classes and probability tables; input point cost or earning path; expected output policy; whether market price can diverge from expected value; how unopened packs count for TGE exposure. Publication Boundary This page defines what must be disclosed before packs can be treated as economic objects. It does not pub"
     },
     {
       "id": "authored-reward-pack-rollout-sequencing-boundary",
@@ -12732,7 +12731,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12758,7 +12757,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12775,7 +12774,7 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/reward-pack-system-guardrails.md",
-      "bodyMarkdown": "# Reward Pack System Guardrails\n\nThe rewards-pack source names four guardrails for any pack or artifact system: simplicity, supply control, fairness, and security.\n\nThose guardrails matter because packs and artifacts sit above the point ledger. If the game layer becomes more expressive than the accounting layer can audit, users will not know what they own, what it is worth, or how it settles.\n\n## The Four Guardrails\n\nSimplicity means the core flow should stay stable: earn, claim, hold or convert, then account for qualifying exposure at TGE. Extra game mechanics should not obscure the underlying state transition.\n\nSupply control means issuance must be fixed or tightly governed. If packs or artifacts can be minted without a clear policy, their expected value and rarity become impossible to trust.\n\nFairness means expected value and rarity probabilities need transparent disclosure before users treat packs as economic objects.\n\nSecurity means the system needs vesting delay, anomaly monitoring, and auditable state transitions. Reward objects should be traceable back to source-of-truth earning and eligibility state.\n\n## Documentation Rule\n\nDo not describe packs as live economic promises until supply, rarity, EV, eligibility, transferability, and TGE accounting have approved public policy. The safe public framing is future-facing architecture unless the operator approves a production launch page.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", \"Guardrails\".\n- `spec-03`: current points, TGE, and reward-formula caveats.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-pack-ev-supply-policy`\n- `authored-reward-composability-integrity-requirement`",
+      "bodyMarkdown": "# Reward Pack System Guardrails\n\nThe rewards-pack source names four guardrails for any pack or artifact system: simplicity, supply control, fairness, and security.\n\nThose guardrails matter because packs and artifacts sit above the point ledger. If the game layer becomes more expressive than the accounting layer can audit, users will not know what they own, what it is worth, or how it settles.\n\n## The Four Guardrails\n\nSimplicity means the core flow should stay stable: earn, claim, hold or convert, then account for qualifying exposure at TGE. Extra game mechanics should not obscure the underlying state transition.\n\nSupply control means issuance must be fixed or tightly governed. If packs or artifacts can be minted without a clear policy, their expected value and rarity become impossible to trust.\n\nFairness means expected value and rarity probabilities need transparent disclosure before users treat packs as economic objects.\n\nSecurity means the system needs vesting delay, anomaly monitoring, and auditable state transitions. Reward objects should be traceable back to source-of-truth earning and eligibility state.\n\n## Documentation Rule\n\nDo not describe packs as live economic promises until supply, rarity, EV, eligibility, transferability, and TGE accounting have approved public policy. The safe public framing is future-facing architecture unless the operator approves a production launch page.\n\n## Publication Boundary\n\nThis page publishes guardrails, not launch mechanics. It does not approve any pack or artifact issue, supply schedule, rarity table, probability distribution, transfer permission, eligibility rule, TGE treatment, or security-control implementation detail.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\", \"Guardrails\".\n- `spec-03`: current points, TGE, and reward-formula caveats.\n\n## Related Pages\n\n- `authored-rewards-packs-and-artifacts`\n- `authored-reward-pack-ev-supply-policy`\n- `authored-reward-composability-integrity-requirement`",
       "excerpt": "Reward Pack System Guardrails The rewards pack source names four guardrails for any pack or artifact system: simplicity, supply control, fairness, and security. Those guardrails matter because packs and artifacts sit above the point ledger. If the game layer becomes more expressive than the accounting layer can audit, users will not know what they own, what it is worth, or how it settles. The Four Guardrails Simplicity means the core flow should stay stable: earn, claim, hold or convert, then account for qualifying exposure at TGE. Extra game mechanics should not obscure the underlying state transition. Supply control means issuance must be fixed or tightly governed. If packs or artifacts can be minted without a clear policy, their expected value and rarity become impossible to trust. Fairness means expected value and rarity probabilities need transparent disclosure before users treat packs as economic objects. Security means the system needs vesting delay, anomaly monitoring, and auditable state transitions. Reward objects should be traceable back to source of truth earning and eligibility state. Documentation Rule Do not describe packs as live economic promises until supply, rari"
     },
     {
@@ -12784,7 +12783,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12810,7 +12809,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12835,7 +12834,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12855,8 +12854,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/rewards-packs-and-artifacts.md",
-      "bodyMarkdown": "# Rewards Packs And Artifacts\n\nThe rewards-pack source is explicitly future-facing. It should be documented as a design model, not as current product policy.\n\nThe core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected-value containers. Artifacts can create persistent assets with embedded point value, rarity, and optional boost fields.\n\nThat structure can improve retention only if the economic rules are public enough to audit. The source names the needed guardrails: bounded supply, disclosed rarity or probability rules, clear expected-value policy, vesting delay, anomaly monitoring, and explicit TGE accounting across direct points, unopened packs, and artifacts.\n\n## TGE Accounting Principle\n\nThe source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off-chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `spec-03`: TGE settlement needs product-owner approval.\n\n## Related Pages\n\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-settlement-multiplier`\n- `authored-referral-points-economic-state`",
-      "excerpt": "Rewards Packs And Artifacts The rewards pack source is explicitly future facing. It should be documented as a design model, not as current product policy. The core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected value containers. Artifacts can create persistent assets with embedded point value, rarity, and optional boost fields. That structure can improve retention only if the economic rules are public enough to audit. The source names the needed guardrails: bounded supply, disclosed rarity or probability rules, clear expected value policy, vesting delay, anomaly monitoring, and explicit TGE accounting across direct points, unopened packs, and artifacts. TGE Accounting Principle The source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". vib"
+      "bodyMarkdown": "# Rewards Packs And Artifacts\n\nThe rewards-pack source is explicitly future-facing. It should be documented as a design model, not as current product policy.\n\nThe core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected-value containers. Artifacts can create persistent assets with embedded point value, rarity, and optional boost fields.\n\nThat structure can improve retention only if the economic rules are public enough to audit. The source names the needed guardrails: bounded supply, disclosed rarity or probability rules, clear expected-value policy, vesting delay, anomaly monitoring, and explicit TGE accounting across direct points, unopened packs, and artifacts.\n\n## TGE Accounting Principle\n\nThe source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off-chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure.\n\n## Publication Boundary\n\nThis page keeps packs and artifacts in future-facing design-model territory. It does not publish live reward-pack availability, artifact issuance, supply, rarity, expected value, transferability, conversion ratios, snapshot timing, vesting treatment, or final TGE allocation mechanics.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `spec-03`: TGE settlement needs product-owner approval.\n\n## Related Pages\n\n- `authored-points-claim-bridge-and-vesting`\n- `authored-tge-settlement-multiplier`\n- `authored-referral-points-economic-state`",
+      "excerpt": "Rewards Packs And Artifacts The rewards pack source is explicitly future facing. It should be documented as a design model, not as current product policy. The core split is useful: points are the reward ledger; packs and artifacts are a gamified layer around that ledger. Points keep accounting simple. Packs can create expected value containers. Artifacts can create persistent assets with embedded point value, rarity, and optional boost fields. That structure can improve retention only if the economic rules are public enough to audit. The source names the needed guardrails: bounded supply, disclosed rarity or probability rules, clear expected value policy, vesting delay, anomaly monitoring, and explicit TGE accounting across direct points, unopened packs, and artifacts. TGE Accounting Principle The source's accounting rule is that final allocation should use total qualifying point exposure across approved forms. Unclaimed off chain points should not count until they pass the claim and eligibility path. Packs and artifacts need defined valuation rules before they can be treated as qualifying exposure. Publication Boundary This page keeps packs and artifacts in future facing design mo"
     },
     {
       "id": "authored-rfq-before-order-book",
@@ -15718,7 +15717,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -15735,8 +15734,8 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/tge-qualifying-exposure-across-rewards.md",
-      "bodyMarkdown": "# TGE Qualifying Exposure Across Reward Forms\n\nThe rewards-pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms.\n\nIn the future model, qualifying exposure can include:\n\n- claimed points held directly in a wallet;\n- point value represented by held unopened packs, under a defined valuation rule;\n- embedded point value inside held artifacts.\n\nThe source is also explicit about what should not count: unclaimed off-chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release.\n\n## What Remains Operator-Controlled\n\nThe model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication-critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `spec-03`: TGE settlement mechanics remain owner-review.\n\n## Related Pages\n\n- `authored-tge-settlement-multiplier`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-rewards-packs-and-artifacts`",
-      "excerpt": "TGE Qualifying Exposure Across Reward Forms The rewards pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms. In the future model, qualifying exposure can include: claimed points held directly in a wallet; point value represented by held unopened packs, under a defined valuation rule; embedded point value inside held artifacts. The source is also explicit about what should not count: unclaimed off chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release. What Remains Operator Controlled The model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula. Sources vibe papers : Neelo, \"Section 12: Rewards, Packs, and Artifact System\". vibe papers : Neelo, \"Section 4: Points and Rewards\". spec 03 : TGE"
+      "bodyMarkdown": "# TGE Qualifying Exposure Across Reward Forms\n\nThe rewards-pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms.\n\nIn the future model, qualifying exposure can include:\n\n- claimed points held directly in a wallet;\n- point value represented by held unopened packs, under a defined valuation rule;\n- embedded point value inside held artifacts.\n\nThe source is also explicit about what should not count: unclaimed off-chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release.\n\n## What Remains Operator-Controlled\n\nThe model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication-critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula.\n\n## Publication Boundary\n\nThis page publishes the qualifying-exposure concept only. It does not define a claim amount, conversion ratio, token allocation, eligibility snapshot, vesting schedule, transferability right, pack valuation, artifact valuation, or legal/accounting treatment.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 12: Rewards, Packs, and Artifact System\".\n- `vibe-papers`: Neelo, \"Section 4: Points and Rewards\".\n- `spec-03`: TGE settlement mechanics remain owner-review.\n\n## Related Pages\n\n- `authored-tge-settlement-multiplier`\n- `authored-points-claim-bridge-and-vesting`\n- `authored-rewards-packs-and-artifacts`",
+      "excerpt": "TGE Qualifying Exposure Across Reward Forms The rewards pack source gives one accounting principle: final allocation should be computed from total qualifying point exposure across approved forms. In the future model, qualifying exposure can include: claimed points held directly in a wallet; point value represented by held unopened packs, under a defined valuation rule; embedded point value inside held artifacts. The source is also explicit about what should not count: unclaimed off chain points should not qualify until they pass finalization, eligibility, and claim authorization. That protects the allocation from provisional balances, incomplete source data, and abuse patterns that are discovered before release. What Remains Operator Controlled The model does not finalize TGE weights, conversion ratios, pack valuation, artifact valuation, snapshot timing, vesting treatment, or transferability. Those are publication critical rules. Until they are approved, the docs should describe the accounting boundary without implying a claim formula. Publication Boundary This page publishes the qualifying exposure concept only. It does not define a claim amount, conversion ratio, token allocatio"
     },
     {
       "id": "authored-tge-settlement-multiplier",
@@ -16427,7 +16426,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -16453,7 +16452,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -16478,7 +16477,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -16503,7 +16502,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16528,7 +16527,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -16553,7 +16552,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -16570,7 +16569,7 @@
       ],
       "volumeId": "volume-06-referrals-and-market-formation",
       "file": "content/authored/reference/tokenized-points-strategic-upside.md",
-      "bodyMarkdown": "# Tokenized Points Strategic Upside\n\nThe tokenized-points-perps source is hypothetical, but it explains why reward accounting has strategic consequences.\n\nIf point-linked exposure ever becomes a transferable on-chain object, the design space expands beyond internal rewards. Value can circulate before a canonical token event, risk can move from passive holders to willing counterparties, builders can compose around the object, and pricing feedback can appear before TGE.\n\n## The Five Upsides\n\nThe source names five possible upsides:\n\n- liquidity before token launch;\n- risk transfer for participants who do not want passive exposure;\n- builder composability without centralized coordination;\n- faster market feedback through earlier pricing surfaces;\n- new growth loops where referral and pack demand can compound once exposure is tradable.\n\nThose are design-space benefits, not a product announcement. They only become credible if the underlying point, pack, artifact, claim, transfer, and eligibility states are precise enough for outside builders to rely on.\n\n## Why The Docs Need This Page\n\nReaders may ask why a referral or rewards page spends so much time on accounting boundaries. The answer is that composability increases consequence. A sloppy off-chain points display is bad UX. A sloppy value-bearing on-chain object can become bad market infrastructure.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Strategic Upside\".\n- `spec-03`: current points and TGE caveats.\n\n## Related Pages\n\n- `authored-tokenized-points-perps-hypothetical`\n- `authored-tokenized-points-composable-object-chain`\n- `authored-tokenized-points-market-risk-boundary`",
+      "bodyMarkdown": "# Tokenized Points Strategic Upside\n\nThe tokenized-points-perps source is hypothetical, but it explains why reward accounting has strategic consequences.\n\nIf point-linked exposure ever becomes a transferable on-chain object, the design space expands beyond internal rewards. Value can circulate before a canonical token event, risk can move from passive holders to willing counterparties, builders can compose around the object, and pricing feedback can appear before TGE.\n\n## The Five Upsides\n\nThe source names five possible upsides:\n\n- liquidity before token launch;\n- risk transfer for participants who do not want passive exposure;\n- builder composability without centralized coordination;\n- faster market feedback through earlier pricing surfaces;\n- new growth loops where referral and pack demand can compound once exposure is tradable.\n\nThose are design-space benefits, not a product announcement. They only become credible if the underlying point, pack, artifact, claim, transfer, and eligibility states are precise enough for outside builders to rely on.\n\n## Why The Docs Need This Page\n\nReaders may ask why a referral or rewards page spends so much time on accounting boundaries. The answer is that composability increases consequence. A sloppy off-chain points display is bad UX. A sloppy value-bearing on-chain object can become bad market infrastructure.\n\n## Publication Boundary\n\nThis page explains strategic optionality in a hypothetical source model. It does not announce tokenized points, fractional wrappers, spot markets, perp listings, liquidity programs, market-maker support, transferability, or any user-facing financial product.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 13: Hypothetical Scenarios for Tokenized Points Perpetual Markets\", \"Strategic Upside\".\n- `spec-03`: current points and TGE caveats.\n\n## Related Pages\n\n- `authored-tokenized-points-perps-hypothetical`\n- `authored-tokenized-points-composable-object-chain`\n- `authored-tokenized-points-market-risk-boundary`",
       "excerpt": "Tokenized Points Strategic Upside The tokenized points perps source is hypothetical, but it explains why reward accounting has strategic consequences. If point linked exposure ever becomes a transferable on chain object, the design space expands beyond internal rewards. Value can circulate before a canonical token event, risk can move from passive holders to willing counterparties, builders can compose around the object, and pricing feedback can appear before TGE. The Five Upsides The source names five possible upsides: liquidity before token launch; risk transfer for participants who do not want passive exposure; builder composability without centralized coordination; faster market feedback through earlier pricing surfaces; new growth loops where referral and pack demand can compound once exposure is tradable. Those are design space benefits, not a product announcement. They only become credible if the underlying point, pack, artifact, claim, transfer, and eligibility states are precise enough for outside builders to rely on. Why The Docs Need This Page Readers may ask why a referral or rewards page spends so much time on accounting boundaries. The answer is that composability inc"
     },
     {
@@ -16579,7 +16578,7 @@
       "section": "rewards-referrals",
       "track": "Referral Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -19006,7 +19005,7 @@
       "section": "rewards-referrals",
       "track": "Points",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-trading-program",
         "vibe-points",
