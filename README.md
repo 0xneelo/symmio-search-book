@@ -60,6 +60,9 @@ npm run search-book:smoke-static
 npm run search-book:smoke-service
 npm run search-book:smoke-preview-service
 
+# Production env/deploy preflight (validates env shape; no provider call)
+npm run search-book:check-production-env
+
 # Ask a grounded, cited question with NO model call (extractive):
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
 ```
@@ -75,7 +78,10 @@ chips use the service while keeping `localStorage` + curated-example fallback. R
 the browser CORS allowlist (`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`, default `*`),
 the disabled-by-default token-gated moderation export, the reviewer gap-summary job
 (`npm run search-book:living-docs-summary`), and the backup/restore-check utility
-(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`.
+(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. Before
+production launch, run `npm run search-book:check-production-env` with the service env
+loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
+SQLite paths, and missing LLM credentials without printing secret values.
 
 ## Environment
 

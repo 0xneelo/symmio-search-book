@@ -14,9 +14,10 @@
   "gapSummaryJobImplemented": true,
   "reviewerWorkflowDocumented": true,
   "backupRestoreImplemented": true,
+  "productionPreflightImplemented": true,
   "datastoreImplemented": true,
   "livingDocsProductionReady": false,
-  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, and an executable SQLite backup/restore-check path. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete.",
+  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, and a production configuration preflight. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete.",
   "storage": {
     "localPrototype": {
       "questionsKey": "searchBookPrototype.questions",
@@ -150,6 +151,13 @@
         "behavior": "Creates a SQLite-consistent backup with VACUUM INTO, writes a manifest containing table counts and SHA-256, and can reopen the backup read-only for PRAGMA integrity_check plus table-count restore verification.",
         "boundary": "This provides an executable backup/restore-check path; production still needs a deployed persistent DB path, backup storage location, owner cadence, and retention/deletion approval."
       },
+      "productionPreflight": {
+        "script": "scripts/check-production-env.mjs",
+        "packageScript": "npm run search-book:check-production-env",
+        "behavior": "Validates built artifacts, production SQLite path, LLM default mode and provider env, allowed origins, public service URL, rate/retention/body limits, moderation token rules, and live-eval evidence without calling the provider.",
+        "secretBoundary": "Reports whether LLM and moderation secrets are configured but never prints secret values.",
+        "boundary": "The check can only pass in production once the operator supplies the deploy route and service credentials."
+      },
       "frontendIntegration": "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
     }
   },
@@ -230,6 +238,7 @@
     "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
     "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
     "Back up the SQLite datastore with the internal backup utility and verify restore viability before production launch and on an agreed cadence.",
+    "Run the production configuration preflight before launch so local defaults, missing LLM env, unsafe CORS origins, and missing operational paths fail closed.",
     "Keep API keys in process environment only; never persist or print them."
   ],
   "fixtures": {
@@ -441,7 +450,8 @@
     "reviewerSummary": "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence.",
     "reviewerWorkflow": "The internal living-docs operations runbook documents daily triage, weekly summaries, moderation export handling, privacy boundaries, escalation rules, launch gates, and incident handling.",
     "backupRestore": "The internal backup utility can create a SQLite-consistent backup manifest and verify restore viability with integrity and table-count checks.",
-    "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided.",
+    "productionPreflight": "The production preflight validates artifacts, service env, LLM env, CORS origins, moderation token rules, and secret-printing boundaries before launch.",
+    "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, run the production preflight, and import Discord/Lafa when source access is provided.",
     "blockedBy": [
       "OPERATOR-INBOX #4",
       "OPERATOR-INBOX #11",

@@ -72,6 +72,16 @@ For production browser traffic, set
 The local default is `*`; server-to-server health checks without an `Origin` header remain
 allowed.
 
+Before enabling public traffic, run the production preflight with the same service env file:
+
+```bash
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
+```
+
+The preflight validates built artifacts, production SQLite path, LLM-backed default mode,
+allowed origins, public service URL, moderation token rules, and live-eval evidence. It
+reports whether secrets are configured but never prints secret values.
+
 ## 5. Smoke verification
 
 These run isolated localhost servers with temp databases and never call the LLM provider:

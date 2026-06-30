@@ -37,6 +37,17 @@ SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
 
 The model and API key must be installed only in the service environment. Do not print or commit them.
 
+Before public launch or a production env rotation, run the preflight with the same service
+environment file:
+
+```sh
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
+```
+
+The preflight must pass before public traffic is enabled. It validates that local defaults
+were replaced by production paths/origins, that the default answer mode is LLM-backed, and
+that required secrets are present without printing their values.
+
 Helpful-answer reuse needs embeddings:
 
 ```sh
@@ -184,6 +195,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` are installed in service env.
 - Retention days are set and approved.
 - `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
+- `npm run search-book:check-production-env` passes with the production service env loaded.
 - Moderation export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.
 - Discord/Lafa import is either completed or explicitly launch-parked.

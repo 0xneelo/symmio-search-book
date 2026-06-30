@@ -18,6 +18,7 @@ const defaults = {
   outJs: path.join(searchBookRoot, "data", "living-docs-events.js"),
   packageJson: path.join(repoRoot, "package.json"),
   serviceScript: path.join(searchBookRoot, "scripts", "serve-answer-engine.mjs"),
+  productionPreflightScript: path.join(searchBookRoot, "scripts", "check-production-env.mjs"),
   gapSummaryScript: path.join(searchBookRoot, "scripts", "summarize-living-docs-gaps.mjs"),
   backupScript: path.join(searchBookRoot, "scripts", "backup-answer-engine-db.mjs"),
   reviewerRunbook: path.join(searchBookRoot, "LIVING-DOCS-OPERATIONS.md"),
@@ -354,6 +355,7 @@ const gapSummaryJobImplemented =
   readText(args.gapSummaryScript).includes("lowRatedAnswers") &&
   readText(args.gapSummaryScript).includes("repeatedQuestions");
 const backupScriptText = readText(args.backupScript);
+const productionPreflightText = readText(args.productionPreflightScript);
 const backupRestoreImplemented =
   fs.existsSync(args.backupScript) &&
   packageJson.scripts?.["search-book:backup-db"] === "node scripts/backup-answer-engine-db.mjs" &&
@@ -363,6 +365,14 @@ const backupRestoreImplemented =
   backupScriptText.includes("search_book_questions") &&
   backupScriptText.includes("search_book_answer_cache") &&
   backupScriptText.includes("restoreCheck");
+const productionPreflightImplemented =
+  fs.existsSync(args.productionPreflightScript) &&
+  packageJson.scripts?.["search-book:check-production-env"] === "node scripts/check-production-env.mjs" &&
+  productionPreflightText.includes("search-book-production-preflight") &&
+  productionPreflightText.includes("SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS") &&
+  productionPreflightText.includes("SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE") &&
+  productionPreflightText.includes("SEARCH_BOOK_LLM_API_KEY") &&
+  productionPreflightText.includes("valuesPrinted: false");
 const reviewerRunbookText = readText(args.reviewerRunbook);
 const reviewerWorkflowDocumented =
   fs.existsSync(args.reviewerRunbook) &&
@@ -425,13 +435,14 @@ const payload = {
   gapSummaryJobImplemented,
   reviewerWorkflowDocumented,
   backupRestoreImplemented,
+  productionPreflightImplemented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented
-        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, and an executable SQLite backup/restore-check path. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete."
-        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, CORS allowlist configuration, moderation workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
+        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, and a production configuration preflight. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete."
+        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, CORS allowlist configuration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, reviewer workflow, and Discord import are not complete.",
   storage: {
@@ -516,6 +527,15 @@ const payload = {
             boundary: "This provides an executable backup/restore-check path; production still needs a deployed persistent DB path, backup storage location, owner cadence, and retention/deletion approval.",
           }
         : "SQLite backup/restore-check utility is not implemented yet.",
+      productionPreflight: productionPreflightImplemented
+        ? {
+            script: "scripts/check-production-env.mjs",
+            packageScript: "npm run search-book:check-production-env",
+            behavior: "Validates built artifacts, production SQLite path, LLM default mode and provider env, allowed origins, public service URL, rate/retention/body limits, moderation token rules, and live-eval evidence without calling the provider.",
+            secretBoundary: "Reports whether LLM and moderation secrets are configured but never prints secret values.",
+            boundary: "The check can only pass in production once the operator supplies the deploy route and service credentials.",
+          }
+        : "Production configuration preflight is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
         ? "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
@@ -540,6 +560,7 @@ const payload = {
     "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
     "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
     "Back up the SQLite datastore with the internal backup utility and verify restore viability before production launch and on an agreed cadence.",
+    "Run the production configuration preflight before launch so local defaults, missing LLM env, unsafe CORS origins, and missing operational paths fail closed.",
     "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
@@ -599,9 +620,12 @@ const payload = {
     backupRestore: backupRestoreImplemented
       ? "The internal backup utility can create a SQLite-consistent backup manifest and verify restore viability with integrity and table-count checks."
       : "The SQLite backup/restore-check utility is not implemented yet.",
+    productionPreflight: productionPreflightImplemented
+      ? "The production preflight validates artifacts, service env, LLM env, CORS origins, moderation token rules, and secret-printing boundaries before launch."
+      : "Production configuration preflight is not implemented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented
-        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, and import Discord/Lafa when source access is provided."
+      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
+        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, run the production preflight, and import Discord/Lafa when source access is provided."
         : "Deploy the standalone service and selected public frontend route, define allowed origins plus retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
       : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
@@ -625,5 +649,6 @@ console.log(JSON.stringify({
   gapSummaryJobImplemented: payload.gapSummaryJobImplemented,
   reviewerWorkflowDocumented: payload.reviewerWorkflowDocumented,
   backupRestoreImplemented: payload.backupRestoreImplemented,
+  productionPreflightImplemented: payload.productionPreflightImplemented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));

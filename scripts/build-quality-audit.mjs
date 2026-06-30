@@ -364,6 +364,7 @@ const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented =
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
 const corsPolicyImplemented = livingDocsEvents.corsPolicyImplemented === true;
 const backupRestoreImplemented = livingDocsEvents.backupRestoreImplemented === true;
+const productionPreflightImplemented = livingDocsEvents.productionPreflightImplemented === true;
 const livingDocsEventsReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -371,7 +372,8 @@ const livingDocsEventsReady =
   (livingDocsEventCoverage.passingFixtures || 0) === (livingDocsEventCoverage.totalFixtures || 0) &&
   (livingDocsEventCoverage.failingFixtures || 0) === 0 &&
   livingDocsFailingEventIds.length === 0 &&
-  corsPolicyImplemented;
+  corsPolicyImplemented &&
+  productionPreflightImplemented;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
 const manifestCoverage = coverageFor(manifestPages, knownSourceKeys);
@@ -603,7 +605,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, production preflight ${productionPreflightImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -755,6 +757,7 @@ const payload = {
     livingDocsRetentionPolicyImplemented: retentionPolicyImplemented,
     livingDocsModerationExportImplemented: moderationExportImplemented,
     livingDocsCorsPolicyImplemented: corsPolicyImplemented,
+    livingDocsProductionPreflightImplemented: productionPreflightImplemented,
     livingDocsBackupRestoreImplemented: backupRestoreImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     livingDocsEventFixtures: livingDocsEventCoverage.totalFixtures || 0,
@@ -985,6 +988,7 @@ const payload = {
     retentionPolicyImplemented,
     moderationExportImplemented,
     corsPolicyImplemented,
+    productionPreflightImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     reasonLivingDocsProductionReadyIsFalse: livingDocsEvents.reasonLivingDocsProductionReadyIsFalse || "",
     storage: livingDocsEvents.storage || {},
