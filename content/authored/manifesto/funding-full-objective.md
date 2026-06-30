@@ -3,7 +3,7 @@ id: "authored-funding-full-objective"
 title: "The Full Funding Objective"
 section: "manifesto"
 track: "15 - Funding Rate Model"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/11-full-objective", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/08-bell-curve-flattening", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/09-insurance-adl"]
@@ -27,6 +27,10 @@ Insurance cost and ADL cost are the hard-defense pieces. Insurance spend consume
 ## Reader Implication
 
 This page is the bridge between the manifesto and risk controls. The objective explains why Vibe's funding model is not only "charge the crowded side." It is trying to route capital, risk, insurance, and forced unwind decisions through one coherent system.
+
+## Publication Boundary
+
+This page explains the source-model objective. It does not publish production weights, cutoff rules, insurance policy, ADL policy, solver cost assumptions, eligibility thresholds, or user-facing guarantees without operator, risk, legal, accounting, and implementation review.
 
 ## Sources
 

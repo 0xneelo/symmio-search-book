@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Funding Objective And Insurance Batch
+
+- Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Dynamic Pricing Multipliers, Funding Emergency Acceleration Example, Funding Emergency Time Ramp, The Full Funding Objective, Funding Gradient Flow Math Map, Funding Information And Traversal Loop, Funding Insurance And Buyback Accounting, Funding Insurance Cost Penalty, Funding Insurance-Fund Utilization Mode, Funding Insurance Mode Spread Example, Funding Insurance And Safety Budgets, Funding Key Innovations Summary, Funding Local Optima Avoidance, and Funding Local Risk Score Penalties.
+- Added or normalized publication boundaries for live base rates, multiplier curves, emergency thresholds/caps/APRs, production objective weights, local/global insurance allocation, buyback commitments, insurance balances/spend permissions, loss-estimate formulas, solver quote functions, risk-score formulas, ADL/defense guarantees, and legal/risk/accounting-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `504` published pages, `294` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `102` Volume 04 candidates remaining, and `114` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 04 Funding-Model Controls Batch
 
 - Promoted `14` Volume 04 Funding Rate Model manifesto pages to `published`: Funding Abstract Accounting Roadmap, Funding Abstract Control Surface, Funding ADL And Defense Sequence Example, Funding ADL Penalty Function, Funding Bell-Curve Flattening Example, Funding Control Actions Map, The Funding Model Core Invariant, Funding Defense Hierarchy, Funding Derivation Document Index, Funding Directional Spreads And Rebates, Funding Document Cross Reference Map, Funding Dynamic Borrow Rate, Funding Dynamic Control Loop, and Funding Dynamic Funding Rate.
