@@ -210,6 +210,7 @@ const frontendServiceIntegrationImplemented =
 const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
 const reviewerWorkflowDocumented = livingDocsEvents.reviewerWorkflowDocumented === true;
+const backupRestoreImplemented = livingDocsEvents.backupRestoreImplemented === true;
 const buildOrchestratorReady =
   fs.existsSync(args.buildOrchestrator) &&
   packageJson.scripts?.["search-book:build"] === "node src/search-book/scripts/build-all.mjs" &&
@@ -397,12 +398,14 @@ const requirements = [
     status: deterministicAnswerEngineReady && answerChunks.totalChunks >= 1000 && questionRoutes.totalRoutes >= 20 ? "partial" : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "05", "06", "09"],
-    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}, retention policy implemented=${retentionPolicyImplemented}, moderation export implemented=${moderationExportImplemented}, reviewer workflow documented=${reviewerWorkflowDocumented}`,
+    evidence: `${questionRoutes.totalRoutes || 0} seeded routes, ${answerChunks.totalChunks || 0} retrieval chunks, ${answerEngineEvaluation.exactRouteTestsPassing || 0}/${answerEngineEvaluation.totalExactRouteTests || 0} exact-route tests, ${answerEngineEvaluation.refusalTestsPassing || 0}/${answerEngineEvaluation.totalRefusalTests || 0} refusal tests, static Ask UI routes to exact pages, LLM runtime implemented=${llmRagContract.runtimeImplemented === true}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}, retention policy implemented=${retentionPolicyImplemented}, moderation export implemented=${moderationExportImplemented}, reviewer workflow documented=${reviewerWorkflowDocumented}, backup/restore implemented=${backupRestoreImplemented}`,
     nextAction: sqliteAnswerServiceImplemented
       ? frontendServiceIntegrationImplemented
         ? retentionPolicyImplemented && moderationExportImplemented
-          ? reviewerWorkflowDocumented
-            ? "Install production service env, configure production retention/moderation access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
+          ? reviewerWorkflowDocumented && backupRestoreImplemented
+            ? "Install production service env, configure production retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
+            : reviewerWorkflowDocumented
+            ? "Add backup/restore-check operations, install production service env, configure production retention/moderation access, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
             : "Document the reviewer operating workflow, install production service env, configure production retention/admin moderation access, and deploy behind the selected public frontend route."
           : "Install production service env, define retention/moderation policy, and deploy behind the selected public frontend route."
         : "Connect the public frontend to the standalone service, install production service env, and deploy behind the selected frontend route."
@@ -426,12 +429,14 @@ const requirements = [
         : "missing",
     category: "answer-engine",
     sourceSpecs: ["01", "06", "09"],
-    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}, retention policy implemented=${retentionPolicyImplemented}, moderation export implemented=${moderationExportImplemented}, reviewer workflow documented=${reviewerWorkflowDocumented}, localStorage prototype still present for static preview`,
+    evidence: `${gapQueue.totalItems || 0} generated gap items, ${gapQueue.totalOperatorSignals || 0} operator signals, ${questionRoutes.totalReconciliationQuestions || 0} reconciliation questions, living-docs event contract ready=${livingDocsEvents.eventContractReady === true}, fixtures ${livingDocsCoverage.passingFixtures || 0}/${livingDocsCoverage.totalFixtures || 0}, SQLite service implemented=${sqliteAnswerServiceImplemented}, frontend service bridge=${frontendServiceIntegrationImplemented}, retention policy implemented=${retentionPolicyImplemented}, moderation export implemented=${moderationExportImplemented}, reviewer workflow documented=${reviewerWorkflowDocumented}, backup/restore implemented=${backupRestoreImplemented}, localStorage prototype still present for static preview`,
     nextAction: sqliteAnswerServiceImplemented
       ? frontendServiceIntegrationImplemented
         ? retentionPolicyImplemented && moderationExportImplemented
-          ? reviewerWorkflowDocumented
+          ? reviewerWorkflowDocumented && backupRestoreImplemented
             ? "Install production env, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
+            : reviewerWorkflowDocumented
+            ? "Add backup/restore-check operations, install production env, and deploy the service plus selected public frontend route."
             : "Document the reviewer workflow, install production env, and deploy the service plus selected public frontend route."
           : "Define retention/moderation policy, install production env, and deploy the service plus selected public frontend route."
         : "Wire Search Insights and rating controls to the SQLite service, then define retention/moderation policy and deploy."

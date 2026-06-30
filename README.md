@@ -124,6 +124,14 @@ SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run searc
 
 The summary job reads the SQLite datastore directly and emits gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions. Its output includes raw user questions and notes; keep it internal unless a privacy review approves publication.
 
+Back up the answer-engine SQLite datastore with restore verification:
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run search-book:backup-db -- --out /tmp/search-book-answer-engine-backup.sqlite
+```
+
+The backup utility creates a SQLite-consistent snapshot with `VACUUM INTO`, writes a manifest with table counts and SHA-256, and reopens the backup for integrity plus table-count verification. Production backups and manifests are internal operational artifacts and should not be committed.
+
 Use `LIVING-DOCS-OPERATIONS.md` for the internal reviewer workflow: daily Search Insights triage, weekly summary cadence, moderation export handling, privacy boundaries, launch gate, and incident response. The runbook documents operation; it does not deploy the service, install credentials, assign a production owner, or import parked source families.
 
 ## Prototype Question
@@ -141,7 +149,7 @@ before committing to Mintlify, Fumadocs, or a custom docs app?
 ## Non-Goals
 
 - This is not the final authored documentation site.
-- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, gated moderation export, summary job, and reviewer operations runbook; production service env, selected public frontend route, assigned reviewer owner/cadence, and deploy wiring remain production work.
+- This is not a deployed production answer-engine service. The OpenAI-compatible runtime harness exists, has passed live `gpt-4.1-mini` citation validation, and now has a SQLite-backed service boundary, static frontend bridge, retention policy, gated moderation export, summary job, backup/restore-check utility, and reviewer operations runbook; production service env, selected public frontend route, production moderation/backup access, assigned reviewer owner/cadence, and deploy wiring remain production work.
 - This does not import the Discord corpus yet; the Discord/Lafa scraper and import contract exist, but channel/export access and publication boundaries remain documented blockers.
 - This does not expose private API URLs, tokens, unprotected admin/reviewer endpoints, or operator-only credentials.
 
@@ -203,6 +211,7 @@ node --check src/search-book/scripts/build-answer-engine-contract.mjs
 node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/check-readiness-evidence.mjs
 node --check src/search-book/scripts/summarize-living-docs-gaps.mjs
+node --check src/search-book/scripts/backup-answer-engine-db.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
 node --check src/search-book/scripts/serve-static-preview.mjs
 node --check src/search-book/scripts/smoke-static-preview.mjs
@@ -252,7 +261,7 @@ node -e "const f=require('./src/search-book/data/faq.json'); if (f.missingPageId
 node -e "const dc=require('./src/search-book/data/discord-corpus.json'); if (!dc.importContractReady || !dc.apiScraperReady || dc.corpusReady || dc.totals.importedMessages !== 0 || dc.totals.seededTopics < 1) process.exit(1); console.log(dc.status + '/' + dc.totals.seededTopics)"
 node -e "const gq=require('./src/search-book/data/gap-queue.json'); if (gq.missingQuestionGapIds.length || gq.missingRelatedPageIds.length || gq.missingSourceKeys.length || gq.totalQuestionSignals !== 2) process.exit(1); console.log(gq.totalItems + '/' + gq.totalQuestionSignals)"
 node -e "const ae=require('./src/search-book/data/answer-engine-contract.json'); if (!ae.deterministicReady || ae.llmProductionReady || !ae.evaluation.allExactRoutesPass || !ae.evaluation.allRefusalTestsPass || ae.evaluation.totalExactRouteTests !== 798) process.exit(1); console.log(ae.evaluation.exactRouteTestsPassing + '/' + ae.evaluation.totalExactRouteTests)"
-node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || !l.datastoreImplemented || !l.sqliteDatastoreImplemented || !l.retentionPolicyImplemented || !l.moderationExportImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
+node -e "const l=require('./src/search-book/data/living-docs-events.json'); if (!l.eventContractReady || !l.datastoreImplemented || !l.sqliteDatastoreImplemented || !l.retentionPolicyImplemented || !l.moderationExportImplemented || !l.backupRestoreImplemented || l.livingDocsProductionReady || l.coverage.totalFixtures < 8 || l.coverage.failingFixtures || l.coverage.passingFixtures !== l.coverage.totalFixtures) process.exit(1); console.log(l.coverage.passingFixtures + '/' + l.coverage.totalFixtures)"
 node -e "const lc=require('./src/search-book/data/llm-rag-contract.json'); if (!lc.apiContractReady || !lc.evalHarnessReady || !lc.runtimeImplemented || lc.llmProductionReady || lc.adversarialEvaluation.totalCases < 12 || lc.adversarialEvaluation.failingCaseIds.length) process.exit(1); console.log(lc.adversarialEvaluation.passingCases + '/' + lc.adversarialEvaluation.totalCases)"
 node -e "const av=require('./src/search-book/data/answer-validation-report.json'); if (!av.reportReady || av.coverage.totalFixtures < 20 || av.coverage.passingFixtures !== av.coverage.totalFixtures || av.failureSummary.failingFixtureIds.length) process.exit(1); console.log(av.coverage.passingFixtures + '/' + av.coverage.totalFixtures)"
 node -e "const a=require('./src/search-book/data/answer-chunks.json'); if (a.pagesMissingChunks.length || a.unknownSourceKeys.length || a.totalPages < 821 || a.totalChunks < a.totalPages) process.exit(1); console.log(a.totalPages + '/' + a.totalChunks)"

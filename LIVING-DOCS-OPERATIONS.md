@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, gated moderation export, helpful-answer reuse cache, dynamic examples endpoint, and gap-summary job are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, gated moderation export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
 
 ## Operating Boundary
 
@@ -102,6 +102,25 @@ Review queues:
 
 After review, keep exports only in approved internal storage. Do not commit moderation JSON or paste raw export bodies into Linear.
 
+## Backup And Restore Check
+
+Back up the SQLite datastore before deploys, source-corpus migrations, retention-policy changes, and any production incident response that may alter stored questions, ratings, gaps, or helpful-answer cache rows.
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite \
+npm run search-book:backup-db -- --out /path/to/backups/search-book-answer-engine-YYYYMMDD.sqlite
+```
+
+The command creates a SQLite-consistent backup with `VACUUM INTO`, writes a manifest beside the backup, records table counts and SHA-256, and reopens the backup read-only for `PRAGMA integrity_check` plus table-count verification by default.
+
+Operational rules:
+
+- Store production backups and manifests only in approved internal storage.
+- Do not commit SQLite DB files, backup manifests from production, raw question exports, API keys, or moderation tokens.
+- Treat backup manifests as internal if they reveal production paths, table counts, or operating cadence.
+- Run `--dry-run` first when validating a new production DB path.
+- Use `--no-restore-check` only when restore-check storage is temporarily unavailable; record the exception in Linear and rerun with restore check as soon as possible.
+
 ## Triage Rules
 
 | Signal | First action | Allowed outcome |
@@ -150,6 +169,7 @@ Weekly reviewer checklist:
 - Confirm helpful answer-cache reuse does not serve operator-blocked or source-family-missing topics.
 - Confirm dynamic example chips are helpful-rated questions, not private support text.
 - Confirm retention is pruning question, rating, gap, and answer-cache rows according to policy.
+- Confirm the latest SQLite backup manifest reports restore-check `passed`.
 - Confirm no moderation tokens, API keys, DB files, or raw exports are committed.
 - File or update Linear issues for source imports, deploy tasks, runtime bugs, or content batches.
 
@@ -159,6 +179,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 
 - Public frontend route is selected and deployed.
 - Standalone answer service is deployed with production SQLite path and backup policy.
+- Latest production/staging backup restore check has passed.
 - `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` are installed in service env.
 - Retention days are set and approved.
 - Moderation export is disabled by default and token-gated when enabled.

@@ -362,6 +362,7 @@ const frontendServiceIntegrationImplemented =
     frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
+const backupRestoreImplemented = livingDocsEvents.backupRestoreImplemented === true;
 const livingDocsEventsReady =
   livingDocsEvents.eventContractReady === true &&
   livingDocsEvents.livingDocsProductionReady === false &&
@@ -600,7 +601,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -751,6 +752,7 @@ const payload = {
     livingDocsFrontendServiceIntegrationImplemented: frontendServiceIntegrationImplemented,
     livingDocsRetentionPolicyImplemented: retentionPolicyImplemented,
     livingDocsModerationExportImplemented: moderationExportImplemented,
+    livingDocsBackupRestoreImplemented: backupRestoreImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     livingDocsEventFixtures: livingDocsEventCoverage.totalFixtures || 0,
     livingDocsEventFixturesPassing: livingDocsEventCoverage.passingFixtures || 0,

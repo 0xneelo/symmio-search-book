@@ -106,9 +106,9 @@ Terms like VibeCaps, network revenue, referral commission, Vibe points, trading 
 
 ## G-010: Production Answer Engine Build Decision Is Resolved; Service Hardening Remains
 
-The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, live `gpt-4.1-mini` evaluation, HTTP service endpoints, SQLite event persistence, ratings, Search Insights reads, basic request rate limiting, configurable event retention, a disabled-by-default token-gated moderation export, direct SQLite gap-summary job, and internal reviewer operations runbook are now implemented in the current service boundary. Production still needs service deployment, public frontend wiring, production LLM environment installation, production moderation access, assigned reviewer owner/cadence, and remaining source imports.
+The build/buy decision is resolved: build a standalone answer-engine service with SQLite, backed by the OpenAI-compatible RAG runtime. Retrieval, source chunking, citation validation, adversarial refusals, live `gpt-4.1-mini` evaluation, HTTP service endpoints, SQLite event persistence, ratings, Search Insights reads, basic request rate limiting, configurable event retention, a disabled-by-default token-gated moderation export, direct SQLite gap-summary job, backup/restore-check utility, and internal reviewer operations runbook are now implemented in the current service boundary. Production still needs service deployment, public frontend wiring, production LLM environment installation, production moderation access, assigned reviewer owner/cadence, production backup storage/cadence, monitoring, and remaining source imports.
 
-**Needed:** Public frontend platform/deploy route, production service environment, frontend-to-service deployment wiring, production moderation access, reviewer owner/cadence assignment, backup/monitoring hardening, and remaining source imports.
+**Needed:** Public frontend platform/deploy route, production service environment, frontend-to-service deployment wiring, production moderation access, reviewer owner/cadence assignment, production backup storage/cadence, monitoring hardening, and remaining source imports.
 
 ## G-011: Vibe Trading Notion Is Not Ingested
 

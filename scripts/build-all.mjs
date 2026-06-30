@@ -246,7 +246,7 @@ function runInvariants() {
 
   const living = readJson("data/living-docs-events.json");
   assert(living.eventContractReady && living.datastoreImplemented && living.sqliteDatastoreImplemented, "living-docs service contract is incomplete");
-  assert(living.retentionPolicyImplemented && living.moderationExportImplemented && living.gapSummaryJobImplemented && !living.livingDocsProductionReady, "living-docs production boundary is unexpected");
+  assert(living.retentionPolicyImplemented && living.moderationExportImplemented && living.gapSummaryJobImplemented && living.backupRestoreImplemented && !living.livingDocsProductionReady, "living-docs production boundary is unexpected");
   assert(living.coverage.passingFixtures === living.coverage.totalFixtures && !living.coverage.failingFixtures, "living-docs fixtures are failing");
 
   const llm = readJson("data/llm-rag-contract.json");
