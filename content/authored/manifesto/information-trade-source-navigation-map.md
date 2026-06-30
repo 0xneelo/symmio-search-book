@@ -3,7 +3,7 @@ id: "authored-information-trade-source-navigation-map"
 title: "Information Trade Source Navigation Map"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/09-conclusion"]

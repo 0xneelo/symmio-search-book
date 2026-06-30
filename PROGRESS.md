@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Information And Trade Thesis Operator-Review Batch
+
+- Promoted `10` stable Neelo-source manifesto pages to `published`: The Global Reputation Protocol Thesis, Information Trade Source Navigation Map, Consensus Reality Versus Objective Reality, Information And Trade Dissertation Scope, Why The NO Button Needs Leverage, Long-Only Markets Filter For Hype, The NO Button As Market Filter, Profitable Fact-Checking Loop, Shorting At Launch As Market Immune System, and Leverage As Truth Amplifier.
+- Preserved publication boundaries already present in the pages: global reputation is a category thesis rather than live dominance proof, sustainable consensus is fallible market evidence rather than objective truth, leverage and launch-time shorting remain product/risk-review topics, and NO-button pages describe the mechanism without implying universal live shorting, unlimited leverage, or identical risk settings for every market.
+- Regenerated Search Book data so page-state counts now show `208` published pages, `590` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Stable Manifesto Operator-Review Batch
 
 - Promoted `7` stable Neelo-source manifesto pages to `published`: Active Risk Management Versus Passive Physics, ADL Haircut As Controlled Crash, Adversarial Selection Pressure, Adverse Selection Premium For USDC LPs, Agency Model Over Casino Model, AI Solver Verification Thesis, and Architecture Defined By The Constraint Set.

@@ -3,7 +3,7 @@ id: "authored-leverage-as-truth-amplifier"
 title: "Leverage As Truth Amplifier"
 section: "manifesto"
 track: "05 - Proof Of Value"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/04-the-missing-no-button"]

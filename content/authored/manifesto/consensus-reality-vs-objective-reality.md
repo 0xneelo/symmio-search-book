@@ -3,7 +3,7 @@ id: "authored-consensus-reality-vs-objective-reality"
 title: "Consensus Reality Versus Objective Reality"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket#3-4-consensus-reality-vs-objective-reality"]
