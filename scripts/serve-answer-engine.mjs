@@ -402,17 +402,20 @@ function ratingBalance(db, eventIdValue) {
 async function syncAnswerCacheForRating(db, persisted) {
   const question = db.prepare("SELECT * FROM search_book_questions WHERE id = ?").get(persisted.eventId);
   if (!question) return { status: "skipped", reason: "question-missing" };
+  if (question.status !== "answered") {
+    return { status: "skipped", reason: "not-cache-eligible" };
+  }
+  const answer = parseJsonColumn(question.response_json, null);
+  if (!answer || answer.status !== "answered") return { status: "skipped", reason: "answer-missing" };
   const normalizedQuery = normalizeQuestionForCache(question.query);
   const balance = ratingBalance(db, question.id);
   if (balance.helpful <= balance.negative) {
     db.prepare("DELETE FROM search_book_answer_cache WHERE normalized_query = ?").run(normalizedQuery);
     return { status: "evicted", helpfulCount: balance.helpful, negativeCount: balance.negative };
   }
-  if (!positiveRatings.has(persisted.rating) || question.status !== "answered") {
+  if (!positiveRatings.has(persisted.rating)) {
     return { status: "skipped", reason: "not-cache-eligible" };
   }
-  const answer = parseJsonColumn(question.response_json, null);
-  if (!answer || answer.status !== "answered") return { status: "skipped", reason: "answer-missing" };
   const embedded = await embedQuery(question.query);
   if (embedded.status !== "embedded") return { status: "skipped", reason: embedded.reason, missing: embedded.missing || [] };
   const now = nowIso();
@@ -793,7 +796,12 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
 async function handleRating(db, req, res) {
   const body = await readJsonBody(req);
   const persisted = persistRating(db, body);
-  const cache = await syncAnswerCacheForRating(db, persisted);
+  let cache;
+  try {
+    cache = await syncAnswerCacheForRating(db, persisted);
+  } catch {
+    cache = { status: "skipped", reason: "cache-sync-error" };
+  }
   jsonResponse(res, 200, { status: "recorded", persisted, cache });
 }
 
