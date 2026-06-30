@@ -81,7 +81,7 @@ Run the standalone answer-engine service locally:
 SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
 ```
 
-It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, `GET /api/search-book/moderation`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, and Search Insights will use the service while keeping `localStorage` fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
+It exposes `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, `GET /api/search-book/examples`, `GET /api/search-book/moderation`, and `GET /health`. Configure the static prototype with `index.html?service=http://127.0.0.1:8787`; the Ask front door, ratings, Search Insights, and optional dynamic example chips will use the service while keeping `localStorage` and curated-example fallback for static preview. `llm` mode uses the same environment-gated OpenAI-compatible runtime as `run-llm-rag-answer.mjs`; API keys are read from `process.env` only and are not printed or persisted.
 
 Run the local service smoke test:
 
@@ -89,7 +89,7 @@ Run the local service smoke test:
 npm run search-book:smoke-service
 ```
 
-The smoke test starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database, exercises health, extractive answer persistence, rating persistence, Search Insights, and the token-gated moderation export, then removes the temporary database. It does not call the LLM provider.
+The smoke test starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database, exercises health, extractive answer persistence, rating persistence, rated-answer cache population, paraphrase reuse via `source:"reuse-cache"`, dynamic examples, Search Insights, guardrail refusal ordering, and the token-gated moderation export, then removes the temporary database. It does not call the LLM provider.
 
 Run the combined preview/service bridge smoke test:
 
@@ -106,9 +106,14 @@ SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=180
 SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=false
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
+SEARCH_BOOK_EMBED_ENDPOINT=
+SEARCH_BOOK_EMBED_MODEL=text-embedding-3-small
+SEARCH_BOOK_REUSE_THRESHOLD=0.9
+SEARCH_BOOK_REUSE_MAX_CANDIDATES=250
+SEARCH_BOOK_EXAMPLE_LIMIT=4
 ```
 
-Retention applies to persisted question, rating, and gap events; set retention days to `0` only for a local archive. The moderation export is disabled by default and, when enabled, requires `Authorization: Bearer ...` or `x-search-book-moderation-token`; never put that token in public frontend code.
+Retention applies to persisted question, rating, gap, and answer-cache rows; set retention days to `0` only for a local archive. Helpful answer reuse requires embedding configuration and reuses `SEARCH_BOOK_LLM_API_KEY`; missing embeddings skip reuse and fall through to the normal answer path. The moderation export is disabled by default and, when enabled, requires `Authorization: Bearer ...` or `x-search-book-moderation-token`; never put that token in public frontend code.
 
 Run the internal reviewer gap summary against a local or production service database:
 

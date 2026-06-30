@@ -367,6 +367,18 @@ const moderationExportImplemented =
   serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN") &&
   serviceScriptText.includes("/api/search-book/moderation") &&
   serviceScriptText.includes("requireModerationAccess");
+const answerCacheImplemented =
+  serviceRuntimeImplemented &&
+  serviceScriptText.includes("search_book_answer_cache") &&
+  serviceScriptText.includes("syncAnswerCacheForRating") &&
+  serviceScriptText.includes("findReusableAnswer") &&
+  serviceScriptText.includes('source: "reuse-cache"');
+const dynamicExamplesImplemented =
+  serviceRuntimeImplemented &&
+  frontendPrototype.includes('"/api/search-book/examples"') &&
+  serviceScriptText.includes("/api/search-book/examples") &&
+  serviceScriptText.includes("handleExamples") &&
+  serviceScriptText.includes("exampleRows");
 
 const payload = {
   generatedAt: "deterministic-build",
@@ -378,13 +390,15 @@ const payload = {
   frontendServiceIntegrationImplemented,
   retentionPolicyImplemented,
   moderationExportImplemented,
+  answerCacheImplemented,
+  dynamicExamplesImplemented,
   gapSummaryJobImplemented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && gapSummaryJobImplemented
-        ? "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented
+        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
         : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
@@ -400,14 +414,32 @@ const payload = {
         "POST /api/search-book/answer",
         "POST /api/search-book/rating",
         "GET /api/search-book/insights",
+        "GET /api/search-book/examples",
         "GET /api/search-book/moderation",
       ],
-      tables: ["search_book_questions", "search_book_ratings", "search_book_gaps"],
+      tables: ["search_book_questions", "search_book_ratings", "search_book_gaps", "search_book_answer_cache"],
+      answerReuse: answerCacheImplemented
+        ? {
+            cacheTable: "search_book_answer_cache",
+            embeddingEnv: ["SEARCH_BOOK_EMBED_ENDPOINT", "SEARCH_BOOK_EMBED_MODEL", "SEARCH_BOOK_LLM_API_KEY"],
+            thresholdEnv: "SEARCH_BOOK_REUSE_THRESHOLD",
+            maxCandidatesEnv: "SEARCH_BOOK_REUSE_MAX_CANDIDATES",
+            behavior: "Positive ratings populate a helpful-answer cache. After guardrail preflight and retrieval, semantically similar questions can replay a validated cached answer as source:\"reuse-cache\" without calling the LLM.",
+            guardrailInvariant: "Operator-blocked and source-family-missing questions refuse before cache lookup, so guardrail refusals cannot be served from the reuse cache.",
+          }
+        : "Rated-answer reuse cache is not implemented in the service.",
+      dynamicExamples: dynamicExamplesImplemented
+        ? {
+            endpoint: "GET /api/search-book/examples",
+            limitEnv: "SEARCH_BOOK_EXAMPLE_LIMIT",
+            behavior: "Returns top helpful cached questions for homepage example chips. The static frontend uses these only when available and keeps curated chips as fallback.",
+          }
+        : "Dynamic example questions are not implemented in the service/frontend bridge.",
       retention: retentionPolicyImplemented
         ? {
             env: "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
             defaultDays: 180,
-            behavior: "The service prunes old question, rating, and gap events on startup and before insight/moderation reads; set 0 to disable local pruning.",
+            behavior: "The service prunes old question, rating, gap, and answer-cache rows on startup and before insight/moderation reads; set 0 to disable local pruning.",
           }
         : "Retention policy is not implemented in the service.",
       moderation: moderationExportImplemented
@@ -428,7 +460,7 @@ const payload = {
           }
         : "Reviewer gap-summary job is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
-        ? "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
+        ? "src/search-book/index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
     },
   },
@@ -441,8 +473,11 @@ const payload = {
     "Create a no-grounded-page gap when retrieval cannot cite a grounded page.",
     "Attach operator item ids and known gap ids for parked decisions.",
     "Expose the aggregated event stream in Search Insights for editorial triage.",
-    "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
-    "Apply the configured retention window to question, rating, and gap event storage.",
+    "Populate the helpful answer-cache from positive ratings when embedding configuration is available.",
+    "Run reuse-cache lookup only after guardrail preflight, and replay cached answers as source:\"reuse-cache\" only for eligible answered questions.",
+    "Expose helpful cached questions through /api/search-book/examples for optional dynamic example chips.",
+    "Let the static frontend use configured service endpoints for answers, ratings, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
+    "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
     "Keep API keys in process environment only; never persist or print them.",
@@ -486,6 +521,12 @@ const payload = {
     moderation: moderationExportImplemented
       ? "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work."
       : "Moderation export is not implemented yet.",
+    answerReuse: answerCacheImplemented
+      ? "The service stores helpful-rated answers with embeddings and can reuse them for semantically similar questions after guardrail preflight."
+      : "Helpful-rated answer reuse is not implemented yet.",
+    dynamicExamples: dynamicExamplesImplemented
+      ? "The service exposes helpful cached questions for dynamic example chips while the frontend keeps curated examples as fallback."
+      : "Dynamic example chips are not implemented yet.",
     reviewerSummary: gapSummaryJobImplemented
       ? "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence."
       : "The scheduled/reviewer gap-summary job is not implemented yet.",
@@ -509,6 +550,8 @@ console.log(JSON.stringify({
   frontendServiceIntegrationImplemented: payload.frontendServiceIntegrationImplemented,
   retentionPolicyImplemented: payload.retentionPolicyImplemented,
   moderationExportImplemented: payload.moderationExportImplemented,
+  answerCacheImplemented: payload.answerCacheImplemented,
+  dynamicExamplesImplemented: payload.dynamicExamplesImplemented,
   gapSummaryJobImplemented: payload.gapSummaryJobImplemented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Living-Docs Reuse-Cache Evidence Alignment
+
+- Updated the generated living-docs contract so it detects and records the current answer-engine service shape: SQLite question, rating, gap, and `search_book_answer_cache` persistence; rated-answer reuse after guardrail preflight; dynamic example questions via `GET /api/search-book/examples`; retention over answer-cache rows; and the existing gated moderation/reviewer-summary path.
+- Regenerated `data/living-docs-events.*`; the contract now reports `answerCacheImplemented: true`, `dynamicExamplesImplemented: true`, `12/12` living-docs fixtures, and `livingDocsProductionReady: false` because public deploy route, production service env, admin/reviewer workflow, and Discord import remain open.
+- Updated the Search Book README, answer-engine contract, final report, and production-readiness roadmap so they no longer describe the service as questions/ratings/gaps-only and so they document `source:"reuse-cache"` and optional dynamic example chips without changing the production-readiness boundary.
+
 ## 2026-07-01 — Final Volume 06 Rewards And Tokenized-Points Batch
 
 - Promoted the final `24` Volume 06 rewards/referrals and tokenized-points pages to `published`: Referral Metrics Decision Use, Referral Metrics Guardrails, Referral Primary Chapter Change Policy, Referral Reward Pack Integration, Referral Supply KPIs, Referral Supporting KPI Set, Reward Composability Integrity Requirement, Reward Ledger And Game Layer Boundary, Reward Pack End-To-End Loop, Reward Pack EV And Supply Policy, Reward Pack Rollout Sequencing Boundary, Reward Pack System Guardrails, Reward Pack User Flow, Reward Packs Are Future-Facing Design Models, Rewards Packs And Artifacts, TGE Qualifying Exposure Across Reward Forms, Tokenized Points Composable Object Chain, Tokenized Points Fractionalized Wrapper Flow, Tokenized Points Market Risk Boundary, Tokenized Points Perps Are A Hypothetical Scenario, Tokenized Points Product Disclaimer, Tokenized Points Strategic Upside, Tokenized Points Third-Party Listing Flow, and Vibe Trading Program Points.
