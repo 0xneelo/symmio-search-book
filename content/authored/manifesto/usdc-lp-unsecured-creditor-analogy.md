@@ -3,7 +3,7 @@ id: "authored-usdc-lp-unsecured-creditor-analogy"
 title: "USDC LP Unsecured-Creditor Analogy"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#5-comparison-with-traditional-finance"]
@@ -21,6 +21,10 @@ An unsecured-creditor lens asks whether the borrower-like system can repay throu
 ## Documentation Rule
 
 Use this analogy to explain why USDC backstop capital asks for credit-risk compensation. Do not imply that Vibe is issuing debt or that any current vault is legally structured as unsecured credit without legal review.
+
+## Publication Boundary
+
+This page uses a source-model analogy. It does not publish legal characterization of Vibe, vaults, or LP positions as debt or unsecured credit, nor final credit-risk premiums, repayment claims, or capital guarantees, without operator, legal, accounting, risk, and implementation review.
 
 ## Sources
 

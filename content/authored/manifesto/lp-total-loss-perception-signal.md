@@ -3,7 +3,7 @@ id: "authored-lp-total-loss-perception-signal"
 title: "LP Total-Loss Perception Signal"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#4-empirical-validation"]
@@ -21,6 +21,10 @@ This is not a final user-facing statistic. It is evidence that generic USDC capi
 ## Documentation Rule
 
 Use LP perception as a diagnostic, not as an audited probability. It should explain why the required-return discussion exists, not become a standalone live risk disclosure number.
+
+## Publication Boundary
+
+This page uses LP perception as source-model context. It does not publish audited loss probabilities, final LP risk disclosures, capital-raising claims, or product-suitability statements without operator, risk, legal, accounting, and implementation review.
 
 ## Sources
 

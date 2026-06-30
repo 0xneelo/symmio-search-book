@@ -3,7 +3,7 @@ id: "authored-usdc-expected-loss-decomposition"
 title: "USDC Expected Loss Decomposition"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
@@ -25,6 +25,10 @@ This decomposition prevents the docs from collapsing all loss into trader PnL. D
 ## How To Use It
 
 For public docs, the useful answer is the structure: name the event, identify whether it is economic, operational, correlation-based, or technical, and separate frequency from severity. The exact percentages in the source should remain model outputs until reviewed against current implementation, live market data, and approved publication language.
+
+## Publication Boundary
+
+This page teaches the source-model expected-loss structure. It does not publish final event probabilities, severity assumptions, expected-loss percentages, capital charges, LP return requirements, or live market risk disclosures without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

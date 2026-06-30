@@ -3,7 +3,7 @@ id: "authored-token-inventory-risk-localization"
 title: "Token Inventory Localizes Risk"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure3"]
@@ -22,9 +22,9 @@ Figure3 separates this from protocol-wide insolvency. Order-flow imbalance, mode
 
 Docs should describe token inventory as localized market support, not as a magical backstop. The key question is whether the risk is borne by capital that understands and already owns the asset, with stable settlement obligations kept separate.
 
-## Publication Note
+## Publication Boundary
 
-Exact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, and loss ordering still need operator and implementation review before publication as product guarantees.
+This page explains the source-model risk-localization argument. It does not publish exact VibeCaps vault terms, solver obligations, revenue shares, withdrawal rules, loss ordering, token-holder rights, or product guarantees without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

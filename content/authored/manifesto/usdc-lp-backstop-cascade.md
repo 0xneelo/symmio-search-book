@@ -3,7 +3,7 @@ id: "authored-usdc-lp-backstop-cascade"
 title: "The USDC LP Backstop Cascade"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure2", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
@@ -22,9 +22,9 @@ In the source model, trader leverage, thin spot liquidity, oracle manipulation, 
 
 When the docs compare USDC pools with token-vault or inventory-backed designs, they should ask what capital is actually absorbing the failure path. The safer explanation is not "USDC bad, token good." It is: stable settlement and generalized loss absorption are different jobs.
 
-## Publication Note
+## Publication Boundary
 
-This page summarizes Neelo's source model. Final public docs need operator and implementation review before naming live market parameters, loss order, vault rights, or current Vibe/Symmio backstop guarantees.
+This page summarizes Neelo's source model. It does not publish live market parameters, loss ordering, vault rights, current Vibe/Symmio backstop guarantees, LP legal status, or product solvency claims without operator, implementation, risk, legal, and accounting review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-risk-adjusted-capital-efficiency"
 title: "Capital Efficiency Must Be Risk-Adjusted"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure4", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure5", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs"]
@@ -28,9 +28,9 @@ Capital efficiency has to answer three questions:
 
 Without those questions, "more leverage" and "more OI" can hide a worse design.
 
-## Publication Note
+## Publication Boundary
 
-The source's numeric multiplier is comparative model evidence, not an audited production metric. Use it to teach risk-adjusted thinking, not to promise a live efficiency ratio.
+This page uses source-model comparison evidence to teach risk-adjusted capital efficiency. It does not publish a live efficiency ratio, final leverage claim, LP yield promise, or audited capital-efficiency advantage without current market parameters, vault data, risk review, legal review, and operator approval.
 
 ## Sources
 

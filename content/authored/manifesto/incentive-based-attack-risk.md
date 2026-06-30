@@ -3,7 +3,7 @@ id: "authored-incentive-based-attack-risk"
 title: "Attack Risk Is Incentive-Based"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs", "https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/figure1"]
@@ -22,9 +22,9 @@ For docs, this changes the risk vocabulary. Thin liquidity, fast blocks, delayed
 
 Permissionless market creation only works if the docs teach adversarial economics. A reader should understand that "long-tail" means more than smaller assets. It means lower manipulation cost, weaker liquidation depth, more concentrated inventory, and more path-dependent risk.
 
-## Publication Note
+## Publication Boundary
 
-The source uses stylized examples and aggressive loss assumptions. Publish the incentive framework, but keep concrete thresholds and live exploitability claims under implementation/security review.
+This page explains the source-model incentive framework. It does not publish concrete attack thresholds, live exploitability claims, oracle details, OI limits, manipulation-cost estimates, or market-specific security conclusions without operator, implementation, risk, legal, and security review.
 
 ## Sources
 

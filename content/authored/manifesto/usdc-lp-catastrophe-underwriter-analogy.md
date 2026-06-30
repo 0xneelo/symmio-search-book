@@ -3,7 +3,7 @@ id: "authored-usdc-lp-catastrophe-underwriter-analogy"
 title: "USDC LP Catastrophe-Underwriter Analogy"
 section: "manifesto"
 track: "06 - USDC vs Token-Margined Perpetuals"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/06-usdc-token-perps/06-docs/riskpremiumcalcs#5-comparison-with-traditional-finance"]
@@ -21,6 +21,10 @@ An underwriter charges for severity, correlation, and uncertainty. The source's 
 ## Documentation Rule
 
 Docs should use this analogy to explain why tail-risk premium is separate from expected-loss arithmetic. Expected loss is the average maintenance layer; underwriting premium compensates for severe, correlated, hard-to-price states.
+
+## Publication Boundary
+
+This page uses a source-model analogy. It does not publish insurance pricing, tail-risk premiums, LP suitability language, loss-probability estimates, or current product underwriting commitments without operator, risk, legal, accounting, and implementation review.
 
 ## Sources
 
