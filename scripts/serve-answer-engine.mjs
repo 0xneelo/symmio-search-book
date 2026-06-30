@@ -482,13 +482,17 @@ async function findReusableAnswer(db, args) {
     return { response: null, meta: { status: "miss", bestScore: best?.score || 0, threshold } };
   }
   const now = nowIso();
-  db.prepare("UPDATE search_book_answer_cache SET helpful_count = helpful_count + 1, last_served_at = ?, updated_at = ? WHERE id = ?")
+  db.prepare("UPDATE search_book_answer_cache SET last_served_at = ?, updated_at = ? WHERE id = ?")
     .run(now, now, best.candidate.id);
-  const { degraded: _degraded, ...response } = best.cachedResponse;
+  const response = best.cachedResponse;
   return {
     response: {
-      ...response,
       requestId: args.requestId,
+      status: "answered",
+      answer: response.answer,
+      primaryPageId: response.primaryPageId || best.candidate.primary_page_id || "",
+      citations: response.citations || [],
+      relatedPageIds: response.relatedPageIds || [],
       source: "reuse-cache",
       confidence: "reuse-cache",
       reusedFrom: {
@@ -498,7 +502,6 @@ async function findReusableAnswer(db, args) {
         helpfulCount: best.candidate.helpful_count,
       },
       events: [
-        ...(response.events || []),
         { type: "answer-reused", query: args.query, source: args.source, cachedQuery: best.candidate.query, score: best.score },
       ],
     },
