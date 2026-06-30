@@ -1423,9 +1423,13 @@ function validateResponseOrThrow(response, context, runtime) {
   return response;
 }
 
-async function answerQuery(args, runtime) {
+async function answerQuery(args, runtime, options = {}) {
   const preflightResponse = preflight(args, runtime);
   const context = preflightResponse ? null : retrieve(args, runtime);
+  if (!preflightResponse && typeof options.findReusableAnswer === "function") {
+    const reused = await options.findReusableAnswer(args, runtime, context);
+    if (reused?.response) return { response: reused.response, context, reuse: reused.meta || null };
+  }
   const response = preflightResponse || (args.mode === "llm"
     ? await llmAnswer(args, runtime, context)
     : extractiveAnswer(args, runtime, context));

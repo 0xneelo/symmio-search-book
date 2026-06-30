@@ -8,8 +8,10 @@ import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
 import {
   answerQuery,
+  cosineSimilarity,
   defaults as runtimeDefaults,
   embedQuery,
+  embeddingFromBlob,
   embeddingToBlob,
   loadRuntime,
   withDegraded,
@@ -448,6 +450,64 @@ async function syncAnswerCacheForRating(db, persisted) {
   return { status: "cached", helpfulCount: balance.helpful, embeddingModel: embedded.model };
 }
 
+function reuseThreshold() {
+  return Number.isFinite(config.reuseThreshold) ? config.reuseThreshold : 0.9;
+}
+
+async function findReusableAnswer(db, args) {
+  const embedded = await embedQuery(args.query);
+  if (embedded.status !== "embedded") return { response: null, meta: { status: "skipped", reason: embedded.reason } };
+  const candidates = rows(
+    db,
+    `
+      SELECT *
+      FROM search_book_answer_cache
+      WHERE embedding_model = ?
+        AND helpful_count >= 1
+      ORDER BY helpful_count DESC, updated_at DESC
+      LIMIT ?
+    `,
+    embedded.model,
+    boundedLimit(config.reuseMaxCandidates, 250, 1000),
+  );
+  let best = null;
+  for (const candidate of candidates) {
+    const score = cosineSimilarity(embedded.embedding, embeddingFromBlob(candidate.embedding));
+    if (!best || score > best.score) best = { candidate, score };
+  }
+  const threshold = reuseThreshold();
+  if (!best || best.score < threshold) {
+    return { response: null, meta: { status: "miss", bestScore: best?.score || 0, threshold } };
+  }
+  const cachedResponse = parseJsonColumn(best.candidate.answer_json, null);
+  if (!cachedResponse || cachedResponse.status !== "answered") {
+    return { response: null, meta: { status: "skipped", reason: "cached-answer-invalid" } };
+  }
+  const now = nowIso();
+  db.prepare("UPDATE search_book_answer_cache SET helpful_count = helpful_count + 1, last_served_at = ?, updated_at = ? WHERE id = ?")
+    .run(now, now, best.candidate.id);
+  const { degraded: _degraded, ...response } = cachedResponse;
+  return {
+    response: {
+      ...response,
+      requestId: args.requestId,
+      source: "reuse-cache",
+      confidence: "reuse-cache",
+      reusedFrom: {
+        query: best.candidate.query,
+        score: Number(best.score.toFixed(6)),
+        threshold,
+        helpfulCount: best.candidate.helpful_count,
+      },
+      events: [
+        ...(response.events || []),
+        { type: "answer-reused", query: args.query, source: args.source, cachedQuery: best.candidate.query, score: best.score },
+      ],
+    },
+    meta: { status: "hit", score: best.score, cacheId: best.candidate.id },
+  };
+}
+
 function rows(db, sql, ...params) {
   return db.prepare(sql).all(...params);
 }
@@ -780,10 +840,16 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
 
   let result;
   if (overLimit && mode === "llm") {
-    result = await answerQuery({ ...request, mode: "extractive" }, runtime);
-    result = { ...result, response: withDegraded(result.response, "rate-limited") };
+    result = await answerQuery({ ...request, mode: "extractive" }, runtime, {
+      findReusableAnswer: (reuseArgs) => findReusableAnswer(db, reuseArgs),
+    });
+    if (result.response?.source !== "reuse-cache") {
+      result = { ...result, response: withDegraded(result.response, "rate-limited") };
+    }
   } else {
-    result = await answerQuery(request, runtime);
+    result = await answerQuery(request, runtime, {
+      findReusableAnswer: (reuseArgs) => findReusableAnswer(db, reuseArgs),
+    });
   }
 
   const persisted = persistQuestion(db, request, result);
