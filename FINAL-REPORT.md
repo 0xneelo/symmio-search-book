@@ -8,9 +8,9 @@ The Search Book now has a 500-800 page compendium shape with 794 manifest pages,
 
 The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 530 candidate pages still in the review queue. The remaining candidate review lanes are 0 final-review-ready pages, 530 operator-review pages, 0 source-refresh pages, 0 publication-date-review pages, and 0 editorial-review pages. Source companions remain retrieval and traceability material, not public navigation pages.
 
-The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,863 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html`; the service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`. The local smoke command `npm run search-book:smoke-service` now proves service health, extractive answer persistence, rating persistence, Search Insights, and token-gated moderation export against a temporary SQLite database.
+The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,863 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html` or served locally with `npm run search-book:serve-static`; `npm run search-book:smoke-static` proves the Ask front door, exact-page URL, generated data assets, and missing-route 404 behavior over localhost. The service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`. The local smoke command `npm run search-book:smoke-service` proves service health, extractive answer persistence, rating persistence, Search Insights, and token-gated moderation export against a temporary SQLite database.
 
-The live OpenAI-compatible RAG runtime passed the current recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 15 calls, 83,256 input tokens, 7,755 output tokens, and an estimated cost of `$0.01714140` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
+The live OpenAI-compatible RAG runtime passed the current recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 15 calls, 83,256 input tokens, 7,590 output tokens, and an estimated cost of `$0.01704240` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
 
 Quality status is still intentionally not green for launch. The latest audit passes 27/30 gates. The failing gates are required-source ingestion, operator inbox, and Discord/Lafa corpus import. The regenerated definition-of-done map has no missing report artifact, but remains not completion-ready because production/source items are still partial or parked.
 
@@ -22,12 +22,13 @@ Use these commands as the current reproducible verification path:
 node src/search-book/scripts/build-all.mjs --verify
 npm run search-book:verify
 node src/search-book/scripts/run-llm-rag-answer.mjs --mode extractive --query "Which dashboard views are documented?" --json
+npm run search-book:smoke-static
 npm run search-book:smoke-service
 git diff --check -- src/search-book _local/agent-worklog.md
 npm run build --if-present
 ```
 
-The canonical build verifies 24 deterministic build steps, 52 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
+The canonical build verifies 24 deterministic build steps, 55 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
 
 ## Requirement Summary
 
@@ -41,7 +42,7 @@ The canonical build verifies 24 deterministic build steps, 52 syntax checks, exa
 | Living docs | 12/12 event fixtures, SQLite service, frontend bridge, retention policy, gated moderation export | Implemented locally; production operations still parked |
 | Source ingestion | 13/17 complete, 1 partial, 3 parked | Not source-complete |
 | Competitive sweep | 49/50 official docs verified; Opyn excluded | Accepted benchmark baseline |
-| Deploy preview | Static local prototype exists | Production deploy route parked |
+| Deploy preview | Static local prototype exists with `npm run search-book:serve-static` and `npm run search-book:smoke-static` localhost evidence | Production deploy route parked |
 
 ## Remaining Production Work
 

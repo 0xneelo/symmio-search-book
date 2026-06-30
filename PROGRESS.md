@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Static Preview Smoke Test
+
+- Added `src/search-book/scripts/serve-static-preview.mjs`, a dependency-free localhost static server for the Search Book prototype.
+- Added `src/search-book/scripts/smoke-static-preview.mjs`, a deterministic smoke runner that starts the static preview on an isolated localhost port and verifies the Ask front door, an exact-page URL, generated data assets, and 404 behavior.
+- Added `npm run search-book:serve-static` and `npm run search-book:smoke-static` so local preview hosting and preview smoke verification are first-class package commands.
+
 ## 2026-06-30 — Answer-Engine Service Smoke Test
 
 - Added `src/search-book/scripts/smoke-answer-engine-service.mjs`, a deterministic local smoke runner for the standalone answer-engine service.
@@ -9,7 +15,7 @@
 ## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Recheck
 
 - Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
-- Aligned human-facing readiness docs to the latest committed live RAG evidence from `203d83b`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,755` output tokens, and `$0.01714140` estimated cost.
+- Aligned human-facing readiness docs to the latest committed live RAG evidence from `51c2a65`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,590` output tokens, and `$0.01704240` estimated cost.
 - Kept the production boundary explicit: the corpus and runtime are verified, but public frontend/deploy route, production service env, Discord/Lafa import, Notion ingestion, oldest Symmio whitepaper recovery, and SuperFlow/SSHE identification remain parked in `OPERATOR-INBOX.md`.
 
 ## 2026-06-30 — Proof Of Value Framework Operator-Review Batch

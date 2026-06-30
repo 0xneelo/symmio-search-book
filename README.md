@@ -45,12 +45,27 @@ This directory is intentionally isolated from the existing dashboard. It is not 
 - Generated reader crosslink map: `data/crosslinks.js`
 - Generated definition-of-done requirement map: `data/requirement-map.js`
 - Generated publication-quality audit: `data/quality-audit.js`
+- Static preview server: `scripts/serve-static-preview.mjs`
 - Standalone answer-engine service: `scripts/serve-answer-engine.mjs`
 - Throwaway static prototype with exact-page reader: `index.html`
 
-Open `index.html` directly in a browser. It uses local data and `localStorage`; no backend, secrets, or live APIs are required.
+Open `index.html` directly in a browser, or serve the static preview locally:
+
+```sh
+npm run search-book:serve-static
+```
+
+By default this serves `src/search-book` at `http://127.0.0.1:8788/`. It uses local data and `localStorage`; no backend, secrets, or live APIs are required.
 
 Open an exact local page with `index.html?page=authored-intents-complete-order-books` or any page id from `data/search-index.json`.
+
+Run the local static preview smoke test:
+
+```sh
+npm run search-book:smoke-static
+```
+
+The static smoke test starts `serve-static-preview.mjs` on an isolated localhost port, verifies the Ask front door, an exact-page URL, core generated data assets, and missing-route 404 behavior, then stops the preview server.
 
 Run the standalone answer-engine service locally:
 
@@ -104,6 +119,8 @@ Focused checks for this package:
 
 ```sh
 node src/search-book/scripts/build-all.mjs --verify
+npm run search-book:smoke-static
+npm run search-book:smoke-service
 ```
 
 The same check is exposed as `npm run search-book:verify`. Use `node src/search-book/scripts/build-all.mjs --list` to inspect step ids, `--dry-run` to preview commands, and `--from <step-id>` / `--only <step-id>` for resumable focused rebuilds.
@@ -148,6 +165,8 @@ node --check src/search-book/scripts/build-gap-queue.mjs
 node --check src/search-book/scripts/build-answer-engine-contract.mjs
 node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
+node --check src/search-book/scripts/serve-static-preview.mjs
+node --check src/search-book/scripts/smoke-static-preview.mjs
 node --check src/search-book/scripts/serve-answer-engine.mjs
 node --check src/search-book/scripts/smoke-answer-engine-service.mjs
 node --check src/search-book/scripts/build-answer-validation-report.mjs
@@ -208,6 +227,7 @@ node -e "const d=require('./src/search-book/data/authored-pages.json'); if (!d.p
 node -e "const d=require('./src/search-book/data/authored-pages.json'); const vols=d.pages.filter((p)=>p.section==='compendium' && p.volumeId); if (vols.length !== 8) process.exit(1); console.log(vols.length)"
 node -e "const q=require('./src/search-book/data/quality-audit.json'); if (q.totals.manifestPages !== 794 || q.targetMinimumPages !== 500 || q.targetMaximumPages !== 800 || !q.totals.manifestWithinTarget || q.gates.length < 1) process.exit(1); console.log(q.gates.filter((g)=>g.passed).length + '/' + q.gates.length)"
 node -e "const m=require('./src/search-book/page-manifest.json'); if (!m.pages || m.compendiumTarget.minimumPages !== 500 || m.compendiumTarget.maximumPages !== 800 || m.pages.length < m.compendiumTarget.minimumPages || m.pages.length > m.compendiumTarget.maximumPages) process.exit(1); console.log(m.pages.length)"
+npm run search-book:smoke-static
 npm run search-book:smoke-service
 rg -n "VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}" src/search-book
 git diff --check -- src/search-book _local/agent-worklog.md
