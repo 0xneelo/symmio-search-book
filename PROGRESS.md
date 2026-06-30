@@ -3,7 +3,7 @@
 ## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Recheck
 
 - Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
-- Aligned human-facing readiness docs to the latest committed live RAG evidence from `22a2995`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,848` output tokens, and `$0.01719720` estimated cost.
+- Aligned human-facing readiness docs to the latest committed live RAG evidence from `203d83b`: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,755` output tokens, and `$0.01714140` estimated cost.
 - Kept the production boundary explicit: the corpus and runtime are verified, but public frontend/deploy route, production service env, Discord/Lafa import, Notion ingestion, oldest Symmio whitepaper recovery, and SuperFlow/SSHE identification remain parked in `OPERATOR-INBOX.md`.
 
 ## 2026-06-30 — Proof Of Value Framework Operator-Review Batch
