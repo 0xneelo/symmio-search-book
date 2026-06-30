@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Economics And Benefit-Boundary Batch
+
+- Promoted `12` Volume 06 rewards/referrals economics and benefit-boundary pages to `published`: Referral LP-Side Bounded Accounting, Referral Market Precedence And Payout Buckets, Referral Mixed Accountability Boundary, No Market Attachment Means No Market-Level Share, Referral Open Participation With Optional Benefits, Referral Points As Economic State, Referral Private Deal Opacity Risk, Referral Public And Private Economics Boundary, Referral Public And Private Policy Overlays, Referral Rakeback Policy Model, Referral Tiering Constraint Boundaries, and Referral Uniform Referee Benefit.
+- Added or preserved publication boundaries for LP-side bounded accounting, deterministic payout buckets, mixed accountability, market attachment, open participation, referral points as economic state, private deal opacity, public/private economics, public/private policy overlays, rakeback policy, tiering constraints, uniform referee benefits, public 15-level referral depth with additive backfill, Phase B refusal, private partner terms, final tier percentages, cap behavior, stacking rules, threshold tables, payout cadence, settlement timing, TGE conversion, transferability, reward weighting, partner ledgers, dispute procedures, signer/security controls, anti-gaming enforcement, legal/accounting/investment-sensitive claims, and future depth or eligibility changes.
+- Regenerated Search Book data so page-state counts now show `766` published pages, `32` candidate pages, `792` source companions, `798/798` exact routes, `2,874` chunks, `0` Volume 05 candidates, `32` Volume 06 candidates, `0` protocol-reference candidates, `32` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 06 Referral Phase And Governance Batch
 
 - Promoted `11` Volume 06 rewards/referrals phase, rollout, and governance pages to `published`: Referral Illustrative Phase Targets, Referral Launch Sequencing, Referral Phase Definitions, Referral Phase Migration Requirements, Referral Phase And Version Reporting Rules, Referral Policy Clarity Requirements, Referral Policy Decision Lane, Referral Policy Governance, Referral Public Statement Readiness, Referral Rollout And Capacity Decision Lane, and Referral Rollout Governance Checklist.

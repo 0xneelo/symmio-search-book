@@ -3,7 +3,8 @@ id: "authored-referral-rakeback-policy-model"
 title: "Referral Rakeback Policy Model"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/03-rakeback-design", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/10-open-decisions", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-03-rakeback-design", "section-17-referral-program-17-docs-03-rakeback-design-3-1-dual-channel-model", "section-17-referral-program-17-docs-10-open-decisions-10-2-economic-policy"]
@@ -33,7 +34,7 @@ When the docs explain rakeback, they should name the channel, the calculation wi
 
 - `vibe-papers`: Neelo, "Section 3: Rakeback Design".
 - `vibe-papers`: Neelo, "Section 10: Open Decisions".
-- `spec-03`: Referral-depth contradiction and public disclosure caveats.
+- `spec-03`: resolved 15-level referral depth, additive backfill, and public disclosure caveats.
 
 ## Related Pages
 

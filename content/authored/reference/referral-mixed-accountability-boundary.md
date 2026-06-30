@@ -3,7 +3,7 @@ id: "authored-referral-mixed-accountability-boundary"
 title: "Referral Mixed Accountability Boundary"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#14-operational-reality", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#15-design-requirement", "_specs/app-docs/03-grounding.md"]

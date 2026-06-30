@@ -78,7 +78,7 @@
     "readerPagesWithNext": 1592,
     "readerPagesWithRelated": 1593,
     "answerChunkPages": 1611,
-    "answerChunks": 2873,
+    "answerChunks": 2874,
     "answerChunkSourceKeys": 100,
     "compendiumVolumes": 8,
     "compendiumChapters": 104,
@@ -88,8 +88,8 @@
     "compendiumVolumeReaderPages": 1593,
     "compendiumVolumeAssignedPages": 1593,
     "pageStatePages": 1593,
-    "pageStatePublishedPages": 754,
-    "pageStateCandidatePages": 44,
+    "pageStatePublishedPages": 766,
+    "pageStateCandidatePages": 32,
     "pageStatePublicCandidatePages": 798,
     "pageStateSourceCompanionPages": 792,
     "pageStateInternalDraftPages": 3,
@@ -97,7 +97,7 @@
     "pageStateRetrievalEligiblePages": 1590,
     "publicationPlanReady": true,
     "publicationPlanQueuedSourceCompanions": 792,
-    "publicationPlanCandidateReviewPages": 44,
+    "publicationPlanCandidateReviewPages": 32,
     "publicationPlanCandidateFinalReviewReadyPages": 0,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
@@ -251,7 +251,7 @@
       "id": "answer-chunks",
       "label": "Answer retrieval chunks resolve",
       "passed": true,
-      "detail": "1611 pages, 2873 chunks, 0 unknown source keys, 0 reader ids missing chunks"
+      "detail": "1611 pages, 2874 chunks, 0 unknown source keys, 0 reader ids missing chunks"
     },
     {
       "id": "volume-map",
@@ -269,13 +269,13 @@
       "id": "page-state-registry",
       "label": "Reader pages have launch states",
       "passed": true,
-      "detail": "1593/1593 reader pages classified; 754 published, 44 candidates, 792 source companions, 3 internal drafts"
+      "detail": "1593/1593 reader pages classified; 766 published, 32 candidates, 792 source companions, 3 internal drafts"
     },
     {
       "id": "publication-plan",
       "label": "Source companions have a publication authoring plan",
       "passed": true,
-      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 44 candidate review pages, 0 final-review ready, 5 stages"
+      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 32 candidate review pages, 0 final-review ready, 5 stages"
     },
     {
       "id": "requirement-map",
@@ -305,9 +305,9 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "published": 754,
+      "published": 766,
       "needs-reconciliation": 1,
-      "publication-candidate-needs-operator-review": 44
+      "publication-candidate-needs-operator-review": 32
     },
     "rows": [
       {
@@ -337,12 +337,12 @@
       },
       {
         "status": "published",
-        "count": 754,
+        "count": 766,
         "severity": "info"
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 44,
+        "count": 32,
         "severity": "blocked"
       }
     ]
@@ -854,8 +854,8 @@
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "published": 754,
-      "candidate": 44
+      "published": 766,
+      "candidate": 32
     },
     "exactRoutesByConfidence": {
       "Medium": 499,
@@ -1318,7 +1318,7 @@
       "exactRouteTests": 798,
       "refusalTests": 2,
       "answerChunkPages": 1611,
-      "answerChunks": 2873,
+      "answerChunks": 2874,
       "retrievalEligiblePages": 1590,
       "internalDraftPages": 3,
       "sourceCatalogEntries": 124,
@@ -1389,7 +1389,7 @@
       "exactRouteGoldenSet": 798,
       "adversarialGoldenSet": 15,
       "answerChunkPages": 1611,
-      "answerChunks": 2873,
+      "answerChunks": 2874,
       "sourceCatalogEntries": 124,
       "pageStatePages": 1593,
       "openOperatorItems": 7,
@@ -1756,7 +1756,7 @@
       "overlapWords": 35
     },
     "totalPages": 1611,
-    "totalChunks": 2873,
+    "totalChunks": 2874,
     "pagesWithChunks": 1611,
     "byRouteSource": {
       "authored": 799,
@@ -1764,14 +1764,14 @@
       "generated": 792
     },
     "chunksByRouteSource": {
-      "authored": 1532,
+      "authored": 1533,
       "curated": 20,
       "generated": 1321
     },
     "chunksBySection": {
       "manifesto": 908,
       "product-reference": 95,
-      "rewards-referrals": 174,
+      "rewards-referrals": 175,
       "dashboard-reference": 30,
       "protocol-reference": 293,
       "competitive-context": 6,
@@ -2061,9 +2061,9 @@
     "status": "prototype-page-state-registry",
     "totalPages": 1593,
     "byState": {
-      "published": 754,
+      "published": 766,
       "internal-draft": 3,
-      "candidate": 44,
+      "candidate": 32,
       "source-companion": 792
     },
     "byRouteSource": {
@@ -2077,9 +2077,9 @@
       "section-page": 541
     },
     "byStatus": {
-      "published": 754,
+      "published": 766,
       "needs-reconciliation": 3,
-      "publication-candidate-needs-operator-review": 44,
+      "publication-candidate-needs-operator-review": 32,
       "source-mapped": 63,
       "draft-imported-from-primary-source": 187,
       "draft-imported-from-generated-html": 1,
@@ -2120,9 +2120,9 @@
       "sourceCompanionsQueued": 792,
       "sourceCompanionsCoveredByAuthoredPages": 792,
       "sourceCompanionsNeedingAuthoredCoverage": 0,
-      "candidateReviewPages": 44,
+      "candidateReviewPages": 32,
       "candidateFinalReviewReadyPages": 0,
-      "candidateOperatorReviewPages": 44,
+      "candidateOperatorReviewPages": 32,
       "candidateSourceRefreshPages": 0,
       "candidatePublicationDateReviewPages": 0,
       "candidateEditorialReviewPages": 0,

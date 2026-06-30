@@ -3,7 +3,7 @@ id: "authored-referral-market-precedence-payout-buckets"
 title: "Referral Market Precedence And Payout Buckets"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/07-lp-and-category-layer#7-4-integration-requirements", "_specs/app-docs/03-grounding.md"]
