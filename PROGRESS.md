@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — SYN-215 Live RAG Revalidation After Force Close Batch
+
+- Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,035` input tokens, `593` output tokens, and `$0.00111105`; bootstrap trilemma used `4,972` input tokens, `844` output tokens, and `$0.00125220`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `16` calls, `90,372` input tokens, `8,657` output tokens, and `$0.01875000`.
+
 ## 2026-06-30 — Force Close And Closeout Protocol Batch
 
 - Promoted `9` Neelo DDQ protocol-reference pages to `published`: Distressed Position Buyout Continuity, Executable Closeout Pricing, Force Close Failure Detection, Force Close Latency Risk, Force Close Price Proof, Force Close Proof Network, Force Close Protocol Timer, Force Close Versus Escape Mode, and Solver Operational Failure And Force Close.
@@ -22,7 +28,7 @@
 
 - Tightened `run-llm-rag-answer.mjs` answer guidance so Add Token Info responses avoid repeating prohibited static-payment boundary phrases while preserving the strict citation validator and exact source-grounded answer contract.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,036` input tokens, `590` output tokens, and `$0.00110940`; bootstrap trilemma used `4,972` input tokens, `839` output tokens, and `$0.00124920`.
-- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `85,068` input tokens, `7,930` output tokens, and `$0.01751820`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 revalidation supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
 ## 2026-06-30 — Vibe Market-Creation And Referral Guide Operator-Review Batch
 
