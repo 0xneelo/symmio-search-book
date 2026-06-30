@@ -3,7 +3,7 @@ id: "authored-listing-liquidity-listings-flywheel"
 title: "The Liquidity And Listings Flywheel"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04z-listing-and-liquidity-thesis#4z-6-liquidity-and-listings-a-two-sided-flywheel"]

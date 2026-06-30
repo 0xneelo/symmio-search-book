@@ -3,7 +3,7 @@ id: "authored-listing-generalized-market-maker-problem"
 title: "The Generalized Market-Maker Problem"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/04z-listing-and-liquidity-thesis#4z-4-the-generalized-market-maker-problem"]

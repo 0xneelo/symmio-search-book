@@ -3,7 +3,7 @@ id: "authored-listing-data-product"
 title: "Listing Data Is A Product"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications"]

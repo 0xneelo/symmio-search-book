@@ -3,7 +3,7 @@ id: "authored-listing-control-power-loop"
 title: "Why Listing Control Creates Power"
 section: "manifesto"
 track: "03 - Listing Monopoly"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/03-listing-monopoly/03-docs/02-framework#2-6-why-control-creates-power"]

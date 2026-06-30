@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 03 Listing Framework Operator-Review Batch
+
+- Promoted `15` stable Neelo-source Volume 03 manifesto pages to `published`: How Listing Controller Boundaries Blur, Why Listing Control Creates Power, The Landscape Of Listing Controllers, Listing Data Is A Product, Durable Advantage In The Bootstrap Layer, Listing Monopoly Framework Summary, Visualizing The Listing Lifecycle Gap, The Generalized Market-Maker Problem, Listing Historical Sea-Lanes Analogy, Listing Controller Comparative Summary, Listing Monopoly Lifecycle Stage Map, The Full Lifecycle-Control Thesis, The Listing Lifecycle Visual Map, The Liquidity And Listings Flywheel, and Listing Monopoly Abstract Map.
+- Preserved publication boundaries already present in the pages: current platform positions, market-share numbers, venue policies, token counts, source-time dominance comparisons, exact thresholds, listing criteria, solver capacity, generalized market-making claims, default-venue status, and moat/flywheel strength require fresh primary-source/operator/product/market/legal review.
+- Regenerated Search Book data so page-state counts now show `298` published pages, `500` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Volume 03 Lifecycle And Listing Operator-Review Batch
 
 - Promoted `15` stable Neelo-source Volume 03 manifesto pages to `published`: Binance As The Late-Stage Leviathan, CLOB And Vault Rails Still Hit Long-Tail Limits, Collateralized Pools Have A Finite Long Tail, Continuous Asset Lifecycle, What Changes If The Lifecycle Gap Is Filled, Monopoly Implications Of A Gap-Filling Protocol, Graduation Data Checklist, The Hypothetical Permissionless Perps Model, Launchpad To DEX To Vibe To Order Book, The Lifecycle Gap As Opportunity, Consequences Of The Lifecycle Gap, Defining The Lifecycle Gap, The Scale Of The Lifecycle Gap, Lifecycle Gap Summary, and The Barbell Structure Of Crypto Listings.
