@@ -3,7 +3,8 @@ id: "authored-symm-lp-replication-framework"
 title: "SYMM LP Replication Framework"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/05-scaling-and-replication-framework", "https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/06-conclusion"]
 relatedGeneratedPages: ["neelo-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework", "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-2-replication-conditions-for-other-communities", "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook"]
@@ -39,6 +40,10 @@ The source's beta-report KPI stack should be the publication checklist for any r
 ## Reader Implication
 
 Replication is a process, not a slogan. The SYMM page should invite other communities to test Vibe's LP mechanism, but the docs should require staged capital, risk limits, and transparent metrics before presenting the strategy as durable.
+
+## Publication Boundary
+
+Do not publish this framework as a guarantee that any token community can replicate SYMM LP returns, a treasury recommendation, or a live onboarding policy. The source-backed claim is the staged replication discipline: pilot, validate, scale in tranches, and operate only with explicit metrics and stop conditions.
 
 ## Sources
 

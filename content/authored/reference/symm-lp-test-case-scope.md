@@ -3,7 +3,7 @@ id: "authored-symm-lp-test-case-scope"
 title: "SYMM LP Test Case Scope"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/12-case-study-symm-lp/12-docs/02-case-context-and-setup#2-2-test-case-scope"]

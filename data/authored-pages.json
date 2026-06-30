@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 686,
-    "publication-candidate-needs-operator-review": 112,
+    "published": 698,
+    "publication-candidate-needs-operator-review": 100,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -7508,7 +7508,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7531,7 +7531,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -7545,10 +7545,10 @@
         "neelo-15-funding-model-15-docs-06-lp-profit",
         "neelo-15-funding-model-15-docs-07-dynamic-pricing"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/lp-profit-and-dynamic-pricing.md",
-      "bodyMarkdown": "# LP Profit And Dynamic Pricing\n\nThe funding-model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed.\n\nThe LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance-margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure.\n\nDynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes.\n\n## Reader Implication\n\nThis page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item `#1` still controls which current and planned revenue inputs can be published as product promises.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n- `vibe-papers`: Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\".\n- `spec-03`: Phase B economics and revenue disclosure boundary.\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-estimated-network-revenue`\n- `neelo-15-funding-model-15-docs-06-lp-profit`",
-      "excerpt": "LP Profit And Dynamic Pricing The funding model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed. The LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure. Dynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes. Reader Implication This page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item 1 still controls which current and planned revenue inputs can be published as product promises. Sources vibe papers : Neelo, \"06. LP Profit Decomposition\". vibe "
+      "bodyMarkdown": "# LP Profit And Dynamic Pricing\n\nThe funding-model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed.\n\nThe LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance-margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure.\n\nDynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes.\n\n## Reader Implication\n\nThis page should be treated as economics architecture, not a final public parameter sheet. The current public revenue boundary is the resolved Phase A estimate: `networkVolume × platformFeeRate × referrerPlatformShare`, with Phase B economics out of v1 public answer scope.\n\n## Publication Boundary\n\nDo not publish the LP profit decomposition or dynamic-pricing sources as live fee schedules, guaranteed LP profit, current funding parameters, or Phase B product economics. The source-backed claim is the architecture: pricing, funding, spread, borrow, insurance, and ADL controls should manage market stress before hard failure modes.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"06. LP Profit Decomposition\".\n- `vibe-papers`: Neelo, \"07. Dynamic Pricing: Funding, Spread, and Borrow Rates\".\n- `spec-03`: Phase B economics and revenue disclosure boundary.\n\n## Related Pages\n\n- `authored-vibe-pillars`\n- `authored-estimated-network-revenue`\n- `neelo-15-funding-model-15-docs-06-lp-profit`",
+      "excerpt": "LP Profit And Dynamic Pricing The funding model papers describe LP and solver economics as a control problem: revenue, costs, trader PnL, hedge PnL, and shortfall risk must be balanced by pricing that reacts before insurance or ADL is needed. The LP profit decomposition separates trade fees, spread revenue, funding, liquidation fees, maintenance margin charges, and borrow revenue from hedge costs, external borrow costs, operations, trader winnings, hedge PnL, and shortfall losses. In bootstrap mode, the LP or solver absorbs more trader PnL; in a mature market, opposing traders can offset more of that exposure. Dynamic pricing is the system's first response to stress. Funding, borrow rates, and spreads respond to utilization, skew, volatility, insurance stress, and profit deviation. The source framing is clear: it is cheaper to use prices to rebalance a market than to wait for hard failure modes. Reader Implication This page should be treated as economics architecture, not a final public parameter sheet. The current public revenue boundary is the resolved Phase A estimate: networkVolume × platformFeeRate × referrerPlatformShare , with Phase B economics out of v1 public answer scope."
     },
     {
       "id": "authored-lp-profit-decomposition-map",
@@ -9898,7 +9898,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13511,7 +13511,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14796,7 +14796,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14809,9 +14809,9 @@
         "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-2-replication-conditions-for-other-communities",
         "section-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework-5-3-practical-deployment-playbook"
       ],
-      "volumeId": "",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/symm-lp-replication-framework.md",
-      "bodyMarkdown": "# SYMM LP Replication Framework\n\nThe SYMM case suggests a go-to-market template for other token communities, but the source is explicit that replication should be phased. A community should not jump from one favorable case study into large-scale LP deployment without testing trader demand, skew behavior, liquidation quality, and reporting discipline.\n\nThe minimum replication conditions are practical:\n\n- an active trader base willing to express views through perps;\n- a credible market narrative and recurring participation;\n- liquidity and risk controls that make liquidation executable;\n- transparent LP reporting that depositors can actually trust.\n\n## Practical Deployment Playbook\n\nA cautious deployment has four phases.\n\nFirst, run a pilot with a small treasury or insider allocation. Monitor directional skew, funding transfer, turnover quality, and whether the market attracts real two-sided interest.\n\nSecond, move into validation only after the pilot has enough data to produce weekly PnL attribution and drawdown reports. The question is whether performance came from repeatable market structure or one lucky directional window.\n\nThird, scale in predefined tranches rather than one large capital jump. Stop conditions should be tied to drawdown, skew instability, utilization stress, liquidity quality, and operational failure modes.\n\nFourth, operate at steady state with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence.\n\n## KPI Stack\n\nThe source's beta-report KPI stack should be the publication checklist for any repeated case: net ROI versus token hold, realized ROI versus marked ROI, max drawdown and recovery time, fee/funding/liquidation split, open-interest concentration, leverage distribution, and capacity stress at higher TVL tiers.\n\n## Reader Implication\n\nReplication is a process, not a slogan. The SYMM page should invite other communities to test Vibe's LP mechanism, but the docs should require staged capital, risk limits, and transparent metrics before presenting the strategy as durable.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-risk-and-edge-cases`\n- `neelo-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework`",
+      "bodyMarkdown": "# SYMM LP Replication Framework\n\nThe SYMM case suggests a go-to-market template for other token communities, but the source is explicit that replication should be phased. A community should not jump from one favorable case study into large-scale LP deployment without testing trader demand, skew behavior, liquidation quality, and reporting discipline.\n\nThe minimum replication conditions are practical:\n\n- an active trader base willing to express views through perps;\n- a credible market narrative and recurring participation;\n- liquidity and risk controls that make liquidation executable;\n- transparent LP reporting that depositors can actually trust.\n\n## Practical Deployment Playbook\n\nA cautious deployment has four phases.\n\nFirst, run a pilot with a small treasury or insider allocation. Monitor directional skew, funding transfer, turnover quality, and whether the market attracts real two-sided interest.\n\nSecond, move into validation only after the pilot has enough data to produce weekly PnL attribution and drawdown reports. The question is whether performance came from repeatable market structure or one lucky directional window.\n\nThird, scale in predefined tranches rather than one large capital jump. Stop conditions should be tied to drawdown, skew instability, utilization stress, liquidity quality, and operational failure modes.\n\nFourth, operate at steady state with documented utilization bounds, treasury exposure limits, emergency controls, and reporting cadence.\n\n## KPI Stack\n\nThe source's beta-report KPI stack should be the publication checklist for any repeated case: net ROI versus token hold, realized ROI versus marked ROI, max drawdown and recovery time, fee/funding/liquidation split, open-interest concentration, leverage distribution, and capacity stress at higher TVL tiers.\n\n## Reader Implication\n\nReplication is a process, not a slogan. The SYMM page should invite other communities to test Vibe's LP mechanism, but the docs should require staged capital, risk limits, and transparent metrics before presenting the strategy as durable.\n\n## Publication Boundary\n\nDo not publish this framework as a guarantee that any token community can replicate SYMM LP returns, a treasury recommendation, or a live onboarding policy. The source-backed claim is the staged replication discipline: pilot, validate, scale in tranches, and operate only with explicit metrics and stop conditions.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Scaling and Replication Framework\".\n- `vibe-papers`: Neelo, \"Conclusion\".\n\n## Related Pages\n\n- `authored-symm-lp-case-setup`\n- `authored-symm-lp-risk-and-edge-cases`\n- `neelo-12-case-study-symm-lp-12-docs-05-scaling-and-replication-framework`",
       "excerpt": "SYMM LP Replication Framework The SYMM case suggests a go to market template for other token communities, but the source is explicit that replication should be phased. A community should not jump from one favorable case study into large scale LP deployment without testing trader demand, skew behavior, liquidation quality, and reporting discipline. The minimum replication conditions are practical: an active trader base willing to express views through perps; a credible market narrative and recurring participation; liquidity and risk controls that make liquidation executable; transparent LP reporting that depositors can actually trust. Practical Deployment Playbook A cautious deployment has four phases. First, run a pilot with a small treasury or insider allocation. Monitor directional skew, funding transfer, turnover quality, and whether the market attracts real two sided interest. Second, move into validation only after the pilot has enough data to produce weekly PnL attribution and drawdown reports. The question is whether performance came from repeatable market structure or one lucky directional window. Third, scale in predefined tranches rather than one large capital jump. Stop "
     },
     {
@@ -14844,7 +14844,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14868,7 +14868,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14891,7 +14891,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14962,7 +14962,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15033,7 +15033,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16164,7 +16164,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16283,7 +16283,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Economics",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],

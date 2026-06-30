@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 Residual Solver/LP Economics Batch
+
+- Promoted the remaining `12` Volume 05 Solver/LP Economics protocol-reference pages to `published`: LP Deposits As Ignition Capital, LP Profit And Dynamic Pricing, Project Token Inventory Without Stablecoins, Solver-Funded Stablecoin Operations, SYMM LP Replication Framework, SYMM LP Scaling Hypothesis, SYMM LP Scope Note, SYMM LP Setup Reading Boundary, SYMM LP Test Case Scope, SYMM LP Validation Phase Reporting, Token Holder Incremental Risk Alignment, and Token LP Attractiveness Model.
+- Added or preserved publication boundaries for LP deposit purpose, dynamic pricing/profit claims, Phase A versus Phase B revenue disclosure, project-token inventory, solver-funded stablecoin operations, replication/scaling readiness, scope/setup/test-case limits, validation reporting, token-holder risk alignment, token-LP attractiveness, and legal/risk/accounting/investment-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `698` published pages, `100` candidate pages, `792` source companions, `798/798` exact routes, `2,871` chunks, `16` Volume 05 candidates, `84` Volume 06 candidates, `3` protocol-reference candidates, `84` rewards-referrals candidates, and `13` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 05 SYMM LP Performance And Economics Batch
 
 - Promoted `12` Volume 05 SYMM LP performance/economics pages to `published`: SYMM LP Bootstrap Collateral Role, SYMM LP Current Debt And UPnL, SYMM LP Economic Channels, Low Volume Did Not Mean Weak LP Economics, SYMM LP Operational Objective, SYMM LP Pilot Allocation Discipline, SYMM LP Regime-Updated Benchmarks, SYMM LP Steady-State Operating Bounds, SYMM LP Tranche Scale-Up Stop Conditions, SYMM LP Unit Economics, SYMM LP Vault NAV Time Series, and SYMM LP Yield Methodology.

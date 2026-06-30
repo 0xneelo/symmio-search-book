@@ -79,9 +79,9 @@
     "sourceCompanionsQueued": 792,
     "sourceCompanionsCoveredByAuthoredPages": 792,
     "sourceCompanionsNeedingAuthoredCoverage": 0,
-    "candidateReviewPages": 112,
+    "candidateReviewPages": 100,
     "candidateFinalReviewReadyPages": 0,
-    "candidateOperatorReviewPages": 112,
+    "candidateOperatorReviewPages": 100,
     "candidateSourceRefreshPages": 0,
     "candidatePublicationDateReviewPages": 0,
     "candidateEditorialReviewPages": 0,
@@ -104,13 +104,13 @@
     "covered-by-authored-page": 792
   },
   "byCandidateReviewReason": {
-    "operator-review": 112
+    "operator-review": 100
   },
   "byCandidateReviewAction": {
-    "operator-product-risk-legal-accounting-review-before-publish": 112
+    "operator-product-risk-legal-accounting-review-before-publish": 100
   },
   "byCandidateReviewStatus": {
-    "publication-candidate-needs-operator-review": 112
+    "publication-candidate-needs-operator-review": 100
   },
   "byCandidateReviewVolume": {
     "volume-01-orientation-and-thesis": {
@@ -139,21 +139,21 @@
     },
     "volume-05-solver-lp-and-protocol-operations": {
       "title": "Solver, LP, And Protocol Operations",
-      "candidateReviewPages": 28,
+      "candidateReviewPages": 16,
       "byReviewReason": {
-        "operator-review": 28
+        "operator-review": 16
       },
       "topPageIds": [
         "authored-symmio-whitepaper-history-boundary",
         "authored-bootstrap-oracle-risk-tiers",
         "authored-external-solver-first-look",
         "authored-lp-capacity-rent-model",
-        "authored-lp-ignition-capital-lifecycle",
-        "authored-lp-profit-and-dynamic-pricing",
         "authored-pass-through-execution-boundary",
         "authored-position-lifecycle-state-machine",
-        "authored-project-token-inventory-without-stablecoins",
-        "authored-safety-premium-backstop-quotes"
+        "authored-safety-premium-backstop-quotes",
+        "authored-settlement-contract-responsibility-map",
+        "authored-settlement-state-boundary",
+        "authored-solver-engine-operating-loop"
       ]
     },
     "volume-06-referrals-and-market-formation": {
@@ -35051,37 +35051,6 @@
       ]
     },
     {
-      "pageId": "authored-lp-ignition-capital-lifecycle",
-      "title": "LP Deposits As Ignition Capital",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-lp-profit-and-dynamic-pricing",
-      "title": "LP Profit And Dynamic Pricing",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers",
-        "spec-03"
-      ]
-    },
-    {
       "pageId": "authored-pass-through-execution-boundary",
       "title": "Pass-Through Execution Boundary",
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
@@ -35103,21 +35072,6 @@
       "volumeTitle": "Solver, LP, And Protocol Operations",
       "section": "manifesto",
       "track": "07 — Technical Architecture",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-project-token-inventory-without-stablecoins",
-      "title": "Project Token Inventory Without Stablecoins",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
       "status": "publication-candidate-needs-operator-review",
       "reviewReason": "operator-review",
       "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
@@ -35187,21 +35141,6 @@
       ]
     },
     {
-      "pageId": "authored-solver-funded-stablecoin-operations",
-      "title": "Solver-Funded Stablecoin Operations",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
       "pageId": "authored-solver-quote-risk-engines",
       "title": "Solver Quote And Risk Engines",
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
@@ -35248,96 +35187,6 @@
       ]
     },
     {
-      "pageId": "authored-symm-lp-replication-framework",
-      "title": "SYMM LP Replication Framework",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-symm-lp-scaling-hypothesis",
-      "title": "SYMM LP Scaling Hypothesis",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-symm-lp-scope-note",
-      "title": "SYMM LP Scope Note",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-symm-lp-setup-reading-boundary",
-      "title": "SYMM LP Setup Reading Boundary",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-symm-lp-test-case-scope",
-      "title": "SYMM LP Test Case Scope",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-symm-lp-validation-phase-reporting",
-      "title": "SYMM LP Validation Phase Reporting",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
       "pageId": "authored-technical-capability-map",
       "title": "Technical Capability Map",
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
@@ -35359,36 +35208,6 @@
       "volumeTitle": "Solver, LP, And Protocol Operations",
       "section": "manifesto",
       "track": "07 — Technical Architecture",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-token-holder-incremental-risk-alignment",
-      "title": "Token Holder Incremental Risk Alignment",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
-      "status": "publication-candidate-needs-operator-review",
-      "reviewReason": "operator-review",
-      "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",
-      "questionRouteCount": 1,
-      "sourceKeys": [
-        "vibe-papers"
-      ]
-    },
-    {
-      "pageId": "authored-token-lp-attractiveness-model",
-      "title": "Token LP Attractiveness Model",
-      "volumeId": "volume-05-solver-lp-and-protocol-operations",
-      "volumeTitle": "Solver, LP, And Protocol Operations",
-      "section": "protocol-reference",
-      "track": "Solver And LP Economics",
       "status": "publication-candidate-needs-operator-review",
       "reviewReason": "operator-review",
       "reviewAction": "operator-product-risk-legal-accounting-review-before-publish",

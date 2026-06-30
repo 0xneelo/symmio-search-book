@@ -3,7 +3,8 @@ id: "authored-lp-profit-and-dynamic-pricing"
 title: "LP Profit And Dynamic Pricing"
 section: "protocol-reference"
 track: "Solver And LP Economics"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/06-lp-profit", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/07-dynamic-pricing", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-15-funding-model-15-docs-06-lp-profit", "neelo-15-funding-model-15-docs-07-dynamic-pricing"]
@@ -19,7 +20,11 @@ Dynamic pricing is the system's first response to stress. Funding, borrow rates,
 
 ## Reader Implication
 
-This page should be treated as economics architecture, not a final public parameter sheet. Operator inbox item `#1` still controls which current and planned revenue inputs can be published as product promises.
+This page should be treated as economics architecture, not a final public parameter sheet. The current public revenue boundary is the resolved Phase A estimate: `networkVolume × platformFeeRate × referrerPlatformShare`, with Phase B economics out of v1 public answer scope.
+
+## Publication Boundary
+
+Do not publish the LP profit decomposition or dynamic-pricing sources as live fee schedules, guaranteed LP profit, current funding parameters, or Phase B product economics. The source-backed claim is the architecture: pricing, funding, spread, borrow, insurance, and ADL controls should manage market stress before hard failure modes.
 
 ## Sources
 
