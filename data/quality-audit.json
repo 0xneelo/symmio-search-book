@@ -88,7 +88,8 @@
     "compendiumVolumeReaderPages": 1593,
     "compendiumVolumeAssignedPages": 1593,
     "pageStatePages": 1593,
-    "pageStatePublishedPages": 0,
+    "pageStatePublishedPages": 8,
+    "pageStateCandidatePages": 790,
     "pageStatePublicCandidatePages": 798,
     "pageStateSourceCompanionPages": 792,
     "pageStateInternalDraftPages": 3,
@@ -96,8 +97,8 @@
     "pageStateRetrievalEligiblePages": 1590,
     "publicationPlanReady": true,
     "publicationPlanQueuedSourceCompanions": 792,
-    "publicationPlanCandidateReviewPages": 798,
-    "publicationPlanCandidateFinalReviewReadyPages": 159,
+    "publicationPlanCandidateReviewPages": 790,
+    "publicationPlanCandidateFinalReviewReadyPages": 151,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
     "completionRequirementsComplete": 11,
@@ -268,13 +269,13 @@
       "id": "page-state-registry",
       "label": "Reader pages have launch states",
       "passed": true,
-      "detail": "1593/1593 reader pages classified; 798 public candidates, 792 source companions, 3 internal drafts"
+      "detail": "1593/1593 reader pages classified; 8 published, 790 candidates, 792 source companions, 3 internal drafts"
     },
     {
       "id": "publication-plan",
       "label": "Source companions have a publication authoring plan",
       "passed": true,
-      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 798 candidate review pages, 159 final-review ready, 5 stages"
+      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 790 candidate review pages, 151 final-review ready, 5 stages"
     },
     {
       "id": "requirement-map",
@@ -305,8 +306,9 @@
     },
     "authored": {
       "publication-candidate-needs-operator-review": 619,
-      "publication-candidate": 159,
+      "publication-candidate": 151,
       "publication-candidate-needs-current-source-review": 8,
+      "published": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
       "needs-reconciliation": 1,
@@ -345,13 +347,18 @@
       },
       {
         "status": "publication-candidate",
-        "count": 159,
+        "count": 151,
         "severity": "candidate"
       },
       {
         "status": "publication-candidate-needs-current-source-review",
         "count": 8,
         "severity": "candidate"
+      },
+      {
+        "status": "published",
+        "count": 8,
+        "severity": "info"
       },
       {
         "status": "publication-candidate-needs-editorial-review",
@@ -877,7 +884,8 @@
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "candidate": 797
+      "candidate": 787,
+      "published": 10
     },
     "exactRoutesByConfidence": {
       "Medium": 499,
@@ -2071,7 +2079,8 @@
     "status": "prototype-page-state-registry",
     "totalPages": 1593,
     "byState": {
-      "candidate": 798,
+      "candidate": 790,
+      "published": 8,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -2087,8 +2096,9 @@
     },
     "byStatus": {
       "publication-candidate-needs-operator-review": 619,
-      "publication-candidate": 159,
+      "publication-candidate": 151,
       "publication-candidate-needs-current-source-review": 8,
+      "published": 8,
       "publication-candidate-needs-editorial-review": 3,
       "publication-candidate-needs-fresh-source-review": 1,
       "needs-reconciliation": 3,
@@ -2115,7 +2125,6 @@
       "local-network-depth"
     ],
     "warnings": [
-      "No page is marked published yet; current authored pages remain candidates.",
       "3 internal draft pages must stay hidden until reconciled.",
       "792 source companion pages should support retrieval/authoring but not final public navigation."
     ]
@@ -2134,8 +2143,8 @@
       "sourceCompanionsQueued": 792,
       "sourceCompanionsCoveredByAuthoredPages": 792,
       "sourceCompanionsNeedingAuthoredCoverage": 0,
-      "candidateReviewPages": 798,
-      "candidateFinalReviewReadyPages": 159,
+      "candidateReviewPages": 790,
+      "candidateFinalReviewReadyPages": 151,
       "candidateOperatorReviewPages": 619,
       "candidateSourceRefreshPages": 9,
       "candidatePublicationDateReviewPages": 8,

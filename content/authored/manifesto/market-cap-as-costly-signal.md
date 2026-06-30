@@ -3,7 +3,7 @@ id: "authored-market-cap-as-costly-signal"
 title: "Market Cap Is A Costly Signal, Not Perfect Truth"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/02-crisis-of-verification", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/03-beyond-polymarket"]

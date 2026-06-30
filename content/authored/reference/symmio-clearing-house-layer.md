@@ -3,7 +3,7 @@ id: "authored-symmio-clearing-house-layer"
 title: "Symmio Clearing-House Layer"
 section: "protocol-reference"
 track: "Symmio Core"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-what-is", "symmio-core", "symmio-whitepaper"]
 sourceUrls: ["https://docs.symm.io/getting-started/what-is-symmio.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md"]
 relatedGeneratedPages: ["symmio-what-is", "symmio-core-concepts", "symmio-whitepaper", "authored-symmio-party-a-party-b"]

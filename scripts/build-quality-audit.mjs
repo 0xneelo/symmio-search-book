@@ -665,7 +665,7 @@ const gates = [
     id: "page-state-registry",
     label: "Reader pages have launch states",
     passed: pageStateRegistryReady,
-    detail: `${pageStateRegistry.totalPages || 0}/${readerPageIds.size} reader pages classified; ${pageStateRegistry.publicCandidatePages || 0} public candidates, ${pageStateRegistry.sourceCompanionPages || 0} source companions, ${pageStateRegistry.internalDraftPages || 0} internal drafts`,
+    detail: `${pageStateRegistry.totalPages || 0}/${readerPageIds.size} reader pages classified; ${pageStateRegistry.publishedPages || 0} published, ${pageStateRegistry.candidatePages || 0} candidates, ${pageStateRegistry.sourceCompanionPages || 0} source companions, ${pageStateRegistry.internalDraftPages || 0} internal drafts`,
   },
   {
     id: "publication-plan",
@@ -788,6 +788,7 @@ const payload = {
     compendiumVolumeAssignedPages: volumeMap.pagesAssigned || 0,
     pageStatePages: pageStateRegistry.totalPages || 0,
     pageStatePublishedPages: pageStateRegistry.publishedPages || 0,
+    pageStateCandidatePages: pageStateRegistry.candidatePages || 0,
     pageStatePublicCandidatePages: pageStateRegistry.publicCandidatePages || 0,
     pageStateSourceCompanionPages: pageStateRegistry.sourceCompanionPages || 0,
     pageStateInternalDraftPages: pageStateRegistry.internalDraftPages || 0,

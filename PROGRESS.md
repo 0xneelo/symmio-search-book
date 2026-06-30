@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — First Candidate Publication Review Batch
+
+- Promoted the first `8` source/prose/route-reviewed pages to `published`: Symmio Clearing-House Layer, Vibe Intent Architecture, Information And Trade Are Converging, The Information Validation Crisis, Market Cap Is A Costly Signal, Synthetic Abundance Creates A Verification Crisis, Universal Issuance Needs Derivatives, and Why Derivatives Matter.
+- Updated the page-state registry so `status: "published"` now produces the actual `published` launch state instead of remaining a candidate.
+- Left freshness-sensitive pages such as Vibe Product Overview and Barometer Subgraph Upgrade as candidates until their publication-date/current-source review clears.
+
 ## 2026-06-30 — Candidate Review Lane Planning
 
 - Updated `data/publication-plan.*` so `candidateReviewQueue` includes all `798` candidate pages, not only pages with explicit review flags.

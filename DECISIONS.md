@@ -1919,3 +1919,11 @@
 **Reason:** The earlier queue only showed flagged candidates and hid ordinary `publication-candidate` pages that still need final review before launch. A complete lane view keeps production review honest without reopening already-complete source-companion authoring coverage.
 
 **Status:** Accepted for launch review planning. Final-review-ready is not publication approval; approved pages still need explicit promotion to `published`.
+
+## D-241: Make Published Status Effective And Promote The First Reviewed Pages
+
+**Decision:** Treat authored pages with `status: "published"` as the actual `published` page-state, and promote only the first pages that passed source/prose/route review from the final-review-ready lane.
+
+**Reason:** The page-state registry already defined `published`, but authored pages were still classified as candidates regardless of frontmatter status. Production review needs a real state transition so launch reports can distinguish reviewed public prose from remaining candidates.
+
+**Status:** Accepted for staged publication review. The first published batch is limited to stable public-source pages; freshness-sensitive product/data-source pages remain candidates.

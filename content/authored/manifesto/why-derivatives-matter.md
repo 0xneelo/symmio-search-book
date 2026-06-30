@@ -3,7 +3,7 @@ id: "authored-why-derivatives-matter"
 title: "Why Derivatives Matter"
 section: "manifesto"
 track: "02 — Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/05-tokens-as-information-containers", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value"]
 relatedGeneratedPages: ["neelo-09-fix-industry-one-primitive-09-docs-05-tokens-as-information-containers", "neelo-13-framework-value-permissionless-perps-13-docs-04-trader-and-project-value", "authored-truth-markets-no-button", "authored-liquidity-as-trader-experience"]

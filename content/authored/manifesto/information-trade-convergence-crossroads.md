@@ -3,7 +3,7 @@ id: "authored-information-trade-convergence-crossroads"
 title: "Information And Trade Are Converging"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate"
+status: "published"
 volumeId: "volume-01-orientation-and-thesis"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/overview", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/01-introduction", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/00-abstract"]

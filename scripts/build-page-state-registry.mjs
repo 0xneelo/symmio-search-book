@@ -98,6 +98,13 @@ function classifyPage(page) {
     };
   }
   if (page.routeSource === "authored") {
+    if (status === "published") {
+      return {
+        pageState: "published",
+        reviewRequired: false,
+        reason: "Authored page has passed final publication review.",
+      };
+    }
     return {
       pageState: "candidate",
       reviewRequired: /operator-review|needs-review/i.test(status),
@@ -197,6 +204,7 @@ const unclassifiedPageIds = pages.filter((page) => !pageStates[page.pageState]).
 const missingVolumeIds = pages.filter((page) => !page.volumeId).map((page) => page.id);
 const internalDrafts = pages.filter((page) => page.pageState === "internal-draft");
 const sourceCompanions = pages.filter((page) => page.pageState === "source-companion");
+const candidatePages = pages.filter((page) => page.pageState === "candidate");
 const publicCandidates = pages.filter((page) => page.pageState === "candidate" || page.pageState === "published");
 const retrievalEligiblePages = pages.filter((page) => page.retrievalEligible);
 const publicNavigationPages = pages.filter((page) => page.publicNavigationEligible);
@@ -224,6 +232,7 @@ const payload = {
   bySection: countBy(pages, (page) => page.section),
   statesByVolume,
   publishedPages: pages.filter((page) => page.pageState === "published").length,
+  candidatePages: candidatePages.length,
   publicCandidatePages: publicCandidates.length,
   sourceCompanionPages: sourceCompanions.length,
   internalDraftPages: internalDrafts.length,

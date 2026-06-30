@@ -3,7 +3,7 @@ id: "authored-information-validation-crisis"
 title: "The Information Validation Crisis"
 section: "manifesto"
 track: "02 — Thesis"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/09-fix-industry-one-primitive/09-docs/02-information-as-civilization"]
 relatedGeneratedPages: ["neelo-09-fix-industry-one-primitive-09-docs-02-information-as-civilization", "authored-proof-of-value", "authored-truth-markets-no-button", "authored-last-primitive"]
