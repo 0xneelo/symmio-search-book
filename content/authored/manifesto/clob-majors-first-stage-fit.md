@@ -3,7 +3,7 @@ id: "authored-clob-majors-first-stage-fit"
 title: "CLOB Majors-First Stage Fit"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"]

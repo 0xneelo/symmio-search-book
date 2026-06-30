@@ -3,7 +3,7 @@ id: "authored-listing-is-not-vault-liquidity"
 title: "Listing Is Not Vault Liquidity"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid"]
@@ -19,6 +19,10 @@ A venue can add a symbol, route a market into a liquidity program, or let LPs su
 The important claim is not the exact third-party minimum, lockup, or routing policy. Those details must be checked against current venue documentation before publication. The durable market-structure point is simpler: a market row is not the same as a market.
 
 If makers do not quote size, LP capital is not allocated, and flow does not arrive, the trader still faces a thin or unreliable venue even though the symbol exists.
+
+## Publication Boundary
+
+Do not publish current third-party listing minimums, lockups, liquidity-program routing rules, or venue capacity as static Search Book facts without fresh official source review. The source-safe claim is structural: listing a symbol and delivering usable liquidity are separate product actions.
 
 ## Reader Implication
 

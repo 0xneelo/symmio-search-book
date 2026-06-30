@@ -3,7 +3,7 @@ id: "authored-synchronous-netted-order-book-protocols"
 title: "Synchronous Fully Netted Order-Book Protocols"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/03-landscape#3-2-category-1-synchronous-fully-netted-order-book-protocols"]

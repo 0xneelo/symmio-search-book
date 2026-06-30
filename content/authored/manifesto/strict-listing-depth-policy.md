@@ -3,7 +3,7 @@ id: "authored-strict-listing-depth-policy"
 title: "Strict Listing Policy Protects Depth"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers", "hyperliquid-hip3"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/01-order-books-dydx-hyperliquid", "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/hip-3-deploying-hip-3-assets"]

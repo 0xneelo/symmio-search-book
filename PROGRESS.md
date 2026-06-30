@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Source-Refresh Boundary Publication Batch
+
+- Promoted the remaining `9` source-refresh pages to `published`: Synchronous Fully Netted Order-Book Protocols, CLOB Majors-First Stage Fit, Listing Is Not Vault Liquidity, Open Interest Without Payout Reliability, Pool Tail TVL Fragmentation, Pooled Backstop Mismatch, Strict Listing Policy Protects Depth, Capped Oracle Latency Arbitrage, and Percolator Low Utilization Is A Safety Signal.
+- Preserved current-source guardrails for third-party venue details, live market counts, liquidity-program terms, pool composition, cap values, deployment state, and live exploitability.
+- Reframed the Percolator utilization numbers as a source-time illustrative snapshot rather than current live state.
+- Regenerated Search Book data so page-state counts now show `171` published pages, `627` candidate pages, `792` source companions, `798/798` exact routes, and `0` source-refresh candidates remaining.
+
 ## 2026-06-30 — Volume 02 Editorial Review Publication Batch
 
 - Promoted the remaining `3` editorial-review pages to `published`: The Market's Eye View, The Ticker Tape Verification Layer, and Truth As An Asset Class.

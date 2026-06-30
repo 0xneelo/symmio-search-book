@@ -3,7 +3,7 @@ id: "authored-open-interest-without-payout-reliability"
 title: "Open Interest Without Payout Reliability"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/03-percolator-wave-perc-fund", "https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/05-liquidity-as-trader-experience"]

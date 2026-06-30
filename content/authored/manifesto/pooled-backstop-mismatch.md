@@ -3,7 +3,7 @@ id: "authored-pooled-backstop-mismatch"
 title: "Pooled Backstop Mismatch"
 section: "manifesto"
 track: "16 - Listing Additional Notes"
-status: "publication-candidate-needs-current-source-review"
+status: "published"
 volumeId: "volume-03-listing-power-and-orderbooks"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/16-listing-additional/16-docs/02-collateralized-pools-gmx"]
@@ -19,6 +19,10 @@ The long-tail problem reappears in the backstop. The asset a trader thinks they 
 That is pooled backstop mismatch: the market's story and the market's loss absorber are not the same thing.
 
 The source does not say that pooled collateral is bad. It says the model has a finite long tail. As more thin markets are added, capital either remains concentrated in majors or fragments into shallow tails. Traders then need to understand not only the index, but also what actually pays profitable PnL.
+
+## Publication Boundary
+
+Do not publish current third-party pool composition, TVL, market counts, capacity, or loss-waterfall state without fresh official source review. The durable source-backed point is the mismatch risk between a market's narrative asset and the generalized collateral that absorbs PnL.
 
 ## Reader Implication
 
