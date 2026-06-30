@@ -3,7 +3,7 @@ id: "authored-collateral-margin-cva"
 title: "Collateral, Margin, And CVA"
 section: "protocol-reference"
 track: "Symmio Core"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-core", "symmio-intent-lifecycle"]
 sourceUrls: ["https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]
 relatedGeneratedPages: ["symmio-core-concepts", "symmio-intent-lifecycle", "symmio-liquidations", "authored-symmio-party-a-party-b"]

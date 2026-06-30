@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 Protocol Publication Review Batch
+
+- Promoted `11` stable Symmio/Vibe-source protocol and solver pages to `published`: Bilateral Intent Lifecycle, Collateral/Margin/CVA, Intents And Solvers, Solver Event Monitoring, Symmio Cross-Margin Liquidations, Symmio Funding Epochs, PartyA And PartyB, Symmio Settlement Costs And Affiliates, Symmio Settlement And Profit Realization, Symmio Solver Operations And Hedging, and The Technical Architecture Layer Map.
+- Kept freshness-sensitive product/data-source pages, Hyperliquid-current pages, broad compendium overviews, points/TGE settlement pages, and source-ingestion/deploy lanes in the review queue for separate source/operator/date review.
+- Regenerated Search Book data so page-state counts now show `105` published pages, `693` candidate pages, `792` source companions, and `54` final-review-ready candidates remaining.
+
 ## 2026-06-30 — Volume 04 Architecture Publication Review Batch
 
 - Promoted `19` stable Neelo-source `vibe-papers` pages to `published` across continuous truth markets, bootstrap/counterparty formation, coupled Vibe pillars, episodic long-tail flow, exploit resistance, financialized rejection, leverage/oracle risk, order-book maturity, Percolator economic limits, perp markets as credit systems, rational LP paradoxes, single-pillar failure, slab isolation, token-denominated fee illusion, token-margin manipulation, token-margined LP lose-lose, and token-margined reflexivity.

@@ -3,7 +3,7 @@ id: "authored-solver-event-monitoring"
 title: "Solver Event Monitoring"
 section: "protocol-reference"
 track: "Symmio Core"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-what-is", "symmio-core", "symmio-intent-lifecycle"]
 sourceUrls: ["https://docs.symm.io/getting-started/what-is-symmio.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]
 relatedGeneratedPages: ["symmio-solver-role", "symmio-intent-lifecycle", "symmio-solving", "authored-bilateral-intent-lifecycle"]

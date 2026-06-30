@@ -3,7 +3,7 @@ id: "authored-symmio-settlement-profit-realization"
 title: "Symmio Settlement And Profit Realization"
 section: "protocol-reference"
 track: "Symmio Operations"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-settlement", "symmio-profit-realization"]
 sourceUrls: ["https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/settlement.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/settlement-and-profit-realization.md"]
 relatedGeneratedPages: ["symmio-settlement", "symmio-profit-realization", "authored-bilateral-intent-lifecycle"]

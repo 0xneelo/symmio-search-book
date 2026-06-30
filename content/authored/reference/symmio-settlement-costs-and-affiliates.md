@@ -3,7 +3,7 @@ id: "authored-symmio-settlement-costs-and-affiliates"
 title: "Symmio Settlement Costs And Affiliates"
 section: "protocol-reference"
 track: "Symmio Operations"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-settlement-costs", "symmio-trading-fees"]
 sourceUrls: ["https://docs.symm.io/exchange-builder-documentation/settlement-costs-in-symmio.md", "https://docs.symm.io/trader-documentation/trading-fees.md"]
 relatedGeneratedPages: ["symmio-settlement-costs", "symmio-trading-fees", "authored-vibe-fees-and-funding"]

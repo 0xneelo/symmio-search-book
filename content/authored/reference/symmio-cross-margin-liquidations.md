@@ -3,7 +3,7 @@ id: "authored-symmio-cross-margin-liquidations"
 title: "Symmio Cross-Margin Liquidations"
 section: "protocol-reference"
 track: "Symmio Operations"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-liquidations", "symmio-core"]
 sourceUrls: ["https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/liquidations.md", "https://docs.symm.io/getting-started/core-concepts.md"]
 relatedGeneratedPages: ["symmio-liquidations", "authored-collateral-margin-cva", "authored-bilateral-intent-lifecycle"]

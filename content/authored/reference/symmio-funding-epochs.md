@@ -3,7 +3,7 @@ id: "authored-symmio-funding-epochs"
 title: "Symmio Funding Epochs"
 section: "protocol-reference"
 track: "Symmio Operations"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-funding-rates"]
 sourceUrls: ["https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md"]
 relatedGeneratedPages: ["symmio-funding-rates", "authored-vibe-fees-and-funding", "authored-position-lifecycle-state-machine"]

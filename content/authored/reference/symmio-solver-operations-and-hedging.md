@@ -3,7 +3,7 @@ id: "authored-symmio-solver-operations-and-hedging"
 title: "Symmio Solver Operations And Hedging"
 section: "solver-reference"
 track: "Symmio Operations"
-status: "publication-candidate"
+status: "published"
 sourceKeys: ["symmio-solver-role", "symmio-hedging-strategies", "symmio-solving", "symmio-build-solver", "symmio-llms"]
 sourceUrls: ["https://docs.symm.io/liquidity-provider-documentation/role-of-a-liquidity-provider-solver.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/hedging-strategies.md", "https://docs.symm.io/liquidity-provider-documentation/solving-for-symmio.md", "https://docs.symm.io/liquidity-provider-documentation/building-a-solver-on-symmio.md", "https://docs.symm.io/liquidity-provider-documentation/solver-setup-high-level-overview.md"]
 relatedGeneratedPages: ["symmio-solver-role", "symmio-hedging-strategies", "symmio-solving", "symmio-build-solver", "symmio-solver-setup", "authored-solver-event-monitoring"]
