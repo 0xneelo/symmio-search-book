@@ -27,8 +27,8 @@
 ## 2026-06-30 — SYN-215 Live RAG Revalidation
 
 - Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` already contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
-- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `4,940` input tokens, `594` output tokens, and `$0.00109740`; bootstrap trilemma used `4,876` input tokens, `685` output tokens, and `$0.00114240`.
-- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, and Phase B economics refused/fail-closed. Total measured usage was `15` calls, `83,256` input tokens, `7,566` output tokens, and `$0.01702800`.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `4,938` input tokens, `472` output tokens, and `$0.00102390`; bootstrap trilemma used `4,875` input tokens, `737` output tokens, and `$0.00117345`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, and Phase B economics refused/fail-closed. Total measured usage was `15` calls, `83,256` input tokens, `8,047` output tokens, and `$0.01731660`.
 
 ## 2026-06-30 — Static App Integrity Check
 
@@ -69,7 +69,7 @@
 ## 2026-06-30 — Readiness Evidence Alignment After SYN-215 Refresh
 
 - Re-read the pasted Search Book objective and `_specs/app-docs/01-11` before continuing the production-readiness goal.
-- Aligned human-facing readiness docs to the current recorded live RAG evidence: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `7,566` output tokens, and `$0.01702800` estimated cost.
+- Aligned human-facing readiness docs to the current recorded live RAG evidence: `gpt-4.1-mini` still passes `42/42` total fixtures, including `15/15` adversarial cases and `27/27` answer-validation cases, with `15` measured calls, `83,256` input tokens, `8,047` output tokens, and `$0.01731660` estimated cost.
 - Kept the production boundary explicit: the corpus and runtime are verified, but public frontend/deploy route, production service env, Discord/Lafa import, Notion ingestion, oldest Symmio whitepaper recovery, and SuperFlow/SSHE identification remain parked in `OPERATOR-INBOX.md`.
 
 ## 2026-06-30 — Proof Of Value Framework Operator-Review Batch

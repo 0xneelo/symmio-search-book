@@ -29,6 +29,10 @@ const staleMarkers = [
   { label: "previous SYN-215 output token total", value: "8067" },
   { label: "previous SYN-215 cost", value: "$0.01732860" },
   { label: "previous SYN-215 cost", value: "0.0173286" },
+  { label: "previous SYN-215 output token total", value: "7,566" },
+  { label: "previous SYN-215 output token total", value: "7566" },
+  { label: "previous SYN-215 cost", value: "$0.01702800" },
+  { label: "previous SYN-215 cost", value: "0.017028" },
 ];
 
 function readJson(filePath) {
