@@ -599,6 +599,26 @@ function counts(db) {
   return { totals, byQuestionStatus, byRating, byGapReason };
 }
 
+function exampleRows(db) {
+  const limit = boundedLimit(config.exampleLimit, 4, 12);
+  return rows(
+    db,
+    `
+      SELECT
+        id,
+        query,
+        primary_page_id AS pageId,
+        helpful_count AS helpfulCount,
+        updated_at AS updatedAt
+      FROM search_book_answer_cache
+      WHERE helpful_count >= 1
+      ORDER BY helpful_count DESC, updated_at DESC
+      LIMIT ?
+    `,
+    limit,
+  );
+}
+
 function moderationPolicy() {
   return {
     enabled: config.moderationExportEnabled,
@@ -888,6 +908,16 @@ function handleInsights(db, res) {
   });
 }
 
+function handleExamples(db, res) {
+  const examples = exampleRows(db);
+  jsonResponse(res, 200, {
+    status: "ok",
+    generatedAt: nowIso(),
+    minCount: config.exampleLimit,
+    examples,
+  });
+}
+
 function handleModeration(db, req, res) {
   requireModerationAccess(req);
   const retention = applyRetention(db);
@@ -969,6 +999,10 @@ function createServer() {
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {
         handleInsights(db, res);
+        return;
+      }
+      if (req.method === "GET" && url.pathname === "/api/search-book/examples") {
+        handleExamples(db, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/moderation") {

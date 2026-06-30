@@ -2490,7 +2490,8 @@
         .map((question) => seededQuestionRoutes.find((route) => route.question === question)?.question || question)
         .filter(Boolean)
         .slice(0, 4);
-      const exampleQuestions = seededExamples.length ? seededExamples : fallbackExampleQuestions;
+      const curatedExampleQuestions = seededExamples.length ? seededExamples : fallbackExampleQuestions;
+      let exampleQuestions = [...curatedExampleQuestions];
       const stopWords = new Set(["a", "about", "an", "and", "are", "as", "at", "be", "do", "does", "for", "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "the", "to", "what", "when", "where", "why"]);
 
       function getVariant() {
@@ -2652,6 +2653,34 @@
           return null;
         } finally {
           renderServiceStatus();
+        }
+      }
+
+      async function refreshServiceExamples() {
+        if (!serviceEnabled()) {
+          exampleQuestions = [...curatedExampleQuestions];
+          renderExampleQuestions();
+          return null;
+        }
+        try {
+          const payload = await serviceRequest("/api/search-book/examples");
+          const dynamic = (payload.examples || [])
+            .map((item) => item.query)
+            .filter(Boolean)
+            .slice(0, curatedExampleQuestions.length);
+          exampleQuestions = dynamic.length >= curatedExampleQuestions.length ? dynamic : [...curatedExampleQuestions];
+          serviceState.online = true;
+          serviceState.lastError = "";
+          renderExampleQuestions();
+          renderServiceStatus();
+          return payload;
+        } catch (error) {
+          exampleQuestions = [...curatedExampleQuestions];
+          serviceState.online = false;
+          serviceState.lastError = error.message || "Could not reach answer-engine service.";
+          renderExampleQuestions();
+          renderServiceStatus();
+          return null;
         }
       }
 
@@ -3648,6 +3677,7 @@
               }),
             });
             await refreshServiceInsights();
+            await refreshServiceExamples();
             renderInsights();
             return;
           } catch (error) {
@@ -3920,6 +3950,7 @@
         if (serviceEnabled()) {
           refreshServiceInsights().then(() => {
             renderInsights();
+            refreshServiceExamples();
           });
         }
       }
