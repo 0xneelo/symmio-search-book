@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Requirement-Map Publication State Alignment
+
+- Updated `build-requirement-map.mjs` so the `manifesto-and-reference` requirement is marked complete only when the page target is in range, the authored layer is book-scale and published, the volume map exists, all source companions are covered by authored pages, and all candidate review lanes are at zero.
+- Regenerated `data/requirement-map.*` and `data/quality-audit.*`; completion evidence now reports `12/18` requirements complete, `2` partial, `4` parked, and `0` missing.
+- Kept production readiness false: the remaining incomplete requirements are production service/frontend deployment, living-docs operations, Discord/Lafa FAQ import, source-traceability parked inputs, platform selection, and deploy preview.
+
 ## 2026-07-01 — Living-Docs Reuse-Cache Evidence Alignment
 
 - Updated the generated living-docs contract so it detects and records the current answer-engine service shape: SQLite question, rating, gap, and `search_book_answer_cache` persistence; rated-answer reuse after guardrail preflight; dynamic example questions via `GET /api/search-book/examples`; retention over answer-cache rows; and the existing gated moderation/reviewer-summary path.

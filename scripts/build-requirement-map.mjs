@@ -161,6 +161,10 @@ const sourceCompanionsCoveredByAuthoredPages = publicationPlan.totals?.sourceCom
 const sourceCompanionsNeedingAuthoredCoverage = publicationPlan.totals?.sourceCompanionsNeedingAuthoredCoverage || 0;
 const candidateReviewPages = publicationPlan.totals?.candidateReviewPages || 0;
 const candidateFinalReviewReadyPages = publicationPlan.totals?.candidateFinalReviewReadyPages || 0;
+const candidateOperatorReviewPages = publicationPlan.totals?.candidateOperatorReviewPages || 0;
+const candidateSourceRefreshPages = publicationPlan.totals?.candidateSourceRefreshPages || 0;
+const candidatePublicationDateReviewPages = publicationPlan.totals?.candidatePublicationDateReviewPages || 0;
+const candidateEditorialReviewPages = publicationPlan.totals?.candidateEditorialReviewPages || 0;
 const authoredPageIds = new Set((authored.pages || []).map((page) => page.id));
 const volumeOverviews = (volumeMap.volumes || []).filter((volume) => volume.overviewPageId).length;
 const manifestWithinTarget = withinCompendiumPageTarget((manifest.pages || []).length);
@@ -218,6 +222,19 @@ const finalReportDocumentsState =
   finalReportText.includes("## Verification Evidence") &&
   finalReportText.includes("## Remaining Production Work") &&
   finalReportMentionsOpenItems;
+const publicManifestoAndReferenceComplete =
+  manifestWithinTarget &&
+  (authored.totalPages || 0) >= 500 &&
+  (authoredStatuses.published || 0) >= 500 &&
+  volumeMap.totalVolumes >= 8 &&
+  publicationPlan.planReady === true &&
+  sourceCompanionsNeedingAuthoredCoverage === 0 &&
+  candidateReviewPages === 0 &&
+  candidateFinalReviewReadyPages === 0 &&
+  candidateOperatorReviewPages === 0 &&
+  candidateSourceRefreshPages === 0 &&
+  candidatePublicationDateReviewPages === 0 &&
+  candidateEditorialReviewPages === 0;
 const requiredDashboardPageIds = [
   "authored-dashboard-route-inventory",
   "authored-dashboard-overview",
@@ -298,16 +315,22 @@ const requirements = [
     category: "content",
     sourceSpecs: ["01", "05", "08"],
     evidence: `${(manifest.pages || []).length} manifest pages, ${searchIndex.length} search-index entries, target ${manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL}`,
-    nextAction: "Keep generated drafts source-traceable while final-reviewing candidate pages for publication.",
+    nextAction: "Keep the manifest inside the 500-800 page target and regenerate deterministic data after source or publication-state changes.",
   }),
   req({
     id: "manifesto-and-reference",
     label: "Unified manifesto plus reference layer",
-    status: (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8 ? "partial" : "missing",
+    status: publicManifestoAndReferenceComplete
+      ? "complete"
+      : (authored.totalPages || 0) >= 35 && volumeMap.totalVolumes >= 8
+        ? "partial"
+        : "missing",
     category: "content",
     sourceSpecs: ["01", "02", "03", "05"],
-    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued, ${sourceCompanionsCoveredByAuthoredPages} covered by authored pages, ${sourceCompanionsNeedingAuthoredCoverage} needing authored coverage, ${candidateReviewPages} candidate review pages, and ${candidateFinalReviewReadyPages} final-review-ready pages`,
-    nextAction: publicationPlan.planReady
+    evidence: `${authored.totalPages || 0} authored pages across ${Object.keys(authoredSections).length} sections; ${authoredStatuses.published || 0} published authored pages; ${volumeMap.totalVolumes || 0} volumes and ${volumeMap.totalChapters || 0} chapters; publication plan ready=${publicationPlan.planReady === true} with ${publicationPlan.totals?.sourceCompanionsQueued || 0} source companions queued, ${sourceCompanionsCoveredByAuthoredPages} covered by authored pages, ${sourceCompanionsNeedingAuthoredCoverage} needing authored coverage, ${candidateReviewPages} candidate review pages, ${candidateFinalReviewReadyPages} final-review-ready pages, ${candidateOperatorReviewPages} operator-review pages, ${candidateSourceRefreshPages} source-refresh pages, ${candidatePublicationDateReviewPages} publication-date-review pages, and ${candidateEditorialReviewPages} editorial-review pages`,
+    nextAction: publicManifestoAndReferenceComplete
+      ? "Keep the published manifesto/reference corpus synchronized as source, operator, or deploy inputs change; remaining source/deploy gaps are tracked by separate parked requirements."
+      : publicationPlan.planReady
       ? sourceCompanionsNeedingAuthoredCoverage > 0
         ? "Use data/publication-plan.json to fold the remaining source companions into authored pages in demand/gap order."
         : "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status."

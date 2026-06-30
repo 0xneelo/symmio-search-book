@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 11,
-    "partial": 3,
+    "complete": 12,
+    "partial": 2,
     "parked": 4
   },
   "byCategory": {
@@ -63,12 +63,12 @@
       ],
       "evidence": "794 manifest pages, 794 search-index entries, target 500-800 pages",
       "blocks": [],
-      "nextAction": "Keep generated drafts source-traceable while final-reviewing candidate pages for publication."
+      "nextAction": "Keep the manifest inside the 500-800 page target and regenerate deterministic data after source or publication-state changes."
     },
     {
       "id": "manifesto-and-reference",
       "label": "Unified manifesto plus reference layer",
-      "status": "partial",
+      "status": "complete",
       "category": "content",
       "sourceSpecs": [
         "01",
@@ -76,9 +76,9 @@
         "03",
         "05"
       ],
-      "evidence": "799 authored pages across 10 sections; 8 volumes and 104 chapters; publication plan ready=true with 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 0 candidate review pages, and 0 final-review-ready pages",
+      "evidence": "799 authored pages across 10 sections; 798 published authored pages; 8 volumes and 104 chapters; publication plan ready=true with 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 0 candidate review pages, 0 final-review-ready pages, 0 operator-review pages, 0 source-refresh pages, 0 publication-date-review pages, and 0 editorial-review pages",
       "blocks": [],
-      "nextAction": "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status."
+      "nextAction": "Keep the published manifesto/reference corpus synchronized as source, operator, or deploy inputs change; remaining source/deploy gaps are tracked by separate parked requirements."
     },
     {
       "id": "volume-orientation",
@@ -316,12 +316,6 @@
     }
   ],
   "nextFocus": [
-    {
-      "id": "manifesto-and-reference",
-      "status": "partial",
-      "nextAction": "Use data/publication-plan.json nextCandidateReviewBatch first, then clear source/operator/editorial lanes and promote approved candidate pages to published status.",
-      "blocks": []
-    },
     {
       "id": "answer-engine-front-door",
       "status": "partial",

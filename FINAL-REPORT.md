@@ -1,6 +1,6 @@
 # Search Book Final Report
 
-Generated for the current `search-book/research-dossier` checkpoint on 2026-06-30. This report is intentionally explicit about remaining production work: the Search Book dossier, prototype, and answer runtime are verified, but the overall mission is not production-complete until the parked source and deploy decisions are resolved or carried into an approved release plan.
+Generated for the current `search-book/research-dossier` checkpoint on 2026-06-30 and refreshed on 2026-07-01. This report is intentionally explicit about remaining production work: the Search Book dossier, prototype, and answer runtime are verified, but the overall mission is not production-complete until the parked source and deploy decisions are resolved or carried into an approved release plan.
 
 ## Current Status
 
@@ -12,7 +12,7 @@ The answer-engine front door is implemented as a static prototype plus a shared 
 
 The live OpenAI-compatible RAG runtime passed the current recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 16 calls, 93,868 input tokens, 8,615 output tokens, and an estimated cost of `$0.01924920` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
 
-Quality status is still intentionally not green for launch. The latest audit passes 27/30 gates. The failing gates are required-source ingestion, operator inbox, and Discord/Lafa corpus import. The regenerated definition-of-done map has no missing report artifact, but remains not completion-ready because production/source items are still partial or parked.
+Quality status is still intentionally not green for launch. The latest audit passes 27/30 gates. The failing gates are required-source ingestion, operator inbox, and Discord/Lafa corpus import. The regenerated definition-of-done map now marks the public manifesto/reference corpus complete and reports 12/18 requirements complete, 2 partial, 4 parked, and 0 missing. It remains not completion-ready because production deployment, source-traceability inputs, and Discord/Lafa ingestion are still partial or parked.
 
 ## Verification Evidence
 
@@ -38,7 +38,7 @@ The canonical build verifies 24 deterministic build steps, 59 syntax checks, exa
 | Area | Current evidence | Release status |
 | --- | --- | --- |
 | Page target | 794 manifest pages against the 500-800 target | Verified for dossier/prototype |
-| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections; 798 published public routes; 0 candidate pages; 792/792 source companions covered by authored pages; 0 candidate pages ready for final review or operator review | Published corpus verified; remaining work is source/deploy/ops readiness |
+| Authored layer | 799 authored pages across manifesto, product, rewards, dashboard, protocol, answer-engine, glossary, and compendium sections; 798 published public routes; 0 candidate pages; 792/792 source companions covered by authored pages; 0 candidate pages ready for final review or operator review | Published corpus verified; requirement map marks manifesto/reference complete; remaining work is source/deploy/ops readiness |
 | Dashboard reference | 13 dashboard-reference pages, including every visible dashboard route plus hidden `#revenue` route | Published with Phase A, referral-depth, volume-source, and Discord/deploy boundaries preserved |
 | Answer engine | 798/798 exact routes, 32/32 glossary routes, 2/2 refusal routes | Deterministic runtime verified |
 | LLM RAG | 42/42 live eval on `gpt-4.1-mini` | Runtime verified; production env/deploy still parked |
