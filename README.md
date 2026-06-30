@@ -102,6 +102,14 @@ SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
 
 Retention applies to persisted question, rating, and gap events; set retention days to `0` only for a local archive. The moderation export is disabled by default and, when enabled, requires `Authorization: Bearer ...` or `x-search-book-moderation-token`; never put that token in public frontend code.
 
+Run the internal reviewer gap summary against a local or production service database:
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite npm run search-book:living-docs-summary -- --format markdown --limit 20
+```
+
+The summary job reads the SQLite datastore directly and emits gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions. Its output includes raw user questions and notes; keep it internal unless a privacy review approves publication.
+
 ## Prototype Question
 
 Can a docs front door combine:
@@ -176,6 +184,7 @@ node --check src/search-book/scripts/build-gap-queue.mjs
 node --check src/search-book/scripts/build-answer-engine-contract.mjs
 node --check src/search-book/scripts/build-llm-rag-contract.mjs
 node --check src/search-book/scripts/check-readiness-evidence.mjs
+node --check src/search-book/scripts/summarize-living-docs-gaps.mjs
 node --check src/search-book/scripts/run-llm-rag-answer.mjs
 node --check src/search-book/scripts/serve-static-preview.mjs
 node --check src/search-book/scripts/smoke-static-preview.mjs

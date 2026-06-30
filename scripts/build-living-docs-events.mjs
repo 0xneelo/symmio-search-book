@@ -17,6 +17,7 @@ const defaults = {
   outJson: path.join(searchBookRoot, "data", "living-docs-events.json"),
   outJs: path.join(searchBookRoot, "data", "living-docs-events.js"),
   serviceScript: path.join(searchBookRoot, "scripts", "serve-answer-engine.mjs"),
+  gapSummaryScript: path.join(searchBookRoot, "scripts", "summarize-living-docs-gaps.mjs"),
   frontendPrototype: path.join(searchBookRoot, "index.html"),
 };
 
@@ -342,6 +343,12 @@ const eventContractReady =
   (questionRoutes.totalRoutes || 0) > 0;
 const serviceRuntimeImplemented = fs.existsSync(args.serviceScript);
 const serviceScriptText = readText(args.serviceScript);
+const gapSummaryJobImplemented =
+  fs.existsSync(args.gapSummaryScript) &&
+  readText(args.gapSummaryScript).includes("search-book-living-docs-summary") &&
+  readText(args.gapSummaryScript).includes("search_book_gaps") &&
+  readText(args.gapSummaryScript).includes("lowRatedAnswers") &&
+  readText(args.gapSummaryScript).includes("repeatedQuestions");
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 const frontendServiceIntegrationImplemented =
   frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
@@ -371,12 +378,13 @@ const payload = {
   frontendServiceIntegrationImplemented,
   retentionPolicyImplemented,
   moderationExportImplemented,
+  gapSummaryJobImplemented,
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented
-        ? "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention plus a disabled-by-default token-gated moderation export. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented && gapSummaryJobImplemented
+        ? "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete."
         : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and Discord import are not complete.",
@@ -410,6 +418,15 @@ const payload = {
             behavior: "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled.",
           }
         : "Moderation export is not implemented in the service.",
+      reviewerSummary: gapSummaryJobImplemented
+        ? {
+            script: "src/search-book/scripts/summarize-living-docs-gaps.mjs",
+            defaultDbEnv: "SEARCH_BOOK_ANSWER_ENGINE_DB",
+            formats: ["markdown", "json"],
+            behavior: "Reads the SQLite datastore directly and emits an internal reviewer summary of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended actions.",
+            privacy: "Output includes raw user questions and notes; do not publish it without an approved privacy review.",
+          }
+        : "Reviewer gap-summary job is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
         ? "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
         : "No public frontend is wired to the service yet.",
@@ -427,6 +444,7 @@ const payload = {
     "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
     "Apply the configured retention window to question, rating, and gap event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
+    "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
     "Keep API keys in process environment only; never persist or print them.",
   ],
   fixtures: {
@@ -468,8 +486,11 @@ const payload = {
     moderation: moderationExportImplemented
       ? "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work."
       : "Moderation export is not implemented yet.",
+    reviewerSummary: gapSummaryJobImplemented
+      ? "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence."
+      : "The scheduled/reviewer gap-summary job is not implemented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented
+      ? retentionPolicyImplemented && moderationExportImplemented && gapSummaryJobImplemented
         ? "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided."
         : "Deploy the standalone service and selected public frontend route, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
       : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
@@ -488,5 +509,6 @@ console.log(JSON.stringify({
   frontendServiceIntegrationImplemented: payload.frontendServiceIntegrationImplemented,
   retentionPolicyImplemented: payload.retentionPolicyImplemented,
   moderationExportImplemented: payload.moderationExportImplemented,
+  gapSummaryJobImplemented: payload.gapSummaryJobImplemented,
   livingDocsProductionReady: payload.livingDocsProductionReady,
 }, null, 2));

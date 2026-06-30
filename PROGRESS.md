@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Living Docs Gap Summary Job
+
+- Added `src/search-book/scripts/summarize-living-docs-gaps.mjs`, an internal reviewer job that reads the standalone answer-engine SQLite datastore and emits markdown or JSON summaries of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions.
+- Added `npm run search-book:living-docs-summary` and documented that the output includes raw user questions/notes and must stay internal unless a privacy review approves publication.
+- Extended `npm run search-book:smoke-service` so the temporary SQLite smoke dataset also proves the gap-summary job returns backlog, low-rated-answer, and recommendation queues without calling the LLM provider or reading production credentials.
+
 ## 2026-06-30 — Readiness Evidence Consistency Check
 
 - Added `src/search-book/scripts/check-readiness-evidence.mjs`, a deterministic guard that compares the recorded live `gpt-4.1-mini` evidence in `data/llm-rag-contract.json` against the final report, progress log, production roadmap, and LLM RAG contract.

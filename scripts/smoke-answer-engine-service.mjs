@@ -4,11 +4,12 @@ import fs from "node:fs";
 import net from "node:net";
 import os from "node:os";
 import path from "node:path";
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const serviceScript = path.join(__dirname, "serve-answer-engine.mjs");
+const summaryScript = path.join(__dirname, "summarize-living-docs-gaps.mjs");
 const host = "127.0.0.1";
 const moderationToken = "search-book-smoke-token";
 const dbPath = path.join(os.tmpdir(), `search-book-answer-engine-smoke-${process.pid}-${Date.now()}.sqlite`);
@@ -176,6 +177,24 @@ async function main() {
     assert((moderation.payload.queue?.lowRatedAnswers || []).length >= 1, "moderation queue did not expose low-rated answer.");
     assert((moderation.payload.queue?.gapBacklog || []).length >= 1, "moderation queue did not expose gap backlog.");
 
+    const summaryResult = spawnSync(process.execPath, [summaryScript, "--db", dbPath, "--format", "json", "--limit", "10"], {
+      encoding: "utf8",
+      env: process.env,
+    });
+    assert(summaryResult.status === 0, `living-docs summary failed: stdout=${tail(summaryResult.stdout)} stderr=${tail(summaryResult.stderr)}`);
+    let summary;
+    try {
+      summary = JSON.parse(summaryResult.stdout);
+    } catch {
+      throw new Error(`living-docs summary returned non-JSON body: ${tail(summaryResult.stdout)}`);
+    }
+    assert(summary.status === "ok", `living-docs summary status was ${summary.status}.`);
+    assert(summary.service === "search-book-living-docs-summary", "living-docs summary did not identify the expected service.");
+    assert(summary.privacy?.includesRawUserQuestions === true, "living-docs summary did not flag raw-question privacy.");
+    assert((summary.queues?.gapBacklog || []).length >= 1, "living-docs summary did not include gap backlog.");
+    assert((summary.queues?.lowRatedAnswers || []).length >= 1, "living-docs summary did not include low-rated answers.");
+    assert((summary.recommendations || []).length >= 1, "living-docs summary did not include reviewer recommendations.");
+
     console.log(JSON.stringify({
       status: "passed",
       service: "search-book-answer-engine",
@@ -199,6 +218,12 @@ async function main() {
         enabled: moderation.payload.policy?.moderation?.enabled === true,
         gapBacklog: moderation.payload.queue.gapBacklog.length,
         lowRatedAnswers: moderation.payload.queue.lowRatedAnswers.length,
+      },
+      livingDocsSummary: {
+        status: summary.status,
+        gapBacklog: summary.queues.gapBacklog.length,
+        lowRatedAnswers: summary.queues.lowRatedAnswers.length,
+        recommendations: summary.recommendations.length,
       },
     }, null, 2));
   } catch (error) {

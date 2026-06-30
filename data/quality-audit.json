@@ -1409,7 +1409,7 @@
     "retentionPolicyImplemented": true,
     "moderationExportImplemented": true,
     "livingDocsProductionReady": false,
-    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention plus a disabled-by-default token-gated moderation export. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete.",
+    "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, and gap events to SQLite, the static frontend can call it when configured, and the service now has retention, a disabled-by-default token-gated moderation export, and a reviewer gap-summary job. Production deployment/public route, admin/reviewer operating workflow, production LLM service env, and Discord import are still not complete.",
     "storage": {
       "localPrototype": {
         "questionsKey": "searchBookPrototype.questions",
@@ -1490,6 +1490,16 @@
           "limitEnv": "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT",
           "behavior": "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled."
         },
+        "reviewerSummary": {
+          "script": "src/search-book/scripts/summarize-living-docs-gaps.mjs",
+          "defaultDbEnv": "SEARCH_BOOK_ANSWER_ENGINE_DB",
+          "formats": [
+            "markdown",
+            "json"
+          ],
+          "behavior": "Reads the SQLite datastore directly and emits an internal reviewer summary of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended actions.",
+          "privacy": "Output includes raw user questions and notes; do not publish it without an approved privacy review."
+        },
         "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, and Search Insights when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage fallback."
       }
     },
@@ -1563,6 +1573,7 @@
       "Let the static frontend use configured service endpoints for answers, ratings, and insights while preserving localStorage fallback.",
       "Apply the configured retention window to question, rating, and gap event storage.",
       "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
+      "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
       "Keep API keys in process environment only; never persist or print them."
     ],
     "coverage": {
@@ -1604,6 +1615,7 @@
       "frontendIntegration": "The static prototype has an optional configured-service bridge for answer, rating, and Search Insights endpoints.",
       "retention": "The service has a configured retention policy with a 180-day default and a documented env override.",
       "moderation": "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work.",
+      "reviewerSummary": "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence.",
       "requiredNextStep": "Deploy the standalone service and selected public frontend route, configure retention/moderation/admin access in production, install production LLM service env, and import Discord/Lafa when source access is provided.",
       "blockedBy": [
         "OPERATOR-INBOX #4",
