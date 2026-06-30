@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Phase And Governance Batch
+
+- Promoted `11` Volume 06 rewards/referrals phase, rollout, and governance pages to `published`: Referral Illustrative Phase Targets, Referral Launch Sequencing, Referral Phase Definitions, Referral Phase Migration Requirements, Referral Phase And Version Reporting Rules, Referral Policy Clarity Requirements, Referral Policy Decision Lane, Referral Policy Governance, Referral Public Statement Readiness, Referral Rollout And Capacity Decision Lane, and Referral Rollout Governance Checklist.
+- Added or preserved publication boundaries for illustrative phase targets, launch sequencing, phase vocabulary, migration rules, formula-version reporting, policy clarity, policy governance, public statement readiness, rollout capacity, rollout governance, public 15-level referral depth with additive backfill, Phase B refusal, private partner economics, final reward/rakeback/referral percentages, payout/rebate formulas, TGE settlement, transferability, signer/security controls, anti-gaming enforcement, launch dates, eligibility thresholds, target bands, phase cutovers, incident thresholds, partner commitments, and rollout state.
+- Regenerated Search Book data so page-state counts now show `754` published pages, `44` candidate pages, `792` source companions, `798/798` exact routes, `2,873` chunks, `0` Volume 05 candidates, `44` Volume 06 candidates, `0` protocol-reference candidates, `44` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 06 Referral Policy And KPI Batch
 
 - Promoted `12` Volume 06 rewards/referrals policy, identity, and KPI pages to `published`: Referral Category Partner Overlays, Referral Claim Versus In-Flow Rebate UX, Referral Code Activation Gates, Referral Demand KPIs, Referral Dual Incentive Rails, Referral Early-Code Scarcity Cohorts, Referral Economic Policy Decision Lane, Fail-Closed Referral Incident Operations, Referral Game-Layer KPIs, Referral Graph Portability Limits, Referral Growth Funnel KPIs, and Referral Identity Anchor.

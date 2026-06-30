@@ -3,7 +3,7 @@ id: "authored-referral-phase-definitions"
 title: "Referral Phase Definitions"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/12-product-metrics-prebeta-beta#1-phase-definitions", "_specs/app-docs/03-grounding.md"]
@@ -32,7 +32,7 @@ Every public referral dashboard should therefore carry a phase label and, where 
 
 ## Publication Boundary
 
-This page defines the source's phase vocabulary. It does not publish launch dates, eligibility thresholds, code quotas, final referral depth, final economic terms, or milestone acceptance criteria. Those remain operator and product review items.
+This page defines the source's phase vocabulary. Public referral depth is 15 levels with additive backfill, but this page does not publish launch dates, eligibility thresholds, code quotas, future depth or eligibility changes, final economic terms, or milestone acceptance criteria. Those remain operator and product review items.
 
 ## Sources
 
