@@ -3,7 +3,7 @@ id: "authored-rfq-risk-tuning"
 title: "RFQ Risk Tuning Per Quote"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers", "vibe-architecture", "symmio-intent-lifecycle"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk", "https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]

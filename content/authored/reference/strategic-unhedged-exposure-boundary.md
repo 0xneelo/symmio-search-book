@@ -3,7 +3,7 @@ id: "authored-strategic-unhedged-exposure-boundary"
 title: "Strategic Unhedged Exposure Boundary"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"]

@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 630,
-    "publication-candidate-needs-operator-review": 168,
+    "published": 655,
+    "publication-candidate-needs-operator-review": 143,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -5567,7 +5567,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -5591,7 +5591,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -5606,7 +5606,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/internal-netting-before-external-execution.md",
-      "bodyMarkdown": "# Internal Netting Before External Execution\n\nThe residual-counterparty DDQ source names opposing trader flow as a hedge source. If longs and shorts exist at the same time, the solver can net those positions internally and reduce how much must be bought or sold through external liquidity.\n\nThis is not a cosmetic optimization. In low-cap markets, every unnecessary external hedge can create price impact, reveal demand, or invite adverse selection. Internal netting lets the system reduce residual delta before it touches a thinner venue.\n\n## Partial Netting Is Normal\n\nThe practical case is usually partial. Some flow can net against opposing demand, while the remaining imbalance still needs inventory, controlled external execution, wider pricing, or tighter risk limits.\n\nThat is why the docs should distinguish two questions. \"Who bears PnL?\" is the netting-state risk-transfer question. \"How much external execution is needed?\" is the execution question. Internal netting helps with both, but it does not remove all residual exposure when the market is one-sided.\n\n## Reader Implication\n\nWhen a user asks why Vibe-style markets can operate before a deep order book exists, one answer is internal offsetting. The system can use actual opposing trader flow first, then route only the unresolved residual through inventory or external venues.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\".\n\n## Related Pages\n\n- `authored-netting-state-risk-transfer`\n- `authored-residual-counterparty-hedge-first`\n- `authored-funding-defense-hierarchy`",
+      "bodyMarkdown": "# Internal Netting Before External Execution\n\nThe residual-counterparty DDQ source names opposing trader flow as a hedge source. If longs and shorts exist at the same time, the solver can net those positions internally and reduce how much must be bought or sold through external liquidity.\n\nThis is not a cosmetic optimization. In low-cap markets, every unnecessary external hedge can create price impact, reveal demand, or invite adverse selection. Internal netting lets the system reduce residual delta before it touches a thinner venue.\n\n## Partial Netting Is Normal\n\nThe practical case is usually partial. Some flow can net against opposing demand, while the remaining imbalance still needs inventory, controlled external execution, wider pricing, or tighter risk limits.\n\nThat is why the docs should distinguish two questions. \"Who bears PnL?\" is the netting-state risk-transfer question. \"How much external execution is needed?\" is the execution question. Internal netting helps with both, but it does not remove all residual exposure when the market is one-sided.\n\n## Reader Implication\n\nWhen a user asks why Vibe-style markets can operate before a deep order book exists, one answer is internal offsetting. The system can use actual opposing trader flow first, then route only the unresolved residual through inventory or external venues.\n\n## Publication Boundary\n\nThis page explains the DDQ model for netting before external execution. It should not publish final netting engine rules, external venue routing, TWAP parameters, solver inventory limits, or execution guarantees without operator, implementation, risk, and security review.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\".\n\n## Related Pages\n\n- `authored-netting-state-risk-transfer`\n- `authored-residual-counterparty-hedge-first`\n- `authored-funding-defense-hierarchy`",
       "excerpt": "Internal Netting Before External Execution The residual counterparty DDQ source names opposing trader flow as a hedge source. If longs and shorts exist at the same time, the solver can net those positions internally and reduce how much must be bought or sold through external liquidity. This is not a cosmetic optimization. In low cap markets, every unnecessary external hedge can create price impact, reveal demand, or invite adverse selection. Internal netting lets the system reduce residual delta before it touches a thinner venue. Partial Netting Is Normal The practical case is usually partial. Some flow can net against opposing demand, while the remaining imbalance still needs inventory, controlled external execution, wider pricing, or tighter risk limits. That is why the docs should distinguish two questions. \"Who bears PnL?\" is the netting state risk transfer question. \"How much external execution is needed?\" is the execution question. Internal netting helps with both, but it does not remove all residual exposure when the market is one sided. Reader Implication When a user asks why Vibe style markets can operate before a deep order book exists, one answer is internal offsetting. "
     },
     {
@@ -6131,7 +6131,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -6155,7 +6155,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7410,7 +7410,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7436,7 +7436,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7453,7 +7453,7 @@
       ],
       "volumeId": "",
       "file": "content/authored/reference/loss-waterfall-and-profit-caps.md",
-      "bodyMarkdown": "# Loss Waterfall And Tail-Event Profit Caps\n\nThe DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations?\n\nThe model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbalance, losses can move into solver hedging resources, LP vault capacity used for hedging, local insurance, and then the market's allocation of global insurance.\n\n## Tail-Event Profit Caps\n\nThe DDQ explicitly treats profit caps as tail-event tools, not normal UX. The cap exists for catastrophic gaps, manipulation, discontinuous pricing, or other states where standard liquidation and hedging cannot safely clear.\n\nThe key economic idea is bounded loss propagation. A permissionless system cannot promise unlimited payouts from markets that may be adversarial, newly launched, or extremely thin. If a market has limited liquidity, limited local insurance, and no global insurance allocation, the maximum realizable payout should be bounded by the resources actually available to that market.\n\n## Maturation Path\n\nThe same source gives a useful maturity model. New markets can begin close to fully backed protocol-side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior, not assumed at launch.\n\n## Publication Note\n\nThis page should not publish exact production caps, percentages, global-insurance allocation rules, or market-tier policy without operator review. It documents the source model and the reader-facing risk vocabulary.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Bearer of Losses\" and \"Balancing UX vs Risk\".\n- `vibe-papers`: Neelo funding model, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-solver-hedging-failure-modes`\n- `authored-economic-clarity-for-permissionless-perps`\n- `neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-i-bearer-of-losses`",
+      "bodyMarkdown": "# Loss Waterfall And Tail-Event Profit Caps\n\nThe DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations?\n\nThe model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbalance, losses can move into solver hedging resources, LP vault capacity used for hedging, local insurance, and then the market's allocation of global insurance.\n\n## Tail-Event Profit Caps\n\nThe DDQ explicitly treats profit caps as tail-event tools, not normal UX. The cap exists for catastrophic gaps, manipulation, discontinuous pricing, or other states where standard liquidation and hedging cannot safely clear.\n\nThe key economic idea is bounded loss propagation. A permissionless system cannot promise unlimited payouts from markets that may be adversarial, newly launched, or extremely thin. If a market has limited liquidity, limited local insurance, and no global insurance allocation, the maximum realizable payout should be bounded by the resources actually available to that market.\n\n## Maturation Path\n\nThe same source gives a useful maturity model. New markets can begin close to fully backed protocol-side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior, not assumed at launch.\n\n## Publication Boundary\n\nThis page should not publish exact production caps, percentages, global-insurance allocation rules, or market-tier policy without operator review. It documents the source model and the reader-facing risk vocabulary.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Bearer of Losses\" and \"Balancing UX vs Risk\".\n- `vibe-papers`: Neelo funding model, \"Defense Hierarchy\".\n\n## Related Pages\n\n- `authored-funding-defense-hierarchy`\n- `authored-solver-hedging-failure-modes`\n- `authored-economic-clarity-for-permissionless-perps`\n- `neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-i-bearer-of-losses`",
       "excerpt": "Loss Waterfall And Tail Event Profit Caps The DDQ loss waterfall answers a hard question: who bears losses when a market moves sharply against expectations? The model starts with losing traders. In normal operation, trader margin and balances on the losing side pay the winning side. If the move is too fast or too discontinuous for that to cover the imbalance, losses can move into solver hedging resources, LP vault capacity used for hedging, local insurance, and then the market's allocation of global insurance. Tail Event Profit Caps The DDQ explicitly treats profit caps as tail event tools, not normal UX. The cap exists for catastrophic gaps, manipulation, discontinuous pricing, or other states where standard liquidation and hedging cannot safely clear. The key economic idea is bounded loss propagation. A permissionless system cannot promise unlimited payouts from markets that may be adversarial, newly launched, or extremely thin. If a market has limited liquidity, limited local insurance, and no global insurance allocation, the maximum realizable payout should be bounded by the resources actually available to that market. Maturation Path The same source gives a useful maturity mod"
     },
     {
@@ -7602,7 +7602,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7842,7 +7842,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -8010,7 +8010,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -8082,7 +8082,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -8097,7 +8097,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/reference/netting-state-risk-transfer.md",
-      "bodyMarkdown": "# Netting State And Risk Transfer\n\nThe DDQ's cleanest risk explanation is the netting-state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time.\n\nWhen a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid by a long who loses. The solver may still provide quoting, routing, and lifecycle operations, but the directional PnL is trader-to-trader.\n\nWhen a trade is un-netted, the trader is effectively facing the solver on that residual portion until the solver hedges, rebalances, or attracts offsetting flow. If a long is un-netted and the price rises, the winning trader's PnL is paid from solver hedging PnL and the liquidity resources backing that residual exposure, including LP vault capacity where the documented terms allow it. If the price falls, the losing trader pays through margin and balance.\n\n## The Continuous Case\n\nThe live market is usually not 100% netted or 0% netted. The source treats partial netting as the normal state. That makes the solver's job a balancing problem rather than a one-time fill problem.\n\nThe solver tries to reduce time spent carrying residual exposure by:\n\n- matching opposing trader flow;\n- adjusting spreads, funding, or incentives;\n- using inventory or vault capacity where allowed;\n- hedging externally when liquidity and execution quality support it;\n- tightening controls when the market becomes unsafe.\n\n## Reader Implication\n\nFor support and risk docs, the right answer is not \"the solver always takes the other side.\" The precise answer is: traders bear directional PnL on their positions; netted flow pays between traders; un-netted residual flow is warehoused and hedged by the solver, with tail outcomes routed through the disclosed risk waterfall.\n\n## Publication Note\n\nThis page explains the DDQ model. Final docs still need operator-approved wording for which vault resources can be used, how residual exposure is limited, and which waterfall rules are live in production.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"TL;DR economic outcomes\".\n- `vibe-papers`: Neelo DDQ, \"Risk Walkthrough\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-loss-waterfall-and-profit-caps`\n- `authored-solver-hedging-failure-modes`\n- `neelo-08-due-diligence-questionnaire-08-docs-tl-dr-economic-outcomes`",
+      "bodyMarkdown": "# Netting State And Risk Transfer\n\nThe DDQ's cleanest risk explanation is the netting-state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time.\n\nWhen a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid by a long who loses. The solver may still provide quoting, routing, and lifecycle operations, but the directional PnL is trader-to-trader.\n\nWhen a trade is un-netted, the trader is effectively facing the solver on that residual portion until the solver hedges, rebalances, or attracts offsetting flow. If a long is un-netted and the price rises, the winning trader's PnL is paid from solver hedging PnL and the liquidity resources backing that residual exposure, including LP vault capacity where the documented terms allow it. If the price falls, the losing trader pays through margin and balance.\n\n## The Continuous Case\n\nThe live market is usually not 100% netted or 0% netted. The source treats partial netting as the normal state. That makes the solver's job a balancing problem rather than a one-time fill problem.\n\nThe solver tries to reduce time spent carrying residual exposure by:\n\n- matching opposing trader flow;\n- adjusting spreads, funding, or incentives;\n- using inventory or vault capacity where allowed;\n- hedging externally when liquidity and execution quality support it;\n- tightening controls when the market becomes unsafe.\n\n## Reader Implication\n\nFor support and risk docs, the right answer is not \"the solver always takes the other side.\" The precise answer is: traders bear directional PnL on their positions; netted flow pays between traders; un-netted residual flow is warehoused and hedged by the solver, with tail outcomes routed through the disclosed risk waterfall.\n\n## Publication Boundary\n\nThis page explains the DDQ model. Final docs still need operator-approved wording for which vault resources can be used, how residual exposure is limited, and which waterfall rules are live in production.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"TL;DR economic outcomes\".\n- `vibe-papers`: Neelo DDQ, \"Risk Walkthrough\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-loss-waterfall-and-profit-caps`\n- `authored-solver-hedging-failure-modes`\n- `neelo-08-due-diligence-questionnaire-08-docs-tl-dr-economic-outcomes`",
       "excerpt": "Netting State And Risk Transfer The DDQ's cleanest risk explanation is the netting state model. A perp fill can be split into the part that is matched against opposing trader flow and the part that is not matched at execution time. When a trade is netted, PnL transfers between traders. A long who wins is paid by a short who loses. A short who wins is paid by a long who loses. The solver may still provide quoting, routing, and lifecycle operations, but the directional PnL is trader to trader. When a trade is un netted, the trader is effectively facing the solver on that residual portion until the solver hedges, rebalances, or attracts offsetting flow. If a long is un netted and the price rises, the winning trader's PnL is paid from solver hedging PnL and the liquidity resources backing that residual exposure, including LP vault capacity where the documented terms allow it. If the price falls, the losing trader pays through margin and balance. The Continuous Case The live market is usually not 100% netted or 0% netted. The source treats partial netting as the normal state. That makes the solver's job a balancing problem rather than a one time fill problem. The solver tries to reduce "
     },
     {
@@ -10472,7 +10472,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -12574,7 +12574,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -12598,7 +12598,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "vibe-architecture",
@@ -12618,7 +12618,7 @@
       ],
       "volumeId": "",
       "file": "content/authored/reference/residual-counterparty-hedge-first.md",
-      "bodyMarkdown": "# Residual Counterparty And Hedge-First Execution\n\nNeelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance.\n\nThat makes \"hedge first\" a core design idea for permissionless low-cap perps. The solver should establish backing inventory, a hedge, or a risk-adjusted quote before it becomes responsible for the residual exposure.\n\n## Internal And External Hedge Sources\n\nFor low-cap markets, the DDQ source emphasizes internal inventory or vault-controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP-style routing to reduce price impact.\n\nOpposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity.\n\n## Reader Implication\n\nThe important support answer is not \"the solver always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market-level controls can tighten.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\".\n- `vibe-architecture`: Vibe intent quotation context.\n- `symmio-intent-lifecycle`: solver event monitoring, risk checks, locking, and collateral allocation.\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-solver-event-monitoring`\n- `authored-vibe-oi-and-liquidity`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty`",
+      "bodyMarkdown": "# Residual Counterparty And Hedge-First Execution\n\nNeelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance.\n\nThat makes \"hedge first\" a core design idea for permissionless low-cap perps. The solver should establish backing inventory, a hedge, or a risk-adjusted quote before it becomes responsible for the residual exposure.\n\n## Internal And External Hedge Sources\n\nFor low-cap markets, the DDQ source emphasizes internal inventory or vault-controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP-style routing to reduce price impact.\n\nOpposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity.\n\n## Reader Implication\n\nThe important support answer is not \"the solver always takes the other side.\" It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market-level controls can tighten.\n\n## Publication Boundary\n\nThis page explains the source-backed hedge-first residual-counterparty model. It should not publish final solver inventory custody, hedge venue routing, TWAP settings, quote-refusal thresholds, market-control triggers, or guarantees that every accepted position is fully hedged without operator, implementation, risk, legal, and security review.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver as residual counterparty\" and \"Solver Hedging Risk Considerations\".\n- `vibe-architecture`: Vibe intent quotation context.\n- `symmio-intent-lifecycle`: solver event monitoring, risk checks, locking, and collateral allocation.\n\n## Related Pages\n\n- `authored-solver-owned-market-maker`\n- `authored-solver-event-monitoring`\n- `authored-vibe-oi-and-liquidity`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty`",
       "excerpt": "Residual Counterparty And Hedge First Execution Neelo's DDQ material frames the solver as a residual counterparty only after risk has been evaluated. The intent/RFQ structure means the solver does not have to blindly accept every requested fill. It can evaluate the requested market, size, direction, price bounds, inventory, and hedge feasibility before final acceptance. That makes \"hedge first\" a core design idea for permissionless low cap perps. The solver should establish backing inventory, a hedge, or a risk adjusted quote before it becomes responsible for the residual exposure. Internal And External Hedge Sources For low cap markets, the DDQ source emphasizes internal inventory or vault controlled liquidity as the primary backing path because open DEX liquidity may be thin, manipulable, or expensive to touch immediately. External venues can still matter for rebalancing, reducing residual delta, or unwinding exposure, but execution may need controlled methods such as TWAP style routing to reduce price impact. Opposing trader flow is another hedge source. If longs and shorts offset internally, the solver can net exposure before reaching external liquidity. Reader Implication The "
     },
     {
@@ -12886,7 +12886,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "vibe-architecture",
@@ -13289,7 +13289,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13312,7 +13312,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13383,7 +13383,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-core"
@@ -13408,7 +13408,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-core"
@@ -13426,7 +13426,7 @@
       ],
       "volumeId": "",
       "file": "content/authored/reference/solver-default-and-continuity.md",
-      "bodyMarkdown": "# Solver Default And Trade Continuity\n\nSolver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity.\n\nFor standard or third-party solvers, the model includes strict liquidation, CVA-style buffers, maintenance margin, and optional position buyout by another solver. For higher-reputation solvers, the DDQ describes a softer margin-call style path that can de-risk progressively before full liquidation.\n\n## Protocol-Operated Solver\n\nThe same DDQ distinguishes the bootstrapping protocol-operated solver from ordinary third-party solvers. In that configuration, the protocol-operated solver may be treated as not liquidatable in the conventional account-level sense. That does not mean users are ignored; it means the shortfall is handled through protocol-level buffers, insurance, ADL, and ultimately system-level settlement if every layer is exhausted.\n\nThe publication-safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit-default payout narrative.\n\n## Third-Party Solver Continuity\n\nFor third-party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol-operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible.\n\n## Publication Note\n\nThis page is source-backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default\" and \"Trader Compensation - Solver default\".\n- `symmio-core`: protocol vocabulary for solvers, collateral, margin, and CVA.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-solver-owned-market-maker`\n- `authored-funding-defense-hierarchy`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default`",
+      "bodyMarkdown": "# Solver Default And Trade Continuity\n\nSolver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity.\n\nFor standard or third-party solvers, the model includes strict liquidation, CVA-style buffers, maintenance margin, and optional position buyout by another solver. For higher-reputation solvers, the DDQ describes a softer margin-call style path that can de-risk progressively before full liquidation.\n\n## Protocol-Operated Solver\n\nThe same DDQ distinguishes the bootstrapping protocol-operated solver from ordinary third-party solvers. In that configuration, the protocol-operated solver may be treated as not liquidatable in the conventional account-level sense. That does not mean users are ignored; it means the shortfall is handled through protocol-level buffers, insurance, ADL, and ultimately system-level settlement if every layer is exhausted.\n\nThe publication-safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit-default payout narrative.\n\n## Third-Party Solver Continuity\n\nFor third-party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol-operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible.\n\n## Publication Boundary\n\nThis page is source-backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver default\" and \"Trader Compensation - Solver default\".\n- `symmio-core`: protocol vocabulary for solvers, collateral, margin, and CVA.\n\n## Related Pages\n\n- `authored-collateral-margin-cva`\n- `authored-solver-owned-market-maker`\n- `authored-funding-defense-hierarchy`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default`",
       "excerpt": "Solver Default And Trade Continuity Solver default is a solvency question: the solver is undercollateralized relative to obligations as a counterparty. The DDQ describes different resolution modes depending on solver type, reputation, and system maturity. For standard or third party solvers, the model includes strict liquidation, CVA style buffers, maintenance margin, and optional position buyout by another solver. For higher reputation solvers, the DDQ describes a softer margin call style path that can de risk progressively before full liquidation. Protocol Operated Solver The same DDQ distinguishes the bootstrapping protocol operated solver from ordinary third party solvers. In that configuration, the protocol operated solver may be treated as not liquidatable in the conventional account level sense. That does not mean users are ignored; it means the shortfall is handled through protocol level buffers, insurance, ADL, and ultimately system level settlement if every layer is exhausted. The publication safe wording is: the DDQ model favors trade continuity and orderly settlement over a simple credit default payout narrative. Third Party Solver Continuity For third party solver defa"
     },
     {
@@ -13559,7 +13559,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13575,7 +13575,7 @@
       ],
       "volumeId": "",
       "file": "content/authored/reference/solver-hedging-failure-modes.md",
-      "bodyMarkdown": "# Solver Hedging Failure Modes\n\nThe DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low-cap VibeCaps-style markets are described as hedge-first by default.\n\nThat is different from an order-book framing where a counterparty may be hard-committed to a fixed price before external execution is complete.\n\n## Constrained Hedging\n\nHedging can still become economically or mechanically constrained. The DDQ identifies several stress conditions: external liquidity is too thin for meaningful execution, price formation becomes discontinuous or unreliable, or manipulation signals appear.\n\nIn those cases the model does not ask the solver to warehouse unbounded exposure. It can widen spreads, adjust funding, reduce open interest, lower leverage, refuse new trades, freeze the market, or move to orderly shutdown depending on the market state and risk controls.\n\n## Strategic Unhedged Exposure\n\nThe same source separates failure from strategy. A solver may intentionally hold limited unhedged exposure in a mature market if inventory, risk limits, and expected P&L make that acceptable. That is not the baseline for newly launched low-cap markets.\n\n## Publication Note\n\nThis page summarizes the DDQ model. Final public docs should not publish exact liquidity-collapse triggers, freeze thresholds, or production market-shutdown behavior until implementation and operator review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver Hedging Risk Considerations\" and \"Balancing UX vs Risk\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-funding-defense-hierarchy`\n- `authored-liquidity-as-trader-experience`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations`",
+      "bodyMarkdown": "# Solver Hedging Failure Modes\n\nThe DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low-cap VibeCaps-style markets are described as hedge-first by default.\n\nThat is different from an order-book framing where a counterparty may be hard-committed to a fixed price before external execution is complete.\n\n## Constrained Hedging\n\nHedging can still become economically or mechanically constrained. The DDQ identifies several stress conditions: external liquidity is too thin for meaningful execution, price formation becomes discontinuous or unreliable, or manipulation signals appear.\n\nIn those cases the model does not ask the solver to warehouse unbounded exposure. It can widen spreads, adjust funding, reduce open interest, lower leverage, refuse new trades, freeze the market, or move to orderly shutdown depending on the market state and risk controls.\n\n## Strategic Unhedged Exposure\n\nThe same source separates failure from strategy. A solver may intentionally hold limited unhedged exposure in a mature market if inventory, risk limits, and expected P&L make that acceptable. That is not the baseline for newly launched low-cap markets.\n\n## Publication Boundary\n\nThis page summarizes the DDQ model. Final public docs should not publish exact liquidity-collapse triggers, freeze thresholds, or production market-shutdown behavior until implementation and operator review confirm them.\n\n## Sources\n\n- `vibe-papers`: Neelo DDQ, \"Solver Hedging Risk Considerations\" and \"Balancing UX vs Risk\".\n\n## Related Pages\n\n- `authored-residual-counterparty-hedge-first`\n- `authored-funding-defense-hierarchy`\n- `authored-liquidity-as-trader-experience`\n- `neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations`",
       "excerpt": "Solver Hedging Failure Modes The DDQ source treats \"solver cannot hedge\" as a state the design should avoid by construction, not as normal operating behavior. Under the intent/RFQ model, the solver can evaluate the request before final acceptance, and low cap VibeCaps style markets are described as hedge first by default. That is different from an order book framing where a counterparty may be hard committed to a fixed price before external execution is complete. Constrained Hedging Hedging can still become economically or mechanically constrained. The DDQ identifies several stress conditions: external liquidity is too thin for meaningful execution, price formation becomes discontinuous or unreliable, or manipulation signals appear. In those cases the model does not ask the solver to warehouse unbounded exposure. It can widen spreads, adjust funding, reduce open interest, lower leverage, refuse new trades, freeze the market, or move to orderly shutdown depending on the market state and risk controls. Strategic Unhedged Exposure The same source separates failure from strategy. A solver may intentionally hold limited unhedged exposure in a mature market if inventory, risk limits, and"
     },
     {
@@ -13584,7 +13584,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14066,7 +14066,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14138,7 +14138,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers",
         "symmio-core"
@@ -15575,7 +15575,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16650,7 +16650,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -19081,7 +19081,7 @@
       "section": "protocol-reference",
       "track": "Solver And LP Operations",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],

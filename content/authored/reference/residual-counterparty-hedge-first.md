@@ -3,7 +3,7 @@ id: "authored-residual-counterparty-hedge-first"
 title: "Residual Counterparty And Hedge-First Execution"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers", "vibe-architecture", "symmio-intent-lifecycle"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-as-residual-counterparty/solver-as-residual-counterparty", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations", "https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-solver-as-residual-counterparty-solver-as-residual-counterparty", "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations", "authored-solver-owned-market-maker", "authored-solver-event-monitoring"]
@@ -24,6 +24,10 @@ Opposing trader flow is another hedge source. If longs and shorts offset interna
 ## Reader Implication
 
 The important support answer is not "the solver always takes the other side." It is: the solver may intermediate an imbalanced market, but the intent model gives it a risk check before acceptance. If liquidity or hedge feasibility deteriorates, the quote should widen, the trade can be refused, or market-level controls can tighten.
+
+## Publication Boundary
+
+This page explains the source-backed hedge-first residual-counterparty model. It should not publish final solver inventory custody, hedge venue routing, TWAP settings, quote-refusal thresholds, market-control triggers, or guarantees that every accepted position is fully hedged without operator, implementation, risk, legal, and security review.
 
 ## Sources
 

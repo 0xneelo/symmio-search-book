@@ -3,7 +3,7 @@ id: "authored-solver-default-and-continuity"
 title: "Solver Default And Trade Continuity"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers", "symmio-core"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/i-solver-default", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/c-solver-default/ii-trader-compensation", "https://docs.symm.io/getting-started/core-concepts.md"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-i-solver-default", "neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-c-solver-default-ii-trader-compensation", "authored-collateral-margin-cva", "authored-solver-owned-market-maker"]
@@ -25,7 +25,7 @@ The publication-safe wording is: the DDQ model favors trade continuity and order
 
 For third-party solver default, the DDQ describes CVA and maintenance margin as compensation buffers. It also describes a preferred continuity path where the protocol-operated solver or another active solver can buy out distressed positions and become the new counterparty, preserving the trader's position lifecycle where possible.
 
-## Publication Note
+## Publication Boundary
 
 This page is source-backed as a design model, not a final production guarantee. Exact solver liquidation flags, reputation rules, buyout auction behavior, and compensation percentages need current implementation and operator review before publication.
 

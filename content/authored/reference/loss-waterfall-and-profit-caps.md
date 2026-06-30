@@ -3,7 +3,7 @@ id: "authored-loss-waterfall-and-profit-caps"
 title: "Loss Waterfall And Tail-Event Profit Caps"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/i-bearer-of-losses", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk", "https://0xneelo.github.io/vibe_docs/docs/15-funding-model/15-docs/10-defense-hierarchy"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-i-bearer-of-losses", "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-ii-balancing-ux-vs-risk", "authored-funding-defense-hierarchy", "authored-solver-hedging-failure-modes"]
@@ -25,7 +25,7 @@ The key economic idea is bounded loss propagation. A permissionless system canno
 
 The same source gives a useful maturity model. New markets can begin close to fully backed protocol-side collateralization, then become more capital efficient as liquidity, liquidation history, price formation, and market integrity improve. Better UX should be earned by market behavior, not assumed at launch.
 
-## Publication Note
+## Publication Boundary
 
 This page should not publish exact production caps, percentages, global-insurance allocation rules, or market-tier policy without operator review. It documents the source model and the reader-facing risk vocabulary.
 

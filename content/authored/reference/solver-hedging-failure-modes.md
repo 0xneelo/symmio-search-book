@@ -3,7 +3,7 @@ id: "authored-solver-hedging-failure-modes"
 title: "Solver Hedging Failure Modes"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/solver-worst-case-scenarios/b-hedging-risks/hedging-risk-considerations", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/a-bearer-of-losses/ii-balancing-ux-vs-risk"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-solver-worst-case-scenarios-b-hedging-risks-hedging-risk-considerations", "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-a-bearer-of-losses-ii-balancing-ux-vs-risk", "authored-residual-counterparty-hedge-first", "authored-funding-defense-hierarchy"]
@@ -25,7 +25,7 @@ In those cases the model does not ask the solver to warehouse unbounded exposure
 
 The same source separates failure from strategy. A solver may intentionally hold limited unhedged exposure in a mature market if inventory, risk limits, and expected P&L make that acceptable. That is not the baseline for newly launched low-cap markets.
 
-## Publication Note
+## Publication Boundary
 
 This page summarizes the DDQ model. Final public docs should not publish exact liquidity-collapse triggers, freeze thresholds, or production market-shutdown behavior until implementation and operator review confirm them.
 

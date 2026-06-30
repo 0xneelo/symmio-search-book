@@ -3,7 +3,7 @@ id: "authored-netting-state-risk-transfer"
 title: "Netting State And Risk Transfer"
 section: "protocol-reference"
 track: "Solver And LP Operations"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/tl-dr-economic-outcomes", "https://0xneelo.github.io/vibe_docs/docs/08-due-diligence-questionnaire/08-docs/risk-walkthrough/risk-walthrough"]
 relatedGeneratedPages: ["neelo-08-due-diligence-questionnaire-08-docs-tl-dr-economic-outcomes", "neelo-08-due-diligence-questionnaire-08-docs-risk-walkthrough-risk-walthrough", "authored-loss-waterfall-and-profit-caps"]
@@ -34,7 +34,7 @@ The solver tries to reduce time spent carrying residual exposure by:
 
 For support and risk docs, the right answer is not "the solver always takes the other side." The precise answer is: traders bear directional PnL on their positions; netted flow pays between traders; un-netted residual flow is warehoused and hedged by the solver, with tail outcomes routed through the disclosed risk waterfall.
 
-## Publication Note
+## Publication Boundary
 
 This page explains the DDQ model. Final docs still need operator-approved wording for which vault resources can be used, how residual exposure is limited, and which waterfall rules are live in production.
 
