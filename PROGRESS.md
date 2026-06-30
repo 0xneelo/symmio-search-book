@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Stable Manifesto Operator-Review Batch
+
+- Promoted `7` stable Neelo-source manifesto pages to `published`: Active Risk Management Versus Passive Physics, ADL Haircut As Controlled Crash, Adversarial Selection Pressure, Adverse Selection Premium For USDC LPs, Agency Model Over Casino Model, AI Solver Verification Thesis, and Architecture Defined By The Constraint Set.
+- Preserved publication boundaries already present in the pages: active solver discretion is a risk-control thesis, ADL haircuts are last-resort solvency controls, adverse-selection premium ranges stay comparative until product/legal/accounting approval, AI solver automation is a thesis rather than confirmed product behavior, and live listing/solver/vault/insurance parameters remain outside these pages.
+- Regenerated Search Book data so page-state counts now show `198` published pages, `600` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Volume 08 Dashboard Reference Operator-Review Batch
 
 - Promoted `12` Volume 08 dashboard/reference pages to `published`: Estimated Network Revenue, Network Volume, Volume Snapshot Cadence, Dashboard Volume, Dashboard Revenue Pulse, Dashboard My Network, Dashboard Overview, Dashboard FAQ, Dashboard Route Inventory, Discord Lafa Ingestion Boundary, Core Glossary, and Volume 08: Dashboard, FAQ, And Living Docs.

@@ -3,7 +3,7 @@ id: "authored-ai-solver-verification-thesis"
 title: "AI Solver Verification Thesis"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"]
