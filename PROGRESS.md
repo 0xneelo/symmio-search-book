@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 06 Referral Market-Formation Batch
+
+- Promoted `9` Volume 06 rewards/referrals market-formation pages to `published`: Referral Architecture As Market Formation, Referral Architecture Failure Modes, Referral Architecture Target Principle, Referral Is Not A Marketing Widget, Referral Attachment At Market Creation, Referral Market Creation Velocity, Referral Durable Fee-Producing Attribution, Referral Sustainable Fee Flow Objective, and Referral Reliable Incentives Under Scale.
+- Added or preserved publication boundaries for referral-as-market-formation framing, failure modes, target settlement/policy principle, market-creation attachment, market creation velocity, durable fee-producing attribution, sustainable fee flow, reliable incentives under scale, public 15-level referral depth with additive backfill, Phase B refusal, private partner economics, reward accounting, TGE settlement, transferability, signer/security controls, anti-gaming enforcement, dashboard implementation metrics, and live rollout state.
+- Regenerated Search Book data so page-state counts now show `731` published pages, `67` candidate pages, `792` source companions, `798/798` exact routes, `2,873` chunks, `0` Volume 05 candidates, `67` Volume 06 candidates, `0` protocol-reference candidates, `67` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 06 Referral Architecture Source-Map Batch
 
 - Promoted `8` Volume 06 rewards/referrals architecture pages to `published`: Referral Program Source Table Of Contents, Referral Three-Plane Architecture, Referral Identity And Claim Flow, Referral Unified Access And Identity, Referral Metrics And Integrity, Referral Dashboard Reporting Standards, Referral Design Coverage Routing Map, and Referral Related Chapter Routing.

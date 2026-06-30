@@ -3,7 +3,7 @@ id: "authored-referral-reliable-incentives-under-scale"
 title: "Referral Reliable Incentives Under Scale"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/01-system-baseline#15-design-requirement", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/00-abstract", "_specs/app-docs/03-grounding.md"]
@@ -31,6 +31,10 @@ That is why the source does not treat reliability as a later polish pass. It is 
 ## Reader Implication
 
 When the docs explain referral roadmap, they should not frame the next phase as only adding more perks. The next phase is about preserving speed and flexibility while reducing hidden trust assumptions. More incentives are only credible if attribution, accounting, anti-gaming, settlement, and reporting become more reliable at the same time.
+
+## Publication Boundary
+
+This page can publish the design requirement that incentives must remain reliable under scale and adversarial use. It should not publish final rollout timing, reward-eligible activation gates, private overlays, reward pack economics, provisional-to-final points conversion, TGE settlement, transferability, signer controls, anti-gaming enforcement, or incident-response procedures until those details are approved through their implementation and operator-review lanes.
 
 ## Sources
 

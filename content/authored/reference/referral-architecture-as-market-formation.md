@@ -3,7 +3,8 @@ id: "authored-referral-architecture-as-market-formation"
 title: "Referral Architecture As Market Formation"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
+volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/00-abstract", "https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["neelo-17-referral-program-17-docs-00-abstract", "neelo-17-referral-program-17-docs-05-referral-economics", "local-points-engine"]
@@ -19,7 +20,11 @@ The referral-economics section highlights why this is hard. Self-referrals, code
 
 ## Reader Implication
 
-This page should link the dashboard referral mechanics back to the bigger market-formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility. Public depth is fifteen levels, and historical backfill is additive without lowering balances; the remaining caution is around private overlays, settlement terms, and reward economics that need their own approved policy pages.
+This page should link the dashboard referral mechanics back to the bigger market-formation thesis. The current onboarding app tracks referrals, points, invites, and network visibility. Public depth is 15 levels, and historical backfill is additive without lowering balances; the remaining caution is around private overlays, settlement terms, and reward economics that need their own approved policy pages.
+
+## Publication Boundary
+
+This page can publish the architecture thesis: referrals are part of market formation when they connect distribution, attribution, and fee-producing market activity. It should not publish private partner overlays, final issuer eligibility, live payout/share formulas beyond the approved Phase A revenue boundary, reward accounting rules, TGE settlement terms, transferability, signer/security controls, anti-gaming enforcement thresholds, or rollout state until the relevant product, commercial, legal, accounting, security, and operator owners approve them.
 
 ## Sources
 

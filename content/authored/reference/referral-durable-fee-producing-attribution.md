@@ -3,7 +3,7 @@ id: "authored-referral-durable-fee-producing-attribution"
 title: "Referral Durable Fee-Producing Attribution"
 section: "rewards-referrals"
 track: "Referral Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-06-referrals-and-market-formation"
 sourceKeys: ["vibe-papers", "spec-03"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/17-referral-program/17-docs/05-referral-economics#5-5-policy-objective", "_specs/app-docs/03-grounding.md"]
@@ -21,6 +21,10 @@ Maximum code count is easy to game. It can increase surface area while adding we
 Referral metrics should therefore prioritize quality-adjusted market creation and sustained fee generation. Code issuance, signups, and claim conversion are useful supporting indicators, but they should not become the north star if they can be increased without creating active markets or reliable fee flow.
 
 This objective also explains why issuance gates, uniform referee benefits, policy clarity, and anomaly monitoring belong in the product design. They defend the incentive system against self-directed extraction.
+
+## Publication Boundary
+
+This page can publish the policy objective: durable, fee-producing attribution is the goal, not maximum code issuance. It should not publish live referral payout cadence, private partner splits, exact reward eligibility, fee-share formulas beyond the approved Phase A revenue boundary, dispute procedures, anomaly thresholds, TGE weighting, or final accounting treatment. Those details remain separate product, commercial, legal, accounting, and operator-review topics.
 
 ## Sources
 
