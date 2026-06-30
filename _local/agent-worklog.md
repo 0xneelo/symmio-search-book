@@ -11,3 +11,10 @@
 - Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
 - Verification target: preflight passes with a safe production-shaped sample env, fails unsafe local/wildcard defaults, and `npm run search-book:verify` remains green.
 - Result: Implemented `npm run search-book:check-production-env`. Safe production-shaped sample env passed 24/24 checks with `valuesPrinted:false`; `.env.example` failed closed on local/repo DB path, extractive default mode, wildcard/local service URL, missing API key, and external-context=false. Full verify passed with 24 build steps, 61 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.
+
+## 2026-07-01 — Codex local LLM env reconciliation
+- Task: Reconcile operator update that local `.secrets/search-book.env` now contains the LLM model/key while production VPS env remains open.
+- Scope: `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`.
+- Status: Complete.
+- Verification target: Run production preflight against `.secrets/search-book.env` without printing secret values and update existing inbox items rather than creating duplicate blockers.
+- Result: `node --env-file=.secrets/search-book.env scripts/check-production-env.mjs --json` failed closed with `llmApiKeyConfigured:true`, `valuesPrinted:false`, and remaining deploy-env gaps: missing `SEARCH_BOOK_ANSWER_ENGINE_DB`, missing `SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE=llm`, and missing `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`.
