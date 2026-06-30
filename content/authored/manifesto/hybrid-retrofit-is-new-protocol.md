@@ -3,7 +3,7 @@ id: "authored-hybrid-retrofit-is-new-protocol"
 title: "Hybrid Retrofit Is A New Protocol"
 section: "manifesto"
 track: "08 — Competitive Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-2-architectural-lock-in"]

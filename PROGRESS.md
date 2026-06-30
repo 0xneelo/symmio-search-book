@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Competitive Architecture Moat Operator-Review Batch
+
+- Promoted `12` stable Neelo-source manifesto pages to `published`: Competitive Replication Checklist, Competitive Response Scenario Map, The Competitive Why-Now Window, Ecosystem Synergy Map, First Mover Operational Learning, Hybrid Retrofit Is A New Protocol, Integration And Data Network Effects, Replication Barriers And Data Moats, The Solver As The Initial Network Effect, Solver Complexity Is A Replication Barrier, State Migration Is A Replication Risk, and Sustainable Moat Scorecard.
+- Preserved publication boundaries already present in the pages: live superiority, competitor roadmaps, partner commitments, solver ownership/capital/uptime obligations, investment conclusions, and current market-size or integration metrics require separate primary-source/operator approval.
+- Regenerated Search Book data so page-state counts now show `232` published pages, `566` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Bootstrap And Perp Landscape Operator-Review Batch
 
 - Promoted `12` stable Neelo-source manifesto pages to `published`: Async-Netted Perp Experiments Fail At The Payer Question, The Pick-Two Reality In Perp Market Design, The Bootstrap Thesis Statement, Asynchronous Fully Collateralized Vault Protocols, The Existing Perp Protocol Landscape, Hybrid Perp Approaches Are Partial Solutions, The Landscape Comparative Analysis, The Perp Bootstrap Paper's Scope And Limits, Perp Bootstrap Source Navigation Map, What The Perp Framework Implies, Why Single-Architecture Perp Designs Fail The Trilemma, and The Capital Efficiency Trap.

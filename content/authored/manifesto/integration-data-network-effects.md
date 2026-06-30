@@ -3,7 +3,7 @@ id: "authored-integration-data-network-effects"
 title: "Integration And Data Network Effects"
 section: "manifesto"
 track: "08 — Competitive Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis#8-5-network-effects-and-ecosystem-position", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/07-industry-implications#7-3-ecosystem-synergies"]
