@@ -3,7 +3,7 @@ id: "authored-lp-capacity-rent-model"
 title: "LP Capacity Rent Model"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ The source includes an explicit fee-share claim, but public docs should not publ
 ## Reader Implication
 
 LPs should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early-market access has a cost because someone is providing the market's carrying capacity.
+
+## Publication Boundary
+
+This page publishes the capacity-rent model, not final LP commercial terms. Exact fee shares, revenue splits, vault rights, risk waterfalls, withdrawal terms, accounting treatment, and investment-sensitive yield claims require approved current sources and operator, risk, legal, and accounting review.
 
 ## Sources
 

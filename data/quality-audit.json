@@ -26,7 +26,7 @@
     "localFaqCategories": 10,
     "gapQueueItems": 12,
     "gapQueueQuestionSignals": 2,
-    "gapQueueOperatorSignals": 7,
+    "gapQueueOperatorSignals": 8,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
     "answerEngineExactRouteTests": 798,
@@ -88,8 +88,8 @@
     "compendiumVolumeReaderPages": 1593,
     "compendiumVolumeAssignedPages": 1593,
     "pageStatePages": 1593,
-    "pageStatePublishedPages": 698,
-    "pageStateCandidatePages": 100,
+    "pageStatePublishedPages": 711,
+    "pageStateCandidatePages": 87,
     "pageStatePublicCandidatePages": 798,
     "pageStateSourceCompanionPages": 792,
     "pageStateInternalDraftPages": 3,
@@ -97,7 +97,7 @@
     "pageStateRetrievalEligiblePages": 1590,
     "publicationPlanReady": true,
     "publicationPlanQueuedSourceCompanions": 792,
-    "publicationPlanCandidateReviewPages": 100,
+    "publicationPlanCandidateReviewPages": 87,
     "publicationPlanCandidateFinalReviewReadyPages": 0,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
@@ -108,7 +108,7 @@
     "completionReady": false,
     "sourceRegistryKeys": 124,
     "usedSourceKeys": 100,
-    "openOperatorItems": 7,
+    "openOperatorItems": 8,
     "resolvedOperatorItems": 8,
     "trackedGaps": 12,
     "answerablePrototypeQuestions": 798,
@@ -209,7 +209,7 @@
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
       "passed": true,
-      "detail": "12 queue items, 2 question signals, 7 operator signals, 2 parked pages"
+      "detail": "12 queue items, 2 question signals, 8 operator signals, 2 parked pages"
     },
     {
       "id": "deterministic-answer-engine",
@@ -269,13 +269,13 @@
       "id": "page-state-registry",
       "label": "Reader pages have launch states",
       "passed": true,
-      "detail": "1593/1593 reader pages classified; 698 published, 100 candidates, 792 source companions, 3 internal drafts"
+      "detail": "1593/1593 reader pages classified; 711 published, 87 candidates, 792 source companions, 3 internal drafts"
     },
     {
       "id": "publication-plan",
       "label": "Source companions have a publication authoring plan",
       "passed": true,
-      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 100 candidate review pages, 0 final-review ready, 5 stages"
+      "detail": "792/792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, 87 candidate review pages, 0 final-review ready, 5 stages"
     },
     {
       "id": "requirement-map",
@@ -287,7 +287,7 @@
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "7 open operator items, 8 resolved"
+      "detail": "8 open operator items, 8 resolved"
     },
     {
       "id": "discord",
@@ -305,8 +305,8 @@
       "draft-extracted-from-primary-source": 541
     },
     "authored": {
-      "published": 698,
-      "publication-candidate-needs-operator-review": 100,
+      "published": 711,
+      "publication-candidate-needs-operator-review": 87,
       "needs-reconciliation": 1
     },
     "rows": [
@@ -337,12 +337,12 @@
       },
       {
         "status": "published",
-        "count": 698,
+        "count": 711,
         "severity": "info"
       },
       {
         "status": "publication-candidate-needs-operator-review",
-        "count": 100,
+        "count": 87,
         "severity": "blocked"
       }
     ]
@@ -561,6 +561,10 @@
       "reference": 1
     },
     "openOperatorItems": [
+      {
+        "id": 16,
+        "title": "Linear handoff comment approval timed out for production-readiness handoff"
+      },
       {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
@@ -804,7 +808,7 @@
     "status": "prototype-gap-queue",
     "totalItems": 12,
     "totalQuestionSignals": 2,
-    "totalOperatorSignals": 7,
+    "totalOperatorSignals": 8,
     "totalParkedPageSignals": 2,
     "byPriority": {
       "P0": 4,
@@ -854,8 +858,8 @@
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "published": 697,
-      "candidate": 101
+      "published": 710,
+      "candidate": 88
     },
     "exactRoutesByConfidence": {
       "Medium": 499,
@@ -1323,7 +1327,7 @@
       "internalDraftPages": 3,
       "sourceCatalogEntries": 124,
       "linkedSourceCatalogEntries": 110,
-      "openOperatorItems": 7,
+      "openOperatorItems": 8,
       "gapQueueItems": 12,
       "unknownContextSourceKeys": []
     },
@@ -1392,7 +1396,7 @@
       "answerChunks": 2871,
       "sourceCatalogEntries": 124,
       "pageStatePages": 1593,
-      "openOperatorItems": 7,
+      "openOperatorItems": 8,
       "gapQueueItems": 12
     },
     "failureSummary": {
@@ -1586,8 +1590,8 @@
       "gapQueueItems": 12,
       "questionRouteCount": 798,
       "reconciliationQuestionCount": 2,
-      "operatorSignals": 7,
-      "openOperatorItems": 7,
+      "operatorSignals": 8,
+      "openOperatorItems": 8,
       "byEventType": {
         "question": 5,
         "rating": 3,
@@ -2061,8 +2065,8 @@
     "status": "prototype-page-state-registry",
     "totalPages": 1593,
     "byState": {
-      "published": 698,
-      "candidate": 100,
+      "published": 711,
+      "candidate": 87,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -2077,8 +2081,8 @@
       "section-page": 541
     },
     "byStatus": {
-      "published": 698,
-      "publication-candidate-needs-operator-review": 100,
+      "published": 711,
+      "publication-candidate-needs-operator-review": 87,
       "needs-reconciliation": 3,
       "source-mapped": 63,
       "draft-imported-from-primary-source": 187,
@@ -2120,9 +2124,9 @@
       "sourceCompanionsQueued": 792,
       "sourceCompanionsCoveredByAuthoredPages": 792,
       "sourceCompanionsNeedingAuthoredCoverage": 0,
-      "candidateReviewPages": 100,
+      "candidateReviewPages": 87,
       "candidateFinalReviewReadyPages": 0,
-      "candidateOperatorReviewPages": 100,
+      "candidateOperatorReviewPages": 87,
       "candidateSourceRefreshPages": 0,
       "candidatePublicationDateReviewPages": 0,
       "candidateEditorialReviewPages": 0,
@@ -2245,6 +2249,10 @@
     },
     "openOperatorItems": [
       {
+        "id": 16,
+        "title": "Linear handoff comment approval timed out for production-readiness handoff"
+      },
+      {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
       },
@@ -2333,6 +2341,10 @@
   },
   "unresolved": {
     "operatorInbox": [
+      {
+        "id": 16,
+        "title": "Linear handoff comment approval timed out for production-readiness handoff"
+      },
       {
         "id": 12,
         "title": "Checkpoint commit approval timed out for search-book fifteenth pass"

@@ -3,7 +3,7 @@ id: "authored-external-solver-first-look"
 title: "External Solver First Look"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ Production docs should not claim a specific routing priority, latency rule, solv
 ## Reader Implication
 
 Traders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first-look tier as an invitation to price real flow before the fallback layer takes risk.
+
+## Publication Boundary
+
+This page publishes the source-backed routing principle, not live solver operations. Final public claims about solver eligibility, first-look timing, quote auctions, latency, settlement priority, or guaranteed external-solver participation require current implementation, product, risk, and legal review.
 
 ## Sources
 

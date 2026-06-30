@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 05 Technical And Information Manifesto Batch
+
+- Promoted the remaining `13` Volume 05 manifesto pages to `published`: Bootstrap Oracle Risk Tiers, External Solver First Look, LP Capacity Rent Model, Pass-Through Execution Boundary, Position Lifecycle State Machine, Safety Premium Backstop Quotes, Settlement Contract Responsibility Map, Settlement State Boundary, Solver Engine Operating Loop, Solver Quote And Risk Engines, Technical Capability Map, The Technical Security Model, and TWAP Inventory Rebalancing.
+- Added or preserved publication boundaries for oracle risk tiers, solver first-look routing, LP capacity rent, pass-through execution, lifecycle state machines, settlement contract/state responsibilities, solver engine loops, quote/risk engine formulas, technical capability/security models, TWAP inventory rebalancing, backstop quote pricing, and implementation/risk/legal/security/accounting-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `711` published pages, `87` candidate pages, `792` source companions, `798/798` exact routes, `2,871` chunks, `3` Volume 05 candidates, `84` Volume 06 candidates, `3` protocol-reference candidates, `84` rewards-referrals candidates, and `0` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 05 Residual Solver/LP Economics Batch
 
 - Promoted the remaining `12` Volume 05 Solver/LP Economics protocol-reference pages to `published`: LP Deposits As Ignition Capital, LP Profit And Dynamic Pricing, Project Token Inventory Without Stablecoins, Solver-Funded Stablecoin Operations, SYMM LP Replication Framework, SYMM LP Scaling Hypothesis, SYMM LP Scope Note, SYMM LP Setup Reading Boundary, SYMM LP Test Case Scope, SYMM LP Validation Phase Reporting, Token Holder Incremental Risk Alignment, and Token LP Attractiveness Model.

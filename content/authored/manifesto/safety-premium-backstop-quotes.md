@@ -3,7 +3,7 @@ id: "authored-safety-premium-backstop-quotes"
 title: "Safety Premium Backstop Quotes"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ Exact spread formulas, quote floors, solver profitability, and user-facing prici
 ## Reader Implication
 
 If an early-market quote is wider, that can be a market-structure signal rather than a UI defect. The system is pricing the fact that the trade needed a backstop.
+
+## Publication Boundary
+
+This page publishes the safety-premium concept, not live quoting terms. Exact spreads, quote floors, profitability assumptions, solver obligations, backstop availability, best-execution claims, and user-facing price guarantees require current implementation, product, risk, legal, and market-operations review.
 
 ## Sources
 

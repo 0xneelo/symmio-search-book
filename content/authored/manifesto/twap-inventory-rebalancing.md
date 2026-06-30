@@ -3,7 +3,7 @@ id: "authored-twap-inventory-rebalancing"
 title: "TWAP Inventory Rebalancing"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ Production docs should distinguish this source-model principle from live order-t
 ## Reader Implication
 
 TWAP rebalancing belongs in the risk model because execution quality affects solvency. Long-tail perps need not only collateral and quotes, but also controlled inventory unwinds.
+
+## Publication Boundary
+
+This page publishes the source-model inventory-rebalancing principle, not live order-type support or production execution policy. User-facing TWAP availability, venue routing, rebalance cadence, slippage handling, custody, and market-specific execution controls require current implementation and risk review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-solver-engine-operating-loop"
 title: "Solver Engine Operating Loop"
 section: "manifesto"
 track: "07 — Technical Architecture"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-solver-layer-off-chain", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/06-technical-deep-dive#6-3-6-graduation-engine"]

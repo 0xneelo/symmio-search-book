@@ -3,7 +3,7 @@ id: "authored-pass-through-execution-boundary"
 title: "Pass-Through Execution Boundary"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-05-solver-lp-and-protocol-operations"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ This is an architecture boundary, not final public accounting. Exact inventory c
 ## Reader Implication
 
 Pass-through execution is the answer to "who ultimately pays or rebalances?" It points readers toward inventory, execution, and settlement boundaries instead of a vague promise that the protocol absorbs everything.
+
+## Publication Boundary
+
+This page explains a source-model execution boundary. It should not publish final inventory custody, execution venues, slippage assignment, cashflow ordering, solver responsibility, trader payout guarantees, or legal terms without current product, implementation, risk, legal, and accounting review.
 
 ## Sources
 

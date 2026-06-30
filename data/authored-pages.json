@@ -2,8 +2,8 @@
   "generatedAt": "deterministic-build",
   "totalPages": 799,
   "byStatus": {
-    "published": 698,
-    "publication-candidate-needs-operator-review": 100,
+    "published": 711,
+    "publication-candidate-needs-operator-review": 87,
     "needs-reconciliation": 1
   },
   "bySection": {
@@ -464,7 +464,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2567,7 +2567,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -2581,7 +2581,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/manifesto/external-solver-first-look.md",
-      "bodyMarkdown": "# External Solver First Look\n\nThe hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow.\n\nThat ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure. The protocol-owned or protocol-operated solver remains important, but it should not crowd out competitive quoting when external counterparties are willing to take the risk.\n\nThis is the market-design reason for the first tier of the waterfall. Mature or hedgeable flow should attract external solvers. Niche, volatile, or unattractive flow may fall through to the safety tier. The architecture can therefore combine competition and availability without pretending that every trade deserves the same quote path.\n\nProduction docs should not claim a specific routing priority, latency rule, solver admission standard, or quote auction mechanism until the live solver stack is confirmed. The source-backed principle is narrower: let outside solvers compete where they can improve execution, and reserve the backstop for flow the market will not naturally absorb.\n\n## Reader Implication\n\nTraders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first-look tier as an invitation to price real flow before the fallback layer takes risk.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-protocol-owned-solver-public-option`\n- `authored-symmio-solver-operations-and-hedging`",
+      "bodyMarkdown": "# External Solver First Look\n\nThe hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow.\n\nThat ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure. The protocol-owned or protocol-operated solver remains important, but it should not crowd out competitive quoting when external counterparties are willing to take the risk.\n\nThis is the market-design reason for the first tier of the waterfall. Mature or hedgeable flow should attract external solvers. Niche, volatile, or unattractive flow may fall through to the safety tier. The architecture can therefore combine competition and availability without pretending that every trade deserves the same quote path.\n\nProduction docs should not claim a specific routing priority, latency rule, solver admission standard, or quote auction mechanism until the live solver stack is confirmed. The source-backed principle is narrower: let outside solvers compete where they can improve execution, and reserve the backstop for flow the market will not naturally absorb.\n\n## Reader Implication\n\nTraders should understand that the best quote may come from a competitive solver, not only from the protocol backstop. Solvers should understand the first-look tier as an invitation to price real flow before the fallback layer takes risk.\n\n## Publication Boundary\n\nThis page publishes the source-backed routing principle, not live solver operations. Final public claims about solver eligibility, first-look timing, quote auctions, latency, settlement priority, or guaranteed external-solver participation require current implementation, product, risk, and legal review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-protocol-owned-solver-public-option`\n- `authored-symmio-solver-operations-and-hedging`",
       "excerpt": "External Solver First Look The hybrid solver model is not only a protocol backstop story. It gives external solvers the first opportunity to fill attractive flow. That ordering matters. If a sophisticated solver can price the trade better than the backstop, the trader can receive a tighter spread and the protocol does not need to warehouse that exposure. The protocol owned or protocol operated solver remains important, but it should not crowd out competitive quoting when external counterparties are willing to take the risk. This is the market design reason for the first tier of the waterfall. Mature or hedgeable flow should attract external solvers. Niche, volatile, or unattractive flow may fall through to the safety tier. The architecture can therefore combine competition and availability without pretending that every trade deserves the same quote path. Production docs should not claim a specific routing priority, latency rule, solver admission standard, or quote auction mechanism until the live solver stack is confirmed. The source backed principle is narrower: let outside solvers compete where they can improve execution, and reserve the backstop for flow the market will not natu"
     },
     {
@@ -7485,7 +7485,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7499,7 +7499,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/manifesto/lp-capacity-rent-model.md",
-      "bodyMarkdown": "# LP Capacity Rent Model\n\nThe Hybrid Solver source uses a landlord-style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time.\n\nThe useful publication version is the capacity-rent model. A long-tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and risk-bearing capacity before organic two-sided flow is mature. LPs or inventory providers are not only chasing generic yield; they are supplying the scarce resource that makes the market possible.\n\nThat framing also explains why LP compensation should not disappear the moment flow becomes more balanced. If the market depends on standing capacity, then the system has to decide how that capacity is paid, how much risk it bears, and when compensation changes as the market matures.\n\nThe source includes an explicit fee-share claim, but public docs should not publish exact percentages as current policy until the revenue and LP disclosure boundary is operator-approved. The safe claim is the model: LPs are paid for capacity, not merely for momentary trade matching.\n\n## Reader Implication\n\nLPs should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early-market access has a cost because someone is providing the market's carrying capacity.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-proof-value-four-constituencies`\n- `authored-vibe-project-profit-share-boundary`",
+      "bodyMarkdown": "# LP Capacity Rent Model\n\nThe Hybrid Solver source uses a landlord-style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time.\n\nThe useful publication version is the capacity-rent model. A long-tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and risk-bearing capacity before organic two-sided flow is mature. LPs or inventory providers are not only chasing generic yield; they are supplying the scarce resource that makes the market possible.\n\nThat framing also explains why LP compensation should not disappear the moment flow becomes more balanced. If the market depends on standing capacity, then the system has to decide how that capacity is paid, how much risk it bears, and when compensation changes as the market matures.\n\nThe source includes an explicit fee-share claim, but public docs should not publish exact percentages as current policy until the revenue and LP disclosure boundary is operator-approved. The safe claim is the model: LPs are paid for capacity, not merely for momentary trade matching.\n\n## Reader Implication\n\nLPs should ask what capacity they provide, what risk that capacity bears, and how compensation changes as the market matures. Traders should understand that early-market access has a cost because someone is providing the market's carrying capacity.\n\n## Publication Boundary\n\nThis page publishes the capacity-rent model, not final LP commercial terms. Exact fee shares, revenue splits, vault rights, risk waterfalls, withdrawal terms, accounting treatment, and investment-sensitive yield claims require approved current sources and operator, risk, legal, and accounting review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-token-holder-inventory-alignment`\n- `authored-proof-value-four-constituencies`\n- `authored-vibe-project-profit-share-boundary`",
       "excerpt": "LP Capacity Rent Model The Hybrid Solver source uses a landlord style analogy for LP economics: LPs provide the capacity that lets a market exist, and fees compensate that capacity over time. The useful publication version is the capacity rent model. A long tail perp market needs more than matching buyers and sellers. It needs inventory, collateral, and risk bearing capacity before organic two sided flow is mature. LPs or inventory providers are not only chasing generic yield; they are supplying the scarce resource that makes the market possible. That framing also explains why LP compensation should not disappear the moment flow becomes more balanced. If the market depends on standing capacity, then the system has to decide how that capacity is paid, how much risk it bears, and when compensation changes as the market matures. The source includes an explicit fee share claim, but public docs should not publish exact percentages as current policy until the revenue and LP disclosure boundary is operator approved. The safe claim is the model: LPs are paid for capacity, not merely for momentary trade matching. Reader Implication LPs should ask what capacity they provide, what risk that c"
     },
     {
@@ -8594,7 +8594,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -8608,7 +8608,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/manifesto/pass-through-execution-boundary.md",
-      "bodyMarkdown": "# Pass-Through Execution Boundary\n\nThe pass-through execution section sketches how a vault-backed market can separate trader payout, token inventory, and protocol price exposure.\n\nIn the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary spot speculator. It uses inventory and execution rules to settle the liability created by the perp position.\n\nThe reverse case matters too. When the protocol-side position wins, the model uses controlled buyback into the vault rather than an immediate price-insensitive market action. The point is to rebalance inventory without making the protocol's own execution push the market against itself.\n\nThis is an architecture boundary, not final public accounting. Exact inventory custody, execution venue, slippage assignment, cashflow ordering, solver responsibility, and legal terms require operator and implementation review. The source-backed idea is that execution should pass market risk through a defined inventory pathway rather than hiding it inside a generic pool.\n\n## Reader Implication\n\nPass-through execution is the answer to \"who ultimately pays or rebalances?\" It points readers toward inventory, execution, and settlement boundaries instead of a vague promise that the protocol absorbs everything.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-whale-vault-risk-tranching`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-token-inventory-risk-localization`",
+      "bodyMarkdown": "# Pass-Through Execution Boundary\n\nThe pass-through execution section sketches how a vault-backed market can separate trader payout, token inventory, and protocol price exposure.\n\nIn the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary spot speculator. It uses inventory and execution rules to settle the liability created by the perp position.\n\nThe reverse case matters too. When the protocol-side position wins, the model uses controlled buyback into the vault rather than an immediate price-insensitive market action. The point is to rebalance inventory without making the protocol's own execution push the market against itself.\n\nThis is an architecture boundary, not final public accounting. Exact inventory custody, execution venue, slippage assignment, cashflow ordering, solver responsibility, and legal terms require operator and implementation review. The source-backed idea is that execution should pass market risk through a defined inventory pathway rather than hiding it inside a generic pool.\n\n## Reader Implication\n\nPass-through execution is the answer to \"who ultimately pays or rebalances?\" It points readers toward inventory, execution, and settlement boundaries instead of a vague promise that the protocol absorbs everything.\n\n## Publication Boundary\n\nThis page explains a source-model execution boundary. It should not publish final inventory custody, execution venues, slippage assignment, cashflow ordering, solver responsibility, trader payout guarantees, or legal terms without current product, implementation, risk, legal, and accounting review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-whale-vault-risk-tranching`\n- `authored-usdc-settlement-inventory-separation`\n- `authored-token-inventory-risk-localization`",
       "excerpt": "Pass Through Execution Boundary The pass through execution section sketches how a vault backed market can separate trader payout, token inventory, and protocol price exposure. In the source model, a trader win can be paid by selling token inventory and passing the resulting cash through to the trader. The protocol's role is not to become a discretionary spot speculator. It uses inventory and execution rules to settle the liability created by the perp position. The reverse case matters too. When the protocol side position wins, the model uses controlled buyback into the vault rather than an immediate price insensitive market action. The point is to rebalance inventory without making the protocol's own execution push the market against itself. This is an architecture boundary, not final public accounting. Exact inventory custody, execution venue, slippage assignment, cashflow ordering, solver responsibility, and legal terms require operator and implementation review. The source backed idea is that execution should pass market risk through a defined inventory pathway rather than hiding it inside a generic pool. Reader Implication Pass through execution is the answer to \"who ultimately"
     },
     {
@@ -9712,7 +9712,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -12987,7 +12987,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13001,7 +13001,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/manifesto/safety-premium-backstop-quotes.md",
-      "bodyMarkdown": "# Safety Premium Backstop Quotes\n\nThe protocol-owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk-priced quote.\n\nThat safety premium is the honest cost of cold-start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it.\n\nThis page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability.\n\nExact spread formulas, quote floors, solver profitability, and user-facing pricing promises remain implementation-sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback risk.\n\n## Reader Implication\n\nIf an early-market quote is wider, that can be a market-structure signal rather than a UI defect. The system is pricing the fact that the trade needed a backstop.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.1 Protocol-Owned Solver (POS)\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-protocol-owned-solver-public-option`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-solver-sustainability-condition`",
+      "bodyMarkdown": "# Safety Premium Backstop Quotes\n\nThe protocol-owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk-priced quote.\n\nThat safety premium is the honest cost of cold-start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it.\n\nThis page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability.\n\nExact spread formulas, quote floors, solver profitability, and user-facing pricing promises remain implementation-sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback risk.\n\n## Reader Implication\n\nIf an early-market quote is wider, that can be a market-structure signal rather than a UI defect. The system is pricing the fact that the trade needed a backstop.\n\n## Publication Boundary\n\nThis page publishes the safety-premium concept, not live quoting terms. Exact spreads, quote floors, profitability assumptions, solver obligations, backstop availability, best-execution claims, and user-facing price guarantees require current implementation, product, risk, legal, and market-operations review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.1 Protocol-Owned Solver (POS)\".\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.2 The Liquidity Waterfall\".\n\n## Related Pages\n\n- `authored-protocol-owned-solver-public-option`\n- `authored-hybrid-solver-liquidity-waterfall`\n- `authored-solver-sustainability-condition`",
       "excerpt": "Safety Premium Backstop Quotes The protocol owned solver is useful because it can make a market possible when external solvers decline. But the source does not frame that fallback quote as free tight liquidity. It frames it as a wider, risk priced quote. That safety premium is the honest cost of cold start market access. When a market is niche, volatile, or hard to hedge, the backstop is doing work that a mature order book or deep solver network would normally do. A wider quote is not only revenue. It is compensation for adverse selection, inventory risk, hedging uncertainty, and the possibility that the trade reached the backstop because nobody else wanted it. This page should keep the distinction clear. A backstop quote can preserve access, but it should not be described as a guaranteed best price. The whole point of the waterfall is that external solvers can improve execution when they want the trade, while the safety tier prices the residual risk of availability. Exact spread formulas, quote floors, solver profitability, and user facing pricing promises remain implementation sensitive. The publishable concept is the safety premium: fallback liquidity should reflect fallback ris"
     },
     {
@@ -13077,7 +13077,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13100,7 +13100,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13459,7 +13459,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -13658,7 +13658,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15622,7 +15622,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -15645,7 +15645,7 @@
       "section": "manifesto",
       "track": "07 — Technical Architecture",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16839,7 +16839,7 @@
       "section": "manifesto",
       "track": "14 - Information and Trade Convergence",
       "granularity": "authored-page",
-      "status": "publication-candidate-needs-operator-review",
+      "status": "published",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -16853,7 +16853,7 @@
       ],
       "volumeId": "volume-05-solver-lp-and-protocol-operations",
       "file": "content/authored/manifesto/twap-inventory-rebalancing.md",
-      "bodyMarkdown": "# TWAP Inventory Rebalancing\n\nThe pass-through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact.\n\nThat matters in long-tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of the loss if it is too blunt. A time-sliced rebalance is one way to reduce that self-inflicted impact.\n\nThe model uses this idea in both directions. If inventory must be sold to settle trader wins, execution should avoid dumping into the thinnest possible moment. If tokens must be bought back into the vault after protocol-side wins, execution should avoid pushing the price up against itself.\n\nProduction docs should distinguish this source-model principle from live order-type support. The official Vibe order-type guide currently treats user-facing TWAP as a product-state-sensitive feature. This page is about protocol inventory execution logic in the source model, not a promise that all users have TWAP controls for every market.\n\n## Reader Implication\n\nTWAP rebalancing belongs in the risk model because execution quality affects solvency. Long-tail perps need not only collateral and quotes, but also controlled inventory unwinds.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-pass-through-execution-boundary`\n- `authored-residual-counterparty-hedge-first`\n- `authored-vibe-stop-order-trigger-model`",
+      "bodyMarkdown": "# TWAP Inventory Rebalancing\n\nThe pass-through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact.\n\nThat matters in long-tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of the loss if it is too blunt. A time-sliced rebalance is one way to reduce that self-inflicted impact.\n\nThe model uses this idea in both directions. If inventory must be sold to settle trader wins, execution should avoid dumping into the thinnest possible moment. If tokens must be bought back into the vault after protocol-side wins, execution should avoid pushing the price up against itself.\n\nProduction docs should distinguish this source-model principle from live order-type support. The official Vibe order-type guide currently treats user-facing TWAP as a product-state-sensitive feature. This page is about protocol inventory execution logic in the source model, not a promise that all users have TWAP controls for every market.\n\n## Reader Implication\n\nTWAP rebalancing belongs in the risk model because execution quality affects solvency. Long-tail perps need not only collateral and quotes, but also controlled inventory unwinds.\n\n## Publication Boundary\n\nThis page publishes the source-model inventory-rebalancing principle, not live order-type support or production execution policy. User-facing TWAP availability, venue routing, rebalance cadence, slippage handling, custody, and market-specific execution controls require current implementation and risk review.\n\n## Sources\n\n- `vibe-papers`: Neelo, \"Section 6: The Hybrid Solver Model: 6.5 Pass-Through Execution\".\n\n## Related Pages\n\n- `authored-pass-through-execution-boundary`\n- `authored-residual-counterparty-hedge-first`\n- `authored-vibe-stop-order-trigger-model`",
       "excerpt": "TWAP Inventory Rebalancing The pass through execution source gives TWAP a specific role: inventory rebalancing should avoid turning the protocol's own unwind into unnecessary price impact. That matters in long tail markets. If liquidity is thin, a large immediate buy or sell can move the price against the system. The execution method can become part of the loss if it is too blunt. A time sliced rebalance is one way to reduce that self inflicted impact. The model uses this idea in both directions. If inventory must be sold to settle trader wins, execution should avoid dumping into the thinnest possible moment. If tokens must be bought back into the vault after protocol side wins, execution should avoid pushing the price up against itself. Production docs should distinguish this source model principle from live order type support. The official Vibe order type guide currently treats user facing TWAP as a product state sensitive feature. This page is about protocol inventory execution logic in the source model, not a promise that all users have TWAP controls for every market. Reader Implication TWAP rebalancing belongs in the risk model because execution quality affects solvency. Long "
     },
     {
