@@ -3,7 +3,7 @@ id: "authored-usdc-margin-breaks-double-hit"
 title: "USDC Margin Breaks The Collateral Double-Hit"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"]
@@ -27,6 +27,10 @@ This is why token inventory and USDC settlement are complementary rather than su
 ## Reader Implication
 
 When a reader asks why stable margin matters, route here. The answer is that USDC margin removes the same-asset double-hit from the core settlement loop, even though it does not remove the need for active risk management.
+
+## Publication Boundary
+
+USDC margin reduces a specific reflexive collateral mechanism, but it does not eliminate market, oracle, liquidity, solver, liquidation, or insurance risk. Current settlement terms, collateral rules, and payout guarantees require product/risk/legal/operator review.
 
 ## Sources
 

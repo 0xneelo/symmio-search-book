@@ -3,7 +3,7 @@ id: "authored-vibe-percolator-settlement-collateral-comparison"
 title: "Vibe And Percolator Settlement Collateral Comparison"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -27,6 +27,10 @@ In Vibe's model, the underlying token can still be volatile, illiquid, or hard t
 ## Reader Implication
 
 When a reader asks whether the difference is only "USDC versus token UX," route here. The difference is structural: Percolator concentrates settlement, collateral, inventory, and insurance risk in the same asset; Vibe separates settlement from inventory so the market can manage each risk explicitly.
+
+## Publication Boundary
+
+Settlement/collateral comparisons must not be read as final live product terms. Current margin assets, custody rights, payout guarantees, supported markets, liquidation rules, and legal/accounting treatment require product/operator/risk/legal/accounting review.
 
 ## Sources
 

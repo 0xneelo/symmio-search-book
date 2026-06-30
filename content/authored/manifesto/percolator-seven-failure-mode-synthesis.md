@@ -3,7 +3,7 @@ id: "authored-percolator-seven-failure-mode-synthesis"
 title: "Percolator Seven Failure Mode Synthesis"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"]
@@ -25,6 +25,10 @@ That is why this conclusion page should route readers into the detailed mechanic
 ## Reader Implication
 
 When a reader asks for the short version of the Percolator critique, route here. The answer is that the failure modes are not seven disconnected bugs; they are seven consequences of concentrating low-cap perp risk in a token-margined inverse architecture.
+
+## Publication Boundary
+
+This page summarizes Neelo's failure-mode synthesis. It does not publish live Percolator risk parameters, current exploitability, market balances, ADL behavior, liquidation behavior, or Vibe comparative guarantees without separate primary-source/operator/risk/security review.
 
 ## Sources
 

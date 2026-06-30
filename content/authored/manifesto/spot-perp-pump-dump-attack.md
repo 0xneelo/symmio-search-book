@@ -3,7 +3,7 @@ id: "authored-spot-perp-pump-dump-attack"
 title: "Spot-Perp Pump-And-Dump Attack"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"]
@@ -25,6 +25,10 @@ This is why low-cap perp documentation must discuss spot liquidity, oracle const
 ## Reader Implication
 
 When a reader asks whether manipulation is random or structural, route here. The source's answer is that manipulation becomes structural when the attacker can profitably coordinate spot movement, oracle response, and leveraged perp PnL.
+
+## Publication Boundary
+
+Attack profitability, oracle design, spot-liquidity depth, OI caps, liquidation feasibility, exploitability, and live market defenses require security/risk/operator review and current primary sources before publication as current facts. This page is a source-bounded mechanism explanation.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-vibe-percolator-defense-hierarchy-comparison"
 title: "Vibe And Percolator Defense Hierarchy Comparison"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -31,6 +31,10 @@ More layers also mean more policy. Docs must eventually explain which layer is u
 ## Reader Implication
 
 When a reader asks why Vibe treats ADL as last resort, route here. The answer is that ADL is not a primary risk strategy in the Vibe thesis; it is what remains after active pricing, netting, inventory, and insurance fail to absorb the stress.
+
+## Publication Boundary
+
+Live defense sequencing, insurance allocation, market isolation, halt criteria, ADL trigger rules, liquidation rules, and global-support eligibility require implementation/operator/risk/legal review before publication as production policy. This page remains an architecture comparison.
 
 ## Sources
 

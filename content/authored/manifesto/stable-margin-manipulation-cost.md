@@ -3,7 +3,7 @@ id: "authored-stable-margin-manipulation-cost"
 title: "Stable Margin Makes Manipulation Cost Real Capital"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"]
@@ -27,6 +27,10 @@ The defense is strongest when the solver can also notice bad market states and r
 ## Reader Implication
 
 When a reader asks why USDC margin helps manipulation defense, route here. The answer is not that USDC makes spot liquidity deep. The answer is that stable margin removes one reflexive amplifier and makes the attacker's economics easier to bound.
+
+## Publication Boundary
+
+Stable margin does not by itself guarantee manipulation resistance. Current oracle providers, solver refusal rules, pricing bands, OI caps, liquidation mechanics, and supported-market defenses require implementation/operator/security/risk review before publication as production claims.
 
 ## Sources
 

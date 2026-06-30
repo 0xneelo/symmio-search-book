@@ -3,7 +3,7 @@ id: "authored-usdc-settlement-inventory-separation"
 title: "USDC Settlement Separates Inventory From Solvency"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative", "https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -23,6 +23,10 @@ The source also connects this to active risk management: dynamic spreads, fundin
 ## Reader Implication
 
 LPs should ask whether they are providing inventory, settlement capital, or both. Traders should ask what unit pays their PnL. Docs should never blur token inventory yield with stable settlement solvency.
+
+## Publication Boundary
+
+Exact production parameters, fee shares, vault rights, liquidation behavior, inventory eligibility, insurance access, and solver obligations need operator/product/risk/legal/accounting review before publication as current facts. This page teaches the source-level role separation.
 
 ## Sources
 

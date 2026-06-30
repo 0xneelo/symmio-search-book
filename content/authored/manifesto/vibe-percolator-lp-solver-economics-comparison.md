@@ -3,7 +3,7 @@ id: "authored-vibe-percolator-lp-solver-economics-comparison"
 title: "Vibe And Percolator LP Solver Economics Comparison"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -27,6 +27,10 @@ This does not turn solver economics into a free lunch. The solver can draw down,
 ## Reader Implication
 
 When a reader asks why Vibe's LP model is not just another vault, route here. The source's answer is that Percolator puts LPs in the full counterparty seat, while Vibe splits the jobs: active solver operation, stable settlement, market-specific token inventory, and governed protection layers.
+
+## Publication Boundary
+
+Live LP yield, solver profitability, hedge venue behavior, loss ordering, token-inventory rights, protection-layer eligibility, and vault economics require operator/product/risk/legal/accounting review before publication as current terms. This page publishes only the source comparison.
 
 ## Sources
 

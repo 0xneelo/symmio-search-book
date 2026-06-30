@@ -3,7 +3,7 @@ id: "authored-two-questions-permissionless-perps"
 title: "Two Questions For Permissionless Perps"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"]
@@ -27,6 +27,10 @@ That is why the comparison should not be flattened into "trustless versus centra
 ## Reader Implication
 
 When a reader wants the final takeaway from the Percolator sequence, route here. The answer is that Percolator solves the trustless-engine question better, while Vibe is designed around the harder economic question of making permissionless long-tail perps survive.
+
+## Publication Boundary
+
+This page frames source-level architectural tradeoffs. It does not publish final market-support promises, venue superiority claims, decentralization guarantees, solver performance guarantees, or investment/risk advice without current source and operator review.
 
 ## Sources
 

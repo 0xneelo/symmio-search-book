@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Remaining Volume 04 Percolator Publication Batch
+
+- Restored the missing local Neelo source inputs by cloning the public `0xneelo/vibe_docs` repository to `/tmp/vibe_docs` at commit `c6a6a78`; `/tmp/vibe_docs/Docs/public` and `/tmp/vibe_docs/Website/public/generated/docs-data.json` are present again, and `OPERATOR-INBOX.md` #15 is resolved.
+- Promoted the remaining `17` Volume 04 Percolator/token-margined manifesto pages to `published`: Percolator Proof Of Concept Boundary, Percolator Section Fragments Source Map, Percolator Seven Failure Mode Synthesis, Percolator SOV Insurance And Deflation Model, Pump Bankruptcy Arithmetic, Shorting Death Spiral, Spot-Perp Pump-And-Dump Attack, Stable Margin Makes Manipulation Cost Real Capital, Two Questions For Permissionless Perps, USDC Hybrid Path Forward, USDC Margin Breaks The Collateral Double-Hit, USDC Settlement Separates Inventory From Solvency, Vibe And Percolator Defense Hierarchy Comparison, Vibe And Percolator LP Solver Economics Comparison, Vibe And Percolator Oracle Execution Comparison, Vibe And Percolator Settlement Collateral Comparison, and Vibe And Percolator Trustlessness Tradeoff.
+- Added or preserved publication boundaries for live Percolator/SOV parameters, insurance/burn mechanics, bankruptcy/manipulation examples, shorting death-spiral claims, USDC settlement guarantees, defense/ADL behavior, oracle/execution policy, LP/solver economics, trustlessness tradeoffs, and legal/risk/security-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `595` published pages, `203` candidate pages, `792` source companions, `798/798` exact routes, `2,870` chunks, `11` Volume 04 candidates remaining, and `23` manifesto candidates remaining.
+
 ## 2026-06-30 — Volume 04 Percolator Risk Foundations Batch
 
 - Promoted `18` Volume 04 Percolator/token-margined manifesto pages to `published`: Futureswap Toxic Arbitrage Precedent, Gross OI Collateral Lockup, Industry Migration Toward Stable Settlement, The Inverse Payoff Trap, Inverse Product Retreat Precedent, Inverted Market Mode Semantics, JIT Liquidity Duration Mismatch, Linear PnL Versus Hyperbolic Payout, The 1x Leverage Ceiling, Oracle Reference Solver Quote Layer, Passive Matcher Vulnerability, Percolator Balance-Sheet Safety Invariant, Percolator Clean Trust Boundaries, Percolator Dissertation Source Map, Percolator Formal Verification Boundary, Percolator Hybrid Risk And Execution Model, Percolator One-Market-One-Slab Accounting, and Percolator Pluggable Matcher Boundary.

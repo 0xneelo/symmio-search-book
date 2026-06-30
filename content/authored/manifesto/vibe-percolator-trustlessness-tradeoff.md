@@ -3,7 +3,7 @@ id: "authored-vibe-percolator-trustlessness-tradeoff"
 title: "Vibe And Percolator Trustlessness Tradeoff"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -27,6 +27,10 @@ Vibe's thesis is that some off-chain or hybrid risk intelligence is justified wh
 ## Reader Implication
 
 When a reader asks whether Vibe is "less trustless" than Percolator, route here. The answer is yes in a narrow architectural sense, and that is the tradeoff. Vibe gives up some mechanical simplicity to gain active defense, stable settlement, and risk-aware market operation.
+
+## Publication Boundary
+
+Trustlessness, custody, operator authority, solver obligations, security model, decentralization roadmap, and user-rights claims require current product/security/legal/operator review before publication as policy. This page is limited to the source's architecture tradeoff.
 
 ## Sources
 

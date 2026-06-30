@@ -3,7 +3,7 @@ id: "authored-vibe-percolator-oracle-execution-comparison"
 title: "Vibe And Percolator Oracle Execution Comparison"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/09-vibe-vs-percolator"]
@@ -27,6 +27,10 @@ That second question is essential for low-cap markets because the reference pric
 ## Reader Implication
 
 When a reader asks why Vibe does not simply execute every oracle-priced trade, route here. The answer is that the oracle is not the whole market. It is one input into solver judgment, and solver judgment exists precisely to avoid turning stale or manipulable references into guaranteed fills.
+
+## Publication Boundary
+
+Current oracle providers, solver quote policy, refusal policy, latency bounds, execution guarantees, and supported-market risk rules require implementation/operator/security/risk review before publication as live behavior. This page preserves the source's oracle/execution contrast.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-shorting-death-spiral"
 title: "Shorting Death Spiral"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/05-oracle-manipulation-death-spiral"]
@@ -29,6 +29,10 @@ The Vibe comparison source argues for a defense stack before ADL: netting, token
 ## Reader Implication
 
 When docs discuss low-cap shorting, they should not only describe trader opportunity. They should explain who pays a winning short and what happens if the token collapses. Payout certainty is part of market quality.
+
+## Publication Boundary
+
+Shorting, ADL, haircut, vault-health, insurance, liquidation, and payout-certainty behavior require current product/risk/legal/operator review before publication as live market policy. This page preserves the source's market-design warning and does not offer trading or financial advice.
 
 ## Sources
 

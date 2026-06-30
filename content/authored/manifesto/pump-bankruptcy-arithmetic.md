@@ -3,7 +3,7 @@ id: "authored-pump-bankruptcy-arithmetic"
 title: "Pump Bankruptcy Arithmetic"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"]
@@ -31,6 +31,10 @@ That is the practical bridge from inverse payoff math to market design. The syst
 ## Reader Implication
 
 When a market advertises leverage, readers should ask what collateral-to-OI ratio keeps the payer solvent under plausible price moves. The answer engine should route "can token-margined LPs support 10x leverage?" to the arithmetic, not only to a general risk warning.
+
+## Publication Boundary
+
+The pump example is source-level stress arithmetic, not a live margin rule, liquidation threshold, market cap band, leverage offer, insolvency prediction, or user risk recommendation. Current production limits and solvency claims require risk, legal, implementation, and operator review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-usdc-hybrid-path-forward"
 title: "USDC Hybrid Path Forward"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"]
@@ -25,6 +25,10 @@ That hybrid shape matters because each resource has a different natural job. USD
 ## Reader Implication
 
 When a reader asks what architecture replaces token-margined inverse perps, route here. The answer is not simply "use USDC." It is separate settlement from inventory, add active solver control, build defense-in-depth, and mutualize risk carefully.
+
+## Publication Boundary
+
+The hybrid path is a source-level architecture thesis, not a final product specification. Current vault rights, insurance access, solver obligations, token-inventory eligibility, ADL sequencing, fee/funding terms, and live market support require operator/product/risk/legal review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-percolator-proof-of-concept-boundary"
 title: "Percolator Proof Of Concept Boundary"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"]
@@ -27,6 +27,10 @@ This distinction keeps the critique fair. The compendium should not claim that f
 ## Reader Implication
 
 When a reader asks whether Percolator is a failure, route here. The answer is more precise: as a technology demonstration, it is significant; as a general low-cap perp product model, the source argues the token-margined architecture is the wrong economic foundation.
+
+## Publication Boundary
+
+Current deployed-program status, formal-verification scope, audit claims, market availability, supported assets, and product robustness guarantees require primary-source, security, implementation, and operator review before publication as live facts. This page preserves the source's proof-of-concept distinction.
 
 ## Sources
 
