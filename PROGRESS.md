@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Final Volume 04 Publication Batch
+
+- Promoted the final `11` Volume 04 candidates to `published`: Funding As Market Balancing, The Hybrid Solver Liquidity Waterfall, Intent OTC As Long-Tail Verification, LP Yield And Capital Efficiency, One Counterparty For Niche Verification, Residual Counterparty Balance-Sheet Problem, The Thumbs Down Mechanism Stack, Token-Vault Perps Versus USDC Pools, Vibe As Listing Source Of Truth, Yield As Architecture Survival Proof, and Yield As Market Survival Constraint.
+- Added or normalized publication boundaries for live funding/control parameters, solver liquidity routing, intent/OTC verification claims, LP yield/economics, counterparty guarantees, token-vault versus USDC pool semantics, listing-source claims, market-survival conclusions, and legal/risk/accounting/security-sensitive advice.
+- Regenerated Search Book data so page-state counts now show `606` published pages, `192` candidate pages, `792` source companions, `798/798` exact routes, `2,870` chunks, `0` Volume 04 candidates remaining, `108` Volume 05 candidates, `84` Volume 06 candidates, and `13` manifesto candidates remaining.
+
 ## 2026-06-30 — Remaining Volume 04 Percolator Publication Batch
 
 - Restored the missing local Neelo source inputs by cloning the public `0xneelo/vibe_docs` repository to `/tmp/vibe_docs` at commit `c6a6a78`; `/tmp/vibe_docs/Docs/public` and `/tmp/vibe_docs/Website/public/generated/docs-data.json` are present again, and `OPERATOR-INBOX.md` #15 is resolved.

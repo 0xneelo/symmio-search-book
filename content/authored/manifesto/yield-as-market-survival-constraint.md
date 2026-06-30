@@ -3,7 +3,7 @@ id: "authored-yield-as-market-survival-constraint"
 title: "Yield As Market Survival Constraint"
 section: "manifesto"
 track: "07 — Architecture Thesis"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"]

@@ -3,7 +3,7 @@ id: "authored-thumbs-down-mechanism-stack"
 title: "The Thumbs Down Mechanism Stack"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down", "https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -25,6 +25,10 @@ Publication prose should translate the source's aggressive rhetoric into mechani
 ## Reader Implication
 
 If someone asks what makes the Thumbs Down real, the answer is the stack: inventory provides capacity, solvers provide pricing and execution, and users provide the directional intent. The icon is only the visible edge of that mechanism.
+
+## Publication Boundary
+
+This page translates the source's negative-side thesis into market mechanism. It does not publish current shorting availability, supported assets, borrow/inventory terms, vault rights, leverage, abuse controls, solver refusal rules, or user-facing product commitments without product/operator/risk/security review.
 
 ## Sources
 

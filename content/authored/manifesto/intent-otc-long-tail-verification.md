@@ -3,7 +3,7 @@ id: "authored-intent-otc-long-tail-verification"
 title: "Intent OTC As Long-Tail Verification"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"]
@@ -23,6 +23,10 @@ The source also imagines AI-assisted solvers that evaluate signals, detect manip
 ## Reader Implication
 
 Intent-based OTC makes Vibe legible as a long-tail market engine. The point is not that every market starts mature. The point is that the first credible trade can happen before the market deserves a pool or an order book.
+
+## Publication Boundary
+
+This page treats AI-assisted solver evaluation, refusal rules, market eligibility, supported asset categories, dispute semantics, and production automation as source-backed directions rather than current product guarantees unless separately confirmed by implementation/operator review.
 
 ## Sources
 

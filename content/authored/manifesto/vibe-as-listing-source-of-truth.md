@@ -3,7 +3,7 @@ id: "authored-vibe-as-listing-source-of-truth"
 title: "Vibe As Listing Source Of Truth"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/07-game-theory-of-listings"]
@@ -23,6 +23,10 @@ This also sharpens the relationship with mature venues. Vibe does not need to re
 ## Reader Implication
 
 Market creators should treat early perp demand as proof they can earn, not a badge they receive from relationships alone. Downstream venues should see Vibe data as a filter that can reduce listing guesswork.
+
+## Publication Boundary
+
+This page publishes the source-backed listing-evidence thesis. It does not claim final graduation thresholds, downstream exchange adoption, partner integrations, automatic listing rights, live badge programs, market-count metrics, or venue decision rules without current primary-source/product/operator review.
 
 ## Sources
 

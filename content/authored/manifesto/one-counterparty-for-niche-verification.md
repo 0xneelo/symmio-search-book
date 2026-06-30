@@ -3,7 +3,7 @@ id: "authored-one-counterparty-for-niche-verification"
 title: "One Counterparty For Niche Verification"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/05-intent-based-architecture"]
@@ -23,6 +23,10 @@ This is a thesis page, not a production promise that Vibe will list every fact, 
 ## Reader Implication
 
 When readers ask why Vibe can address the long tail, the answer is not "because pools are unnecessary forever." The answer is narrower: the first credible price can come from a counterparty relationship before a market has earned deep pooled liquidity.
+
+## Publication Boundary
+
+This page does not promise that every claim, token, event, video, or information market is eligible for Vibe. Exact supported markets, counterparty criteria, listing rules, dispute semantics, settlement paths, leverage, and user-facing availability require product/operator/implementation review.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-hybrid-solver-liquidity-waterfall"
 title: "The Hybrid Solver Liquidity Waterfall"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/06-hybrid-solver-model"]
@@ -23,6 +23,10 @@ The same source discusses inventory vaults, risk tranching, cross-market mutuali
 ## Reader Implication
 
 Solvers should read this as a market-access stack rather than a single counterparty. Traders should understand why early markets may receive wider quotes: the fallback quote is doing the work that a mature market's organic liquidity has not yet earned.
+
+## Publication Boundary
+
+This page publishes the source-backed waterfall architecture, not final production routing policy. Exact solver priority, backstop obligations, vault rights, fee splits, loss allocation, inventory thresholds, and current supported markets remain implementation/operator/risk/accounting review items.
 
 ## Sources
 

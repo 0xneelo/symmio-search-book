@@ -3,7 +3,7 @@ id: "authored-lp-yield-capital-efficiency-pillar"
 title: "LP Yield And Capital Efficiency"
 section: "manifesto"
 track: "07 — Architecture Thesis"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency"]
 relatedGeneratedPages: ["neelo-10-vibe-pillars-10-docs-04-pillar-three-lp-yield-and-capital-efficiency", "authored-vibe-pillars", "authored-lp-profit-and-dynamic-pricing"]
@@ -27,9 +27,9 @@ Capital efficiency links the third pillar back to the first two. A highly safe s
 
 This is why the compendium should treat LP economics as architecture, not as a reward table. The yield layer is proof that the system can keep real risk-bearing capital engaged.
 
-## Publication Note
+## Publication Boundary
 
-This page needs operator review before final publication because the exact public Vibe economics, LP profit share, fee routing, and Phase B revenue disclosures remain parked.
+This page publishes the architectural role of risk-adjusted yield. Exact public Vibe economics, LP profit share, fee routing, solver compensation, vault rights, Phase B revenue disclosures, and live yield claims remain operator/accounting/legal/risk/implementation review items.
 
 ## Sources
 

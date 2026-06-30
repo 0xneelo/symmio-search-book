@@ -3,7 +3,7 @@ id: "authored-yield-as-architecture-survival-proof"
 title: "Yield As Architecture Survival Proof"
 section: "manifesto"
 track: "07 - Architecture Thesis"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/04-pillar-three-lp-yield-and-capital-efficiency", "https://0xneelo.github.io/vibe_docs/docs/10-vibe-pillars/10-docs/06-conclusion"]
