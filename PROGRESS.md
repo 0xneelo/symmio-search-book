@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Thiel Monopoly Strategy Operator-Review Batch
+
+- Promoted `12` stable Neelo-source manifesto pages to `published`: Brand As An Earned Market Signal, Category Creation Not Feature Competition, Durability And Long-Term Value, The Last-Mover Question, How To Read The Monopoly Verdict, The Thiel 10x Technology Test, The Thiel Risk Checklist, How To Read The Thiel Scorecard, Software-Like Scale Economics, Value Creation And Capture Must Both Be Real, Vertical Integration Of The Market Lifecycle, and The Thiel X/Y Value Frame.
+- Preserved publication boundaries already present in the pages: live dominance, investment conclusions, long-term cash-flow claims, partner counts, protocol-share economics, solver spread economics, data-product commercialization, fee capture at every stage, and automatic graduation promises require separate current primary-source/operator approval.
+- Regenerated Search Book data so page-state counts now show `256` published pages, `542` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Market Lifecycle Thesis Operator-Review Batch
 
 - Promoted `12` stable Neelo-source manifesto pages to `published`: Vibe As A Listing Oracle, Insurance Topology Should Follow Market Maturity, The Listing Decision Problem, Future Directions For Market Lifecycle Infrastructure, Market Lifecycle Implications For The Industry, The Market Maturation State Map, Market Participant Impact Map, The Market Risk Distribution Shift, Markets Are Dynamic Not Static, Permissionless Perps As Market Infrastructure, The Permissionless Perps Vision Restated, and The Perp Bootstrap Paper Abstract.
