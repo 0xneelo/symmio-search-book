@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Coverage-Aware Publication Plan
+
+- Updated the publication-plan generator so `relatedGeneratedPages` on authored candidate/published pages is treated as real authored coverage for generated source companions.
+- Folded the last six uncovered source companions into existing authored pages: About Vibe, network depth, Phase B revenue scope, USD counter request, Symmio trading flow, and Symmio solver setup.
+- Regenerated Search Book data so `data/publication-plan.*` now reports `792/792` source companions covered by authored pages, `0` needing authored coverage, and an empty `nextAuthoringBatch`.
+
 ## 2026-06-30 — Volume 01 Reading Order Overview
 
 - Expanded `authored-volume-01-orientation-and-thesis` from a short orientation stub into a book-level reading order for the mission, information/trade thesis, permissionless-perps vision, bootstrap bridge, intents/order-book bridge, discovery-layer framing, and product bridge into later volumes.

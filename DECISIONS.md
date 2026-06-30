@@ -1895,3 +1895,11 @@
 **Reason:** Volumes 02 through 08 now have direct broad reading-order routes, but Volume 01 still lacked the same route and still compressed the opening thesis into a short stub. The first volume should orient the reader before they encounter the more specialized market, architecture, product, dashboard, and living-docs volumes.
 
 **Status:** Accepted for compendium authoring. Original/oldest Symmio whitepaper history, exact market counts, HIP-3 outcomes, downstream venue routing, automatic graduation behavior, global reputation protocol claims, product availability, and final public deployment details remain source-completeness, current-source, product, legal, risk, accounting, security, and operator review items before publication.
+
+## D-238: Treat Authored Related-Generated Links As Source-Companion Coverage
+
+**Decision:** `data/publication-plan.*` should count a generated source companion as covered when a candidate or published authored page lists that companion in `relatedGeneratedPages`. Covered companions stay in retrieval inventory but drop out of `nextAuthoringBatch`.
+
+**Reason:** The compendium now uses authored overview, reference, and source-navigation pages to absorb generated source companions without promoting every companion stub into a public page. The old plan treated those already-folded companions as unworked authoring demand, which made the next batch noisy and obscured genuinely uncovered work.
+
+**Status:** Accepted for G-002A authoring workflow. As of 2026-06-30, all `792/792` source companions are covered by authored pages; final publication review, current-source review, operator review, deployment, and parked source-ingestion items remain separate readiness gates.

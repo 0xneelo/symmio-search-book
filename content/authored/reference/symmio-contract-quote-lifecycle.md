@@ -4,14 +4,16 @@ title: "Symmio Contract Quote Lifecycle"
 section: "protocol-reference"
 track: "Symmio Contracts"
 status: "publication-candidate-needs-operator-review"
-sourceKeys: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders"]
-sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md"]
-relatedGeneratedPages: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders"]
+sourceKeys: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders", "symmio-llms"]
+sourceUrls: ["https://docs.symm.io/security-and-architecture/contract-architecture-overview.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/market-vs.-limit-orders.md", "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio.md"]
+relatedGeneratedPages: ["symmio-contract-architecture", "symmio-intent-lifecycle", "symmio-market-limit-orders", "symmio-how-trading-works"]
 ---
 
 # Symmio Contract Quote Lifecycle
 
 The official architecture page gives the contract-layer view of the Symmio quote lifecycle: a quote moves from pending, to locked, to opened, to close-pending, then closed or cancelled through defined state transitions.
+
+The trader-facing "How Trading Works In Symmio" source belongs here as the public-language companion to the contract lifecycle. It should explain user-visible steps through the same PartyA/PartyB quote flow without flattening pending, locked, opened, close-pending, cancelled, and partially filled states into one generic order status.
 
 ## From Pending To Opened
 
@@ -34,9 +36,11 @@ When a user asks why a trade is pending, locked, open, close-pending, cancelled,
 - `symmio-contract-architecture`: official contract quote lifecycle and grouped PartyB action context.
 - `symmio-intent-lifecycle`: official solver event-monitoring lifecycle.
 - `symmio-market-limit-orders`: official market and limit quote behavior.
+- `symmio-llms`: official trader-facing "How Trading Works In Symmio" source index.
 
 ## Related Pages
 
 - `authored-bilateral-intent-lifecycle`
 - `authored-solver-event-monitoring`
 - `authored-symmio-solver-operations-and-hedging`
+- `symmio-how-trading-works`

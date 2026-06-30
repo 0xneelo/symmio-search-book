@@ -14,6 +14,7 @@ const defaults = {
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
+  authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   outJson: path.join(searchBookRoot, "data", "publication-plan.json"),
   outJs: path.join(searchBookRoot, "data", "publication-plan.js"),
 };
@@ -75,7 +76,7 @@ function actionFor(page, relatedCandidatePageIds) {
   return "create-authored-source-map-or-reference-page";
 }
 
-function priorityFor(page, volume, routeCount, gapIds, relatedCandidatePageIds) {
+function priorityFor(page, volume, routeCount, gapIds, relatedCandidatePageIds, authoredCoveragePageIds) {
   const granularityScore = {
     "source-page": 28,
     "companion-page": 20,
@@ -85,11 +86,13 @@ function priorityFor(page, volume, routeCount, gapIds, relatedCandidatePageIds) 
   const routeScore = routeCount * 24;
   const gapScore = gapIds.length * 18;
   const noAuthoredTargetBonus = relatedCandidatePageIds.length ? 0 : 10;
+  const alreadyCoveredPenalty = authoredCoveragePageIds.length ? -80 : 0;
   const operatorReviewPenalty = /operator-review/i.test(page.status || "") ? -12 : 0;
-  return granularityScore + Math.min(volumePressure, 60) + routeScore + gapScore + noAuthoredTargetBonus + operatorReviewPenalty;
+  return granularityScore + Math.min(volumePressure, 60) + routeScore + gapScore + noAuthoredTargetBonus + alreadyCoveredPenalty + operatorReviewPenalty;
 }
 
 function stageFor(item) {
+  if (item.authoredCoveragePageIds.length) return "4-covered-by-authored-pages";
   if (item.gapIds.length || item.questionRouteCount > 0) return "1-demand-and-gap-driven";
   if (item.relatedCandidatePageIds.length) return "2-fold-into-existing-authored-pages";
   return "3-promote-remaining-source-companions";
@@ -100,6 +103,7 @@ function stageRank(stage) {
     "1-demand-and-gap-driven": 1,
     "2-fold-into-existing-authored-pages": 2,
     "3-promote-remaining-source-companions": 3,
+    "4-covered-by-authored-pages": 4,
   }[stage] || 9;
 }
 
@@ -129,6 +133,7 @@ const questionRoutes = readJson(args.questionRoutes);
 const gapQueue = readJson(args.gapQueue);
 const crosslinks = readJson(args.crosslinks);
 const sourceCatalog = readJson(args.sourceCatalog);
+const authoredIndex = readJson(args.authoredIndex);
 
 const pagesById = new Map((pageState.pages || []).map((page) => [page.id, page]));
 const volumeById = new Map((volumeMap.volumes || []).map((volume) => [volume.id, volume]));
@@ -148,16 +153,32 @@ const publicCandidateIds = new Set(
     .map((page) => page.id),
 );
 
+const authoredCoverageByGeneratedPageId = new Map();
+for (const page of authoredIndex.pages || []) {
+  if (!publicCandidateIds.has(page.id)) continue;
+  for (const generatedPageId of page.relatedGeneratedPages || []) {
+    if (!generatedPageId) continue;
+    if (!authoredCoverageByGeneratedPageId.has(generatedPageId)) {
+      authoredCoverageByGeneratedPageId.set(generatedPageId, []);
+    }
+    authoredCoverageByGeneratedPageId.get(generatedPageId).push(page.id);
+  }
+}
+for (const [generatedPageId, authoredPageIds] of authoredCoverageByGeneratedPageId.entries()) {
+  authoredCoverageByGeneratedPageId.set(generatedPageId, unique(authoredPageIds));
+}
+
 const sourceCompanionQueue = (pageState.pages || [])
   .filter((page) => page.pageState === "source-companion")
   .map((page) => {
     const crosslink = crosslinks.pageById?.[page.id] || {};
     const relatedCandidatePageIds = (crosslink.relatedPageIds || []).filter((pageId) => publicCandidateIds.has(pageId));
+    const authoredCoveragePageIds = authoredCoverageByGeneratedPageId.get(page.id) || [];
     const volume = volumeById.get(page.volumeId);
     const gapItems = gapItemsByRelatedPageId[page.id] || [];
     const gapIds = unique(gapItems.map((item) => item.gapId));
     const questionRouteCount = routeCountsByPageId[page.id] || 0;
-    const priorityScore = priorityFor(page, volume, questionRouteCount, gapIds, relatedCandidatePageIds);
+    const priorityScore = priorityFor(page, volume, questionRouteCount, gapIds, relatedCandidatePageIds, authoredCoveragePageIds);
     const item = {
       pageId: page.id,
       title: page.title,
@@ -173,13 +194,16 @@ const sourceCompanionQueue = (pageState.pages || [])
       gapIds,
       gapTitles: gapItems.map((gap) => gap.title),
       relatedCandidatePageIds,
-      suggestedTargetPageId: relatedCandidatePageIds[0] || "",
-      suggestedAction: actionFor(page, relatedCandidatePageIds),
+      authoredCoveragePageIds,
+      coverageState: authoredCoveragePageIds.length ? "covered-by-authored-page" : "needs-authored-coverage",
+      suggestedTargetPageId: authoredCoveragePageIds[0] || relatedCandidatePageIds[0] || "",
+      suggestedAction: authoredCoveragePageIds.length ? "already-covered-by-authored-page" : actionFor(page, relatedCandidatePageIds),
       authoringTemplate: templateFor(page),
       priorityScore,
       rationale: [
         questionRouteCount ? `${questionRouteCount} seeded question route(s)` : "",
         gapIds.length ? `${gapIds.length} linked gap(s)` : "",
+        authoredCoveragePageIds.length ? `covered by ${authoredCoveragePageIds.length} authored page(s)` : "",
         relatedCandidatePageIds.length ? "has nearby authored target" : "needs authored target",
         `${page.granularity || "unknown"} companion`,
       ].filter(Boolean),
@@ -215,24 +239,35 @@ const stageDefinitions = [
     rule: "Create new authored source maps or reference pages for companions without a public target.",
   },
   {
-    id: "4-final-candidate-review",
+    id: "4-covered-by-authored-pages",
+    label: "Covered By Authored Pages",
+    rule: "Keep source companions in retrieval inventory when authored pages already name them in relatedGeneratedPages.",
+  },
+  {
+    id: "5-final-candidate-review",
     label: "Final Candidate Review",
     rule: "Review authored candidates for operator, source-refresh, and editorial flags before publication.",
   },
 ];
 
+const sourceCompanionsNeedingAuthoredCoverage = sourceCompanionQueue.filter((item) => item.coverageState === "needs-authored-coverage");
+const sourceCompanionsCoveredByAuthoredPages = sourceCompanionQueue.filter((item) => item.coverageState === "covered-by-authored-page");
 const byStage = countBy(sourceCompanionQueue, (item) => item.stage);
 const byTemplate = countBy(sourceCompanionQueue, (item) => item.authoringTemplate);
 const bySuggestedAction = countBy(sourceCompanionQueue, (item) => item.suggestedAction);
+const byCoverageState = countBy(sourceCompanionQueue, (item) => item.coverageState);
 const byVolume = {};
 for (const volume of volumeMap.volumes || []) {
   const volumeItems = sourceCompanionQueue.filter((item) => item.volumeId === volume.id);
+  const volumeNeedsCoverage = volumeItems.filter((item) => item.coverageState === "needs-authored-coverage");
   byVolume[volume.id] = {
     title: volume.title,
     sourceCompanionsQueued: volumeItems.length,
+    sourceCompanionsCoveredByAuthoredPages: volumeItems.length - volumeNeedsCoverage.length,
+    sourceCompanionsNeedingAuthoredCoverage: volumeNeedsCoverage.length,
     authoredPages: volume.authoredPages || 0,
     generatedPages: volume.generatedPages || 0,
-    topPageIds: volumeItems.slice(0, 10).map((item) => item.pageId),
+    topPageIds: volumeNeedsCoverage.slice(0, 10).map((item) => item.pageId),
   };
 }
 
@@ -259,20 +294,24 @@ const payload = {
   totals: {
     sourceCompanionsAvailable: pageState.sourceCompanionPages || 0,
     sourceCompanionsQueued: sourceCompanionQueue.length,
+    sourceCompanionsCoveredByAuthoredPages: sourceCompanionsCoveredByAuthoredPages.length,
+    sourceCompanionsNeedingAuthoredCoverage: sourceCompanionsNeedingAuthoredCoverage.length,
     candidateReviewPages: candidateReviewQueue.length,
     queueStages: stageDefinitions.length,
-    topPriorityScore: sourceCompanionQueue.reduce((max, item) => Math.max(max, item.priorityScore || 0), 0),
+    topPriorityScore: sourceCompanionsNeedingAuthoredCoverage.reduce((max, item) => Math.max(max, item.priorityScore || 0), 0),
   },
   byStage,
   byTemplate,
   bySuggestedAction,
+  byCoverageState,
   byVolume,
-  nextAuthoringBatch: sourceCompanionQueue.slice(0, 25),
+  nextAuthoringBatch: sourceCompanionsNeedingAuthoredCoverage.slice(0, 25),
   sourceCompanionQueue,
   candidateReviewQueue,
   warnings: [
     "This plan is an authoring queue, not a publication approval.",
     "Source companions must remain out of public navigation until promoted into authored pages and reviewed.",
+    "nextAuthoringBatch excludes source companions already named in authored relatedGeneratedPages coverage.",
     "Candidate pages still need final source/operator/deploy review before the production site marks them published.",
   ],
 };
@@ -283,6 +322,7 @@ fs.writeFileSync(args.outJs, `window.SearchBookPublicationPlan = ${JSON.stringif
 console.log(JSON.stringify({
   planReady: payload.planReady,
   sourceCompanionsQueued: payload.totals.sourceCompanionsQueued,
+  sourceCompanionsNeedingAuthoredCoverage: payload.totals.sourceCompanionsNeedingAuthoredCoverage,
   candidateReviewPages: payload.totals.candidateReviewPages,
   stages: payload.totals.queueStages,
 }, null, 2));
