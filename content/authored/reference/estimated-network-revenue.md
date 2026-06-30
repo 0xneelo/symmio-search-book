@@ -3,7 +3,7 @@ id: "authored-estimated-network-revenue"
 title: "Estimated Network Revenue"
 section: "dashboard-reference"
 track: "Revenue"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["local-revenue-doc", "dashboard-revenue-doc", "server-pulse", "spec-03", "syn-203", "syn-166"]
 sourceUrls: ["docs/network-revenue.md", "src/dashboard/revenue-doc.jsx", "server/pulse.js", "_specs/app-docs/03-grounding.md", "Linear SYN-203", "Linear SYN-166"]
 relatedGeneratedPages: ["local-network-revenue", "local-revenue-pulse", "linear-phase-b-revenue", "linear-usd-counter"]

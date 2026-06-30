@@ -3,7 +3,7 @@ id: "authored-dashboard-route-inventory"
 title: "Dashboard Route Inventory"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-overview", "dashboard-codes", "dashboard-network", "dashboard-volume", "dashboard-tasks", "dashboard-faq", "dashboard-settings", "dashboard-revenue-doc", "server-pulse", "spec-03"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/overview.jsx", "src/dashboard/codes.jsx", "src/dashboard/network.jsx", "src/dashboard/volume.jsx", "src/dashboard/tasks.jsx", "src/dashboard/faq.jsx", "src/dashboard/settings.jsx", "src/dashboard/revenue-doc.jsx", "server/pulse.js", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["authored-dashboard-overview", "authored-dashboard-invites", "authored-dashboard-network", "authored-dashboard-volume", "authored-dashboard-tasks", "authored-dashboard-faq", "authored-dashboard-settings", "authored-estimated-network-revenue", "authored-dashboard-revenue-pulse", "local-dashboard-faq", "local-network-revenue"]

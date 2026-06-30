@@ -3,7 +3,7 @@ id: "authored-dashboard-revenue-pulse"
 title: "Dashboard Revenue Pulse"
 section: "dashboard-reference"
 track: "Revenue"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["server-pulse", "spec-03"]
 sourceUrls: ["server/pulse.js", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-revenue-pulse", "authored-estimated-network-revenue", "authored-dashboard-overview"]

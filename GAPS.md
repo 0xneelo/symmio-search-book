@@ -24,7 +24,7 @@ The repo now has `src/search-book/scripts/build-publication-plan.mjs` and genera
 
 The coverage-aware publication-plan pass now reports all `792/792` source companions covered by authored pages and `0` companions needing authored coverage. Source companions remain useful for retrieval and traceability, but the authoring queue no longer needs to promote them as standalone public pages.
 
-The candidate review queue now includes the remaining `619` candidate pages after the first `179` source/prose/route/current-source-reviewed pages moved to `published`. Its launch lanes are `0` final-review-ready pages, `619` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages.
+The candidate review queue now includes the remaining `607` candidate pages after the first `191` source/prose/route/current-source/operator-boundary-reviewed pages moved to `published`. Its launch lanes are `0` final-review-ready pages, `607` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages.
 
 **Needed:** Continue with the operator-review lane; promote approved pages to `published`, keep source companions out of public navigation, and keep the generated retrieval layer synchronized as sources change.
 

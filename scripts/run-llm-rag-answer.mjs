@@ -122,7 +122,6 @@ const riskRules = [
       /solver.*split/i,
       /lp profit/i,
       /venue-specific revenue/i,
-      /which revenue sources are live/i,
     ],
     message: "Phase B revenue components are out of scope for the v1 public answer.",
   },

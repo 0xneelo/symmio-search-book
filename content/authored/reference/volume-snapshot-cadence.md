@@ -3,7 +3,7 @@ id: "authored-volume-snapshot-cadence"
 title: "Volume Snapshot Cadence"
 section: "dashboard-reference"
 track: "Volume"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["server-volume", "server-volume-snapshots", "server-me", "dashboard-volume", "spec-03"]
 sourceUrls: ["server/volume.js", "server/volume-snapshots.js", "server/routes/me.js", "src/dashboard/volume.jsx", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-volume-source", "local-volume-snapshots", "local-network-depth"]

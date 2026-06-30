@@ -3,7 +3,7 @@ id: "authored-dashboard-overview"
 title: "Dashboard Overview"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-overview", "dashboard-revenue-doc", "server-pulse", "spec-03"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/overview.jsx", "src/dashboard/revenue-hero.jsx", "src/dashboard/revenue-doc.jsx", "server/pulse.js", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-network-revenue", "local-revenue-pulse", "local-dashboard-points-distinction"]

@@ -3,7 +3,7 @@ id: "authored-network-volume"
 title: "Network Volume"
 section: "dashboard-reference"
 track: "Volume"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["server-volume", "server-volume-snapshots", "server-me", "syn-200", "spec-03"]
 sourceUrls: ["server/volume.js", "server/volume-snapshots.js", "server/routes/me.js", "Linear SYN-200", "_specs/app-docs/03-grounding.md"]
 relatedGeneratedPages: ["local-volume-source", "local-volume-snapshots", "linear-subgraph-volume"]

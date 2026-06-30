@@ -3,7 +3,7 @@ id: "authored-discord-lafa-ingestion-boundary"
 title: "Discord Lafa Ingestion Boundary"
 section: "answer-engine"
 track: "Living Docs"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["discord-ingestion-contract", "spec-04", "spec-06", "spec-07"]
 sourceUrls: ["src/search-book/data/discord-corpus.json", "_specs/app-docs/04-sources.md", "_specs/app-docs/06-answer-engine.md", "_specs/app-docs/07-research-session.md"]
 relatedGeneratedPages: ["authored-dashboard-faq", "authored-search-insights-loop", "authored-volume-08-dashboard-faq-and-living-docs"]

@@ -3,7 +3,7 @@ id: "authored-volume-08-dashboard-faq-and-living-docs"
 title: "Volume 08: Dashboard, FAQ, And Living Docs"
 section: "compendium"
 track: "Volume 08"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-08-dashboard-faq-and-living-docs"
 sourceKeys: ["spec-03", "spec-06", "spec-09", "dashboard-app", "local-revenue-doc", "dashboard-revenue-doc"]
 sourceUrls: ["_specs/app-docs/03-grounding.md", "_specs/app-docs/06-answer-engine.md", "_specs/app-docs/09-design-reference.md", "src/dashboard/app.jsx", "docs/network-revenue.md", "src/dashboard/revenue-doc.jsx"]
@@ -33,7 +33,7 @@ Use the economics and points path for dashboard numbers: `authored-estimated-net
 
 Next read the FAQ and support boundary: `authored-dashboard-faq` and `authored-discord-lafa-ingestion-boundary`. The dashboard FAQ is a local seed, not the final community-support corpus. Discord and Lafa answers remain parked until export/API access, author identity, and public-use boundaries are supplied.
 
-Finish with `authored-search-insights-loop`. This is the living-docs operating model: questions route to pages, answers collect ratings, low-rated or unanswered questions become gaps, and editors use demand to deepen the compendium. It also names what production still needs beyond the static prototype: datastore, retention, moderation, service env, and deploy integration.
+Finish with `authored-search-insights-loop`. This is the living-docs operating model: questions route to pages, answers collect ratings, low-rated or unanswered questions become gaps, and editors use demand to deepen the compendium. The standalone service now proves SQLite persistence, retention controls, and gated moderation export locally; production still needs selected frontend/deploy wiring, service environment installation, reviewer operations, and source-import completion.
 
 ## Reader Implication
 
@@ -41,7 +41,7 @@ If you are using the dashboard, this volume should answer what each number means
 
 ## Publication Boundary
 
-Treat this volume as the compendium's dashboard and living-docs operating spine, not as proof that the public docs platform, Discord corpus, production datastore, or deployed answer-engine service is complete. V1 Phase A revenue, 15-level public referral depth, and current backend volume snapshots are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
+Treat this volume as the compendium's dashboard and living-docs operating spine, not as proof that the public docs platform, Discord corpus, production service environment, or deployed answer-engine route is complete. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, and the local SQLite-backed living-docs service boundary are publishable with their stated limits. Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, reviewer workflow, and final analytics/storage operations remain parked or implementation-review items before production launch.
 
 ## Sources
 

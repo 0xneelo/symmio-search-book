@@ -3,7 +3,7 @@ id: "authored-dashboard-faq"
 title: "Dashboard FAQ"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-faq", "dashboard-revenue-doc"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/faq.jsx", "src/dashboard/revenue-doc.jsx"]
 relatedGeneratedPages: ["local-dashboard-faq", "local-network-revenue"]
@@ -19,9 +19,9 @@ The FAQ covers why revenue is estimated, how network revenue is calculated, when
 
 This page should be treated as a seed FAQ, not the final Discord-seeded FAQ. It is useful because it shows actual support questions already encoded in product copy, but the broader docs still need community mining.
 
-## Open Gaps
+## Remaining Gap
 
-Operator inbox item `#2` blocks Discord/Lafa import. Operator inbox items `#1` and `#3` affect final revenue and referral-depth answers.
+Operator inbox item `#2` blocks Discord/Lafa import, so this page stays explicit that the current FAQ is a local seed. Revenue and referral-depth wording no longer need to be parked: Phase A revenue and 15-level additive referral depth are resolved for v1 public copy.
 
 ## Sources
 

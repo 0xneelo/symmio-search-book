@@ -3,7 +3,7 @@ id: "authored-dashboard-network"
 title: "Dashboard My Network"
 section: "dashboard-reference"
 track: "Dashboard Views"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 sourceKeys: ["dashboard-app", "dashboard-network", "server-me", "server-points", "dashboard-volume", "syn-118"]
 sourceUrls: ["src/dashboard/app.jsx", "src/dashboard/network.jsx", "server/routes/me.js", "server/points.js", "src/dashboard/volume.jsx", "Linear SYN-118"]
 relatedGeneratedPages: ["local-network-depth", "linear-network-depth-question", "local-dashboard-points-distinction"]

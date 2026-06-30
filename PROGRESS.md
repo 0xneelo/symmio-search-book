@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-06-30 — Volume 08 Dashboard Reference Operator-Review Batch
+
+- Promoted `12` Volume 08 dashboard/reference pages to `published`: Estimated Network Revenue, Network Volume, Volume Snapshot Cadence, Dashboard Volume, Dashboard Revenue Pulse, Dashboard My Network, Dashboard Overview, Dashboard FAQ, Dashboard Route Inventory, Discord Lafa Ingestion Boundary, Core Glossary, and Volume 08: Dashboard, FAQ, And Living Docs.
+- Cleared stale operator-review wording now resolved by SYN-212: Phase A revenue uses `networkVolume x platformFeeRate x referrerPlatformShare` with `0.05%` / `5 bps` and `30%` defaults, public referral depth is `15` levels, and backfill is additive.
+- Preserved parked production/source boundaries: Discord/Lafa answers remain unavailable until corpus import, production service env and deploy route remain parked, and Barometer/Goldsky endpoint mapping remains implementation-tracked.
+- Regenerated Search Book data so page-state counts now show `191` published pages, `607` candidate pages, `792` source companions, `798/798` exact routes, and `0` final/source/date/editorial review candidates remaining before the operator-review lane.
+
 ## 2026-06-30 — Vibe Publication-Date Verification Batch
 
 - Promoted the remaining `8` publication-date-review pages to `published`: Vibe Custody Path Security Boundary, Vibe Deposit Chain Support, Vibe Large Withdrawal Safety Window, Versioning Vibe Security Claims, Vibe Settlement Contract Audit Scope, Vibe Sherlock Audit Contest Reference, Vibe Token And Staking Audit Caveat, and Vibe Trade Panel Cost Breakdown.
