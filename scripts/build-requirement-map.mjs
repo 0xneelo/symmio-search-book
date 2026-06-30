@@ -544,7 +544,7 @@ const requirements = [
       ? `FINAL-REPORT.md exists and documents ${openInboxItems.length} open operator item(s).`
       : finalReportExists
         ? "FINAL-REPORT.md exists but does not document current status, verification evidence, remaining production work, and all open operator items."
-        : "No src/search-book/FINAL-REPORT.md exists yet.",
+        : "No FINAL-REPORT.md exists yet.",
     nextAction: finalReportDocumentsState
       ? "Keep FINAL-REPORT.md current when deploy/source blockers resolve or verification counts change."
       : "Write the final report only after deployed/preview state and parked source decisions are resolved or explicitly documented.",

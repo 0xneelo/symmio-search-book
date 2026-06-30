@@ -431,7 +431,7 @@ const payload = {
   storage: {
     ...storage,
     productionService: {
-      script: "src/search-book/scripts/serve-answer-engine.mjs",
+      script: "scripts/serve-answer-engine.mjs",
       adapter: "node:sqlite",
       defaultDbEnv: "SEARCH_BOOK_ANSWER_ENGINE_DB",
       defaultModeEnv: "SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE",
@@ -478,7 +478,7 @@ const payload = {
         : "Moderation export is not implemented in the service.",
       reviewerSummary: gapSummaryJobImplemented
         ? {
-            script: "src/search-book/scripts/summarize-living-docs-gaps.mjs",
+            script: "scripts/summarize-living-docs-gaps.mjs",
             defaultDbEnv: "SEARCH_BOOK_ANSWER_ENGINE_DB",
             formats: ["markdown", "json"],
             behavior: "Reads the SQLite datastore directly and emits an internal reviewer summary of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended actions.",
@@ -487,7 +487,7 @@ const payload = {
         : "Reviewer gap-summary job is not implemented yet.",
       reviewerWorkflow: reviewerWorkflowDocumented
         ? {
-            runbook: "src/search-book/LIVING-DOCS-OPERATIONS.md",
+            runbook: "LIVING-DOCS-OPERATIONS.md",
             cadence: ["daily review loop", "weekly summary cadence", "launch gate", "incident handling"],
             behavior: "Documents how reviewers inspect Search Insights, run SQLite summaries, use the gated moderation export, triage low-rated/unanswered/repeated questions, preserve privacy, and escalate source/operator blockers.",
             boundary: "The runbook documents operation; it does not deploy the service, install production credentials, assign owners, or import parked source families.",
@@ -495,7 +495,7 @@ const payload = {
         : "Reviewer operating runbook is not documented yet.",
       backupRestore: backupRestoreImplemented
         ? {
-            script: "src/search-book/scripts/backup-answer-engine-db.mjs",
+            script: "scripts/backup-answer-engine-db.mjs",
             packageScript: "npm run search-book:backup-db",
             defaultDbEnv: "SEARCH_BOOK_ANSWER_ENGINE_DB",
             behavior: "Creates a SQLite-consistent backup with VACUUM INTO, writes a manifest containing table counts and SHA-256, and can reopen the backup read-only for PRAGMA integrity_check plus table-count restore verification.",
@@ -503,7 +503,7 @@ const payload = {
           }
         : "SQLite backup/restore-check utility is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
-        ? "src/search-book/index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
+        ? "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
     },
   },

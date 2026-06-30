@@ -1457,7 +1457,7 @@
       ],
       "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights.",
       "productionService": {
-        "script": "src/search-book/scripts/serve-answer-engine.mjs",
+        "script": "scripts/serve-answer-engine.mjs",
         "adapter": "node:sqlite",
         "defaultDbEnv": "SEARCH_BOOK_ANSWER_ENGINE_DB",
         "defaultModeEnv": "SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE",
@@ -1504,7 +1504,7 @@
           "behavior": "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled."
         },
         "reviewerSummary": {
-          "script": "src/search-book/scripts/summarize-living-docs-gaps.mjs",
+          "script": "scripts/summarize-living-docs-gaps.mjs",
           "defaultDbEnv": "SEARCH_BOOK_ANSWER_ENGINE_DB",
           "formats": [
             "markdown",
@@ -1514,7 +1514,7 @@
           "privacy": "Output includes raw user questions and notes; do not publish it without an approved privacy review."
         },
         "reviewerWorkflow": {
-          "runbook": "src/search-book/LIVING-DOCS-OPERATIONS.md",
+          "runbook": "LIVING-DOCS-OPERATIONS.md",
           "cadence": [
             "daily review loop",
             "weekly summary cadence",
@@ -1525,13 +1525,13 @@
           "boundary": "The runbook documents operation; it does not deploy the service, install production credentials, assign owners, or import parked source families."
         },
         "backupRestore": {
-          "script": "src/search-book/scripts/backup-answer-engine-db.mjs",
+          "script": "scripts/backup-answer-engine-db.mjs",
           "packageScript": "npm run search-book:backup-db",
           "defaultDbEnv": "SEARCH_BOOK_ANSWER_ENGINE_DB",
           "behavior": "Creates a SQLite-consistent backup with VACUUM INTO, writes a manifest containing table counts and SHA-256, and can reopen the backup read-only for PRAGMA integrity_check plus table-count restore verification.",
           "boundary": "This provides an executable backup/restore-check path; production still needs a deployed persistent DB path, backup storage location, owner cadence, and retention/deletion approval."
         },
-        "frontendIntegration": "src/search-book/index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
+        "frontendIntegration": "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
       }
     },
     "schemas": {
