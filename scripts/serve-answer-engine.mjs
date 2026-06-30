@@ -472,21 +472,19 @@ async function findReusableAnswer(db, args) {
   );
   let best = null;
   for (const candidate of candidates) {
+    const cachedResponse = parseJsonColumn(candidate.answer_json, null);
+    if (!cachedResponse || cachedResponse.status !== "answered") continue;
     const score = cosineSimilarity(embedded.embedding, embeddingFromBlob(candidate.embedding));
-    if (!best || score > best.score) best = { candidate, score };
+    if (!best || score > best.score) best = { candidate, score, cachedResponse };
   }
   const threshold = reuseThreshold();
   if (!best || best.score < threshold) {
     return { response: null, meta: { status: "miss", bestScore: best?.score || 0, threshold } };
   }
-  const cachedResponse = parseJsonColumn(best.candidate.answer_json, null);
-  if (!cachedResponse || cachedResponse.status !== "answered") {
-    return { response: null, meta: { status: "skipped", reason: "cached-answer-invalid" } };
-  }
   const now = nowIso();
   db.prepare("UPDATE search_book_answer_cache SET helpful_count = helpful_count + 1, last_served_at = ?, updated_at = ? WHERE id = ?")
     .run(now, now, best.candidate.id);
-  const { degraded: _degraded, ...response } = cachedResponse;
+  const { degraded: _degraded, ...response } = best.cachedResponse;
   return {
     response: {
       ...response,
