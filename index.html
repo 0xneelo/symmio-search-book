@@ -2469,7 +2469,7 @@
       if (configuredParams.has("serviceMode")) localStorage.setItem(storageKeys.serviceMode, configuredServiceMode);
       const serviceState = {
         url: (configuredServiceUrl || localStorage.getItem(storageKeys.serviceUrl) || "").replace(/\/+$/u, ""),
-        mode: configuredServiceMode || localStorage.getItem(storageKeys.serviceMode) || "",
+        mode: configuredServiceMode || localStorage.getItem(storageKeys.serviceMode) || "llm",
         insights: null,
         online: false,
         lastError: "",
@@ -3002,7 +3002,15 @@
           const meta = isAnswered
             ? `service answer / ${escapeHtml(response.confidence || "grounded")}`
             : `service refusal / ${escapeHtml(response.refusalReason || response.status || "not answered")}`;
+          const degradedBanner = response.degraded
+            ? `<div class="meta" style="color:var(--accent,#e879f9);font-weight:600;">${escapeHtml(
+                response.degraded.reason === "rate-limited"
+                  ? "⚡ Limited mode — you've reached your question limit. I can only answer from saved questions right now. Try one of the examples below."
+                  : "⚡ Limited mode — the live answer engine is unavailable. I can only answer from saved questions right now. Try one of the examples below."
+              )}</div>`
+            : "";
           box.innerHTML = `
+            ${degradedBanner}
             <div class="meta">${meta}</div>
             <h3>${escapeHtml(title)}</h3>
             ${
