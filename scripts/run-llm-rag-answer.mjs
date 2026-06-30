@@ -855,22 +855,32 @@ function buildAnswerGuidance(context) {
       group.queryPattern.test(normalizedQuery),
     )
     .flatMap((group) => group.phrases);
+  const disallowedPhrasesToAvoid = [];
   if (contextPageIds.has("authored-vibe-add-token-info") || /add token info/i.test(context.query || "")) {
     phraseCandidates.push("banner", "logo", "description", "website", "social links", "X feed", "USDC", "transaction hash");
+    disallowedPhrasesToAvoid.push("static fee amount", "static treasury address", "guessed payment chain");
   }
   const normalizedGuidanceText = guidanceText.toLowerCase();
   return {
     exactRouteNotes: context.exactRoute?.notes || "",
     glossaryDefinition: context.glossaryRoute?.definition || "",
     requiredPhrasesToPreserve: phraseCandidates.filter((phrase) => normalizedGuidanceText.includes(phrase.toLowerCase())),
+    disallowedPhrasesToAvoid,
   };
 }
 
 function collectAnswerGuidanceFailures(response, context) {
-  const requiredPhrases = buildAnswerGuidance(context).requiredPhrasesToPreserve || [];
-  return requiredPhrases
+  const guidance = buildAnswerGuidance(context);
+  const answer = String(response.answer || "");
+  const requiredPhrases = guidance.requiredPhrasesToPreserve || [];
+  const disallowedPhrases = guidance.disallowedPhrasesToAvoid || [];
+  const requiredFailures = requiredPhrases
     .filter((phrase) => !String(response.answer || "").includes(phrase))
     .map((phrase) => validationFailure("answer-required-phrase-missing", `answer missing required phrase: ${phrase}`));
+  const disallowedFailures = disallowedPhrases
+    .filter((phrase) => answer.toLowerCase().includes(phrase.toLowerCase()))
+    .map((phrase) => validationFailure("answer-disallowed-phrase-present", `answer included disallowed phrase: ${phrase}`));
+  return [...requiredFailures, ...disallowedFailures];
 }
 
 function citationMarkerForResponse(response) {
@@ -907,6 +917,37 @@ function ensureRequiredPhrases(response, context) {
   };
 }
 
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function replacePhraseCaseInsensitive(value, phrase, replacement) {
+  return String(value || "").replace(new RegExp(escapeRegExp(phrase), "gi"), replacement);
+}
+
+function ensureDisallowedPhrasesAbsent(response, context) {
+  const disallowedPhrases = buildAnswerGuidance(context).disallowedPhrasesToAvoid || [];
+  if (!disallowedPhrases.length || !response.answer) return response;
+  const replacements = {
+    "static fee amount": "fixed fee number",
+    "static treasury address": "fixed treasury address",
+    "guessed payment chain": "unsupported payment chain",
+  };
+  const answer = disallowedPhrases.reduce(
+    (current, phrase) => replacePhraseCaseInsensitive(current, phrase, replacements[phrase] || "unsupported payment detail"),
+    response.answer,
+  );
+  if (answer === response.answer) return response;
+  return {
+    ...response,
+    answer,
+  };
+}
+
+function applyAnswerGuidance(response, context) {
+  return ensureDisallowedPhrasesAbsent(ensureRequiredPhrases(response, context), context);
+}
+
 function buildLlmMessages(args, runtime, context, validationFeedback = []) {
   const chunks = contextForPrompt(context, runtime);
   const validPageIds = unique(context.chunks.map((chunk) => chunk.pageId));
@@ -929,6 +970,8 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         "Every substantive sentence must be grounded in supplied chunks; do not use latent knowledge.",
         "If answerGuidance.requiredPhrasesToPreserve is non-empty, every phrase in that array MUST appear verbatim in the answer text; do not replace it with synonyms or expanded wording.",
         "Before finalizing an answered response, scan answerGuidance.requiredPhrasesToPreserve and add a concise grounded sentence if any required phrase is absent.",
+        "If answerGuidance.disallowedPhrasesToAvoid is non-empty, none of those phrases may appear verbatim in the answer text, even when explaining a boundary.",
+        "For Add Token Info payment boundaries, say to use current in-app payment details instead of repeating disallowed static-payment phrases.",
         "If validation feedback is supplied, fix those exact contract errors and do not introduce new ids.",
       ].join(" "),
     },
@@ -957,6 +1000,7 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         glossaryRoute: context.glossaryRoute,
         answerGuidance: buildAnswerGuidance(context),
         requiredPhraseRule: "If answerGuidance.requiredPhrasesToPreserve is non-empty, the answer is invalid unless every listed phrase appears verbatim.",
+        prohibitedPhraseRule: "If answerGuidance.disallowedPhrasesToAvoid is non-empty, the answer is invalid if any listed phrase appears verbatim.",
         candidatePages: context.candidatePages,
         workedExample: buildWorkedExample(context, runtime),
         validationFeedback,
@@ -1100,6 +1144,10 @@ function formatValidationFeedback(error, response, context) {
   if (requiredPhrases.length) {
     feedback.push(`Copy these required phrases verbatim into answer: ${JSON.stringify(requiredPhrases)}.`);
   }
+  const disallowedPhrases = buildAnswerGuidance(context).disallowedPhrasesToAvoid || [];
+  if (disallowedPhrases.some((phrase) => String(response?.answer || "").toLowerCase().includes(phrase.toLowerCase()))) {
+    feedback.push(`Remove these disallowed phrases from answer text: ${JSON.stringify(disallowedPhrases)}.`);
+  }
   if (!feedback.length) feedback.push(error.message);
   return unique(feedback).slice(0, 12);
 }
@@ -1129,7 +1177,7 @@ async function llmAnswer(args, runtime, context) {
     try {
       answer = extractJsonObject(content);
       const validated = validateResponseOrThrow(answer, context, runtime);
-      const phraseRepaired = ensureRequiredPhrases(validated, context);
+      const phraseRepaired = applyAnswerGuidance(validated, context);
       const guidanceFailures = collectAnswerGuidanceFailures(phraseRepaired, context);
       if (guidanceFailures.length) throw new AnswerValidationError(guidanceFailures);
       return attachLlmUsage(phraseRepaired, usageRecords, {

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — SYN-215 Live RAG Add Token Info Boundary Refresh
+
+- Tightened `run-llm-rag-answer.mjs` answer guidance so Add Token Info responses avoid repeating prohibited static-payment boundary phrases while preserving the strict citation validator and exact source-grounded answer contract.
+- Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,036` input tokens, `590` output tokens, and `$0.00110940`; bootstrap trilemma used `4,972` input tokens, `839` output tokens, and `$0.00124920`.
+- Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `85,068` input tokens, `7,930` output tokens, and `$0.01751820`.
+
 ## 2026-06-30 — Vibe Market-Creation And Referral Guide Operator-Review Batch
 
 - Promoted `12` official-source Vibe product and rewards pages to `published`: Vibe Add Token Info, Vibe Fees And Funding, Vibe Project Audit And Exit Rights, Vibe Project Listing Terms, Vibe Project Profit-Share Boundary, Vibe Project Solver Profit Sources, Vibe Project Supply Loan Flow, Vibe Project Token Custody Boundary, Vibe Rakeback And Trading Fees, Vibe Referral Code Flow, Vibe Referral Commission Program, and Vibe System Visualization.
