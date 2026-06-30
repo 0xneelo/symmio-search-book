@@ -3,7 +3,7 @@ id: "authored-solver-sustainability-condition"
 title: "The Solver Sustainability Condition"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"]
@@ -30,7 +30,7 @@ The source points to a practical set of requirements:
 
 This is where the answer engine should be careful. Users may ask whether Vibe "has liquidity." A better answer is: liquidity depends on solver pricing, token inventory, netting state, hedge availability, market maturity, and the defense stack. Liquidity is a maintained condition, not a static line item.
 
-## Publication Note
+## Publication Boundary
 
 Live solver profitability, hedge venues, USDC funding policy, quote limits, and refusal criteria remain implementation and operator-review items. The publishable principle is that solver economics must be sustainable for the market to remain open.
 

@@ -3,7 +3,7 @@ id: "authored-thumbs-down-market-position"
 title: "The Thumbs Down Is A Market Position"
 section: "manifesto"
 track: "14 - Information and Trade Convergence"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/14-information-trade-convergence/14-docs/08-the-thumbs-down"]
@@ -23,6 +23,10 @@ This page should stay product-careful. The source uses weapon language. Public d
 ## Reader Implication
 
 If readers ask what the Thumbs Down actually is, the answer is not "a dislike button." It is Vibe's framing for financialized negative conviction in the tokenized economy.
+
+## Publication Boundary
+
+Do not publish exact UI state, eligible assets, leverage, borrow mechanics, liquidation behavior, user-risk disclosures, or launch availability from this page until product, legal, and risk review approve the production wording. The source-backed claim is the thesis of financialized negative conviction.
 
 ## Sources
 

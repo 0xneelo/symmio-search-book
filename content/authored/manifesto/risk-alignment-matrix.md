@@ -3,7 +3,7 @@ id: "authored-risk-alignment-matrix"
 title: "The Risk Alignment Matrix"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/02-framework", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/05-economic-clarity"]
@@ -26,7 +26,7 @@ If a long and a short are netted, the answer is trader-to-trader. If the market 
 
 The docs should therefore distinguish inventory risk, settlement risk, hedge execution risk, trader PnL risk, and emergency loss allocation. Vibe's thesis is stronger when these are named separately. The system is not risk-free; it is trying to assign each risk to a more natural bearer.
 
-## Publication Note
+## Publication Boundary
 
 Exact vault terms, solver funding policy, insurance eligibility, revenue share, and ADL allocation remain operator-review items. This page documents the source-backed risk-allocation framework, not final production parameters.
 

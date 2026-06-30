@@ -3,7 +3,7 @@ id: "authored-solver-funded-usdc-capital-loop"
 title: "Solver-Funded USDC Is A Capital Loop"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/03-lp-value-proposition", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/06-comparative-advantage"]
@@ -26,7 +26,7 @@ Token inventory helps a market exist. Stablecoin settlement capital helps the tr
 
 The compendium should teach this as capital structure, not marketing. Solver-funded USDC is credible only if readers can see what the solver funds, what it hedges, when token inventory is used, and where tail risk goes.
 
-## Publication Note
+## Publication Boundary
 
 The source includes strong comparative claims about capital efficiency and USDC LP yield demand. Use them as source-model evidence until operator-approved public economics, vault terms, and accounting language are finalized.
 

@@ -3,7 +3,7 @@ id: "authored-protocol-owned-solver-public-option"
 title: "Protocol-Owned Solver As Public Option"
 section: "manifesto"
 track: "05 - Proof Of Value"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/06-hybrid-solver-model"]

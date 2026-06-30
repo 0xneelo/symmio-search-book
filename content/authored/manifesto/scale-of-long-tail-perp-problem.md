@@ -3,7 +3,7 @@ id: "authored-scale-of-long-tail-perp-problem"
 title: "The Scale Of The Long-Tail Perp Problem"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/01-introduction#1-3-the-scale-of-the-problem"]

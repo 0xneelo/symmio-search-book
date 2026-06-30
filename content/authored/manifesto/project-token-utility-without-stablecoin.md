@@ -3,7 +3,7 @@ id: "authored-project-token-utility-without-stablecoin"
 title: "Projects Need Token Utility Without Stablecoin Drag"
 section: "manifesto"
 track: "13 — Proof of Value Framework"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/04-trader-and-project-value", "https://0xneelo.github.io/vibe_docs/docs/13-framework-value-permissionless-perps/13-docs/07-validation-and-sustainability"]
@@ -24,7 +24,7 @@ This is why project value and trader value have to be documented together. More 
 
 The loop only works if it is real. If token deposits do not lead to useful execution, projects have only locked inventory. If trader demand does not produce real fees, revenue-share claims are cosmetic. If risk terms are vague, sophisticated projects will discount the entire offer.
 
-## Publication Note
+## Publication Boundary
 
 The source includes example revenue-share and partner-traction claims. Keep those as source-model context until the operator confirms current public revenue terms, partner-count language, and what can be disclosed.
 

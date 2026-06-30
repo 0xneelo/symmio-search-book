@@ -3,7 +3,7 @@ id: "authored-small-market-wedge-strategy"
 title: "The Small-Market Wedge Strategy"
 section: "manifesto"
 track: "01 - Perps Categories & Bootstrap Trilemma"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/10-thiel-monopoly-analysis", "https://0xneelo.github.io/vibe_docs/docs/01-perp-classes-zscore/01-docs/08-competitive-analysis"]
@@ -23,6 +23,10 @@ This is a strategy page, not a monopoly guarantee. The source's Thiel framing is
 ## Reader Implication
 
 Readers should stop comparing Vibe only to mature perp venues. The initial question is whether Vibe can dominate the underserved market for early derivative creation. If it can, the later integrations and data products become more plausible.
+
+## Publication Boundary
+
+Do not publish current dominance, market-share, competitor displacement, expansion timing, data-product economics, or monopoly guarantees from this page without fresh primary-source and operator review. The public claim is the wedge strategy, not proof that the wedge has already been won.
 
 ## Sources
 

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 02 Proof-Of-Value Market-Structure Batch
+
+- Promoted `10` Volume 02 Proof-of-Value manifesto pages to `published`: Projects Need Token Utility Without Stablecoin Drag, Liquidity Is Two Jobs Not One, Protocol-Owned Solver As Public Option, The Risk Alignment Matrix, The Scale Of The Long-Tail Perp Problem, The Small-Market Wedge Strategy, Solver-Funded USDC Is A Capital Loop, Solver Refusal As Oracle Defense, The Solver Sustainability Condition, and The Thumbs Down Is A Market Position.
+- Added or normalized publication boundaries for current revenue/share terms, partner-count and traction language, live solver deployment model, token-vault rights, reserve and loss-ordering semantics, current market counts and ratios, USDC LP economics, live solver profitability, hedge venues, refusal criteria, exact UI, eligible assets, leverage, borrow mechanics, legal/risk/accounting-sensitive disclosures, and unsupported product guarantees.
+- Regenerated Search Book data so page-state counts now show `408` published pages, `390` candidate pages, `792` source companions, `798/798` exact routes, `2,868` chunks, `17` Volume 02 candidates remaining, and `210` manifesto candidates remaining.
+
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 02 Batch
 
 - Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure. No validator weakening or runtime logic change was needed.

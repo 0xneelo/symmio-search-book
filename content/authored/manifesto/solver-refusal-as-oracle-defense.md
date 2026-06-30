@@ -3,7 +3,7 @@ id: "authored-solver-refusal-as-oracle-defense"
 title: "Solver Refusal As Oracle Defense"
 section: "manifesto"
 track: "05 - Proof Of Value"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-02-bootstrap-and-proof-of-value"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/02-proof-of-value/02-docs/05-intent-based-architecture"]
@@ -21,6 +21,10 @@ This is one of the clearest differences between a passive AMM-style execution su
 ## Reader Implication
 
 Traders should understand that refusal can be a safety feature, not only a UX failure. LPs and solvers should read refusal as part of the risk system: if a market cannot be priced honestly, forcing execution can be worse than waiting.
+
+## Publication Boundary
+
+Do not publish exact live refusal criteria, quote thresholds, oracle-policy parameters, supported-market lists, or solver obligations from this page until implementation, risk, and operator review approve the production wording. The public claim is that solver discretion can be a defense layer, not that every refusal path is finalized.
 
 ## Sources
 
