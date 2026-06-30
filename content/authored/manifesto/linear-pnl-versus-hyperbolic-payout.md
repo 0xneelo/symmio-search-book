@@ -3,7 +3,7 @@ id: "authored-linear-pnl-versus-hyperbolic-payout"
 title: "Linear PnL Versus Hyperbolic Payout"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"]
@@ -27,6 +27,10 @@ The inverse curve turns those questions into a moving target. The worse the toke
 ## Reader Implication
 
 When a reader asks why inverse payoff is a structural problem, route here. The issue is not only price volatility; it is the payout shape. Linear USDC PnL makes the liability legible enough for active risk controls to operate.
+
+## Publication Boundary
+
+The arithmetic here is source-level explanatory math, not a published live margin formula, liquidation rule, leverage offer, payout guarantee, or risk recommendation. Current contract formulas and venue terms require implementation, risk, legal, and operator review before user-facing publication.
 
 ## Sources
 

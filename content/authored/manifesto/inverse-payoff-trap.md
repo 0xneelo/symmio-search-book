@@ -3,7 +3,7 @@ id: "authored-inverse-payoff-trap"
 title: "The Inverse Payoff Trap"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/03-reflexivity-and-convexity"]
@@ -31,6 +31,10 @@ That distinction is one reason Vibe's source corpus treats settlement unit as ar
 ## Reader Implication
 
 The compendium should not describe token-margined risk only as "same asset collateral." The deeper problem is that token liabilities can expand in the unit that is failing. That is why linear settlement matters for payout credibility in long-tail markets.
+
+## Publication Boundary
+
+This page explains the source's payoff-shape argument and illustrative arithmetic. It does not publish final liquidation rules, leverage schedules, settlement guarantees, haircut rules, tax/accounting treatment, or user-facing risk advice for any live market without separate product, risk, legal, and operator review.
 
 ## Sources
 

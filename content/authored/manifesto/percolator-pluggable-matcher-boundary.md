@@ -3,7 +3,7 @@ id: "authored-percolator-pluggable-matcher-boundary"
 title: "Percolator Pluggable Matcher Boundary"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"]
@@ -25,6 +25,10 @@ The point is not to deny Percolator's flexibility. The point is to locate it. Pl
 ## Reader Implication
 
 When a reader asks whether Percolator is technically rigid, route here. The source-backed answer is no: the matcher layer is modular. The follow-up is that modular execution still inherits the economic model underneath it.
+
+## Publication Boundary
+
+Live matcher implementations, allowed matcher actions, LP delegation rules, program upgrade state, and security guarantees require primary-source, implementation, and security review before publication as current facts. This page preserves the source's pluggability claim and the source-bounded critique.
 
 ## Sources
 

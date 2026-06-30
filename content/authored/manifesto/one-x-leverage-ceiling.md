@@ -3,7 +3,7 @@ id: "authored-one-x-leverage-ceiling"
 title: "The 1x Leverage Ceiling"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/04-lp-economics-and-leverage"]
@@ -29,6 +29,10 @@ Fees and funding do not remove the leverage ceiling if they are also token-denom
 ## Reader Implication
 
 When a reader asks whether token-margined systems can scale long-tail leverage, the answer should focus on collateral-to-OI safety, not only headline listing count. A market that must stay near 1x collateralization is closer to spot with extra liquidation and oracle risk than to a robust leveraged venue.
+
+## Publication Boundary
+
+Exact leverage ceilings, collateral multipliers, OI caps, utilization thresholds, and live market risk limits require fresh primary-source and operator/risk review before publication as current production facts. This page explains the source's capital-efficiency constraint without promising any Vibe or Percolator live setting.
 
 ## Sources
 

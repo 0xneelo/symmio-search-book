@@ -3,7 +3,7 @@ id: "authored-oracle-reference-solver-quote-layer"
 title: "Oracle Reference, Solver Quote Layer"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/08-structurally-superior-alternative"]
@@ -27,6 +27,10 @@ The tradeoff is transparency and policy. Docs must explain when quotes can disap
 ## Reader Implication
 
 When a trader asks why a quote can be refused even though an oracle price exists, route here. The answer is that the oracle is a reference input, not a promise that every requested trade is safe to execute at that price.
+
+## Publication Boundary
+
+Current oracle providers, price bands, solver quote obligations, refusal policy, latency budgets, and execution guarantees require implementation/operator/security/risk review before publication as live Vibe behavior. This page publishes the source's design contrast only.
 
 ## Sources
 

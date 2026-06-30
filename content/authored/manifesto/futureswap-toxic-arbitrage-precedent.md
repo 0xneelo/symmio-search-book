@@ -3,7 +3,7 @@ id: "authored-futureswap-toxic-arbitrage-precedent"
 title: "Futureswap Toxic Arbitrage Precedent"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"]
@@ -27,6 +27,10 @@ The general rule is brutal for low-cap perps. The thinner and more volatile the 
 ## Reader Implication
 
 When a reader asks whether oracle latency is theoretical, route here. The source's historical claim is that toxic arbitrage has already punished passive or lagging designs; the docs should not present latency as a parameter that can be tuned away without economic evidence.
+
+## Publication Boundary
+
+Futureswap protocol history, loss amounts, oracle mechanics, and causal failure analysis require source refresh before being published as current comparative facts. This page preserves Neelo's cited precedent and the economic lesson; it does not assert live Percolator, Vibe, or Futureswap market behavior.
 
 ## Sources
 

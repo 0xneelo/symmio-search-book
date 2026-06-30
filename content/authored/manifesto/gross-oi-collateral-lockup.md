@@ -3,7 +3,7 @@ id: "authored-gross-oi-collateral-lockup"
 title: "Gross OI Collateral Lockup"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"]
@@ -25,6 +25,10 @@ Long-tail perp systems need breadth. If every market makes LP capital stay locke
 ## Reader Implication
 
 When a reader asks why "hedged" does not automatically mean "capital efficient," route here. A venue can reduce directional exposure and still consume too much balance sheet if collateral release follows gross obligations rather than net economic risk.
+
+## Publication Boundary
+
+Live collateral ratios, netting rules, slab capacity, leverage limits, and capital-efficiency comparisons require implementation, risk, and operator review before publication as current production parameters. This page keeps the source-level accounting thesis separate from live Percolator or Vibe solvency claims.
 
 ## Sources
 

@@ -3,7 +3,7 @@ id: "authored-inverse-product-retreat-precedent"
 title: "Inverse Product Retreat Precedent"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"]
@@ -27,6 +27,10 @@ This does not prove every inverse product is useless. It proves that documentati
 ## Reader Implication
 
 When a reader asks why Vibe's stable settlement layer is not just conservative UX, route here. The historical pattern says the industry repeatedly moves toward stable settlement, active risk management, or hard limits when inverse liabilities become too expensive to honor cleanly.
+
+## Publication Boundary
+
+Venue product histories, exact delisting timelines, active inverse-market availability, and current liquidity/depth comparisons require fresh venue-source review before publication as current facts. This page preserves the source's historical pattern and does not claim all inverse products are obsolete or unsupported.
 
 ## Sources
 

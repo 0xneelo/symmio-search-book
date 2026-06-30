@@ -3,7 +3,7 @@ id: "authored-industry-migration-stable-settlement"
 title: "Industry Migration Toward Stable Settlement"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/10-conclusion"]
@@ -25,6 +25,10 @@ Vibe's architecture aligns with that direction by making settlement linear, keep
 ## Reader Implication
 
 When a reader asks whether Vibe is over-engineering by avoiding inverse token settlement, route here. The historical pattern says stable settlement and active risk controls are not extra caution; they are where derivatives systems tend to move after inverse stress teaches the lesson.
+
+## Publication Boundary
+
+Current exchange product mix, venue-specific inverse contract support, market-share numbers, and migration timelines require fresh primary-source checks before publication as current industry facts. This page uses the source to explain the structural reason stable settlement is favored, not to rank live venues.
 
 ## Sources
 

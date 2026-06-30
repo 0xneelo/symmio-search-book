@@ -3,7 +3,7 @@ id: "authored-jit-liquidity-duration-mismatch"
 title: "JIT Liquidity Duration Mismatch"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/06-capital-and-historical"]
@@ -27,6 +27,10 @@ This is why "JIT liquidity exists" is not enough. The important question is whet
 ## Reader Implication
 
 When docs compare passive on-chain slabs to RFQ or intent systems, do not collapse them into "both can source liquidity on demand." The decisive distinction is how long capital stays committed after demand appears.
+
+## Publication Boundary
+
+Current matcher implementation, LP lockup duration, quote expiration rules, solver obligations, cancellation rights, and capital-commitment guarantees require implementation/operator review before publication as live product behavior. This page preserves the source comparison at the architecture level.
 
 ## Sources
 

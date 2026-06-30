@@ -3,7 +3,7 @@ id: "authored-percolator-clean-trust-boundaries"
 title: "Percolator Clean Trust Boundaries"
 section: "manifesto"
 track: "07 - Token-Margined Issues (Percolator)"
-status: "publication-candidate-needs-operator-review"
+status: "published"
 volumeId: "volume-04-token-margin-and-funding-systems"
 sourceKeys: ["vibe-papers"]
 sourceUrls: ["https://0xneelo.github.io/vibe_docs/docs/07-token-margined-issues-perculator/07-docs/07-percolator-strengths"]
@@ -25,6 +25,10 @@ A trust boundary says which component is allowed to do what. A risk boundary say
 ## Reader Implication
 
 When docs describe architecture quality, separate module isolation from risk localization. Clean components are necessary for credible infrastructure, but they do not prove that volatile-asset liabilities are safely assigned.
+
+## Publication Boundary
+
+Current Percolator component boundaries, matcher permissions, program audit status, deployed configuration, and Vibe comparative guarantees require source refresh and operator/security review before publication as live facts. This page preserves the source's architecture-quality distinction.
 
 ## Sources
 

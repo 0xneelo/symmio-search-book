@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-06-30 — Volume 04 Percolator Risk Foundations Batch
+
+- Promoted `18` Volume 04 Percolator/token-margined manifesto pages to `published`: Futureswap Toxic Arbitrage Precedent, Gross OI Collateral Lockup, Industry Migration Toward Stable Settlement, The Inverse Payoff Trap, Inverse Product Retreat Precedent, Inverted Market Mode Semantics, JIT Liquidity Duration Mismatch, Linear PnL Versus Hyperbolic Payout, The 1x Leverage Ceiling, Oracle Reference Solver Quote Layer, Passive Matcher Vulnerability, Percolator Balance-Sheet Safety Invariant, Percolator Clean Trust Boundaries, Percolator Dissertation Source Map, Percolator Formal Verification Boundary, Percolator Hybrid Risk And Execution Model, Percolator One-Market-One-Slab Accounting, and Percolator Pluggable Matcher Boundary.
+- Added or normalized publication boundaries for live Percolator/SOV parameters, deployed-program status, oracle/matcher behavior, market/liquidity claims, inverse-settlement math, toxic-arbitrage precedent, token payout guarantees, formal-verification guarantees, and risk/legal/security-sensitive claims.
+- Regenerated Search Book data so page-state counts now show `578` published pages, `220` candidate pages, `792` source companions, `798/798` exact routes, `2,870` chunks, `28` Volume 04 candidates remaining, `17` Percolator/token-margined-issues candidates remaining, and `40` manifesto candidates remaining.
+
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 04 USDC Batch
 
 - Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
