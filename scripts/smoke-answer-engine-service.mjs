@@ -13,6 +13,13 @@ const summaryScript = path.join(__dirname, "summarize-living-docs-gaps.mjs");
 const host = "127.0.0.1";
 const moderationToken = "search-book-smoke-token";
 const dbPath = path.join(os.tmpdir(), `search-book-answer-engine-smoke-${process.pid}-${Date.now()}.sqlite`);
+const emptyLlmEnv = {
+  SEARCH_BOOK_LLM_API_STYLE: "",
+  SEARCH_BOOK_LLM_ENDPOINT: "",
+  SEARCH_BOOK_LLM_MODEL: "",
+  SEARCH_BOOK_LLM_API_KEY: "",
+  SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT: "",
+};
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -37,6 +44,32 @@ function getFreePort() {
       server.close(() => resolve(port));
     });
   });
+}
+
+async function startService(extraEnv, logs) {
+  const port = await getFreePort();
+  assert(port, "could not allocate a local port for service smoke test.");
+  const baseUrl = `http://${host}:${port}`;
+  const child = spawn(process.execPath, [serviceScript], {
+    stdio: ["ignore", "pipe", "pipe"],
+    env: {
+      ...process.env,
+      ...emptyLlmEnv,
+      SEARCH_BOOK_ANSWER_ENGINE_HOST: host,
+      SEARCH_BOOK_ANSWER_ENGINE_PORT: String(port),
+      ...extraEnv,
+    },
+  });
+  child.stdout.setEncoding("utf8");
+  child.stderr.setEncoding("utf8");
+  child.stdout.on("data", (chunk) => {
+    logs.stdout += chunk;
+  });
+  child.stderr.on("data", (chunk) => {
+    logs.stderr += chunk;
+  });
+  await waitForHealth(baseUrl, child, logs);
+  return { child, baseUrl };
 }
 
 async function requestJson(baseUrl, pathname, options = {}) {
@@ -104,6 +137,7 @@ async function main() {
     stdio: ["ignore", "pipe", "pipe"],
     env: {
       ...process.env,
+      ...emptyLlmEnv,
       SEARCH_BOOK_ANSWER_ENGINE_HOST: host,
       SEARCH_BOOK_ANSWER_ENGINE_PORT: String(port),
       SEARCH_BOOK_ANSWER_ENGINE_DB: dbPath,
@@ -195,6 +229,91 @@ async function main() {
     assert((summary.queues?.lowRatedAnswers || []).length >= 1, "living-docs summary did not include low-rated answers.");
     assert((summary.recommendations || []).length >= 1, "living-docs summary did not include reviewer recommendations.");
 
+    const degraded = await requestJson(baseUrl, "/api/search-book/answer", {
+      method: "POST",
+      body: JSON.stringify({
+        requestId: "smoke-degrade-llm-unavailable",
+        query: "What is Vibe Trading?",
+        source: "service-smoke",
+        mode: "llm",
+      }),
+    });
+    assert(degraded.statusCode === 200, `degrade answer returned ${degraded.statusCode}.`);
+    assert(degraded.payload.status === "answered", `degrade status was ${degraded.payload.status}, expected answered.`);
+    assert(
+      degraded.payload.degraded?.reason === "llm-unavailable",
+      `degrade reason was ${JSON.stringify(degraded.payload.degraded)}, expected llm-unavailable.`,
+    );
+    assert(Array.isArray(degraded.payload.citations) && degraded.payload.citations.length > 0, "degraded answer did not include citations.");
+
+    const guardrail = await requestJson(baseUrl, "/api/search-book/answer", {
+      method: "POST",
+      body: JSON.stringify({
+        requestId: "smoke-guardrail-lafa",
+        query: "who is lafachief",
+        source: "service-smoke",
+        mode: "llm",
+      }),
+    });
+    assert(guardrail.statusCode === 200, `guardrail answer returned ${guardrail.statusCode}.`);
+    assert(
+      guardrail.payload.status === "operator-blocked-refusal",
+      `guardrail status was ${guardrail.payload.status}, expected operator-blocked-refusal.`,
+    );
+    assert(guardrail.payload.refusalReason === "source-family-missing", `guardrail refusalReason was ${guardrail.payload.refusalReason}.`);
+    assert(!guardrail.payload.degraded, "guardrail refusal must not be tagged degraded.");
+
+    const rlLogs = { stdout: "", stderr: "" };
+    const rlDbPath = `${dbPath}.ratelimit`;
+    const rl = await startService({
+      SEARCH_BOOK_ANSWER_ENGINE_DB: rlDbPath,
+      SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE: "1",
+    }, rlLogs);
+    let rateLimitedLlmReason = "";
+    let rateLimitedExtractiveStatusCode = 0;
+    try {
+      const first = await requestJson(rl.baseUrl, "/api/search-book/answer", {
+        method: "POST",
+        body: JSON.stringify({
+          requestId: "smoke-rl-1",
+          query: "What is Vibe Trading?",
+          source: "service-smoke",
+          mode: "llm",
+        }),
+      });
+      assert(first.statusCode === 200, `rate-limit first request returned ${first.statusCode}.`);
+      const second = await requestJson(rl.baseUrl, "/api/search-book/answer", {
+        method: "POST",
+        body: JSON.stringify({
+          requestId: "smoke-rl-2",
+          query: "How is my revenue calculated?",
+          source: "service-smoke",
+          mode: "llm",
+        }),
+      });
+      assert(second.statusCode === 200, `rate-limit second request returned ${second.statusCode}, expected 200 (degraded, not 429).`);
+      assert(
+        second.payload.degraded?.reason === "rate-limited",
+        `second request degraded reason was ${JSON.stringify(second.payload.degraded)}, expected rate-limited.`,
+      );
+      rateLimitedLlmReason = second.payload.degraded.reason;
+      const extractiveLimited = await requestJson(rl.baseUrl, "/api/search-book/answer", {
+        method: "POST",
+        body: JSON.stringify({
+          requestId: "smoke-rl-extractive",
+          query: "What is Vibe Trading?",
+          source: "service-smoke",
+          mode: "extractive",
+        }),
+      });
+      assert(extractiveLimited.statusCode === 429, `rate-limited extractive request returned ${extractiveLimited.statusCode}, expected 429.`);
+      assert(extractiveLimited.payload.status === "rate-limited", `rate-limited extractive status was ${extractiveLimited.payload.status}.`);
+      rateLimitedExtractiveStatusCode = extractiveLimited.statusCode;
+    } finally {
+      await stopChild(rl.child);
+      for (const suffix of ["", "-shm", "-wal"]) fs.rmSync(`${rlDbPath}${suffix}`, { force: true });
+    }
+
     console.log(JSON.stringify({
       status: "passed",
       service: "search-book-answer-engine",
@@ -212,6 +331,13 @@ async function main() {
         primaryPageId: answer.payload.primaryPageId,
         citations: answer.payload.citations.length,
         persistedStatus: answer.payload.persisted.status,
+      },
+      limitedMode: {
+        llmUnavailable: degraded.payload.degraded.reason,
+        guardrailStatus: guardrail.payload.status,
+        guardrailRefusalReason: guardrail.payload.refusalReason,
+        rateLimitedLlm: rateLimitedLlmReason,
+        rateLimitedExtractiveStatusCode,
       },
       retention: insights.payload.retention,
       moderation: {
