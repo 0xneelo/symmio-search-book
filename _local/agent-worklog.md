@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord re-probe and localhost preview smoke
+- Task: Re-check whether the provided Discord export is readable and validate the current standalone Search Book preview/service path.
+- Scope: `_local/agent-worklog.md` only; no corpus/data changes because Discord import remains blocked by file access.
+- Status: Complete.
+- Verification target: Do not reopen #2; keep #17 as the single Discord file-release follow-up if the export still returns `EACCES`; prove the current static preview can use the standalone answer-engine service.
+- Result: The Windows export still exists at `/mnt/c/Users/tabor/Music/symmio-discord-exports/SYMMIO - ... symm-chat [1106198412124237855].json`, but direct Node open and `node scripts/build-discord-corpus.mjs --input ... --publication-mode paraphrase` both returned `EACCES`, so OPERATOR-INBOX #17 remains the right scoped follow-up. `npm run search-book:smoke-preview-service` passed: static home ok, configured service bridge ok, CORS preflight ok, answer `answered`, rating recorded, Search Insights ok, exact-page URL ok, with one temporary SQLite question/rating and two answer citations.
+
 ## 2026-07-01 — Codex source-ingestion follow-up handoff refresh
 - Task: Replace stale untracked source-ingestion handoff notes with a current follow-up package after the reconciliation checkpoint.
 - Scope: `docs/goals/source-ingestion/*`, `_local/agent-worklog.md`.
