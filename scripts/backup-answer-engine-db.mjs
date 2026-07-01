@@ -19,21 +19,26 @@ const requiredTables = [
 
 const defaults = {
   dbPath: process.env.SEARCH_BOOK_ANSWER_ENGINE_DB || path.join(repoRoot, "server", "data", "search-book-answer-engine.sqlite"),
+  backupDir: process.env.SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR || "",
   out: "",
   manifest: "",
+  latestManifest: process.env.SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST || process.env.SEARCH_BOOK_BACKUP_MANIFEST || "",
   restoreCheck: true,
   dryRun: false,
 };
 
 function usage() {
   return `Usage:
-  node scripts/backup-answer-engine-db.mjs [--db path] [--out path] [--manifest path] [--no-restore-check] [--dry-run]
+  node scripts/backup-answer-engine-db.mjs [--db path] [--backup-dir path] [--out path] [--manifest path] [--latest-manifest path] [--no-restore-check] [--dry-run]
 
 Environment:
   SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite
+  SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/path/to/backup-directory
+  SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST=/path/to/latest.manifest.json
 
 Notes:
   Creates a SQLite-consistent backup with VACUUM INTO.
+  Each run writes an immutable manifest beside the backup and can update a latest-manifest pointer for launch readiness.
   The backup and manifest are internal operational artifacts; do not commit production DB files.`;
 }
 
@@ -42,8 +47,10 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--db") args.dbPath = path.resolve(argv[++index] || "");
+    else if (arg === "--backup-dir") args.backupDir = path.resolve(argv[++index] || "");
     else if (arg === "--out") args.out = path.resolve(argv[++index] || "");
     else if (arg === "--manifest") args.manifest = path.resolve(argv[++index] || "");
+    else if (arg === "--latest-manifest") args.latestManifest = path.resolve(argv[++index] || "");
     else if (arg === "--no-restore-check") args.restoreCheck = false;
     else if (arg === "--dry-run") args.dryRun = true;
     else if (arg === "--help") {
@@ -54,11 +61,17 @@ function parseArgs(argv) {
     }
   }
   if (!args.dbPath) throw new Error("--db is required or SEARCH_BOOK_ANSWER_ENGINE_DB must be set.");
+  if (args.backupDir) args.backupDir = path.resolve(args.backupDir);
+  if (args.latestManifest) args.latestManifest = path.resolve(args.latestManifest);
   if (!args.out) {
     const stamp = new Date().toISOString().replaceAll(":", "").replaceAll(".", "-");
-    args.out = path.join(path.dirname(args.dbPath), "backups", `search-book-answer-engine-${stamp}.sqlite`);
+    const backupDir = args.backupDir || path.join(path.dirname(args.dbPath), "backups");
+    args.out = path.join(backupDir, `search-book-answer-engine-${stamp}.sqlite`);
   }
   if (!args.manifest) args.manifest = `${args.out}.manifest.json`;
+  if (args.latestManifest && args.latestManifest === args.out) {
+    throw new Error("--latest-manifest must not point at the SQLite backup output path.");
+  }
   return args;
 }
 
@@ -162,6 +175,7 @@ function backupDatabase(args) {
       sourceDb: args.dbPath,
       backupPath: args.out,
       manifestPath: args.manifest,
+      latestManifestPath: args.latestManifest || null,
       sourceSizeBytes,
       source: sourceStats,
     };
@@ -175,6 +189,7 @@ function backupDatabase(args) {
     sourceDb: args.dbPath,
     backupPath: args.out,
     manifestPath: args.manifest,
+    latestManifestPath: args.latestManifest || null,
     sourceSizeBytes,
     backupSizeBytes,
     backupSha256: sha256File(args.out),
@@ -210,6 +225,10 @@ function backupDatabase(args) {
 
   ensureParent(args.manifest);
   fs.writeFileSync(args.manifest, `${JSON.stringify(manifest, null, 2)}\n`);
+  if (args.latestManifest && args.latestManifest !== args.manifest) {
+    ensureParent(args.latestManifest);
+    fs.copyFileSync(args.manifest, args.latestManifest);
+  }
   return manifest;
 }
 

@@ -17,6 +17,8 @@ const requiredArtifacts = [
   "data/llm-rag-contract.json",
   "data/quality-audit.json",
   "deploy/symmio-search-book.service",
+  "deploy/symmio-search-book-backup.service",
+  "deploy/symmio-search-book-backup.timer",
 ];
 
 const productionDefaults = {
@@ -47,6 +49,7 @@ Environment:
   SEARCH_BOOK_REVIEWER_OWNER=<owner-or-rotation>
   SEARCH_BOOK_REVIEW_CADENCE=daily
   SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/var/backups/symmio-search-book
+  SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST=/var/backups/symmio-search-book/latest.manifest.json
 
 Notes:
   This preflight validates production configuration without calling the LLM provider.

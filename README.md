@@ -69,6 +69,9 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com --se
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
+# SQLite backup with restore-check manifest
+npm run search-book:backup-db
+
 # Ask a grounded, cited question with NO model call (extractive):
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
 ```
@@ -124,8 +127,10 @@ never printed or persisted.
 
 ## Deployment
 
-See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd unit at
-[`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service). The no-secret
+See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd units at
+[`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service),
+[`deploy/symmio-search-book-backup.service`](./deploy/symmio-search-book-backup.service),
+and [`deploy/symmio-search-book-backup.timer`](./deploy/symmio-search-book-backup.timer). The no-secret
 operator packet for the remaining VPS env and public deploy-route gates is
 [`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md).
 

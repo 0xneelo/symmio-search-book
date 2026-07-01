@@ -98,6 +98,14 @@ Validation for #11:
 ```sh
 cd /opt/symmio-search-book
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
+sudo cp deploy/symmio-search-book.service /etc/systemd/system/
+sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/
+sudo cp deploy/symmio-search-book-backup.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now symmio-search-book.service
+sudo systemctl enable --now symmio-search-book-backup.timer
+sudo systemctl start symmio-search-book-backup.service
+sudo test -s /var/backups/symmio-search-book/latest.manifest.json
 ```
 
 Pass criteria:
@@ -109,6 +117,7 @@ Pass criteria:
 - default mode is `llm`
 - CORS origins are exact HTTPS public docs origins, never `*`
 - reviewer owner/cadence and backup storage are configured
+- backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
 

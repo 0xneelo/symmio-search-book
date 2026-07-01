@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Answer-Engine Backup Timer Deployment
+
+- Added production systemd templates for daily answer-engine SQLite backups: `deploy/symmio-search-book-backup.service` and `deploy/symmio-search-book-backup.timer`.
+- Updated `scripts/backup-answer-engine-db.mjs` so production env can set `SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR` for timestamped backup output and `SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST` / `SEARCH_BOOK_BACKUP_MANIFEST` as a latest restore-checked manifest pointer for the launch gate.
+- Updated deployment, operations, README, production-readiness packet, and `.env.example` guidance so operators can install the backup timer, run an immediate backup, and validate `/var/backups/symmio-search-book/latest.manifest.json` without printing secrets.
+- Verified with a temporary SQLite DB in `/tmp`: backup status `passed`, restore-check `passed`, latest manifest exists, and checksum shape is valid. Dummy production preflight passed `29/29` with `valuesPrinted:false`.
+- `npm run search-book:verify` passed after the change: 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates remain `27/30` with the existing #17/#11/#4 boundary.
+
 ## 2026-07-01 — Localhost Preview And Staging Launch Drill
 
 - Hosted the standalone Search Book static preview at `http://127.0.0.1:8798/?service=http%3A%2F%2F127.0.0.1%3A8797&serviceMode=extractive`, backed by the extractive answer-engine service at `http://127.0.0.1:8797` and SQLite DB `/tmp/search-book-answer-engine-localhost-8797.sqlite`.

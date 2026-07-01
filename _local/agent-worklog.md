@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex answer-engine backup timer deployment
+- Task: Add deployable systemd backup timer support for the Search Book answer-engine SQLite datastore.
+- Scope: `scripts/backup-answer-engine-db.mjs`, `deploy/symmio-search-book-backup.service`, `deploy/symmio-search-book-backup.timer`, deployment/operations docs, `.env.example`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Backup script honors production backup directory/latest-manifest env settings, systemd templates run without embedding secrets, focused backup smoke passes, full `npm run search-book:verify` remains green, and production readiness boundaries (#17/#11/#4) are unchanged.
+- Result: Added daily systemd backup service/timer templates, production backup-dir/latest-manifest support in `scripts/backup-answer-engine-db.mjs`, and matching README/deployment/operations/production-packet/env guidance. Focused `/tmp` SQLite backup smoke passed with backup status `passed`, restore-check `passed`, latest manifest present, and checksum valid. Dummy production preflight passed `29/29` with `valuesPrinted:false`. Full `npm run search-book:verify` passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates `27/30`. Local `systemd-analyze verify` only failed because this WSL host has no `/usr/bin/node`, matching the pre-existing main service unit path rather than a unit syntax issue.
+
 ## 2026-07-01 — Codex production readiness packet
 - Task: Make #11 production VPS env install and #4 public deploy-route decision executable from one no-secret handoff packet.
 - Scope: `PRODUCTION-READINESS-PACKET.md`, `DEPLOYMENT.md`, `README.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`.

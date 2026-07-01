@@ -161,10 +161,18 @@ Back up the SQLite datastore before deploys, source-corpus migrations, retention
 
 ```sh
 SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite \
-npm run search-book:backup-db -- --out /path/to/backups/search-book-answer-engine-YYYYMMDD.sqlite
+SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/path/to/backups \
+SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST=/path/to/backups/latest.manifest.json \
+npm run search-book:backup-db
 ```
 
-The command creates a SQLite-consistent backup with `VACUUM INTO`, writes a manifest beside the backup, records table counts and SHA-256, and reopens the backup read-only for `PRAGMA integrity_check` plus table-count verification by default.
+The command creates a SQLite-consistent timestamped backup with `VACUUM INTO`, writes an immutable manifest beside that backup, updates the latest-manifest pointer when configured, records table counts and SHA-256, and reopens the backup read-only for `PRAGMA integrity_check` plus table-count verification by default.
+
+Production hosts should install `deploy/symmio-search-book-backup.service` and
+`deploy/symmio-search-book-backup.timer`. The timer runs daily, loads the same
+`/etc/symmio-search-book/search-book.env` file as the answer service, writes under
+`SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR`, and refreshes
+`SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST` for launch readiness.
 
 Operational rules:
 
@@ -172,6 +180,7 @@ Operational rules:
 - Do not commit SQLite DB files, backup manifests from production, raw question exports, API keys, or moderation tokens.
 - Treat backup manifests as internal if they reveal production paths, table counts, or operating cadence.
 - Point `SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST` at the latest restore-checked manifest before running launch readiness; the launch gate validates manifest status, recency, restore-check status, integrity, table-count match, and checksum presence without printing DB paths or raw counts.
+- Check `systemctl list-timers symmio-search-book-backup.timer` during weekly review and after host restarts.
 - Run `--dry-run` first when validating a new production DB path.
 - Use `--no-restore-check` only when restore-check storage is temporarily unavailable; record the exception in Linear and rerun with restore check as soon as possible.
 

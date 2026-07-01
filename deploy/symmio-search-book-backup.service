@@ -1,0 +1,21 @@
+[Unit]
+Description=Symmio Search Book answer-engine SQLite backup
+Documentation=https://github.com/0xneelo/symmio-search-book
+Wants=symmio-search-book.service
+After=symmio-search-book.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/symmio-search-book
+# Uses SEARCH_BOOK_ANSWER_ENGINE_DB, SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR, and
+# SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST from the production env file.
+ExecStart=/usr/bin/node --env-file=/etc/symmio-search-book/search-book.env scripts/backup-answer-engine-db.mjs
+StateDirectory=symmio-search-book
+User=symmio-search-book
+Group=symmio-search-book
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/symmio-search-book /var/backups/symmio-search-book

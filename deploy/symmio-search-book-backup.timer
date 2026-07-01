@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Symmio Search Book answer-engine SQLite backup daily
+Documentation=https://github.com/0xneelo/symmio-search-book
+
+[Timer]
+OnCalendar=*-*-* 03:17:00
+Persistent=true
+RandomizedDelaySec=15m
+Unit=symmio-search-book-backup.service
+
+[Install]
+WantedBy=timers.target

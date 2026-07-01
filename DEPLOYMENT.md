@@ -58,25 +58,39 @@ curated examples when the service is absent.
 
 ```bash
 # Place the repo and env file
-sudo mkdir -p /opt/symmio-search-book /etc/symmio-search-book /var/lib/symmio-search-book
+sudo mkdir -p /opt/symmio-search-book /etc/symmio-search-book /var/lib/symmio-search-book /var/backups/symmio-search-book
 sudo rsync -a --exclude .git --exclude node_modules ./ /opt/symmio-search-book/
 # Create /etc/symmio-search-book/search-book.env from PRODUCTION-READINESS-PACKET.md.
 # Do not paste or print secret values in logs.
 sudo chmod 600 /etc/symmio-search-book/search-book.env
 # In that env file, set SEARCH_BOOK_ANSWER_ENGINE_DB=/var/lib/symmio-search-book/search-book-answer-engine.sqlite
+# Also set SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/var/backups/symmio-search-book
+# and SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST=/var/backups/symmio-search-book/latest.manifest.json
 
 # Create the service user
 sudo useradd --system --no-create-home --shell /usr/sbin/nologin symmio-search-book || true
-sudo chown -R symmio-search-book:symmio-search-book /var/lib/symmio-search-book
+sudo chown -R symmio-search-book:symmio-search-book /var/lib/symmio-search-book /var/backups/symmio-search-book
 
-# Install + start the unit
+# Install + start the service and daily backup timer
 sudo cp deploy/symmio-search-book.service /etc/systemd/system/
+sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/
+sudo cp deploy/symmio-search-book-backup.timer /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now symmio-search-book.service
+sudo systemctl enable --now symmio-search-book-backup.timer
 sudo systemctl status symmio-search-book.service
+sudo systemctl list-timers symmio-search-book-backup.timer
 ```
 
 Health check: `curl -fsS http://127.0.0.1:8787/health`.
+
+After the database exists, run one immediate backup to create the latest manifest used by
+the launch gate:
+
+```bash
+sudo systemctl start symmio-search-book-backup.service
+sudo test -s /var/backups/symmio-search-book/latest.manifest.json
+```
 
 For production browser traffic, set
 `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS=https://<public-docs-route>` in the service env.
