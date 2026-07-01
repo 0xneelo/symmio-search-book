@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex refreshed manual evidence for production packet guard
+- Task: Refresh manual launch/release workflow evidence from commit `b330251` so downloaded artifacts carry the production-packet Linear task guard.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows pass from `b330251`; downloaded packets validate with `--require-summary`; summaries expose `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`; no secrets or raw Discord/Lafa text are printed; only #11/#4 remain open.
+- Result: Manual launch run `28535275223` and release run `28535275202` passed from commit `b330251`. Downloaded artifacts at `/tmp/search-book-gh-manual-launch-28535275223` and `/tmp/search-book-gh-manual-release-28535275202` validated with `npm run search-book:check-launch-evidence-packet -- --require-summary` and `npm run search-book:check-release-dry-run-packet -- --require-summary`; both summaries include commit `b330251`, dirty `false`, `Discord editorial queue data | passed`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+
 ## 2026-07-01 — Codex production packet Linear task guard
 - Task: Require `PRODUCTION-READINESS-PACKET.md` and `npm run search-book:check-production-packet` to carry the same open-operator Linear task mapping as launch/release evidence.
 - Scope: `PRODUCTION-READINESS-PACKET.md`, `scripts/check-production-readiness-packet.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
