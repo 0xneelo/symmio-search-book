@@ -21,6 +21,10 @@ const defaults = {
   allowLocal: false,
   skipProductionEnv: false,
   skipDeploymentSmoke: false,
+  includeMonitoring: true,
+  monitoringRequired: null,
+  monitoringTokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN",
+  monitoringOrigin: "",
   localDrill: false,
   outDir: "",
 };
@@ -40,6 +44,11 @@ Options:
   --allow-local                    Permit localhost URLs in staging launch readiness
   --skip-production-env            Staging only
   --skip-deployment-smoke          Staging only
+  --skip-monitoring                Do not include health/metrics monitoring evidence
+  --monitoring-required            Fail packet if metrics monitoring evidence is unavailable
+  --monitoring-optional            Include monitoring as warning-only evidence
+  --monitoring-token-env NAME      Default: SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN
+  --monitoring-origin url          Optional Origin header for monitoring probe
   --local-drill                    Run scripts/run-local-launch-drill.mjs and package its evidence
   --out-dir path                   Default: /tmp/search-book-launch-evidence-<timestamp>
 
@@ -83,6 +92,18 @@ function parseArgs(argv) {
       args.skipDeploymentSmoke = true;
       continue;
     }
+    if (arg === "--skip-monitoring") {
+      args.includeMonitoring = false;
+      continue;
+    }
+    if (arg === "--monitoring-required") {
+      args.monitoringRequired = true;
+      continue;
+    }
+    if (arg === "--monitoring-optional") {
+      args.monitoringRequired = false;
+      continue;
+    }
     if (arg === "--local-drill") {
       args.localDrill = true;
       continue;
@@ -95,6 +116,8 @@ function parseArgs(argv) {
     else if (arg === "--service-url") args.serviceUrl = next;
     else if (arg === "--backup-manifest") args.backupManifest = next;
     else if (arg === "--backup-max-age-hours") args.backupMaxAgeHours = next;
+    else if (arg === "--monitoring-token-env") args.monitoringTokenEnv = next;
+    else if (arg === "--monitoring-origin") args.monitoringOrigin = next;
     else if (arg === "--out-dir") args.outDir = path.resolve(next);
     else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
     index += 1;
@@ -106,6 +129,7 @@ function parseArgs(argv) {
   if (args.profile === "production" && args.skipProductionEnv) throw new Error("--skip-production-env is staging-only.");
   if (args.profile === "production" && args.skipDeploymentSmoke) throw new Error("--skip-deployment-smoke is staging-only.");
   if (args.profile === "staging" && !args.siteUrl && !args.serviceUrl) args.localDrill = true;
+  if (args.profile === "production" && args.monitoringRequired === false) throw new Error("--monitoring-optional is staging-only.");
   if (!args.outDir) args.outDir = defaultOutDir();
   return args;
 }
@@ -275,11 +299,57 @@ function runEvidenceCommand(args) {
   };
 }
 
+function runMonitoringCommand(args) {
+  if (!args.includeMonitoring) {
+    return {
+      source: "skipped",
+      result: {
+        command: [],
+        exitCode: 0,
+        signal: null,
+        passed: true,
+        parsed: {
+          status: "skipped",
+          service: "search-book-monitoring-evidence",
+          reason: "skipped by --skip-monitoring",
+          totals: { checks: 0, passed: 0, failed: 0, warnings: 0 },
+          secrets: { valuesPrinted: false },
+        },
+        stdoutTail: "",
+        stderrTail: "",
+        error: "",
+      },
+    };
+  }
+
+  const commandArgs = ["scripts/check-monitoring-evidence.mjs"];
+  if (args.localDrill && !args.serviceUrl) {
+    return {
+      source: "local-monitoring",
+      result: commandResult(commandArgs),
+    };
+  }
+
+  commandArgs.push("--profile", args.profile, "--service-url", args.serviceUrl);
+  if (args.monitoringOrigin) commandArgs.push("--origin", args.monitoringOrigin);
+  if (args.monitoringTokenEnv) commandArgs.push("--metrics-token-env", args.monitoringTokenEnv);
+  if (args.monitoringRequired === true) commandArgs.push("--metrics-required");
+  if (args.monitoringRequired === false) commandArgs.push("--metrics-optional");
+  return {
+    source: "monitoring-evidence",
+    result: commandResult(commandArgs),
+  };
+}
+
 function renderMarkdown(packet) {
   const launch = normalizedLaunchEvidence(packet);
+  const monitoring = normalizedMonitoringEvidence(packet);
   const totals = launch.totals || {};
+  const monitoringTotals = monitoring.totals || {};
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
+  const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
+  const warningMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const readiness = packet.readiness;
   const openItems = readiness.openOperatorItems || [];
   return `# Search Book Launch Evidence Packet
@@ -319,17 +389,27 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Warnings: \`${totals.warnings ?? warningChecks.length}\`
 - Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
 
+## Monitoring Evidence
+
+- Monitoring status: \`${monitoring.status || "missing"}\`
+- Checks: \`${monitoringTotals.passed ?? 0}/${monitoringTotals.checks ?? 0}\`
+- Failed errors: \`${monitoringTotals.failed ?? failedMonitoringChecks.length}\`
+- Warnings: \`${monitoringTotals.warnings ?? warningMonitoringChecks.length}\`
+- Health: \`${monitoring.summary?.health?.status || "missing"}\`
+- Metrics: \`${monitoring.summary?.metrics?.status || "missing"}\`
+- Values printed: \`${monitoring.secrets?.valuesPrinted ?? false}\`
+
 ## Open Operator Items
 
 ${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
 
 ## Failed Checks
 
-${failedChecks.length ? failedChecks.map((check) => `- ${check.id}: ${check.detail || "failed"}`).join("\n") : "- None."}
+${[...failedChecks, ...failedMonitoringChecks].length ? [...failedChecks, ...failedMonitoringChecks].map((check) => `- ${check.id}: ${check.detail || "failed"}`).join("\n") : "- None."}
 
 ## Warning Checks
 
-${warningChecks.length ? warningChecks.map((check) => `- ${check.id}: ${check.detail || "warning"}`).join("\n") : "- None."}
+${[...warningChecks, ...warningMonitoringChecks].length ? [...warningChecks, ...warningMonitoringChecks].map((check) => `- ${check.id}: ${check.detail || "warning"}`).join("\n") : "- None."}
 
 ## Packet Files
 
@@ -346,10 +426,16 @@ function normalizedLaunchEvidence(packet) {
   return parsed;
 }
 
-function buildPacket(args, evidence) {
+function normalizedMonitoringEvidence(packet) {
+  return packet.monitoringEvidence?.parsed || {};
+}
+
+function buildPacket(args, evidence, monitoringEvidence) {
   const parsed = evidence.result.parsed || null;
+  const monitoringParsed = monitoringEvidence.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
-  const status = commandPassed ? "passed" : "failed";
+  const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
+  const status = commandPassed && monitoringPassed ? "passed" : "failed";
   const dirtyStatus = gitValue(["status", "--short"]);
   const packet = {
     status,
@@ -358,6 +444,8 @@ function buildPacket(args, evidence) {
     profile: args.profile,
     evidenceSource: evidence.source,
     command: evidence.result.command,
+    monitoringSource: monitoringEvidence.source,
+    monitoringCommand: monitoringEvidence.result.command,
     repository: {
       root: searchBookRoot,
       branch: gitValue(["branch", "--show-current"]),
@@ -380,6 +468,15 @@ function buildPacket(args, evidence) {
       error: evidence.result.error,
       stdoutTail: evidence.result.stdoutTail,
       stderrTail: evidence.result.stderrTail,
+    },
+    monitoringEvidence: {
+      exitCode: monitoringEvidence.result.exitCode,
+      signal: monitoringEvidence.result.signal,
+      passed: monitoringEvidence.result.passed,
+      parsed: monitoringParsed,
+      error: monitoringEvidence.result.error,
+      stdoutTail: monitoringEvidence.result.stdoutTail,
+      stderrTail: monitoringEvidence.result.stderrTail,
     },
     files: {
       json: "",
@@ -405,7 +502,8 @@ function writePacket(args, packet) {
 function main() {
   const args = parseArgs(process.argv.slice(2));
   const evidence = runEvidenceCommand(args);
-  const packet = writePacket(args, buildPacket(args, evidence));
+  const monitoringEvidence = runMonitoringCommand(args);
+  const packet = writePacket(args, buildPacket(args, evidence, monitoringEvidence));
   console.log(JSON.stringify({
     status: packet.status,
     service: packet.service,
@@ -417,6 +515,7 @@ function main() {
       valuesPrinted: false,
     },
     launchStatus: normalizedLaunchEvidence(packet).status || (packet.launchEvidence?.passed ? "passed" : "failed"),
+    monitoringStatus: normalizedMonitoringEvidence(packet).status || (packet.monitoringEvidence?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,

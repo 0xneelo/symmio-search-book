@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex launch evidence monitoring integration
+- Task: Make the launch evidence packet include health/metrics monitoring evidence by default.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `README.md`, `DEPLOYMENT.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:launch-evidence` produces one no-secret packet with launch and monitoring sections, monitoring failures affect packet status unless skipped, full `npm run search-book:verify` remains green, and readiness boundaries stay at #17/#11/#4.
+- Result: Added integrated monitoring execution and packet fields, Markdown monitoring summary, skip/required/optional monitoring flags, token-env/origin forwarding, and combined failed/warning check output. Verified default local evidence packet at `/tmp/search-book-launch-evidence-2026-07-01T031453-845Z/`: status `passed`, launch `13/13`, monitoring `7/7`, health `ok`, metrics `ok`, 0 failures, 0 warnings, and `valuesPrinted:false`; targeted secret scan found no matches. `node scripts/check-readiness-evidence.mjs` passed and full `npm run search-book:verify` passed with 24 build steps, 66 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`.
+
 ## 2026-07-01 — Codex monitoring evidence command
 - Task: Add production-facing monitoring evidence for answer-engine `/health` and `/api/search-book/metrics`.
 - Scope: `scripts/check-monitoring-evidence.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.

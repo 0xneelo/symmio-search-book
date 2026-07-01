@@ -135,8 +135,8 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/build-launch-evi
   --run-verify
 ```
 
-The packet writes `launch-evidence.json` and `launch-evidence.md` and records only booleans
-for secret presence.
+The packet writes `launch-evidence.json` and `launch-evidence.md`, records only booleans
+for secret presence, and includes launch readiness plus monitoring evidence by default.
 
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion

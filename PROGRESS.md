@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Launch Evidence Monitoring Integration
+
+- Updated `scripts/build-launch-evidence-packet.mjs` so `npm run search-book:launch-evidence` now includes first-class monitoring evidence by default instead of packaging only launch-readiness output.
+- The packet command now runs `scripts/check-monitoring-evidence.mjs`, records the monitoring command/source, fails the packet if required monitoring checks fail, writes a `Monitoring Evidence` section to the Markdown packet, and supports `--skip-monitoring`, `--monitoring-required`, `--monitoring-optional`, `--monitoring-token-env`, and `--monitoring-origin`.
+- Verified the default no-secret local packet path on 2026-07-01: packet status `passed`, launch status `passed`, monitoring status `passed`, launch readiness `13/13`, monitoring `7/7`, health `ok`, metrics `ok`, 0 failures, 0 warnings, and `valuesPrinted:false`.
+- Generated packet files at `/tmp/search-book-launch-evidence-2026-07-01T031453-845Z/launch-evidence.json` and `/tmp/search-book-launch-evidence-2026-07-01T031453-845Z/launch-evidence.md`; a targeted secret-pattern scan over that directory found no matches.
+
 ## 2026-07-01 — Monitoring Evidence Command
 
 - Added `scripts/check-monitoring-evidence.mjs` and `npm run search-book:check-monitoring` as an executable health/metrics monitoring probe for the answer-engine service.
