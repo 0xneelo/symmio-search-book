@@ -103,7 +103,8 @@ job (`npm run search-book:living-docs-summary`), and the backup/restore-check ut
 (`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. Before
 production launch, run `npm run search-book:check-production-env` with the service env
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
-SQLite paths, and missing LLM credentials without printing secret values.
+SQLite paths, missing LLM credentials, missing reviewer/cadence assignment, and missing
+backup storage without printing secret values.
 For launch evidence, run `npm run search-book:check-launch -- --site-url <public-docs-route> --service-url <answer-engine-route> --run-verify`;
 it composes the production env preflight, deterministic verify, URL-driven deployment
 smoke, reviewer assignment, backup-storage evidence, and unresolved completion-boundary

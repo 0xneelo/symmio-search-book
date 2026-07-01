@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Preflight Operations Evidence
+
+- Tightened `scripts/check-production-env.mjs` so production env preflight now fails closed unless living-docs reviewer owner, review cadence, and production-safe backup storage are configured.
+- Backup evidence can be a repository-external local backup directory that exists, or a safe storage URI (`s3://`, `gs://`, or `https://`). The preflight reports only configured/safe booleans and never prints API keys or token values.
+- Updated README, deployment docs, and living-docs operations so the production launch checklist matches the executable preflight.
+
 ## 2026-07-01 — Launch Readiness Gate
 
 - Added `scripts/check-launch-readiness.mjs` and `npm run search-book:check-launch` as the executable launch gate for Search Book production/staging evidence.

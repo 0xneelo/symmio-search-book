@@ -83,8 +83,9 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production
 ```
 
 The preflight validates built artifacts, production SQLite path, LLM-backed default mode,
-allowed origins, public service URL, moderation token rules, and live-eval evidence. It
-reports whether secrets are configured but never prints secret values.
+allowed origins, public service URL, moderation and metrics token rules, reviewer
+owner/cadence, backup storage, and live-eval evidence. It reports whether secrets are
+configured but never prints secret values.
 
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion

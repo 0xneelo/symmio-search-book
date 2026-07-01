@@ -51,7 +51,8 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production
 
 The preflight must pass before public traffic is enabled. It validates that local defaults
 were replaced by production paths/origins, that the default answer mode is LLM-backed, and
-that required secrets are present without printing their values.
+that required secrets, reviewer ownership/cadence, and backup storage evidence are present
+without printing secret values.
 
 For launch evidence, run the combined launch gate. It composes the production env preflight,
 fresh deterministic verify, URL-driven deployment smoke, reviewer owner/cadence evidence,

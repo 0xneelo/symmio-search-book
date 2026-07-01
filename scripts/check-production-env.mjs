@@ -44,6 +44,9 @@ Environment:
   SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
   SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=true
   SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only>
+  SEARCH_BOOK_REVIEWER_OWNER=<owner-or-rotation>
+  SEARCH_BOOK_REVIEW_CADENCE=daily
+  SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/var/backups/symmio-search-book
 
 Notes:
   This preflight validates production configuration without calling the LLM provider.
@@ -351,6 +354,55 @@ function checkMetricsEnv(checks) {
   });
 }
 
+function checkOperationsEnv(checks) {
+  const reviewerOwner = env("SEARCH_BOOK_REVIEWER_OWNER");
+  const reviewerCadence = env("SEARCH_BOOK_REVIEW_CADENCE");
+  const backupDir = env("SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR");
+  const backupStorage = env("SEARCH_BOOK_BACKUP_STORAGE");
+  const storageProtocols = new Set(["s3:", "gs:", "https:"]);
+
+  addCheck(checks, {
+    id: "reviewer-owner",
+    label: "Living-docs reviewer owner is assigned",
+    passed: Boolean(reviewerOwner),
+    detail: reviewerOwner ? "configured" : "SEARCH_BOOK_REVIEWER_OWNER is missing",
+  });
+  addCheck(checks, {
+    id: "reviewer-cadence",
+    label: "Living-docs review cadence is assigned",
+    passed: Boolean(reviewerCadence),
+    detail: reviewerCadence ? "configured" : "SEARCH_BOOK_REVIEW_CADENCE is missing",
+  });
+
+  let backupDirSafe = false;
+  let backupDirExists = false;
+  if (backupDir) {
+    const resolved = path.resolve(backupDir);
+    backupDirSafe = path.isAbsolute(backupDir) && !isInsideRepo(resolved);
+    backupDirExists = fs.existsSync(resolved);
+  }
+
+  let backupStorageSafe = false;
+  if (backupStorage) {
+    try {
+      const parsed = new URL(backupStorage);
+      backupStorageSafe = storageProtocols.has(parsed.protocol) && Boolean(parsed.hostname);
+    } catch {
+      backupStorageSafe = false;
+    }
+  }
+
+  addCheck(checks, {
+    id: "backup-storage",
+    label: "Answer-engine backup storage is production-safe",
+    passed: (backupDirSafe && backupDirExists) || backupStorageSafe,
+    detail:
+      backupDir || backupStorage
+        ? `backupDirConfigured=${Boolean(backupDir)}, backupDirOutsideRepo=${backupDir ? backupDirSafe : false}, backupDirExists=${backupDir ? backupDirExists : false}, backupStorageUriConfigured=${Boolean(backupStorage)}, backupStorageUriSafe=${backupStorage ? backupStorageSafe : false}`
+        : "SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR or SEARCH_BOOK_BACKUP_STORAGE is missing",
+  });
+}
+
 function main() {
   parseArgs(process.argv.slice(2));
   const checks = [];
@@ -360,6 +412,7 @@ function main() {
   checkLlmEnv(checks);
   checkModerationEnv(checks);
   checkMetricsEnv(checks);
+  checkOperationsEnv(checks);
 
   const failed = checks.filter((check) => check.severity === "error" && !check.passed);
   const warnings = checks.filter((check) => check.severity === "warning" && !check.passed);
