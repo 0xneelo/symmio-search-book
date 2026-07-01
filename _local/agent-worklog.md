@@ -1,3 +1,10 @@
+## 2026-07-02 — Codex refresh no-secret evidence packets from reconciliation-guard checkpoint
+- Task: Trigger fresh no-secret launch, release, and static artifact workflows from commit `1637c6a`, download the artifacts, validate them locally, and record aggregate evidence only.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, and status guards only if refreshed evidence format requires it. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: manual `Search Book Launch Evidence`, `Search Book Release Dry Run`, and `Search Book Static Artifact` workflows pass from commit `1637c6a`; downloaded launch/release/static packets validate with checked scripts; focused status/completion/production-packet guards and `git diff --check` pass; only #11/#4 remain open.
+- Result: Manual launch run `28551814956`, release run `28551817241`, and static artifact run `28551816350` passed from commit `1637c6a`. Downloaded artifacts under `/tmp/search-book-gh-manual-launch-28551814956`, `/tmp/search-book-gh-manual-release-28551817241`, and `/tmp/search-book-gh-static-artifact-28551816350` passed checked packet validation; static and preview-service smokes passed against the copied bundle. Evidence stayed no-secret, source ingestion stayed `17/17`, static artifact integrity stayed `passed`, sensitive matches stayed `0`, spec reconciliation stayed `passed`, readiness booleans did not flip, and only #11/#4 remain open.
+
 ## 2026-07-02 — Codex harden app-docs reconciliation guard
 - Task: Add checked assertions to `scripts/check-spec-reconciliation.mjs` so app-docs cannot regress to stale Discord/Notion/referral-depth/provider/operator-gate wording.
 - Scope: `scripts/check-spec-reconciliation.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused/full verification, `git diff --check`, and scoped checkpoint. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

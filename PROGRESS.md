@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — No-Secret Evidence Refresh From Reconciliation-Guard Checkpoint
+
+- Triggered fresh manual workflows from commit `1637c6a`: launch evidence run `28551814956`, release dry-run run `28551817241`, and static artifact run `28551816350`; all passed. The only workflow annotations were GitHub's Node 20 deprecation notices for upstream actions.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28551814956`, `/tmp/search-book-gh-manual-release-28551817241`, and `/tmp/search-book-gh-static-artifact-28551816350`; strict launch/release summary validation passed, and the nested release launch packet passed checked validation.
+- Both launch/release summaries carry repository commit `1637c6a`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 19/19; keep-refusal 2/2; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 19; refusals 2; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports static artifact integrity `passed`, 1,652 files, 52,859,001 bytes, sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, spec reconciliation `passed`, 93 syntax checks, and only #11/#4 open.
+- The downloaded static artifact passed `npm run search-book:check-static-artifact-packet`, `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28551816350/search-book-static-site`, and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28551816350/search-book-static-site` with 1,652 files, 52,859,001 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — App Docs Reconciliation Guard Hardening
 
 - Added explicit `npm run search-book:check-spec-reconciliation` assertions for current app-doc source/provider/gate wording and forbidden stale fragments.
