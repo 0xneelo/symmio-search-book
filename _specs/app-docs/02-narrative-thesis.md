@@ -1,5 +1,9 @@
 # 02 — The Narrative & Thesis (the manifesto spine)
 
+## 2026-07-01 reconciliation note
+
+This file preserves the original manifesto spine. For current launch truth, read `OPERATOR-INBOX.md` and `12-search-book-to-100-percent.md` first. The v1 corpus must not re-open original/oldest Symmio whitepaper recovery: OPERATOR-INBOX #6 is resolved as out of scope for v1, and launch-safe origin/history claims are bounded to the registered official GitHub/current-docs evidence. If a future source identifies an earlier artifact, register it as a new post-v1 source update rather than treating this spec text as an open blocker.
+
 The intellectual core: the argument the compendium must make, in order. It doubles as the **guided "onboarding into the system" journey** — a reader starting at the top is carried from "what is this" to deep architecture. Every claim must be sourced (original + current Symmio whitepapers, Symmio/Vibe docs, neelo_docs, the team, the Discord). Where we assert *why*, cite or reason explicitly — never hand-wave.
 
 > Framing: this is a **manifesto of intent-based derivatives**, jointly authored by the Symmio and Vibe teams and researchers. Conviction with rigor.

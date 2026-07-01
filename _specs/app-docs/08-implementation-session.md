@@ -1,5 +1,9 @@
 # 08 — Session 2: Implementation
 
+## 2026-07-01 reconciliation note
+
+Session 2 is substantially implemented in the standalone `symmio-search-book` repo. Do not edit the frozen legacy `~/projects/onboarding-app/src/search-book/` tree for Search Book work. The current build has the authored compendium, answer-engine runtime, living-docs service boundary, guided journeys, verification scripts, launch/release evidence packets, and no-secret checks. The remaining production work is limited to OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route, plus the production smoke/release evidence that follows those decisions.
+
 Build the compendium from the Session-1 dossier (`07`).
 
 ## Phase 0 — lock & scaffold (~30 min; confirm with operator, record in `DECISIONS.md`)

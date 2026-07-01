@@ -1,5 +1,9 @@
 # 07 — Session 1: Research & Architecture
 
+## 2026-07-01 reconciliation note
+
+Session 1 is complete for v1. The compendium has a 794-page manifest, 801 authored pages, a registered source catalog, 17/17 source-ingestion requirements complete, a Discord/Lafa internal-only corpus, and a 49/50 competitive sweep with Opyn excluded by operator decision. Treat this file as the historical research-session brief; do not re-run access/blocker loops for Discord, Notion, SSHE, or original-whitepaper recovery unless a new source-refresh task is explicitly opened.
+
 A dedicated **full research session** that precedes implementation. Output: a complete research dossier + the locked plan to build. Do not start writing pages until this is done.
 
 ## Inputs

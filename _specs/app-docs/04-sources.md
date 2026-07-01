@@ -1,5 +1,9 @@
 # 04 — Sources to ingest (read deeply; cite)
 
+## 2026-07-01 reconciliation note
+
+This file lists the original source-ingestion target. Current source-ingestion truth is `17/17` complete in `data/source-ingestion.json` and `12-search-book-to-100-percent.md`. Do not re-open resolved access/source items: Discord export/access is provided and imported internal-only; Vibe Trading Notion is registered through MCP with a paraphrase-only public-use boundary; original/oldest Symmio whitepaper recovery is out of scope for v1; SuperFlow/SHE/SSHE is bounded to the provided SHE OpenAPI plus Symmio Foundation meta-solver/clearing-layer context; Opyn is excluded from the v1 competitive sweep. The only operator gates that remain are #11 production VPS env install and #4 public frontend platform/repo/deploy route.
+
 Every page that draws on a source cites it; maintain `SOURCES.md` (claim → source).
 
 ## Ours (the reference / product layer)

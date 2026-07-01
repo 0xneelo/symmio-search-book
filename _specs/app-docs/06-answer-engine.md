@@ -1,5 +1,9 @@
 # 06 — The answer engine & living docs
 
+## 2026-07-01 reconciliation note
+
+This file preserves the original answer-engine intent. The current implemented runtime is an OpenAI-compatible LLM RAG path with strict citation validation, deterministic/extractive fallback, guardrail refusals before retrieval/LLM synthesis, SQLite-backed living-docs events, and a recorded `gpt-4.1-mini` live eval. Local `.secrets/search-book.env` is complete; OPERATOR-INBOX #11 is only the production VPS env install at `/etc/symmio-search-book/search-book.env`. Do not convert this file's old Claude example into a blocker or a provider migration task unless the operator explicitly changes the production model decision.
+
 The interface *is* the product: users mostly **ask**, and the docs answer + route + learn.
 
 > **Design reference:** build to match the operator's mockup — `design/vibe-docs-mockup.html` (see `09`). Home = an "Ask & search" page with the bar (placeholder *"Ask anything — points, invites, revenue, payouts…"*) + example-question chips; a "Search insights" page surfaces **Recent questions** + **Where docs fall short**.

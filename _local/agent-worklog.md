@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex original-spec reconciliation notes
+- Task: Add explicit reconciliation notes to the original numbered app-doc specs so future agents reading the pasted build brief do not re-open resolved source/operator blockers or use stale runtime assumptions.
+- Scope: `_specs/app-docs/02-narrative-thesis.md`, `_specs/app-docs/03-grounding.md`, `_specs/app-docs/04-sources.md`, `_specs/app-docs/06-answer-engine.md`, `_specs/app-docs/07-research-session.md`, `_specs/app-docs/08-implementation-session.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Original specs point readers to `OPERATOR-INBOX.md` and `12-search-book-to-100-percent.md` for current state; resolved #2/#5/#6/#7/#12/#17 are not described as open blockers; public referral depth is 15; v1 whitepaper/SSHE/Notion/Discord boundaries match reconciliation; focused status/inbox checks pass.
+- Result: Added current-state reconciliation notes to the original thesis, grounding, sources, answer-engine, research-session, and implementation-session specs. The notes direct future agents to `OPERATOR-INBOX.md` and `12-search-book-to-100-percent.md`, keep local LLM env from being misreported as missing, preserve the OpenAI-compatible runtime decision, and prevent resolved Discord/Notion/SSHE/whitepaper/referral-depth threads from being reopened. Verification passed: `git diff --check`, `npm run search-book:check-operator-inbox`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, and full `npm run search-book:verify` with 26 build steps, 86 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, and only #11/#4 open.
+
 ## 2026-07-01 — Codex completion-plan reconciliation
 - Task: Refresh `_specs/app-docs/12-search-book-to-100-percent.md` so the active completion checklist matches the standalone repo, reconciled source state, and #11/#4-only operator boundary.
 - Scope: `_specs/app-docs/12-search-book-to-100-percent.md`, `.gitignore`, and `_local/agent-worklog.md`.

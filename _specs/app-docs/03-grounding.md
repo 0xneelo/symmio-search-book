@@ -1,5 +1,9 @@
 # 03 — Grounding: verified product facts (the reference seed of truth)
 
+## 2026-07-01 reconciliation note
+
+This file is the original grounding seed. Current public launch truth is reconciled in `OPERATOR-INBOX.md`, `GAPS.md`, and `12-search-book-to-100-percent.md`. Do not re-open the old referral-depth conflict from this file: public depth is 15 levels, and historical backfill is additive and never lowers a balance. Public Phase A revenue wording is `networkVolume x platformFeeRate x referrerPlatformShare` with defaults `0.05%` / `5 bps` platform fee and `30%` referrer platform share. Phase B economics remain out of scope for v1 answer synthesis and should keep refusing unless a later operator decision changes the boundary.
+
 The **reference-layer** truth that complements the manifesto (`02`). Use as the starting truth, verify against the code, then expand. All confirmed from the `onboarding-app` codebase + the Synchronicity (SYN) Linear project.
 
 ## Product
