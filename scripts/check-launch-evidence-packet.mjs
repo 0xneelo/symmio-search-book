@@ -31,8 +31,8 @@ Options:
 
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
-readiness, Discord route coverage, living-docs controls, clean repository state,
-and reconciled open operator gates.`;
+readiness, Discord route coverage, publication boundaries, living-docs controls,
+clean repository state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -91,6 +91,10 @@ function normalizedStatusEvidence(packet) {
 
 function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
+}
+
+function normalizedPublicationBoundaries(packet) {
+  return packet.publicationBoundaries?.parsed || {};
 }
 
 function normalizedEvidenceSummaryRenderer(packet) {
@@ -188,6 +192,23 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function publicationBoundariesReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.valuesPrinted === false
+    && Number(totals.publicNavigationPages || 0) === 800
+    && Number(totals.sourceCompanionPages || 0) === 792
+    && Number(totals.exactRoutes || 0) === 820
+    && Number(totals.faqAnswerable || 0) === 820
+    && Number(totals.sourceCompanionRuntimeChunks || 0) > 0
+    && Number(totals.internalDraftRuntimeChunks || 0) === 0
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
@@ -195,6 +216,7 @@ function validateLaunchPacket(packet, packetPath) {
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
+  const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const repository = packet.repository || {};
   const readiness = packet.readiness || {};
@@ -285,6 +307,28 @@ function validateLaunchPacket(packet, packetPath) {
   );
   addCheck(
     checks,
+    "publication-boundaries-passed",
+    packet.publicationBoundaries?.passed === true,
+    `passed=${packet.publicationBoundaries?.passed}`,
+  );
+  addCheck(
+    checks,
+    "publication-boundaries-status",
+    publicationBoundaries.status === "passed",
+    `status=${publicationBoundaries.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "publication-boundaries-ready",
+    publicationBoundariesReady(publicationBoundaries),
+    JSON.stringify({
+      evidence: publicationBoundaries.evidence || null,
+      valuesPrinted: publicationBoundaries.valuesPrinted ?? null,
+      checks: Array.isArray(publicationBoundaries.checks) ? publicationBoundaries.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "evidence-summary-renderer-passed",
     packet.evidenceSummaryRenderer?.passed === true,
     `passed=${packet.evidenceSummaryRenderer?.passed}`,
@@ -360,6 +404,8 @@ function validateLaunchPacket(packet, packetPath) {
         routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: discordReviewArtifacts.editorialQueue || null,
       },
+      publicationBoundariesStatus: publicationBoundaries.status || null,
+      publicationBoundaries: publicationBoundaries.evidence || null,
       evidenceSummaryRendererStatus: evidenceSummaryRenderer.status || null,
       evidenceSummaryRenderer: evidenceSummaryRenderer.evidence || null,
       sourceCompletionReady: readiness.sourceCompletionReady === true,

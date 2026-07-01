@@ -143,8 +143,9 @@ To create attachable operator evidence, run `npm run search-book:launch-evidence
 drill, monitoring probe, and Vibe public-docs source-freshness check when no deployment URLs
 are supplied. The packet includes the current sanitized Discord route-coverage snapshot for
 Search Insights, Discord review-artifact evidence for the no-raw editorial queue,
-source-freshness evidence as statuses, hashes, and booleans only, and status-document
-evidence proving current report counts match generated data.
+source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
+evidence as public/source/internal counts only, and status-document evidence proving
+current report counts match generated data.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`;
 the validator requires the packet to come from a clean repository state.
 Render the same count-only Markdown summary used by GitHub Actions with
@@ -157,7 +158,9 @@ builds the static artifact, smoke-tests the copied artifact both statically and 
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
 include source-freshness, status-document, Discord review-artifact, and evidence-summary
-renderer no-raw/no-secret evidence, while
+renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
+companions stay out of public navigation/routes and internal drafts stay out of runtime
+context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same
 Discord route-coverage counts and living-docs control flags, including service-backed page
 feedback.

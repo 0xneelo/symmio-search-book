@@ -419,6 +419,45 @@ function runDiscordReviewArtifactsCommand() {
   };
 }
 
+function summarizePublicationBoundariesParsed(parsed) {
+  if (!parsed) return null;
+  const evidence = parsed.evidence || {};
+  return {
+    status: parsed.status || null,
+    service: parsed.service || "search-book-publication-boundaries",
+    valuesPrinted: parsed.valuesPrinted === true,
+    evidence: {
+      publicNavigationPages: evidence.publicNavigationPages ?? null,
+      sourceCompanionPages: evidence.sourceCompanionPages ?? null,
+      internalDraftPages: evidence.internalDraftPages ?? null,
+      exactRoutes: evidence.exactRoutes ?? null,
+      faqAnswerable: evidence.faqAnswerable ?? null,
+      answerChunks: evidence.answerChunks ?? null,
+      runtimeContextChunks: evidence.runtimeContextChunks ?? null,
+      sourceCompanionRuntimeChunks: evidence.sourceCompanionRuntimeChunks ?? null,
+      internalDraftRuntimeChunks: evidence.internalDraftRuntimeChunks ?? null,
+      chunksWithoutPageState: evidence.chunksWithoutPageState ?? null,
+    },
+    checks: Array.isArray(parsed.checks)
+      ? parsed.checks.map((check) => ({
+          id: check.id || "",
+          passed: check.passed === true,
+        }))
+      : [],
+  };
+}
+
+function runPublicationBoundariesCommand() {
+  const result = commandResult(["scripts/check-publication-boundaries.mjs"]);
+  return {
+    source: "publication-boundaries",
+    result: {
+      ...result,
+      parsed: summarizePublicationBoundariesParsed(result.parsed),
+    },
+  };
+}
+
 function runEvidenceSummaryRendererCommand() {
   return {
     source: "evidence-summary-renderer",
@@ -432,6 +471,7 @@ function renderMarkdown(packet) {
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
+  const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const totals = launch.totals || {};
   const monitoringTotals = monitoring.totals || {};
@@ -441,6 +481,9 @@ function renderMarkdown(packet) {
   const discordSummary = discordReviewArtifacts.summary || {};
   const discordRouteCoverage = discordSummary.routeCoverage || {};
   const discordQueue = discordReviewArtifacts.editorialQueue || {};
+  const publicationEvidence = publicationBoundaries.evidence || {};
+  const publicationChecks = publicationBoundaries.checks || [];
+  const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
@@ -522,6 +565,18 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Sample leaks: \`${discordSummary.sampleLeaks ?? "unknown"}\`
 - Queue raw table hits: \`${discordQueue.rawTableHits ?? "unknown"}\`
 
+## Publication Boundary Evidence
+
+- Publication boundaries status: \`${publicationBoundaries.status || "missing"}\`
+- Public navigation pages: \`${publicationEvidence.publicNavigationPages ?? "unknown"}\`
+- Source companion pages: \`${publicationEvidence.sourceCompanionPages ?? "unknown"}\`
+- Exact public routes: \`${publicationEvidence.exactRoutes ?? "unknown"}\`
+- FAQ answerable routes: \`${publicationEvidence.faqAnswerable ?? "unknown"}\`
+- Source-companion runtime chunks: \`${publicationEvidence.sourceCompanionRuntimeChunks ?? "unknown"}\`
+- Internal-draft runtime chunks: \`${publicationEvidence.internalDraftRuntimeChunks ?? "unknown"}\`
+- Checks: \`${publicationChecksPassed}/${publicationChecks.length}\`
+- Values printed: \`${publicationBoundaries.valuesPrinted ?? false}\`
+
 ## Evidence Summary Renderer
 
 - Evidence summary renderer status: \`${evidenceSummaryRenderer.status || "missing"}\`
@@ -572,16 +627,30 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedPublicationBoundaries(packet) {
+  return packet.publicationBoundaries?.parsed || {};
+}
+
 function normalizedEvidenceSummaryRenderer(packet) {
   return packet.evidenceSummaryRenderer?.parsed || {};
 }
 
-function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence, statusEvidence, discordReviewArtifacts, evidenceSummaryRenderer) {
+function buildPacket(
+  args,
+  evidence,
+  monitoringEvidence,
+  sourceFreshnessEvidence,
+  statusEvidence,
+  discordReviewArtifacts,
+  publicationBoundaries,
+  evidenceSummaryRenderer,
+) {
   const parsed = evidence.result.parsed || null;
   const monitoringParsed = monitoringEvidence.result.parsed || null;
   const sourceFreshnessParsed = sourceFreshnessEvidence.result.parsed || null;
   const statusEvidenceParsed = statusEvidence.result.parsed || null;
   const discordReviewArtifactsParsed = discordReviewArtifacts.result.parsed || null;
+  const publicationBoundariesParsed = publicationBoundaries.result.parsed || null;
   const evidenceSummaryRendererParsed = evidenceSummaryRenderer.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
   const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
@@ -591,6 +660,8 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
     statusEvidence.result.passed && (!statusEvidenceParsed || statusEvidenceParsed.status === "passed");
   const discordReviewArtifactsPassed =
     discordReviewArtifacts.result.passed && (!discordReviewArtifactsParsed || discordReviewArtifactsParsed.status === "passed");
+  const publicationBoundariesPassed =
+    publicationBoundaries.result.passed && (!publicationBoundariesParsed || publicationBoundariesParsed.status === "passed");
   const evidenceSummaryRendererPassed =
     evidenceSummaryRenderer.result.passed && (!evidenceSummaryRendererParsed || evidenceSummaryRendererParsed.status === "passed");
   const status =
@@ -599,6 +670,7 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
       && sourceFreshnessPassed
       && statusEvidencePassed
       && discordReviewArtifactsPassed
+      && publicationBoundariesPassed
       && evidenceSummaryRendererPassed
       ? "passed"
       : "failed";
@@ -618,6 +690,8 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
     statusEvidenceCommand: statusEvidence.result.command,
     discordReviewArtifactsSource: discordReviewArtifacts.source,
     discordReviewArtifactsCommand: discordReviewArtifacts.result.command,
+    publicationBoundariesSource: publicationBoundaries.source,
+    publicationBoundariesCommand: publicationBoundaries.result.command,
     evidenceSummaryRendererSource: evidenceSummaryRenderer.source,
     evidenceSummaryRendererCommand: evidenceSummaryRenderer.result.command,
     repository: {
@@ -679,6 +753,15 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
       stdoutTail: discordReviewArtifacts.result.stdoutTail,
       stderrTail: discordReviewArtifacts.result.stderrTail,
     },
+    publicationBoundaries: {
+      exitCode: publicationBoundaries.result.exitCode,
+      signal: publicationBoundaries.result.signal,
+      passed: publicationBoundaries.result.passed,
+      parsed: publicationBoundariesParsed,
+      error: publicationBoundaries.result.error,
+      stdoutTail: publicationBoundaries.result.stdoutTail,
+      stderrTail: publicationBoundaries.result.stderrTail,
+    },
     evidenceSummaryRenderer: {
       exitCode: evidenceSummaryRenderer.result.exitCode,
       signal: evidenceSummaryRenderer.result.signal,
@@ -716,6 +799,7 @@ function main() {
   const sourceFreshnessEvidence = runSourceFreshnessCommand(args);
   const statusEvidence = runStatusEvidenceCommand();
   const discordReviewArtifacts = runDiscordReviewArtifactsCommand();
+  const publicationBoundaries = runPublicationBoundariesCommand();
   const evidenceSummaryRenderer = runEvidenceSummaryRendererCommand();
   const packet = writePacket(
     args,
@@ -726,6 +810,7 @@ function main() {
       sourceFreshnessEvidence,
       statusEvidence,
       discordReviewArtifacts,
+      publicationBoundaries,
       evidenceSummaryRenderer,
     ),
   );
@@ -744,6 +829,7 @@ function main() {
     sourceFreshnessStatus: normalizedSourceFreshnessEvidence(packet).status || (packet.sourceFreshnessEvidence?.passed ? "passed" : "failed"),
     statusEvidenceStatus: normalizedStatusEvidence(packet).status || (packet.statusEvidence?.passed ? "passed" : "failed"),
     discordReviewArtifactsStatus: normalizedDiscordReviewArtifacts(packet).status || (packet.discordReviewArtifacts?.passed ? "passed" : "failed"),
+    publicationBoundariesStatus: normalizedPublicationBoundaries(packet).status || (packet.publicationBoundaries?.passed ? "passed" : "failed"),
     evidenceSummaryRendererStatus: normalizedEvidenceSummaryRenderer(packet).status || (packet.evidenceSummaryRenderer?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,

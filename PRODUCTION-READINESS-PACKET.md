@@ -17,7 +17,7 @@ The standalone Search Book repo is the canonical working copy:
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue generated,
-  quality gates `29/30`
+  publication boundaries passed, quality gates `29/30`
 
 Only these production gates remain:
 

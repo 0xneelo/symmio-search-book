@@ -71,10 +71,14 @@ function launchSummary(packet) {
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || {};
   const statusEvidence = packet.statusEvidence?.parsed || {};
   const discord = packet.discordReviewArtifacts?.parsed || {};
+  const publication = packet.publicationBoundaries?.parsed || {};
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const publicationEvidence = publication.evidence || {};
+  const publicationChecks = publication.checks || [];
+  const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
   const statusDocuments = statusEvidence.documents || [];
   const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
   const openOperatorItems = operatorItems(statusEvidence.evidence?.openOperatorItems || packet.readiness?.openOperatorItems || []);
@@ -97,6 +101,20 @@ function launchSummary(packet) {
       "Discord leakage checks",
       `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
     ],
+    ["Publication boundaries", `\`${publication.status || "missing"}\``],
+    [
+      "Publication public/source pages",
+      `\`${publicationEvidence.publicNavigationPages ?? "unknown"}/${publicationEvidence.sourceCompanionPages ?? "unknown"} pages\``,
+    ],
+    [
+      "Publication exact/FAQ routes",
+      `\`${publicationEvidence.exactRoutes ?? "unknown"}/${publicationEvidence.faqAnswerable ?? "unknown"} routes\``,
+    ],
+    [
+      "Publication runtime boundary",
+      `source companions \`${publicationEvidence.sourceCompanionRuntimeChunks ?? "unknown"}\`, internal drafts \`${publicationEvidence.internalDraftRuntimeChunks ?? "unknown"}\``,
+    ],
+    ["Publication boundary checks", `\`${publicationChecksPassed}/${publicationChecks.length}\`; values printed: \`${publication.valuesPrinted ?? false}\``],
     [
       "Evidence summary renderer",
       `\`${evidenceSummaryRenderer.status || "missing"}\` (${evidenceSummaryRenderer.evidence?.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.evidence?.valuesPrinted ?? "unknown"}\`)`,
@@ -112,10 +130,12 @@ function releaseSummary(packet) {
   const sourceFreshness = launch.sourceFreshness || {};
   const statusEvidence = launch.statusEvidence || {};
   const discord = launch.discordReviewArtifacts || {};
+  const publication = launch.publicationBoundaries || {};
   const evidenceSummaryRenderer = launch.evidenceSummaryRenderer || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const publicationEvidence = publication.evidence || {};
   const readinessRouteCoverage = packet.readiness?.discordRouteCoverage || {};
   const stepSummary = (packet.steps || [])
     .map((step) => `${step.id}:${step.status}`)
@@ -145,6 +165,20 @@ function releaseSummary(packet) {
       "Discord leakage checks",
       `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
     ],
+    ["Publication boundaries", `\`${launch.publicationBoundariesStatus || "missing"}\``],
+    [
+      "Publication public/source pages",
+      `\`${publicationEvidence.publicNavigationPages ?? "unknown"}/${publicationEvidence.sourceCompanionPages ?? "unknown"} pages\``,
+    ],
+    [
+      "Publication exact/FAQ routes",
+      `\`${publicationEvidence.exactRoutes ?? "unknown"}/${publicationEvidence.faqAnswerable ?? "unknown"} routes\``,
+    ],
+    [
+      "Publication runtime boundary",
+      `source companions \`${publicationEvidence.sourceCompanionRuntimeChunks ?? "unknown"}\`, internal drafts \`${publicationEvidence.internalDraftRuntimeChunks ?? "unknown"}\``,
+    ],
+    ["Publication boundary checks", `\`${publication.checks?.passed ?? "unknown"}/${publication.checks?.total ?? "unknown"}\`; values printed: \`${publication.valuesPrinted ?? false}\``],
     [
       "Evidence summary renderer",
       `\`${launch.evidenceSummaryRendererStatus || "missing"}\` (${evidenceSummaryRenderer.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.valuesPrinted ?? "unknown"}\`)`,

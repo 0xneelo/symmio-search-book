@@ -13,6 +13,7 @@ const forbiddenValues = [
   "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
   "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
   "SOURCE_BODY_SHOULD_NOT_PRINT",
+  "RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT",
   "sk-test-secret-should-not-print",
   "Bearer token-should-not-print",
 ];
@@ -89,6 +90,22 @@ function makeLaunchPacket() {
         },
       },
     },
+    publicationBoundaries: {
+      parsed: {
+        status: "passed",
+        valuesPrinted: false,
+        evidence: {
+          publicNavigationPages: 800,
+          sourceCompanionPages: 792,
+          exactRoutes: 820,
+          faqAnswerable: 820,
+          sourceCompanionRuntimeChunks: 1321,
+          internalDraftRuntimeChunks: 0,
+        },
+        checks: [{ id: "public-navigation-count", passed: true }],
+        pageIds: ["RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT"],
+      },
+    },
   };
 }
 
@@ -128,6 +145,7 @@ function makeReleasePacket() {
       sourceFreshnessStatus: "passed",
       statusEvidenceStatus: "passed",
       discordReviewArtifactsStatus: "passed",
+      publicationBoundariesStatus: "passed",
       sourceFreshness: {
         totals: { passed: 4, checks: 4 },
         secrets: {
@@ -157,6 +175,20 @@ function makeReleasePacket() {
           sampleLeaks: 0,
           relatedQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
         },
+      },
+      publicationBoundaries: {
+        status: "passed",
+        valuesPrinted: false,
+        evidence: {
+          publicNavigationPages: 800,
+          sourceCompanionPages: 792,
+          exactRoutes: 820,
+          faqAnswerable: 820,
+          sourceCompanionRuntimeChunks: 1321,
+          internalDraftRuntimeChunks: 0,
+        },
+        checks: { passed: 1, total: 1 },
+        pageIds: ["RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT"],
       },
     },
   };
@@ -202,11 +234,19 @@ function main() {
   addCheck(checks, "release-render-passed", release.status === 0 && !release.error, `exit=${release.status}; ${release.stderr || release.error}`);
   addCheck(checks, "append-summary-created", appended.includes("Search Book Launch Evidence") && appended.includes("Search Book Release Dry Run"), "");
   addCheck(checks, "stdout-summaries-rendered", launch.stdout.includes("Search Book Launch Evidence") && release.stdout.includes("Search Book Release Dry Run"), "");
-  addCheck(checks, "expected-counts-rendered", /Discord routed items \| `24`/.test(combined) && /Discord route coverage \| `19\/19 page-fit groups`/.test(combined), "");
+  addCheck(
+    checks,
+    "expected-counts-rendered",
+    /Discord routed items \| `24`/.test(combined)
+      && /Discord route coverage \| `19\/19 page-fit groups`/.test(combined)
+      && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
+      && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
+    "",
+  );
   const leakedValues = forbiddenValues.filter((value) => combined.includes(value));
   addCheck(checks, "forbidden-values-absent", leakedValues.length === 0, leakedValues.length ? `leaked=${leakedValues.join(",")}` : "none");
   addCheck(checks, "secret-like-values-absent", !/\bsk-[A-Za-z0-9_-]{8,}\b|Bearer\s+[A-Za-z0-9._-]{8,}/i.test(combined), "summary output must not include token-like values");
-  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|sourceBody|sourceAnswer)\b/.test(combined), "summary output must not include raw field labels");
+  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|sourceBody|sourceAnswer|pageIds)\b/.test(combined), "summary output must not include raw field labels");
 
   const failed = checks.filter((check) => !check.passed);
   const result = {

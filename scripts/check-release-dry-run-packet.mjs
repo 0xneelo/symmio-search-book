@@ -32,7 +32,8 @@ Options:
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
 monitoring, Vibe source freshness, status-document evidence, no sensitive
-matches, clean repository state, and reconciled open operator gates.`;
+matches, publication boundaries, clean repository state, and reconciled open
+operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -94,6 +95,10 @@ function normalizedStatusEvidence(packet) {
 
 function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
+}
+
+function normalizedPublicationBoundaries(packet) {
+  return packet.publicationBoundaries?.parsed || {};
 }
 
 function normalizedEvidenceSummaryRenderer(packet) {
@@ -191,6 +196,23 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function publicationBoundariesReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.valuesPrinted === false
+    && Number(totals.publicNavigationPages || 0) === 800
+    && Number(totals.sourceCompanionPages || 0) === 792
+    && Number(totals.exactRoutes || 0) === 820
+    && Number(totals.faqAnswerable || 0) === 820
+    && Number(totals.sourceCompanionRuntimeChunks || 0) > 0
+    && Number(totals.internalDraftRuntimeChunks || 0) === 0
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
@@ -203,6 +225,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
   const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
   const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
+  const nestedPublicationBoundaries = normalizedPublicationBoundaries(nestedLaunchPacket);
   const nestedEvidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
@@ -268,6 +291,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-discord-review-artifacts-status",
     launchSummary.discordReviewArtifactsStatus === "passed",
     `discordReviewArtifactsStatus=${launchSummary.discordReviewArtifactsStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-publication-boundaries-status",
+    launchSummary.publicationBoundariesStatus === "passed",
+    `publicationBoundariesStatus=${launchSummary.publicationBoundariesStatus || "missing"}`,
   );
   addCheck(
     checks,
@@ -349,6 +378,28 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
       rawKeyHits: nestedDiscordReviewArtifacts.summary?.rawKeyHits ?? null,
       sampleLeaks: nestedDiscordReviewArtifacts.summary?.sampleLeaks ?? null,
+    }),
+  );
+  addCheck(
+    checks,
+    "nested-publication-boundaries-passed",
+    nestedLaunchPacket.publicationBoundaries?.passed === true,
+    `passed=${nestedLaunchPacket.publicationBoundaries?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-publication-boundaries-status",
+    nestedPublicationBoundaries.status === "passed",
+    `status=${nestedPublicationBoundaries.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-publication-boundaries-ready",
+    publicationBoundariesReady(nestedPublicationBoundaries),
+    JSON.stringify({
+      evidence: nestedPublicationBoundaries.evidence || null,
+      valuesPrinted: nestedPublicationBoundaries.valuesPrinted ?? null,
+      checks: Array.isArray(nestedPublicationBoundaries.checks) ? nestedPublicationBoundaries.checks.length : null,
     }),
   );
   addCheck(
@@ -439,6 +490,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
         routeCoverage: nestedDiscordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
       },
+      publicationBoundariesStatus: launchSummary.publicationBoundariesStatus || null,
+      publicationBoundaries: nestedPublicationBoundaries.evidence || null,
       evidenceSummaryRendererStatus: launchSummary.evidenceSummaryRendererStatus || null,
       evidenceSummaryRenderer: nestedEvidenceSummaryRenderer.evidence || null,
       steps: (packet.steps || []).map((step) => ({ id: step.id, status: step.status })),

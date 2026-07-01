@@ -258,11 +258,14 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   const statusEvidence = packet.statusEvidence?.parsed || null;
   const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
+  const publicationBoundaries = packet.publicationBoundaries?.parsed || null;
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
   const discordSummary = discordReviewArtifacts?.summary || null;
   const discordQueue = discordReviewArtifacts?.editorialQueue || null;
+  const publicationBoundaryChecks = publicationBoundaries?.checks || [];
+  const publicationBoundaryChecksPassed = publicationBoundaryChecks.filter((check) => check.passed).length;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -274,6 +277,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     sourceFreshnessStatus: sourceFreshness?.status || null,
     statusEvidenceStatus: statusEvidence?.status || null,
     discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
+    publicationBoundariesStatus: publicationBoundaries?.status || null,
     evidenceSummaryRendererStatus: evidenceSummaryRenderer?.status || null,
     sourceFreshness: sourceFreshness
       ? {
@@ -315,6 +319,17 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
                 sampleLeaks: discordQueue.sampleLeaks ?? null,
               }
             : null,
+        }
+      : null,
+    publicationBoundaries: publicationBoundaries
+      ? {
+          status: publicationBoundaries.status || null,
+          evidence: publicationBoundaries.evidence || null,
+          checks: {
+            passed: publicationBoundaryChecksPassed,
+            total: publicationBoundaryChecks.length,
+          },
+          valuesPrinted: publicationBoundaries.valuesPrinted === true,
         }
       : null,
     evidenceSummaryRenderer: evidenceSummaryRenderer
@@ -453,6 +468,11 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
 - Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`
+- Publication boundaries status: \`${launch.publicationBoundariesStatus || "missing"}\`
+- Publication boundary public/source pages: \`${launch.publicationBoundaries?.evidence?.publicNavigationPages ?? "unknown"}/${launch.publicationBoundaries?.evidence?.sourceCompanionPages ?? "unknown"}\`
+- Publication boundary exact/FAQ routes: \`${launch.publicationBoundaries?.evidence?.exactRoutes ?? "unknown"}/${launch.publicationBoundaries?.evidence?.faqAnswerable ?? "unknown"}\`
+- Publication boundary internal-draft runtime chunks: \`${launch.publicationBoundaries?.evidence?.internalDraftRuntimeChunks ?? "unknown"}\`
+- Publication boundary checks: \`${launch.publicationBoundaries?.checks?.passed ?? "unknown"}/${launch.publicationBoundaries?.checks?.total ?? "unknown"}\`
 - Evidence summary renderer status: \`${launch.evidenceSummaryRendererStatus || "missing"}\`
 - Evidence summary lines: \`${launch.evidenceSummaryRenderer?.launchSummaryLines ?? "unknown"} launch / ${launch.evidenceSummaryRenderer?.releaseSummaryLines ?? "unknown"} release\`
 - Evidence summary values printed: \`${launch.evidenceSummaryRenderer?.valuesPrinted ?? "unknown"}\`
@@ -601,6 +621,7 @@ try {
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
       statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
       discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
+      publicationBoundariesStatus: packet.launchEvidence?.publicationBoundariesStatus || null,
       evidenceSummaryRendererStatus: packet.launchEvidence?.evidenceSummaryRendererStatus || null,
     },
     steps: packet.steps.map((step) => ({

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex publication boundary launch evidence
+- Task: Promote the publication-boundary checker into launch/release evidence packets and validators.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, evidence summary/status docs, regenerated packet docs if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch/release packets include count-only publication-boundary evidence; validators fail if missing, failed, or raw; full verify and a fresh clean release dry-run pass; only #11/#4 remain operator gates.
+- Result: Added count-only publication-boundary evidence to launch/release packets, reusable evidence summaries, and packet validators. Focused checks passed: `npm run search-book:check-publication-boundaries`, `npm run search-book:check-evidence-summary`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, publication boundaries `passed`, and quality gates `29/30`. Clean release dry-run `/tmp/search-book-release-dry-run-clean-repo-publication-boundaries-20260701-1` passed from commit `5a6a039` with clean release/nested launch repository state, launch/source-freshness/status/Discord/publication/evidence-summary evidence all `passed`, publication counts 800 public pages / 792 source companions / 0 internal-draft runtime chunks, 22 launch summary lines / 26 release summary lines, `valuesPrinted:false`, and 0 sensitive-pattern matches.
+
 ## 2026-07-01 — Codex publication boundary checker
 - Task: Add a deterministic guard that source companions stay out of public navigation and internal drafts stay out of public routes/answer synthesis.
 - Scope: Publication/page-state checker script, build verification wiring, package script, status docs, and `_local/agent-worklog.md`.
