@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex manual workflow queue-data evidence
+- Task: Trigger the manual launch-evidence and release-dry-run workflows from `main`, verify their summary artifacts include the Discord editorial queue data proof, and record the run evidence.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `Search Book Launch Evidence` and `Search Book Release Dry Run` complete successfully from `main`; downloaded summary artifacts contain `Discord editorial queue data | passed`; status/worklog updated without adding secrets or raw Discord/Lafa text.
+- Result: Manual launch run `28531021211` and release run `28531024183` both passed from `main` at commit `5e41ef4`. Downloaded summaries under `/tmp/search-book-gh-manual-launch-28531021211` and `/tmp/search-book-gh-manual-release-28531024183` include the queue-data row, clean repository state, and `Secrets printed | false`. Packet validators passed for the standalone launch packet, the nested release launch packet, and the mirrored release packet at `/tmp/search-book-release-dry-run/release-dry-run.json`; source ingestion remains `17/17`, queue data remains `passed`, and only #11/#4 are open.
+
 ## 2026-07-01 — Codex workflow queue-data proof guard
 - Task: Require GitHub launch/release workflow contracts to carry the Discord editorial queue data proof through checked validators and no-secret summaries.
 - Scope: `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, `scripts/check-github-workflows.mjs`, status docs if required, and `_local/agent-worklog.md`.

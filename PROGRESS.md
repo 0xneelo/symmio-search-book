@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Manual Workflow Queue-Data Evidence
+
+- Triggered the manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows from `main` at commit `5e41ef4`; launch run `28531021211` passed in 33s and release run `28531024183` passed in 44s.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28531021211` and `/tmp/search-book-gh-manual-release-28531024183`; both rendered summary files include `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, repository dirty `false`, and `Secrets printed | false`.
+- Validated the downloaded standalone launch packet and nested release launch packet with `npm run search-book:check-launch-evidence-packet`, then mirrored the downloaded release artifact at `/tmp/search-book-release-dry-run` and validated it with `npm run search-book:check-release-dry-run-packet`; release and nested launch commits both match `5e41ef4`, source ingestion stays `17/17`, queue data stays `passed`, and only #11/#4 remain open.
+
 ## 2026-07-01 — Workflow Summary Queue-Data Proof
 
 - Hardened the launch-evidence and release-dry-run GitHub workflows so their rendered `$GITHUB_STEP_SUMMARY` path is also saved as a short-lived artifact and checked for the no-secret Discord editorial queue data row.
