@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Open Operator Linear Task Evidence Surface
+
+- Added open-operator Linear task IDs to launch/release readiness snapshots and packet Markdown, keeping the public evidence count-only and no-secret: `#4=SYN-285`, `#11=SYN-281`.
+- `npm run search-book:evidence-summary` now renders an `Open operator Linear tasks` row for launch and release summaries, and both packet validators require that row under `--require-summary`.
+- Local verification passed: script syntax checks, `npm run search-book:check-evidence-summary` with 37 launch lines / 41 release lines, `npm run search-book:check-status-evidence`, `npm run search-book:check-github-workflows`, `git diff --check`, a local no-secret release dry run showing `linearTask` in readiness, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Open Operator Linear Task Guard
 
 - Hardened `npm run search-book:check-operator-inbox` so every `[OPEN]` operator item must carry a `Linear operator task: SYN-...` marker.

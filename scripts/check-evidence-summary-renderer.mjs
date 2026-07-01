@@ -60,8 +60,8 @@ function makeLaunchPacket() {
         pageFeedback: true,
       },
       openOperatorItems: [
-        { id: 11, title: "Production VPS LLM/service env install" },
-        { id: 4, title: "Final docs platform and repository owner decision" },
+        { id: 11, title: "Production VPS LLM/service env install", linearTask: "SYN-281" },
+        { id: 4, title: "Final docs platform and repository owner decision", linearTask: "SYN-285" },
       ],
     },
     launchEvidence: {
@@ -387,8 +387,8 @@ function makeReleasePacket() {
         pageFeedback: true,
       },
       openOperatorItems: [
-        { id: 11, title: "Production VPS LLM/service env install" },
-        { id: 4, title: "Final docs platform and repository decision" },
+        { id: 11, title: "Production VPS LLM/service env install", linearTask: "SYN-281" },
+        { id: 4, title: "Final docs platform and repository decision", linearTask: "SYN-285" },
       ],
     },
     launchEvidence: {

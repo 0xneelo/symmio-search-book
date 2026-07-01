@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex refreshed launch/release evidence after Linear-task guard
+- Task: Refresh manual launch/release workflow evidence from the latest `main` so downloaded artifacts carry the open-operator Linear task guard added in commit `70cf51d`.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: In progress.
+- Verification target: Manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows pass from `70cf51d` or newer; downloaded launch/release packets validate with `--require-summary`; no secrets or raw Discord/Lafa text are printed; only #11/#4 remain open.
+- Result: Expanded the scope after the first refreshed artifacts passed but did not expose the Linear task IDs directly. Launch/release readiness snapshots, packet Markdown, evidence summaries, and packet validators now carry and require `#4=SYN-285` plus `#11=SYN-281`. Local verification passed: syntax checks for touched scripts, `npm run search-book:check-evidence-summary` with 37 launch lines / 41 release lines, `npm run search-book:check-status-evidence`, `npm run search-book:check-github-workflows`, `git diff --check`, a local no-secret release dry run at `/tmp/search-book-release-dry-run-linear-tasks-20260701-1` showing `linearTask` in readiness, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open. Clean post-commit workflow artifacts still need to be refreshed from `main`.
+
 ## 2026-07-01 — Codex open operator Linear task guard
 - Task: Make operator-blocker tracking executable by requiring every currently open operator inbox item to carry a Linear operator task and pinning #11/#4 to their reconciled task IDs.
 - Scope: `scripts/check-operator-inbox-consistency.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.

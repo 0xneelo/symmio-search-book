@@ -8,6 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const allowedOpenOperatorItems = new Set([4, 11]);
+const expectedOpenOperatorLinearTasks = new Map([
+  [4, "SYN-285"],
+  [11, "SYN-281"],
+]);
 
 function defaultPacketPath() {
   if (process.env.SEARCH_BOOK_LAUNCH_EVIDENCE_PACKET) {
@@ -155,6 +159,31 @@ function unexpectedOpenOperatorItems(readiness) {
     .filter((id) => !allowedOpenOperatorItems.has(id));
 }
 
+function operatorLinearTasks(readiness = {}) {
+  return (readiness.openOperatorItems || [])
+    .map((item) => ({
+      id: Number(item.id),
+      linearTask: item.linearTask || null,
+    }))
+    .filter((item) => Number.isFinite(item.id));
+}
+
+function operatorLinearTaskSummary(readiness = {}) {
+  return operatorLinearTasks(readiness)
+    .filter((item) => item.linearTask)
+    .sort((a, b) => a.id - b.id)
+    .map((item) => `#${item.id}=${item.linearTask}`)
+    .join(", ") || "none";
+}
+
+function operatorLinearTasksReady(readiness = {}) {
+  const tasks = operatorLinearTasks(readiness);
+  return (
+    tasks.length === expectedOpenOperatorLinearTasks.size
+    && tasks.every((item) => expectedOpenOperatorLinearTasks.get(item.id) === item.linearTask)
+  );
+}
+
 function unexpectedStatusEvidenceOpenOperatorItems(statusEvidence) {
   return (statusEvidence.evidence?.openOperatorItems || [])
     .map((id) => Number(id))
@@ -286,6 +315,7 @@ function validateSummaryArtifact({
   summaryPath,
   repository = {},
   queueData = {},
+  readiness = {},
   required = false,
 }) {
   const present = fs.existsSync(summaryPath);
@@ -301,6 +331,10 @@ function validateSummaryArtifact({
     {
       id: "discord-queue-data-row",
       fragment: queueDataRow(queueData),
+    },
+    {
+      id: "open-operator-linear-tasks-row",
+      fragment: `Open operator Linear tasks | \`${operatorLinearTaskSummary(readiness)}\``,
     },
     {
       id: "secrets-row",
@@ -492,6 +526,7 @@ function validateLaunchPacket(packet, packetPath, options = {}) {
     summaryPath: summaryArtifactPath(packetPath, "launch-evidence.summary.md"),
     repository,
     queueData: discordReviewArtifacts.editorialQueueData || {},
+    readiness,
     required: options.requireSummary === true,
   });
 
@@ -740,6 +775,13 @@ function validateLaunchPacket(packet, packetPath, options = {}) {
   );
   addCheck(
     checks,
+    "open-operator-linear-tasks-current",
+    operatorLinearTasksReady(readiness),
+    operatorLinearTaskSummary(readiness),
+    { openOperatorLinearTasks: operatorLinearTasks(readiness) },
+  );
+  addCheck(
+    checks,
     "summary-artifact",
     summaryArtifactReady(summaryArtifact),
     `status=${summaryArtifact.status}; required=${summaryArtifact.required}; present=${summaryArtifact.present}`,
@@ -799,6 +841,7 @@ function validateLaunchPacket(packet, packetPath, options = {}) {
       sourceRequirements: readiness.sourceRequirements || null,
       discordRouteCoverage: readiness.discordRouteCoverage || null,
       openOperatorItems: readiness.openOperatorItems || [],
+      openOperatorLinearTasks: operatorLinearTasks(readiness),
       summaryArtifact,
     },
     checks,

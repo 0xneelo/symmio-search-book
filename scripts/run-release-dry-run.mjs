@@ -233,6 +233,25 @@ function normalizeStatusCounts(byStatus = {}) {
   };
 }
 
+function parseOperatorLinearTasks() {
+  let markdown = "";
+  try {
+    markdown = fs.readFileSync(path.join(searchBookRoot, "_specs/app-docs/OPERATOR-INBOX.md"), "utf8");
+  } catch {
+    return new Map();
+  }
+  const pattern = /^### \[OPEN\] #(\d+)\s+[-\u2014]\s+.+$/gm;
+  const matches = [...markdown.matchAll(pattern)];
+  return new Map(matches.map((match, index) => {
+    const next = matches[index + 1];
+    const body = markdown.slice(match.index, next?.index ?? markdown.length);
+    return [
+      Number(match[1]),
+      body.match(/Linear operator task:\s*(SYN-\d+)/)?.[1] || null,
+    ];
+  }));
+}
+
 function summarizeStaticArtifact(artifactDir) {
   const manifest = readJson(path.join(artifactDir, "static-artifact-manifest.json"), null);
   if (!manifest) return null;
@@ -454,6 +473,7 @@ function summarizeReadiness() {
   const answerContract = readRepoJson("data/answer-engine-contract.json", {});
   const livingDocs = readRepoJson("data/living-docs-events.json", {});
   const llm = readRepoJson("data/llm-rag-contract.json", {});
+  const operatorLinearTasks = parseOperatorLinearTasks();
   const gates = Array.isArray(quality.gates) ? quality.gates : [];
   const gatePasses = gates.filter((gate) => gate?.passed === true).length;
   const totals = quality.totals || {};
@@ -487,6 +507,7 @@ function summarizeReadiness() {
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
       id: item.id,
       title: item.title,
+      linearTask: operatorLinearTasks.get(Number(item.id)) || null,
     })),
   };
 }
@@ -526,6 +547,7 @@ function renderMarkdown(packet) {
   const launch = packet.launchEvidence || {};
   const readiness = packet.readiness || {};
   const openItems = readiness.openOperatorItems || [];
+  const openItemLine = (item) => `- #${item.id}: ${item.title} (Linear ${item.linearTask || "missing"})`;
   return `# Search Book Release Dry Run
 
 Generated: ${packet.generatedAt}
@@ -617,7 +639,7 @@ ${steps.map((step) => `- ${step.id}: \`${step.status}\` (${step.title})`).join("
 
 ## Open Operator Items
 
-${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
+${openItems.length ? openItems.map(openItemLine).join("\n") : "- None recorded in requirement map."}
 
 ## Files
 

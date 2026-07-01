@@ -228,6 +228,25 @@ function normalizeStatusCounts(byStatus = {}) {
   };
 }
 
+function parseOperatorLinearTasks() {
+  let markdown = "";
+  try {
+    markdown = fs.readFileSync(path.join(searchBookRoot, "_specs/app-docs/OPERATOR-INBOX.md"), "utf8");
+  } catch {
+    return new Map();
+  }
+  const pattern = /^### \[OPEN\] #(\d+)\s+[-\u2014]\s+.+$/gm;
+  const matches = [...markdown.matchAll(pattern)];
+  return new Map(matches.map((match, index) => {
+    const next = matches[index + 1];
+    const body = markdown.slice(match.index, next?.index ?? markdown.length);
+    return [
+      Number(match[1]),
+      body.match(/Linear operator task:\s*(SYN-\d+)/)?.[1] || null,
+    ];
+  }));
+}
+
 function sanitize(value, key = "") {
   if (Array.isArray(value)) return value.map((item) => sanitize(item, key));
   if (value && typeof value === "object") {
@@ -252,6 +271,7 @@ function summarizeReadiness() {
   const answerContract = readJson("data/answer-engine-contract.json", {});
   const livingDocs = readJson("data/living-docs-events.json", {});
   const llm = readJson("data/llm-rag-contract.json", {});
+  const operatorLinearTasks = parseOperatorLinearTasks();
   const gates = Array.isArray(quality.gates) ? quality.gates : [];
   const gatePasses = gates.filter((gate) => gate?.passed === true).length;
   const totals = quality.totals || {};
@@ -286,6 +306,7 @@ function summarizeReadiness() {
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
       id: item.id,
       title: item.title,
+      linearTask: operatorLinearTasks.get(Number(item.id)) || null,
     })),
     liveLlmEval: {
       status: llm.liveEvaluation?.status || null,
@@ -535,6 +556,7 @@ function renderMarkdown(packet) {
   const warningMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const readiness = packet.readiness;
   const openItems = readiness.openOperatorItems || [];
+  const openItemLine = (item) => `- #${item.id}: ${item.title} (Linear ${item.linearTask || "missing"})`;
   return `# Search Book Launch Evidence Packet
 
 Generated: ${packet.generatedAt}
@@ -672,7 +694,7 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 
 ## Open Operator Items
 
-${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
+${openItems.length ? openItems.map(openItemLine).join("\n") : "- None recorded in requirement map."}
 
 ## Failed Checks
 

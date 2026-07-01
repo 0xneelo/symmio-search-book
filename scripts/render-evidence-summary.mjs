@@ -54,6 +54,17 @@ function operatorItems(items = []) {
     .join(", ") || "none";
 }
 
+function operatorTasks(items = []) {
+  return items
+    .map((item) => typeof item === "object"
+      ? { id: Number(item.id), linearTask: item.linearTask || null }
+      : { id: Number(item), linearTask: null })
+    .filter((item) => Number.isFinite(item.id) && item.linearTask)
+    .sort((a, b) => a.id - b.id)
+    .map((item) => `#${item.id}=${item.linearTask}`)
+    .join(", ") || "none";
+}
+
 function markdownTable(title, rows) {
   return [
     `## ${title}`,
@@ -109,6 +120,7 @@ function launchSummary(packet) {
   const specReconciliationPassedChecks = specReconciliationChecks.filter((check) => check.passed).length;
   const specReconciliationEvidence = specReconciliation.evidence || {};
   const openOperatorItems = operatorItems(statusEvidence.evidence?.openOperatorItems || packet.readiness?.openOperatorItems || []);
+  const openOperatorTasks = operatorTasks(packet.readiness?.openOperatorItems || []);
 
   return markdownTable("Search Book Launch Evidence", [
     ["Packet status", `\`${packet.status || "missing"}\``],
@@ -182,6 +194,7 @@ function launchSummary(packet) {
       `\`${evidenceSummaryRenderer.status || "missing"}\` (${evidenceSummaryRenderer.evidence?.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.evidence?.valuesPrinted ?? "unknown"}\`)`,
     ],
     ["Open operator items", `\`${openOperatorItems}\``],
+    ["Open operator Linear tasks", `\`${openOperatorTasks}\``],
     ["Secrets printed", `\`${packet.secrets?.valuesPrinted ?? false}\``],
   ]);
 }
@@ -211,6 +224,7 @@ function releaseSummary(packet) {
     .map((step) => `${step.id}:${step.status}`)
     .join(", ") || "none";
   const openOperatorItems = operatorItems(packet.readiness?.openOperatorItems || []);
+  const openOperatorTasks = operatorTasks(packet.readiness?.openOperatorItems || []);
 
   return markdownTable("Search Book Release Dry Run", [
     ["Release status", `\`${packet.status || "missing"}\``],
@@ -290,6 +304,7 @@ function releaseSummary(packet) {
     ],
     ["Readiness route coverage", `\`${readinessRouteCoverage.pageFitCoveredByPublicRoutes ?? "unknown"}/${readinessRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Open operator items", `\`${openOperatorItems}\``],
+    ["Open operator Linear tasks", `\`${openOperatorTasks}\``],
     ["Sensitive matches", `\`${packet.secrets?.sensitiveMatches?.length ?? "unknown"}\``],
     ["Secrets printed", `\`${packet.secrets?.valuesPrinted ?? false}\``],
   ]);
