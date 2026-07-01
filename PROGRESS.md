@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Source-Reconciliation Rebuild Check
+
+- Re-read the reconciled operator inbox and confirmed only OPERATOR-INBOX #11 production VPS env install and #4 public frontend/deploy-route decision remain open; local `.secrets/search-book.env` is complete and was not printed.
+- Re-ran the Discord importer against the real Windows export in `internal-only` mode with the resolved Lafa author id; output remained stable at 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`.
+- Confirmed the v1 source-boundary registrations are present: `vibe-trading-notion` is paraphrase-only, SSHE is bounded through `superflow-she-openapi` plus Symmio Foundation meta-solver/clearing-layer sources, and original/oldest whitepaper recovery remains out of scope for v1.
+- Full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, Discord route coverage `19/19`, and only #11/#4 open.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-01 — Static Artifact Evidence Refresh From Launch-Release Guard Checkpoint
 
 - Triggered manual `Search Book Static Artifact` workflow run `28544931805` from commit `6608820`; the workflow passed verify, static artifact build, static smoke, answer-engine bridge smoke, checked artifact packet validation, and artifact upload.

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-reconciliation rebuild check
+- Task: Re-run the reconciled Search Book source/readiness build from the standalone repo after confirming only OPERATOR-INBOX #11 and #4 remain open, then report whether the readiness booleans changed.
+- Scope: Deterministic source/readiness build outputs, `PROGRESS.md`, `_local/agent-worklog.md`, and status docs only if the rebuild changes evidence. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:verify`, focused readiness summary, `git diff --check`, and canonical inbox re-check all pass with source ingestion `17/17` and only #11/#4 open.
+- Result: Re-ran `scripts/build-discord-corpus.mjs` against the real Windows Discord export in `internal-only` mode with the resolved Lafa author id; output remained stable at 5,000 imported messages, 723 question clusters, 837 configured Lafa candidates, `corpusReady:true`, and no stored message text. Confirmed Notion, SSHE, and whitepaper v1 boundaries are registered. Full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify` passed with source ingestion `17/17`, quality gates `29/30`, Discord route coverage `19/19`, and only #11/#4 open. Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`.
+
 ## 2026-07-01 — Codex refreshing static artifact evidence from launch-release guard checkpoint
 - Task: Trigger the manual static artifact workflow from latest `main` after commit `6608820`, download the platform-neutral bundle, and validate it against the current Search Book artifact contract so static artifact evidence references the latest launch/release evidence checkpoint.
 - Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, and status guards only if refreshed evidence format requires it.
