@@ -86,6 +86,32 @@ The preflight validates built artifacts, production SQLite path, LLM-backed defa
 allowed origins, public service URL, moderation token rules, and live-eval evidence. It
 reports whether secrets are configured but never prints secret values.
 
+The full launch gate composes the production preflight, deterministic verify, URL-driven
+deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
+boundary. Load the same service env file so it can see the production LLM/service settings,
+reviewer owner, cadence, and backup storage evidence:
+
+```bash
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-host> \
+  --run-verify
+```
+
+For staging-only localhost validation, use the staging profile. This permits local URLs but
+keeps unresolved production blockers visible as warnings:
+
+```bash
+npm run search-book:check-launch -- \
+  --profile staging \
+  --allow-local \
+  --site-url http://127.0.0.1:<preview-port> \
+  --service-url http://127.0.0.1:<service-port> \
+  --mode extractive \
+  --skip-production-env \
+  --run-verify
+```
+
 For operational monitoring, enable the internal metrics export only behind a trusted route:
 
 ```bash

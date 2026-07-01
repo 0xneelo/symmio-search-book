@@ -25,6 +25,9 @@ SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
 SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=false
 SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=
+SEARCH_BOOK_REVIEWER_OWNER=<owner or rotation>
+SEARCH_BOOK_REVIEW_CADENCE=daily
+SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/path/to/approved/backups
 ```
 
 LLM synthesis setup remains separate:
@@ -49,6 +52,17 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production
 The preflight must pass before public traffic is enabled. It validates that local defaults
 were replaced by production paths/origins, that the default answer mode is LLM-backed, and
 that required secrets are present without printing their values.
+
+For launch evidence, run the combined launch gate. It composes the production env preflight,
+fresh deterministic verify, URL-driven deployment smoke, reviewer owner/cadence evidence,
+backup-storage evidence, and unresolved completion-boundary checks:
+
+```sh
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-route> \
+  --run-verify
+```
 
 Helpful-answer reuse needs embeddings:
 
@@ -221,6 +235,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
 - `npm run search-book:check-production-env` passes with the production service env loaded.
 - `npm run search-book:smoke-deployment -- --site-url <public-route> --service-url <answer-engine-route>` passes in read-only mode; staging or launch validation may add `--write` to create one answer event and rating.
+- `npm run search-book:check-launch -- --site-url <public-route> --service-url <answer-engine-route> --run-verify` passes with the production service env loaded.
 - Moderation export is disabled by default and token-gated when enabled.
 - Metrics export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.

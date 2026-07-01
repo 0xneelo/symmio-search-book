@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Launch Readiness Gate
+
+- Added `scripts/check-launch-readiness.mjs` and `npm run search-book:check-launch` as the executable launch gate for Search Book production/staging evidence.
+- The production profile fails closed unless HTTPS docs/service URLs are configured, production env preflight passes, `--run-verify` is included, reviewer owner/cadence and backup-storage evidence are configured, URL-driven deployment smoke passes, and unresolved completion blockers are cleared.
+- The staging profile supports localhost validation with `--allow-local`; unresolved production blockers remain visible as warnings, and `--write-smoke` can be added for staging launch drills that should create one answer event and rating.
+
 ## 2026-07-01 — URL-Driven Deployment Smoke
 
 - Added `scripts/smoke-deployment.mjs` and `npm run search-book:smoke-deployment` for preview/staging/production route checks.

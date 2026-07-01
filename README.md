@@ -67,6 +67,7 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com --se
 
 # Production env/deploy preflight (validates env shape; no provider call)
 npm run search-book:check-production-env
+npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --run-verify
 
 # Ask a grounded, cited question with NO model call (extractive):
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
@@ -103,6 +104,10 @@ job (`npm run search-book:living-docs-summary`), and the backup/restore-check ut
 production launch, run `npm run search-book:check-production-env` with the service env
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
 SQLite paths, and missing LLM credentials without printing secret values.
+For launch evidence, run `npm run search-book:check-launch -- --site-url <public-docs-route> --service-url <answer-engine-route> --run-verify`;
+it composes the production env preflight, deterministic verify, URL-driven deployment
+smoke, reviewer assignment, backup-storage evidence, and unresolved completion-boundary
+checks without printing secret values.
 
 ## Environment
 
