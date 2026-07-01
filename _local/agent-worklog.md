@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex summary-artifact packet validation
+- Task: Harden downloaded launch/release packet validation so adjacent GitHub summary Markdown artifacts are checked by the packet validators instead of only by workflow grep/manual review.
+- Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, README/status docs if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Downloaded launch/release artifacts validate directly with summary checks, focused packet validators pass, full verify remains green, and only #11/#4 stay open.
+- Result: Added `--require-summary` to the launch and release packet validators, requiring adjacent summary Markdown rows for pass status, clean commit, Discord editorial queue data, and `Secrets printed | false`. Manual launch/release workflows now re-run their packet validators with `--require-summary` after rendering summaries, and `npm run search-book:check-github-workflows` enforces the contract. Focused verification passed against `/tmp/search-book-gh-manual-launch-28531648917/search-book-launch-evidence/launch-evidence.json` and `/tmp/search-book-gh-manual-release-28531643102/search-book-release-dry-run/release-dry-run.json` with strict summary validation; summaries carry commit `808f160`, queue data `24 routed / 19 page-fit / 2 refusals`, `ready:true`, and no secret printing.
+
 ## 2026-07-01 — Codex latest manual workflow evidence after validator hardening
 - Task: Trigger launch-evidence and release-dry-run workflows from latest `main` after downloaded-artifact validator hardening, then validate downloaded artifacts directly.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.

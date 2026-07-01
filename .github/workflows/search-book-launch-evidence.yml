@@ -69,6 +69,7 @@ jobs:
             > "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
           cat "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
           grep -F 'Discord editorial queue data | `passed` (24 routed / 19 page-fit / 2 refusals; ready: `true`)' "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
+          npm run search-book:check-launch-evidence-packet -- --packet "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json" --require-summary
 
       - name: Upload launch evidence
         if: always()

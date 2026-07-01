@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Summary Artifact Packet Validation
+
+- Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` with `--require-summary`, which validates adjacent GitHub summary Markdown artifacts when strict downloaded-artifact review is expected.
+- The validators now require summary rows for passed packet/release status, clean repository commit, the Discord editorial queue data proof, and `Secrets printed | false`; local packet validation remains compatible when no summary artifact is present unless strict mode is requested.
+- Wired the manual launch-evidence and release-dry-run workflows to re-run packet validation with `--require-summary` after rendering and grepping the summary artifact; `npm run search-book:check-github-workflows` now enforces that workflow contract.
+- Verified strict validation against the latest downloaded manual artifacts at `/tmp/search-book-gh-manual-launch-28531648917` and `/tmp/search-book-gh-manual-release-28531643102`; both summaries passed the required rows with commit `808f160`, queue data `24 routed / 19 page-fit / 2 refusals`, `ready:true`, and no secret printing.
+
 ## 2026-07-01 — Latest Manual Workflow Evidence After Downloaded-Artifact Guard
 
 - Triggered fresh manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows from latest `main` after downloaded-artifact validation support; launch run `28531648917` passed in 36s and release run `28531643102` passed in 44s.

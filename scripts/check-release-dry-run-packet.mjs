@@ -27,6 +27,9 @@ Options:
   --packet path  Defaults to SEARCH_BOOK_RELEASE_DRY_RUN_PACKET,
                  SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.json,
                  or /tmp/search-book-release-dry-run/release-dry-run.json
+  --require-summary
+                 Require adjacent release-dry-run.summary.md and validate its
+                 count-only no-secret rows
   --json         Accepted for command symmetry; output is always JSON
 
 Validates a no-secret release dry-run packet plus its nested launch-evidence
@@ -41,7 +44,7 @@ not present.`;
 }
 
 function parseArgs(argv) {
-  const args = { packet: defaultPacketPath() };
+  const args = { packet: defaultPacketPath(), requireSummary: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--help" || arg === "-h") {
@@ -49,6 +52,10 @@ function parseArgs(argv) {
       process.exit(0);
     }
     if (arg === "--json") continue;
+    if (arg === "--require-summary") {
+      args.requireSummary = true;
+      continue;
+    }
     const next = argv[index + 1];
     if (!next || next.startsWith("--")) throw new Error(`${arg} requires a value.\n${usage()}`);
     if (arg === "--packet") args.packet = next;
@@ -70,6 +77,11 @@ function addCheck(checks, id, passed, detail = "", evidence = null) {
     detail,
     ...(evidence ? { evidence } : {}),
   });
+}
+
+function relativeOrAbsolute(filePath) {
+  const relativePath = path.relative(searchBookRoot, filePath);
+  return relativePath.startsWith("..") ? filePath : relativePath;
 }
 
 function repositoryClean(repository = {}) {
@@ -271,6 +283,75 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function summaryArtifactPath(packetPath, filename) {
+  return path.join(path.dirname(packetPath), filename);
+}
+
+function queueDataRow(queueData = {}) {
+  return `Discord editorial queue data | \`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`;
+}
+
+function validateSummaryArtifact({
+  kind,
+  summaryPath,
+  repository = {},
+  queueData = {},
+  required = false,
+}) {
+  const present = fs.existsSync(summaryPath);
+  const rows = [
+    {
+      id: "status-row",
+      fragment: `${kind === "launch" ? "Packet" : "Release"} status | \`passed\``,
+    },
+    {
+      id: "repository-row",
+      fragment: `Repository | commit \`${repository.commit || "missing"}\`, dirty \`false\``,
+    },
+    {
+      id: "discord-queue-data-row",
+      fragment: queueDataRow(queueData),
+    },
+    {
+      id: "secrets-row",
+      fragment: "Secrets printed | `false`",
+    },
+  ];
+
+  if (!present) {
+    return {
+      status: required ? "failed" : "not-found",
+      required,
+      present: false,
+      path: relativeOrAbsolute(summaryPath),
+      checks: rows.map((row) => ({
+        id: row.id,
+        passed: !required,
+        detail: required ? "summary artifact missing" : "summary artifact not present; optional check skipped",
+      })),
+    };
+  }
+
+  const summary = fs.readFileSync(summaryPath, "utf8");
+  const checks = rows.map((row) => ({
+    id: row.id,
+    passed: summary.includes(row.fragment),
+    detail: row.fragment,
+  }));
+  const failed = checks.filter((check) => !check.passed);
+  return {
+    status: failed.length ? "failed" : "passed",
+    required,
+    present: true,
+    path: relativeOrAbsolute(summaryPath),
+    checks,
+  };
+}
+
+function summaryArtifactReady(summaryArtifact) {
+  return summaryArtifact.status === "passed" || (summaryArtifact.required === false && summaryArtifact.present === false);
+}
+
 function specReconciliationReady(evidence = {}) {
   const totals = evidence.evidence || {};
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
@@ -391,7 +472,7 @@ function productionReadinessPacketVerifySummary(launch = {}) {
   };
 }
 
-function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
+function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath, options = {}) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
   const sensitiveMatches = packet.secrets?.sensitiveMatches || [];
@@ -420,6 +501,13 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(nestedStatusEvidence);
   const nestedProductionPacketVerify = productionReadinessPacketVerifySummary(nestedLaunch);
+  const summaryArtifact = validateSummaryArtifact({
+    kind: "release",
+    summaryPath: summaryArtifactPath(packetPath, "release-dry-run.summary.md"),
+    repository,
+    queueData: launchSummary.discordReviewArtifacts?.editorialQueueData || {},
+    required: options.requireSummary === true,
+  });
 
   addCheck(checks, "release-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(
@@ -755,15 +843,20 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     unexpectedOpen.length === 0,
     unexpectedOpen.length ? `unexpected=${unexpectedOpen.join(",")}` : "only #11/#4 or fewer remain open",
   );
+  addCheck(
+    checks,
+    "summary-artifact",
+    summaryArtifactReady(summaryArtifact),
+    `status=${summaryArtifact.status}; required=${summaryArtifact.required}; present=${summaryArtifact.present}`,
+    summaryArtifact,
+  );
 
   const failed = checks.filter((check) => !check.passed);
   return {
     status: failed.length ? "failed" : "passed",
     service: "search-book-release-dry-run-packet-check",
-    packet: path.relative(searchBookRoot, packetPath).startsWith("..") ? packetPath : path.relative(searchBookRoot, packetPath),
-    nestedLaunchPacket: path.relative(searchBookRoot, nestedLaunchPath).startsWith("..")
-      ? nestedLaunchPath
-      : path.relative(searchBookRoot, nestedLaunchPath),
+    packet: relativeOrAbsolute(packetPath),
+    nestedLaunchPacket: relativeOrAbsolute(nestedLaunchPath),
     generatedAt: packet.generatedAt || null,
     evidence: {
       releaseStatus: packet.status || null,
@@ -822,6 +915,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       discordRouteCoverage: readiness.discordRouteCoverage || null,
       openOperatorItems: readiness.openOperatorItems || [],
       sensitiveMatches: sensitiveMatches.length,
+      summaryArtifact,
     },
     checks,
   };
@@ -832,7 +926,7 @@ try {
   const packet = readJson(args.packet);
   const nestedPath = nestedLaunchPacketPath(packet, args.packet);
   const nestedLaunchPacket = readJson(nestedPath);
-  const result = validateReleasePacket(packet, nestedLaunchPacket, args.packet, nestedPath);
+  const result = validateReleasePacket(packet, nestedLaunchPacket, args.packet, nestedPath, { requireSummary: args.requireSummary });
   const rendered = JSON.stringify(result, null, 2);
   if (result.status === "passed") {
     console.log(rendered);

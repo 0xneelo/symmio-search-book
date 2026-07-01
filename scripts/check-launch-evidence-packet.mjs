@@ -27,6 +27,9 @@ Options:
   --packet path  Defaults to SEARCH_BOOK_LAUNCH_EVIDENCE_PACKET,
                  SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json,
                  or /tmp/search-book-launch-evidence/launch-evidence.json
+  --require-summary
+                 Require adjacent launch-evidence.summary.md and validate its
+                 count-only no-secret rows
   --json         Accepted for command symmetry; output is always JSON
 
 Validates a no-secret launch-evidence packet, including launch readiness,
@@ -38,7 +41,7 @@ and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
-  const args = { packet: defaultPacketPath() };
+  const args = { packet: defaultPacketPath(), requireSummary: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--help" || arg === "-h") {
@@ -46,6 +49,10 @@ function parseArgs(argv) {
       process.exit(0);
     }
     if (arg === "--json") continue;
+    if (arg === "--require-summary") {
+      args.requireSummary = true;
+      continue;
+    }
     const next = argv[index + 1];
     if (!next || next.startsWith("--")) throw new Error(`${arg} requires a value.\n${usage()}`);
     if (arg === "--packet") args.packet = next;
@@ -67,6 +74,11 @@ function addCheck(checks, id, passed, detail = "", evidence = null) {
     detail,
     ...(evidence ? { evidence } : {}),
   });
+}
+
+function relativeOrAbsolute(filePath) {
+  const relativePath = path.relative(searchBookRoot, filePath);
+  return relativePath.startsWith("..") ? filePath : relativePath;
 }
 
 function repositoryClean(repository = {}) {
@@ -261,6 +273,75 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function summaryArtifactPath(packetPath, filename) {
+  return path.join(path.dirname(packetPath), filename);
+}
+
+function queueDataRow(queueData = {}) {
+  return `Discord editorial queue data | \`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`;
+}
+
+function validateSummaryArtifact({
+  kind,
+  summaryPath,
+  repository = {},
+  queueData = {},
+  required = false,
+}) {
+  const present = fs.existsSync(summaryPath);
+  const rows = [
+    {
+      id: "status-row",
+      fragment: `${kind === "launch" ? "Packet" : "Release"} status | \`passed\``,
+    },
+    {
+      id: "repository-row",
+      fragment: `Repository | commit \`${repository.commit || "missing"}\`, dirty \`false\``,
+    },
+    {
+      id: "discord-queue-data-row",
+      fragment: queueDataRow(queueData),
+    },
+    {
+      id: "secrets-row",
+      fragment: "Secrets printed | `false`",
+    },
+  ];
+
+  if (!present) {
+    return {
+      status: required ? "failed" : "not-found",
+      required,
+      present: false,
+      path: relativeOrAbsolute(summaryPath),
+      checks: rows.map((row) => ({
+        id: row.id,
+        passed: !required,
+        detail: required ? "summary artifact missing" : "summary artifact not present; optional check skipped",
+      })),
+    };
+  }
+
+  const summary = fs.readFileSync(summaryPath, "utf8");
+  const checks = rows.map((row) => ({
+    id: row.id,
+    passed: summary.includes(row.fragment),
+    detail: row.fragment,
+  }));
+  const failed = checks.filter((check) => !check.passed);
+  return {
+    status: failed.length ? "failed" : "passed",
+    required,
+    present: true,
+    path: relativeOrAbsolute(summaryPath),
+    checks,
+  };
+}
+
+function summaryArtifactReady(summaryArtifact) {
+  return summaryArtifact.status === "passed" || (summaryArtifact.required === false && summaryArtifact.present === false);
+}
+
 function specReconciliationReady(evidence = {}) {
   const totals = evidence.evidence || {};
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
@@ -381,7 +462,7 @@ function productionReadinessPacketVerifySummary(launch = {}) {
   };
 }
 
-function validateLaunchPacket(packet, packetPath) {
+function validateLaunchPacket(packet, packetPath, options = {}) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
@@ -406,6 +487,13 @@ function validateLaunchPacket(packet, packetPath) {
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(statusEvidence);
   const productionPacketVerify = productionReadinessPacketVerifySummary(launch);
+  const summaryArtifact = validateSummaryArtifact({
+    kind: "launch",
+    summaryPath: summaryArtifactPath(packetPath, "launch-evidence.summary.md"),
+    repository,
+    queueData: discordReviewArtifacts.editorialQueueData || {},
+    required: options.requireSummary === true,
+  });
 
   addCheck(checks, "packet-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(
@@ -650,12 +738,19 @@ function validateLaunchPacket(packet, packetPath) {
     unexpectedOpen.length === 0,
     unexpectedOpen.length ? `unexpected=${unexpectedOpen.join(",")}` : "only #11/#4 or fewer remain open",
   );
+  addCheck(
+    checks,
+    "summary-artifact",
+    summaryArtifactReady(summaryArtifact),
+    `status=${summaryArtifact.status}; required=${summaryArtifact.required}; present=${summaryArtifact.present}`,
+    summaryArtifact,
+  );
 
   const failed = checks.filter((check) => !check.passed);
   return {
     status: failed.length ? "failed" : "passed",
     service: "search-book-launch-evidence-packet-check",
-    packet: path.relative(searchBookRoot, packetPath).startsWith("..") ? packetPath : path.relative(searchBookRoot, packetPath),
+    packet: relativeOrAbsolute(packetPath),
     generatedAt: packet.generatedAt || null,
     evidence: {
       packetStatus: packet.status || null,
@@ -704,6 +799,7 @@ function validateLaunchPacket(packet, packetPath) {
       sourceRequirements: readiness.sourceRequirements || null,
       discordRouteCoverage: readiness.discordRouteCoverage || null,
       openOperatorItems: readiness.openOperatorItems || [],
+      summaryArtifact,
     },
     checks,
   };
@@ -712,7 +808,7 @@ function validateLaunchPacket(packet, packetPath) {
 try {
   const args = parseArgs(process.argv.slice(2));
   const packet = readJson(args.packet);
-  const result = validateLaunchPacket(packet, args.packet);
+  const result = validateLaunchPacket(packet, args.packet, { requireSummary: args.requireSummary });
   const rendered = JSON.stringify(result, null, 2);
   if (result.status === "passed") {
     console.log(rendered);

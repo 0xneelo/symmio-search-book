@@ -179,6 +179,8 @@ the validator requires the packet to come from a clean repository state and incl
 backup-restore and living-docs reviewer evidence.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
+For downloaded GitHub artifacts, validate the adjacent summary Markdown too with
+`npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json> --require-summary`.
 Validate the renderer's no-raw/no-secret boundary with `npm run search-book:check-evidence-summary`.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
@@ -198,6 +200,8 @@ Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-
 the validator requires clean release and nested launch repository state from the same commit.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind release --packet <release-dry-run.json>`.
+For downloaded GitHub artifacts, validate the adjacent summary Markdown too with
+`npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json> --require-summary`.
 To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for
