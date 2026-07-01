@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Review Artifacts In Launch Evidence
+
+- Added Discord review-artifact evidence to `npm run search-book:launch-evidence` by running the no-secret `scripts/check-discord-review-artifacts.mjs` command as a first-class packet child.
+- Extended `npm run search-book:release-dry-run` so the outer release packet summarizes the nested launch packet's Discord review-artifact status, routed review items, editorial queue counts, and raw-table/sample-leak counts.
+- Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` to fail if Discord review-artifact evidence is missing, not passed, not route-covered, contains raw-key/sample leaks, or has a stale/missing no-raw editorial queue.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-discord-artifacts-20260701-1`: release status `passed`, static artifact `1,650` files / `52,935,258` bytes, launch/monitoring/source-freshness/status-evidence/Discord-review-artifacts all `passed`, status evidence documents `4/4`, Discord routed review items `24`, queue page-fit/refusal groups `19/2`, raw key hits `0`, sample leaks `0`, queue raw table hits `0`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Both packet validators passed against `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1/launch-evidence/launch-evidence.json` and `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1/release-dry-run.json`.
+
 ## 2026-07-01 — Discord Editorial Queue Validator
 
 - Extended `scripts/check-discord-review-artifacts.mjs` so `npm run search-book:check-discord-review-artifacts` validates `DISCORD-EDITORIAL-QUEUE.md` against the sanitized `data/discord-review-routing.json` summary.

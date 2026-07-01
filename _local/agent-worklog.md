@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial launch evidence
+- Task: Promote the Discord editorial queue privacy/consistency proof into launch-evidence and release-dry-run packets.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch/release evidence packets include parsed `check-discord-review-artifacts` status and validators fail if the committed queue/summary privacy proof is missing or stale; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Added first-class Discord review-artifact evidence to launch packets, summarized it in release dry-run packets, and hardened both packet validators to require passed no-raw route/queue evidence. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-discord-artifacts-20260701-1` passed with static artifact `1,650` files / `52,935,258` bytes, launch/monitoring/source-freshness/status-evidence/Discord-review-artifacts all `passed`, status documents `4/4`, Discord routed review items `24`, queue page-fit/refusal groups `19/2`, raw key hits `0`, sample leaks `0`, queue raw table hits `0`, `valuesPrinted:false`, and `0` sensitive-pattern matches. Both packet validators passed against the generated launch/release packets; `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `git diff --check`, and full `npm run search-book:verify` passed.
+
 ## 2026-07-01 — Codex Discord editorial queue validator
 - Task: Extend the Discord review artifact checker to validate `DISCORD-EDITORIAL-QUEUE.md` against the sanitized routing summary.
 - Scope: `scripts/check-discord-review-artifacts.mjs`, status docs if evidence wording changes, and `_local/agent-worklog.md`.

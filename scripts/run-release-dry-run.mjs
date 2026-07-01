@@ -257,8 +257,11 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   if (!packet) return null;
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   const statusEvidence = packet.statusEvidence?.parsed || null;
+  const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
+  const discordSummary = discordReviewArtifacts?.summary || null;
+  const discordQueue = discordReviewArtifacts?.editorialQueue || null;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -269,6 +272,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     monitoringStatus: packet.monitoringEvidence?.parsed?.status || null,
     sourceFreshnessStatus: sourceFreshness?.status || null,
     statusEvidenceStatus: statusEvidence?.status || null,
+    discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
     sourceFreshness: sourceFreshness
       ? {
           status: sourceFreshness.status || null,
@@ -288,6 +292,27 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
             total: statusEvidenceDocuments.length,
           },
           openOperatorItems: statusEvidence.evidence?.openOperatorItems || [],
+        }
+      : null,
+    discordReviewArtifacts: discordReviewArtifacts
+      ? {
+          status: discordReviewArtifacts.status || null,
+          summary: discordSummary
+            ? {
+                routedItems: discordSummary.routedItems ?? null,
+                rawKeyHits: discordSummary.rawKeyHits ?? null,
+                sampleLeaks: discordSummary.sampleLeaks ?? null,
+                routeCoverage: discordSummary.routeCoverage || null,
+              }
+            : null,
+          editorialQueue: discordQueue
+            ? {
+                pageFitReviewReady: discordQueue.pageFitReviewReady ?? null,
+                refusalReviewReady: discordQueue.refusalReviewReady ?? null,
+                rawTableHits: discordQueue.rawTableHits ?? null,
+                sampleLeaks: discordQueue.sampleLeaks ?? null,
+              }
+            : null,
         }
       : null,
     secrets: {
@@ -413,6 +438,10 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Source freshness source bodies printed: \`${launch.sourceFreshness?.secrets?.sourceBodiesPrinted ?? false}\`
 - Status evidence status: \`${launch.statusEvidenceStatus || "missing"}\`
 - Status evidence documents: \`${launch.statusEvidence?.documents?.passed ?? 0}/${launch.statusEvidence?.documents?.total ?? 0}\`
+- Discord review artifacts status: \`${launch.discordReviewArtifactsStatus || "missing"}\`
+- Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
+- Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
+- Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`
 - Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
 
 ## Readiness Snapshot
@@ -557,6 +586,7 @@ try {
       monitoringStatus: packet.launchEvidence?.monitoringStatus || null,
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
       statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
+      discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
     },
     steps: packet.steps.map((step) => ({
       id: step.id,

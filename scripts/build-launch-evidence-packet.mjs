@@ -412,16 +412,27 @@ function runStatusEvidenceCommand() {
   };
 }
 
+function runDiscordReviewArtifactsCommand() {
+  return {
+    source: "discord-review-artifacts",
+    result: commandResult(["scripts/check-discord-review-artifacts.mjs"]),
+  };
+}
+
 function renderMarkdown(packet) {
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
+  const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const totals = launch.totals || {};
   const monitoringTotals = monitoring.totals || {};
   const sourceFreshnessTotals = sourceFreshness.totals || {};
   const statusEvidenceDocuments = statusEvidence.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
+  const discordSummary = discordReviewArtifacts.summary || {};
+  const discordRouteCoverage = discordSummary.routeCoverage || {};
+  const discordQueue = discordReviewArtifacts.editorialQueue || {};
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
@@ -493,6 +504,16 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Documents checked: \`${statusEvidencePassedDocuments}/${statusEvidenceDocuments.length}\`
 - Open operator items: \`${(statusEvidence.evidence?.openOperatorItems || []).map((id) => `#${id}`).join(", ") || "none"}\`
 
+## Discord Review Artifacts Evidence
+
+- Discord review artifacts status: \`${discordReviewArtifacts.status || "missing"}\`
+- Routed review items: \`${discordSummary.routedItems ?? "unknown"}\`
+- Route coverage: \`${discordRouteCoverage.coveredPageFitGroups ?? "unknown"}/${discordRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\`
+- Editorial queue: \`${discordQueue.pageFitReviewReady ?? "unknown"} page-fit groups; ${discordQueue.refusalReviewReady ?? "unknown"} refusal items\`
+- Raw key hits: \`${discordSummary.rawKeyHits ?? "unknown"}\`
+- Sample leaks: \`${discordSummary.sampleLeaks ?? "unknown"}\`
+- Queue raw table hits: \`${discordQueue.rawTableHits ?? "unknown"}\`
+
 ## Open Operator Items
 
 ${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
@@ -532,18 +553,26 @@ function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
 }
 
-function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence, statusEvidence) {
+function normalizedDiscordReviewArtifacts(packet) {
+  return packet.discordReviewArtifacts?.parsed || {};
+}
+
+function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence, statusEvidence, discordReviewArtifacts) {
   const parsed = evidence.result.parsed || null;
   const monitoringParsed = monitoringEvidence.result.parsed || null;
   const sourceFreshnessParsed = sourceFreshnessEvidence.result.parsed || null;
   const statusEvidenceParsed = statusEvidence.result.parsed || null;
+  const discordReviewArtifactsParsed = discordReviewArtifacts.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
   const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
   const sourceFreshnessPassed =
     sourceFreshnessEvidence.result.passed && (!sourceFreshnessParsed || ["passed", "skipped"].includes(sourceFreshnessParsed.status));
   const statusEvidencePassed =
     statusEvidence.result.passed && (!statusEvidenceParsed || statusEvidenceParsed.status === "passed");
-  const status = commandPassed && monitoringPassed && sourceFreshnessPassed && statusEvidencePassed ? "passed" : "failed";
+  const discordReviewArtifactsPassed =
+    discordReviewArtifacts.result.passed && (!discordReviewArtifactsParsed || discordReviewArtifactsParsed.status === "passed");
+  const status =
+    commandPassed && monitoringPassed && sourceFreshnessPassed && statusEvidencePassed && discordReviewArtifactsPassed ? "passed" : "failed";
   const dirtyStatus = gitValue(["status", "--short"]);
   const packet = {
     status,
@@ -558,6 +587,8 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
     sourceFreshnessCommand: sourceFreshnessEvidence.result.command,
     statusEvidenceSource: statusEvidence.source,
     statusEvidenceCommand: statusEvidence.result.command,
+    discordReviewArtifactsSource: discordReviewArtifacts.source,
+    discordReviewArtifactsCommand: discordReviewArtifacts.result.command,
     repository: {
       root: searchBookRoot,
       branch: gitValue(["branch", "--show-current"]),
@@ -608,6 +639,15 @@ function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence
       stdoutTail: statusEvidence.result.stdoutTail,
       stderrTail: statusEvidence.result.stderrTail,
     },
+    discordReviewArtifacts: {
+      exitCode: discordReviewArtifacts.result.exitCode,
+      signal: discordReviewArtifacts.result.signal,
+      passed: discordReviewArtifacts.result.passed,
+      parsed: discordReviewArtifactsParsed,
+      error: discordReviewArtifacts.result.error,
+      stdoutTail: discordReviewArtifacts.result.stdoutTail,
+      stderrTail: discordReviewArtifacts.result.stderrTail,
+    },
     files: {
       json: "",
       markdown: "",
@@ -635,7 +675,11 @@ function main() {
   const monitoringEvidence = runMonitoringCommand(args);
   const sourceFreshnessEvidence = runSourceFreshnessCommand(args);
   const statusEvidence = runStatusEvidenceCommand();
-  const packet = writePacket(args, buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence, statusEvidence));
+  const discordReviewArtifacts = runDiscordReviewArtifactsCommand();
+  const packet = writePacket(
+    args,
+    buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence, statusEvidence, discordReviewArtifacts),
+  );
   console.log(JSON.stringify({
     status: packet.status,
     service: packet.service,
@@ -650,6 +694,7 @@ function main() {
     monitoringStatus: normalizedMonitoringEvidence(packet).status || (packet.monitoringEvidence?.passed ? "passed" : "failed"),
     sourceFreshnessStatus: normalizedSourceFreshnessEvidence(packet).status || (packet.sourceFreshnessEvidence?.passed ? "passed" : "failed"),
     statusEvidenceStatus: normalizedStatusEvidence(packet).status || (packet.statusEvidence?.passed ? "passed" : "failed"),
+    discordReviewArtifactsStatus: normalizedDiscordReviewArtifacts(packet).status || (packet.discordReviewArtifacts?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,

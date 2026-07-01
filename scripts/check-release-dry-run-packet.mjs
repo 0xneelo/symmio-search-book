@@ -88,6 +88,10 @@ function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
 }
 
+function normalizedDiscordReviewArtifacts(packet) {
+  return packet.discordReviewArtifacts?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(value) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -139,6 +143,33 @@ function discordRouteCoverageReady(coverage = {}) {
   );
 }
 
+function discordReviewArtifactsReady(evidence = {}) {
+  const summary = evidence.summary || {};
+  const routeCoverage = summary.routeCoverage || {};
+  const editorialQueue = evidence.editorialQueue || {};
+  const total = Number(routeCoverage.totalPageFitGroups || 0);
+  const covered = Number(routeCoverage.coveredPageFitGroups || 0);
+  return (
+    evidence.status === "passed"
+    && summary.routingReady === true
+    && Number(summary.routedItems || 0) > 0
+    && summary.rawDiscordTextIncluded === false
+    && summary.sourceAnswerTextIncluded === false
+    && summary.valuesPrinted === false
+    && Number(summary.rawKeyHits || 0) === 0
+    && Number(summary.sampleLeaks || 0) === 0
+    && routeCoverage.coverageReady === true
+    && total > 0
+    && covered === total
+    && Number(routeCoverage.pageFitSingleRouteRemaining || 0) === 0
+    && Number(routeCoverage.pageFitWithoutPublicRoute || 0) === 0
+    && Number(editorialQueue.pageFitReviewReady || 0) > 0
+    && Number(editorialQueue.refusalReviewReady || 0) > 0
+    && Number(editorialQueue.rawTableHits || 0) === 0
+    && Number(editorialQueue.sampleLeaks || 0) === 0
+  );
+}
+
 function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
@@ -148,6 +179,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedLaunch = normalizedLaunchEvidence(nestedLaunchPacket);
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
   const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
+  const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
   const nestedStatusDocuments = nestedStatusEvidence.documents || [];
@@ -188,6 +220,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-status-evidence-status",
     launchSummary.statusEvidenceStatus === "passed",
     `statusEvidenceStatus=${launchSummary.statusEvidenceStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-discord-review-artifacts-status",
+    launchSummary.discordReviewArtifactsStatus === "passed",
+    `discordReviewArtifactsStatus=${launchSummary.discordReviewArtifactsStatus || "missing"}`,
   );
   addCheck(checks, "nested-launch-status", nestedLaunchPacket.status === "passed", `status=${nestedLaunchPacket.status || "missing"}`);
   addCheck(checks, "nested-launch-readiness-status", nestedLaunch.status === "passed", `status=${nestedLaunch.status || "missing"}`);
@@ -243,6 +281,30 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   );
   addCheck(
     checks,
+    "nested-discord-review-artifacts-passed",
+    nestedLaunchPacket.discordReviewArtifacts?.passed === true,
+    `passed=${nestedLaunchPacket.discordReviewArtifacts?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-discord-review-artifacts-status",
+    nestedDiscordReviewArtifacts.status === "passed",
+    `status=${nestedDiscordReviewArtifacts.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-discord-review-artifacts-ready",
+    discordReviewArtifactsReady(nestedDiscordReviewArtifacts),
+    JSON.stringify({
+      routedItems: nestedDiscordReviewArtifacts.summary?.routedItems ?? null,
+      routeCoverage: nestedDiscordReviewArtifacts.summary?.routeCoverage || null,
+      editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
+      rawKeyHits: nestedDiscordReviewArtifacts.summary?.rawKeyHits ?? null,
+      sampleLeaks: nestedDiscordReviewArtifacts.summary?.sampleLeaks ?? null,
+    }),
+  );
+  addCheck(
+    checks,
     "source-ingestion-ready",
     readiness.sourceCompletionReady === true && sourceStatusReady(readiness.sourceRequirements),
     JSON.stringify(readiness.sourceRequirements || {}),
@@ -287,6 +349,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       sourceBodiesPrinted: nestedSourceSecrets.sourceBodiesPrinted,
       statusEvidenceStatus: launchSummary.statusEvidenceStatus || null,
       statusEvidenceDocuments: nestedStatusDocuments.length ? `${nestedPassedStatusDocuments}/${nestedStatusDocuments.length}` : null,
+      discordReviewArtifactsStatus: launchSummary.discordReviewArtifactsStatus || null,
+      discordReviewArtifacts: {
+        routedItems: nestedDiscordReviewArtifacts.summary?.routedItems ?? null,
+        routeCoverage: nestedDiscordReviewArtifacts.summary?.routeCoverage || null,
+        editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
+      },
       steps: (packet.steps || []).map((step) => ({ id: step.id, status: step.status })),
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,

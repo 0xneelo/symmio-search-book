@@ -85,6 +85,10 @@ function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
 }
 
+function normalizedDiscordReviewArtifacts(packet) {
+  return packet.discordReviewArtifacts?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(sourceFreshness) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -136,12 +140,40 @@ function discordRouteCoverageReady(coverage = {}) {
   );
 }
 
+function discordReviewArtifactsReady(evidence = {}) {
+  const summary = evidence.summary || {};
+  const routeCoverage = summary.routeCoverage || {};
+  const editorialQueue = evidence.editorialQueue || {};
+  const total = Number(routeCoverage.totalPageFitGroups || 0);
+  const covered = Number(routeCoverage.coveredPageFitGroups || 0);
+  return (
+    evidence.status === "passed"
+    && summary.routingReady === true
+    && Number(summary.routedItems || 0) > 0
+    && summary.rawDiscordTextIncluded === false
+    && summary.sourceAnswerTextIncluded === false
+    && summary.valuesPrinted === false
+    && Number(summary.rawKeyHits || 0) === 0
+    && Number(summary.sampleLeaks || 0) === 0
+    && routeCoverage.coverageReady === true
+    && total > 0
+    && covered === total
+    && Number(routeCoverage.pageFitSingleRouteRemaining || 0) === 0
+    && Number(routeCoverage.pageFitWithoutPublicRoute || 0) === 0
+    && Number(editorialQueue.pageFitReviewReady || 0) > 0
+    && Number(editorialQueue.refusalReviewReady || 0) > 0
+    && Number(editorialQueue.rawTableHits || 0) === 0
+    && Number(editorialQueue.sampleLeaks || 0) === 0
+  );
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
+  const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const readiness = packet.readiness || {};
   const sourceTotals = sourceFreshness.totals || {};
   const sourceSecrets = sourceFreshness.secrets || {};
@@ -200,6 +232,30 @@ function validateLaunchPacket(packet, packetPath) {
   );
   addCheck(
     checks,
+    "discord-review-artifacts-passed",
+    packet.discordReviewArtifacts?.passed === true,
+    `passed=${packet.discordReviewArtifacts?.passed}`,
+  );
+  addCheck(
+    checks,
+    "discord-review-artifacts-status",
+    discordReviewArtifacts.status === "passed",
+    `status=${discordReviewArtifacts.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "discord-review-artifacts-ready",
+    discordReviewArtifactsReady(discordReviewArtifacts),
+    JSON.stringify({
+      routedItems: discordReviewArtifacts.summary?.routedItems ?? null,
+      routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
+      editorialQueue: discordReviewArtifacts.editorialQueue || null,
+      rawKeyHits: discordReviewArtifacts.summary?.rawKeyHits ?? null,
+      sampleLeaks: discordReviewArtifacts.summary?.sampleLeaks ?? null,
+    }),
+  );
+  addCheck(
+    checks,
     "source-ingestion-ready",
     readiness.sourceCompletionReady === true && sourceStatusReady(readiness.sourceRequirements),
     JSON.stringify(readiness.sourceRequirements || {}),
@@ -239,6 +295,12 @@ function validateLaunchPacket(packet, packetPath) {
       sourceBodiesPrinted: sourceSecrets.sourceBodiesPrinted,
       statusEvidenceStatus: statusEvidence.status || null,
       statusEvidenceDocuments: statusDocuments.length ? `${passedStatusDocuments}/${statusDocuments.length}` : null,
+      discordReviewArtifactsStatus: discordReviewArtifacts.status || null,
+      discordReviewArtifacts: {
+        routedItems: discordReviewArtifacts.summary?.routedItems ?? null,
+        routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
+        editorialQueue: discordReviewArtifacts.editorialQueue || null,
+      },
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,
       discordRouteCoverage: readiness.discordRouteCoverage || null,
