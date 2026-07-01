@@ -99,6 +99,7 @@ Validation for #11:
 ```sh
 cd /opt/symmio-search-book
 npm run search-book:check-production-env-fixture
+npm run search-book:check-deploy-templates
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 sudo cp deploy/symmio-search-book.service /etc/systemd/system/
 sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex deploy-template contract guard
+- Task: Add a no-secret guard for the production systemd service, backup service, backup timer, and matching handoff docs.
+- Scope: `scripts/check-deploy-templates.mjs`, `scripts/build-all.mjs`, `package.json`, `README.md`, `FINAL-REPORT.md`, `PRODUCTION-READINESS-PACKET.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Guard validates service/timer template contract, canonical env path, service user, write paths, hardening controls, daily backup timer, production/deployment doc install commands, full verify includes the guard, and only #11/#4 remain open.
+- Result: Added `scripts/check-deploy-templates.mjs`, `npm run search-book:check-deploy-templates`, and `npm run search-book:verify` wiring. Focused checks passed: `node --check scripts/check-deploy-templates.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-deploy-templates`, `node scripts/build-all.mjs --dry-run --verify`, `npm run search-book:check-status-evidence`, and `npm run search-book:check-production-env-fixture`. Full `npm run search-book:verify` passed with 26 build steps, 86 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, `completionAudit:passed`, `productionEnvFixture:passed`, `deployTemplates:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex no-secret production env fixture guard
 - Task: Add a CI-safe production-shaped env fixture so the #11 preflight path stays verified without real secrets or VPS access.
 - Scope: `scripts/check-production-env-fixture.mjs`, `scripts/build-all.mjs`, `package.json`, `README.md`, `FINAL-REPORT.md`, `PRODUCTION-READINESS-PACKET.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

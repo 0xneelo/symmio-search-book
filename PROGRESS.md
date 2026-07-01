@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Deploy Template Contract Guard
+
+- Added `npm run search-book:check-deploy-templates`, a no-secret guard for the production systemd service, backup service, and backup timer templates.
+- The checker validates the canonical production env path, `/opt/symmio-search-book` working directory, `symmio-search-book` service user/group, SQLite and backup write paths, basic systemd hardening controls, daily persistent backup timer, and matching install/start commands in `PRODUCTION-READINESS-PACKET.md` and `DEPLOYMENT.md`.
+- Wired the guard into `npm run search-book:verify` so deploy-template drift is caught before the #11 VPS env install or #4 deploy route decision.
+
 ## 2026-07-01 — No-Secret Production Env Fixture Guard
 
 - Added `npm run search-book:check-production-env-fixture`, a CI-safe guard for the #11 production env handoff path.

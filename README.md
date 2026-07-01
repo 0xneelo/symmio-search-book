@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | ~58 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | ~59 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -78,6 +78,7 @@ npm run search-book:check-completion-audit
 npm run search-book:check-operator-inbox
 npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env-fixture
+npm run search-book:check-deploy-templates
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
