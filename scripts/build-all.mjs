@@ -266,6 +266,20 @@ function runOperatorInboxConsistencyCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runEvidenceSummaryRendererCheck(env, dryRun) {
+  const step = {
+    id: "check-evidence-summary-renderer",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-evidence-summary-renderer.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -434,6 +448,7 @@ if (args.dryRun) {
     runDiscordReviewArtifactsCheck(env, true);
     runStatusEvidenceCheck(env, true);
     runOperatorInboxConsistencyCheck(env, true);
+    runEvidenceSummaryRendererCheck(env, true);
   }
   process.exit(0);
 }
@@ -452,6 +467,7 @@ let staticIntegrity = null;
 let discordReviewArtifacts = null;
 let statusEvidence = null;
 let operatorInboxConsistency = null;
+let evidenceSummaryRenderer = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -461,6 +477,7 @@ if (args.verify) {
   discordReviewArtifacts = runDiscordReviewArtifactsCheck(env, false);
   statusEvidence = runStatusEvidenceCheck(env, false);
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
+  evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -475,5 +492,6 @@ console.log(JSON.stringify({
   discordReviewArtifacts,
   statusEvidence,
   operatorInboxConsistency,
+  evidenceSummaryRenderer,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

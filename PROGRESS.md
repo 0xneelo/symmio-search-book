@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Evidence Summary Renderer Verify Gate
+
+- Added `scripts/check-evidence-summary-renderer.mjs` and `npm run search-book:check-evidence-summary`.
+- The checker renders synthetic launch/release packets that contain raw-looking Discord question, Lafa excerpt, source body, API-key, and bearer-token fields, then fails if any forbidden value or raw field label appears in the Markdown summary or `$GITHUB_STEP_SUMMARY` append output.
+- Wired the checker into `npm run search-book:verify` after operator-inbox consistency, so release evidence summaries are now protected by the deterministic no-raw/no-secret gate.
+- Focused verification passed: `node --check scripts/check-evidence-summary-renderer.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-evidence-summary`, and `npm run search-book:build -- --dry-run --verify` showing `check-evidence-summary-renderer`.
+- Full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Reusable Evidence Summary Renderer
 
 - Added `scripts/render-evidence-summary.mjs` and `npm run search-book:evidence-summary` to render launch/release evidence packet summaries from checked packet JSON.

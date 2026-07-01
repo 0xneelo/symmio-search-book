@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex evidence summary no-raw checker
+- Task: Add a deterministic verify gate for the reusable evidence summary renderer's no-raw/no-secret output boundary.
+- Scope: `scripts/check-evidence-summary-renderer.mjs`, `scripts/build-all.mjs`, package scripts, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Synthetic launch/release packets containing raw-looking fields render count-only Markdown, forbidden values stay absent, summary append behavior works, full deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Added `scripts/check-evidence-summary-renderer.mjs`, `npm run search-book:check-evidence-summary`, and wired it into `npm run search-book:verify` after operator-inbox consistency. The checker injects raw-looking Discord question, Lafa excerpt, source body, API key, and bearer-token fields into synthetic launch/release packets and fails if they appear in stdout or `$GITHUB_STEP_SUMMARY` output. Focused verification passed for `node --check scripts/check-evidence-summary-renderer.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-evidence-summary`, and `npm run search-book:build -- --dry-run --verify` showing `check-evidence-summary-renderer`. Full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex reusable evidence summary renderer
 - Task: Replace duplicated GitHub workflow summary heredocs with a reusable no-raw packet summary script.
 - Scope: `scripts/render-evidence-summary.mjs`, package scripts, launch/release workflow summary steps, status docs, and `_local/agent-worklog.md`.

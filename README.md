@@ -147,6 +147,7 @@ evidence proving current report counts match generated data.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
+Validate the renderer's no-raw/no-secret boundary with `npm run search-book:check-evidence-summary`.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
 To run the full local release rehearsal, run `npm run search-book:release-dry-run`; it
