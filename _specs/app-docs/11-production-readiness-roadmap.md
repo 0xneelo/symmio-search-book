@@ -20,6 +20,7 @@ The search-book is already a strong research and prototype substrate:
 - The deterministic verification path now checks that the final report, progress log, production roadmap, and LLM RAG contract still match the recorded live RAG evidence in `data/llm-rag-contract.json`, and it verifies static app integrity for local script dependencies, expected `window.SearchBook*` globals, static page links, and public reader-data coverage.
 - The standalone answer-engine service has SQLite persistence, basic rate limiting, configurable event retention, configurable browser CORS allowlisting, disabled-by-default token-gated moderation and metrics exports, a static frontend bridge, an internal reviewer operations runbook, an executable SQLite backup/restore-check utility, a production env/deploy preflight, and a local smoke test that exercises health, answer persistence, ratings, insights, moderation export, metrics export, and allowed/blocked origins without live LLM calls.
 - The current local preview runs from the standalone repo root, can be served on localhost with `npm run search-book:serve-static`, has static integrity coverage at `npm run search-book:check-static`, has a static preview smoke test at `npm run search-book:smoke-static`, has a combined preview/service smoke test at `npm run search-book:smoke-preview-service` that verifies the static frontend can use the standalone service, and has `npm run search-book:check-production-env` for production configuration fail-closed checks.
+- The deployment surface now has `npm run search-book:smoke-deployment`, a URL-driven smoke probe for preview/staging/production routes. It checks static assets and exact-page routing in read-only mode, can check service health/CORS/Search Insights when a service URL is provided, and requires explicit `--write` before creating one answer event plus rating.
 - The standalone repo now has a no-secret GitHub Actions verification gate at `.github/workflows/search-book-verify.yml`; it clones the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, then runs the deterministic verify plus static, service, and preview-service smoke tests without LLM or production credentials.
 - The quality audit is intentionally not green yet; known failures are source ingestion, operator inbox, and Discord.
 - Operator publication decisions for Phase A revenue, referral depth, Opyn exclusion, answer-engine build path, source-family dispositions, canonical point taxonomy, and Add Token Info are recorded. The remaining open items are implementation/source/deploy inputs: public frontend platform/repo/deploy route, production service env credentials, Discord/Lafa corpus, Notion ingestion, oldest Symmio whitepaper artifact, SuperFlow/SSHE identification, and one old checkpoint-commit approval item.
@@ -391,7 +392,7 @@ Security/privacy QA:
 Exit gate:
 
 - CI passes.
-- Preview deployment passes smoke tests, including the local static-preview smoke test and combined preview/service smoke test before public deploy wiring.
+- Preview deployment passes smoke tests, including the local static-preview smoke test, combined preview/service smoke test, and URL-driven deployment smoke before public deploy wiring.
 - Known production risks are documented with owner and mitigation.
 - Rollback path is defined.
 

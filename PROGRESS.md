@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — URL-Driven Deployment Smoke
+
+- Added `scripts/smoke-deployment.mjs` and `npm run search-book:smoke-deployment` for preview/staging/production route checks.
+- The smoke validates the deployed static home, exact-page routing, and generated data assets in read-only mode. When `--service-url` is provided, it also validates answer-engine health, CORS, and Search Insights without writing telemetry.
+- Added explicit `--write` mode for staging/launch checks that should create one answer event and one rating; documented `--mode extractive` for deterministic fallback and `--mode llm` only after production LLM env/preflight are ready.
+
 ## 2026-07-01 — Standalone CI Verification Gate
 
 - Added `.github/workflows/search-book-verify.yml`, a no-secret GitHub Actions workflow for `main` pushes and pull requests.

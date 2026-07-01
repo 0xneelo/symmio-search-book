@@ -61,6 +61,10 @@ npm run search-book:smoke-static
 npm run search-book:smoke-service
 npm run search-book:smoke-preview-service
 
+# URL-driven staging/production smoke; read-only unless -- --write is passed
+npm run search-book:smoke-deployment -- --site-url https://docs.example.com
+npm run search-book:smoke-deployment -- --site-url https://docs.example.com --service-url https://answers.example.com --mode extractive --write
+
 # Production env/deploy preflight (validates env shape; no provider call)
 npm run search-book:check-production-env
 

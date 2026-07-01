@@ -220,6 +220,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - Retention days are set and approved.
 - `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
 - `npm run search-book:check-production-env` passes with the production service env loaded.
+- `npm run search-book:smoke-deployment -- --site-url <public-route> --service-url <answer-engine-route>` passes in read-only mode; staging or launch validation may add `--write` to create one answer event and rating.
 - Moderation export is disabled by default and token-gated when enabled.
 - Metrics export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.

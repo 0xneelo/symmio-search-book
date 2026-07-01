@@ -114,6 +114,35 @@ Confirm an extractive (no-key) answer end to end:
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
 ```
 
+After a preview or production URL is available, run the URL-driven deployment smoke. It is
+read-only by default:
+
+```bash
+npm run search-book:smoke-deployment -- \
+  --site-url https://<public-docs-route>
+```
+
+To verify the deployed service bridge, add the answer-engine URL. This checks health,
+CORS, and Search Insights without writing telemetry:
+
+```bash
+npm run search-book:smoke-deployment -- \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-host>
+```
+
+For launch or staging validation, pass `--write` to create one answer event and one rating.
+Use `--mode llm` only after production LLM credentials are installed and the preflight
+passes; otherwise use `--mode extractive` to verify deterministic fallback.
+
+```bash
+npm run search-book:smoke-deployment -- \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-host> \
+  --mode extractive \
+  --write
+```
+
 ## 6. Operations
 
 Backups, retention, the gated moderation export, and the reviewer review loop are documented

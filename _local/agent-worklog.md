@@ -46,3 +46,10 @@
 - Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
 - Verification target: every open Search Book OPERATOR-INBOX item has a `needs:operator` Linear task under SYN-209 and the inbox names the matching issue id.
 - Result: No exact `operator-handoff` skill exists in WSL or Windows Claude skill directories. The relevant local Claude `introduce-goal` protocol says blocked work must be filed as a Linear issue and tagged `needs:operator`. Created labels `project:onboarding-app` and `subproject:search-book`, then filed operator tasks `SYN-281` through `SYN-287` for open inbox items #11, #5, #7, #6, #4, #2, and #12. Updated `OPERATOR-INBOX.md` so each open item points to its Linear operator task.
+
+## 2026-07-01 — Codex deployment smoke probe
+- Task: Add a URL-driven Search Book deployment smoke probe for staging/production launch checks.
+- Scope: `scripts/smoke-deployment.mjs`, `package.json`, deployment/readiness docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: local deployment smoke passes against localhost static/service URLs, syntax checks pass, and `npm run search-book:verify` remains green.
+- Result: Added `npm run search-book:smoke-deployment` for URL-driven preview/staging/production checks. Read-only smoke passed against `127.0.0.1:49088` plus answer-engine `127.0.0.1:49087` with static home, exact-page routing, generated assets, health, CORS, and insights green. Write smoke passed with one extractive answer for `authored-vibe-product-overview`, 2 citations, rating recorded, and persisted smoke event visible in insights. Full verify passed with 24 build steps, 62 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.
