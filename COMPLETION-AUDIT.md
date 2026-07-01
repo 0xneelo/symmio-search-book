@@ -36,7 +36,7 @@ Current localhost preview evidence:
 - Static preview: `http://127.0.0.1:8798/?service=http%3A%2F%2F127.0.0.1%3A8797&serviceMode=extractive`.
 - Answer-engine service: `http://127.0.0.1:8797`.
 - Staging launch drill: passed with 13 checks, 0 failures, and 3 staging warnings for reviewer owner, review cadence, and backup storage assignment.
-- Latest no-secret release dry run: `/tmp/search-book-release-dry-run-source-freshness-20260701-1` passed with static artifact integrity, launch evidence, monitoring evidence, source-freshness evidence, `valuesPrinted:false`, and 0 sensitive-pattern matches.
+- Latest no-secret release dry run: `/tmp/search-book-release-dry-run-source-freshness-20260701-1` passed with static artifact integrity, launch evidence, monitoring evidence, source-freshness evidence, `valuesPrinted:false`, and 0 sensitive-pattern matches. The checked-in validators `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` also passed against the latest saved launch/release packets.
 
 ## Requirement Audit
 

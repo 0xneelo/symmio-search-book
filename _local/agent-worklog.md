@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex evidence packet validators
+- Task: Move launch-evidence and release-dry-run packet assertions out of GitHub workflow one-liners into reusable local validator scripts.
+- Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, `package.json`, `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, status docs if counts change, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Local packet validators pass against the latest source-freshness launch/release packets, workflows call the scripts, full deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Added reusable launch and release dry-run packet validators, wired both GitHub evidence workflows to call them, exposed package scripts, and updated status docs. Focused validator checks passed against `/tmp/search-book-launch-evidence-source-freshness-20260701-1/launch-evidence.json` and `/tmp/search-book-release-dry-run-source-freshness-20260701-1/release-dry-run.json` with source freshness `4/4`, source bodies not printed, source ingestion `17 complete / 0 partial / 0 parked / 0 missing`, Discord route coverage `19/19`, and open operator items limited to #11/#4. Full `npm run search-book:verify` passed with 25 build steps, 75 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`; `node scripts/check-readiness-evidence.mjs` and `git diff --check` passed.
+
 ## 2026-07-01 — Codex source-freshness workflow visibility
 - Task: Make GitHub/manual release evidence summaries and stale docs reflect the source-freshness packet fields.
 - Scope: `.github/workflows/*` release/launch evidence summaries, stale readiness-count docs if found, and `_local/agent-worklog.md`.

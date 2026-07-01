@@ -59,7 +59,7 @@ jobs:
         run: |
           test -f "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json"
           test -f "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.md"
-          node -e 'const fs = require("node:fs"); const packet = JSON.parse(fs.readFileSync(process.env.SEARCH_BOOK_LAUNCH_EVIDENCE_DIR + "/launch-evidence.json", "utf8")); const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || {}; if (packet.status !== "passed") throw new Error(`packet status ${packet.status}`); if (packet.secrets?.valuesPrinted !== false) throw new Error("packet reported printed secret values"); if (sourceFreshness.status !== "passed") throw new Error(`source freshness status ${sourceFreshness.status}`); if (sourceFreshness.secrets?.valuesPrinted !== false) throw new Error("source freshness reported printed secret values"); if (sourceFreshness.secrets?.sourceBodiesPrinted !== false) throw new Error("source freshness reported printed source bodies"); console.log(JSON.stringify({ status: packet.status, launchStatus: packet.launchEvidence?.parsed?.evidence?.launchReadiness?.status || packet.launchEvidence?.parsed?.status || null, monitoringStatus: packet.monitoringEvidence?.parsed?.status || null, sourceFreshnessStatus: sourceFreshness.status || null, sourceFreshnessChecks: sourceFreshness.totals ? `${sourceFreshness.totals.passed}/${sourceFreshness.totals.checks}` : null }, null, 2));'
+          npm run search-book:check-launch-evidence-packet -- --packet "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json"
 
       - name: Upload launch evidence
         if: always()

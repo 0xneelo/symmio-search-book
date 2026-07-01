@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-01 — Evidence Packet Validators
+
+- Added `scripts/check-launch-evidence-packet.mjs` and `scripts/check-release-dry-run-packet.mjs` so launch/release packet assertions are reusable locally instead of embedded as long GitHub workflow one-liners.
+- The launch validator checks packet, launch, monitoring, and source-freshness statuses; no secret values; no source-body fields; source ingestion 17 complete / 0 partial / 0 parked / 0 missing; Discord route coverage 19/19; service-backed page feedback; and no unexpected open operator gates beyond #11/#4.
+- The release validator checks all release child steps, static artifact integrity, no sensitive-pattern matches, release/nested launch source-freshness evidence, source ingestion, Discord route coverage, service-backed page feedback, and reconciled operator gates.
+- Updated the `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows to call the checked-in validators.
+- Verified both validators against `/tmp/search-book-launch-evidence-source-freshness-20260701-1/launch-evidence.json` and `/tmp/search-book-release-dry-run-source-freshness-20260701-1/release-dry-run.json`; both passed with source freshness 4/4, source bodies not printed, source ingestion 17/17, Discord route coverage 19/19, and open operator items limited to #11/#4.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 75 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Source-Freshness Workflow Visibility
 
 - Updated the `Search Book Launch Evidence` workflow packet check so it asserts source freshness status `passed`, `valuesPrinted:false`, and `sourceBodiesPrinted:false`.
