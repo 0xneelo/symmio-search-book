@@ -294,6 +294,20 @@ function runOperatorInboxConsistencyCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runSpecReconciliationCheck(env, dryRun) {
+  const step = {
+    id: "check-spec-reconciliation",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-spec-reconciliation.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runEvidenceSummaryRendererCheck(env, dryRun) {
   const step = {
     id: "check-evidence-summary-renderer",
@@ -534,6 +548,7 @@ if (args.dryRun) {
     runStatusEvidenceCheck(env, true);
     runCompletionAuditCheck(env, true);
     runOperatorInboxConsistencyCheck(env, true);
+    runSpecReconciliationCheck(env, true);
     runEvidenceSummaryRendererCheck(env, true);
     runPublicationBoundariesCheck(env, true);
     runProductionEnvFixtureCheck(env, true);
@@ -559,6 +574,7 @@ let discordRefusalRuntime = null;
 let statusEvidence = null;
 let completionAudit = null;
 let operatorInboxConsistency = null;
+let specReconciliation = null;
 let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
 let productionEnvFixture = null;
@@ -575,6 +591,7 @@ if (args.verify) {
   statusEvidence = runStatusEvidenceCheck(env, false);
   completionAudit = runCompletionAuditCheck(env, false);
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
+  specReconciliation = runSpecReconciliationCheck(env, false);
   evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
   productionEnvFixture = runProductionEnvFixtureCheck(env, false);
@@ -596,6 +613,7 @@ console.log(JSON.stringify({
   statusEvidence,
   completionAudit,
   operatorInboxConsistency,
+  specReconciliation,
   evidenceSummaryRenderer,
   publicationBoundaries,
   productionEnvFixture,

@@ -76,6 +76,7 @@ npm run search-book:check-monitoring
 npm run search-book:check-status-evidence
 npm run search-book:check-completion-audit
 npm run search-book:check-operator-inbox
+npm run search-book:check-spec-reconciliation
 npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates

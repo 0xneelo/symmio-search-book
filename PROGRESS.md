@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Original Spec Reconciliation Verify Guard
+
+- Added `npm run search-book:check-spec-reconciliation`, an executable guard for the reconciliation notes in the original numbered app-doc specs.
+- The checker reads current generated evidence and requires the original specs to point future agents at the reconciled v1 truth: only #11/#4 open, source ingestion `17/17`, Discord/Lafa internal-only import, Notion paraphrase-only, whitepaper v1 de-scope, SSHE boundary, OpenAI-compatible `gpt-4.1-mini` runtime, and the frozen onboarding-app tree.
+- Wired the guard into `npm run search-book:verify`; the canonical build now reports 87 syntax checks after adding the new script.
+
 ## 2026-07-01 — Completion Plan Reconciliation
 
 - Refreshed `_specs/app-docs/12-search-book-to-100-percent.md` to match the standalone repo and reconciled #11/#4-only operator boundary.
