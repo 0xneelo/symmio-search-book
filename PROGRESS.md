@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Disposition Guard
+
+- Added explicit no-raw automated disposition evidence to the Discord editorial queue: reviewer handoff ready, 19/19 page-fit groups keep existing source-backed public copy, 2/2 refusal items keep refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Hardened `npm run search-book:check-discord-review-artifacts` so the committed queue JSON and Markdown must carry the current disposition and fail if the queue silently starts proposing public Discord-derived copy.
+- Focused validation passed with `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, and syntax checks for the touched scripts; the queue remains no-raw with 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, `productionReadinessPacket:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Static Artifact Checked Workflow Evidence
 
 - Triggered manual `Search Book Static Artifact` workflow run `28537427145` from commit `10fcf6c`; the workflow passed verify, static smoke, answer-engine bridge smoke, and the new checked artifact packet validation step.

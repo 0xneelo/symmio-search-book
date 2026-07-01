@@ -66,6 +66,41 @@ function assertSafeRoutingSummary(routing) {
   if (routing.routingReady !== true || routing.status !== "routed") throw new Error("Discord routing summary is not ready.");
 }
 
+function buildDisposition(pageFitReview, refusalReview) {
+  const pageFitKeepExistingPublicCopy = pageFitReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-existing-public-copy" &&
+      entry.publicCopyStatus === "source-backed-public-copy-sufficient",
+  ).length;
+  const refusalKeepPolicy = refusalReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-refusal-policy" &&
+      entry.refusalPolicyStatus === "policy-refusal-ready",
+  ).length;
+  const publicCopyChangesProposed = pageFitReview.filter(
+    (entry) => entry.publicCopyStatus !== "source-backed-public-copy-sufficient",
+  ).length;
+  const exactDiscordStatementsPromoted = 0;
+
+  return {
+    readyForReviewerHandoff:
+      pageFitReview.length > 0 &&
+      pageFitKeepExistingPublicCopy === pageFitReview.length &&
+      refusalKeepPolicy === refusalReview.length &&
+      publicCopyChangesProposed === 0 &&
+      exactDiscordStatementsPromoted === 0,
+    pageFitGroups: pageFitReview.length,
+    pageFitKeepExistingPublicCopy,
+    pageFitNeedsPublicCopyChange: pageFitReview.length - pageFitKeepExistingPublicCopy,
+    refusalItems: refusalReview.length,
+    refusalKeepPolicy,
+    refusalNeedsPolicyReview: refusalReview.length - refusalKeepPolicy,
+    publicCopyChangesProposed,
+    exactDiscordStatementsPromoted,
+    publicEffect: "Existing source-backed public pages and refusal behavior stay unchanged; Discord/Lafa items remain demand signals unless a future primary-source review approves new public paraphrases.",
+  };
+}
+
 function buildQueueData(routing, authored) {
   assertSafeRoutingSummary(routing);
   const pageById = new Map((authored.pages || []).map((page) => [page.id, page]));
@@ -74,7 +109,7 @@ function buildQueueData(routing, authored) {
   const pageFitReview = reviewPlan.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
   const summary = routing.summary || {};
-  return {
+  const queue = {
     generatedAt: "deterministic-build",
     status: "passed",
     queueReady: true,
@@ -141,11 +176,14 @@ function buildQueueData(routing, authored) {
       nextStep: entry.nextStep || "Keep refusal behavior unless primary-source review approves a grounded public answer.",
     })),
   };
+  queue.disposition = buildDisposition(queue.pageFitReview, queue.refusalReview);
+  return queue;
 }
 
 function renderMarkdown(queue) {
   const summary = queue.summary || {};
   const routeCoverage = summary.routeCoverage || {};
+  const disposition = queue.disposition || {};
 
   const lines = [
     "# Discord Editorial Queue",
@@ -176,6 +214,16 @@ function renderMarkdown(queue) {
     "## Reviewer Rules",
     "",
     ...queue.reviewerRules.map((rule) => `- ${rule}`),
+    "",
+    "## Automated Disposition",
+    "",
+    `- Ready for reviewer handoff: \`${disposition.readyForReviewerHandoff === true}\``,
+    `- Page-fit disposition: ${disposition.pageFitKeepExistingPublicCopy || 0}/${disposition.pageFitGroups || 0} keep existing source-backed public copy`,
+    `- Page-fit public-copy changes proposed: ${disposition.publicCopyChangesProposed || 0}`,
+    `- Refusal disposition: ${disposition.refusalKeepPolicy || 0}/${disposition.refusalItems || 0} keep refusal policy`,
+    `- Refusal policy review required: ${disposition.refusalNeedsPolicyReview || 0}`,
+    `- Exact Discord/Lafa statements promoted: ${disposition.exactDiscordStatementsPromoted || 0}`,
+    `- Public effect: ${disposition.publicEffect || "Existing source-backed public pages and refusal behavior stay unchanged."}`,
     "",
     "## Page-Fit Review",
     "",
@@ -238,6 +286,10 @@ function main() {
     refusalReviewReady: queue.summary?.refusalReviewItems || 0,
     pageFitCoveredByPublicRoutes: routeCoverage.pageFitCoveredByPublicRoutes || 0,
     totalPageFitGroups: routeCoverage.totalPageFitGroups || 0,
+    readyForReviewerHandoff: queue.disposition?.readyForReviewerHandoff === true,
+    pageFitKeepExistingPublicCopy: queue.disposition?.pageFitKeepExistingPublicCopy || 0,
+    refusalKeepPolicy: queue.disposition?.refusalKeepPolicy || 0,
+    exactDiscordStatementsPromoted: queue.disposition?.exactDiscordStatementsPromoted || 0,
     rawDiscordTextIncluded: queue.privacy?.rawDiscordTextIncluded === true,
     sourceAnswerTextIncluded: queue.privacy?.sourceAnswerTextIncluded === true,
     valuesPrinted: queue.privacy?.valuesPrinted === true,

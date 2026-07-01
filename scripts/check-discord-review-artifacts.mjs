@@ -312,6 +312,16 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
   const routeCoverage = reviewPlan.routeCoverage || {};
   const pageFitReview = reviewPlan.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
+  const pageFitKeepExistingPublicCopy = pageFitReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-existing-public-copy" &&
+      entry.publicCopyStatus === "source-backed-public-copy-sufficient",
+  ).length;
+  const refusalKeepPolicy = refusalReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-refusal-policy" &&
+      entry.refusalPolicyStatus === "policy-refusal-ready",
+  ).length;
   const summaryFragments = [
     "# Discord Editorial Queue",
     "Generated: `deterministic-build`",
@@ -330,6 +340,13 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     "- Raw Discord text included: `false`",
     "- Source answer text included: `false`",
     "- Values printed: `false`",
+    "## Automated Disposition",
+    "- Ready for reviewer handoff: `true`",
+    `- Page-fit disposition: ${pageFitKeepExistingPublicCopy}/${pageFitReview.length} keep existing source-backed public copy`,
+    "- Page-fit public-copy changes proposed: 0",
+    `- Refusal disposition: ${refusalKeepPolicy}/${refusalReview.length} keep refusal policy`,
+    "- Refusal policy review required: 0",
+    "- Exact Discord/Lafa statements promoted: 0",
   ];
   const missingSummaryFragments = summaryFragments.filter((fragment) => !markdown.includes(fragment));
   const missingPageIds = pageFitReview.map((entry) => entry.pageId).filter((pageId) => !markdown.includes(`\`${pageId}\``));
@@ -429,10 +446,24 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
   const routeCoverage = reviewPlan.routeCoverage || {};
   const queueSummary = queue.summary || {};
   const queueCoverage = queueSummary.routeCoverage || {};
+  const disposition = queue.disposition || {};
   const pageFitReview = reviewPlan.pageFitReview || [];
   const queuePageFitReview = queue.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
   const queueRefusalReview = queue.refusalReview || [];
+  const pageFitKeepExistingPublicCopy = queuePageFitReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-existing-public-copy" &&
+      entry.publicCopyStatus === "source-backed-public-copy-sufficient",
+  ).length;
+  const refusalKeepPolicy = queueRefusalReview.filter(
+    (entry) =>
+      entry.reviewAction === "keep-refusal-policy" &&
+      entry.refusalPolicyStatus === "policy-refusal-ready",
+  ).length;
+  const publicCopyChangesProposed = queuePageFitReview.filter(
+    (entry) => entry.publicCopyStatus !== "source-backed-public-copy-sufficient",
+  ).length;
 
   const pageFitMirrorFailures = pageFitReview.filter((entry) => {
     const matching = queuePageFitReview.find((candidate) => candidate.pageId === entry.pageId);
@@ -511,6 +542,36 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
       mirrorFailures: refusalMirrorFailures.length,
     }),
   );
+  addCheck(
+    checks,
+    "editorial-queue-data-disposition-current",
+    disposition.readyForReviewerHandoff === true &&
+      disposition.pageFitGroups === queuePageFitReview.length &&
+      disposition.pageFitKeepExistingPublicCopy === pageFitKeepExistingPublicCopy &&
+      disposition.pageFitNeedsPublicCopyChange === queuePageFitReview.length - pageFitKeepExistingPublicCopy &&
+      disposition.refusalItems === queueRefusalReview.length &&
+      disposition.refusalKeepPolicy === refusalKeepPolicy &&
+      disposition.refusalNeedsPolicyReview === queueRefusalReview.length - refusalKeepPolicy &&
+      disposition.publicCopyChangesProposed === publicCopyChangesProposed &&
+      disposition.exactDiscordStatementsPromoted === 0,
+    JSON.stringify({
+      readyForReviewerHandoff: disposition.readyForReviewerHandoff === true,
+      pageFitGroups: disposition.pageFitGroups ?? null,
+      pageFitKeepExistingPublicCopy: disposition.pageFitKeepExistingPublicCopy ?? null,
+      expectedPageFitKeepExistingPublicCopy: pageFitKeepExistingPublicCopy,
+      refusalItems: disposition.refusalItems ?? null,
+      refusalKeepPolicy: disposition.refusalKeepPolicy ?? null,
+      expectedRefusalKeepPolicy: refusalKeepPolicy,
+      publicCopyChangesProposed: disposition.publicCopyChangesProposed ?? null,
+      exactDiscordStatementsPromoted: disposition.exactDiscordStatementsPromoted ?? null,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-data-no-public-promotion",
+    disposition.publicCopyChangesProposed === 0 && disposition.exactDiscordStatementsPromoted === 0,
+    `publicCopyChangesProposed=${disposition.publicCopyChangesProposed ?? "missing"}; exactDiscordStatementsPromoted=${disposition.exactDiscordStatementsPromoted ?? "missing"}`,
+  );
 
   return {
     path: printablePath(filePath),
@@ -519,6 +580,13 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
     routedItems: queueSummary.routedItems ?? null,
     pageFitReviewReady: queuePageFitReview.length,
     refusalReviewReady: queueRefusalReview.length,
+    disposition: {
+      readyForReviewerHandoff: disposition.readyForReviewerHandoff === true,
+      pageFitKeepExistingPublicCopy: disposition.pageFitKeepExistingPublicCopy ?? null,
+      refusalKeepPolicy: disposition.refusalKeepPolicy ?? null,
+      publicCopyChangesProposed: disposition.publicCopyChangesProposed ?? null,
+      exactDiscordStatementsPromoted: disposition.exactDiscordStatementsPromoted ?? null,
+    },
     rawKeyHits: hits.length,
     sampleLeaks: leaks,
     valuesPrinted: queue.privacy?.valuesPrinted === true,

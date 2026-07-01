@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial disposition guard
+- Task: Promote the sanitized Discord/Lafa editorial queue recommendations into explicit no-raw disposition evidence and guard it.
+- Scope: `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, generated `DISCORD-EDITORIAL-QUEUE.md`, `data/discord-editorial-queue.*`, status docs, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, focused syntax checks, full `npm run search-book:verify`, and `git diff --check` pass; disposition evidence reports 19 keep-existing-public-copy page-fit groups, 2 keep-refusal-policy items, 0 public copy changes proposed, 0 exact Discord statements promoted, and only #11/#4 open.
+- Result: Added `disposition` to the generated Discord editorial queue JSON/JS/Markdown and hardened `npm run search-book:check-discord-review-artifacts` with `editorial-queue-data-disposition-current` plus `editorial-queue-data-no-public-promotion`. Focused checks passed with reviewer handoff ready, 19/19 page-fit groups keeping existing source-backed public copy, 2/2 refusal items keeping refusal policy, 0 public-copy changes proposed, 0 exact Discord/Lafa statements promoted, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`. Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex launch/release checked workflow evidence refresh
 - Task: Trigger manual launch-evidence and release-dry-run workflows from latest `main`, download artifacts, and validate packets with strict summary checks.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`.

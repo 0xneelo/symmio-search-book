@@ -30,6 +30,16 @@ Generated: `deterministic-build`
 - Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.
 - Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.
 
+## Automated Disposition
+
+- Ready for reviewer handoff: `true`
+- Page-fit disposition: 19/19 keep existing source-backed public copy
+- Page-fit public-copy changes proposed: 0
+- Refusal disposition: 2/2 keep refusal policy
+- Refusal policy review required: 0
+- Exact Discord/Lafa statements promoted: 0
+- Public effect: Existing source-backed public pages and refusal behavior stay unchanged; Discord/Lafa items remain demand signals unless a future primary-source review approves new public paraphrases.
+
 ## Page-Fit Review
 
 | Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Triage Status | Public Copy | Next Step |
