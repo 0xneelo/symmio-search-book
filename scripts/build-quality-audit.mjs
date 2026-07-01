@@ -567,13 +567,13 @@ const gates = [
   },
   {
     id: "local-faq-routes",
-    label: "Local FAQ seed routes resolve",
+    label: "FAQ route seed resolves",
     passed:
       faqMatchesQuestionRoutes &&
       faqMissingPageIds.length === 0 &&
       faqMissingSourceKeys.length === 0 &&
       (faq.totalAnswerable || 0) > 0 &&
-      faq.seedSource === "local-question-ledger",
+      ["local-question-ledger", "local-question-ledger-plus-sanitized-discord-demand"].includes(faq.seedSource),
     detail: `${faq.totalAnswerable || 0} answerable FAQs, ${faq.totalUnresolved || 0} unresolved gaps, ${faqMissingPageIds.length} missing page ids, ${faqMissingSourceKeys.length} missing source keys`,
   },
   {
@@ -706,7 +706,7 @@ const gates = [
     detail:
       discordCorpus.corpusReady === true
         ? `${discordCorpus.totals?.importedMessages || 0} messages, ${discordCorpus.totals?.questionClusters || 0} question clusters, ${discordCorpus.totals?.lafaAnswerCandidates || 0} Lafa candidates`
-        : `${discordCorpus.totals?.importedMessages || 0} messages imported; readable export/corpus review still pending`,
+        : `${discordCorpus.totals?.importedMessages || 0} messages imported; corpus is not ready and needs a new scoped ingestion review`,
   },
 ];
 

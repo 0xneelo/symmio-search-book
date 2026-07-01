@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex FAQ Discord status label cleanup
+- Task: Remove the stale generated FAQ status that still described Discord as pending after import/reconciliation.
+- Scope: `scripts/build-faq-map.mjs`, regenerated FAQ/quality data, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: FAQ data reports sanitized Discord demand as imported/review-bound, not pending; full `npm run search-book:verify` and `git diff --check` pass.
+- Result: Updated FAQ seed metadata to `local-question-ledger-plus-sanitized-discord-demand` with status `prototype-faq-discord-imported-review-bound`; updated the quality-audit FAQ gate to accept that seed source and removed the stale readable-export pending fallback. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, and quality gates `29/30`; targeted stale-label scan found no pending Discord export/import strings in the affected FAQ/audit artifacts; `git diff --check` passed.
+
 ## 2026-07-01 — Codex generated status reconciliation cleanup
 - Task: Remove stale generated readiness text that still treats Discord import, local LLM runtime, or resolved source decisions as pending after the 2026-07-01 reconciliation.
 - Scope: `scripts/build-answer-engine-contract.mjs`, `scripts/build-llm-rag-contract.mjs`, `scripts/build-living-docs-events.mjs`, `scripts/build-requirement-map.mjs`, `scripts/build-quality-audit.mjs`, regenerated `data/*` readiness artifacts, and `_local/agent-worklog.md`.

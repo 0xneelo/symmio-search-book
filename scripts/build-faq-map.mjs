@@ -237,8 +237,8 @@ if (missingSourceKeys.length) {
 const payload = {
   generatedAt: "deterministic-build",
   sourceFiles: ["QUESTIONS.md", "GAPS.md", "data/question-routes.json", "data/source-catalog.json"],
-  seedSource: "local-question-ledger",
-  status: "prototype-local-seed-discord-pending",
+  seedSource: "local-question-ledger-plus-sanitized-discord-demand",
+  status: "prototype-faq-discord-imported-review-bound",
   totalEntries: entries.length,
   totalAnswerable: answerable.length,
   totalUnresolved: unresolved.length,
