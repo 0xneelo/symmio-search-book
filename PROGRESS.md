@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Latest Manual Workflow Evidence After Downloaded-Artifact Guard
+
+- Triggered fresh manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows from latest `main` after downloaded-artifact validation support; launch run `28531648917` passed in 36s and release run `28531643102` passed in 44s.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28531648917` and `/tmp/search-book-gh-manual-release-28531643102`; both rendered summaries include repository commit `808f160`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, and `Secrets printed | false`.
+- Validated the standalone launch packet, nested release launch packet, and release packet directly from the downloaded artifact paths with no mirror path recreation; release and nested launch commits both match `808f160`, source ingestion remains `17/17`, queue data remains `passed`, sensitive matches remain `0`, and only #11/#4 are open.
+
 ## 2026-07-01 — Release Packet Downloaded-Artifact Validation
 
 - Hardened `npm run search-book:check-release-dry-run-packet` so downloaded GitHub release artifacts validate in place even when the release packet's original Actions `/tmp/search-book-release-dry-run` path is absent.

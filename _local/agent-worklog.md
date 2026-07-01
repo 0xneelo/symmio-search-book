@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex latest manual workflow evidence after validator hardening
+- Task: Trigger launch-evidence and release-dry-run workflows from latest `main` after downloaded-artifact validator hardening, then validate downloaded artifacts directly.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: manual launch/release workflows pass from commit `808f160` or newer; downloaded release packet validates directly without recreating `/tmp/search-book-release-dry-run`; summaries include the queue-data proof, clean repo state, and no secret printing.
+- Result: Manual launch run `28531648917` and release run `28531643102` passed from latest `main` at commit `808f160`. Downloaded summaries under `/tmp/search-book-gh-manual-launch-28531648917` and `/tmp/search-book-gh-manual-release-28531643102` include commit `808f160`, dirty `false`, the queue-data row, and `Secrets printed | false`. Packet validators passed for the standalone launch packet, nested release launch packet, and release packet directly from downloaded artifact paths; no mirror path recreation was required, source ingestion remains `17/17`, queue data remains `passed`, sensitive matches remain `0`, and only #11/#4 are open.
+
 ## 2026-07-01 — Codex release packet downloaded-artifact validation
 - Task: Make `npm run search-book:check-release-dry-run-packet` validate downloaded GitHub artifacts without requiring the original Actions `/tmp/search-book-release-dry-run` path to be recreated.
 - Scope: `scripts/check-release-dry-run-packet.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
