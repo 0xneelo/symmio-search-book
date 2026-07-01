@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Route-Coverage Evidence Packets
+
+- Updated `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, and `scripts/run-release-dry-run.mjs` so generated static-artifact, launch-evidence, and release-dry-run packets include structured `discordRouteCoverage` readiness fields.
+- The generated Markdown packets now show Discord route coverage as `19/19 page-fit groups; 0 single-route groups remaining`, so operators do not need a separate manual assertion to verify Search Insights route coverage.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-route-coverage-fields-20260701-1`: release status `passed`, static artifact `1,650` files / `52,929,756` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Targeted packet assertion passed across `release-dry-run.json`, `static-artifact-manifest.json`, and `launch-evidence.json`: all three report `coverageReady:true`, 19/19 page-fit groups covered, 0 single-route groups, 0 groups without public routes, and 40 public exact routes.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Route-Coverage Release Dry Run
 
 - Ran `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-route-coverage-20260701-1` after the Search Insights route-coverage update.

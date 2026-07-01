@@ -211,6 +211,19 @@ function readRepoJson(relativePath, fallback = null) {
   return readJson(path.join(searchBookRoot, relativePath), fallback);
 }
 
+function summarizeDiscordRouteCoverage() {
+  const routing = readRepoJson("data/discord-review-routing.json", {});
+  const coverage = routing?.reviewPlan?.routeCoverage || {};
+  return {
+    coverageReady: coverage.coverageReady === true,
+    totalPageFitGroups: coverage.totalPageFitGroups ?? null,
+    pageFitCoveredByPublicRoutes: coverage.pageFitCoveredByPublicRoutes ?? null,
+    pageFitSingleRouteRemaining: coverage.pageFitSingleRouteRemaining ?? null,
+    pageFitWithoutPublicRoute: coverage.pageFitWithoutPublicRoute ?? null,
+    totalPublicRoutesToPageFitPages: coverage.totalPublicRoutesToPageFitPages ?? null,
+  };
+}
+
 function summarizeStaticArtifact(artifactDir) {
   const manifest = readJson(path.join(artifactDir, "static-artifact-manifest.json"), null);
   if (!manifest) return null;
@@ -274,6 +287,7 @@ function summarizeReadiness() {
     deterministicReady: answerContract.deterministicReady === true,
     llmProductionReady: answerContract.llmProductionReady === true || llm.llmProductionReady === true,
     livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
+    discordRouteCoverage: summarizeDiscordRouteCoverage(),
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
       id: item.id,
       title: item.title,
@@ -357,6 +371,7 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Answer chunks: \`${readiness.answerChunks ?? "unknown"}\`
 - Quality gates: \`${readiness.qualityGates ?? "unknown"}\`
 - Source completion ready: \`${readiness.sourceCompletionReady}\`
+- Discord route coverage: \`${readiness.discordRouteCoverage?.pageFitCoveredByPublicRoutes ?? "unknown"}/${readiness.discordRouteCoverage?.totalPageFitGroups ?? "unknown"} page-fit groups; ${readiness.discordRouteCoverage?.pageFitSingleRouteRemaining ?? "unknown"} single-route groups remaining\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
 - Living-docs production ready: \`${readiness.livingDocsProductionReady}\`
@@ -494,6 +509,7 @@ try {
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
+      discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },
     secrets: {

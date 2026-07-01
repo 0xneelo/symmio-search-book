@@ -128,13 +128,15 @@ smoke answer/rating, creates a restore-checked backup manifest, runs the staging
 gate with fresh verify, and tears the services down.
 To create attachable operator evidence, run `npm run search-book:launch-evidence`; it writes
 `launch-evidence.json` and `launch-evidence.md` under `/tmp` by default, using the local
-drill and monitoring probe when no deployment URLs are supplied.
+drill and monitoring probe when no deployment URLs are supplied. The packet includes the
+current sanitized Discord route-coverage snapshot for Search Insights.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
 To run the full local release rehearsal, run `npm run search-book:release-dry-run`; it
 builds the static artifact, smoke-tests the copied artifact both statically and with the
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
-`release-dry-run.md` under `/tmp` by default.
+`release-dry-run.md` under `/tmp` by default. Its release, static-artifact, and
+launch-evidence readiness snapshots all include the same Discord route-coverage counts.
 To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for

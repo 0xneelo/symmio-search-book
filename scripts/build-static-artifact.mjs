@@ -133,6 +133,19 @@ function readJson(relativePath, fallback = {}) {
   }
 }
 
+function summarizeDiscordRouteCoverage() {
+  const routing = readJson("data/discord-review-routing.json", {});
+  const coverage = routing.reviewPlan?.routeCoverage || {};
+  return {
+    coverageReady: coverage.coverageReady === true,
+    totalPageFitGroups: coverage.totalPageFitGroups ?? null,
+    pageFitCoveredByPublicRoutes: coverage.pageFitCoveredByPublicRoutes ?? null,
+    pageFitSingleRouteRemaining: coverage.pageFitSingleRouteRemaining ?? null,
+    pageFitWithoutPublicRoute: coverage.pageFitWithoutPublicRoute ?? null,
+    totalPublicRoutesToPageFitPages: coverage.totalPublicRoutesToPageFitPages ?? null,
+  };
+}
+
 function runIntegrity(outDir) {
   const result = spawnSync(process.execPath, [
     path.join(searchBookRoot, "scripts", "check-static-integrity.mjs"),
@@ -202,6 +215,7 @@ function summarizeData() {
     qualityGates: quality.gates ? `${quality.gates.filter((gate) => gate.passed).length}/${quality.gates.length}` : null,
     completionReady: requirementMap.completionReady === true,
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
+    discordRouteCoverage: summarizeDiscordRouteCoverage(),
     openOperatorItems: (requirementMap.openOperatorItems || []).map((item) => ({
       id: item.id,
       title: item.title,
@@ -264,6 +278,7 @@ try {
       exactRoutes: manifest.readiness.exactRoutes,
       chunks: manifest.readiness.chunks,
       qualityGates: manifest.readiness.qualityGates,
+      discordRouteCoverage: manifest.readiness.discordRouteCoverage,
       openOperatorItems: manifest.readiness.openOperatorItems,
     },
   }, null, 2));

@@ -200,6 +200,19 @@ function readJson(relativePath, fallback = null) {
   }
 }
 
+function summarizeDiscordRouteCoverage() {
+  const routing = readJson("data/discord-review-routing.json", {});
+  const coverage = routing?.reviewPlan?.routeCoverage || {};
+  return {
+    coverageReady: coverage.coverageReady === true,
+    totalPageFitGroups: coverage.totalPageFitGroups ?? null,
+    pageFitCoveredByPublicRoutes: coverage.pageFitCoveredByPublicRoutes ?? null,
+    pageFitSingleRouteRemaining: coverage.pageFitSingleRouteRemaining ?? null,
+    pageFitWithoutPublicRoute: coverage.pageFitWithoutPublicRoute ?? null,
+    totalPublicRoutesToPageFitPages: coverage.totalPublicRoutesToPageFitPages ?? null,
+  };
+}
+
 function sanitize(value, key = "") {
   if (Array.isArray(value)) return value.map((item) => sanitize(item, key));
   if (value && typeof value === "object") {
@@ -248,6 +261,7 @@ function summarizeReadiness() {
     },
     completionReady: requirements.completionReady === true,
     requirementStatus: requirements.byStatus || null,
+    discordRouteCoverage: summarizeDiscordRouteCoverage(),
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
       id: item.id,
       title: item.title,
@@ -377,6 +391,7 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Quality gates: \`${readiness.qualityGates ?? "unknown"}\`
 - Exact routes: \`${readiness.exactRoutes ?? "unknown"}\`
 - Source completion ready: \`${readiness.sourceCompletionReady}\`
+- Discord route coverage: \`${readiness.discordRouteCoverage?.pageFitCoveredByPublicRoutes ?? "unknown"}/${readiness.discordRouteCoverage?.totalPageFitGroups ?? "unknown"} page-fit groups; ${readiness.discordRouteCoverage?.pageFitSingleRouteRemaining ?? "unknown"} single-route groups remaining\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
 - Living-docs production ready: \`${readiness.livingDocsProductionReady}\`
@@ -519,6 +534,7 @@ function main() {
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
+      discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },
   }, null, 2));

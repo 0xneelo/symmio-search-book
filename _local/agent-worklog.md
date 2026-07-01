@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex route-coverage evidence packets
+- Task: Make release/static/launch evidence packets carry Search Insights Discord route coverage directly.
+- Scope: `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, `README.md`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Generated packets include only sanitized numeric/boolean route-coverage fields; release rehearsal and full verify pass; #11/#4 remain the only production gates.
+- Result: Added structured `discordRouteCoverage` readiness fields to static artifact, launch evidence, and release dry-run packets, plus Markdown rows showing `19/19 page-fit groups; 0 single-route groups remaining`. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-route-coverage-fields-20260701-1` passed with static artifact `1,650` files / `52,929,756` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and sensitive matches `0`. Targeted packet assertion passed across all three generated JSON packets: `coverageReady:true`, 19/19 page-fit groups covered, 0 single-route groups, 0 groups without public routes, and 40 public exact routes. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex route-coverage release dry run
 - Task: Refresh no-secret release rehearsal evidence after the Search Insights Discord route-coverage update.
 - Scope: `/tmp/search-book-release-dry-run-route-coverage-20260701-1` evidence packet, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.
