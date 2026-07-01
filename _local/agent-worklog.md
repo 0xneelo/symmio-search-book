@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex resolved source-inbox hardening
+- Task: Stop source-ingestion generators from re-parking resolved source/import inbox items after the 2026-07-01 reconciliation.
+- Scope: `scripts/build-source-ingestion-map.mjs`, `scripts/build-discord-corpus.mjs`, regenerated source/readiness data if affected, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Rebuilds no longer attach resolved #2/#5/#6/#7/#8/#9/#17 source blocks; current source ingestion stays `17/17` complete; full `npm run search-book:verify` and `git diff --check` pass.
+- Result: Removed stale generator branches that could re-park resolved source/import inbox items #2/#5/#6/#7/#8/#9/#17. Rebuild reports source ingestion `17 complete / 0 partial / 0 parked / 0 missing` with `sourceCompletionReady:true`; only operator gates #11 and #4 remain open. Targeted stale-ID scan found no resolved source-inbox hooks in the patched generators; full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, and quality gates `29/30`; `git diff --check` passed.
+
 ## 2026-07-01 — Codex FAQ Discord status label cleanup
 - Task: Remove the stale generated FAQ status that still described Discord as pending after import/reconciliation.
 - Scope: `scripts/build-faq-map.mjs`, regenerated FAQ/quality data, and `_local/agent-worklog.md`.

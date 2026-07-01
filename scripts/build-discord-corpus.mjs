@@ -397,28 +397,18 @@ function importContract() {
 function buildReport({ args, seededTopics, messages, canStoreContent, openInboxItems }) {
   const questionClusters = buildQuestionClusters(messages, seededTopics, canStoreContent);
   const lafaAnswerCandidates = buildLafaAnswerCandidates(messages, canStoreContent);
-  const openInboxIds = new Set(openInboxItems.map((item) => item.id));
-  const blockedBy = messages.length
-    ? []
-    : [
-        ...(openInboxIds.has(17) ? ["OPERATOR-INBOX #17"] : []),
-        ...(openInboxIds.has(2) ? ["OPERATOR-INBOX #2"] : []),
-      ];
+  const blockedBy = [];
   const missingInputs = messages.length
     ? [
         ...(args.publicationMode === "unknown" ? ["discord-public-use-boundary"] : []),
         ...(args.lafaAuthorIds.length ? [] : ["lafa-author-id-map"]),
       ]
-    : openInboxIds.has(17)
-      ? ["readable-discord-export-file"]
-      : ["discord-export-or-api-access"];
+    : ["discord-export-or-api-access"];
   return {
     generatedAt: "deterministic-build",
     status: messages.length
       ? "imported-needs-review"
-      : openInboxIds.has(17)
-        ? "parked-discord-export-file-unreadable"
-        : "parked-missing-discord-export",
+      : "missing-discord-export-or-api-input",
     importContractReady: true,
     apiScraperReady: true,
     corpusReady: messages.length > 0 && !missingInputs.length,

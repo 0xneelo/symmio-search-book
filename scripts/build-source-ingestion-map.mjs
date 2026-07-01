@@ -216,7 +216,6 @@ const superflowStatus = requiredKeysStatus(keys, superflowKeys);
 const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
 const competitiveSweepSourceStatus = requiredKeysStatus(keys, competitiveSweepKeys);
 const discordToolingStatus = requiredKeysStatus(keys, discordToolingKeys);
-const discordBlockedByFileAccess = inboxHas(openInboxItems, 17);
 const competitiveSweepHasBatch =
   (competitiveSweep.targetDocs || 0) >= 50 &&
   (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
@@ -228,8 +227,11 @@ const competitiveSweepMissingKeys = [
   ...competitiveSweepSourceStatus.missing,
   ...(competitiveSweepReviewedOrExcluded < (competitiveSweep.targetDocs || 0) ? ["opyn-docs-official-review"] : []),
 ];
-const competitiveSweepBlockedByOperator =
-  competitiveSweepMissingKeys.includes("opyn-docs-official-review") && inboxHas(openInboxItems, 8);
+const competitiveSweepAcceptedExclusion = competitiveSweepMissingKeys.includes("opyn-docs-official-review");
+
+// Source-ingestion inbox items #2, #5, #6, #7, #8, #9, and #17 were reconciled
+// as resolved for v1. If a source/runtime input regresses later, report missing
+// or partial status and log a new scoped inbox item instead of reviving those ids.
 
 const requirements = [
   sourceReq({
@@ -301,7 +303,7 @@ const requirements = [
   sourceReq({
     id: "vibe-add-token-info",
     label: "Vibe Add Token Info docs",
-    status: inboxHas(openInboxItems, 9) ? "parked" : keys.has("vibe-add-token-info") ? "complete" : "missing",
+    status: keys.has("vibe-add-token-info") ? "complete" : "missing",
     category: "product-reference",
     sourceSpecs: ["04", "08"],
     presentKeys: keys.has("vibe-add-token-info") ? ["vibe-add-token-info"] : [],
@@ -309,15 +311,14 @@ const requirements = [
     evidence: keys.has("vibe-add-token-info")
       ? "Official Add Token Info Markdown is registered and synthesized into an authored reference page."
       : "The official Add Token Info page is named in the generated companion gap, but its primary-source Markdown has not been fetched.",
-    blocks: inboxHas(openInboxItems, 9) ? ["OPERATOR-INBOX #9"] : [],
     nextAction: keys.has("vibe-add-token-info")
       ? "Keep payment details routed to the live app form; do not publish static fee, treasury address, token address, or chain list."
-      : "Resume Add Token Info ingestion when the operator provides the official Markdown or a reachable canonical replacement.",
+      : "Fetch the official Add Token Info Markdown or a reachable canonical replacement as a new scoped source-ingestion issue.",
   }),
   sourceReq({
     id: "vibe-notion",
     label: "Vibe Trading Notion workspace",
-    status: notionStatus.complete ? "complete" : inboxHas(openInboxItems, 5) ? "parked" : "missing",
+    status: notionStatus.complete ? "complete" : "missing",
     category: "product-reference",
     sourceSpecs: ["04", "07"],
     presentKeys: notionStatus.present,
@@ -325,10 +326,9 @@ const requirements = [
     evidence: notionStatus.complete
       ? "Vibe Trading Notion workspace was fetched through the connected Notion MCP and registered with a paraphrase-only public-use boundary."
       : "No Notion export or shared readable copy is registered in SOURCES.md.",
-    blocks: inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : [],
     nextAction: notionStatus.complete
       ? "Keep Notion-derived claims paraphrase-only and avoid static publication of payment, treasury, token-address, chain-list, or signed-media details."
-      : "Resume Notion ingestion when the operator fills inbox item #5.",
+      : "Re-ingest the Notion source through the MCP or log a new scoped source issue if access regresses.",
   }),
   sourceReq({
     id: "public-symmio-docs",
@@ -344,13 +344,12 @@ const requirements = [
   sourceReq({
     id: "symmio-whitepaper-history",
     label: "Original/oldest Symmio whitepaper and earliest docs",
-    status: symmioWhitepaperHistoryStatus.complete ? "complete" : inboxHas(openInboxItems, 6) ? "parked" : "partial",
+    status: symmioWhitepaperHistoryStatus.complete ? "complete" : "partial",
     category: "protocol-reference",
     sourceSpecs: ["02", "04", "07"],
     presentKeys: symmioWhitepaperHistoryStatus.present,
     missingKeys: symmioWhitepaperHistoryStatus.missing,
     evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} v1 whitepaper/history source keys registered. Official Git evidence covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; original/pre-v0.8 recovery is out of scope for v1.`,
-    blocks: !symmioWhitepaperHistoryStatus.complete && inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : [],
     nextAction: "Keep v1 wording bounded to the registered official Git evidence; track any original/pre-v0.8 whitepaper recovery outside the launch source-completeness gate.",
   }),
   sourceReq({
@@ -367,7 +366,7 @@ const requirements = [
   sourceReq({
     id: "superflow-sshe",
     label: "SuperFlow / SSHE docs",
-    status: superflowStatus.complete ? "complete" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
+    status: superflowStatus.complete ? "complete" : "missing",
     category: "protocol-reference",
     sourceSpecs: ["04", "07"],
     presentKeys: superflowStatus.present,
@@ -375,10 +374,9 @@ const requirements = [
     evidence: superflowStatus.complete
       ? "Operator reconciliation defines the v1 SSHE boundary as the SuperFlow/SHE OpenAPI source plus the Symmio Foundation Meta-Solvers source."
       : "No SuperFlow or SSHE source key is registered.",
-    blocks: inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : [],
     nextAction: superflowStatus.complete
       ? "Keep SSHE claims limited to the registered SHE API and Meta-Solvers/clearing-layer source boundary unless a deeper implementation source is added."
-      : "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims.",
+      : "Restore the SuperFlow/SHE and Meta-Solvers source boundary or log a new scoped source issue if the source regresses.",
   }),
   sourceReq({
     id: "hyperliquid-goldsky",
@@ -394,21 +392,15 @@ const requirements = [
   sourceReq({
     id: "discord-lafa-corpus",
     label: "Symmio Discord and Lafa Q&A corpus",
-    status: discordCorpus.corpusReady ? "complete" : inboxHas(openInboxItems, 2) || discordBlockedByFileAccess ? "parked" : "missing",
+    status: discordCorpus.corpusReady ? "complete" : "missing",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
     presentKeys: discordToolingStatus.present,
     missingKeys: discordCorpus.corpusReady ? [] : ["symmio-discord-lafa-export"],
-    evidence: `Discord import tooling ready=${discordCorpus.importContractReady === true && discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}. Local FAQ is still seeded from repo/public docs only.`,
-    blocks: [
-      ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
-      ...(discordBlockedByFileAccess ? ["OPERATOR-INBOX #17"] : []),
-    ],
+    evidence: `Discord import tooling ready=${discordCorpus.importContractReady === true && discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}. FAQ coverage now includes sanitized Discord demand while exact community claims remain review-bound.`,
     nextAction: discordCorpus.corpusReady
       ? "Review Discord clusters and promote only approved cite/paraphrase/internal-only answers into FAQ routes."
-      : discordBlockedByFileAccess
-        ? "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
-        : "Run the Discord export/API ingestion path when a readable export, Lafa author identity, and public-use boundary are available.",
+      : "Re-run Discord ingestion against a readable export or API input; if a new runtime/file issue appears, log a new scoped inbox item instead of reopening resolved Discord blockers.",
   }),
   sourceReq({
     id: "competitive-sweep",
@@ -416,11 +408,9 @@ const requirements = [
     status:
       competitiveSweep.completionReady && competitiveSweepSourceStatus.complete
         ? "complete"
-        : competitiveSweepHasBatch && competitiveSweepSourceStatus.complete && competitiveSweepBlockedByOperator
-          ? "parked"
-          : competitiveSweepHasBatch
-            ? "partial"
-            : "missing",
+        : competitiveSweepHasBatch
+          ? "partial"
+          : "missing",
     category: "competitive-reference",
     sourceSpecs: ["07"],
     presentKeys: competitiveSweepSourceStatus.present,
@@ -430,11 +420,12 @@ const requirements = [
       : hasGap(gapMarkdown, "G-002")
         ? "G-002 records that the competitive sweep is not complete."
         : "No competitive-sweep gap is registered.",
-    blocks: competitiveSweepBlockedByOperator ? ["OPERATOR-INBOX #8"] : [],
     nextAction:
       competitiveSweep.completionReady && competitiveSweepSourceStatus.complete
         ? "Keep the 49/50 competitive sweep and Opyn exclusion documented; rerun the benchmark after major source or positioning changes."
-        : "Resolve any unreviewed competitive target or record an operator exclusion/replacement decision before claiming the sweep complete.",
+        : competitiveSweepAcceptedExclusion
+          ? "Keep Opyn excluded unless a new official replacement target is selected for a future sweep refresh."
+          : "Complete the competitive sweep synthesis and keep unverified docs excluded from source claims.",
   }),
   sourceReq({
     id: "authored-derived-pages",
