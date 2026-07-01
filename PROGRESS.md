@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Reviewer Workflow
+
+- Added a no-raw reviewer workflow to `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.*`: privacy preflight, page-fit review, refusal review, and closeout.
+- The workflow is count-only and keeps the publication policy explicit: 19 page-fit groups, 2 refusal items, 0 public-copy changes allowed from Discord/Lafa alone, and 0 exact Discord/Lafa statements allowed for promotion.
+- Search Insights now surfaces the reviewer workflow status and public-promotion policy alongside the sanitized Discord routing summary.
+- Hardened `npm run search-book:check-discord-review-artifacts` so the committed queue JSON and Markdown must carry the workflow, required evidence commands, and no-promotion policy; `npm run search-book:check-discord-refusals` now calls the extractive runtime directly and still proves the two Discord/Lafa probes refuse with `G-001` and no loaded LLM credentials.
+- Verification passed: `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-discord-refusals`, status/completion/production packet guards, full `npm run search-book:verify`, `git diff --check`, and escalated localhost `npm run search-book:smoke-static` plus `npm run search-book:smoke-preview-service`; source ingestion remains `17/17`, quality gates remain `29/30`, and only #11/#4 are open.
+
 ## 2026-07-01 — Launch/Release Discord Disposition Evidence
 
 - Promoted Discord editorial disposition into launch/release evidence surfaces: `launch-evidence.md`, `release-dry-run.md`, and rendered GitHub summary tables now carry count-only proof for reviewer handoff, 19/19 keep-existing page-fit groups, 2/2 keep-refusal items, 0 public-copy changes, and 0 promoted Discord/Lafa statements.

@@ -341,6 +341,22 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     "- Source answer text included: `false`",
     "- Values printed: `false`",
     "## Automated Disposition",
+    "## Reviewer Workflow",
+    "- Workflow status: `ready`",
+    "- Workflow mode: `no-raw-source-backed-review`",
+    `- Page-fit groups to review: ${pageFitReview.length}`,
+    `- Refusal items to review: ${refusalReview.length}`,
+    "- Public-copy changes allowed from Discord/Lafa alone: 0",
+    "- Exact Discord/Lafa statements allowed for promotion: 0",
+    "| Phase | Items | Action | Acceptance |",
+    "`privacy-preflight`",
+    "`page-fit-review`",
+    "`refusal-review`",
+    "`closeout`",
+    "Required evidence:",
+    "`npm run search-book:discord-editorial-queue`",
+    "`npm run search-book:check-discord-review-artifacts`",
+    "`npm run search-book:check-discord-refusals`",
     "- Ready for reviewer handoff: `true`",
     `- Page-fit disposition: ${pageFitKeepExistingPublicCopy}/${pageFitReview.length} keep existing source-backed public copy`,
     "- Page-fit public-copy changes proposed: 0",
@@ -447,6 +463,10 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
   const queueSummary = queue.summary || {};
   const queueCoverage = queueSummary.routeCoverage || {};
   const disposition = queue.disposition || {};
+  const workflow = queue.reviewerWorkflow || {};
+  const workflowCounts = workflow.counts || {};
+  const workflowPromotionPolicy = workflow.promotionPolicy || {};
+  const workflowPhaseIds = (workflow.phaseOrder || []).map((phase) => phase.id);
   const pageFitReview = reviewPlan.pageFitReview || [];
   const queuePageFitReview = queue.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
@@ -572,6 +592,36 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
     disposition.publicCopyChangesProposed === 0 && disposition.exactDiscordStatementsPromoted === 0,
     `publicCopyChangesProposed=${disposition.publicCopyChangesProposed ?? "missing"}; exactDiscordStatementsPromoted=${disposition.exactDiscordStatementsPromoted ?? "missing"}`,
   );
+  addCheck(
+    checks,
+    "editorial-queue-data-reviewer-workflow-current",
+    workflow.status === "ready" &&
+      workflow.mode === "no-raw-source-backed-review" &&
+      workflowCounts.pageFitGroups === queuePageFitReview.length &&
+      workflowCounts.refusalItems === queueRefusalReview.length &&
+      workflowCounts.publicCopyChangesAllowed === 0 &&
+      workflowCounts.exactDiscordStatementsAllowed === 0 &&
+      workflowPromotionPolicy.publicCopyChangeSource === "primary-source-only" &&
+      workflowPromotionPolicy.discordQuotationAllowed === false &&
+      workflowPromotionPolicy.lafaQuotationAllowed === false &&
+      workflowPromotionPolicy.publicCopyChangesAllowed === 0 &&
+      workflowPromotionPolicy.exactDiscordStatementsAllowed === 0 &&
+      workflowPhaseIds.join(",") === "privacy-preflight,page-fit-review,refusal-review,closeout" &&
+      (workflow.requiredEvidence || []).includes("npm run search-book:discord-editorial-queue") &&
+      (workflow.requiredEvidence || []).includes("npm run search-book:check-discord-review-artifacts") &&
+      (workflow.requiredEvidence || []).includes("npm run search-book:check-discord-refusals"),
+    JSON.stringify({
+      status: workflow.status || "missing",
+      mode: workflow.mode || "missing",
+      pageFitGroups: workflowCounts.pageFitGroups ?? null,
+      expectedPageFitGroups: queuePageFitReview.length,
+      refusalItems: workflowCounts.refusalItems ?? null,
+      expectedRefusalItems: queueRefusalReview.length,
+      phaseIds: workflowPhaseIds,
+      publicCopyChangesAllowed: workflowCounts.publicCopyChangesAllowed ?? null,
+      exactDiscordStatementsAllowed: workflowCounts.exactDiscordStatementsAllowed ?? null,
+    }),
+  );
 
   return {
     path: printablePath(filePath),
@@ -590,6 +640,15 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
       refusalNeedsPolicyReview: disposition.refusalNeedsPolicyReview ?? null,
       publicCopyChangesProposed: disposition.publicCopyChangesProposed ?? null,
       exactDiscordStatementsPromoted: disposition.exactDiscordStatementsPromoted ?? null,
+    },
+    reviewerWorkflow: {
+      status: workflow.status || null,
+      mode: workflow.mode || null,
+      phases: workflowPhaseIds.length,
+      pageFitGroups: workflowCounts.pageFitGroups ?? null,
+      refusalItems: workflowCounts.refusalItems ?? null,
+      publicCopyChangesAllowed: workflowCounts.publicCopyChangesAllowed ?? null,
+      exactDiscordStatementsAllowed: workflowCounts.exactDiscordStatementsAllowed ?? null,
     },
     rawKeyHits: hits.length,
     sampleLeaks: leaks,

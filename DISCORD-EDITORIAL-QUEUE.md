@@ -30,6 +30,24 @@ Generated: `deterministic-build`
 - Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.
 - Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.
 
+## Reviewer Workflow
+
+- Workflow status: `ready`
+- Workflow mode: `no-raw-source-backed-review`
+- Page-fit groups to review: 19
+- Refusal items to review: 2
+- Public-copy changes allowed from Discord/Lafa alone: 0
+- Exact Discord/Lafa statements allowed for promotion: 0
+
+| Phase | Items | Action | Acceptance |
+| --- | ---: | --- | --- |
+| `privacy-preflight` | 1 | Run the Discord review-artifact checker against committed data and any local /tmp packets before editorial review. | Raw Discord/Lafa excerpts stay outside the repo, raw-field checks pass, and valuesPrinted remains false. |
+| `page-fit-review` | 19 | For each page-fit group, open the existing public page and confirm the cited source keys already cover the demand signal. | Keep existing source-backed public copy unless a primary-source gap is found; never quote Discord/Lafa text. |
+| `refusal-review` | 2 | Confirm refusal-lane items still require policy refusal rather than a new public answer. | Keep refusal behavior unless future primary-source review creates a grounded public page. |
+| `closeout` | 1 | Regenerate the sanitized queue and rerun verification before any public-copy change is committed. | The queue reports zero public-copy changes proposed and zero exact Discord/Lafa statements promoted. |
+
+Required evidence: `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-discord-refusals`
+
 ## Automated Disposition
 
 - Ready for reviewer handoff: `true`

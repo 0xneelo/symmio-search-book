@@ -101,6 +101,61 @@ function buildDisposition(pageFitReview, refusalReview) {
   };
 }
 
+function buildReviewerWorkflow(pageFitReview, refusalReview) {
+  return {
+    status: "ready",
+    mode: "no-raw-source-backed-review",
+    counts: {
+      pageFitGroups: pageFitReview.length,
+      refusalItems: refusalReview.length,
+      publicCopyChangesAllowed: 0,
+      exactDiscordStatementsAllowed: 0,
+    },
+    phaseOrder: [
+      {
+        id: "privacy-preflight",
+        label: "Privacy Preflight",
+        items: 1,
+        action: "Run the Discord review-artifact checker against committed data and any local /tmp packets before editorial review.",
+        acceptance: "Raw Discord/Lafa excerpts stay outside the repo, raw-field checks pass, and valuesPrinted remains false.",
+      },
+      {
+        id: "page-fit-review",
+        label: "Page-Fit Review",
+        items: pageFitReview.length,
+        action: "For each page-fit group, open the existing public page and confirm the cited source keys already cover the demand signal.",
+        acceptance: "Keep existing source-backed public copy unless a primary-source gap is found; never quote Discord/Lafa text.",
+      },
+      {
+        id: "refusal-review",
+        label: "Refusal Review",
+        items: refusalReview.length,
+        action: "Confirm refusal-lane items still require policy refusal rather than a new public answer.",
+        acceptance: "Keep refusal behavior unless future primary-source review creates a grounded public page.",
+      },
+      {
+        id: "closeout",
+        label: "Closeout",
+        items: 1,
+        action: "Regenerate the sanitized queue and rerun verification before any public-copy change is committed.",
+        acceptance: "The queue reports zero public-copy changes proposed and zero exact Discord/Lafa statements promoted.",
+      },
+    ],
+    requiredEvidence: [
+      "npm run search-book:discord-editorial-queue",
+      "npm run search-book:check-discord-review-artifacts",
+      "npm run search-book:check-discord-refusals",
+    ],
+    promotionPolicy: {
+      publicCopyChangeSource: "primary-source-only",
+      discordQuotationAllowed: false,
+      lafaQuotationAllowed: false,
+      exactDiscordStatementsAllowed: 0,
+      publicCopyChangesAllowed: 0,
+    },
+  };
+}
+
 function buildQueueData(routing, authored) {
   assertSafeRoutingSummary(routing);
   const pageById = new Map((authored.pages || []).map((page) => [page.id, page]));
@@ -152,6 +207,7 @@ function buildQueueData(routing, authored) {
       "Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.",
       "Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.",
     ],
+    reviewerWorkflow: buildReviewerWorkflow(pageFitReview, refusalReview),
     pageFitReview: pageFitReview.map((entry, index) => ({
       rank: index + 1,
       pageId: entry.pageId,
@@ -214,6 +270,28 @@ function renderMarkdown(queue) {
     "## Reviewer Rules",
     "",
     ...queue.reviewerRules.map((rule) => `- ${rule}`),
+    "",
+    "## Reviewer Workflow",
+    "",
+    `- Workflow status: \`${queue.reviewerWorkflow?.status || "unknown"}\``,
+    `- Workflow mode: \`${queue.reviewerWorkflow?.mode || "unknown"}\``,
+    `- Page-fit groups to review: ${queue.reviewerWorkflow?.counts?.pageFitGroups || 0}`,
+    `- Refusal items to review: ${queue.reviewerWorkflow?.counts?.refusalItems || 0}`,
+    `- Public-copy changes allowed from Discord/Lafa alone: ${queue.reviewerWorkflow?.counts?.publicCopyChangesAllowed || 0}`,
+    `- Exact Discord/Lafa statements allowed for promotion: ${queue.reviewerWorkflow?.counts?.exactDiscordStatementsAllowed || 0}`,
+    "",
+    "| Phase | Items | Action | Acceptance |",
+    "| --- | ---: | --- | --- |",
+    ...(queue.reviewerWorkflow?.phaseOrder || []).map((phase) =>
+      [
+        `\`${markdownCell(phase.id)}\``,
+        phase.items || 0,
+        markdownCell(phase.action),
+        markdownCell(phase.acceptance),
+      ].join(" | ").replace(/^/, "| ").replace(/$/, " |"),
+    ),
+    "",
+    `Required evidence: ${inlineCodeList(queue.reviewerWorkflow?.requiredEvidence || [])}`,
     "",
     "## Automated Disposition",
     "",
@@ -290,6 +368,8 @@ function main() {
     pageFitKeepExistingPublicCopy: queue.disposition?.pageFitKeepExistingPublicCopy || 0,
     refusalKeepPolicy: queue.disposition?.refusalKeepPolicy || 0,
     exactDiscordStatementsPromoted: queue.disposition?.exactDiscordStatementsPromoted || 0,
+    reviewerWorkflowStatus: queue.reviewerWorkflow?.status || "missing",
+    reviewerWorkflowPhases: queue.reviewerWorkflow?.phaseOrder?.length || 0,
     rawDiscordTextIncluded: queue.privacy?.rawDiscordTextIncluded === true,
     sourceAnswerTextIncluded: queue.privacy?.sourceAnswerTextIncluded === true,
     valuesPrinted: queue.privacy?.valuesPrinted === true,

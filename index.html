@@ -2412,6 +2412,7 @@
       const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
       const gapQueue = window.SearchBookGapQueue || { items: [], totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, byPriority: {}, byCategory: {} };
       const discordRouting = window.SearchBookDiscordReviewRouting || { routingReady: false, rawDiscordTextIncluded: false, summary: { routedItems: 0, byStatus: {}, byAction: {}, byReviewType: {}, topPrimaryPageIds: [] }, reviewPlan: { pageFitReview: [], refusalReview: [] }, items: [] };
+      const discordEditorialQueue = window.SearchBookDiscordEditorialQueue || { reviewerWorkflow: { status: "missing", counts: {}, phaseOrder: [] }, disposition: {} };
       const answerChunkMap = window.SearchBookAnswerChunks || { chunks: [], totalPages: 0, totalChunks: 0, usedSourceKeys: [] };
       const volumeMap = window.SearchBookVolumeMap || { volumes: [], totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
@@ -3520,6 +3521,9 @@
         const summary = discordRouting.summary || {};
         const plan = discordRouting.reviewPlan || {};
         const routeCoverage = plan.routeCoverage || {};
+        const workflow = discordEditorialQueue.reviewerWorkflow || {};
+        const workflowCounts = workflow.counts || {};
+        const disposition = discordEditorialQueue.disposition || {};
         const topRows = (plan.pageFitReview || [])
           .slice(0, 10)
           .map((item) => {
@@ -3563,6 +3567,8 @@
           <li><span class="meta">Routed items</span><br>${escapeHtml(summary.routedItems || 0)} review items; raw text included: ${discordRouting.rawDiscordTextIncluded ? "yes" : "no"}.</li>
           <li><span class="meta">Answered by existing pages</span><br>${escapeHtml(summary.byStatus?.answered || 0)} answered; ${escapeHtml(summary.byStatus?.refusal || 0)} refusals kept review-bound.</li>
           <li><span class="meta">Editorial queue</span><br>${escapeHtml(plan.pageFitReviewReady || 0)} page checks; ${escapeHtml(plan.refusalReviewReady || 0)} refusal checks.</li>
+          <li><span class="meta">Reviewer workflow</span><br>${escapeHtml(workflow.status || "missing")} / ${escapeHtml(workflow.mode || "unknown")}; ${escapeHtml(workflowCounts.pageFitGroups || 0)} page-fit groups, ${escapeHtml(workflowCounts.refusalItems || 0)} refusal items.</li>
+          <li><span class="meta">Public promotion policy</span><br>${escapeHtml(disposition.publicCopyChangesProposed || 0)} copy changes proposed; ${escapeHtml(disposition.exactDiscordStatementsPromoted || 0)} exact Discord/Lafa statements promoted.</li>
           <li><span class="meta">Route coverage</span><br>${escapeHtml(routeCoverage.pageFitCoveredByPublicRoutes || 0)}/${escapeHtml(routeCoverage.totalPageFitGroups || 0)} page-fit groups have route aliases; ${escapeHtml(routeCoverage.pageFitSingleRouteRemaining || 0)} single-route groups remain.</li>
           <li><span class="meta">Review actions</span><br>${Object.entries(summary.byAction || {}).map(([action, count]) => `${escapeHtml(action)}: ${escapeHtml(count)}`).join("<br>") || "none"}</li>
         `;

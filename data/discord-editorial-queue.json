@@ -41,6 +41,58 @@
     "Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.",
     "Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes."
   ],
+  "reviewerWorkflow": {
+    "status": "ready",
+    "mode": "no-raw-source-backed-review",
+    "counts": {
+      "pageFitGroups": 19,
+      "refusalItems": 2,
+      "publicCopyChangesAllowed": 0,
+      "exactDiscordStatementsAllowed": 0
+    },
+    "phaseOrder": [
+      {
+        "id": "privacy-preflight",
+        "label": "Privacy Preflight",
+        "items": 1,
+        "action": "Run the Discord review-artifact checker against committed data and any local /tmp packets before editorial review.",
+        "acceptance": "Raw Discord/Lafa excerpts stay outside the repo, raw-field checks pass, and valuesPrinted remains false."
+      },
+      {
+        "id": "page-fit-review",
+        "label": "Page-Fit Review",
+        "items": 19,
+        "action": "For each page-fit group, open the existing public page and confirm the cited source keys already cover the demand signal.",
+        "acceptance": "Keep existing source-backed public copy unless a primary-source gap is found; never quote Discord/Lafa text."
+      },
+      {
+        "id": "refusal-review",
+        "label": "Refusal Review",
+        "items": 2,
+        "action": "Confirm refusal-lane items still require policy refusal rather than a new public answer.",
+        "acceptance": "Keep refusal behavior unless future primary-source review creates a grounded public page."
+      },
+      {
+        "id": "closeout",
+        "label": "Closeout",
+        "items": 1,
+        "action": "Regenerate the sanitized queue and rerun verification before any public-copy change is committed.",
+        "acceptance": "The queue reports zero public-copy changes proposed and zero exact Discord/Lafa statements promoted."
+      }
+    ],
+    "requiredEvidence": [
+      "npm run search-book:discord-editorial-queue",
+      "npm run search-book:check-discord-review-artifacts",
+      "npm run search-book:check-discord-refusals"
+    ],
+    "promotionPolicy": {
+      "publicCopyChangeSource": "primary-source-only",
+      "discordQuotationAllowed": false,
+      "lafaQuotationAllowed": false,
+      "exactDiscordStatementsAllowed": 0,
+      "publicCopyChangesAllowed": 0
+    }
+  },
   "pageFitReview": [
     {
       "rank": 1,
