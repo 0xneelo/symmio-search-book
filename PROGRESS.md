@@ -2,7 +2,7 @@
 
 ## 2026-07-01 — Answer-Engine Backup And Restore Check
 
-- Added `src/search-book/scripts/backup-answer-engine-db.mjs` and `npm run search-book:backup-db` so operators can create a SQLite-consistent Search Book answer-engine backup with `VACUUM INTO`, a JSON manifest, SHA-256, table counts, and default restore verification via `PRAGMA integrity_check`.
+- Added `scripts/backup-answer-engine-db.mjs` and `npm run search-book:backup-db` so operators can create a SQLite-consistent Search Book answer-engine backup with `VACUUM INTO`, a JSON manifest, SHA-256, table counts, and default restore verification via `PRAGMA integrity_check`.
 - Updated `build-living-docs-events.mjs`, `build-requirement-map.mjs`, and `build-quality-audit.mjs` so generated evidence reports `backupRestoreImplemented: true`; regenerated `data/living-docs-events.*`, `data/requirement-map.*`, and `data/quality-audit.*`.
 - Updated README, answer-engine contract, GAPS, final report, production roadmap, and `LIVING-DOCS-OPERATIONS.md` so backup/restore-check operations are documented while production readiness remains false until public deploy route, production service env, production moderation/backup access, assigned reviewer owner/cadence, monitoring, and source imports are complete.
 
@@ -129,7 +129,7 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 04 USDC Batch
 
-- Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Confirmed `scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,360` input tokens, `702` output tokens, and `$0.00122520`; bootstrap trilemma used `5,019` input tokens, `712` output tokens, and `$0.00118005`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `16` calls, `93,868` input tokens, `8,615` output tokens, and `$0.01924920`; one Volume 03 reading-order answer used the validation-retry loop and then passed with valid citations.
 
@@ -159,7 +159,7 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Refresh After Volume 04 Funding Objective Batch
 
-- Confirmed `src/search-book/scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Confirmed `scripts/run-llm-rag-answer.mjs` still has the explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` format with `json_object` fallback, validation feedback loop, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,360` input tokens, `595` output tokens, and `$0.00116100`; bootstrap trilemma used `5,020` input tokens, `755` output tokens, and `$0.00120600`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
@@ -177,7 +177,7 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Refresh After Volume 03 Completion
 
-- Tightened `src/search-book/scripts/run-llm-rag-answer.mjs` so LLM citations copy canonical `sourceHref` values from `citationSources` / `validIds.sourceHrefBySourceKey` instead of chunk `sourceUrls`; the strict validator is unchanged.
+- Tightened `scripts/run-llm-rag-answer.mjs` so LLM citations copy canonical `sourceHref` values from `citationSources` / `validIds.sourceHrefBySourceKey` instead of chunk `sourceUrls`; the strict validator is unchanged.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,359` input tokens, `595` output tokens, and `$0.00116085`; bootstrap trilemma used `5,022` input tokens, `713` output tokens, and `$0.00118110`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
@@ -213,7 +213,7 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Volume 02 Batch
 
-- Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure. No validator weakening or runtime logic change was needed.
+- Reconfirmed `scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure. No validator weakening or runtime logic change was needed.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,036` input tokens, `595` output tokens, and `$0.00111240`; bootstrap trilemma used `4,972` input tokens, `870` output tokens, and `$0.00126780`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. A later SYN-215 refresh supersedes the exact measured token and cost totals; see the latest SYN-215 entry above.
 
@@ -231,7 +231,7 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Revalidation After Referral Access Batch
 
-- Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Reconfirmed `scripts/run-llm-rag-answer.mjs` contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `5,035` input tokens, `596` output tokens, and `$0.00111285`; bootstrap trilemma used `4,971` input tokens, `705` output tokens, and `$0.00116865`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, Phase B economics, and static Add Token Info payment-detail leakage refused or stayed within validated answer boundaries. Total measured usage was `15` calls, `85,078` input tokens, `8,270` output tokens, and `$0.01772370`.
 
@@ -309,43 +309,43 @@
 
 ## 2026-06-30 — SYN-215 Live RAG Revalidation
 
-- Reconfirmed `src/search-book/scripts/run-llm-rag-answer.mjs` already contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
+- Reconfirmed `scripts/run-llm-rag-answer.mjs` already contains the requested SYN-215 runtime behavior: explicit SearchBookAnswerResponse prompt contract, supplied-chunk worked example, OpenAI Structured Outputs `json_schema` response format with `json_object` fallback, validation-retry feedback, strict citation validation, usage/cost accounting, and extractive fallback after capped validation failure.
 - Live `gpt-4.1-mini` named probes passed with `status:"answered"`, valid citations, `responseFormatType:"json_schema"`, no validation retries, and no fallback: Vibe/account creation used `4,938` input tokens, `472` output tokens, and `$0.00102390`; bootstrap trilemma used `4,875` input tokens, `737` output tokens, and `$0.00117345`.
 - Full live eval passed `42/42` fixtures: `15/15` adversarial and `27/27` answer-validation. Revenue/referral answered while secrets, prompt-injection, missing-source-family, internal-draft, financial-advice, and Phase B economics refused/fail-closed. Total measured usage was `15` calls, `83,256` input tokens, `8,047` output tokens, and `$0.01731660`.
 
 ## 2026-06-30 — Static App Integrity Check
 
-- Added `src/search-book/scripts/check-static-integrity.mjs`, a deterministic verifier for the static Search Book app shell.
+- Added `scripts/check-static-integrity.mjs`, a deterministic verifier for the static Search Book app shell.
 - The verifier checks local script references, expected `window.SearchBook*` data globals, static page links, URL-safe public page ids, and public navigation page coverage in local reader data.
-- Added `npm run search-book:check-static` and wired the check into `node src/search-book/scripts/build-all.mjs --verify`; the canonical build now performs `59` syntax checks after adding the new script.
+- Added `npm run search-book:check-static` and wired the check into `node scripts/build-all.mjs --verify`; the canonical build now performs `59` syntax checks after adding the new script.
 
 ## 2026-06-30 — Living Docs Gap Summary Job
 
-- Added `src/search-book/scripts/summarize-living-docs-gaps.mjs`, an internal reviewer job that reads the standalone answer-engine SQLite datastore and emits markdown or JSON summaries of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions.
+- Added `scripts/summarize-living-docs-gaps.mjs`, an internal reviewer job that reads the standalone answer-engine SQLite datastore and emits markdown or JSON summaries of gap backlog, low-rated answers, unanswered/refused questions, repeated questions, and recommended reviewer actions.
 - Added `npm run search-book:living-docs-summary` and documented that the output includes raw user questions/notes and must stay internal unless a privacy review approves publication.
 - Extended `npm run search-book:smoke-service` so the temporary SQLite smoke dataset also proves the gap-summary job returns backlog, low-rated-answer, and recommendation queues without calling the LLM provider or reading production credentials.
 
 ## 2026-06-30 — Readiness Evidence Consistency Check
 
-- Added `src/search-book/scripts/check-readiness-evidence.mjs`, a deterministic guard that compares the recorded live `gpt-4.1-mini` evidence in `data/llm-rag-contract.json` against the final report, progress log, production roadmap, and LLM RAG contract.
-- Wired the guard into `node src/search-book/scripts/build-all.mjs --verify` so stale SYN-215 pass rates, token totals, and cost now fail the normal Search Book verification path without calling the live LLM or reading credentials.
+- Added `scripts/check-readiness-evidence.mjs`, a deterministic guard that compares the recorded live `gpt-4.1-mini` evidence in `data/llm-rag-contract.json` against the final report, progress log, production roadmap, and LLM RAG contract.
+- Wired the guard into `node scripts/build-all.mjs --verify` so stale SYN-215 pass rates, token totals, and cost now fail the normal Search Book verification path without calling the live LLM or reading credentials.
 - Documented the standalone check in the README and final report; the canonical build now performs `57` syntax checks after adding the new script.
 
 ## 2026-06-30 — Preview-Service Integration Smoke Test
 
-- Added `src/search-book/scripts/smoke-preview-service.mjs`, a deterministic local smoke runner that starts both the static Search Book preview and the standalone SQLite answer-engine service on isolated localhost ports.
+- Added `scripts/smoke-preview-service.mjs`, a deterministic local smoke runner that starts both the static Search Book preview and the standalone SQLite answer-engine service on isolated localhost ports.
 - The smoke runner loads the preview with `?service=...&serviceMode=extractive`, checks CORS preflight, then proves service-backed ask, rating, Search Insights, and exact-page URLs without reading production credentials or calling the LLM provider.
 - Added `npm run search-book:smoke-preview-service` and documented it beside the existing static and service smoke checks.
 
 ## 2026-06-30 — Static Preview Smoke Test
 
-- Added `src/search-book/scripts/serve-static-preview.mjs`, a dependency-free localhost static server for the Search Book prototype.
-- Added `src/search-book/scripts/smoke-static-preview.mjs`, a deterministic smoke runner that starts the static preview on an isolated localhost port and verifies the Ask front door, an exact-page URL, generated data assets, and 404 behavior.
+- Added `scripts/serve-static-preview.mjs`, a dependency-free localhost static server for the Search Book prototype.
+- Added `scripts/smoke-static-preview.mjs`, a deterministic smoke runner that starts the static preview on an isolated localhost port and verifies the Ask front door, an exact-page URL, generated data assets, and 404 behavior.
 - Added `npm run search-book:serve-static` and `npm run search-book:smoke-static` so local preview hosting and preview smoke verification are first-class package commands.
 
 ## 2026-06-30 — Answer-Engine Service Smoke Test
 
-- Added `src/search-book/scripts/smoke-answer-engine-service.mjs`, a deterministic local smoke runner for the standalone answer-engine service.
+- Added `scripts/smoke-answer-engine-service.mjs`, a deterministic local smoke runner for the standalone answer-engine service.
 - The smoke runner starts `serve-answer-engine.mjs` on an isolated localhost port with a temporary SQLite database and extractive mode, then proves `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, `GET /api/search-book/insights`, unauthenticated moderation rejection, and authenticated moderation export.
 - Added `npm run search-book:smoke-service` and documented the command in the Search Book README verification flow. The smoke test does not call the LLM provider or read production API keys.
 
@@ -598,7 +598,7 @@
 
 ## 2026-06-30 — Reproducible Build Orchestrator
 
-- Added `src/search-book/scripts/build-all.mjs` as the canonical deterministic Search Book build entrypoint.
+- Added `scripts/build-all.mjs` as the canonical deterministic Search Book build entrypoint.
 - Wrapped the full content/data generation chain with `--verify`, syntax checks, invariant checks, sensitive-pattern review, dry-run/list modes, and `--from` / `--only` resume controls.
 - Exposed root npm aliases `search-book:build` and `search-book:verify` so agents and CI can run the same command without copying the README command block.
 - Added readiness-map and quality-audit coverage for the build orchestrator while keeping source ingestion, Discord import, production frontend deploy, and final report as separate parked production work.
@@ -675,7 +675,7 @@
 
 ## 2026-06-29 — Static Frontend Service Bridge
 
-- Wired `src/search-book/index.html` to use the standalone answer-engine service when configured with `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`.
+- Wired `index.html` to use the standalone answer-engine service when configured with `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`.
 - Routed Ask submissions to `POST /api/search-book/answer`, answer ratings to `POST /api/search-book/rating`, and Search Insights to `GET /api/search-book/insights`.
 - Preserved the existing deterministic browser router and `localStorage` question/rating/gap loop as fallback for static preview, direct page opens, and service outages.
 - Kept production readiness false until the selected public frontend route, production service env, retention/moderation policy, deployment checks, and remaining source imports are complete.
@@ -683,7 +683,7 @@
 ## 2026-06-29 — Standalone Answer-Engine Service Boundary
 
 - Exported the validated Search Book answer runtime so the CLI, live eval, and service can share the same retrieval, refusal, LLM, and citation-validation path.
-- Added `src/search-book/scripts/serve-answer-engine.mjs`, a dependency-free Node HTTP service backed by SQLite tables for questions, ratings, and gaps.
+- Added `scripts/serve-answer-engine.mjs`, a dependency-free Node HTTP service backed by SQLite tables for questions, ratings, and gaps.
 - Added service endpoints for health, answers, ratings, and Search Insights: `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, and `GET /api/search-book/insights`.
 - Kept production readiness false until the service is deployed, the public frontend is wired to it, production LLM env is installed, retention/moderation policy is defined, and Discord/Lafa plus remaining source imports are resolved.
 
@@ -2012,7 +2012,7 @@
 
 ## 2026-06-29 — Discord/Lafa Ingestion Tooling
 
-- Added `src/search-book/scripts/build-discord-corpus.mjs`, a deterministic import/scraper path for Discord/Lafa source mining.
+- Added `scripts/build-discord-corpus.mjs`, a deterministic import/scraper path for Discord/Lafa source mining.
 - Generated `data/discord-corpus.json` and `data/discord-corpus.js` in parked mode: import contract ready, API scraper ready, zero imported messages, ten seeded Discord-mining topics, and missing inputs for export/API access, public-use boundary, and Lafa author id mapping.
 - Registered `discord-ingestion-contract` in `SOURCES.md`, wired the generated corpus into source-ingestion and requirement-map evidence, and kept `discord-lafa-corpus` / `discord-seeded-faq` parked under OPERATOR-INBOX #2.
 - Added `authored-discord-lafa-ingestion-boundary` and routed one Ask question explaining how Discord and Lafa answers will enter Search Book without claiming any Discord answer as authoritative yet.

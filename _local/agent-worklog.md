@@ -25,3 +25,10 @@
 - Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
 - Verification target: service smoke covers disabled/unauthenticated/authenticated metrics, metrics payload has operational counters only, and `npm run search-book:verify` remains green.
 - Result: Implemented disabled-by-default `GET /api/search-book/metrics` with a server-only metrics token or moderation-token fallback. Smoke passed with unauthenticated metrics `403`, authenticated metrics `ok`, disabled metrics `404`, answer count `3`, rating count `2`, and no raw question/secrets in the metrics payload. Production-shaped preflight passed `26/26`; `.env.example` and local `.secrets/search-book.env` still fail closed without printing secret values. Full verify passed with 24 build steps, 61 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.
+
+## 2026-07-01 — Codex post-migration docs path hygiene
+- Task: Remove stale `src/search-book/...` operational instructions from durable Search Book reports after the standalone repo migration.
+- Scope: `_local/agent-worklog.md`, `FINAL-REPORT.md`, `PROGRESS.md`, `_specs/app-docs/OPERATOR-INBOX.md`, and only directly related documentation references.
+- Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: no tracked operational docs instruct agents to run old `src/search-book/...` paths; docs-only verification and `npm run search-book:verify` remain green.
+- Result: Updated final report, progress log, and inbox references to standalone root paths (`index.html`, `scripts/...`, `node scripts/build-all.mjs --verify`). `rg` now finds no `src/search-book` references in `FINAL-REPORT.md`, `PROGRESS.md`, or `_specs/app-docs/OPERATOR-INBOX.md`. `node scripts/check-readiness-evidence.mjs` passed, and full `npm run search-book:verify` passed with 24 build steps, 61 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.

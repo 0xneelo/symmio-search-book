@@ -1,6 +1,6 @@
 # Search Book Final Report
 
-Generated for the current `search-book/research-dossier` checkpoint on 2026-06-30 and refreshed on 2026-07-01. This report is intentionally explicit about remaining production work: the Search Book dossier, prototype, and answer runtime are verified, but the overall mission is not production-complete until the parked source and deploy decisions are resolved or carried into an approved release plan.
+Generated for the standalone `symmio-search-book` repository on 2026-06-30 and refreshed on 2026-07-01 after the migration to `main`. This report is intentionally explicit about remaining production work: the Search Book dossier, prototype, and answer runtime are verified, but the overall mission is not production-complete until the parked source and deploy decisions are resolved or carried into an approved release plan.
 
 ## Current Status
 
@@ -8,7 +8,7 @@ The Search Book now has a 500-800 page compendium shape with 794 manifest pages,
 
 The authored layer now covers every generated source companion: `data/publication-plan.*` reports 792 source companions queued, 792 covered by authored pages, 0 needing authored coverage, and 0 candidate pages still in the review queue. The remaining candidate review lanes are 0 final-review-ready pages, 0 operator-review pages, 0 source-refresh pages, 0 publication-date-review pages, and 0 editorial-review pages. Source companions remain retrieval and traceability material, not public navigation pages.
 
-The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,878 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `src/search-book/index.html` or served locally with `npm run search-book:serve-static`; `npm run search-book:check-static` verifies local script dependencies, expected `window.SearchBook*` data globals, static page links, and public reader-data coverage, while `npm run search-book:smoke-static` proves the Ask front door, exact-page URL, generated data assets, and missing-route 404 behavior over localhost. The service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`. The local smoke command `npm run search-book:smoke-service` proves service health, extractive answer persistence, rating persistence, helpful answer-cache population, paraphrase reuse as `source:"reuse-cache"`, optional dynamic examples from helpful cached questions, Search Insights, guardrail refusal ordering, token-gated moderation export, and the internal reviewer gap-summary job against a temporary SQLite database. `npm run search-book:backup-db` creates a SQLite-consistent answer-engine backup manifest and verifies restore viability. `LIVING-DOCS-OPERATIONS.md` documents the internal daily/weekly reviewer workflow, moderation export handling, backup handling, privacy boundaries, launch gate, and incident response. The combined `npm run search-book:smoke-preview-service` command starts both localhost services, checks the preview-to-service CORS bridge, and verifies service-backed ask, rating, Search Insights, and exact-page URLs without live LLM calls.
+The answer-engine front door is implemented as a static prototype plus a shared runtime and standalone SQLite-backed service boundary. The deterministic route map has 798 exact question routes, 32 glossary routes, 2 refusal routes, 2,878 retrieval chunks, and 800 local FAQ entries. The static prototype can be opened directly at `index.html` from the standalone repo root or served locally with `npm run search-book:serve-static`; `npm run search-book:check-static` verifies local script dependencies, expected `window.SearchBook*` data globals, static page links, and public reader-data coverage, while `npm run search-book:smoke-static` proves the Ask front door, exact-page URL, generated data assets, and missing-route 404 behavior over localhost. The service can be run locally with `SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node scripts/serve-answer-engine.mjs` and connected with `index.html?service=http://127.0.0.1:8787`. The local smoke command `npm run search-book:smoke-service` proves service health, extractive answer persistence, rating persistence, helpful answer-cache population, paraphrase reuse as `source:"reuse-cache"`, optional dynamic examples from helpful cached questions, Search Insights, guardrail refusal ordering, token-gated moderation export, and the internal reviewer gap-summary job against a temporary SQLite database. `npm run search-book:backup-db` creates a SQLite-consistent answer-engine backup manifest and verifies restore viability. `LIVING-DOCS-OPERATIONS.md` documents the internal daily/weekly reviewer workflow, moderation export handling, backup handling, privacy boundaries, launch gate, and incident response. The combined `npm run search-book:smoke-preview-service` command starts both localhost services, checks the preview-to-service CORS bridge, and verifies service-backed ask, rating, Search Insights, and exact-page URLs without live LLM calls.
 
 The live OpenAI-compatible RAG runtime passed the current recorded SYN-215 eval with `gpt-4.1-mini`: 42/42 total cases, 15/15 adversarial refusals, and 27/27 answer-validation fixtures. Measured usage was 16 calls, 93,868 input tokens, 8,615 output tokens, and an estimated cost of `$0.01924920` at the recorded `gpt-4.1-mini` pricing. This is runtime evidence, not a deployed-service readiness claim.
 
@@ -19,16 +19,16 @@ Quality status is still intentionally not green for launch. The latest audit pas
 Use these commands as the current reproducible verification path:
 
 ```sh
-node src/search-book/scripts/build-all.mjs --verify
+node scripts/build-all.mjs --verify
 npm run search-book:verify
-node src/search-book/scripts/check-readiness-evidence.mjs
-node src/search-book/scripts/check-static-integrity.mjs
-node --check src/search-book/scripts/backup-answer-engine-db.mjs
-node src/search-book/scripts/run-llm-rag-answer.mjs --mode extractive --query "Which dashboard views are documented?" --json
+node scripts/check-readiness-evidence.mjs
+node scripts/check-static-integrity.mjs
+node --check scripts/backup-answer-engine-db.mjs
+node scripts/run-llm-rag-answer.mjs --mode extractive --query "Which dashboard views are documented?" --json
 npm run search-book:smoke-static
 npm run search-book:smoke-preview-service
 npm run search-book:smoke-service
-git diff --check -- src/search-book _local/agent-worklog.md
+git diff --check
 npm run build --if-present
 ```
 
@@ -64,6 +64,6 @@ Until those items move, the Search Book should be described as a verified resear
 
 ## Handoff Notes
 
-Keep edits scoped because the repository has unrelated dashboard/spec/deploy/demo WIP. Before each new Search Book phase, read `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, and the pasted objective at `/home/tabor/.codex/attachments/4632c9a8-89bd-47cd-9f2b-514b80548daa/pasted-text-1.txt`.
+Keep edits scoped because this standalone repository is shared by multiple agents. Before each new Search Book phase, read `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, and the pasted objective at `/home/tabor/.codex/attachments/4632c9a8-89bd-47cd-9f2b-514b80548daa/pasted-text-1.txt`.
 
-The next highest-value production work is to resolve or ingest the parked source families when operator input arrives, then deploy the static frontend plus standalone service behind the selected public route. After any source-corpus change, rerun `node src/search-book/scripts/build-all.mjs --verify`; after any prompt/runtime/deploy change, rerun the live LLM eval with the service credentials loaded through `--env-file` without printing secrets.
+The next highest-value production work is to resolve or ingest the parked source families when operator input arrives, then deploy the static frontend plus standalone service behind the selected public route. After any source-corpus change, rerun `node scripts/build-all.mjs --verify` or `npm run search-book:verify`; after any prompt/runtime/deploy change, rerun the live LLM eval with the service credentials loaded through `--env-file` without printing secrets.
