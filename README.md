@@ -66,6 +66,7 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com
 npm run search-book:smoke-deployment -- --site-url https://docs.example.com --service-url https://answers.example.com --mode extractive --write
 
 # Production env/deploy preflight (validates env shape; no provider call)
+npm run search-book:drill-local-launch
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
@@ -112,6 +113,10 @@ For launch evidence, run `npm run search-book:check-launch -- --site-url <public
 it composes the production env preflight, deterministic verify, URL-driven deployment
 smoke, reviewer assignment, backup-storage evidence, latest restore-checked backup
 manifest evidence, and unresolved completion-boundary checks without printing secret values.
+For a no-secret localhost rehearsal of the same staging path, run
+`npm run search-book:drill-local-launch`; it starts temporary local services, records one
+smoke answer/rating, creates a restore-checked backup manifest, runs the staging launch
+gate with fresh verify, and tears the services down.
 
 ## Environment
 

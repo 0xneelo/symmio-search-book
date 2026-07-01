@@ -108,6 +108,16 @@ allowed origins, public service URL, moderation and metrics token rules, reviewe
 owner/cadence, backup storage, and live-eval evidence. It reports whether secrets are
 configured but never prints secret values.
 
+For a full no-secret localhost rehearsal before touching production infrastructure, run:
+
+```bash
+npm run search-book:drill-local-launch
+```
+
+The drill starts temporary static and answer-engine services, writes one smoke answer and
+rating, creates a restore-checked backup manifest, runs the staging launch gate with fresh
+verify and write-smoke enabled, then stops both services.
+
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
 boundary. Load the same service env file so it can see the production LLM/service settings,

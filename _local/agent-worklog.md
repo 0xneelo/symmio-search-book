@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex local launch drill command
+- Task: Add a one-command local staging launch drill for the standalone Search Book static preview plus answer-engine service.
+- Scope: `scripts/run-local-launch-drill.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Command starts temporary local services, writes one smoke answer/rating, creates a restore-checked backup manifest, runs staging `check-launch-readiness` with fresh verify and write-smoke, tears down services, and leaves no secrets in output.
+- Result: Added `npm run search-book:drill-local-launch`. The verified run passed with temporary preview `127.0.0.1:45752`, service `127.0.0.1:45632`, seed deployment smoke `passed`, backup `passed`, restore-check `passed`, launch readiness `passed`, launch totals `13/13` checks passed, 0 failures, 0 warnings, fresh verify 24 build steps and 64 syntax checks, valuesPrinted `false`, and no LLM API key loaded.
+
 ## 2026-07-01 — Codex answer-engine backup timer deployment
 - Task: Add deployable systemd backup timer support for the Search Book answer-engine SQLite datastore.
 - Scope: `scripts/backup-answer-engine-db.mjs`, `deploy/symmio-search-book-backup.service`, `deploy/symmio-search-book-backup.timer`, deployment/operations docs, `.env.example`, and `_local/agent-worklog.md`.

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Local Launch Drill Command
+
+- Added `scripts/run-local-launch-drill.mjs` and `npm run search-book:drill-local-launch` as a one-command no-secret staging rehearsal for the standalone Search Book.
+- The drill starts temporary static preview and answer-engine services on free localhost ports, seeds one URL-driven answer/rating smoke, creates a restore-checked SQLite backup manifest, runs staging `check-launch-readiness` with `--run-verify` and `--write-smoke`, and then stops both services.
+- Verified the drill on 2026-07-01: status `passed`, service health `ok`, seed deployment smoke `passed`, backup `passed`, restore-check `passed`, launch readiness `passed`, launch totals `13/13` checks passed with `0` failures and `0` warnings, fresh verify reported 24 build steps, 64 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`.
+- Drill output reported `valuesPrinted:false` and did not load LLM API keys; artifacts were kept under `/tmp/search-book-local-launch-drill-0Y5Let` for inspection.
+
 ## 2026-07-01 — Answer-Engine Backup Timer Deployment
 
 - Added production systemd templates for daily answer-engine SQLite backups: `deploy/symmio-search-book-backup.service` and `deploy/symmio-search-book-backup.timer`.

@@ -68,6 +68,18 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-rea
   --run-verify
 ```
 
+Run the local launch drill before production or staging handoffs when you need one
+reproducible no-secret proof:
+
+```sh
+npm run search-book:drill-local-launch
+```
+
+It starts temporary localhost services, writes one answer/rating, creates a
+restore-checked SQLite backup manifest, runs staging `check-launch-readiness` with fresh
+verify and write-smoke, and then stops the services. The output reports only local paths
+and booleans; it does not load or print LLM keys.
+
 Helpful-answer reuse needs embeddings:
 
 ```sh
