@@ -178,7 +178,9 @@ to refresh `DISCORD-EDITORIAL-QUEUE.md`, a committed no-raw reviewer queue deriv
 the same sanitized summary.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
-paths, and checks for raw-field or sample-text leakage without echoing excerpts.
+paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
+check validates `DISCORD-EDITORIAL-QUEUE.md` against the sanitized routing summary so the
+Markdown reviewer handoff cannot silently drift.
 
 ## Environment
 

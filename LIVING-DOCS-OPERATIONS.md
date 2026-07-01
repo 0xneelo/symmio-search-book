@@ -71,9 +71,12 @@ npm run search-book:check-discord-review-artifacts -- \
 
 Without arguments, the same command checks the committed `data/discord-review-routing.json`
 summary for no raw text flags, no raw text-like keys, consistent review-plan counts, and
-complete page-fit route coverage. With local `/tmp` packet paths, it also verifies the raw
-review packet stayed outside the repo and is marked `doNotCommit`, and checks the sanitized
-routing report for zero sample leaks without printing excerpts.
+complete page-fit route coverage. It also checks `DISCORD-EDITORIAL-QUEUE.md` against the
+sanitized summary so the Markdown reviewer queue has current counts, page-fit ids, source
+keys, refusal ids, and no raw review-packet table shape. With local `/tmp` packet paths, it
+also verifies the raw review packet stayed outside the repo and is marked `doNotCommit`, and
+checks the sanitized routing report plus Markdown queue for zero sample leaks without
+printing excerpts.
 
 ## Prerequisites
 

@@ -11,6 +11,7 @@ const defaults = {
   reviewJson: process.env.SEARCH_BOOK_DISCORD_REVIEW_QUEUE || "",
   routingJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_REPORT || "",
   summaryJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_SUMMARY || path.join(searchBookRoot, "data", "discord-review-routing.json"),
+  queueMarkdown: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE || path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
 };
 
 const forbiddenSanitizedKeys = new Set([
@@ -42,6 +43,7 @@ Options:
   --review-json path   Optional raw internal review packet; must be outside repo
   --routing-json path  Optional sanitized route-review report; must be outside repo
   --summary-json path  Defaults to data/discord-review-routing.json
+  --queue-md path      Defaults to DISCORD-EDITORIAL-QUEUE.md
   --json               Accepted for command symmetry; output is always JSON
 
 The command validates Discord/Lafa review privacy boundaries without printing raw
@@ -62,17 +64,23 @@ function parseArgs(argv) {
     if (arg === "--review-json") args.reviewJson = next;
     else if (arg === "--routing-json") args.routingJson = next;
     else if (arg === "--summary-json") args.summaryJson = next;
+    else if (arg === "--queue-md") args.queueMarkdown = next;
     else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
     index += 1;
   }
   args.reviewJson = args.reviewJson ? path.resolve(args.reviewJson) : "";
   args.routingJson = args.routingJson ? path.resolve(args.routingJson) : "";
   args.summaryJson = path.resolve(args.summaryJson);
+  args.queueMarkdown = path.resolve(args.queueMarkdown);
   return args;
 }
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function readText(filePath) {
+  return fs.readFileSync(filePath, "utf8");
 }
 
 function isInsideRepo(filePath) {
@@ -253,6 +261,90 @@ function validateSummary(summary, filePath, checks, samples) {
   };
 }
 
+function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
+  const reviewPlan = summary.reviewPlan || {};
+  const routeCoverage = reviewPlan.routeCoverage || {};
+  const pageFitReview = reviewPlan.pageFitReview || [];
+  const refusalReview = reviewPlan.refusalReview || [];
+  const summaryFragments = [
+    "# Discord Editorial Queue",
+    "Generated: `deterministic-build`",
+    `- Routed review items: ${summary.summary?.routedItems || 0}`,
+    `- Page-fit groups ready: ${reviewPlan.pageFitReviewReady || 0}`,
+    `- Page-fit routed items: ${reviewPlan.pageFitItemCount || 0}`,
+    `- Refusal-review items: ${reviewPlan.refusalReviewReady || 0}`,
+    `- Route coverage: ${routeCoverage.pageFitCoveredByPublicRoutes || 0}/${routeCoverage.totalPageFitGroups || 0} page-fit groups covered by public route aliases`,
+    `- Single-route page-fit groups remaining: ${routeCoverage.pageFitSingleRouteRemaining || 0}`,
+    `- Groups without a public route: ${routeCoverage.pageFitWithoutPublicRoute || 0}`,
+    "- Raw Discord text included: `false`",
+    "- Source answer text included: `false`",
+    "- Values printed: `false`",
+  ];
+  const missingSummaryFragments = summaryFragments.filter((fragment) => !markdown.includes(fragment));
+  const missingPageIds = pageFitReview.map((entry) => entry.pageId).filter((pageId) => !markdown.includes(`\`${pageId}\``));
+  const missingPageItemIds = pageFitReview
+    .flatMap((entry) => entry.itemIds || [])
+    .filter((itemId) => !markdown.includes(`\`${itemId}\``));
+  const missingPageSourceKeys = pageFitReview
+    .flatMap((entry) => entry.sourceKeys || [])
+    .filter((sourceKey) => !markdown.includes(`\`${sourceKey}\``));
+  const missingRefusalIds = refusalReview.map((entry) => entry.itemId).filter((itemId) => !markdown.includes(`\`${itemId}\``));
+  const missingRefusalReasons = refusalReview.map((entry) => entry.refusalReason).filter((reason) => reason && !markdown.includes(`\`${reason}\``));
+  const rawReviewTableMarkers = [
+    "| ID | Count | Question |",
+    "| ID | Related Question | Answer Excerpt |",
+    "Answer Excerpt",
+    "Related Question",
+    "normalizedQuestion",
+    "answerExcerpt",
+    "relatedQuestion",
+    "containsRawDiscordExcerpts: true",
+  ];
+  const rawTableHits = rawReviewTableMarkers.filter((marker) => markdown.includes(marker));
+  const leaks = sampleLeakCount(markdown, samples);
+
+  addCheck(
+    checks,
+    "editorial-queue-summary-current",
+    missingSummaryFragments.length === 0,
+    missingSummaryFragments.length ? `missing=${missingSummaryFragments.join(" | ")}` : "summary fragments match sanitized routing summary",
+  );
+  addCheck(
+    checks,
+    "editorial-queue-page-fit-ids-present",
+    missingPageIds.length === 0 && missingPageItemIds.length === 0 && missingPageSourceKeys.length === 0,
+    JSON.stringify({
+      missingPageIds: missingPageIds.length,
+      missingPageItemIds: missingPageItemIds.length,
+      missingPageSourceKeys: missingPageSourceKeys.length,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-refusals-present",
+    missingRefusalIds.length === 0 && missingRefusalReasons.length === 0,
+    JSON.stringify({
+      missingRefusalIds: missingRefusalIds.length,
+      missingRefusalReasons: missingRefusalReasons.length,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-no-raw-review-table",
+    rawTableHits.length === 0,
+    rawTableHits.length ? `rawTableMarkers=${rawTableHits.join(",")}` : "no raw review packet table markers",
+  );
+  addCheck(checks, "editorial-queue-sample-leaks-absent", leaks === 0, `sampleLeaks=${leaks}`);
+
+  return {
+    path: printablePath(filePath),
+    pageFitReviewReady: pageFitReview.length,
+    refusalReviewReady: refusalReview.length,
+    rawTableHits: rawTableHits.length,
+    sampleLeaks: leaks,
+  };
+}
+
 try {
   const args = parseArgs(process.argv.slice(2));
   const checks = [];
@@ -260,6 +352,7 @@ try {
   const samples = reviewSamples(reviewPacket);
   const routingReport = args.routingJson ? readJson(args.routingJson) : null;
   const summary = readJson(args.summaryJson);
+  const queueMarkdown = readText(args.queueMarkdown);
 
   const result = {
     status: "passed",
@@ -268,6 +361,7 @@ try {
     reviewPacket: validateReviewPacket(reviewPacket, args.reviewJson, checks),
     routingReport: validateRoutingReport(routingReport, args.routingJson, checks, samples),
     summary: validateSummary(summary, args.summaryJson, checks, samples),
+    editorialQueue: validateEditorialQueue(queueMarkdown, args.queueMarkdown, summary, checks, samples),
     checks,
   };
 

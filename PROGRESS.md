@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Queue Validator
+
+- Extended `scripts/check-discord-review-artifacts.mjs` so `npm run search-book:check-discord-review-artifacts` validates `DISCORD-EDITORIAL-QUEUE.md` against the sanitized `data/discord-review-routing.json` summary.
+- The checker now verifies current queue counts, page-fit page ids, item ids, source keys, refusal ids/reasons, absence of raw review-packet table markers, and zero sample leaks when a local `/tmp` raw packet is supplied.
+- Full `npm run search-book:verify` passed with 26 build steps, 79 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+- The queue remains a reviewer prioritization artifact only; exact Discord/Lafa statements still require editorial approval before public paraphrase.
+
 ## 2026-07-01 — Discord Editorial Queue Markdown
 
 - Added `scripts/build-discord-editorial-queue.mjs` and `npm run search-book:discord-editorial-queue` to generate `DISCORD-EDITORIAL-QUEUE.md` from the sanitized `data/discord-review-routing.json` review plan.

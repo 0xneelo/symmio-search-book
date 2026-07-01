@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial queue validator
+- Task: Extend the Discord review artifact checker to validate `DISCORD-EDITORIAL-QUEUE.md` against the sanitized routing summary.
+- Scope: `scripts/check-discord-review-artifacts.mjs`, status docs if evidence wording changes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: The checker fails if the Markdown queue is missing, stale, missing page-fit/refusal ids, or shaped like a raw question/answer excerpt table; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Extended `npm run search-book:check-discord-review-artifacts` with an `editorialQueue` section that validates `DISCORD-EDITORIAL-QUEUE.md` against `data/discord-review-routing.json`: current counts, page-fit page ids, item ids, source keys, refusal ids/reasons, no raw review-packet table markers, and zero sample leaks when local raw samples are supplied. `node --check scripts/check-discord-review-artifacts.mjs`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `git diff --check`, and full `npm run search-book:verify` passed; full verify reports 26 build steps, 79 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord editorial queue markdown
 - Task: Add a deterministic no-raw Markdown review queue derived from the sanitized Discord routing summary.
 - Scope: `scripts/build-discord-editorial-queue.mjs`, `DISCORD-EDITORIAL-QUEUE.md`, `package.json`, `scripts/build-all.mjs`, status docs, and `_local/agent-worklog.md`.
