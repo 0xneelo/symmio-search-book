@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex clean release evidence status docs
+- Task: Refresh status reports and status-evidence checks so they point at the latest clean-repository release dry-run packet instead of older dirty-packet evidence.
+- Scope: `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Status evidence requires the latest clean release packet wording, focused status/readiness checks pass, full deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Refreshed `FINAL-REPORT.md` and `COMPLETION-AUDIT.md` to use `/tmp/search-book-release-dry-run-clean-repo-20260701-2`, and added status-evidence fragments for clean release packet path, repository dirty state `false`, same-commit launch/release evidence, and evidence-summary renderer proof. `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `git diff --check`, and full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex clean release evidence validator
 - Task: Require final launch/release evidence packets to prove they were generated from a clean repository state.
 - Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, release/launch evidence docs, and `_local/agent-worklog.md`.
