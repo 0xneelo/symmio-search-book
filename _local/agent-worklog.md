@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex current-commit release rehearsal
+- Task: Refresh no-secret release rehearsal evidence after wiring monitoring into the canonical verify gate.
+- Scope: `/tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Release dry-run and packet validators pass from clean commit `412bd6a` with monitoring, source freshness, status evidence, Discord review artifacts, Discord refusal runtime, publication boundaries, and evidence-summary renderer green; no new operator gates.
+- Result: `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1` passed with release status `passed`, static artifact `1,650` files / `52,819,821` bytes, static integrity `passed`, launch status `passed`, monitoring status `passed`, source freshness `passed`, status evidence `passed`, Discord review artifacts `passed`, Discord refusal runtime `passed`, publication boundaries `passed`, evidence summary renderer `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches. Packet validators passed for both nested launch and release packets with repository and nested launch commit `412bd6a`, dirty state `false`, same-commit check passed, source ingestion `17/17`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex monitoring evidence verify gate
 - Task: Wire existing monitoring evidence into the canonical Search Book verify gate so health/metrics privacy coverage cannot drift outside launch/release packets.
 - Scope: `scripts/build-all.mjs`, status docs, and `_local/agent-worklog.md`.

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Current-Commit Release Rehearsal
+
+- Refreshed the no-secret release rehearsal after adding monitoring evidence to the canonical verify gate.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1`: release status `passed`, static artifact `1,650` files / `52,819,821` bytes, copied-bundle integrity `passed`, launch/monitoring/source-freshness/status-evidence/Discord-review-artifacts/Discord-refusal-runtime/publication-boundaries/evidence-summary-renderer all `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Validated both packets with `npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1/launch-evidence/launch-evidence.json` and `npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1/release-dry-run.json`; both report clean repository state at commit `412bd6a`, same nested launch commit, source ingestion `17/17`, and only #11/#4 open.
+
 ## 2026-07-01 — Monitoring Evidence Verify Gate
 
 - Wired the existing no-secret monitoring evidence checker into `npm run search-book:verify`.
