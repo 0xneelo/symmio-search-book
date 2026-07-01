@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Status Evidence Consistency Gate
+
+- Added `scripts/check-status-evidence.mjs` and `npm run search-book:check-status-evidence` to compare current generated evidence against `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, and `README.md`.
+- The checker derives current counts from generated data: 794 manifest pages, 801 authored pages, 800 published public-navigation pages, 792 source companions, 820 exact routes, 822 FAQ entries, 2,884 chunks, source ingestion 17/17, Discord routing 24 items with 19/19 page-fit coverage, quality gates 29/30, live eval 42/42, and open operator items #4/#11.
+- Wired the status evidence check into `npm run search-book:verify` so current status docs cannot silently drift after generated data changes.
+
 ## 2026-07-01 — Discord Review Artifact Validator
 
 - Added `scripts/check-discord-review-artifacts.mjs` and `npm run search-book:check-discord-review-artifacts` to validate the Discord/Lafa reviewer privacy boundary without printing raw excerpts.

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex status evidence consistency gate
+- Task: Add an executable status-doc consistency gate so current readiness counts cannot drift from generated data.
+- Scope: `scripts/check-status-evidence.mjs`, `package.json`, `scripts/build-all.mjs`, current status docs if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: FINAL-REPORT, COMPLETION-AUDIT, PRODUCTION-READINESS-PACKET, and README contain the generated current evidence; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Added `npm run search-book:check-status-evidence`, wired it into `npm run search-book:verify`, and updated current status docs so generated readiness evidence cannot silently drift. Focused status evidence passed against `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, and `README.md` with 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792 source companions, 820 exact routes, 822 FAQ entries, 2,884 chunks, source ingestion `17/17`, Discord route coverage `19/19`, quality gates `29/30`, live eval `42/42`, and open operator items limited to #4/#11. Full `npm run search-book:verify` passed with 25 build steps, 77 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, and quality gates `29/30`; `node scripts/check-readiness-evidence.mjs` and `git diff --check` passed.
+
 ## 2026-07-01 — Codex Discord review artifact validator
 - Task: Add a reusable validator for the Discord/Lafa review packet boundary and sanitized routing summary.
 - Scope: `scripts/check-discord-review-artifacts.mjs`, `package.json`, build verification wiring if appropriate, docs/status notes, and `_local/agent-worklog.md`.

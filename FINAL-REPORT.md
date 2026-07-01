@@ -45,7 +45,7 @@ git diff --check
 npm run build --if-present
 ```
 
-The canonical build verifies 25 deterministic build steps, 76 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, readiness-evidence consistency against `data/llm-rag-contract.json`, static app integrity, living-docs summary and backup utility presence, Discord review-artifact privacy, evidence-packet validators, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
+The canonical build verifies 25 deterministic build steps, 77 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, readiness-evidence consistency against `data/llm-rag-contract.json`, static app integrity, living-docs summary and backup utility presence, Discord review-artifact privacy, status-document evidence consistency, evidence-packet validators, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
 
 ## Requirement Summary
 

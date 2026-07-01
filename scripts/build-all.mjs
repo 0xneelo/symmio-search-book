@@ -237,6 +237,20 @@ function runDiscordReviewArtifactsCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runStatusEvidenceCheck(env, dryRun) {
+  const step = {
+    id: "check-status-evidence",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-status-evidence.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -403,6 +417,7 @@ if (args.dryRun) {
     runReadinessEvidenceCheck(env, true);
     runStaticIntegrityCheck(env, true);
     runDiscordReviewArtifactsCheck(env, true);
+    runStatusEvidenceCheck(env, true);
   }
   process.exit(0);
 }
@@ -419,6 +434,7 @@ let sensitivePatternScan = null;
 let readinessEvidence = null;
 let staticIntegrity = null;
 let discordReviewArtifacts = null;
+let statusEvidence = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -426,6 +442,7 @@ if (args.verify) {
   readinessEvidence = runReadinessEvidenceCheck(env, false);
   staticIntegrity = runStaticIntegrityCheck(env, false);
   discordReviewArtifacts = runDiscordReviewArtifactsCheck(env, false);
+  statusEvidence = runStatusEvidenceCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -438,5 +455,6 @@ console.log(JSON.stringify({
   readinessEvidence,
   staticIntegrity,
   discordReviewArtifacts,
+  statusEvidence,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));
