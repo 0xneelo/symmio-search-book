@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex launch/release checked workflow evidence refresh
+- Task: Trigger manual launch-evidence and release-dry-run workflows from latest `main`, download artifacts, and validate packets with strict summary checks.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows pass from commit `ab994e5` or newer; downloaded launch/release packets validate with `--require-summary`; status evidence, completion audit, full verify, and `git diff --check` pass; only #11/#4 remain open.
+- Result: Manual launch evidence run `28537954360` and release dry-run run `28537953479` passed from commit `ab994e5`. Downloaded artifacts at `/tmp/search-book-gh-manual-launch-28537954360` and `/tmp/search-book-gh-manual-release-28537953479` passed strict packet validation with `--require-summary`; both summaries carry commit `ab994e5`, dirty `false`, `Discord editorial queue data | passed`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`. Release evidence also reports sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, 93 syntax checks, and only #11/#4 open.
+
 ## 2026-07-01 — Codex static artifact checked-workflow evidence
 - Task: Trigger the manual static artifact workflow from the latest validator commit, download the artifact, and validate it with `npm run search-book:check-static-artifact-packet`.
 - Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `_local/agent-worklog.md`.
