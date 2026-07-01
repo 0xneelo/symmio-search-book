@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 815,
+  "totalRoutes": 820,
   "totalReconciliationQuestions": 2,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 509,
+    "Medium": 514,
     "High": 47,
     "Low": 259
   },
   "byRouteSource": {
-    "authored": 815
+    "authored": 820
   },
   "answerable": [
     {
@@ -4312,6 +4312,23 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo separates new trader, hedger, and LP opportunities from the higher risks of bootstrap-stage perps and maturation tracking.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-traders-and-lps-need-market-stage-visibility",
+      "question": "Why do traders and LPs need market-stage visibility?",
+      "normalizedQuestion": "why do traders and lps need market stage visibility",
+      "pageId": "authored-strategic-implications-traders-lps",
+      "pageTitle": "Strategic Implications For Traders And LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The strategic-implications page says early access is useful only when participants can see lifecycle stage, risk constraints, and maturation signals.",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -11264,6 +11281,24 @@
       "missing": false
     },
     {
+      "id": "qr-can-a-market-level-referral-share-be-inferred-after-the-fact",
+      "question": "Can a market-level referral share be inferred after the fact?",
+      "normalizedQuestion": "can a market level referral share be inferred after the fact",
+      "pageId": "authored-referral-no-market-attachment-no-share",
+      "pageTitle": "No Market Attachment Means No Market-Level Share",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The referral architecture page says market-level share needs deterministic attachment, not retrospective inference from social proof or campaign history.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-why-model-market-referral-share-as-lp-side-accounting",
       "question": "Why model market referral share as LP-side accounting?",
       "normalizedQuestion": "why model market referral share as lp side accounting",
@@ -11311,6 +11346,24 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket.",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-can-referral-fee-flows-not-use-one-shared-attribution-bucket",
+      "question": "Why can referral fee flows not use one shared attribution bucket?",
+      "normalizedQuestion": "why can referral fee flows not use one shared attribution bucket",
+      "pageId": "authored-referral-market-precedence-payout-buckets",
+      "pageTitle": "Referral Market Precedence And Payout Buckets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The referral architecture page separates user-level rewards, market-level referral share, partner overlays, platform revenue, and LP-side economics to avoid double claims.",
       "sourceKeys": [
         "vibe-papers",
         "spec-03"
@@ -12642,6 +12695,23 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-does-payout-shape-matter-more-than-volatility-alone",
+      "question": "Why does payout shape matter more than volatility alone?",
+      "normalizedQuestion": "why does payout shape matter more than volatility alone",
+      "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
+      "pageTitle": "Linear PnL Versus Hyperbolic Payout",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The linear-PnL page says USDC obligations are easier to size than inverse token obligations whose unit count can expand nonlinearly under stress.",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -14247,6 +14317,26 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "The import contract and scraper path are implemented, the real export is imported in internal-only mode, and generated clusters/Lafa candidates can now seed review work without publishing raw Discord message text.",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-can-search-book-quote-discord-or-lafa-answers-directly",
+      "question": "Can Search Book quote Discord or Lafa answers directly?",
+      "normalizedQuestion": "can search book quote discord or lafa answers directly",
+      "pageId": "authored-discord-lafa-ingestion-boundary",
+      "pageTitle": "Discord Lafa Ingestion Boundary",
+      "pageSection": "answer-engine",
+      "pageTrack": "Living Docs",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The ingestion-boundary page says raw Discord text and exact Lafa claims stay non-public until an editor approves a paraphrase and maps it to sourced Search Book prose.",
       "sourceKeys": [
         "discord-ingestion-contract",
         "spec-04",

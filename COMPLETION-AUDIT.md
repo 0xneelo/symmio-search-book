@@ -23,8 +23,8 @@ Generated evidence from the latest checked repo state:
 - `data/requirement-map.json`: 14 requirements complete, 2 partial, 2 parked, `completionReady:false`.
 - `data/quality-audit.json`: 29/30 gates passing; the only failing gate is `operator-inbox`.
 - `data/discord-corpus.json`: real Discord corpus imported in internal-only mode with 5,000 messages, 723 question clusters, 837 configured Lafa candidates, and no raw message text stored.
-- `data/question-routes.json`: 815 exact routes.
-- `data/faq.json`: 817 FAQ entries.
+- `data/question-routes.json`: 820 exact routes.
+- `data/faq.json`: 822 FAQ entries.
 - `data/answer-chunks.json`: 2,884 chunks.
 - `data/authored-pages.json`: 801 authored pages.
 - `data/page-state-registry.json`: 800 published public-navigation pages, 792 source companions, 3 internal drafts.
@@ -49,7 +49,7 @@ Current localhost preview evidence:
 | Mine Symmio Discord and Lafa answers into FAQ/answer-engine seed | Satisfied for seed corpus; review remains | `scripts/build-discord-corpus.mjs` imported the real export in internal-only mode; `data/discord-corpus.json` reports 5,000 messages, 723 question clusters, 837 configured Lafa candidates, and `corpusReady:true`. | Review clusters/candidates before turning exact Discord statements into public copy. |
 | Run competitive sweep over top crypto/docs references | Satisfied for v1 benchmark | `data/competitive-sweep.json` tracks 25 lanes, 50 targets, 49 reviewed, Opyn excluded by operator decision. | Future benchmark refresh can replace Opyn lane if needed. |
 | Maintain one IA and one style guide | Satisfied for preview | `STYLEGUIDE.md`, volume map, navigation tree, crosslinks, page-state registry, and generated reader maps exist. | Final public platform may require IA packaging changes after #4. |
-| Build answer-engine front door with exact page routing and citations | Satisfied locally | 815/815 exact routes, 32/32 glossary routes, 2/2 refusal routes, 2,884 chunks; local preview/service and staging launch drill passed; live LLM eval passed 42/42. | Production model-backed service still depends on #11 and deploy route #4. |
+| Build answer-engine front door with exact page routing and citations | Satisfied locally | 820/820 exact routes, 32/32 glossary routes, 2/2 refusal routes, 2,884 chunks; local preview/service and staging launch drill passed; live LLM eval passed 42/42. | Production model-backed service still depends on #11 and deploy route #4. |
 | Refuse unsupported, unsafe, secret, financial-advice, and out-of-scope questions | Satisfied in current eval contract | `data/llm-rag-contract.json` and `data/answer-validation-report.json` show 15/15 adversarial and 27/27 answer-validation fixtures passing. | Re-run live eval after production deployment wiring. |
 | Build living-docs loop: track questions, rate answers, surface gaps | Satisfied locally, not production-ready | SQLite service persists questions/ratings/gaps/cache; Search Insights, moderation export, metrics export, retention, reviewer summary, and backup/restore-check are implemented; staged launch drill recorded answer/rating persistence. | Production deploy, reviewer owner/cadence, backup storage, moderation/metrics access, and #11/#4 remain. |
 | Deploy or preview docs site | Preview satisfied; production not satisfied | Local preview is running at `127.0.0.1:8798` with answer service `127.0.0.1:8797`; staging launch gate passed. | Public frontend platform/repo/deploy route #4 and production env #11 are still open. |

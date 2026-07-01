@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 817,
-  "totalAnswerable": 815,
+  "totalEntries": 822,
+  "totalAnswerable": 820,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 123,
     "Trading Flow": 49,
-    "Solvers And Settlement": 185,
+    "Solvers And Settlement": 186,
     "Data And Volume": 11,
-    "Revenue": 99,
-    "Rewards And Referrals": 101,
+    "Revenue": 100,
+    "Rewards And Referrals": 102,
     "Dashboard": 13,
-    "Risk And Markets": 72,
+    "Risk And Markets": 73,
     "Manifesto": 162,
-    "Discord Import": 2
+    "Discord Import": 3
   },
   "byConfidence": {
-    "Medium": 509,
+    "Medium": 514,
     "High": 47,
     "Low": 259
   },
   "byRouteSource": {
-    "authored": 815
+    "authored": 820
   },
   "byType": {
-    "answerable": 815,
+    "answerable": 820,
     "reconciliation": 2
   },
   "answerable": [
@@ -8877,6 +8877,35 @@
       "question": "What changes for traders and LPs if the gap is filled?",
       "normalizedQuestion": "what changes for traders and lps if the gap is filled",
       "shortAnswer": "Neelo separates new trader, hedger, and LP opportunities from the higher risks of bootstrap-stage perps and maturation tracking.",
+      "answerSummary": "Strategic Implications For Traders And LPs For traders and LPs, filling the lifecycle gap creates access before mature market conditions exist. Traders get perp markets for tokens that previously had only spot access. Hedgers can short or hedge earlier in the lifecycle. LPs get bootstrap phase opportunities where fees may be higher because the risk is als...",
+      "confidence": "Medium",
+      "pageId": "authored-strategic-implications-traders-lps",
+      "pageTitle": "Strategic Implications For Traders And LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-traders-and-lps-need-market-stage-visibility",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do traders and LPs need market-stage visibility?",
+      "normalizedQuestion": "why do traders and lps need market stage visibility",
+      "shortAnswer": "The strategic-implications page says early access is useful only when participants can see lifecycle stage, risk constraints, and maturation signals.",
       "answerSummary": "Strategic Implications For Traders And LPs For traders and LPs, filling the lifecycle gap creates access before mature market conditions exist. Traders get perp markets for tokens that previously had only spot access. Hedgers can short or hedge earlier in the lifecycle. LPs get bootstrap phase opportunities where fees may be higher because the risk is als...",
       "confidence": "Medium",
       "pageId": "authored-strategic-implications-traders-lps",
@@ -21453,6 +21482,43 @@
       ]
     },
     {
+      "id": "faq-can-a-market-level-referral-share-be-inferred-after-the-fact",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Can a market-level referral share be inferred after the fact?",
+      "normalizedQuestion": "can a market level referral share be inferred after the fact",
+      "shortAnswer": "The referral architecture page says market-level share needs deterministic attachment, not retrospective inference from social proof or campaign history.",
+      "answerSummary": "No Market Attachment Means No Market Level Share The LP and category source gives a hard accounting rule: no attachment means no market level referral share. That rule exists to prevent ambiguous claims. If a market level referral can be inferred after the fact from social proof, campaign history, private conversations, or general platform participation,...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-no-market-attachment-no-share",
+      "pageTitle": "No Market Attachment Means No Market-Level Share",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-model-market-referral-share-as-lp-side-accounting",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -21534,6 +21600,43 @@
       "question": "Why do market referrals need precedence and payout buckets?",
       "normalizedQuestion": "why do market referrals need precedence and payout buckets",
       "shortAnswer": "Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket.",
+      "answerSummary": "Referral Market Precedence And Payout Buckets The LP and category layer has three integration requirements: deterministic category tagging, precedence rules between global referral and market referral, and explicit payout accounting per market and partner bucket. Precedence rules answer what happens when several attribution paths could apply. A trader may...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-market-precedence-payout-buckets",
+      "pageTitle": "Referral Market Precedence And Payout Buckets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-referral-fee-flows-not-use-one-shared-attribution-bucket",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can referral fee flows not use one shared attribution bucket?",
+      "normalizedQuestion": "why can referral fee flows not use one shared attribution bucket",
+      "shortAnswer": "The referral architecture page separates user-level rewards, market-level referral share, partner overlays, platform revenue, and LP-side economics to avoid double claims.",
       "answerSummary": "Referral Market Precedence And Payout Buckets The LP and category layer has three integration requirements: deterministic category tagging, precedence rules between global referral and market referral, and explicit payout accounting per market and partner bucket. Precedence rules answer what happens when several attribution paths could apply. A trader may...",
       "confidence": "Medium",
       "pageId": "authored-referral-market-precedence-payout-buckets",
@@ -23943,6 +24046,35 @@
       "question": "Why is linear USDC PnL different from inverse payout?",
       "normalizedQuestion": "why is linear usdc pnl different from inverse payout",
       "shortAnswer": "Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress.",
+      "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
+      "confidence": "Medium",
+      "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
+      "pageTitle": "Linear PnL Versus Hyperbolic Payout",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-payout-shape-matter-more-than-volatility-alone",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why does payout shape matter more than volatility alone?",
+      "normalizedQuestion": "why does payout shape matter more than volatility alone",
+      "shortAnswer": "The linear-PnL page says USDC obligations are easier to size than inverse token obligations whose unit count can expand nonlinearly under stress.",
       "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
       "confidence": "Medium",
       "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
@@ -26725,6 +26857,59 @@
       "question": "How will Discord and Lafa answers enter Search Book?",
       "normalizedQuestion": "how will discord and lafa answers enter search book",
       "shortAnswer": "The import contract and scraper path are implemented, the real export is imported in internal-only mode, and generated clusters/Lafa candidates can now seed review work without publishing raw Discord message text.",
+      "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, and the v1 source ingestion step is now complete. Operator reconciliation marks Discord export/access as provided, the readable export was imported, and data/discord corpus.json records 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer can...",
+      "confidence": "Medium",
+      "pageId": "authored-discord-lafa-ingestion-boundary",
+      "pageTitle": "Discord Lafa Ingestion Boundary",
+      "pageSection": "answer-engine",
+      "pageTrack": "Living Docs",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "discord-ingestion-contract",
+          "group": "Local Product And Code",
+          "use": "Generated Discord/Lafa scraper and imported internal-only corpus: 5,000 messages, 723 question clusters, 837 configured Lafa answer candidates, no raw message text stored.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-search-book-quote-discord-or-lafa-answers-directly",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Discord Import",
+      "question": "Can Search Book quote Discord or Lafa answers directly?",
+      "normalizedQuestion": "can search book quote discord or lafa answers directly",
+      "shortAnswer": "The ingestion-boundary page says raw Discord text and exact Lafa claims stay non-public until an editor approves a paraphrase and maps it to sourced Search Book prose.",
       "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, and the v1 source ingestion step is now complete. Operator reconciliation marks Discord export/access as provided, the readable export was imported, and data/discord corpus.json records 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer can...",
       "confidence": "Medium",
       "pageId": "authored-discord-lafa-ingestion-boundary",
@@ -35730,6 +35915,35 @@
       ]
     },
     {
+      "id": "faq-why-do-traders-and-lps-need-market-stage-visibility",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why do traders and LPs need market-stage visibility?",
+      "normalizedQuestion": "why do traders and lps need market stage visibility",
+      "shortAnswer": "The strategic-implications page says early access is useful only when participants can see lifecycle stage, risk constraints, and maturation signals.",
+      "answerSummary": "Strategic Implications For Traders And LPs For traders and LPs, filling the lifecycle gap creates access before mature market conditions exist. Traders get perp markets for tokens that previously had only spot access. Hedgers can short or hedge earlier in the lifecycle. LPs get bootstrap phase opportunities where fees may be higher because the risk is als...",
+      "confidence": "Medium",
+      "pageId": "authored-strategic-implications-traders-lps",
+      "pageTitle": "Strategic Implications For Traders And LPs",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-are-the-broader-ecosystem-implications-of-filling-the-lifecycle-gap",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -48284,6 +48498,43 @@
       ]
     },
     {
+      "id": "faq-can-a-market-level-referral-share-be-inferred-after-the-fact",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "Can a market-level referral share be inferred after the fact?",
+      "normalizedQuestion": "can a market level referral share be inferred after the fact",
+      "shortAnswer": "The referral architecture page says market-level share needs deterministic attachment, not retrospective inference from social proof or campaign history.",
+      "answerSummary": "No Market Attachment Means No Market Level Share The LP and category source gives a hard accounting rule: no attachment means no market level referral share. That rule exists to prevent ambiguous claims. If a market level referral can be inferred after the fact from social proof, campaign history, private conversations, or general platform participation,...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-no-market-attachment-no-share",
+      "pageTitle": "No Market Attachment Means No Market-Level Share",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-model-market-referral-share-as-lp-side-accounting",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -48365,6 +48616,43 @@
       "question": "Why do market referrals need precedence and payout buckets?",
       "normalizedQuestion": "why do market referrals need precedence and payout buckets",
       "shortAnswer": "Neelo requires deterministic category tags, precedence rules between global and market referrals, and explicit payout accounting by market and partner bucket.",
+      "answerSummary": "Referral Market Precedence And Payout Buckets The LP and category layer has three integration requirements: deterministic category tagging, precedence rules between global referral and market referral, and explicit payout accounting per market and partner bucket. Precedence rules answer what happens when several attribution paths could apply. A trader may...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-market-precedence-payout-buckets",
+      "pageTitle": "Referral Market Precedence And Payout Buckets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-referral-fee-flows-not-use-one-shared-attribution-bucket",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Why can referral fee flows not use one shared attribution bucket?",
+      "normalizedQuestion": "why can referral fee flows not use one shared attribution bucket",
+      "shortAnswer": "The referral architecture page separates user-level rewards, market-level referral share, partner overlays, platform revenue, and LP-side economics to avoid double claims.",
       "answerSummary": "Referral Market Precedence And Payout Buckets The LP and category layer has three integration requirements: deterministic category tagging, precedence rules between global referral and market referral, and explicit payout accounting per market and partner bucket. Precedence rules answer what happens when several attribution paths could apply. A trader may...",
       "confidence": "Medium",
       "pageId": "authored-referral-market-precedence-payout-buckets",
@@ -50774,6 +51062,35 @@
       "question": "Why is linear USDC PnL different from inverse payout?",
       "normalizedQuestion": "why is linear usdc pnl different from inverse payout",
       "shortAnswer": "Neelo contrasts linear USDC PnL with inverse negative convexity, where token obligations can expand nonlinearly under stress.",
+      "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
+      "confidence": "Medium",
+      "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
+      "pageTitle": "Linear PnL Versus Hyperbolic Payout",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-payout-shape-matter-more-than-volatility-alone",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why does payout shape matter more than volatility alone?",
+      "normalizedQuestion": "why does payout shape matter more than volatility alone",
+      "shortAnswer": "The linear-PnL page says USDC obligations are easier to size than inverse token obligations whose unit count can expand nonlinearly under stress.",
       "answerSummary": "Linear PnL Versus Hyperbolic Payout Neelo's Section 8 says USDC margining fixes negative convexity because PnL becomes linear: a one dollar price move maps to a one dollar PnL effect, rather than an inverse payout curve that expands nonlinearly. That distinction matters most under stress. In an inverse token margined system, the number of tokens owed can...",
       "confidence": "Medium",
       "pageId": "authored-linear-pnl-versus-hyperbolic-payout",
@@ -53556,6 +53873,59 @@
       "question": "How will Discord and Lafa answers enter Search Book?",
       "normalizedQuestion": "how will discord and lafa answers enter search book",
       "shortAnswer": "The import contract and scraper path are implemented, the real export is imported in internal-only mode, and generated clusters/Lafa candidates can now seed review work without publishing raw Discord message text.",
+      "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, and the v1 source ingestion step is now complete. Operator reconciliation marks Discord export/access as provided, the readable export was imported, and data/discord corpus.json records 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer can...",
+      "confidence": "Medium",
+      "pageId": "authored-discord-lafa-ingestion-boundary",
+      "pageTitle": "Discord Lafa Ingestion Boundary",
+      "pageSection": "answer-engine",
+      "pageTrack": "Living Docs",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "discord-ingestion-contract",
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "discord-ingestion-contract",
+          "group": "Local Product And Code",
+          "use": "Generated Discord/Lafa scraper and imported internal-only corpus: 5,000 messages, 723 question clusters, 837 configured Lafa answer candidates, no raw message text stored.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-search-book-quote-discord-or-lafa-answers-directly",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Discord Import",
+      "question": "Can Search Book quote Discord or Lafa answers directly?",
+      "normalizedQuestion": "can search book quote discord or lafa answers directly",
+      "shortAnswer": "The ingestion-boundary page says raw Discord text and exact Lafa claims stay non-public until an editor approves a paraphrase and maps it to sourced Search Book prose.",
       "answerSummary": "Discord Lafa Ingestion Boundary Discord is a required demand signal for the Search Book, and the v1 source ingestion step is now complete. Operator reconciliation marks Discord export/access as provided, the readable export was imported, and data/discord corpus.json records 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer can...",
       "confidence": "Medium",
       "pageId": "authored-discord-lafa-ingestion-boundary",
