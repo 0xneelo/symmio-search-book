@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Operator Inbox Consistency Gate
+
+- Added `scripts/check-operator-inbox-consistency.mjs` and `npm run search-book:check-operator-inbox` to compare the canonical `_specs/app-docs/OPERATOR-INBOX.md` against `data/requirement-map.json`.
+- The checker proves the 2026-07-01 reconciliation banner is present, only #4/#11 are open, #2/#5/#6/#7/#12 plus #17 are resolved and not reopened, #11 is scoped to production VPS env while local `.secrets/search-book.env` is complete, #4 keeps backend decided as standalone service + SQLite, and requirement-map open items match the inbox.
+- Wired the check into `npm run search-book:verify` after status evidence so deterministic rebuilds fail if blocker tracking drifts back to resolved items.
+- Full `npm run search-book:verify` passed with 25 build steps, 78 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Release Status-Evidence Packet Hardening
 
 - Added status-document evidence to `npm run search-book:launch-evidence`; each launch packet now records the `scripts/check-status-evidence.mjs` command, parsed status, checked documents, and reconciled open operator items alongside launch readiness, monitoring, and source freshness.

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex operator inbox consistency gate
+- Task: Add an executable guard that keeps `_specs/app-docs/OPERATOR-INBOX.md` reconciled with generated requirement-map open operator items.
+- Scope: `scripts/check-operator-inbox-consistency.mjs`, `package.json`, `scripts/build-all.mjs`, README/status docs if counts change, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Canonical inbox has only #4/#11 open, resolved source/import/checkpoint items are not reopened, requirement-map open items match inbox, full deterministic verify remains green.
+- Result: Added `npm run search-book:check-operator-inbox`, wired it into `npm run search-book:verify`, and documented the new gate. Focused check passed with open operator items #4/#11, requirement-map open items #4/#11, resolved reconciliation IDs #2/#5/#6/#7/#12 plus #17 not reopened, #11 scoped to production VPS env only, #4 retaining standalone service + SQLite backend decision, and requirement blockers limited to current open IDs. Full `npm run search-book:verify` passed with 25 build steps, 78 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`; `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, and `git diff --check` passed.
+
 ## 2026-07-01 — Codex release status-evidence packet hardening
 - Task: Make no-secret launch/release evidence packets expose the status-document evidence gate after adding `check-status-evidence`.
 - Scope: release/launch evidence scripts and validators, status docs if evidence paths change, and `_local/agent-worklog.md`.
