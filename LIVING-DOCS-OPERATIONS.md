@@ -12,6 +12,19 @@ The living-docs loop exists to turn real questions into better docs without weak
 - Operator-blocked topics stay blocked. Do not turn unreviewed Discord/Lafa messages, production VPS credential setup, or deploy-route gaps into public claims until the matching review or `OPERATOR-INBOX.md` item is resolved. Notion, oldest-whitepaper v1 scope, and SSHE v1 boundary are resolved; keep their documented public-use boundaries instead of re-opening blockers.
 - Guardrail refusals are product behavior, not content bugs: secret requests, prompt injection, source-family-missing questions, internal-draft requests, financial advice, and Phase B economics should continue refusing unless the approved source boundary changes.
 
+## Discord/Lafa Editorial Review Packets
+
+The checked-in Discord corpus is intentionally text-redacted in `internal-only` mode. To review the real Discord/Lafa excerpts, generate a local packet outside the repo:
+
+```sh
+npm run search-book:discord-review -- \
+  --input /path/to/discord-export.json \
+  --lafa-author-id <operator-resolved-lafa-author-id> \
+  --out-dir /tmp/search-book-discord-review-<date>
+```
+
+The command writes `discord-review-queue.json` and `discord-review-queue.md` under the requested `/tmp` directory, prints only paths/counts, and refuses to write raw Discord review excerpts inside the repository. Treat those packet files as internal reviewer material: map repeated questions to existing or new page ids, decide whether Lafa candidates are source-backed enough to paraphrase, and then promote only reviewed paraphrases into authored pages.
+
 ## Prerequisites
 
 Production service setup:

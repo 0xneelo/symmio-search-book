@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Local Discord Editorial Review Packet
+
+- Added `scripts/build-discord-review-queue.mjs` and `npm run search-book:discord-review` for internal Discord/Lafa editorial review.
+- The command builds a temporary paraphrase-mode source corpus from a local Discord export, writes `discord-review-queue.json` and `discord-review-queue.md` outside the repo, and prints only paths/counts with `valuesPrinted:false`.
+- It fails closed if `--out-dir` points inside the repository, so raw Discord excerpts stay out of committed Search Book data.
+- Verified the repo-root refusal path and a real local packet at `/tmp/search-book-discord-review-20260701-1`: 12 repeated-question review items, 12 Lafa answer candidates, 12 paired Lafa items, source totals 5,000 messages, 723 clusters, and 837 Lafa candidates.
+
 ## 2026-07-01 — Real Discord Corpus Import
 
 - Re-probed the provided Windows Discord export and confirmed it is now readable from WSL.

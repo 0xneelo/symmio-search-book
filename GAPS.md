@@ -6,7 +6,7 @@ The prompt asks to mine Discord, especially Lafa answers and repeated support qu
 
 The repository has `scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which now carry the real imported corpus from the provided Windows export. OPERATOR-INBOX #17 is resolved: the file became readable from WSL and the importer ran in `internal-only` mode with the single unambiguous `lafachief` author id resolved from the export. The committed corpus reports 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`. In checked-in `internal-only` data, raw and normalized Discord text fields are empty; clusters keep hashes and metadata for review routing.
 
-**Needed:** Review the generated question clusters and Lafa candidates before turning any specific Discord statement into public copy or an exact answer. Do not quote raw Discord text from the internal-only corpus.
+**Needed:** Review the generated question clusters and Lafa candidates before turning any specific Discord statement into public copy or an exact answer. Use `npm run search-book:discord-review -- --input <export> --out-dir /tmp/<review-dir>` to create an internal reviewer packet outside the repo. Do not quote raw Discord text from the internal-only corpus or from the local review packet.
 
 ## G-002: Competitive Sweep Opyn Target Is Excluded
 

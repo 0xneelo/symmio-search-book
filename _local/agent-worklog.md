@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex local Discord editorial review packet
+- Task: Add a local-only Discord/Lafa review packet command that reads the provided export, writes raw review excerpts outside the repo, and keeps committed corpus data text-redacted.
+- Scope: `scripts/build-discord-review-queue.mjs`, `package.json`, living-docs/status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Command refuses repo-root output by default, writes JSON/Markdown packets under `/tmp`, prints only summary paths/counts, keeps raw review excerpts out of committed `data/discord-corpus.*`, and full `npm run search-book:verify` remains green.
+- Result: Added `npm run search-book:discord-review`. The command shells through the existing Discord importer in paraphrase mode into a temporary `/tmp` source corpus, writes reviewer JSON/Markdown outside the repo, refuses repo-root output, and prints only summary paths/counts. Verified repo-root refusal against `./discord-review-should-fail` and generated `/tmp/search-book-discord-review-20260701-1` with 12 repeated-question items, 12 Lafa answer candidates, 12 paired Lafa items, and source totals of 5,000 messages, 723 clusters, and 837 candidates. Full `npm run search-book:verify` passed with 24 build steps, 69 syntax checks, 17/17 source ingestion, 2,883 chunks, 801 authored pages, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord internal-only text redaction
 - Task: Tighten the Discord corpus importer so committed `internal-only` data contains no raw or normalized Discord message text, then regenerate and verify the Search Book readiness data.
 - Scope: `scripts/build-discord-corpus.mjs`, regenerated `data/discord-corpus.*` and dependent readiness artifacts, privacy/status docs if needed, and `_local/agent-worklog.md`.

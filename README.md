@@ -74,6 +74,9 @@ npm run search-book:check-monitoring
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
+# Local-only Discord/Lafa editorial packet; writes raw excerpts outside the repo
+npm run search-book:discord-review -- --input /path/to/discord-export.json --lafa-author-id <id> --out-dir /tmp/search-book-discord-review
+
 # SQLite backup with restore-check manifest
 npm run search-book:backup-db
 
@@ -138,6 +141,10 @@ To smoke-test a copied bundle directly, run
 `npm run search-book:smoke-static -- --root /tmp/search-book-static-site`.
 To verify the copied bundle can also bridge to the standalone answer-engine service, run
 `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site`.
+To review imported Discord/Lafa material, run `npm run search-book:discord-review` with a
+local export and a `/tmp` output directory. It writes raw review excerpts outside the repo,
+prints only summary paths/counts, and refuses repository output by default; the checked-in
+Discord corpus stays text-redacted.
 
 ## Environment
 
@@ -164,5 +171,5 @@ operator packet for the remaining VPS env and public deploy-route gates is
 
 This is the corpus + runtime harness, not yet a deployed production docs site. Production
 service env, the selected public frontend route, production moderation/backup access, an
-assigned reviewer owner/cadence, and the Discord corpus import remain production follow-ups
+assigned reviewer owner/cadence, and Discord/Lafa editorial review remain production follow-ups
 (tracked under Linear SYN-209 and its children).
