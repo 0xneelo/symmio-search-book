@@ -31,9 +31,10 @@ Options:
 
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
-readiness, original-spec reconciliation, Discord route coverage, publication
-boundaries, backup/restore evidence, living-docs reviewer evidence,
-living-docs controls, clean repository state, and reconciled open operator gates.`;
+readiness, original-spec reconciliation, production-readiness packet evidence,
+Discord route coverage, publication boundaries, backup/restore evidence,
+living-docs reviewer evidence, living-docs controls, clean repository state,
+and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -340,6 +341,31 @@ function livingDocsReviewEvidenceReady(evidence = {}) {
   );
 }
 
+function freshVerifyEvidence(launch = {}) {
+  const checks = Array.isArray(launch.checks) ? launch.checks : [];
+  return checks.find((check) => check.id === "fresh-verify")?.evidence || null;
+}
+
+function productionReadinessPacketVerifyReady(launch = {}) {
+  const evidence = freshVerifyEvidence(launch);
+  return (
+    evidence?.status === "passed"
+    && evidence?.mode === "build-and-verify"
+    && Number(evidence?.syntaxChecks || 0) >= 91
+    && evidence?.productionReadinessPacket?.passed === true
+  );
+}
+
+function productionReadinessPacketVerifySummary(launch = {}) {
+  const evidence = freshVerifyEvidence(launch);
+  return {
+    status: evidence?.status || null,
+    mode: evidence?.mode || null,
+    syntaxChecks: evidence?.syntaxChecks ?? null,
+    productionReadinessPacket: evidence?.productionReadinessPacket || null,
+  };
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
@@ -364,6 +390,7 @@ function validateLaunchPacket(packet, packetPath) {
   const sourceBodyMarkers = sourceFreshnessBodyMarkers(sourceFreshness);
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(statusEvidence);
+  const productionPacketVerify = productionReadinessPacketVerifySummary(launch);
 
   addCheck(checks, "packet-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(
@@ -375,6 +402,12 @@ function validateLaunchPacket(packet, packetPath) {
   addCheck(checks, "packet-secret-values", packet.secrets?.valuesPrinted === false, `valuesPrinted=${packet.secrets?.valuesPrinted}`);
   addCheck(checks, "launch-evidence-passed", packet.launchEvidence?.passed === true, `passed=${packet.launchEvidence?.passed}`);
   addCheck(checks, "launch-status", launch.status === "passed", `status=${launch.status || "missing"}`);
+  addCheck(
+    checks,
+    "production-readiness-packet-verify",
+    productionReadinessPacketVerifyReady(launch),
+    JSON.stringify(productionPacketVerify),
+  );
   addCheck(checks, "monitoring-evidence-passed", packet.monitoringEvidence?.passed === true, `passed=${packet.monitoringEvidence?.passed}`);
   addCheck(checks, "monitoring-status", monitoring.status === "passed", `status=${monitoring.status || "missing"}`);
   addCheck(
@@ -617,6 +650,7 @@ function validateLaunchPacket(packet, packetPath) {
         dirtyStatusCount: Array.isArray(repository.dirtyStatus) ? repository.dirtyStatus.length : null,
       },
       launchStatus: launch.status || null,
+      productionReadinessPacket: productionPacketVerify,
       monitoringStatus: monitoring.status || null,
       sourceFreshnessStatus: sourceFreshness.status || null,
       sourceFreshnessChecks: sourceTotals.checks ? `${sourceTotals.passed}/${sourceTotals.checks}` : null,

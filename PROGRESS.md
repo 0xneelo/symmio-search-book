@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Packet Validator Hardening
+
+- Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` so launch/release packet validation fails unless the nested fresh verify evidence explicitly carries `productionReadinessPacket:passed`.
+- Revalidated the clean packet at `/tmp/search-book-release-dry-run-production-packet-20260701-2`; both validators pass and now surface the production-readiness packet verify summary as first-class evidence.
+- Negative validation against `/tmp/search-book-negative-production-packet-20260701-1` rejects a packet with the nested production-readiness packet field removed: launch fails `production-readiness-packet-verify`, and release fails `nested-production-readiness-packet-verify`.
+
 ## 2026-07-01 — Production Packet Release Rehearsal
 
 - Refreshed the no-secret release rehearsal after adding the production-readiness packet guard.

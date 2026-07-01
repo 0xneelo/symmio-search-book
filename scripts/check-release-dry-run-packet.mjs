@@ -32,9 +32,9 @@ Options:
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
 monitoring, Vibe source freshness, status-document evidence, original-spec
-reconciliation, no sensitive matches, publication boundaries, backup/restore
-evidence, living-docs reviewer evidence, clean repository state, and reconciled
-open operator gates.`;
+reconciliation, production-readiness packet evidence, no sensitive matches,
+publication boundaries, backup/restore evidence, living-docs reviewer evidence,
+clean repository state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -344,6 +344,31 @@ function livingDocsReviewEvidenceReady(evidence = {}) {
   );
 }
 
+function freshVerifyEvidence(launch = {}) {
+  const checks = Array.isArray(launch.checks) ? launch.checks : [];
+  return checks.find((check) => check.id === "fresh-verify")?.evidence || null;
+}
+
+function productionReadinessPacketVerifyReady(launch = {}) {
+  const evidence = freshVerifyEvidence(launch);
+  return (
+    evidence?.status === "passed"
+    && evidence?.mode === "build-and-verify"
+    && Number(evidence?.syntaxChecks || 0) >= 91
+    && evidence?.productionReadinessPacket?.passed === true
+  );
+}
+
+function productionReadinessPacketVerifySummary(launch = {}) {
+  const evidence = freshVerifyEvidence(launch);
+  return {
+    status: evidence?.status || null,
+    mode: evidence?.mode || null,
+    syntaxChecks: evidence?.syntaxChecks ?? null,
+    productionReadinessPacket: evidence?.productionReadinessPacket || null,
+  };
+}
+
 function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
@@ -372,6 +397,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const readiness = packet.readiness || {};
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(nestedStatusEvidence);
+  const nestedProductionPacketVerify = productionReadinessPacketVerifySummary(nestedLaunch);
 
   addCheck(checks, "release-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(
@@ -467,6 +493,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   );
   addCheck(checks, "nested-launch-status", nestedLaunchPacket.status === "passed", `status=${nestedLaunchPacket.status || "missing"}`);
   addCheck(checks, "nested-launch-readiness-status", nestedLaunch.status === "passed", `status=${nestedLaunch.status || "missing"}`);
+  addCheck(
+    checks,
+    "nested-production-readiness-packet-verify",
+    productionReadinessPacketVerifyReady(nestedLaunch),
+    JSON.stringify(nestedProductionPacketVerify),
+  );
   addCheck(
     checks,
     "nested-source-freshness-status",
@@ -727,6 +759,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       staticArtifactStatus: staticArtifact.status || null,
       staticArtifactIntegrity: staticArtifact.integrity || null,
       launchStatus: launchSummary.launchStatus || null,
+      productionReadinessPacket: nestedProductionPacketVerify,
       monitoringStatus: launchSummary.monitoringStatus || null,
       sourceFreshnessStatus: launchSummary.sourceFreshnessStatus || null,
       sourceFreshnessChecks: nestedSourceTotals.checks ? `${nestedSourceTotals.passed}/${nestedSourceTotals.checks}` : null,
