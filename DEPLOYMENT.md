@@ -152,8 +152,10 @@ The command writes a clean `/tmp/search-book-static-site` bundle containing `ind
 generated data assets, and content markdown, then validates the copied bundle with static
 integrity checks and writes `static-artifact-manifest.json`. The manual GitHub workflow
 `Search Book Static Artifact` builds the same bundle, smoke-tests it with
-`npm run search-book:smoke-static -- --root /tmp/search-book-static-site`, and uploads it
-as a short-lived artifact.
+`npm run search-book:smoke-static -- --root /tmp/search-book-static-site`, verifies the
+copied bundle can connect to a temporary answer-engine service with
+`npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site`,
+and uploads it as a short-lived artifact.
 
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
@@ -213,6 +215,7 @@ These run isolated localhost servers with temp databases and never call the LLM 
 npm run search-book:smoke-static
 npm run search-book:smoke-service
 npm run search-book:smoke-preview-service
+npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site
 ```
 
 Confirm an extractive (no-key) answer end to end:

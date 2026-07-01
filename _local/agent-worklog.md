@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static artifact preview-service smoke
+- Task: Verify copied static artifacts can use the standalone answer-engine service bridge before artifact handoff.
+- Scope: `scripts/smoke-preview-service.mjs`, `scripts/build-static-artifact.mjs`, `.github/workflows/search-book-static-artifact.yml`, README/deployment/final-report/progress docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Default preview-service smoke still passes, artifact-root preview-service smoke passes against a freshly built static artifact, the static artifact workflow YAML parses, full `npm run search-book:verify` remains green, and readiness boundaries stay at #17/#11/#4.
+- Result: Built `/tmp/search-book-static-site-preview-service-20260701-3` successfully with 1,648 files, 48,327,442 bytes, copied-bundle integrity `passed`, and 0 sensitive-pattern matches. Default preview-service smoke passed at `127.0.0.1:45896` plus service `127.0.0.1:44768`; artifact-root preview-service smoke passed at `127.0.0.1:45736` plus service `127.0.0.1:45608`; copied static smoke passed at `127.0.0.1:45122`. Both bridge smokes answered, recorded one rating, returned Search Insights `ok`, and cited `authored-vibe-product-overview` with 2 citations. Workflow YAML parsed, targeted syntax checks passed, `git diff --check` passed, and full `npm run search-book:verify` passed with 24 build steps, 67 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates `27/30`.
+
 ## 2026-07-01 — Codex static artifact smoke root
 - Task: Smoke-test copied static artifacts as served sites before platform handoff.
 - Scope: `scripts/smoke-static-preview.mjs`, `.github/workflows/search-book-static-artifact.yml`, README/deployment/progress docs, and `_local/agent-worklog.md`.

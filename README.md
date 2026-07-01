@@ -60,6 +60,7 @@ npm run search-book:serve-service
 npm run search-book:smoke-static
 npm run search-book:smoke-service
 npm run search-book:smoke-preview-service
+npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site
 
 # URL-driven staging/production smoke; read-only unless -- --write is passed
 npm run search-book:smoke-deployment -- --site-url https://docs.example.com
@@ -130,6 +131,8 @@ To build a platform-neutral static preview bundle, run
 review or platform handoff without choosing the final deploy route.
 To smoke-test a copied bundle directly, run
 `npm run search-book:smoke-static -- --root /tmp/search-book-static-site`.
+To verify the copied bundle can also bridge to the standalone answer-engine service, run
+`npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site`.
 
 ## Environment
 

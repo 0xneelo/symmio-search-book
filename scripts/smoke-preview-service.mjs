@@ -8,6 +8,7 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const searchBookRoot = path.resolve(__dirname, "..");
 const staticScript = path.join(__dirname, "serve-static-preview.mjs");
 const serviceScript = path.join(__dirname, "serve-answer-engine.mjs");
 const host = "127.0.0.1";
@@ -24,6 +25,37 @@ function sleep(ms) {
 function tail(text, maxLength = 4000) {
   const value = String(text || "");
   return value.length > maxLength ? value.slice(value.length - maxLength) : value;
+}
+
+function parseArgs(argv) {
+  const args = {
+    staticRoot: searchBookRoot,
+  };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--static-root" || arg === "--root") {
+      args.staticRoot = path.resolve(argv[++index] || "");
+    } else if (arg === "--help") {
+      console.log(`Usage:
+  node scripts/smoke-preview-service.mjs [--static-root /tmp/search-book-static-site]
+
+Options:
+  --static-root <path>  Serve the static preview from a copied artifact root.
+  --root <path>         Alias for --static-root.
+`);
+      process.exit(0);
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+
+  if (!args.staticRoot) throw new Error("--static-root is required when provided.");
+  const indexPath = path.join(args.staticRoot, "index.html");
+  if (!fs.existsSync(indexPath)) {
+    throw new Error(`Search Book index.html not found at ${indexPath}`);
+  }
+  return args;
 }
 
 function getFreePort() {
@@ -148,6 +180,7 @@ function startProcess(script, args, env) {
 }
 
 async function main() {
+  const args = parseArgs(process.argv.slice(2));
   const [staticPort, servicePort] = await Promise.all([getFreePort(), getFreePort()]);
   assert(staticPort && servicePort && staticPort !== servicePort, "could not allocate distinct local smoke ports.");
   const staticBaseUrl = `http://${host}:${staticPort}`;
@@ -163,7 +196,7 @@ async function main() {
     SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS: "180",
     SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT: "false",
   });
-  const preview = startProcess(staticScript, ["--host", host, "--port", String(staticPort)], {});
+  const preview = startProcess(staticScript, ["--host", host, "--port", String(staticPort), "--root", args.staticRoot], {});
 
   try {
     const health = await waitForService(serviceBaseUrl, service.child, service.logs);
@@ -241,6 +274,7 @@ async function main() {
       service: "search-book-preview-service",
       previewBaseUrl: staticBaseUrl,
       answerEngineBaseUrl: serviceBaseUrl,
+      staticRoot: args.staticRoot,
       checks: {
         staticHome: "ok",
         configuredHome: "ok",

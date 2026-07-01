@@ -145,8 +145,9 @@ function runIntegrity(outDir) {
   });
   const parsed = parseJson(result.stdout) || parseJson(result.stderr);
   return {
-    status: result.status === 0 && parsed?.status === "passed" ? "passed" : "failed",
+    status: !result.error && result.status === 0 && parsed?.status === "passed" ? "passed" : "failed",
     exitCode: result.status,
+    spawnError: result.error?.message || null,
     parsed,
     stderrTail: parsed ? "" : tail(result.stderr),
     stdoutTail: parsed ? "" : tail(result.stdout),

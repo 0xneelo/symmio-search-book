@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Preview-Service Smoke
+
+- Updated `scripts/smoke-preview-service.mjs` so `npm run search-book:smoke-preview-service -- --static-root <artifact-dir>` can run the service-backed Ask/rating/Search Insights smoke against a copied static artifact.
+- Updated the `Search Book Static Artifact` workflow to run the new artifact-root preview-service smoke after the static-only artifact smoke and before uploading the bundle.
+- Documented the artifact-root preview-service smoke command in README, deployment guidance, and the final report.
+- Verified `/tmp/search-book-static-site-preview-service-20260701-3`: artifact build passed with 1,648 files, 48,327,442 bytes, copied-bundle integrity `passed`, and 0 sensitive-pattern matches; static artifact smoke passed at `127.0.0.1:45122`; default preview-service smoke passed at `127.0.0.1:45896` plus service `127.0.0.1:44768`; artifact-root preview-service smoke passed at `127.0.0.1:45736` plus service `127.0.0.1:45608`. Both bridge smokes answered, recorded one rating, returned Search Insights `ok`, and cited `authored-vibe-product-overview` with 2 citations.
+- Full `npm run search-book:verify` passed afterward with 24 build steps, 67 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates `27/30`.
+
 ## 2026-07-01 — Static Artifact Smoke Root
 
 - Updated `scripts/smoke-static-preview.mjs` so `npm run search-book:smoke-static -- --root <artifact-dir>` can serve and test a copied static artifact instead of only the repository root.

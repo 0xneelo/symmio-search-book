@@ -64,6 +64,10 @@ jobs:
         run: |
           npm run search-book:smoke-static -- --root "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
 
+      - name: Smoke static artifact with answer engine
+        run: |
+          npm run search-book:smoke-preview-service -- --static-root "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
+
       - name: Check artifact manifest
         run: |
           test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/index.html"
