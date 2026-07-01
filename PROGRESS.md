@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Discord Refusal Policy Readiness
+
+- Made the remaining no-raw Discord/Lafa refusal lane explicit: 2/2 refusal-review items are `policy-refusal-ready`, with 0/2 refusal-policy review-required items.
+- Regenerated `data/discord-review-routing.*` and `DISCORD-EDITORIAL-QUEUE.md` so refusal rows carry `policy-refusal-ready` status and `keep-refusal-policy` actions without adding raw Discord or Lafa text.
+- Hardened `npm run search-book:check-discord-review-artifacts`, launch/release packet validators, status evidence, and evidence-summary rendering so refusal-policy readiness cannot silently drift.
+
 ## 2026-07-01 — Discord Public-Copy Readiness
 
 - Promoted sanitized Discord page-fit evidence from triage-only to public-copy readiness for existing source-backed pages.

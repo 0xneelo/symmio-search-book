@@ -162,6 +162,9 @@ function discordReviewArtifactsReady(evidence = {}) {
   const sourceBacked = Number(routeCoverage.sourceBackedPageFitGroups || 0);
   const publicCopyReady = Number(routeCoverage.publicCopyReadyPageFitGroups || 0);
   const publicCopyReviewRequired = Number(routeCoverage.publicCopyReviewRequired || 0);
+  const refusalReviewReady = Number(editorialQueue.refusalReviewReady || 0);
+  const refusalPolicyReady = Number(editorialQueue.refusalPolicyReadyItems || 0);
+  const refusalPolicyReviewRequired = Number(editorialQueue.refusalPolicyReviewRequired || 0);
   return (
     evidence.status === "passed"
     && summary.routingReady === true
@@ -183,7 +186,9 @@ function discordReviewArtifactsReady(evidence = {}) {
     && Number(routeCoverage.pageFitSingleRouteRemaining || 0) === 0
     && Number(routeCoverage.pageFitWithoutPublicRoute || 0) === 0
     && Number(editorialQueue.pageFitReviewReady || 0) > 0
-    && Number(editorialQueue.refusalReviewReady || 0) > 0
+    && refusalReviewReady > 0
+    && refusalPolicyReady === refusalReviewReady
+    && refusalPolicyReviewRequired === 0
     && Number(editorialQueue.rawTableHits || 0) === 0
     && Number(editorialQueue.sampleLeaks || 0) === 0
   );

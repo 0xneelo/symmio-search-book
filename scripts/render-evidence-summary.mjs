@@ -98,6 +98,7 @@ function launchSummary(packet) {
     ["Discord route coverage", `\`${routeCoverage.coveredPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord source-backed triage", `\`${routeCoverage.triageReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
+    ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",
@@ -164,6 +165,7 @@ function releaseSummary(packet) {
     ["Discord route coverage", `\`${routeCoverage.coveredPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord source-backed triage", `\`${routeCoverage.triageReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
+    ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",

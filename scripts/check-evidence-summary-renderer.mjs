@@ -90,6 +90,8 @@ function makeLaunchPacket() {
         editorialQueue: {
           pageFitReviewReady: 19,
           refusalReviewReady: 2,
+          refusalPolicyReadyItems: 2,
+          refusalPolicyReviewRequired: 0,
           rawTableHits: 0,
           sampleLeaks: 0,
           answerExcerpt: "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
@@ -183,6 +185,8 @@ function makeReleasePacket() {
         editorialQueue: {
           pageFitReviewReady: 19,
           refusalReviewReady: 2,
+          refusalPolicyReadyItems: 2,
+          refusalPolicyReviewRequired: 0,
           rawTableHits: 0,
           sampleLeaks: 0,
           relatedQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
@@ -253,6 +257,7 @@ function main() {
       && /Discord route coverage \| `19\/19 page-fit groups`/.test(combined)
       && /Discord source-backed triage \| `19\/19 page-fit groups`/.test(combined)
       && /Discord public copy ready \| `19\/19 page-fit groups`/.test(combined)
+      && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
     "",

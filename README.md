@@ -143,7 +143,7 @@ To create attachable operator evidence, run `npm run search-book:launch-evidence
 drill, monitoring probe, and Vibe public-docs source-freshness check when no deployment URLs
 are supplied. The packet includes the current sanitized Discord route-coverage snapshot for
 Search Insights, Discord review-artifact evidence for the no-raw editorial queue including
-source-backed existing-page triage and public-copy readiness state,
+source-backed existing-page triage, public-copy readiness state, and refusal-policy readiness state,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
 evidence as public/source/internal counts only, and status-document evidence proving
 current report counts match generated data.
@@ -163,7 +163,8 @@ renderer no-raw/no-secret evidence, plus publication-boundary evidence proving s
 companions stay out of public navigation/routes and internal drafts stay out of runtime
 context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same
-Discord route-coverage counts, source-backed triage counts, public-copy readiness counts, and
+Discord route-coverage counts, source-backed triage counts, public-copy readiness counts,
+refusal-policy readiness counts, and
 living-docs control flags, including service-backed page feedback.
 Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`;
 the validator requires clean release and nested launch repository state from the same commit.
@@ -190,7 +191,8 @@ page ids, and source keys only. Run `npm run search-book:discord-routing-summary
 routing report to publish the no-raw summary into static Search Insights as hashes, page ids,
 source keys, statuses, and counts only. Run `npm run search-book:discord-editorial-queue`
 to refresh `DISCORD-EDITORIAL-QUEUE.md`, a committed no-raw reviewer queue derived from
-the same sanitized summary, including automated triage status and public-copy readiness status.
+the same sanitized summary, including automated triage status, public-copy readiness status, and
+refusal-policy readiness status.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
 paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
@@ -222,5 +224,5 @@ operator packet for the remaining VPS env and public deploy-route gates is
 
 This is the corpus + runtime harness, not yet a deployed production docs site. Production
 service env, the selected public frontend route, production moderation/backup access, an
-assigned reviewer owner/cadence, and Discord/Lafa editorial review remain production follow-ups
+assigned reviewer owner/cadence, and exact Discord/Lafa claim review remain production follow-ups
 (tracked under Linear SYN-209 and its children).

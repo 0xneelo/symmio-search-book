@@ -11,6 +11,8 @@ Generated: `deterministic-build`
 - Page-fit groups ready: 19
 - Page-fit routed items: 22
 - Refusal-review items: 2
+- Refusal policy ready: 2/2
+- Refusal policy review required: 0/2
 - Route coverage: 19/19 page-fit groups covered by public route aliases
 - Source-backed existing page fits: 19/19
 - Public copy sufficient: 19/19
@@ -54,8 +56,8 @@ Generated: `deterministic-build`
 
 ## Refusal Review
 
-| Item ID | Type | Status | Refusal Reason | Action | Next Step |
-| --- | --- | --- | --- | --- | --- |
-| `discord-lafa-answer-d420c9ff69628c01` | lafa-answer-candidate | `refusal` | `no-public-answer-page` | `review-refusal-policy` | Keep refusal behavior unless primary-source review approves a grounded public answer. |
-| `discord-question-82334b3271026a18` | repeated-question | `refusal` | `discord-corpus-review-required` | `keep-discord-claim-refusal` | Keep refusal behavior unless primary-source review approves a grounded public answer. |
+| Item ID | Type | Status | Refusal Reason | Policy Status | Action | Next Step |
+| --- | --- | --- | --- | --- | --- | --- |
+| `discord-lafa-answer-d420c9ff69628c01` | lafa-answer-candidate | `refusal` | `no-public-answer-page` | `policy-refusal-ready` | `keep-refusal-policy` | Keep refusal behavior; answer only if future primary-source review creates a grounded public page. |
+| `discord-question-82334b3271026a18` | repeated-question | `refusal` | `discord-corpus-review-required` | `policy-refusal-ready` | `keep-refusal-policy` | Keep refusal behavior; answer only if future primary-source review creates a grounded public page. |
 

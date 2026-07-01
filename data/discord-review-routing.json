@@ -123,6 +123,9 @@
     "pageFitItemCount": 22,
     "refusalReviewReady": 2,
     "refusalItemCount": 2,
+    "refusalPolicyReadyItems": 2,
+    "refusalPolicyReviewRequired": 0,
+    "refusalPolicyReady": true,
     "publicUseBoundary": "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
     "routeCoverage": {
       "totalPageFitGroups": 19,
@@ -694,18 +697,20 @@
       {
         "itemId": "discord-lafa-answer-d420c9ff69628c01",
         "reviewType": "lafa-answer-candidate",
-        "reviewAction": "review-refusal-policy",
+        "reviewAction": "keep-refusal-policy",
         "routeStatus": "refusal",
         "refusalReason": "no-public-answer-page",
-        "nextStep": "Keep refusal behavior unless primary-source review approves a grounded public answer."
+        "refusalPolicyStatus": "policy-refusal-ready",
+        "nextStep": "Keep refusal behavior; answer only if future primary-source review creates a grounded public page."
       },
       {
         "itemId": "discord-question-82334b3271026a18",
         "reviewType": "repeated-question",
-        "reviewAction": "keep-discord-claim-refusal",
+        "reviewAction": "keep-refusal-policy",
         "routeStatus": "refusal",
         "refusalReason": "discord-corpus-review-required",
-        "nextStep": "Keep refusal behavior unless primary-source review approves a grounded public answer."
+        "refusalPolicyStatus": "policy-refusal-ready",
+        "nextStep": "Keep refusal behavior; answer only if future primary-source review creates a grounded public page."
       }
     ]
   },

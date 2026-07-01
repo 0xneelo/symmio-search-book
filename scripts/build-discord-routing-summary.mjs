@@ -238,6 +238,17 @@ function addPublicRouteCoverage(pageFitReview, args) {
   };
 }
 
+const refusalPolicyReadyReasons = new Set([
+  "discord-corpus-review-required",
+  "no-public-answer-page",
+]);
+
+function refusalPolicyStatus(item) {
+  if (item.route.status !== "refusal") return "needs-refusal-policy-review";
+  if (!refusalPolicyReadyReasons.has(item.route.refusalReason || "")) return "needs-refusal-policy-review";
+  return "policy-refusal-ready";
+}
+
 function buildReviewPlan(items, args) {
   const pageFitById = new Map();
   const refusalReview = [];
@@ -263,13 +274,17 @@ function buildReviewPlan(items, args) {
       continue;
     }
 
+    const policyStatus = refusalPolicyStatus(item);
     refusalReview.push({
       itemId: item.itemId,
       reviewType: item.reviewType,
-      reviewAction: item.reviewAction || "review-refusal-policy",
+      reviewAction: policyStatus === "policy-refusal-ready" ? "keep-refusal-policy" : item.reviewAction || "review-refusal-policy",
       routeStatus: item.route.status || "unknown",
       refusalReason: item.route.refusalReason || "",
-      nextStep: "Keep refusal behavior unless primary-source review approves a grounded public answer.",
+      refusalPolicyStatus: policyStatus,
+      nextStep: policyStatus === "policy-refusal-ready"
+        ? "Keep refusal behavior; answer only if future primary-source review creates a grounded public page."
+        : "Review refusal behavior before exposing any public answer.",
     });
   }
 
@@ -286,6 +301,9 @@ function buildReviewPlan(items, args) {
     pageFitItemCount: routeCoverage.pageFitReview.reduce((total, entry) => total + entry.routedItems, 0),
     refusalReviewReady: refusalReview.length,
     refusalItemCount: refusalReview.length,
+    refusalPolicyReadyItems: refusalReview.filter((entry) => entry.refusalPolicyStatus === "policy-refusal-ready").length,
+    refusalPolicyReviewRequired: refusalReview.filter((entry) => entry.refusalPolicyStatus !== "policy-refusal-ready").length,
+    refusalPolicyReady: refusalReview.length > 0 && refusalReview.every((entry) => entry.refusalPolicyStatus === "policy-refusal-ready"),
     publicUseBoundary: "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
     routeCoverage: routeCoverage.routeCoverage,
     pageFitReview: routeCoverage.pageFitReview,

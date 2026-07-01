@@ -211,6 +211,8 @@ function validateSummary(summary, filePath, checks, samples) {
   const routeCoverage = reviewPlan.routeCoverage || {};
   const pageFitCount = Number(reviewPlan.pageFitItemCount || 0);
   const refusalCount = Number(reviewPlan.refusalItemCount || 0);
+  const refusalPolicyReadyItems = Number(reviewPlan.refusalPolicyReadyItems || 0);
+  const refusalPolicyReviewRequired = Number(reviewPlan.refusalPolicyReviewRequired || 0);
   const totalPageFitGroups = Number(routeCoverage.totalPageFitGroups || 0);
   const coveredPageFitGroups = Number(routeCoverage.pageFitCoveredByPublicRoutes || 0);
   const sourceBackedPageFitGroups = Number(routeCoverage.sourceBackedPageFitGroups || 0);
@@ -226,8 +228,13 @@ function validateSummary(summary, filePath, checks, samples) {
   addCheck(
     checks,
     "summary-counts",
-    Number(summary.summary?.routedItems || 0) === items.length && items.length > 0 && pageFitCount + refusalCount === items.length,
-    `routedItems=${summary.summary?.routedItems ?? 0}; items=${items.length}; reviewPlanItems=${pageFitCount + refusalCount}`,
+    Number(summary.summary?.routedItems || 0) === items.length &&
+      items.length > 0 &&
+      pageFitCount + refusalCount === items.length &&
+      reviewPlan.refusalPolicyReady === true &&
+      refusalPolicyReadyItems === refusalCount &&
+      refusalPolicyReviewRequired === 0,
+    `routedItems=${summary.summary?.routedItems ?? 0}; items=${items.length}; reviewPlanItems=${pageFitCount + refusalCount}; refusalPolicyReady=${refusalPolicyReadyItems}/${refusalCount}; refusalPolicyReviewRequired=${refusalPolicyReviewRequired}`,
   );
   addCheck(
     checks,
@@ -288,6 +295,11 @@ function validateSummary(summary, filePath, checks, samples) {
       triageReady: routeCoverage.triageReady === true,
       publicCopyReady: routeCoverage.publicCopyReady === true,
     },
+    refusalPolicy: {
+      refusalPolicyReadyItems,
+      refusalPolicyReviewRequired,
+      refusalPolicyReady: reviewPlan.refusalPolicyReady === true,
+    },
   };
 }
 
@@ -303,6 +315,8 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     `- Page-fit groups ready: ${reviewPlan.pageFitReviewReady || 0}`,
     `- Page-fit routed items: ${reviewPlan.pageFitItemCount || 0}`,
     `- Refusal-review items: ${reviewPlan.refusalReviewReady || 0}`,
+    `- Refusal policy ready: ${reviewPlan.refusalPolicyReadyItems || 0}/${reviewPlan.refusalReviewReady || 0}`,
+    `- Refusal policy review required: ${reviewPlan.refusalPolicyReviewRequired || 0}/${reviewPlan.refusalReviewReady || 0}`,
     `- Route coverage: ${routeCoverage.pageFitCoveredByPublicRoutes || 0}/${routeCoverage.totalPageFitGroups || 0} page-fit groups covered by public route aliases`,
     `- Source-backed existing page fits: ${routeCoverage.triageReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Public copy sufficient: ${routeCoverage.publicCopyReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
@@ -329,6 +343,9 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     .filter((status) => status && !markdown.includes(`\`${status}\``));
   const missingRefusalIds = refusalReview.map((entry) => entry.itemId).filter((itemId) => !markdown.includes(`\`${itemId}\``));
   const missingRefusalReasons = refusalReview.map((entry) => entry.refusalReason).filter((reason) => reason && !markdown.includes(`\`${reason}\``));
+  const missingRefusalPolicyStatuses = refusalReview
+    .map((entry) => entry.refusalPolicyStatus)
+    .filter((status) => status && !markdown.includes(`\`${status}\``));
   const rawReviewTableMarkers = [
     "| ID | Count | Question |",
     "| ID | Related Question | Answer Excerpt |",
@@ -367,10 +384,11 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
   addCheck(
     checks,
     "editorial-queue-refusals-present",
-    missingRefusalIds.length === 0 && missingRefusalReasons.length === 0,
+    missingRefusalIds.length === 0 && missingRefusalReasons.length === 0 && missingRefusalPolicyStatuses.length === 0,
     JSON.stringify({
       missingRefusalIds: missingRefusalIds.length,
       missingRefusalReasons: missingRefusalReasons.length,
+      missingRefusalPolicyStatuses: missingRefusalPolicyStatuses.length,
     }),
   );
   addCheck(
@@ -388,6 +406,8 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     sourceBackedExistingPageFits: routeCoverage.triageReadyPageFitGroups ?? null,
     publicCopyReadyPageFits: routeCoverage.publicCopyReadyPageFitGroups ?? null,
     publicCopyReviewRequired: routeCoverage.publicCopyReviewRequired ?? null,
+    refusalPolicyReadyItems: reviewPlan.refusalPolicyReadyItems ?? null,
+    refusalPolicyReviewRequired: reviewPlan.refusalPolicyReviewRequired ?? null,
     rawTableHits: rawTableHits.length,
     sampleLeaks: leaks,
   };

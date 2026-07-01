@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord refusal policy readiness
+- Task: Make the remaining Discord/Lafa refusal lane explicit as no-raw policy-ready refusal evidence.
+- Scope: `scripts/build-discord-routing-summary.mjs`, `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, packet/evidence/status validators, regenerated `data/discord-review-routing.*`, `DISCORD-EDITORIAL-QUEUE.md`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: 2/2 refusal-review items are `policy-refusal-ready`, validators require zero refusal-policy review-required items, exact Discord/Lafa claims still refuse unless future primary-source review creates a public page, full verify remains green, only #11/#4 remain operator gates.
+- Result: Added explicit refusal-policy readiness for the two remaining no-raw Discord/Lafa refusal items. `data/discord-review-routing.json` and `DISCORD-EDITORIAL-QUEUE.md` now report 2/2 `policy-refusal-ready` refusal items and 0/2 refusal-policy review-required items while preserving refusal behavior unless future primary-source review creates a grounded public page. Focused checks passed: touched-script syntax checks, `npm run search-book:check-status-evidence`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-evidence-summary`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord public-copy readiness
 - Task: Promote source-backed Discord page-fit groups from triage-only to existing public-copy readiness without adding raw Discord or Lafa text.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, packet/evidence/status validators, regenerated `data/discord-review-routing.*`, `DISCORD-EDITORIAL-QUEUE.md`, status docs, and `_local/agent-worklog.md`.
