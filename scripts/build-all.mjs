@@ -266,6 +266,20 @@ function runStatusEvidenceCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runCompletionAuditCheck(env, dryRun) {
+  const step = {
+    id: "check-completion-audit",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-completion-audit.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runOperatorInboxConsistencyCheck(env, dryRun) {
   const step = {
     id: "check-operator-inbox-consistency",
@@ -476,6 +490,7 @@ if (args.dryRun) {
     runDiscordReviewArtifactsCheck(env, true);
     runDiscordRefusalRuntimeCheck(env, true);
     runStatusEvidenceCheck(env, true);
+    runCompletionAuditCheck(env, true);
     runOperatorInboxConsistencyCheck(env, true);
     runEvidenceSummaryRendererCheck(env, true);
     runPublicationBoundariesCheck(env, true);
@@ -497,6 +512,7 @@ let staticIntegrity = null;
 let discordReviewArtifacts = null;
 let discordRefusalRuntime = null;
 let statusEvidence = null;
+let completionAudit = null;
 let operatorInboxConsistency = null;
 let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
@@ -509,6 +525,7 @@ if (args.verify) {
   discordReviewArtifacts = runDiscordReviewArtifactsCheck(env, false);
   discordRefusalRuntime = runDiscordRefusalRuntimeCheck(env, false);
   statusEvidence = runStatusEvidenceCheck(env, false);
+  completionAudit = runCompletionAuditCheck(env, false);
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
   evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
@@ -526,6 +543,7 @@ console.log(JSON.stringify({
   discordReviewArtifacts,
   discordRefusalRuntime,
   statusEvidence,
+  completionAudit,
   operatorInboxConsistency,
   evidenceSummaryRenderer,
   publicationBoundaries,

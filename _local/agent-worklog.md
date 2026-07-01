@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex objective-level completion audit gate
+- Task: Make the original Search Book objective completion audit executable so future agents cannot claim completion from narrow green checks while production gates remain open.
+- Scope: `scripts/check-completion-audit.mjs`, `scripts/build-all.mjs`, `package.json`, `COMPLETION-AUDIT.md`, `FINAL-REPORT.md`, `README.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-completion-audit` passes against current preview-ready evidence while requiring `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`, and only #11/#4 open; full verify passes with the new gate.
+- Result: Added `scripts/check-completion-audit.mjs`, `npm run search-book:check-completion-audit`, and `npm run search-book:verify` wiring. Focused checks passed: `node --check scripts/check-completion-audit.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-completion-audit`, `npm run search-book:check-status-evidence`, and `node scripts/build-all.mjs --dry-run --verify`. Full `npm run search-book:verify` passed with 26 build steps, 84 syntax checks, `completionAudit:passed`, 820 exact routes, 2,884 chunks, quality gates 29/30, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex SYN-209 epic description refresh
 - Task: Refresh the Linear parent epic description so future agents see the standalone Search Book repo and current production boundary instead of the obsolete onboarding-app/src/search-book snapshot.
 - Scope: Linear `SYN-209` description and `_local/agent-worklog.md`.

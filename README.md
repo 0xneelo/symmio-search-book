@@ -74,6 +74,7 @@ npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-la
 npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-release-dry-run/release-dry-run.json
 npm run search-book:check-monitoring
 npm run search-book:check-status-evidence
+npm run search-book:check-completion-audit
 npm run search-book:check-operator-inbox
 npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env

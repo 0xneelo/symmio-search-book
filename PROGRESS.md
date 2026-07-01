@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Objective-Level Completion Audit Gate
+
+- Added `npm run search-book:check-completion-audit`, an executable guard for `COMPLETION-AUDIT.md`.
+- The checker validates the original objective-derived requirement rows against current generated evidence, including page target, authored sections, source keys, answer routing/citations, living-docs loop, Discord/Lafa demand evidence, competitive sweep, maintained artifacts, and the #11/#4 production boundary.
+- Wired the checker into `npm run search-book:verify` so green deterministic builds cannot be mistaken for production completion while `completionReady`, `llmProductionReady`, or `livingDocsProductionReady` remain false.
+
 ## 2026-07-01 — Discord Refusal Runtime Launch Evidence
 
 - Added Discord refusal-runtime evidence to launch evidence packets and release dry-run summaries.

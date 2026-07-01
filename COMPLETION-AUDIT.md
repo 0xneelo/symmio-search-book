@@ -4,6 +4,8 @@ Date: 2026-07-01
 
 This audit checks the original Search Book objective against the current standalone `symmio-search-book` repository. It is intentionally stricter than a status report: completion is not assumed from green tests alone.
 
+Executable guard: `npm run search-book:check-completion-audit` validates this audit against the original objective-derived requirement rows and current generated evidence. It must keep failing if production completion is claimed before #11 and #4 are resolved.
+
 ## Verdict
 
 The Search Book is a verified preview-ready research dossier, static docs prototype, local answer-engine runtime, and living-docs service boundary. It is not yet production-complete.
@@ -86,6 +88,7 @@ The backend is decided as standalone service plus SQLite, but the public route i
 
 ```sh
 npm run search-book:verify
+npm run search-book:check-completion-audit
 node scripts/check-readiness-evidence.mjs
 git diff --check
 ```
