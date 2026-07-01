@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex reconciliation readiness rebuild
+- Task: Re-read reconciled operator docs, re-run the real Discord corpus import and deterministic Search Book verify, then report readiness boolean deltas.
+- Scope: `data/discord-corpus.*`, regenerated deterministic data if changed, readiness summary only, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Discord remains internal-only with no raw text, source ingestion remains complete, only #11/#4 remain open, and full `npm run search-book:verify` passes.
+- Result: Re-read the reconciled operator inbox, final report, gaps, and progress top entry. Re-ran the real Discord export import in `internal-only` mode: 5,000 messages, 723 question clusters, 837 Lafa candidates, `corpusReady:true`, `storesMessageText:false`, and zero non-empty committed raw/normalized message, question, or answer text fields. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `803/803`, chunks `2,884`, source ingestion `17/17`, completion map `14 complete / 2 partial / 2 parked / 0 missing`, and quality gates `29/30`. Boolean readiness comparison showed no flips; source ingestion was already ready after reconciliation/import and production readiness remains gated only by #11/#4.
+
 ## 2026-07-01 — Codex Discord-seeded route aliases
 - Task: Promote the top sanitized Discord page-fit checks into generic, primary-source-backed exact question routes.
 - Scope: `QUESTIONS.md`, regenerated route/FAQ data, status notes, and `_local/agent-worklog.md`.
