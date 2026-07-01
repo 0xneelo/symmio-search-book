@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Readiness Packet Guard
+
+- Added `npm run search-book:check-production-packet`, a no-secret guard for `PRODUCTION-READINESS-PACKET.md`.
+- The guard verifies the reconciled #11/#4-only operator boundary, canonical production env path, local-env-complete wording, deploy-route decision contract, release checklist, launch criteria, generated source/Discord evidence, and absence of secret-looking values.
+- Wired the guard into `npm run search-book:verify` so production handoff packet drift is caught before the VPS env install or public deploy route is finalized.
+
 ## 2026-07-01 — Living Docs Review Release Evidence
 
 - Promoted the no-secret living-docs reviewer evidence guard into launch and release evidence packets.

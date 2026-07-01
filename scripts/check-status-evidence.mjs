@@ -129,6 +129,7 @@ function expectedChecks(evidence) {
       { id: "syntax-checks", allOf: [`${evidence.syntaxChecks} syntax checks`] },
       { id: "workflow-contract", allOf: ["GitHub workflow contract consistency", "search-book:check-github-workflows"] },
       { id: "living-docs-review-evidence", allOf: ["no-secret living-docs reviewer evidence privacy", "search-book:check-living-docs-review"] },
+      { id: "production-packet", allOf: ["production-readiness packet consistency", "search-book:check-production-packet"] },
       { id: "llm-eval", allOf: [evidence.liveEvalTotal, evidence.liveEvalAdversarial, evidence.liveEvalAnswerValidation] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
@@ -146,6 +147,7 @@ function expectedChecks(evidence) {
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
       { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
       { id: "living-docs-review-evidence", allOf: ["search-book:check-living-docs-review", "living-docs reviewer evidence"] },
+      { id: "production-packet", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
@@ -160,6 +162,7 @@ function expectedChecks(evidence) {
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },
       { id: "workflow-contract", allOf: ["GitHub workflow contract evidence reports 4/4 expected workflows"] },
       { id: "living-docs-review-evidence", allOf: ["living-docs review evidence passed", "living-docs reviewer evidence reports"] },
+      { id: "production-packet", allOf: ["npm run search-book:check-production-packet"] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
     "README.md": [
@@ -170,6 +173,7 @@ function expectedChecks(evidence) {
       { id: "backup-restore-script", allOf: ["search-book:check-backup-restore"] },
       { id: "workflow-contract-script", allOf: ["search-book:check-github-workflows"] },
       { id: "living-docs-review-script", allOf: ["search-book:check-living-docs-review"] },
+      { id: "production-packet-script", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
     ],
   };
 }

@@ -35,6 +35,7 @@ npm run search-book:check-completion-audit
 npm run search-book:check-spec-reconciliation
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
+npm run search-book:check-production-packet
 npm run search-book:check-monitoring
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
@@ -56,7 +57,7 @@ git diff --check
 npm run build --if-present
 ```
 
-The canonical build verifies 26 deterministic build steps, 90 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, readiness-evidence consistency against `data/llm-rag-contract.json`, static app integrity, publication-boundary integrity, living-docs summary and backup utility presence, Discord review-artifact privacy, Discord editorial queue generation and consistency, Discord/Lafa refusal runtime behavior, status-document evidence consistency, objective-level completion-audit consistency, operator-inbox consistency, original-spec reconciliation consistency, no-secret production-env fixture behavior, systemd deploy-template consistency, GitHub workflow contract consistency, no-secret living-docs reviewer evidence privacy, no-secret local monitoring evidence for `/health` plus token-gated `/api/search-book/metrics`, no-secret backup-restore evidence against a temporary SQLite service DB, evidence-packet validators with original-spec reconciliation, living-docs review evidence, and launch/release evidence-summary renderer proof, evidence-summary renderer no-raw/no-secret output, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
+The canonical build verifies 26 deterministic build steps, 91 syntax checks, exact-route integrity, FAQ routing, answer chunks, authored-page indexing, requirement coverage, quality-audit gates, readiness-evidence consistency against `data/llm-rag-contract.json`, static app integrity, publication-boundary integrity, living-docs summary and backup utility presence, Discord review-artifact privacy, Discord editorial queue generation and consistency, Discord/Lafa refusal runtime behavior, status-document evidence consistency, objective-level completion-audit consistency, operator-inbox consistency, original-spec reconciliation consistency, no-secret production-env fixture behavior, systemd deploy-template consistency, production-readiness packet consistency for the #11/#4 operator handoff, GitHub workflow contract consistency, no-secret living-docs reviewer evidence privacy, no-secret local monitoring evidence for `/health` plus token-gated `/api/search-book/metrics`, no-secret backup-restore evidence against a temporary SQLite service DB, evidence-packet validators with original-spec reconciliation, living-docs review evidence, and launch/release evidence-summary renderer proof, evidence-summary renderer no-raw/no-secret output, and the native sensitive-pattern scan. Live LLM evaluation is not part of every deterministic rebuild because it requires private service credentials and must never print the API key; its latest recorded result is stored in `data/llm-rag-contract.json`.
 
 ## Requirement Summary
 

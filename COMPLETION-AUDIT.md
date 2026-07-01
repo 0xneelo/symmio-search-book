@@ -31,6 +31,7 @@ Generated evidence from the latest checked repo state:
 - `npm run search-book:check-backup-restore`: no-secret backup/restore evidence passes against a temporary SQLite answer-engine service DB with 4/4 required tables matched, restore `passed`, integrity `ok`, seeded answer/rating/page-feedback counts, and no raw content printed.
 - `npm run search-book:check-github-workflows`: no-secret workflow contract guard passes for the four checked workflows, required validator/summary/smoke/artifact commands, read-only permissions, public Vibe docs export fetch, and no secret-loading fragments.
 - `npm run search-book:check-living-docs-review`: no-secret living-docs reviewer evidence guard passes by seeding a temporary SQLite service DB, confirming the raw internal summary contains private reviewer values, and emitting only count/boolean evidence with no raw questions, notes, Discord/Lafa text, or token-like values printed.
+- `npm run search-book:check-production-packet`: no-secret production-readiness packet guard passes for the #11/#4-only operator boundary, canonical VPS env path, deploy-route decision contract, launch criteria, release checklist, and absence of secret-looking values.
 - `data/question-routes.json`: 820 exact routes.
 - `data/faq.json`: 822 FAQ entries.
 - `data/answer-chunks.json`: 2,884 chunks.
@@ -63,7 +64,7 @@ Current localhost preview evidence:
 | Build living-docs loop: track questions, rate answers, surface gaps | Satisfied locally, not production-ready | SQLite service persists questions/ratings/gaps/cache; Search Insights, moderation export, metrics export, retention, reviewer summary, CI-safe living-docs reviewer evidence, launch/release packet reviewer evidence, backup/restore-check, and CI-safe backup-restore evidence are implemented; staged launch drill recorded answer/rating persistence. | Production deploy, reviewer owner/cadence, backup storage, moderation/metrics access, and #11/#4 remain. |
 | Deploy or preview docs site | Preview satisfied; production not satisfied | Local preview is running at `127.0.0.1:8798` with answer service `127.0.0.1:8797`; staging launch gate passed. | Public frontend platform/repo/deploy route #4 and production env #11 are still open. |
 | Maintain DECISIONS, SOURCES, STYLEGUIDE, GAPS, QUESTIONS, page manifest, final report | Satisfied for current state | `DECISIONS.md`, `SOURCES.md`, `STYLEGUIDE.md`, `GAPS.md`, `QUESTIONS.md`, `page-manifest.json`, and `FINAL-REPORT.md` exist and are current enough for the latest evidence checks. | Keep them synchronized after #11/#4 change. |
-| No secrets leaked | Satisfied by current checks | Local env is not printed; launch/preflight outputs report booleans only; CI is no-secret and covered by `npm run search-book:check-github-workflows`; reviewer evidence is count-only via `npm run search-book:check-living-docs-review`; sensitive scan runs in `npm run search-book:verify`. | Continue loading LLM creds only via env-file and never commit local DB/env artifacts. |
+| No secrets leaked | Satisfied by current checks | Local env is not printed; launch/preflight outputs report booleans only; CI is no-secret and covered by `npm run search-book:check-github-workflows`; reviewer evidence is count-only via `npm run search-book:check-living-docs-review`; the operator packet is no-secret via `npm run search-book:check-production-packet`; sensitive scan runs in `npm run search-book:verify`. | Continue loading LLM creds only via env-file and never commit local DB/env artifacts. |
 | Checkpoint and coordinate in shared repo | Satisfied for latest work | `_local/agent-worklog.md` has current entries; recent scoped commits are pushed to `origin/main`; repo is clean after checkpoints. | Continue worklog updates before touching shared files. |
 
 ## Completion Blockers
@@ -74,6 +75,7 @@ Local LLM credentials are complete, but production readiness needs the service e
 
 - `/etc/symmio-search-book/search-book.env` installed with production DB, default mode, origins, LLM settings, retention, metrics/moderation, reviewer, and backup settings.
 - `npm run search-book:check-production-env` passes against production-shaped env without printing secret values.
+- `npm run search-book:check-production-packet` stays green before and after the install handoff.
 
 ### #4 - Public frontend deploy route
 

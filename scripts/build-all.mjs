@@ -364,6 +364,20 @@ function runDeployTemplatesCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runProductionReadinessPacketCheck(env, dryRun) {
+  const step = {
+    id: "check-production-readiness-packet",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-production-readiness-packet.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runBackupRestoreEvidenceCheck(env, dryRun) {
   const step = {
     id: "check-backup-restore-evidence",
@@ -595,6 +609,7 @@ if (args.dryRun) {
     runPublicationBoundariesCheck(env, true);
     runProductionEnvFixtureCheck(env, true);
     runDeployTemplatesCheck(env, true);
+    runProductionReadinessPacketCheck(env, true);
     runBackupRestoreEvidenceCheck(env, true);
     runGithubWorkflowsCheck(env, true);
     runLivingDocsReviewEvidenceCheck(env, true);
@@ -624,6 +639,7 @@ let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
 let productionEnvFixture = null;
 let deployTemplates = null;
+let productionReadinessPacket = null;
 let backupRestoreEvidence = null;
 let githubWorkflows = null;
 let livingDocsReviewEvidence = null;
@@ -644,6 +660,7 @@ if (args.verify) {
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
   productionEnvFixture = runProductionEnvFixtureCheck(env, false);
   deployTemplates = runDeployTemplatesCheck(env, false);
+  productionReadinessPacket = runProductionReadinessPacketCheck(env, false);
   backupRestoreEvidence = runBackupRestoreEvidenceCheck(env, false);
   githubWorkflows = runGithubWorkflowsCheck(env, false);
   livingDocsReviewEvidence = runLivingDocsReviewEvidenceCheck(env, false);
@@ -669,6 +686,7 @@ console.log(JSON.stringify({
   publicationBoundaries,
   productionEnvFixture,
   deployTemplates,
+  productionReadinessPacket,
   backupRestoreEvidence,
   githubWorkflows,
   livingDocsReviewEvidence,

@@ -101,6 +101,7 @@ Validation for #11:
 cd /opt/symmio-search-book
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
+npm run search-book:check-production-packet
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
 npm run search-book:check-living-docs-review
@@ -243,6 +244,7 @@ Before calling Search Book production-ready:
 
 ```sh
 npm run search-book:verify
+npm run search-book:check-production-packet
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
 npm run search-book:check-living-docs-review
@@ -253,6 +255,10 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-rea
   --service-url https://<answer-engine-host> \
   --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
   --run-verify
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-monitoring-evidence.mjs \
+  --profile production \
+  --service-url https://<answer-engine-host> \
+  --metrics-required
 git diff --check
 ```
 

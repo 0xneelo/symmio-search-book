@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | 65 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | 66 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -80,6 +80,7 @@ npm run search-book:check-spec-reconciliation
 npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
+npm run search-book:check-production-packet
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
 npm run search-book:check-living-docs-review
@@ -118,10 +119,11 @@ npm run search-book:smoke-preview-service
 The `search-book:verify` step includes the no-secret local monitoring evidence probe for
 `/health` and token-gated `/api/search-book/metrics`, the no-secret backup/restore
 evidence guard against a temporary SQLite answer-engine database, the workflow-contract
-guard for the checked GitHub Actions release paths, and the living-docs reviewer evidence
-guard that proves raw internal summaries can be reduced to count-only evidence. Launch and
-release evidence packets also carry that reviewer proof and their validators require it before
-operator handoff. The workflow does not
+guard for the checked GitHub Actions release paths, the production-readiness packet guard
+for the #11/#4 operator handoff, and the living-docs reviewer evidence guard that proves
+raw internal summaries can be reduced to count-only evidence. Launch and release evidence
+packets also carry that reviewer proof and their validators require it before operator
+handoff. The workflow does not
 load LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service
@@ -247,7 +249,8 @@ See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd units at
 [`deploy/symmio-search-book-backup.service`](./deploy/symmio-search-book-backup.service),
 and [`deploy/symmio-search-book-backup.timer`](./deploy/symmio-search-book-backup.timer). The no-secret
 operator packet for the remaining VPS env and public deploy-route gates is
-[`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md).
+[`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md), guarded by
+`npm run search-book:check-production-packet`.
 
 ## Non-goals
 

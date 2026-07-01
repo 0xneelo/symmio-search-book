@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production readiness packet guard
+- Task: Add an executable guard for `PRODUCTION-READINESS-PACKET.md` so the #11/#4 operator handoff stays aligned with the canonical inbox, service env path, no-secret release commands, packet validators, and production pass criteria.
+- Scope: New packet checker script, package/build verification wiring, status docs, and `_local/agent-worklog.md`.
+- Status: Complete; pending commit.
+- Verification target: Guard passes against the current production packet, fails if #11/#4 or release command criteria drift, full verify remains green, and no new operator gates are created.
+- Result: Added `npm run search-book:check-production-packet`, wired `scripts/check-production-readiness-packet.mjs` into `npm run search-book:verify`, and updated status docs plus status-evidence checks. Focused guard passed with open operator items #4/#11, resolved items #2/#5/#6/#7/#12/#17 not reopened, source ingestion 17 complete / 0 partial / 0 parked / 0 missing, Discord page-fit coverage 19/19, `valuesPrinted:false`, and 0 secret-looking matches. Full `npm run search-book:verify` passed with 26 build steps, 91 syntax checks, `productionReadinessPacket:passed`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex living-docs release evidence promotion
 - Task: Promote the no-secret living-docs reviewer evidence guard into launch/release packets, validators, and evidence summaries so release rehearsals prove the reviewer privacy boundary from the same artifact set as the other production-readiness checks.
 - Scope: Launch/release packet scripts, packet validators, evidence summary renderer/checker, status docs, and `_local/agent-worklog.md`.
