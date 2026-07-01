@@ -5,6 +5,7 @@
 - Updated all Search Book GitHub workflows from Node-20-based action majors to current action majors: `actions/checkout@v7`, `actions/setup-node@v6`, and `actions/upload-artifact@v7`.
 - Updated `scripts/check-github-workflows.mjs` so `npm run search-book:check-github-workflows` now enforces those action versions while preserving read-only permissions, public Vibe docs export fetches, no secret/env-file loading, evidence summaries, smokes, checked artifact validators, and short-lived artifacts.
 - Verification passed: `node --check scripts/check-github-workflows.mjs`, `npm run search-book:check-github-workflows`, and full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`. Full verify reported 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, quality `29/30`, and `githubWorkflows:passed`; only #11/#4 remain open.
+- Pushed commit `0d7beb5` and GitHub Actions run `28552441260` passed; check-run annotations were empty (`[]`), confirming the old Node 20 action deprecation notice is gone for the verify workflow.
 
 ## 2026-07-02 — No-Secret Evidence Refresh From Reconciliation-Guard Checkpoint
 
