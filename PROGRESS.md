@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Release Dry-Run Packet
+
+- Added `scripts/run-release-dry-run.mjs` and `npm run search-book:release-dry-run` as a no-secret release rehearsal that builds the static artifact, smoke-tests the copied artifact statically, smoke-tests the copied artifact against a temporary answer-engine service, builds launch evidence, and writes `release-dry-run.json` plus `release-dry-run.md`.
+- Added `.github/workflows/search-book-release-dry-run.yml`, a manual/PR workflow that fetches the public Vibe docs export, runs the same dry-run command, validates the packet status and no-secret flags, and uploads the full dry-run directory as a short-lived artifact.
+- Documented the release dry-run command in README, deployment guidance, and the final report.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-20260701-1`: release status `passed`, 4/4 child steps passed, static artifact status `passed` with 1,648 files, 48,327,442 bytes, copied-bundle integrity `passed`, launch evidence status `passed`, monitoring status `passed`, `valuesPrinted:false`, and 0 sensitive-pattern matches. The packet wrote `release-dry-run.json` and `release-dry-run.md`, plus nested static artifact and launch evidence artifacts.
+- Full `npm run search-book:verify` passed afterward with 24 build steps, 68 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates `27/30`.
+
 ## 2026-07-01 — Static Artifact Preview-Service Smoke
 
 - Updated `scripts/smoke-preview-service.mjs` so `npm run search-book:smoke-preview-service -- --static-root <artifact-dir>` can run the service-backed Ask/rating/Search Insights smoke against a copied static artifact.

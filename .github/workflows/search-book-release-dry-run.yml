@@ -1,0 +1,77 @@
+name: Search Book Release Dry Run
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-book-release-dry-run.yml"
+      - ".github/workflows/search-book-launch-evidence.yml"
+      - ".github/workflows/search-book-static-artifact.yml"
+      - "scripts/**"
+      - "data/**"
+      - "content/**"
+      - "index.html"
+      - "answer-corpus.js"
+      - "page-manifest.json"
+      - "package.json"
+      - "README.md"
+      - "DEPLOYMENT.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-book-release-dry-run-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-dry-run:
+    name: Build no-secret release dry-run packet
+    runs-on: ubuntu-latest
+    env:
+      VIBE_DOCS_ROOT: /tmp/vibe_docs
+      VIBE_DOCS_PUBLIC: /tmp/vibe_docs/Docs/public
+      VIBE_DOCS_DATA: /tmp/vibe_docs/Website/public/generated/docs-data.json
+      SEARCH_BOOK_RELEASE_DRY_RUN_DIR: /tmp/search-book-release-dry-run
+    steps:
+      - name: Check out Search Book
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Show runtime
+        run: |
+          node --version
+          npm --version
+
+      - name: Fetch public Vibe docs export
+        run: |
+          git clone --depth 1 https://github.com/0xneelo/vibe_docs.git "$VIBE_DOCS_ROOT"
+          test -d "$VIBE_DOCS_PUBLIC"
+          test -f "$VIBE_DOCS_DATA"
+
+      - name: Run release dry run
+        run: |
+          npm run search-book:release-dry-run -- --out-dir "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR"
+
+      - name: Check release dry-run packet
+        run: |
+          test -f "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.json"
+          test -f "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.md"
+          test -f "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/static-site/static-artifact-manifest.json"
+          test -f "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/launch-evidence/launch-evidence.json"
+          node -e 'const fs = require("node:fs"); const packet = JSON.parse(fs.readFileSync(process.env.SEARCH_BOOK_RELEASE_DRY_RUN_DIR + "/release-dry-run.json", "utf8")); if (packet.status !== "passed") throw new Error(`release dry-run status ${packet.status}`); if (packet.secrets?.valuesPrinted !== false) throw new Error("release dry-run reported printed secret values"); if ((packet.secrets?.sensitiveMatches || []).length) throw new Error("release dry-run contains sensitive-pattern matches"); const failed = (packet.steps || []).filter((step) => step.status !== "passed"); if (failed.length) throw new Error(`failed steps: ${failed.map((step) => step.id).join(",")}`); console.log(JSON.stringify({ status: packet.status, artifact: packet.staticArtifact?.status || null, launch: packet.launchEvidence?.status || null, steps: (packet.steps || []).length }, null, 2));'
+
+      - name: Upload release dry-run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-book-release-dry-run
+          path: /tmp/search-book-release-dry-run/
+          if-no-files-found: warn
+          retention-days: 14

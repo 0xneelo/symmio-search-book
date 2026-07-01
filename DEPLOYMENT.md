@@ -142,6 +142,20 @@ For repository-hosted staging evidence, run the manual GitHub workflow
 no-secret packet, validates that the packet passed, and uploads the JSON/Markdown files
 as a short-lived artifact.
 
+For a fuller no-secret release rehearsal that also proves the uploaded static bundle path,
+run:
+
+```bash
+npm run search-book:release-dry-run
+```
+
+The dry run builds the copied static artifact, smoke-tests it as static files, smoke-tests
+the copied artifact against a temporary answer-engine service, builds launch evidence, and
+writes `release-dry-run.json` plus `release-dry-run.md` under `/tmp` by default. The manual
+GitHub workflow `Search Book Release Dry Run` runs the same command and uploads the full
+dry-run directory, including the static artifact and launch-evidence packet, as a short-lived
+artifact.
+
 To hand off a static preview bundle without choosing the final deploy platform, run:
 
 ```bash

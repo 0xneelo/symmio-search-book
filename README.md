@@ -69,6 +69,7 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com --se
 # Production env/deploy preflight (validates env shape; no provider call)
 npm run search-book:drill-local-launch
 npm run search-book:launch-evidence
+npm run search-book:release-dry-run
 npm run search-book:check-monitoring
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
@@ -125,6 +126,10 @@ To create attachable operator evidence, run `npm run search-book:launch-evidence
 drill and monitoring probe when no deployment URLs are supplied.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
+To run the full local release rehearsal, run `npm run search-book:release-dry-run`; it
+builds the static artifact, smoke-tests the copied artifact both statically and with the
+answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
+`release-dry-run.md` under `/tmp` by default.
 To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for

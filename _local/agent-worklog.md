@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex release dry-run packet
+- Task: Add one no-secret release dry-run command and workflow that bundles static artifact build, artifact smokes, preview-service bridge smoke, and launch-evidence packet generation.
+- Scope: `scripts/run-release-dry-run.mjs`, `package.json`, `.github/workflows/search-book-release-dry-run.yml`, README/deployment/final-report/progress docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: The new command writes JSON/Markdown release evidence without secret values, runs the static artifact build plus static and preview-service artifact smokes, runs launch evidence, workflow YAML parses, full `npm run search-book:verify` remains green, and readiness boundaries stay at #17/#11/#4.
+- Result: `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-20260701-1` passed with 4/4 child steps passing. Static artifact status `passed` with 1,648 files, 48,327,442 bytes, copied-bundle integrity `passed`, and 0 sensitive-pattern matches. Launch evidence status `passed`, launch status `passed`, monitoring status `passed`, `valuesPrinted:false`, and 0 release-packet sensitive-pattern matches. Workflow YAML parsed, `node --check scripts/run-release-dry-run.mjs` passed, `git diff --check` passed, readiness evidence passed, and full `npm run search-book:verify` passed with 24 build steps, 68 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, static integrity passed, and quality gates `27/30`.
+
 ## 2026-07-01 — Codex static artifact preview-service smoke
 - Task: Verify copied static artifacts can use the standalone answer-engine service bridge before artifact handoff.
 - Scope: `scripts/smoke-preview-service.mjs`, `scripts/build-static-artifact.mjs`, `.github/workflows/search-book-static-artifact.yml`, README/deployment/final-report/progress docs, and `_local/agent-worklog.md`.
