@@ -119,7 +119,9 @@ The `search-book:verify` step includes the no-secret local monitoring evidence p
 `/health` and token-gated `/api/search-book/metrics`, the no-secret backup/restore
 evidence guard against a temporary SQLite answer-engine database, the workflow-contract
 guard for the checked GitHub Actions release paths, and the living-docs reviewer evidence
-guard that proves raw internal summaries can be reduced to count-only evidence. The workflow does not
+guard that proves raw internal summaries can be reduced to count-only evidence. Launch and
+release evidence packets also carry that reviewer proof and their validators require it before
+operator handoff. The workflow does not
 load LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service
@@ -166,13 +168,13 @@ Discord refusal-runtime evidence proving the public-safe Discord/Lafa probes rem
 without loaded LLM credentials,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
 evidence as public/source/internal counts only, backup-restore evidence as table/count/check
-booleans only, and status-document evidence proving
+booleans only, living-docs reviewer evidence as queue/privacy counts only, and status-document evidence proving
 current report counts match generated data. It also includes original-spec reconciliation
 evidence proving source ingestion is `17/17`, local LLM provider/model assumptions are current,
 and open operator items remain limited to #4/#11.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`;
 the validator requires the packet to come from a clean repository state and include passing
-backup-restore evidence.
+backup-restore and living-docs reviewer evidence.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
 Validate the renderer's no-raw/no-secret boundary with `npm run search-book:check-evidence-summary`.
@@ -183,7 +185,7 @@ builds the static artifact, smoke-tests the copied artifact both statically and 
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
 include source-freshness, status-document, Discord review-artifact, Discord refusal-runtime,
-original-spec reconciliation, backup-restore, and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
+original-spec reconciliation, backup-restore, living-docs reviewer, and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
 companions stay out of public navigation/routes and internal drafts stay out of runtime
 context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same

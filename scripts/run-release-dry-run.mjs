@@ -262,6 +262,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || null;
   const publicationBoundaries = packet.publicationBoundaries?.parsed || null;
   const backupRestoreEvidence = packet.backupRestoreEvidence?.parsed || null;
+  const livingDocsReviewEvidence = packet.livingDocsReviewEvidence?.parsed || null;
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
@@ -276,6 +277,8 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const publicationBoundaryChecksPassed = publicationBoundaryChecks.filter((check) => check.passed).length;
   const backupRestoreChecks = backupRestoreEvidence?.checks || [];
   const backupRestoreChecksPassed = backupRestoreChecks.filter((check) => check.passed).length;
+  const livingDocsChecks = livingDocsReviewEvidence?.checks || [];
+  const livingDocsChecksPassed = livingDocsChecks.filter((check) => check.passed).length;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -291,6 +294,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     discordRefusalRuntimeStatus: discordRefusalRuntime?.status || null,
     publicationBoundariesStatus: publicationBoundaries?.status || null,
     backupRestoreEvidenceStatus: backupRestoreEvidence?.status || null,
+    livingDocsReviewEvidenceStatus: livingDocsReviewEvidence?.status || null,
     evidenceSummaryRendererStatus: evidenceSummaryRenderer?.status || null,
     sourceFreshness: sourceFreshness
       ? {
@@ -396,6 +400,21 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
             total: backupRestoreChecks.length,
           },
           valuesPrinted: backupRestoreEvidence.valuesPrinted === true,
+        }
+      : null,
+    livingDocsReviewEvidence: livingDocsReviewEvidence
+      ? {
+          status: livingDocsReviewEvidence.status || null,
+          evidence: livingDocsReviewEvidence.evidence || null,
+          checks: {
+            passed: livingDocsChecksPassed,
+            total: livingDocsChecks.length,
+          },
+          valuesPrinted: livingDocsReviewEvidence.valuesPrinted === true,
+          secrets: {
+            valuesPrinted: livingDocsReviewEvidence.secrets?.valuesPrinted === true,
+            llmCredentialsLoaded: livingDocsReviewEvidence.secrets?.llmCredentialsLoaded === true,
+          },
         }
       : null,
     evidenceSummaryRenderer: evidenceSummaryRenderer
@@ -550,6 +569,12 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Backup restore check: \`${launch.backupRestoreEvidence?.evidence?.restoreCheckStatus || "missing"}\`
 - Backup restore raw content printed: \`${launch.backupRestoreEvidence?.evidence?.rawContentPrinted ?? "unknown"}\`
 - Backup restore checks: \`${launch.backupRestoreEvidence?.checks?.passed ?? "unknown"}/${launch.backupRestoreEvidence?.checks?.total ?? "unknown"}\`
+- Living-docs review evidence status: \`${launch.livingDocsReviewEvidenceStatus || "missing"}\`
+- Living-docs review raw summary: \`${launch.livingDocsReviewEvidence?.evidence?.rawSummaryStatus || "missing"}\`; internal \`${launch.livingDocsReviewEvidence?.evidence?.rawSummaryFlaggedInternal ?? "unknown"}\`
+- Living-docs review queue counts: \`gapBacklog=${launch.livingDocsReviewEvidence?.evidence?.queueCounts?.gapBacklog ?? "unknown"}, lowRated=${launch.livingDocsReviewEvidence?.evidence?.queueCounts?.lowRatedAnswers ?? "unknown"}, unanswered=${launch.livingDocsReviewEvidence?.evidence?.queueCounts?.unansweredQuestions ?? "unknown"}, repeated=${launch.livingDocsReviewEvidence?.evidence?.queueCounts?.repeatedQuestions ?? "unknown"}, recommendations=${launch.livingDocsReviewEvidence?.evidence?.queueCounts?.recommendations ?? "unknown"}\`
+- Living-docs review sanitized raw hits: \`seeded=${launch.livingDocsReviewEvidence?.evidence?.seededRawValuesInSanitizedEvidence ?? "unknown"}, keys=${launch.livingDocsReviewEvidence?.evidence?.rawKeyHitsInSanitizedEvidence ?? "unknown"}\`
+- Living-docs review checks: \`${launch.livingDocsReviewEvidence?.checks?.passed ?? "unknown"}/${launch.livingDocsReviewEvidence?.checks?.total ?? "unknown"}\`
+- Living-docs review values printed: \`${launch.livingDocsReviewEvidence?.valuesPrinted ?? "unknown"}\`
 - Evidence summary renderer status: \`${launch.evidenceSummaryRendererStatus || "missing"}\`
 - Evidence summary lines: \`${launch.evidenceSummaryRenderer?.launchSummaryLines ?? "unknown"} launch / ${launch.evidenceSummaryRenderer?.releaseSummaryLines ?? "unknown"} release\`
 - Evidence summary values printed: \`${launch.evidenceSummaryRenderer?.valuesPrinted ?? "unknown"}\`
@@ -702,6 +727,7 @@ try {
       discordRefusalRuntimeStatus: packet.launchEvidence?.discordRefusalRuntimeStatus || null,
       publicationBoundariesStatus: packet.launchEvidence?.publicationBoundariesStatus || null,
       backupRestoreEvidenceStatus: packet.launchEvidence?.backupRestoreEvidenceStatus || null,
+      livingDocsReviewEvidenceStatus: packet.launchEvidence?.livingDocsReviewEvidenceStatus || null,
       evidenceSummaryRendererStatus: packet.launchEvidence?.evidenceSummaryRendererStatus || null,
     },
     steps: packet.steps.map((step) => ({

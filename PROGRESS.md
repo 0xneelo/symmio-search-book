@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Living Docs Review Release Evidence
+
+- Promoted the no-secret living-docs reviewer evidence guard into launch and release evidence packets.
+- Launch/release packet validators now require the reviewer proof to pass with internal raw-summary boundary, zero sanitized raw hits, no raw content printed, no loaded LLM credentials, and all guard checks green.
+- Evidence summaries now render the reviewer queue/privacy counts as count-only Markdown and the summary-renderer self-test injects raw reviewer notes to prove they are not printed.
+
 ## 2026-07-01 — Living Docs Review Evidence Guard
 
 - Added `npm run search-book:check-living-docs-review`, a no-secret guard for the living-docs reviewer summary path.

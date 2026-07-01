@@ -14,6 +14,7 @@ const forbiddenValues = [
   "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
   "SOURCE_BODY_SHOULD_NOT_PRINT",
   "RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT",
+  "RAW_REVIEWER_NOTE_SHOULD_NOT_PRINT",
   "sk-test-secret-should-not-print",
   "Bearer token-should-not-print",
 ];
@@ -207,6 +208,46 @@ function makeLaunchPacket() {
         ],
       },
     },
+    livingDocsReviewEvidence: {
+      parsed: {
+        status: "passed",
+        valuesPrinted: false,
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
+        },
+        evidence: {
+          rawSummaryStatus: "ok",
+          rawSummaryFlaggedInternal: true,
+          totals: {
+            questions: 4,
+            ratings: 2,
+            gaps: 4,
+          },
+          queueCounts: {
+            gapBacklog: 3,
+            lowRatedAnswers: 2,
+            unansweredQuestions: 2,
+            repeatedQuestions: 1,
+            recommendations: 3,
+          },
+          byQuestionStatus: {
+            answered: 2,
+            refused: 2,
+          },
+          seededRawValuesInRawSummary: 5,
+          seededRawValuesInSanitizedEvidence: 0,
+          rawKeyHitsInSanitizedEvidence: 0,
+          rawContentPrinted: false,
+          reviewerNote: "RAW_REVIEWER_NOTE_SHOULD_NOT_PRINT",
+        },
+        checks: [
+          { id: "raw-summary-internal-flag", passed: true },
+          { id: "sanitized-evidence-no-seeded-values", passed: true },
+          { id: "sanitized-evidence-no-raw-keys", passed: true },
+        ],
+      },
+    },
   };
 }
 
@@ -250,6 +291,7 @@ function makeReleasePacket() {
       discordRefusalRuntimeStatus: "passed",
       publicationBoundariesStatus: "passed",
       backupRestoreEvidenceStatus: "passed",
+      livingDocsReviewEvidenceStatus: "passed",
       sourceFreshness: {
         totals: { passed: 4, checks: 4 },
         secrets: {
@@ -363,6 +405,36 @@ function makeReleasePacket() {
         },
         checks: { passed: 4, total: 4 },
       },
+      livingDocsReviewEvidence: {
+        status: "passed",
+        valuesPrinted: false,
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
+        },
+        evidence: {
+          rawSummaryStatus: "ok",
+          rawSummaryFlaggedInternal: true,
+          totals: {
+            questions: 4,
+            ratings: 2,
+            gaps: 4,
+          },
+          queueCounts: {
+            gapBacklog: 3,
+            lowRatedAnswers: 2,
+            unansweredQuestions: 2,
+            repeatedQuestions: 1,
+            recommendations: 3,
+          },
+          seededRawValuesInRawSummary: 5,
+          seededRawValuesInSanitizedEvidence: 0,
+          rawKeyHitsInSanitizedEvidence: 0,
+          rawContentPrinted: false,
+          ratingNote: "RAW_REVIEWER_NOTE_SHOULD_NOT_PRINT",
+        },
+        checks: { passed: 3, total: 3 },
+      },
     },
   };
 }
@@ -421,13 +493,17 @@ function main() {
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined)
       && /Backup restore tables \| `4\/4 tables`; restore `passed`; integrity `ok`/.test(combined)
       && /Backup restore seed counts \| questions `2`, ratings `2`, gaps `2`, answer cache `0`/.test(combined)
-      && /Backup restore checks \| `4\/4`; values printed: `false`; raw content printed: `false`/.test(combined),
+      && /Backup restore checks \| `4\/4`; values printed: `false`; raw content printed: `false`/.test(combined)
+      && /Living-docs review evidence \| `passed`/.test(combined)
+      && /Living-docs review queue \| gap backlog `3`, low-rated `2`, unanswered `2`, repeated `1`, recommendations `3`/.test(combined)
+      && /Living-docs review privacy \| raw internal `true`; sanitized seeded hits `0`; raw keys `0`; raw content printed `false`/.test(combined)
+      && /Living-docs review checks \| `3\/3`; values printed: `false`; LLM credentials loaded: `false`/.test(combined),
     "",
   );
   const leakedValues = forbiddenValues.filter((value) => combined.includes(value));
   addCheck(checks, "forbidden-values-absent", leakedValues.length === 0, leakedValues.length ? `leaked=${leakedValues.join(",")}` : "none");
   addCheck(checks, "secret-like-values-absent", !/\bsk-[A-Za-z0-9_-]{8,}\b|Bearer\s+[A-Za-z0-9._-]{8,}/i.test(combined), "summary output must not include token-like values");
-  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|sourceBody|sourceAnswer|pageIds)\b/.test(combined), "summary output must not include raw field labels");
+  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|sourceBody|sourceAnswer|pageIds|reviewerNote|ratingNote)\b/.test(combined), "summary output must not include raw field labels");
 
   const failed = checks.filter((check) => !check.passed);
   const result = {

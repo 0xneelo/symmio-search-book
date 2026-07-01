@@ -127,6 +127,7 @@ Pass criteria:
 - no-secret local backup-restore evidence passes before relying on production backup manifests
 - no-secret GitHub workflow contract guard passes before relying on CI/manual release artifacts
 - no-secret living-docs reviewer evidence reports count-only summary output before enabling reviewer handoffs
+- launch/release packet validators require the living-docs reviewer evidence before operator handoff
 - backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
@@ -203,7 +204,8 @@ Production pass criteria:
 - latest backup manifest reports restore-check `passed`
 - backup-restore evidence reports 4/4 tables matched, restore `passed`, integrity `ok`, and no raw content printed
 - GitHub workflow contract evidence reports 4/4 expected workflows, no unexpected workflows, validator/summary calls present, and no secret-loading fragments
-- living-docs reviewer evidence reports raw internal summaries are privacy-flagged and sanitized evidence prints only counts/booleans
+- living-docs reviewer evidence reports raw internal summaries are privacy-flagged, sanitized evidence prints only counts/booleans, no raw content is printed, and no LLM credentials are loaded
+- launch/release packet validators report living-docs review evidence `passed`
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values

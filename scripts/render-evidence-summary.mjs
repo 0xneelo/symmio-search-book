@@ -87,6 +87,7 @@ function launchSummary(packet) {
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || {};
   const publication = packet.publicationBoundaries?.parsed || {};
   const backupRestore = packet.backupRestoreEvidence?.parsed || {};
+  const livingDocsReview = packet.livingDocsReviewEvidence?.parsed || {};
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
@@ -98,6 +99,9 @@ function launchSummary(packet) {
   const backupEvidence = backupRestore.evidence || {};
   const backupChecks = backupRestore.checks || [];
   const backupChecksPassed = backupChecks.filter((check) => check.passed).length;
+  const livingDocsEvidence = livingDocsReview.evidence || {};
+  const livingDocsChecks = livingDocsReview.checks || [];
+  const livingDocsChecksPassed = livingDocsChecks.filter((check) => check.passed).length;
   const statusDocuments = statusEvidence.documents || [];
   const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
   const specReconciliationChecks = specReconciliation.checks || [];
@@ -158,6 +162,16 @@ function launchSummary(packet) {
       `questions \`${backupEvidence.seededCounts?.questions ?? "unknown"}\`, ratings \`${backupEvidence.seededCounts?.ratings ?? "unknown"}\`, gaps \`${backupEvidence.seededCounts?.gaps ?? "unknown"}\`, answer cache \`${backupEvidence.seededCounts?.answerCache ?? "unknown"}\``,
     ],
     ["Backup restore checks", `\`${backupChecksPassed}/${backupChecks.length}\`; values printed: \`${backupRestore.valuesPrinted ?? false}\`; raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\``],
+    ["Living-docs review evidence", `\`${livingDocsReview.status || "missing"}\``],
+    [
+      "Living-docs review queue",
+      `gap backlog \`${livingDocsEvidence.queueCounts?.gapBacklog ?? "unknown"}\`, low-rated \`${livingDocsEvidence.queueCounts?.lowRatedAnswers ?? "unknown"}\`, unanswered \`${livingDocsEvidence.queueCounts?.unansweredQuestions ?? "unknown"}\`, repeated \`${livingDocsEvidence.queueCounts?.repeatedQuestions ?? "unknown"}\`, recommendations \`${livingDocsEvidence.queueCounts?.recommendations ?? "unknown"}\``,
+    ],
+    [
+      "Living-docs review privacy",
+      `raw internal \`${livingDocsEvidence.rawSummaryFlaggedInternal ?? "unknown"}\`; sanitized seeded hits \`${livingDocsEvidence.seededRawValuesInSanitizedEvidence ?? "unknown"}\`; raw keys \`${livingDocsEvidence.rawKeyHitsInSanitizedEvidence ?? "unknown"}\`; raw content printed \`${livingDocsEvidence.rawContentPrinted ?? "unknown"}\``,
+    ],
+    ["Living-docs review checks", `\`${livingDocsChecksPassed}/${livingDocsChecks.length}\`; values printed: \`${livingDocsReview.valuesPrinted ?? false}\`; LLM credentials loaded: \`${livingDocsReview.secrets?.llmCredentialsLoaded ?? "unknown"}\``],
     [
       "Evidence summary renderer",
       `\`${evidenceSummaryRenderer.status || "missing"}\` (${evidenceSummaryRenderer.evidence?.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.evidence?.valuesPrinted ?? "unknown"}\`)`,
@@ -177,6 +191,7 @@ function releaseSummary(packet) {
   const discordRefusalRuntime = launch.discordRefusalRuntime || {};
   const publication = launch.publicationBoundaries || {};
   const backupRestore = launch.backupRestoreEvidence || {};
+  const livingDocsReview = launch.livingDocsReviewEvidence || {};
   const evidenceSummaryRenderer = launch.evidenceSummaryRenderer || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
@@ -184,6 +199,7 @@ function releaseSummary(packet) {
   const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
   const backupEvidence = backupRestore.evidence || {};
+  const livingDocsEvidence = livingDocsReview.evidence || {};
   const readinessRouteCoverage = packet.readiness?.discordRouteCoverage || {};
   const stepSummary = (packet.steps || [])
     .map((step) => `${step.id}:${step.status}`)
@@ -248,6 +264,16 @@ function releaseSummary(packet) {
       `questions \`${backupEvidence.seededCounts?.questions ?? "unknown"}\`, ratings \`${backupEvidence.seededCounts?.ratings ?? "unknown"}\`, gaps \`${backupEvidence.seededCounts?.gaps ?? "unknown"}\`, answer cache \`${backupEvidence.seededCounts?.answerCache ?? "unknown"}\``,
     ],
     ["Backup restore checks", `\`${backupRestore.checks?.passed ?? "unknown"}/${backupRestore.checks?.total ?? "unknown"}\`; values printed: \`${backupRestore.valuesPrinted ?? false}\`; raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\``],
+    ["Living-docs review evidence", `\`${launch.livingDocsReviewEvidenceStatus || "missing"}\``],
+    [
+      "Living-docs review queue",
+      `gap backlog \`${livingDocsEvidence.queueCounts?.gapBacklog ?? "unknown"}\`, low-rated \`${livingDocsEvidence.queueCounts?.lowRatedAnswers ?? "unknown"}\`, unanswered \`${livingDocsEvidence.queueCounts?.unansweredQuestions ?? "unknown"}\`, repeated \`${livingDocsEvidence.queueCounts?.repeatedQuestions ?? "unknown"}\`, recommendations \`${livingDocsEvidence.queueCounts?.recommendations ?? "unknown"}\``,
+    ],
+    [
+      "Living-docs review privacy",
+      `raw internal \`${livingDocsEvidence.rawSummaryFlaggedInternal ?? "unknown"}\`; sanitized seeded hits \`${livingDocsEvidence.seededRawValuesInSanitizedEvidence ?? "unknown"}\`; raw keys \`${livingDocsEvidence.rawKeyHitsInSanitizedEvidence ?? "unknown"}\`; raw content printed \`${livingDocsEvidence.rawContentPrinted ?? "unknown"}\``,
+    ],
+    ["Living-docs review checks", `\`${livingDocsReview.checks?.passed ?? "unknown"}/${livingDocsReview.checks?.total ?? "unknown"}\`; values printed: \`${livingDocsReview.valuesPrinted ?? false}\`; LLM credentials loaded: \`${livingDocsReview.secrets?.llmCredentialsLoaded ?? "unknown"}\``],
     [
       "Evidence summary renderer",
       `\`${launch.evidenceSummaryRendererStatus || "missing"}\` (${evidenceSummaryRenderer.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.valuesPrinted ?? "unknown"}\`)`,

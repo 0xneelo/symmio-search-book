@@ -486,6 +486,13 @@ function runBackupRestoreEvidenceCommand() {
   };
 }
 
+function runLivingDocsReviewEvidenceCommand() {
+  return {
+    source: "living-docs-review-evidence",
+    result: commandResult(["scripts/check-living-docs-review-evidence.mjs"]),
+  };
+}
+
 function renderMarkdown(packet) {
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
@@ -496,6 +503,7 @@ function renderMarkdown(packet) {
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const backupRestoreEvidence = normalizedBackupRestoreEvidence(packet);
+  const livingDocsReviewEvidence = normalizedLivingDocsReviewEvidence(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const totals = launch.totals || {};
   const monitoringTotals = monitoring.totals || {};
@@ -517,6 +525,9 @@ function renderMarkdown(packet) {
   const backupEvidence = backupRestoreEvidence.evidence || {};
   const backupChecks = backupRestoreEvidence.checks || [];
   const backupChecksPassed = backupChecks.filter((check) => check.passed).length;
+  const livingDocsEvidence = livingDocsReviewEvidence.evidence || {};
+  const livingDocsChecks = livingDocsReviewEvidence.checks || [];
+  const livingDocsChecksPassed = livingDocsChecks.filter((check) => check.passed).length;
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
@@ -636,6 +647,18 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Values printed: \`${backupRestoreEvidence.valuesPrinted ?? false}\`
 - Raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\`
 
+## Living Docs Review Evidence
+
+- Living-docs review evidence status: \`${livingDocsReviewEvidence.status || "missing"}\`
+- Raw summary status: \`${livingDocsEvidence.rawSummaryStatus || "missing"}\`
+- Raw summary flagged internal: \`${livingDocsEvidence.rawSummaryFlaggedInternal ?? "unknown"}\`
+- Seeded totals: \`questions=${livingDocsEvidence.totals?.questions ?? "unknown"}, ratings=${livingDocsEvidence.totals?.ratings ?? "unknown"}, gaps=${livingDocsEvidence.totals?.gaps ?? "unknown"}\`
+- Reviewer queue counts: \`gapBacklog=${livingDocsEvidence.queueCounts?.gapBacklog ?? "unknown"}, lowRatedAnswers=${livingDocsEvidence.queueCounts?.lowRatedAnswers ?? "unknown"}, unansweredQuestions=${livingDocsEvidence.queueCounts?.unansweredQuestions ?? "unknown"}, repeatedQuestions=${livingDocsEvidence.queueCounts?.repeatedQuestions ?? "unknown"}, recommendations=${livingDocsEvidence.queueCounts?.recommendations ?? "unknown"}\`
+- Sanitized evidence raw hits: \`seeded=${livingDocsEvidence.seededRawValuesInSanitizedEvidence ?? "unknown"}, keys=${livingDocsEvidence.rawKeyHitsInSanitizedEvidence ?? "unknown"}\`
+- Checks: \`${livingDocsChecksPassed}/${livingDocsChecks.length}\`
+- Values printed: \`${livingDocsReviewEvidence.valuesPrinted ?? false}\`
+- Raw content printed: \`${livingDocsEvidence.rawContentPrinted ?? "unknown"}\`
+
 ## Evidence Summary Renderer
 
 - Evidence summary renderer status: \`${evidenceSummaryRenderer.status || "missing"}\`
@@ -702,6 +725,10 @@ function normalizedBackupRestoreEvidence(packet) {
   return packet.backupRestoreEvidence?.parsed || {};
 }
 
+function normalizedLivingDocsReviewEvidence(packet) {
+  return packet.livingDocsReviewEvidence?.parsed || {};
+}
+
 function normalizedEvidenceSummaryRenderer(packet) {
   return packet.evidenceSummaryRenderer?.parsed || {};
 }
@@ -717,6 +744,7 @@ function buildPacket(
   discordRefusalRuntime,
   publicationBoundaries,
   backupRestoreEvidence,
+  livingDocsReviewEvidence,
   evidenceSummaryRenderer,
 ) {
   const parsed = evidence.result.parsed || null;
@@ -728,6 +756,7 @@ function buildPacket(
   const discordRefusalRuntimeParsed = discordRefusalRuntime.result.parsed || null;
   const publicationBoundariesParsed = publicationBoundaries.result.parsed || null;
   const backupRestoreEvidenceParsed = backupRestoreEvidence.result.parsed || null;
+  const livingDocsReviewEvidenceParsed = livingDocsReviewEvidence.result.parsed || null;
   const evidenceSummaryRendererParsed = evidenceSummaryRenderer.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
   const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
@@ -745,6 +774,8 @@ function buildPacket(
     publicationBoundaries.result.passed && (!publicationBoundariesParsed || publicationBoundariesParsed.status === "passed");
   const backupRestoreEvidencePassed =
     backupRestoreEvidence.result.passed && (!backupRestoreEvidenceParsed || backupRestoreEvidenceParsed.status === "passed");
+  const livingDocsReviewEvidencePassed =
+    livingDocsReviewEvidence.result.passed && (!livingDocsReviewEvidenceParsed || livingDocsReviewEvidenceParsed.status === "passed");
   const evidenceSummaryRendererPassed =
     evidenceSummaryRenderer.result.passed && (!evidenceSummaryRendererParsed || evidenceSummaryRendererParsed.status === "passed");
   const status =
@@ -757,6 +788,7 @@ function buildPacket(
       && discordRefusalRuntimePassed
       && publicationBoundariesPassed
       && backupRestoreEvidencePassed
+      && livingDocsReviewEvidencePassed
       && evidenceSummaryRendererPassed
       ? "passed"
       : "failed";
@@ -784,6 +816,8 @@ function buildPacket(
     publicationBoundariesCommand: publicationBoundaries.result.command,
     backupRestoreEvidenceSource: backupRestoreEvidence.source,
     backupRestoreEvidenceCommand: backupRestoreEvidence.result.command,
+    livingDocsReviewEvidenceSource: livingDocsReviewEvidence.source,
+    livingDocsReviewEvidenceCommand: livingDocsReviewEvidence.result.command,
     evidenceSummaryRendererSource: evidenceSummaryRenderer.source,
     evidenceSummaryRendererCommand: evidenceSummaryRenderer.result.command,
     repository: {
@@ -881,6 +915,15 @@ function buildPacket(
       stdoutTail: backupRestoreEvidence.result.stdoutTail,
       stderrTail: backupRestoreEvidence.result.stderrTail,
     },
+    livingDocsReviewEvidence: {
+      exitCode: livingDocsReviewEvidence.result.exitCode,
+      signal: livingDocsReviewEvidence.result.signal,
+      passed: livingDocsReviewEvidence.result.passed,
+      parsed: livingDocsReviewEvidenceParsed,
+      error: livingDocsReviewEvidence.result.error,
+      stdoutTail: livingDocsReviewEvidence.result.stdoutTail,
+      stderrTail: livingDocsReviewEvidence.result.stderrTail,
+    },
     evidenceSummaryRenderer: {
       exitCode: evidenceSummaryRenderer.result.exitCode,
       signal: evidenceSummaryRenderer.result.signal,
@@ -922,6 +965,7 @@ function main() {
   const discordRefusalRuntime = runDiscordRefusalRuntimeCommand();
   const publicationBoundaries = runPublicationBoundariesCommand();
   const backupRestoreEvidence = runBackupRestoreEvidenceCommand();
+  const livingDocsReviewEvidence = runLivingDocsReviewEvidenceCommand();
   const evidenceSummaryRenderer = runEvidenceSummaryRendererCommand();
   const packet = writePacket(
     args,
@@ -936,6 +980,7 @@ function main() {
       discordRefusalRuntime,
       publicationBoundaries,
       backupRestoreEvidence,
+      livingDocsReviewEvidence,
       evidenceSummaryRenderer,
     ),
   );
@@ -958,6 +1003,7 @@ function main() {
     discordRefusalRuntimeStatus: normalizedDiscordRefusalRuntime(packet).status || (packet.discordRefusalRuntime?.passed ? "passed" : "failed"),
     publicationBoundariesStatus: normalizedPublicationBoundaries(packet).status || (packet.publicationBoundaries?.passed ? "passed" : "failed"),
     backupRestoreEvidenceStatus: normalizedBackupRestoreEvidence(packet).status || (packet.backupRestoreEvidence?.passed ? "passed" : "failed"),
+    livingDocsReviewEvidenceStatus: normalizedLivingDocsReviewEvidence(packet).status || (packet.livingDocsReviewEvidence?.passed ? "passed" : "failed"),
     evidenceSummaryRendererStatus: normalizedEvidenceSummaryRenderer(packet).status || (packet.evidenceSummaryRenderer?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,

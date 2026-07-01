@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex living-docs release evidence promotion
+- Task: Promote the no-secret living-docs reviewer evidence guard into launch/release packets, validators, and evidence summaries so release rehearsals prove the reviewer privacy boundary from the same artifact set as the other production-readiness checks.
+- Scope: Launch/release packet scripts, packet validators, evidence summary renderer/checker, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch/release packets include parsed `check-living-docs-review` evidence, validators fail if it is missing/stale/raw, summary output is count-only, full verify passes, fresh no-secret release dry-run passes from the current commit, and only #11/#4 remain open.
+- Result: Added living-docs review evidence to launch/release packets, packet validators, and count-only summaries. Focused checks passed for syntax, `npm run search-book:check-evidence-summary`, and `npm run search-book:check-status-evidence`. Full `npm run search-book:verify` passed with 26 build steps, 90 syntax checks, quality gates `29/30`, `livingDocsReviewEvidence:passed`, and only #11/#4 open. Clean release rehearsal `/tmp/search-book-release-dry-run-living-docs-review-evidence-20260701-1` passed from a clean checkpoint with static artifact `1,650` files / `52,819,005` bytes, launch/release packet validators passed, `livingDocsReviewEvidenceStatus:passed`, 4 questions / 2 ratings / 4 gaps seeded, reviewer queue counts 3 / 2 / 2 / 1 / 3, 5 seeded raw values present in raw internal summary, 0 seeded raw values in sanitized evidence, 0 raw-key hits, no raw content printed, no LLM credentials loaded, `valuesPrinted:false`, and 0 sensitive-pattern matches.
+
 ## 2026-07-01 — Codex living-docs review evidence guard
 - Task: Add a no-secret/no-raw guard for the living-docs reviewer summary path so the raw internal SQLite summary can be converted into count-only evidence without leaking user questions, rating notes, Discord/Lafa text, or token-like values.
 - Scope: New checker script, package/build verification wiring, status docs/evidence checks, and `_local/agent-worklog.md`.

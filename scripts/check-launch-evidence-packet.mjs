@@ -32,8 +32,8 @@ Options:
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
 readiness, original-spec reconciliation, Discord route coverage, publication
-boundaries, backup/restore evidence, living-docs controls, clean repository
-state, and reconciled open operator gates.`;
+boundaries, backup/restore evidence, living-docs reviewer evidence,
+living-docs controls, clean repository state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -108,6 +108,10 @@ function normalizedPublicationBoundaries(packet) {
 
 function normalizedBackupRestoreEvidence(packet) {
   return packet.backupRestoreEvidence?.parsed || {};
+}
+
+function normalizedLivingDocsReviewEvidence(packet) {
+  return packet.livingDocsReviewEvidence?.parsed || {};
 }
 
 function normalizedEvidenceSummaryRenderer(packet) {
@@ -309,6 +313,33 @@ function backupRestoreEvidenceReady(evidence = {}) {
   );
 }
 
+function livingDocsReviewEvidenceReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.valuesPrinted === false
+    && evidence.secrets?.valuesPrinted === false
+    && evidence.secrets?.llmCredentialsLoaded === false
+    && totals.rawSummaryStatus === "ok"
+    && totals.rawSummaryFlaggedInternal === true
+    && Number(totals.totals?.questions || 0) >= 4
+    && Number(totals.totals?.ratings || 0) >= 2
+    && Number(totals.totals?.gaps || 0) >= 4
+    && Number(totals.queueCounts?.gapBacklog || 0) >= 3
+    && Number(totals.queueCounts?.lowRatedAnswers || 0) >= 2
+    && Number(totals.queueCounts?.unansweredQuestions || 0) >= 2
+    && Number(totals.queueCounts?.repeatedQuestions || 0) >= 1
+    && Number(totals.queueCounts?.recommendations || 0) >= 3
+    && Number(totals.seededRawValuesInRawSummary || 0) >= 5
+    && Number(totals.seededRawValuesInSanitizedEvidence || 0) === 0
+    && Number(totals.rawKeyHitsInSanitizedEvidence || 0) === 0
+    && totals.rawContentPrinted === false
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
@@ -320,6 +351,7 @@ function validateLaunchPacket(packet, packetPath) {
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const backupRestoreEvidence = normalizedBackupRestoreEvidence(packet);
+  const livingDocsReviewEvidence = normalizedLivingDocsReviewEvidence(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const repository = packet.repository || {};
   const readiness = packet.readiness || {};
@@ -500,6 +532,29 @@ function validateLaunchPacket(packet, packetPath) {
   );
   addCheck(
     checks,
+    "living-docs-review-evidence-passed",
+    packet.livingDocsReviewEvidence?.passed === true,
+    `passed=${packet.livingDocsReviewEvidence?.passed}`,
+  );
+  addCheck(
+    checks,
+    "living-docs-review-evidence-status",
+    livingDocsReviewEvidence.status === "passed",
+    `status=${livingDocsReviewEvidence.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "living-docs-review-evidence-ready",
+    livingDocsReviewEvidenceReady(livingDocsReviewEvidence),
+    JSON.stringify({
+      evidence: livingDocsReviewEvidence.evidence || null,
+      valuesPrinted: livingDocsReviewEvidence.valuesPrinted ?? null,
+      secrets: livingDocsReviewEvidence.secrets || null,
+      checks: Array.isArray(livingDocsReviewEvidence.checks) ? livingDocsReviewEvidence.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "evidence-summary-renderer-passed",
     packet.evidenceSummaryRenderer?.passed === true,
     `passed=${packet.evidenceSummaryRenderer?.passed}`,
@@ -590,6 +645,8 @@ function validateLaunchPacket(packet, packetPath) {
       publicationBoundaries: publicationBoundaries.evidence || null,
       backupRestoreEvidenceStatus: backupRestoreEvidence.status || null,
       backupRestoreEvidence: backupRestoreEvidence.evidence || null,
+      livingDocsReviewEvidenceStatus: livingDocsReviewEvidence.status || null,
+      livingDocsReviewEvidence: livingDocsReviewEvidence.evidence || null,
       evidenceSummaryRendererStatus: evidenceSummaryRenderer.status || null,
       evidenceSummaryRenderer: evidenceSummaryRenderer.evidence || null,
       sourceCompletionReady: readiness.sourceCompletionReady === true,
