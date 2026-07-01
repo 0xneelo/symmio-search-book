@@ -25,10 +25,10 @@ jobs:
       VIBE_DOCS_DATA: /tmp/vibe_docs/Website/public/generated/docs-data.json
     steps:
       - name: Check out Search Book
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
 

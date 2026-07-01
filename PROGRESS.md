@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — GitHub Workflow Action Version Refresh
+
+- Updated all Search Book GitHub workflows from Node-20-based action majors to current action majors: `actions/checkout@v7`, `actions/setup-node@v6`, and `actions/upload-artifact@v7`.
+- Updated `scripts/check-github-workflows.mjs` so `npm run search-book:check-github-workflows` now enforces those action versions while preserving read-only permissions, public Vibe docs export fetches, no secret/env-file loading, evidence summaries, smokes, checked artifact validators, and short-lived artifacts.
+- Verification passed: `node --check scripts/check-github-workflows.mjs`, `npm run search-book:check-github-workflows`, and full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`. Full verify reported 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, quality `29/30`, and `githubWorkflows:passed`; only #11/#4 remain open.
+
 ## 2026-07-02 — No-Secret Evidence Refresh From Reconciliation-Guard Checkpoint
 
 - Triggered fresh manual workflows from commit `1637c6a`: launch evidence run `28551814956`, release dry-run run `28551817241`, and static artifact run `28551816350`; all passed. The only workflow annotations were GitHub's Node 20 deprecation notices for upstream actions.
