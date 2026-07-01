@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Standalone CI Verification Gate
+
+- Added `.github/workflows/search-book-verify.yml`, a no-secret GitHub Actions workflow for `main` pushes and pull requests.
+- The workflow sets up Node 22, clones the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, verifies the expected build input paths, then runs `npm run search-book:verify`, `npm run search-book:smoke-static`, `npm run search-book:smoke-service`, and `npm run search-book:smoke-preview-service`.
+- Updated README, deployment docs, final report, and the production roadmap so CI is documented while live LLM credentials, production env files, moderation tokens, metrics tokens, and Discord tokens stay out of CI.
+
 ## 2026-07-01 — Answer-Engine Backup And Restore Check
 
 - Added `scripts/backup-answer-engine-db.mjs` and `npm run search-book:backup-db` so operators can create a SQLite-consistent Search Book answer-engine backup with `VACUUM INTO`, a JSON manifest, SHA-256, table counts, and default restore verification via `PRAGMA integrity_check`.

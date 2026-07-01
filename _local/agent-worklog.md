@@ -32,3 +32,10 @@
 - Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
 - Verification target: no tracked operational docs instruct agents to run old `src/search-book/...` paths; docs-only verification and `npm run search-book:verify` remain green.
 - Result: Updated final report, progress log, and inbox references to standalone root paths (`index.html`, `scripts/...`, `node scripts/build-all.mjs --verify`). `rg` now finds no `src/search-book` references in `FINAL-REPORT.md`, `PROGRESS.md`, or `_specs/app-docs/OPERATOR-INBOX.md`. `node scripts/check-readiness-evidence.mjs` passed, and full `npm run search-book:verify` passed with 24 build steps, 61 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.
+
+## 2026-07-01 — Codex CI verification gate
+- Task: Add a no-secret GitHub Actions gate for the standalone Search Book deterministic build and smoke suite.
+- Scope: `.github/workflows/search-book-verify.yml`, README/deployment/readiness docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: workflow syntax is valid YAML, local commands mirrored by CI pass, and `npm run search-book:verify` remains green.
+- Result: Added `.github/workflows/search-book-verify.yml` for `main` pushes and pull requests. The workflow uses Node 22, clones public `0xneelo/vibe_docs` into `/tmp/vibe_docs`, and runs `npm run search-book:verify`, `npm run search-book:smoke-static`, `npm run search-book:smoke-service`, and `npm run search-book:smoke-preview-service` without loading secrets. `python3`/PyYAML parsed the workflow, `git diff --check` passed, `node scripts/check-readiness-evidence.mjs` passed, full verify passed with 24 build steps and 61 syntax checks, static smoke passed, service smoke passed, and preview-service smoke passed.

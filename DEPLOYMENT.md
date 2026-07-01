@@ -17,7 +17,11 @@ npm run search-book:build
 node scripts/build-all.mjs --verify     # invariants + sensitive-pattern scan; must pass
 ```
 
-Commit any regenerated `data/` artifacts. CI should run `npm run search-book:verify`.
+Commit any regenerated `data/` artifacts. The GitHub Actions workflow
+`.github/workflows/search-book-verify.yml` clones the public Vibe docs export and runs
+`npm run search-book:verify`, `npm run search-book:smoke-static`,
+`npm run search-book:smoke-service`, and `npm run search-book:smoke-preview-service`
+without loading secrets.
 
 ## 2. Secrets & environment
 

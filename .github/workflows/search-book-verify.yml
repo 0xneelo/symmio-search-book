@@ -1,0 +1,56 @@
+name: Search Book Verify
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-book-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Deterministic corpus and smoke tests
+    runs-on: ubuntu-latest
+    env:
+      VIBE_DOCS_ROOT: /tmp/vibe_docs
+      VIBE_DOCS_PUBLIC: /tmp/vibe_docs/Docs/public
+      VIBE_DOCS_DATA: /tmp/vibe_docs/Website/public/generated/docs-data.json
+    steps:
+      - name: Check out Search Book
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Show runtime
+        run: |
+          node --version
+          npm --version
+
+      - name: Fetch public Vibe docs export
+        run: |
+          git clone --depth 1 https://github.com/0xneelo/vibe_docs.git "$VIBE_DOCS_ROOT"
+          test -d "$VIBE_DOCS_PUBLIC"
+          test -f "$VIBE_DOCS_DATA"
+
+      - name: Verify corpus and invariants
+        run: npm run search-book:verify
+
+      - name: Smoke static preview
+        run: npm run search-book:smoke-static
+
+      - name: Smoke answer-engine service
+        run: npm run search-book:smoke-service
+
+      - name: Smoke static preview plus service bridge
+        run: npm run search-book:smoke-preview-service

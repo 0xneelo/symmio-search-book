@@ -21,6 +21,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
+| `.github/workflows/search-book-verify.yml` | No-secret CI gate for deterministic verify and localhost smoke tests. |
 | `_specs/app-docs/` | Product specs + operator inbox (SYN-209). |
 | `*.md` | Living docs: `FINAL-REPORT.md`, `DECISIONS.md`, `GAPS.md`, `STYLEGUIDE.md`, `LLM-RAG-CONTRACT.md`, `LIVING-DOCS-OPERATIONS.md`, etc. |
 
@@ -66,6 +67,21 @@ npm run search-book:check-production-env
 # Ask a grounded, cited question with NO model call (extractive):
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
 ```
+
+## CI
+
+`.github/workflows/search-book-verify.yml` runs on `main` pushes and pull requests. It uses
+Node 22, clones the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, then runs:
+
+```bash
+npm run search-book:verify
+npm run search-book:smoke-static
+npm run search-book:smoke-service
+npm run search-book:smoke-preview-service
+```
+
+The workflow does not load LLM credentials, production env files, moderation tokens, metrics
+tokens, or Discord tokens.
 
 ## Answer-engine service
 
