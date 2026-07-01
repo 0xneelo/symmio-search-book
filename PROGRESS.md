@@ -49,9 +49,9 @@
 
 ## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard
 
-- Triggered fresh manual workflows from commit `ab994e5`: launch evidence run `28537954360` and release dry-run run `28537953479`; both passed.
-- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28537954360` and `/tmp/search-book-gh-manual-release-28537953479`; strict validators passed with `--require-summary` for the launch packet and release packet.
-- Both summaries carry repository commit `ab994e5`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, 93 syntax checks, and only #11/#4 open.
+- Triggered fresh manual workflows from commit `57374e8`: launch evidence run `28540293773` and release dry-run run `28540294754`; both passed.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28540293773` and `/tmp/search-book-gh-manual-release-28540294754`; strict validators passed with `--require-summary` for the launch packet and release packet.
+- Both summaries carry repository commit `57374e8`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 19/19; keep-refusal 2/2; copy changes 0; promoted 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, 93 syntax checks, and only #11/#4 open.
 
 ## 2026-07-01 — Production Packet Linear Task Guard
 
