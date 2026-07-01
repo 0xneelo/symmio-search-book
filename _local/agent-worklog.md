@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex completion audit manual-evidence guard
+- Task: Keep `COMPLETION-AUDIT.md` aligned with the latest strict manual launch/release evidence and make `npm run search-book:check-completion-audit` enforce that linkage from `PROGRESS.md`.
+- Scope: `COMPLETION-AUDIT.md`, `scripts/check-completion-audit.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-completion-audit`, `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, and `git diff --check` pass with the latest manual launch/release run IDs, the open-operator Linear task summary row, and only #11/#4 open.
+- Result: `COMPLETION-AUDIT.md` now names the latest manual GitHub launch/release evidence from commit `b330251`, launch run `28535275223`, release run `28535275202`, strict summary validation, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`. `scripts/check-completion-audit.mjs` now parses the latest manual-evidence entry from `PROGRESS.md` and fails if the audit drifts from that evidence. Focused verification passed with source completion `true`, completion readiness `false`, quality `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex refreshed manual evidence for production packet guard
 - Task: Refresh manual launch/release workflow evidence from commit `b330251` so downloaded artifacts carry the production-packet Linear task guard.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.

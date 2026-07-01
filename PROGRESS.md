@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Completion Audit Manual Evidence Guard
+
+- Updated `COMPLETION-AUDIT.md` so the preview/release evidence section names the latest strict manual GitHub artifacts: launch run `28535275223`, release run `28535275202`, commit `b330251`, strict summary validation, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- Hardened `npm run search-book:check-completion-audit` to read the latest manual-evidence entry from `PROGRESS.md` and fail if the completion audit does not carry the same commit/run evidence and no-secret Linear-task summary boundary.
+- Focused verification passed: `node --check scripts/check-completion-audit.mjs`, `npm run search-book:check-completion-audit`, and `git diff --check`; the guard reports source completion `true`, completion readiness `false`, quality `29/30`, manual evidence commit `b330251`, launch run `28535275223`, release run `28535275202`, and only #11/#4 open.
+
 ## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard
 
 - Triggered fresh manual workflows from commit `b330251`: launch evidence run `28535275223` and release dry-run run `28535275202`; both passed.

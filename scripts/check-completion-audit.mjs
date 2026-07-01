@@ -67,6 +67,7 @@ function valuesEqual(actual = [], expected = []) {
 }
 
 const audit = readText("COMPLETION-AUDIT.md");
+const progress = readText("PROGRESS.md");
 const finalReportExists = fs.existsSync(path.join(searchBookRoot, "FINAL-REPORT.md"));
 const decisionsExists = fs.existsSync(path.join(searchBookRoot, "DECISIONS.md"));
 const sourcesExists = fs.existsSync(path.join(searchBookRoot, "SOURCES.md"));
@@ -103,6 +104,16 @@ const qualityTotal = (quality.gates || []).length;
 const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
 const liveSuites = llm.liveEvaluation?.suites || {};
 const checks = [];
+
+const manualEvidenceEntry =
+  progress.match(/## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+const manualEvidence = {
+  commit: manualEvidenceEntry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
+  launchRun: manualEvidenceEntry.match(/launch evidence run `(\d+)`/)?.[1] || "",
+  releaseRun: manualEvidenceEntry.match(/release dry-run run `(\d+)`/)?.[1] || "",
+  launchArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-launch-\d+)/)?.[1] || "",
+  releaseArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-release-\d+)/)?.[1] || "",
+};
 
 addCheck(
   checks,
@@ -306,6 +317,21 @@ addCheck(
   "quality audit must pass every gate except the expected production operator gate",
   { quality: `${qualityPassed}/${qualityTotal}` },
 );
+addCheck(
+  checks,
+  "manual-evidence-reflected-in-audit",
+  Boolean(manualEvidence.commit) &&
+    Boolean(manualEvidence.launchRun) &&
+    Boolean(manualEvidence.releaseRun) &&
+    audit.includes(manualEvidence.commit) &&
+    audit.includes(manualEvidence.launchRun) &&
+    audit.includes(manualEvidence.releaseRun) &&
+    audit.includes("strict summary validation") &&
+    audit.includes("Open operator Linear tasks | #4=SYN-285, #11=SYN-281") &&
+    audit.includes("Secrets printed | false"),
+  "completion audit must reflect the latest strict manual launch/release evidence from PROGRESS.md",
+  manualEvidence,
+);
 
 const failed = checks.filter((check) => !check.passed);
 const result = {
@@ -324,6 +350,7 @@ const result = {
     livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
     openOperatorIds,
     quality: `${qualityPassed}/${qualityTotal}`,
+    manualEvidence,
   },
   checks,
 };
