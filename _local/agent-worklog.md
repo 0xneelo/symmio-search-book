@@ -1,3 +1,10 @@
+## 2026-07-02 — Codex reconcile stale GAPS resolution summary
+- Task: Refresh stale post-reconciliation wording in `GAPS.md` so the resolution summary no longer says manifest authoring is ongoing, no longer asks agents to fix already-reconciled 5-level dashboard copy, and treats G-008 as a source-boundary/runtime refusal rather than a new operator gate.
+- Scope: `GAPS.md`, `scripts/build-faq-map.mjs`, regenerated `data/faq.*`, `data/gap-queue.*`, `data/quality-audit.*`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion guards, full verify, `git diff --check`, and a scoped checkpoint. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `GAPS.md` agrees with current generated counts and OPERATOR-INBOX reconciliation; source-ingestion remains `17/17`; open operator items remain only #11/#4; focused guards and `git diff --check` pass.
+- Result: Updated stale `GAPS.md` resolution rows for G-002A, G-003, and G-008; changed the reconciliation FAQ fallback in `scripts/build-faq-map.mjs` from operator/source parking language to source-boundary/refusal-policy language; regenerated `data/faq.*`, `data/gap-queue.*`, and `data/quality-audit.*`. Verified focused status/completion/production-packet guards, stale phrase scan, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`; source ingestion remains `17/17`, quality remains `29/30`, and only #11/#4 remain open.
+
 ## 2026-07-02 — Codex remove stale Discord parked journey wording
 - Task: Replace stale guided-journey wording that implied the Discord import was still parked now that the real Discord/Lafa corpus is imported, sanitized, and routed for review.
 - Scope: `scripts/build-journey-map.mjs`, regenerated `data/journeys.*` if output changes, `PROGRESS.md`, `_local/agent-worklog.md`, and focused verification. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

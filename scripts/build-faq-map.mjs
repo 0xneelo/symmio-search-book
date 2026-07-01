@@ -177,7 +177,7 @@ function reconciliationEntry(route, gapsById, sourceByKey) {
     question: route.question,
     gapId: route.gapId,
     gapTitle: gap.title,
-    shortAnswer: "Parked for operator/source reconciliation. The prototype should route this as a gap, not as a final answer.",
+    shortAnswer: "Source-boundary route. Use the linked gap and refusal policy rather than treating this as a final public answer.",
     notes: route.notes,
     confidence: "Needs Reconciliation",
     sourceKeys,

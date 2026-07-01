@@ -37,8 +37,8 @@
   },
   "byStatus": {
     "operator-parked": 1,
-    "resolved": 9,
-    "open": 2
+    "resolved": 10,
+    "open": 1
   },
   "topItems": [
     "queue-g-010",
@@ -428,14 +428,14 @@
     {
       "id": "queue-g-008",
       "gapId": "G-008",
-      "title": "Options And Vault-Backed Inventory Need More Primary Sources",
+      "title": "Options And Vault-Backed Inventory Are A Source Boundary",
       "type": "documented-gap",
       "status": "resolved",
       "priority": "P1",
       "priorityScore": 75,
       "category": "Options And Settlement",
       "summary": "The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. The current Symmio Options v0.2.1 docs, Diamond architecture, PartyA/PartyB open-close facets, and Instant Layer docs are now registered and synthesized into authored-options-intent-lifecycle. The remaining gap is the Vibe-specific covered-call/vault-backed inventory example and exact public exposure semantics.",
-      "needed": "Product owner confirmation, Vibe-specific example lifecycle, vault source/coverage rules, and whether vault LPs can see exact covered-call exposure before publishing product-specific claims.",
+      "needed": "",
       "resolved": true,
       "sourceKeys": [
         "spec-02",
@@ -579,13 +579,13 @@
       "gapId": "G-002A",
       "title": "500-800 Page Manifest Is Authored And Published; Source/Deploy Gaps Remain",
       "type": "documented-gap",
-      "status": "open",
+      "status": "resolved",
       "priority": "P1",
       "priorityScore": 70,
       "category": "Editorial Production",
       "summary": "The manifest maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is now book-scale and launch-classified: data/authored-pages.* reports 801 authored pages, while data/page-state-registry.* reports 800 published public-navigation pages, 0 candidate pages, 792 source companions, and 3 internal drafts. The public compendium spans the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, the SYMM LP case-study layer, referral architecture, rewards and tokenized-points boundaries, and local product-reference mechanics. Source companions remain retrieval and traceability material, not public navigation pages.",
       "needed": "Keep re-running npm run search-book:check-publication-boundaries as sources or operator decisions change. The current guard passes with 800 public-navigation pages, 792 source companions kept out of public routes/navigation, and 0 internal-draft runtime context chunks.",
-      "resolved": false,
+      "resolved": true,
       "sourceKeys": [
         "spec-08",
         "authored-pages"

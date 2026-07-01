@@ -92,11 +92,11 @@ Operator reconciliation on 2026-07-01 marks original/oldest whitepaper recovery 
 
 **Disposition:** Resolved for v1. Do not re-open OPERATOR-INBOX #6; use `authored-symmio-whitepaper-history-boundary` for launch-safe wording.
 
-## G-008: Options And Vault-Backed Inventory Need More Primary Sources
+## G-008: Options And Vault-Backed Inventory Are A Source Boundary
 
 The prompt frames Vibe x Symmio around options intents, vault-backed inventory, PartyA buyers, solvers, and Symmio settlement. The current Symmio Options v0.2.1 docs, Diamond architecture, PartyA/PartyB open-close facets, and Instant Layer docs are now registered and synthesized into `authored-options-intent-lifecycle`. The remaining gap is the Vibe-specific covered-call/vault-backed inventory example and exact public exposure semantics.
 
-**Needed:** Product owner confirmation, Vibe-specific example lifecycle, vault source/coverage rules, and whether vault LPs can see exact covered-call exposure before publishing product-specific claims.
+**Disposition:** Resolved for v1 as a refusal boundary, not a production operator gate. Generic Symmio options and intent-lifecycle questions are answerable from registered primary sources. Vibe-specific covered-call, vault-backed inventory, and exact LP exposure questions refuse as `vibe-vault-options-source-boundary` with `G-008` until a future product-specific source exists.
 
 ## G-009: Public Versus Internal Terminology Needs Owner Review
 
@@ -126,13 +126,13 @@ Operator decisions recorded this session (Linear epic SYN-209; operator mirror i
 
 - **G-001 Discord** — ✅ RESOLVED as a source-ingestion item on 2026-07-01: export/access is provided, #2 must not be re-opened, #17 is resolved, and `data/discord-corpus.json` imports 5,000 messages, 723 question clusters, and 837 configured Lafa candidates in internal-only mode. Checked-in data redacts raw and normalized Discord text. Remaining work is editorial review before public use of specific Discord claims.
 - **G-002 Opyn sweep** — ✅ RESOLVED: Opyn excluded (shut down, low priority) — SYN-213. Sweep finalized 49/50 with documented exclusion.
-- **G-002A Manifest authoring** — Disposition: SYN-221 (promote source-companion drafts → publication pages + normalize terminology). Ongoing; the deterministic engine is already prod-ready.
-- **G-003 Referral depth** — ✅ RESOLVED: public = **15 levels** (SYN-212); historical backfill additive (never lowers a balance). Fix stale 5-level copy in `src/dashboard/volume.jsx`.
+- **G-002A Manifest authoring** — ✅ RESOLVED for v1: the corpus now has 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792/792 source companions covered by authored pages, and 0 candidate pages remaining in final/operator/source-refresh/publication-date/editorial review queues. Source companions stay retrieval and traceability material, not public navigation pages.
+- **G-003 Referral depth** — ✅ RESOLVED: public = **15 levels** (SYN-212); historical backfill additive (never lowers a balance). Search Book public copy and answer fixtures now use 15-level wording.
 - **G-004 Revenue wording** — ✅ RESOLVED: publish Phase-A formula `networkVolume × platformFeeRate × referrerPlatformShare` incl. defaults **0.05% (5 bps) fee + 30% referrer share** (SYN-212). Phase B out of scope for v1.
 - **G-005 Subgraph** — ✅ RESOLVED (stance, operator 2026-06-29): docs describe the **current production source** as live and the Goldsky subgraph as a tracked upgrade. Implementation-only remainder: exact Vibe subgraph endpoint/venue mapping under SYN-200 — not a docs blocker.
 - **G-006 Market counts** — Disposition: not a blocker — treat exact counts as a **publication-date verification** item (re-fetch official Vibe overview at publish), not a static compendium fact.
 - **G-007 Whitepaper history** — ✅ RESOLVED for v1 on 2026-07-01: original/oldest whitepaper recovery is out of scope for v1; use the registered official Git/current-docs boundary.
-- **G-008 Options/vault sources** — ✅ RESOLVED (operator 2026-06-29): keep the **generic Symmio options/intent lifecycle** for v1 (already authored); Vibe-specific covered-call / vault-backed claims **parked** until the operator provides the example.
+- **G-008 Options/vault sources** — ✅ RESOLVED for v1 as a source boundary: keep the **generic Symmio options/intent lifecycle** answerable from registered sources; refuse Vibe-specific covered-call / vault-backed inventory exposure claims as `vibe-vault-options-source-boundary` until a future product-specific source exists.
 - **G-009 Terminology/glossary** — ✅ RESOLVED (operator 2026-06-29): the point **taxonomy** (onboarding/referral/network/Vibe points) is **approved as canonical**; the public **TGE settlement formula is deferred / not-public for v1**.
 - **G-010 Answer-engine build/buy** — ✅ RESOLVED: **BUILD** — standalone answer-engine service + SQLite (SYN-217) + OpenAI openai-compatible RAG runtime (SYN-211/SYN-215). Retrieval/chunking/citations/refusal already in the contract; rate-limits/abuse/analytics = SYN-219. Public frontend platform still open (inbox #4 / SYN-210).
 - **G-011 Notion** — ✅ RESOLVED for v1 on 2026-07-01: Notion MCP access is installed, relevant pages were fetched, `vibe-trading-notion` is registered, and public use is paraphrase-only.

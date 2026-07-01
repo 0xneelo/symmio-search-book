@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — GAPS Resolution Summary Reconciliation
+
+- Reconciled stale `GAPS.md` resolution-summary wording: G-002A manifest authoring is resolved for v1 with 794 manifest pages / 801 authored pages / 800 public-navigation pages, the old referral-depth "fix stale 5-level copy" note is no longer active, and G-008 is framed as a source-boundary refusal rather than a production operator gate.
+- Updated the reconciliation FAQ generator so `Needs Reconciliation` entries use source-boundary/refusal-policy wording instead of implying operator/source parking; regenerated `data/faq.*`, `data/gap-queue.*`, and `data/quality-audit.*`.
+- Verification passed: focused status/completion/production-packet guards, stale phrase scan, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`. Source ingestion remains `17/17`, gap queue now reports 10 resolved / 1 open / 1 operator-parked documented gaps, quality remains `29/30`, and only #11/#4 remain open.
+
 ## 2026-07-02 — Dashboard Journey Discord Wording Refresh
 
 - Replaced the dashboard-user journey step for `authored-dashboard-faq` so it now points readers to the source-backed FAQ alongside the imported Discord/Lafa review queue, instead of treating the import as parked.
