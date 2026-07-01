@@ -147,13 +147,29 @@ function addPublicRouteCoverage(pageFitReview, args) {
     const publicRouteCount = publicRouteCounts.get(entry.pageId) || 0;
     const coverageStatus =
       publicRouteCount > 1 ? "route-aliases-present" : publicRouteCount === 1 ? "single-route" : "no-public-route";
+    const sourceBacked = (entry.sourceKeys || []).length > 0;
+    const automatedTriageStatus =
+      coverageStatus === "route-aliases-present" && sourceBacked
+        ? "source-backed-existing-page-fit"
+        : coverageStatus === "route-aliases-present"
+          ? "existing-page-fit-needs-source-review"
+          : coverageStatus === "single-route"
+            ? "needs-route-alias-review"
+            : "needs-public-route-review";
     return {
       ...entry,
       publicRouteCount,
       coverageStatus,
+      sourceBacked,
+      automatedTriageStatus,
+      publicCopyStatus: "editorial-review-required",
       coveredByPublicRoutes: coverageStatus === "route-aliases-present",
     };
   });
+  const sourceBackedPageFitGroups = annotated.filter((entry) => entry.sourceBacked).length;
+  const triageReadyPageFitGroups = annotated.filter(
+    (entry) => entry.automatedTriageStatus === "source-backed-existing-page-fit",
+  ).length;
 
   return {
     pageFitReview: annotated,
@@ -163,9 +179,15 @@ function addPublicRouteCoverage(pageFitReview, args) {
       pageFitSingleRouteRemaining: annotated.filter((entry) => entry.coverageStatus === "single-route").length,
       pageFitWithoutPublicRoute: annotated.filter((entry) => entry.coverageStatus === "no-public-route").length,
       totalPublicRoutesToPageFitPages: annotated.reduce((total, entry) => total + entry.publicRouteCount, 0),
+      sourceBackedPageFitGroups,
+      triageReadyPageFitGroups,
+      publicCopyReviewRequired: annotated.filter((entry) => entry.publicCopyStatus === "editorial-review-required").length,
       coverageReady:
         annotated.length > 0 &&
         annotated.every((entry) => entry.coverageStatus === "route-aliases-present"),
+      triageReady:
+        annotated.length > 0 &&
+        triageReadyPageFitGroups === annotated.length,
     },
   };
 }

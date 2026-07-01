@@ -79,6 +79,10 @@ function makeLaunchPacket() {
           routeCoverage: {
             totalPageFitGroups: 19,
             coveredPageFitGroups: 19,
+            sourceBackedPageFitGroups: 19,
+            triageReadyPageFitGroups: 19,
+            publicCopyReviewRequired: 19,
+            triageReady: true,
           },
         },
         editorialQueue: {
@@ -166,6 +170,10 @@ function makeReleasePacket() {
           routeCoverage: {
             totalPageFitGroups: 19,
             coveredPageFitGroups: 19,
+            sourceBackedPageFitGroups: 19,
+            triageReadyPageFitGroups: 19,
+            publicCopyReviewRequired: 19,
+            triageReady: true,
           },
         },
         editorialQueue: {
@@ -239,6 +247,7 @@ function main() {
     "expected-counts-rendered",
     /Discord routed items \| `24`/.test(combined)
       && /Discord route coverage \| `19\/19 page-fit groups`/.test(combined)
+      && /Discord source-backed triage \| `19\/19 page-fit groups`/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
     "",

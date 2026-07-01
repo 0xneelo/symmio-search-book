@@ -86,6 +86,7 @@ function renderMarkdown(routing, authored) {
     `- Page-fit routed items: ${reviewPlan.pageFitItemCount || 0}`,
     `- Refusal-review items: ${reviewPlan.refusalReviewReady || 0}`,
     `- Route coverage: ${routeCoverage.pageFitCoveredByPublicRoutes || 0}/${routeCoverage.totalPageFitGroups || 0} page-fit groups covered by public route aliases`,
+    `- Source-backed existing page fits: ${routeCoverage.triageReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Single-route page-fit groups remaining: ${routeCoverage.pageFitSingleRouteRemaining || 0}`,
     `- Groups without a public route: ${routeCoverage.pageFitWithoutPublicRoute || 0}`,
     `- Raw Discord text included: \`${routing.rawDiscordTextIncluded}\``,
@@ -101,8 +102,8 @@ function renderMarkdown(routing, authored) {
     "",
     "## Page-Fit Review",
     "",
-    "| Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Next Step |",
-    "| ---: | --- | --- | ---: | --- | --- | --- | ---: | --- |",
+    "| Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Triage Status | Public Copy | Next Step |",
+    "| ---: | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- |",
     ...pageFitReview.map((entry, index) =>
       [
         index + 1,
@@ -113,6 +114,8 @@ function renderMarkdown(routing, authored) {
         markdownCell(reviewTypeSummary(entry.byReviewType)),
         inlineCodeList(entry.sourceKeys),
         entry.publicRouteCount || 0,
+        `\`${markdownCell(entry.automatedTriageStatus || "untriaged")}\``,
+        `\`${markdownCell(entry.publicCopyStatus || "editorial-review-required")}\``,
         markdownCell(entry.nextStep || "Confirm the existing page fit before changing public copy."),
       ].join(" | ").replace(/^/, "| ").replace(/$/, " |"),
     ),

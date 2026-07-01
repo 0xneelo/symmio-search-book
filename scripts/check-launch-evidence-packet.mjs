@@ -158,6 +158,9 @@ function discordReviewArtifactsReady(evidence = {}) {
   const editorialQueue = evidence.editorialQueue || {};
   const total = Number(routeCoverage.totalPageFitGroups || 0);
   const covered = Number(routeCoverage.coveredPageFitGroups || 0);
+  const triageReady = Number(routeCoverage.triageReadyPageFitGroups || 0);
+  const sourceBacked = Number(routeCoverage.sourceBackedPageFitGroups || 0);
+  const publicCopyReviewRequired = Number(routeCoverage.publicCopyReviewRequired || 0);
   return (
     evidence.status === "passed"
     && summary.routingReady === true
@@ -168,8 +171,12 @@ function discordReviewArtifactsReady(evidence = {}) {
     && Number(summary.rawKeyHits || 0) === 0
     && Number(summary.sampleLeaks || 0) === 0
     && routeCoverage.coverageReady === true
+    && routeCoverage.triageReady === true
     && total > 0
     && covered === total
+    && triageReady === total
+    && sourceBacked === total
+    && publicCopyReviewRequired === total
     && Number(routeCoverage.pageFitSingleRouteRemaining || 0) === 0
     && Number(routeCoverage.pageFitWithoutPublicRoute || 0) === 0
     && Number(editorialQueue.pageFitReviewReady || 0) > 0

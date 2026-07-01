@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Source-Backed Triage Status
+
+- Added source-backed page-fit triage fields to the sanitized Discord routing summary: `sourceBacked`, `automatedTriageStatus`, and `publicCopyStatus`.
+- Regenerated `data/discord-review-routing.*` and `DISCORD-EDITORIAL-QUEUE.md` so the no-raw queue now reports 19/19 source-backed existing-page fits and 19/19 public-copy review-required page-fit groups.
+- Hardened `npm run search-book:check-discord-review-artifacts`, launch/release packet validators, status evidence, and evidence-summary rendering so route coverage and source-backed triage cannot silently drift.
+- Focused checks passed: `npm run search-book:check-status-evidence`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-evidence-summary`, and `git diff --check`.
+- Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Publication Boundary Verify Gate
 
 - Added `scripts/check-publication-boundaries.mjs` and `npm run search-book:check-publication-boundaries` to prove the page-state boundary across public navigation, exact routes, FAQ routes, volume entry links, and runtime context.
