@@ -256,13 +256,28 @@ async function main() {
     assert(rating.payload.status === "recorded", `rating status was ${rating.payload.status}.`);
     assert(rating.payload.persisted?.eventId === answer.payload.persisted.id, "rating did not attach to the persisted question.");
 
+    const pageFeedback = await requestJson(serviceBaseUrl, "/api/search-book/page-feedback", {
+      method: "POST",
+      headers: { origin: staticBaseUrl },
+      body: JSON.stringify({
+        pageId: "authored-vibe-product-overview",
+        rating: "no",
+        query: "Page feedback: Vibe Product Overview",
+        note: "preview service smoke page feedback",
+      }),
+    });
+    assert(pageFeedback.statusCode === 200, `page-feedback endpoint returned ${pageFeedback.statusCode}.`);
+    assert(pageFeedback.payload.status === "recorded", `page-feedback status was ${pageFeedback.payload.status}.`);
+    assert(pageFeedback.payload.persisted?.question?.source === "page-feedback", "page feedback did not persist through the service.");
+
     const insights = await requestJson(serviceBaseUrl, "/api/search-book/insights", {
       headers: { origin: staticBaseUrl },
     });
     assert(insights.statusCode === 200, `insights endpoint returned ${insights.statusCode}.`);
     assert(insights.payload.status === "ok", `insights status was ${insights.payload.status}.`);
-    assert((insights.payload.totals?.questions || 0) >= 1, "insights did not count the smoke question.");
-    assert((insights.payload.totals?.ratings || 0) >= 1, "insights did not count the smoke rating.");
+    assert((insights.payload.totals?.questions || 0) >= 2, "insights did not count the smoke question and page feedback.");
+    assert((insights.payload.totals?.ratings || 0) >= 2, "insights did not count the smoke rating and page feedback rating.");
+    assert((insights.payload.byGapReason?.["page-feedback-needs-work"] || 0) >= 1, "insights did not expose the page-feedback gap.");
     assert((insights.payload.recent?.questions || []).some((item) => item.requestId === "preview-service-smoke-answer"), "insights did not expose the smoke question.");
 
     const exactPage = await requestText(staticBaseUrl, `/index.html?page=authored-vibe-product-overview&service=${encodeURIComponent(serviceBaseUrl)}&serviceMode=extractive`);
@@ -281,6 +296,7 @@ async function main() {
         corsPreflight: "ok",
         answer: answer.payload.status,
         rating: rating.payload.status,
+        pageFeedback: pageFeedback.payload.status,
         insights: insights.payload.status,
         exactPageUrl: "ok",
       },

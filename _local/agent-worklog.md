@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex service-backed page feedback
+- Task: Move reader page feedback from localStorage-only prototype behavior into the SQLite-backed living-docs service while preserving local fallback.
+- Scope: `scripts/serve-answer-engine.mjs`, `index.html`, service/preview smoke scripts, generated living-docs/requirement data, docs/status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Reader page feedback can persist through the service, negative page feedback creates a `page-feedback-needs-work` gap, preview/service smokes and full `npm run search-book:verify` pass, and #11/#4 remain the only operator gates.
+- Result: Added `POST /api/search-book/page-feedback`, wired reader page feedback to service-first/local-fallback behavior, and regenerated living-docs/requirement data with `pageFeedbackServiceImplemented:true`. `npm run search-book:smoke-service` passed with pageFeedback `recorded`, totals `4` questions / `3` ratings / `2` gaps, and gap reasons `low-rated-answer` plus `page-feedback-needs-work`; `npm run search-book:smoke-preview-service` passed through the configured preview origin; `npm run search-book:drill-local-launch` passed with deployment write-smoke recording answer, rating, and page feedback plus 15/15 staging launch checks; full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex resolved source-inbox hardening
 - Task: Stop source-ingestion generators from re-parking resolved source/import inbox items after the 2026-07-01 reconciliation.
 - Scope: `scripts/build-source-ingestion-map.mjs`, `scripts/build-discord-corpus.mjs`, regenerated source/readiness data if affected, and `_local/agent-worklog.md`.

@@ -390,6 +390,7 @@ const frontendServiceIntegrationImplemented =
   frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
   frontendPrototype.includes('"/api/search-book/answer"') &&
   frontendPrototype.includes('"/api/search-book/rating"') &&
+  frontendPrototype.includes('"/api/search-book/page-feedback"') &&
   frontendPrototype.includes('"/api/search-book/insights"') &&
   frontendPrototype.includes("searchBookPrototype.serviceUrl");
 const retentionPolicyImplemented =
@@ -427,6 +428,12 @@ const dynamicExamplesImplemented =
   serviceScriptText.includes("/api/search-book/examples") &&
   serviceScriptText.includes("handleExamples") &&
   serviceScriptText.includes("exampleRows");
+const pageFeedbackServiceImplemented =
+  serviceRuntimeImplemented &&
+  frontendPrototype.includes('"/api/search-book/page-feedback"') &&
+  serviceScriptText.includes("/api/search-book/page-feedback") &&
+  serviceScriptText.includes("persistPageFeedback") &&
+  serviceScriptText.includes("page-feedback-needs-work");
 
 const payload = {
   generatedAt: "deterministic-build",
@@ -442,6 +449,7 @@ const payload = {
   corsPolicyImplemented,
   answerCacheImplemented,
   dynamicExamplesImplemented,
+  pageFeedbackServiceImplemented,
   gapSummaryJobImplemented,
   reviewerWorkflowDocumented,
   backupRestoreImplemented,
@@ -449,9 +457,9 @@ const payload = {
   datastoreImplemented: sqliteDatastoreImplemented,
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
-    ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
-        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete."
+      ? frontendServiceIntegrationImplemented
+      ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && pageFeedbackServiceImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
+        ? "The standalone answer-engine service persists question, answer-rating, reader page-feedback, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete."
         : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation/metrics workflow, reviewer operating workflow, and production VPS service env are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, CORS allowlist configuration, retention policy, moderation workflow, and production VPS service env are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and reviewer workflow are not complete.",
@@ -466,6 +474,7 @@ const payload = {
         "GET /health",
         "POST /api/search-book/answer",
         "POST /api/search-book/rating",
+        "POST /api/search-book/page-feedback",
         "GET /api/search-book/insights",
         "GET /api/search-book/examples",
         "GET /api/search-book/moderation",
@@ -487,8 +496,15 @@ const payload = {
             endpoint: "GET /api/search-book/examples",
             limitEnv: "SEARCH_BOOK_EXAMPLE_LIMIT",
             behavior: "Returns top helpful cached questions for homepage example chips. The static frontend uses these only when available and keeps curated chips as fallback.",
-          }
+        }
         : "Dynamic example questions are not implemented in the service/frontend bridge.",
+      pageFeedback: pageFeedbackServiceImplemented
+        ? {
+            endpoint: "POST /api/search-book/page-feedback",
+            behavior: "Reader-page Useful/Needs work controls persist a service-backed page-feedback event plus linked rating; negative feedback creates a page-feedback-needs-work gap.",
+            fallback: "The static frontend keeps the same localStorage page-feedback fallback for unconfigured previews or service outages.",
+          }
+        : "Reader page feedback is not wired to the SQLite service yet.",
       retention: retentionPolicyImplemented
         ? {
             env: "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
@@ -557,7 +573,7 @@ const payload = {
           }
         : "Production configuration preflight is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
-        ? "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
+        ? "index.html can call the service for answers, answer ratings, reader page feedback, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
     },
   },
@@ -573,7 +589,8 @@ const payload = {
     "Populate the helpful answer-cache from positive ratings when embedding configuration is available.",
     "Run reuse-cache lookup only after guardrail preflight, and replay cached answers as source:\"reuse-cache\" only for eligible answered questions.",
     "Expose helpful cached questions through /api/search-book/examples for optional dynamic example chips.",
-    "Let the static frontend use configured service endpoints for answers, ratings, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
+    "Persist reader page feedback through the service when configured, and fall back to localStorage only when the service is unavailable.",
+    "Let the static frontend use configured service endpoints for answers, answer ratings, page feedback, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
     "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Expose a disabled-by-default, token-gated metrics export for internal monitoring without raw user content or secrets.",
@@ -635,6 +652,9 @@ const payload = {
     dynamicExamples: dynamicExamplesImplemented
       ? "The service exposes helpful cached questions for dynamic example chips while the frontend keeps curated examples as fallback."
       : "Dynamic example chips are not implemented yet.",
+    pageFeedback: pageFeedbackServiceImplemented
+      ? "Reader page feedback is service-backed when configured, and negative page feedback creates page-feedback-needs-work gaps in SQLite."
+      : "Reader page feedback is still localStorage-only.",
     reviewerSummary: gapSummaryJobImplemented
       ? "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence."
       : "The scheduled/reviewer gap-summary job is not implemented yet.",
@@ -671,6 +691,7 @@ console.log(JSON.stringify({
   corsPolicyImplemented: payload.corsPolicyImplemented,
   answerCacheImplemented: payload.answerCacheImplemented,
   dynamicExamplesImplemented: payload.dynamicExamplesImplemented,
+  pageFeedbackServiceImplemented: payload.pageFeedbackServiceImplemented,
   gapSummaryJobImplemented: payload.gapSummaryJobImplemented,
   reviewerWorkflowDocumented: payload.reviewerWorkflowDocumented,
   backupRestoreImplemented: payload.backupRestoreImplemented,

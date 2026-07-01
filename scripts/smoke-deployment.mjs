@@ -16,8 +16,8 @@ Environment fallbacks:
   SEARCH_BOOK_DEPLOYMENT_SITE_URL
   SEARCH_BOOK_ANSWER_ENGINE_URL
 
-By default this smoke is read-only. Pass --write to create one answer event and rating
-against the configured answer-engine service.`;
+By default this smoke is read-only. Pass --write to create one answer event, rating,
+and page-feedback event against the configured answer-engine service.`;
 }
 
 function parseArgs(argv) {
@@ -241,15 +241,37 @@ async function smokeServiceWrite({ serviceUrl, siteUrl, mode, query, expectedPag
   assert(rating.payload.status === "recorded", `service rating status was ${rating.payload.status}.`);
   assert(rating.payload.persisted?.eventId === answer.payload.persisted.id, "rating did not attach to the answer event.");
 
+  const pageFeedback = await requestJson(serviceUrl, "/api/search-book/page-feedback", {
+    method: "POST",
+    headers: { origin: siteOrigin },
+    body: JSON.stringify({
+      pageId: expectedPageId,
+      rating: "no",
+      query: `Page feedback: ${expectedPageId}`,
+      note: "deployment smoke page feedback",
+    }),
+  });
+  assert(pageFeedback.statusCode === 200, `service page feedback returned ${pageFeedback.statusCode}.`);
+  assert(pageFeedback.payload.status === "recorded", `service page feedback status was ${pageFeedback.payload.status}.`);
+  assert(
+    pageFeedback.payload.persisted?.question?.source === "page-feedback",
+    "page feedback did not persist a page-feedback event.",
+  );
+
   const insights = await requestJson(serviceUrl, "/api/search-book/insights", {
     headers: { origin: siteOrigin },
   });
   assert(insights.statusCode === 200, `post-write insights returned ${insights.statusCode}.`);
   assert((insights.payload.recent?.questions || []).some((item) => item.requestId === requestId), "post-write insights did not expose the smoke question.");
+  assert(
+    (insights.payload.byGapReason?.["page-feedback-needs-work"] || 0) >= 1,
+    "post-write insights did not expose the page-feedback gap.",
+  );
 
   return {
     answer: answer.payload.status,
     rating: rating.payload.status,
+    pageFeedback: pageFeedback.payload.status,
     primaryPageId: answer.payload.primaryPageId,
     citations: answer.payload.citations.length,
     requestId,

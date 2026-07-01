@@ -104,12 +104,14 @@ tokens, or Discord tokens.
 ## Answer-engine service
 
 `scripts/serve-answer-engine.mjs` exposes `POST /api/search-book/answer`,
-`POST /api/search-book/rating`, `GET /api/search-book/insights`,
+`POST /api/search-book/rating`, `POST /api/search-book/page-feedback`,
+`GET /api/search-book/insights`,
 `GET /api/search-book/examples`, `GET /api/search-book/moderation`,
 `GET /api/search-book/metrics`, and `GET /health`,
 persisting to SQLite (`node:sqlite`). Point the static frontend at it with
-`index.html?service=http://127.0.0.1:8787`; ratings, Search Insights, and dynamic example
-chips use the service while keeping `localStorage` + curated-example fallback. Retention,
+`index.html?service=http://127.0.0.1:8787`; answer ratings, reader page feedback,
+Search Insights, and dynamic example chips use the service while keeping `localStorage`
+and curated-example fallback. Retention,
 the browser CORS allowlist (`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`, default `*`),
 the disabled-by-default token-gated moderation and metrics exports, the reviewer gap-summary
 job (`npm run search-book:living-docs-summary`), and the backup/restore-check utility

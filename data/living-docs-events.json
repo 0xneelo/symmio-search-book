@@ -12,13 +12,14 @@
   "corsPolicyImplemented": true,
   "answerCacheImplemented": true,
   "dynamicExamplesImplemented": true,
+  "pageFeedbackServiceImplemented": true,
   "gapSummaryJobImplemented": true,
   "reviewerWorkflowDocumented": true,
   "backupRestoreImplemented": true,
   "productionPreflightImplemented": true,
   "datastoreImplemented": true,
   "livingDocsProductionReady": false,
-  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete.",
+  "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, answer-rating, reader page-feedback, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete.",
   "storage": {
     "localPrototype": {
       "questionsKey": "searchBookPrototype.questions",
@@ -80,6 +81,7 @@
         "GET /health",
         "POST /api/search-book/answer",
         "POST /api/search-book/rating",
+        "POST /api/search-book/page-feedback",
         "GET /api/search-book/insights",
         "GET /api/search-book/examples",
         "GET /api/search-book/moderation",
@@ -107,6 +109,11 @@
         "endpoint": "GET /api/search-book/examples",
         "limitEnv": "SEARCH_BOOK_EXAMPLE_LIMIT",
         "behavior": "Returns top helpful cached questions for homepage example chips. The static frontend uses these only when available and keeps curated chips as fallback."
+      },
+      "pageFeedback": {
+        "endpoint": "POST /api/search-book/page-feedback",
+        "behavior": "Reader-page Useful/Needs work controls persist a service-backed page-feedback event plus linked rating; negative feedback creates a page-feedback-needs-work gap.",
+        "fallback": "The static frontend keeps the same localStorage page-feedback fallback for unconfigured previews or service outages."
       },
       "retention": {
         "env": "SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS",
@@ -167,7 +174,7 @@
         "secretBoundary": "Reports whether LLM and moderation secrets are configured but never prints secret values.",
         "boundary": "The check can only pass in production once the operator supplies the deploy route and service credentials."
       },
-      "frontendIntegration": "index.html can call the service for answers, ratings, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
+      "frontendIntegration": "index.html can call the service for answers, answer ratings, reader page feedback, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
     }
   },
   "schemas": {
@@ -240,7 +247,8 @@
     "Populate the helpful answer-cache from positive ratings when embedding configuration is available.",
     "Run reuse-cache lookup only after guardrail preflight, and replay cached answers as source:\"reuse-cache\" only for eligible answered questions.",
     "Expose helpful cached questions through /api/search-book/examples for optional dynamic example chips.",
-    "Let the static frontend use configured service endpoints for answers, ratings, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
+    "Persist reader page feedback through the service when configured, and fall back to localStorage only when the service is unavailable.",
+    "Let the static frontend use configured service endpoints for answers, answer ratings, page feedback, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
     "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
     "Expose a disabled-by-default, token-gated metrics export for internal monitoring without raw user content or secrets.",
@@ -448,6 +456,7 @@
     "cors": "The service can enforce SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS for browser access; final production origin configuration is still tied to the deploy-route decision.",
     "answerReuse": "The service stores helpful-rated answers with embeddings and can reuse them for semantically similar questions after guardrail preflight.",
     "dynamicExamples": "The service exposes helpful cached questions for dynamic example chips while the frontend keeps curated examples as fallback.",
+    "pageFeedback": "Reader page feedback is service-backed when configured, and negative page feedback creates page-feedback-needs-work gaps in SQLite.",
     "reviewerSummary": "A local summary job can read the SQLite datastore and emit markdown or JSON for the editorial review cadence.",
     "reviewerWorkflow": "The internal living-docs operations runbook documents daily triage, weekly summaries, moderation export handling, privacy boundaries, escalation rules, launch gates, and incident handling.",
     "backupRestore": "The internal backup utility can create a SQLite-consistent backup manifest and verify restore viability with integrity and table-count checks.",

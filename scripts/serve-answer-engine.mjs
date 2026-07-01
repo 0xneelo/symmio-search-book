@@ -144,6 +144,7 @@ function routeKey(method, pathname) {
   if (pathname === "/health") return "health";
   if (pathname === "/api/search-book/answer") return "answer";
   if (pathname === "/api/search-book/rating") return "rating";
+  if (pathname === "/api/search-book/page-feedback") return "page-feedback";
   if (pathname === "/api/search-book/insights") return "insights";
   if (pathname === "/api/search-book/examples") return "examples";
   if (pathname === "/api/search-book/moderation") return "moderation";
@@ -432,7 +433,7 @@ function persistQuestion(db, request, result) {
   };
 }
 
-function persistRating(db, body) {
+function persistRating(db, body, options = {}) {
   const eventIdValue = truncate(body.eventId, 160);
   const rating = truncate(body.rating, 32);
   if (!eventIdValue) throw Object.assign(new Error("rating requires eventId."), { statusCode: 400 });
@@ -464,10 +465,10 @@ function persistRating(db, body) {
       id: eventId("gap"),
       eventId: question.id,
       query: question.query,
-      reason: "low-rated-answer",
+      reason: options.negativeGapReason || "low-rated-answer",
       pageId: question.page_id,
       pageTitle: question.page_title,
-      source: "rating",
+      source: options.source || "rating",
       rating,
       gapId: question.gap_id || "",
       operatorItemIds: JSON.parse(question.operator_item_ids_json || "[]"),
@@ -483,6 +484,80 @@ function persistRating(db, body) {
     pageId: question.page_id,
     pageTitle: question.page_title,
     createdAt,
+  };
+}
+
+function persistPageFeedback(db, runtime, body) {
+  const pageId = truncate(body.pageId, 240);
+  const page = runtime.pageById.get(pageId);
+  if (!page) throw Object.assign(new Error("page feedback requires a known pageId."), { statusCode: 404 });
+  const rating = truncate(body.rating, 32);
+  if (!allowedRatings.has(rating)) throw Object.assign(new Error("rating must be yes, no, useful, or not-useful."), { statusCode: 400 });
+
+  const createdAt = nowIso();
+  const requestId = truncate(body.requestId, 160) || `page-feedback-${Date.now().toString(36)}-${crypto.randomUUID()}`;
+  const query = truncate(body.query, 4000).trim() || `Page feedback: ${page.title}`;
+  const questionId = eventId("question");
+  const response = {
+    requestId,
+    status: "answered",
+    answer: "Page feedback recorded for editorial review.",
+    primaryPageId: page.id,
+    citations: [],
+    relatedPageIds: [],
+    source: "page-feedback",
+    confidence: "page-feedback",
+    events: [{ type: "page-feedback", pageId: page.id, rating }],
+  };
+
+  db.prepare(`
+    INSERT INTO search_book_questions (
+      id, request_id, query, source, mode, status, page_id, page_title, confidence,
+      refusal_reason, gap_id, operator_item_ids_json, response_json, citations_json,
+      llm_usage_json, created_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    questionId,
+    requestId,
+    query,
+    "page-feedback",
+    "page-feedback",
+    "answered",
+    page.id,
+    page.title,
+    "page-feedback",
+    "",
+    "",
+    jsonText([]),
+    jsonText(response),
+    jsonText([]),
+    jsonText({}),
+    createdAt,
+  );
+
+  const persisted = persistRating(
+    db,
+    {
+      eventId: questionId,
+      rating,
+      note: truncate(body.note, 2000),
+    },
+    {
+      negativeGapReason: "page-feedback-needs-work",
+      source: "page-feedback",
+    },
+  );
+  return {
+    question: {
+      id: questionId,
+      requestId,
+      status: "answered",
+      source: "page-feedback",
+      pageId: page.id,
+      pageTitle: page.title,
+      createdAt,
+    },
+    rating: persisted,
   };
 }
 
@@ -1023,6 +1098,14 @@ async function handleRating(db, req, res) {
   jsonResponse(req, res, 200, { status: "recorded", persisted, cache });
 }
 
+async function handlePageFeedback(db, runtime, req, res) {
+  const body = await readJsonBody(req);
+  const persisted = persistPageFeedback(db, runtime, body);
+  metrics.ratings.total += 1;
+  increment(metrics.ratings.byRating, persisted.rating.rating);
+  jsonResponse(req, res, 200, { status: "recorded", persisted });
+}
+
 function handleInsights(db, req, res) {
   const retention = applyRetention(db);
   jsonResponse(req, res, 200, {
@@ -1181,6 +1264,10 @@ function createServer() {
       }
       if (req.method === "POST" && url.pathname === "/api/search-book/rating") {
         await handleRating(db, req, res);
+        return;
+      }
+      if (req.method === "POST" && url.pathname === "/api/search-book/page-feedback") {
+        await handlePageFeedback(db, runtime, req, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {

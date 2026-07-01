@@ -1,5 +1,15 @@
 # Progress
 
+## 2026-07-01 — Service-Backed Reader Page Feedback
+
+- Added `POST /api/search-book/page-feedback` to the standalone SQLite answer-engine service and wired reader page Useful/Needs work controls to use it when a service is configured.
+- Negative reader page feedback now creates a `page-feedback-needs-work` gap in SQLite; the localStorage path remains only as an unconfigured-preview or service-outage fallback.
+- Updated service, preview-bridge, and deployment smokes so page feedback is verified from the service and the configured static-site origin.
+- Verified `npm run search-book:smoke-service`: pageFeedback `recorded`, totals `4` questions / `3` ratings / `2` gaps, and gap reasons included both `low-rated-answer` and `page-feedback-needs-work`.
+- Verified `npm run search-book:smoke-preview-service`: configured preview bridge recorded answer, rating, page feedback, Search Insights, and exact-page URL over localhost.
+- Verified `npm run search-book:drill-local-launch`: deployment smoke write path recorded answer, rating, and page feedback; launch readiness passed 15/15 staging checks without loading LLM credentials or printing secret values.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, `pageFeedbackServiceImplemented:true`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Launch Gate Source And Demand Checks
 
 - Added first-class launch-readiness checks for source ingestion and sanitized Discord demand route coverage in `scripts/check-launch-readiness.mjs`.

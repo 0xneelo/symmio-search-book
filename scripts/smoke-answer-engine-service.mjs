@@ -239,6 +239,23 @@ async function main() {
     assert(rating.payload.status === "recorded", `rating status was ${rating.payload.status}.`);
     assert(rating.payload.persisted?.eventId === eventId, "rating did not attach to the persisted question.");
 
+    const pageFeedback = await requestJson(baseUrl, "/api/search-book/page-feedback", {
+      method: "POST",
+      body: JSON.stringify({
+        pageId: "authored-vibe-product-overview",
+        rating: "no",
+        query: "Page feedback: Vibe Product Overview",
+        note: "smoke test page feedback",
+      }),
+    });
+    assert(pageFeedback.statusCode === 200, `page-feedback endpoint returned ${pageFeedback.statusCode}.`);
+    assert(pageFeedback.payload.status === "recorded", `page-feedback status was ${pageFeedback.payload.status}.`);
+    assert(pageFeedback.payload.persisted?.question?.source === "page-feedback", "page feedback did not persist a page-feedback question event.");
+    assert(
+      pageFeedback.payload.persisted?.rating?.eventId === pageFeedback.payload.persisted?.question?.id,
+      "page feedback rating did not attach to its persisted page-feedback event.",
+    );
+
     const reuseSeedQuery = "How is my revenue calculated?";
     const reuseSeed = await requestJson(baseUrl, "/api/search-book/answer", {
       method: "POST",
@@ -286,11 +303,15 @@ async function main() {
     const insights = await requestJson(baseUrl, "/api/search-book/insights");
     assert(insights.statusCode === 200, `insights endpoint returned ${insights.statusCode}.`);
     assert(insights.payload.status === "ok", `insights status was ${insights.payload.status}.`);
-    assert((insights.payload.totals?.questions || 0) >= 3, "insights did not count the smoke questions.");
-    assert((insights.payload.totals?.ratings || 0) >= 2, "insights did not count the smoke ratings.");
-    assert((insights.payload.totals?.gaps || 0) >= 1, "insights did not create a low-rated-answer gap.");
+    assert((insights.payload.totals?.questions || 0) >= 4, "insights did not count the smoke questions.");
+    assert((insights.payload.totals?.ratings || 0) >= 3, "insights did not count the smoke ratings.");
+    assert((insights.payload.totals?.gaps || 0) >= 2, "insights did not create the smoke gaps.");
     assert((insights.payload.totals?.answerCache || 0) >= 1, "insights did not count the reuse answer cache.");
     assert(insights.payload.retention?.enabled === true, "insights did not report enabled retention.");
+    assert(
+      (insights.payload.byGapReason?.["page-feedback-needs-work"] || 0) >= 1,
+      "insights did not expose a page-feedback-needs-work gap.",
+    );
 
     const examples = await requestJson(baseUrl, "/api/search-book/examples");
     assert(examples.statusCode === 200, `examples endpoint returned ${examples.statusCode}.`);
@@ -310,6 +331,10 @@ async function main() {
     assert(moderation.payload.status === "ok", `moderation status was ${moderation.payload.status}.`);
     assert((moderation.payload.queue?.lowRatedAnswers || []).length >= 1, "moderation queue did not expose low-rated answer.");
     assert((moderation.payload.queue?.gapBacklog || []).length >= 1, "moderation queue did not expose gap backlog.");
+    assert(
+      (moderation.payload.queue?.gapBacklog || []).some((item) => item.reason === "page-feedback-needs-work"),
+      "moderation queue did not expose page-feedback-needs-work gap backlog.",
+    );
 
     const forbiddenMetrics = await requestJson(baseUrl, "/api/search-book/metrics");
     assert(forbiddenMetrics.statusCode === 403, "metrics endpoint allowed unauthenticated access.");
@@ -458,6 +483,7 @@ async function main() {
         health: "ok",
         answer: answer.payload.status,
         rating: rating.payload.status,
+        pageFeedback: pageFeedback.payload.status,
         insights: insights.payload.status,
         moderationUnauthenticated: forbiddenModeration.statusCode,
         moderationAuthenticated: moderation.payload.status,
@@ -476,6 +502,7 @@ async function main() {
         examples: examples.payload.examples.length,
       },
       totals: insights.payload.totals,
+      byGapReason: insights.payload.byGapReason,
       answer: {
         primaryPageId: answer.payload.primaryPageId,
         citations: answer.payload.citations.length,

@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, production VPS service environment, and Discord/Lafa editorial review before specific Discord statements become public copy.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, service-backed answer ratings and reader page feedback, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, production VPS service environment, and Discord/Lafa editorial review before specific Discord statements become public copy.
 
 ## Operating Boundary
 
@@ -148,7 +148,7 @@ If embeddings are unavailable, the service should skip reuse and answer through 
 curl -sS "$SEARCH_BOOK_ANSWER_ENGINE_URL/health"
 ```
 
-2. Check Search Insights from the public frontend or service-backed preview. Confirm recent questions, low-rated answers, and gaps are updating.
+2. Check Search Insights from the public frontend or service-backed preview. Confirm recent questions, low-rated answers, reader page-feedback gaps, and gaps are updating.
 
 3. Generate the internal summary from the SQLite datastore.
 
@@ -189,6 +189,7 @@ Review queues:
 
 - `gapBacklog`: content/source gaps grouped by reason and page.
 - `lowRatedAnswers`: answers marked `no` or `not-useful`.
+- `page-feedback-needs-work`: reader page feedback that should be triaged as a page-quality issue.
 - `unansweredQuestions`: refused or ungrounded questions.
 - `repeatedQuestions`: demand signals that may need a route, FAQ entry, or page edit.
 

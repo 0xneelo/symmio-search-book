@@ -3826,7 +3826,7 @@
         renderVariant();
       }
 
-      function recordPageRating(button) {
+      async function recordPageRating(button) {
         const page = pageById.get(button.dataset.pageRateId);
         if (!page) return;
         const rating = {
@@ -3837,6 +3837,25 @@
           eventId: `page-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
           time: new Date().toISOString(),
         };
+        if (serviceEnabled()) {
+          try {
+            await serviceRequest("/api/search-book/page-feedback", {
+              method: "POST",
+              body: JSON.stringify({
+                pageId: page.id,
+                rating: rating.rating,
+                query: rating.query,
+              }),
+            });
+            await refreshServiceInsights();
+            renderInsights();
+            return;
+          } catch (error) {
+            serviceState.online = false;
+            serviceState.lastError = error.message || "Could not record service page feedback.";
+            renderServiceStatus();
+          }
+        }
         const ratings = loadList(storageKeys.ratings);
         saveList(storageKeys.ratings, [rating, ...ratings]);
         if (rating.rating === "no") {
