@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production preflight quality-boundary refresh
+- Task: Keep production env preflight aligned with the reconciled generated quality-audit boundary.
+- Scope: `scripts/check-production-env.mjs`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-production-env -- --json` reports the current `29/30` quality audit as inside the known `operator-inbox` boundary while still failing missing production env values; full verify remains green.
+- Result: Updated the preflight to derive failed quality gates from `data/quality-audit.json`, accepting only `operator-inbox` as the known open quality boundary and making unexpected quality failures production preflight errors. Focused checks passed: `node --check scripts/check-production-env.mjs`; no-env preflight failed closed on missing production env values while passing `known-quality-boundary` as `29/30, failed=operator-inbox`; a production-shaped placeholder env passed 29/29 with `valuesPrinted:false`; `npm run search-book:check-status-evidence` passed. Full `npm run search-book:verify` passed with 26 build steps, 84 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, `completionAudit:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex objective-level completion audit gate
 - Task: Make the original Search Book objective completion audit executable so future agents cannot claim completion from narrow green checks while production gates remain open.
 - Scope: `scripts/check-completion-audit.mjs`, `scripts/build-all.mjs`, `package.json`, `COMPLETION-AUDIT.md`, `FINAL-REPORT.md`, `README.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

@@ -170,12 +170,18 @@ function checkArtifacts(checks) {
   });
   const qualityGatesPassed = (quality.gates || []).filter((gate) => gate.passed).length;
   const qualityGatesTotal = (quality.gates || []).length;
+  const failedQualityGateIds = (quality.gates || [])
+    .filter((gate) => gate.passed !== true)
+    .map((gate) => gate.id || "unknown");
+  const expectedQualityBoundary =
+    qualityGatesTotal > 0 &&
+    failedQualityGateIds.every((id) => id === "operator-inbox");
   addCheck(checks, {
     id: "known-quality-boundary",
-    label: "Quality audit remains in known non-production boundary",
-    passed: qualityGatesPassed === 27 && qualityGatesTotal === 30,
-    detail: `quality gates ${qualityGatesPassed}/${qualityGatesTotal}`,
-    severity: "warning",
+    label: "Quality audit remains inside the known operator boundary",
+    passed: expectedQualityBoundary,
+    detail: `quality gates ${qualityGatesPassed}/${qualityGatesTotal}, failed=${failedQualityGateIds.length ? failedQualityGateIds.join(",") : "none"}`,
+    severity: expectedQualityBoundary ? "warning" : "error",
   });
 }
 

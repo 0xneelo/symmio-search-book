@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Preflight Quality Boundary
+
+- Updated `scripts/check-production-env.mjs` so the quality-audit preflight derives its allowed non-production boundary from `data/quality-audit.json` instead of the stale `27/30` count.
+- The production preflight now accepts the current `29/30` state only when the remaining failed quality gate is `operator-inbox`, and turns any unexpected quality-gate failure into a preflight error.
+- This keeps #11 env-install validation aligned with the reconciled #11/#4 production boundary without treating local LLM credentials as missing.
+
 ## 2026-07-01 — Objective-Level Completion Audit Gate
 
 - Added `npm run search-book:check-completion-audit`, an executable guard for `COMPLETION-AUDIT.md`.
