@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Launch Evidence Artifact Workflow
+
+- Added `.github/workflows/search-book-launch-evidence.yml`, a no-secret GitHub Actions workflow for building and uploading the launch evidence packet.
+- The workflow fetches the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, runs `npm run search-book:launch-evidence -- --out-dir /tmp/search-book-launch-evidence`, validates packet status and `valuesPrinted:false`, and uploads `launch-evidence.json` plus `launch-evidence.md` with 14-day retention.
+- The workflow is manual via `workflow_dispatch` and also runs on pull requests that touch Search Book workflow/runtime/content surfaces, without loading LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
+- Verified the workflow command path locally with `/tmp/search-book-launch-evidence-workflow-test-20260701-1`: packet status `passed`, launch status `passed`, monitoring status `passed`, monitoring `7/7`, and a targeted secret-pattern scan found no matches. Full `npm run search-book:verify` remained green with 24 build steps, 66 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`.
+
 ## 2026-07-01 — Launch Evidence Monitoring Integration
 
 - Updated `scripts/build-launch-evidence-packet.mjs` so `npm run search-book:launch-evidence` now includes first-class monitoring evidence by default instead of packaging only launch-readiness output.

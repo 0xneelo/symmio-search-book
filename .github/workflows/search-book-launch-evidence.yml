@@ -1,0 +1,73 @@
+name: Search Book Launch Evidence
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-book-launch-evidence.yml"
+      - "scripts/**"
+      - "data/**"
+      - "content/**"
+      - "index.html"
+      - "package.json"
+      - "README.md"
+      - "DEPLOYMENT.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-book-launch-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  launch-evidence:
+    name: Build no-secret launch evidence packet
+    runs-on: ubuntu-latest
+    env:
+      VIBE_DOCS_ROOT: /tmp/vibe_docs
+      VIBE_DOCS_PUBLIC: /tmp/vibe_docs/Docs/public
+      VIBE_DOCS_DATA: /tmp/vibe_docs/Website/public/generated/docs-data.json
+      SEARCH_BOOK_LAUNCH_EVIDENCE_DIR: /tmp/search-book-launch-evidence
+    steps:
+      - name: Check out Search Book
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Show runtime
+        run: |
+          node --version
+          npm --version
+
+      - name: Fetch public Vibe docs export
+        run: |
+          git clone --depth 1 https://github.com/0xneelo/vibe_docs.git "$VIBE_DOCS_ROOT"
+          test -d "$VIBE_DOCS_PUBLIC"
+          test -f "$VIBE_DOCS_DATA"
+
+      - name: Build launch evidence packet
+        run: |
+          npm run search-book:launch-evidence -- --out-dir "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR"
+
+      - name: Check packet files
+        run: |
+          test -f "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json"
+          test -f "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.md"
+          node -e 'const fs = require("node:fs"); const packet = JSON.parse(fs.readFileSync(process.env.SEARCH_BOOK_LAUNCH_EVIDENCE_DIR + "/launch-evidence.json", "utf8")); if (packet.status !== "passed") throw new Error(`packet status ${packet.status}`); if (packet.secrets?.valuesPrinted !== false) throw new Error("packet reported printed secret values"); console.log(JSON.stringify({ status: packet.status, launchStatus: packet.launchEvidence?.parsed?.evidence?.launchReadiness?.status || packet.launchEvidence?.parsed?.status || null, monitoringStatus: packet.monitoringEvidence?.parsed?.status || null }, null, 2));'
+
+      - name: Upload launch evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-book-launch-evidence
+          path: |
+            /tmp/search-book-launch-evidence/launch-evidence.json
+            /tmp/search-book-launch-evidence/launch-evidence.md
+          if-no-files-found: warn
+          retention-days: 14

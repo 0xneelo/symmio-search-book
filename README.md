@@ -122,6 +122,8 @@ gate with fresh verify, and tears the services down.
 To create attachable operator evidence, run `npm run search-book:launch-evidence`; it writes
 `launch-evidence.json` and `launch-evidence.md` under `/tmp` by default, using the local
 drill and monitoring probe when no deployment URLs are supplied.
+The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
+path and uploads those files as a short-lived artifact for review handoffs.
 
 ## Environment
 

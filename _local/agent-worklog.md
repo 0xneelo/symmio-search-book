@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex launch evidence artifact workflow
+- Task: Add a no-secret GitHub/manual workflow that builds the launch evidence packet and uploads it for review handoffs.
+- Scope: `.github/workflows/search-book-launch-evidence.yml`, `README.md`, `DEPLOYMENT.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Workflow syntax parses, local launch-evidence packet still passes, readiness docs stay synchronized, full `npm run search-book:verify` remains green, and no production/LLM/moderation/metrics/Discord secrets are loaded.
+- Result: Added manual/PR-scoped workflow `Search Book Launch Evidence`, which fetches the public Vibe docs export, runs `npm run search-book:launch-evidence -- --out-dir /tmp/search-book-launch-evidence`, validates packet status and `valuesPrinted:false`, and uploads JSON/Markdown packet artifacts for 14 days. Verification passed: Python YAML parse reported `workflow-yaml-ok`; local packet at `/tmp/search-book-launch-evidence-workflow-test-20260701-1` passed with launch `passed`, monitoring `passed`, monitoring `7/7`, and no targeted secret-pattern matches; `node scripts/check-readiness-evidence.mjs` passed; full `npm run search-book:verify` passed with 24 build steps, 66 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`.
+
 ## 2026-07-01 — Codex launch evidence monitoring integration
 - Task: Make the launch evidence packet include health/metrics monitoring evidence by default.
 - Scope: `scripts/build-launch-evidence-packet.mjs`, `README.md`, `DEPLOYMENT.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

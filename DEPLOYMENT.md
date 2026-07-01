@@ -137,6 +137,10 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/build-launch-evi
 
 The packet writes `launch-evidence.json` and `launch-evidence.md`, records only booleans
 for secret presence, and includes launch readiness plus monitoring evidence by default.
+For repository-hosted staging evidence, run the manual GitHub workflow
+`Search Book Launch Evidence`; it fetches the public Vibe docs export, builds the local
+no-secret packet, validates that the packet passed, and uploads the JSON/Markdown files
+as a short-lived artifact.
 
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
