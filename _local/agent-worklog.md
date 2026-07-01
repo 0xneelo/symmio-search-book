@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex live RAG eval refresh
+- Task: Refresh local OpenAI-backed Search Book RAG eval evidence with `gpt-4.1-mini` through `.secrets/search-book.env`, summarize pass rates and cost, and record only no-secret aggregate evidence.
+- Scope: Live eval output under `/tmp`, `PROGRESS.md`, `_local/agent-worklog.md`, and generated contract/status docs only if recorded evidence changes. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --eval-live all --json` passes with adversarial refusals intact, answer-validation passing, token/cost totals printed only as aggregates, plus focused status guards and `git diff --check`.
+- Result: Live `gpt-4.1-mini` eval passed `42/42` total fixtures, `15/15` adversarial, and `27/27` answer-validation with 0 failing cases and 0 runtime fallbacks. Measured usage: 16 model calls, 94,657 input tokens, 8,386 output tokens, 103,043 total tokens, and `$0.01923015` estimated cost. The captured `/tmp/search-book-live-eval-20260701.json` scan found no OpenAI secret-like token pattern and no `SEARCH_BOOK_LLM_API_KEY=` assignment.
+
 ## 2026-07-01 — Codex source-reconciliation rebuild check
 - Task: Re-run the reconciled Search Book source/readiness build from the standalone repo after confirming only OPERATOR-INBOX #11 and #4 remain open, then report whether the readiness booleans changed.
 - Scope: Deterministic source/readiness build outputs, `PROGRESS.md`, `_local/agent-worklog.md`, and status docs only if the rebuild changes evidence. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

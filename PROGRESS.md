@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Live RAG Eval Evidence Refresh
+
+- Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` without printing the env file or API key: `/home/tabor/.nvm/versions/node/v23.9.0/bin/node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --eval-live all --json`.
+- The live `gpt-4.1-mini` eval passed `42/42` fixtures: `15/15` adversarial cases and `27/27` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,386` output tokens, `103,043` total tokens, and `$0.01923015` estimated cost at `gpt-4.1-mini` pricing.
+- The captured JSON at `/tmp/search-book-live-eval-20260701.json` scanned clean for OpenAI secret-like patterns and `SEARCH_BOOK_LLM_API_KEY=` assignments.
+
 ## 2026-07-01 — Source-Reconciliation Rebuild Check
 
 - Re-read the reconciled operator inbox and confirmed only OPERATOR-INBOX #11 production VPS env install and #4 public frontend/deploy-route decision remain open; local `.secrets/search-book.env` is complete and was not printed.
