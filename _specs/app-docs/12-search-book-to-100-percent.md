@@ -4,7 +4,7 @@ Date: 2026-07-01
 
 This document is the completion checklist for turning the current Search Book research package, local prototype, and validated RAG runtime into a production-ready public documentation product.
 
-The current state is strong but not complete. The corpus and local answer runtime are substantially built; the remaining work is mostly production deployment, final source ingestion, service environment setup, and operational ownership.
+The current state is strong but not complete. The corpus, source ingestion, local answer runtime, live-evaled RAG path, and no-secret release rehearsal are substantially built; the remaining work is production deployment, production service environment installation, final public route selection, and operational ownership.
 
 ## Current Completion Snapshot
 
@@ -13,17 +13,17 @@ Use these numbers as the baseline until the next regenerated audit supersedes th
 | Area | Current state | Completion read |
 | --- | --- | ---: |
 | Public compendium shape | 794 manifest pages, inside the 500-800 target | 98% |
-| Authored public corpus | 799 authored pages; 798 public routes published; 0 candidates | 95% |
+| Authored public corpus | 801 authored pages; 800 public-navigation pages; 820 exact public question routes; 0 candidates | 95% |
 | Source-companion coverage | 792/792 source companions covered by authored pages | 100% |
-| Requirement map | 12/18 complete, 2 partial, 4 parked, 0 missing | 67% by raw requirement count; higher by implementation weight |
-| Quality audit | 27/30 gates passing | 90% |
-| Source ingestion | 13/17 complete, 1 partial, 3 parked | 76% |
-| Deterministic answer engine | 798 exact-route tests pass; 2 refusal tests pass | 95% |
+| Requirement map | 14/18 complete, 2 partial, 2 parked, 0 missing | 78% by raw requirement count; higher by implementation weight |
+| Quality audit | 29/30 gates passing; only `operator-inbox` remains red | 97% |
+| Source ingestion | 17/17 complete, 0 partial, 0 parked, 0 missing | 100% |
+| Deterministic answer engine | 820 exact-route tests pass; 32 glossary route tests pass; 2 refusal tests pass | 95% |
 | LLM RAG runtime | Live OpenAI `gpt-4.1-mini` eval passed 42/42 | 88% |
-| Living-docs loop | SQLite service, ratings, gaps, answer cache, examples, moderation export, summary job, runbook | 78% |
-| Discord/Lafa corpus | Tooling exists; imported messages remain 0 | 25% |
+| Living-docs loop | SQLite service, ratings, gaps, answer cache, examples, moderation export, metrics, backup/restore-check, summary job, runbook | 85% |
+| Discord/Lafa corpus | Imported internal-only: 5,000 messages, 723 question clusters, 837 configured Lafa candidates; checked-in data stores no raw Discord/Lafa text | 100% for v1 demand evidence |
 | Production deploy | Local static and service smoke paths exist; public platform/deploy route open | 25% |
-| Overall production readiness | Verified dossier/runtime, not deployed production docs | About 74% |
+| Overall production readiness | Verified dossier/runtime/source corpus, not deployed production docs | About 82% |
 
 ## What 100 Percent Means
 
@@ -33,11 +33,11 @@ Search Book reaches 100 percent when all of the following are true:
 2. The standalone answer service is deployed with production environment variables, retention settings, moderation access, backup/restore policy, and observability.
 3. The LLM path is enabled in production with OpenAI-compatible settings and a model/API key installed only in service environment variables.
 4. The public frontend routes questions to the service and still degrades gracefully to deterministic/extractive answers when the LLM is unavailable.
-5. Every required source family is ingested, explicitly excluded, or launch-parked with visible source-boundary language.
-6. Discord/Lafa support reality is imported or explicitly excluded from v1 with an operator-approved release note.
-7. The Notion source is ingested with a clear public-use boundary, or explicitly launch-parked.
-8. The original/oldest Symmio whitepaper evidence gap is resolved or marked source-limited for launch.
-9. SuperFlow/SHE/SSHE terminology is identified or SSHE is explicitly excluded.
+5. Every required source family remains ingested, explicitly excluded, or source-limited with visible source-boundary language.
+6. Discord/Lafa support reality remains internal-only demand evidence unless a future editorial review creates a public source-backed page.
+7. The Notion source remains registered with its paraphrase-only public-use boundary.
+8. The original/oldest Symmio whitepaper remains out of scope for v1 and is not used for exact launch claims.
+9. SuperFlow/SHE/SSHE remains bounded to the operator-provided SHE API plus Symmio Foundation meta-solver/clearing-layer context.
 10. The living-docs reviewer workflow has a named owner, cadence, and escalation path.
 11. Final publication-date checks pass for links, citations, volatile market counts, security/audit wording, revenue/referral wording, and no-secret scans.
 12. All generated readiness evidence says production-ready, or any intentionally parked item is accepted in a release decision.
@@ -66,53 +66,42 @@ Current open items:
 
 | Inbox item | What is missing | What it blocks | Completion action |
 | --- | --- | --- | --- |
-| #11 Production LLM env | Production `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` in the deployed service environment | Production LLM-backed answers | Install env vars without printing secrets; run live production smoke; record model and pass/fail only |
+| #11 Production LLM/service env | Complete production service env installed at `/etc/symmio-search-book/search-book.env`; local `.secrets/search-book.env` is complete and must not be reported missing | Production LLM-backed answers, production prompt-injection execution against live model responses, and production launch preflight | Install env vars without printing secrets; run production env preflight and live production smoke; record model and pass/fail only |
 | #4 Platform/repo/deploy route | Final public frontend platform, repo owner, and deploy route | Public production launch | Choose deployment target; wire static frontend and service URL; document rollback |
-| #2 Discord/Lafa corpus | Export/API access, channel list/date range, Lafa author identity, public-use boundary | Discord-seeded FAQ and support-reality answers | Run scraper/import; classify quotes/paraphrases/internal-only; regenerate corpus and evals |
-| #5 Vibe Notion | Ingestion of provided Notion link plus public-use rule | Roadmap/product narrative source completeness | Export or fetch readable content; register source keys; mark public/paraphrase/internal-only |
-| #6 Oldest Symmio whitepaper | Exact original/oldest artifact or archived earliest docs | Origin-story and version-history completeness | Locate artifact, register source, compare to current docs, or mark source-limited |
-| #7 SuperFlow/SSHE | Identify SSHE source family or exclude it | Final protocol/source completeness claim | Confirm whether SSHE equals SHE/SuperFlow or is separate; update source map |
-| #12 Old checkpoint approval | Approval path for an older design checkpoint commit | Only that historical checkpoint | Resolve separately; does not block current production launch if scoped out |
 
-Completion target: all open inbox items are either `[RESOLVED]` or explicitly accepted as launch-parked in a release decision.
+Resolved reconciliation items #2, #5, #6, #7, #12, and #17 must not be re-opened. Completion target: #11 and #4 are either `[RESOLVED]` or explicitly accepted as launch-parked in a release decision.
 
 ### 2. Source Ingestion To 100 Percent
 
-Current source-ingestion state: 13 complete, 1 partial, 3 parked.
+Current source-ingestion state: 17 complete, 0 partial, 0 parked, 0 missing. `sourceCompletionReady` is true.
 
-Required actions:
+Required maintenance boundaries:
 
-1. Ingest Vibe Notion.
-   - Register source key, URL/export path, access date, and publicity boundary.
-   - Create or update authored pages only where Notion adds primary product truth.
-   - Add refusal boundaries for private roadmap or non-public claims.
+1. Vibe Notion is registered with a paraphrase-only public-use boundary.
+   - Do not publish signed-media/static commercial details from Notion unless a later operator decision explicitly approves them.
+   - Add authored pages only where Notion adds source-backed public product truth.
 
-2. Resolve Symmio whitepaper history.
-   - Locate the oldest official or archived whitepaper artifact.
-   - Register version/date/provenance.
-   - Update the whitepaper-history boundary page.
-   - If the oldest artifact cannot be found, publish the limit explicitly and avoid 2021/original quotes.
+2. Symmio original/oldest whitepaper recovery is out of scope for v1.
+   - Do not claim exact oldest-whitepaper provenance unless a future source is registered.
+   - Use current official Symmio/docs/GitHub boundaries for launch claims.
 
-3. Resolve SuperFlow/SHE/SSHE.
-   - Confirm exact naming and source identity.
-   - Do not claim SSHE coverage from name similarity.
-   - Either add the missing source family or document operator-approved exclusion.
+3. SuperFlow/SHE/SSHE is bounded for v1.
+   - Treat the operator-provided SHE OpenAPI source plus Symmio Foundation meta-solver/clearing-layer context as sufficient for v1.
+   - Do not invent a separate SSHE claim unless a future source identifies it.
 
-4. Import Discord/Lafa.
-   - Use the existing scraper/import contract.
-   - Preserve channel scope, date range, message ids, author mapping, and public-use boundary.
-   - Convert repeated questions into FAQ candidates.
-   - Convert canonical Lafa answers only when source permission allows.
-   - Keep private/support-sensitive material out of public pages unless explicitly approved.
+4. Discord/Lafa is imported internal-only.
+   - Preserve the no-raw checked-in data boundary: no raw Discord questions, raw Lafa answers, normalized message bodies, or generated answer text in public static data.
+   - Use Discord routing only as demand evidence and editorial queue input unless future public-source review creates a cited page.
+   - Keep the two public-safe Discord/Lafa refusal probes refusing with `discord-corpus-review-required` until that review changes.
 
 Exit gate:
 
 ```sh
-node src/search-book/scripts/build-all.mjs --verify
+node scripts/build-all.mjs --verify
 npm run search-book:verify
 ```
 
-The generated source-ingestion map must report ready, or list only release-accepted parked items.
+The generated source-ingestion map must continue reporting `17/17` complete with 0 partial, 0 parked, and 0 missing; Discord review and refusal-runtime guards must remain green.
 
 ### 3. Production LLM And Answer Service
 
@@ -144,8 +133,8 @@ SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=<service-secret-only>
 3. Run live eval against production-like env:
 
 ```sh
-node --env-file=.secrets/search-book.env src/search-book/scripts/run-llm-rag-answer.mjs --mode llm --query "What is Vibe Trading and how do I create an account?" --json
-node --env-file=.secrets/search-book.env src/search-book/scripts/run-llm-rag-answer.mjs --mode llm --query "What is the bootstrap trilemma in perpetual markets?" --json
+node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --mode llm --query "What is Vibe Trading and how do I create an account?" --json
+node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --mode llm --query "What is the bootstrap trilemma in perpetual markets?" --json
 ```
 
 4. Run the full live fixture suite if available in the current checkout.
@@ -272,11 +261,11 @@ Required actions:
 Exit gate:
 
 ```sh
-node src/search-book/scripts/build-all.mjs --verify
+node scripts/build-all.mjs --verify
 npm run search-book:verify
-node src/search-book/scripts/check-readiness-evidence.mjs
-node src/search-book/scripts/check-static-integrity.mjs
-git diff --check -- src/search-book _specs/app-docs
+node scripts/check-readiness-evidence.mjs
+node scripts/check-static-integrity.mjs
+git diff --check
 ```
 
 ### 7. Production Observability And Recovery
@@ -348,26 +337,26 @@ Actions:
 
 1. Resolve OPERATOR-INBOX #4 for platform/repo/deploy route.
 2. Resolve OPERATOR-INBOX #11 for production LLM service env.
-3. Decide whether #2, #5, #6, and #7 are launch-blocking or launch-parked.
+3. Re-read OPERATOR-INBOX before deployment work and confirm no resolved reconciliation item has been re-opened.
 
 Exit:
 
 - No hidden decision remains that changes public IA, source scope, or service architecture.
 
-### Phase C - Complete Source Families
+### Phase C - Preserve Source Boundaries
 
-Goal: close the 13/17 source-ingestion gap.
+Goal: keep the 17/17 source-ingestion state true through deployment.
 
 Actions:
 
-1. Discord/Lafa import.
-2. Notion ingestion.
-3. Oldest Symmio whitepaper source.
-4. SuperFlow/SHE/SSHE identification or exclusion.
+1. Re-run deterministic verify after any source/doc changes.
+2. Confirm Discord/Lafa checked-in data remains no-raw and internal-only.
+3. Confirm Notion-derived content remains paraphrase-only unless a later operator decision changes the boundary.
+4. Confirm oldest-whitepaper and SSHE pages do not claim unsupported provenance.
 
 Exit:
 
-- Source-ingestion map ready, or launch-parked exceptions are explicit.
+- Source-ingestion map remains ready, with 17/17 complete and 0 partial/parked/missing.
 
 ### Phase D - Deploy Staging
 
@@ -428,12 +417,12 @@ Exit:
 
 Mark each item only when verified.
 
-- [ ] All open OPERATOR-INBOX items are resolved or release-accepted as parked.
-- [ ] `source-ingestion` is ready or has only accepted launch-parked exceptions.
-- [ ] Discord/Lafa import is complete or explicitly excluded from v1.
-- [ ] Notion ingestion is complete or explicitly parked.
-- [ ] Oldest Symmio whitepaper source is registered or source-limited boundary is approved.
-- [ ] SuperFlow/SHE/SSHE identity is resolved or excluded.
+- [ ] OPERATOR-INBOX #11 and #4 are resolved or release-accepted as parked.
+- [x] `source-ingestion` is ready with 17/17 complete and 0 partial/parked/missing.
+- [x] Discord/Lafa import is complete for internal-only v1 demand evidence.
+- [x] Notion ingestion is complete with a paraphrase-only boundary.
+- [x] Oldest Symmio whitepaper recovery is source-limited/out of scope for v1 and not a launch blocker.
+- [x] SuperFlow/SHE/SSHE identity is bounded for v1 by the operator-provided SHE/Symmio Foundation sources.
 - [ ] Production frontend platform, repo, and route are selected.
 - [ ] Public frontend is deployed.
 - [ ] Answer service is deployed.
@@ -462,25 +451,24 @@ Mark each item only when verified.
 Run from the repository root.
 
 ```sh
-node src/search-book/scripts/build-all.mjs --verify
+node scripts/build-all.mjs --verify
 npm run search-book:verify
-node src/search-book/scripts/check-readiness-evidence.mjs
-node src/search-book/scripts/check-static-integrity.mjs
+node scripts/check-readiness-evidence.mjs
+node scripts/check-static-integrity.mjs
 npm run search-book:smoke-static
 npm run search-book:smoke-preview-service
 npm run search-book:smoke-service
 npm run build --if-present
-git diff --check -- src/search-book _specs/app-docs
+git diff --check
 ```
 
 For live LLM checks, load secrets only through the local or service environment. Never print the API key.
 
 ```sh
-node --env-file=.secrets/search-book.env src/search-book/scripts/run-llm-rag-answer.mjs --mode llm --query "What is Vibe Trading and how do I create an account?" --json
-node --env-file=.secrets/search-book.env src/search-book/scripts/run-llm-rag-answer.mjs --mode llm --query "What is the bootstrap trilemma in perpetual markets?" --json
+node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --mode llm --query "What is Vibe Trading and how do I create an account?" --json
+node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --mode llm --query "What is the bootstrap trilemma in perpetual markets?" --json
 ```
 
 ## Completion Rule
 
 Do not call the Search Book production-ready just because the corpus is large or the local eval is green. It becomes production-ready when the public route, production answer service, production LLM env, source boundaries, living-docs operations, and final claim audit all pass together.
-

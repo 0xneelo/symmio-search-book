@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex completion-plan reconciliation
+- Task: Refresh `_specs/app-docs/12-search-book-to-100-percent.md` so the active completion checklist matches the standalone repo, reconciled source state, and #11/#4-only operator boundary.
+- Scope: `_specs/app-docs/12-search-book-to-100-percent.md`, `.gitignore`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: no active completion-plan command block points at `src/search-book`, source-ingestion/Discord/Notion/SSHE/whitepaper resolved state matches generated evidence and OPERATOR-INBOX, deterministic verify and status checks stay green, and only #11/#4 remain open.
+- Result: Updated the active 100-percent completion plan to the current standalone state: 801 authored pages, 800 public-navigation pages, 820 exact routes, requirement map 14/18 with 2 partial and 2 parked, quality gates 29/30, source ingestion 17/17, Discord/Lafa imported internal-only with 5,000 messages / 723 clusters / 837 configured Lafa candidates, and only #11/#4 open. Replaced stale `src/search-book` command blocks with standalone `scripts/...` commands, removed #2/#5/#6/#7/#12 from open work, and converted source-ingestion actions into maintenance boundaries. Removed an untracked raw `.discord-export/` copy from the repo root without printing contents and added `.discord-export/` to `.gitignore`. Verification passed: stale-reference `rg` found no old counts or legacy paths in the completion plan, `npm run search-book:check-status-evidence` passed, `npm run search-book:verify` passed with 26 build steps, 86 syntax checks, 820 routes, 2,884 chunks, quality gates 29/30, and `monitoringEvidence:passed`, `node scripts/build-discord-corpus.mjs` reused the checked-in no-raw corpus with the same 5,000/723/837 counts, and `git diff --check` passed.
+
 ## 2026-07-01 — Codex standalone command path cleanup
 - Task: Remove stale copy-pasteable `node src/search-book/scripts/...` command paths from live script help and active contract docs after standalone migration.
 - Scope: `scripts/*.mjs`, active contract docs, and `_local/agent-worklog.md`.

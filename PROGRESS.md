@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Completion Plan Reconciliation
+
+- Refreshed `_specs/app-docs/12-search-book-to-100-percent.md` to match the standalone repo and reconciled #11/#4-only operator boundary.
+- Updated the active completion plan from stale source-ingestion and Discord-open language to the current evidence: source ingestion `17/17`, Discord/Lafa imported internal-only with 5,000 messages, 723 question clusters, and 837 configured Lafa candidates, and resolved #2/#5/#6/#7/#12 must not be re-opened.
+- Replaced stale `src/search-book` verification commands with standalone-root `scripts/...` commands and added `.discord-export/` to `.gitignore` after removing an untracked raw export copy from the repo root without printing contents.
+
 ## 2026-07-01 — Standalone Command Path Cleanup
 
 - Removed stale copy-pasteable `node src/search-book/scripts/...` usage text from live script help, replacing it with standalone-root `node scripts/...` commands.
