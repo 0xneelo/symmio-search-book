@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Plan Summary
+
+- Extended `scripts/build-discord-routing-summary.mjs` so the committed Discord routing summary now includes a no-raw `reviewPlan`.
+- The plan groups 22 answered routed items into 19 page-fit checks and keeps 2 refusal-review items separate, using only item ids, page ids, statuses, source keys, counts, and generic next-step labels.
+- Search Insights now renders the editorial queue from `data/discord-review-routing.*`, showing page-fit and refusal-review follow-ups without raw Discord question text, raw Lafa/source answer text, or generated answer text.
+- Targeted privacy assertion passed against the local raw review packet: no raw packet metadata, no sample raw-string hits, no question/answer/text-like keys in routed items or review-plan data, and `rawDiscordTextIncluded:false`, `sourceAnswerTextIncluded:false`, `valuesPrinted:false`.
+- Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, static integrity `20/20`, 2,884 chunks, 801 authored pages, source ingestion `17/17`, and quality gates `29/30`.
+
 ## 2026-07-01 — Discord Routing Summary In Search Insights
 
 - Added `scripts/build-discord-routing-summary.mjs` and `npm run search-book:discord-routing-summary` to preserve a sanitized Discord review routing report as committed static data.

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial plan summary
+- Task: Turn the sanitized Discord routing summary into a no-raw editorial follow-up plan for Search Insights reviewers.
+- Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, build/static invariants if needed, docs/status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Static data groups page-fit and refusal review queues without raw Discord/source text, Search Insights renders the queue counts, targeted privacy assertions pass, and `npm run search-book:verify` remains green.
+- Result: Extended `data/discord-review-routing.*` with a no-raw `reviewPlan` that groups 22 answered routed items into 19 page-fit checks and 2 refusal-review items. Search Insights now renders the editorial queue counts and grouped page-fit/refusal rows. Targeted privacy assertion confirmed no raw packet metadata, no sample raw-string hits, no question/answer/text-like keys in routed items or review-plan data, and `rawDiscordTextIncluded:false`, `sourceAnswerTextIncluded:false`, `valuesPrinted:false`. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, static integrity `20/20`, 2,884 chunks, 801 authored pages, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord routing summary in Search Insights
 - Task: Promote the sanitized Discord review routing evidence into committed no-raw-text data and surface it in Search Insights.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, static integrity/build wiring, docs/status notes, and `_local/agent-worklog.md`.

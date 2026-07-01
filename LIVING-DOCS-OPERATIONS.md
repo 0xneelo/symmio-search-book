@@ -45,7 +45,10 @@ npm run search-book:discord-routing-summary -- \
 
 The summary data written to `data/discord-review-routing.*` contains hashes, page ids,
 source keys, statuses, reviewer actions, and aggregate counts only. It is evidence for
-review prioritization, not approval to quote Discord/Lafa claims publicly.
+review prioritization, not approval to quote Discord/Lafa claims publicly. The same data
+includes a `reviewPlan` that groups answered items into page-fit checks and separates
+refusal-review items so Search Insights can drive editorial follow-up without exposing
+raw review text.
 
 ## Prerequisites
 

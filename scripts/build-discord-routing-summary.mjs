@@ -53,6 +53,8 @@ function writeOutputs(report, args) {
         routedItems: report.summary.routedItems,
         answered: report.summary.byStatus.answered || 0,
         refusals: report.summary.byStatus.refusal || 0,
+        pageFitReviewReady: report.reviewPlan.pageFitReviewReady,
+        refusalReviewReady: report.reviewPlan.refusalReviewReady,
       },
       null,
       2,
@@ -119,6 +121,64 @@ function summarizeItems(items) {
   };
 }
 
+function incrementCount(map, key) {
+  if (!key) return;
+  map[key] = (map[key] || 0) + 1;
+}
+
+function buildReviewPlan(items) {
+  const pageFitById = new Map();
+  const refusalReview = [];
+  for (const item of items) {
+    if (item.route.status === "answered" && item.route.primaryPageId) {
+      const pageId = item.route.primaryPageId;
+      const entry =
+        pageFitById.get(pageId) ||
+        {
+          pageId,
+          routedItems: 0,
+          itemIds: [],
+          byReviewType: {},
+          sourceKeys: [],
+          reviewAction: "review-existing-page-fit",
+          nextStep: "Confirm the existing page and citations satisfy the demand signal before adding any public route or copy.",
+        };
+      entry.routedItems += 1;
+      entry.itemIds.push(item.itemId);
+      incrementCount(entry.byReviewType, item.reviewType);
+      entry.sourceKeys = unique([...entry.sourceKeys, ...(item.route.citationSourceKeys || [])]);
+      pageFitById.set(pageId, entry);
+      continue;
+    }
+
+    refusalReview.push({
+      itemId: item.itemId,
+      reviewType: item.reviewType,
+      reviewAction: item.reviewAction || "review-refusal-policy",
+      routeStatus: item.route.status || "unknown",
+      refusalReason: item.route.refusalReason || "",
+      nextStep: "Keep refusal behavior unless primary-source review approves a grounded public answer.",
+    });
+  }
+
+  const pageFitReview = [...pageFitById.values()]
+    .map((entry) => ({
+      ...entry,
+      itemIds: unique(entry.itemIds),
+    }))
+    .sort((a, b) => b.routedItems - a.routedItems || a.pageId.localeCompare(b.pageId));
+
+  return {
+    pageFitReviewReady: pageFitReview.length,
+    pageFitItemCount: pageFitReview.reduce((total, entry) => total + entry.routedItems, 0),
+    refusalReviewReady: refusalReview.length,
+    refusalItemCount: refusalReview.length,
+    publicUseBoundary: "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
+    pageFitReview,
+    refusalReview: refusalReview.sort((a, b) => a.itemId.localeCompare(b.itemId)),
+  };
+}
+
 function sanitizeSource(input, args) {
   const packet = input.reviewPacket || input.source?.reviewPacket || {};
   return {
@@ -135,6 +195,7 @@ function buildFromRoutingReport(input, args) {
   assertSafeRoutingReport(input);
   const items = (input.items || []).map(sanitizeItem);
   const summary = summarizeItems(items);
+  const reviewPlan = buildReviewPlan(items);
   return {
     generatedAt: "deterministic-build",
     status: "routed",
@@ -144,6 +205,7 @@ function buildFromRoutingReport(input, args) {
     valuesPrinted: false,
     source: sanitizeSource(input, args),
     summary,
+    reviewPlan,
     items,
   };
 }
@@ -152,6 +214,7 @@ function buildFromExisting(input, args) {
   assertSafeRoutingReport(input);
   const items = (input.items || []).map(sanitizeItem);
   const summary = summarizeItems(items);
+  const reviewPlan = buildReviewPlan(items);
   return {
     generatedAt: "deterministic-build",
     status: "routed",
@@ -162,6 +225,7 @@ function buildFromExisting(input, args) {
     reusedCheckedInRouting: true,
     source: sanitizeSource(input, args),
     summary,
+    reviewPlan,
     items,
   };
 }
@@ -188,6 +252,15 @@ function parkedReport() {
       byAction: {},
       byReviewType: {},
       topPrimaryPageIds: [],
+    },
+    reviewPlan: {
+      pageFitReviewReady: 0,
+      pageFitItemCount: 0,
+      refusalReviewReady: 0,
+      refusalItemCount: 0,
+      publicUseBoundary: "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
+      pageFitReview: [],
+      refusalReview: [],
     },
     items: [],
   };

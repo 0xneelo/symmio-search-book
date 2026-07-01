@@ -252,6 +252,10 @@ function runInvariants() {
   assert(discordRouting.valuesPrinted === false, "Discord routing summary value-printing boundary is invalid");
   if (discordRouting.routingReady) {
     assert((discordRouting.summary?.routedItems || 0) === (discordRouting.items || []).length, "Discord routing summary item count mismatch");
+    assert(
+      (discordRouting.reviewPlan?.pageFitItemCount || 0) + (discordRouting.reviewPlan?.refusalItemCount || 0) === (discordRouting.items || []).length,
+      "Discord routing review plan item count mismatch",
+    );
   }
 
   const gaps = readJson("data/gap-queue.json");
