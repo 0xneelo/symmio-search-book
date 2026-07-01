@@ -258,6 +258,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   const statusEvidence = packet.statusEvidence?.parsed || null;
   const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
+  const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
   const discordSummary = discordReviewArtifacts?.summary || null;
@@ -273,6 +274,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     sourceFreshnessStatus: sourceFreshness?.status || null,
     statusEvidenceStatus: statusEvidence?.status || null,
     discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
+    evidenceSummaryRendererStatus: evidenceSummaryRenderer?.status || null,
     sourceFreshness: sourceFreshness
       ? {
           status: sourceFreshness.status || null,
@@ -313,6 +315,15 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
                 sampleLeaks: discordQueue.sampleLeaks ?? null,
               }
             : null,
+        }
+      : null,
+    evidenceSummaryRenderer: evidenceSummaryRenderer
+      ? {
+          status: evidenceSummaryRenderer.status || null,
+          launchSummaryLines: evidenceSummaryRenderer.evidence?.launchSummaryLines ?? null,
+          releaseSummaryLines: evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? null,
+          appendedBytes: evidenceSummaryRenderer.evidence?.appendedBytes ?? null,
+          valuesPrinted: evidenceSummaryRenderer.evidence?.valuesPrinted === true,
         }
       : null,
     secrets: {
@@ -442,6 +453,9 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
 - Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`
+- Evidence summary renderer status: \`${launch.evidenceSummaryRendererStatus || "missing"}\`
+- Evidence summary lines: \`${launch.evidenceSummaryRenderer?.launchSummaryLines ?? "unknown"} launch / ${launch.evidenceSummaryRenderer?.releaseSummaryLines ?? "unknown"} release\`
+- Evidence summary values printed: \`${launch.evidenceSummaryRenderer?.valuesPrinted ?? "unknown"}\`
 - Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
 
 ## Readiness Snapshot
@@ -587,6 +601,7 @@ try {
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
       statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
       discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
+      evidenceSummaryRendererStatus: packet.launchEvidence?.evidenceSummaryRendererStatus || null,
     },
     steps: packet.steps.map((step) => ({
       id: step.id,

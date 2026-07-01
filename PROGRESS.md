@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Release Evidence Summary Renderer Proof
+
+- Added first-class evidence-summary renderer proof to launch-evidence packets and release dry-run summaries, then hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` to fail if the proof is missing, failed, or reports printed values.
+- Updated `npm run search-book:evidence-summary` launch/release summaries to display the renderer proof as status and counts only.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-evidence-summary-20260701-1`: release status `passed`, static artifact `1,650` files / `52,935,258` bytes, launch/monitoring/source-freshness/status-evidence/Discord-review-artifacts/evidence-summary-renderer all `passed`, status evidence documents `4/4`, Discord routed review items `24`, route coverage `19/19`, evidence summary lines `16` launch / `20` release, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Both packet validators passed against `/tmp/search-book-release-dry-run-evidence-summary-20260701-1/launch-evidence/launch-evidence.json` and `/tmp/search-book-release-dry-run-evidence-summary-20260701-1/release-dry-run.json`; rendered release summary remained count-only.
+- Full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Evidence Summary Renderer Verify Gate
 
 - Added `scripts/check-evidence-summary-renderer.mjs` and `npm run search-book:check-evidence-summary`.

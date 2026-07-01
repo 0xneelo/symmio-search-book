@@ -92,6 +92,10 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedEvidenceSummaryRenderer(packet) {
+  return packet.evidenceSummaryRenderer?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(value) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -170,6 +174,19 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
+function evidenceSummaryRendererReady(evidence = {}) {
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.evidence?.valuesPrinted === false
+    && Number(evidence.evidence?.launchSummaryLines || 0) > 0
+    && Number(evidence.evidence?.releaseSummaryLines || 0) > 0
+    && Number(evidence.evidence?.appendedBytes || 0) > 0
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
@@ -180,6 +197,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
   const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
   const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
+  const nestedEvidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
   const nestedStatusDocuments = nestedStatusEvidence.documents || [];
@@ -226,6 +244,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-discord-review-artifacts-status",
     launchSummary.discordReviewArtifactsStatus === "passed",
     `discordReviewArtifactsStatus=${launchSummary.discordReviewArtifactsStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-evidence-summary-renderer-status",
+    launchSummary.evidenceSummaryRendererStatus === "passed",
+    `evidenceSummaryRendererStatus=${launchSummary.evidenceSummaryRendererStatus || "missing"}`,
   );
   addCheck(checks, "nested-launch-status", nestedLaunchPacket.status === "passed", `status=${nestedLaunchPacket.status || "missing"}`);
   addCheck(checks, "nested-launch-readiness-status", nestedLaunch.status === "passed", `status=${nestedLaunch.status || "missing"}`);
@@ -305,6 +329,30 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   );
   addCheck(
     checks,
+    "nested-evidence-summary-renderer-passed",
+    nestedLaunchPacket.evidenceSummaryRenderer?.passed === true,
+    `passed=${nestedLaunchPacket.evidenceSummaryRenderer?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-evidence-summary-renderer-status",
+    nestedEvidenceSummaryRenderer.status === "passed",
+    `status=${nestedEvidenceSummaryRenderer.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-evidence-summary-renderer-ready",
+    evidenceSummaryRendererReady(nestedEvidenceSummaryRenderer),
+    JSON.stringify({
+      launchSummaryLines: nestedEvidenceSummaryRenderer.evidence?.launchSummaryLines ?? null,
+      releaseSummaryLines: nestedEvidenceSummaryRenderer.evidence?.releaseSummaryLines ?? null,
+      appendedBytes: nestedEvidenceSummaryRenderer.evidence?.appendedBytes ?? null,
+      valuesPrinted: nestedEvidenceSummaryRenderer.evidence?.valuesPrinted ?? null,
+      checks: Array.isArray(nestedEvidenceSummaryRenderer.checks) ? nestedEvidenceSummaryRenderer.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "source-ingestion-ready",
     readiness.sourceCompletionReady === true && sourceStatusReady(readiness.sourceRequirements),
     JSON.stringify(readiness.sourceRequirements || {}),
@@ -355,6 +403,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
         routeCoverage: nestedDiscordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
       },
+      evidenceSummaryRendererStatus: launchSummary.evidenceSummaryRendererStatus || null,
+      evidenceSummaryRenderer: nestedEvidenceSummaryRenderer.evidence || null,
       steps: (packet.steps || []).map((step) => ({ id: step.id, status: step.status })),
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,

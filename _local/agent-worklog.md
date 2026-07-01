@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex release dry-run evidence summary validation
+- Task: Run a fresh release dry-run from pushed `main` and ensure release evidence covers the reusable evidence-summary renderer no-raw/no-secret boundary.
+- Scope: Release dry-run/evidence packet scripts and validators if coverage is missing; otherwise `/tmp` evidence only plus `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Fresh `npm run search-book:release-dry-run` passes, launch/release packet validators pass, rendered evidence summaries remain count-only with no raw Discord/Lafa/source-body/secret values, and only #11/#4 remain operator gates.
+- Result: Added first-class evidence-summary renderer proof to launch-evidence packets, release dry-run packet summaries, reusable evidence summaries, and both packet validators. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-evidence-summary-20260701-1` passed with static artifact `1,650` files / `52,935,258` bytes, launch/monitoring/source-freshness/status-evidence/Discord-review-artifacts/evidence-summary-renderer all `passed`, status documents `4/4`, Discord routed review items `24`, route coverage `19/19`, evidence summary lines `16` launch / `20` release, `valuesPrinted:false`, and `0` sensitive-pattern matches. Both launch/release packet validators passed against the generated packets, and the rendered release summary stayed count-only. Full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex evidence summary no-raw checker
 - Task: Add a deterministic verify gate for the reusable evidence summary renderer's no-raw/no-secret output boundary.
 - Scope: `scripts/check-evidence-summary-renderer.mjs`, `scripts/build-all.mjs`, package scripts, status docs, and `_local/agent-worklog.md`.

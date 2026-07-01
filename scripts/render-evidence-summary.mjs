@@ -71,6 +71,7 @@ function launchSummary(packet) {
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || {};
   const statusEvidence = packet.statusEvidence?.parsed || {};
   const discord = packet.discordReviewArtifacts?.parsed || {};
+  const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
@@ -95,6 +96,10 @@ function launchSummary(packet) {
       "Discord leakage checks",
       `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
     ],
+    [
+      "Evidence summary renderer",
+      `\`${evidenceSummaryRenderer.status || "missing"}\` (${evidenceSummaryRenderer.evidence?.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.evidence?.valuesPrinted ?? "unknown"}\`)`,
+    ],
     ["Open operator items", `\`${openOperatorItems}\``],
     ["Secrets printed", `\`${packet.secrets?.valuesPrinted ?? false}\``],
   ]);
@@ -106,6 +111,7 @@ function releaseSummary(packet) {
   const sourceFreshness = launch.sourceFreshness || {};
   const statusEvidence = launch.statusEvidence || {};
   const discord = launch.discordReviewArtifacts || {};
+  const evidenceSummaryRenderer = launch.evidenceSummaryRenderer || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
@@ -136,6 +142,10 @@ function releaseSummary(packet) {
     [
       "Discord leakage checks",
       `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
+    ],
+    [
+      "Evidence summary renderer",
+      `\`${launch.evidenceSummaryRendererStatus || "missing"}\` (${evidenceSummaryRenderer.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.valuesPrinted ?? "unknown"}\`)`,
     ],
     ["Readiness route coverage", `\`${readinessRouteCoverage.pageFitCoveredByPublicRoutes ?? "unknown"}/${readinessRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Open operator items", `\`${openOperatorItems}\``],

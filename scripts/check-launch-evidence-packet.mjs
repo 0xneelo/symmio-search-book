@@ -89,6 +89,10 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedEvidenceSummaryRenderer(packet) {
+  return packet.evidenceSummaryRenderer?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(sourceFreshness) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -167,6 +171,19 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
+function evidenceSummaryRendererReady(evidence = {}) {
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.evidence?.valuesPrinted === false
+    && Number(evidence.evidence?.launchSummaryLines || 0) > 0
+    && Number(evidence.evidence?.releaseSummaryLines || 0) > 0
+    && Number(evidence.evidence?.appendedBytes || 0) > 0
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
@@ -174,6 +191,7 @@ function validateLaunchPacket(packet, packetPath) {
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
+  const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const readiness = packet.readiness || {};
   const sourceTotals = sourceFreshness.totals || {};
   const sourceSecrets = sourceFreshness.secrets || {};
@@ -256,6 +274,30 @@ function validateLaunchPacket(packet, packetPath) {
   );
   addCheck(
     checks,
+    "evidence-summary-renderer-passed",
+    packet.evidenceSummaryRenderer?.passed === true,
+    `passed=${packet.evidenceSummaryRenderer?.passed}`,
+  );
+  addCheck(
+    checks,
+    "evidence-summary-renderer-status",
+    evidenceSummaryRenderer.status === "passed",
+    `status=${evidenceSummaryRenderer.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "evidence-summary-renderer-ready",
+    evidenceSummaryRendererReady(evidenceSummaryRenderer),
+    JSON.stringify({
+      launchSummaryLines: evidenceSummaryRenderer.evidence?.launchSummaryLines ?? null,
+      releaseSummaryLines: evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? null,
+      appendedBytes: evidenceSummaryRenderer.evidence?.appendedBytes ?? null,
+      valuesPrinted: evidenceSummaryRenderer.evidence?.valuesPrinted ?? null,
+      checks: Array.isArray(evidenceSummaryRenderer.checks) ? evidenceSummaryRenderer.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "source-ingestion-ready",
     readiness.sourceCompletionReady === true && sourceStatusReady(readiness.sourceRequirements),
     JSON.stringify(readiness.sourceRequirements || {}),
@@ -301,6 +343,8 @@ function validateLaunchPacket(packet, packetPath) {
         routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: discordReviewArtifacts.editorialQueue || null,
       },
+      evidenceSummaryRendererStatus: evidenceSummaryRenderer.status || null,
+      evidenceSummaryRenderer: evidenceSummaryRenderer.evidence || null,
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,
       discordRouteCoverage: readiness.discordRouteCoverage || null,

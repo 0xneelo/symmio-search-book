@@ -154,7 +154,8 @@ To run the full local release rehearsal, run `npm run search-book:release-dry-ru
 builds the static artifact, smoke-tests the copied artifact both statically and with the
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
-include source-freshness, status-document, and Discord review-artifact evidence, while
+include source-freshness, status-document, Discord review-artifact, and evidence-summary
+renderer no-raw/no-secret evidence, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same
 Discord route-coverage counts and living-docs control flags, including service-backed page
 feedback.
