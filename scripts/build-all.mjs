@@ -350,6 +350,20 @@ function runDeployTemplatesCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runMonitoringEvidenceCheck(env, dryRun) {
+  const step = {
+    id: "check-monitoring-evidence",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-monitoring-evidence.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -524,6 +538,7 @@ if (args.dryRun) {
     runPublicationBoundariesCheck(env, true);
     runProductionEnvFixtureCheck(env, true);
     runDeployTemplatesCheck(env, true);
+    runMonitoringEvidenceCheck(env, true);
   }
   process.exit(0);
 }
@@ -548,6 +563,7 @@ let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
 let productionEnvFixture = null;
 let deployTemplates = null;
+let monitoringEvidence = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -563,6 +579,7 @@ if (args.verify) {
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
   productionEnvFixture = runProductionEnvFixtureCheck(env, false);
   deployTemplates = runDeployTemplatesCheck(env, false);
+  monitoringEvidence = runMonitoringEvidenceCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -583,5 +600,6 @@ console.log(JSON.stringify({
   publicationBoundaries,
   productionEnvFixture,
   deployTemplates,
+  monitoringEvidence,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

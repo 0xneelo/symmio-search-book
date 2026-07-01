@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex monitoring evidence verify gate
+- Task: Wire existing monitoring evidence into the canonical Search Book verify gate so health/metrics privacy coverage cannot drift outside launch/release packets.
+- Scope: `scripts/build-all.mjs`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:verify` runs `scripts/check-monitoring-evidence.mjs` in no-secret local mode, dry-run output includes the check, summary JSON reports `monitoringEvidence:passed`, and only #11/#4 remain open.
+- Result: Added `check-monitoring-evidence` to the `build-all --verify` dry-run and execution path, exposed `monitoringEvidence` in the verify summary, and updated README/FINAL-REPORT/PROGRESS to make the canonical monitoring gate visible. Focused checks passed: `node --check scripts/build-all.mjs`, `npm run search-book:check-monitoring`, `node scripts/build-all.mjs --dry-run --verify`, `npm run search-book:check-status-evidence`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 86 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, `monitoringEvidence:passed`, local monitoring checks 7/7, metrics privacy flags false for raw questions/answers/rating notes/secrets, and only #11/#4 open.
+
 ## 2026-07-01 — Codex deploy-template contract guard
 - Task: Add a no-secret guard for the production systemd service, backup service, backup timer, and matching handoff docs.
 - Scope: `scripts/check-deploy-templates.mjs`, `scripts/build-all.mjs`, `package.json`, `README.md`, `FINAL-REPORT.md`, `PRODUCTION-READINESS-PACKET.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

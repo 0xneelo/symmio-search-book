@@ -41,7 +41,7 @@ export VIBE_DOCS_DATA=/tmp/vibe_docs/Website/public/generated/docs-data.json
 # Regenerate the full corpus + data artifacts
 npm run search-book:build
 
-# Build, then run invariant checks + sensitive-pattern scan (CI gate)
+# Build, then run invariant checks, monitoring evidence, and sensitive-pattern scan (CI gate)
 node scripts/build-all.mjs --verify     # == npm run search-book:verify
 
 # Inspect / resume build steps
@@ -111,8 +111,9 @@ npm run search-book:smoke-service
 npm run search-book:smoke-preview-service
 ```
 
-The workflow does not load LLM credentials, production env files, moderation tokens, metrics
-tokens, or Discord tokens.
+The `search-book:verify` step includes the no-secret local monitoring evidence probe for
+`/health` and token-gated `/api/search-book/metrics`. The workflow does not load LLM
+credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service
 

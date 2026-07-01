@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Monitoring Evidence Verify Gate
+
+- Wired the existing no-secret monitoring evidence checker into `npm run search-book:verify`.
+- The canonical build now starts a temporary local answer-engine service and verifies `/health`, token-gated `/api/search-book/metrics`, unauthenticated rejection, authenticated metrics, and metrics privacy without loading production metrics tokens or LLM credentials.
+- Updated README and final-report verification wording so monitoring is no longer only a launch/release packet proof.
+
 ## 2026-07-01 — Deploy Template Contract Guard
 
 - Added `npm run search-book:check-deploy-templates`, a no-secret guard for the production systemd service, backup service, and backup timer templates.
