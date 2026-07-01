@@ -1,7 +1,13 @@
+## 2026-07-01 — Codex production packet release dry-run evidence
+- Task: Refresh no-secret release rehearsal evidence from current `main` after adding the production-readiness packet guard.
+- Scope: `/tmp/search-book-release-dry-run-production-packet-20260701-1`, status docs if the packet proves new evidence, and `_local/agent-worklog.md`.
+- Status: In progress.
+- Verification target: Release dry-run and packet validators pass from clean commit `8e5a486` or newer, nested launch evidence includes the new `productionReadinessPacket:passed` verify summary, no secret/raw values are printed, and only #11/#4 remain open.
+
 ## 2026-07-01 — Codex production readiness packet guard
 - Task: Add an executable guard for `PRODUCTION-READINESS-PACKET.md` so the #11/#4 operator handoff stays aligned with the canonical inbox, service env path, no-secret release commands, packet validators, and production pass criteria.
 - Scope: New packet checker script, package/build verification wiring, status docs, and `_local/agent-worklog.md`.
-- Status: Complete; pending commit.
+- Status: Complete; committed `8e5a486`.
 - Verification target: Guard passes against the current production packet, fails if #11/#4 or release command criteria drift, full verify remains green, and no new operator gates are created.
 - Result: Added `npm run search-book:check-production-packet`, wired `scripts/check-production-readiness-packet.mjs` into `npm run search-book:verify`, and updated status docs plus status-evidence checks. Focused guard passed with open operator items #4/#11, resolved items #2/#5/#6/#7/#12/#17 not reopened, source ingestion 17 complete / 0 partial / 0 parked / 0 missing, Discord page-fit coverage 19/19, `valuesPrinted:false`, and 0 secret-looking matches. Full `npm run search-book:verify` passed with 26 build steps, 91 syntax checks, `productionReadinessPacket:passed`, quality gates `29/30`, and only #11/#4 open.
 
