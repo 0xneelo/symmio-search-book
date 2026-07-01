@@ -113,7 +113,8 @@ reproducible no-secret proof:
 npm run search-book:drill-local-launch
 ```
 
-It starts temporary localhost services, writes one answer/rating, creates a
+It starts temporary localhost services, writes one answer, answer rating, and reader
+page-feedback event, creates a
 restore-checked SQLite backup manifest, runs staging `check-launch-readiness` with fresh
 verify and write-smoke, and then stops the services. The output reports only local paths
 and booleans; it does not load or print LLM keys.

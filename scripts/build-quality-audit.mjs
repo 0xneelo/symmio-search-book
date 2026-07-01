@@ -367,6 +367,7 @@ const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented =
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
 const metricsExportImplemented = livingDocsEvents.metricsExportImplemented === true;
 const corsPolicyImplemented = livingDocsEvents.corsPolicyImplemented === true;
+const pageFeedbackServiceImplemented = livingDocsEvents.pageFeedbackServiceImplemented === true;
 const backupRestoreImplemented = livingDocsEvents.backupRestoreImplemented === true;
 const productionPreflightImplemented = livingDocsEvents.productionPreflightImplemented === true;
 const livingDocsEventsReady =
@@ -378,6 +379,7 @@ const livingDocsEventsReady =
   livingDocsFailingEventIds.length === 0 &&
   metricsExportImplemented &&
   corsPolicyImplemented &&
+  pageFeedbackServiceImplemented &&
   productionPreflightImplemented;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
 const glossaryMissingSourceKeys = glossary.missingSourceKeys || [];
@@ -610,7 +612,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, metrics export ${metricsExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, production preflight ${productionPreflightImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, page feedback service ${pageFeedbackServiceImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, metrics export ${metricsExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, production preflight ${productionPreflightImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -766,6 +768,7 @@ const payload = {
     livingDocsModerationExportImplemented: moderationExportImplemented,
     livingDocsMetricsExportImplemented: metricsExportImplemented,
     livingDocsCorsPolicyImplemented: corsPolicyImplemented,
+    livingDocsPageFeedbackServiceImplemented: pageFeedbackServiceImplemented,
     livingDocsProductionPreflightImplemented: productionPreflightImplemented,
     livingDocsBackupRestoreImplemented: backupRestoreImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
@@ -998,6 +1001,7 @@ const payload = {
     moderationExportImplemented,
     metricsExportImplemented,
     corsPolicyImplemented,
+    pageFeedbackServiceImplemented,
     productionPreflightImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,
     reasonLivingDocsProductionReadyIsFalse: livingDocsEvents.reasonLivingDocsProductionReadyIsFalse || "",

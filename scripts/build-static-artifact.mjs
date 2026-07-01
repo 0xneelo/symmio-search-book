@@ -212,6 +212,7 @@ function summarizeData() {
   const quality = readJson("data/quality-audit.json", {});
   const requirementMap = readJson("data/requirement-map.json", {});
   const sourceIngestion = readJson("data/source-ingestion.json", {});
+  const livingDocs = readJson("data/living-docs-events.json", {});
   const answerChunks = readJson("data/answer-chunks.json", {});
   const questionRoutes = readJson("data/question-routes.json", {});
   const pageStateRegistry = readJson("data/page-state-registry.json", {});
@@ -223,6 +224,17 @@ function summarizeData() {
     chunks: answerChunks.chunks?.length ?? quality.totals?.answerChunks ?? null,
     qualityGates: quality.gates ? `${quality.gates.filter((gate) => gate.passed).length}/${quality.gates.length}` : null,
     completionReady: requirementMap.completionReady === true,
+    livingDocsControls: {
+      datastore: livingDocs.datastoreImplemented === true,
+      frontendBridge: livingDocs.frontendServiceIntegrationImplemented === true,
+      pageFeedback: livingDocs.pageFeedbackServiceImplemented === true,
+      retention: livingDocs.retentionPolicyImplemented === true,
+      moderation: livingDocs.moderationExportImplemented === true,
+      metrics: livingDocs.metricsExportImplemented === true,
+      cors: livingDocs.corsPolicyImplemented === true,
+      backup: livingDocs.backupRestoreImplemented === true,
+      preflight: livingDocs.productionPreflightImplemented === true,
+    },
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
     sourceRequirements: normalizeStatusCounts(sourceIngestion.byStatus),
     discordRouteCoverage: summarizeDiscordRouteCoverage(),
@@ -288,6 +300,7 @@ try {
       exactRoutes: manifest.readiness.exactRoutes,
       chunks: manifest.readiness.chunks,
       qualityGates: manifest.readiness.qualityGates,
+      livingDocsControls: manifest.readiness.livingDocsControls,
       sourceRequirements: manifest.readiness.sourceRequirements,
       discordRouteCoverage: manifest.readiness.discordRouteCoverage,
       openOperatorItems: manifest.readiness.openOperatorItems,

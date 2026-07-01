@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex page-feedback launch gate hardening
+- Task: Make service-backed reader page feedback a first-class launch/evidence control after adding the endpoint.
+- Scope: `scripts/check-launch-readiness.mjs`, release/static/launch evidence scripts, quality/build invariants, regenerated readiness data, docs/status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch readiness, quality audit, static artifact, launch evidence, and release dry-run packets all include or require `pageFeedbackServiceImplemented:true`; full verify and release dry-run pass; #11/#4 remain the only operator gates.
+- Result: Made `pageFeedbackServiceImplemented:true` a required deterministic build invariant, quality-audit control, and launch-readiness `living-docs-controls` check, then surfaced the same flag in static-artifact, launch-evidence, and release-dry-run readiness packets. Release dry-run passed at `/tmp/search-book-release-dry-run-page-feedback-gate-20260701-1` with static artifact `1,650` files / `52,934,660` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`; `git diff --check` passed.
+
 ## 2026-07-01 — Codex service-backed page feedback
 - Task: Move reader page feedback from localStorage-only prototype behavior into the SQLite-backed living-docs service while preserving local fallback.
 - Scope: `scripts/serve-answer-engine.mjs`, `index.html`, service/preview smoke scripts, generated living-docs/requirement data, docs/status notes, and `_local/agent-worklog.md`.

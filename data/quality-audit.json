@@ -54,6 +54,7 @@
     "livingDocsModerationExportImplemented": true,
     "livingDocsMetricsExportImplemented": true,
     "livingDocsCorsPolicyImplemented": true,
+    "livingDocsPageFeedbackServiceImplemented": true,
     "livingDocsProductionPreflightImplemented": true,
     "livingDocsBackupRestoreImplemented": true,
     "livingDocsProductionReady": false,
@@ -237,7 +238,7 @@
       "id": "living-docs-events",
       "label": "Living-docs question, rating, and gap events validate",
       "passed": true,
-      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, frontend service bridge yes, retention policy yes, moderation export yes, metrics export yes, CORS allowlist yes, production preflight yes, backup/restore yes, production ready no"
+      "detail": "12/12 fixtures, contract ready yes, datastore implemented yes, frontend service bridge yes, page feedback service yes, retention policy yes, moderation export yes, metrics export yes, CORS allowlist yes, production preflight yes, backup/restore yes, production ready no"
     },
     {
       "id": "glossary-routes",
@@ -1347,6 +1348,7 @@
     "moderationExportImplemented": true,
     "metricsExportImplemented": true,
     "corsPolicyImplemented": true,
+    "pageFeedbackServiceImplemented": true,
     "productionPreflightImplemented": true,
     "livingDocsProductionReady": false,
     "reasonLivingDocsProductionReadyIsFalse": "The standalone answer-engine service persists question, answer-rating, reader page-feedback, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete.",

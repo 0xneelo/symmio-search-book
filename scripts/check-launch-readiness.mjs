@@ -18,7 +18,7 @@ Options:
   --profile production|staging     Default: production
   --mode extractive|llm            Default: llm for production, extractive for staging
   --allow-local                    Permit localhost/http URLs in staging
-  --write-smoke                    Let deployment smoke create one answer event and rating
+  --write-smoke                    Let deployment smoke create one answer event, rating, and page feedback
   --run-verify                     Run node scripts/build-all.mjs --verify in this invocation
   --backup-manifest path           Latest backup manifest from scripts/backup-answer-engine-db.mjs
   --backup-max-age-hours n         Default: SEARCH_BOOK_BACKUP_MAX_AGE_HOURS or 24
@@ -243,9 +243,21 @@ function checkBuiltEvidence(checks, profile) {
       livingDocs.moderationExportImplemented === true &&
       livingDocs.metricsExportImplemented === true &&
       livingDocs.corsPolicyImplemented === true &&
+      livingDocs.pageFeedbackServiceImplemented === true &&
       livingDocs.backupRestoreImplemented === true &&
       livingDocs.productionPreflightImplemented === true,
-    detail: `datastore=${livingDocs.datastoreImplemented === true}, frontendBridge=${livingDocs.frontendServiceIntegrationImplemented === true}, retention=${livingDocs.retentionPolicyImplemented === true}, moderation=${livingDocs.moderationExportImplemented === true}, metrics=${livingDocs.metricsExportImplemented === true}, cors=${livingDocs.corsPolicyImplemented === true}, backup=${livingDocs.backupRestoreImplemented === true}, preflight=${livingDocs.productionPreflightImplemented === true}`,
+    detail: `datastore=${livingDocs.datastoreImplemented === true}, frontendBridge=${livingDocs.frontendServiceIntegrationImplemented === true}, pageFeedback=${livingDocs.pageFeedbackServiceImplemented === true}, retention=${livingDocs.retentionPolicyImplemented === true}, moderation=${livingDocs.moderationExportImplemented === true}, metrics=${livingDocs.metricsExportImplemented === true}, cors=${livingDocs.corsPolicyImplemented === true}, backup=${livingDocs.backupRestoreImplemented === true}, preflight=${livingDocs.productionPreflightImplemented === true}`,
+    evidence: {
+      datastoreImplemented: livingDocs.datastoreImplemented === true,
+      frontendServiceIntegrationImplemented: livingDocs.frontendServiceIntegrationImplemented === true,
+      pageFeedbackServiceImplemented: livingDocs.pageFeedbackServiceImplemented === true,
+      retentionPolicyImplemented: livingDocs.retentionPolicyImplemented === true,
+      moderationExportImplemented: livingDocs.moderationExportImplemented === true,
+      metricsExportImplemented: livingDocs.metricsExportImplemented === true,
+      corsPolicyImplemented: livingDocs.corsPolicyImplemented === true,
+      backupRestoreImplemented: livingDocs.backupRestoreImplemented === true,
+      productionPreflightImplemented: livingDocs.productionPreflightImplemented === true,
+    },
   });
 
   const sourceCounts = normalizeStatusCounts(sourceIngestion.byStatus);

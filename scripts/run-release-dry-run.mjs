@@ -296,6 +296,17 @@ function summarizeReadiness() {
     deterministicReady: answerContract.deterministicReady === true,
     llmProductionReady: answerContract.llmProductionReady === true || llm.llmProductionReady === true,
     livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
+    livingDocsControls: {
+      datastore: livingDocs.datastoreImplemented === true,
+      frontendBridge: livingDocs.frontendServiceIntegrationImplemented === true,
+      pageFeedback: livingDocs.pageFeedbackServiceImplemented === true,
+      retention: livingDocs.retentionPolicyImplemented === true,
+      moderation: livingDocs.moderationExportImplemented === true,
+      metrics: livingDocs.metricsExportImplemented === true,
+      cors: livingDocs.corsPolicyImplemented === true,
+      backup: livingDocs.backupRestoreImplemented === true,
+      preflight: livingDocs.productionPreflightImplemented === true,
+    },
     discordRouteCoverage: summarizeDiscordRouteCoverage(),
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
       id: item.id,
@@ -385,6 +396,7 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
 - Living-docs production ready: \`${readiness.livingDocsProductionReady}\`
+- Living-docs controls: \`datastore=${readiness.livingDocsControls?.datastore}, frontendBridge=${readiness.livingDocsControls?.frontendBridge}, pageFeedback=${readiness.livingDocsControls?.pageFeedback}, retention=${readiness.livingDocsControls?.retention}, moderation=${readiness.livingDocsControls?.moderation}, metrics=${readiness.livingDocsControls?.metrics}, cors=${readiness.livingDocsControls?.cors}, backup=${readiness.livingDocsControls?.backup}, preflight=${readiness.livingDocsControls?.preflight}\`
 
 ## Steps
 
@@ -520,6 +532,7 @@ try {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
       sourceRequirements: packet.readiness.sourceRequirements,
+      livingDocsControls: packet.readiness.livingDocsControls,
       discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },

@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-01 — Page-Feedback Launch Gate Hardening
+
+- Made service-backed reader page feedback a required living-docs control in the deterministic build invariant, quality audit, and launch-readiness gate.
+- `scripts/check-launch-readiness.mjs` now fails the `living-docs-controls` check if `pageFeedbackServiceImplemented` is not true and emits structured evidence for each living-docs control.
+- Static-artifact, launch-evidence, and release-dry-run packets now include a `livingDocsControls` readiness object with `pageFeedback:true`.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-page-feedback-gate-20260701-1`: release status `passed`, static artifact `1,650` files / `52,934,660` bytes, launch status `passed`, monitoring status `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Targeted packet assertions confirmed `livingDocsControls.pageFeedback:true` in `release-dry-run.json`, `static-artifact-manifest.json`, and `launch-evidence.json`; the nested launch `living-docs-controls` check passed with detail `pageFeedback=true`.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Service-Backed Reader Page Feedback
 
 - Added `POST /api/search-book/page-feedback` to the standalone SQLite answer-engine service and wired reader page Useful/Needs work controls to use it when a service is configured.

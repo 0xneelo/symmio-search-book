@@ -40,7 +40,7 @@ Options:
   --backup-manifest path           Defaults to SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST / SEARCH_BOOK_BACKUP_MANIFEST
   --backup-max-age-hours n         Default: SEARCH_BOOK_BACKUP_MAX_AGE_HOURS or 24
   --run-verify / --no-run-verify   Default: --run-verify
-  --write-smoke / --no-write-smoke Let launch readiness write one answer/rating
+  --write-smoke / --no-write-smoke Let launch readiness write one answer/rating/page-feedback event set
   --allow-local                    Permit localhost URLs in staging launch readiness
   --skip-production-env            Staging only
   --skip-deployment-smoke          Staging only
@@ -261,6 +261,17 @@ function summarizeReadiness() {
     retrievalEligiblePages: totals.pageStateRetrievalEligiblePages || null,
     llmProductionReady: answerContract.llmProductionReady === true || llm.llmProductionReady === true,
     livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
+    livingDocsControls: {
+      datastore: livingDocs.datastoreImplemented === true,
+      frontendBridge: livingDocs.frontendServiceIntegrationImplemented === true,
+      pageFeedback: livingDocs.pageFeedbackServiceImplemented === true,
+      retention: livingDocs.retentionPolicyImplemented === true,
+      moderation: livingDocs.moderationExportImplemented === true,
+      metrics: livingDocs.metricsExportImplemented === true,
+      cors: livingDocs.corsPolicyImplemented === true,
+      backup: livingDocs.backupRestoreImplemented === true,
+      preflight: livingDocs.productionPreflightImplemented === true,
+    },
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
     sourceRequirements: normalizeStatusCounts(sourceStatus),
     completionReady: requirements.completionReady === true,
@@ -400,6 +411,7 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
 - Living-docs production ready: \`${readiness.livingDocsProductionReady}\`
+- Living-docs controls: \`datastore=${readiness.livingDocsControls?.datastore}, frontendBridge=${readiness.livingDocsControls?.frontendBridge}, pageFeedback=${readiness.livingDocsControls?.pageFeedback}, retention=${readiness.livingDocsControls?.retention}, moderation=${readiness.livingDocsControls?.moderation}, metrics=${readiness.livingDocsControls?.metrics}, cors=${readiness.livingDocsControls?.cors}, backup=${readiness.livingDocsControls?.backup}, preflight=${readiness.livingDocsControls?.preflight}\`
 
 ## Launch Evidence
 
@@ -540,6 +552,7 @@ function main() {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
       sourceRequirements: packet.readiness.sourceRequirements,
+      livingDocsControls: packet.readiness.livingDocsControls,
       discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },
