@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Launch/Release Discord Disposition Evidence
+
+- Promoted Discord editorial disposition into launch/release evidence surfaces: `launch-evidence.md`, `release-dry-run.md`, and rendered GitHub summary tables now carry count-only proof for reviewer handoff, 19/19 keep-existing page-fit groups, 2/2 keep-refusal items, 0 public-copy changes, and 0 promoted Discord/Lafa statements.
+- Hardened `npm run search-book:check-launch-evidence-packet`, `npm run search-book:check-release-dry-run-packet`, and `npm run search-book:check-evidence-summary` so strict summary validation fails if that disposition row is missing or tampered.
+- Focused validation passed with `npm run search-book:check-evidence-summary`: strict launch/release summary validation true, missing summary rejected, tampered disposition summary rejected, rendered summaries 38 launch lines / 42 release lines, and `valuesPrinted:false`.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, `evidenceSummaryRenderer:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Discord Editorial Disposition Guard
 
 - Added explicit no-raw automated disposition evidence to the Discord editorial queue: reviewer handoff ready, 19/19 page-fit groups keep existing source-backed public copy, 2/2 refusal items keep refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.

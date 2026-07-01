@@ -188,6 +188,17 @@ function makeLaunchPacket() {
           routedItems: 24,
           pageFitReviewReady: 19,
           refusalReviewReady: 2,
+          disposition: {
+            readyForReviewerHandoff: true,
+            pageFitGroups: 19,
+            pageFitKeepExistingPublicCopy: 19,
+            pageFitNeedsPublicCopyChange: 0,
+            refusalItems: 2,
+            refusalKeepPolicy: 2,
+            refusalNeedsPolicyReview: 0,
+            publicCopyChangesProposed: 0,
+            exactDiscordStatementsPromoted: 0,
+          },
           rawKeyHits: 0,
           sampleLeaks: 0,
           valuesPrinted: false,
@@ -327,8 +338,8 @@ function makeLaunchPacket() {
       parsed: {
         status: "passed",
         evidence: {
-          launchSummaryLines: 36,
-          releaseSummaryLines: 40,
+          launchSummaryLines: 38,
+          releaseSummaryLines: 42,
           appendedBytes: 4742,
           valuesPrinted: false,
         },
@@ -468,6 +479,17 @@ function makeReleasePacket() {
           routedItems: 24,
           pageFitReviewReady: 19,
           refusalReviewReady: 2,
+          disposition: {
+            readyForReviewerHandoff: true,
+            pageFitGroups: 19,
+            pageFitKeepExistingPublicCopy: 19,
+            pageFitNeedsPublicCopyChange: 0,
+            refusalItems: 2,
+            refusalKeepPolicy: 2,
+            refusalNeedsPolicyReview: 0,
+            publicCopyChangesProposed: 0,
+            exactDiscordStatementsPromoted: 0,
+          },
           rawKeyHits: 0,
           sampleLeaks: 0,
           valuesPrinted: false,
@@ -576,8 +598,8 @@ function makeReleasePacket() {
       evidenceSummaryRenderer: {
         status: "passed",
         evidence: {
-          launchSummaryLines: 36,
-          releaseSummaryLines: 40,
+          launchSummaryLines: 38,
+          releaseSummaryLines: 42,
           appendedBytes: 4742,
           valuesPrinted: false,
         },
@@ -678,8 +700,8 @@ function main() {
   const strictRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
   const missingSummaryLaunch = runPacketValidator("check-launch-evidence-packet.mjs", ["--packet", validatorNestedLaunchPath, "--require-summary"]);
   fs.writeFileSync(validatorReleaseSummaryPath, release.stdout.replace(
-    "Discord editorial queue data | `passed` (24 routed / 19 page-fit / 2 refusals; ready: `true`)",
-    "Discord editorial queue data | `failed` (24 routed / 19 page-fit / 2 refusals; ready: `false`)",
+    "Discord editorial disposition | ready `true` (keep-copy `19/19`; keep-refusal `2/2`; copy changes `0`; promoted `0`)",
+    "Discord editorial disposition | ready `false` (keep-copy `19/19`; keep-refusal `2/2`; copy changes `1`; promoted `1`)",
   ));
   const tamperedSummaryRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
 
@@ -700,6 +722,7 @@ function main() {
       && /Discord public copy ready \| `19\/19 page-fit groups`/.test(combined)
       && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
       && /Discord editorial queue data \| `passed` \(24 routed \/ 19 page-fit \/ 2 refusals; ready: `true`\)/.test(combined)
+      && /Discord editorial disposition \| ready `true` \(keep-copy `19\/19`; keep-refusal `2\/2`; copy changes `0`; promoted `0`\)/.test(combined)
       && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
       && /Discord leakage checks \| raw keys `0`, sample leaks `0`, queue-data raw keys `0`, queue-data sample leaks `0`, queue raw tables `0`/.test(combined)
       && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)

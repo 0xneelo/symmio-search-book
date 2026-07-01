@@ -226,6 +226,7 @@ function discordReviewArtifactsReady(evidence = {}) {
   const routeCoverage = summary.routeCoverage || {};
   const editorialQueue = evidence.editorialQueue || {};
   const editorialQueueData = evidence.editorialQueueData || {};
+  const disposition = editorialQueueData.disposition || {};
   const total = Number(routeCoverage.totalPageFitGroups || 0);
   const covered = Number(routeCoverage.coveredPageFitGroups || 0);
   const triageReady = Number(routeCoverage.triageReadyPageFitGroups || 0);
@@ -238,6 +239,12 @@ function discordReviewArtifactsReady(evidence = {}) {
   const queueDataRouted = Number(editorialQueueData.routedItems || 0);
   const queueDataPageFits = Number(editorialQueueData.pageFitReviewReady || 0);
   const queueDataRefusals = Number(editorialQueueData.refusalReviewReady || 0);
+  const dispositionPageFitGroups = Number(disposition.pageFitGroups || 0);
+  const dispositionKeepCopy = Number(disposition.pageFitKeepExistingPublicCopy || 0);
+  const dispositionNeedsCopyChange = Number(disposition.pageFitNeedsPublicCopyChange || 0);
+  const dispositionRefusalItems = Number(disposition.refusalItems || 0);
+  const dispositionKeepRefusal = Number(disposition.refusalKeepPolicy || 0);
+  const dispositionNeedsRefusalReview = Number(disposition.refusalNeedsPolicyReview || 0);
   return (
     evidence.status === "passed"
     && summary.routingReady === true
@@ -275,6 +282,15 @@ function discordReviewArtifactsReady(evidence = {}) {
     && Number(editorialQueueData.rawKeyHits || 0) === 0
     && Number(editorialQueueData.sampleLeaks || 0) === 0
     && editorialQueueData.valuesPrinted === false
+    && disposition.readyForReviewerHandoff === true
+    && dispositionPageFitGroups === queueDataPageFits
+    && dispositionKeepCopy === queueDataPageFits
+    && dispositionNeedsCopyChange === 0
+    && dispositionRefusalItems === queueDataRefusals
+    && dispositionKeepRefusal === queueDataRefusals
+    && dispositionNeedsRefusalReview === 0
+    && Number(disposition.publicCopyChangesProposed || 0) === 0
+    && Number(disposition.exactDiscordStatementsPromoted || 0) === 0
   );
 }
 
@@ -320,11 +336,16 @@ function queueDataRow(queueData = {}) {
   return `Discord editorial queue data | \`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`;
 }
 
+function queueDispositionRow(disposition = {}) {
+  return `Discord editorial disposition | ready \`${disposition.readyForReviewerHandoff ?? "unknown"}\` (keep-copy \`${disposition.pageFitKeepExistingPublicCopy ?? "unknown"}/${disposition.pageFitGroups ?? "unknown"}\`; keep-refusal \`${disposition.refusalKeepPolicy ?? "unknown"}/${disposition.refusalItems ?? "unknown"}\`; copy changes \`${disposition.publicCopyChangesProposed ?? "unknown"}\`; promoted \`${disposition.exactDiscordStatementsPromoted ?? "unknown"}\`)`;
+}
+
 function validateSummaryArtifact({
   kind,
   summaryPath,
   repository = {},
   queueData = {},
+  queueDisposition = {},
   readiness = {},
   required = false,
 }) {
@@ -341,6 +362,10 @@ function validateSummaryArtifact({
     {
       id: "discord-queue-data-row",
       fragment: queueDataRow(queueData),
+    },
+    {
+      id: "discord-disposition-row",
+      fragment: queueDispositionRow(queueDisposition),
     },
     {
       id: "open-operator-linear-tasks-row",
@@ -540,6 +565,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     summaryPath: summaryArtifactPath(packetPath, "release-dry-run.summary.md"),
     repository,
     queueData: launchSummary.discordReviewArtifacts?.editorialQueueData || {},
+    queueDisposition: launchSummary.discordReviewArtifacts?.editorialQueueData?.disposition || {},
     readiness,
     required: options.requireSummary === true,
   });

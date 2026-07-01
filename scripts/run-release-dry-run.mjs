@@ -387,6 +387,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
                 routedItems: discordQueueData.routedItems ?? null,
                 pageFitReviewReady: discordQueueData.pageFitReviewReady ?? null,
                 refusalReviewReady: discordQueueData.refusalReviewReady ?? null,
+                disposition: discordQueueData.disposition || null,
                 rawKeyHits: discordQueueData.rawKeyHits ?? null,
                 sampleLeaks: discordQueueData.sampleLeaks ?? null,
                 valuesPrinted: discordQueueData.valuesPrinted === true,
@@ -591,6 +592,7 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
 - Discord queue data status: \`${launch.discordReviewArtifacts?.editorialQueueData?.status || "missing"}\`
 - Discord queue data routed/page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueueData?.routedItems ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.refusalReviewReady ?? "unknown"}\`
+- Discord editorial disposition: ready \`${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.readyForReviewerHandoff ?? "unknown"}\`; keep-copy \`${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.pageFitKeepExistingPublicCopy ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.pageFitGroups ?? "unknown"}\`; keep-refusal \`${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.refusalKeepPolicy ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.refusalItems ?? "unknown"}\`; public-copy changes \`${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.publicCopyChangesProposed ?? "unknown"}\`; promoted statements \`${launch.discordReviewArtifacts?.editorialQueueData?.disposition?.exactDiscordStatementsPromoted ?? "unknown"}\`
 - Discord queue data raw keys/sample leaks: \`${launch.discordReviewArtifacts?.editorialQueueData?.rawKeyHits ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.sampleLeaks ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
 - Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`

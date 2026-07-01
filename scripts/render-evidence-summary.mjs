@@ -88,6 +88,10 @@ function refusalProbeCount(runtime = {}) {
   };
 }
 
+function dispositionSummary(disposition = {}) {
+  return `ready \`${disposition.readyForReviewerHandoff ?? "unknown"}\` (keep-copy \`${disposition.pageFitKeepExistingPublicCopy ?? "unknown"}/${disposition.pageFitGroups ?? "unknown"}\`; keep-refusal \`${disposition.refusalKeepPolicy ?? "unknown"}/${disposition.refusalItems ?? "unknown"}\`; copy changes \`${disposition.publicCopyChangesProposed ?? "unknown"}\`; promoted \`${disposition.exactDiscordStatementsPromoted ?? "unknown"}\`)`;
+}
+
 function launchSummary(packet) {
   const launch = packet.launchEvidence?.parsed?.evidence?.launchReadiness || packet.launchEvidence?.parsed || {};
   const monitoring = packet.monitoringEvidence?.parsed || {};
@@ -146,6 +150,7 @@ function launchSummary(packet) {
       "Discord editorial queue data",
       `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
     ],
+    ["Discord editorial disposition", dispositionSummary(queueData.disposition || {})],
     [
       "Discord refusal runtime",
       `\`${discordRefusalRuntime.status || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
@@ -255,6 +260,7 @@ function releaseSummary(packet) {
       "Discord editorial queue data",
       `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
     ],
+    ["Discord editorial disposition", dispositionSummary(queueData.disposition || {})],
     [
       "Discord refusal runtime",
       `\`${launch.discordRefusalRuntimeStatus || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
