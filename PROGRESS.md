@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — App Docs Source Status Reconciliation
+
+- Reconciled stale `_specs/app-docs` operational wording so the mission, grounding seed, source list, answer-engine spec, and production roadmap no longer imply Discord/Notion access is missing, referral depth is unresolved, or Claude is the current production provider.
+- Updated the roadmap to name only the two remaining operator gates: #11 production VPS service env install and #4 public frontend platform/repo/deploy route. Discord/Lafa is now described as imported internal-only demand evidence, with exact public statements still behind editorial/source-boundary review.
+- Verification passed: `npm run search-book:check-spec-reconciliation`, `npm run search-book:check-status-evidence`, `npm run search-book:check-production-packet`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`. Source ingestion remains `17/17`, live eval evidence remains `44/44`, quality remains `29/30`, and only #11/#4 remain open.
+
 ## 2026-07-02 — GAPS Resolution Summary Reconciliation
 
 - Reconciled stale `GAPS.md` resolution-summary wording: G-002A manifest authoring is resolved for v1 with 794 manifest pages / 801 authored pages / 800 public-navigation pages, the old referral-depth "fix stale 5-level copy" note is no longer active, and G-008 is framed as a source-boundary refusal rather than a production operator gate.

@@ -40,7 +40,7 @@ Production-ready means all of the following are true:
 - The LLM answers only from the corpus, cites every substantive claim, and refuses or escalates when the corpus cannot answer.
 - Every question, rating, gap, and failed answer is persisted into a living-docs datastore.
 - The Search Insights page shows real recent questions and real gap signals.
-- Discord-derived FAQ and Lafa answers are integrated if the operator provides an export or transcript source.
+- Discord/Lafa demand evidence is integrated from the provided internal-only export; public copy keeps exact Discord/Lafa statements behind editorial review and source-boundary checks.
 - Public economics, referral, revenue, points, and venue/chain/phase claims match the operator-approved disclosure boundary.
 - Deployment, observability, privacy, prompt-safety, link checking, source audits, and rollback are in place.
 
@@ -64,7 +64,7 @@ Fallback: Mintlify or another hosted docs platform.
 
 Goal: stop moving the foundation while the build begins.
 
-Current status: the corpus and answer-runtime checkpoints have advanced beyond the original Phase 0 plan. Recent known checkpoints include the citation-valid live LLM runtime (`23bfa24`), Symmio whitepaper-history boundary (`d241bcf`), Discord/Lafa ingestion contract (`4e079d5`), the standalone SQLite answer-engine service boundary, the Proof-of-Value publication checkpoint (`d02e35b`), the latest live RAG evidence refresh (`0ef7ba4`), the readiness-evidence documentation alignment checkpoint (`84d5476`), and the static app integrity checkpoint. The remaining Phase 0 work is production platform/repo/deploy-route capture and keeping the roadmap/checklists current as parked inputs resolve.
+Current status: the corpus and answer-runtime checkpoints have advanced beyond the original Phase 0 plan. Recent known checkpoints include the citation-valid live LLM runtime (`23bfa24`), Symmio whitepaper-history boundary (`d241bcf`), Discord/Lafa ingestion contract (`4e079d5`), the standalone SQLite answer-engine service boundary, the Proof-of-Value publication checkpoint (`d02e35b`), the latest live RAG evidence refresh (`0ef7ba4`), the readiness-evidence documentation alignment checkpoint (`84d5476`), and the static app integrity checkpoint. The remaining Phase 0 work is production platform/repo/deploy-route capture and keeping the roadmap/checklists current as the two production gates resolve.
 
 Deliverables:
 
@@ -72,21 +72,20 @@ Deliverables:
 - Re-run generation and deterministic checks after contract, source, or route changes.
 - Keep readiness evidence synchronized with `data/llm-rag-contract.json`; `build-all --verify` now fails when report/roadmap/contract totals drift.
 - Keep static app integrity in the verification path so local script dependencies, expected globals, static page links, and reader-data coverage fail before deploy.
-- Keep the production preflight in the verification path so unsafe local defaults, wildcard origins, repo-local DB paths, missing production VPS LLM env, missing reviewer/cadence assignment, missing backup storage, and secret-printing regressions fail before launch.
+- Keep the production preflight in the verification path so unsafe local defaults, wildcard origins, repo-local DB paths, missing production VPS service env, missing reviewer/cadence assignment, missing backup storage, and secret-printing regressions fail before launch.
 - Confirm localhost preview still serves the search-book when frontend/design work changes.
 - Update `_local/agent-worklog.md`.
 - Re-read `OPERATOR-INBOX.md` and resume any newly resolved items.
 
-Required operator decisions:
+Remaining operator decisions:
 
-- Production platform and repository owner.
-- Public frontend platform, repository owner, and deploy route.
-- Whether the Discord readable-export follow-up is required before launch or can remain a launch-labeled source gap.
+- #11 production VPS service env install at `/etc/symmio-search-book/search-book.env`.
+- #4 public frontend platform, repository owner, and deploy route.
 
 Exit gate:
 
 - The standalone repo is clean after a scoped checkpoint commit.
-- The quality audit failure list is still limited to known parked blockers.
+- The quality audit failure list is still limited to the known #11/#4 production gates.
 - No unrelated dashboard/spec/deploy work is staged.
 
 ## Phase 1 - Source Completeness And Launch Truth Boundary
@@ -95,8 +94,8 @@ Goal: know exactly what can be published as fact.
 
 Work:
 
-- Resolve or explicitly launch-park every open operator inbox item.
-- Ingest the Discord/Lafa corpus after the provided export is closed or copied into a readable WSL path.
+- Keep open operator inbox items limited to #11 and #4; do not re-open resolved source-ingestion items.
+- Keep the Discord/Lafa corpus imported internal-only, regenerate sanitized review/routing/editorial artifacts when the review packet changes, and keep exact Discord/Lafa statements out of public copy until editorial review promotes a specific claim.
 - Keep the Vibe Notion source registered as paraphrase-only public boundary material; do not quote Notion text or signed media URLs.
 - Keep original/oldest Symmio whitepaper recovery out of scope for v1 and use the official Git/current-docs boundary page.
 - Keep referral-depth public copy on the resolved 15-level/additive-backfill stance.
@@ -116,7 +115,7 @@ Artifacts:
 
 Exit gate:
 
-- No unresolved item blocks a public claim without being explicitly labeled as launch-parked.
+- No unresolved item blocks a public claim without being explicitly labeled as a source boundary or one of the known #11/#4 production gates.
 - Every public numerical, legal, revenue, referral, audit, and security claim has a current primary source or an operator-approved publication note.
 
 ## Phase 2 - Corpus Productization

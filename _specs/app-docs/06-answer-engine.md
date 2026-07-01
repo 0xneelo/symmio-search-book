@@ -10,7 +10,7 @@ The interface *is* the product: users mostly **ask**, and the docs answer + rout
 
 ## Answer-engine front door
 - A prominent **ask bar** is the primary entry. A question → agentic retrieval over the docs corpus → an **answer plus a link to the exact page** that answers it. The reader keeps asking; each answer routes to a (possibly new) page.
-- **Retrieval + generation:** chunk + embed the whole compendium (+ the Discord Q&A dataset) into a vector index; retrieve, then answer with **Claude** (latest models — e.g. `claude-opus-4-8` for synthesis, a faster tier for routing/retrieval). **Always cite + link** the source page(s). **Refuse/deflect** when the answer isn't in the corpus.
+- **Retrieval + generation:** chunk the whole compendium plus the Discord-derived demand metadata, retrieve from approved corpus context, then answer through the OpenAI-compatible LLM runtime when configured. Current local live eval evidence uses `gpt-4.1-mini`; production readiness depends only on installing the service env at `/etc/symmio-search-book/search-book.env`. **Always cite + link** the source page(s). **Refuse/deflect** when the answer isn't in the corpus.
 - A floating ask bar/widget on every page, plus the dedicated front-door experience.
 
 ## Living-docs feedback loop (the whole point)
@@ -22,7 +22,7 @@ The interface *is* the product: users mostly **ask**, and the docs answer + rout
 
 ## Build vs buy
 - If the chosen platform has native AI (e.g. Mintlify), use it for retrieval/UX **but still wire our own** question-tracking + rating + gaps datastore so we own the demand signal.
-- Else build the engine (vector index + Claude + widget) and the datastore directly (deployable on the VPS).
+- Else build the engine (retrieval + OpenAI-compatible LLM synthesis + widget) and the datastore directly (deployable on the VPS).
 
 ## Guardrails
 - Answer **only** from the corpus; always link sources; never invent; escalate unknowns into the gaps queue.

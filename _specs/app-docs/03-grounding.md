@@ -10,7 +10,7 @@ The **reference-layer** truth that complements the manifesto (`02`). Use as the 
 Vibe = a permissionless perps network on Symmio. Public app: `vibe.permissionless.credit`. Trade at `beta.vibe.trading`. The **onboarding-app dashboard** shows each referrer their network's estimated **revenue**, **volume**, and **points**.
 
 ## Revenue model (Phase A, live)
-`referrerRevenue = networkVolume × platformFeeRate × referrerShare`. The two rates are server-config (handle per the transparency decision in `08`). `networkVolume` = trade volume summed across the referral tree (multi-level, excluding the user's own wallet). **Reconcile the exact depth** — the code/volume rollup uses **5 levels**, but some shipped copy says **15** and a canonical FAQ doc says "5, expanding to 10+".
+`referrerRevenue = networkVolume × platformFeeRate × referrerPlatformShare`. The two rates are server-config and the public v1 defaults are `0.05%` / `5 bps` platform fee and `30%` referrer platform share. `networkVolume` = trade volume summed across the referral tree, excluding the user's own wallet. Public referral depth is resolved as **15 levels**, and historical backfill is additive and never lowers a balance; do not re-open the old 5-vs-15 conflict.
 
 Served by `GET /api/me/pulse`, polled ~90s; a **monotonic** "Earning live" odometer animates a measured **rate** (recent slope, else lifetime cold-start; a lifetime-average fallback for flat volume is pending, SYN-204), with a **~1¢/day** display-motion floor. Seed and massively expand from `docs/network-revenue.md` and `src/dashboard/revenue-doc.jsx`.
 

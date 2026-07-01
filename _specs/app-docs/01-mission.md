@@ -15,7 +15,7 @@ The front door is an **answer engine**: a question goes in, the exact page comes
 - A **living-docs loop** (`06`): every question tracked, every answer rated, gaps surfaced, demand-driven improvement.
 - The **full narrative/thesis** (`02`): vision, history, intents-vs-order-books, tokenization, bootstrapping, Hyperliquid/HIP-3, solvers, isolation, UX, long-term vision.
 - The **product/reference layer**: revenue (incl. the venue/chain/phase matrix), volume, points, vibe-points, onboarding/referrals, every dashboard view.
-- The **Symmio Discord mined** (community questions + Lafa's answers) into the FAQ/answer-engine seed (`07`), if access is provided.
+- The **Symmio Discord mined/imported** (community questions + Lafa answer candidates) into the FAQ/answer-engine demand seed (`07`) as internal-only evidence; exact public Discord/Lafa statements require editorial review before publication.
 - Every claim **traceable to a primary source**; contradictions reconciled or logged. **No secrets leaked.**
 - `DECISIONS.md`, `SOURCES.md`, `STYLEGUIDE.md`, `GAPS.md`, `QUESTIONS.md` (tracked-question log), a page manifest, and a final report committed.
 

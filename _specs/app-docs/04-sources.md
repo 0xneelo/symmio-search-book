@@ -15,15 +15,15 @@ Every page that draws on a source cites it; maintain `SOURCES.md` (claim → sou
 
 > **Heaviest source by far — `0xneelo/vibe_docs`: ~400 pages of insanely dense, high-value content.** It is *under-structured*, not *under-written* — most of the compendium's substance already exists here. The core job is to **read it exhaustively and restructure / surface it** into the IA, not to generate from scratch. Budget the most reading time here.
 - **`github.com/0xneelo/vibe_docs`** — the ~400-page primary source above; read *all* of it and restructure it into the IA. The single biggest input.
-- **Notion — "Vibe Trading"** — `app.notion.com/p/Vibe-Trading-209bff5b367a80b480d9fb1eb07af92e`. Vibe's working Notion; read fully. **May need an export or share access** — if gated, log to `OPERATOR-INBOX.md` (`10`) and proceed.
+- **Notion — "Vibe Trading"** — Vibe's working Notion source is registered through MCP as `vibe-trading-notion` with a paraphrase-only public-use boundary. Do not quote Notion text or publish signed media/static commercial details unless a later operator decision changes the boundary.
 - `docs.vibe.trading`
 - `docs.symm.io`
 - `docs.symmio.foundation`
-- **Original / oldest Symmio whitepaper and earliest docs** (for the `02` Part I origin story) **and** the current whitepaper: `docs.symm.io/security-and-architecture/symmio-whitepaper`.
+- **Symmio whitepaper history boundary** — use the current whitepaper plus official Git/current-docs evidence for launch-safe history claims. Original/oldest whitepaper recovery is out of scope for v1; do not claim an exact original artifact.
 - `github.com/symm-io/` (org repos + docs)
 - **SuperFlow / SSHE** docs
 - **Hyperliquid** docs (for the gamma / HIP-3 argument) and **Goldsky** (subgraph data).
 
 ## Community (the demand signal — see `06` + `07`)
-- **Symmio Discord** — mine community **questions** and **Lafa's answers** to any question. Normalize into a structured Q&A dataset (question, answer, topic, links) that seeds the FAQ, the answer engine, and the initial gaps queue. **Requires a Discord export or read access** — if unavailable, flag in `DECISIONS.md` and proceed with the rest.
+- **Symmio Discord** — provided and imported internal-only. Use the committed no-raw corpus counts plus local `/tmp` review/routing packets to seed FAQ demand, the answer engine, and the gaps queue. Do not quote raw Discord text or exact Lafa statements in public copy until editorial review promotes a specific claim.
 - Any researcher write-ups / threads the team points to (this is a *jointly authored* manifesto — credit contributors).
