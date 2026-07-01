@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Workflow Refresh
+
+- Triggered manual `Search Book Static Artifact` workflow run `28536310917` from commit `85b241e`; the workflow passed verify, static smoke, answer-engine bridge smoke, and manifest checks.
+- Downloaded artifact to `/tmp/search-book-gh-static-artifact-28536310917/search-book-static-site`; local validation passed with `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28536310917/search-book-static-site` and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28536310917/search-book-static-site`.
+- Static manifest reports status `passed`, integrity `passed`, 1,652 files, 52,849,227 bytes, `valuesPrinted:false`, and 0 sensitive-pattern matches; this is platform-neutral deployable bundle evidence, not a #4 deploy-route decision.
+
 ## 2026-07-01 — Final Report Manual Evidence Guard
 
 - Updated `FINAL-REPORT.md` so its release evidence section names the latest strict manual GitHub artifacts: launch run `28535275223`, release run `28535275202`, commit `b330251`, downloaded artifact paths, strict summary validation, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.

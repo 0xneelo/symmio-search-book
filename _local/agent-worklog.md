@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static artifact workflow refresh
+- Task: Refresh the manual platform-neutral static artifact workflow from current `main`, download the artifact, and validate the copied bundle locally without choosing the production deploy route.
+- Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Manual `Search Book Static Artifact` workflow passes from current `main`; downloaded `search-book-static-site` artifact passes `npm run search-book:smoke-static -- --root ...`, `npm run search-book:smoke-preview-service -- --static-root ...`, and static manifest no-secret checks; only #11/#4 remain open.
+- Result: Manual static artifact run `28536310917` passed from commit `85b241e`. Downloaded artifact at `/tmp/search-book-gh-static-artifact-28536310917/search-book-static-site` passed local static smoke, local preview-to-service bridge smoke, and manifest checks; manifest reports status `passed`, integrity `passed`, 1,652 files, 52,849,227 bytes, `valuesPrinted:false`, and 0 sensitive-pattern matches.
+
 ## 2026-07-01 — Codex final report manual-evidence guard
 - Task: Keep `FINAL-REPORT.md` aligned with the latest strict manual launch/release evidence and make `npm run search-book:check-status-evidence` enforce that linkage from `PROGRESS.md`.
 - Scope: `FINAL-REPORT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
