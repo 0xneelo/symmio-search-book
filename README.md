@@ -77,6 +77,7 @@ npm run search-book:check-launch -- --site-url https://docs.example.com --servic
 # Local-only Discord/Lafa editorial packet; writes raw excerpts outside the repo
 npm run search-book:discord-review -- --input /path/to/discord-export.json --lafa-author-id <id> --out-dir /tmp/search-book-discord-review
 npm run search-book:discord-route-review -- --review-json /tmp/search-book-discord-review/discord-review-queue.json --out-dir /tmp/search-book-discord-routing
+npm run search-book:discord-routing-summary -- --routing-json /tmp/search-book-discord-routing/discord-review-routing.json
 
 # SQLite backup with restore-check manifest
 npm run search-book:backup-db
@@ -147,7 +148,9 @@ local export and a `/tmp` output directory. It writes raw review excerpts outsid
 prints only summary paths/counts, and refuses repository output by default; the checked-in
 Discord corpus stays text-redacted. Then run `npm run search-book:discord-route-review`
 against that packet to produce a sanitized routing report with item ids, hashes, statuses,
-page ids, and source keys only.
+page ids, and source keys only. Run `npm run search-book:discord-routing-summary` with that
+routing report to publish the no-raw summary into static Search Insights as hashes, page ids,
+source keys, statuses, and counts only.
 
 ## Environment
 

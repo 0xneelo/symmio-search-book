@@ -69,6 +69,7 @@ function buildSteps(args) {
     ["build-question-routes", ["scripts/build-question-routes.mjs"]],
     ["build-faq-map", ["scripts/build-faq-map.mjs"]],
     ["build-discord-corpus", ["scripts/build-discord-corpus.mjs"]],
+    ["build-discord-routing-summary", ["scripts/build-discord-routing-summary.mjs"]],
     ["build-gap-queue", ["scripts/build-gap-queue.mjs"]],
     ["build-answer-chunks", ["scripts/build-answer-chunks.mjs"]],
     ["build-crosslink-map", ["scripts/build-crosslink-map.mjs"]],
@@ -242,6 +243,16 @@ function runInvariants() {
     discord.totals.questionClusters >= 1 &&
     discord.publicationMode !== "unknown";
   assert(discordParked || discordImported, "Discord corpus state is invalid");
+
+  const discordRouting = readJson("data/discord-review-routing.json");
+  assert(
+    discordRouting.rawDiscordTextIncluded === false && discordRouting.sourceAnswerTextIncluded === false,
+    "Discord routing summary includes raw text",
+  );
+  assert(discordRouting.valuesPrinted === false, "Discord routing summary value-printing boundary is invalid");
+  if (discordRouting.routingReady) {
+    assert((discordRouting.summary?.routedItems || 0) === (discordRouting.items || []).length, "Discord routing summary item count mismatch");
+  }
 
   const gaps = readJson("data/gap-queue.json");
   assert(!gaps.missingQuestionGapIds.length && !gaps.missingRelatedPageIds.length && !gaps.missingSourceKeys.length, "gap queue has unresolved references");

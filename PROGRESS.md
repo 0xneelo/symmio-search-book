@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Routing Summary In Search Insights
+
+- Added `scripts/build-discord-routing-summary.mjs` and `npm run search-book:discord-routing-summary` to preserve a sanitized Discord review routing report as committed static data.
+- Generated `data/discord-review-routing.*` from `/tmp/search-book-discord-routing-20260701-1`; the checked-in summary contains item ids, hashes, statuses, page ids, source keys, counts, and reviewer actions only.
+- Search Insights now renders a Discord Demand Routing panel from the static data, showing no raw Discord question text, no raw Lafa/source answer text, and no generated answer text.
+- Verified a targeted no-raw assertion: 24 routed items, 22 answered by existing pages, 2 refusals, `rawDiscordTextIncluded:false`, `sourceAnswerTextIncluded:false`, and `valuesPrinted:false`.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, static integrity `20/20`, 2,884 chunks, 801 authored pages, source ingestion `17/17`, and quality gates `29/30`.
+
 ## 2026-07-01 — Local Discord Editorial Review Packet
 
 - Added `scripts/build-discord-review-queue.mjs` and `npm run search-book:discord-review` for internal Discord/Lafa editorial review.

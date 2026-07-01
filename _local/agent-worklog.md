@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord routing summary in Search Insights
+- Task: Promote the sanitized Discord review routing evidence into committed no-raw-text data and surface it in Search Insights.
+- Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, static integrity/build wiring, docs/status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Committed data contains only hashes/page ids/status/source keys/counts, no raw Discord questions or answers; Search Insights renders the summary from static data; `npm run search-book:verify`, static integrity, and a targeted no-raw-text assertion pass.
+- Result: Added `scripts/build-discord-routing-summary.mjs` and `npm run search-book:discord-routing-summary`, generated `data/discord-review-routing.*` from `/tmp/search-book-discord-routing-20260701-1`, and surfaced the sanitized routing summary in Search Insights. Targeted assertion confirmed no raw Discord/source answer text and no value printing; the summary has 24 routed items, 22 answered, and 2 refusals. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, static integrity `20/20`, 2,884 chunks, 801 authored pages, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex sanitized Discord review routing
 - Task: Add a no-raw-text router for local Discord review packets and update stale Discord boundary docs to the imported/text-redacted state.
 - Scope: `scripts/route-discord-review-queue.mjs`, `package.json`, Discord/Search Insights authored pages, generated routing data if affected, progress/final/gap docs, and `_local/agent-worklog.md`.

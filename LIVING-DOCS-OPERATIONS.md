@@ -35,6 +35,18 @@ npm run search-book:discord-route-review -- \
 
 The routing report contains item ids, hashes, statuses, page ids, source keys, and reviewer actions only. It omits raw questions, raw Lafa excerpts, and generated answer text. Use it to decide whether an item should review an existing page fit, stay a Discord/Lafa refusal, or become a new FAQ/page candidate.
 
+To publish the sanitized routing evidence into static Search Insights without carrying raw
+Discord text forward, run:
+
+```sh
+npm run search-book:discord-routing-summary -- \
+  --routing-json /tmp/search-book-discord-routing-<date>/discord-review-routing.json
+```
+
+The summary data written to `data/discord-review-routing.*` contains hashes, page ids,
+source keys, statuses, reviewer actions, and aggregate counts only. It is evidence for
+review prioritization, not approval to quote Discord/Lafa claims publicly.
+
 ## Prerequisites
 
 Production service setup:

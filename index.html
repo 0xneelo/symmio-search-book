@@ -12,6 +12,7 @@
     <script src="./data/question-routes.js"></script>
     <script src="./data/faq.js"></script>
     <script src="./data/gap-queue.js"></script>
+    <script src="./data/discord-review-routing.js"></script>
     <script src="./data/answer-chunks.js"></script>
     <script src="./data/answer-engine-contract.js"></script>
     <script src="./data/llm-rag-contract.js"></script>
@@ -2356,6 +2357,16 @@
             </div>
             <div class="console-layout">
               <div>
+                <h3 class="section-title">Discord Demand Routing</h3>
+                <div id="discordRoutingList"></div>
+              </div>
+              <aside class="ledger">
+                <h3>Discord Review</h3>
+                <ul class="compact-list" id="discordRoutingSummary"></ul>
+              </aside>
+            </div>
+            <div class="console-layout">
+              <div>
                 <h3 class="section-title">Where Docs Fall Short</h3>
                 <div id="gapList"></div>
               </div>
@@ -2397,6 +2408,7 @@
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
       const faqMap = window.SearchBookFAQ || { entries: [], answerable: [], unresolved: [], totalEntries: 0, totalAnswerable: 0, totalUnresolved: 0, byCategory: {} };
       const gapQueue = window.SearchBookGapQueue || { items: [], totalItems: 0, totalQuestionSignals: 0, totalOperatorSignals: 0, totalParkedPageSignals: 0, byPriority: {}, byCategory: {} };
+      const discordRouting = window.SearchBookDiscordReviewRouting || { routingReady: false, rawDiscordTextIncluded: false, summary: { routedItems: 0, byStatus: {}, byAction: {}, byReviewType: {}, topPrimaryPageIds: [] }, items: [] };
       const answerChunkMap = window.SearchBookAnswerChunks || { chunks: [], totalPages: 0, totalChunks: 0, usedSourceKeys: [] };
       const volumeMap = window.SearchBookVolumeMap || { volumes: [], totalVolumes: 0, totalChapters: 0, readerPages: 0, pagesAssigned: 0 };
       const glossary = window.SearchBookGlossary || { terms: [], totalTerms: 0, byCategory: {} };
@@ -3490,6 +3502,49 @@
           : '<div class="gap-row"><p>No local or generated gaps recorded yet.</p></div>';
       }
 
+      function renderDiscordRouting() {
+        const summary = discordRouting.summary || {};
+        const items = discordRouting.items || [];
+        const topRows = (summary.topPrimaryPageIds || [])
+          .slice(0, 10)
+          .map((item) => {
+            const page = pageById.get(item.pageId);
+            return `
+              <div class="gap-row ${item.count > 1 ? "is-priority" : ""}">
+                <div class="meta">routed demand / ${escapeHtml(item.count)} items</div>
+                <p>${escapeHtml(page?.title || item.pageId)}</p>
+                <div class="source-row">
+                  <a class="source-chip" href="${escapeHtml(pageHref(page || { id: item.pageId }))}" data-open-page="${escapeHtml(item.pageId)}">${escapeHtml(item.pageId)}</a>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+        const actionRows = items
+          .slice(0, 8)
+          .map(
+            (item) => `
+              <div class="gap-row ${item.route?.status === "refusal" ? "is-blocked" : ""}">
+                <div class="meta">${escapeHtml(item.reviewType)} / ${escapeHtml(item.reviewAction)} / ${escapeHtml(item.route?.status || "")}</div>
+                <p>${escapeHtml(item.route?.primaryPageId || item.route?.refusalReason || item.itemId)}</p>
+                <div class="source-row">
+                  ${(item.route?.citationSourceKeys || []).slice(0, 4).map((source) => sourceChipForKey(source)).join("")}
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+        document.getElementById("discordRoutingList").innerHTML = discordRouting.routingReady
+          ? [topRows, actionRows].filter(Boolean).join("")
+          : '<div class="gap-row"><p>No sanitized Discord routing summary committed yet.</p></div>';
+        document.getElementById("discordRoutingSummary").innerHTML = `
+          <li><span class="meta">Routing status</span><br>${discordRouting.routingReady ? "ready" : "not ready"}</li>
+          <li><span class="meta">Routed items</span><br>${escapeHtml(summary.routedItems || 0)} review items; raw text included: ${discordRouting.rawDiscordTextIncluded ? "yes" : "no"}.</li>
+          <li><span class="meta">Answered by existing pages</span><br>${escapeHtml(summary.byStatus?.answered || 0)} answered; ${escapeHtml(summary.byStatus?.refusal || 0)} refusals kept review-bound.</li>
+          <li><span class="meta">Review actions</span><br>${Object.entries(summary.byAction || {}).map(([action, count]) => `${escapeHtml(action)}: ${escapeHtml(count)}`).join("<br>") || "none"}</li>
+        `;
+      }
+
       function formatQuestion(item) {
         return `<li><span class="meta">${escapeHtml(item.status)} / score ${escapeHtml(item.score)}</span><br>${escapeHtml(item.query)} -> ${escapeHtml(item.page)}</li>`;
       }
@@ -3654,6 +3709,7 @@
         renderQualityAudit();
         renderRequirements();
         renderSourceIngestion();
+        renderDiscordRouting();
         renderGaps();
         renderRecent();
         renderRatings();
