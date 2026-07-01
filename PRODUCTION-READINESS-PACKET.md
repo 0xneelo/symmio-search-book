@@ -175,6 +175,11 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/build-launch-evi
   --service-url https://<answer-engine-host> \
   --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
   --run-verify
+
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-monitoring-evidence.mjs \
+  --profile production \
+  --service-url https://<answer-engine-host> \
+  --metrics-required
 ```
 
 Production pass criteria:
@@ -186,6 +191,7 @@ Production pass criteria:
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
+- monitoring evidence reports health `ok`, unauthenticated metrics rejected, authenticated metrics `ok`, and no raw questions/secrets in metrics
 
 ## #17 Discord Import Follow-Up
 

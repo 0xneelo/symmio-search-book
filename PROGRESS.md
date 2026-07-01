@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Monitoring Evidence Command
+
+- Added `scripts/check-monitoring-evidence.mjs` and `npm run search-book:check-monitoring` as an executable health/metrics monitoring probe for the answer-engine service.
+- The command supports production URL checks with `--profile production --service-url ... --metrics-required`, reads metrics tokens only from environment variables, and prints only configured/not-configured booleans. In staging with no URL it starts a temporary local service with metrics enabled.
+- Verified the default no-secret local monitoring path on 2026-07-01: status `passed`, 7/7 checks passed, health `ok`, 2,883 answer chunks, 799 routes, 3 open operator items, metrics configured/enabled, unauthenticated metrics rejected with `403`, authenticated metrics returned `ok`, and metrics privacy flags showed no raw user questions, answers, rating notes, or secrets.
+- The first non-escalated run failed with `listen EPERM` because the sandbox blocked localhost binding; rerunning with approved localhost execution passed.
+
 ## 2026-07-01 — Launch Evidence Packet Command
 
 - Added `scripts/build-launch-evidence-packet.mjs` and `npm run search-book:launch-evidence` so operators and release owners can attach one no-secret JSON/Markdown evidence packet instead of scraping terminal logs.

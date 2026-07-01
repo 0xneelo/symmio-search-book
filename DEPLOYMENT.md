@@ -173,12 +173,20 @@ For operational monitoring, enable the internal metrics export only behind a tru
 ```bash
 SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=true
 SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only-token>
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-monitoring-evidence.mjs \
+  --profile production \
+  --service-url https://<answer-engine-host> \
+  --metrics-required
 curl -fsS -H "Authorization: Bearer $SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN" \
   http://127.0.0.1:8787/api/search-book/metrics
 ```
 
 Metrics include endpoint/status counters, answer/rating totals, datastore totals, uptime,
 and memory usage. They do not include raw questions, answers, rating notes, or secret values.
+For no-secret local validation of the health/metrics contract, run
+`npm run search-book:check-monitoring`; it starts a temporary service with metrics enabled,
+verifies unauthenticated metrics are rejected, verifies authenticated metrics succeed, and
+prints only configured/not-configured booleans for token state.
 
 ## 5. Smoke verification
 

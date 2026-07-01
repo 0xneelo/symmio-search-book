@@ -68,6 +68,7 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com --se
 # Production env/deploy preflight (validates env shape; no provider call)
 npm run search-book:drill-local-launch
 npm run search-book:launch-evidence
+npm run search-book:check-monitoring
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 

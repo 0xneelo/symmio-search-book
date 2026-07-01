@@ -168,6 +168,11 @@ SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only-token>
 Fetch metrics with a server-side or trusted internal client:
 
 ```sh
+node --env-file=/etc/symmio-search-book/search-book.env scripts/check-monitoring-evidence.mjs \
+  --profile production \
+  --service-url "$SEARCH_BOOK_ANSWER_ENGINE_URL" \
+  --metrics-required
+
 curl -sS \
   -H "Authorization: Bearer $SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN" \
   "$SEARCH_BOOK_ANSWER_ENGINE_URL/api/search-book/metrics"
@@ -176,6 +181,10 @@ curl -sS \
 Metrics include uptime, route/status counters, answer/rating counters, datastore totals,
 runtime counts, and memory usage. They deliberately exclude raw questions, answers, rating
 notes, moderation queues, API keys, and tokens.
+
+For local contract validation, run `npm run search-book:check-monitoring`. It starts a
+temporary local service with metrics enabled and prints health/metrics evidence without
+printing the metrics token.
 
 ## Backup And Restore Check
 

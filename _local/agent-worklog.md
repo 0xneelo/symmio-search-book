@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex monitoring evidence command
+- Task: Add production-facing monitoring evidence for answer-engine `/health` and `/api/search-book/metrics`.
+- Scope: `scripts/check-monitoring-evidence.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Command validates health and token-gated metrics without printing tokens, supports a no-secret local mode, production requires HTTPS and configured metrics token, and full `npm run search-book:verify` remains green.
+- Result: Added `npm run search-book:check-monitoring`. Default no-secret local monitoring path passed with 7/7 checks: health `ok`, metrics configured/enabled, unauthenticated metrics rejected with `403`, authenticated metrics `ok`, 2,883 chunks, 799 routes, 3 open operator items, and metrics privacy flags excluding raw questions, answers, rating notes, and secrets. Initial sandboxed run failed with `listen EPERM`; approved localhost execution passed.
+
 ## 2026-07-01 — Codex launch evidence packet command
 - Task: Add a no-secret launch evidence packet command for Search Book production/staging handoffs.
 - Scope: `scripts/build-launch-evidence-packet.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
