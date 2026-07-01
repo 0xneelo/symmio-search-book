@@ -3,7 +3,7 @@
 - Scope: Linear `SYN-209` description and `_local/agent-worklog.md`.
 - Status: Complete.
 - Verification target: SYN-209 points to `0xneelo/symmio-search-book`, marks `~/projects/onboarding-app/src/search-book/` frozen, records current evidence and only OPERATOR-INBOX #11/#4 as canonical open gates, and does not print secrets or raw Discord/Lafa text.
-- Result: Updated SYN-209 description on 2026-07-01 with current standalone repo, generated counts, clean release evidence path `/tmp/search-book-release-dry-run-clean-repo-discord-refusal-runtime-evidence-20260701-1`, and critical path. No issue state changes and no new blockers created.
+- Result: Updated SYN-209 description on 2026-07-01 with current standalone repo, generated counts, clean release evidence path `/tmp/search-book-release-dry-run-clean-repo-discord-refusal-runtime-evidence-20260701-1`, and critical path. No issue state changes and no new blockers created. GitHub Actions `Search Book Verify` passed for commit `ce0b8be` with run `28514344626`; Linear SYN-209 comment `a4796bae-0b97-4764-a29c-e693b749c84e` records the CI follow-up.
 
 ## 2026-07-01 — Codex Discord refusal launch evidence
 - Task: Promote the Discord/Lafa runtime refusal regression into launch-evidence and release-dry-run packets.
