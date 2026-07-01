@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Queue Data Release Evidence
+
+- Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` so launch/release packets fail unless Discord review artifacts include `editorialQueueData` from `data/discord-editorial-queue.json`.
+- Verified the stale clean packet at `/tmp/search-book-release-dry-run-production-packet-20260701-2` now fails both packet validators because it predates the JSON queue proof, while the fresh no-secret release dry run at `/tmp/search-book-release-dry-run-discord-editorial-data-20260701-1` passes from clean commit `a50a837`.
+- The fresh packet reports static artifact `1,652` files / `52,849,227` bytes, nested fresh verify `productionReadinessPacket:passed`, 92 syntax checks, queue data `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, `valuesPrinted:false`, evidence-summary renderer output `36` launch lines / `40` release lines, source ingestion `17/17`, and only #11/#4 open.
+
 ## 2026-07-01 — Discord Editorial Queue Data Artifact
 
 - Promoted the sanitized Discord editorial queue from Markdown-only review evidence into `data/discord-editorial-queue.json` and `data/discord-editorial-queue.js`.
